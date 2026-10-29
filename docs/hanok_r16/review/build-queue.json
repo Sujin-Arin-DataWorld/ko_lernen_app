@@ -1,0 +1,80 @@
+{
+  "mode": "build",
+  "keys": [
+    "ansarang",
+    "anchae",
+    "sadang",
+    "jung",
+    "arae",
+    "gokgan",
+    "angotgan",
+    "changgo",
+    "toilet",
+    "toilet1"
+  ],
+  "completed": [
+    {
+      "key": "anchae",
+      "exitCode": 1,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\anchae\\build-console.log",
+      "finished": 1793219297.9485552
+    },
+    {
+      "key": "ansarang",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\ansarang\\build-console.log",
+      "finished": 1793219378.5559478
+    },
+    {
+      "key": "sadang",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\sadang\\build-console.log",
+      "finished": 1793219389.1217382
+    },
+    {
+      "key": "jung",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\jung\\build-console.log",
+      "finished": 1793219500.3841996
+    },
+    {
+      "key": "arae",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\arae\\build-console.log",
+      "finished": 1793219531.3362193
+    },
+    {
+      "key": "angotgan",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\angotgan\\build-console.log",
+      "finished": 1793219642.6777346
+    },
+    {
+      "key": "gokgan",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\gokgan\\build-console.log",
+      "finished": 1793219651.1171331
+    },
+    {
+      "key": "toilet",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\toilet\\build-console.log",
+      "finished": 1793219748.3230615
+    },
+    {
+      "key": "changgo",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\changgo\\build-console.log",
+      "finished": 1793219802.656434
+    },
+    {
+      "key": "toilet1",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\toilet1\\build-console.log",
+      "finished": 1793219856.826426
+    }
+  ],
+  "running": false,
+  "started": 1793219214.6074357,
+  "finished": 1793219856.9152699
+}

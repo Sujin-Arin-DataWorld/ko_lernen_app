@@ -1,0 +1,3467 @@
+{
+  "Ansarang v72 front maru joist 1": {
+    "memberId": "ildu.ansarang.part.2e5e27a960a2a93bd451",
+    "sourceObject": "Ansarang v72 front maru joist 1",
+    "reviewStage": 12,
+    "processId": "ildu.ansarangchae-maru_porch",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru_porch"
+  },
+  "Ansarang v72 front maru joist 2": {
+    "memberId": "ildu.ansarang.part.8bf093ccb64f60a177e2",
+    "sourceObject": "Ansarang v72 front maru joist 2",
+    "reviewStage": 12,
+    "processId": "ildu.ansarangchae-maru_porch",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru_porch"
+  },
+  "Ansarang v72 front maru joist 3": {
+    "memberId": "ildu.ansarang.part.ee766bfaa90899fe8fd6",
+    "sourceObject": "Ansarang v72 front maru joist 3",
+    "reviewStage": 12,
+    "processId": "ildu.ansarangchae-maru_porch",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru_porch"
+  },
+  "CraftAnsarang.frame timber pegs": {
+    "memberId": "ildu.ansarang.part.cf3593424190c2db41f8",
+    "sourceObject": "CraftAnsarang.frame timber pegs",
+    "reviewStage": 5,
+    "processId": "ildu.ansarangchae-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "CraftAnsarang.post fine splits": {
+    "memberId": "ildu.ansarang.part.e33b9e638e4104810c6e",
+    "sourceObject": "CraftAnsarang.post fine splits",
+    "reviewStage": 4,
+    "processId": "ildu.ansarangchae-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "GyeCraft.ansarang.irregular paving 0": {
+    "memberId": "ildu.ansarang.part.07b741cac053ce10817f",
+    "sourceObject": "GyeCraft.ansarang.irregular paving 0",
+    "reviewStage": 14,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.ansarang.irregular paving 1": {
+    "memberId": "ildu.ansarang.part.1464462ad4621dacd86b",
+    "sourceObject": "GyeCraft.ansarang.irregular paving 1",
+    "reviewStage": 14,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.ansarang.irregular paving 2": {
+    "memberId": "ildu.ansarang.part.a4ae50d2406004768e67",
+    "sourceObject": "GyeCraft.ansarang.irregular paving 2",
+    "reviewStage": 14,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.ansarang.irregular paving 3": {
+    "memberId": "ildu.ansarang.part.eb91a261ac1dc800f6fd",
+    "sourceObject": "GyeCraft.ansarang.irregular paving 3",
+    "reviewStage": 14,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.ansarang.irregular paving 4": {
+    "memberId": "ildu.ansarang.part.a31846b780deecdb037e",
+    "sourceObject": "GyeCraft.ansarang.irregular paving 4",
+    "reviewStage": 14,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "North.ansarang.redraw donggwiteul": {
+    "memberId": "ildu.ansarang.part.1d5a11c2935d20828cea",
+    "sourceObject": "North.ansarang.redraw donggwiteul",
+    "reviewStage": 11,
+    "processId": "ildu.ansarangchae-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "North.ansarang.redraw janggwiteul": {
+    "memberId": "ildu.ansarang.part.01ac9b6b13d3ed017114",
+    "sourceObject": "North.ansarang.redraw janggwiteul",
+    "reviewStage": 11,
+    "processId": "ildu.ansarangchae-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "North.ansarang.redraw wraparound binding": {
+    "memberId": "ildu.ansarang.part.ac4bee66a8731d36de27",
+    "sourceObject": "North.ansarang.redraw wraparound binding",
+    "reviewStage": 12,
+    "processId": "ildu.ansarangchae-maru_porch",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru_porch"
+  },
+  "Sep29.ansarang.left kitchen.firebox back": {
+    "memberId": "ildu.ansarang.part.8946ab13c7956ebe77bb",
+    "sourceObject": "Sep29.ansarang.left kitchen.firebox back",
+    "reviewStage": 10,
+    "processId": "ildu.ansarangchae-ondol",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "Sep29.ansarang.left kitchen.flue wall": {
+    "memberId": "ildu.ansarang.part.a8b1769089338a233da8",
+    "sourceObject": "Sep29.ansarang.left kitchen.flue wall",
+    "reviewStage": 10,
+    "processId": "ildu.ansarangchae-ondol",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "Sep29.ansarang.left kitchen.hearth pier": {
+    "memberId": "ildu.ansarang.part.fa18a440fc5952866138",
+    "sourceObject": "Sep29.ansarang.left kitchen.hearth pier",
+    "reviewStage": 10,
+    "processId": "ildu.ansarangchae-ondol",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "Sep29.ansarang.left kitchen.hearth top": {
+    "memberId": "ildu.ansarang.part.5ab966b527224ea9d910",
+    "sourceObject": "Sep29.ansarang.left kitchen.hearth top",
+    "reviewStage": 10,
+    "processId": "ildu.ansarangchae-ondol",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "Sep29.ansarang.left kitchen.loft cross lintel": {
+    "memberId": "ildu.ansarang.part.11712cf38e4c2403f01c",
+    "sourceObject": "Sep29.ansarang.left kitchen.loft cross lintel",
+    "reviewStage": 14,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "kitchen_loft"
+  },
+  "Sep29.ansarang.left kitchen.loft floor": {
+    "memberId": "ildu.ansarang.part.bb123402eb4bc89ef329",
+    "sourceObject": "Sep29.ansarang.left kitchen.loft floor",
+    "reviewStage": 14,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "kitchen_loft"
+  },
+  "Sep29.ansarang.left kitchen.loft underside joist": {
+    "memberId": "ildu.ansarang.part.da1b9aa66a2db1617c02",
+    "sourceObject": "Sep29.ansarang.left kitchen.loft underside joist",
+    "reviewStage": 14,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "kitchen_loft"
+  },
+  "Sep29.ansarang.left kitchen.pot lid": {
+    "memberId": "ildu.ansarang.part.4b4452dec19926519467",
+    "sourceObject": "Sep29.ansarang.left kitchen.pot lid",
+    "reviewStage": 14,
+    "processId": "ildu.ansarangchae-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.ansarang.left kitchen.pot lid knob": {
+    "memberId": "ildu.ansarang.part.af638600ff11e326462f",
+    "sourceObject": "Sep29.ansarang.left kitchen.pot lid knob",
+    "reviewStage": 14,
+    "processId": "ildu.ansarangchae-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.ansarang.left kitchen.room3 end post": {
+    "memberId": "ildu.ansarang.part.5fcbadf066ea0b0e2b92",
+    "sourceObject": "Sep29.ansarang.left kitchen.room3 end post",
+    "reviewStage": 4,
+    "processId": "ildu.ansarangchae-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "Sep29.ansarang.left kitchen.room3 lower return": {
+    "memberId": "ildu.ansarang.part.d7fe2bf2ca0fa312715e",
+    "sourceObject": "Sep29.ansarang.left kitchen.room3 lower return",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.ansarang.ceiling": {
+    "memberId": "ildu.ansarang.part.246fd2d614df4cdcf49f",
+    "sourceObject": "V28.ansarang.ceiling",
+    "reviewStage": 7,
+    "processId": "ildu.ansarangchae-roof_bed",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_board"
+  },
+  "V28.ansarang.foundation.post stone": {
+    "memberId": "ildu.ansarang.part.3055d50274c3f8048c09",
+    "sourceObject": "V28.ansarang.foundation.post stone",
+    "reviewStage": 3,
+    "processId": "ildu.ansarangchae-padstones",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "V28.ansarang.foundation.post stone.001": {
+    "memberId": "ildu.ansarang.part.4b41814812b99d40b448",
+    "sourceObject": "V28.ansarang.foundation.post stone.001",
+    "reviewStage": 3,
+    "processId": "ildu.ansarangchae-padstones",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "V28.ansarang.foundation.post stone.002": {
+    "memberId": "ildu.ansarang.part.380550b3877438616d91",
+    "sourceObject": "V28.ansarang.foundation.post stone.002",
+    "reviewStage": 3,
+    "processId": "ildu.ansarangchae-padstones",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "V28.ansarang.foundation.post stone.003": {
+    "memberId": "ildu.ansarang.part.ff8025487a4f0dda8aa6",
+    "sourceObject": "V28.ansarang.foundation.post stone.003",
+    "reviewStage": 3,
+    "processId": "ildu.ansarangchae-padstones",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "V28.ansarang.foundation.post stone.004": {
+    "memberId": "ildu.ansarang.part.bffd1ce743b07795e7cc",
+    "sourceObject": "V28.ansarang.foundation.post stone.004",
+    "reviewStage": 3,
+    "processId": "ildu.ansarangchae-padstones",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "V28.ansarang.frame.bracket.lower seating block": {
+    "memberId": "ildu.ansarang.part.de4898d82cae8d2f77d0",
+    "sourceObject": "V28.ansarang.frame.bracket.lower seating block",
+    "reviewStage": 5,
+    "processId": "ildu.ansarangchae-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.ansarang.frame.bracket.shaped timber shoulder": {
+    "memberId": "ildu.ansarang.part.48b48c95ce209720bdd0",
+    "sourceObject": "V28.ansarang.frame.bracket.shaped timber shoulder",
+    "reviewStage": 5,
+    "processId": "ildu.ansarangchae-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.ansarang.frame.bracket.upper bearing": {
+    "memberId": "ildu.ansarang.part.766d5082b19edd0a717e",
+    "sourceObject": "V28.ansarang.frame.bracket.upper bearing",
+    "reviewStage": 5,
+    "processId": "ildu.ansarangchae-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.ansarang.frame.cross beam": {
+    "memberId": "ildu.ansarang.part.e5a64afb93585f4d1548",
+    "sourceObject": "V28.ansarang.frame.cross beam",
+    "reviewStage": 5,
+    "processId": "ildu.ansarangchae-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.ansarang.frame.long beam.left room only v72": {
+    "memberId": "ildu.ansarang.part.f5ed13ff7ab144df655f",
+    "sourceObject": "V28.ansarang.frame.long beam.left room only v72",
+    "reviewStage": 5,
+    "processId": "ildu.ansarangchae-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.ansarang.frame.long beam.retained v72": {
+    "memberId": "ildu.ansarang.part.468752989ed7a1e9ecf7",
+    "sourceObject": "V28.ansarang.frame.long beam.retained v72",
+    "reviewStage": 5,
+    "processId": "ildu.ansarangchae-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.ansarang.frame.post": {
+    "memberId": "ildu.ansarang.part.03e1d9677ccd54203515",
+    "sourceObject": "V28.ansarang.frame.post",
+    "reviewStage": 4,
+    "processId": "ildu.ansarangchae-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "V28.ansarang.front joinery0.leaf1.hanji backing": {
+    "memberId": "ildu.ansarang.part.ba940fd78e730ff4774e",
+    "sourceObject": "V28.ansarang.front joinery0.leaf1.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery0.leaf1.horizontal band": {
+    "memberId": "ildu.ansarang.part.cbc9519f76abe62bb4fe",
+    "sourceObject": "V28.ansarang.front joinery0.leaf1.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery0.leaf1.rail": {
+    "memberId": "ildu.ansarang.part.b944a4fa075e88847945",
+    "sourceObject": "V28.ansarang.front joinery0.leaf1.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery0.leaf1.rear paper rail": {
+    "memberId": "ildu.ansarang.part.0e87700f41415a94ced9",
+    "sourceObject": "V28.ansarang.front joinery0.leaf1.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery0.leaf1.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.85371a61fef00537f56b",
+    "sourceObject": "V28.ansarang.front joinery0.leaf1.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery0.leaf1.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.e6efb1ca390738084dfe",
+    "sourceObject": "V28.ansarang.front joinery0.leaf1.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery0.leaf1.stile": {
+    "memberId": "ildu.ansarang.part.c8e51984996bbbe7b201",
+    "sourceObject": "V28.ansarang.front joinery0.leaf1.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery0.leaf1.vertical sal": {
+    "memberId": "ildu.ansarang.part.8b875af7359a06d198ac",
+    "sourceObject": "V28.ansarang.front joinery0.leaf1.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf1.hanji backing": {
+    "memberId": "ildu.ansarang.part.1662f36558c4706d98aa",
+    "sourceObject": "V28.ansarang.front joinery1.leaf1.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf1.horizontal band": {
+    "memberId": "ildu.ansarang.part.7751b24edd14e44c02c7",
+    "sourceObject": "V28.ansarang.front joinery1.leaf1.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf1.lock rail": {
+    "memberId": "ildu.ansarang.part.036bf13f59a43dffcb9e",
+    "sourceObject": "V28.ansarang.front joinery1.leaf1.lock rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf1.lower moulding.rail": {
+    "memberId": "ildu.ansarang.part.f3339adc2bbb956b1111",
+    "sourceObject": "V28.ansarang.front joinery1.leaf1.lower moulding.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf1.lower moulding.stile": {
+    "memberId": "ildu.ansarang.part.c7f49bba1f57a3af5bfc",
+    "sourceObject": "V28.ansarang.front joinery1.leaf1.lower moulding.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf1.rail": {
+    "memberId": "ildu.ansarang.part.4f22c2733ed1911e3082",
+    "sourceObject": "V28.ansarang.front joinery1.leaf1.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf1.rear paper rail": {
+    "memberId": "ildu.ansarang.part.580e932f907fb0e6bbab",
+    "sourceObject": "V28.ansarang.front joinery1.leaf1.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf1.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.cf9f7ec660cdc4507bb5",
+    "sourceObject": "V28.ansarang.front joinery1.leaf1.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf1.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.09aecf98e6fae021a38a",
+    "sourceObject": "V28.ansarang.front joinery1.leaf1.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf1.recessed lower board": {
+    "memberId": "ildu.ansarang.part.3391c534175b9cfa0aa4",
+    "sourceObject": "V28.ansarang.front joinery1.leaf1.recessed lower board",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf1.stile": {
+    "memberId": "ildu.ansarang.part.7e1c22bb6d2e330f8c4a",
+    "sourceObject": "V28.ansarang.front joinery1.leaf1.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf1.vertical sal": {
+    "memberId": "ildu.ansarang.part.01ea0f94cf7316518efc",
+    "sourceObject": "V28.ansarang.front joinery1.leaf1.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf2.hanji backing": {
+    "memberId": "ildu.ansarang.part.251c759f619969e17bb5",
+    "sourceObject": "V28.ansarang.front joinery1.leaf2.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf2.horizontal band": {
+    "memberId": "ildu.ansarang.part.5221cc7e30f20f69d125",
+    "sourceObject": "V28.ansarang.front joinery1.leaf2.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf2.lock rail": {
+    "memberId": "ildu.ansarang.part.359a79d0f055a2004478",
+    "sourceObject": "V28.ansarang.front joinery1.leaf2.lock rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf2.lower moulding.rail": {
+    "memberId": "ildu.ansarang.part.df6e049aa4defe5efb5d",
+    "sourceObject": "V28.ansarang.front joinery1.leaf2.lower moulding.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf2.lower moulding.stile": {
+    "memberId": "ildu.ansarang.part.b0a9dd137812547c0da9",
+    "sourceObject": "V28.ansarang.front joinery1.leaf2.lower moulding.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf2.rail": {
+    "memberId": "ildu.ansarang.part.3c86c92cf25282441011",
+    "sourceObject": "V28.ansarang.front joinery1.leaf2.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf2.rear paper rail": {
+    "memberId": "ildu.ansarang.part.f827760301ec115aba68",
+    "sourceObject": "V28.ansarang.front joinery1.leaf2.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf2.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.20b7848190c1fdd44e6e",
+    "sourceObject": "V28.ansarang.front joinery1.leaf2.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf2.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.ebb5d39fefa3c38d9f3f",
+    "sourceObject": "V28.ansarang.front joinery1.leaf2.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf2.recessed lower board": {
+    "memberId": "ildu.ansarang.part.b2c3a96836ed6219d93f",
+    "sourceObject": "V28.ansarang.front joinery1.leaf2.recessed lower board",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf2.stile": {
+    "memberId": "ildu.ansarang.part.c687834cb8806b0ec110",
+    "sourceObject": "V28.ansarang.front joinery1.leaf2.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery1.leaf2.vertical sal": {
+    "memberId": "ildu.ansarang.part.8a14dc657806ebdcd927",
+    "sourceObject": "V28.ansarang.front joinery1.leaf2.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf1.hanji backing": {
+    "memberId": "ildu.ansarang.part.8f3bdea80d5ebece8f64",
+    "sourceObject": "V28.ansarang.front joinery2.leaf1.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf1.horizontal band": {
+    "memberId": "ildu.ansarang.part.1c897365813f596daa35",
+    "sourceObject": "V28.ansarang.front joinery2.leaf1.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf1.lock rail": {
+    "memberId": "ildu.ansarang.part.30115aba3ad28473bbdc",
+    "sourceObject": "V28.ansarang.front joinery2.leaf1.lock rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf1.lower moulding.rail": {
+    "memberId": "ildu.ansarang.part.36260920d7540795251e",
+    "sourceObject": "V28.ansarang.front joinery2.leaf1.lower moulding.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf1.lower moulding.stile": {
+    "memberId": "ildu.ansarang.part.9924d8dc96088560b2a9",
+    "sourceObject": "V28.ansarang.front joinery2.leaf1.lower moulding.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf1.rail": {
+    "memberId": "ildu.ansarang.part.215acedb64c8b4fed324",
+    "sourceObject": "V28.ansarang.front joinery2.leaf1.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf1.rear paper rail": {
+    "memberId": "ildu.ansarang.part.5df518afa74923cbc3b2",
+    "sourceObject": "V28.ansarang.front joinery2.leaf1.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf1.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.2ae79e1e9c3467747c39",
+    "sourceObject": "V28.ansarang.front joinery2.leaf1.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf1.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.5084de43a34abdfea538",
+    "sourceObject": "V28.ansarang.front joinery2.leaf1.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf1.recessed lower board": {
+    "memberId": "ildu.ansarang.part.6c3720768bf2fc7b4183",
+    "sourceObject": "V28.ansarang.front joinery2.leaf1.recessed lower board",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf1.stile": {
+    "memberId": "ildu.ansarang.part.3d65a72853c98b5b9113",
+    "sourceObject": "V28.ansarang.front joinery2.leaf1.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf1.vertical sal": {
+    "memberId": "ildu.ansarang.part.1375879b2b06ca7d0210",
+    "sourceObject": "V28.ansarang.front joinery2.leaf1.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf2.hanji backing": {
+    "memberId": "ildu.ansarang.part.e2b55882b2ab57779eb2",
+    "sourceObject": "V28.ansarang.front joinery2.leaf2.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf2.horizontal band": {
+    "memberId": "ildu.ansarang.part.7ba14c1194ec3b52022e",
+    "sourceObject": "V28.ansarang.front joinery2.leaf2.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf2.lock rail": {
+    "memberId": "ildu.ansarang.part.8490382324fd1b577792",
+    "sourceObject": "V28.ansarang.front joinery2.leaf2.lock rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf2.lower moulding.rail": {
+    "memberId": "ildu.ansarang.part.88734f46c0bdc284f635",
+    "sourceObject": "V28.ansarang.front joinery2.leaf2.lower moulding.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf2.lower moulding.stile": {
+    "memberId": "ildu.ansarang.part.4c96f6968df70afcbad3",
+    "sourceObject": "V28.ansarang.front joinery2.leaf2.lower moulding.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf2.rail": {
+    "memberId": "ildu.ansarang.part.02fd44825a89dc8318cc",
+    "sourceObject": "V28.ansarang.front joinery2.leaf2.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf2.rear paper rail": {
+    "memberId": "ildu.ansarang.part.0d09df3649a7676d7540",
+    "sourceObject": "V28.ansarang.front joinery2.leaf2.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf2.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.6574d3f3d70fddeecfa3",
+    "sourceObject": "V28.ansarang.front joinery2.leaf2.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf2.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.0a170d62c1d3fe0db164",
+    "sourceObject": "V28.ansarang.front joinery2.leaf2.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf2.recessed lower board": {
+    "memberId": "ildu.ansarang.part.ac8b9dbc35a431fc2486",
+    "sourceObject": "V28.ansarang.front joinery2.leaf2.recessed lower board",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf2.stile": {
+    "memberId": "ildu.ansarang.part.34abdee05c2ad8535e74",
+    "sourceObject": "V28.ansarang.front joinery2.leaf2.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery2.leaf2.vertical sal": {
+    "memberId": "ildu.ansarang.part.208106bbf65ee9f661bd",
+    "sourceObject": "V28.ansarang.front joinery2.leaf2.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf1.hanji backing": {
+    "memberId": "ildu.ansarang.part.eb7a23141ca080fdf2af",
+    "sourceObject": "V28.ansarang.front joinery3.leaf1.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf1.hinge strap barrel": {
+    "memberId": "ildu.ansarang.part.4009831d3920d9aefea9",
+    "sourceObject": "V28.ansarang.front joinery3.leaf1.hinge strap barrel",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf1.horizontal band": {
+    "memberId": "ildu.ansarang.part.f7d75db139440dcf2b7d",
+    "sourceObject": "V28.ansarang.front joinery3.leaf1.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf1.lock rail": {
+    "memberId": "ildu.ansarang.part.99336cbca9a1359ea2dc",
+    "sourceObject": "V28.ansarang.front joinery3.leaf1.lock rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf1.lower moulding.rail": {
+    "memberId": "ildu.ansarang.part.c86af1a75c1fe00c1f74",
+    "sourceObject": "V28.ansarang.front joinery3.leaf1.lower moulding.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf1.lower moulding.stile": {
+    "memberId": "ildu.ansarang.part.231515394a0ec4b287c9",
+    "sourceObject": "V28.ansarang.front joinery3.leaf1.lower moulding.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf1.rail": {
+    "memberId": "ildu.ansarang.part.8fd907ec75de99cc5b01",
+    "sourceObject": "V28.ansarang.front joinery3.leaf1.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf1.rear paper rail": {
+    "memberId": "ildu.ansarang.part.fd2aa8d002169280a8af",
+    "sourceObject": "V28.ansarang.front joinery3.leaf1.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf1.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.d64c5a9d4b2cd1e62b0a",
+    "sourceObject": "V28.ansarang.front joinery3.leaf1.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf1.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.afa5e8d69f25aca67013",
+    "sourceObject": "V28.ansarang.front joinery3.leaf1.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf1.recessed lower board": {
+    "memberId": "ildu.ansarang.part.63583d34e8add31fbd6c",
+    "sourceObject": "V28.ansarang.front joinery3.leaf1.recessed lower board",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf1.stile": {
+    "memberId": "ildu.ansarang.part.b3c0e2f69527fd11f2e4",
+    "sourceObject": "V28.ansarang.front joinery3.leaf1.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf1.vertical sal": {
+    "memberId": "ildu.ansarang.part.84813e2c2d38d725c4f7",
+    "sourceObject": "V28.ansarang.front joinery3.leaf1.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.hanji backing": {
+    "memberId": "ildu.ansarang.part.e4d43d8cbbfbccb363b2",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.hinge strap barrel": {
+    "memberId": "ildu.ansarang.part.0f819dfd7260dfd66dc5",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.hinge strap barrel",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.horizontal band": {
+    "memberId": "ildu.ansarang.part.65224a669cc4725f9b3e",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.lock rail": {
+    "memberId": "ildu.ansarang.part.0cdad6d658a289753604",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.lock rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.lower moulding.rail": {
+    "memberId": "ildu.ansarang.part.cf64e82b83a37487bb02",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.lower moulding.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.lower moulding.stile": {
+    "memberId": "ildu.ansarang.part.fd4a6884e6d6def1cd93",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.lower moulding.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.rail": {
+    "memberId": "ildu.ansarang.part.661b5346444adcad3611",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.rear paper rail": {
+    "memberId": "ildu.ansarang.part.c42625afbd8bf6bbe7d6",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.89187e512ab0101629ef",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.45fe6bf2b8e0046fe400",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.recessed lower board": {
+    "memberId": "ildu.ansarang.part.79d6fae06782ed334e1f",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.recessed lower board",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.small ring": {
+    "memberId": "ildu.ansarang.part.d23523226d854ab14df7",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.small ring",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.small ring plate": {
+    "memberId": "ildu.ansarang.part.bac050645ceed5334932",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.small ring plate",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.stile": {
+    "memberId": "ildu.ansarang.part.113462a40cca6987c127",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf2.vertical sal": {
+    "memberId": "ildu.ansarang.part.d6681e47b61186f82825",
+    "sourceObject": "V28.ansarang.front joinery3.leaf2.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.hanji backing": {
+    "memberId": "ildu.ansarang.part.079f8e75f288c250baeb",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.hinge strap barrel": {
+    "memberId": "ildu.ansarang.part.54823a3a68be5344bab6",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.hinge strap barrel",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.horizontal band": {
+    "memberId": "ildu.ansarang.part.fffcf10e9e2cd08ecbe7",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.lock rail": {
+    "memberId": "ildu.ansarang.part.11fc220696ce8cb9e126",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.lock rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.lower moulding.rail": {
+    "memberId": "ildu.ansarang.part.9be9245c884c8b315fc0",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.lower moulding.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.lower moulding.stile": {
+    "memberId": "ildu.ansarang.part.57be7ded5687d66df181",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.lower moulding.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.rail": {
+    "memberId": "ildu.ansarang.part.75d14095a5c8eb71e4a0",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.rear paper rail": {
+    "memberId": "ildu.ansarang.part.92447563e46eb0cdde9d",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.35c5a8c44d3302c8c363",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.98a57655c9f6317985aa",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.recessed lower board": {
+    "memberId": "ildu.ansarang.part.75e8bd87b4f9cc24540c",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.recessed lower board",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.small ring": {
+    "memberId": "ildu.ansarang.part.33dea4dcfe0f3119c077",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.small ring",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.small ring plate": {
+    "memberId": "ildu.ansarang.part.0130a9925487436e8aac",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.small ring plate",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.stile": {
+    "memberId": "ildu.ansarang.part.83a24d3e0c4d9006f1b1",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf3.vertical sal": {
+    "memberId": "ildu.ansarang.part.2563bdb9af48fbb6bb54",
+    "sourceObject": "V28.ansarang.front joinery3.leaf3.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf4.hanji backing": {
+    "memberId": "ildu.ansarang.part.ad3fa2925ec7af83359c",
+    "sourceObject": "V28.ansarang.front joinery3.leaf4.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf4.hinge strap barrel": {
+    "memberId": "ildu.ansarang.part.ec48255d4fdd19039045",
+    "sourceObject": "V28.ansarang.front joinery3.leaf4.hinge strap barrel",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf4.horizontal band": {
+    "memberId": "ildu.ansarang.part.64b02d8847fbc71e6680",
+    "sourceObject": "V28.ansarang.front joinery3.leaf4.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf4.lock rail": {
+    "memberId": "ildu.ansarang.part.dff301861511126938cf",
+    "sourceObject": "V28.ansarang.front joinery3.leaf4.lock rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf4.lower moulding.rail": {
+    "memberId": "ildu.ansarang.part.e978aa4dbbe831e457cd",
+    "sourceObject": "V28.ansarang.front joinery3.leaf4.lower moulding.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf4.lower moulding.stile": {
+    "memberId": "ildu.ansarang.part.2c62a8ab29d00200c8d6",
+    "sourceObject": "V28.ansarang.front joinery3.leaf4.lower moulding.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf4.rail": {
+    "memberId": "ildu.ansarang.part.fbcbafe26508fa74dc02",
+    "sourceObject": "V28.ansarang.front joinery3.leaf4.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf4.rear paper rail": {
+    "memberId": "ildu.ansarang.part.f6ef238c996a6d4df397",
+    "sourceObject": "V28.ansarang.front joinery3.leaf4.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf4.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.51fce8bf36c9bd8f92a4",
+    "sourceObject": "V28.ansarang.front joinery3.leaf4.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf4.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.69c0a526a72fbcc849b6",
+    "sourceObject": "V28.ansarang.front joinery3.leaf4.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf4.recessed lower board": {
+    "memberId": "ildu.ansarang.part.24b473c014e2042a50c4",
+    "sourceObject": "V28.ansarang.front joinery3.leaf4.recessed lower board",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf4.stile": {
+    "memberId": "ildu.ansarang.part.bc27afd90a0c073c1fa8",
+    "sourceObject": "V28.ansarang.front joinery3.leaf4.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.front joinery3.leaf4.vertical sal": {
+    "memberId": "ildu.ansarang.part.29c778fedbd0422cf56f",
+    "sourceObject": "V28.ansarang.front joinery3.leaf4.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.ansarang.hall floor": {
+    "memberId": "ildu.ansarang.part.d1940c982cb645d366d2",
+    "sourceObject": "V28.ansarang.hall floor",
+    "reviewStage": 11,
+    "processId": "ildu.ansarangchae-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "V28.ansarang.hall floor.001": {
+    "memberId": "ildu.ansarang.part.0bee45326fef549c4e68",
+    "sourceObject": "V28.ansarang.hall floor.001",
+    "reviewStage": 11,
+    "processId": "ildu.ansarangchae-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "V28.ansarang.hall floor.002": {
+    "memberId": "ildu.ansarang.part.c1086a0ca48b4aa4621d",
+    "sourceObject": "V28.ansarang.hall floor.002",
+    "reviewStage": 11,
+    "processId": "ildu.ansarangchae-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "V28.ansarang.hall floor.003": {
+    "memberId": "ildu.ansarang.part.dee6e19b5ae9cd1853b1",
+    "sourceObject": "V28.ansarang.hall floor.003",
+    "reviewStage": 11,
+    "processId": "ildu.ansarangchae-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "V28.ansarang.kitchen floor": {
+    "memberId": "ildu.ansarang.part.9ea83f94e0ab2cf90c25",
+    "sourceObject": "V28.ansarang.kitchen floor",
+    "reviewStage": 10,
+    "processId": "ildu.ansarangchae-ondol",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "V28.ansarang.left front room": {
+    "memberId": "ildu.ansarang.part.2386935ec38f96f5e997",
+    "sourceObject": "V28.ansarang.left front room",
+    "reviewStage": 10,
+    "processId": "ildu.ansarangchae-ondol",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "V28.ansarang.maru floor": {
+    "memberId": "ildu.ansarang.part.fce63ebbb1b09d00e959",
+    "sourceObject": "V28.ansarang.maru floor",
+    "reviewStage": 11,
+    "processId": "ildu.ansarangchae-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "V28.ansarang.maru floor.001": {
+    "memberId": "ildu.ansarang.part.d13ba543182ef44d141c",
+    "sourceObject": "V28.ansarang.maru floor.001",
+    "reviewStage": 11,
+    "processId": "ildu.ansarangchae-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "V28.ansarang.maru floor.002": {
+    "memberId": "ildu.ansarang.part.3fc50f57c9899e65586c",
+    "sourceObject": "V28.ansarang.maru floor.002",
+    "reviewStage": 11,
+    "processId": "ildu.ansarangchae-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "V28.ansarang.maru floor.003": {
+    "memberId": "ildu.ansarang.part.5d3a2b8db0a9cf451f20",
+    "sourceObject": "V28.ansarang.maru floor.003",
+    "reviewStage": 11,
+    "processId": "ildu.ansarangchae-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "V28.ansarang.maru support": {
+    "memberId": "ildu.ansarang.part.2004f771659ed63b6963",
+    "sourceObject": "V28.ansarang.maru support",
+    "reviewStage": 11,
+    "processId": "ildu.ansarangchae-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "V28.ansarang.ondol rooms": {
+    "memberId": "ildu.ansarang.part.179508914c8b55e2df8d",
+    "sourceObject": "V28.ansarang.ondol rooms",
+    "reviewStage": 10,
+    "processId": "ildu.ansarangchae-ondol",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "V28.ansarang.right porch floor": {
+    "memberId": "ildu.ansarang.part.46558307f236758ad1a6",
+    "sourceObject": "V28.ansarang.right porch floor",
+    "reviewStage": 12,
+    "processId": "ildu.ansarangchae-maru_porch",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru_porch"
+  },
+  "V28.ansarang.right porch floor.001": {
+    "memberId": "ildu.ansarang.part.dc9f90f229f00adebfee",
+    "sourceObject": "V28.ansarang.right porch floor.001",
+    "reviewStage": 12,
+    "processId": "ildu.ansarangchae-maru_porch",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru_porch"
+  },
+  "V28.ansarang.right porch floor.002": {
+    "memberId": "ildu.ansarang.part.3c46376515b5b1d8d2d3",
+    "sourceObject": "V28.ansarang.right porch floor.002",
+    "reviewStage": 12,
+    "processId": "ildu.ansarangchae-maru_porch",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru_porch"
+  },
+  "V28.ansarang.right porch floor.003": {
+    "memberId": "ildu.ansarang.part.1e35d2cbfd42e34ba355",
+    "sourceObject": "V28.ansarang.right porch floor.003",
+    "reviewStage": 12,
+    "processId": "ildu.ansarangchae-maru_porch",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru_porch"
+  },
+  "V28.ansarang.roof frame.king post": {
+    "memberId": "ildu.ansarang.part.c5e932e5cb5ef1ba1d30",
+    "sourceObject": "V28.ansarang.roof frame.king post",
+    "reviewStage": 5,
+    "processId": "ildu.ansarangchae-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "purlins"
+  },
+  "V28.ansarang.roof frame.purlin": {
+    "memberId": "ildu.ansarang.part.4b07bc5c9eae2e922787",
+    "sourceObject": "V28.ansarang.roof frame.purlin",
+    "reviewStage": 5,
+    "processId": "ildu.ansarangchae-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "purlins"
+  },
+  "V28.ansarang.roof.gable frame": {
+    "memberId": "ildu.ansarang.part.67e13448e6bfa8d6fd57",
+    "sourceObject": "V28.ansarang.roof.gable frame",
+    "reviewStage": 6,
+    "processId": "ildu.ansarangchae-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V31.ansarang.front wall0": {
+    "memberId": "ildu.ansarang.part.3f4e3352a79e09ec8f85",
+    "sourceObject": "V31.ansarang.front wall0",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.ansarang.front wall0.head/sill": {
+    "memberId": "ildu.ansarang.part.cff4ac623960e7b40ba5",
+    "sourceObject": "V31.ansarang.front wall0.head/sill",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.ansarang.front wall0.jamb": {
+    "memberId": "ildu.ansarang.part.8af42b78bcfdf0b555df",
+    "sourceObject": "V31.ansarang.front wall0.jamb",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.ansarang.front wall1": {
+    "memberId": "ildu.ansarang.part.1b81ad7d79344c5b25fd",
+    "sourceObject": "V31.ansarang.front wall1",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.ansarang.front wall1.head/sill": {
+    "memberId": "ildu.ansarang.part.23aaf7fb71891a9f11d7",
+    "sourceObject": "V31.ansarang.front wall1.head/sill",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.ansarang.front wall1.jamb": {
+    "memberId": "ildu.ansarang.part.37994908ce0ca4e1ceb1",
+    "sourceObject": "V31.ansarang.front wall1.jamb",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.ansarang.front wall2": {
+    "memberId": "ildu.ansarang.part.678bc0c4dd81cbc9f59b",
+    "sourceObject": "V31.ansarang.front wall2",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.ansarang.front wall2.head/sill": {
+    "memberId": "ildu.ansarang.part.29d052cb1c6476cfb00b",
+    "sourceObject": "V31.ansarang.front wall2.head/sill",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.ansarang.front wall2.jamb": {
+    "memberId": "ildu.ansarang.part.a50dcb9aca9541e98173",
+    "sourceObject": "V31.ansarang.front wall2.jamb",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.ansarang.front wall3": {
+    "memberId": "ildu.ansarang.part.b4dc61745a8662c577ac",
+    "sourceObject": "V31.ansarang.front wall3",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.ansarang.front wall3.head/sill": {
+    "memberId": "ildu.ansarang.part.cb03f67adb26b448f845",
+    "sourceObject": "V31.ansarang.front wall3.head/sill",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.ansarang.front wall3.jamb": {
+    "memberId": "ildu.ansarang.part.98bd34318d18b8c84b1b",
+    "sourceObject": "V31.ansarang.front wall3.jamb",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.ansarang.left room subfloor": {
+    "memberId": "ildu.ansarang.part.a735fc8bf3c74b019023",
+    "sourceObject": "V31.ansarang.left room subfloor",
+    "reviewStage": 10,
+    "processId": "ildu.ansarangchae-ondol",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "V31.ansarang.roof.gable grille frame": {
+    "memberId": "ildu.ansarang.part.4cfe240b6403b2eca6aa",
+    "sourceObject": "V31.ansarang.roof.gable grille frame",
+    "reviewStage": 6,
+    "processId": "ildu.ansarangchae-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V31.ansarang.roof.gable grille horizontal": {
+    "memberId": "ildu.ansarang.part.e695386765ad53753726",
+    "sourceObject": "V31.ansarang.roof.gable grille horizontal",
+    "reviewStage": 6,
+    "processId": "ildu.ansarangchae-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V31.ansarang.roof.gable grille reveal": {
+    "memberId": "ildu.ansarang.part.0e733c3c7af7ba65e3cd",
+    "sourceObject": "V31.ansarang.roof.gable grille reveal",
+    "reviewStage": 6,
+    "processId": "ildu.ansarangchae-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V31.ansarang.roof.gable grille vertical": {
+    "memberId": "ildu.ansarang.part.23798d94b0f85a178c33",
+    "sourceObject": "V31.ansarang.roof.gable grille vertical",
+    "reviewStage": 6,
+    "processId": "ildu.ansarangchae-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V32.ansarang.finish lower approach": {
+    "memberId": "ildu.ansarang.part.6088401b5f5e60efad54",
+    "sourceObject": "V32.ansarang.finish lower approach",
+    "reviewStage": 14,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "V32.ansarang.finish maru stepping stone": {
+    "memberId": "ildu.ansarang.part.7c1bc1421ed47265487b",
+    "sourceObject": "V32.ansarang.finish maru stepping stone",
+    "reviewStage": 14,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "V32.ansarang.finish terrace approach": {
+    "memberId": "ildu.ansarang.part.f3ed7f7092c04ca9f854",
+    "sourceObject": "V32.ansarang.finish terrace approach",
+    "reviewStage": 14,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "V32.ansarang.foundation dressed edge": {
+    "memberId": "ildu.ansarang.part.f72766150bc9420ddb5d",
+    "sourceObject": "V32.ansarang.foundation dressed edge",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation dressed edge.001": {
+    "memberId": "ildu.ansarang.part.48ecfc6c963041f14bf5",
+    "sourceObject": "V32.ansarang.foundation dressed edge.001",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation dressed edge.002": {
+    "memberId": "ildu.ansarang.part.0588b3e8c95b8270498e",
+    "sourceObject": "V32.ansarang.foundation dressed edge.002",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation dressed edge.003": {
+    "memberId": "ildu.ansarang.part.d24b12ccab68813ce609",
+    "sourceObject": "V32.ansarang.foundation dressed edge.003",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation dressed edge.004": {
+    "memberId": "ildu.ansarang.part.cae7b148922ba83efefb",
+    "sourceObject": "V32.ansarang.foundation dressed edge.004",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation dressed return": {
+    "memberId": "ildu.ansarang.part.fdf2572c27d6b47a1b7a",
+    "sourceObject": "V32.ansarang.foundation dressed return",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation dressed return.001": {
+    "memberId": "ildu.ansarang.part.7490c26e6ddc69d304a4",
+    "sourceObject": "V32.ansarang.foundation dressed return.001",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation dressed return.002": {
+    "memberId": "ildu.ansarang.part.93dea6a787ae7f301e63",
+    "sourceObject": "V32.ansarang.foundation dressed return.002",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation dressed return.003": {
+    "memberId": "ildu.ansarang.part.6af0f1ef3dc13644e82f",
+    "sourceObject": "V32.ansarang.foundation dressed return.003",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation dressed return.004": {
+    "memberId": "ildu.ansarang.part.be9b0e52bbdaa720925c",
+    "sourceObject": "V32.ansarang.foundation dressed return.004",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation recessed core": {
+    "memberId": "ildu.ansarang.part.ab93f8c7bdebd53f2f9a",
+    "sourceObject": "V32.ansarang.foundation recessed core",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation terrace slabs": {
+    "memberId": "ildu.ansarang.part.b6c8fe8c30b3f9651d27",
+    "sourceObject": "V32.ansarang.foundation terrace slabs",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation terrace slabs.001": {
+    "memberId": "ildu.ansarang.part.80f69c9befe9ef278195",
+    "sourceObject": "V32.ansarang.foundation terrace slabs.001",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation terrace slabs.002": {
+    "memberId": "ildu.ansarang.part.e52f45e24a749ccd10f9",
+    "sourceObject": "V32.ansarang.foundation terrace slabs.002",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation terrace slabs.003": {
+    "memberId": "ildu.ansarang.part.e4634a2a5096ac381174",
+    "sourceObject": "V32.ansarang.foundation terrace slabs.003",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.foundation terrace slabs.004": {
+    "memberId": "ildu.ansarang.part.30c66f5e1077951ed658",
+    "sourceObject": "V32.ansarang.foundation terrace slabs.004",
+    "reviewStage": 2,
+    "processId": "ildu.ansarangchae-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V32.ansarang.front room WD06 wall": {
+    "memberId": "ildu.ansarang.part.1116467d000e0ef65fec",
+    "sourceObject": "V32.ansarang.front room WD06 wall",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.front room WD06 wall.head/sill": {
+    "memberId": "ildu.ansarang.part.6fbabbbee5e0f7e531fa",
+    "sourceObject": "V32.ansarang.front room WD06 wall.head/sill",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.front room WD06 wall.jamb": {
+    "memberId": "ildu.ansarang.part.5fa2133975c2349e9511",
+    "sourceObject": "V32.ansarang.front room WD06 wall.jamb",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.front room WD06.leaf1.hanji backing": {
+    "memberId": "ildu.ansarang.part.4a3709f1250c157aea76",
+    "sourceObject": "V32.ansarang.front room WD06.leaf1.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.front room WD06.leaf1.horizontal band": {
+    "memberId": "ildu.ansarang.part.e8375859de2627e0eff9",
+    "sourceObject": "V32.ansarang.front room WD06.leaf1.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.front room WD06.leaf1.rail": {
+    "memberId": "ildu.ansarang.part.163f30d73400a7ecf183",
+    "sourceObject": "V32.ansarang.front room WD06.leaf1.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.front room WD06.leaf1.rear paper rail": {
+    "memberId": "ildu.ansarang.part.d59608c75131c9149f39",
+    "sourceObject": "V32.ansarang.front room WD06.leaf1.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.front room WD06.leaf1.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.b011408254ae20b6e666",
+    "sourceObject": "V32.ansarang.front room WD06.leaf1.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.front room WD06.leaf1.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.96e8ebb56e7183ec263e",
+    "sourceObject": "V32.ansarang.front room WD06.leaf1.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.front room WD06.leaf1.stile": {
+    "memberId": "ildu.ansarang.part.80a231f2a0def8cc081c",
+    "sourceObject": "V32.ansarang.front room WD06.leaf1.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.front room WD06.leaf1.vertical sal": {
+    "memberId": "ildu.ansarang.part.fe6b6364ef3b2173a385",
+    "sourceObject": "V32.ansarang.front room WD06.leaf1.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.hall room partition": {
+    "memberId": "ildu.ansarang.part.2702a783326a3037e004",
+    "sourceObject": "V32.ansarang.hall room partition",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V32.ansarang.inside WD07 wall": {
+    "memberId": "ildu.ansarang.part.1478563a1de8bb11a23e",
+    "sourceObject": "V32.ansarang.inside WD07 wall",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD07 wall.head/sill": {
+    "memberId": "ildu.ansarang.part.b67408d3e63c12fe8d01",
+    "sourceObject": "V32.ansarang.inside WD07 wall.head/sill",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD07 wall.jamb": {
+    "memberId": "ildu.ansarang.part.5a0acdd26fa81faa5387",
+    "sourceObject": "V32.ansarang.inside WD07 wall.jamb",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD07.leaf1.hanji backing": {
+    "memberId": "ildu.ansarang.part.42a8457d15f76a9a63b7",
+    "sourceObject": "V32.ansarang.inside WD07.leaf1.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD07.leaf1.horizontal band": {
+    "memberId": "ildu.ansarang.part.39d1deda849c60b05e70",
+    "sourceObject": "V32.ansarang.inside WD07.leaf1.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD07.leaf1.rail": {
+    "memberId": "ildu.ansarang.part.11a75b42d56059047936",
+    "sourceObject": "V32.ansarang.inside WD07.leaf1.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD07.leaf1.rear paper rail": {
+    "memberId": "ildu.ansarang.part.93362006be0a9dffbe98",
+    "sourceObject": "V32.ansarang.inside WD07.leaf1.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD07.leaf1.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.563bb3f90a52654bf023",
+    "sourceObject": "V32.ansarang.inside WD07.leaf1.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD07.leaf1.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.9004175cb8b8986324e1",
+    "sourceObject": "V32.ansarang.inside WD07.leaf1.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD07.leaf1.stile": {
+    "memberId": "ildu.ansarang.part.603d892d16d0ec351ac3",
+    "sourceObject": "V32.ansarang.inside WD07.leaf1.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD07.leaf1.vertical sal": {
+    "memberId": "ildu.ansarang.part.7f20ab035daecb24a7a4",
+    "sourceObject": "V32.ansarang.inside WD07.leaf1.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD08 leaf.rail": {
+    "memberId": "ildu.ansarang.part.306f6d2614c3031eef49",
+    "sourceObject": "V32.ansarang.inside WD08 leaf.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD08 leaf.stile": {
+    "memberId": "ildu.ansarang.part.8cd3eaa55f1cc76d97dd",
+    "sourceObject": "V32.ansarang.inside WD08 leaf.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD08 recessed panel": {
+    "memberId": "ildu.ansarang.part.54750d3e86dfa296ebf9",
+    "sourceObject": "V32.ansarang.inside WD08 recessed panel",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD08 wall": {
+    "memberId": "ildu.ansarang.part.43eda71ffc257bf57ddf",
+    "sourceObject": "V32.ansarang.inside WD08 wall",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD08 wall.head/sill": {
+    "memberId": "ildu.ansarang.part.cc4780af4f2aaf1b88b1",
+    "sourceObject": "V32.ansarang.inside WD08 wall.head/sill",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.inside WD08 wall.jamb": {
+    "memberId": "ildu.ansarang.part.e3c9cafd593ff598b02c",
+    "sourceObject": "V32.ansarang.inside WD08 wall.jamb",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.kitchen room partition": {
+    "memberId": "ildu.ansarang.part.6de7c30be3c4b8d4ce4f",
+    "sourceObject": "V32.ansarang.kitchen room partition",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V32.ansarang.left kitchen WW02 wall": {
+    "memberId": "ildu.ansarang.part.ad93b40d35da3f2a6e84",
+    "sourceObject": "V32.ansarang.left kitchen WW02 wall",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02 wall.head/sill": {
+    "memberId": "ildu.ansarang.part.9fdc9e4d58f3c979022e",
+    "sourceObject": "V32.ansarang.left kitchen WW02 wall.head/sill",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02 wall.jamb": {
+    "memberId": "ildu.ansarang.part.8e33d3db3ec3762bc81f",
+    "sourceObject": "V32.ansarang.left kitchen WW02 wall.jamb",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf1.hanji backing": {
+    "memberId": "ildu.ansarang.part.e75d3298e061df67e13f",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf1.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf1.horizontal band": {
+    "memberId": "ildu.ansarang.part.aecbcb9eb00bfc2ae323",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf1.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf1.rail": {
+    "memberId": "ildu.ansarang.part.8228fd8b5c151475b425",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf1.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf1.rear paper rail": {
+    "memberId": "ildu.ansarang.part.a183b5e4f702c174c2a1",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf1.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf1.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.e9e5836f8aa7cfdf6b8f",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf1.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf1.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.40bd868f6e90cd21f7c9",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf1.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf1.stile": {
+    "memberId": "ildu.ansarang.part.12d898809e92b5a67070",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf1.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf1.vertical sal": {
+    "memberId": "ildu.ansarang.part.adcb79c36b9c5f65b219",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf1.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf2.hanji backing": {
+    "memberId": "ildu.ansarang.part.9630fd47334a327e3549",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf2.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf2.horizontal band": {
+    "memberId": "ildu.ansarang.part.730362bb6cad5551c911",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf2.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf2.rail": {
+    "memberId": "ildu.ansarang.part.83d610f233340e3842c3",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf2.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf2.rear paper rail": {
+    "memberId": "ildu.ansarang.part.c58d581d71755040b356",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf2.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf2.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.aeaa99064e6824576582",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf2.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf2.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.679088a9784a450037dc",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf2.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf2.stile": {
+    "memberId": "ildu.ansarang.part.253e1486211737d7480b",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf2.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left kitchen WW02.leaf2.vertical sal": {
+    "memberId": "ildu.ansarang.part.24f13f0ab487facd2006",
+    "sourceObject": "V32.ansarang.left kitchen WW02.leaf2.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.left room base": {
+    "memberId": "ildu.ansarang.part.cdf4583ed4a5475680d8",
+    "sourceObject": "V32.ansarang.left room base",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V32.ansarang.left room return": {
+    "memberId": "ildu.ansarang.part.1f462763d839f39db5da",
+    "sourceObject": "V32.ansarang.left room return",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V32.ansarang.middle room partition": {
+    "memberId": "ildu.ansarang.part.a93bd6aa10a826e14695",
+    "sourceObject": "V32.ansarang.middle room partition",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V32.ansarang.rear WD02 bay1 wall": {
+    "memberId": "ildu.ansarang.part.17eede9854e7ef65e0db",
+    "sourceObject": "V32.ansarang.rear WD02 bay1 wall",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1 wall.head/sill": {
+    "memberId": "ildu.ansarang.part.82391cd5cc9a7ced5cd9",
+    "sourceObject": "V32.ansarang.rear WD02 bay1 wall.head/sill",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1 wall.jamb": {
+    "memberId": "ildu.ansarang.part.7b633d855ee603f4576a",
+    "sourceObject": "V32.ansarang.rear WD02 bay1 wall.jamb",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf1.hanji backing": {
+    "memberId": "ildu.ansarang.part.2f3af012cf377a8f17d3",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf1.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf1.horizontal band": {
+    "memberId": "ildu.ansarang.part.e9021d6ab2814555757f",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf1.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf1.rail": {
+    "memberId": "ildu.ansarang.part.47be9d5a4b38ccefb6bf",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf1.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf1.rear paper rail": {
+    "memberId": "ildu.ansarang.part.e08775324d9b24ce5883",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf1.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf1.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.f03a72b65637d7945332",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf1.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf1.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.d8323f5f7295ab9240ea",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf1.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf1.stile": {
+    "memberId": "ildu.ansarang.part.8dda94a010c8c3f36b75",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf1.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf1.vertical sal": {
+    "memberId": "ildu.ansarang.part.8fea608b4bdc711d54cd",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf1.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf2.hanji backing": {
+    "memberId": "ildu.ansarang.part.9061de2303739baf80f6",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf2.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf2.horizontal band": {
+    "memberId": "ildu.ansarang.part.6ce0443c4e5c82044d0f",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf2.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf2.rail": {
+    "memberId": "ildu.ansarang.part.10bce19ecb3c386c9288",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf2.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf2.rear paper rail": {
+    "memberId": "ildu.ansarang.part.bd9dcffdf49d64eb4384",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf2.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf2.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.56980a3cca236151f2d2",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf2.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf2.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.12f1eb496c0f224abeca",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf2.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf2.stile": {
+    "memberId": "ildu.ansarang.part.1112fcbc2deaf3ca8c35",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf2.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay1.leaf2.vertical sal": {
+    "memberId": "ildu.ansarang.part.49903d3618398c6e0b06",
+    "sourceObject": "V32.ansarang.rear WD02 bay1.leaf2.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2 wall": {
+    "memberId": "ildu.ansarang.part.51c08894fa103c590835",
+    "sourceObject": "V32.ansarang.rear WD02 bay2 wall",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2 wall.head/sill": {
+    "memberId": "ildu.ansarang.part.fdb91fc6c6199acd2549",
+    "sourceObject": "V32.ansarang.rear WD02 bay2 wall.head/sill",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2 wall.jamb": {
+    "memberId": "ildu.ansarang.part.411a5230db5b184063db",
+    "sourceObject": "V32.ansarang.rear WD02 bay2 wall.jamb",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf1.hanji backing": {
+    "memberId": "ildu.ansarang.part.90fb7fed4fc3b0b226a4",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf1.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf1.horizontal band": {
+    "memberId": "ildu.ansarang.part.ccabebf9e01e27be9009",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf1.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf1.rail": {
+    "memberId": "ildu.ansarang.part.e0a500b7dfe7869d81ca",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf1.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf1.rear paper rail": {
+    "memberId": "ildu.ansarang.part.c8f27495bd5f25804bd2",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf1.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf1.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.30f4a8f89762fbaee6d1",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf1.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf1.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.269acc41fad52ab10e8d",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf1.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf1.stile": {
+    "memberId": "ildu.ansarang.part.02f8c2ad446db6e68d45",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf1.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf1.vertical sal": {
+    "memberId": "ildu.ansarang.part.d279059ba39d0114af3b",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf1.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf2.hanji backing": {
+    "memberId": "ildu.ansarang.part.ee45aab59e83a39a6e07",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf2.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf2.horizontal band": {
+    "memberId": "ildu.ansarang.part.9106fac9f3c3a2eaa3c0",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf2.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf2.rail": {
+    "memberId": "ildu.ansarang.part.b8d4b4e2fee9ccb09ab4",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf2.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf2.rear paper rail": {
+    "memberId": "ildu.ansarang.part.6d6bcf8bfa7a00720d7e",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf2.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf2.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.8fc486139c43eca02623",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf2.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf2.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.86ef7fd80f350507f87c",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf2.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf2.stile": {
+    "memberId": "ildu.ansarang.part.95a4b855fd49a841b3d6",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf2.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay2.leaf2.vertical sal": {
+    "memberId": "ildu.ansarang.part.2787e29f88bc6dac255d",
+    "sourceObject": "V32.ansarang.rear WD02 bay2.leaf2.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3 wall": {
+    "memberId": "ildu.ansarang.part.47816be07694a8df4450",
+    "sourceObject": "V32.ansarang.rear WD02 bay3 wall",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3 wall.head/sill": {
+    "memberId": "ildu.ansarang.part.58d94eabbd36b089662e",
+    "sourceObject": "V32.ansarang.rear WD02 bay3 wall.head/sill",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3 wall.jamb": {
+    "memberId": "ildu.ansarang.part.cf50dcab54902b8465d6",
+    "sourceObject": "V32.ansarang.rear WD02 bay3 wall.jamb",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf1.hanji backing": {
+    "memberId": "ildu.ansarang.part.ada63276f4ca9ab30832",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf1.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf1.horizontal band": {
+    "memberId": "ildu.ansarang.part.60a74a5d449a7818e5e6",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf1.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf1.rail": {
+    "memberId": "ildu.ansarang.part.06e35565542e697e0347",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf1.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf1.rear paper rail": {
+    "memberId": "ildu.ansarang.part.87f640fab8c941d78db5",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf1.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf1.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.667fe944c54590369b17",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf1.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf1.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.deb523df1b7a7f8f50cb",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf1.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf1.stile": {
+    "memberId": "ildu.ansarang.part.31ac01c0630a82ce14fd",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf1.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf1.vertical sal": {
+    "memberId": "ildu.ansarang.part.2c60a1043e26b9a48234",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf1.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf2.hanji backing": {
+    "memberId": "ildu.ansarang.part.351a8e09d19e2a955bc8",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf2.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf2.horizontal band": {
+    "memberId": "ildu.ansarang.part.b2f7f00e4dfa9e23c805",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf2.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf2.rail": {
+    "memberId": "ildu.ansarang.part.08d75d0ff3c581de88ad",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf2.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf2.rear paper rail": {
+    "memberId": "ildu.ansarang.part.e6035c602ecac735cc39",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf2.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf2.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.2bde3967e8df5c13b49b",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf2.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf2.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.7a7b8f53ab046b09720c",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf2.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf2.stile": {
+    "memberId": "ildu.ansarang.part.d757eb8b8563bbab5994",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf2.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear WD02 bay3.leaf2.vertical sal": {
+    "memberId": "ildu.ansarang.part.3524bd37cb22d539f2af",
+    "sourceObject": "V32.ansarang.rear WD02 bay3.leaf2.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01 wall": {
+    "memberId": "ildu.ansarang.part.cd6de1e37a6981aafa3a",
+    "sourceObject": "V32.ansarang.rear kitchen WW01 wall",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01 wall.head/sill": {
+    "memberId": "ildu.ansarang.part.083fc419dcc118acd6de",
+    "sourceObject": "V32.ansarang.rear kitchen WW01 wall.head/sill",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01 wall.jamb": {
+    "memberId": "ildu.ansarang.part.f049ec795c09f286aa30",
+    "sourceObject": "V32.ansarang.rear kitchen WW01 wall.jamb",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01.leaf1.horizontal band": {
+    "memberId": "ildu.ansarang.part.8ad2ed095a60b8407e4e",
+    "sourceObject": "V32.ansarang.rear kitchen WW01.leaf1.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01.leaf1.rail": {
+    "memberId": "ildu.ansarang.part.0763fb1b5ecc66d44e97",
+    "sourceObject": "V32.ansarang.rear kitchen WW01.leaf1.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01.leaf1.rear paper rail": {
+    "memberId": "ildu.ansarang.part.7c7c6c4b042d7c5de04a",
+    "sourceObject": "V32.ansarang.rear kitchen WW01.leaf1.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01.leaf1.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.e4aa078023ae4ac29cfa",
+    "sourceObject": "V32.ansarang.rear kitchen WW01.leaf1.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01.leaf1.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.254571c4b095ff3a847d",
+    "sourceObject": "V32.ansarang.rear kitchen WW01.leaf1.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01.leaf1.stile": {
+    "memberId": "ildu.ansarang.part.304ec45ec5e9c8d84cf9",
+    "sourceObject": "V32.ansarang.rear kitchen WW01.leaf1.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01.leaf1.vertical sal": {
+    "memberId": "ildu.ansarang.part.c211d9d7d9669c43cc98",
+    "sourceObject": "V32.ansarang.rear kitchen WW01.leaf1.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01.leaf2.horizontal band": {
+    "memberId": "ildu.ansarang.part.1de0e0e3d4f0f7e7709e",
+    "sourceObject": "V32.ansarang.rear kitchen WW01.leaf2.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01.leaf2.rail": {
+    "memberId": "ildu.ansarang.part.dc1005af1d5ab273e85f",
+    "sourceObject": "V32.ansarang.rear kitchen WW01.leaf2.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01.leaf2.rear paper rail": {
+    "memberId": "ildu.ansarang.part.9581a065d4a558d17c52",
+    "sourceObject": "V32.ansarang.rear kitchen WW01.leaf2.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01.leaf2.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.2df23d21416108cba9cd",
+    "sourceObject": "V32.ansarang.rear kitchen WW01.leaf2.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01.leaf2.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.e988a17e1130a000f512",
+    "sourceObject": "V32.ansarang.rear kitchen WW01.leaf2.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01.leaf2.stile": {
+    "memberId": "ildu.ansarang.part.ff42c611e1611101fcb2",
+    "sourceObject": "V32.ansarang.rear kitchen WW01.leaf2.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear kitchen WW01.leaf2.vertical sal": {
+    "memberId": "ildu.ansarang.part.469aa01b91a11a790c88",
+    "sourceObject": "V32.ansarang.rear kitchen WW01.leaf2.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.rear room base": {
+    "memberId": "ildu.ansarang.part.7693dfc55a58627316a0",
+    "sourceObject": "V32.ansarang.rear room base",
+    "reviewStage": 9,
+    "processId": "ildu.ansarangchae-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V32.ansarang.right WD03 wall": {
+    "memberId": "ildu.ansarang.part.86c555c90ffae0ffe870",
+    "sourceObject": "V32.ansarang.right WD03 wall",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03 wall.head/sill": {
+    "memberId": "ildu.ansarang.part.ad7fd3c5990fd448aeb8",
+    "sourceObject": "V32.ansarang.right WD03 wall.head/sill",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03 wall.jamb": {
+    "memberId": "ildu.ansarang.part.8442c66cf0a3011eb3af",
+    "sourceObject": "V32.ansarang.right WD03 wall.jamb",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf1.hanji backing": {
+    "memberId": "ildu.ansarang.part.fe13d039176ce55b4ca1",
+    "sourceObject": "V32.ansarang.right WD03.leaf1.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf1.horizontal band": {
+    "memberId": "ildu.ansarang.part.bc29c06160be7e6a83ee",
+    "sourceObject": "V32.ansarang.right WD03.leaf1.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf1.rail": {
+    "memberId": "ildu.ansarang.part.1e9395a52a03c2b612de",
+    "sourceObject": "V32.ansarang.right WD03.leaf1.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf1.rear paper rail": {
+    "memberId": "ildu.ansarang.part.1e847e5b12ff46627c6b",
+    "sourceObject": "V32.ansarang.right WD03.leaf1.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf1.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.2612332954e309a64406",
+    "sourceObject": "V32.ansarang.right WD03.leaf1.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf1.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.25fa8ed40e7e59c0cd8f",
+    "sourceObject": "V32.ansarang.right WD03.leaf1.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf1.stile": {
+    "memberId": "ildu.ansarang.part.60bea61993f762344744",
+    "sourceObject": "V32.ansarang.right WD03.leaf1.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf1.vertical sal": {
+    "memberId": "ildu.ansarang.part.a04726db8fae7997f676",
+    "sourceObject": "V32.ansarang.right WD03.leaf1.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf2.hanji backing": {
+    "memberId": "ildu.ansarang.part.29a751cc0afcf2759524",
+    "sourceObject": "V32.ansarang.right WD03.leaf2.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf2.horizontal band": {
+    "memberId": "ildu.ansarang.part.5ba555fdabba8031a170",
+    "sourceObject": "V32.ansarang.right WD03.leaf2.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf2.rail": {
+    "memberId": "ildu.ansarang.part.7a43e1c8cc09050681c1",
+    "sourceObject": "V32.ansarang.right WD03.leaf2.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf2.rear paper rail": {
+    "memberId": "ildu.ansarang.part.aaafbc33afb448894b2b",
+    "sourceObject": "V32.ansarang.right WD03.leaf2.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf2.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.b38ff9781fd0b12180ba",
+    "sourceObject": "V32.ansarang.right WD03.leaf2.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf2.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.f7758ca4dd56a3639fc7",
+    "sourceObject": "V32.ansarang.right WD03.leaf2.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf2.stile": {
+    "memberId": "ildu.ansarang.part.72ef723f4046fe0afcc9",
+    "sourceObject": "V32.ansarang.right WD03.leaf2.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD03.leaf2.vertical sal": {
+    "memberId": "ildu.ansarang.part.cf731553db8612761e26",
+    "sourceObject": "V32.ansarang.right WD03.leaf2.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD05 wall": {
+    "memberId": "ildu.ansarang.part.19c0ca53233a4f169af7",
+    "sourceObject": "V32.ansarang.right WD05 wall",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD05 wall.head/sill": {
+    "memberId": "ildu.ansarang.part.7573e9e0180e93d54a2e",
+    "sourceObject": "V32.ansarang.right WD05 wall.head/sill",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD05 wall.jamb": {
+    "memberId": "ildu.ansarang.part.38f815e1904721d5aa8f",
+    "sourceObject": "V32.ansarang.right WD05 wall.jamb",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD05.leaf1.hanji backing": {
+    "memberId": "ildu.ansarang.part.79881af49476db32d77b",
+    "sourceObject": "V32.ansarang.right WD05.leaf1.hanji backing",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD05.leaf1.horizontal band": {
+    "memberId": "ildu.ansarang.part.893d836940ff57bd0a26",
+    "sourceObject": "V32.ansarang.right WD05.leaf1.horizontal band",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD05.leaf1.rail": {
+    "memberId": "ildu.ansarang.part.102814ab266496a75088",
+    "sourceObject": "V32.ansarang.right WD05.leaf1.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD05.leaf1.rear paper rail": {
+    "memberId": "ildu.ansarang.part.1ed978aeb81c7cafbe83",
+    "sourceObject": "V32.ansarang.right WD05.leaf1.rear paper rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD05.leaf1.rebated bead.rail": {
+    "memberId": "ildu.ansarang.part.6fd8bc7a3088f6d1924c",
+    "sourceObject": "V32.ansarang.right WD05.leaf1.rebated bead.rail",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD05.leaf1.rebated bead.stile": {
+    "memberId": "ildu.ansarang.part.2974f06ea52b99648dbb",
+    "sourceObject": "V32.ansarang.right WD05.leaf1.rebated bead.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD05.leaf1.stile": {
+    "memberId": "ildu.ansarang.part.0977b5e65847a5a4ea97",
+    "sourceObject": "V32.ansarang.right WD05.leaf1.stile",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.right WD05.leaf1.vertical sal": {
+    "memberId": "ildu.ansarang.part.b0bb33d72f67edfb89e2",
+    "sourceObject": "V32.ansarang.right WD05.leaf1.vertical sal",
+    "reviewStage": 13,
+    "processId": "ildu.ansarangchae-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V32.ansarang.roof.finial narrow lime joint": {
+    "memberId": "ildu.ansarang.part.cd3ce8ed77246fc15a8a",
+    "sourceObject": "V32.ansarang.roof.finial narrow lime joint",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V32.ansarang.roof.ridge cap seam": {
+    "memberId": "ildu.ansarang.part.efbeed9d70f649fc5fe0",
+    "sourceObject": "V32.ansarang.roof.ridge cap seam",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V32.ansarang.roof.ridge finial": {
+    "memberId": "ildu.ansarang.part.4b7e9e448fe260d6d166",
+    "sourceObject": "V32.ansarang.roof.ridge finial",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof": {
+    "memberId": "ildu.ansarang.part.97b29a873ade722ac788",
+    "sourceObject": "V35.ansarang.roof",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.001": {
+    "memberId": "ildu.ansarang.part.7e7cfe623b3bfcb8df79",
+    "sourceObject": "V35.ansarang.roof.001",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.002": {
+    "memberId": "ildu.ansarang.part.9b969e6215f833320853",
+    "sourceObject": "V35.ansarang.roof.002",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.003": {
+    "memberId": "ildu.ansarang.part.632e7d2e59a9b04c9a5d",
+    "sourceObject": "V35.ansarang.roof.003",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.004": {
+    "memberId": "ildu.ansarang.part.99821369ee137ddb635f",
+    "sourceObject": "V35.ansarang.roof.004",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.005": {
+    "memberId": "ildu.ansarang.part.32a6abf434f49db21fe9",
+    "sourceObject": "V35.ansarang.roof.005",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.continuous lower tile lap": {
+    "memberId": "ildu.ansarang.part.5f615e752cca378b6610",
+    "sourceObject": "V35.ansarang.roof.continuous lower tile lap",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.gable barge": {
+    "memberId": "ildu.ansarang.part.0eac444e484d03babbb1",
+    "sourceObject": "V35.ansarang.roof.gable barge",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.hip ridge": {
+    "memberId": "ildu.ansarang.part.1f71f57bd07a297c10a3",
+    "sourceObject": "V35.ansarang.roof.hip ridge",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.rafter end grain": {
+    "memberId": "ildu.ansarang.part.9f8fdac7caaed6ee794e",
+    "sourceObject": "V35.ansarang.roof.rafter end grain",
+    "reviewStage": 6,
+    "processId": "ildu.ansarangchae-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V35.ansarang.roof.rectangular front fascia": {
+    "memberId": "ildu.ansarang.part.c607488cfe84bdcd21af",
+    "sourceObject": "V35.ansarang.roof.rectangular front fascia",
+    "reviewStage": 6,
+    "processId": "ildu.ansarangchae-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V35.ansarang.roof.rectangular hip fascia": {
+    "memberId": "ildu.ansarang.part.47a5e6aee97303dfd012",
+    "sourceObject": "V35.ansarang.roof.rectangular hip fascia",
+    "reviewStage": 6,
+    "processId": "ildu.ansarangchae-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V35.ansarang.roof.ridge end finish": {
+    "memberId": "ildu.ansarang.part.341734224d0094c94de7",
+    "sourceObject": "V35.ansarang.roof.ridge end finish",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.ridge stack": {
+    "memberId": "ildu.ansarang.part.82f41a26efe566378d94",
+    "sourceObject": "V35.ansarang.roof.ridge stack",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.ridge stack.001": {
+    "memberId": "ildu.ansarang.part.60cd1a9895b625b7db21",
+    "sourceObject": "V35.ansarang.roof.ridge stack.001",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.ridge stack.002": {
+    "memberId": "ildu.ansarang.part.1bdc275d002b7ba3b06a",
+    "sourceObject": "V35.ansarang.roof.ridge stack.002",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.ridge stack.003": {
+    "memberId": "ildu.ansarang.part.085a92e21a097a755d00",
+    "sourceObject": "V35.ansarang.roof.ridge stack.003",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.ridge stack.004": {
+    "memberId": "ildu.ansarang.part.cc2a421264cb6798adcb",
+    "sourceObject": "V35.ansarang.roof.ridge stack.004",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.rounded mortar ends": {
+    "memberId": "ildu.ansarang.part.09e336b7b1964d5e260b",
+    "sourceObject": "V35.ansarang.roof.rounded mortar ends",
+    "reviewStage": 8,
+    "processId": "ildu.ansarangchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V35.ansarang.roof.tapered full rafters": {
+    "memberId": "ildu.ansarang.part.4c3890175a197298e17b",
+    "sourceObject": "V35.ansarang.roof.tapered full rafters",
+    "reviewStage": 6,
+    "processId": "ildu.ansarangchae-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V35.ansarang.roof.tapered hip rafters": {
+    "memberId": "ildu.ansarang.part.96b467dbfc8bec0878ef",
+    "sourceObject": "V35.ansarang.roof.tapered hip rafters",
+    "reviewStage": 6,
+    "processId": "ildu.ansarangchae-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  }
+}

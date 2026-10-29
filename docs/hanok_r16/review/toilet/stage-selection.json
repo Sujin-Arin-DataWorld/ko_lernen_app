@@ -1,0 +1,1860 @@
+{
+  "key": "toilet",
+  "buildingId": "toilet-north",
+  "name": "북측 측간",
+  "selectorAuthority": "canonical-review catalog and preserved GLB/native explicit reviewStage",
+  "canonicalCatalogSha256": "4f511d3c06b1dcc995cdf94f578b70f400f0ca96bc14fcf65e689eacaec9c6d1",
+  "steps": [
+    {
+      "sequence": 1,
+      "processId": "ildu.toilet-north-foundation",
+      "label": "기단",
+      "isFinal": false,
+      "visibleObjects": [
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003"
+      ],
+      "visibleOriginals": [
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003"
+      ],
+      "visibleProxies": [],
+      "newMembers": 22,
+      "newOriginalMembers": 22,
+      "visibleMembers": 22,
+      "visibleSetSha256": "9704891dac531fc586171c73c6d3d4c7bad79d07f8c34990a286914aa2ceb2e5",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 2,
+      "processId": "ildu.toilet-north-posts",
+      "label": "기둥",
+      "isFinal": false,
+      "visibleObjects": [
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.post"
+      ],
+      "visibleOriginals": [
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.post"
+      ],
+      "visibleProxies": [],
+      "newMembers": 1,
+      "newOriginalMembers": 1,
+      "visibleMembers": 23,
+      "visibleSetSha256": "6827d3dc4db14d8581b0416f88e89c7b691ed46acd1140a8a5cfbe3eefe25376",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 3,
+      "processId": "ildu.toilet-north-beams",
+      "label": "보",
+      "isFinal": false,
+      "visibleObjects": [
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.bracket.lower seating block",
+        "V28.toilet.frame.bracket.shaped timber shoulder",
+        "V28.toilet.frame.bracket.upper bearing",
+        "V28.toilet.frame.cross beam",
+        "V28.toilet.frame.long beam",
+        "V28.toilet.frame.post",
+        "V28.toilet.roof frame.purlin"
+      ],
+      "visibleOriginals": [
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.bracket.lower seating block",
+        "V28.toilet.frame.bracket.shaped timber shoulder",
+        "V28.toilet.frame.bracket.upper bearing",
+        "V28.toilet.frame.cross beam",
+        "V28.toilet.frame.long beam",
+        "V28.toilet.frame.post",
+        "V28.toilet.roof frame.purlin"
+      ],
+      "visibleProxies": [],
+      "newMembers": 6,
+      "newOriginalMembers": 6,
+      "visibleMembers": 29,
+      "visibleSetSha256": "eaa8f412103bb5b30c1541f184dc13d7b292b9bd5465d53eb80c251fe9b57e5a",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 4,
+      "processId": "ildu.toilet-north-rafters",
+      "label": "서까래",
+      "isFinal": false,
+      "visibleObjects": [
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.bracket.lower seating block",
+        "V28.toilet.frame.bracket.shaped timber shoulder",
+        "V28.toilet.frame.bracket.upper bearing",
+        "V28.toilet.frame.cross beam",
+        "V28.toilet.frame.long beam",
+        "V28.toilet.frame.post",
+        "V28.toilet.roof frame.purlin",
+        "V28.toilet.roof.eave beam",
+        "V28.toilet.roof.gable brace",
+        "V28.toilet.roof.gable centre post",
+        "V28.toilet.roof.gable frame",
+        "V28.toilet.roof.hip eave beam",
+        "V28.toilet.roof.hip exposed rafters",
+        "V28.toilet.roof.lower exposed rafters",
+        "V28.toilet.roof.rafters"
+      ],
+      "visibleOriginals": [
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.bracket.lower seating block",
+        "V28.toilet.frame.bracket.shaped timber shoulder",
+        "V28.toilet.frame.bracket.upper bearing",
+        "V28.toilet.frame.cross beam",
+        "V28.toilet.frame.long beam",
+        "V28.toilet.frame.post",
+        "V28.toilet.roof frame.purlin",
+        "V28.toilet.roof.eave beam",
+        "V28.toilet.roof.gable brace",
+        "V28.toilet.roof.gable centre post",
+        "V28.toilet.roof.gable frame",
+        "V28.toilet.roof.hip eave beam",
+        "V28.toilet.roof.hip exposed rafters",
+        "V28.toilet.roof.lower exposed rafters",
+        "V28.toilet.roof.rafters"
+      ],
+      "visibleProxies": [],
+      "newMembers": 8,
+      "newOriginalMembers": 8,
+      "visibleMembers": 37,
+      "visibleSetSha256": "25f557df2901e9689c1b8957bc332b8464513826d62489c5a515738d14ac00da",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 5,
+      "processId": "ildu.toilet-north-roof-bed",
+      "label": "지붕 바탕",
+      "isFinal": false,
+      "visibleObjects": [
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.bracket.lower seating block",
+        "V28.toilet.frame.bracket.shaped timber shoulder",
+        "V28.toilet.frame.bracket.upper bearing",
+        "V28.toilet.frame.cross beam",
+        "V28.toilet.frame.long beam",
+        "V28.toilet.frame.post",
+        "V28.toilet.roof backing",
+        "V28.toilet.roof frame.purlin",
+        "V28.toilet.roof.eave beam",
+        "V28.toilet.roof.gable brace",
+        "V28.toilet.roof.gable centre post",
+        "V28.toilet.roof.gable frame",
+        "V28.toilet.roof.hip eave beam",
+        "V28.toilet.roof.hip exposed rafters",
+        "V28.toilet.roof.lower exposed rafters",
+        "V28.toilet.roof.rafters"
+      ],
+      "visibleOriginals": [
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.bracket.lower seating block",
+        "V28.toilet.frame.bracket.shaped timber shoulder",
+        "V28.toilet.frame.bracket.upper bearing",
+        "V28.toilet.frame.cross beam",
+        "V28.toilet.frame.long beam",
+        "V28.toilet.frame.post",
+        "V28.toilet.roof backing",
+        "V28.toilet.roof frame.purlin",
+        "V28.toilet.roof.eave beam",
+        "V28.toilet.roof.gable brace",
+        "V28.toilet.roof.gable centre post",
+        "V28.toilet.roof.gable frame",
+        "V28.toilet.roof.hip eave beam",
+        "V28.toilet.roof.hip exposed rafters",
+        "V28.toilet.roof.lower exposed rafters",
+        "V28.toilet.roof.rafters"
+      ],
+      "visibleProxies": [],
+      "newMembers": 1,
+      "newOriginalMembers": 1,
+      "visibleMembers": 38,
+      "visibleSetSha256": "b6b428f2dbd4fde2fb569d14434983e89f0a5f84e8ad14681aed34bcf1bfa79d",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 6,
+      "processId": "ildu.toilet-north-tiles",
+      "label": "기와",
+      "isFinal": false,
+      "visibleObjects": [
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.bracket.lower seating block",
+        "V28.toilet.frame.bracket.shaped timber shoulder",
+        "V28.toilet.frame.bracket.upper bearing",
+        "V28.toilet.frame.cross beam",
+        "V28.toilet.frame.long beam",
+        "V28.toilet.frame.post",
+        "V28.toilet.roof",
+        "V28.toilet.roof backing",
+        "V28.toilet.roof frame.purlin",
+        "V28.toilet.roof.001",
+        "V28.toilet.roof.002",
+        "V28.toilet.roof.003",
+        "V28.toilet.roof.004",
+        "V28.toilet.roof.005",
+        "V28.toilet.roof.eave beam",
+        "V28.toilet.roof.gable barge",
+        "V28.toilet.roof.gable brace",
+        "V28.toilet.roof.gable centre post",
+        "V28.toilet.roof.gable frame",
+        "V28.toilet.roof.hip eave beam",
+        "V28.toilet.roof.hip exposed rafters",
+        "V28.toilet.roof.hip ridge",
+        "V28.toilet.roof.hip round tile ends",
+        "V28.toilet.roof.lower exposed rafters",
+        "V28.toilet.roof.rafters",
+        "V28.toilet.roof.ridge stack",
+        "V28.toilet.roof.ridge stack.001",
+        "V28.toilet.roof.ridge stack.002",
+        "V28.toilet.roof.ridge stack.003",
+        "V28.toilet.roof.round tile ends",
+        "V31.toilet.roof.ridge cap joint",
+        "V31.toilet.roof.ridge end border",
+        "V31.toilet.roof.ridge end plate"
+      ],
+      "visibleOriginals": [
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.bracket.lower seating block",
+        "V28.toilet.frame.bracket.shaped timber shoulder",
+        "V28.toilet.frame.bracket.upper bearing",
+        "V28.toilet.frame.cross beam",
+        "V28.toilet.frame.long beam",
+        "V28.toilet.frame.post",
+        "V28.toilet.roof",
+        "V28.toilet.roof backing",
+        "V28.toilet.roof frame.purlin",
+        "V28.toilet.roof.001",
+        "V28.toilet.roof.002",
+        "V28.toilet.roof.003",
+        "V28.toilet.roof.004",
+        "V28.toilet.roof.005",
+        "V28.toilet.roof.eave beam",
+        "V28.toilet.roof.gable barge",
+        "V28.toilet.roof.gable brace",
+        "V28.toilet.roof.gable centre post",
+        "V28.toilet.roof.gable frame",
+        "V28.toilet.roof.hip eave beam",
+        "V28.toilet.roof.hip exposed rafters",
+        "V28.toilet.roof.hip ridge",
+        "V28.toilet.roof.hip round tile ends",
+        "V28.toilet.roof.lower exposed rafters",
+        "V28.toilet.roof.rafters",
+        "V28.toilet.roof.ridge stack",
+        "V28.toilet.roof.ridge stack.001",
+        "V28.toilet.roof.ridge stack.002",
+        "V28.toilet.roof.ridge stack.003",
+        "V28.toilet.roof.round tile ends",
+        "V31.toilet.roof.ridge cap joint",
+        "V31.toilet.roof.ridge end border",
+        "V31.toilet.roof.ridge end plate"
+      ],
+      "visibleProxies": [],
+      "newMembers": 17,
+      "newOriginalMembers": 17,
+      "visibleMembers": 55,
+      "visibleSetSha256": "a64c0946a37828d715e0059097a1cc4be8e7c5426f6442d0cf4711e1b6e5605b",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 7,
+      "processId": "ildu.toilet-north-walls",
+      "label": "벽체",
+      "isFinal": false,
+      "visibleObjects": [
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.bracket.lower seating block",
+        "V28.toilet.frame.bracket.shaped timber shoulder",
+        "V28.toilet.frame.bracket.upper bearing",
+        "V28.toilet.frame.cross beam",
+        "V28.toilet.frame.long beam",
+        "V28.toilet.frame.post",
+        "V28.toilet.front wall",
+        "V28.toilet.front wall.head/sill",
+        "V28.toilet.front wall.jamb",
+        "V28.toilet.rear wall",
+        "V28.toilet.roof",
+        "V28.toilet.roof backing",
+        "V28.toilet.roof frame.purlin",
+        "V28.toilet.roof.001",
+        "V28.toilet.roof.002",
+        "V28.toilet.roof.003",
+        "V28.toilet.roof.004",
+        "V28.toilet.roof.005",
+        "V28.toilet.roof.eave beam",
+        "V28.toilet.roof.gable barge",
+        "V28.toilet.roof.gable brace",
+        "V28.toilet.roof.gable centre post",
+        "V28.toilet.roof.gable frame",
+        "V28.toilet.roof.gable timber",
+        "V28.toilet.roof.hip eave beam",
+        "V28.toilet.roof.hip exposed rafters",
+        "V28.toilet.roof.hip ridge",
+        "V28.toilet.roof.hip round tile ends",
+        "V28.toilet.roof.lower exposed rafters",
+        "V28.toilet.roof.rafters",
+        "V28.toilet.roof.ridge stack",
+        "V28.toilet.roof.ridge stack.001",
+        "V28.toilet.roof.ridge stack.002",
+        "V28.toilet.roof.ridge stack.003",
+        "V28.toilet.roof.round tile ends",
+        "V28.toilet.side wall",
+        "V31.toilet.front earthen skirt",
+        "V31.toilet.front low rail",
+        "V31.toilet.roof.ridge cap joint",
+        "V31.toilet.roof.ridge end border",
+        "V31.toilet.roof.ridge end plate",
+        "V31.toilet.side earthen skirt",
+        "V31.toilet.side low rail"
+      ],
+      "visibleOriginals": [
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.bracket.lower seating block",
+        "V28.toilet.frame.bracket.shaped timber shoulder",
+        "V28.toilet.frame.bracket.upper bearing",
+        "V28.toilet.frame.cross beam",
+        "V28.toilet.frame.long beam",
+        "V28.toilet.frame.post",
+        "V28.toilet.front wall",
+        "V28.toilet.front wall.head/sill",
+        "V28.toilet.front wall.jamb",
+        "V28.toilet.rear wall",
+        "V28.toilet.roof",
+        "V28.toilet.roof backing",
+        "V28.toilet.roof frame.purlin",
+        "V28.toilet.roof.001",
+        "V28.toilet.roof.002",
+        "V28.toilet.roof.003",
+        "V28.toilet.roof.004",
+        "V28.toilet.roof.005",
+        "V28.toilet.roof.eave beam",
+        "V28.toilet.roof.gable barge",
+        "V28.toilet.roof.gable brace",
+        "V28.toilet.roof.gable centre post",
+        "V28.toilet.roof.gable frame",
+        "V28.toilet.roof.gable timber",
+        "V28.toilet.roof.hip eave beam",
+        "V28.toilet.roof.hip exposed rafters",
+        "V28.toilet.roof.hip ridge",
+        "V28.toilet.roof.hip round tile ends",
+        "V28.toilet.roof.lower exposed rafters",
+        "V28.toilet.roof.rafters",
+        "V28.toilet.roof.ridge stack",
+        "V28.toilet.roof.ridge stack.001",
+        "V28.toilet.roof.ridge stack.002",
+        "V28.toilet.roof.ridge stack.003",
+        "V28.toilet.roof.round tile ends",
+        "V28.toilet.side wall",
+        "V31.toilet.front earthen skirt",
+        "V31.toilet.front low rail",
+        "V31.toilet.roof.ridge cap joint",
+        "V31.toilet.roof.ridge end border",
+        "V31.toilet.roof.ridge end plate",
+        "V31.toilet.side earthen skirt",
+        "V31.toilet.side low rail"
+      ],
+      "visibleProxies": [],
+      "newMembers": 10,
+      "newOriginalMembers": 10,
+      "visibleMembers": 65,
+      "visibleSetSha256": "bcb3aa41f5b7605dc66cde8786a8f1e56fb52aa5cefd6610c7a666ca7ce36f7e",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 8,
+      "processId": "ildu.toilet-north-doors",
+      "label": "문",
+      "isFinal": false,
+      "visibleObjects": [
+        "V28.toilet.door jamb",
+        "V28.toilet.entry.leaf1.back rail",
+        "V28.toilet.entry.leaf1.batten nail",
+        "V28.toilet.entry.leaf1.boards",
+        "V28.toilet.entry.leaf1.boards.001",
+        "V28.toilet.entry.leaf1.boards.002",
+        "V28.toilet.entry.leaf1.boards.003",
+        "V28.toilet.entry.leaf1.canonical batten",
+        "V28.toilet.entry.leaf1.front wooden crossbar",
+        "V28.toilet.entry.leaf1.wood latch",
+        "V28.toilet.entry.leaf1.wooden latch",
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.bracket.lower seating block",
+        "V28.toilet.frame.bracket.shaped timber shoulder",
+        "V28.toilet.frame.bracket.upper bearing",
+        "V28.toilet.frame.cross beam",
+        "V28.toilet.frame.long beam",
+        "V28.toilet.frame.post",
+        "V28.toilet.front wall",
+        "V28.toilet.front wall.head/sill",
+        "V28.toilet.front wall.jamb",
+        "V28.toilet.rear wall",
+        "V28.toilet.roof",
+        "V28.toilet.roof backing",
+        "V28.toilet.roof frame.purlin",
+        "V28.toilet.roof.001",
+        "V28.toilet.roof.002",
+        "V28.toilet.roof.003",
+        "V28.toilet.roof.004",
+        "V28.toilet.roof.005",
+        "V28.toilet.roof.eave beam",
+        "V28.toilet.roof.gable barge",
+        "V28.toilet.roof.gable brace",
+        "V28.toilet.roof.gable centre post",
+        "V28.toilet.roof.gable frame",
+        "V28.toilet.roof.gable timber",
+        "V28.toilet.roof.hip eave beam",
+        "V28.toilet.roof.hip exposed rafters",
+        "V28.toilet.roof.hip ridge",
+        "V28.toilet.roof.hip round tile ends",
+        "V28.toilet.roof.lower exposed rafters",
+        "V28.toilet.roof.rafters",
+        "V28.toilet.roof.ridge stack",
+        "V28.toilet.roof.ridge stack.001",
+        "V28.toilet.roof.ridge stack.002",
+        "V28.toilet.roof.ridge stack.003",
+        "V28.toilet.roof.round tile ends",
+        "V28.toilet.side wall",
+        "V31.toilet.front earthen skirt",
+        "V31.toilet.front low rail",
+        "V31.toilet.roof.ridge cap joint",
+        "V31.toilet.roof.ridge end border",
+        "V31.toilet.roof.ridge end plate",
+        "V31.toilet.side earthen skirt",
+        "V31.toilet.side low rail"
+      ],
+      "visibleOriginals": [
+        "V28.toilet.door jamb",
+        "V28.toilet.entry.leaf1.back rail",
+        "V28.toilet.entry.leaf1.batten nail",
+        "V28.toilet.entry.leaf1.boards",
+        "V28.toilet.entry.leaf1.boards.001",
+        "V28.toilet.entry.leaf1.boards.002",
+        "V28.toilet.entry.leaf1.boards.003",
+        "V28.toilet.entry.leaf1.canonical batten",
+        "V28.toilet.entry.leaf1.front wooden crossbar",
+        "V28.toilet.entry.leaf1.wood latch",
+        "V28.toilet.entry.leaf1.wooden latch",
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.bracket.lower seating block",
+        "V28.toilet.frame.bracket.shaped timber shoulder",
+        "V28.toilet.frame.bracket.upper bearing",
+        "V28.toilet.frame.cross beam",
+        "V28.toilet.frame.long beam",
+        "V28.toilet.frame.post",
+        "V28.toilet.front wall",
+        "V28.toilet.front wall.head/sill",
+        "V28.toilet.front wall.jamb",
+        "V28.toilet.rear wall",
+        "V28.toilet.roof",
+        "V28.toilet.roof backing",
+        "V28.toilet.roof frame.purlin",
+        "V28.toilet.roof.001",
+        "V28.toilet.roof.002",
+        "V28.toilet.roof.003",
+        "V28.toilet.roof.004",
+        "V28.toilet.roof.005",
+        "V28.toilet.roof.eave beam",
+        "V28.toilet.roof.gable barge",
+        "V28.toilet.roof.gable brace",
+        "V28.toilet.roof.gable centre post",
+        "V28.toilet.roof.gable frame",
+        "V28.toilet.roof.gable timber",
+        "V28.toilet.roof.hip eave beam",
+        "V28.toilet.roof.hip exposed rafters",
+        "V28.toilet.roof.hip ridge",
+        "V28.toilet.roof.hip round tile ends",
+        "V28.toilet.roof.lower exposed rafters",
+        "V28.toilet.roof.rafters",
+        "V28.toilet.roof.ridge stack",
+        "V28.toilet.roof.ridge stack.001",
+        "V28.toilet.roof.ridge stack.002",
+        "V28.toilet.roof.ridge stack.003",
+        "V28.toilet.roof.round tile ends",
+        "V28.toilet.side wall",
+        "V31.toilet.front earthen skirt",
+        "V31.toilet.front low rail",
+        "V31.toilet.roof.ridge cap joint",
+        "V31.toilet.roof.ridge end border",
+        "V31.toilet.roof.ridge end plate",
+        "V31.toilet.side earthen skirt",
+        "V31.toilet.side low rail"
+      ],
+      "visibleProxies": [],
+      "newMembers": 11,
+      "newOriginalMembers": 11,
+      "visibleMembers": 76,
+      "visibleSetSha256": "c52827b9a72fe62ec60edd579aea00061cb1c12a7047ca202bc3c732d518d979",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 9,
+      "processId": "ildu.toilet-north-care",
+      "label": "돌봄",
+      "isFinal": true,
+      "visibleObjects": [
+        "GyeCraft.toilet.irregular paving 0",
+        "GyeCraft.toilet.irregular paving 1",
+        "GyeCraft.toilet.irregular paving 2",
+        "GyeCraft.toilet.irregular paving 3",
+        "GyeCraft.toilet.irregular paving 4",
+        "V28.toilet.door jamb",
+        "V28.toilet.entry.leaf1.back rail",
+        "V28.toilet.entry.leaf1.batten nail",
+        "V28.toilet.entry.leaf1.boards",
+        "V28.toilet.entry.leaf1.boards.001",
+        "V28.toilet.entry.leaf1.boards.002",
+        "V28.toilet.entry.leaf1.boards.003",
+        "V28.toilet.entry.leaf1.canonical batten",
+        "V28.toilet.entry.leaf1.front wooden crossbar",
+        "V28.toilet.entry.leaf1.wood latch",
+        "V28.toilet.entry.leaf1.wooden latch",
+        "V28.toilet.finish.step",
+        "V28.toilet.floor",
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.bracket.lower seating block",
+        "V28.toilet.frame.bracket.shaped timber shoulder",
+        "V28.toilet.frame.bracket.upper bearing",
+        "V28.toilet.frame.cross beam",
+        "V28.toilet.frame.long beam",
+        "V28.toilet.frame.post",
+        "V28.toilet.front wall",
+        "V28.toilet.front wall.head/sill",
+        "V28.toilet.front wall.jamb",
+        "V28.toilet.rear wall",
+        "V28.toilet.roof",
+        "V28.toilet.roof backing",
+        "V28.toilet.roof frame.purlin",
+        "V28.toilet.roof.001",
+        "V28.toilet.roof.002",
+        "V28.toilet.roof.003",
+        "V28.toilet.roof.004",
+        "V28.toilet.roof.005",
+        "V28.toilet.roof.eave beam",
+        "V28.toilet.roof.gable barge",
+        "V28.toilet.roof.gable brace",
+        "V28.toilet.roof.gable centre post",
+        "V28.toilet.roof.gable frame",
+        "V28.toilet.roof.gable timber",
+        "V28.toilet.roof.hip eave beam",
+        "V28.toilet.roof.hip exposed rafters",
+        "V28.toilet.roof.hip ridge",
+        "V28.toilet.roof.hip round tile ends",
+        "V28.toilet.roof.lower exposed rafters",
+        "V28.toilet.roof.rafters",
+        "V28.toilet.roof.ridge stack",
+        "V28.toilet.roof.ridge stack.001",
+        "V28.toilet.roof.ridge stack.002",
+        "V28.toilet.roof.ridge stack.003",
+        "V28.toilet.roof.round tile ends",
+        "V28.toilet.side wall",
+        "V31.toilet.front earthen skirt",
+        "V31.toilet.front low rail",
+        "V31.toilet.roof.ridge cap joint",
+        "V31.toilet.roof.ridge end border",
+        "V31.toilet.roof.ridge end plate",
+        "V31.toilet.side earthen skirt",
+        "V31.toilet.side low rail"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.toilet.irregular paving 0",
+        "GyeCraft.toilet.irregular paving 1",
+        "GyeCraft.toilet.irregular paving 2",
+        "GyeCraft.toilet.irregular paving 3",
+        "GyeCraft.toilet.irregular paving 4",
+        "V28.toilet.door jamb",
+        "V28.toilet.entry.leaf1.back rail",
+        "V28.toilet.entry.leaf1.batten nail",
+        "V28.toilet.entry.leaf1.boards",
+        "V28.toilet.entry.leaf1.boards.001",
+        "V28.toilet.entry.leaf1.boards.002",
+        "V28.toilet.entry.leaf1.boards.003",
+        "V28.toilet.entry.leaf1.canonical batten",
+        "V28.toilet.entry.leaf1.front wooden crossbar",
+        "V28.toilet.entry.leaf1.wood latch",
+        "V28.toilet.entry.leaf1.wooden latch",
+        "V28.toilet.finish.step",
+        "V28.toilet.floor",
+        "V28.toilet.foundation.core",
+        "V28.toilet.foundation.post stone",
+        "V28.toilet.foundation.post stone.001",
+        "V28.toilet.foundation.stone.face0",
+        "V28.toilet.foundation.stone.face0.001",
+        "V28.toilet.foundation.stone.face0.002",
+        "V28.toilet.foundation.stone.face0.003",
+        "V28.toilet.foundation.stone.face0.004",
+        "V28.toilet.foundation.stone.face1",
+        "V28.toilet.foundation.stone.face1.001",
+        "V28.toilet.foundation.stone.face1.002",
+        "V28.toilet.foundation.stone.face1.003",
+        "V28.toilet.foundation.stone.face1.004",
+        "V28.toilet.foundation.stone.face2",
+        "V28.toilet.foundation.stone.face2.001",
+        "V28.toilet.foundation.stone.face2.002",
+        "V28.toilet.foundation.stone.face2.003",
+        "V28.toilet.foundation.stone.face2.004",
+        "V28.toilet.foundation.stone.face3",
+        "V28.toilet.foundation.stone.face3.001",
+        "V28.toilet.foundation.stone.face3.002",
+        "V28.toilet.foundation.stone.face3.003",
+        "V28.toilet.frame.bracket.lower seating block",
+        "V28.toilet.frame.bracket.shaped timber shoulder",
+        "V28.toilet.frame.bracket.upper bearing",
+        "V28.toilet.frame.cross beam",
+        "V28.toilet.frame.long beam",
+        "V28.toilet.frame.post",
+        "V28.toilet.front wall",
+        "V28.toilet.front wall.head/sill",
+        "V28.toilet.front wall.jamb",
+        "V28.toilet.rear wall",
+        "V28.toilet.roof",
+        "V28.toilet.roof backing",
+        "V28.toilet.roof frame.purlin",
+        "V28.toilet.roof.001",
+        "V28.toilet.roof.002",
+        "V28.toilet.roof.003",
+        "V28.toilet.roof.004",
+        "V28.toilet.roof.005",
+        "V28.toilet.roof.eave beam",
+        "V28.toilet.roof.gable barge",
+        "V28.toilet.roof.gable brace",
+        "V28.toilet.roof.gable centre post",
+        "V28.toilet.roof.gable frame",
+        "V28.toilet.roof.gable timber",
+        "V28.toilet.roof.hip eave beam",
+        "V28.toilet.roof.hip exposed rafters",
+        "V28.toilet.roof.hip ridge",
+        "V28.toilet.roof.hip round tile ends",
+        "V28.toilet.roof.lower exposed rafters",
+        "V28.toilet.roof.rafters",
+        "V28.toilet.roof.ridge stack",
+        "V28.toilet.roof.ridge stack.001",
+        "V28.toilet.roof.ridge stack.002",
+        "V28.toilet.roof.ridge stack.003",
+        "V28.toilet.roof.round tile ends",
+        "V28.toilet.side wall",
+        "V31.toilet.front earthen skirt",
+        "V31.toilet.front low rail",
+        "V31.toilet.roof.ridge cap joint",
+        "V31.toilet.roof.ridge end border",
+        "V31.toilet.roof.ridge end plate",
+        "V31.toilet.side earthen skirt",
+        "V31.toilet.side low rail"
+      ],
+      "visibleProxies": [],
+      "newMembers": 7,
+      "newOriginalMembers": 7,
+      "visibleMembers": 83,
+      "visibleSetSha256": "d754bb300a7d9688fbfc237460e76b78d8a5fd97475a2722762a03f1a80d1353",
+      "noNewGeometry": false
+    }
+  ],
+  "originalObjectCount": 83,
+  "proxyObjectCount": 0,
+  "baseline": {
+    "GyeCraft.toilet.irregular paving 0": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.toilet.irregular paving 1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.toilet.irregular paving 2": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.toilet.irregular paving 3": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.toilet.irregular paving 4": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.door jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.entry.leaf1.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.entry.leaf1.batten nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.entry.leaf1.boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.entry.leaf1.boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.entry.leaf1.boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.entry.leaf1.boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.entry.leaf1.canonical batten": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.entry.leaf1.front wooden crossbar": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.entry.leaf1.wood latch": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.entry.leaf1.wooden latch": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.finish.step": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.floor": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.core": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.post stone": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.post stone.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face0": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face0.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face0.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face0.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face0.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face1.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face1.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face1.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face1.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face2": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face2.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face2.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face2.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face2.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face3": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face3.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face3.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.foundation.stone.face3.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.frame.bracket.lower seating block": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.frame.bracket.shaped timber shoulder": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.frame.bracket.upper bearing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.frame.cross beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.frame.long beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.frame.post": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.front wall": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.front wall.head/sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.front wall.jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.rear wall": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof frame.purlin": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.eave beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.gable barge": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.gable brace": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.gable centre post": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.gable frame": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.gable timber": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.hip eave beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.hip exposed rafters": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.hip ridge": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.hip round tile ends": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.lower exposed rafters": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.rafters": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.ridge stack": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.ridge stack.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.ridge stack.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.ridge stack.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.roof.round tile ends": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.toilet.side wall": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V31.toilet.front earthen skirt": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V31.toilet.front low rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V31.toilet.roof.ridge cap joint": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V31.toilet.roof.ridge end border": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V31.toilet.roof.ridge end plate": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V31.toilet.side earthen skirt": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V31.toilet.side low rail": {
+      "hideRender": false,
+      "hideViewport": false
+    }
+  },
+  "requiredStage": {
+    "GyeCraft.toilet.irregular paving 0": 9,
+    "GyeCraft.toilet.irregular paving 1": 9,
+    "GyeCraft.toilet.irregular paving 2": 9,
+    "GyeCraft.toilet.irregular paving 3": 9,
+    "GyeCraft.toilet.irregular paving 4": 9,
+    "V28.toilet.door jamb": 8,
+    "V28.toilet.entry.leaf1.back rail": 8,
+    "V28.toilet.entry.leaf1.batten nail": 8,
+    "V28.toilet.entry.leaf1.boards": 8,
+    "V28.toilet.entry.leaf1.boards.001": 8,
+    "V28.toilet.entry.leaf1.boards.002": 8,
+    "V28.toilet.entry.leaf1.boards.003": 8,
+    "V28.toilet.entry.leaf1.canonical batten": 8,
+    "V28.toilet.entry.leaf1.front wooden crossbar": 8,
+    "V28.toilet.entry.leaf1.wood latch": 8,
+    "V28.toilet.entry.leaf1.wooden latch": 8,
+    "V28.toilet.finish.step": 9,
+    "V28.toilet.floor": 9,
+    "V28.toilet.foundation.core": 1,
+    "V28.toilet.foundation.post stone": 1,
+    "V28.toilet.foundation.post stone.001": 1,
+    "V28.toilet.foundation.stone.face0": 1,
+    "V28.toilet.foundation.stone.face0.001": 1,
+    "V28.toilet.foundation.stone.face0.002": 1,
+    "V28.toilet.foundation.stone.face0.003": 1,
+    "V28.toilet.foundation.stone.face0.004": 1,
+    "V28.toilet.foundation.stone.face1": 1,
+    "V28.toilet.foundation.stone.face1.001": 1,
+    "V28.toilet.foundation.stone.face1.002": 1,
+    "V28.toilet.foundation.stone.face1.003": 1,
+    "V28.toilet.foundation.stone.face1.004": 1,
+    "V28.toilet.foundation.stone.face2": 1,
+    "V28.toilet.foundation.stone.face2.001": 1,
+    "V28.toilet.foundation.stone.face2.002": 1,
+    "V28.toilet.foundation.stone.face2.003": 1,
+    "V28.toilet.foundation.stone.face2.004": 1,
+    "V28.toilet.foundation.stone.face3": 1,
+    "V28.toilet.foundation.stone.face3.001": 1,
+    "V28.toilet.foundation.stone.face3.002": 1,
+    "V28.toilet.foundation.stone.face3.003": 1,
+    "V28.toilet.frame.bracket.lower seating block": 3,
+    "V28.toilet.frame.bracket.shaped timber shoulder": 3,
+    "V28.toilet.frame.bracket.upper bearing": 3,
+    "V28.toilet.frame.cross beam": 3,
+    "V28.toilet.frame.long beam": 3,
+    "V28.toilet.frame.post": 2,
+    "V28.toilet.front wall": 7,
+    "V28.toilet.front wall.head/sill": 7,
+    "V28.toilet.front wall.jamb": 7,
+    "V28.toilet.rear wall": 7,
+    "V28.toilet.roof": 6,
+    "V28.toilet.roof backing": 5,
+    "V28.toilet.roof frame.purlin": 3,
+    "V28.toilet.roof.001": 6,
+    "V28.toilet.roof.002": 6,
+    "V28.toilet.roof.003": 6,
+    "V28.toilet.roof.004": 6,
+    "V28.toilet.roof.005": 6,
+    "V28.toilet.roof.eave beam": 4,
+    "V28.toilet.roof.gable barge": 6,
+    "V28.toilet.roof.gable brace": 4,
+    "V28.toilet.roof.gable centre post": 4,
+    "V28.toilet.roof.gable frame": 4,
+    "V28.toilet.roof.gable timber": 7,
+    "V28.toilet.roof.hip eave beam": 4,
+    "V28.toilet.roof.hip exposed rafters": 4,
+    "V28.toilet.roof.hip ridge": 6,
+    "V28.toilet.roof.hip round tile ends": 6,
+    "V28.toilet.roof.lower exposed rafters": 4,
+    "V28.toilet.roof.rafters": 4,
+    "V28.toilet.roof.ridge stack": 6,
+    "V28.toilet.roof.ridge stack.001": 6,
+    "V28.toilet.roof.ridge stack.002": 6,
+    "V28.toilet.roof.ridge stack.003": 6,
+    "V28.toilet.roof.round tile ends": 6,
+    "V28.toilet.side wall": 7,
+    "V31.toilet.front earthen skirt": 7,
+    "V31.toilet.front low rail": 7,
+    "V31.toilet.roof.ridge cap joint": 6,
+    "V31.toilet.roof.ridge end border": 6,
+    "V31.toilet.roof.ridge end plate": 6,
+    "V31.toilet.side earthen skirt": 7,
+    "V31.toilet.side low rail": 7
+  },
+  "lineage": {
+    "GyeCraft.toilet.irregular paving 0": {
+      "sourceObject": "GyeCraft.toilet.irregular paving 0",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.toilet.irregular paving 1": {
+      "sourceObject": "GyeCraft.toilet.irregular paving 1",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.toilet.irregular paving 2": {
+      "sourceObject": "GyeCraft.toilet.irregular paving 2",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.toilet.irregular paving 3": {
+      "sourceObject": "GyeCraft.toilet.irregular paving 3",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.toilet.irregular paving 4": {
+      "sourceObject": "GyeCraft.toilet.irregular paving 4",
+      "processId": null,
+      "original": true
+    },
+    "V28.toilet.door jamb": {
+      "sourceObject": "V28.toilet.door jamb",
+      "processId": "ildu.toilet-north-doors",
+      "original": true
+    },
+    "V28.toilet.entry.leaf1.back rail": {
+      "sourceObject": "V28.toilet.entry.leaf1.back rail",
+      "processId": "ildu.toilet-north-doors",
+      "original": true
+    },
+    "V28.toilet.entry.leaf1.batten nail": {
+      "sourceObject": "V28.toilet.entry.leaf1.batten nail",
+      "processId": "ildu.toilet-north-doors",
+      "original": true
+    },
+    "V28.toilet.entry.leaf1.boards": {
+      "sourceObject": "V28.toilet.entry.leaf1.boards",
+      "processId": "ildu.toilet-north-doors",
+      "original": true
+    },
+    "V28.toilet.entry.leaf1.boards.001": {
+      "sourceObject": "V28.toilet.entry.leaf1.boards.001",
+      "processId": "ildu.toilet-north-doors",
+      "original": true
+    },
+    "V28.toilet.entry.leaf1.boards.002": {
+      "sourceObject": "V28.toilet.entry.leaf1.boards.002",
+      "processId": "ildu.toilet-north-doors",
+      "original": true
+    },
+    "V28.toilet.entry.leaf1.boards.003": {
+      "sourceObject": "V28.toilet.entry.leaf1.boards.003",
+      "processId": "ildu.toilet-north-doors",
+      "original": true
+    },
+    "V28.toilet.entry.leaf1.canonical batten": {
+      "sourceObject": "V28.toilet.entry.leaf1.canonical batten",
+      "processId": "ildu.toilet-north-doors",
+      "original": true
+    },
+    "V28.toilet.entry.leaf1.front wooden crossbar": {
+      "sourceObject": "V28.toilet.entry.leaf1.front wooden crossbar",
+      "processId": "ildu.toilet-north-doors",
+      "original": true
+    },
+    "V28.toilet.entry.leaf1.wood latch": {
+      "sourceObject": "V28.toilet.entry.leaf1.wood latch",
+      "processId": "ildu.toilet-north-doors",
+      "original": true
+    },
+    "V28.toilet.entry.leaf1.wooden latch": {
+      "sourceObject": "V28.toilet.entry.leaf1.wooden latch",
+      "processId": "ildu.toilet-north-doors",
+      "original": true
+    },
+    "V28.toilet.finish.step": {
+      "sourceObject": "V28.toilet.finish.step",
+      "processId": null,
+      "original": true
+    },
+    "V28.toilet.floor": {
+      "sourceObject": "V28.toilet.floor",
+      "processId": null,
+      "original": true
+    },
+    "V28.toilet.foundation.core": {
+      "sourceObject": "V28.toilet.foundation.core",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.post stone": {
+      "sourceObject": "V28.toilet.foundation.post stone",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.post stone.001": {
+      "sourceObject": "V28.toilet.foundation.post stone.001",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face0": {
+      "sourceObject": "V28.toilet.foundation.stone.face0",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face0.001": {
+      "sourceObject": "V28.toilet.foundation.stone.face0.001",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face0.002": {
+      "sourceObject": "V28.toilet.foundation.stone.face0.002",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face0.003": {
+      "sourceObject": "V28.toilet.foundation.stone.face0.003",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face0.004": {
+      "sourceObject": "V28.toilet.foundation.stone.face0.004",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face1": {
+      "sourceObject": "V28.toilet.foundation.stone.face1",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face1.001": {
+      "sourceObject": "V28.toilet.foundation.stone.face1.001",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face1.002": {
+      "sourceObject": "V28.toilet.foundation.stone.face1.002",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face1.003": {
+      "sourceObject": "V28.toilet.foundation.stone.face1.003",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face1.004": {
+      "sourceObject": "V28.toilet.foundation.stone.face1.004",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face2": {
+      "sourceObject": "V28.toilet.foundation.stone.face2",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face2.001": {
+      "sourceObject": "V28.toilet.foundation.stone.face2.001",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face2.002": {
+      "sourceObject": "V28.toilet.foundation.stone.face2.002",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face2.003": {
+      "sourceObject": "V28.toilet.foundation.stone.face2.003",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face2.004": {
+      "sourceObject": "V28.toilet.foundation.stone.face2.004",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face3": {
+      "sourceObject": "V28.toilet.foundation.stone.face3",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face3.001": {
+      "sourceObject": "V28.toilet.foundation.stone.face3.001",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face3.002": {
+      "sourceObject": "V28.toilet.foundation.stone.face3.002",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.foundation.stone.face3.003": {
+      "sourceObject": "V28.toilet.foundation.stone.face3.003",
+      "processId": "ildu.toilet-north-foundation",
+      "original": true
+    },
+    "V28.toilet.frame.bracket.lower seating block": {
+      "sourceObject": "V28.toilet.frame.bracket.lower seating block",
+      "processId": "ildu.toilet-north-beams",
+      "original": true
+    },
+    "V28.toilet.frame.bracket.shaped timber shoulder": {
+      "sourceObject": "V28.toilet.frame.bracket.shaped timber shoulder",
+      "processId": "ildu.toilet-north-beams",
+      "original": true
+    },
+    "V28.toilet.frame.bracket.upper bearing": {
+      "sourceObject": "V28.toilet.frame.bracket.upper bearing",
+      "processId": "ildu.toilet-north-beams",
+      "original": true
+    },
+    "V28.toilet.frame.cross beam": {
+      "sourceObject": "V28.toilet.frame.cross beam",
+      "processId": "ildu.toilet-north-beams",
+      "original": true
+    },
+    "V28.toilet.frame.long beam": {
+      "sourceObject": "V28.toilet.frame.long beam",
+      "processId": "ildu.toilet-north-beams",
+      "original": true
+    },
+    "V28.toilet.frame.post": {
+      "sourceObject": "V28.toilet.frame.post",
+      "processId": "ildu.toilet-north-posts",
+      "original": true
+    },
+    "V28.toilet.front wall": {
+      "sourceObject": "V28.toilet.front wall",
+      "processId": "ildu.toilet-north-walls",
+      "original": true
+    },
+    "V28.toilet.front wall.head/sill": {
+      "sourceObject": "V28.toilet.front wall.head/sill",
+      "processId": "ildu.toilet-north-walls",
+      "original": true
+    },
+    "V28.toilet.front wall.jamb": {
+      "sourceObject": "V28.toilet.front wall.jamb",
+      "processId": "ildu.toilet-north-walls",
+      "original": true
+    },
+    "V28.toilet.rear wall": {
+      "sourceObject": "V28.toilet.rear wall",
+      "processId": "ildu.toilet-north-walls",
+      "original": true
+    },
+    "V28.toilet.roof": {
+      "sourceObject": "V28.toilet.roof",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V28.toilet.roof backing": {
+      "sourceObject": "V28.toilet.roof backing",
+      "processId": "ildu.toilet-north-roof-bed",
+      "original": true
+    },
+    "V28.toilet.roof frame.purlin": {
+      "sourceObject": "V28.toilet.roof frame.purlin",
+      "processId": "ildu.toilet-north-beams",
+      "original": true
+    },
+    "V28.toilet.roof.001": {
+      "sourceObject": "V28.toilet.roof.001",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V28.toilet.roof.002": {
+      "sourceObject": "V28.toilet.roof.002",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V28.toilet.roof.003": {
+      "sourceObject": "V28.toilet.roof.003",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V28.toilet.roof.004": {
+      "sourceObject": "V28.toilet.roof.004",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V28.toilet.roof.005": {
+      "sourceObject": "V28.toilet.roof.005",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V28.toilet.roof.eave beam": {
+      "sourceObject": "V28.toilet.roof.eave beam",
+      "processId": "ildu.toilet-north-rafters",
+      "original": true
+    },
+    "V28.toilet.roof.gable barge": {
+      "sourceObject": "V28.toilet.roof.gable barge",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V28.toilet.roof.gable brace": {
+      "sourceObject": "V28.toilet.roof.gable brace",
+      "processId": "ildu.toilet-north-rafters",
+      "original": true
+    },
+    "V28.toilet.roof.gable centre post": {
+      "sourceObject": "V28.toilet.roof.gable centre post",
+      "processId": "ildu.toilet-north-rafters",
+      "original": true
+    },
+    "V28.toilet.roof.gable frame": {
+      "sourceObject": "V28.toilet.roof.gable frame",
+      "processId": "ildu.toilet-north-rafters",
+      "original": true
+    },
+    "V28.toilet.roof.gable timber": {
+      "sourceObject": "V28.toilet.roof.gable timber",
+      "processId": "ildu.toilet-north-walls",
+      "original": true
+    },
+    "V28.toilet.roof.hip eave beam": {
+      "sourceObject": "V28.toilet.roof.hip eave beam",
+      "processId": "ildu.toilet-north-rafters",
+      "original": true
+    },
+    "V28.toilet.roof.hip exposed rafters": {
+      "sourceObject": "V28.toilet.roof.hip exposed rafters",
+      "processId": "ildu.toilet-north-rafters",
+      "original": true
+    },
+    "V28.toilet.roof.hip ridge": {
+      "sourceObject": "V28.toilet.roof.hip ridge",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V28.toilet.roof.hip round tile ends": {
+      "sourceObject": "V28.toilet.roof.hip round tile ends",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V28.toilet.roof.lower exposed rafters": {
+      "sourceObject": "V28.toilet.roof.lower exposed rafters",
+      "processId": "ildu.toilet-north-rafters",
+      "original": true
+    },
+    "V28.toilet.roof.rafters": {
+      "sourceObject": "V28.toilet.roof.rafters",
+      "processId": "ildu.toilet-north-rafters",
+      "original": true
+    },
+    "V28.toilet.roof.ridge stack": {
+      "sourceObject": "V28.toilet.roof.ridge stack",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V28.toilet.roof.ridge stack.001": {
+      "sourceObject": "V28.toilet.roof.ridge stack.001",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V28.toilet.roof.ridge stack.002": {
+      "sourceObject": "V28.toilet.roof.ridge stack.002",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V28.toilet.roof.ridge stack.003": {
+      "sourceObject": "V28.toilet.roof.ridge stack.003",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V28.toilet.roof.round tile ends": {
+      "sourceObject": "V28.toilet.roof.round tile ends",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V28.toilet.side wall": {
+      "sourceObject": "V28.toilet.side wall",
+      "processId": "ildu.toilet-north-walls",
+      "original": true
+    },
+    "V31.toilet.front earthen skirt": {
+      "sourceObject": "V31.toilet.front earthen skirt",
+      "processId": "ildu.toilet-north-walls",
+      "original": true
+    },
+    "V31.toilet.front low rail": {
+      "sourceObject": "V31.toilet.front low rail",
+      "processId": "ildu.toilet-north-walls",
+      "original": true
+    },
+    "V31.toilet.roof.ridge cap joint": {
+      "sourceObject": "V31.toilet.roof.ridge cap joint",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V31.toilet.roof.ridge end border": {
+      "sourceObject": "V31.toilet.roof.ridge end border",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V31.toilet.roof.ridge end plate": {
+      "sourceObject": "V31.toilet.roof.ridge end plate",
+      "processId": "ildu.toilet-north-tiles",
+      "original": true
+    },
+    "V31.toilet.side earthen skirt": {
+      "sourceObject": "V31.toilet.side earthen skirt",
+      "processId": "ildu.toilet-north-walls",
+      "original": true
+    },
+    "V31.toilet.side low rail": {
+      "sourceObject": "V31.toilet.side low rail",
+      "processId": "ildu.toilet-north-walls",
+      "original": true
+    }
+  },
+  "nullProcessOriginals": [
+    "GyeCraft.toilet.irregular paving 0",
+    "GyeCraft.toilet.irregular paving 1",
+    "GyeCraft.toilet.irregular paving 2",
+    "GyeCraft.toilet.irregular paving 3",
+    "GyeCraft.toilet.irregular paving 4",
+    "V28.toilet.finish.step",
+    "V28.toilet.floor"
+  ],
+  "legacyDisplayPolicyDifferences": [],
+  "legacyPolicyUnmodified": true,
+  "processIdsAndOrderPreserved": true,
+  "sourceDataEdited": false
+}

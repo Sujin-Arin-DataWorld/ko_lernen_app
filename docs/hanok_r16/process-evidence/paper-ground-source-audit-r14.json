@@ -1,0 +1,4025 @@
+{
+  "rows": [
+    {
+      "object": "Continuity.numaru front changho.leaf1.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm han",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Continuity.numaru front changho.leaf2.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm han",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Continuity.numaru rear changho.leaf1.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm han",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Continuity.numaru rear changho.leaf2.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm han",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Correction.rear room paired window.leaf1.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm ha",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.001",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.001",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Correction.rear room paired window.leaf2.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm ha",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.001",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.001",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Junction.seam004 leaf.paper",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm han",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Projection.Numaru outer side changho.leaf1.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm h",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Projection.Numaru outer side changho.leaf2.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm h",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang front bay 1.leaf1.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm han",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang front bay 1.leaf2.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm han",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang front bay 1.leaf3.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm han",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang front bay 2.leaf1.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm ",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.003",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang front bay 2.leaf2.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm ",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.003",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang front bay 3.leaf1.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm ",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.003",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang front bay 3.leaf2.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm ",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.003",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang front bay 4.leaf1.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm han",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang front bay 4.leaf2.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm han",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang left side.leaf1.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm h",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang left side.leaf2.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm h",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang left side.leaf3.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm h",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang rear bay 0.leaf1.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm ha",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.001",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.001",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang rear bay 0.leaf2.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm ha",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.001",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.001",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang rear bay 1.leaf1.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm han",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang rear bay 1.leaf2.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm han",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang right side.leaf1.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm h",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Ref.Sarang right side.leaf2.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm h",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Sarang.interior room door interpretation.paper",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.003",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.004",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Sarang.main two-bay ondol floor",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm papered ondol floor.001",
+      "role": "paper",
+      "props": {
+        "V20 surface": "hanji fibres",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm papered ondol floor",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm papered ondol floor",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "r6_role": "paper",
+        "r6_source_material": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm papered ondol floor.001",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm papered ondol floor.001",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm papered ondol floor"
+      ]
+    },
+    {
+      "object": "Sarang.wing front room ondol floor",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm papered ondol floor.002",
+      "role": "paper",
+      "props": {
+        "V20 surface": "hanji fibres",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm papered ondol floor",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm papered ondol floor",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "r6_role": "paper",
+        "r6_source_material": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm papered ondol floor.001",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm papered ondol floor.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm papered ondol floor"
+      ]
+    },
+    {
+      "object": "Sarang.wing rear room ondol floor",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm papered ondol floor.002",
+      "role": "paper",
+      "props": {
+        "V20 surface": "hanji fibres",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm papered ondol floor",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm papered ondol floor",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "r6_role": "paper",
+        "r6_source_material": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm papered ondol floor.001",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm papered ondol floor.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm papered ondol floor"
+      ]
+    },
+    {
+      "object": "Space.main room east door.paper",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm h",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "Space.wing rear room west door.paper",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm h",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice.002",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "V25.wing rear paired window.leaf1.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm han",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "V25.wing rear paired window.leaf2.hanji backing",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS13 sampled paper | HS12 warmth paper | HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm han",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper",
+        "hangulsori_style": "Bible 1.1 / production r2",
+        "hs2_role": "paper",
+        "hs2_source": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs3_reference": "Gemini_Generated_Image_824e6v824e6v824e.jpg",
+        "hs6_calibration": "Retain source detail; match warm timber and neutral charcoal; avoid excessive sheen from literal SPEC.",
+        "freshMaterialProfile": "paper",
+        "sourceMode": "ungraded source textures plus new independent colour and BRDF",
+        "referenceColourProfile": "paper",
+        "referenceColourSha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "referenceColourPolicy": "Old pigment disconnected; sampled RGB in bounded ramps; scalar source detail only",
+        "detail4": "paper",
+        "warmth_version": "r12.2",
+        "warmth_role": "paper",
+        "source_material_name": "HS detail4 paper | HS reference 3 paper | HS fresh paper | HS3 paper | HS2 paper | Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "hs13_reference_sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "hs13_sample_family": "paper"
+      },
+      "shader": {
+        "activeBSDF": "Handpaint r2 | Fresh independent material surface",
+        "baseDefaultLinear": [
+          0.18000000715255737,
+          0.18000000715255737,
+          0.18000000715255737,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          1.0,
+          0.7454041838645935,
+          0.37123769521713257,
+          1.0
+        ],
+        "emissionStrength": 4.199999809265137,
+        "Base ColorLinks": [
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color"
+          ]
+        ],
+        "Emission ColorLinks": [
+          [
+            "HS12 quiet golden paper emission",
+            "Color"
+          ]
+        ],
+        "Emission ColorRampLinear": [
+          [
+            0.0,
+            [
+              0.9301108717918396,
+              0.4910208582878113,
+              0.12743768095970154,
+              1.0
+            ]
+          ],
+          [
+            0.5,
+            [
+              1.0,
+              0.577580451965332,
+              0.18782077729701996,
+              1.0
+            ]
+          ],
+          [
+            1.0,
+            [
+              1.0,
+              0.6514056324958801,
+              0.27049779891967773,
+              1.0
+            ]
+          ]
+        ],
+        "NormalLinks": [
+          [
+            "Handpaint r2 | Fresh shading edge only",
+            "Normal"
+          ]
+        ],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice"
+      ]
+    },
+    {
+      "object": "HS2 display ground (non-canonical)",
+      "hidden": false,
+      "slot": 0,
+      "material": "HS12 warmth ground | HS2 warm parchment ground.001",
+      "role": "ground",
+      "props": {
+        "warmth_version": "r12.2",
+        "warmth_role": "ground",
+        "source_material_name": "HS2 warm parchment ground.001"
+      },
+      "shader": {
+        "activeBSDF": "Principled BSDF",
+        "baseDefaultLinear": [
+          0.8879231214523315,
+          0.8069522380828857,
+          0.7083757519721985,
+          1.0
+        ],
+        "emissionDefaultLinear": [
+          0.8962693810462952,
+          0.7758222222328186,
+          0.6444796919822693,
+          1.0
+        ],
+        "emissionStrength": 0.0,
+        "Base ColorLinks": [],
+        "Emission ColorLinks": [],
+        "NormalLinks": [],
+        "RoughnessLinks": []
+      },
+      "meshSources": [
+        "HS2 warm parchment ground.001"
+      ]
+    }
+  ],
+  "lights": [
+    {
+      "name": "HS3 SPEC warm upper-left key",
+      "power": 3.5,
+      "color": [
+        1.0,
+        0.9046611785888672,
+        0.7454041838645935
+      ]
+    },
+    {
+      "name": "HS3 soft material separation fill",
+      "power": 900.0,
+      "color": [
+        1.0,
+        0.9046611785888672,
+        0.7454041838645935
+      ]
+    },
+    {
+      "name": "HS3 SPEC main warm interior bounce",
+      "power": 90.0,
+      "color": [
+        1.0,
+        0.5,
+        0.18000000715255737
+      ]
+    },
+    {
+      "name": "HS3 SPEC numaru warm interior bounce",
+      "power": 150.0,
+      "color": [
+        1.0,
+        0.5,
+        0.18000000715255737
+      ]
+    },
+    {
+      "name": "HS3 numaru opening bounce",
+      "power": 20.0,
+      "color": [
+        1.0,
+        0.5,
+        0.18000000715255737
+      ]
+    }
+  ],
+  "view": {
+    "transform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": 0.20000000298023224
+  }
+}

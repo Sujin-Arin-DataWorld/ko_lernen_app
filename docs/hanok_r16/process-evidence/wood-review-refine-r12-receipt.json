@@ -1,0 +1,729 @@
+{
+  "version": "r12-wood-review-1",
+  "changedSlots": 60,
+  "changedObjects": 27,
+  "copiedMaterials": 17,
+  "assignments": [
+    {
+      "object": "Craft.Sarang broad apron boards",
+      "slot": 1,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004"
+    },
+    {
+      "object": "Craft.Sarang broad apron boards",
+      "slot": 2,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v69 boards tone 1.001",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v69 boards tone 1.001"
+    },
+    {
+      "object": "Craft.Sarang broad apron boards",
+      "slot": 3,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.004"
+    },
+    {
+      "object": "Craft.Sarang broad apron boards.001",
+      "slot": 1,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004"
+    },
+    {
+      "object": "Craft.Sarang broad apron boards.001",
+      "slot": 2,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v69 boards tone 1.001",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v69 boards tone 1.001"
+    },
+    {
+      "object": "Craft.Sarang broad apron boards.002",
+      "slot": 1,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.002",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.002"
+    },
+    {
+      "object": "Craft.Sarang broad apron boards.002",
+      "slot": 2,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.004"
+    },
+    {
+      "object": "Craft.Sarang broad apron boards.002",
+      "slot": 3,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v69 boards tone 0.001",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v69 boards tone 0.001"
+    },
+    {
+      "object": "Craft.Sarang broad apron boards.002",
+      "slot": 4,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4.004"
+    },
+    {
+      "object": "Enclosure.Numaru lower closed corner",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v"
+    },
+    {
+      "object": "Enclosure.Numaru lower closed corner",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 0.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang "
+    },
+    {
+      "object": "Enclosure.Numaru lower front vertical board",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.004",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards t"
+    },
+    {
+      "object": "Enclosure.Numaru lower front vertical board",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower front vertical board.001",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower front vertical board.001",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards"
+    },
+    {
+      "object": "Enclosure.Numaru lower front vertical board.001",
+      "slot": 3,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 board"
+    },
+    {
+      "object": "Enclosure.Numaru lower front vertical board.002",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 0.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boar"
+    },
+    {
+      "object": "Enclosure.Numaru lower front vertical board.002",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards"
+    },
+    {
+      "object": "Enclosure.Numaru lower front vertical board.002",
+      "slot": 3,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.004",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards t"
+    },
+    {
+      "object": "Enclosure.Numaru lower front vertical board.002",
+      "slot": 4,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower front vertical board.003",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower front vertical board.003",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.004",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards t"
+    },
+    {
+      "object": "Enclosure.Numaru lower left vertical board",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower left vertical board.001",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 board"
+    },
+    {
+      "object": "Enclosure.Numaru lower left vertical board.001",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower left vertical board.001",
+      "slot": 3,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards"
+    },
+    {
+      "object": "Enclosure.Numaru lower left vertical board.002",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards"
+    },
+    {
+      "object": "Enclosure.Numaru lower left vertical board.002",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower left vertical board.003",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.004",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards t"
+    },
+    {
+      "object": "Enclosure.Numaru lower left vertical board.003",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards"
+    },
+    {
+      "object": "Enclosure.Numaru lower left vertical board.003",
+      "slot": 3,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower rear vertical board",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards"
+    },
+    {
+      "object": "Enclosure.Numaru lower rear vertical board",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower rear vertical board",
+      "slot": 3,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.004",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards t"
+    },
+    {
+      "object": "Enclosure.Numaru lower rear vertical board",
+      "slot": 4,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 board"
+    },
+    {
+      "object": "Enclosure.Numaru lower rear vertical board.001",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower rear vertical board.002",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards"
+    },
+    {
+      "object": "Enclosure.Numaru lower rear vertical board.002",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.004",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards t"
+    },
+    {
+      "object": "Enclosure.Numaru lower rear vertical board.002",
+      "slot": 3,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 0.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boar"
+    },
+    {
+      "object": "Enclosure.Numaru lower rear vertical board.003",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.004",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards t"
+    },
+    {
+      "object": "Enclosure.Numaru lower rear vertical board.003",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower rear vertical board.003",
+      "slot": 3,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards"
+    },
+    {
+      "object": "Enclosure.Numaru lower right vertical board",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower right vertical board",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.004",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards t"
+    },
+    {
+      "object": "Enclosure.Numaru lower right vertical board.001",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower right vertical board.001",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 0.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boar"
+    },
+    {
+      "object": "Enclosure.Numaru lower right vertical board.002",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower right vertical board.002",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards"
+    },
+    {
+      "object": "Enclosure.Numaru lower right vertical board.002",
+      "slot": 3,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.004",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards t"
+    },
+    {
+      "object": "Enclosure.Numaru lower right vertical board.003",
+      "slot": 1,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards"
+    },
+    {
+      "object": "Enclosure.Numaru lower right vertical board.003",
+      "slot": 2,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.004",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards t"
+    },
+    {
+      "object": "Enclosure.Numaru lower right vertical board.003",
+      "slot": 3,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards "
+    },
+    {
+      "object": "Enclosure.Numaru lower right vertical board.003",
+      "slot": 4,
+      "action": "lower_board",
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 board"
+    },
+    {
+      "object": "Landing.restored front timber apron",
+      "slot": 1,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.002",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.002"
+    },
+    {
+      "object": "Landing.restored front timber apron.001",
+      "slot": 1,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004"
+    },
+    {
+      "object": "Landing.restored front timber apron.002",
+      "slot": 1,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4.004"
+    },
+    {
+      "object": "Projection.Numaru floor bearer",
+      "slot": 1,
+      "action": "stripe",
+      "source": "HS12 timber floor | HS reference 3 floor | HS fresh floor | HS3 wood | HS2 wood | Ildu craft floor-plank | R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v69 floor tone 2.001",
+      "material": "HS12 review stripe | HS12 timber floor | HS reference 3 floor | HS fresh floor | HS3 wood | HS2 wood | Ildu craft floor-plank | R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v69 floor tone 2.001"
+    },
+    {
+      "object": "V25.left horizontal boarding",
+      "slot": 1,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004"
+    },
+    {
+      "object": "V25.left horizontal boarding.001",
+      "slot": 1,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004"
+    },
+    {
+      "object": "V25.left horizontal boarding.002",
+      "slot": 1,
+      "action": "apron",
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004"
+    }
+  ],
+  "materials": [
+    {
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004",
+      "sourceProfile": "apron",
+      "profile": "apron",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.32,
+      "contrastAboutBodyMidpoint": 1.14,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v69 boards tone 1.001",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v69 boards tone 1.001",
+      "sourceProfile": "apron",
+      "profile": "apron",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.32,
+      "contrastAboutBodyMidpoint": 1.14,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.004",
+      "sourceProfile": "apron",
+      "profile": "apron",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.32,
+      "contrastAboutBodyMidpoint": 1.14,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.002",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.002",
+      "sourceProfile": "apron",
+      "profile": "apron",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.32,
+      "contrastAboutBodyMidpoint": 1.14,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v69 boards tone 0.001",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v69 boards tone 0.001",
+      "sourceProfile": "apron",
+      "profile": "apron",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.32,
+      "contrastAboutBodyMidpoint": 1.14,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4.004",
+      "sourceProfile": "apron",
+      "profile": "apron",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.32,
+      "contrastAboutBodyMidpoint": 1.14,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v",
+      "sourceProfile": "lower_board",
+      "profile": "lower_board",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.38,
+      "contrastAboutBodyMidpoint": 1.18,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 0.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang ",
+      "sourceProfile": "lower_board",
+      "profile": "lower_board",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.38,
+      "contrastAboutBodyMidpoint": 1.18,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.004",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards t",
+      "sourceProfile": "lower_board",
+      "profile": "lower_board",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.38,
+      "contrastAboutBodyMidpoint": 1.18,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.002",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards ",
+      "sourceProfile": "lower_board",
+      "profile": "lower_board",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.38,
+      "contrastAboutBodyMidpoint": 1.18,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards",
+      "sourceProfile": "lower_board",
+      "profile": "lower_board",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.38,
+      "contrastAboutBodyMidpoint": 1.18,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 board",
+      "sourceProfile": "lower_board",
+      "profile": "lower_board",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.38,
+      "contrastAboutBodyMidpoint": 1.18,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 0.003",
+      "material": "HS12 review lower_board | HS12 timber lower_board | HS reference 3 lower_board | HS fresh lower_board | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boar",
+      "sourceProfile": "lower_board",
+      "profile": "lower_board",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.38,
+      "contrastAboutBodyMidpoint": 1.18,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.002",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.002",
+      "sourceProfile": "apron",
+      "profile": "apron",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.32,
+      "contrastAboutBodyMidpoint": 1.14,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.004",
+      "sourceProfile": "apron",
+      "profile": "apron",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.32,
+      "contrastAboutBodyMidpoint": 1.14,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4.004",
+      "material": "HS12 review apron | HS12 timber apron | HS reference 3 apron | HS fresh apron | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4.004",
+      "sourceProfile": "apron",
+      "profile": "apron",
+      "action": "broader existing growth and sparse existing knots",
+      "sourceImage": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\numaru-authored-material-atlas.png",
+      "broadWeight": 0.32,
+      "contrastAboutBodyMidpoint": 1.14,
+      "sampleScale": [
+        0.58,
+        0.82
+      ],
+      "fineFibreTap": 0.003,
+      "paletteColorsAndMemberMixUnchanged": true,
+      "originalUVNormalRoughnessAndEndCutUnchanged": true
+    },
+    {
+      "source": "HS12 timber floor | HS reference 3 floor | HS fresh floor | HS3 wood | HS2 wood | Ildu craft floor-plank | R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v69 floor tone 2.001",
+      "material": "HS12 review stripe | HS12 timber floor | HS reference 3 floor | HS fresh floor | HS3 wood | HS2 wood | Ildu craft floor-plank | R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v69 floor tone 2.001",
+      "sourceProfile": "floor",
+      "profile": "railing",
+      "action": "railing amber on exterior floor bearer only",
+      "ramps": [
+        "HS12 railing grain palette A",
+        "HS12 railing grain palette B"
+      ],
+      "linearAlbedoScale": 0.9,
+      "memberMixRange": [
+        0.46,
+        0.54
+      ],
+      "grainNormalRoughnessAndEndCutUnchanged": true
+    }
+  ],
+  "architectureAndUVUnchanged": true,
+  "originalMaterialsUnchanged": true,
+  "untargetedSlotsUnchanged": true,
+  "lightsWorldExposureAndCameraUnchanged": true,
+  "roleAndMemberPalettesPreservedOutsideIdentifiedStripe": true,
+  "endgrainPalettesPreserved": true,
+  "savedNative": false,
+  "rendered": false,
+  "visualAcceptance": "pending root stone/full render comparison",
+  "idempotencyVerified": true
+}

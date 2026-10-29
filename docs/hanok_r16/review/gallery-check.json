@@ -1,0 +1,12 @@
+{
+  "buildingButtons": 11,
+  "allProcessImagesDecoded": 128,
+  "allProcessLabelsVerified": true,
+  "stage5LabelVerified": true,
+  "zoomOpenCloseVerified": true,
+  "buildingSwitchVerified": true,
+  "desktopScreenshot": "gallery-desktop.png",
+  "mobileScreenshot": "gallery-mobile.png",
+  "horizontalOverflow": false,
+  "javascriptErrors": []
+}

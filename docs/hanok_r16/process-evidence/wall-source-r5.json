@@ -1,0 +1,2526 @@
+[
+  {
+    "object": "Continuity.numaru front wall",
+    "material": "HS2 plaster | Ildu craft plaster | R6 restored plaster | HS white r2 | sarang | plaster | Selected timber v2 | sarang | P18 image.sarang.plaster.Gye cared limewash v52",
+    "nodes": [
+      {
+        "name": "Math.002",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Shift texture only",
+        "label": "Shift texture only",
+        "type": "VECT_MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Brush size for this source UV",
+                "Vector"
+              ]
+            ]
+          },
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Different fixed phase per source member",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 broad body independent slope",
+        "label": "HS white r2 broad body independent slope",
+        "type": "BUMP",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Height",
+            "source": [
+              [
+                "HS white r2 bounded shallow trowel face gradients",
+                "Color"
+              ]
+            ]
+          },
+          {
+            "name": "Normal",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "UV 맵",
+        "label": "",
+        "type": "UVMAP",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "Handpaint r2 | HS2 neutral ivory fibre and lime",
+        "label": "HS2 neutral ivory fibre and lime",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "Illustration quiet warm lime and paper",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Math.001",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Val"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Different fixed phase per source member",
+        "label": "Different fixed phase per source member",
+        "type": "VECT_MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Fixed pigment phase",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 bounded original brush face high",
+        "label": "HS white r2 bounded original brush face high",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "HS white r2 bounded original brush face low",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "이미지 텍스처",
+        "label": "",
+        "type": "TEX_IMAGE",
+        "image": "gye-limewash-brush-v26.png.002",
+        "path": "//..\\..\\..\\..\\..\\..\\ildu-connected-courtyard-20261013\\packed\\gye-limewash-brush-v26.png.001",
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "",
+                "UV"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Illustration quiet warm lime and paper",
+        "label": "Illustration quiet warm lime and paper",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "R6 editable brush coverage; zero restores grain",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Math",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Val"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Fixed pigment phase",
+        "label": "Fixed pigment phase",
+        "type": "TEX_WHITE_NOISE",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "W",
+            "source": [
+              [
+                "Building R5 Original member phase",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "머티리얼 출력",
+        "label": "",
+        "type": "OUTPUT_MATERIAL",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Surface",
+            "source": [
+              [
+                "",
+                "BSDF"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R6 thin selective paint surface",
+        "label": "R6 thin selective paint surface",
+        "type": "BUMP",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Height",
+            "source": [
+              [
+                "R5 independent paint alpha",
+                "Val"
+              ]
+            ]
+          },
+          {
+            "name": "Normal",
+            "source": [
+              [
+                "R6 plaster material relief over original normals",
+                "Normal"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 bounded original brush face low",
+        "label": "HS white r2 bounded original brush face low",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "HS white r2 brush luma normalization",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "RGB to BW",
+        "label": "",
+        "type": "RGBTOBW",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Building R5 Original member phase",
+        "label": "Building R5 Original member phase",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Stable original object brush phase",
+                "Random"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Existing member identity; no mesh attribute added",
+                "Factor"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "프린시플드 BSDF",
+        "label": "",
+        "type": "BSDF_PRINCIPLED",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Base Color",
+            "source": [
+              [
+                "HS2 neutral ivory fibre and lime",
+                "Color"
+              ]
+            ]
+          },
+          {
+            "name": "Roughness",
+            "source": [
+              [
+                "Building R5 ",
+                "Value"
+              ]
+            ]
+          },
+          {
+            "name": "Normal",
+            "source": [
+              [
+                "R6 thin selective paint surface",
+                "Normal"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R6 plaster material relief over original normals",
+        "label": "R6 plaster material relief over original normals",
+        "type": "BUMP",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Height",
+            "source": [
+              [
+                "R6 material-specific pigment detail",
+                "Val"
+              ]
+            ]
+          },
+          {
+            "name": "Normal",
+            "source": [
+              [
+                "HS white r2 shallow trowel facet gradients",
+                "Normal"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 brush luma normalization",
+        "label": "HS white r2 brush luma normalization",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "HS white r2 brush luma lower range",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Existing member identity; no mesh attribute adde",
+        "label": "Existing member identity; no mesh attribute added",
+        "type": "ATTRIBUTE",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "Mix (Legacy)",
+        "label": "",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "Visible orange reduction; preserve grain direction",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 brush luma lower range",
+        "label": "HS white r2 brush luma lower range",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "HS white r2 original mapped limewash brush density",
+                "Val"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Building R5 Material upper roughness bound",
+        "label": "Building R5 Material upper roughness bound",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Building R5 Material lower roughness bound",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Hue/Saturation/Value",
+        "label": "Visible orange reduction; preserve grain direction",
+        "type": "HUE_SAT",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Stable original object brush phase",
+        "label": "Stable original object brush phase",
+        "type": "OBJECT_INFO",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "HS white r2 original mapped limewash brush density",
+        "label": "HS white r2 original mapped limewash brush density",
+        "type": "RGBTOBW",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Building R5 Material lower roughness bound",
+        "label": "Building R5 Material lower roughness bound",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Building R5 Material tooth roughness",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "믹스 (레거시).001",
+        "label": "",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Factor",
+            "source": [
+              [
+                "",
+                "Factor"
+              ]
+            ]
+          },
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "",
+                "Normal"
+              ]
+            ]
+          },
+          {
+            "name": "Color2",
+            "source": [
+              [
+                "",
+                "Normal"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Brush size for this source UV",
+        "label": "Brush size for this source UV",
+        "type": "VECT_MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Existing original member UV; mesh untouched",
+                "UV"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 bounded shallow trowel face gradients.001",
+        "label": "HS white r2 bounded shallow trowel face gradients",
+        "type": "VALTORGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Factor",
+            "source": [
+              [
+                "HS white r2 broad mineral body",
+                "Factor"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Building R5 Material tooth roughness",
+        "label": "Building R5 Material tooth roughness",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "HS white r2 matte roughness high",
+                "Value"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Building R5 Centred material variation",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "지오메트리",
+        "label": "",
+        "type": "NEW_GEOMETRY",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "Handpaint r2 | Existing original member UV; mesh untouched",
+        "label": "Existing original member UV; mesh untouched",
+        "type": "UVMAP",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "HS white r2 broad mineral body",
+        "label": "HS white r2 broad mineral body",
+        "type": "TEX_NOISE",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "HS white r2 metres",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Building R5 Centred material variation",
+        "label": "Building R5 Centred material variation",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "R6 shallow roughness variation follows material",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "범프",
+        "label": "",
+        "type": "BUMP",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Height",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 matte roughness high",
+        "label": "HS white r2 matte roughness high",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "HS white r2 matte roughness low",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 bounded shallow trowel face gradients",
+        "label": "HS white r2 bounded shallow trowel face gradients",
+        "type": "VALTORGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Factor",
+            "source": [
+              [
+                "HS white r2 single-scale hand laid face",
+                "Factor"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R6 shallow roughness variation follows material",
+        "label": "R6 shallow roughness variation follows material",
+        "type": "VALTORGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Factor",
+            "source": [
+              [
+                "R6 material-specific pigment detail",
+                "Val"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 matte roughness low",
+        "label": "HS white r2 matte roughness low",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "HS white r2 retain source roughness character",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "수학.003",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 single-scale hand laid face",
+        "label": "HS white r2 single-scale hand laid face",
+        "type": "TEX_NOISE",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "HS white r2 weakly directional trowel planes",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R6 material-specific pigment detail",
+        "label": "R6 material-specific pigment detail",
+        "type": "RGBTOBW",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 retain source roughness character",
+        "label": "HS white r2 retain source roughness character",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "HS white r2 broad field roughness",
+                "Value"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "source": [
+              [
+                "HS white r2 minor source roughness",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "속성.002",
+        "label": "",
+        "type": "ATTRIBUTE",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "HS white r2 weakly directional trowel planes",
+        "label": "HS white r2 weakly directional trowel planes",
+        "type": "VECT_MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "HS white r2 metres",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R6 editable brush coverage; zero restores grain",
+        "label": "R6 editable brush coverage; zero restores grain",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          },
+          {
+            "name": "Color2",
+            "source": [
+              [
+                "R6 pigment over intact grain",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 minor source roughness",
+        "label": "HS white r2 minor source roughness",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "HS white r2 source roughness centre",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "수학.002",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Factor"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Factor"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 metres",
+        "label": "HS white r2 metres",
+        "type": "VECT_MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "HS white r2 world physical size",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R6 pigment over intact grain",
+        "label": "R6 pigment over intact grain",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          },
+          {
+            "name": "Color2",
+            "source": [
+              [
+                "R6 thin broken brush pigment",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 source roughness centre",
+        "label": "HS white r2 source roughness centre",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "수학.001",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 world physical size",
+        "label": "HS white r2 world physical size",
+        "type": "VECT_TRANSFORM",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "HS white r2 original object coordinates",
+                "Object"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R6 thin broken brush pigment",
+        "label": "R6 thin broken brush pigment",
+        "type": "VALTORGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Factor",
+            "source": [
+              [
+                "R5 independent paint alpha",
+                "Val"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "수학",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Factor"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 broad field roughness",
+        "label": "HS white r2 broad field roughness",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "HS white r2 restrained roughness range",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R5 independent paint alpha",
+        "label": "R5 independent paint alpha",
+        "type": "RGBTOBW",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color",
+            "source": [
+              [
+                "R5 hand-brush alpha, surface attached",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 original object coordinates",
+        "label": "HS white r2 original object coordinates",
+        "type": "TEX_COORD",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "믹스 (레거시)",
+        "label": "",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Factor",
+            "source": [
+              [
+                "",
+                "Factor"
+              ]
+            ]
+          },
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          },
+          {
+            "name": "Color2",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 restrained roughness range",
+        "label": "HS white r2 restrained roughness range",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "HS white r2 trowel field centre",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R5 hand-brush alpha, surface attached",
+        "label": "R5 hand-brush alpha, surface attached",
+        "type": "TEX_IMAGE",
+        "image": "material-brush-atlas-r1.png",
+        "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-sarang-r5\\textures\\material-brush-atlas-r1.png",
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Material-specific brush vocabulary",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "속성.001",
+        "label": "",
+        "type": "ATTRIBUTE",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "Handpaint r2 | Building R5 .002",
+        "label": "Building R5 ",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Building R5 ",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 trowel field centre",
+        "label": "HS white r2 trowel field centre",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "HS white r2 bounded shallow trowel face gradients",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Material-specific brush vocabulary",
+        "label": "Material-specific brush vocabulary",
+        "type": "VECT_MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Inset from panel border",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 shallow trowel facet gradients",
+        "label": "HS white r2 shallow trowel facet gradients",
+        "type": "BUMP",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Height",
+            "source": [
+              [
+                "HS white r2 bounded shallow trowel face gradients",
+                "Color"
+              ]
+            ]
+          },
+          {
+            "name": "Normal",
+            "source": [
+              [
+                "HS white r2 original brush independent slope",
+                "Normal"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "속성",
+        "label": "",
+        "type": "ATTRIBUTE",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "Handpaint r2 | Building R5 .001",
+        "label": "Building R5 ",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Building R5 ",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Inset from panel border",
+        "label": "Inset from panel border",
+        "type": "VECT_MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Repeat within one authored brush panel",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Math.003",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HS white r2 original brush independent slope",
+        "label": "HS white r2 original brush independent slope",
+        "type": "BUMP",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Height",
+            "source": [
+              [
+                "HS white r2 bounded original brush face high",
+                "Value"
+              ]
+            ]
+          },
+          {
+            "name": "Normal",
+            "source": [
+              [
+                "HS white r2 broad body independent slope",
+                "Normal"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "이미지 텍스처.001",
+        "label": "",
+        "type": "TEX_IMAGE",
+        "image": "plaster-atlas-v1.png.001",
+        "path": "//..\\..\\..\\..\\..\\..\\ildu-connected-courtyard-20261013\\packed\\plaster-atlas-v1.png",
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Building R5 ",
+        "label": "Building R5 ",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Building R5 Material upper roughness bound",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mix (Legacy).001",
+        "label": "",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          },
+          {
+            "name": "Color2",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Repeat within one authored brush panel",
+        "label": "Repeat within one authored brush panel",
+        "type": "VECT_MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Shift texture only",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "object": "Correction.rear room extended lime base",
+    "material": "HS2 plaster | Ildu craft plaster | R6 restored plaster | Selected timber v2 | sarang | P18 image.sarang.plaster.Gye cared limewash v52.001",
+    "nodes": [
+      {
+        "name": "Handpaint r2 | Building R5 Original member phase",
+        "label": "Building R5 Original member phase",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Stable original object brush phase",
+                "Random"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Existing member identity; no mesh attribute added",
+                "Factor"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "속성",
+        "label": "",
+        "type": "ATTRIBUTE",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "Handpaint r2 | R6 shallow roughness variation follows material",
+        "label": "R6 shallow roughness variation follows material",
+        "type": "VALTORGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Factor",
+            "source": [
+              [
+                "R6 material-specific pigment detail",
+                "Val"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "지오메트리",
+        "label": "",
+        "type": "NEW_GEOMETRY",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "Handpaint r2 | Building R5 ",
+        "label": "Building R5 ",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Building R5 Material upper roughness bound",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Math.003",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "프린시플드 BSDF",
+        "label": "",
+        "type": "BSDF_PRINCIPLED",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Base Color",
+            "source": [
+              [
+                "HS2 neutral ivory fibre and lime",
+                "Color"
+              ]
+            ]
+          },
+          {
+            "name": "Roughness",
+            "source": [
+              [
+                "Building R5 ",
+                "Value"
+              ]
+            ]
+          },
+          {
+            "name": "Normal",
+            "source": [
+              [
+                "R6 thin selective paint surface",
+                "Normal"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R5 independent paint alpha",
+        "label": "R5 independent paint alpha",
+        "type": "RGBTOBW",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color",
+            "source": [
+              [
+                "R5 hand-brush alpha, surface attached",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Repeat within one authored brush panel",
+        "label": "Repeat within one authored brush panel",
+        "type": "VECT_MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Shift texture only",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Building R5 Material upper roughness bound",
+        "label": "Building R5 Material upper roughness bound",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Building R5 Material lower roughness bound",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "수학.001",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "RGB to BW",
+        "label": "",
+        "type": "RGBTOBW",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Existing member identity; no mesh attribute adde",
+        "label": "Existing member identity; no mesh attribute added",
+        "type": "ATTRIBUTE",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "이미지 텍스처.001",
+        "label": "",
+        "type": "TEX_IMAGE",
+        "image": "plaster-atlas-v1.png.001",
+        "path": "//..\\..\\..\\..\\..\\..\\ildu-connected-courtyard-20261013\\packed\\plaster-atlas-v1.png",
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R6 material-specific pigment detail",
+        "label": "R6 material-specific pigment detail",
+        "type": "RGBTOBW",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "범프",
+        "label": "",
+        "type": "BUMP",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Height",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | HS2 neutral ivory fibre and lime",
+        "label": "HS2 neutral ivory fibre and lime",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "Illustration quiet warm lime and paper",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mix (Legacy).001",
+        "label": "",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          },
+          {
+            "name": "Color2",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R5 hand-brush alpha, surface attached",
+        "label": "R5 hand-brush alpha, surface attached",
+        "type": "TEX_IMAGE",
+        "image": "material-brush-atlas-r1.png",
+        "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-sarang-r5\\textures\\material-brush-atlas-r1.png",
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Material-specific brush vocabulary",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Shift texture only",
+        "label": "Shift texture only",
+        "type": "VECT_MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Brush size for this source UV",
+                "Vector"
+              ]
+            ]
+          },
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Different fixed phase per source member",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Building R5 Material lower roughness bound",
+        "label": "Building R5 Material lower roughness bound",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Building R5 Material tooth roughness",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "수학",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Factor"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mix (Legacy)",
+        "label": "",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "Visible orange reduction; preserve grain direction",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "수학.002",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Factor"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Factor"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Stable original object brush phase",
+        "label": "Stable original object brush phase",
+        "type": "OBJECT_INFO",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "UV 맵",
+        "label": "",
+        "type": "UVMAP",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "Handpaint r2 | R6 editable brush coverage; zero restores grain",
+        "label": "R6 editable brush coverage; zero restores grain",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          },
+          {
+            "name": "Color2",
+            "source": [
+              [
+                "R6 pigment over intact grain",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "수학.003",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Illustration quiet warm lime and paper",
+        "label": "Illustration quiet warm lime and paper",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "R6 editable brush coverage; zero restores grain",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Math.002",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Material-specific brush vocabulary",
+        "label": "Material-specific brush vocabulary",
+        "type": "VECT_MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Inset from panel border",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Different fixed phase per source member",
+        "label": "Different fixed phase per source member",
+        "type": "VECT_MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Fixed pigment phase",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "믹스 (레거시)",
+        "label": "",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Factor",
+            "source": [
+              [
+                "",
+                "Factor"
+              ]
+            ]
+          },
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          },
+          {
+            "name": "Color2",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Building R5 Material tooth roughness",
+        "label": "Building R5 Material tooth roughness",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Value"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Building R5 Centred material variation",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Hue/Saturation/Value",
+        "label": "Visible orange reduction; preserve grain direction",
+        "type": "HUE_SAT",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Building R5 .002",
+        "label": "Building R5 ",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Building R5 ",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Brush size for this source UV",
+        "label": "Brush size for this source UV",
+        "type": "VECT_MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Existing original member UV; mesh untouched",
+                "UV"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "이미지 텍스처",
+        "label": "",
+        "type": "TEX_IMAGE",
+        "image": "gye-limewash-brush-v26.png.002",
+        "path": "//..\\..\\..\\..\\..\\..\\ildu-connected-courtyard-20261013\\packed\\gye-limewash-brush-v26.png.001",
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "",
+                "UV"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R6 pigment over intact grain",
+        "label": "R6 pigment over intact grain",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          },
+          {
+            "name": "Color2",
+            "source": [
+              [
+                "R6 thin broken brush pigment",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R6 thin selective paint surface",
+        "label": "R6 thin selective paint surface",
+        "type": "BUMP",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Height",
+            "source": [
+              [
+                "R5 independent paint alpha",
+                "Val"
+              ]
+            ]
+          },
+          {
+            "name": "Normal",
+            "source": [
+              [
+                "R6 plaster material relief over original normals",
+                "Normal"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "속성.002",
+        "label": "",
+        "type": "ATTRIBUTE",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "Math.001",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Val"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Inset from panel border",
+        "label": "Inset from panel border",
+        "type": "VECT_MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "source": [
+              [
+                "Repeat within one authored brush panel",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Fixed pigment phase",
+        "label": "Fixed pigment phase",
+        "type": "TEX_WHITE_NOISE",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "W",
+            "source": [
+              [
+                "Building R5 Original member phase",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "속성.001",
+        "label": "",
+        "type": "ATTRIBUTE",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "Handpaint r2 | Building R5 Centred material variation",
+        "label": "Building R5 Centred material variation",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "R6 shallow roughness variation follows material",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "믹스 (레거시).001",
+        "label": "",
+        "type": "MIX_RGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Factor",
+            "source": [
+              [
+                "",
+                "Factor"
+              ]
+            ]
+          },
+          {
+            "name": "Color1",
+            "source": [
+              [
+                "",
+                "Normal"
+              ]
+            ]
+          },
+          {
+            "name": "Color2",
+            "source": [
+              [
+                "",
+                "Normal"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Building R5 .001",
+        "label": "Building R5 ",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "Building R5 ",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | Existing original member UV; mesh untouched",
+        "label": "Existing original member UV; mesh untouched",
+        "type": "UVMAP",
+        "image": null,
+        "path": null,
+        "inputs": []
+      },
+      {
+        "name": "머티리얼 출력",
+        "label": "",
+        "type": "OUTPUT_MATERIAL",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Surface",
+            "source": [
+              [
+                "",
+                "BSDF"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R6 thin broken brush pigment",
+        "label": "R6 thin broken brush pigment",
+        "type": "VALTORGB",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Factor",
+            "source": [
+              [
+                "R5 independent paint alpha",
+                "Val"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Handpaint r2 | R6 plaster material relief over original normals",
+        "label": "R6 plaster material relief over original normals",
+        "type": "BUMP",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Height",
+            "source": [
+              [
+                "R6 material-specific pigment detail",
+                "Val"
+              ]
+            ]
+          },
+          {
+            "name": "Normal",
+            "source": [
+              [
+                "",
+                "Color"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Math",
+        "label": "",
+        "type": "MATH",
+        "image": null,
+        "path": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "source": [
+              [
+                "",
+                "Val"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
