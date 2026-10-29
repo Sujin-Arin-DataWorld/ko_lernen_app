@@ -23,6 +23,12 @@ void main() {
   /// 하고, 없으면 그 폴더를 렌더하는 코드가 사라졌다는 뜻이라 테스트가 깨진다.
   /// 면제 폴더를 늘릴 때는 반드시 근거 문자열을 함께 적을 것.
   const dynamicDirs = <String, String>{
+    // CIntroArt assembles intro-$name.png; IntroMedal selects level-$code.
+    // c_onboarding_native_test renders every page and loads every level, and
+    // verify_einleitung_asset_delivery.py checks all shipped bytes against
+    // the reviewed source manifest, including the user-supplied check image.
+    'assets/illustrations/einleitung_generated/':
+        'assets/illustrations/einleitung_generated',
     // IlDuConstructionArtCatalog validates the JSON paths; the construction
     // art test loads every stage and lesson image and verifies its SHA-256.
     'assets/illustrations/personal_hanok_v3/construction/hyeopmun/':

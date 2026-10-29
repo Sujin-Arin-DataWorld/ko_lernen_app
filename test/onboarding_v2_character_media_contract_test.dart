@@ -12,6 +12,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/screens/intro_gate_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_character_media.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/c_intro_art.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_journey_screen.dart';
@@ -21,42 +22,29 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 
-import 'support/real_fonts.dart';
+import 'support/einleitung_capture_assets.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(loadSoriRealFonts);
+  setUpAll(loadEinleitungFonts);
 
-  testWidgets('companion choices wire Taego to tiger and Joy to magpie media', (
-    tester,
-  ) async {
-    await _pump(tester, const _CompanionHarness(selectedCompanionId: null));
-    await _pumpFinite(tester);
+  testWidgets(
+    'companion choices retain the approved whole Taego and Joy portraits',
+    (tester) async {
+      await _pump(tester, const _CompanionHarness(selectedCompanionId: null));
+      await _pumpFinite(tester);
 
-    final media = tester
-        .widgetList<OnboardingCharacterMedia>(
-          find.byType(OnboardingCharacterMedia),
-        )
-        .toList(growable: false);
-    expect(media, hasLength(2));
-    expect(media.map((item) => item.characterId), ['tiger', 'magpie']);
-    expect(
-      media.map((item) => item.motion),
-      everyElement(OnboardingCharacterMotion.idle),
-    );
-    expect(media.map((item) => item.active), everyElement(isFalse));
-    expect(media.map((item) => item.resolvedPosterAsset), [
-      'assets/illustrations/onboarding/companions/taego_idle.png',
-      'assets/illustrations/onboarding/companions/joy_idle.png',
-    ]);
-    expect(
-      find.byKey(const ValueKey('onboarding-character-neutral-fallback')),
-      findsNothing,
-      reason: 'The bundled transparent posters must load for both companions.',
-    );
-    _expectNoLegacyMediaOrTint();
-    expect(tester.takeException(), isNull);
-  });
+      _expectWholePortraits(tester);
+      expect(
+        find.byKey(const ValueKey('onboarding-character-neutral-fallback')),
+        findsNothing,
+        reason:
+            'Both approved portraits load without substituting generic media.',
+      );
+      _expectNoLegacyMediaOrTint();
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets('minimal companion selection keeps media disabled', (
     tester,
@@ -69,48 +57,42 @@ void main() {
       ),
     );
     await _pumpFinite(tester);
-    expect(find.byType(CharacterClipPlayer), findsNothing);
-    expect(
-      tester
-          .widgetList<OnboardingCharacterMedia>(
-            find.byType(OnboardingCharacterMedia),
-          )
-          .map((media) => media.active),
-      everyElement(isFalse),
-    );
+    _expectWholePortraits(tester);
+    _expectNoLegacyMediaOrTint();
     await tester.tap(
       find.byKey(const ValueKey('onboarding-v2-companion-continue')),
     );
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('selected companion alone receives its original choose video', (
-    tester,
-  ) async {
-    await _pump(
-      tester,
-      const _CompanionHarness(
-        selectedCompanionId: OnboardingV2Ids.companionJoy,
-      ),
-    );
-    await _pumpFinite(tester);
+  testWidgets(
+    'selected companion updates its check while portraits and bounds stay fixed',
+    (tester) async {
+      await _pump(
+        tester,
+        const _CompanionHarness(
+          selectedCompanionId: OnboardingV2Ids.companionJoy,
+        ),
+      );
+      await _pumpFinite(tester);
 
-    final media = tester
-        .widgetList<OnboardingCharacterMedia>(
-          find.byType(OnboardingCharacterMedia),
-        )
-        .toList(growable: false);
-    expect(media, hasLength(1));
-    expect(media[0].characterId, 'tiger');
-    expect(media[0].motion, OnboardingCharacterMotion.idle);
-    expect(media[0].active, isFalse);
-    final player = tester.widget<CharacterClipPlayer>(
-      find.byType(CharacterClipPlayer),
-    );
-    expect(player.asset, CharacterClips.magpieChoose);
-    expect(player.loop, isFalse);
-    expect(find.byType(TigerStageVideo), findsNothing);
-  });
+      final semantics = tester.ensureSemantics();
+      final taego = find.byKey(const ValueKey('onboarding-v2-companion-taego'));
+      final joy = find.byKey(const ValueKey('onboarding-v2-companion-joy'));
+      final before = [tester.getRect(taego), tester.getRect(joy)];
+      expect(_isSelected(tester, OnboardingV2Ids.companionJoy), isTrue);
+      expect(_isSelected(tester, OnboardingV2Ids.companionTaego), isFalse);
+      await tester.tap(taego);
+      await tester.pumpAndSettle();
+      expect(_isSelected(tester, OnboardingV2Ids.companionTaego), isTrue);
+      expect(_isSelected(tester, OnboardingV2Ids.companionJoy), isFalse);
+      expect([tester.getRect(taego), tester.getRect(joy)], before);
+      _expectWholePortraits(tester);
+      _expectNoLegacyMediaOrTint();
+      expect(tester.takeException(), isNull);
+      semantics.dispose();
+    },
+  );
 
   testWidgets(
     'journey keeps the 30th rapid choice while delayed saves serialize',
@@ -177,12 +159,8 @@ void main() {
             .isSelected,
         Tristate.isTrue,
       );
-      expect(
-        tester
-            .widget<CharacterClipPlayer>(find.byType(CharacterClipPlayer))
-            .asset,
-        CharacterClips.tigerChoose,
-      );
+      _expectWholePortraits(tester);
+      _expectNoLegacyMediaOrTint();
 
       await _releaseSaves(tester, repository, count: 29, failAt: 9);
       expect(
@@ -347,6 +325,27 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+}
+
+void _expectWholePortraits(WidgetTester tester) {
+  for (final entry in {'taego': 'taego-close', 'joy': 'joy-close'}.entries) {
+    final portrait = find.descendant(
+      of: find.byKey(ValueKey('onboarding-v2-companion-${entry.key}')),
+      matching: find.byWidgetPredicate(
+        (widget) => widget is CIntroArt && widget.name == entry.value,
+      ),
+    );
+    expect(portrait, findsOneWidget);
+    final image = tester.widget<Image>(
+      find.descendant(of: portrait, matching: find.byType(Image)),
+    );
+    expect(
+      (image.image as AssetImage).assetName,
+      '${CIntroArt.directory}/intro-${entry.value}.png',
+    );
+    expect(image.fit, BoxFit.contain);
+  }
+  expect(find.byType(OnboardingCharacterMedia), findsNothing);
 }
 
 void _expectNoLegacyMediaOrTint() {

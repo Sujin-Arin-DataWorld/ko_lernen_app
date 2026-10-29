@@ -8,6 +8,7 @@ import 'package:ko_lernen_app/main.dart';
 import 'package:ko_lernen_app/features/onboarding_v2/first_run_runtime.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/welcome_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_result_screen.dart';
@@ -20,14 +21,14 @@ import 'package:ko_lernen_app/services/pack_completion_owner.dart';
 import 'package:ko_lernen_app/services/vocab_pack_finish_coordinator.dart';
 import 'package:ko_lernen_app/widgets/sori/pack_completion_recovery_banner.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'support/real_fonts.dart';
+import 'support/einleitung_capture_assets.dart';
 import 'support/reward_preferences_platform.dart';
 import 'support/sori_speech_stubs.dart';
 import 'support/pack_completion_test_data.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(loadSoriRealFonts);
+  setUpAll(loadEinleitungFonts);
   late RewardPreferencesPlatform native;
   setUp(() async {
     stubSoriSpeech();
@@ -62,6 +63,11 @@ void main() {
         firstRunCoordinator: FirstRunRuntime.createCoordinator(),
       ),
     );
+    await frames(tester);
+    expect(find.byType(WelcomeScreen), findsOneWidget);
+    final start = find.byKey(const ValueKey('welcome-start'));
+    await tester.ensureVisible(start);
+    await tester.tap(start);
     await frames(tester);
     expect(find.byType(ConsentScreen), findsOneWidget);
     expect(tester.takeException(), isNull);

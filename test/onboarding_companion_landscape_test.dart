@@ -6,10 +6,13 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
-import 'support/real_fonts.dart';
+import 'support/einleitung_capture_assets.dart';
 
 void main() {
-  setUpAll(loadSoriRealFonts);
+  TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() async {
+    await loadEinleitungFonts();
+  });
   for (final language in ['de', 'en']) {
     for (final height in [360.0, 480.0, 500.0, 520.0, 540.0]) {
       for (final scale in [1.0, 2.0]) {

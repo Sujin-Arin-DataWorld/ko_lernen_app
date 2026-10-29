@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 2,
+  "reviewedAt": "2026-10-18T19:44:35+00:00",
+  "scope": "Scoped Einleitung integration into the current main base; final review is still in progress.",
+  "verdict": "MAIN_CONTRACTS_PRESERVED_FINAL_BROWSER_AND_DELIVERY_PENDING",
+  "workspace": "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018",
+  "git": {
+    "branch": "session/einleitung-reviewed-main-20261018",
+    "head": "44727c1921b4b7f40748ac0d210d0ca62a094028",
+    "baseHead": "44727c1921b4b7f40748ac0d210d0ca62a094028",
+    "originMainAtIntegration": "44727c1921b4b7f40748ac0d210d0ca62a094028",
+    "preservedOriginalWork": {
+      "branch": "session/einleitung-settings-parity-20261018",
+      "head": "2d68784d3b642a14fe174de26d55b0c82209a694",
+      "stash": "f66e8f1a70da76af2a98a3870605b8f1be70d086",
+      "provenance": "Root reported preserved original WIP; this cleanup performs no Git mutations."
+    },
+    "finalCommit": null,
+    "gitMutationByThisReview": false
+  },
+  "stateContractReview": {
+    "status": "SOURCE_PASS_REPORTED_BY_SPEC_REVIEWER",
+    "preserved": [
+      "Main IntroGate routing and gate lifecycle",
+      "FirstRunCoordinator durable journal, serialized draft writes and commit ownership",
+      "Consent, levels, purpose/story IDs, companion selection and completion/re-entry contracts",
+      "Existing LocalDataLifetime and transactional storage behavior",
+      "Existing content routes, TTS/video and reward ownership"
+    ],
+    "supersededInstructions": "The original-branch inventory proposed gate retirement and direct AppShell completion. That proposal is superseded and excluded; current main gate/coordinator behavior is retained."
+  },
+  "runtimeScope": {
+    "included": [
+      "Welcome and reference-based setup/level sheet",
+      "02-06 story presentation with native text and controls",
+      "07 companion presentation, stable selection/scroll and existing completion flow",
+      "Shared whole-image art, brass controls, fonts and DE/EN copy",
+      "Compatibility wrappers and tests through the actual current UI route"
+    ],
+    "vorschau": {
+      "destination": "EXCLUDED",
+      "owner": "User-designated separate chat: Spiele 앱 구현 계획 세우기",
+      "preserved": "Existing Vorschau entry hook and at least 48 logical pixels of touch area.",
+      "excludedFromThisApproval": [
+        "Destination UI, game logic and data changes",
+        "Destination visual or interaction approval",
+        "Destination implementation work"
+      ],
+      "rule": "Do not use historical destination screenshots or handoff notes as completion evidence for this task."
+    },
+    "excluded": [
+      "Unrelated Lernen, settings, pronunciation and character-media changes from the original branch",
+      "Whole-branch merge or indiscriminate cherry-pick",
+      "Changes to reward, consent, gate ownership or original learning data"
+    ]
+  },
+  "assets": {
+    "count": 32,
+    "bytes": 57771539,
+    "manifest": {
+      "path": "tool/einleitung_generated_assets.json",
+      "sha256": "2a704725c27f280a201cd5e7ff73d2b4b2d20d77c1bde5ee2ff4cf3e94561dea",
+      "bytes": 17682
+    },
+    "currentBytesVerified": true,
+    "httpReceipt": {
+      "path": "tool/einleitung_http_verification.json",
+      "sha256": "1738460a66cd08d9b365addd8f42c17d379436b135c39fb88a2dbab8680207c8",
+      "bytes": 8543
+    },
+    "httpPassed": true,
+    "wholeIndependentImages": true,
+    "sourceScreenshotCrops": false
+  },
+  "fontsAndLocalization": {
+    "fonts": [
+      "Roboto",
+      "RobotoCondensed",
+      "Lora",
+      "NotoSerif"
+    ],
+    "licenses": "Bundled OFL provenance retained.",
+    "newDartPackages": false,
+    "locales": [
+      "de",
+      "en"
+    ],
+    "contracts": "Preserve existing main ARB content and introduce only the scoped onboarding copy/assets."
+  },
+  "figma": {
+    "fileKey": "rVlcMLvngw07BYJ7nRT87C",
+    "pageId": "77:2",
+    "welcome": "85:32",
+    "setup": "80:336",
+    "levelSheet": "80:569",
+    "stories": {
+      "02": "80:380",
+      "03": "80:406",
+      "04": "80:433",
+      "05": "80:455",
+      "06": "80:480"
+    },
+    "companionReferenceStates": {
+      "taego": "80:505",
+      "joy": "80:537"
+    },
+    "comparisonBoard": "108:35",
+    "stateRegistry": "tool/einleitung_figma_state.json",
+    "status": "Previously reviewed same in-scope frame IDs; exact raster identity is not claimed.",
+    "previewDestinationExcluded": "89:32"
+  },
+  "evidence": {
+    "staticCaptures": "docs/screenshots/einleitung-generated-20261018/",
+    "figmaCaptures": "docs/screenshots/einleitung-parity-review-20261018/",
+    "referenceSpec": "tool/einleitung_reference_spec.json",
+    "storyReview": "tool/einleitung_story_art_review.json",
+    "companionReview": "tool/einleitung_companion_ux_review.json",
+    "historicalEvidence": "Versioned Figma intermediates remain historical; only hashes explicitly linked by a scoped review support that review.",
+    "obsoleteProofCleanup": {
+      "status": "EXCLUDED_FROM_PENDING_DELIVERY_BY_ROOT",
+      "files": [
+        "docs/screenshots/einleitung-parity-review-20261018/level-figma-v2.png",
+        "docs/screenshots/einleitung-generated-20261018/live-complete-heute-402-934.png",
+        "docs/screenshots/einleitung-generated-20261018/live-hanok-402-934.png",
+        "docs/screenshots/einleitung-generated-20261018/live-welcome-desktop.png"
+      ],
+      "backup": "Root verified exact bytes in preserved stash f66e8f1a70da76af2a98a3870605b8f1be70d086^3 before removing the four obsolete files.",
+      "currentZeroBytePngCount": 0,
+      "rule": "Exclude zero-byte or superseded browser proofs from current approval evidence; this documentation cleanup deleted no files."
+    }
+  },
+  "tests": {
+    "status": "PREVIOUSLY_PASS_FINAL_TARGETED_RERUN_PENDING",
+    "source": "Root-reported completed runs before the in-flight desktop typography correction.",
+    "groups": [
+      {
+        "group": "new UI",
+        "passed": 54
+      },
+      {
+        "group": "entry and state contracts",
+        "passed": 55
+      },
+      {
+        "group": "existing wrappers",
+        "passed": 84
+      },
+      {
+        "group": "typography",
+        "passed": 10
+      },
+      {
+        "group": "ARB and asset contracts",
+        "passed": 12
+      },
+      {
+        "group": "locale",
+        "passed": 5
+      }
+    ],
+    "uniqueTotalClaimed": false,
+    "fullRepositorySuiteRun": false,
+    "pending": "Rerun checks affected by the SoriTypeScale fixed 402px pane correction; record the final tested source revision."
+  },
+  "remainingIssue": {
+    "status": "IN_PROGRESS",
+    "owner": "Material agent / root",
+    "issue": "Automatic wide-comfort 1.1 text scaling must use the fixed 402px onboarding pane, not the desktop browser width.",
+    "requiredProof": "Fresh actual-browser capture and interaction review at 100% after the correction; affected test reruns."
+  },
+  "gates": {
+    "staticFigma": "SCOPED_PASS",
+    "nativeWidgetCaptures": "SCOPED_PASS_AT_RECORDED_HASHES",
+    "assetManifest": "PASS_32_FILES_CURRENT_BYTES",
+    "httpAssetDelivery": "PASS_32_FILES_AT_RECORDED_BUILD",
+    "finalDesktopTypography": "IN_PROGRESS",
+    "finalActualBrowser": "PENDING",
+    "commit": "PENDING",
+    "push": "PENDING",
+    "exactCommitCI": "PENDING",
+    "merge": "PENDING",
+    "exactMainCI": "PENDING",
+    "physicalDevice": "UNVERIFIED",
+    "storeDelivery": "NOT_PERFORMED",
+    "overallCompletion": false
+  },
+  "limitations": [
+    "Independently generated whole images retain differences in fine texture, foliage, face detail and approximate landmarks; this is scoped visual approval, not 100% pixel identity.",
+    "Final actual-browser approval is pending after correcting automatic 1.1 wide-comfort typography inside the fixed 402px onboarding pane.",
+    "Widget/static capture approval, HTTP asset delivery, actual browser interaction, physical-device QA and release approval are separate gates.",
+    "Successful live TTS playback is not established by prior service-unavailable handling checks.",
+    "Physical-device and store delivery remain unverified."
+  ],
+  "changesMadeByThisCleanup": {
+    "allowedFiles": [
+      "tool/einleitung_verification.json",
+      "tool/einleitung_main_integration_review.json",
+      "tool/einleitung_followup_scope.json",
+      "docs/superpowers/plans/2026-10-18-einleitung-reference-parity.md"
+    ],
+    "runtimeEdits": false,
+    "gitMutations": false,
+    "fileDeletion": false
+  },
+  "nextStep": "Complete the final browser gate and affected tests before commit/push; verify the exact pushed commit CI before merge, then the exact merged main CI. No completion or device claim is made."
+}

@@ -9,7 +9,7 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
-import '../support/real_fonts.dart';
+import '../support/einleitung_capture_assets.dart';
 import '../support/sori_speech_stubs.dart';
 
 // Opt-in rendered evidence, following the existing Sori Stage capture contract.
@@ -17,7 +17,7 @@ import '../support/sori_speech_stubs.dart';
 const _evidenceDir = String.fromEnvironment('ONBOARDING_EVIDENCE_DIR');
 
 void main() {
-  setUpAll(() => loadSoriRealFonts(materialIcons: true));
+  setUpAll(loadEinleitungFonts);
   setUp(() {
     stubSoriSpeech();
     TigerStageVideo.videoReady = false;

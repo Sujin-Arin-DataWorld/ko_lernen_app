@@ -34,6 +34,7 @@ Future<T?> showSoriSheet<T>({
   double maxTextScaleFactor = 1.3,
   bool isDismissible = true,
   bool enableDrag = true,
+  SoriSheetPresentation? presentation,
 }) {
   return showModalBottomSheet<T>(
     context: context,
@@ -41,15 +42,47 @@ Future<T?> showSoriSheet<T>({
     useSafeArea: true,
     isDismissible: isDismissible,
     enableDrag: enableDrag,
-    backgroundColor: Colors.transparent,
-    builder: (ctx) => SoriSheetShell(
-      showHandle: showHandle,
-      scrollable: scrollable,
-      maxHeightFactor: maxHeightFactor,
-      maxTextScaleFactor: maxTextScaleFactor,
-      child: Builder(builder: builder),
-    ),
+    backgroundColor: presentation?.backgroundColor ?? Colors.transparent,
+    constraints: presentation?.constraints,
+    shape: presentation?.shape,
+    builder: (ctx) => presentation != null
+        ? Padding(
+            padding: EdgeInsets.only(
+              bottom: MediaQuery.viewInsetsOf(ctx).bottom,
+            ),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.sizeOf(ctx).height * maxHeightFactor,
+              ),
+              child: Builder(builder: builder),
+            ),
+          )
+        : SoriSheetShell(
+            showHandle: showHandle,
+            scrollable: scrollable,
+            maxHeightFactor: maxHeightFactor,
+            maxTextScaleFactor: maxTextScaleFactor,
+            child: Builder(builder: builder),
+          ),
   );
+}
+
+/// Opt-in route appearance for content that owns its complete sheet surface,
+/// scrolling and bottom safe area (for example the approved level artwork).
+/// [showSoriSheet] still owns dismissal, top safe area, keyboard avoidance and
+/// the viewport height bound. This path deliberately retains the user's exact
+/// text scaler; the content must provide its own flowing large-text layout.
+/// Omitting this object keeps the standard [SoriSheetShell] unchanged.
+class SoriSheetPresentation {
+  const SoriSheetPresentation({
+    required this.backgroundColor,
+    this.constraints,
+    this.shape,
+  });
+
+  final Color backgroundColor;
+  final BoxConstraints? constraints;
+  final ShapeBorder? shape;
 }
 
 /// 시트 외형 + 잘림 방어 셸. 직접 쓸 일은 드물고 [showSoriSheet]를 쓴다.

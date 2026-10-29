@@ -1,0 +1,582 @@
+[
+  {
+    "name": "intro-jade-surface",
+    "response": {
+      "success": true,
+      "imageHash": "90ab945df14dc5f01149e4dd04bac204a0245b50",
+      "sizeBytes": 2316809,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:5"
+    }
+  },
+  {
+    "name": "intro-taego-header",
+    "response": {
+      "success": true,
+      "imageHash": "f954c7295a3b55388a2ed923002d38a2699f8f37",
+      "sizeBytes": 2410369,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:4"
+    }
+  },
+  {
+    "name": "intro-path-scene",
+    "response": {
+      "success": true,
+      "imageHash": "b948b3551e3b6dd2f4bce31a83949a1d81e59e63",
+      "sizeBytes": 2320679,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:2"
+    }
+  },
+  {
+    "name": "intro-sound-scene",
+    "response": {
+      "success": true,
+      "imageHash": "c858fb389a9d4c12129b4e6f185fad33864c8366",
+      "sizeBytes": 2124445,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:3"
+    }
+  },
+  {
+    "name": "intro-games-scene",
+    "response": {
+      "success": true,
+      "imageHash": "0cbe5fe90215498c35949ba44523918c37a02520",
+      "sizeBytes": 2433031,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:6"
+    }
+  },
+  {
+    "name": "intro-scholar-scene",
+    "response": {
+      "success": true,
+      "imageHash": "d68f5116f03c099376160c90d66548274d6c0257",
+      "sizeBytes": 2491879,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:7"
+    }
+  },
+  {
+    "name": "intro-hanok-scene",
+    "response": {
+      "success": true,
+      "imageHash": "c39f568d251ac5db07403d44b68d2865f7f6a019",
+      "sizeBytes": 2668812,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:8"
+    }
+  },
+  {
+    "name": "intro-gold-button",
+    "response": {
+      "success": true,
+      "imageHash": "42ee942b3a2ba1c31fd8134291763f792691d618",
+      "sizeBytes": 1500537,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:9"
+    }
+  },
+  {
+    "name": "intro-paper-footer",
+    "response": {
+      "success": true,
+      "imageHash": "c499dd7bf80a536a918bcda41d13d219b449521c",
+      "sizeBytes": 2261924,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:10"
+    }
+  },
+  {
+    "name": "intro-interest-travel",
+    "response": {
+      "success": true,
+      "imageHash": "6b6210a461895adc208d3458230ed989c021f978",
+      "sizeBytes": 2049608,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:11"
+    }
+  },
+  {
+    "name": "intro-interest-culture",
+    "response": {
+      "success": true,
+      "imageHash": "fbc09631b565f81a8e907a5b61f2974c808a3bda",
+      "sizeBytes": 2328244,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:12"
+    }
+  },
+  {
+    "name": "intro-interest-study",
+    "response": {
+      "success": true,
+      "imageHash": "116900afe30140a02e614cc5176eb32be2ff38c4",
+      "sizeBytes": 2312220,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:13"
+    }
+  },
+  {
+    "name": "intro-interest-kcontent",
+    "response": {
+      "success": true,
+      "imageHash": "5b4577e4f571f0c02bc52c776931c71951a44f87",
+      "sizeBytes": 2547247,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:14"
+    }
+  },
+  {
+    "name": "intro-gye-reading",
+    "response": {
+      "success": true,
+      "imageHash": "c1d8d9b0a04df9a6ebe02f303911f0c8b5abdb79",
+      "sizeBytes": 2387531,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:16"
+    }
+  },
+  {
+    "name": "intro-speaker",
+    "response": {
+      "success": true,
+      "imageHash": "7b544481274f5d1f2a3a9eeb9ddff6abd30005a4",
+      "sizeBytes": 1311108,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:15"
+    }
+  },
+  {
+    "name": "intro-plum-branch",
+    "response": {
+      "success": true,
+      "imageHash": "3a156e169e8b65e8a770a6a9c2ef2852b279abbe",
+      "sizeBytes": 2029533,
+      "contentType": "image/png",
+      "placedOnNodeId": "78:17"
+    }
+  },
+  {
+    "name": "intro-taego-close",
+    "response": {
+      "success": true,
+      "imageHash": "4cc0932056ef60b842df9da1a9a41c6bd77676fd",
+      "sizeBytes": 2520299,
+      "contentType": "image/png",
+      "placedOnNodeId": "81:36"
+    }
+  },
+  {
+    "name": "intro-joy-close",
+    "response": {
+      "success": true,
+      "imageHash": "d42f76a70b1bcd3a3d42363c2ca3d79c7cee06fa",
+      "sizeBytes": 2316259,
+      "contentType": "image/png",
+      "placedOnNodeId": "81:37"
+    }
+  },
+  {
+    "name": "intro-cloud-mark",
+    "response": {
+      "success": true,
+      "imageHash": "5be9b121e5d8fdb33d6a1be8cb4cd7aecfd4eef8",
+      "sizeBytes": 688363,
+      "contentType": "image/png",
+      "placedOnNodeId": "81:35"
+    }
+  },
+  {
+    "name": "intro-welcome-scene",
+    "response": {
+      "success": true,
+      "imageHash": "b05dffa8f6df3c5c679c758a07a58d7ea8fabb11",
+      "sizeBytes": 2536453,
+      "contentType": "image/png",
+      "placedOnNodeId": "84:32"
+    }
+  },
+  {
+    "name": "intro-book-tools",
+    "response": {
+      "success": true,
+      "imageHash": "636e60c928a4d2a1d0e634db844c93dc7c8934a4",
+      "sizeBytes": 1750354,
+      "contentType": "image/png",
+      "placedOnNodeId": "90:39"
+    }
+  },
+  {
+    "name": "intro-hanok-tools",
+    "response": {
+      "success": true,
+      "imageHash": "f5f3abf1d83fbefe2184ec025a4c36a9df333555",
+      "sizeBytes": 1054197,
+      "contentType": "image/png",
+      "placedOnNodeId": "90:38"
+    }
+  },
+  {
+    "name": "check-approved",
+    "response": {
+      "success": true,
+      "imageHash": "9d1d4c06ecef94534d268af293dd33ee961cb7de",
+      "sizeBytes": 1377146,
+      "contentType": "image/png",
+      "placedOnNodeId": "101:38"
+    }
+  },
+  {
+    "name": "medallion-base-approved",
+    "response": {
+      "success": true,
+      "imageHash": "d30e73f22e0a3045cfdebefabc5f542d0d6060ab",
+      "sizeBytes": 1703962,
+      "contentType": "image/png",
+      "placedOnNodeId": "101:39"
+    }
+  },
+  {
+    "name": "level-a2",
+    "response": {
+      "success": true,
+      "imageHash": "b01afd3772581121d06e6d549f80e66dd00c7090",
+      "sizeBytes": 1783013,
+      "contentType": "image/png",
+      "placedOnNodeId": "101:40"
+    }
+  },
+  {
+    "name": "paper-surface",
+    "response": {
+      "success": true,
+      "imageHash": "9c1da78ad1199554039254fde096607ed0ed75ee",
+      "sizeBytes": 2019944,
+      "contentType": "image/png",
+      "placedOnNodeId": "101:41"
+    }
+  },
+  {
+    "name": "gold-button-v2",
+    "response": {
+      "success": true,
+      "imageHash": "2101804632e35fa2b55261051fc7fa5563e40462",
+      "sizeBytes": 1013641,
+      "contentType": "image/png",
+      "placedOnNodeId": "101:42"
+    }
+  },
+  {
+    "name": "interest-travel-v2",
+    "response": {
+      "success": true,
+      "imageHash": "473374dedb02792bd6a15a734c76fbf402dd67b6",
+      "sizeBytes": 1951428,
+      "contentType": "image/png",
+      "placedOnNodeId": "101:43"
+    }
+  },
+  {
+    "name": "interest-culture-v2",
+    "response": {
+      "success": true,
+      "imageHash": "024af3b1dc52eb2b8de1e519572a8b31cceb90af",
+      "sizeBytes": 2192192,
+      "contentType": "image/png",
+      "placedOnNodeId": "101:44"
+    }
+  },
+  {
+    "name": "interest-study-v2",
+    "response": {
+      "success": true,
+      "imageHash": "911597566fd64fbbee0cb02a6535114e0db7ed9d",
+      "sizeBytes": 2210743,
+      "contentType": "image/png",
+      "placedOnNodeId": "101:45"
+    }
+  },
+  {
+    "name": "interest-kcontent-v2",
+    "response": {
+      "success": true,
+      "imageHash": "cbf12aa6e5781f7a6f4b0e70339dc361e0910c32",
+      "sizeBytes": 2038567,
+      "contentType": "image/png",
+      "placedOnNodeId": "101:46"
+    }
+  },
+  {
+    "name": "REFERENCE-01-NOT-RUNTIME",
+    "response": {
+      "success": true,
+      "imageHash": "733b2e1aa444b6d2f93f00ca750401664bf7d1b4",
+      "sizeBytes": 2053572,
+      "contentType": "image/png",
+      "placedOnNodeId": "101:47"
+    }
+  },
+  {
+    "name": "REFERENCE-level-NOT-RUNTIME",
+    "response": {
+      "success": true,
+      "imageHash": "73f79372cb784a38c146d39425f53528fe419479",
+      "sizeBytes": 1970616,
+      "contentType": "image/png",
+      "placedOnNodeId": "101:48"
+    }
+  },
+  {
+    "name": "level-a2-v4",
+    "response": {
+      "success": true,
+      "imageHash": "4817b4480ee9edbbe66a86d3dfdf9486f93d0578",
+      "sizeBytes": 1711471,
+      "contentType": "image/png",
+      "placedOnNodeId": "114:47"
+    }
+  },
+  {
+    "name": "taego-header-v3",
+    "response": {
+      "success": true,
+      "imageHash": "fecf04998ee45b2eb145a45d5bbaad0805449a52",
+      "sizeBytes": 2303855,
+      "contentType": "image/png",
+      "placedOnNodeId": "122:61"
+    }
+  },
+  {
+    "name": "plum-branch-v3",
+    "response": {
+      "success": true,
+      "imageHash": "72164c5f6f1a7ee1c9d4578f4d95805dbbfdf848",
+      "sizeBytes": 1290886,
+      "contentType": "image/png",
+      "placedOnNodeId": "122:59"
+    }
+  },
+  {
+    "name": "interest-travel-v3",
+    "response": {
+      "success": true,
+      "imageHash": "e4db6994f3123565c4b5976f8f2959f02e640a96",
+      "sizeBytes": 2091538,
+      "contentType": "image/png",
+      "placedOnNodeId": "122:62"
+    }
+  },
+  {
+    "name": "interest-culture-v3",
+    "response": {
+      "success": true,
+      "imageHash": "4ff33362d47bb068cd0e607775d27dd7b8ba954e",
+      "sizeBytes": 2492477,
+      "contentType": "image/png",
+      "placedOnNodeId": "122:60"
+    }
+  },
+  {
+    "name": "interest-study-v3",
+    "response": {
+      "success": true,
+      "imageHash": "8cfbd7a14734d7ad539cbe3b6bd5d9f5bce61037",
+      "sizeBytes": 2409369,
+      "contentType": "image/png",
+      "placedOnNodeId": "122:65"
+    }
+  },
+  {
+    "name": "interest-kcontent-v3",
+    "response": {
+      "success": true,
+      "imageHash": "64db7ee202a65d18c66f8f7b2c4963478b2a7e50",
+      "sizeBytes": 2211214,
+      "contentType": "image/png",
+      "placedOnNodeId": "122:66"
+    }
+  },
+  {
+    "name": "level-a1",
+    "response": {
+      "success": true,
+      "imageHash": "606701e38f606e537475ffbc3cc2f94e6c7b3bd1",
+      "sizeBytes": 1566209,
+      "contentType": "image/png",
+      "placedOnNodeId": "122:63"
+    }
+  },
+  {
+    "name": "level-b1",
+    "response": {
+      "success": true,
+      "imageHash": "eaba0fc4a4b9d57c95c1e31a3746b60f867ce969",
+      "sizeBytes": 1541850,
+      "contentType": "image/png",
+      "placedOnNodeId": "122:64"
+    }
+  },
+  {
+    "name": "level-b2",
+    "response": {
+      "success": true,
+      "imageHash": "1b532a878c8cb6889fb4236a7b327d376c4961f4",
+      "sizeBytes": 1556798,
+      "contentType": "image/png",
+      "placedOnNodeId": "122:67"
+    }
+  },
+  {
+    "name": "medal-C1",
+    "response": {
+      "success": true,
+      "imageHash": "c046fb4144a1b160614615ef0a87b3af1e4cefb9",
+      "sizeBytes": 1578211,
+      "contentType": "image/png",
+      "placedOnNodeId": "125:61"
+    }
+  },
+  {
+    "name": "medal-C2",
+    "response": {
+      "success": true,
+      "imageHash": "ffe42b538175619b73480659d891da864fda538c",
+      "sizeBytes": 1594143,
+      "contentType": "image/png",
+      "placedOnNodeId": "125:59"
+    }
+  },
+  {
+    "name": "medal-Beginner",
+    "response": {
+      "success": true,
+      "imageHash": "a8994975a7d1572b904ce95226b3f3afad8777b5",
+      "sizeBytes": 1627297,
+      "contentType": "image/png",
+      "placedOnNodeId": "125:60"
+    }
+  },
+  {
+    "name": "jade-v3",
+    "response": {
+      "success": true,
+      "imageHash": "6f491fecf54b88d71803b6d995449cb0570672cf",
+      "sizeBytes": 2396682,
+      "contentType": "image/png",
+      "placedOnNodeId": "144:185"
+    }
+  },
+  {
+    "name": "gold-cta-v3",
+    "response": {
+      "success": true,
+      "imageHash": "d06a4daa43ed56bf2d53a4b829c8210e90a175fd",
+      "sizeBytes": 852534,
+      "contentType": "image/png",
+      "placedOnNodeId": "144:182"
+    }
+  },
+  {
+    "name": "taego-header-v4",
+    "response": {
+      "success": true,
+      "imageHash": "6461bf85e689c67c0bc35f2ca3a571c09a333072",
+      "sizeBytes": 2120966,
+      "contentType": "image/png",
+      "placedOnNodeId": "144:183"
+    }
+  },
+  {
+    "name": "travel-v4",
+    "response": {
+      "success": true,
+      "imageHash": "cdaea86cff293a3304c3f2384567b0b77bb9899a",
+      "sizeBytes": 2054681,
+      "contentType": "image/png",
+      "placedOnNodeId": "144:184"
+    }
+  },
+  {
+    "name": "paper-footer-v3",
+    "response": {
+      "success": true,
+      "imageHash": "2b04ce49b5b575b4e55d89a0c23d430c9a25cc39",
+      "sizeBytes": 1851430,
+      "contentType": "image/png",
+      "placedOnNodeId": "144:186"
+    }
+  },
+  {
+    "name": "header-right-leaves",
+    "response": {
+      "success": true,
+      "imageHash": "ebcc6c152e37c12b1dbd5b1169b3720f6fcee261",
+      "sizeBytes": 1044892,
+      "contentType": "image/png",
+      "placedOnNodeId": "144:187"
+    }
+  },
+  {
+    "name": "path-v2",
+    "response": {
+      "success": true,
+      "imageHash": "c8e657ebabdc70b39bcff13ae4abafe2c2460862",
+      "sizeBytes": 2141362,
+      "contentType": "image/png",
+      "placedOnNodeId": "176:229"
+    }
+  },
+  {
+    "name": "sound-textfree-v2",
+    "response": {
+      "success": true,
+      "imageHash": "4a10b1e13b2aa6887c02650eb4214cc9abc808d9",
+      "sizeBytes": 1990987,
+      "contentType": "image/png",
+      "placedOnNodeId": "176:227"
+    }
+  },
+  {
+    "name": "games-original-retained",
+    "response": {
+      "success": true,
+      "imageHash": "0cbe5fe90215498c35949ba44523918c37a02520",
+      "sizeBytes": 2433031,
+      "contentType": "image/png",
+      "placedOnNodeId": "176:226"
+    }
+  },
+  {
+    "name": "scholar-textfree-v2",
+    "response": {
+      "success": true,
+      "imageHash": "b827136fb2c68c79590209253047aa71ac4c1f51",
+      "sizeBytes": 2334516,
+      "contentType": "image/png",
+      "placedOnNodeId": "176:228"
+    }
+  },
+  {
+    "name": "hanok-recomposed-v3",
+    "response": {
+      "success": true,
+      "imageHash": "b80647032e51874373d2c8da05aa1d8c45104ca7",
+      "sizeBytes": 2529857,
+      "contentType": "image/png",
+      "placedOnNodeId": "176:231"
+    }
+  },
+  {
+    "name": "hanok-tools-v3",
+    "response": {
+      "success": true,
+      "imageHash": "ef92b00296b466c3099bc1501d383df4d7bccc45",
+      "sizeBytes": 278046,
+      "contentType": "image/png",
+      "placedOnNodeId": "176:230"
+    }
+  }
+]

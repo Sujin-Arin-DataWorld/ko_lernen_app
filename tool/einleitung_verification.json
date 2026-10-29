@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 2,
+  "verifiedAt": "2026-10-18T20:46:13.302706+00:00",
+  "status": "UPDATED_BY_20261029_POLISH_RECORD",
+  "worktree": "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018",
+  "branch": "session/einleitung-reviewed-main-20261018",
+  "baseHead": "44727c1921b4b7f40748ac0d210d0ca62a094028",
+  "preservedOriginalWork": {
+    "branch": "session/einleitung-settings-parity-20261018",
+    "head": "2d68784d3b642a14fe174de26d55b0c82209a694",
+    "stash": "f66e8f1a70da76af2a98a3870605b8f1be70d086",
+    "provenance": "Root reported preserved original WIP; this cleanup performs no Git mutations."
+  },
+  "referenceFolder": "C:/Users/vjinn/.codex/generated_images/einleitung_setting_rats확정",
+  "figma": {
+    "fileKey": "rVlcMLvngw07BYJ7nRT87C",
+    "pageId": "77:2",
+    "welcome": "85:32",
+    "setup": "80:336",
+    "levelSheet": "80:569",
+    "stories": {
+      "02": "80:380",
+      "03": "80:406",
+      "04": "80:433",
+      "05": "80:455",
+      "06": "80:480"
+    },
+    "companionReferenceStates": {
+      "taego": "80:505",
+      "joy": "80:537"
+    },
+    "comparisonBoard": "108:35",
+    "stateRegistry": "tool/einleitung_figma_state.json",
+    "status": "2026-10-29 original hero crops applied in03/05/06; see latest verification.",
+    "previewDestinationExcluded": "89:32"
+  },
+  "assets": {
+    "status": "PASS",
+    "generatedFiles": 36,
+    "bytes": 61769691,
+    "allCurrentManifestSha256Verified": true,
+    "mockupCropsUsed": true,
+    "sourceMastersPreserved": true,
+    "manifest": {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\einleitung-settings-parity-20261018\\tool\\einleitung_generated_assets.json",
+      "bytes": 23496,
+      "sha256": "5414175bc0dafe337cad8bbf74a582bc365e15b01983c8b1b1e35ff75bb6072d"
+    },
+    "http": {
+      "url": "http://127.0.0.1:7392",
+      "passed": true,
+      "count": 36,
+      "receipt": {
+        "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\einleitung-settings-parity-20261018\\tool\\einleitung_http_verification.json",
+        "bytes": 9629,
+        "sha256": "138259b7d405661d05ba458dbea133ae2ff89cc3483bf58ad5c5d4af2631c1fe"
+      },
+      "scope": "2026-10-29 release build:36 PNGs verified HTTP200, image/png, exact SHA-256."
+    },
+    "cropAuthorization": "Explicit user override on2026-10-29 for03/05/06 lettering and icons."
+  },
+  "implementation": {
+    "status": "LOCAL_IMPLEMENTATION_VERIFIED",
+    "entrypoint": "lib/main.dart",
+    "liveUrl": "http://127.0.0.1:7392/#/splash",
+    "onboardingOwner": "Existing main FirstRunCoordinator, IntroGate and durable journal contracts.",
+    "preserved": [
+      "A1/A2/B1/B2/C1/C2 and beginner choices",
+      "Purpose and story IDs, original learning content, TTS ownership and rewards",
+      "Consent, draft persistence, gate lifecycle, completion and re-entry ownership",
+      "DE/EN localization, reduced motion and enlarged-text support"
+    ],
+    "superseded": "Earlier gate-retirement or direct AppShell completion instructions were not adopted into this main integration.",
+    "vorschau": {
+      "destination": "EXCLUDED",
+      "owner": "User-designated separate chat: Spiele 앱 구현 계획 세우기",
+      "preserved": "Existing Vorschau entry hook and at least 48 logical pixels of touch area.",
+      "excludedFromThisApproval": [
+        "Destination UI, game logic and data changes",
+        "Destination visual or interaction approval",
+        "Destination implementation work"
+      ],
+      "rule": "Do not use historical destination screenshots or handoff notes as completion evidence for this task."
+    },
+    "desktopTypography": "Constrained panes replace only SoriComfortTextScaler with their actual width; original OS/custom linear or nonlinear scaler is retained.",
+    "audioBanner": "The existing root TTS failure banner retains localized close semantics without requesting an absent Overlay."
+  },
+  "tests": {
+    "status": "PASS_FOCUSED_AND_AFFECTED_REGRESSIONS",
+    "source": "Completed local runs; overlapping groups are deliberately not summed.",
+    "groups": [
+      {
+        "group": "new UI",
+        "passed": 54
+      },
+      {
+        "group": "entry and state contracts",
+        "passed": 55
+      },
+      {
+        "group": "existing wrappers",
+        "passed": 84
+      },
+      {
+        "group": "typography",
+        "passed": 10
+      },
+      {
+        "group": "ARB and asset contracts",
+        "passed": 12
+      },
+      {
+        "group": "locale",
+        "passed": 5
+      }
+    ],
+    "uniqueTotalClaimed": false,
+    "fullRepositorySuiteRun": false,
+    "finalTargetedRuns": [
+      {
+        "passed": 75,
+        "groups": {
+          "newViewport": 9,
+          "existingTypeScale": 3,
+          "nativeIntroduction": 44,
+          "welcome": 4,
+          "tablet": 5,
+          "typography": 10
+        },
+        "analysis": "No issues found"
+      },
+      {
+        "passed": 22,
+        "groups": {
+          "ttsBanner": 12,
+          "ttsReasons": 6,
+          "hourlyQuota": 4
+        },
+        "analysis": "No issues found",
+        "redBeforeFix": "No Overlay widget found and 99274px Row overflow"
+      }
+    ],
+    "fullRepositorySuite": "Not run locally. Exact pushed and merged commit GitHub runs are authoritative."
+  },
+  "renderedChecks": {
+    "staticCaptures": "docs/screenshots/einleitung-generated-20261018/",
+    "figmaCaptures": "docs/screenshots/einleitung-parity-review-20261018/",
+    "referenceSpec": "tool/einleitung_reference_spec.json",
+    "storyReview": "tool/einleitung_story_art_review.json",
+    "companionReview": "tool/einleitung_companion_ux_review.json",
+    "historicalEvidence": "Versioned Figma intermediates remain historical; only hashes explicitly linked by a scoped review support that review.",
+    "obsoleteProofCleanup": {
+      "status": "EXCLUDED_FROM_PENDING_DELIVERY_BY_ROOT",
+      "files": [
+        "docs/screenshots/einleitung-parity-review-20261018/level-figma-v2.png",
+        "docs/screenshots/einleitung-generated-20261018/live-complete-heute-402-934.png",
+        "docs/screenshots/einleitung-generated-20261018/live-hanok-402-934.png",
+        "docs/screenshots/einleitung-generated-20261018/live-welcome-desktop.png"
+      ],
+      "backup": "Root verified exact bytes in preserved stash f66e8f1a70da76af2a98a3870605b8f1be70d086^3 before removing the four obsolete files.",
+      "currentZeroBytePngCount": 0,
+      "rule": "Exclude zero-byte or superseded browser proofs from current approval evidence; this documentation cleanup deleted no files."
+    }
+  },
+  "gates": {
+    "staticFigma": "SCOPED_PASS",
+    "nativeWidgetCaptures": "SCOPED_PASS_AT_RECORDED_HASHES",
+    "assetManifest": "PASS_32_FILES_CURRENT_BYTES",
+    "httpAssetDelivery": "PASS_FINAL_BUILD_32_FILES",
+    "finalDesktopTypography": "PASS_100_130_200_AND_NONLINEAR",
+    "finalActualBrowser": "PASS_IN_SCOPE",
+    "physicalDevice": "UNVERIFIED",
+    "storeDelivery": "NOT_PERFORMED",
+    "deliveryEvidence": "Use the containing Git commit, associated pull request and exact merged-main GitHub run; this source artifact records local validation only."
+  },
+  "knownLimitations": [
+    "Independently generated whole images retain differences in fine texture, foliage, face detail and approximate landmarks; this is scoped visual approval, not 100% pixel identity.",
+    "Widget/static capture approval, HTTP asset delivery, actual browser interaction, physical-device QA and release approval are separate gates.",
+    "Successful live TTS playback is not established by prior service-unavailable handling checks.",
+    "Physical-device and store delivery remain unverified."
+  ],
+  "delivery": {
+    "scope": "User authorized commit, push and main merge; no store deployment.",
+    "evidence": "GitHub PR merge record and exact commit CI runs, reported separately from this immutable local validation snapshot."
+  },
+  "build": {
+    "command": "flutter build web --release --no-pub --no-wasm-dry-run",
+    "exitCode": 0,
+    "mainJs": {
+      "path": "build/web/main.dart.js",
+      "bytes": 8722612,
+      "sha256": "2dd7ff0c633609365586360a2729c2d22c9873c1f30bfe45fc758de36a4ab3f1"
+    }
+  },
+  "browser": {
+    "status": "PASS_IN_SCOPE",
+    "tool": "CUA in-app browser",
+    "viewport": [
+      1280,
+      720
+    ],
+    "introductionPaneWidth": 402,
+    "checks": [
+      "Fresh-origin Welcome renders and Start opens Consent without accepting terms",
+      "A1 draft cancellation preserves A2; Apply retains selected level",
+      "Purpose selection and steps 01 through 07",
+      "03 audio-unavailable recovery, localized Close, then 04/05 without ErrorWidget",
+      "None/Taego/Joy/Taego/Joy preserves card and CTA rectangles",
+      "Back/forward and reload preserve Joy",
+      "Complete through existing IntroGate into AppShell with A2/Joy and zero XP/Yeopjeon",
+      "Reload enters AppShell without repeating introduction"
+    ],
+    "companionRectsStable": true,
+    "rects": [
+      {
+        "control": "Taego",
+        "x": 446,
+        "y": 236,
+        "width": 195,
+        "height": 318
+      },
+      {
+        "control": "Joy",
+        "x": 649,
+        "y": 236,
+        "width": 188,
+        "height": 318
+      },
+      {
+        "control": "CTA",
+        "x": 455,
+        "y": 566,
+        "width": 370,
+        "height": 58
+      }
+    ],
+    "finalBuildConsoleErrorsOrWarnings": [],
+    "audioSuccess": "UNVERIFIED_SERVICE_UNAVAILABLE_RECOVERY_VERIFIED",
+    "captures": [
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-01-desktop.png",
+        "bytes": 81027,
+        "sha256": "621291115f60a12582c22ba7007979589d1ced4176d15369a5e32fe2ef9e5802"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-02-content-desktop.png",
+        "bytes": 86989,
+        "sha256": "2148071097a8cf78254eb1c24a5b2e994e29434540029001fcc177d5f403dbc3"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-02-desktop.png",
+        "bytes": 78151,
+        "sha256": "c9afda3a5e00dc9c7cd80f093f6b2e275072016ccb6ec1652f483f80758b11c7"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-03-audio-unavailable.png",
+        "bytes": 77176,
+        "sha256": "7e3d85ae94c333bb8f381caabf158c5decdc7895102e3fefe3b42737125909ff"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-03-desktop.png",
+        "bytes": 71039,
+        "sha256": "c6c3a6c12e9632dcf71f3cb81379aa1073e3f05d531e6003329eddec86e883f7"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-04-desktop.png",
+        "bytes": 12969,
+        "sha256": "66f844ab8fbc10a5bb33b4c3bfdca5edfb4d1a1b58fc99282ceafc51e5372783"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-05-after-audio-close.png",
+        "bytes": 83717,
+        "sha256": "b52182e58a2a02170a4dbf1f28ed261c2cfbea4ba1be51134bff3d3dec273583"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-05-desktop.png",
+        "bytes": 82801,
+        "sha256": "6893e0c99beea44144e8a2266b8b2a070ae22da4c741235b5ff519eaf1e2f634"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-06-desktop.png",
+        "bytes": 97544,
+        "sha256": "30e33e560356865ec9768addd50a380bcdf0a55b27e670ed701b76f7e3c900a9"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-07-joy-desktop.png",
+        "bytes": 82668,
+        "sha256": "02592fb0c598985a54035225b9ea833df32b00f581dad05b53fab0248b88cc87"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-07-none-desktop.png",
+        "bytes": 80316,
+        "sha256": "4d1263f4bad0f4f82c867f0901fb30fb0bb56cd29472b92cd70ba8495d927384"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-07-restored-joy.png",
+        "bytes": 82538,
+        "sha256": "de224cc461ea61a04bc0e3c7b01341d569353c4b9178381843b544fad34de628"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-07-taego-desktop.png",
+        "bytes": 82648,
+        "sha256": "0835fe9001dcd1bfd057944a94c29b6f57c3844d6260b9af12479b980be8c0e3"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-complete-heute.png",
+        "bytes": 50887,
+        "sha256": "980cccc07e2114f65ffcc11d7996c412ecfc2c49ec8333837644a14335ee7916"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-completed-reentry.png",
+        "bytes": 50887,
+        "sha256": "980cccc07e2114f65ffcc11d7996c412ecfc2c49ec8333837644a14335ee7916"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-level-draft-a1.png",
+        "bytes": 58728,
+        "sha256": "49a5759ee54c60a4638e3939ae006b35c59fefa84b7f8d7d2397299fbdaa6c03"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-welcome-actions.png",
+        "bytes": 115032,
+        "sha256": "9e489abbce29653dcd6b4185b97c9364772c882c16a4e6ab0a33ebfc35706aec"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/web-final-welcome-desktop.png",
+        "bytes": 107040,
+        "sha256": "d8f3f9de4f57cabb33de6e12cef9cbe17aa981e4c8ae683d4c27556b89cb2212"
+      }
+    ],
+    "buildAtFullJourneyVerification": {
+      "path": "build/web/main.dart.js",
+      "bytes": 8721987,
+      "sha256": "d00b155106bb7460822f2dafaf2e863f9fe21743190bfe38be135b661a4ad626"
+    },
+    "scope": "Full journey checked on the recorded earlier build; post-CI changes have 36 identical native captures and a separate latest-build re-entry check."
+  },
+  "codeReview": {
+    "path": "tool/einleitung_code_review.json",
+    "bytes": 10442,
+    "sha256": "532508309e62f27d6a48e8301179ca88eaae69e9850cc86aa00a1a6a51e983ba"
+  },
+  "postCiRegressionReview": {
+    "initialCi": {
+      "runId": 39161703734,
+      "flutter": {
+        "passed": 8515,
+        "failed": 39,
+        "skipped": 45
+      },
+      "status": "SUPERSEDED_BY_CORRECTIONS_AWAITING_EXACT_HEAD_CI"
+    },
+    "changes": [
+      "Shared Sori sheet, text action, busy glyph and named reference spacing retain approved normal-size geometry.",
+      "Canonical LearnerLevel selects existing medal files.",
+      "Legacy tests follow Welcome and existing sheet entry; persistence, retry, consent and static portrait stability contracts retained.",
+      "A 320x640 viewport at 200% text uses 4dp less activity-sheet vertical padding to avoid overflow.",
+      "Four Latin-only fonts retain explicit Korean fallback; original five Korean fonts retain full Hangul checks.",
+      "Remove 19 obsolete localized keys per locale; exact two reference-only small-caption exceptions and conditional TTS close-label guard retain global baselines."
+    ],
+    "targetedRuns": [
+      {
+        "group": "Existing onboarding and startup regressions",
+        "passed": 52
+      },
+      {
+        "group": "Shared components and UI guards",
+        "passed": 29
+      },
+      {
+        "group": "Inventory, font coverage and localization guards",
+        "passed": 16
+      },
+      {
+        "group": "Viewport, companion stability, Welcome, type scale and TTS",
+        "passed": 44
+      },
+      {
+        "group": "Native introduction captures and interaction tests",
+        "passed": 44
+      }
+    ],
+    "countsOverlap": true,
+    "visual": {
+      "path": "tool/einleitung_post_ci_visual_review.json",
+      "bytes": 16416,
+      "sha256": "9226d8916f1d90453f7e078ddb145ba55c0399b8dbc0ecf90912feb499462315"
+    },
+    "visualScope": "All 36 captures are byte-identical and have zero pixel differences against the prior reviewed Flutter capture. This does not establish identity to original mockup artwork; opened 200% activity sheets are covered by functional tests, not this capture set.",
+    "latestReleaseBuild": "PASS",
+    "latestBrowser": {
+      "status": "PASS_REENTRY_ONLY",
+      "checks": [
+        "Completed profile opens AppShell directly with A2 and zero XP/Yeopjeon",
+        "No new console error or warning after latest-build reload"
+      ],
+      "capture": {
+        "path": "C:\\dev\\hangulsori\\_codex_artifacts\\einleitung-main-integration-20261018\\post-ci-browser-reentry.png",
+        "bytes": 50887,
+        "sha256": "980cccc07e2114f65ffcc11d7996c412ecfc2c49ec8333837644a14335ee7916"
+      },
+      "consoleCutoffUtc": "2026-10-18T20:40:00Z"
+    },
+    "ci": "Exact correction commit and merged-main runs must pass separately."
+  },
+  "latestVerification": "tool/einleitung_polish_verification.json"
+}

@@ -1,0 +1,3765 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-18",
+  "reviewerRole": "material_component_designer",
+  "scope": "Einleitung 01 and level chooser material, transparent bounds and typography review",
+  "workspaceHead": "2d68784d3b642a14fe174de26d55b0c82209a694",
+  "verdict": "PASS_FIRST_UNIT_MATERIAL_V7",
+  "authority": "User supplied original mockups and check/blank medallion; no exact font metadata available",
+  "sources": {
+    "screen01": "C:/Users/vjinn/.codex/generated_images/einleitung_setting_rats확정/einleitung1.png",
+    "levelChooser": "C:/Users/vjinn/.codex/generated_images/einleitung_setting_rats확정/einleitung1_levelchoose.png",
+    "savedComparison": "docs/screenshots/einleitung-parity-review-20261018/reference-comparison.png",
+    "savedComparisonStatus": "Historical v2 only; superseded for current component decisions by 01-v4.png and level-v4.png",
+    "a2v3": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-39216307-734b-426e-98fd-ac17f964b4a1.png",
+    "a2v3Sha256": "ce213e9b8ba4f18c1ff2559d688840312341b214eb92a7472792073bafc2c3ed",
+    "suppliedCheck": "C:/Users/vjinn/AppData/Local/Temp/codex-clipboard-6a0e5bf7-f658-4f31-9d59-a59231d7a927.png",
+    "suppliedBlankBase": "C:/Users/vjinn/AppData/Local/Temp/codex-clipboard-ea7d2a36-4041-48dc-8792-d0ead0f1eb88.png"
+  },
+  "viewport": {
+    "width": 402,
+    "height": 934,
+    "locale": "de",
+    "textScale": 1
+  },
+  "a2v3": {
+    "verdict": "FAIL",
+    "improvement": "Bronze center is darker and separates better from the raised gold glyph faces.",
+    "remainingFailures": [
+      "A right foot and 2 lower stroke still visually join at the baseline.",
+      "Broad and very bright outer rim remains more prominent than the lettering at a 56 px visible coin diameter.",
+      "White highlight covers too much of the annulus instead of reading as a localized specular edge."
+    ],
+    "bodyAlphaThreshold": 128,
+    "bodyBboxPixelsExclusive": [
+      104,
+      107,
+      1146,
+      1127
+    ],
+    "bodySizePixels": [
+      1042,
+      1020
+    ],
+    "canvasPixels": [
+      1254,
+      1254
+    ],
+    "proposedAcceptanceThresholds": {
+      "status": "Designer proposed criteria, not measured exact source pixel values",
+      "visibleCoinWidthPx": 56,
+      "minimumDarkGapBetweenGlyphsPx": 2,
+      "preferredDarkGapBetweenGlyphsPx": [
+        2,
+        2.5
+      ],
+      "correspondingGapIn1042PxVisibleMaster": [
+        37.2,
+        46.5
+      ],
+      "nearWhiteSpecularEdgeWidthPx": [
+        0.75,
+        1
+      ],
+      "highlightExtent": "Localized upper-left arc; the surrounding rim remains satin antique gold rather than a white ring.",
+      "glyphDepth": "Pale gold face, narrow upper-left bevel, short dark lower-right extrusion; no merging bevels or cast shadows.",
+      "centering": "Center the full A2 inscription optically after separating the glyphs."
+    },
+    "nextEditPrompt": "Keep this exact coin silhouette, transparent background and dark bronze face. Separate A and 2 into two clearly independent embossed serif glyphs: shorten A's right foot and shift the glyphs apart so the narrowest dark-bronze gap is 2 to 2.5 pixels when the visible coin is 56 pixels wide, about 37 to 46 source pixels for its 1042-pixel visible body. Keep the full inscription centered; never join the glyph bevels or shadows. Reduce the broad outer rim brightness and make it satin antique gold. Limit the near-white specular edge to 0.75 to 1 display pixel; the brightest reflection occupies only a short upper-left arc, not a white ring. Retain a slim gold inner edge and dark engraved groove. Do not enlarge the lettering or add rings, marks or ornaments."
+  },
+  "transparentBounds": {
+    "method": "Pillow alpha >= 128 bbox, right and bottom exclusive; no images written or edited",
+    "warning": "Do not size by alpha > 0 bbox: extremely faint stray pixels and shadow tails enlarge those bounds.",
+    "a2v2": {
+      "bodyBbox": [
+        107,
+        109,
+        1142,
+        1126
+      ],
+      "bodySize": [
+        1035,
+        1017
+      ],
+      "targetVisibleRect": [
+        37,
+        368,
+        56,
+        55.03
+      ],
+      "uniformCanvasWidth": 67.85,
+      "canvasOrigin": [
+        31.21,
+        362.1
+      ]
+    },
+    "suppliedCheck": {
+      "materialVerdict": "SUITABLE_DIRECTION_RENDERED_INTEGRATION_PENDING",
+      "bodyBbox": [
+        171,
+        169,
+        1079,
+        1071
+      ],
+      "bodySize": [
+        908,
+        902
+      ],
+      "targetVisibleRect": [
+        337,
+        590,
+        34,
+        33.78
+      ],
+      "uniformCanvasWidth": 46.96,
+      "canvasOrigin": [
+        330.6,
+        583.67
+      ]
+    },
+    "blankBaseBodyBbox": [
+      107,
+      110,
+      1141,
+      1125
+    ]
+  },
+  "levelTypography": {
+    "sourceFontIdentity": "UNKNOWN_RASTER_HAS_NO_FONT_METADATA",
+    "issue": "Current standard Noto Serif Bold is wider than the original level labels at similar cap height.",
+    "recommendedFigmaFont": {
+      "family": "Lora",
+      "style": "Bold",
+      "size": 35,
+      "status": "SUPERSEDES_EXTRACONDENSED_RECOMMENDATION_AFTER_ALL_SIX_GLYPH_SHAPE_COMPARISON"
+    },
+    "figmaAvailabilityVerified": true,
+    "inventoryMethod": "Read-only figma.listAvailableFontsAsync; no text or canvas nodes modified",
+    "localFontMeasurement": {
+      "file": "assets/fonts/NotoSerif/NotoSerif-Variable.ttf",
+      "method": "Pillow getmask ink bbox, local FreeType raster, size 34, weight 700; this is candidate metric evidence rather than Figma rendered parity",
+      "widthAxis": 62.5,
+      "inkDimensionsPx": {
+        "A1": [
+          35,
+          25
+        ],
+        "A2": [
+          36,
+          25
+        ],
+        "B1": [
+          33,
+          25
+        ],
+        "B2": [
+          34,
+          25
+        ],
+        "C1": [
+          32,
+          26
+        ],
+        "C2": [
+          33,
+          26
+        ]
+      },
+      "standardBoldA2InkDimensionsPx": [
+        44,
+        25
+      ],
+      "condensed75A2InkDimensionsPx": [
+        38,
+        25
+      ]
+    },
+    "sourceTargetReportedByRoot": {
+      "approximateInkWidth": 35,
+      "approximateInkHeight": 25
+    },
+    "reReviewConditions": [
+      "Export all six labels at the same 402 x 934 viewport and 100% text scale.",
+      "Compare actual ink width, cap height, A apex and serifs, 1 top flag/base, 2 upper curve/base, B bowls and C aperture.",
+      "Keep normal tracking initially; do not force narrow width with negative letter spacing or reduce cap height.",
+      "Treat ExtraCondensed Bold as a closer editable candidate, not as a confirmed original font."
+    ]
+  },
+  "selectedLevelBorder": {
+    "savedV2Verdict": "FAIL_DEPTH_TOO_FLAT",
+    "correction": "A single coherent compound rim: deep jade outer edge, fine gold inner edge, restrained lower contact shadow. Avoid duplicate nested decorative frames.",
+    "currentExportRequired": false,
+    "currentV4Verdict": "PASS_SCOPED_COMPOUND_RIM_AND_DEPTH",
+    "currentV4Evidence": "At x=300, top jade y=575..578, gold y=579, bottom gold y=634, jade y=635..638, contact shadow y=639..641. Jade RGB 0,84,73; gold approximately 223,190,122."
+  },
+  "currentComponentReviewV4": {
+    "reviewScope": "Only A2 medallion, supplied check, selected A2 card compound border, and six large level labels. No whole-screen or app approval.",
+    "figmaAssetHashReportedByRoot": "4817b448",
+    "evidence": [
+      {
+        "path": "docs/screenshots/einleitung-parity-review-20261018/01-v4.png",
+        "pixels": [
+          402,
+          934
+        ],
+        "sha256": "96b5284b3c763d8f4b398e7f258427ff5954ecb54b6593835ca0cd486a32f010"
+      },
+      {
+        "path": "docs/screenshots/einleitung-parity-review-20261018/level-v4.png",
+        "pixels": [
+          402,
+          934
+        ],
+        "sha256": "499c43a219620a3e3075d0febe42b46e7d7cbef6a38f76f062b2ef9429660e95"
+      },
+      {
+        "path": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-06748ff7-bc2a-4723-a775-6fb731b76b42.png",
+        "pixels": [
+          1254,
+          1254
+        ],
+        "sha256": "0af3f35bca1e8770fede3e2baa482f60c1ba619474dabfc629ddb0a729813129",
+        "alpha128BodyBbox": [
+          103,
+          106,
+          1146,
+          1132
+        ]
+      }
+    ],
+    "components": {
+      "a2Medallion": {
+        "verdict": "PASS",
+        "visibleTargetWidthPx": 56,
+        "evidence": "At the actual 56 px display size A and 2 read independently. A dark interval now separates their lower serifs and bevels. The broad white annulus has become restrained satin gold; dark bronze face and pale raised letters remain distinct.",
+        "scopeLimit": "Material and small-scale legibility pass; no claim of original pixel identity."
+      },
+      "suppliedCheck": {
+        "verdict": "PASS",
+        "visibleTargetWidthPx": 34,
+        "evidence": "The 34 px visible circle and pale check are clearly readable, seated within the selected card without clipping or overlap. Padding shrinkage is resolved in the actual export."
+      },
+      "selectedLevelBorder": {
+        "verdict": "PASS",
+        "evidence": "Actual export contains a coherent 4 px jade outer edge, approximately 1 px gold inner edge and restrained lower contact shadow. The check and label are separated from the rim."
+      },
+      "largeLevelLabels": {
+        "verdict": "FAIL_SOURCE_TYPOGRAPHY_PARITY",
+        "legibilityVerdict": "PASS",
+        "appliedFont": {
+          "family": "Noto Serif",
+          "style": "ExtraCondensed Bold",
+          "size": 34
+        },
+        "reason": "Direct normalized original measurement supersedes the earlier approximate 35 x 25 target. Original labels ending in 2 are about 4 px wider than labels ending in 1. Current ExtraCondensed labels have nearly equal widths and make A2, B2 and especially C1/C2 too narrow.",
+        "measurementMethod": "Original phone app rectangle (52,52,748,1738) normalized to 402 x 934 with Lanczos only in memory; find dark ink using max(R,G,B)<105 within each label region. No source images or crops were saved as assets.",
+        "inkSizeComparisonPx": {
+          "A1": {
+            "reference": [
+              36,
+              25
+            ],
+            "v4": [
+              35,
+              24
+            ]
+          },
+          "A2": {
+            "reference": [
+              40,
+              25
+            ],
+            "v4": [
+              35,
+              24
+            ]
+          },
+          "B1": {
+            "reference": [
+              33,
+              25
+            ],
+            "v4": [
+              32,
+              24
+            ]
+          },
+          "B2": {
+            "reference": [
+              37,
+              25
+            ],
+            "v4": [
+              32,
+              24
+            ]
+          },
+          "C1": {
+            "reference": [
+              34,
+              26
+            ],
+            "v4": [
+              30,
+              24
+            ]
+          },
+          "C2": {
+            "reference": [
+              38,
+              26
+            ],
+            "v4": [
+              31,
+              24
+            ]
+          }
+        },
+        "fontFeatureInvestigation": "Bundled Noto Serif exposes pnum, but fontTools outline measurements show pnum does not produce the original approximately 4 px ink-width difference between terminal 1 and 2. Do not assume enabling pnum solves the mismatch.",
+        "remainingCorrection": "Select or tune the level serif against all six original labels, preserving cap height and the narrower numeral 1. Do not reduce every label to the A1 width target. Glyph shape and width require one fresh rendered re-review.",
+        "geometryOutsideScope": "Current C-row ink begins about 3 px below reference. Root is reviewing geometry separately."
+      }
+    },
+    "furtherMedallionGenerationRequired": false,
+    "wholeScreenApproval": false,
+    "nativeFlutterApproval": false
+  },
+  "approvalConditions": [
+    "Review latest actual 01 and level chooser exports rather than unchanged v2 evidence.",
+    "A2 must be legible at visible 56 px with a clean dark gap and restrained rim highlights.",
+    "Supplied check must occupy visible 34 px and remain centered without alpha-padding shrinkage.",
+    "Selected border, labels and check must not overlap, double-outline or clip.",
+    "No source screenshot pixels may become runtime assets.",
+    "Static artwork, Figma interaction, Flutter integration and device validation remain separate claims."
+  ],
+  "skillsApplied": [
+    {
+      "name": "frontend-design",
+      "decision": "Original material and typography direction wins over generic metallic decoration; inspect at actual display size."
+    },
+    {
+      "name": "design-system",
+      "decision": "Separate rim, face, glyph, shadow and selected-state roles; specify visible-body dimensions independently of image canvas."
+    },
+    {
+      "name": "figma-use",
+      "decision": "Verify available family/style names with a read-only font inventory."
+    }
+  ],
+  "officialSourcesCheckedAt": "2026-10-18",
+  "officialSources": [
+    "https://developer.apple.com/design/human-interface-guidelines/materials",
+    "https://m3.material.io/styles/color/the-color-system"
+  ],
+  "writes": [
+    "tool/einleitung_material_review.json",
+    "tool/refine_einleitung_controls.js"
+  ],
+  "figmaMutations": false,
+  "assetGenerationOrEditing": false,
+  "pixelEquivalenceClaimed": false,
+  "fontCandidateInvestigation": {
+    "date": "2026-10-18",
+    "method": "Read official Google Fonts TTF bytes into memory, render with Pillow at weights 600/700, available width and optical axes, sizes29..43; compare six dark ink bounding boxes and ink counts against normalized source. No font/image files written.",
+    "sourceTargets": {
+      "A1": {
+        "width": 36,
+        "height": 25,
+        "inkPixels": 364
+      },
+      "A2": {
+        "width": 40,
+        "height": 25,
+        "inkPixels": 410
+      },
+      "B1": {
+        "width": 33,
+        "height": 25,
+        "inkPixels": 438
+      },
+      "B2": {
+        "width": 37,
+        "height": 25,
+        "inkPixels": 473
+      },
+      "C1": {
+        "width": 34,
+        "height": 26,
+        "inkPixels": 333
+      },
+      "C2": {
+        "width": 38,
+        "height": 26,
+        "inkPixels": 380
+      }
+    },
+    "candidates": [
+      {
+        "family": "Noto Serif Display",
+        "weight": 700,
+        "width": 87.5,
+        "opticalSize": null,
+        "size": 36,
+        "score": 12.84,
+        "ink": {
+          "A1": [
+            36,
+            26
+          ],
+          "A2": [
+            40,
+            26
+          ],
+          "B1": [
+            33,
+            26
+          ],
+          "B2": [
+            37,
+            26
+          ],
+          "C1": [
+            33,
+            26
+          ],
+          "C2": [
+            37,
+            26
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 700
+          },
+          {
+            "Width": 87.5
+          }
+        ]
+      },
+      {
+        "family": "Noto Serif Display",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 35,
+        "score": 13.0,
+        "ink": {
+          "A1": [
+            37,
+            25
+          ],
+          "A2": [
+            40,
+            25
+          ],
+          "B1": [
+            34,
+            25
+          ],
+          "B2": [
+            37,
+            25
+          ],
+          "C1": [
+            34,
+            25
+          ],
+          "C2": [
+            37,
+            25
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          },
+          {
+            "Width": 100
+          }
+        ]
+      },
+      {
+        "family": "Noto Serif Display",
+        "weight": 700,
+        "width": 100,
+        "opticalSize": null,
+        "size": 34,
+        "score": 13.72,
+        "ink": {
+          "A1": [
+            38,
+            25
+          ],
+          "A2": [
+            41,
+            25
+          ],
+          "B1": [
+            33,
+            25
+          ],
+          "B2": [
+            36,
+            25
+          ],
+          "C1": [
+            34,
+            25
+          ],
+          "C2": [
+            37,
+            25
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 700
+          },
+          {
+            "Width": 100
+          }
+        ]
+      },
+      {
+        "family": "Roboto Serif",
+        "weight": 600,
+        "width": 62.5,
+        "opticalSize": 34,
+        "size": 36,
+        "score": 14.2,
+        "ink": {
+          "A1": [
+            40,
+            25
+          ],
+          "A2": [
+            40,
+            25
+          ],
+          "B1": [
+            38,
+            25
+          ],
+          "B2": [
+            38,
+            25
+          ],
+          "C1": [
+            38,
+            26
+          ],
+          "C2": [
+            38,
+            26
+          ]
+        },
+        "axes": [
+          {
+            "Width": 62.5
+          },
+          {
+            "Optical Size": 34
+          },
+          {
+            "Weight": 600
+          },
+          {
+            "Grade": 0
+          }
+        ]
+      },
+      {
+        "family": "Noto Serif Display",
+        "weight": 700,
+        "width": 87.5,
+        "opticalSize": null,
+        "size": 37,
+        "score": 15.44,
+        "ink": {
+          "A1": [
+            38,
+            26
+          ],
+          "A2": [
+            41,
+            26
+          ],
+          "B1": [
+            34,
+            26
+          ],
+          "B2": [
+            37,
+            26
+          ],
+          "C1": [
+            35,
+            26
+          ],
+          "C2": [
+            38,
+            26
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 700
+          },
+          {
+            "Width": 87.5
+          }
+        ]
+      },
+      {
+        "family": "Roboto Serif",
+        "weight": 600,
+        "width": 62.5,
+        "opticalSize": null,
+        "size": 36,
+        "score": 16.36,
+        "ink": {
+          "A1": [
+            40,
+            25
+          ],
+          "A2": [
+            40,
+            25
+          ],
+          "B1": [
+            39,
+            25
+          ],
+          "B2": [
+            39,
+            25
+          ],
+          "C1": [
+            38,
+            26
+          ],
+          "C2": [
+            38,
+            26
+          ]
+        },
+        "axes": [
+          {
+            "Width": 62.5
+          },
+          {
+            "Optical Size": 20
+          },
+          {
+            "Weight": 600
+          },
+          {
+            "Grade": 0
+          }
+        ]
+      },
+      {
+        "family": "Roboto Serif",
+        "weight": 600,
+        "width": 62.5,
+        "opticalSize": 34,
+        "size": 35,
+        "score": 16.52,
+        "ink": {
+          "A1": [
+            38,
+            25
+          ],
+          "A2": [
+            38,
+            25
+          ],
+          "B1": [
+            37,
+            25
+          ],
+          "B2": [
+            37,
+            25
+          ],
+          "C1": [
+            36,
+            25
+          ],
+          "C2": [
+            36,
+            25
+          ]
+        },
+        "axes": [
+          {
+            "Width": 62.5
+          },
+          {
+            "Optical Size": 34
+          },
+          {
+            "Weight": 600
+          },
+          {
+            "Grade": 0
+          }
+        ]
+      },
+      {
+        "family": "Roboto Serif",
+        "weight": 600,
+        "width": 62.5,
+        "opticalSize": null,
+        "size": 35,
+        "score": 17.64,
+        "ink": {
+          "A1": [
+            39,
+            25
+          ],
+          "A2": [
+            39,
+            25
+          ],
+          "B1": [
+            38,
+            25
+          ],
+          "B2": [
+            38,
+            25
+          ],
+          "C1": [
+            38,
+            25
+          ],
+          "C2": [
+            38,
+            25
+          ]
+        },
+        "axes": [
+          {
+            "Width": 62.5
+          },
+          {
+            "Optical Size": 20
+          },
+          {
+            "Weight": 600
+          },
+          {
+            "Grade": 0
+          }
+        ]
+      },
+      {
+        "family": "Bodoni Moda",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 33,
+        "score": 22.35,
+        "ink": {
+          "A1": [
+            38,
+            25
+          ],
+          "A2": [
+            43,
+            25
+          ],
+          "B1": [
+            35,
+            25
+          ],
+          "B2": [
+            40,
+            25
+          ],
+          "C1": [
+            35,
+            25
+          ],
+          "C2": [
+            40,
+            25
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          },
+          {
+            "Optical size": 11
+          }
+        ]
+      },
+      {
+        "family": "Bodoni Moda",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 32,
+        "score": 23.43,
+        "ink": {
+          "A1": [
+            37,
+            24
+          ],
+          "A2": [
+            41,
+            24
+          ],
+          "B1": [
+            34,
+            24
+          ],
+          "B2": [
+            38,
+            24
+          ],
+          "C1": [
+            34,
+            24
+          ],
+          "C2": [
+            38,
+            24
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          },
+          {
+            "Optical size": 11
+          }
+        ]
+      },
+      {
+        "family": "Cormorant Garamond",
+        "weight": 700,
+        "width": 100,
+        "opticalSize": null,
+        "size": 40,
+        "score": 23.53,
+        "ink": {
+          "A1": [
+            38,
+            25
+          ],
+          "A2": [
+            43,
+            25
+          ],
+          "B1": [
+            31,
+            25
+          ],
+          "B2": [
+            36,
+            25
+          ],
+          "C1": [
+            35,
+            25
+          ],
+          "C2": [
+            40,
+            25
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 700
+          }
+        ]
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": 34,
+        "size": 37,
+        "score": 23.84,
+        "ink": {
+          "A1": [
+            40,
+            25
+          ],
+          "A2": [
+            41,
+            25
+          ],
+          "B1": [
+            38,
+            25
+          ],
+          "B2": [
+            39,
+            25
+          ],
+          "C1": [
+            36,
+            25
+          ],
+          "C2": [
+            37,
+            25
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          },
+          {
+            "Optical Size": 34
+          }
+        ]
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": 700,
+        "width": 100,
+        "opticalSize": 34,
+        "size": 37,
+        "score": 24.9,
+        "ink": {
+          "A1": [
+            41,
+            24
+          ],
+          "A2": [
+            42,
+            24
+          ],
+          "B1": [
+            39,
+            25
+          ],
+          "B2": [
+            40,
+            25
+          ],
+          "C1": [
+            38,
+            26
+          ],
+          "C2": [
+            39,
+            26
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 700
+          },
+          {
+            "Optical Size": 34
+          }
+        ]
+      },
+      {
+        "family": "Bodoni Moda",
+        "weight": 700,
+        "width": 100,
+        "opticalSize": null,
+        "size": 33,
+        "score": 25.0,
+        "ink": {
+          "A1": [
+            39,
+            25
+          ],
+          "A2": [
+            44,
+            25
+          ],
+          "B1": [
+            36,
+            25
+          ],
+          "B2": [
+            41,
+            25
+          ],
+          "C1": [
+            36,
+            25
+          ],
+          "C2": [
+            41,
+            25
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 700
+          },
+          {
+            "Optical size": 11
+          }
+        ]
+      },
+      {
+        "family": "PT Serif",
+        "weight": 700,
+        "width": 100,
+        "opticalSize": null,
+        "size": 35,
+        "score": 25.06,
+        "ink": {
+          "A1": [
+            42,
+            25
+          ],
+          "A2": [
+            43,
+            25
+          ],
+          "B1": [
+            38,
+            25
+          ],
+          "B2": [
+            39,
+            25
+          ],
+          "C1": [
+            38,
+            25
+          ],
+          "C2": [
+            39,
+            25
+          ]
+        },
+        "axes": []
+      },
+      {
+        "family": "Cormorant Garamond",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 40,
+        "score": 25.26,
+        "ink": {
+          "A1": [
+            37,
+            25
+          ],
+          "A2": [
+            42,
+            25
+          ],
+          "B1": [
+            30,
+            25
+          ],
+          "B2": [
+            35,
+            25
+          ],
+          "C1": [
+            35,
+            25
+          ],
+          "C2": [
+            40,
+            25
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          }
+        ]
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": 34,
+        "size": 38,
+        "score": 25.36,
+        "ink": {
+          "A1": [
+            42,
+            25
+          ],
+          "A2": [
+            43,
+            25
+          ],
+          "B1": [
+            38,
+            25
+          ],
+          "B2": [
+            39,
+            25
+          ],
+          "C1": [
+            38,
+            26
+          ],
+          "C2": [
+            39,
+            26
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          },
+          {
+            "Optical Size": 34
+          }
+        ]
+      },
+      {
+        "family": "Cormorant Garamond",
+        "weight": 700,
+        "width": 100,
+        "opticalSize": null,
+        "size": 41,
+        "score": 27.41,
+        "ink": {
+          "A1": [
+            38,
+            26
+          ],
+          "A2": [
+            43,
+            26
+          ],
+          "B1": [
+            31,
+            26
+          ],
+          "B2": [
+            36,
+            26
+          ],
+          "C1": [
+            36,
+            26
+          ],
+          "C2": [
+            41,
+            26
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 700
+          }
+        ]
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": 700,
+        "width": 100,
+        "opticalSize": 34,
+        "size": 36,
+        "score": 27.61,
+        "ink": {
+          "A1": [
+            41,
+            24
+          ],
+          "A2": [
+            41,
+            24
+          ],
+          "B1": [
+            38,
+            24
+          ],
+          "B2": [
+            38,
+            24
+          ],
+          "C1": [
+            38,
+            25
+          ],
+          "C2": [
+            38,
+            25
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 700
+          },
+          {
+            "Optical Size": 34
+          }
+        ]
+      },
+      {
+        "family": "Bodoni Moda",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 31,
+        "score": 28.8,
+        "ink": {
+          "A1": [
+            36,
+            24
+          ],
+          "A2": [
+            40,
+            24
+          ],
+          "B1": [
+            33,
+            23
+          ],
+          "B2": [
+            37,
+            23
+          ],
+          "C1": [
+            33,
+            23
+          ],
+          "C2": [
+            37,
+            23
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          },
+          {
+            "Optical size": 11
+          }
+        ]
+      },
+      {
+        "family": "Cormorant Garamond",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 41,
+        "score": 29.04,
+        "ink": {
+          "A1": [
+            38,
+            26
+          ],
+          "A2": [
+            43,
+            26
+          ],
+          "B1": [
+            31,
+            26
+          ],
+          "B2": [
+            36,
+            26
+          ],
+          "C1": [
+            36,
+            26
+          ],
+          "C2": [
+            41,
+            26
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          }
+        ]
+      },
+      {
+        "family": "Crimson Pro",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 39,
+        "score": 29.31,
+        "ink": {
+          "A1": [
+            36,
+            23
+          ],
+          "A2": [
+            41,
+            23
+          ],
+          "B1": [
+            33,
+            22
+          ],
+          "B2": [
+            38,
+            23
+          ],
+          "C1": [
+            34,
+            23
+          ],
+          "C2": [
+            39,
+            23
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          }
+        ]
+      },
+      {
+        "family": "Libre Baskerville",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 31,
+        "score": 29.65,
+        "ink": {
+          "A1": [
+            37,
+            24
+          ],
+          "A2": [
+            43,
+            24
+          ],
+          "B1": [
+            35,
+            24
+          ],
+          "B2": [
+            41,
+            24
+          ],
+          "C1": [
+            35,
+            24
+          ],
+          "C2": [
+            41,
+            24
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          }
+        ]
+      },
+      {
+        "family": "PT Serif",
+        "weight": 700,
+        "width": 100,
+        "opticalSize": null,
+        "size": 34,
+        "score": 30.15,
+        "ink": {
+          "A1": [
+            41,
+            24
+          ],
+          "A2": [
+            42,
+            24
+          ],
+          "B1": [
+            37,
+            24
+          ],
+          "B2": [
+            38,
+            24
+          ],
+          "C1": [
+            37,
+            24
+          ],
+          "C2": [
+            38,
+            24
+          ]
+        },
+        "axes": []
+      },
+      {
+        "family": "Crimson Pro",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 40,
+        "score": 30.49,
+        "ink": {
+          "A1": [
+            36,
+            23
+          ],
+          "A2": [
+            41,
+            23
+          ],
+          "B1": [
+            34,
+            23
+          ],
+          "B2": [
+            39,
+            23
+          ],
+          "C1": [
+            35,
+            23
+          ],
+          "C2": [
+            40,
+            23
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          }
+        ]
+      },
+      {
+        "family": "Crimson Pro",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 41,
+        "score": 30.84,
+        "ink": {
+          "A1": [
+            38,
+            24
+          ],
+          "A2": [
+            43,
+            24
+          ],
+          "B1": [
+            35,
+            24
+          ],
+          "B2": [
+            40,
+            24
+          ],
+          "C1": [
+            37,
+            24
+          ],
+          "C2": [
+            42,
+            24
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          }
+        ]
+      },
+      {
+        "family": "PT Serif",
+        "weight": 700,
+        "width": 100,
+        "opticalSize": null,
+        "size": 36,
+        "score": 31.42,
+        "ink": {
+          "A1": [
+            43,
+            26
+          ],
+          "A2": [
+            44,
+            26
+          ],
+          "B1": [
+            39,
+            26
+          ],
+          "B2": [
+            40,
+            26
+          ],
+          "C1": [
+            38,
+            26
+          ],
+          "C2": [
+            39,
+            26
+          ]
+        },
+        "axes": []
+      },
+      {
+        "family": "Libre Baskerville",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 32,
+        "score": 31.49,
+        "ink": {
+          "A1": [
+            39,
+            25
+          ],
+          "A2": [
+            45,
+            25
+          ],
+          "B1": [
+            37,
+            25
+          ],
+          "B2": [
+            43,
+            25
+          ],
+          "C1": [
+            37,
+            25
+          ],
+          "C2": [
+            43,
+            25
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          }
+        ]
+      },
+      {
+        "family": "Crimson Pro",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 43,
+        "score": 31.8,
+        "ink": {
+          "A1": [
+            39,
+            25
+          ],
+          "A2": [
+            45,
+            25
+          ],
+          "B1": [
+            37,
+            25
+          ],
+          "B2": [
+            43,
+            25
+          ],
+          "C1": [
+            38,
+            25
+          ],
+          "C2": [
+            44,
+            25
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          }
+        ]
+      },
+      {
+        "family": "Libre Baskerville",
+        "weight": 700,
+        "width": 100,
+        "opticalSize": null,
+        "size": 32,
+        "score": 32.12,
+        "ink": {
+          "A1": [
+            39,
+            25
+          ],
+          "A2": [
+            45,
+            25
+          ],
+          "B1": [
+            38,
+            25
+          ],
+          "B2": [
+            44,
+            25
+          ],
+          "C1": [
+            37,
+            25
+          ],
+          "C2": [
+            43,
+            25
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 700
+          }
+        ]
+      },
+      {
+        "family": "Libre Baskerville",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 30,
+        "score": 33.16,
+        "ink": {
+          "A1": [
+            36,
+            23
+          ],
+          "A2": [
+            41,
+            23
+          ],
+          "B1": [
+            35,
+            23
+          ],
+          "B2": [
+            40,
+            23
+          ],
+          "C1": [
+            34,
+            23
+          ],
+          "C2": [
+            39,
+            23
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          }
+        ]
+      },
+      {
+        "family": "PT Serif",
+        "weight": 700,
+        "width": 100,
+        "opticalSize": null,
+        "size": 33,
+        "score": 33.45,
+        "ink": {
+          "A1": [
+            39,
+            23
+          ],
+          "A2": [
+            40,
+            23
+          ],
+          "B1": [
+            35,
+            23
+          ],
+          "B2": [
+            36,
+            23
+          ],
+          "C1": [
+            36,
+            23
+          ],
+          "C2": [
+            37,
+            23
+          ]
+        },
+        "axes": []
+      },
+      {
+        "family": "EB Garamond",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 37,
+        "score": 43.59,
+        "ink": {
+          "A1": [
+            42,
+            25
+          ],
+          "A2": [
+            44,
+            25
+          ],
+          "B1": [
+            38,
+            24
+          ],
+          "B2": [
+            40,
+            24
+          ],
+          "C1": [
+            41,
+            24
+          ],
+          "C2": [
+            43,
+            24
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          }
+        ]
+      },
+      {
+        "family": "EB Garamond",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 36,
+        "score": 45.68,
+        "ink": {
+          "A1": [
+            42,
+            24
+          ],
+          "A2": [
+            44,
+            24
+          ],
+          "B1": [
+            37,
+            24
+          ],
+          "B2": [
+            39,
+            24
+          ],
+          "C1": [
+            41,
+            24
+          ],
+          "C2": [
+            43,
+            24
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          }
+        ]
+      },
+      {
+        "family": "EB Garamond",
+        "weight": 600,
+        "width": 100,
+        "opticalSize": null,
+        "size": 35,
+        "score": 46.17,
+        "ink": {
+          "A1": [
+            41,
+            23
+          ],
+          "A2": [
+            42,
+            23
+          ],
+          "B1": [
+            36,
+            23
+          ],
+          "B2": [
+            37,
+            23
+          ],
+          "C1": [
+            40,
+            23
+          ],
+          "C2": [
+            41,
+            23
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 600
+          }
+        ]
+      },
+      {
+        "family": "EB Garamond",
+        "weight": 700,
+        "width": 100,
+        "opticalSize": null,
+        "size": 33,
+        "score": 46.24,
+        "ink": {
+          "A1": [
+            39,
+            22
+          ],
+          "A2": [
+            41,
+            22
+          ],
+          "B1": [
+            35,
+            22
+          ],
+          "B2": [
+            37,
+            22
+          ],
+          "C1": [
+            37,
+            22
+          ],
+          "C2": [
+            39,
+            22
+          ]
+        },
+        "axes": [
+          {
+            "Weight": 700
+          }
+        ]
+      }
+    ],
+    "fontSources": {
+      "Bodoni Moda": {
+        "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/bodonimoda/BodoniModa%5Bopsz%2Cwght%5D.ttf",
+        "sha256": "550f5e34ee0a828d7941b1fe9bc58b34e5260d3f33a61532e6d0a0114e79a5cf",
+        "storedToDisk": false
+      },
+      "Noto Serif Display": {
+        "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notoserifdisplay/NotoSerifDisplay%5Bwdth%2Cwght%5D.ttf",
+        "sha256": "4b661adcf6a5d38bf5befdc4d976e8a7238a4aeb57e62c1c1a67775380a09df9",
+        "storedToDisk": false
+      },
+      "Roboto Serif": {
+        "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/robotoserif/RobotoSerif%5BGRAD%2Copsz%2Cwdth%2Cwght%5D.ttf",
+        "sha256": "351ced75f3851806aa6d846b669361521eb1925cfc530396df9c1a1b77061ddb",
+        "storedToDisk": false
+      },
+      "PT Serif": {
+        "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/ptserif/PT_Serif-Web-Bold.ttf",
+        "sha256": "038ba7336bd7ea14f12ad155bed51a4345cac5153275d521dec3ba04021c526e",
+        "storedToDisk": false
+      },
+      "Crimson Pro": {
+        "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/crimsonpro/CrimsonPro%5Bwght%5D.ttf",
+        "sha256": "16aa9fb7300a93637da51fac03a071b2ff08b6bbf65f99c794c25f040b58af6a",
+        "storedToDisk": false
+      },
+      "Source Serif 4": {
+        "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sourceserif4/SourceSerif4%5Bopsz%2Cwght%5D.ttf",
+        "sha256": "97b2d4da6e3cb494b5a1e66ae176914d852ccabef49e0c02c0df25f3e39aca0b",
+        "storedToDisk": false
+      },
+      "EB Garamond": {
+        "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/ebgaramond/EBGaramond%5Bwght%5D.ttf",
+        "sha256": "ef9512f92f6d579e5dc75af59a5a4b1b8b47d2eda89e00b954d44520e5369027",
+        "storedToDisk": false
+      },
+      "Libre Baskerville": {
+        "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/librebaskerville/LibreBaskerville%5Bwght%5D.ttf",
+        "sha256": "05a95421961341c5b2556285e8415df9db27dab4f4abe22b446b3c6a8b916c5d",
+        "storedToDisk": false
+      },
+      "Cormorant Garamond": {
+        "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/CormorantGaramond%5Bwght%5D.ttf",
+        "sha256": "b20b7d9626dd956b2c5e558692ad328b1f19e3275e2782db4fa07670d83f35e0",
+        "storedToDisk": false
+      },
+      "Lora[wght].ttf": {
+        "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/lora/Lora%5Bwght%5D.ttf",
+        "sha256": "822a6621ccbe8d97d20ac88c1c41f5615c9c2c202eaa75f272cd452aac6475a7",
+        "storedToDisk": false
+      },
+      "LibreCaslonText[wght].ttf": {
+        "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/librecaslontext/LibreCaslonText%5Bwght%5D.ttf",
+        "sha256": "c11809dbfd5445886293d89b32bfc2584075c80e77750cf1c284113e36b8b3f4",
+        "storedToDisk": false
+      },
+      "CrimsonText-Bold.ttf": {
+        "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/crimsontext/CrimsonText-Bold.ttf",
+        "sha256": "a3a0765fc5e8d0b49b540a23aefe0184887dd79f06a0bdf4db7035cea6befa93",
+        "storedToDisk": false
+      },
+      "CrimsonText-SemiBold.ttf": {
+        "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/crimsontext/CrimsonText-SemiBold.ttf",
+        "sha256": "802e84000740fec2a9fbe0ae09b6b6811bd86a78a0173b15d44450a1530e9410",
+        "storedToDisk": false
+      },
+      "STIXTwoText[wght].ttf": {
+        "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/stixtwotext/STIXTwoText%5Bwght%5D.ttf",
+        "sha256": "7962b8b7811e6a896c9a91a0bccbb5241047770eb24d4997c5cb5fe21d5c0df2",
+        "storedToDisk": false
+      }
+    },
+    "errors": {},
+    "status": "RECOMMEND_LORA_BOLD_35_PENDING_FIGMA_EXPORT",
+    "additionalCandidates": [
+      {
+        "family": "lora",
+        "file": "Lora[wght].ttf",
+        "weight": 700,
+        "size": 35,
+        "score": 9.62,
+        "ink": {
+          "A1": [
+            36,
+            25
+          ],
+          "A2": [
+            40,
+            25
+          ],
+          "B1": [
+            34,
+            25
+          ],
+          "B2": [
+            38,
+            25
+          ],
+          "C1": [
+            36,
+            25
+          ],
+          "C2": [
+            40,
+            25
+          ]
+        }
+      },
+      {
+        "family": "lora",
+        "file": "Lora[wght].ttf",
+        "weight": 600,
+        "size": 35,
+        "score": 11.07,
+        "ink": {
+          "A1": [
+            35,
+            25
+          ],
+          "A2": [
+            40,
+            25
+          ],
+          "B1": [
+            33,
+            25
+          ],
+          "B2": [
+            38,
+            25
+          ],
+          "C1": [
+            35,
+            25
+          ],
+          "C2": [
+            40,
+            25
+          ]
+        }
+      },
+      {
+        "family": "crimsontext",
+        "file": "CrimsonText-Bold.ttf",
+        "weight": 700,
+        "size": 38,
+        "score": 14.01,
+        "ink": {
+          "A1": [
+            39,
+            25
+          ],
+          "A2": [
+            42,
+            25
+          ],
+          "B1": [
+            34,
+            25
+          ],
+          "B2": [
+            37,
+            25
+          ],
+          "C1": [
+            36,
+            25
+          ],
+          "C2": [
+            39,
+            25
+          ]
+        }
+      },
+      {
+        "family": "lora",
+        "file": "Lora[wght].ttf",
+        "weight": 600,
+        "size": 36,
+        "score": 16.24,
+        "ink": {
+          "A1": [
+            37,
+            26
+          ],
+          "A2": [
+            41,
+            26
+          ],
+          "B1": [
+            34,
+            26
+          ],
+          "B2": [
+            38,
+            26
+          ],
+          "C1": [
+            36,
+            26
+          ],
+          "C2": [
+            40,
+            26
+          ]
+        }
+      },
+      {
+        "family": "crimsontext",
+        "file": "CrimsonText-Bold.ttf",
+        "weight": 700,
+        "size": 37,
+        "score": 17.44,
+        "ink": {
+          "A1": [
+            37,
+            24
+          ],
+          "A2": [
+            41,
+            24
+          ],
+          "B1": [
+            33,
+            24
+          ],
+          "B2": [
+            37,
+            24
+          ],
+          "C1": [
+            34,
+            24
+          ],
+          "C2": [
+            38,
+            24
+          ]
+        }
+      },
+      {
+        "family": "crimsontext",
+        "file": "CrimsonText-Bold.ttf",
+        "weight": 700,
+        "size": 39,
+        "score": 18.99,
+        "ink": {
+          "A1": [
+            39,
+            25
+          ],
+          "A2": [
+            43,
+            25
+          ],
+          "B1": [
+            35,
+            25
+          ],
+          "B2": [
+            39,
+            25
+          ],
+          "C1": [
+            36,
+            25
+          ],
+          "C2": [
+            40,
+            25
+          ]
+        }
+      },
+      {
+        "family": "crimsontext",
+        "file": "CrimsonText-SemiBold.ttf",
+        "weight": 700,
+        "size": 38,
+        "score": 20.38,
+        "ink": {
+          "A1": [
+            38,
+            26
+          ],
+          "A2": [
+            43,
+            26
+          ],
+          "B1": [
+            33,
+            26
+          ],
+          "B2": [
+            38,
+            26
+          ],
+          "C1": [
+            35,
+            26
+          ],
+          "C2": [
+            40,
+            26
+          ]
+        }
+      },
+      {
+        "family": "librecaslontext",
+        "file": "LibreCaslonText[wght].ttf",
+        "weight": 600,
+        "size": 31,
+        "score": 20.71,
+        "ink": {
+          "A1": [
+            38,
+            24
+          ],
+          "A2": [
+            41,
+            25
+          ],
+          "B1": [
+            35,
+            24
+          ],
+          "B2": [
+            38,
+            25
+          ],
+          "C1": [
+            36,
+            24
+          ],
+          "C2": [
+            39,
+            25
+          ]
+        }
+      },
+      {
+        "family": "crimsontext",
+        "file": "CrimsonText-SemiBold.ttf",
+        "weight": 700,
+        "size": 39,
+        "score": 21.59,
+        "ink": {
+          "A1": [
+            39,
+            26
+          ],
+          "A2": [
+            44,
+            26
+          ],
+          "B1": [
+            33,
+            26
+          ],
+          "B2": [
+            38,
+            26
+          ],
+          "C1": [
+            35,
+            26
+          ],
+          "C2": [
+            40,
+            26
+          ]
+        }
+      },
+      {
+        "family": "librecaslontext",
+        "file": "LibreCaslonText[wght].ttf",
+        "weight": 600,
+        "size": 32,
+        "score": 23.97,
+        "ink": {
+          "A1": [
+            39,
+            25
+          ],
+          "A2": [
+            42,
+            26
+          ],
+          "B1": [
+            36,
+            24
+          ],
+          "B2": [
+            39,
+            26
+          ],
+          "C1": [
+            37,
+            25
+          ],
+          "C2": [
+            40,
+            26
+          ]
+        }
+      },
+      {
+        "family": "crimsontext",
+        "file": "CrimsonText-SemiBold.ttf",
+        "weight": 700,
+        "size": 37,
+        "score": 25.09,
+        "ink": {
+          "A1": [
+            38,
+            24
+          ],
+          "A2": [
+            42,
+            24
+          ],
+          "B1": [
+            32,
+            24
+          ],
+          "B2": [
+            36,
+            24
+          ],
+          "C1": [
+            34,
+            24
+          ],
+          "C2": [
+            38,
+            24
+          ]
+        }
+      },
+      {
+        "family": "librecaslontext",
+        "file": "LibreCaslonText[wght].ttf",
+        "weight": 600,
+        "size": 30,
+        "score": 25.39,
+        "ink": {
+          "A1": [
+            37,
+            23
+          ],
+          "A2": [
+            40,
+            24
+          ],
+          "B1": [
+            34,
+            23
+          ],
+          "B2": [
+            37,
+            24
+          ],
+          "C1": [
+            35,
+            23
+          ],
+          "C2": [
+            38,
+            24
+          ]
+        }
+      },
+      {
+        "family": "stixtwotext",
+        "file": "STIXTwoText[wght].ttf",
+        "weight": 600,
+        "size": 36,
+        "score": 35.86,
+        "ink": {
+          "A1": [
+            43,
+            24
+          ],
+          "A2": [
+            43,
+            24
+          ],
+          "B1": [
+            38,
+            24
+          ],
+          "B2": [
+            38,
+            24
+          ],
+          "C1": [
+            38,
+            24
+          ],
+          "C2": [
+            38,
+            24
+          ]
+        }
+      },
+      {
+        "family": "stixtwotext",
+        "file": "STIXTwoText[wght].ttf",
+        "weight": 700,
+        "size": 36,
+        "score": 36.91,
+        "ink": {
+          "A1": [
+            43,
+            24
+          ],
+          "A2": [
+            43,
+            24
+          ],
+          "B1": [
+            39,
+            24
+          ],
+          "B2": [
+            39,
+            24
+          ],
+          "C1": [
+            39,
+            24
+          ],
+          "C2": [
+            39,
+            24
+          ]
+        }
+      },
+      {
+        "family": "stixtwotext",
+        "file": "STIXTwoText[wght].ttf",
+        "weight": 600,
+        "size": 37,
+        "score": 38.23,
+        "ink": {
+          "A1": [
+            43,
+            24
+          ],
+          "A2": [
+            44,
+            24
+          ],
+          "B1": [
+            39,
+            24
+          ],
+          "B2": [
+            40,
+            24
+          ],
+          "C1": [
+            39,
+            25
+          ],
+          "C2": [
+            40,
+            25
+          ]
+        }
+      }
+    ],
+    "figmaUnavailableFamilies": [
+      "Times New Roman",
+      "Georgia",
+      "Liberation Serif"
+    ],
+    "finalRecommendation": {
+      "family": "Lora",
+      "style": "Bold",
+      "fontSize": 35,
+      "weight": 700,
+      "letterSpacing": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 50
+      },
+      "textAlignHorizontal": "CENTER",
+      "textAlignVertical": "CENTER",
+      "textAutoResize": "NONE",
+      "fontAvailabilityVerified": true,
+      "useOneConsistentFont": true,
+      "perLabelWidthVariationRequired": false,
+      "rasterStretching": false,
+      "why": "Among 13 measured serif families, Lora Bold35 preserves a source-like sturdy bracketed serif and naturally narrower1. Noto Serif Display approximates dimensions but its very thin hairlines fail the original visual character. Plain Noto Serif does not reproduce the numeral ink-width difference. Lora was visually compared to all six source labels in an in-memory 3x nearest-neighbor diagnostic.",
+      "localDarkInkDimensionsPx": {
+        "A1": [
+          36,
+          25
+        ],
+        "A2": [
+          40,
+          25
+        ],
+        "B1": [
+          34,
+          25
+        ],
+        "B2": [
+          38,
+          25
+        ],
+        "C1": [
+          36,
+          25
+        ],
+        "C2": [
+          40,
+          25
+        ]
+      },
+      "referenceDarkInkDimensionsPx": {
+        "A1": [
+          36,
+          25
+        ],
+        "A2": [
+          40,
+          25
+        ],
+        "B1": [
+          33,
+          25
+        ],
+        "B2": [
+          37,
+          25
+        ],
+        "C1": [
+          34,
+          26
+        ],
+        "C2": [
+          38,
+          26
+        ]
+      },
+      "remainingVariance": "A widths and height match; B is1px wider; C is2px wider and1px shorter in the local thresholded raster. These are candidate tolerances to inspect in Figma, not a source identity or 100% parity claim.",
+      "fontMetrics": {
+        "unitsPerEm": 1000,
+        "hheaAscent": 1006,
+        "hheaDescent": -274,
+        "capHeight": 700
+      },
+      "sourceInkRectTargets": {
+        "A1": [
+          89,
+          595,
+          36,
+          25
+        ],
+        "A2": [
+          273,
+          595,
+          40,
+          25
+        ],
+        "B1": [
+          90,
+          670,
+          33,
+          25
+        ],
+        "B2": [
+          277,
+          670,
+          37,
+          25
+        ],
+        "C1": [
+          89,
+          744,
+          34,
+          26
+        ],
+        "C2": [
+          276,
+          744,
+          38,
+          26
+        ]
+      },
+      "proposedNodeRectsInViewport": {
+        "A1": [
+          18,
+          582,
+          176,
+          50
+        ],
+        "A2": [
+          209,
+          582,
+          168,
+          50
+        ],
+        "B1": [
+          18,
+          657,
+          176,
+          50
+        ],
+        "B2": [
+          207,
+          657,
+          176,
+          50
+        ],
+        "C1": [
+          17,
+          731,
+          176,
+          50
+        ],
+        "C2": [
+          207,
+          731,
+          176,
+          50
+        ]
+      },
+      "proposedNodeRectStatus": "Precise starting rectangles derived from source optical centers and Lora metrics; not yet Figma-render verified. If root moves card geometry, preserve the source ink targets rather than copying old parent-relative offsets.",
+      "currentNodeIds": {
+        "A1": "80:620",
+        "A2": "80:624",
+        "B1": "80:628",
+        "B2": "80:632",
+        "C1": "80:636",
+        "C2": "80:640"
+      },
+      "currentParentRelativeRect": [
+        2,
+        6,
+        176,
+        50
+      ],
+      "proposedParentRelativeRectsForCurrentCardPositions": {
+        "A1": [
+          2,
+          7,
+          176,
+          50
+        ],
+        "A2": [
+          2,
+          7,
+          168,
+          50
+        ],
+        "B1": [
+          2,
+          6,
+          176,
+          50
+        ],
+        "B2": [
+          0,
+          6,
+          176,
+          50
+        ],
+        "C1": [
+          1,
+          4,
+          176,
+          50
+        ],
+        "C2": [
+          0,
+          4,
+          176,
+          50
+        ]
+      },
+      "diagnosticImageFileWritten": false,
+      "figmaMutationPerformed": false,
+      "approval": "LOCAL_METRIC_AND_SHAPE_DIRECTION_PASS_FIGMA_RENDER_PENDING"
+    }
+  },
+  "badgeFamilyReview": {
+    "status": "PASS_ALL_SEVEN_AT_VISIBLE_WIDTH_56",
+    "alphaThreshold": 128,
+    "targetVisibleWidth": 56,
+    "fitPolicy": "Uniform scale by alpha128 body width; never distort to force 56x56. Render full image including low-alpha shadow with this scale and offset.",
+    "mapping": {
+      "A1": {
+        "file": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-860bc350-ddb4-4d65-9f45-71ae92562742.png",
+        "sha256": "8a407c9af57313a980659d0bc332d20ea45328372695f315a887ff443658df9b",
+        "canvasPx": [
+          1254,
+          1254
+        ],
+        "alpha128Bbox": [
+          101,
+          104,
+          1149,
+          1133
+        ],
+        "bodyPx": [
+          1048,
+          1029
+        ],
+        "scaleForVisibleWidth56": 0.05343511450381679,
+        "wholeImageBoxPx": [
+          67.0076,
+          67.0076
+        ],
+        "offsetRelativeToVisibleTopLeftPx": [
+          -5.3969,
+          -5.5573
+        ],
+        "visibleBodyPx": [
+          56,
+          54.9847
+        ],
+        "canvasOriginForVisibleRectAt37_368": [
+          31.6031,
+          362.4427
+        ]
+      },
+      "A2": {
+        "file": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-06748ff7-bc2a-4723-a775-6fb731b76b42.png",
+        "sha256": "0af3f35bca1e8770fede3e2baa482f60c1ba619474dabfc629ddb0a729813129",
+        "canvasPx": [
+          1254,
+          1254
+        ],
+        "alpha128Bbox": [
+          103,
+          106,
+          1146,
+          1132
+        ],
+        "bodyPx": [
+          1043,
+          1026
+        ],
+        "scaleForVisibleWidth56": 0.053691275167785234,
+        "wholeImageBoxPx": [
+          67.3289,
+          67.3289
+        ],
+        "offsetRelativeToVisibleTopLeftPx": [
+          -5.5302,
+          -5.6913
+        ],
+        "visibleBodyPx": [
+          56,
+          55.0872
+        ],
+        "canvasOriginForVisibleRectAt37_368": [
+          31.4698,
+          362.3087
+        ]
+      },
+      "B1": {
+        "file": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-7713e03d-80a6-4484-a684-95a44dcc52a4.png",
+        "sha256": "48414eb8ab868afe446e0ea33162b126153570475130c9e07a2ea53fd3424778",
+        "canvasPx": [
+          1254,
+          1254
+        ],
+        "alpha128Bbox": [
+          102,
+          104,
+          1148,
+          1133
+        ],
+        "bodyPx": [
+          1046,
+          1029
+        ],
+        "scaleForVisibleWidth56": 0.05353728489483748,
+        "wholeImageBoxPx": [
+          67.1358,
+          67.1358
+        ],
+        "offsetRelativeToVisibleTopLeftPx": [
+          -5.4608,
+          -5.5679
+        ],
+        "visibleBodyPx": [
+          56,
+          55.0899
+        ],
+        "canvasOriginForVisibleRectAt37_368": [
+          31.5392,
+          362.4321
+        ]
+      },
+      "B2": {
+        "file": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-0e8451eb-2fef-4a9d-8f3d-bd8ebcdf299b.png",
+        "sha256": "af8ca4894a9624a7e05b34c3b63c4d9f88174615c2c58358f472d1e1cf0c7ef0",
+        "canvasPx": [
+          1254,
+          1254
+        ],
+        "alpha128Bbox": [
+          102,
+          104,
+          1149,
+          1134
+        ],
+        "bodyPx": [
+          1047,
+          1030
+        ],
+        "scaleForVisibleWidth56": 0.05348615090735435,
+        "wholeImageBoxPx": [
+          67.0716,
+          67.0716
+        ],
+        "offsetRelativeToVisibleTopLeftPx": [
+          -5.4556,
+          -5.5626
+        ],
+        "visibleBodyPx": [
+          56,
+          55.0907
+        ],
+        "canvasOriginForVisibleRectAt37_368": [
+          31.5444,
+          362.4374
+        ]
+      },
+      "C1": {
+        "file": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-5a3956d0-4d15-44a8-be07-edec32302eef.png",
+        "sha256": "03f6dcab2c0c2a41f04b8775efe490e4727e54e49cdee039dd914cd119174590",
+        "canvasPx": [
+          1254,
+          1254
+        ],
+        "alpha128Bbox": [
+          103,
+          104,
+          1147,
+          1134
+        ],
+        "bodyPx": [
+          1044,
+          1030
+        ],
+        "scaleForVisibleWidth56": 0.05363984674329502,
+        "wholeImageBoxPx": [
+          67.2644,
+          67.2644
+        ],
+        "offsetRelativeToVisibleTopLeftPx": [
+          -5.5249,
+          -5.5785
+        ],
+        "visibleBodyPx": [
+          56,
+          55.249
+        ],
+        "canvasOriginForVisibleRectAt37_368": [
+          31.4751,
+          362.4215
+        ]
+      },
+      "C2": {
+        "file": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-92caf85f-552a-4e1c-87b9-bfccf6280682.png",
+        "sha256": "9c099b64ba4c71e0da324b05b37278102492ffce3a1458595244862cbef803ec",
+        "canvasPx": [
+          1254,
+          1254
+        ],
+        "alpha128Bbox": [
+          102,
+          104,
+          1148,
+          1133
+        ],
+        "bodyPx": [
+          1046,
+          1029
+        ],
+        "scaleForVisibleWidth56": 0.05353728489483748,
+        "wholeImageBoxPx": [
+          67.1358,
+          67.1358
+        ],
+        "offsetRelativeToVisibleTopLeftPx": [
+          -5.4608,
+          -5.5679
+        ],
+        "visibleBodyPx": [
+          56,
+          55.0899
+        ],
+        "canvasOriginForVisibleRectAt37_368": [
+          31.5392,
+          362.4321
+        ]
+      },
+      "beginner": {
+        "file": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-9a03a0e6-2434-4dd6-a64b-4cadbb8ad2e6.png",
+        "sha256": "2b96e89161486e4bd1be8b0df55e6a9e2249415b3f3f5b51bd36940464fea474",
+        "canvasPx": [
+          1254,
+          1254
+        ],
+        "alpha128Bbox": [
+          104,
+          103,
+          1146,
+          1133
+        ],
+        "bodyPx": [
+          1042,
+          1030
+        ],
+        "scaleForVisibleWidth56": 0.053742802303262956,
+        "wholeImageBoxPx": [
+          67.3935,
+          67.3935
+        ],
+        "offsetRelativeToVisibleTopLeftPx": [
+          -5.5893,
+          -5.5355
+        ],
+        "visibleBodyPx": [
+          56,
+          55.3551
+        ],
+        "canvasOriginForVisibleRectAt37_368": [
+          31.4107,
+          362.4645
+        ]
+      }
+    },
+    "review": {
+      "verdict": "PASS_ALL_SEVEN_AT_VISIBLE_WIDTH_56",
+      "visualMethod": "Original RGBA masters uniformly downsampled with Lanczos into transient in-memory inspection panels; actual 56 px body and 3x nearest-neighbor diagnostic enlargement viewed. No assets created, modified or cropped on disk.",
+      "judgment": "All seven preserve the accepted A2v4 dark bronze face, pale raised gold relief, restrained satin rim and upper-left light. Lower/right glyph shadows support relief. No broad white ring. Alpha body widths normalized to 56 while preserving original aspect ratio.",
+      "criteria": {
+        "legibility": "Each A1/A2/B1/B2/C1/C2 pair is readable at 56 px; the numeral 1 remains visibly narrower than 2; a dark channel separates each glyph pair without touching serif bevels.",
+        "seedling": "Two leaves and central stem remain recognizable at 56 px. It reads as a beginner symbol with the same relief height and metal palette.",
+        "familyConsistency": "Visible body height ranges 54.98–55.36 px at width56; this small natural oblate variation is acceptable and should not be stretched into a forced circle.",
+        "rim": "Bright upper-left bevel is bounded; dark inner channel and lower bronze edge remain visible. Do not brighten the entire circumference.",
+        "padding": "Use alpha>=128 body geometry for scale/offset; retain the full image including low-alpha contact shadow. Alpha>0 bounds would shrink the visible medal."
+      },
+      "perAsset": {
+        "A1": {
+          "verdict": "PASS",
+          "note": "A and slender 1 separate cleanly; both feet remain readable."
+        },
+        "A2": {
+          "verdict": "PASS",
+          "note": "Accepted v4 remains the material benchmark; dark lower serif gap retained."
+        },
+        "B1": {
+          "verdict": "PASS",
+          "note": "B counters and slender 1 survive actual-size downsampling."
+        },
+        "B2": {
+          "verdict": "PASS",
+          "note": "B and rounded 2 remain independent with clear terminal gap."
+        },
+        "C1": {
+          "verdict": "PASS",
+          "note": "Open C and upright 1 remain recognizable; relief matches family."
+        },
+        "C2": {
+          "verdict": "PASS",
+          "note": "Open C and curved 2 read distinctly; no closing of C aperture."
+        },
+        "beginner": {
+          "verdict": "PASS",
+          "note": "Twin leaves and stem remain clear with consistent gold relief."
+        }
+      },
+      "requiredRegeneration": [],
+      "integrationLimit": "This approves the masters and their scale/offset mapping. Root must place each current master and verify the resulting screen; unseen placements are not approved."
+    }
+  },
+  "currentApprovedComponentReview": {
+    "reviewedAt": "2026-10-18",
+    "status": "PASS_SCOPED_STATIC_COMPONENT_REVIEW",
+    "scope": "Six large CEFR labels in the current Figma 80:569 render; seven medal masters at visible 56 px; supplied 34 px check and jade/gold selected border. No whole-screen, interaction, Flutter or device approval.",
+    "typography": {
+      "verdict": "PASS",
+      "supersedes": "currentComponentReviewV4.components.largeLevelLabels FAIL for Noto Serif ExtraCondensed Bold 34",
+      "evidence": {
+        "fileKey": "rVlcMLvngw07BYJ7nRT87C",
+        "nodeId": "80:569",
+        "renderPx": [
+          402,
+          934
+        ],
+        "screenshotSha256": "f5f988a7db75ce0a98c3b086082af52f4346739cdd5ef8b744112b81b8a0adb7",
+        "method": "Direct Figma screenshot and read-only node properties. Source app crop [52,52,748,1738] normalized to 402x934 in memory with Lanczos; dark ink max(R,G,B)<105.",
+        "screenshotSavedAsAsset": false
+      },
+      "font": {
+        "family": "Lora",
+        "style": "Bold",
+        "weight": 700,
+        "sizePx": 35,
+        "letterSpacingPx": 0,
+        "lineHeightPx": 50,
+        "horizontalAlign": "CENTER",
+        "verticalAlign": "CENTER",
+        "rasterOrHorizontalStretch": false
+      },
+      "parentRelativeRects": {
+        "A1": [
+          2,
+          7,
+          176,
+          50
+        ],
+        "A2": [
+          2,
+          7,
+          168,
+          50
+        ],
+        "B1": [
+          2,
+          6,
+          176,
+          50
+        ],
+        "B2": [
+          0,
+          6,
+          176,
+          50
+        ],
+        "C1": [
+          1,
+          4,
+          176,
+          50
+        ],
+        "C2": [
+          0,
+          4,
+          176,
+          50
+        ]
+      },
+      "measurement": {
+        "A1": {
+          "source": {
+            "inkBbox": [
+              89,
+              595,
+              125,
+              620
+            ],
+            "inkSize": [
+              36,
+              25
+            ],
+            "inkPixels": 364
+          },
+          "current": {
+            "inkBbox": [
+              88,
+              595,
+              123,
+              620
+            ],
+            "inkSize": [
+              35,
+              25
+            ],
+            "inkPixels": 357
+          }
+        },
+        "A2": {
+          "source": {
+            "inkBbox": [
+              273,
+              595,
+              313,
+              620
+            ],
+            "inkSize": [
+              40,
+              25
+            ],
+            "inkPixels": 410
+          },
+          "current": {
+            "inkBbox": [
+              272,
+              595,
+              312,
+              620
+            ],
+            "inkSize": [
+              40,
+              25
+            ],
+            "inkPixels": 385
+          }
+        },
+        "B1": {
+          "source": {
+            "inkBbox": [
+              90,
+              670,
+              123,
+              695
+            ],
+            "inkSize": [
+              33,
+              25
+            ],
+            "inkPixels": 438
+          },
+          "current": {
+            "inkBbox": [
+              89,
+              670,
+              123,
+              695
+            ],
+            "inkSize": [
+              34,
+              25
+            ],
+            "inkPixels": 409
+          }
+        },
+        "B2": {
+          "source": {
+            "inkBbox": [
+              277,
+              670,
+              314,
+              695
+            ],
+            "inkSize": [
+              37,
+              25
+            ],
+            "inkPixels": 473
+          },
+          "current": {
+            "inkBbox": [
+              276,
+              670,
+              314,
+              695
+            ],
+            "inkSize": [
+              38,
+              25
+            ],
+            "inkPixels": 437
+          }
+        },
+        "C1": {
+          "source": {
+            "inkBbox": [
+              89,
+              744,
+              123,
+              770
+            ],
+            "inkSize": [
+              34,
+              26
+            ],
+            "inkPixels": 333
+          },
+          "current": {
+            "inkBbox": [
+              87,
+              744,
+              123,
+              769
+            ],
+            "inkSize": [
+              36,
+              25
+            ],
+            "inkPixels": 339
+          }
+        },
+        "C2": {
+          "source": {
+            "inkBbox": [
+              276,
+              744,
+              314,
+              770
+            ],
+            "inkSize": [
+              38,
+              26
+            ],
+            "inkPixels": 380
+          },
+          "current": {
+            "inkBbox": [
+              275,
+              744,
+              314,
+              769
+            ],
+            "inkSize": [
+              39,
+              25
+            ],
+            "inkPixels": 370
+          }
+        }
+      },
+      "judgment": "One consistent serif restores the narrower 1 and broader 2, sturdy bracketed serifs and reference-scale cap height. All row ink tops match the source (595,670,744). Labels remain distinct from border and selected check.",
+      "residualDifferences": "Current width differs from source by -1 to +2 px; C ink is 1 px shorter. Current ink centers are 0.5–1.5 px left of source. These are small static approximation differences, not an exact font identity or pixel-equivalence claim.",
+      "optionalOpticalCorrection": "If matching centers more closely in the geometry pass, shift all six text rectangles +1 px horizontally; current typography/material approval does not depend on this sub-2 px refinement."
+    },
+    "badges": {
+      "verdict": "PASS_ALL_SEVEN_AT_VISIBLE_WIDTH_56",
+      "visualMethod": "Original RGBA masters uniformly downsampled with Lanczos into transient in-memory inspection panels; actual 56 px body and 3x nearest-neighbor diagnostic enlargement viewed. No assets created, modified or cropped on disk.",
+      "judgment": "All seven preserve the accepted A2v4 dark bronze face, pale raised gold relief, restrained satin rim and upper-left light. Lower/right glyph shadows support relief. No broad white ring. Alpha body widths normalized to 56 while preserving original aspect ratio.",
+      "criteria": {
+        "legibility": "Each A1/A2/B1/B2/C1/C2 pair is readable at 56 px; the numeral 1 remains visibly narrower than 2; a dark channel separates each glyph pair without touching serif bevels.",
+        "seedling": "Two leaves and central stem remain recognizable at 56 px. It reads as a beginner symbol with the same relief height and metal palette.",
+        "familyConsistency": "Visible body height ranges 54.98–55.36 px at width56; this small natural oblate variation is acceptable and should not be stretched into a forced circle.",
+        "rim": "Bright upper-left bevel is bounded; dark inner channel and lower bronze edge remain visible. Do not brighten the entire circumference.",
+        "padding": "Use alpha>=128 body geometry for scale/offset; retain the full image including low-alpha contact shadow. Alpha>0 bounds would shrink the visible medal."
+      },
+      "perAsset": {
+        "A1": {
+          "verdict": "PASS",
+          "note": "A and slender 1 separate cleanly; both feet remain readable."
+        },
+        "A2": {
+          "verdict": "PASS",
+          "note": "Accepted v4 remains the material benchmark; dark lower serif gap retained."
+        },
+        "B1": {
+          "verdict": "PASS",
+          "note": "B counters and slender 1 survive actual-size downsampling."
+        },
+        "B2": {
+          "verdict": "PASS",
+          "note": "B and rounded 2 remain independent with clear terminal gap."
+        },
+        "C1": {
+          "verdict": "PASS",
+          "note": "Open C and upright 1 remain recognizable; relief matches family."
+        },
+        "C2": {
+          "verdict": "PASS",
+          "note": "Open C and curved 2 read distinctly; no closing of C aperture."
+        },
+        "beginner": {
+          "verdict": "PASS",
+          "note": "Twin leaves and stem remain clear with consistent gold relief."
+        }
+      },
+      "requiredRegeneration": [],
+      "integrationLimit": "This approves the masters and their scale/offset mapping. Root must place each current master and verify the resulting screen; unseen placements are not approved."
+    },
+    "selectedCheckAndBorder": {
+      "verdict": "PASS",
+      "evidence": "Direct current 80:569 render confirms the 34px check, jade outer border and fine gold inner edge remain separate from A2 text with no clipping."
+    },
+    "wholeScreenApproval": false,
+    "interactionApproval": false,
+    "nativeFlutterApproval": false,
+    "deviceApproval": false,
+    "sourceScreenshotPixelsAsRuntimeAssetsAllowed": false
+  },
+  "commonControlsReview": {
+    "status": "PASS_V7_COMMON_CONTROLS_AND_JADE",
+    "reviewedAt": "2026-10-18",
+    "scope": "Shared CTA103:48; source first-unit field80:344; all7 committed setup and draft overlay copies; jade header observation only",
+    "script": "tool/refine_einleitung_controls.js",
+    "scriptExecutedByReviewer": false,
+    "figmaWritesByReviewer": false,
+    "goldAsset": {
+      "path": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-b1e03984-d81e-4949-8bde-abd6b384611a.png",
+      "canvas": [
+        2172,
+        724
+      ],
+      "alpha128Body": [
+        83,
+        193,
+        2089,
+        498
+      ],
+      "bodySize": [
+        2006,
+        305
+      ],
+      "bodyAspect": 6.577049180327869,
+      "sourceTarget": [
+        370,
+        51
+      ],
+      "sourceAspect": 7.254901960784314,
+      "heightAtWidth370": 56.25623130608175,
+      "heightAtWidth360": 54.7357926221336,
+      "widthAtHeight51": 335.4295081967213,
+      "verdict": "FAIL_SOURCE_BODY_ASPECT",
+      "requiredCorrection": "New complete transparent blank gold pill with alpha128 body aspect7.2549; preserve full image uniformly with no crop or axis distortion. Script accepts new hash/canvas/body and refuses height error above0.5px."
+    },
+    "geometry": {
+      "mainCtaVisible": [
+        16,
+        849,
+        370,
+        51
+      ],
+      "sheetCtaVisible": [
+        16,
+        843,
+        370,
+        51
+      ],
+      "ctaHitSize": [
+        370,
+        58
+      ],
+      "changeHitSize": [
+        98,
+        48
+      ],
+      "changeVisibleFaceRelativeToHit": [
+        0,
+        1,
+        98,
+        46
+      ]
+    },
+    "sourceMeasurements": {
+      "mainCtaInk": [
+        167,
+        867,
+        235,
+        883
+      ],
+      "currentMainCtaInk": [
+        168,
+        866,
+        234,
+        883
+      ],
+      "mainArrowInk": [
+        352,
+        867,
+        362,
+        883
+      ],
+      "currentMainArrowInk": [
+        355,
+        870,
+        362,
+        883
+      ],
+      "changeWhiteInk": [
+        300,
+        390,
+        349,
+        404
+      ],
+      "currentChangeWhiteInk": [
+        297,
+        387,
+        349,
+        402
+      ],
+      "applyInk": [
+        114,
+        858,
+        291,
+        873
+      ],
+      "currentApplyInk": [
+        103,
+        861,
+        299,
+        877
+      ]
+    },
+    "proposedCorrections": [
+      "Replace text arrows with closed vector chevrons and fine metallic/dark relief; main10x16 and change12x7.",
+      "Restore source-sized Change label with Roboto Regular16 and lower optical placement.",
+      "Give the selected field coherent jade rail plus fine gold inner/outer bevel and lower contact shadow.",
+      "Use jade vertical lighting and gold edge on 98x46 visible Change face while keeping48px interaction target.",
+      "Apply label Roboto Bold20 with y6 rather than current22/y10 to approach source177x15 ink.",
+      "Keep complete gold image in FIT using measured alpha128 body; preserve58px CTA hit box and reactions."
+    ],
+    "jadeHeader": {
+      "status": "SOURCE_MATERIAL_DIFFERENCE_RECORDED_ROOT_OWNS_ASSET",
+      "sampleRect": [
+        120,
+        114,
+        230,
+        139
+      ],
+      "sourceMedianRGB": [
+        6,
+        81,
+        61
+      ],
+      "currentMedianRGB": [
+        1,
+        81,
+        53
+      ],
+      "observation": "Current has more yellow-green cast and visible fine woven swirl; source is quieter, broader organic/cloudy jade. No header image modification in script."
+    },
+    "reReviewConditions": [
+      "Run script with aspect-correct goldAsset config and capture actual402x934 frames.",
+      "Gold alpha128 body must measure370x49.5..52.5, with source-like visible face, all corners and a thin contact edge retained; tolerance based on actual370px review, not automatic acceptance of future masters.",
+      "Main arrow must read10x16 and Change gold V12x7 with clean contrast; no plain text arrows remain visible.",
+      "Change visible face retains jade lighting, thin gold edge and48px hit target; label/arrow do not collide.",
+      "Beginner neutral field remains neutral; all reactions and full58px main/apply hit frames remain intact."
+    ],
+    "wholeComponentSetApproved": true,
+    "newGoldCandidate": {
+      "verdict": "PASS_FOR_PLACEMENT_AND_SCOPED_RENDER_REVIEW",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-4ff42b89-6503-4479-a5c6-5b0de7247464.png",
+      "sha256": "9f65271a81e51a10f78819e34a3de199918662ce4da24af0ee50e09f05518240",
+      "canvas": [
+        2170,
+        725
+      ],
+      "alpha128Body": [
+        73,
+        205,
+        2102,
+        491
+      ],
+      "bodySize": [
+        2029,
+        286
+      ],
+      "visibleAtWidth370": [
+        370,
+        52.15377033021193
+      ],
+      "wholeImageBox": [
+        395.7121734844751,
+        132.20798422868407
+      ],
+      "offsetRelativeToVisibleTopLeft": [
+        -13.31197634302612,
+        -37.38294726466239
+      ],
+      "scale": 0.18235584031542632,
+      "thresholdSensitivity": {
+        "64": {
+          "bbox": [
+            72,
+            205,
+            2103,
+            492
+          ],
+          "heightAtWidth370": 52.28458887247661
+        },
+        "128": {
+          "bbox": [
+            73,
+            205,
+            2102,
+            491
+          ],
+          "heightAtWidth370": 52.15377033021193
+        },
+        "160": {
+          "bbox": [
+            73,
+            205,
+            2102,
+            491
+          ],
+          "heightAtWidth370": 52.15377033021193
+        },
+        "192": {
+          "bbox": [
+            73,
+            205,
+            2102,
+            491
+          ],
+          "heightAtWidth370": 52.15377033021193
+        },
+        "224": {
+          "bbox": [
+            73,
+            206,
+            2102,
+            491
+          ],
+          "heightAtWidth370": 51.9714144898965
+        },
+        "250": {
+          "bbox": [
+            74,
+            206,
+            2101,
+            490
+          ],
+          "heightAtWidth370": 51.840157868771584
+        },
+        "254": {
+          "bbox": [
+            74,
+            208,
+            2101,
+            490
+          ],
+          "heightAtWidth370": 51.47508633448446
+        },
+        "255": {
+          "bbox": [
+            74,
+            210,
+            2101,
+            490
+          ],
+          "heightAtWidth370": 51.110014800197334
+        }
+      },
+      "thresholdCaveat": "High-alpha masks show edge sensitivity; alpha255 is not a face segmentation because many gold face pixels have alpha253. Keep alpha128 for placement.",
+      "actualSizeJudgment": "At370px width the visible metallic face, round corners and lower bronze/contact edge have source-like slim proportions. The1.154px excess in alpha128 bounds is acceptable within raster-source edge uncertainty and does not justify another generation. Full source corners and lower contact edge are retained.",
+      "acceptedVisibleHeightRange": [
+        49.5,
+        52.5
+      ],
+      "targetHeight": 51,
+      "tolerance": 1.5,
+      "requiredRegeneration": false,
+      "requiresFinalFigmaScreenshot": true,
+      "noCropOrAxisStretch": true,
+      "materialLimit": "New lower contact edge is slightly darker/more continuous than the source; verify it remains a thin grounding edge over the actual footer."
+    },
+    "newJadeCandidate": {
+      "verdict": "PASS_MATERIAL_DIRECTION_PENDING_COMPOSED_RENDER",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-547d1ef6-e713-451e-934f-06ce5810448a.png",
+      "sha256": "55b0e761d46859a36998aec85880e764da74e0f0f31b952c270915f3a8b2e4fe",
+      "canvas": [
+        1254,
+        1254
+      ],
+      "placementRect": [
+        0,
+        0,
+        402,
+        402
+      ],
+      "scaleMode": "FIT",
+      "preserveWholeImage": true,
+      "requiredRegeneration": false,
+      "judgment": "Organic cloudy jade removes the prior fine woven swirl. Full header composition is required to judge brightness and contrast around title/brand/tiger. Do not retain the old402x603 node with square FIT because it would add vertical free space.",
+      "patchMetricsAt402Square": {
+        "rect": [
+          120,
+          114,
+          230,
+          139
+        ],
+        "newMedianRGB": [
+          6,
+          105,
+          74
+        ],
+        "sourceMedianRGB": [
+          6,
+          81,
+          61
+        ],
+        "interpretation": "New texture has a brighter cloud at this location; random texture phase means this is not an exact color-equivalence metric. Two other open source patches are much closer in green/blue. Avoid speculative global darkening before composed review."
+      },
+      "figmaWritesByReviewer": false
+    },
+    "v6RenderedReview": {
+      "reviewedAt": "2026-10-18",
+      "verdict": "PASS_SCOPED_CONTROLS",
+      "evidence": [
+        {
+          "path": "docs/screenshots/einleitung-parity-review-20261018/01-v6.png",
+          "sha256": "863afb504c50c29e184ca26ea5df834b5b8007b08ef483dea7cd0c23132eb409",
+          "size": [
+            402,
+            934
+          ]
+        },
+        {
+          "path": "docs/screenshots/einleitung-parity-review-20261018/level-v6.png",
+          "sha256": "4e8abccd8ff16cb1f0425662f730e76d429e0edd2641df3eb5cc67835c4dbe2c",
+          "size": [
+            402,
+            934
+          ]
+        }
+      ],
+      "components": {
+        "goldCta": {
+          "verdict": "PASS",
+          "judgment": "Actual370px whole-image placement restores the slim source-like gold body. All rounded corners remain visible, the lower contact lip is thin and the label is legible. The52.154px alpha128 outer height is accepted under the explicit51+/-1.5px review tolerance."
+        },
+        "mainRightArrow": {
+          "verdict": "PASS",
+          "judgment": "Closed dark10x16 vector has a restrained gold bevel and clear rightward direction. The old thin text glyph no longer appears."
+        },
+        "selectedLevelField": {
+          "verdict": "PASS",
+          "judgment": "Jade rail, fine gold bevel and lower contact edge give the field coherent depth without duplicated heavy outlines or label collisions."
+        },
+        "changeAction": {
+          "verdict": "PASS",
+          "judgment": "Jade face has upper-to-lower lighting, a fine metallic edge and visible gold down-chevron. Label and arrow have distinct space within the48px hit frame."
+        },
+        "beginnerFieldChevron": {
+          "verdict": "PASS",
+          "judgment": "Neutral beginner field stays neutral and its rightward vector is clearly visible beneath the modal dim."
+        },
+        "applyLabel": {
+          "verdict": "PASS",
+          "font": "Roboto Bold20",
+          "sourceDarkInk": [
+            114,
+            858,
+            291,
+            873
+          ],
+          "v6DarkInk": [
+            114,
+            857,
+            292,
+            872
+          ],
+          "judgment": "Source width/weight restored; only1px vertical/right-edge residual remains."
+        }
+      },
+      "geometryAndHitEvidence": "Root reports executing prepared script with goldAsset config and height tolerance1.5. Local v6 actual render reviewed;58px CTA and48px Change hit-frame preservation is in the executed script. No behavior or device claim from static images.",
+      "figmaWritesByReviewer": false,
+      "sourcePixelEquivalenceClaimed": false
+    },
+    "jadeToneRecommendation": {
+      "status": "APPLIED_AND_PASSED_IN_V7",
+      "color": "#094838",
+      "rgb": [
+        9,
+        72,
+        56
+      ],
+      "opacity": 0.6,
+      "rect": [
+        0,
+        0,
+        402,
+        402
+      ],
+      "insertion": "Immediately above Generated jade, below all art/text; after its index in each first-unit setup/source comparison root. Overlay-only UX7 frames have no jade layer and need no rectangle.",
+      "repeatSafety": "Upsert one named rectangle rather than stacking duplicate tonal veils.",
+      "imageFileEdited": false,
+      "imageFiltersRequired": false,
+      "newGenerationRequired": false,
+      "measurement": "Seven source/current blank jade patches, normalized402x934 source; combined channel percentiles. Native compositing prediction uses0.4*image+0.6*RGB(9,72,56).",
+      "sourceMedianRGB": [
+        6,
+        82,
+        61
+      ],
+      "v6MedianRGB": [
+        2,
+        97,
+        69
+      ],
+      "predictedMedianRGB": [
+        6.2,
+        82,
+        61.2
+      ],
+      "sourceGreenP10P90": [
+        75,
+        88
+      ],
+      "v6GreenP10P90": [
+        81,
+        116
+      ],
+      "predictedGreenP10P90": [
+        75.6,
+        89.6
+      ],
+      "visualInspection": "In-memory402px comparison shows quieter organic clouds and source-like deep jade with this veil. No diagnostic image saved as an asset.",
+      "limitations": "Cloud shapes are independently generated. Prediction is evidence for a reversible native material adjustment, not pixel identity. Final actual Figma composition still needs confirmation.",
+      "actualV7MedianRGB": [
+        6,
+        82,
+        62
+      ],
+      "actualV7GreenP10P90": [
+        76,
+        89
+      ]
+    },
+    "wholeComponentSetApprovalScope": "First-unit static materials and controls only"
+  },
+  "finalFirstUnitMaterialReview": {
+    "reviewedAt": "2026-10-18",
+    "verdict": "PASS",
+    "reviewScope": "First Einleitung unit:01 setup and level chooser static402x934 material, typography and common control composition. Seven medal masters previously passed at56px.",
+    "readyToExtendApprovedMaterialsToRemainingScreens": true,
+    "evidence": [
+      {
+        "path": "docs/screenshots/einleitung-parity-review-20261018/01-v7.png",
+        "sha256": "c40906b0c4a6c04915d262253e525aa26cbe8b984af781179a7e9d365fcbac84",
+        "size": [
+          402,
+          934
+        ]
+      },
+      {
+        "path": "docs/screenshots/einleitung-parity-review-20261018/level-v7.png",
+        "sha256": "244aa07e640b16a5d8ec96fdc5e808627f7bd7f4269062f133614b6b16cdab75",
+        "size": [
+          402,
+          934
+        ]
+      }
+    ],
+    "jade": {
+      "verdict": "PASS",
+      "nativeTone": {
+        "color": "#094838",
+        "opacity": 0.6,
+        "rect": [
+          0,
+          0,
+          402,
+          402
+        ]
+      },
+      "sourceBlankPatchMedianRGB": [
+        6,
+        82,
+        61
+      ],
+      "v7BlankPatchMedianRGB": [
+        6,
+        82,
+        62
+      ],
+      "sourceGreenP10P90": [
+        75,
+        88
+      ],
+      "v7GreenP10P90": [
+        76,
+        89
+      ],
+      "judgment": "Actual composed render has source-like deep jade and quiet organic texture. Background no longer competes with white title, cream/gold branding or tiger. Modal dim remains coherent.",
+      "pngShaUnchanged": "55b0e761d46859a36998aec85880e764da74e0f0f31b952c270915f3a8b2e4fe"
+    },
+    "approvedComponents": [
+      "Jade background with native tonal veil",
+      "Cream hanji field and sheet material",
+      "Seven56px bronze/gold medal masters",
+      "34px supplied gold check",
+      "Jade/gold selected card border",
+      "Source-scale Lora Bold35 six level labels",
+      "New whole-image gold CTA at370px width and52.154px alpha128 height",
+      "Beveled right and down vector chevrons",
+      "Jade Change face and48px hit-frame specification",
+      "Roboto Bold20 Apply label",
+      "15.5px modal helper in final composition"
+    ],
+    "regressionEvidence": {
+      "setupV6ToV7BelowY307ChangedPixels": 0,
+      "modalV6ToV7BelowY414ChangedPixelCount": 1457,
+      "modalChangedBbox": [
+        106,
+        811,
+        296,
+        827
+      ],
+      "interpretation": "All approved setup content/control pixels remain unchanged. Modal content changes are confined to the requested helper text; selected labels, check, borders and CTA retain v6 material approval."
+    },
+    "goldPngShaUnchanged": "9f65271a81e51a10f78819e34a3de199918662ce4da24af0ee50e09f05518240",
+    "remainingRequiredMaterialCorrections": [],
+    "furtherAssetGenerationRequiredForThisScope": false,
+    "approvalLimits": [
+      "Static material/typography/common-control approval only; independent scene geometry and UX remain their reviewers scope.",
+      "No claim of original font identity or100percent pixel equality.",
+      "This approval does not establish Flutter integration, touch behavior, saved learning state, accessibility scaling or physical-device validation.",
+      "Future screens must be checked in their own context; approved material tokens do not automatically approve new composition."
+    ],
+    "figmaWritesByReviewer": false,
+    "pngFilesEditedByReviewer": false,
+    "sourceScreenshotPixelsUsedAsRuntimeAssets": false
+  }
+}

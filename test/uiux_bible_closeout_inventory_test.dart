@@ -110,9 +110,9 @@ void main() {
       }
     }
 
-    // Includes the shared finite-step content layout and Hanok preview owners.
-    expect(seen, hasLength(125));
-    expect(documented, hasLength(125));
+    // Includes the bounded Welcome owner and reference level-selection sheet.
+    expect(seen, hasLength(127));
+    expect(documented, hasLength(127));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });
@@ -152,9 +152,11 @@ void main() {
     // 2026-09-15 (C8): +1 — ai_voice_notice_host joins Study and evidence.
     // 2026-10-03: +3 — persona portrait, scene introduction and touch motion.
     // 2026-10-04: +5 — tactile reveal and auxiliary catalog/settings entrances.
-    expect(actual, hasLength(152));
+    // 2026-10-18: +1 — approved Einleitung reference typography/material roles.
+    // 2026-10-29: +1 — bounded Einleitung contact, selection and scene motion.
+    expect(actual, hasLength(154));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(152));
+    expect(listed, hasLength(154));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/c_onboarding.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_setup_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
@@ -10,13 +11,15 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.d
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
-import 'support/real_fonts.dart';
+import 'support/einleitung_capture_assets.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(() => loadSoriRealFonts(materialIcons: true));
+  setUpAll(() async {
+    await loadEinleitungFonts();
+  });
   setUp(() {
     stubSoriSpeech();
     TigerStageVideo.videoReady = false;
@@ -135,11 +138,16 @@ Future<void> _expectScreenFits(
   String evidence,
 ) async {
   expect(tester.takeException(), isNull, reason: evidence);
-  for (final button in find.byType(SoriButton).evaluate()) {
+  for (final button
+      in find
+          .byWidgetPredicate(
+            (widget) => widget is SoriButton || widget is IntroAction,
+          )
+          .evaluate()) {
     final finder = find.byWidget(button.widget);
     var rect = tester.getRect(finder);
     if (rect.top < 44 || rect.bottom > size.height - 34) {
-      await tester.ensureVisible(finder);
+      await Scrollable.ensureVisible(tester.element(finder), alignment: .5);
       await tester.pumpAndSettle();
       rect = tester.getRect(finder);
     }
@@ -156,7 +164,7 @@ Future<void> _expectScreenFits(
     final finder = find.byWidget(button.widget);
     var rect = tester.getRect(finder);
     if (rect.top < 44 || rect.bottom > size.height - 34) {
-      await tester.ensureVisible(finder);
+      await Scrollable.ensureVisible(tester.element(finder), alignment: .5);
       await tester.pumpAndSettle();
       rect = tester.getRect(finder);
     }

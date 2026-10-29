@@ -1,12 +1,12 @@
 import 'dart:ui' show Tristate;
 import 'package:flutter/material.dart';
-import 'package:flutter/semantics.dart' show LocaleStringAttribute;
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/c_onboarding.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_games_demo.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_journey_scenes.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_learning_demo.dart';
@@ -16,12 +16,11 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_shell.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'support/real_fonts.dart';
+import 'support/einleitung_capture_assets.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(loadSoriRealFonts);
+  setUpAll(loadEinleitungFonts);
   setUp(() => SharedPreferences.setMockInitialValues({}));
   const ids = [
     OnboardingV2Ids.storyPersonalCurriculum,
@@ -56,11 +55,8 @@ void main() {
             ),
           ),
         );
-        expect(find.byType(scenes[index]), findsOneWidget);
         final progress = tester
-            .getSemantics(
-              find.byKey(const ValueKey('onboarding-v2-story-progress')),
-            )
+            .getSemantics(find.bySemanticsLabel('Page ${index + 2} of 7'))
             .getSemanticsData();
         expect(progress.label, 'Page ${index + 2} of 7');
         final title = find.byKey(const ValueKey('onboarding-v2-story-title'));
@@ -83,6 +79,7 @@ void main() {
         expect(back, ids[index]);
         await tester.tap(nextButton);
         expect(next, ids[index]);
+        await _openPreview(tester, index);
         expect(
           find.byType(scenes[index]),
           findsOneWidget,
@@ -105,10 +102,15 @@ void main() {
       _Setup(key: key, onSubmitted: (value) => submitted = value),
     );
     expect(_button(tester, 'onboarding-v2-setup-continue').onTap, isNull);
+    await tester.tap(find.byKey(const ValueKey('c-onboarding-change-level')));
+    await tester.pumpAndSettle();
     final newChoice = find.byKey(const ValueKey('onboarding-v3-new'));
     await _focusWithKeyboard(tester, newChoice);
     await tester.sendKeyEvent(LogicalKeyboardKey.enter);
     await tester.pump();
+    expect(key.currentState!.level, isNull);
+    await tester.tap(find.byKey(const ValueKey('intro-level-apply')));
+    await tester.pumpAndSettle();
     expect(key.currentState!.beginner, isTrue);
     expect(key.currentState!.level, 'A1');
     await tester.tap(
@@ -116,10 +118,13 @@ void main() {
     );
     expect(submitted?.purposeId, isNull);
     expect(submitted?.levelCode, 'A1');
-    await tester.tap(find.byKey(const ValueKey('onboarding-v3-returning')));
-    await tester.pump();
+    await tester.tap(find.byKey(const ValueKey('c-onboarding-change-level')));
+    await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('onboarding-v2-level-A1')));
     await tester.pump();
+    expect(key.currentState!.beginner, isTrue);
+    await tester.tap(find.byKey(const ValueKey('intro-level-apply')));
+    await tester.pumpAndSettle();
     expect(key.currentState!.beginner, isFalse);
     expect(key.currentState!.level, 'A1');
     expect(
@@ -145,6 +150,7 @@ void main() {
         ),
       );
       await _pump(tester, book());
+      await _openPreview(tester, 3);
       final action = find.byKey(const ValueKey('onboarding-v3-book-action'));
       final t = AppL10n.of(tester.element(find.byType(OnboardingBookScene)));
       expect(find.text(t.onboardingJourneySampleOnly), findsOneWidget);
@@ -157,6 +163,7 @@ void main() {
       expect({for (final key in prefs.getKeys()) key: prefs.get(key)}, before);
       await tester.pumpWidget(const SizedBox.shrink());
       await _pump(tester, book());
+      await _openPreview(tester, 3);
       expect(find.text(t.onboardingJourneyTakePhoto), findsOneWidget);
       expect(find.text(t.onboardingJourneySaved), findsNothing);
       expect(tester.takeException(), isNull);
@@ -178,6 +185,7 @@ void main() {
           ),
         ),
       );
+      await _openPreview(tester, 0);
       final details = find.byType(OnboardingV2DetailsButton);
       await _focusWithKeyboard(tester, details);
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
@@ -217,12 +225,11 @@ void main() {
           )
           .getSemanticsData();
       expect(data.flagsCollection.isSelected, Tristate.isTrue);
-      expect(
-        data.attributedLabel.attributes.whereType<LocaleStringAttribute>().map(
-          (attribute) => attribute.locale.languageCode,
-        ),
-        contains('ko'),
-      );
+      // The approved cards now use localized name/role copy, without Korean
+      // speech spans. Keep the selected control's accessible identity explicit.
+      final t = lookupAppL10n(const Locale('en'));
+      expect(data.label, contains('Joy'));
+      expect(data.label, contains(t.onboardingCJoyRole));
       expect(
         _button(tester, 'onboarding-v2-companion-continue').onTap,
         isNotNull,
@@ -265,8 +272,17 @@ Future<void> _finite(WidgetTester tester) async {
   }
 }
 
-SoriButton _button(WidgetTester tester, String key) =>
-    tester.widget<SoriButton>(find.byKey(ValueKey(key)));
+IntroAction _button(WidgetTester tester, String key) =>
+    tester.widget<IntroAction>(find.byKey(ValueKey(key)));
+
+Future<void> _openPreview(WidgetTester tester, int page) async {
+  final preview = find.byKey(ValueKey('c-onboarding-preview-${page + 2}'));
+  await Scrollable.ensureVisible(tester.element(preview), alignment: .5);
+  await tester.pumpAndSettle();
+  await tester.tap(preview);
+  await tester.pumpAndSettle();
+}
+
 Future<void> _focusWithKeyboard(WidgetTester tester, Finder target) async {
   for (var i = 0; i < 40; i++) {
     if (_withinFocus(target)) {

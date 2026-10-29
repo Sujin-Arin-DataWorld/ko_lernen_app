@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/features/guide/guide_hub_screen.dart';
 import 'package:ko_lernen_app/features/guide/guide_progress_service.dart';
@@ -14,18 +13,18 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_setup_screen.dart
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.dart';
-import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_shell.dart';
 import 'package:ko_lernen_app/screens/study_library_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
-import 'package:ko_lernen_app/widgets/sori/sheet.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 
-import 'support/real_fonts.dart';
+import 'support/einleitung_capture_assets.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(loadSoriRealFonts);
+  setUpAll(() async {
+    await loadEinleitungFonts();
+  });
 
   group('Onboarding V2 compact accessibility gate', () {
     final surfaces =
@@ -72,6 +71,7 @@ void main() {
               onPurposeChanged: (_) {},
               onLevelChanged: (_) {},
               onContinue: (_) {},
+              onBack: () {},
             ),
           ),
           (
@@ -88,6 +88,7 @@ void main() {
               onPurposeChanged: (_) {},
               onLevelChanged: (_) {},
               onContinue: (_) {},
+              onBack: () {},
             ),
           ),
           (
@@ -104,6 +105,7 @@ void main() {
               onPurposeChanged: (_) {},
               onLevelChanged: (_) {},
               onContinue: (_) {},
+              onBack: () {},
             ),
           ),
           (
@@ -118,6 +120,7 @@ void main() {
               selectedCompanionId: null,
               onCompanionChanged: (_) {},
               onContinue: (_) {},
+              onBack: () {},
             ),
           ),
           (
@@ -132,6 +135,7 @@ void main() {
               selectedCompanionId: OnboardingV2Ids.companionJoy,
               onCompanionChanged: (_) {},
               onContinue: (_) {},
+              onBack: () {},
             ),
           ),
         ];
@@ -174,15 +178,27 @@ void main() {
                   '${surface.name} ${locale.languageCode} '
                   '${viewport.size} @${viewport.textScale}';
               expect(tester.takeException(), isNull, reason: evidence);
-              final deepContent = find.byKey(surface.deepContentKey);
+              final story = surface.name.startsWith('story page ');
+              final setup = surface.name.startsWith('setup ');
+              final launchKey = story
+                  ? ValueKey(
+                      'c-onboarding-preview-${int.parse(surface.name.split(' ').last) + 1}',
+                    )
+                  : setup
+                  ? const ValueKey('c-onboarding-change-level')
+                  : surface.deepContentKey;
+              final deepContent = find.byKey(launchKey);
               expect(
                 deepContent,
                 findsOneWidget,
                 reason: '$evidence core interaction is unreachable',
               );
-              await tester.ensureVisible(deepContent);
+              await Scrollable.ensureVisible(
+                tester.element(deepContent),
+                alignment: .5,
+              );
               await _pumpFinite(tester);
-              _expectInsideSafeViewport(
+              _expectVisibleTarget(
                 tester,
                 deepContent,
                 viewport.size,
@@ -222,25 +238,50 @@ void main() {
                   );
                 }
               }
-              final details = find.byType(OnboardingV2DetailsButton);
-              if (details.evaluate().isNotEmpty) {
-                _expectLabeled48DpButton(tester, details.first);
-                _expectInsideSafeViewport(
+              if (story || setup) {
+                await _tapReachable(tester, deepContent);
+                await _pumpFinite(tester);
+                final content = find.byKey(
+                  setup
+                      ? surface.name == 'setup selected'
+                            ? const ValueKey('onboarding-v2-level-C2')
+                            : const ValueKey('onboarding-v3-new')
+                      : surface.deepContentKey,
+                );
+                expect(
+                  content,
+                  findsOneWidget,
+                  reason:
+                      '$evidence original interaction must remain in the sheet',
+                );
+                await Scrollable.ensureVisible(
+                  tester.element(content),
+                  alignment: .5,
+                );
+                await _pumpFinite(tester);
+                _expectVisibleTarget(
                   tester,
-                  details.first,
+                  content,
                   viewport.size,
                   reason: evidence,
                 );
-                await tester.tap(details.first);
+                final close = find.byKey(
+                  const ValueKey('c-onboarding-sheet-close'),
+                );
+                await Scrollable.ensureVisible(
+                  tester.element(close),
+                  alignment: .5,
+                );
+                await _pumpFinite(tester);
+                _expectLabeled48DpButton(tester, close);
+                await _tapReachable(tester, close);
                 await _pumpFinite(tester);
                 expect(
-                  find.byType(SoriSheetShell),
-                  findsOneWidget,
-                  reason: '$evidence details did not open a reading sheet',
+                  close,
+                  findsNothing,
+                  reason:
+                      '$evidence sheet must close without changing the screen',
                 );
-                await tester.sendKeyEvent(LogicalKeyboardKey.escape);
-                await _pumpFinite(tester);
-                expect(find.byType(SoriSheetShell), findsNothing);
               }
               expect(tester.takeException(), isNull, reason: evidence);
               for (var index = 0; index < footerActions.length; index++) {
@@ -744,4 +785,39 @@ final class _BookmarkReader implements StudyLibraryBookmarkReader {
         records: records,
         health: StudyLibraryBookmarkHealth.healthy,
       );
+}
+
+void _expectVisibleTarget(
+  WidgetTester tester,
+  Finder finder,
+  Size viewport, {
+  required String reason,
+}) {
+  var rect = tester
+      .getRect(finder)
+      .intersect(
+        Rect.fromLTRB(
+          0,
+          _phoneSafeInsets.top,
+          viewport.width,
+          viewport.height - _phoneSafeInsets.bottom,
+        ),
+      );
+  final scrolls = find.ancestor(of: finder, matching: find.byType(Scrollable));
+  if (scrolls.evaluate().isNotEmpty) {
+    rect = rect.intersect(tester.getRect(scrolls.first));
+  }
+  expect(rect.width, greaterThanOrEqualTo(48), reason: reason);
+  expect(rect.height, greaterThanOrEqualTo(48), reason: reason);
+}
+
+Future<void> _tapReachable(WidgetTester tester, Finder finder) async {
+  await Scrollable.ensureVisible(tester.element(finder), alignment: .5);
+  await _pumpFinite(tester);
+  var rect = tester.getRect(finder);
+  final scrolls = find.ancestor(of: finder, matching: find.byType(Scrollable));
+  if (scrolls.evaluate().isNotEmpty) {
+    rect = rect.intersect(tester.getRect(scrolls.first));
+  }
+  await tester.tapAt(rect.center);
 }

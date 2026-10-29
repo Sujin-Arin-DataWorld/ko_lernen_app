@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "authority": "User confirmed source mockups and 2026-10-18 attached check and gold medallion",
+  "referenceFolder": "C:/Users/vjinn/.codex/generated_images/einleitung_setting_rats확정",
+  "viewport": {"width": 402, "height": 934, "locale": "de", "textScale": 1},
+  "normalization": {
+    "method": "Uniform scale, phone viewport only for comparison; no reference pixels become runtime assets",
+    "sourceSize": [853, 1844],
+    "appRect": [52, 52, 748, 1738],
+    "scale": 0.5374331551,
+    "resultHeight": 934.09,
+    "edgeToleranceSourcePixels": 2,
+    "measurementKind": "Manually measured from supplied raster; optical alignment requires rendered verification",
+    "welcomeException": "welcome.png is 941x1672 without the same phone frame; use its own aspect ratio and safe-area mapping"
+  },
+  "tokens": {
+    "paper": "#fff8ec", "ink": "#071c21", "jade": "#005449", "blue": "#174b64", "gold": "#e1b962",
+    "latinSans": "Noto Sans", "latinSerif": "Noto Serif", "korean": "Noto Sans KR",
+    "fontStatus": "Closest editable typefaces selected for comparison; original raster has no font metadata",
+    "brand": {"rect": [70, 61, 170, 22], "fontSize": 15, "tracking": 2.8},
+    "cloud": {"visibleRect": [21, 55, 43, 35]},
+    "progress": {"rect": [318, 58, 62, 25], "fontSize": 21},
+    "steps": {"firstCenter": [80, 104], "gap": 35.2, "diameter": 16}
+  },
+  "screens": [
+    {"id":"welcome","source":"welcome.png","sha256":"735c37f552e30c9e2761dc0bb71373e3bed137ff2c3d4e19f251c2c52351526b","status":"own-aspect-mapping-pending"},
+    {"id":"01","source":"einleitung1.png","sha256":"c03ae18d08556d3e6a62cf0cfb39a2764d1db35793021049a19c8b55c59e9857","title":{"rect":[20,145,267,74],"size":32,"lineHeight":35.5},"paperTop":307,"paperRadius":26,"startTitle":[20,320,362,34],"levelField":[16,359,370,74],"levelMedalVisible":[37,368,56,56],"range":[16,441,370,22],"interestHeading":[20,472,362,31],"interestCards":[[16,504,180,125],[207,504,180,125],[16,636,180,120],[207,636,180,120]],"later":[20,770,362,21],"nextHint":[20,792,362,20],"cta":[16,849,370,51],"back":null},
+    {"id":"01-level-chooser","source":"einleitung1_levelchoose.png","sha256":"baf9badf9571781fd1e2942db7035cc5cb3fd29e61bab5148def88d501a3a782","sheet":[0,414,402,520],"title":[16,448,294,34],"close":[321,455,65,22],"beginner":[16,494,370,66],"levelCards":[[16,575,180,64],[207,575,180,64],[16,651,180,64],[207,651,180,64],[16,727,180,64],[207,727,180,64]],"levelFontSize":34,"selectedLevel":"A2","checkVisibleRect":[337,590,34,34],"later":[16,810,370,23],"cta":[16,843,370,51]},
+    {"id":"02","source":"einleitung2.png","sha256":"a6606255345712510086b482b52c2492e82ae9af26317310fb6f9d98f28f30e0","titleSize":39,"titleTop":145,"artBottom":644,"summaryTop":672,"ctaTop":782,"backTop":855,"parts":["Joy","open book","1/2/3 medals","wooden label bases"]},
+    {"id":"03","source":"einleitung3.png","sha256":"dabe8e033784f6239960dd6d216a1cd40c074e8aeaf876dd0d9c28f446af056f","titleSize":43,"titleTop":147,"artBottom":600,"soundControls":[28,576,345,112],"summaryTop":710,"ctaTop":776,"backTop":853,"parts":["ㄱ + ㅏ = 가","가 · ga","speaker","listen action"]},
+    {"id":"04","source":"einleitung4.png","sha256":"50dc62b261ee4b85c8000711d8a9d0c9f1a57f9a87e9a98034f18a26f183462a","titleSize":37,"titleTop":150,"artBottom":612,"summaryTop":650,"ctaTop":763,"backTop":840,"parts":["Dokkaebi","chest","knot","Yeopjeon","preview action"]},
+    {"id":"05","source":"einleitung5.png","sha256":"285599737eb0a7bf309748c71987eac6e4c4ad0089ee02cb79872c6cf388f783","titleSize":40,"titleTop":140,"artBottom":664,"summaryTop":685,"ctaTop":772,"backTop":846,"parts":["TalSunbi","example card","open book","camera/book/head medallions"]},
+    {"id":"06","source":"einleitung6.png","sha256":"d7ac0e8deb8039e6d59017e7b0c2c15a82d3b3d5cb523f145479735b8df5de61","titleSize":34,"titleTop":145,"artBottom":646,"summaryTop":668,"ctaTop":760,"backTop":831,"parts":["Hanok","stampbook","crane painting","brush","build/collect/create blocks"]},
+    {"id":"07-taego-selected","source":"einleitung7-joy.png","sha256":"6aa6eef64dbdaa72e5d833aa6f077e56fe008c6e266b581611996b578fa989ab","titleSize":36,"titleTop":145,"cardsTop":236,"portraitsBottom":521,"namesBottom":596,"gyeCard":[12,605,378,156],"ctaTop":772,"backTop":841,"filenameDoesNotDefineSelection":true},
+    {"id":"07-joy-selected","source":"einleitung7-taego.png","sha256":"cc69dbe998a37195bf6d0e0566f0845c7e3828af5929ae7ba5d69cc7211859ba","titleSize":36,"titleTop":145,"cardsTop":236,"portraitsBottom":521,"namesBottom":596,"gyeCard":[12,605,378,156],"ctaTop":772,"backTop":841,"filenameDoesNotDefineSelection":true}
+  ],
+  "reviewState": "01 and level chooser are first review unit; remaining measurements are targets awaiting Figma comparison",
+  "pixelEquivalence": false,
+  "exceptions": ["Independent generation cannot guarantee identical reference pixels", "Font metadata is unavailable in raster references", "Device hardware and camera island are excluded from app UI"]
+}

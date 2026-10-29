@@ -1,0 +1,512 @@
+{
+  "verifiedAt": "2026-10-29",
+  "status": "LOCAL_VERIFIED_AWAITING_CURRENT_HEAD_CI_AND_MERGE",
+  "originalArtwork": {
+    "userOverride": "Use literal original crops including letters and icons; stop font matching.",
+    "frames": {
+      "03": "80:406",
+      "05": "80:455",
+      "06": "80:480"
+    },
+    "imageNodes": {
+      "03": "236:303",
+      "05": "231:297",
+      "06": "231:300"
+    },
+    "sourcePixelsUnchanged": true,
+    "scope": "DE reference layout; native actions and accessible readings retained; EN/enlarged-text/small-width adaptive layout retained.",
+    "heroGeometry": "x0 y122 width402; heights03=573.052349,05=545.532886,06=527.186577",
+    "limitations": [
+      "Figma and Flutter resampling differ; no global pixel identity claimed.",
+      "Figma listening hotspots are visual bounds only; real TTS/Stop actions are implemented and tested in Flutter.",
+      "Physical-device and store availability are separate release gates."
+    ]
+  },
+  "functionality": [
+    "Original sound CTA and speaker control actual TTS/Stop.",
+    "Purpose A-B-A selection preserves latest intent before Continue.",
+    "Joy/Taego portrait positions and CTA remain stable.",
+    "Bounded press/selection/scene feedback respects reduced motion and app lifecycle."
+  ],
+  "tests": {
+    "workspace": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\einleitung-settings-parity-20261018",
+    "head": "8c3d9e46dafbc8a44a5c71a9bef2bc720c298548",
+    "started_utc": "2026-10-29T02:14:35.796296+00:00",
+    "scope": "Bounded final gate; no captures, no font edits, no full repository suite.",
+    "reused_evidence": [
+      "original-hero-native-test.log",
+      "native-capture-test.log",
+      "selection-capture-test.log",
+      "companion-stability-final-test.log",
+      "native/intro-companion-interaction-geometry.json",
+      "native/intro-companion-pixel-identity.json"
+    ],
+    "tests": {
+      "command": [
+        "rtk",
+        "proxy",
+        "flutter",
+        "test",
+        "--no-pub",
+        "--machine",
+        "--dart-define=EINLEITUNG_EVIDENCE_DIR=",
+        "test/intro_motion_test.dart",
+        "test/sori_pressable_keyboard_test.dart",
+        "test/c_onboarding_companion_stability_test.dart",
+        "test/c_onboarding_native_test.dart",
+        "test/onboarding_flow_test.dart",
+        "test/onboarding_flow_service_test.dart",
+        "test/font_bundle_guard_test.dart",
+        "test/arb_l10n_guard_test.dart",
+        "test/l10n_parity_test.dart",
+        "test/asset_orphan_guard_test.dart"
+      ],
+      "files": [
+        "test/intro_motion_test.dart",
+        "test/sori_pressable_keyboard_test.dart",
+        "test/c_onboarding_companion_stability_test.dart",
+        "test/c_onboarding_native_test.dart",
+        "test/onboarding_flow_test.dart",
+        "test/onboarding_flow_service_test.dart",
+        "test/font_bundle_guard_test.dart",
+        "test/arb_l10n_guard_test.dart",
+        "test/l10n_parity_test.dart",
+        "test/asset_orphan_guard_test.dart"
+      ],
+      "status": "passed",
+      "recovered_completed_log": true,
+      "note": "The completed machine log is reused after correcting a receipt parser that encountered a JSON list in test stdout. No tests were rerun. The runner done event records success; process exit code was not persisted before that parser exception.",
+      "exit_code": null,
+      "runner_success": true,
+      "counts": {
+        "passed": 93,
+        "failed": 0,
+        "skipped": 0
+      },
+      "by_file": {
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018/test/intro_motion_test.dart": {
+          "passed": 6
+        },
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018/test/sori_pressable_keyboard_test.dart": {
+          "passed": 3
+        },
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018/test/c_onboarding_native_test.dart": {
+          "passed": 45
+        },
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018/test/c_onboarding_companion_stability_test.dart": {
+          "passed": 11
+        },
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018/test/onboarding_flow_service_test.dart": {
+          "passed": 3
+        },
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018/test/font_bundle_guard_test.dart": {
+          "passed": 4
+        },
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018/test/arb_l10n_guard_test.dart": {
+          "passed": 8
+        },
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018/test/onboarding_flow_test.dart": {
+          "passed": 5
+        },
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018/test/l10n_parity_test.dart": {
+          "passed": 4
+        },
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018/test/asset_orphan_guard_test.dart": {
+          "passed": 4
+        }
+      },
+      "failures": [],
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\einleitung-main-integration-20261018\\polish-20261029\\final-polish-tests.log"
+    },
+    "analysis": {
+      "command": [
+        "rtk",
+        "proxy",
+        "dart",
+        "analyze",
+        "lib/l10n/generated/app_localizations.dart",
+        "lib/l10n/generated/app_localizations_de.dart",
+        "lib/screens/onboarding_v2/c_intro_art.dart",
+        "lib/screens/onboarding_v2/c_intro_reference_companion.dart",
+        "lib/screens/onboarding_v2/c_intro_reference_setup.dart",
+        "lib/screens/onboarding_v2/c_intro_reference_story.dart",
+        "lib/screens/onboarding_v2/c_intro_welcome_reference.dart",
+        "lib/screens/onboarding_v2/c_onboarding.dart",
+        "lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart",
+        "lib/widgets/sori/intro_motion.dart",
+        "lib/widgets/sori/intro_tokens.dart",
+        "lib/widgets/sori/pressable.dart",
+        "test/c_onboarding_companion_stability_test.dart",
+        "test/c_onboarding_native_test.dart",
+        "test/entry_onboarding_uiux_test.dart",
+        "test/font_bundle_guard_test.dart",
+        "test/goldens/onboarding_v3_visual_evidence_test.dart",
+        "test/intro_motion_test.dart",
+        "test/onboarding_companion_landscape_test.dart",
+        "test/onboarding_flow_test.dart",
+        "test/onboarding_v2_accessibility_gate_test.dart",
+        "test/onboarding_v2_setup_level_tile_test.dart",
+        "test/onboarding_v2_single_screen_test.dart",
+        "test/onboarding_v2_story_milestone_test.dart",
+        "test/onboarding_v2_story_practice_test.dart",
+        "test/onboarding_v2_tablet_layout_test.dart",
+        "test/splash_screen_gate_test.dart",
+        "test/support/einleitung_capture_assets.dart"
+      ],
+      "files": [
+        "lib/l10n/generated/app_localizations.dart",
+        "lib/l10n/generated/app_localizations_de.dart",
+        "lib/screens/onboarding_v2/c_intro_art.dart",
+        "lib/screens/onboarding_v2/c_intro_reference_companion.dart",
+        "lib/screens/onboarding_v2/c_intro_reference_setup.dart",
+        "lib/screens/onboarding_v2/c_intro_reference_story.dart",
+        "lib/screens/onboarding_v2/c_intro_welcome_reference.dart",
+        "lib/screens/onboarding_v2/c_onboarding.dart",
+        "lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart",
+        "lib/widgets/sori/intro_motion.dart",
+        "lib/widgets/sori/intro_tokens.dart",
+        "lib/widgets/sori/pressable.dart",
+        "test/c_onboarding_companion_stability_test.dart",
+        "test/c_onboarding_native_test.dart",
+        "test/entry_onboarding_uiux_test.dart",
+        "test/font_bundle_guard_test.dart",
+        "test/goldens/onboarding_v3_visual_evidence_test.dart",
+        "test/intro_motion_test.dart",
+        "test/onboarding_companion_landscape_test.dart",
+        "test/onboarding_flow_test.dart",
+        "test/onboarding_v2_accessibility_gate_test.dart",
+        "test/onboarding_v2_setup_level_tile_test.dart",
+        "test/onboarding_v2_single_screen_test.dart",
+        "test/onboarding_v2_story_milestone_test.dart",
+        "test/onboarding_v2_story_practice_test.dart",
+        "test/onboarding_v2_tablet_layout_test.dart",
+        "test/splash_screen_gate_test.dart",
+        "test/support/einleitung_capture_assets.dart"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\einleitung-main-integration-20261018\\polish-20261029\\final-polish-analysis.log"
+    },
+    "completed_utc": "2026-10-29T02:20:01.980821+00:00",
+    "status": "passed",
+    "working_tree_dirty": true,
+    "source_hashes_after_gate": {
+      "lib/l10n/generated/app_localizations.dart": "9c4514484df452535c1caee30968b9bf6a182ebf437408c77cb646cab793ea44",
+      "lib/l10n/generated/app_localizations_de.dart": "1d3bef78fbbd36a22a38f7cc600e8a0f988a46c19e97b6fb11ca4b3dfca791b6",
+      "lib/screens/onboarding_v2/c_intro_art.dart": "031403bdb6fb9d3f9e08334121b468b5c1059fa47b4d23373ba1852e2ded3d49",
+      "lib/screens/onboarding_v2/c_intro_reference_companion.dart": "3d799e17dceee7fa3d575b376dd4d1b12b5bce333970470a1bc4267818410c05",
+      "lib/screens/onboarding_v2/c_intro_reference_setup.dart": "2bc10bb593883ab5292283e8b7820262b4e2d2bb355e72aadfba5f1292db239d",
+      "lib/screens/onboarding_v2/c_intro_reference_story.dart": "06d5f3722d2252381fa3c6e8495d71b119335ca48586d7f646e74f152b1c07d4",
+      "lib/screens/onboarding_v2/c_intro_welcome_reference.dart": "4ca2d3c048a71595f78e10c613feb7454a589a3f5522da49a7375c4a782e5693",
+      "lib/screens/onboarding_v2/c_onboarding.dart": "09326bbe23e4b192c5a0dc91c91dcf143f696009a40d08d47fb32f4dd5da09be",
+      "lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart": "b9d9dbc7790562b16e122ee99b1ae8b9cad6f3ac9f94fe72cad1a8cc2fbb2d31",
+      "lib/widgets/sori/intro_motion.dart": "1929c53ef5d8d0c222fefa878467eaf57c14af1e0cb44fbe340c9fe8b76a341c",
+      "lib/widgets/sori/intro_tokens.dart": "9e1a77443003d9a56b0cc1743900aa718d683b4fe15d11135cf4eea33a4c2468",
+      "lib/widgets/sori/pressable.dart": "9c4af76801357cb8ab4d47461738ac97eb3cdc0022fad43357a1bf5a1df5b8c1",
+      "test/c_onboarding_companion_stability_test.dart": "d58dd1ec3a7d800b1d359ea1b5bdb9cf75824ee2b2a0969d553fd8e9e8139f39",
+      "test/c_onboarding_native_test.dart": "62bd8dd29cc9f8688fe48b5e4c2f05911bcf77f60cea3ad09f5cb3248a4ddf7b",
+      "test/entry_onboarding_uiux_test.dart": "33abf74b04aef5e8d39475e926fb96336c15db13fa3d02f0a8ec61b6e3d9eb21",
+      "test/font_bundle_guard_test.dart": "6ab87ab258ec03f046dd16e1b0d21a856a4f18c730e850aff57b79727fc13fc1",
+      "test/goldens/onboarding_v3_visual_evidence_test.dart": "d76f1e0605415cafb1a4cc25f6cd4da243dc5a9ec698bfcf3b21bc112c87e227",
+      "test/intro_motion_test.dart": "1078d8e89376ffa1c98a07fd14a3a2494e1fd69bdb41db06770e75c7d9bca5e3",
+      "test/onboarding_companion_landscape_test.dart": "fccc0d16c570cdc129f2a6a86fe8ce4a1520aa8a66a1abdeaaffd69967602a2a",
+      "test/onboarding_flow_test.dart": "5d617c7d14aed059e17efff29e40bb5ad12c56a2512836b91bc72bfb68b1de82",
+      "test/onboarding_v2_accessibility_gate_test.dart": "01515fb4eed7edd92170d7e76ac59ceacbee3319e91c3add9d789baa46619508",
+      "test/onboarding_v2_setup_level_tile_test.dart": "191684ec4dd632a6924294008009a0f7adf14534d781a0bae64b221dedd588ff",
+      "test/onboarding_v2_single_screen_test.dart": "3f1aa4564d9ba7910b7da2be04a27ae648a6ff86ab7037eb996b1aa8084c5bdb",
+      "test/onboarding_v2_story_milestone_test.dart": "104b5c38d2525c1cf29a23e5d0d131a4f0a16c2bca16a0f6e28bfb9210796e59",
+      "test/onboarding_v2_story_practice_test.dart": "85854971a66e2e2d8cac7a214cff0f4552597482ef23d9520d46b2f0e9a00626",
+      "test/onboarding_v2_tablet_layout_test.dart": "cf1778e6fdb0e9ec7e366d2ccb50053ffd6cbc25914a18b1380058c80513d69d",
+      "test/splash_screen_gate_test.dart": "9db6b225ebe8a0f2227a12695b706dff15b4ee8702a72051e15dfdec99203a34",
+      "test/support/einleitung_capture_assets.dart": "b9cc138b08fc169ce83f1660ca5df5caf2133e3ca049053fa2f504abee1a4b77"
+    },
+    "native_pngs_modified_during_gate": [],
+    "diff_check": {
+      "command": [
+        "rtk",
+        "proxy",
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    "log_sha256": {
+      "final-polish-tests.log": "a459cbd1fb450bdc37e46f6ca4ed3ac2eb08448b9f988f821c5caede16b06c06",
+      "final-polish-analysis.log": "1a954ba36cd09687d9f94b7c3c7fbb36dcd7f3b5ae2f9568d7e5deb58a6120bb"
+    }
+  },
+  "nativeVisual": {
+    "reviewed_at": "2026-10-29T01:45:57.896462+00:00",
+    "worktree": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\einleitung-settings-parity-20261018",
+    "head": "8c3d9e46dafbc8a44a5c71a9bef2bc720c298548",
+    "wip": true,
+    "scope": "Read-only final review of latest native DE402x934 100% original hero crops 03/05/06. Full images viewed. No code, Figma or product assets modified.",
+    "decision": "PASS for requested original-hero content and native composition scope; not full app/device/release approval.",
+    "captures": [
+      {
+        "page": 3,
+        "capture": "C:\\dev\\hangulsori\\_codex_artifacts\\einleitung-main-integration-20261018\\polish-20261029\\native\\intro-03-de-402-934-1x.png",
+        "capture_sha256": "610b83e94ff30aca4c751bbed65d84a77fc4b026fa5deba23e77c1bd1202eb8e",
+        "asset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\einleitung-settings-parity-20261018\\assets\\illustrations\\einleitung_generated\\intro-sound-original-de-hero.png",
+        "asset_sha256": "8061c95c316924e6a86092746948be13ae466bf6d171360112dcc907ac7cdf64",
+        "source_crop_xywh": [
+          54,
+          278,
+          745,
+          1062
+        ],
+        "asset_pixels_equal_original_crop": true,
+        "visual_status": "pass",
+        "duplicate_title_glyph_or_tool_labels": false,
+        "body_footer_overlap_or_clipping": false
+      },
+      {
+        "page": 5,
+        "capture": "C:\\dev\\hangulsori\\_codex_artifacts\\einleitung-main-integration-20261018\\polish-20261029\\native\\intro-05-de-402-934-1x.png",
+        "capture_sha256": "f147fc7a091c894b822075c6595254897a64fe92563f9c120f35d09ff75bd9cf",
+        "asset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\einleitung-settings-parity-20261018\\assets\\illustrations\\einleitung_generated\\intro-scholar-original-de-hero.png",
+        "asset_sha256": "4d87ea16ae81851651a953181d109f8787eca3009596bf50c0f8b58f10214dcc",
+        "source_crop_xywh": [
+          54,
+          278,
+          745,
+          1011
+        ],
+        "asset_pixels_equal_original_crop": true,
+        "visual_status": "pass",
+        "duplicate_title_glyph_or_tool_labels": false,
+        "body_footer_overlap_or_clipping": false
+      },
+      {
+        "page": 6,
+        "capture": "C:\\dev\\hangulsori\\_codex_artifacts\\einleitung-main-integration-20261018\\polish-20261029\\native\\intro-06-de-402-934-1x.png",
+        "capture_sha256": "04bd27fd2d80113e5799bb975c2ea4756db29e0d70f4f2c1796fdcb7139e6845",
+        "asset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\einleitung-settings-parity-20261018\\assets\\illustrations\\einleitung_generated\\intro-hanok-original-de-hero.png",
+        "asset_sha256": "b18933bb3c404dd1aabffeced0c0db7ec988b4ad4e6f956dae47fcd70d5f39a7",
+        "source_crop_xywh": [
+          54,
+          278,
+          745,
+          977
+        ],
+        "asset_pixels_equal_original_crop": true,
+        "visual_status": "pass",
+        "duplicate_title_glyph_or_tool_labels": false,
+        "body_footer_overlap_or_clipping": false
+      }
+    ],
+    "sound_action_alignment": {
+      "status": "pass_visual_alignment",
+      "button_native_xywh": [
+        180.2255,
+        610.874,
+        192.097,
+        63.672
+      ],
+      "speaker_native_xywh": [
+        30.217,
+        568.787,
+        140.295,
+        124.107
+      ],
+      "interaction_test_basis": "Motion agent original-hero-runtime-review.md reports10/10 targeted capture/TTS/preview/semantics tests passed; this reviewer did not rerun interactions.",
+      "visible_idle_state": "Original baked Anhören label and speaker preserved. Focus/playing state not asserted from idle PNG."
+    },
+    "cosmetic_observations": [
+      {
+        "priority": "P3",
+        "pages": [
+          3,
+          5,
+          6
+        ],
+        "bounds": "horizontal join at y122, x0..402",
+        "detail": "Current header jade texture meets original hero jade with a visible straight transition, clearest on05/06.",
+        "blocking": false
+      },
+      {
+        "priority": "P3",
+        "pages": [
+          3
+        ],
+        "bounds": "horizontal paper join near y695, x0..402",
+        "detail": "Faint cream texture transition between extracted hero and native body background; no overlap or text truncation.",
+        "blocking": false
+      }
+    ],
+    "recommendation": "Retain exact original pixels per latest user request. No additional font matching or source-art modification.",
+    "pending_evidence": [
+      "Figma export comparison",
+      "physical device interaction/rendering if release gate requires it"
+    ],
+    "record_version": 1
+  },
+  "figmaVisual": {
+    "reviewed_at": "2026-10-29T02:31:57.187754+00:00",
+    "worktree": "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018",
+    "review_type": "Read-only bounded visual and pixel comparison of Figma exports against native widget renders",
+    "head_at_original_native_review": "8c3d9e46dafbc8a44a5c71a9bef2bc720c298548",
+    "decision": "PASS for original hero content and geometry in03/05/06 DE402x934100%. No blocking visual issue in this bounded scope.",
+    "method": "Full Figma exports and native captures visually inspected. RGB errors measured only inside original hero region. Fractional bottom row area weights used for MAE/RMSE; percentile and threshold percentage use covering raster rectangle. Interior registration search uses8px margin and integer dx/dy -2 through2. No full-screen equality percentage.",
+    "items": [
+      {
+        "page": 3,
+        "figma": "C:\\dev\\hangulsori\\_codex_artifacts\\einleitung-main-integration-20261018\\polish-20261029\\figma-03-original.png",
+        "figma_sha256": "7b557ac2867d5bb21a86ab059fa586ec49392d9f81d8738150e971ce616aed82",
+        "native": "C:\\dev\\hangulsori\\_codex_artifacts\\einleitung-main-integration-20261018\\polish-20261029\\native\\intro-03-de-402-934-1x.png",
+        "native_sha256": "610b83e94ff30aca4c751bbed65d84a77fc4b026fa5deba23e77c1bd1202eb8e",
+        "viewport": [
+          402,
+          934
+        ],
+        "language": "de",
+        "text_scale": 1.0,
+        "hero_rect_xywh": [
+          0,
+          122,
+          402,
+          573.0523489932885
+        ],
+        "sample_box_exclusive": [
+          0,
+          122,
+          402,
+          696
+        ],
+        "weighted_rgb_mae_0_255": 2.869241220076952,
+        "weighted_rgb_rmse_0_255": 5.977355601419498,
+        "absolute_channel_error_p95_0_255": 13.0,
+        "pixels_with_max_channel_error_at_most_10_percent": 89.26404562553088,
+        "best_integer_translation_in_plus_minus_2_pixels": {
+          "dx": 0,
+          "dy": 0,
+          "interior_rgb_mae": 2.952977181607613
+        },
+        "visual_content_and_geometry": "pass",
+        "duplicate_title_glyph_tool_overlays": false,
+        "body_footer_alignment": "pass",
+        "tts_visible_target_alignment": "pass"
+      },
+      {
+        "page": 5,
+        "figma": "C:\\dev\\hangulsori\\_codex_artifacts\\einleitung-main-integration-20261018\\polish-20261029\\figma-05-original.png",
+        "figma_sha256": "7e97204f4b6ceb4ea6c91fff68a3cec2a81986c41b0724a24d710b283c6e1c79",
+        "native": "C:\\dev\\hangulsori\\_codex_artifacts\\einleitung-main-integration-20261018\\polish-20261029\\native\\intro-05-de-402-934-1x.png",
+        "native_sha256": "f147fc7a091c894b822075c6595254897a64fe92563f9c120f35d09ff75bd9cf",
+        "viewport": [
+          402,
+          934
+        ],
+        "language": "de",
+        "text_scale": 1.0,
+        "hero_rect_xywh": [
+          0,
+          122,
+          402,
+          545.5328859060403
+        ],
+        "sample_box_exclusive": [
+          0,
+          122,
+          402,
+          668
+        ],
+        "weighted_rgb_mae_0_255": 5.115474039013426,
+        "weighted_rgb_rmse_0_255": 9.43866935013174,
+        "absolute_channel_error_p95_0_255": 23.0,
+        "pixels_with_max_channel_error_at_most_10_percent": 78.41515863903923,
+        "best_integer_translation_in_plus_minus_2_pixels": {
+          "dx": 0,
+          "dy": 0,
+          "interior_rgb_mae": 5.150461489237359
+        },
+        "visual_content_and_geometry": "pass",
+        "duplicate_title_glyph_tool_overlays": false,
+        "body_footer_alignment": "pass",
+        "tts_visible_target_alignment": "not_applicable"
+      },
+      {
+        "page": 6,
+        "figma": "C:\\dev\\hangulsori\\_codex_artifacts\\einleitung-main-integration-20261018\\polish-20261029\\figma-06-original.png",
+        "figma_sha256": "8ffafdc6049c2ff159bcf47912661743e128efbcaf6b690197bf1228482ca15f",
+        "native": "C:\\dev\\hangulsori\\_codex_artifacts\\einleitung-main-integration-20261018\\polish-20261029\\native\\intro-06-de-402-934-1x.png",
+        "native_sha256": "04bd27fd2d80113e5799bb975c2ea4756db29e0d70f4f2c1796fdcb7139e6845",
+        "viewport": [
+          402,
+          934
+        ],
+        "language": "de",
+        "text_scale": 1.0,
+        "hero_rect_xywh": [
+          0,
+          122,
+          402,
+          527.186577181208
+        ],
+        "sample_box_exclusive": [
+          0,
+          122,
+          402,
+          650
+        ],
+        "weighted_rgb_mae_0_255": 6.683339919473772,
+        "weighted_rgb_rmse_0_255": 11.072730949613756,
+        "absolute_channel_error_p95_0_255": 26.0,
+        "pixels_with_max_channel_error_at_most_10_percent": 70.25101763907735,
+        "best_integer_translation_in_plus_minus_2_pixels": {
+          "dx": 0,
+          "dy": 0,
+          "interior_rgb_mae": 6.8239541824253305
+        },
+        "visual_content_and_geometry": "pass",
+        "duplicate_title_glyph_tool_overlays": false,
+        "body_footer_alignment": "pass",
+        "tts_visible_target_alignment": "not_applicable"
+      }
+    ],
+    "observations": [
+      "Original titles, glyphs, artwork and tool labels agree with no duplicate overlays.",
+      "Best tested integer displacement is zero for all three heroes.",
+      "Native hero fine textures are softer than Figma, particularly dense Hanok roof/ornament detail. Resampling is a plausible explanation; exact renderer cause was not instrumented.",
+      "Current header/original jade join at y122 and faint03 cream seam are shared by both renderings."
+    ],
+    "limitations": [
+      "Not pixel-identical: bounded RGB errors above are retained rather than claiming100% parity.",
+      "Native text outside original hero may differ through font rendering.",
+      "This does not independently rerun TTS, focus/playing states, physical-device or delivery tests.",
+      "No Figma browser actions, source assets or product code edits."
+    ],
+    "related_reports": [
+      "final-original-native-review.json",
+      "original-hero-runtime-review.md"
+    ]
+  },
+  "releaseWebBuild": {
+    "status": "PASS",
+    "command": "rtk proxy flutter build web --release",
+    "compileSeconds": 557.8
+  },
+  "releaseBrowser": {
+    "status": "PASS_REENTRY_AND_SETTINGS_RETURN",
+    "url": "http://127.0.0.1:7392/",
+    "storedLevel": "A2",
+    "xp": 0,
+    "yeopjeon": 0,
+    "consoleErrorsOrWarnings": 0,
+    "scope": "Existing completed profile retained. Full first-run interaction and TTS are covered separately by native widget tests; no consent or storage reset performed."
+  },
+  "assets": {
+    "count": 36,
+    "manifest": {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\einleitung-settings-parity-20261018\\tool\\einleitung_generated_assets.json",
+      "bytes": 23496,
+      "sha256": "5414175bc0dafe337cad8bbf74a582bc365e15b01983c8b1b1e35ff75bb6072d"
+    },
+    "http": {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\einleitung-settings-parity-20261018\\tool\\einleitung_http_verification.json",
+      "bytes": 9629,
+      "sha256": "138259b7d405661d05ba458dbea133ae2ff89cc3483bf58ad5c5d4af2631c1fe"
+    }
+  }
+}

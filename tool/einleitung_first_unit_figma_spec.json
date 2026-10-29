@@ -1,0 +1,1810 @@
+{
+  "viewport": [
+    402,
+    934
+  ],
+  "nodes": [
+    {
+      "id": "80:336",
+      "parent": null,
+      "name": "01 · Startniveau · A2",
+      "type": "FRAME",
+      "rect": [
+        0,
+        100,
+        402,
+        934
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "80:337",
+      "parent": "80:336",
+      "name": "Generated jade",
+      "type": "RECTANGLE",
+      "rect": [
+        0,
+        0,
+        402,
+        603
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "90ab945df14dc5f01149e4dd04bac204a0245b50",
+          "mode": "FIT"
+        }
+      ]
+    },
+    {
+      "id": "80:338",
+      "parent": "80:336",
+      "name": "Generated paper and footer",
+      "type": "RECTANGLE",
+      "rect": [
+        0,
+        307,
+        402,
+        627
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "9c1da78ad1199554039254fde096607ed0ed75ee",
+          "mode": "FILL"
+        }
+      ]
+    },
+    {
+      "id": "80:339",
+      "parent": "80:336",
+      "name": "Taego header",
+      "type": "RECTANGLE",
+      "rect": [
+        192,
+        76,
+        220,
+        330
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "fecf04998ee45b2eb145a45d5bbaad0805449a52",
+          "mode": "FIT"
+        }
+      ]
+    },
+    {
+      "id": "80:340",
+      "parent": "80:336",
+      "name": "Plum accent",
+      "type": "RECTANGLE",
+      "rect": [
+        -5,
+        212,
+        218,
+        104
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "72164c5f6f1a7ee1c9d4578f4d95805dbbfdf848",
+          "mode": "FIT"
+        }
+      ]
+    },
+    {
+      "id": "80:341",
+      "parent": "80:336",
+      "name": "Title",
+      "type": "TEXT",
+      "rect": [
+        20,
+        141,
+        274,
+        78
+      ],
+      "visible": true,
+      "text": "Dein Koreanisch.\nDein Rhythmus.",
+      "font": {
+        "family": "Roboto",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700,
+          "wdth": 100
+        }
+      },
+      "size": 31.5,
+      "line": {
+        "unit": "PIXELS",
+        "value": 35.5
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "LEFT",
+      "images": []
+    },
+    {
+      "id": "80:342",
+      "parent": "80:336",
+      "name": "Setup paper",
+      "type": "FRAME",
+      "rect": [
+        0,
+        307,
+        402,
+        511
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "103:40",
+      "parent": "80:342",
+      "name": "Hanji surface — independently generated",
+      "type": "RECTANGLE",
+      "rect": [
+        0,
+        0,
+        402,
+        627
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "9c1da78ad1199554039254fde096607ed0ed75ee",
+          "mode": "FILL"
+        }
+      ]
+    },
+    {
+      "id": "80:343",
+      "parent": "80:342",
+      "name": "Start level",
+      "type": "TEXT",
+      "rect": [
+        21,
+        12,
+        362,
+        34
+      ],
+      "visible": true,
+      "text": "Dein Startniveau",
+      "font": {
+        "family": "Roboto",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700,
+          "wdth": 100
+        }
+      },
+      "size": 26.200000762939453,
+      "line": {
+        "unit": "PIXELS",
+        "value": 34
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "LEFT",
+      "images": []
+    },
+    {
+      "id": "80:344",
+      "parent": "80:342",
+      "name": "Change level",
+      "type": "FRAME",
+      "rect": [
+        16,
+        52,
+        370,
+        74
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "9c1da78ad1199554039254fde096607ed0ed75ee",
+          "mode": "FILL"
+        }
+      ]
+    },
+    {
+      "id": "80:347",
+      "parent": "80:344",
+      "name": "Level code",
+      "type": "TEXT",
+      "rect": [
+        94,
+        14,
+        96,
+        31
+      ],
+      "visible": true,
+      "text": "A2",
+      "font": {
+        "family": "Roboto",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700,
+          "wdth": 100
+        }
+      },
+      "size": 29,
+      "line": {
+        "unit": "PIXELS",
+        "value": 31
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "LEFT",
+      "images": []
+    },
+    {
+      "id": "80:348",
+      "parent": "80:344",
+      "name": "Hint",
+      "type": "TEXT",
+      "rect": [
+        94,
+        40,
+        190,
+        23
+      ],
+      "visible": true,
+      "text": "Du kennst die Grundlagen.",
+      "font": {
+        "family": "Roboto",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "wdth": 100
+        }
+      },
+      "size": 14.5,
+      "line": {
+        "unit": "PIXELS",
+        "value": 23
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "LEFT",
+      "images": []
+    },
+    {
+      "id": "80:349",
+      "parent": "80:344",
+      "name": "Change action",
+      "type": "FRAME",
+      "rect": [
+        267,
+        13,
+        94,
+        48
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "80:350",
+      "parent": "80:349",
+      "name": "Change label",
+      "type": "TEXT",
+      "rect": [
+        3,
+        10,
+        88,
+        28
+      ],
+      "visible": true,
+      "text": "Ändern ⌄",
+      "font": {
+        "family": "Roboto",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "wdth": 100
+        }
+      },
+      "size": 17,
+      "line": {
+        "unit": "PIXELS",
+        "value": 28
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "103:41",
+      "parent": "80:344",
+      "name": "A2 — generated embossed metal",
+      "type": "RECTANGLE",
+      "rect": [
+        15.470000267028809,
+        3.309999942779541,
+        67.33000183105469,
+        67.33000183105469
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "4817b4480ee9edbbe66a86d3dfdf9486f93d0578",
+          "mode": "FIT"
+        }
+      ]
+    },
+    {
+      "id": "110:47",
+      "parent": "80:344",
+      "name": "Gold inner edge",
+      "type": "RECTANGLE",
+      "rect": [
+        2,
+        2,
+        366,
+        70
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "80:351",
+      "parent": "80:342",
+      "name": "Range",
+      "type": "TEXT",
+      "rect": [
+        16,
+        134,
+        370,
+        22
+      ],
+      "visible": true,
+      "text": "Ganz neu oder A1–C2.",
+      "font": {
+        "family": "Roboto",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "wdth": 100
+        }
+      },
+      "size": 16,
+      "line": {
+        "unit": "PIXELS",
+        "value": 22
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "80:352",
+      "parent": "80:342",
+      "name": "Interest heading",
+      "type": "TEXT",
+      "rect": [
+        21,
+        161,
+        362,
+        31
+      ],
+      "visible": true,
+      "text": "Was ist dir wichtig?",
+      "font": {
+        "family": "Roboto",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700,
+          "wdth": 100
+        }
+      },
+      "size": 22.299999237060547,
+      "line": {
+        "unit": "PIXELS",
+        "value": 31
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "LEFT",
+      "images": []
+    },
+    {
+      "id": "80:353",
+      "parent": "80:342",
+      "name": "Interest Alltag & Reise",
+      "type": "FRAME",
+      "rect": [
+        16,
+        197,
+        180,
+        125
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "80:354",
+      "parent": "80:353",
+      "name": "Whole generated illustration",
+      "type": "RECTANGLE",
+      "rect": [
+        1,
+        1,
+        178,
+        96
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "e4db6994f3123565c4b5976f8f2959f02e640a96",
+          "mode": "FILL"
+        }
+      ]
+    },
+    {
+      "id": "80:355",
+      "parent": "80:353",
+      "name": "Interest label",
+      "type": "TEXT",
+      "rect": [
+        1,
+        97,
+        178,
+        24
+      ],
+      "visible": true,
+      "text": "Alltag & Reise",
+      "font": {
+        "family": "Roboto",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700,
+          "wdth": 100
+        }
+      },
+      "size": 17,
+      "line": {
+        "unit": "PIXELS",
+        "value": 24
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "80:356",
+      "parent": "80:342",
+      "name": "Interest Menschen & Kultur",
+      "type": "FRAME",
+      "rect": [
+        207,
+        197,
+        180,
+        125
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "80:357",
+      "parent": "80:356",
+      "name": "Whole generated illustration",
+      "type": "RECTANGLE",
+      "rect": [
+        1,
+        1,
+        178,
+        96
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "4ff33362d47bb068cd0e607775d27dd7b8ba954e",
+          "mode": "FILL"
+        }
+      ]
+    },
+    {
+      "id": "80:358",
+      "parent": "80:356",
+      "name": "Interest label",
+      "type": "TEXT",
+      "rect": [
+        1,
+        97,
+        178,
+        24
+      ],
+      "visible": true,
+      "text": "Menschen & Kultur",
+      "font": {
+        "family": "Roboto",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700,
+          "wdth": 100
+        }
+      },
+      "size": 17,
+      "line": {
+        "unit": "PIXELS",
+        "value": 24
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "80:359",
+      "parent": "80:342",
+      "name": "Interest Studium & Beruf",
+      "type": "FRAME",
+      "rect": [
+        16,
+        329,
+        180,
+        120
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "80:360",
+      "parent": "80:359",
+      "name": "Whole generated illustration",
+      "type": "RECTANGLE",
+      "rect": [
+        1,
+        1,
+        178,
+        91
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "8cfbd7a14734d7ad539cbe3b6bd5d9f5bce61037",
+          "mode": "FILL"
+        }
+      ]
+    },
+    {
+      "id": "80:361",
+      "parent": "80:359",
+      "name": "Interest label",
+      "type": "TEXT",
+      "rect": [
+        1,
+        92,
+        178,
+        24
+      ],
+      "visible": true,
+      "text": "Studium & Beruf",
+      "font": {
+        "family": "Roboto",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700,
+          "wdth": 100
+        }
+      },
+      "size": 17,
+      "line": {
+        "unit": "PIXELS",
+        "value": 24
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "80:362",
+      "parent": "80:342",
+      "name": "Interest K-Content",
+      "type": "FRAME",
+      "rect": [
+        207,
+        329,
+        180,
+        120
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "80:363",
+      "parent": "80:362",
+      "name": "Whole generated illustration",
+      "type": "RECTANGLE",
+      "rect": [
+        1,
+        1,
+        178,
+        91
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "64db7ee202a65d18c66f8f7b2c4963478b2a7e50",
+          "mode": "FILL"
+        }
+      ]
+    },
+    {
+      "id": "80:364",
+      "parent": "80:362",
+      "name": "Interest label",
+      "type": "TEXT",
+      "rect": [
+        1,
+        92,
+        178,
+        24
+      ],
+      "visible": true,
+      "text": "K-Content",
+      "font": {
+        "family": "Roboto",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700,
+          "wdth": 100
+        }
+      },
+      "size": 17,
+      "line": {
+        "unit": "PIXELS",
+        "value": 24
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "80:365",
+      "parent": "80:336",
+      "name": "Can change later",
+      "type": "TEXT",
+      "rect": [
+        20,
+        764,
+        362,
+        23
+      ],
+      "visible": true,
+      "text": "Du kannst das später ändern.",
+      "font": {
+        "family": "Roboto",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "wdth": 100
+        }
+      },
+      "size": 16,
+      "line": {
+        "unit": "PIXELS",
+        "value": 23
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "80:366",
+      "parent": "80:336",
+      "name": "Next hint",
+      "type": "TEXT",
+      "rect": [
+        20,
+        785,
+        362,
+        22
+      ],
+      "visible": true,
+      "text": "Als Nächstes: Dein Lernweg.",
+      "font": {
+        "family": "Roboto",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700,
+          "wdth": 100
+        }
+      },
+      "size": 13.5,
+      "line": {
+        "unit": "PIXELS",
+        "value": 22
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "80:371",
+      "parent": "80:336",
+      "name": "Brand",
+      "type": "TEXT",
+      "rect": [
+        70,
+        61,
+        210,
+        22
+      ],
+      "visible": true,
+      "text": "EINLEITUNG",
+      "font": {
+        "family": "Noto Serif",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "wdth": 100,
+          "CTGR": 0
+        }
+      },
+      "size": 15,
+      "line": {
+        "unit": "PIXELS",
+        "value": 22
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 2.799999952316284
+      },
+      "align": "LEFT",
+      "images": []
+    },
+    {
+      "id": "80:372",
+      "parent": "80:336",
+      "name": "Progress",
+      "type": "TEXT",
+      "rect": [
+        318,
+        58,
+        66,
+        27
+      ],
+      "visible": true,
+      "text": "01/07",
+      "font": {
+        "family": "Noto Serif",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "wdth": 100,
+          "CTGR": 0
+        }
+      },
+      "size": 21,
+      "line": {
+        "unit": "PIXELS",
+        "value": 27
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "RIGHT",
+      "images": []
+    },
+    {
+      "id": "80:373",
+      "parent": "80:336",
+      "name": "Step 1",
+      "type": "ELLIPSE",
+      "rect": [
+        72,
+        96,
+        16,
+        16
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "80:374",
+      "parent": "80:336",
+      "name": "Step 2",
+      "type": "ELLIPSE",
+      "rect": [
+        107.19999694824219,
+        96,
+        16,
+        16
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "80:375",
+      "parent": "80:336",
+      "name": "Step 3",
+      "type": "ELLIPSE",
+      "rect": [
+        142.39999389648438,
+        96,
+        16,
+        16
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "80:376",
+      "parent": "80:336",
+      "name": "Step 4",
+      "type": "ELLIPSE",
+      "rect": [
+        177.60000610351562,
+        96,
+        16,
+        16
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "80:377",
+      "parent": "80:336",
+      "name": "Step 5",
+      "type": "ELLIPSE",
+      "rect": [
+        212.8000030517578,
+        96,
+        16,
+        16
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "80:378",
+      "parent": "80:336",
+      "name": "Step 6",
+      "type": "ELLIPSE",
+      "rect": [
+        248,
+        96,
+        16,
+        16
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "80:379",
+      "parent": "80:336",
+      "name": "Step 7",
+      "type": "ELLIPSE",
+      "rect": [
+        283.20001220703125,
+        96,
+        16,
+        16
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "82:38",
+      "parent": "80:336",
+      "name": "Generated cloud mark",
+      "type": "RECTANGLE",
+      "rect": [
+        15,
+        43,
+        55,
+        55
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "5be9b121e5d8fdb33d6a1be8cb4cd7aecfd4eef8",
+          "mode": "FIT"
+        }
+      ]
+    },
+    {
+      "id": "103:52",
+      "parent": "80:336",
+      "name": "Einleitung / Brass CTA / Reference v2",
+      "type": "INSTANCE",
+      "rect": [
+        16,
+        849,
+        370,
+        58
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "I103:52;103:49",
+      "parent": "103:52",
+      "name": "Whole independent gold asset",
+      "type": "RECTANGLE",
+      "rect": [
+        -15.300000190734863,
+        -37.79999923706055,
+        400.6000061035156,
+        133.52999877929688
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "2101804632e35fa2b55261051fc7fa5563e40462",
+          "mode": "FIT"
+        }
+      ]
+    },
+    {
+      "id": "I103:52;103:50",
+      "parent": "103:52",
+      "name": "Label",
+      "type": "TEXT",
+      "rect": [
+        16,
+        5,
+        338,
+        43
+      ],
+      "visible": true,
+      "text": "Weiter",
+      "font": {
+        "family": "Roboto",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700,
+          "wdth": 100
+        }
+      },
+      "size": 23,
+      "line": {
+        "unit": "PIXELS",
+        "value": 43
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "I103:52;103:51",
+      "parent": "103:52",
+      "name": "Arrow",
+      "type": "TEXT",
+      "rect": [
+        331,
+        4,
+        23,
+        43
+      ],
+      "visible": true,
+      "text": "›",
+      "font": {
+        "family": "Roboto",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "wdth": 100
+        }
+      },
+      "size": 32,
+      "line": {
+        "unit": "PIXELS",
+        "value": 43
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "110:48",
+      "parent": "80:336",
+      "name": "Step 1 · supplied metal",
+      "type": "RECTANGLE",
+      "rect": [
+        70.30000305175781,
+        94.30000305175781,
+        19.399999618530273,
+        19.399999618530273
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "d30e73f22e0a3045cfdebefabc5f542d0d6060ab",
+          "mode": "FIT"
+        }
+      ]
+    },
+    {
+      "id": "80:611",
+      "parent": null,
+      "name": "Level chooser",
+      "type": "FRAME",
+      "rect": [
+        0,
+        414,
+        402,
+        520
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "103:44",
+      "parent": "80:611",
+      "name": "Hanji sheet — independently generated",
+      "type": "RECTANGLE",
+      "rect": [
+        0,
+        -184,
+        402,
+        704
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "9c1da78ad1199554039254fde096607ed0ed75ee",
+          "mode": "FIT"
+        }
+      ]
+    },
+    {
+      "id": "80:612",
+      "parent": "80:611",
+      "name": "Title",
+      "type": "TEXT",
+      "rect": [
+        16,
+        33,
+        300,
+        35
+      ],
+      "visible": true,
+      "text": "Startniveau wählen",
+      "font": {
+        "family": "Roboto",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700,
+          "wdth": 100
+        }
+      },
+      "size": 28.700000762939453,
+      "line": {
+        "unit": "PIXELS",
+        "value": 35
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "LEFT",
+      "images": []
+    },
+    {
+      "id": "80:613",
+      "parent": "80:611",
+      "name": "Close",
+      "type": "TEXT",
+      "rect": [
+        307,
+        38,
+        79,
+        23
+      ],
+      "visible": true,
+      "text": "Schließen",
+      "font": {
+        "family": "Roboto",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "wdth": 100
+        }
+      },
+      "size": 15,
+      "line": {
+        "unit": "PIXELS",
+        "value": 23
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "RIGHT",
+      "images": []
+    },
+    {
+      "id": "80:614",
+      "parent": "80:611",
+      "name": "Beginner",
+      "type": "FRAME",
+      "rect": [
+        16,
+        80,
+        370,
+        66
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "9c1da78ad1199554039254fde096607ed0ed75ee",
+          "mode": "FILL"
+        }
+      ]
+    },
+    {
+      "id": "80:615",
+      "parent": "80:614",
+      "name": "New title",
+      "type": "TEXT",
+      "rect": [
+        14,
+        9,
+        342,
+        28
+      ],
+      "visible": true,
+      "text": "Ganz neu",
+      "font": {
+        "family": "Roboto",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700,
+          "wdth": 100
+        }
+      },
+      "size": 23,
+      "line": {
+        "unit": "PIXELS",
+        "value": 28
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "80:616",
+      "parent": "80:614",
+      "name": "New description",
+      "type": "TEXT",
+      "rect": [
+        14,
+        38,
+        342,
+        22
+      ],
+      "visible": true,
+      "text": "Mit Hangul anfangen",
+      "font": {
+        "family": "Roboto",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "wdth": 100
+        }
+      },
+      "size": 16,
+      "line": {
+        "unit": "PIXELS",
+        "value": 22
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "80:617",
+      "parent": "80:611",
+      "name": "Level A1",
+      "type": "FRAME",
+      "rect": [
+        16,
+        161,
+        180,
+        64
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "9c1da78ad1199554039254fde096607ed0ed75ee",
+          "mode": "FILL"
+        }
+      ]
+    },
+    {
+      "id": "80:620",
+      "parent": "80:617",
+      "name": "Level name",
+      "type": "TEXT",
+      "rect": [
+        2,
+        7,
+        176,
+        50
+      ],
+      "visible": true,
+      "text": "A1",
+      "font": {
+        "family": "Lora",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      },
+      "size": 35,
+      "line": {
+        "unit": "PIXELS",
+        "value": 50
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "80:621",
+      "parent": "80:611",
+      "name": "Level A2",
+      "type": "FRAME",
+      "rect": [
+        207,
+        161,
+        180,
+        64
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "9c1da78ad1199554039254fde096607ed0ed75ee",
+          "mode": "FILL"
+        }
+      ]
+    },
+    {
+      "id": "80:624",
+      "parent": "80:621",
+      "name": "Level name",
+      "type": "TEXT",
+      "rect": [
+        2,
+        7,
+        168,
+        50
+      ],
+      "visible": true,
+      "text": "A2",
+      "font": {
+        "family": "Lora",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      },
+      "size": 35,
+      "line": {
+        "unit": "PIXELS",
+        "value": 50
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "103:46",
+      "parent": "80:621",
+      "name": "Selected gold inset",
+      "type": "RECTANGLE",
+      "rect": [
+        4,
+        4,
+        172,
+        56
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "103:47",
+      "parent": "80:621",
+      "name": "Approved check — original user asset",
+      "type": "RECTANGLE",
+      "rect": [
+        123.5999984741211,
+        8.670000076293945,
+        46.959999084472656,
+        46.959999084472656
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "9d1d4c06ecef94534d268af293dd33ee961cb7de",
+          "mode": "FIT"
+        }
+      ]
+    },
+    {
+      "id": "80:625",
+      "parent": "80:611",
+      "name": "Level B1",
+      "type": "FRAME",
+      "rect": [
+        16,
+        237,
+        180,
+        64
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "9c1da78ad1199554039254fde096607ed0ed75ee",
+          "mode": "FILL"
+        }
+      ]
+    },
+    {
+      "id": "80:628",
+      "parent": "80:625",
+      "name": "Level name",
+      "type": "TEXT",
+      "rect": [
+        2,
+        6,
+        176,
+        50
+      ],
+      "visible": true,
+      "text": "B1",
+      "font": {
+        "family": "Lora",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      },
+      "size": 35,
+      "line": {
+        "unit": "PIXELS",
+        "value": 50
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "80:629",
+      "parent": "80:611",
+      "name": "Level B2",
+      "type": "FRAME",
+      "rect": [
+        207,
+        237,
+        180,
+        64
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "9c1da78ad1199554039254fde096607ed0ed75ee",
+          "mode": "FILL"
+        }
+      ]
+    },
+    {
+      "id": "80:632",
+      "parent": "80:629",
+      "name": "Level name",
+      "type": "TEXT",
+      "rect": [
+        0,
+        6,
+        176,
+        50
+      ],
+      "visible": true,
+      "text": "B2",
+      "font": {
+        "family": "Lora",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      },
+      "size": 35,
+      "line": {
+        "unit": "PIXELS",
+        "value": 50
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "80:633",
+      "parent": "80:611",
+      "name": "Level C1",
+      "type": "FRAME",
+      "rect": [
+        16,
+        313,
+        180,
+        64
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "9c1da78ad1199554039254fde096607ed0ed75ee",
+          "mode": "FILL"
+        }
+      ]
+    },
+    {
+      "id": "80:636",
+      "parent": "80:633",
+      "name": "Level name",
+      "type": "TEXT",
+      "rect": [
+        1,
+        4,
+        176,
+        50
+      ],
+      "visible": true,
+      "text": "C1",
+      "font": {
+        "family": "Lora",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      },
+      "size": 35,
+      "line": {
+        "unit": "PIXELS",
+        "value": 50
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "80:637",
+      "parent": "80:611",
+      "name": "Level C2",
+      "type": "FRAME",
+      "rect": [
+        207,
+        313,
+        180,
+        64
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "9c1da78ad1199554039254fde096607ed0ed75ee",
+          "mode": "FILL"
+        }
+      ]
+    },
+    {
+      "id": "80:640",
+      "parent": "80:637",
+      "name": "Level name",
+      "type": "TEXT",
+      "rect": [
+        0,
+        4,
+        176,
+        50
+      ],
+      "visible": true,
+      "text": "C2",
+      "font": {
+        "family": "Lora",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700
+        }
+      },
+      "size": 35,
+      "line": {
+        "unit": "PIXELS",
+        "value": 50
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "80:641",
+      "parent": "80:611",
+      "name": "Later",
+      "type": "TEXT",
+      "rect": [
+        16,
+        396,
+        370,
+        25
+      ],
+      "visible": true,
+      "text": "Du kannst das später ändern.",
+      "font": {
+        "family": "Roboto",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "wdth": 100
+        }
+      },
+      "size": 16,
+      "line": {
+        "unit": "PIXELS",
+        "value": 25
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "103:45",
+      "parent": "80:611",
+      "name": "Sheet handle",
+      "type": "RECTANGLE",
+      "rect": [
+        178,
+        15,
+        46,
+        5
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "110:51",
+      "parent": "80:611",
+      "name": "Apply level · native editable",
+      "type": "FRAME",
+      "rect": [
+        16,
+        429,
+        370,
+        58
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "110:52",
+      "parent": "110:51",
+      "name": "Whole gold button v2",
+      "type": "RECTANGLE",
+      "rect": [
+        -15.300000190734863,
+        -37.79999923706055,
+        400.6000061035156,
+        133.52999877929688
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "2101804632e35fa2b55261051fc7fa5563e40462",
+          "mode": "FIT"
+        }
+      ]
+    },
+    {
+      "id": "110:53",
+      "parent": "110:51",
+      "name": "Apply label",
+      "type": "TEXT",
+      "rect": [
+        12,
+        10,
+        346,
+        32
+      ],
+      "visible": true,
+      "text": "Niveau übernehmen",
+      "font": {
+        "family": "Roboto",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700,
+          "wdth": 100
+        }
+      },
+      "size": 22,
+      "line": {
+        "unit": "AUTO"
+      },
+      "tracking": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "116:609",
+      "parent": "80:611",
+      "name": "Close · 48px hit target",
+      "type": "FRAME",
+      "rect": [
+        307,
+        25.5,
+        79,
+        48
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "103:48",
+      "parent": null,
+      "name": "Einleitung / Brass CTA / Reference v2",
+      "type": "COMPONENT",
+      "rect": [
+        450,
+        1850,
+        370,
+        58
+      ],
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "103:49",
+      "parent": "103:48",
+      "name": "Whole independent gold asset",
+      "type": "RECTANGLE",
+      "rect": [
+        -15.300000190734863,
+        -37.79999923706055,
+        400.6000061035156,
+        133.52999877929688
+      ],
+      "visible": true,
+      "images": [
+        {
+          "hash": "2101804632e35fa2b55261051fc7fa5563e40462",
+          "mode": "FIT"
+        }
+      ]
+    },
+    {
+      "id": "103:50",
+      "parent": "103:48",
+      "name": "Label",
+      "type": "TEXT",
+      "rect": [
+        16,
+        5,
+        338,
+        43
+      ],
+      "visible": true,
+      "text": "Weiter",
+      "font": {
+        "family": "Roboto",
+        "style": "Bold",
+        "variationSettings": {
+          "wght": 700,
+          "wdth": 100
+        }
+      },
+      "size": 23,
+      "line": {
+        "unit": "PIXELS",
+        "value": 43
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    },
+    {
+      "id": "103:51",
+      "parent": "103:48",
+      "name": "Arrow",
+      "type": "TEXT",
+      "rect": [
+        331,
+        4,
+        23,
+        43
+      ],
+      "visible": true,
+      "text": "›",
+      "font": {
+        "family": "Noto Sans",
+        "style": "Regular",
+        "variationSettings": {
+          "wght": 400,
+          "wdth": 100,
+          "CTGR": 0
+        }
+      },
+      "size": 32,
+      "line": {
+        "unit": "PIXELS",
+        "value": 43
+      },
+      "tracking": {
+        "unit": "PIXELS",
+        "value": 0
+      },
+      "align": "CENTER",
+      "images": []
+    }
+  ]
+}

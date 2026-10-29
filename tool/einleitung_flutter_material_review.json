@@ -1,0 +1,249 @@
+{
+  "reviewedAt": "2026-10-18",
+  "scope": "Actual Flutter first-unit German402x934 1x material and typography versus approved Figma v7. Static captures only.",
+  "verdict": "PASS_FIRST_UNIT_FLUTTER_STATIC_MATERIAL_TYPOGRAPHY",
+  "captures": [
+    {
+      "path": "docs/screenshots/einleitung-generated-20261018/intro-01-de-402-934-1x.png",
+      "sha256": "6a0511cd44c90be8324c3a33b8bcefc9752f1fca900d983c6710dff50accc657"
+    },
+    {
+      "path": "docs/screenshots/einleitung-generated-20261018/intro-level-de-402-934-1x.png",
+      "sha256": "c3ef386f52bc4f0f1a9ee86fe84fa8878992d596a54af74d4368b90b5fba7fba"
+    }
+  ],
+  "approvedSources": [
+    {
+      "path": "docs/screenshots/einleitung-parity-review-20261018/01-v7.png",
+      "sha256": "c40906b0c4a6c04915d262253e525aa26cbe8b984af781179a7e9d365fcbac84"
+    },
+    {
+      "path": "docs/screenshots/einleitung-parity-review-20261018/level-v7.png",
+      "sha256": "244aa07e640b16a5d8ec96fdc5e808627f7bd7f4269062f133614b6b16cdab75"
+    }
+  ],
+  "method": "View actual full captures; compare bounded unprinted material patches with NumPy; inspect current native source and live read-only Figma token values. Current committed state differs between setup/modal backgrounds, so no false pixel diff finding was made for changed draft state or selected interest.",
+  "passes": [
+    "Source-like deep jade tone and texture",
+    "Taego header identity and placement",
+    "56px A2 medal",
+    "34px exact supplied gold check",
+    "Lora Bold35 A1-C2 letterforms",
+    "Gold CTA visible size and embossed metal",
+    "Relieved native main CTA right chevron",
+    "No overlap in six-option grid"
+  ],
+  "requiredFixes": [],
+  "acceptablePlatformResiduals": {
+    "modalTitleInkFigma": [
+      17,
+      453,
+      262,
+      474
+    ],
+    "modalTitleInkFlutter": [
+      17,
+      453,
+      266,
+      475
+    ],
+    "A1InkFigma": [
+      87,
+      595,
+      123,
+      620
+    ],
+    "A1InkFlutter": [
+      88,
+      595,
+      123,
+      620
+    ],
+    "interpretation": "Small native font rasterization/metrics differences are recorded and do not justify a typography redesign."
+  },
+  "additionalNonBlockingObservation": "Change field/down chevron uses a simpler native treatment than v7 layered bevel. Main material blockers are the three listed items; avoid a broad redesign.",
+  "status": "Scoped material/typography PASS on updated full Flutter captures after the three targeted fixes. Further image generation is not required.",
+  "appEditsByReviewer": false,
+  "figmaWritesByReviewer": false,
+  "testExecutionByReviewer": false,
+  "approvalLimits": [
+    "This first-unit verdict covers static Flutter material and typography, not connected interaction or physical-device validation.",
+    "Parent reports focused tests passed; this reviewer independently ran only the separately delegated Welcome tests.",
+    "Platform rasterization and the simpler field down-chevron remain accepted non-blocking residuals."
+  ],
+  "reviewHistory": [
+    {
+      "verdict": "FAIL_PENDING_THREE_TARGETED_FIXES",
+      "captures": [
+        {
+          "path": "docs/screenshots/einleitung-generated-20261018/intro-01-de-402-934-1x.png",
+          "sha256": "6a0511cd44c90be8324c3a33b8bcefc9752f1fca900d983c6710dff50accc657"
+        },
+        {
+          "path": "docs/screenshots/einleitung-generated-20261018/intro-level-de-402-934-1x.png",
+          "sha256": "c3ef386f52bc4f0f1a9ee86fe84fa8878992d596a54af74d4368b90b5fba7fba"
+        }
+      ],
+      "requiredFixes": [
+        {
+          "id": "close-wrap",
+          "severity": "required",
+          "finding": "Schließen renders as Schließe plus a second-line n.",
+          "sourceNode": "80:613",
+          "sourceRect": [
+            307,
+            38,
+            79,
+            23
+          ],
+          "sourceFont": "Roboto Regular15",
+          "fix": "Use79px existing button width, zero horizontal padding, maxLines1, softWrapfalse and48px hit height.",
+          "status": "Source code now has this fix; fresh capture still required."
+        },
+        {
+          "id": "modal-flat-yellow",
+          "severity": "required",
+          "finding": "All option faces use an opaque flat yellow fill, unlike the approved cream hanji. Current code option() still uses IntroPalette.paper.",
+          "nativeSource": "lib/screens/onboarding_v2/c_intro_reference_setup.dart:474",
+          "sample": [
+            30,
+            586,
+            69,
+            623
+          ],
+          "figmaMedianRGB": [
+            253,
+            245,
+            230
+          ],
+          "flutterMedianRGB": [
+            255,
+            242,
+            220
+          ],
+          "figmaStdRGB": [
+            0.64,
+            1.11,
+            1.85
+          ],
+          "flutterStdRGB": [
+            0,
+            0,
+            0
+          ],
+          "approvedFigmaUnselected": {
+            "base": "#fff8ec",
+            "paperImageOpacity": 0.85
+          },
+          "approvedFigmaSelected": {
+            "base": "#f5f0db",
+            "paperImageOpacity": 0.55,
+            "goldInsetWidth": 0.8,
+            "goldInsetOffset": 4
+          },
+          "fix": "Restore cream face and subtle paper material plus selected inner gold rail. Avoid translucent fill over an interior-painted dark shadow."
+        },
+        {
+          "id": "interest-gray-face",
+          "severity": "required",
+          "finding": "Interest label panels render gray/brown because their translucent cream face is composited over the same BoxDecoration dark shadow.",
+          "nativeSource": "lib/screens/onboarding_v2/c_intro_reference_setup.dart:325",
+          "sample": [
+            215,
+            604,
+            228,
+            622
+          ],
+          "figmaMedianRGB": [
+            255,
+            245,
+            232
+          ],
+          "flutterMedianRGB": [
+            229,
+            220,
+            206
+          ],
+          "currentFace": "0xa6fff8ed",
+          "currentShadow": "0x603d2b12",
+          "fix": "Use an opaque source-like cream face with separate subtle paper texture, or paint shadow only outside the panel. Preserve readable text and approved rail/check."
+        }
+      ],
+      "status": "Parent notified. Recheck changed areas and adjacent labels after new captures; no further image generation needed."
+    }
+  ],
+  "resolvedFindings": [
+    {
+      "id": "close-wrap",
+      "status": "PASS: Schließen is now one complete line with separation from the title."
+    },
+    {
+      "id": "modal-flat-yellow",
+      "status": "PASS: cream hanji texture is present; selected jade/gold rail remains visible; six serif labels stay clear."
+    },
+    {
+      "id": "interest-gray-face",
+      "status": "PASS: label faces now render source-like cream; card text, selection rail, and check remain unobstructed."
+    }
+  ],
+  "verificationSamples": [
+    {
+      "id": "modal-paper",
+      "sample": [
+        30,
+        586,
+        69,
+        623
+      ],
+      "flutterMedianRGB": [
+        253.0,
+        244.0,
+        230.0
+      ],
+      "flutterStdRGB": [
+        0.48,
+        1.04,
+        1.77
+      ],
+      "figmaMedianRGB": [
+        253.0,
+        245.0,
+        230.0
+      ],
+      "figmaStdRGB": [
+        0.64,
+        1.11,
+        1.85
+      ]
+    },
+    {
+      "id": "interest-cream",
+      "sample": [
+        215,
+        604,
+        228,
+        622
+      ],
+      "flutterMedianRGB": [
+        255.0,
+        245.0,
+        232.0
+      ],
+      "flutterStdRGB": [
+        76.45,
+        65.86,
+        63.37
+      ],
+      "figmaMedianRGB": [
+        255.0,
+        245.0,
+        232.0
+      ],
+      "figmaStdRGB": [
+        74.03,
+        64.76,
+        59.43
+      ]
+    }
+  ]
+}
