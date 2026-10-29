@@ -1,0 +1,1726 @@
+{
+  "key": "gokgan",
+  "buildingId": "gokgan",
+  "name": "곳간채",
+  "selectorAuthority": "canonical-review catalog and preserved GLB/native explicit reviewStage",
+  "canonicalCatalogSha256": "4f511d3c06b1dcc995cdf94f578b70f400f0ca96bc14fcf65e689eacaec9c6d1",
+  "steps": [
+    {
+      "sequence": 1,
+      "processId": "ildu.gokgan-site",
+      "label": "터 닦기",
+      "isFinal": false,
+      "visibleObjects": [],
+      "visibleOriginals": [],
+      "visibleProxies": [],
+      "newMembers": 0,
+      "newOriginalMembers": 0,
+      "visibleMembers": 0,
+      "visibleSetSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "noNewGeometry": true
+    },
+    {
+      "sequence": 2,
+      "processId": "ildu.gokgan-foundation",
+      "label": "기단",
+      "isFinal": false,
+      "visibleObjects": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.side centre plinth"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.side centre plinth"
+      ],
+      "visibleProxies": [],
+      "newMembers": 11,
+      "newOriginalMembers": 11,
+      "visibleMembers": 11,
+      "visibleSetSha256": "fc530f2fb4116abf2aab5c07bb5e04730484a2040b8a29b44acd2a72fc3cd5f2",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 3,
+      "processId": "ildu.gokgan-posts",
+      "label": "기둥",
+      "isFinal": false,
+      "visibleObjects": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame square post",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame square post",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post"
+      ],
+      "visibleProxies": [],
+      "newMembers": 2,
+      "newOriginalMembers": 2,
+      "visibleMembers": 13,
+      "visibleSetSha256": "dce5742c9c5e9d1ed14de50c95c336c12ce535a6dcfd852ec8141f1df7306d4c",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 4,
+      "processId": "ildu.gokgan-beams",
+      "label": "보",
+      "isFinal": false,
+      "visibleObjects": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post"
+      ],
+      "visibleProxies": [],
+      "newMembers": 3,
+      "newOriginalMembers": 3,
+      "visibleMembers": 16,
+      "visibleSetSha256": "10bcfe81f16811b3d12b2b00599d42ffa0a44d568a8b2227ecf19c3ca135f866",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 5,
+      "processId": "ildu.gokgan-rafters",
+      "label": "서까래",
+      "isFinal": false,
+      "visibleObjects": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.hip roof fascia",
+        "North.gokgan.hip roof rafter",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.hip roof fascia",
+        "North.gokgan.hip roof rafter",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post"
+      ],
+      "visibleProxies": [],
+      "newMembers": 2,
+      "newOriginalMembers": 2,
+      "visibleMembers": 18,
+      "visibleSetSha256": "f158dbd467ffffa0212469d271df465561d97cb8503d65fd58f25af1b87ea457",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 6,
+      "processId": "ildu.gokgan-roof-bed",
+      "label": "지붕 바탕",
+      "isFinal": false,
+      "visibleObjects": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.hip roof fascia",
+        "North.gokgan.hip roof rafter",
+        "North.gokgan.roof packed ridge core",
+        "North.gokgan.roof solid bedding",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.hip roof fascia",
+        "North.gokgan.hip roof rafter",
+        "North.gokgan.roof packed ridge core",
+        "North.gokgan.roof solid bedding",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post"
+      ],
+      "visibleProxies": [],
+      "newMembers": 2,
+      "newOriginalMembers": 2,
+      "visibleMembers": 20,
+      "visibleSetSha256": "408869e996e28b97c4bb77ed1997cde1c192156ddd9074fcce134ad8aecee427",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 7,
+      "processId": "ildu.gokgan-tiles",
+      "label": "기와",
+      "isFinal": false,
+      "visibleObjects": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.hip roof curved cover tiles",
+        "North.gokgan.hip roof curved cover tiles.001",
+        "North.gokgan.hip roof curved cover tiles.002",
+        "North.gokgan.hip roof curved cover tiles.003",
+        "North.gokgan.hip roof curved cover tiles.004",
+        "North.gokgan.hip roof curved cover tiles.005",
+        "North.gokgan.hip roof fascia",
+        "North.gokgan.hip roof five ridge courses",
+        "North.gokgan.hip roof five ridge courses.001",
+        "North.gokgan.hip roof five ridge courses.002",
+        "North.gokgan.hip roof five ridge courses.003",
+        "North.gokgan.hip roof five ridge courses.004",
+        "North.gokgan.hip roof rafter",
+        "North.gokgan.hip roof three hip courses",
+        "North.gokgan.hip roof three hip courses.001",
+        "North.gokgan.hip roof three hip courses.002",
+        "North.gokgan.hip roof tiled channels",
+        "North.gokgan.hip roof tiled channels.001",
+        "North.gokgan.hip roof tiled channels.002",
+        "North.gokgan.hip roof tiled channels.003",
+        "North.gokgan.hip roof tiled channels.004",
+        "North.gokgan.hip roof tiled channels.005",
+        "North.gokgan.hip roof white ends",
+        "North.gokgan.roof packed ridge core",
+        "North.gokgan.roof solid bedding",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.hip roof curved cover tiles",
+        "North.gokgan.hip roof curved cover tiles.001",
+        "North.gokgan.hip roof curved cover tiles.002",
+        "North.gokgan.hip roof curved cover tiles.003",
+        "North.gokgan.hip roof curved cover tiles.004",
+        "North.gokgan.hip roof curved cover tiles.005",
+        "North.gokgan.hip roof fascia",
+        "North.gokgan.hip roof five ridge courses",
+        "North.gokgan.hip roof five ridge courses.001",
+        "North.gokgan.hip roof five ridge courses.002",
+        "North.gokgan.hip roof five ridge courses.003",
+        "North.gokgan.hip roof five ridge courses.004",
+        "North.gokgan.hip roof rafter",
+        "North.gokgan.hip roof three hip courses",
+        "North.gokgan.hip roof three hip courses.001",
+        "North.gokgan.hip roof three hip courses.002",
+        "North.gokgan.hip roof tiled channels",
+        "North.gokgan.hip roof tiled channels.001",
+        "North.gokgan.hip roof tiled channels.002",
+        "North.gokgan.hip roof tiled channels.003",
+        "North.gokgan.hip roof tiled channels.004",
+        "North.gokgan.hip roof tiled channels.005",
+        "North.gokgan.hip roof white ends",
+        "North.gokgan.roof packed ridge core",
+        "North.gokgan.roof solid bedding",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post"
+      ],
+      "visibleProxies": [],
+      "newMembers": 21,
+      "newOriginalMembers": 21,
+      "visibleMembers": 41,
+      "visibleSetSha256": "19082a2f281f9582ba4e3e8a90b9d50084360245aea57894e8623b603f9ca22e",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 8,
+      "processId": "ildu.gokgan-walls",
+      "label": "벽체",
+      "isFinal": false,
+      "visibleObjects": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.hip roof curved cover tiles",
+        "North.gokgan.hip roof curved cover tiles.001",
+        "North.gokgan.hip roof curved cover tiles.002",
+        "North.gokgan.hip roof curved cover tiles.003",
+        "North.gokgan.hip roof curved cover tiles.004",
+        "North.gokgan.hip roof curved cover tiles.005",
+        "North.gokgan.hip roof fascia",
+        "North.gokgan.hip roof five ridge courses",
+        "North.gokgan.hip roof five ridge courses.001",
+        "North.gokgan.hip roof five ridge courses.002",
+        "North.gokgan.hip roof five ridge courses.003",
+        "North.gokgan.hip roof five ridge courses.004",
+        "North.gokgan.hip roof rafter",
+        "North.gokgan.hip roof three hip courses",
+        "North.gokgan.hip roof three hip courses.001",
+        "North.gokgan.hip roof three hip courses.002",
+        "North.gokgan.hip roof tiled channels",
+        "North.gokgan.hip roof tiled channels.001",
+        "North.gokgan.hip roof tiled channels.002",
+        "North.gokgan.hip roof tiled channels.003",
+        "North.gokgan.hip roof tiled channels.004",
+        "North.gokgan.hip roof tiled channels.005",
+        "North.gokgan.hip roof white ends",
+        "North.gokgan.roof packed ridge core",
+        "North.gokgan.roof solid bedding",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post",
+        "North.gokgan.side lime band",
+        "North.gokgan.side lime band.head/sill",
+        "North.gokgan.side lime band.jamb",
+        "North.gokgan.side siding",
+        "North.gokgan.side siding rail",
+        "North.gokgan.siding middle rail",
+        "North.gokgan.upper store lime band",
+        "North.gokgan.upper store lime band.head/sill",
+        "North.gokgan.upper store lime band.jamb",
+        "North.gokgan.vertical store siding"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.hip roof curved cover tiles",
+        "North.gokgan.hip roof curved cover tiles.001",
+        "North.gokgan.hip roof curved cover tiles.002",
+        "North.gokgan.hip roof curved cover tiles.003",
+        "North.gokgan.hip roof curved cover tiles.004",
+        "North.gokgan.hip roof curved cover tiles.005",
+        "North.gokgan.hip roof fascia",
+        "North.gokgan.hip roof five ridge courses",
+        "North.gokgan.hip roof five ridge courses.001",
+        "North.gokgan.hip roof five ridge courses.002",
+        "North.gokgan.hip roof five ridge courses.003",
+        "North.gokgan.hip roof five ridge courses.004",
+        "North.gokgan.hip roof rafter",
+        "North.gokgan.hip roof three hip courses",
+        "North.gokgan.hip roof three hip courses.001",
+        "North.gokgan.hip roof three hip courses.002",
+        "North.gokgan.hip roof tiled channels",
+        "North.gokgan.hip roof tiled channels.001",
+        "North.gokgan.hip roof tiled channels.002",
+        "North.gokgan.hip roof tiled channels.003",
+        "North.gokgan.hip roof tiled channels.004",
+        "North.gokgan.hip roof tiled channels.005",
+        "North.gokgan.hip roof white ends",
+        "North.gokgan.roof packed ridge core",
+        "North.gokgan.roof solid bedding",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post",
+        "North.gokgan.side lime band",
+        "North.gokgan.side lime band.head/sill",
+        "North.gokgan.side lime band.jamb",
+        "North.gokgan.side siding",
+        "North.gokgan.side siding rail",
+        "North.gokgan.siding middle rail",
+        "North.gokgan.upper store lime band",
+        "North.gokgan.upper store lime band.head/sill",
+        "North.gokgan.upper store lime band.jamb",
+        "North.gokgan.vertical store siding"
+      ],
+      "visibleProxies": [],
+      "newMembers": 10,
+      "newOriginalMembers": 10,
+      "visibleMembers": 51,
+      "visibleSetSha256": "ef5dd43f950111673a6ee6fbff53eeb750900ff739351b39a005fe452ffe7216",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 9,
+      "processId": "ildu.gokgan-doors",
+      "label": "문",
+      "isFinal": false,
+      "visibleObjects": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central door sideboards",
+        "North.gokgan.central grain door.leaf1.forged hinge",
+        "North.gokgan.central grain door.leaf1.iron ring",
+        "North.gokgan.central grain door.leaf1.nail",
+        "North.gokgan.central grain door.leaf1.rear rail",
+        "North.gokgan.central grain door.leaf1.solid board",
+        "North.gokgan.central grain door.leaf2.forged hinge",
+        "North.gokgan.central grain door.leaf2.iron ring",
+        "North.gokgan.central grain door.leaf2.nail",
+        "North.gokgan.central grain door.leaf2.rear rail",
+        "North.gokgan.central grain door.leaf2.solid board",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.hip roof curved cover tiles",
+        "North.gokgan.hip roof curved cover tiles.001",
+        "North.gokgan.hip roof curved cover tiles.002",
+        "North.gokgan.hip roof curved cover tiles.003",
+        "North.gokgan.hip roof curved cover tiles.004",
+        "North.gokgan.hip roof curved cover tiles.005",
+        "North.gokgan.hip roof fascia",
+        "North.gokgan.hip roof five ridge courses",
+        "North.gokgan.hip roof five ridge courses.001",
+        "North.gokgan.hip roof five ridge courses.002",
+        "North.gokgan.hip roof five ridge courses.003",
+        "North.gokgan.hip roof five ridge courses.004",
+        "North.gokgan.hip roof rafter",
+        "North.gokgan.hip roof three hip courses",
+        "North.gokgan.hip roof three hip courses.001",
+        "North.gokgan.hip roof three hip courses.002",
+        "North.gokgan.hip roof tiled channels",
+        "North.gokgan.hip roof tiled channels.001",
+        "North.gokgan.hip roof tiled channels.002",
+        "North.gokgan.hip roof tiled channels.003",
+        "North.gokgan.hip roof tiled channels.004",
+        "North.gokgan.hip roof tiled channels.005",
+        "North.gokgan.hip roof white ends",
+        "North.gokgan.roof packed ridge core",
+        "North.gokgan.roof solid bedding",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post",
+        "North.gokgan.side lime band",
+        "North.gokgan.side lime band.head/sill",
+        "North.gokgan.side lime band.jamb",
+        "North.gokgan.side siding",
+        "North.gokgan.side siding rail",
+        "North.gokgan.side vents black void",
+        "North.gokgan.side vents vertical grille",
+        "North.gokgan.side vents.rail",
+        "North.gokgan.side vents.stile",
+        "North.gokgan.siding middle rail",
+        "North.gokgan.store slatted opening black void",
+        "North.gokgan.store slatted opening vertical grille",
+        "North.gokgan.store slatted opening.rail",
+        "North.gokgan.store slatted opening.stile",
+        "North.gokgan.upper store lime band",
+        "North.gokgan.upper store lime band.head/sill",
+        "North.gokgan.upper store lime band.jamb",
+        "North.gokgan.vertical store siding"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "North.gokgan.central door sideboards",
+        "North.gokgan.central grain door.leaf1.forged hinge",
+        "North.gokgan.central grain door.leaf1.iron ring",
+        "North.gokgan.central grain door.leaf1.nail",
+        "North.gokgan.central grain door.leaf1.rear rail",
+        "North.gokgan.central grain door.leaf1.solid board",
+        "North.gokgan.central grain door.leaf2.forged hinge",
+        "North.gokgan.central grain door.leaf2.iron ring",
+        "North.gokgan.central grain door.leaf2.nail",
+        "North.gokgan.central grain door.leaf2.rear rail",
+        "North.gokgan.central grain door.leaf2.solid board",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.hip roof curved cover tiles",
+        "North.gokgan.hip roof curved cover tiles.001",
+        "North.gokgan.hip roof curved cover tiles.002",
+        "North.gokgan.hip roof curved cover tiles.003",
+        "North.gokgan.hip roof curved cover tiles.004",
+        "North.gokgan.hip roof curved cover tiles.005",
+        "North.gokgan.hip roof fascia",
+        "North.gokgan.hip roof five ridge courses",
+        "North.gokgan.hip roof five ridge courses.001",
+        "North.gokgan.hip roof five ridge courses.002",
+        "North.gokgan.hip roof five ridge courses.003",
+        "North.gokgan.hip roof five ridge courses.004",
+        "North.gokgan.hip roof rafter",
+        "North.gokgan.hip roof three hip courses",
+        "North.gokgan.hip roof three hip courses.001",
+        "North.gokgan.hip roof three hip courses.002",
+        "North.gokgan.hip roof tiled channels",
+        "North.gokgan.hip roof tiled channels.001",
+        "North.gokgan.hip roof tiled channels.002",
+        "North.gokgan.hip roof tiled channels.003",
+        "North.gokgan.hip roof tiled channels.004",
+        "North.gokgan.hip roof tiled channels.005",
+        "North.gokgan.hip roof white ends",
+        "North.gokgan.roof packed ridge core",
+        "North.gokgan.roof solid bedding",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post",
+        "North.gokgan.side lime band",
+        "North.gokgan.side lime band.head/sill",
+        "North.gokgan.side lime band.jamb",
+        "North.gokgan.side siding",
+        "North.gokgan.side siding rail",
+        "North.gokgan.side vents black void",
+        "North.gokgan.side vents vertical grille",
+        "North.gokgan.side vents.rail",
+        "North.gokgan.side vents.stile",
+        "North.gokgan.siding middle rail",
+        "North.gokgan.store slatted opening black void",
+        "North.gokgan.store slatted opening vertical grille",
+        "North.gokgan.store slatted opening.rail",
+        "North.gokgan.store slatted opening.stile",
+        "North.gokgan.upper store lime band",
+        "North.gokgan.upper store lime band.head/sill",
+        "North.gokgan.upper store lime band.jamb",
+        "North.gokgan.vertical store siding"
+      ],
+      "visibleProxies": [],
+      "newMembers": 19,
+      "newOriginalMembers": 19,
+      "visibleMembers": 70,
+      "visibleSetSha256": "040d4c28931db680d7a5c4c69ebb0d2268428c5b0ac3fd32a387d1fcddad1e96",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 10,
+      "processId": "ildu.gokgan-stone-path",
+      "label": "돌길",
+      "isFinal": false,
+      "visibleObjects": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "GyeCraft.gokgan.irregular paving 0",
+        "GyeCraft.gokgan.irregular paving 1",
+        "GyeCraft.gokgan.irregular paving 2",
+        "GyeCraft.gokgan.irregular paving 3",
+        "GyeCraft.gokgan.irregular paving 4",
+        "North.gokgan.central door sideboards",
+        "North.gokgan.central grain door.leaf1.forged hinge",
+        "North.gokgan.central grain door.leaf1.iron ring",
+        "North.gokgan.central grain door.leaf1.nail",
+        "North.gokgan.central grain door.leaf1.rear rail",
+        "North.gokgan.central grain door.leaf1.solid board",
+        "North.gokgan.central grain door.leaf2.forged hinge",
+        "North.gokgan.central grain door.leaf2.iron ring",
+        "North.gokgan.central grain door.leaf2.nail",
+        "North.gokgan.central grain door.leaf2.rear rail",
+        "North.gokgan.central grain door.leaf2.solid board",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.hip roof curved cover tiles",
+        "North.gokgan.hip roof curved cover tiles.001",
+        "North.gokgan.hip roof curved cover tiles.002",
+        "North.gokgan.hip roof curved cover tiles.003",
+        "North.gokgan.hip roof curved cover tiles.004",
+        "North.gokgan.hip roof curved cover tiles.005",
+        "North.gokgan.hip roof fascia",
+        "North.gokgan.hip roof five ridge courses",
+        "North.gokgan.hip roof five ridge courses.001",
+        "North.gokgan.hip roof five ridge courses.002",
+        "North.gokgan.hip roof five ridge courses.003",
+        "North.gokgan.hip roof five ridge courses.004",
+        "North.gokgan.hip roof rafter",
+        "North.gokgan.hip roof three hip courses",
+        "North.gokgan.hip roof three hip courses.001",
+        "North.gokgan.hip roof three hip courses.002",
+        "North.gokgan.hip roof tiled channels",
+        "North.gokgan.hip roof tiled channels.001",
+        "North.gokgan.hip roof tiled channels.002",
+        "North.gokgan.hip roof tiled channels.003",
+        "North.gokgan.hip roof tiled channels.004",
+        "North.gokgan.hip roof tiled channels.005",
+        "North.gokgan.hip roof white ends",
+        "North.gokgan.roof packed ridge core",
+        "North.gokgan.roof solid bedding",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post",
+        "North.gokgan.side lime band",
+        "North.gokgan.side lime band.head/sill",
+        "North.gokgan.side lime band.jamb",
+        "North.gokgan.side siding",
+        "North.gokgan.side siding rail",
+        "North.gokgan.side vents black void",
+        "North.gokgan.side vents vertical grille",
+        "North.gokgan.side vents.rail",
+        "North.gokgan.side vents.stile",
+        "North.gokgan.siding middle rail",
+        "North.gokgan.store slatted opening black void",
+        "North.gokgan.store slatted opening vertical grille",
+        "North.gokgan.store slatted opening.rail",
+        "North.gokgan.store slatted opening.stile",
+        "North.gokgan.upper store lime band",
+        "North.gokgan.upper store lime band.head/sill",
+        "North.gokgan.upper store lime band.jamb",
+        "North.gokgan.vertical store siding"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "GyeCraft.gokgan.irregular paving 0",
+        "GyeCraft.gokgan.irregular paving 1",
+        "GyeCraft.gokgan.irregular paving 2",
+        "GyeCraft.gokgan.irregular paving 3",
+        "GyeCraft.gokgan.irregular paving 4",
+        "North.gokgan.central door sideboards",
+        "North.gokgan.central grain door.leaf1.forged hinge",
+        "North.gokgan.central grain door.leaf1.iron ring",
+        "North.gokgan.central grain door.leaf1.nail",
+        "North.gokgan.central grain door.leaf1.rear rail",
+        "North.gokgan.central grain door.leaf1.solid board",
+        "North.gokgan.central grain door.leaf2.forged hinge",
+        "North.gokgan.central grain door.leaf2.iron ring",
+        "North.gokgan.central grain door.leaf2.nail",
+        "North.gokgan.central grain door.leaf2.rear rail",
+        "North.gokgan.central grain door.leaf2.solid board",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.hip roof curved cover tiles",
+        "North.gokgan.hip roof curved cover tiles.001",
+        "North.gokgan.hip roof curved cover tiles.002",
+        "North.gokgan.hip roof curved cover tiles.003",
+        "North.gokgan.hip roof curved cover tiles.004",
+        "North.gokgan.hip roof curved cover tiles.005",
+        "North.gokgan.hip roof fascia",
+        "North.gokgan.hip roof five ridge courses",
+        "North.gokgan.hip roof five ridge courses.001",
+        "North.gokgan.hip roof five ridge courses.002",
+        "North.gokgan.hip roof five ridge courses.003",
+        "North.gokgan.hip roof five ridge courses.004",
+        "North.gokgan.hip roof rafter",
+        "North.gokgan.hip roof three hip courses",
+        "North.gokgan.hip roof three hip courses.001",
+        "North.gokgan.hip roof three hip courses.002",
+        "North.gokgan.hip roof tiled channels",
+        "North.gokgan.hip roof tiled channels.001",
+        "North.gokgan.hip roof tiled channels.002",
+        "North.gokgan.hip roof tiled channels.003",
+        "North.gokgan.hip roof tiled channels.004",
+        "North.gokgan.hip roof tiled channels.005",
+        "North.gokgan.hip roof white ends",
+        "North.gokgan.roof packed ridge core",
+        "North.gokgan.roof solid bedding",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post",
+        "North.gokgan.side lime band",
+        "North.gokgan.side lime band.head/sill",
+        "North.gokgan.side lime band.jamb",
+        "North.gokgan.side siding",
+        "North.gokgan.side siding rail",
+        "North.gokgan.side vents black void",
+        "North.gokgan.side vents vertical grille",
+        "North.gokgan.side vents.rail",
+        "North.gokgan.side vents.stile",
+        "North.gokgan.siding middle rail",
+        "North.gokgan.store slatted opening black void",
+        "North.gokgan.store slatted opening vertical grille",
+        "North.gokgan.store slatted opening.rail",
+        "North.gokgan.store slatted opening.stile",
+        "North.gokgan.upper store lime band",
+        "North.gokgan.upper store lime band.head/sill",
+        "North.gokgan.upper store lime band.jamb",
+        "North.gokgan.vertical store siding"
+      ],
+      "visibleProxies": [],
+      "newMembers": 5,
+      "newOriginalMembers": 5,
+      "visibleMembers": 75,
+      "visibleSetSha256": "137c4aecc3d7ed870d74a49ca8d1fe9524dc50769b2ad7a5120d125a60460d0f",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 11,
+      "processId": "ildu.gokgan-care",
+      "label": "돌봄",
+      "isFinal": true,
+      "visibleObjects": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "GyeCraft.gokgan.irregular paving 0",
+        "GyeCraft.gokgan.irregular paving 1",
+        "GyeCraft.gokgan.irregular paving 2",
+        "GyeCraft.gokgan.irregular paving 3",
+        "GyeCraft.gokgan.irregular paving 4",
+        "North.gokgan.central door sideboards",
+        "North.gokgan.central grain door.leaf1.forged hinge",
+        "North.gokgan.central grain door.leaf1.iron ring",
+        "North.gokgan.central grain door.leaf1.nail",
+        "North.gokgan.central grain door.leaf1.rear rail",
+        "North.gokgan.central grain door.leaf1.solid board",
+        "North.gokgan.central grain door.leaf2.forged hinge",
+        "North.gokgan.central grain door.leaf2.iron ring",
+        "North.gokgan.central grain door.leaf2.nail",
+        "North.gokgan.central grain door.leaf2.rear rail",
+        "North.gokgan.central grain door.leaf2.solid board",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.hip roof curved cover tiles",
+        "North.gokgan.hip roof curved cover tiles.001",
+        "North.gokgan.hip roof curved cover tiles.002",
+        "North.gokgan.hip roof curved cover tiles.003",
+        "North.gokgan.hip roof curved cover tiles.004",
+        "North.gokgan.hip roof curved cover tiles.005",
+        "North.gokgan.hip roof fascia",
+        "North.gokgan.hip roof five ridge courses",
+        "North.gokgan.hip roof five ridge courses.001",
+        "North.gokgan.hip roof five ridge courses.002",
+        "North.gokgan.hip roof five ridge courses.003",
+        "North.gokgan.hip roof five ridge courses.004",
+        "North.gokgan.hip roof rafter",
+        "North.gokgan.hip roof three hip courses",
+        "North.gokgan.hip roof three hip courses.001",
+        "North.gokgan.hip roof three hip courses.002",
+        "North.gokgan.hip roof tiled channels",
+        "North.gokgan.hip roof tiled channels.001",
+        "North.gokgan.hip roof tiled channels.002",
+        "North.gokgan.hip roof tiled channels.003",
+        "North.gokgan.hip roof tiled channels.004",
+        "North.gokgan.hip roof tiled channels.005",
+        "North.gokgan.hip roof white ends",
+        "North.gokgan.roof packed ridge core",
+        "North.gokgan.roof solid bedding",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post",
+        "North.gokgan.side lime band",
+        "North.gokgan.side lime band.head/sill",
+        "North.gokgan.side lime band.jamb",
+        "North.gokgan.side siding",
+        "North.gokgan.side siding rail",
+        "North.gokgan.side vents black void",
+        "North.gokgan.side vents vertical grille",
+        "North.gokgan.side vents.rail",
+        "North.gokgan.side vents.stile",
+        "North.gokgan.siding middle rail",
+        "North.gokgan.store slatted opening black void",
+        "North.gokgan.store slatted opening vertical grille",
+        "North.gokgan.store slatted opening.rail",
+        "North.gokgan.store slatted opening.stile",
+        "North.gokgan.upper store lime band",
+        "North.gokgan.upper store lime band.head/sill",
+        "North.gokgan.upper store lime band.jamb",
+        "North.gokgan.vertical store siding"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.gokgan.integrated foundation face 0",
+        "GyeCraft.gokgan.integrated foundation face 1",
+        "GyeCraft.gokgan.integrated foundation face 2",
+        "GyeCraft.gokgan.integrated foundation face 3",
+        "GyeCraft.gokgan.integrated foundation face 4",
+        "GyeCraft.gokgan.irregular paving 0",
+        "GyeCraft.gokgan.irregular paving 1",
+        "GyeCraft.gokgan.irregular paving 2",
+        "GyeCraft.gokgan.irregular paving 3",
+        "GyeCraft.gokgan.irregular paving 4",
+        "North.gokgan.central door sideboards",
+        "North.gokgan.central grain door.leaf1.forged hinge",
+        "North.gokgan.central grain door.leaf1.iron ring",
+        "North.gokgan.central grain door.leaf1.nail",
+        "North.gokgan.central grain door.leaf1.rear rail",
+        "North.gokgan.central grain door.leaf1.solid board",
+        "North.gokgan.central grain door.leaf2.forged hinge",
+        "North.gokgan.central grain door.leaf2.iron ring",
+        "North.gokgan.central grain door.leaf2.nail",
+        "North.gokgan.central grain door.leaf2.rear rail",
+        "North.gokgan.central grain door.leaf2.solid board",
+        "North.gokgan.central threshold step",
+        "North.gokgan.central threshold step.recessed earth mortar",
+        "North.gokgan.foundation",
+        "North.gokgan.foundation individual plinth",
+        "North.gokgan.foundation.recessed earth mortar",
+        "North.gokgan.frame longitudinal beam",
+        "North.gokgan.frame mortise peg",
+        "North.gokgan.frame square post",
+        "North.gokgan.frame transverse beam",
+        "North.gokgan.hip roof curved cover tiles",
+        "North.gokgan.hip roof curved cover tiles.001",
+        "North.gokgan.hip roof curved cover tiles.002",
+        "North.gokgan.hip roof curved cover tiles.003",
+        "North.gokgan.hip roof curved cover tiles.004",
+        "North.gokgan.hip roof curved cover tiles.005",
+        "North.gokgan.hip roof fascia",
+        "North.gokgan.hip roof five ridge courses",
+        "North.gokgan.hip roof five ridge courses.001",
+        "North.gokgan.hip roof five ridge courses.002",
+        "North.gokgan.hip roof five ridge courses.003",
+        "North.gokgan.hip roof five ridge courses.004",
+        "North.gokgan.hip roof rafter",
+        "North.gokgan.hip roof three hip courses",
+        "North.gokgan.hip roof three hip courses.001",
+        "North.gokgan.hip roof three hip courses.002",
+        "North.gokgan.hip roof tiled channels",
+        "North.gokgan.hip roof tiled channels.001",
+        "North.gokgan.hip roof tiled channels.002",
+        "North.gokgan.hip roof tiled channels.003",
+        "North.gokgan.hip roof tiled channels.004",
+        "North.gokgan.hip roof tiled channels.005",
+        "North.gokgan.hip roof white ends",
+        "North.gokgan.roof packed ridge core",
+        "North.gokgan.roof solid bedding",
+        "North.gokgan.side centre plinth",
+        "North.gokgan.side centre post",
+        "North.gokgan.side lime band",
+        "North.gokgan.side lime band.head/sill",
+        "North.gokgan.side lime band.jamb",
+        "North.gokgan.side siding",
+        "North.gokgan.side siding rail",
+        "North.gokgan.side vents black void",
+        "North.gokgan.side vents vertical grille",
+        "North.gokgan.side vents.rail",
+        "North.gokgan.side vents.stile",
+        "North.gokgan.siding middle rail",
+        "North.gokgan.store slatted opening black void",
+        "North.gokgan.store slatted opening vertical grille",
+        "North.gokgan.store slatted opening.rail",
+        "North.gokgan.store slatted opening.stile",
+        "North.gokgan.upper store lime band",
+        "North.gokgan.upper store lime band.head/sill",
+        "North.gokgan.upper store lime band.jamb",
+        "North.gokgan.vertical store siding"
+      ],
+      "visibleProxies": [],
+      "newMembers": 0,
+      "newOriginalMembers": 0,
+      "visibleMembers": 75,
+      "visibleSetSha256": "137c4aecc3d7ed870d74a49ca8d1fe9524dc50769b2ad7a5120d125a60460d0f",
+      "noNewGeometry": true
+    }
+  ],
+  "originalObjectCount": 75,
+  "proxyObjectCount": 0,
+  "baseline": {
+    "GyeCraft.gokgan.integrated foundation face 0": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.gokgan.integrated foundation face 1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.gokgan.integrated foundation face 2": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.gokgan.integrated foundation face 3": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.gokgan.integrated foundation face 4": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.gokgan.irregular paving 0": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.gokgan.irregular paving 1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.gokgan.irregular paving 2": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.gokgan.irregular paving 3": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.gokgan.irregular paving 4": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.central door sideboards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.central grain door.leaf1.forged hinge": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.central grain door.leaf1.iron ring": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.central grain door.leaf1.nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.central grain door.leaf1.rear rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.central grain door.leaf1.solid board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.central grain door.leaf2.forged hinge": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.central grain door.leaf2.iron ring": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.central grain door.leaf2.nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.central grain door.leaf2.rear rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.central grain door.leaf2.solid board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.central threshold step": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.central threshold step.recessed earth mortar": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.foundation": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.foundation individual plinth": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.foundation.recessed earth mortar": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.frame longitudinal beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.frame mortise peg": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.frame square post": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.frame transverse beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof curved cover tiles": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof curved cover tiles.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof curved cover tiles.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof curved cover tiles.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof curved cover tiles.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof curved cover tiles.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof fascia": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof five ridge courses": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof five ridge courses.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof five ridge courses.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof five ridge courses.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof five ridge courses.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof rafter": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof three hip courses": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof three hip courses.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof three hip courses.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof tiled channels": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof tiled channels.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof tiled channels.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof tiled channels.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof tiled channels.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof tiled channels.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.hip roof white ends": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.roof packed ridge core": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.roof solid bedding": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.side centre plinth": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.side centre post": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.side lime band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.side lime band.head/sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.side lime band.jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.side siding": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.side siding rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.side vents black void": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.side vents vertical grille": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.side vents.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.side vents.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.siding middle rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.store slatted opening black void": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.store slatted opening vertical grille": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.store slatted opening.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.store slatted opening.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.upper store lime band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.upper store lime band.head/sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.upper store lime band.jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.gokgan.vertical store siding": {
+      "hideRender": false,
+      "hideViewport": false
+    }
+  },
+  "requiredStage": {
+    "GyeCraft.gokgan.integrated foundation face 0": 2,
+    "GyeCraft.gokgan.integrated foundation face 1": 2,
+    "GyeCraft.gokgan.integrated foundation face 2": 2,
+    "GyeCraft.gokgan.integrated foundation face 3": 2,
+    "GyeCraft.gokgan.integrated foundation face 4": 2,
+    "GyeCraft.gokgan.irregular paving 0": 10,
+    "GyeCraft.gokgan.irregular paving 1": 10,
+    "GyeCraft.gokgan.irregular paving 2": 10,
+    "GyeCraft.gokgan.irregular paving 3": 10,
+    "GyeCraft.gokgan.irregular paving 4": 10,
+    "North.gokgan.central door sideboards": 9,
+    "North.gokgan.central grain door.leaf1.forged hinge": 9,
+    "North.gokgan.central grain door.leaf1.iron ring": 9,
+    "North.gokgan.central grain door.leaf1.nail": 9,
+    "North.gokgan.central grain door.leaf1.rear rail": 9,
+    "North.gokgan.central grain door.leaf1.solid board": 9,
+    "North.gokgan.central grain door.leaf2.forged hinge": 9,
+    "North.gokgan.central grain door.leaf2.iron ring": 9,
+    "North.gokgan.central grain door.leaf2.nail": 9,
+    "North.gokgan.central grain door.leaf2.rear rail": 9,
+    "North.gokgan.central grain door.leaf2.solid board": 9,
+    "North.gokgan.central threshold step": 2,
+    "North.gokgan.central threshold step.recessed earth mortar": 2,
+    "North.gokgan.foundation": 2,
+    "North.gokgan.foundation individual plinth": 2,
+    "North.gokgan.foundation.recessed earth mortar": 2,
+    "North.gokgan.frame longitudinal beam": 4,
+    "North.gokgan.frame mortise peg": 4,
+    "North.gokgan.frame square post": 3,
+    "North.gokgan.frame transverse beam": 4,
+    "North.gokgan.hip roof curved cover tiles": 7,
+    "North.gokgan.hip roof curved cover tiles.001": 7,
+    "North.gokgan.hip roof curved cover tiles.002": 7,
+    "North.gokgan.hip roof curved cover tiles.003": 7,
+    "North.gokgan.hip roof curved cover tiles.004": 7,
+    "North.gokgan.hip roof curved cover tiles.005": 7,
+    "North.gokgan.hip roof fascia": 5,
+    "North.gokgan.hip roof five ridge courses": 7,
+    "North.gokgan.hip roof five ridge courses.001": 7,
+    "North.gokgan.hip roof five ridge courses.002": 7,
+    "North.gokgan.hip roof five ridge courses.003": 7,
+    "North.gokgan.hip roof five ridge courses.004": 7,
+    "North.gokgan.hip roof rafter": 5,
+    "North.gokgan.hip roof three hip courses": 7,
+    "North.gokgan.hip roof three hip courses.001": 7,
+    "North.gokgan.hip roof three hip courses.002": 7,
+    "North.gokgan.hip roof tiled channels": 7,
+    "North.gokgan.hip roof tiled channels.001": 7,
+    "North.gokgan.hip roof tiled channels.002": 7,
+    "North.gokgan.hip roof tiled channels.003": 7,
+    "North.gokgan.hip roof tiled channels.004": 7,
+    "North.gokgan.hip roof tiled channels.005": 7,
+    "North.gokgan.hip roof white ends": 7,
+    "North.gokgan.roof packed ridge core": 6,
+    "North.gokgan.roof solid bedding": 6,
+    "North.gokgan.side centre plinth": 2,
+    "North.gokgan.side centre post": 3,
+    "North.gokgan.side lime band": 8,
+    "North.gokgan.side lime band.head/sill": 8,
+    "North.gokgan.side lime band.jamb": 8,
+    "North.gokgan.side siding": 8,
+    "North.gokgan.side siding rail": 8,
+    "North.gokgan.side vents black void": 9,
+    "North.gokgan.side vents vertical grille": 9,
+    "North.gokgan.side vents.rail": 9,
+    "North.gokgan.side vents.stile": 9,
+    "North.gokgan.siding middle rail": 8,
+    "North.gokgan.store slatted opening black void": 9,
+    "North.gokgan.store slatted opening vertical grille": 9,
+    "North.gokgan.store slatted opening.rail": 9,
+    "North.gokgan.store slatted opening.stile": 9,
+    "North.gokgan.upper store lime band": 8,
+    "North.gokgan.upper store lime band.head/sill": 8,
+    "North.gokgan.upper store lime band.jamb": 8,
+    "North.gokgan.vertical store siding": 8
+  },
+  "lineage": {
+    "GyeCraft.gokgan.integrated foundation face 0": {
+      "sourceObject": "GyeCraft.gokgan.integrated foundation face 0",
+      "processId": "ildu.gokgan-foundation",
+      "original": true
+    },
+    "GyeCraft.gokgan.integrated foundation face 1": {
+      "sourceObject": "GyeCraft.gokgan.integrated foundation face 1",
+      "processId": "ildu.gokgan-foundation",
+      "original": true
+    },
+    "GyeCraft.gokgan.integrated foundation face 2": {
+      "sourceObject": "GyeCraft.gokgan.integrated foundation face 2",
+      "processId": "ildu.gokgan-foundation",
+      "original": true
+    },
+    "GyeCraft.gokgan.integrated foundation face 3": {
+      "sourceObject": "GyeCraft.gokgan.integrated foundation face 3",
+      "processId": "ildu.gokgan-foundation",
+      "original": true
+    },
+    "GyeCraft.gokgan.integrated foundation face 4": {
+      "sourceObject": "GyeCraft.gokgan.integrated foundation face 4",
+      "processId": "ildu.gokgan-foundation",
+      "original": true
+    },
+    "GyeCraft.gokgan.irregular paving 0": {
+      "sourceObject": "GyeCraft.gokgan.irregular paving 0",
+      "processId": "ildu.gokgan-stone-path",
+      "original": true
+    },
+    "GyeCraft.gokgan.irregular paving 1": {
+      "sourceObject": "GyeCraft.gokgan.irregular paving 1",
+      "processId": "ildu.gokgan-stone-path",
+      "original": true
+    },
+    "GyeCraft.gokgan.irregular paving 2": {
+      "sourceObject": "GyeCraft.gokgan.irregular paving 2",
+      "processId": "ildu.gokgan-stone-path",
+      "original": true
+    },
+    "GyeCraft.gokgan.irregular paving 3": {
+      "sourceObject": "GyeCraft.gokgan.irregular paving 3",
+      "processId": "ildu.gokgan-stone-path",
+      "original": true
+    },
+    "GyeCraft.gokgan.irregular paving 4": {
+      "sourceObject": "GyeCraft.gokgan.irregular paving 4",
+      "processId": "ildu.gokgan-stone-path",
+      "original": true
+    },
+    "North.gokgan.central door sideboards": {
+      "sourceObject": "North.gokgan.central door sideboards",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.central grain door.leaf1.forged hinge": {
+      "sourceObject": "North.gokgan.central grain door.leaf1.forged hinge",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.central grain door.leaf1.iron ring": {
+      "sourceObject": "North.gokgan.central grain door.leaf1.iron ring",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.central grain door.leaf1.nail": {
+      "sourceObject": "North.gokgan.central grain door.leaf1.nail",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.central grain door.leaf1.rear rail": {
+      "sourceObject": "North.gokgan.central grain door.leaf1.rear rail",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.central grain door.leaf1.solid board": {
+      "sourceObject": "North.gokgan.central grain door.leaf1.solid board",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.central grain door.leaf2.forged hinge": {
+      "sourceObject": "North.gokgan.central grain door.leaf2.forged hinge",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.central grain door.leaf2.iron ring": {
+      "sourceObject": "North.gokgan.central grain door.leaf2.iron ring",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.central grain door.leaf2.nail": {
+      "sourceObject": "North.gokgan.central grain door.leaf2.nail",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.central grain door.leaf2.rear rail": {
+      "sourceObject": "North.gokgan.central grain door.leaf2.rear rail",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.central grain door.leaf2.solid board": {
+      "sourceObject": "North.gokgan.central grain door.leaf2.solid board",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.central threshold step": {
+      "sourceObject": "North.gokgan.central threshold step",
+      "processId": "ildu.gokgan-foundation",
+      "original": true
+    },
+    "North.gokgan.central threshold step.recessed earth mortar": {
+      "sourceObject": "North.gokgan.central threshold step.recessed earth mortar",
+      "processId": "ildu.gokgan-foundation",
+      "original": true
+    },
+    "North.gokgan.foundation": {
+      "sourceObject": "North.gokgan.foundation",
+      "processId": "ildu.gokgan-foundation",
+      "original": true
+    },
+    "North.gokgan.foundation individual plinth": {
+      "sourceObject": "North.gokgan.foundation individual plinth",
+      "processId": "ildu.gokgan-foundation",
+      "original": true
+    },
+    "North.gokgan.foundation.recessed earth mortar": {
+      "sourceObject": "North.gokgan.foundation.recessed earth mortar",
+      "processId": "ildu.gokgan-foundation",
+      "original": true
+    },
+    "North.gokgan.frame longitudinal beam": {
+      "sourceObject": "North.gokgan.frame longitudinal beam",
+      "processId": "ildu.gokgan-beams",
+      "original": true
+    },
+    "North.gokgan.frame mortise peg": {
+      "sourceObject": "North.gokgan.frame mortise peg",
+      "processId": "ildu.gokgan-beams",
+      "original": true
+    },
+    "North.gokgan.frame square post": {
+      "sourceObject": "North.gokgan.frame square post",
+      "processId": "ildu.gokgan-posts",
+      "original": true
+    },
+    "North.gokgan.frame transverse beam": {
+      "sourceObject": "North.gokgan.frame transverse beam",
+      "processId": "ildu.gokgan-beams",
+      "original": true
+    },
+    "North.gokgan.hip roof curved cover tiles": {
+      "sourceObject": "North.gokgan.hip roof curved cover tiles",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof curved cover tiles.001": {
+      "sourceObject": "North.gokgan.hip roof curved cover tiles.001",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof curved cover tiles.002": {
+      "sourceObject": "North.gokgan.hip roof curved cover tiles.002",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof curved cover tiles.003": {
+      "sourceObject": "North.gokgan.hip roof curved cover tiles.003",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof curved cover tiles.004": {
+      "sourceObject": "North.gokgan.hip roof curved cover tiles.004",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof curved cover tiles.005": {
+      "sourceObject": "North.gokgan.hip roof curved cover tiles.005",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof fascia": {
+      "sourceObject": "North.gokgan.hip roof fascia",
+      "processId": "ildu.gokgan-rafters",
+      "original": true
+    },
+    "North.gokgan.hip roof five ridge courses": {
+      "sourceObject": "North.gokgan.hip roof five ridge courses",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof five ridge courses.001": {
+      "sourceObject": "North.gokgan.hip roof five ridge courses.001",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof five ridge courses.002": {
+      "sourceObject": "North.gokgan.hip roof five ridge courses.002",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof five ridge courses.003": {
+      "sourceObject": "North.gokgan.hip roof five ridge courses.003",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof five ridge courses.004": {
+      "sourceObject": "North.gokgan.hip roof five ridge courses.004",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof rafter": {
+      "sourceObject": "North.gokgan.hip roof rafter",
+      "processId": "ildu.gokgan-rafters",
+      "original": true
+    },
+    "North.gokgan.hip roof three hip courses": {
+      "sourceObject": "North.gokgan.hip roof three hip courses",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof three hip courses.001": {
+      "sourceObject": "North.gokgan.hip roof three hip courses.001",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof three hip courses.002": {
+      "sourceObject": "North.gokgan.hip roof three hip courses.002",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof tiled channels": {
+      "sourceObject": "North.gokgan.hip roof tiled channels",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof tiled channels.001": {
+      "sourceObject": "North.gokgan.hip roof tiled channels.001",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof tiled channels.002": {
+      "sourceObject": "North.gokgan.hip roof tiled channels.002",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof tiled channels.003": {
+      "sourceObject": "North.gokgan.hip roof tiled channels.003",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof tiled channels.004": {
+      "sourceObject": "North.gokgan.hip roof tiled channels.004",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof tiled channels.005": {
+      "sourceObject": "North.gokgan.hip roof tiled channels.005",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.hip roof white ends": {
+      "sourceObject": "North.gokgan.hip roof white ends",
+      "processId": "ildu.gokgan-tiles",
+      "original": true
+    },
+    "North.gokgan.roof packed ridge core": {
+      "sourceObject": "North.gokgan.roof packed ridge core",
+      "processId": "ildu.gokgan-roof-bed",
+      "original": true
+    },
+    "North.gokgan.roof solid bedding": {
+      "sourceObject": "North.gokgan.roof solid bedding",
+      "processId": "ildu.gokgan-roof-bed",
+      "original": true
+    },
+    "North.gokgan.side centre plinth": {
+      "sourceObject": "North.gokgan.side centre plinth",
+      "processId": "ildu.gokgan-foundation",
+      "original": true
+    },
+    "North.gokgan.side centre post": {
+      "sourceObject": "North.gokgan.side centre post",
+      "processId": "ildu.gokgan-posts",
+      "original": true
+    },
+    "North.gokgan.side lime band": {
+      "sourceObject": "North.gokgan.side lime band",
+      "processId": "ildu.gokgan-walls",
+      "original": true
+    },
+    "North.gokgan.side lime band.head/sill": {
+      "sourceObject": "North.gokgan.side lime band.head/sill",
+      "processId": "ildu.gokgan-walls",
+      "original": true
+    },
+    "North.gokgan.side lime band.jamb": {
+      "sourceObject": "North.gokgan.side lime band.jamb",
+      "processId": "ildu.gokgan-walls",
+      "original": true
+    },
+    "North.gokgan.side siding": {
+      "sourceObject": "North.gokgan.side siding",
+      "processId": "ildu.gokgan-walls",
+      "original": true
+    },
+    "North.gokgan.side siding rail": {
+      "sourceObject": "North.gokgan.side siding rail",
+      "processId": "ildu.gokgan-walls",
+      "original": true
+    },
+    "North.gokgan.side vents black void": {
+      "sourceObject": "North.gokgan.side vents black void",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.side vents vertical grille": {
+      "sourceObject": "North.gokgan.side vents vertical grille",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.side vents.rail": {
+      "sourceObject": "North.gokgan.side vents.rail",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.side vents.stile": {
+      "sourceObject": "North.gokgan.side vents.stile",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.siding middle rail": {
+      "sourceObject": "North.gokgan.siding middle rail",
+      "processId": "ildu.gokgan-walls",
+      "original": true
+    },
+    "North.gokgan.store slatted opening black void": {
+      "sourceObject": "North.gokgan.store slatted opening black void",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.store slatted opening vertical grille": {
+      "sourceObject": "North.gokgan.store slatted opening vertical grille",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.store slatted opening.rail": {
+      "sourceObject": "North.gokgan.store slatted opening.rail",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.store slatted opening.stile": {
+      "sourceObject": "North.gokgan.store slatted opening.stile",
+      "processId": "ildu.gokgan-doors",
+      "original": true
+    },
+    "North.gokgan.upper store lime band": {
+      "sourceObject": "North.gokgan.upper store lime band",
+      "processId": "ildu.gokgan-walls",
+      "original": true
+    },
+    "North.gokgan.upper store lime band.head/sill": {
+      "sourceObject": "North.gokgan.upper store lime band.head/sill",
+      "processId": "ildu.gokgan-walls",
+      "original": true
+    },
+    "North.gokgan.upper store lime band.jamb": {
+      "sourceObject": "North.gokgan.upper store lime band.jamb",
+      "processId": "ildu.gokgan-walls",
+      "original": true
+    },
+    "North.gokgan.vertical store siding": {
+      "sourceObject": "North.gokgan.vertical store siding",
+      "processId": "ildu.gokgan-walls",
+      "original": true
+    }
+  },
+  "nullProcessOriginals": [],
+  "legacyDisplayPolicyDifferences": [],
+  "legacyPolicyUnmodified": true,
+  "processIdsAndOrderPreserved": true,
+  "sourceDataEdited": false
+}

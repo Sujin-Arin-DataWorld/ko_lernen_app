@@ -1,0 +1,37 @@
+{
+  "complete": true,
+  "oldSourceAbsent": true,
+  "nativeCount": 4,
+  "checkedStages": 28,
+  "files": [
+    {
+      "key": "sarang",
+      "kind": "full",
+      "sha256": "ef7b1ac264d26c56f121aa25e0af05a21ffb92fc1071b3eabe508ee93392b200",
+      "reopened": true,
+      "packed": true
+    },
+    {
+      "key": "sarang",
+      "kind": "stage",
+      "sha256": "943b172dc8d1cc68d6cd0010c2a090a819a82b58b244a98649dafe1209112bb4",
+      "reopened": true,
+      "packed": true
+    },
+    {
+      "key": "jung",
+      "kind": "full",
+      "sha256": "41f3920ee311406fe087a40c346101979547daf5706034ef01a1a57560328a54",
+      "reopened": true,
+      "packed": true
+    },
+    {
+      "key": "jung",
+      "kind": "stage",
+      "sha256": "d756c5d780537bd1d73d00300499c9b6d81976d7f8467506603ed0e28c8e4aeb",
+      "reopened": true,
+      "packed": true
+    }
+  ],
+  "remoteCommit": "a3ebf0c614ccec1864324f6e2641c9f895ddaf6f"
+}

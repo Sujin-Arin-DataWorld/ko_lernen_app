@@ -199,3 +199,6 @@ graphify-out/graph.json.bak-*
 # .graphify_root 는 로컬 절대경로만 담는다 — 머신·워크트리마다 달라 충돌원이다.
 graphify-out/.graphify_root
 
+
+# Temporary Superdesign export/import buffers
+.superdesign/tmp/

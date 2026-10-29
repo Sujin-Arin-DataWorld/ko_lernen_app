@@ -1,0 +1,38 @@
+{
+  "nativeSha256": "b001666cef8bf9d0a23157c2aebb220d1df22f3b00698482e8277e9680049d12",
+  "sourceUnchanged": true,
+  "plaques": [
+    {
+      "object": "Sarang.dark original plaque",
+      "board": "Sarang.dark original plaque.board",
+      "centre": [
+        3.820000171661377,
+        -0.32100000977516174,
+        3.5250003337860107
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\validation\\sarang-plaque-dark-front.png",
+      "hidden": false
+    },
+    {
+      "object": "Sarang.light original plaque",
+      "board": "Sarang.light original plaque.board",
+      "centre": [
+        7.874999523162842,
+        0.3189999759197235,
+        3.3799996376037598
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\validation\\sarang-plaque-light-front.png",
+      "hidden": false
+    }
+  ]
+}

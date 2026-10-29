@@ -1,0 +1,1883 @@
+{
+  "GyeCraft.changgo.irregular paving 0": {
+    "memberId": "ildu.changgo.part.948962976c2dd48ca623",
+    "sourceObject": "GyeCraft.changgo.irregular paving 0",
+    "reviewStage": 8,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.changgo.irregular paving 1": {
+    "memberId": "ildu.changgo.part.0e6cad1fe1f19af4017f",
+    "sourceObject": "GyeCraft.changgo.irregular paving 1",
+    "reviewStage": 8,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.changgo.irregular paving 2": {
+    "memberId": "ildu.changgo.part.2081d965d9072f09c334",
+    "sourceObject": "GyeCraft.changgo.irregular paving 2",
+    "reviewStage": 8,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.changgo.irregular paving 3": {
+    "memberId": "ildu.changgo.part.d1e2919e44397a2248a2",
+    "sourceObject": "GyeCraft.changgo.irregular paving 3",
+    "reviewStage": 8,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.changgo.irregular paving 4": {
+    "memberId": "ildu.changgo.part.cda9144bc11cd6f33792",
+    "sourceObject": "GyeCraft.changgo.irregular paving 4",
+    "reviewStage": 8,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "PhotoWarehouse.end lime plaster": {
+    "memberId": "ildu.changgo.part.77f437d67e11e3a733ce",
+    "sourceObject": "PhotoWarehouse.end lime plaster",
+    "reviewStage": 7,
+    "processId": "ildu.changgo-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "PhotoWarehouse.end ochre infill": {
+    "memberId": "ildu.changgo.part.08a40b07e1d71c19ecfd",
+    "sourceObject": "PhotoWarehouse.end ochre infill",
+    "reviewStage": 7,
+    "processId": "ildu.changgo-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "PhotoWarehouse.gable cross tie": {
+    "memberId": "ildu.changgo.part.f333f5acbc2191aeafce",
+    "sourceObject": "PhotoWarehouse.gable cross tie",
+    "reviewStage": 3,
+    "processId": "ildu.changgo-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "PhotoWarehouse.gable king post": {
+    "memberId": "ildu.changgo.part.a3fddc69a9958c4363d3",
+    "sourceObject": "PhotoWarehouse.gable king post",
+    "reviewStage": 4,
+    "processId": "ildu.changgo-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "PhotoWarehouse.gable ochre": {
+    "memberId": "ildu.changgo.part.5b21a09000e7bf840cbd",
+    "sourceObject": "PhotoWarehouse.gable ochre",
+    "reviewStage": 7,
+    "processId": "ildu.changgo-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.changgo.bay1.leaf1.V34 meeting bead": {
+    "memberId": "ildu.changgo.part.3cf9638429070d49f855",
+    "sourceObject": "V28.changgo.bay1.leaf1.V34 meeting bead",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf1.back rail": {
+    "memberId": "ildu.changgo.part.81c894ee2369fc595da1",
+    "sourceObject": "V28.changgo.bay1.leaf1.back rail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf1.boards": {
+    "memberId": "ildu.changgo.part.1d1928aaf861611e25a0",
+    "sourceObject": "V28.changgo.bay1.leaf1.boards",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf1.boards.001": {
+    "memberId": "ildu.changgo.part.98272ac50dd74bebd9eb",
+    "sourceObject": "V28.changgo.bay1.leaf1.boards.001",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf1.boards.002": {
+    "memberId": "ildu.changgo.part.d89003d2112a5bf45cf4",
+    "sourceObject": "V28.changgo.bay1.leaf1.boards.002",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf1.boards.003": {
+    "memberId": "ildu.changgo.part.367136e10f33b51f66dc",
+    "sourceObject": "V28.changgo.bay1.leaf1.boards.003",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf1.canonical nail": {
+    "memberId": "ildu.changgo.part.1553a52e25ef17eb5506",
+    "sourceObject": "V28.changgo.bay1.leaf1.canonical nail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf1.hinge strap": {
+    "memberId": "ildu.changgo.part.664e9c9d74872b164553",
+    "sourceObject": "V28.changgo.bay1.leaf1.hinge strap",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf1.iron backplate": {
+    "memberId": "ildu.changgo.part.e99f1eeb6353ca5f2e17",
+    "sourceObject": "V28.changgo.bay1.leaf1.iron backplate",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf1.iron handle": {
+    "memberId": "ildu.changgo.part.3e131c581e4ddb879818",
+    "sourceObject": "V28.changgo.bay1.leaf1.iron handle",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf2.back rail": {
+    "memberId": "ildu.changgo.part.6990a7e1ec98d411558e",
+    "sourceObject": "V28.changgo.bay1.leaf2.back rail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf2.boards": {
+    "memberId": "ildu.changgo.part.4d271f1262eaba1cd3d2",
+    "sourceObject": "V28.changgo.bay1.leaf2.boards",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf2.boards.001": {
+    "memberId": "ildu.changgo.part.7f3dcb1cdb55d6c357a3",
+    "sourceObject": "V28.changgo.bay1.leaf2.boards.001",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf2.boards.002": {
+    "memberId": "ildu.changgo.part.eb959f8a8f43c511abea",
+    "sourceObject": "V28.changgo.bay1.leaf2.boards.002",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf2.boards.003": {
+    "memberId": "ildu.changgo.part.de27850c89d51fef791e",
+    "sourceObject": "V28.changgo.bay1.leaf2.boards.003",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf2.canonical nail": {
+    "memberId": "ildu.changgo.part.66530e8e660ee00480dc",
+    "sourceObject": "V28.changgo.bay1.leaf2.canonical nail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf2.hinge strap": {
+    "memberId": "ildu.changgo.part.a006f97b243464f2a186",
+    "sourceObject": "V28.changgo.bay1.leaf2.hinge strap",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf2.iron backplate": {
+    "memberId": "ildu.changgo.part.f4de4e3328618cda1127",
+    "sourceObject": "V28.changgo.bay1.leaf2.iron backplate",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay1.leaf2.iron handle": {
+    "memberId": "ildu.changgo.part.3ac06c598ebad3418388",
+    "sourceObject": "V28.changgo.bay1.leaf2.iron handle",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf1.V34 meeting bead": {
+    "memberId": "ildu.changgo.part.d594b2b31ab89c436eb9",
+    "sourceObject": "V28.changgo.bay2.leaf1.V34 meeting bead",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf1.back rail": {
+    "memberId": "ildu.changgo.part.015e81341a2dc9ed899e",
+    "sourceObject": "V28.changgo.bay2.leaf1.back rail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf1.boards": {
+    "memberId": "ildu.changgo.part.5fc7a3b59e606d32caca",
+    "sourceObject": "V28.changgo.bay2.leaf1.boards",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf1.boards.001": {
+    "memberId": "ildu.changgo.part.4d4c6a38fe68f8f06ae2",
+    "sourceObject": "V28.changgo.bay2.leaf1.boards.001",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf1.boards.002": {
+    "memberId": "ildu.changgo.part.7f4cc0e596d22742688d",
+    "sourceObject": "V28.changgo.bay2.leaf1.boards.002",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf1.boards.003": {
+    "memberId": "ildu.changgo.part.956f3964e983b58ec5dc",
+    "sourceObject": "V28.changgo.bay2.leaf1.boards.003",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf1.canonical nail": {
+    "memberId": "ildu.changgo.part.e4525156ff47726661a2",
+    "sourceObject": "V28.changgo.bay2.leaf1.canonical nail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf1.hinge strap": {
+    "memberId": "ildu.changgo.part.d499b9cfa3e49a88d88c",
+    "sourceObject": "V28.changgo.bay2.leaf1.hinge strap",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf1.iron backplate": {
+    "memberId": "ildu.changgo.part.ce3b522622360c5e1967",
+    "sourceObject": "V28.changgo.bay2.leaf1.iron backplate",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf1.iron handle": {
+    "memberId": "ildu.changgo.part.499107a5f287a73128d4",
+    "sourceObject": "V28.changgo.bay2.leaf1.iron handle",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf2.back rail": {
+    "memberId": "ildu.changgo.part.72c8b899859059896ae7",
+    "sourceObject": "V28.changgo.bay2.leaf2.back rail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf2.boards": {
+    "memberId": "ildu.changgo.part.2df0e28c5f3a0c3938f8",
+    "sourceObject": "V28.changgo.bay2.leaf2.boards",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf2.boards.001": {
+    "memberId": "ildu.changgo.part.22b5c56980ddd3d08696",
+    "sourceObject": "V28.changgo.bay2.leaf2.boards.001",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf2.boards.002": {
+    "memberId": "ildu.changgo.part.4ec1ca87cf074cc05149",
+    "sourceObject": "V28.changgo.bay2.leaf2.boards.002",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf2.boards.003": {
+    "memberId": "ildu.changgo.part.e42cf3dbe4a7351442f0",
+    "sourceObject": "V28.changgo.bay2.leaf2.boards.003",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf2.canonical nail": {
+    "memberId": "ildu.changgo.part.180dc209d26826870a98",
+    "sourceObject": "V28.changgo.bay2.leaf2.canonical nail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf2.hinge strap": {
+    "memberId": "ildu.changgo.part.f3e96929bde1c9c1bcf3",
+    "sourceObject": "V28.changgo.bay2.leaf2.hinge strap",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf2.iron backplate": {
+    "memberId": "ildu.changgo.part.cd91148d3fe29177d369",
+    "sourceObject": "V28.changgo.bay2.leaf2.iron backplate",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay2.leaf2.iron handle": {
+    "memberId": "ildu.changgo.part.39be851d4c585c77ff6b",
+    "sourceObject": "V28.changgo.bay2.leaf2.iron handle",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf1.V34 meeting bead": {
+    "memberId": "ildu.changgo.part.3a82385c7c550793b7ca",
+    "sourceObject": "V28.changgo.bay3.leaf1.V34 meeting bead",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf1.back rail": {
+    "memberId": "ildu.changgo.part.fcadc71558241c755d69",
+    "sourceObject": "V28.changgo.bay3.leaf1.back rail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf1.boards": {
+    "memberId": "ildu.changgo.part.e5575ec3153e5ed18999",
+    "sourceObject": "V28.changgo.bay3.leaf1.boards",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf1.boards.001": {
+    "memberId": "ildu.changgo.part.931fb8f1d8e405bad036",
+    "sourceObject": "V28.changgo.bay3.leaf1.boards.001",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf1.boards.002": {
+    "memberId": "ildu.changgo.part.7b1778695f409716b4c3",
+    "sourceObject": "V28.changgo.bay3.leaf1.boards.002",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf1.boards.003": {
+    "memberId": "ildu.changgo.part.027290ad2c62f2697178",
+    "sourceObject": "V28.changgo.bay3.leaf1.boards.003",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf1.canonical nail": {
+    "memberId": "ildu.changgo.part.154f2bbd1fffc6c9b826",
+    "sourceObject": "V28.changgo.bay3.leaf1.canonical nail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf1.hinge strap": {
+    "memberId": "ildu.changgo.part.148d40b40ef167b37efb",
+    "sourceObject": "V28.changgo.bay3.leaf1.hinge strap",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf1.iron backplate": {
+    "memberId": "ildu.changgo.part.35671e00e18e64f91a83",
+    "sourceObject": "V28.changgo.bay3.leaf1.iron backplate",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf1.iron handle": {
+    "memberId": "ildu.changgo.part.ae71d94f9af57b27dbeb",
+    "sourceObject": "V28.changgo.bay3.leaf1.iron handle",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf2.back rail": {
+    "memberId": "ildu.changgo.part.375440c1fe59e86e78a3",
+    "sourceObject": "V28.changgo.bay3.leaf2.back rail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf2.boards": {
+    "memberId": "ildu.changgo.part.f526c299bb1481f4a32d",
+    "sourceObject": "V28.changgo.bay3.leaf2.boards",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf2.boards.001": {
+    "memberId": "ildu.changgo.part.d89a7875c13a51c20480",
+    "sourceObject": "V28.changgo.bay3.leaf2.boards.001",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf2.boards.002": {
+    "memberId": "ildu.changgo.part.9c3e45cbce87ceb78d7a",
+    "sourceObject": "V28.changgo.bay3.leaf2.boards.002",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf2.boards.003": {
+    "memberId": "ildu.changgo.part.3d086cf42e722814b52a",
+    "sourceObject": "V28.changgo.bay3.leaf2.boards.003",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf2.canonical nail": {
+    "memberId": "ildu.changgo.part.7c3fc230d3559f50ad40",
+    "sourceObject": "V28.changgo.bay3.leaf2.canonical nail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf2.hinge strap": {
+    "memberId": "ildu.changgo.part.4a9bef74de4383e8e9a8",
+    "sourceObject": "V28.changgo.bay3.leaf2.hinge strap",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf2.iron backplate": {
+    "memberId": "ildu.changgo.part.5c027e486f8b7d296c54",
+    "sourceObject": "V28.changgo.bay3.leaf2.iron backplate",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay3.leaf2.iron handle": {
+    "memberId": "ildu.changgo.part.a7d44e97c0145f6de265",
+    "sourceObject": "V28.changgo.bay3.leaf2.iron handle",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf1.V34 meeting bead": {
+    "memberId": "ildu.changgo.part.2f52ae6b00621574eab3",
+    "sourceObject": "V28.changgo.bay4.leaf1.V34 meeting bead",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf1.back rail": {
+    "memberId": "ildu.changgo.part.8145cdc83f6259badb4a",
+    "sourceObject": "V28.changgo.bay4.leaf1.back rail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf1.boards": {
+    "memberId": "ildu.changgo.part.85690e7cc2dd154b0e26",
+    "sourceObject": "V28.changgo.bay4.leaf1.boards",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf1.boards.001": {
+    "memberId": "ildu.changgo.part.6d4951178d8be886f5e1",
+    "sourceObject": "V28.changgo.bay4.leaf1.boards.001",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf1.boards.002": {
+    "memberId": "ildu.changgo.part.0931b391d13da5561ab1",
+    "sourceObject": "V28.changgo.bay4.leaf1.boards.002",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf1.boards.003": {
+    "memberId": "ildu.changgo.part.3bf3407ee7bffe2e50bc",
+    "sourceObject": "V28.changgo.bay4.leaf1.boards.003",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf1.canonical nail": {
+    "memberId": "ildu.changgo.part.66149c8593580b4e69c3",
+    "sourceObject": "V28.changgo.bay4.leaf1.canonical nail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf1.hinge strap": {
+    "memberId": "ildu.changgo.part.1336e74bc343ad857537",
+    "sourceObject": "V28.changgo.bay4.leaf1.hinge strap",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf1.iron backplate": {
+    "memberId": "ildu.changgo.part.7f26ae8aff45007e64e2",
+    "sourceObject": "V28.changgo.bay4.leaf1.iron backplate",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf1.iron handle": {
+    "memberId": "ildu.changgo.part.cf5b61e163f0df508ff9",
+    "sourceObject": "V28.changgo.bay4.leaf1.iron handle",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf2.back rail": {
+    "memberId": "ildu.changgo.part.559ecbf1caca2a81dad6",
+    "sourceObject": "V28.changgo.bay4.leaf2.back rail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf2.boards": {
+    "memberId": "ildu.changgo.part.7a669a067f8b3a9572c6",
+    "sourceObject": "V28.changgo.bay4.leaf2.boards",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf2.boards.001": {
+    "memberId": "ildu.changgo.part.ce2199a19e5079bf4fe1",
+    "sourceObject": "V28.changgo.bay4.leaf2.boards.001",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf2.boards.002": {
+    "memberId": "ildu.changgo.part.a97c29d94e3ed0239af7",
+    "sourceObject": "V28.changgo.bay4.leaf2.boards.002",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf2.boards.003": {
+    "memberId": "ildu.changgo.part.9404474496edefcec7e2",
+    "sourceObject": "V28.changgo.bay4.leaf2.boards.003",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf2.canonical nail": {
+    "memberId": "ildu.changgo.part.1a00a1e4caa1f4278f96",
+    "sourceObject": "V28.changgo.bay4.leaf2.canonical nail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf2.hinge strap": {
+    "memberId": "ildu.changgo.part.cbc11280b7a4ed9497ce",
+    "sourceObject": "V28.changgo.bay4.leaf2.hinge strap",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf2.iron backplate": {
+    "memberId": "ildu.changgo.part.5d0125f10688b93af1c0",
+    "sourceObject": "V28.changgo.bay4.leaf2.iron backplate",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay4.leaf2.iron handle": {
+    "memberId": "ildu.changgo.part.a6dcbc6f6019bc078b93",
+    "sourceObject": "V28.changgo.bay4.leaf2.iron handle",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf1.V34 meeting bead": {
+    "memberId": "ildu.changgo.part.744fc74cc7da48d8babc",
+    "sourceObject": "V28.changgo.bay5.leaf1.V34 meeting bead",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf1.back rail": {
+    "memberId": "ildu.changgo.part.90801f028ffa1ab6c82a",
+    "sourceObject": "V28.changgo.bay5.leaf1.back rail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf1.boards": {
+    "memberId": "ildu.changgo.part.d4882a3e2070f6e438f0",
+    "sourceObject": "V28.changgo.bay5.leaf1.boards",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf1.boards.001": {
+    "memberId": "ildu.changgo.part.48bca831e8f6f3a91a40",
+    "sourceObject": "V28.changgo.bay5.leaf1.boards.001",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf1.boards.002": {
+    "memberId": "ildu.changgo.part.1ecea8f0f20df4ea2181",
+    "sourceObject": "V28.changgo.bay5.leaf1.boards.002",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf1.boards.003": {
+    "memberId": "ildu.changgo.part.acb939e0e649c1ddaa50",
+    "sourceObject": "V28.changgo.bay5.leaf1.boards.003",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf1.canonical nail": {
+    "memberId": "ildu.changgo.part.d444d440d1526f8be981",
+    "sourceObject": "V28.changgo.bay5.leaf1.canonical nail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf1.hinge strap": {
+    "memberId": "ildu.changgo.part.99509b8a8b48f0d98c7d",
+    "sourceObject": "V28.changgo.bay5.leaf1.hinge strap",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf1.iron backplate": {
+    "memberId": "ildu.changgo.part.d2807bc39ba7677a1d0d",
+    "sourceObject": "V28.changgo.bay5.leaf1.iron backplate",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf1.iron handle": {
+    "memberId": "ildu.changgo.part.e642ec7513e321d5e1cc",
+    "sourceObject": "V28.changgo.bay5.leaf1.iron handle",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf2.back rail": {
+    "memberId": "ildu.changgo.part.8bed3b14d71e4441269f",
+    "sourceObject": "V28.changgo.bay5.leaf2.back rail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf2.boards": {
+    "memberId": "ildu.changgo.part.df754b47131ef0d7a516",
+    "sourceObject": "V28.changgo.bay5.leaf2.boards",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf2.boards.001": {
+    "memberId": "ildu.changgo.part.97cb877a0ec44404ffb9",
+    "sourceObject": "V28.changgo.bay5.leaf2.boards.001",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf2.boards.002": {
+    "memberId": "ildu.changgo.part.760e3ebb67fc7c1a2006",
+    "sourceObject": "V28.changgo.bay5.leaf2.boards.002",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf2.boards.003": {
+    "memberId": "ildu.changgo.part.12025173be4bc0edc8a4",
+    "sourceObject": "V28.changgo.bay5.leaf2.boards.003",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf2.canonical nail": {
+    "memberId": "ildu.changgo.part.69ea44384f86446de33d",
+    "sourceObject": "V28.changgo.bay5.leaf2.canonical nail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf2.hinge strap": {
+    "memberId": "ildu.changgo.part.8b5082a5518e079f5a2d",
+    "sourceObject": "V28.changgo.bay5.leaf2.hinge strap",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf2.iron backplate": {
+    "memberId": "ildu.changgo.part.3318e0b38c88a63f3aa1",
+    "sourceObject": "V28.changgo.bay5.leaf2.iron backplate",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay5.leaf2.iron handle": {
+    "memberId": "ildu.changgo.part.d0f993ac093f14574388",
+    "sourceObject": "V28.changgo.bay5.leaf2.iron handle",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf1.V34 meeting bead": {
+    "memberId": "ildu.changgo.part.949ad2ec89349cd86ebe",
+    "sourceObject": "V28.changgo.bay6.leaf1.V34 meeting bead",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf1.back rail": {
+    "memberId": "ildu.changgo.part.83ed399377870baa0405",
+    "sourceObject": "V28.changgo.bay6.leaf1.back rail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf1.boards": {
+    "memberId": "ildu.changgo.part.9470933e167124dadedc",
+    "sourceObject": "V28.changgo.bay6.leaf1.boards",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf1.boards.001": {
+    "memberId": "ildu.changgo.part.bc073b2377221be00571",
+    "sourceObject": "V28.changgo.bay6.leaf1.boards.001",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf1.boards.002": {
+    "memberId": "ildu.changgo.part.1ee61202b014efe9bf5a",
+    "sourceObject": "V28.changgo.bay6.leaf1.boards.002",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf1.boards.003": {
+    "memberId": "ildu.changgo.part.204c281ddea0a248ebd4",
+    "sourceObject": "V28.changgo.bay6.leaf1.boards.003",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf1.canonical nail": {
+    "memberId": "ildu.changgo.part.3727815b15270617c121",
+    "sourceObject": "V28.changgo.bay6.leaf1.canonical nail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf1.hinge strap": {
+    "memberId": "ildu.changgo.part.b6090ab10ad85df2cfdb",
+    "sourceObject": "V28.changgo.bay6.leaf1.hinge strap",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf1.iron backplate": {
+    "memberId": "ildu.changgo.part.c11437cb9b6335a2c51f",
+    "sourceObject": "V28.changgo.bay6.leaf1.iron backplate",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf1.iron handle": {
+    "memberId": "ildu.changgo.part.1ab3da2fe076e9d94a2b",
+    "sourceObject": "V28.changgo.bay6.leaf1.iron handle",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf2.back rail": {
+    "memberId": "ildu.changgo.part.108e4fb446717b8b1c6b",
+    "sourceObject": "V28.changgo.bay6.leaf2.back rail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf2.boards": {
+    "memberId": "ildu.changgo.part.c002fc0451ce9057ee2d",
+    "sourceObject": "V28.changgo.bay6.leaf2.boards",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf2.boards.001": {
+    "memberId": "ildu.changgo.part.25cf1cf79efa6e38a374",
+    "sourceObject": "V28.changgo.bay6.leaf2.boards.001",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf2.boards.002": {
+    "memberId": "ildu.changgo.part.28147958796042a780ae",
+    "sourceObject": "V28.changgo.bay6.leaf2.boards.002",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf2.boards.003": {
+    "memberId": "ildu.changgo.part.35810f266be6f0bd6ad7",
+    "sourceObject": "V28.changgo.bay6.leaf2.boards.003",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf2.canonical nail": {
+    "memberId": "ildu.changgo.part.9d17c85eaa69fdf3eaff",
+    "sourceObject": "V28.changgo.bay6.leaf2.canonical nail",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf2.hinge strap": {
+    "memberId": "ildu.changgo.part.b9220f1a9bba0c79528b",
+    "sourceObject": "V28.changgo.bay6.leaf2.hinge strap",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf2.iron backplate": {
+    "memberId": "ildu.changgo.part.fda58f4d371c9b2d03ee",
+    "sourceObject": "V28.changgo.bay6.leaf2.iron backplate",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.bay6.leaf2.iron handle": {
+    "memberId": "ildu.changgo.part.e2f7ef36424737af211b",
+    "sourceObject": "V28.changgo.bay6.leaf2.iron handle",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.changgo.end boards": {
+    "memberId": "ildu.changgo.part.76b5bbdc8f3b931608e2",
+    "sourceObject": "V28.changgo.end boards",
+    "reviewStage": 7,
+    "processId": "ildu.changgo-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.changgo.end boards.001": {
+    "memberId": "ildu.changgo.part.b8fac60eee140a44048a",
+    "sourceObject": "V28.changgo.end boards.001",
+    "reviewStage": 7,
+    "processId": "ildu.changgo-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.changgo.end boards.002": {
+    "memberId": "ildu.changgo.part.7d56fcb43481ce663477",
+    "sourceObject": "V28.changgo.end boards.002",
+    "reviewStage": 7,
+    "processId": "ildu.changgo-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.changgo.end boards.003": {
+    "memberId": "ildu.changgo.part.7e777cfa202d1988b9fa",
+    "sourceObject": "V28.changgo.end boards.003",
+    "reviewStage": 7,
+    "processId": "ildu.changgo-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.changgo.finish.approach stone": {
+    "memberId": "ildu.changgo.part.57eac1a0160af97787d4",
+    "sourceObject": "V28.changgo.finish.approach stone",
+    "reviewStage": 8,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "V28.changgo.finish.approach stone.001": {
+    "memberId": "ildu.changgo.part.d69c899ba803c3138b08",
+    "sourceObject": "V28.changgo.finish.approach stone.001",
+    "reviewStage": 8,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "V28.changgo.finish.approach stone.002": {
+    "memberId": "ildu.changgo.part.9e549ef24a9a38fb190f",
+    "sourceObject": "V28.changgo.finish.approach stone.002",
+    "reviewStage": 8,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "V28.changgo.finish.approach stone.003": {
+    "memberId": "ildu.changgo.part.92ba2859a868ea7e400c",
+    "sourceObject": "V28.changgo.finish.approach stone.003",
+    "reviewStage": 8,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "V28.changgo.finish.approach stone.004": {
+    "memberId": "ildu.changgo.part.e1f4dd0211cc445f3846",
+    "sourceObject": "V28.changgo.finish.approach stone.004",
+    "reviewStage": 8,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "V28.changgo.floor": {
+    "memberId": "ildu.changgo.part.fa9f34dc5c5749489dd1",
+    "sourceObject": "V28.changgo.floor",
+    "reviewStage": 8,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "maru"
+  },
+  "V28.changgo.floor.001": {
+    "memberId": "ildu.changgo.part.fb36497cd18eb71c8faa",
+    "sourceObject": "V28.changgo.floor.001",
+    "reviewStage": 8,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "maru"
+  },
+  "V28.changgo.floor.002": {
+    "memberId": "ildu.changgo.part.7ed97ea3a38cccfbe50e",
+    "sourceObject": "V28.changgo.floor.002",
+    "reviewStage": 8,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "maru"
+  },
+  "V28.changgo.floor.003": {
+    "memberId": "ildu.changgo.part.2ded88e593d278544879",
+    "sourceObject": "V28.changgo.floor.003",
+    "reviewStage": 8,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "maru"
+  },
+  "V28.changgo.foundation.core": {
+    "memberId": "ildu.changgo.part.78d0a0acf3b73d12c80d",
+    "sourceObject": "V28.changgo.foundation.core",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.post stone": {
+    "memberId": "ildu.changgo.part.5bbcb4beef9b1077bd56",
+    "sourceObject": "V28.changgo.foundation.post stone",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "V28.changgo.foundation.post stone.001": {
+    "memberId": "ildu.changgo.part.e3c83a4f1c7645173c1c",
+    "sourceObject": "V28.changgo.foundation.post stone.001",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "V28.changgo.foundation.post stone.002": {
+    "memberId": "ildu.changgo.part.e7a7a19a0484aac90ec9",
+    "sourceObject": "V28.changgo.foundation.post stone.002",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "V28.changgo.foundation.post stone.003": {
+    "memberId": "ildu.changgo.part.f51345d77cca18209432",
+    "sourceObject": "V28.changgo.foundation.post stone.003",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "V28.changgo.foundation.post stone.004": {
+    "memberId": "ildu.changgo.part.9bbf94a0826ee95c6473",
+    "sourceObject": "V28.changgo.foundation.post stone.004",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "V28.changgo.foundation.stone.face0": {
+    "memberId": "ildu.changgo.part.31850fa62ff649cb0117",
+    "sourceObject": "V28.changgo.foundation.stone.face0",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face0.001": {
+    "memberId": "ildu.changgo.part.ef9eb567483033fdc866",
+    "sourceObject": "V28.changgo.foundation.stone.face0.001",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face0.002": {
+    "memberId": "ildu.changgo.part.566411015f5f2ac43e55",
+    "sourceObject": "V28.changgo.foundation.stone.face0.002",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face0.003": {
+    "memberId": "ildu.changgo.part.c89d9b1288d3b7ce10eb",
+    "sourceObject": "V28.changgo.foundation.stone.face0.003",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face0.004": {
+    "memberId": "ildu.changgo.part.e35e6161696ff2efbbd9",
+    "sourceObject": "V28.changgo.foundation.stone.face0.004",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face1": {
+    "memberId": "ildu.changgo.part.8dd1bc10768958dc2e6b",
+    "sourceObject": "V28.changgo.foundation.stone.face1",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face1.001": {
+    "memberId": "ildu.changgo.part.e9c71e7699d07de12144",
+    "sourceObject": "V28.changgo.foundation.stone.face1.001",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face1.002": {
+    "memberId": "ildu.changgo.part.99a5f138502f2bfbb679",
+    "sourceObject": "V28.changgo.foundation.stone.face1.002",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face1.003": {
+    "memberId": "ildu.changgo.part.873622c386c5872fe814",
+    "sourceObject": "V28.changgo.foundation.stone.face1.003",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face1.004": {
+    "memberId": "ildu.changgo.part.0fdf3adb71df979b1ee7",
+    "sourceObject": "V28.changgo.foundation.stone.face1.004",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face2": {
+    "memberId": "ildu.changgo.part.c0da5c86cc868a0c6854",
+    "sourceObject": "V28.changgo.foundation.stone.face2",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face2.001": {
+    "memberId": "ildu.changgo.part.a6a60b4bd6032435d946",
+    "sourceObject": "V28.changgo.foundation.stone.face2.001",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face2.002": {
+    "memberId": "ildu.changgo.part.ff05c8410453a1fa1d6e",
+    "sourceObject": "V28.changgo.foundation.stone.face2.002",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face2.003": {
+    "memberId": "ildu.changgo.part.8f1a5e03266b8670a833",
+    "sourceObject": "V28.changgo.foundation.stone.face2.003",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face2.004": {
+    "memberId": "ildu.changgo.part.a99c6f3451792bb5e056",
+    "sourceObject": "V28.changgo.foundation.stone.face2.004",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face3": {
+    "memberId": "ildu.changgo.part.2a34295e7f21ef09fb8f",
+    "sourceObject": "V28.changgo.foundation.stone.face3",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face3.001": {
+    "memberId": "ildu.changgo.part.bdbb738f02a318097976",
+    "sourceObject": "V28.changgo.foundation.stone.face3.001",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face3.002": {
+    "memberId": "ildu.changgo.part.45499b695b7b93ced761",
+    "sourceObject": "V28.changgo.foundation.stone.face3.002",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face3.003": {
+    "memberId": "ildu.changgo.part.9271cb5145d404f89d95",
+    "sourceObject": "V28.changgo.foundation.stone.face3.003",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.foundation.stone.face3.004": {
+    "memberId": "ildu.changgo.part.edd41784a88d7d6872c3",
+    "sourceObject": "V28.changgo.foundation.stone.face3.004",
+    "reviewStage": 1,
+    "processId": "ildu.changgo-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.changgo.frame.bracket.lower seating block": {
+    "memberId": "ildu.changgo.part.46e30cc587f2cded26ab",
+    "sourceObject": "V28.changgo.frame.bracket.lower seating block",
+    "reviewStage": 3,
+    "processId": "ildu.changgo-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.changgo.frame.bracket.shaped timber shoulder": {
+    "memberId": "ildu.changgo.part.165786b3e009e0d49c4e",
+    "sourceObject": "V28.changgo.frame.bracket.shaped timber shoulder",
+    "reviewStage": 3,
+    "processId": "ildu.changgo-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.changgo.frame.bracket.upper bearing": {
+    "memberId": "ildu.changgo.part.cdd7871fff092fd31201",
+    "sourceObject": "V28.changgo.frame.bracket.upper bearing",
+    "reviewStage": 3,
+    "processId": "ildu.changgo-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.changgo.frame.cross beam": {
+    "memberId": "ildu.changgo.part.374ce869394289135338",
+    "sourceObject": "V28.changgo.frame.cross beam",
+    "reviewStage": 3,
+    "processId": "ildu.changgo-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.changgo.frame.long beam": {
+    "memberId": "ildu.changgo.part.7f39f779d3e5fbc73142",
+    "sourceObject": "V28.changgo.frame.long beam",
+    "reviewStage": 3,
+    "processId": "ildu.changgo-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.changgo.frame.post": {
+    "memberId": "ildu.changgo.part.6a5a6ca0caa7485b087b",
+    "sourceObject": "V28.changgo.frame.post",
+    "reviewStage": 2,
+    "processId": "ildu.changgo-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "V28.changgo.front ochre band": {
+    "memberId": "ildu.changgo.part.2d89b681bb4e8c430257",
+    "sourceObject": "V28.changgo.front ochre band",
+    "reviewStage": 7,
+    "processId": "ildu.changgo-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.changgo.rear boards": {
+    "memberId": "ildu.changgo.part.bfa1f7ec7e6992ac5c3c",
+    "sourceObject": "V28.changgo.rear boards",
+    "reviewStage": 7,
+    "processId": "ildu.changgo-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.changgo.rear boards.001": {
+    "memberId": "ildu.changgo.part.641a839c9d12a3740401",
+    "sourceObject": "V28.changgo.rear boards.001",
+    "reviewStage": 7,
+    "processId": "ildu.changgo-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.changgo.rear boards.002": {
+    "memberId": "ildu.changgo.part.f5b475049fc66fa8da67",
+    "sourceObject": "V28.changgo.rear boards.002",
+    "reviewStage": 7,
+    "processId": "ildu.changgo-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.changgo.rear boards.003": {
+    "memberId": "ildu.changgo.part.457a8e77dfcc9fc39fc3",
+    "sourceObject": "V28.changgo.rear boards.003",
+    "reviewStage": 7,
+    "processId": "ildu.changgo-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.changgo.rear ochre band": {
+    "memberId": "ildu.changgo.part.fc030e470f28ad557250",
+    "sourceObject": "V28.changgo.rear ochre band",
+    "reviewStage": 7,
+    "processId": "ildu.changgo-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.changgo.roof": {
+    "memberId": "ildu.changgo.part.c9c7680c16ebe259f607",
+    "sourceObject": "V28.changgo.roof",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.changgo.roof boarding": {
+    "memberId": "ildu.changgo.part.5f7cfe514d7329547721",
+    "sourceObject": "V28.changgo.roof boarding",
+    "reviewStage": 5,
+    "processId": "ildu.changgo-roof-bed",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_board"
+  },
+  "V28.changgo.roof.001": {
+    "memberId": "ildu.changgo.part.820d0df629baf1adcc4f",
+    "sourceObject": "V28.changgo.roof.001",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.changgo.roof.002": {
+    "memberId": "ildu.changgo.part.12ff7e070ae4bd362600",
+    "sourceObject": "V28.changgo.roof.002",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.changgo.roof.003": {
+    "memberId": "ildu.changgo.part.0cddd46ae0107dbb5fcd",
+    "sourceObject": "V28.changgo.roof.003",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.changgo.roof.004": {
+    "memberId": "ildu.changgo.part.3b86eae652fc8f3bf86d",
+    "sourceObject": "V28.changgo.roof.004",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.changgo.roof.005": {
+    "memberId": "ildu.changgo.part.d3e4a33945725ec24c68",
+    "sourceObject": "V28.changgo.roof.005",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.changgo.roof.eave beam": {
+    "memberId": "ildu.changgo.part.22fc1ab88065eed7e5d7",
+    "sourceObject": "V28.changgo.roof.eave beam",
+    "reviewStage": 4,
+    "processId": "ildu.changgo-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V28.changgo.roof.gable timber": {
+    "memberId": "ildu.changgo.part.07b744782cfefcc4dd18",
+    "sourceObject": "V28.changgo.roof.gable timber",
+    "reviewStage": 7,
+    "processId": "ildu.changgo-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.changgo.roof.lower exposed rafters": {
+    "memberId": "ildu.changgo.part.0acc68d357fc82d58ebe",
+    "sourceObject": "V28.changgo.roof.lower exposed rafters",
+    "reviewStage": 4,
+    "processId": "ildu.changgo-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V28.changgo.roof.rafters": {
+    "memberId": "ildu.changgo.part.93708b40fb2b2d5b0879",
+    "sourceObject": "V28.changgo.roof.rafters",
+    "reviewStage": 4,
+    "processId": "ildu.changgo-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V28.changgo.roof.ridge stack": {
+    "memberId": "ildu.changgo.part.f75b9234c0b3c2f78f0d",
+    "sourceObject": "V28.changgo.roof.ridge stack",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.changgo.roof.ridge stack.001": {
+    "memberId": "ildu.changgo.part.4e062c2ee9484ad040c1",
+    "sourceObject": "V28.changgo.roof.ridge stack.001",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.changgo.roof.ridge stack.002": {
+    "memberId": "ildu.changgo.part.00368df9b0b17c24c6ee",
+    "sourceObject": "V28.changgo.roof.ridge stack.002",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.changgo.roof.ridge stack.003": {
+    "memberId": "ildu.changgo.part.c7d9771e12dbcd24df48",
+    "sourceObject": "V28.changgo.roof.ridge stack.003",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.changgo.roof.round tile ends": {
+    "memberId": "ildu.changgo.part.f0ffefb914dbef01314c",
+    "sourceObject": "V28.changgo.roof.round tile ends",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V31.changgo.roof.gable upright boards": {
+    "memberId": "ildu.changgo.part.169f197db1b4f3d15806",
+    "sourceObject": "V31.changgo.roof.gable upright boards",
+    "reviewStage": 4,
+    "processId": "ildu.changgo-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V31.changgo.roof.gable upright boards.001": {
+    "memberId": "ildu.changgo.part.a22736564c4589bbde0c",
+    "sourceObject": "V31.changgo.roof.gable upright boards.001",
+    "reviewStage": 4,
+    "processId": "ildu.changgo-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V31.changgo.roof.gable upright boards.002": {
+    "memberId": "ildu.changgo.part.ff9be764d3c037dd9b7f",
+    "sourceObject": "V31.changgo.roof.gable upright boards.002",
+    "reviewStage": 4,
+    "processId": "ildu.changgo-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V31.changgo.roof.gable upright boards.003": {
+    "memberId": "ildu.changgo.part.1ee83ebed2c5237f61f0",
+    "sourceObject": "V31.changgo.roof.gable upright boards.003",
+    "reviewStage": 4,
+    "processId": "ildu.changgo-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V31.changgo.roof.ridge cap joint": {
+    "memberId": "ildu.changgo.part.bbadb3c4575355aa128a",
+    "sourceObject": "V31.changgo.roof.ridge cap joint",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V31.changgo.roof.ridge end border": {
+    "memberId": "ildu.changgo.part.47cd652830a4815aba5e",
+    "sourceObject": "V31.changgo.roof.ridge end border",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V31.changgo.roof.ridge end plate": {
+    "memberId": "ildu.changgo.part.8ac81b31ea6d8f4bc8c2",
+    "sourceObject": "V31.changgo.roof.ridge end plate",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V33.changgo.roof curved rake caps": {
+    "memberId": "ildu.changgo.part.3218b2cb16fe090f8b9d",
+    "sourceObject": "V33.changgo.roof curved rake caps",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V33.changgo.roof curved rake caps.001": {
+    "memberId": "ildu.changgo.part.5c2e4e0d391d4bae58e5",
+    "sourceObject": "V33.changgo.roof curved rake caps.001",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V33.changgo.roof curved rake caps.002": {
+    "memberId": "ildu.changgo.part.fd10957229b37c794c79",
+    "sourceObject": "V33.changgo.roof curved rake caps.002",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V33.changgo.roof curved rake caps.003": {
+    "memberId": "ildu.changgo.part.7029ddfd6fcb59f3413e",
+    "sourceObject": "V33.changgo.roof curved rake caps.003",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V33.changgo.roof curved rake caps.004": {
+    "memberId": "ildu.changgo.part.b59d8d887d8a21c10550",
+    "sourceObject": "V33.changgo.roof curved rake caps.004",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V33.changgo.roof curved rake caps.005": {
+    "memberId": "ildu.changgo.part.d121e4df794ba862405a",
+    "sourceObject": "V33.changgo.roof curved rake caps.005",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V33.changgo.roof rake terminal": {
+    "memberId": "ildu.changgo.part.9a9f60164900c6944b3a",
+    "sourceObject": "V33.changgo.roof rake terminal",
+    "reviewStage": 6,
+    "processId": "ildu.changgo-roof-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V34.changgo.frame.closed door stops": {
+    "memberId": "ildu.changgo.part.c80f817a585947b9a636",
+    "sourceObject": "V34.changgo.frame.closed door stops",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V34.changgo.frame.closed door stops.001": {
+    "memberId": "ildu.changgo.part.ef963ee040a1f96f5fb8",
+    "sourceObject": "V34.changgo.frame.closed door stops.001",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V34.changgo.frame.closed door stops.002": {
+    "memberId": "ildu.changgo.part.2d3bcfa71dc526613057",
+    "sourceObject": "V34.changgo.frame.closed door stops.002",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V34.changgo.frame.closed door stops.003": {
+    "memberId": "ildu.changgo.part.4a90da1f362065617359",
+    "sourceObject": "V34.changgo.frame.closed door stops.003",
+    "reviewStage": 8,
+    "processId": "ildu.changgo-complete",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  }
+}

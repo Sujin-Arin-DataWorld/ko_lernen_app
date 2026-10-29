@@ -1,0 +1,353 @@
+{
+  "key": "angotgan",
+  "source": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\angotgan\\angotgan.blend",
+  "sourceSha256": "a48558fa86096625d410c1f6df76ae74436c6e31fdf711e192cfbbe99524d7e3",
+  "native": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\angotgan\\stage.blend",
+  "nativeSha256": "befa4b133c9f466af0a2e938b76175541fcf119cd7bfd941c78a835e9aaf0f4f",
+  "architecture": {
+    "stateSha256": "fe2c3896b173127d531863abdbef68ae8f5b683b75df73b8de86cafcad18476f",
+    "normalsSha256": "9479805da2ba595d4aefe02e3191be03322e058d5f93765e8bec605059b7214a",
+    "meshCount": 108
+  },
+  "materialBindingSha256": "5d6a11abc7d091cee7b684343d4b68c30a130095750d59d9d47abfacc5f04bd9",
+  "selection": "stage-selection.json",
+  "stageCount": 11,
+  "steps": [
+    {
+      "sequence": 1,
+      "processId": "ildu.anchae-store-site-storage",
+      "label": "터와 수납 공간",
+      "isFinal": false,
+      "visibleMembers": 0,
+      "visibleSetSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "materialBindingSha256": "5d6a11abc7d091cee7b684343d4b68c30a130095750d59d9d47abfacc5f04bd9",
+      "camera": {
+        "position": [
+          48.0762939453125,
+          -52.7503776550293,
+          45.104469299316406
+        ],
+        "rotation": [
+          1.1425166130065918,
+          9.134199530080878e-08,
+          0.6146630644798279
+        ],
+        "ortho": 14.517606735229492,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/01.png",
+      "sha256": "8a00f7f1a5b7b57d0f7c4975e684d6ced5e73070f4bf7338668f55e6c7ba53fe",
+      "seconds": 8.68,
+      "samples": 16
+    },
+    {
+      "sequence": 2,
+      "processId": "ildu.anchae-store-stone-foundation",
+      "label": "돌기단",
+      "isFinal": false,
+      "visibleMembers": 4,
+      "visibleSetSha256": "ce74180d817467b1f675f201b3e2b708c8fac54f68e92bcdaa658587cb4b0d80",
+      "materialBindingSha256": "5d6a11abc7d091cee7b684343d4b68c30a130095750d59d9d47abfacc5f04bd9",
+      "camera": {
+        "position": [
+          48.0762939453125,
+          -52.7503776550293,
+          45.104469299316406
+        ],
+        "rotation": [
+          1.1425166130065918,
+          9.134199530080878e-08,
+          0.6146630644798279
+        ],
+        "ortho": 14.517606735229492,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/02.png",
+      "sha256": "a39dac8b92691903948bd82275580d238af147293c29fd516a59c39e6077dbf3",
+      "seconds": 10.05,
+      "samples": 16
+    },
+    {
+      "sequence": 3,
+      "processId": "ildu.anchae-store-posts",
+      "label": "기둥",
+      "isFinal": false,
+      "visibleMembers": 5,
+      "visibleSetSha256": "1c26bec6933ebd9454fe1c5967f53ad37dfdeeb3897885742dbd455a304f9516",
+      "materialBindingSha256": "5d6a11abc7d091cee7b684343d4b68c30a130095750d59d9d47abfacc5f04bd9",
+      "camera": {
+        "position": [
+          48.0762939453125,
+          -52.7503776550293,
+          45.104469299316406
+        ],
+        "rotation": [
+          1.1425166130065918,
+          9.134199530080878e-08,
+          0.6146630644798279
+        ],
+        "ortho": 14.517606735229492,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/03.png",
+      "sha256": "c25e95d2911f7c5617e2ebbc9e3b111fb9dad9f510c77f6a192564587fdd7651",
+      "seconds": 10.66,
+      "samples": 16
+    },
+    {
+      "sequence": 4,
+      "processId": "ildu.anchae-store-beams-purlins",
+      "label": "보와 도리",
+      "isFinal": false,
+      "visibleMembers": 26,
+      "visibleSetSha256": "922b8e4e1d0cd1a6ef58a091db03cb2a75d234b1f08dc8cb472b58d2b6024e6a",
+      "materialBindingSha256": "5d6a11abc7d091cee7b684343d4b68c30a130095750d59d9d47abfacc5f04bd9",
+      "camera": {
+        "position": [
+          48.0762939453125,
+          -52.7503776550293,
+          45.104469299316406
+        ],
+        "rotation": [
+          1.1425166130065918,
+          9.134199530080878e-08,
+          0.6146630644798279
+        ],
+        "ortho": 14.517606735229492,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/04.png",
+      "sha256": "21b6eeb13e3015f54bccc5882c5e69d8aaeaeec2cc46358596051f6ec6ccc3f2",
+      "seconds": 13.78,
+      "samples": 16
+    },
+    {
+      "sequence": 5,
+      "processId": "ildu.anchae-store-rafters-eaves",
+      "label": "서까래와 처마",
+      "isFinal": false,
+      "visibleMembers": 28,
+      "visibleSetSha256": "84053dfc6b7699bfca233d580d391f60538dd1e65bea85df7c3c3918c69f3520",
+      "materialBindingSha256": "5d6a11abc7d091cee7b684343d4b68c30a130095750d59d9d47abfacc5f04bd9",
+      "camera": {
+        "position": [
+          48.0762939453125,
+          -52.7503776550293,
+          45.104469299316406
+        ],
+        "rotation": [
+          1.1425166130065918,
+          9.134199530080878e-08,
+          0.6146630644798279
+        ],
+        "ortho": 14.517606735229492,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/05.png",
+      "sha256": "7d21bfcaeabea2c40fdcb3b301c59ebbd59b81e53a10bbf955d95b040f23ed4b",
+      "seconds": 17.52,
+      "samples": 16
+    },
+    {
+      "sequence": 6,
+      "processId": "ildu.anchae-store-roof-bed",
+      "label": "지붕 바탕",
+      "isFinal": false,
+      "visibleMembers": 29,
+      "visibleSetSha256": "ff9f4852a82fe153fc49fc67dcf7ac47005a9663173a07134e36e805580ec0ba",
+      "materialBindingSha256": "5d6a11abc7d091cee7b684343d4b68c30a130095750d59d9d47abfacc5f04bd9",
+      "camera": {
+        "position": [
+          48.0762939453125,
+          -52.7503776550293,
+          45.104469299316406
+        ],
+        "rotation": [
+          1.1425166130065918,
+          9.134199530080878e-08,
+          0.6146630644798279
+        ],
+        "ortho": 14.517606735229492,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/06.png",
+      "sha256": "a0a1b1b14a238e538921f947660f77f4e57a2a04e40c774a0b9dc25a1d27c9ab",
+      "seconds": 16.12,
+      "samples": 16
+    },
+    {
+      "sequence": 7,
+      "processId": "ildu.anchae-store-tiles",
+      "label": "기와",
+      "isFinal": false,
+      "visibleMembers": 43,
+      "visibleSetSha256": "ed923cbe56976571acdb04c366d21f06bf4473ad4ecb81f867aa511820a82ccf",
+      "materialBindingSha256": "5d6a11abc7d091cee7b684343d4b68c30a130095750d59d9d47abfacc5f04bd9",
+      "camera": {
+        "position": [
+          48.0762939453125,
+          -52.7503776550293,
+          45.104469299316406
+        ],
+        "rotation": [
+          1.1425166130065918,
+          9.134199530080878e-08,
+          0.6146630644798279
+        ],
+        "ortho": 14.517606735229492,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/07.png",
+      "sha256": "9be970ce05b02d74e565bb858f9d16cce236f8cee8cec971769d3cb22d5b7025",
+      "seconds": 23.32,
+      "samples": 16
+    },
+    {
+      "sequence": 8,
+      "processId": "ildu.anchae-store-compacted-floor",
+      "label": "다짐 바닥",
+      "isFinal": false,
+      "visibleMembers": 43,
+      "visibleSetSha256": "ed923cbe56976571acdb04c366d21f06bf4473ad4ecb81f867aa511820a82ccf",
+      "materialBindingSha256": "5d6a11abc7d091cee7b684343d4b68c30a130095750d59d9d47abfacc5f04bd9",
+      "camera": {
+        "position": [
+          48.0762939453125,
+          -52.7503776550293,
+          45.104469299316406
+        ],
+        "rotation": [
+          1.1425166130065918,
+          9.134199530080878e-08,
+          0.6146630644798279
+        ],
+        "ortho": 14.517606735229492,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/08.png",
+      "sha256": "9be970ce05b02d74e565bb858f9d16cce236f8cee8cec971769d3cb22d5b7025",
+      "reuseReason": "same preserved cumulative geometry; existing curriculum step retained"
+    },
+    {
+      "sequence": 9,
+      "processId": "ildu.anchae-store-walls-partition",
+      "label": "벽체와 칸막이",
+      "isFinal": false,
+      "visibleMembers": 63,
+      "visibleSetSha256": "9dcfb48e424f697d9fe0bd4993df02ca45edbb4d4a144170c270cf0054785a34",
+      "materialBindingSha256": "5d6a11abc7d091cee7b684343d4b68c30a130095750d59d9d47abfacc5f04bd9",
+      "camera": {
+        "position": [
+          48.0762939453125,
+          -52.7503776550293,
+          45.104469299316406
+        ],
+        "rotation": [
+          1.1425166130065918,
+          9.134199530080878e-08,
+          0.6146630644798279
+        ],
+        "ortho": 14.517606735229492,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/09.png",
+      "sha256": "b2b455bdad6ffe4560fdcfc0c9b94dd4f493220cda865ab71659914368f5f6a7",
+      "seconds": 18.94,
+      "samples": 16
+    },
+    {
+      "sequence": 10,
+      "processId": "ildu.anchae-store-doors-vents",
+      "label": "문과 환기창",
+      "isFinal": false,
+      "visibleMembers": 101,
+      "visibleSetSha256": "5c92fb5b6da70009b76a1ca6602469cc7a8fbde01ba02c1b17917346bd969e4c",
+      "materialBindingSha256": "5d6a11abc7d091cee7b684343d4b68c30a130095750d59d9d47abfacc5f04bd9",
+      "camera": {
+        "position": [
+          48.0762939453125,
+          -52.7503776550293,
+          45.104469299316406
+        ],
+        "rotation": [
+          1.1425166130065918,
+          9.134199530080878e-08,
+          0.6146630644798279
+        ],
+        "ortho": 14.517606735229492,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/10.png",
+      "sha256": "2012eb631df7cdc817c5733e5db59518530680e03221291de7486b283a010014",
+      "seconds": 21.03,
+      "samples": 16
+    },
+    {
+      "sequence": 11,
+      "processId": "ildu.anchae-store-complete-use",
+      "label": "완성 · 사용",
+      "isFinal": true,
+      "visibleMembers": 108,
+      "visibleSetSha256": "691542d481d276374e2db1cd2595e3d37b38327754468d58dd770a1230fae17b",
+      "materialBindingSha256": "5d6a11abc7d091cee7b684343d4b68c30a130095750d59d9d47abfacc5f04bd9",
+      "camera": {
+        "position": [
+          48.0762939453125,
+          -52.7503776550293,
+          45.104469299316406
+        ],
+        "rotation": [
+          1.1425166130065918,
+          9.134199530080878e-08,
+          0.6146630644798279
+        ],
+        "ortho": 14.517606735229492,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/11.png",
+      "sha256": "70832fb3b85c7af369ef0a5f6ba68330843b0f8e3f44fdea85207ee33c98ab3c",
+      "seconds": 22.59,
+      "samples": 16
+    }
+  ],
+  "renderComplete": true,
+  "userApproved": false,
+  "runtimeIntegrated": false,
+  "reopenedNativeVerified": true,
+  "allStageMaterialsIdenticalToSavedNative": true,
+  "allStageVisibilityVerified": true,
+  "sourceFilePreserved": true
+}

@@ -1,0 +1,1992 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-28T19:21:48.666955+00:00",
+  "inspection": "Read-only canonical Blender scene inspection, filesystem hashes and JSON/GLB metadata; no native saves or renders",
+  "root": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4",
+  "canonicalReview": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1",
+  "productionRoot": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2",
+  "canonicalManifest": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-11-20261023\\CANONICAL_MANIFEST.json",
+  "buildings": [
+    {
+      "key": "sarang",
+      "name": "사랑채",
+      "canonicalRevision": "craft",
+      "canonicalNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\sarang\\sarang-craft-r1.blend",
+      "canonicalExpectedSha256": "0e3a7f55c47934fa3310e04214fffe775d9a225f34a0f3ae2196978c03049f39",
+      "canonicalActualSha256": "0e3a7f55c47934fa3310e04214fffe775d9a225f34a0f3ae2196978c03049f39",
+      "canonicalHashMatches": true,
+      "canonicalBytes": 123889930,
+      "sourceVerification": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\sarang\\verification.json",
+      "sourceMeshCount": 711,
+      "actualMeshCount": 711,
+      "materialInventory": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\sarang\\material-inventory.json",
+      "inventorySchema": "list",
+      "inventorySlotCount": 991,
+      "inventoryRoles": {
+        "wood": 571,
+        "paper": 35,
+        "lattice": 198,
+        "plaster": 30,
+        "stone": 93,
+        "endgrain": 4,
+        "preserve": 4,
+        "tile": 42,
+        "paint": 14
+      },
+      "inventoryPreservedSlots": 18,
+      "constructionGLB": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\models\\sarang.glb",
+      "glbStageBindingCount": 710,
+      "existingProductionCandidates": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang\\sarang-hangulsori-r2-refined.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang\\sarang-hangulsori-r2.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-detail-r4\\sarang-detail-r4.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-exact-r12\\sarang-exact-r12-refined.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-exact-r12\\sarang-exact-r12.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-fit-r7\\sarang-fit-r7.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-guardian-r6\\sarang-guardian-r6.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-material-rebuild-r1\\sarang-material-rebuild.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-material-rebuild-r2\\sarang-material-rebuild.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-palette-r13\\sarang-palette-r13.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-r3\\sarang-r3.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-r4\\sarang-r4.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-r5\\sarang-r5.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-r6\\sarang-r6.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-r7\\sarang-r7.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-r8\\sarang-r8.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-r9\\sarang-r9.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-reference-colour-r3\\sarang-reference-colour.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-relief-r8\\sarang-relief-r8.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-stone-masonry-r10\\sarang-stone-masonry-r10.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-surface-r5\\sarang-surface-r5.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-wood-r14\\sarang-wood-r14.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-wood-r15\\sarang-wood-r15.blend",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-wrap-r9\\sarang-wrap-r9.blend"
+      ],
+      "existingProductionBase": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang\\sarang-hangulsori-r2-refined.blend",
+      "productionGeometryLock": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang\\geometry-lock.json",
+      "productionBinding": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang\\construction-binding.json",
+      "uvLayers": [
+        {
+          "name": "Gye cared member grain v52",
+          "objects": 499
+        },
+        {
+          "name": "Reference timber grain",
+          "objects": 34
+        },
+        {
+          "name": "Gye cared lime metres v52",
+          "objects": 30
+        },
+        {
+          "name": "Gye cared stone metres v52",
+          "objects": 83
+        },
+        {
+          "name": "Craft end grain",
+          "objects": 4
+        },
+        {
+          "name": "Unmodified original source",
+          "objects": 2
+        },
+        {
+          "name": "Gye heritage timber metres",
+          "objects": 2
+        },
+        {
+          "name": "Gye cared ceramic metres v52",
+          "objects": 42
+        },
+        {
+          "name": "Unmodified source outline",
+          "objects": 14
+        }
+      ],
+      "memberAndCutAttributes": [
+        {
+          "name": "Reference member tone",
+          "domain": "FACE",
+          "type": "FLOAT",
+          "objects": 500
+        },
+        {
+          "name": "Gye cared member grain v52",
+          "domain": "CORNER",
+          "type": "FLOAT2",
+          "objects": 499
+        },
+        {
+          "name": "P18 surface UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 692
+        },
+        {
+          "name": "P18 cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 692
+        },
+        {
+          "name": "P18 long timber UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 692
+        },
+        {
+          "name": "P18 long timber sample",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 692
+        },
+        {
+          "name": "P18 real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 692
+        },
+        {
+          "name": "P18 image eligible",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 692
+        },
+        {
+          "name": "P18 surface swatch",
+          "domain": "CORNER",
+          "type": "INT",
+          "objects": 692
+        },
+        {
+          "name": "P18 member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 692
+        },
+        {
+          "name": "P18 source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 692
+        }
+      ],
+      "occupiedMaterialSlots": 991,
+      "uniqueMaterials": 162,
+      "authoredWoodMaterialCount": 143,
+      "originalCutAtlasMaterialCount": 145,
+      "hs12TaggedMaterialCount": 0,
+      "referenceProfileMaterialCount": 0,
+      "sourceUnchangedAfterInspection": true,
+      "productionBaseActualSha256": "e97bc9641deb89e5bb0e0fe273a9ee3ae81428b7f8fcde3fb1800e4140bc65e8",
+      "productionBaseReceiptMatches": true,
+      "productionGeometry": {
+        "stateSha256": "9889f23f616d1da1d48b35c95a2c84ef37635e1bd06268faec055d9e54956ab6",
+        "normalsSha256": "1c093e7cc8e15fe574c6bcd21bfbd082657047ea40ea51ec2e72e2e6d1d1c515",
+        "meshCount": 711
+      },
+      "materialDetailsFile": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\BUILDING_TRANSFER_MATERIAL_DETAILS_R16.json",
+      "materialDetailsKey": "sarang"
+    },
+    {
+      "key": "ansarang",
+      "name": "안사랑채",
+      "canonicalRevision": "craft",
+      "canonicalNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\ansarang\\ansarang-craft-r1.blend",
+      "canonicalExpectedSha256": "b3875a71bd17c2379cba5daf346402bcd76d3004f06c109b571148b4e09515bd",
+      "canonicalActualSha256": "b3875a71bd17c2379cba5daf346402bcd76d3004f06c109b571148b4e09515bd",
+      "canonicalHashMatches": true,
+      "canonicalBytes": 160690998,
+      "sourceVerification": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\ansarang\\verification.json",
+      "sourceMeshCount": 385,
+      "actualMeshCount": 385,
+      "materialInventory": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\ansarang\\material-inventory.json",
+      "inventorySchema": "list",
+      "inventorySlotCount": 476,
+      "inventoryRoles": {
+        "wood": 164,
+        "stone": 29,
+        "metal": 11,
+        "plaster": 24,
+        "paper": 24,
+        "lattice": 203,
+        "earth": 3,
+        "tile": 18
+      },
+      "inventoryPreservedSlots": 0,
+      "constructionGLB": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\models\\ansarang.glb",
+      "glbStageBindingCount": 385,
+      "existingProductionCandidates": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\ansarang\\ansarang-hangulsori-r2-refined.blend"
+      ],
+      "existingProductionBase": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\ansarang\\ansarang-hangulsori-r2-refined.blend",
+      "productionGeometryLock": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\ansarang\\geometry-lock.json",
+      "productionBinding": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\ansarang\\construction-binding.json",
+      "uvLayers": [
+        {
+          "name": "UV 맵",
+          "objects": 3
+        },
+        {
+          "name": "Gye cared member grain v52",
+          "objects": 258
+        },
+        {
+          "name": "Gye cared stone metres v52",
+          "objects": 28
+        },
+        {
+          "name": "Craft timber metres",
+          "objects": 266
+        },
+        {
+          "name": "Canonical gate pigment",
+          "objects": 289
+        },
+        {
+          "name": "Gye ansarang restored floor grain v58",
+          "objects": 16
+        },
+        {
+          "name": "Gye cared lime metres v52",
+          "objects": 25
+        },
+        {
+          "name": "Mineral surface metres",
+          "objects": 40
+        },
+        {
+          "name": "Gye stone pigment metres",
+          "objects": 23
+        },
+        {
+          "name": "Reference timber grain",
+          "objects": 35
+        },
+        {
+          "name": "Ansarang retained PBR",
+          "objects": 53
+        },
+        {
+          "name": "Gye cared ceramic metres v52",
+          "objects": 18
+        },
+        {
+          "name": "Craft end grain",
+          "objects": 1
+        }
+      ],
+      "memberAndCutAttributes": [
+        {
+          "name": "Gye cared member grain v52",
+          "domain": "CORNER",
+          "type": "FLOAT2",
+          "objects": 258
+        },
+        {
+          "name": "P16 member coordinates",
+          "domain": "POINT",
+          "type": "FLOAT_VECTOR",
+          "objects": 346
+        },
+        {
+          "name": "P16 member tint",
+          "domain": "POINT",
+          "type": "FLOAT_COLOR",
+          "objects": 346
+        },
+        {
+          "name": "P16 member phase",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 346
+        },
+        {
+          "name": "P16 member presence",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 346
+        },
+        {
+          "name": "P18 surface UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 371
+        },
+        {
+          "name": "P18 cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 371
+        },
+        {
+          "name": "P18 long timber UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 371
+        },
+        {
+          "name": "P18 long timber sample",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 371
+        },
+        {
+          "name": "P18 real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 371
+        },
+        {
+          "name": "P18 image eligible",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 371
+        },
+        {
+          "name": "P18 surface swatch",
+          "domain": "CORNER",
+          "type": "INT",
+          "objects": 371
+        },
+        {
+          "name": "P18 member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 371
+        },
+        {
+          "name": "P18 source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 371
+        },
+        {
+          "name": "P18 broad timber UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 371
+        },
+        {
+          "name": "P18 broad timber body",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 371
+        },
+        {
+          "name": "Reference member tone",
+          "domain": "FACE",
+          "type": "FLOAT",
+          "objects": 285
+        }
+      ],
+      "occupiedMaterialSlots": 476,
+      "uniqueMaterials": 120,
+      "authoredWoodMaterialCount": 98,
+      "originalCutAtlasMaterialCount": 98,
+      "hs12TaggedMaterialCount": 0,
+      "referenceProfileMaterialCount": 0,
+      "sourceUnchangedAfterInspection": true,
+      "productionBaseActualSha256": "499b4cc841e37149663b3569f68e81ed70cbdae919cfbb8518bc0773c653cffa",
+      "productionBaseReceiptMatches": true,
+      "productionGeometry": {
+        "stateSha256": "eeccc3be3bc7bdd280af34e4513d80f18a1ad318e1c6f46c9be95266b4d0a087",
+        "normalsSha256": "d3f9748ca3746e7705c0af28110138a7293b69af7aea27ee3919f6a1277eed6d",
+        "meshCount": 385
+      },
+      "materialDetailsFile": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\BUILDING_TRANSFER_MATERIAL_DETAILS_R16.json",
+      "materialDetailsKey": "ansarang"
+    },
+    {
+      "key": "anchae",
+      "name": "안채",
+      "canonicalRevision": "craft",
+      "canonicalNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\anchae\\anchae-craft-r1.blend",
+      "canonicalExpectedSha256": "60c35e15cdf81c14deaecc79df1ae81640c05a16d7aef9259421134ca0bdb372",
+      "canonicalActualSha256": "60c35e15cdf81c14deaecc79df1ae81640c05a16d7aef9259421134ca0bdb372",
+      "canonicalHashMatches": true,
+      "canonicalBytes": 201467401,
+      "sourceVerification": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\anchae\\verification.json",
+      "sourceMeshCount": 882,
+      "actualMeshCount": 882,
+      "materialInventory": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\anchae\\material-inventory.json",
+      "inventorySchema": "list",
+      "inventorySlotCount": 1346,
+      "inventoryRoles": {
+        "metal": 401,
+        "stone": 15,
+        "tile": 371,
+        "lattice": 344,
+        "wood": 146,
+        "plaster": 26,
+        "preserve": 12,
+        "endgrain": 2,
+        "paper": 27,
+        "earth": 2
+      },
+      "inventoryPreservedSlots": 12,
+      "constructionGLB": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\models\\anchae.glb",
+      "glbStageBindingCount": 882,
+      "existingProductionCandidates": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\anchae\\anchae-hangulsori-r2-refined.blend"
+      ],
+      "existingProductionBase": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\anchae\\anchae-hangulsori-r2-refined.blend",
+      "productionGeometryLock": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\anchae\\geometry-lock.json",
+      "productionBinding": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\anchae\\construction-binding.json",
+      "uvLayers": [
+        {
+          "name": "Anchae p6 pigment",
+          "objects": 744
+        },
+        {
+          "name": "Canonical gate pigment",
+          "objects": 3
+        },
+        {
+          "name": "Craft timber metres",
+          "objects": 3
+        },
+        {
+          "name": "Gye member grain v25",
+          "objects": 3
+        },
+        {
+          "name": "P12 architectural surface UV",
+          "objects": 1
+        },
+        {
+          "name": "P12 cast iron UV",
+          "objects": 3
+        },
+        {
+          "name": "Anchae whole roof painting",
+          "objects": 6
+        },
+        {
+          "name": "Gye lime metres",
+          "objects": 1
+        }
+      ],
+      "memberAndCutAttributes": [
+        {
+          "name": "P16 member coordinates",
+          "domain": "POINT",
+          "type": "FLOAT_VECTOR",
+          "objects": 673
+        },
+        {
+          "name": "P16 member tint",
+          "domain": "POINT",
+          "type": "FLOAT_COLOR",
+          "objects": 673
+        },
+        {
+          "name": "P16 member phase",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 673
+        },
+        {
+          "name": "P16 member presence",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 673
+        },
+        {
+          "name": "P18 surface UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 705
+        },
+        {
+          "name": "P18 cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 705
+        },
+        {
+          "name": "P18 long timber UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 705
+        },
+        {
+          "name": "P18 long timber sample",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 705
+        },
+        {
+          "name": "P18 real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 705
+        },
+        {
+          "name": "P18 image eligible",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 705
+        },
+        {
+          "name": "P18 surface swatch",
+          "domain": "CORNER",
+          "type": "INT",
+          "objects": 705
+        },
+        {
+          "name": "P18 member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 705
+        },
+        {
+          "name": "P18 source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 705
+        },
+        {
+          "name": "HS roof member value",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 369
+        },
+        {
+          "name": "HS roof member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 369
+        },
+        {
+          "name": "HS roof member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 369
+        },
+        {
+          "name": "HS cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 266
+        },
+        {
+          "name": "HS real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 266
+        },
+        {
+          "name": "HS member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 266
+        },
+        {
+          "name": "HS source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 266
+        },
+        {
+          "name": "Gye member grain v25",
+          "domain": "CORNER",
+          "type": "FLOAT2",
+          "objects": 3
+        }
+      ],
+      "occupiedMaterialSlots": 1346,
+      "uniqueMaterials": 124,
+      "authoredWoodMaterialCount": 77,
+      "originalCutAtlasMaterialCount": 77,
+      "hs12TaggedMaterialCount": 0,
+      "referenceProfileMaterialCount": 0,
+      "sourceUnchangedAfterInspection": true,
+      "productionBaseActualSha256": "8a59874f2923620c1ae80a126a66a8da9be5e62f62c58e7ee0e00ab67612eb9b",
+      "productionBaseReceiptMatches": true,
+      "productionGeometry": {
+        "stateSha256": "07745fd7aa41b4730ada5c71f9e1fa274a2d8e07fabb5c75f9fc5b359a12eb2b",
+        "normalsSha256": "f7a58cd2e3388c59f1856e251357672710138a9763a2d0a348596b8714e36c89",
+        "meshCount": 882
+      },
+      "materialDetailsFile": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\BUILDING_TRANSFER_MATERIAL_DETAILS_R16.json",
+      "materialDetailsKey": "anchae"
+    },
+    {
+      "key": "sadang",
+      "name": "사당",
+      "canonicalRevision": "craft",
+      "canonicalNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\sadang\\sadang-craft-r1.blend",
+      "canonicalExpectedSha256": "794b1f6644e704bf647ff0ef8a9331560006fe880b4f4febcf38d4e972a7d2d2",
+      "canonicalActualSha256": "794b1f6644e704bf647ff0ef8a9331560006fe880b4f4febcf38d4e972a7d2d2",
+      "canonicalHashMatches": true,
+      "canonicalBytes": 113720358,
+      "sourceVerification": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\sadang\\verification.json",
+      "sourceMeshCount": 229,
+      "actualMeshCount": 229,
+      "materialInventory": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\sadang\\material-inventory.json",
+      "inventorySchema": "list",
+      "inventorySlotCount": 232,
+      "inventoryRoles": {
+        "stone": 17,
+        "paint": 105,
+        "wood": 16,
+        "earth": 1,
+        "lattice": 6,
+        "tile": 62,
+        "plaster": 8,
+        "paper": 4,
+        "metal": 9,
+        "wax": 1,
+        "fibre": 3
+      },
+      "inventoryPreservedSlots": 105,
+      "constructionGLB": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\models\\sadang.glb",
+      "glbStageBindingCount": 229,
+      "existingProductionCandidates": [],
+      "existingProductionBase": null,
+      "productionGeometryLock": null,
+      "productionBinding": null,
+      "uvLayers": [
+        {
+          "name": "Gye cared stone metres v52",
+          "objects": 60
+        },
+        {
+          "name": "Painted timber metres",
+          "objects": 14
+        },
+        {
+          "name": "Canonical gate pigment",
+          "objects": 51
+        },
+        {
+          "name": "Shrine frieze pigment",
+          "objects": 4
+        },
+        {
+          "name": "Craft timber metres",
+          "objects": 10
+        },
+        {
+          "name": "Mineral surface metres",
+          "objects": 5
+        },
+        {
+          "name": "Gye stone pigment metres",
+          "objects": 5
+        },
+        {
+          "name": "Gye cared lime metres v52",
+          "objects": 12
+        },
+        {
+          "name": "Gye cared ceramic metres v52",
+          "objects": 62
+        },
+        {
+          "name": "Gye plaster wash metres",
+          "objects": 4
+        }
+      ],
+      "memberAndCutAttributes": [
+        {
+          "name": "P16 member coordinates",
+          "domain": "POINT",
+          "type": "FLOAT_VECTOR",
+          "objects": 194
+        },
+        {
+          "name": "P16 member tint",
+          "domain": "POINT",
+          "type": "FLOAT_COLOR",
+          "objects": 194
+        },
+        {
+          "name": "P16 member phase",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 194
+        },
+        {
+          "name": "P16 member presence",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 194
+        },
+        {
+          "name": "HS cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 22
+        },
+        {
+          "name": "HS real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 22
+        },
+        {
+          "name": "HS member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 22
+        },
+        {
+          "name": "HS source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 22
+        },
+        {
+          "name": "HS roof member value",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 62
+        },
+        {
+          "name": "HS roof member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 62
+        },
+        {
+          "name": "HS roof member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 62
+        }
+      ],
+      "occupiedMaterialSlots": 232,
+      "uniqueMaterials": 141,
+      "authoredWoodMaterialCount": 16,
+      "originalCutAtlasMaterialCount": 16,
+      "hs12TaggedMaterialCount": 0,
+      "referenceProfileMaterialCount": 0,
+      "sourceUnchangedAfterInspection": true,
+      "materialDetailsFile": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\BUILDING_TRANSFER_MATERIAL_DETAILS_R16.json",
+      "materialDetailsKey": "sadang"
+    },
+    {
+      "key": "jung",
+      "name": "중문간채",
+      "canonicalRevision": "craft",
+      "canonicalNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\jung\\jung-craft-r1.blend",
+      "canonicalExpectedSha256": "7154f314624408b4878a65233a694706aacd4fb3276acc4140086c7d40e5dd0d",
+      "canonicalActualSha256": "7154f314624408b4878a65233a694706aacd4fb3276acc4140086c7d40e5dd0d",
+      "canonicalHashMatches": true,
+      "canonicalBytes": 112766848,
+      "sourceVerification": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\jung\\verification.json",
+      "sourceMeshCount": 244,
+      "actualMeshCount": 244,
+      "materialInventory": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\jung\\material-inventory.json",
+      "inventorySchema": "list",
+      "inventorySlotCount": 306,
+      "inventoryRoles": {
+        "stone": 47,
+        "wood": 107,
+        "plaster": 14,
+        "lattice": 108,
+        "tile": 17,
+        "metal": 2,
+        "paper": 11
+      },
+      "inventoryPreservedSlots": 0,
+      "constructionGLB": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\models\\jung.glb",
+      "glbStageBindingCount": 244,
+      "existingProductionCandidates": [],
+      "existingProductionBase": null,
+      "productionGeometryLock": null,
+      "productionBinding": null,
+      "uvLayers": [
+        {
+          "name": "Gye cared stone metres v52",
+          "objects": 46
+        },
+        {
+          "name": "Gye cared member grain v52",
+          "objects": 153
+        },
+        {
+          "name": "Gye cared lime metres v52",
+          "objects": 15
+        },
+        {
+          "name": "Gye cared ceramic metres v52",
+          "objects": 17
+        },
+        {
+          "name": "Reference timber grain",
+          "objects": 11
+        }
+      ],
+      "memberAndCutAttributes": [
+        {
+          "name": "P16 member coordinates",
+          "domain": "POINT",
+          "type": "FLOAT_VECTOR",
+          "objects": 231
+        },
+        {
+          "name": "P16 member tint",
+          "domain": "POINT",
+          "type": "FLOAT_COLOR",
+          "objects": 231
+        },
+        {
+          "name": "P16 member phase",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 231
+        },
+        {
+          "name": "P16 member presence",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 231
+        },
+        {
+          "name": "P18 surface UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 242
+        },
+        {
+          "name": "P18 cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 242
+        },
+        {
+          "name": "P18 long timber UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 242
+        },
+        {
+          "name": "P18 long timber sample",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 242
+        },
+        {
+          "name": "P18 real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 242
+        },
+        {
+          "name": "P18 image eligible",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 242
+        },
+        {
+          "name": "P18 surface swatch",
+          "domain": "CORNER",
+          "type": "INT",
+          "objects": 242
+        },
+        {
+          "name": "P18 member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 242
+        },
+        {
+          "name": "P18 source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 242
+        },
+        {
+          "name": "P18 broad timber UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 242
+        },
+        {
+          "name": "P18 broad timber body",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 242
+        },
+        {
+          "name": "Reference member tone",
+          "domain": "FACE",
+          "type": "FLOAT",
+          "objects": 153
+        },
+        {
+          "name": "Gye cared member grain v52",
+          "domain": "CORNER",
+          "type": "FLOAT2",
+          "objects": 153
+        },
+        {
+          "name": "HS cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 153
+        },
+        {
+          "name": "HS real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 153
+        },
+        {
+          "name": "HS member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 153
+        },
+        {
+          "name": "HS source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 153
+        },
+        {
+          "name": "HS roof member value",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 17
+        },
+        {
+          "name": "HS roof member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 17
+        },
+        {
+          "name": "HS roof member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 17
+        }
+      ],
+      "occupiedMaterialSlots": 306,
+      "uniqueMaterials": 96,
+      "authoredWoodMaterialCount": 77,
+      "originalCutAtlasMaterialCount": 77,
+      "hs12TaggedMaterialCount": 0,
+      "referenceProfileMaterialCount": 0,
+      "sourceUnchangedAfterInspection": true,
+      "materialDetailsFile": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\BUILDING_TRANSFER_MATERIAL_DETAILS_R16.json",
+      "materialDetailsKey": "jung"
+    },
+    {
+      "key": "arae",
+      "name": "아랫채",
+      "canonicalRevision": "craft",
+      "canonicalNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\arae\\arae-craft-r1.blend",
+      "canonicalExpectedSha256": "ec749bc14f69751ca600f2c38a39d9dbcdf74ad48334f00490ada4e21d014223",
+      "canonicalActualSha256": "ec749bc14f69751ca600f2c38a39d9dbcdf74ad48334f00490ada4e21d014223",
+      "canonicalHashMatches": true,
+      "canonicalBytes": 103186831,
+      "sourceVerification": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\arae\\verification.json",
+      "sourceMeshCount": 259,
+      "actualMeshCount": 259,
+      "materialInventory": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\arae\\material-inventory.json",
+      "inventorySchema": "list",
+      "inventorySlotCount": 296,
+      "inventoryRoles": {
+        "stone": 10,
+        "wood": 48,
+        "earth": 1,
+        "paper": 19,
+        "plaster": 9,
+        "lattice": 187,
+        "preserve": 4,
+        "metal": 3,
+        "tile": 15
+      },
+      "inventoryPreservedSlots": 4,
+      "constructionGLB": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\models\\arae.glb",
+      "glbStageBindingCount": 259,
+      "existingProductionCandidates": [],
+      "existingProductionBase": null,
+      "productionGeometryLock": null,
+      "productionBinding": null,
+      "uvLayers": [
+        {
+          "name": "Gye cared stone metres v52",
+          "objects": 9
+        },
+        {
+          "name": "Canonical gate pigment",
+          "objects": 118
+        },
+        {
+          "name": "Gye cared member grain v52",
+          "objects": 202
+        },
+        {
+          "name": "Gye cared lime metres v52",
+          "objects": 7
+        },
+        {
+          "name": "Anchae p6 pigment",
+          "objects": 6
+        },
+        {
+          "name": "P12 architectural surface UV",
+          "objects": 1
+        },
+        {
+          "name": "P12 cast iron UV",
+          "objects": 1
+        },
+        {
+          "name": "Ansarang retained PBR",
+          "objects": 10
+        },
+        {
+          "name": "Gye cared ceramic metres v52",
+          "objects": 15
+        },
+        {
+          "name": "Gye ceramic metres",
+          "objects": 3
+        },
+        {
+          "name": "Craft timber metres",
+          "objects": 2
+        }
+      ],
+      "memberAndCutAttributes": [
+        {
+          "name": "P16 member coordinates",
+          "domain": "POINT",
+          "type": "FLOAT_VECTOR",
+          "objects": 233
+        },
+        {
+          "name": "P16 member tint",
+          "domain": "POINT",
+          "type": "FLOAT_COLOR",
+          "objects": 233
+        },
+        {
+          "name": "P16 member phase",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 233
+        },
+        {
+          "name": "P16 member presence",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 233
+        },
+        {
+          "name": "Gye cared member grain v52",
+          "domain": "CORNER",
+          "type": "FLOAT2",
+          "objects": 202
+        },
+        {
+          "name": "HS cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 203
+        },
+        {
+          "name": "HS real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 203
+        },
+        {
+          "name": "HS member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 203
+        },
+        {
+          "name": "HS source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 203
+        },
+        {
+          "name": "HS roof member value",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 15
+        },
+        {
+          "name": "HS roof member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 15
+        },
+        {
+          "name": "HS roof member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 15
+        }
+      ],
+      "occupiedMaterialSlots": 296,
+      "uniqueMaterials": 81,
+      "authoredWoodMaterialCount": 58,
+      "originalCutAtlasMaterialCount": 58,
+      "hs12TaggedMaterialCount": 0,
+      "referenceProfileMaterialCount": 0,
+      "sourceUnchangedAfterInspection": true,
+      "materialDetailsFile": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\BUILDING_TRANSFER_MATERIAL_DETAILS_R16.json",
+      "materialDetailsKey": "arae"
+    },
+    {
+      "key": "gokgan",
+      "name": "곳간채",
+      "canonicalRevision": "craft",
+      "canonicalNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\gokgan\\gokgan-craft-r1.blend",
+      "canonicalExpectedSha256": "852b5909d6dcefefe12e034cd6f3dc069422a689da0dcf0dfa5bb21f56473220",
+      "canonicalActualSha256": "852b5909d6dcefefe12e034cd6f3dc069422a689da0dcf0dfa5bb21f56473220",
+      "canonicalHashMatches": true,
+      "canonicalBytes": 76111554,
+      "sourceVerification": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\gokgan\\verification.json",
+      "sourceMeshCount": 75,
+      "actualMeshCount": 75,
+      "materialInventory": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\gokgan\\material-inventory.json",
+      "inventorySchema": "list",
+      "inventorySlotCount": 133,
+      "inventoryRoles": {
+        "stone": 17,
+        "lattice": 28,
+        "metal": 6,
+        "wood": 55,
+        "tile": 23,
+        "plaster": 2,
+        "preserve": 2
+      },
+      "inventoryPreservedSlots": 2,
+      "constructionGLB": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\models\\gokgan.glb",
+      "glbStageBindingCount": 75,
+      "existingProductionCandidates": [],
+      "existingProductionBase": null,
+      "productionGeometryLock": null,
+      "productionBinding": null,
+      "uvLayers": [
+        {
+          "name": "Gye cared stone metres v52",
+          "objects": 16
+        },
+        {
+          "name": "Canonical gate pigment",
+          "objects": 33
+        },
+        {
+          "name": "Gye cared member grain v52",
+          "objects": 27
+        },
+        {
+          "name": "Ansarang retained PBR",
+          "objects": 16
+        },
+        {
+          "name": "Gye cared ceramic metres v52",
+          "objects": 23
+        },
+        {
+          "name": "Gye ceramic metres",
+          "objects": 5
+        },
+        {
+          "name": "Craft timber metres",
+          "objects": 1
+        },
+        {
+          "name": "Gye cared lime metres v52",
+          "objects": 3
+        }
+      ],
+      "memberAndCutAttributes": [
+        {
+          "name": "P16 member coordinates",
+          "domain": "POINT",
+          "type": "FLOAT_VECTOR",
+          "objects": 67
+        },
+        {
+          "name": "P16 member tint",
+          "domain": "POINT",
+          "type": "FLOAT_COLOR",
+          "objects": 67
+        },
+        {
+          "name": "P16 member phase",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 67
+        },
+        {
+          "name": "P16 member presence",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 67
+        },
+        {
+          "name": "Gye cared member grain v52",
+          "domain": "CORNER",
+          "type": "FLOAT2",
+          "objects": 27
+        },
+        {
+          "name": "HS cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 27
+        },
+        {
+          "name": "HS real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 27
+        },
+        {
+          "name": "HS member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 27
+        },
+        {
+          "name": "HS source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 27
+        },
+        {
+          "name": "HS roof member value",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 23
+        },
+        {
+          "name": "HS roof member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 23
+        },
+        {
+          "name": "HS roof member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 23
+        }
+      ],
+      "occupiedMaterialSlots": 133,
+      "uniqueMaterials": 51,
+      "authoredWoodMaterialCount": 42,
+      "originalCutAtlasMaterialCount": 42,
+      "hs12TaggedMaterialCount": 0,
+      "referenceProfileMaterialCount": 0,
+      "sourceUnchangedAfterInspection": true,
+      "materialDetailsFile": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\BUILDING_TRANSFER_MATERIAL_DETAILS_R16.json",
+      "materialDetailsKey": "gokgan"
+    },
+    {
+      "key": "angotgan",
+      "name": "안채곳간채",
+      "canonicalRevision": "craft",
+      "canonicalNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\angotgan\\angotgan-craft-r1.blend",
+      "canonicalExpectedSha256": "6e50e20b877644a648e1874c339585e43940f163c951f858dc8605eef37701ae",
+      "canonicalActualSha256": "6e50e20b877644a648e1874c339585e43940f163c951f858dc8605eef37701ae",
+      "canonicalHashMatches": true,
+      "canonicalBytes": 65575609,
+      "sourceVerification": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\angotgan\\verification.json",
+      "sourceMeshCount": 108,
+      "actualMeshCount": 108,
+      "materialInventory": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\angotgan\\material-inventory.json",
+      "inventorySchema": "list",
+      "inventorySlotCount": 145,
+      "inventoryRoles": {
+        "stone": 8,
+        "earth": 1,
+        "wood": 69,
+        "metal": 18,
+        "lattice": 21,
+        "preserve": 2,
+        "plaster": 12,
+        "tile": 14
+      },
+      "inventoryPreservedSlots": 2,
+      "constructionGLB": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\models\\angotgan.glb",
+      "glbStageBindingCount": 108,
+      "existingProductionCandidates": [],
+      "existingProductionBase": null,
+      "productionGeometryLock": null,
+      "productionBinding": null,
+      "uvLayers": [
+        {
+          "name": "Gye cared stone metres v52",
+          "objects": 8
+        },
+        {
+          "name": "Canonical gate pigment",
+          "objects": 33
+        },
+        {
+          "name": "Gye cared member grain v52",
+          "objects": 53
+        },
+        {
+          "name": "Gye cared lime metres v52",
+          "objects": 12
+        },
+        {
+          "name": "Gye cared ceramic metres v52",
+          "objects": 14
+        }
+      ],
+      "memberAndCutAttributes": [
+        {
+          "name": "P16 member coordinates",
+          "domain": "POINT",
+          "type": "FLOAT_VECTOR",
+          "objects": 87
+        },
+        {
+          "name": "P16 member tint",
+          "domain": "POINT",
+          "type": "FLOAT_COLOR",
+          "objects": 87
+        },
+        {
+          "name": "P16 member phase",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 87
+        },
+        {
+          "name": "P16 member presence",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 87
+        },
+        {
+          "name": "Gye cared member grain v52",
+          "domain": "CORNER",
+          "type": "FLOAT2",
+          "objects": 53
+        },
+        {
+          "name": "HS cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 53
+        },
+        {
+          "name": "HS real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 53
+        },
+        {
+          "name": "HS member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 53
+        },
+        {
+          "name": "HS source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 53
+        },
+        {
+          "name": "HS roof member value",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 14
+        },
+        {
+          "name": "HS roof member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 14
+        },
+        {
+          "name": "HS roof member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 14
+        }
+      ],
+      "occupiedMaterialSlots": 145,
+      "uniqueMaterials": 57,
+      "authoredWoodMaterialCount": 40,
+      "originalCutAtlasMaterialCount": 40,
+      "hs12TaggedMaterialCount": 0,
+      "referenceProfileMaterialCount": 0,
+      "sourceUnchangedAfterInspection": true,
+      "materialDetailsFile": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\BUILDING_TRANSFER_MATERIAL_DETAILS_R16.json",
+      "materialDetailsKey": "angotgan"
+    },
+    {
+      "key": "changgo",
+      "name": "창고",
+      "canonicalRevision": "R6",
+      "canonicalNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\changgo\\changgo-r6-grain-pilot.blend",
+      "canonicalExpectedSha256": "dbb7f0e4b401c707368cc55c0d1f22e2ce79610c152594cdbb0b41a2c9d45225",
+      "canonicalActualSha256": "dbb7f0e4b401c707368cc55c0d1f22e2ce79610c152594cdbb0b41a2c9d45225",
+      "canonicalHashMatches": true,
+      "canonicalBytes": 122772267,
+      "sourceVerification": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\changgo\\verification.json",
+      "sourceMeshCount": 209,
+      "actualMeshCount": 209,
+      "materialInventory": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\changgo\\material-inventory.json",
+      "inventorySchema": "materialSlots dictionary",
+      "inventorySlotCount": 213,
+      "inventoryRoles": {
+        "stone": 37,
+        "plaster": 3,
+        "wood": 81,
+        "lattice": 22,
+        "metal": 48,
+        "earth": 1,
+        "tile": 21
+      },
+      "inventoryPreservedSlots": 0,
+      "constructionGLB": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\models\\changgo.glb",
+      "glbStageBindingCount": 209,
+      "existingProductionCandidates": [],
+      "existingProductionBase": null,
+      "productionGeometryLock": null,
+      "productionBinding": null,
+      "uvLayers": [
+        {
+          "name": "Gye cared stone metres v52",
+          "objects": 35
+        },
+        {
+          "name": "Gye cared lime metres v52",
+          "objects": 1
+        },
+        {
+          "name": "Canonical gate pigment",
+          "objects": 99
+        },
+        {
+          "name": "Craft timber metres",
+          "objects": 2
+        },
+        {
+          "name": "Reference timber grain",
+          "objects": 97
+        },
+        {
+          "name": "Gye cared ceramic metres v52",
+          "objects": 21
+        }
+      ],
+      "memberAndCutAttributes": [
+        {
+          "name": "P16 member coordinates",
+          "domain": "POINT",
+          "type": "FLOAT_VECTOR",
+          "objects": 110
+        },
+        {
+          "name": "P16 member tint",
+          "domain": "POINT",
+          "type": "FLOAT_COLOR",
+          "objects": 110
+        },
+        {
+          "name": "P16 member phase",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 110
+        },
+        {
+          "name": "P16 member presence",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 110
+        },
+        {
+          "name": "P18 surface UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 110
+        },
+        {
+          "name": "P18 cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 110
+        },
+        {
+          "name": "P18 long timber UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 110
+        },
+        {
+          "name": "P18 long timber sample",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 110
+        },
+        {
+          "name": "P18 real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 110
+        },
+        {
+          "name": "P18 image eligible",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 110
+        },
+        {
+          "name": "P18 surface swatch",
+          "domain": "CORNER",
+          "type": "INT",
+          "objects": 110
+        },
+        {
+          "name": "P18 member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 110
+        },
+        {
+          "name": "P18 source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 110
+        },
+        {
+          "name": "P18 broad timber UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 110
+        },
+        {
+          "name": "P18 broad timber body",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 110
+        },
+        {
+          "name": "HS cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 51
+        },
+        {
+          "name": "HS real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 51
+        },
+        {
+          "name": "HS member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 51
+        },
+        {
+          "name": "HS source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 51
+        },
+        {
+          "name": "Reference member tone",
+          "domain": "FACE",
+          "type": "FLOAT",
+          "objects": 97
+        },
+        {
+          "name": "HS roof member value",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 21
+        },
+        {
+          "name": "HS roof member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 21
+        },
+        {
+          "name": "HS roof member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 21
+        }
+      ],
+      "occupiedMaterialSlots": 211,
+      "uniqueMaterials": 74,
+      "authoredWoodMaterialCount": 0,
+      "originalCutAtlasMaterialCount": 63,
+      "hs12TaggedMaterialCount": 0,
+      "referenceProfileMaterialCount": 0,
+      "sourceUnchangedAfterInspection": true,
+      "materialDetailsFile": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\BUILDING_TRANSFER_MATERIAL_DETAILS_R16.json",
+      "materialDetailsKey": "changgo"
+    },
+    {
+      "key": "toilet",
+      "name": "북측 측간",
+      "canonicalRevision": "R5",
+      "canonicalNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-buildings-r5\\toilet\\toilet-r5-brush-candidate.blend",
+      "canonicalExpectedSha256": "67ba5f446aa96b5023f67cb5460ac8f1227c2413983448d461d6e885a120e922",
+      "canonicalActualSha256": "67ba5f446aa96b5023f67cb5460ac8f1227c2413983448d461d6e885a120e922",
+      "canonicalHashMatches": true,
+      "canonicalBytes": 59253446,
+      "sourceVerification": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-buildings-r5\\toilet\\verification.json",
+      "sourceMeshCount": 83,
+      "actualMeshCount": 83,
+      "materialInventory": null,
+      "inventorySchema": "missing",
+      "inventorySlotCount": 0,
+      "inventoryRoles": {},
+      "inventoryPreservedSlots": 0,
+      "constructionGLB": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\models\\toilet.glb",
+      "glbStageBindingCount": 83,
+      "existingProductionCandidates": [],
+      "existingProductionBase": null,
+      "productionGeometryLock": null,
+      "productionBinding": null,
+      "uvLayers": [
+        {
+          "name": "Gye cared stone metres v52",
+          "objects": 27
+        },
+        {
+          "name": "Gye cared member grain v52",
+          "objects": 31
+        },
+        {
+          "name": "Ansarang retained PBR",
+          "objects": 4
+        },
+        {
+          "name": "Gye cared lime metres v52",
+          "objects": 3
+        },
+        {
+          "name": "Gye cared ceramic metres v52",
+          "objects": 17
+        }
+      ],
+      "memberAndCutAttributes": [
+        {
+          "name": "P16 member coordinates",
+          "domain": "POINT",
+          "type": "FLOAT_VECTOR",
+          "objects": 78
+        },
+        {
+          "name": "P16 member tint",
+          "domain": "POINT",
+          "type": "FLOAT_COLOR",
+          "objects": 78
+        },
+        {
+          "name": "P16 member phase",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 78
+        },
+        {
+          "name": "P16 member presence",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 78
+        },
+        {
+          "name": "P18 surface UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 78
+        },
+        {
+          "name": "P18 cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 78
+        },
+        {
+          "name": "P18 long timber UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 78
+        },
+        {
+          "name": "P18 long timber sample",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 78
+        },
+        {
+          "name": "P18 real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 78
+        },
+        {
+          "name": "P18 image eligible",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 78
+        },
+        {
+          "name": "P18 surface swatch",
+          "domain": "CORNER",
+          "type": "INT",
+          "objects": 78
+        },
+        {
+          "name": "P18 member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 78
+        },
+        {
+          "name": "P18 source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 78
+        },
+        {
+          "name": "P18 broad timber UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 78
+        },
+        {
+          "name": "P18 broad timber body",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 78
+        },
+        {
+          "name": "Reference member tone",
+          "domain": "FACE",
+          "type": "FLOAT",
+          "objects": 29
+        },
+        {
+          "name": "Gye cared member grain v52",
+          "domain": "CORNER",
+          "type": "FLOAT2",
+          "objects": 31
+        },
+        {
+          "name": "HS cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 31
+        },
+        {
+          "name": "HS real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 31
+        },
+        {
+          "name": "HS member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 31
+        },
+        {
+          "name": "HS source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 31
+        },
+        {
+          "name": "HS roof member value",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 17
+        },
+        {
+          "name": "HS roof member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 17
+        },
+        {
+          "name": "HS roof member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 17
+        }
+      ],
+      "occupiedMaterialSlots": 111,
+      "uniqueMaterials": 37,
+      "authoredWoodMaterialCount": 0,
+      "originalCutAtlasMaterialCount": 0,
+      "hs12TaggedMaterialCount": 0,
+      "referenceProfileMaterialCount": 0,
+      "sourceUnchangedAfterInspection": true,
+      "materialDetailsFile": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\BUILDING_TRANSFER_MATERIAL_DETAILS_R16.json",
+      "materialDetailsKey": "toilet"
+    },
+    {
+      "key": "toilet1",
+      "name": "남측 측간",
+      "canonicalRevision": "R5",
+      "canonicalNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-buildings-r5\\toilet1\\toilet1-r5-brush-candidate.blend",
+      "canonicalExpectedSha256": "18bd38953c5f5cef1f02f77c2af20a7ec713b4d1901575de19f27f0018154439",
+      "canonicalActualSha256": "18bd38953c5f5cef1f02f77c2af20a7ec713b4d1901575de19f27f0018154439",
+      "canonicalHashMatches": true,
+      "canonicalBytes": 28946328,
+      "sourceVerification": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-buildings-r5\\toilet1\\verification.json",
+      "sourceMeshCount": 83,
+      "actualMeshCount": 83,
+      "materialInventory": null,
+      "inventorySchema": "missing",
+      "inventorySlotCount": 0,
+      "inventoryRoles": {},
+      "inventoryPreservedSlots": 0,
+      "constructionGLB": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\models\\toilet1.glb",
+      "glbStageBindingCount": 83,
+      "existingProductionCandidates": [],
+      "existingProductionBase": null,
+      "productionGeometryLock": null,
+      "productionBinding": null,
+      "uvLayers": [
+        {
+          "name": "Gye cared stone metres v52",
+          "objects": 27
+        },
+        {
+          "name": "Gye cared member grain v52",
+          "objects": 31
+        },
+        {
+          "name": "Ansarang retained PBR",
+          "objects": 4
+        },
+        {
+          "name": "Gye cared lime metres v52",
+          "objects": 3
+        },
+        {
+          "name": "Gye cared ceramic metres v52",
+          "objects": 17
+        }
+      ],
+      "memberAndCutAttributes": [
+        {
+          "name": "P16 member coordinates",
+          "domain": "POINT",
+          "type": "FLOAT_VECTOR",
+          "objects": 78
+        },
+        {
+          "name": "P16 member tint",
+          "domain": "POINT",
+          "type": "FLOAT_COLOR",
+          "objects": 78
+        },
+        {
+          "name": "P16 member phase",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 78
+        },
+        {
+          "name": "P16 member presence",
+          "domain": "POINT",
+          "type": "FLOAT",
+          "objects": 78
+        },
+        {
+          "name": "Reference member tone",
+          "domain": "FACE",
+          "type": "FLOAT",
+          "objects": 29
+        },
+        {
+          "name": "Gye cared member grain v52",
+          "domain": "CORNER",
+          "type": "FLOAT2",
+          "objects": 31
+        },
+        {
+          "name": "HS cut UV",
+          "domain": "CORNER",
+          "type": "FLOAT_VECTOR",
+          "objects": 31
+        },
+        {
+          "name": "HS real cut face",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 31
+        },
+        {
+          "name": "HS member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 31
+        },
+        {
+          "name": "HS source member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 31
+        },
+        {
+          "name": "HS roof member value",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 17
+        },
+        {
+          "name": "HS roof member roughness",
+          "domain": "CORNER",
+          "type": "FLOAT",
+          "objects": 17
+        },
+        {
+          "name": "HS roof member id",
+          "domain": "POINT",
+          "type": "INT",
+          "objects": 17
+        }
+      ],
+      "occupiedMaterialSlots": 113,
+      "uniqueMaterials": 42,
+      "authoredWoodMaterialCount": 0,
+      "originalCutAtlasMaterialCount": 0,
+      "hs12TaggedMaterialCount": 0,
+      "referenceProfileMaterialCount": 0,
+      "sourceUnchangedAfterInspection": true,
+      "materialDetailsFile": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\BUILDING_TRANSFER_MATERIAL_DETAILS_R16.json",
+      "materialDetailsKey": "toilet1"
+    }
+  ],
+  "constraints": [
+    "Preserve exact registered native source bytes and use separate review candidates.",
+    "Preserve original object names, geometry, transforms, normals, UVs, attributes, hierarchy and custom properties.",
+    "Retain sourceObject/reviewStage/processId from CAN/models/key.glb for every canonical mesh; native fallback requires an existing explicit reviewStage.",
+    "Protect plaques, calligraphy, painted patterns, pigment/paint/preserve/backing slots, source image bytes and original material graphs.",
+    "Do not recreate retired V2 folders or imply canonical promotion/runtime integration.",
+    "Keep window-paper and paper-floor emissions separate; do not copy Sarang-only visual replacement geometry to other buildings."
+  ],
+  "compatibilityWarnings": [
+    "CURRENT_SCOPE.json still says sarang-only and is superseded by the new direct user request reported by root.",
+    "produce.material_rows expects a list; changgo inventory is a materialSlots dictionary and requires normalization.",
+    "toilet/toilet1 have no source material-inventory.json; classify occupied native slots from actual material evidence.",
+    "sarang_wood.profile has Sarang-specific name rules and unmatched timber defaults to beam; review building-specific roles.",
+    "wood_individual_r14.apply enforces exactly three Sarang ondol floor corrections; decouple this before reuse.",
+    "wood14 requires hs12_wood_direction/referenceColourProfile and HS12 ramps; grain15 requires hs14_individual_wood and authored wood texture."
+  ],
+  "buildingCount": 11,
+  "allCanonicalHashesMatch": true,
+  "complete": true
+}

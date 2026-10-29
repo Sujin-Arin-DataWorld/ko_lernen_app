@@ -1,0 +1,40 @@
+name: Hanok R16 publication
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/hanok_r16/**'
+      - 'tool/hanok_scene/**'
+      - '.github/workflows/hanok-r16.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/hanok_r16/**'
+      - 'tool/hanok_scene/**'
+      - '.github/workflows/hanok-r16.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hanok-r16-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  publication:
+    name: R16 artwork and restore contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          sparse-checkout: |
+            docs/hanok_r16
+            tool/hanok_scene
+      - name: Validate artwork hashes, process IDs, roof variants and private pins
+        run: python3 tool/hanok_scene/validate_ildu_r16.py --root .
+      - name: Check preserved Python sources and review JavaScript syntax
+        run: |
+          python3 -m compileall -q tool/hanok_scene
+          node --input-type=module --check < docs/hanok_r16/estate/viewer.js

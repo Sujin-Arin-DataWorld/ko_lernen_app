@@ -1,0 +1,480 @@
+[
+  {
+    "object": "Continuity.numaru corner posts",
+    "dimensions": [
+      2.8249998092651367,
+      2.869999885559082,
+      1.9200000762939453
+    ],
+    "uv": {
+      "Gye cared member grain v52": [
+        [
+          2.7404379844665527,
+          8.690200805664062
+        ],
+        [
+          3.7196109294891357,
+          8.85061264038086
+        ]
+      ]
+    },
+    "P18 surface UV": [
+      [
+        0.3479137718677521,
+        0.9756383895874023
+      ],
+      [
+        0.07938878983259201,
+        0.8723495006561279
+      ]
+    ],
+    "P18 long timber UV": [
+      [
+        0.2539594769477844,
+        0.9886347651481628
+      ],
+      [
+        0.012542828917503357,
+        0.7999420166015625
+      ]
+    ],
+    "coordinateNodes": [
+      {
+        "label": "Craft wood panel",
+        "type": "VECT_MATH",
+        "operation": "ADD",
+        "uv": null,
+        "attr": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "links": [
+              [
+                "Two percent authored panel margin",
+                "Vector"
+              ]
+            ]
+          },
+          {
+            "name": "Vector",
+            "value": [
+              0.019999999552965164,
+              0.5199999809265137,
+              0.0
+            ],
+            "links": []
+          },
+          {
+            "name": "Vector",
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "links": []
+          },
+          {
+            "name": "Scale",
+            "value": 1.0,
+            "links": []
+          }
+        ]
+      },
+      {
+        "label": "Two percent authored panel margin",
+        "type": "VECT_MATH",
+        "operation": "MULTIPLY",
+        "uv": null,
+        "attr": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "links": [
+              [
+                "Mirrored pigment crop without panel seams",
+                "Vector"
+              ]
+            ]
+          },
+          {
+            "name": "Vector",
+            "value": [
+              0.46000000834465027,
+              0.46000000834465027,
+              0.0
+            ],
+            "links": []
+          },
+          {
+            "name": "Vector",
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "links": []
+          },
+          {
+            "name": "Scale",
+            "value": 1.0,
+            "links": []
+          }
+        ]
+      },
+      {
+        "label": "Mirrored pigment crop without panel seams",
+        "type": "COMBXYZ",
+        "operation": null,
+        "uv": null,
+        "attr": null,
+        "inputs": [
+          {
+            "name": "X",
+            "value": 0.0,
+            "links": [
+              [
+                "Building R5 ",
+                "Value"
+              ]
+            ]
+          },
+          {
+            "name": "Y",
+            "value": 0.0,
+            "links": [
+              [
+                "Building R5 ",
+                "Value"
+              ]
+            ]
+          },
+          {
+            "name": "Z",
+            "value": 0.0,
+            "links": []
+          }
+        ]
+      },
+      {
+        "label": "Building R5 ",
+        "type": "MATH",
+        "operation": "PINGPONG",
+        "uv": null,
+        "attr": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "value": 0.5,
+            "links": [
+              [
+                "Craft sampling within authored panel",
+                "Y"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "value": 1.0,
+            "links": []
+          },
+          {
+            "name": "Value",
+            "value": 0.5,
+            "links": []
+          }
+        ]
+      },
+      {
+        "label": "Craft sampling within authored panel",
+        "type": "SEPXYZ",
+        "operation": null,
+        "uv": null,
+        "attr": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "links": [
+              [
+                "Shift texture only",
+                "Vector"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Shift texture only",
+        "type": "VECT_MATH",
+        "operation": "ADD",
+        "uv": null,
+        "attr": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "links": [
+              [
+                "Brush size for this source UV",
+                "Vector"
+              ]
+            ]
+          },
+          {
+            "name": "Vector",
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "links": [
+              [
+                "Different fixed phase per source member",
+                "Vector"
+              ]
+            ]
+          },
+          {
+            "name": "Vector",
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "links": []
+          },
+          {
+            "name": "Scale",
+            "value": 1.0,
+            "links": []
+          }
+        ]
+      },
+      {
+        "label": "Different fixed phase per source member",
+        "type": "VECT_MATH",
+        "operation": "MULTIPLY",
+        "uv": null,
+        "attr": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "links": [
+              [
+                "Fixed pigment phase",
+                "Color"
+              ]
+            ]
+          },
+          {
+            "name": "Vector",
+            "value": [
+              9.300000190734863,
+              7.900000095367432,
+              0.0
+            ],
+            "links": []
+          },
+          {
+            "name": "Vector",
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "links": []
+          },
+          {
+            "name": "Scale",
+            "value": 1.0,
+            "links": []
+          }
+        ]
+      },
+      {
+        "label": "Fixed pigment phase",
+        "type": "TEX_WHITE_NOISE",
+        "operation": null,
+        "uv": null,
+        "attr": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "links": []
+          },
+          {
+            "name": "W",
+            "value": 0.0,
+            "links": [
+              [
+                "Building R5 Original member phase",
+                "Value"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Building R5 Original member phase",
+        "type": "MATH",
+        "operation": "ADD",
+        "uv": null,
+        "attr": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "value": 0.5,
+            "links": [
+              [
+                "Stable original object brush phase",
+                "Random"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "value": 0.5,
+            "links": [
+              [
+                "Existing member identity; no mesh attribute added",
+                "Factor"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "value": 0.5,
+            "links": []
+          }
+        ]
+      },
+      {
+        "label": "Existing member identity; no mesh attribute added",
+        "type": "ATTRIBUTE",
+        "operation": null,
+        "uv": null,
+        "attr": "P18 source member id",
+        "inputs": []
+      },
+      {
+        "label": "Stable original object brush phase",
+        "type": "OBJECT_INFO",
+        "operation": null,
+        "uv": null,
+        "attr": null,
+        "inputs": []
+      },
+      {
+        "label": "Brush size for this source UV",
+        "type": "VECT_MATH",
+        "operation": "MULTIPLY",
+        "uv": null,
+        "attr": null,
+        "inputs": [
+          {
+            "name": "Vector",
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "links": [
+              [
+                "Existing original member UV; mesh untouched",
+                "UV"
+              ]
+            ]
+          },
+          {
+            "name": "Vector",
+            "value": [
+              0.8500000238418579,
+              0.550000011920929,
+              1.0
+            ],
+            "links": []
+          },
+          {
+            "name": "Vector",
+            "value": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "links": []
+          },
+          {
+            "name": "Scale",
+            "value": 1.0,
+            "links": []
+          }
+        ]
+      },
+      {
+        "label": "Existing original member UV; mesh untouched",
+        "type": "UVMAP",
+        "operation": null,
+        "uv": "Gye cared member grain v52",
+        "attr": null,
+        "inputs": []
+      },
+      {
+        "label": "Building R5 ",
+        "type": "MATH",
+        "operation": "PINGPONG",
+        "uv": null,
+        "attr": null,
+        "inputs": [
+          {
+            "name": "Value",
+            "value": 0.5,
+            "links": [
+              [
+                "Craft sampling within authored panel",
+                "X"
+              ]
+            ]
+          },
+          {
+            "name": "Value",
+            "value": 1.0,
+            "links": []
+          },
+          {
+            "name": "Value",
+            "value": 0.5,
+            "links": []
+          }
+        ]
+      }
+    ]
+  }
+]

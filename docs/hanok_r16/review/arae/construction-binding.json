@@ -1,0 +1,2333 @@
+{
+  "GyeCraft.arae.irregular paving 0": {
+    "memberId": "ildu.araechae.part.e88e6f2cd760c6b1de5d",
+    "sourceObject": "GyeCraft.arae.irregular paving 0",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.arae.irregular paving 1": {
+    "memberId": "ildu.araechae.part.2ee4332e4e69b63381c5",
+    "sourceObject": "GyeCraft.arae.irregular paving 1",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.arae.irregular paving 2": {
+    "memberId": "ildu.araechae.part.9bd6a006a51c24e69254",
+    "sourceObject": "GyeCraft.arae.irregular paving 2",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.arae.irregular paving 3": {
+    "memberId": "ildu.araechae.part.6fcdf1488cb8f044e4db",
+    "sourceObject": "GyeCraft.arae.irregular paving 3",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.arae.irregular paving 4": {
+    "memberId": "ildu.araechae.part.b1bbe60442cbacd566c8",
+    "sourceObject": "GyeCraft.arae.irregular paving 4",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "North.arae.door stepping stone": {
+    "memberId": "ildu.araechae.part.8d142353e56bc69255b0",
+    "sourceObject": "North.arae.door stepping stone",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "North.arae.floor individual boards": {
+    "memberId": "ildu.araechae.part.ae9746b301b2f596048c",
+    "sourceObject": "North.arae.floor individual boards",
+    "reviewStage": 10,
+    "processId": "ildu.araechae-maru",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "North.arae.floor under joists": {
+    "memberId": "ildu.araechae.part.fa4af126dcc425e4a612",
+    "sourceObject": "North.arae.floor under joists",
+    "reviewStage": 10,
+    "processId": "ildu.araechae-maru",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "North.arae.foundation": {
+    "memberId": "ildu.araechae.part.8c03e40306a05d8cb8ce",
+    "sourceObject": "North.arae.foundation",
+    "reviewStage": 2,
+    "processId": "ildu.araechae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "North.arae.foundation earth top": {
+    "memberId": "ildu.araechae.part.4f567b0f1af8aebe094e",
+    "sourceObject": "North.arae.foundation earth top",
+    "reviewStage": 2,
+    "processId": "ildu.araechae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "North.arae.foundation individual plinth": {
+    "memberId": "ildu.araechae.part.12a456407a3212249b22",
+    "sourceObject": "North.arae.foundation individual plinth",
+    "reviewStage": 2,
+    "processId": "ildu.araechae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "North.arae.foundation.recessed earth mortar": {
+    "memberId": "ildu.araechae.part.c4da8654babcf53fee14",
+    "sourceObject": "North.arae.foundation.recessed earth mortar",
+    "reviewStage": 2,
+    "processId": "ildu.araechae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "North.arae.frame longitudinal beam": {
+    "memberId": "ildu.araechae.part.54b60510d062ac06b66e",
+    "sourceObject": "North.arae.frame longitudinal beam",
+    "reviewStage": 4,
+    "processId": "ildu.araechae-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.arae.frame mortise peg": {
+    "memberId": "ildu.araechae.part.c94a524d39b4df02019f",
+    "sourceObject": "North.arae.frame mortise peg",
+    "reviewStage": 4,
+    "processId": "ildu.araechae-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.arae.frame square post": {
+    "memberId": "ildu.araechae.part.d65821de8a462edf94e6",
+    "sourceObject": "North.arae.frame square post",
+    "reviewStage": 3,
+    "processId": "ildu.araechae-posts-floor-support",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "North.arae.frame transverse beam": {
+    "memberId": "ildu.araechae.part.53c85e64765e945d465b",
+    "sourceObject": "North.arae.frame transverse beam",
+    "reviewStage": 4,
+    "processId": "ildu.araechae-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.arae.hanji room floor": {
+    "memberId": "ildu.araechae.part.c1d44fddbf06fddf87de",
+    "sourceObject": "North.arae.hanji room floor",
+    "reviewStage": 9,
+    "processId": "ildu.araechae-ondol",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "North.arae.interior dividing wall": {
+    "memberId": "ildu.araechae.part.af6dada0be7ef6b6877b",
+    "sourceObject": "North.arae.interior dividing wall",
+    "reviewStage": 8,
+    "processId": "ildu.araechae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.arae.left maru side": {
+    "memberId": "ildu.araechae.part.7380132a40ba744b303b",
+    "sourceObject": "North.arae.left maru side",
+    "reviewStage": 10,
+    "processId": "ildu.araechae-maru",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "North.arae.left maru side lattice.leaf1.hanji backing": {
+    "memberId": "ildu.araechae.part.828df38e90d27acbd705",
+    "sourceObject": "North.arae.left maru side lattice.leaf1.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf1.horizontal band": {
+    "memberId": "ildu.araechae.part.b0281ee8a2c9831bab22",
+    "sourceObject": "North.arae.left maru side lattice.leaf1.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf1.lock rail": {
+    "memberId": "ildu.araechae.part.af3ce52b149096fdf8ab",
+    "sourceObject": "North.arae.left maru side lattice.leaf1.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf1.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.0723e2b8f423d34c3889",
+    "sourceObject": "North.arae.left maru side lattice.leaf1.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf1.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.74d365fbdade52eb39f9",
+    "sourceObject": "North.arae.left maru side lattice.leaf1.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf1.rail": {
+    "memberId": "ildu.araechae.part.837a2c752f31024a38d9",
+    "sourceObject": "North.arae.left maru side lattice.leaf1.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf1.rear paper rail": {
+    "memberId": "ildu.araechae.part.561e2d7fa0476e520f11",
+    "sourceObject": "North.arae.left maru side lattice.leaf1.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf1.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.b472278e2360b3c475b3",
+    "sourceObject": "North.arae.left maru side lattice.leaf1.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf1.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.7b49061c6f36ab04a952",
+    "sourceObject": "North.arae.left maru side lattice.leaf1.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf1.recessed lower board": {
+    "memberId": "ildu.araechae.part.146c440a2dbdc922b831",
+    "sourceObject": "North.arae.left maru side lattice.leaf1.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf1.stile": {
+    "memberId": "ildu.araechae.part.4c83e59f89205c0369f0",
+    "sourceObject": "North.arae.left maru side lattice.leaf1.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf1.vertical sal": {
+    "memberId": "ildu.araechae.part.e2911c891617bfb0b95b",
+    "sourceObject": "North.arae.left maru side lattice.leaf1.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf2.hanji backing": {
+    "memberId": "ildu.araechae.part.3c61875299aaaef8d09c",
+    "sourceObject": "North.arae.left maru side lattice.leaf2.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf2.horizontal band": {
+    "memberId": "ildu.araechae.part.d7039ba75769f0381316",
+    "sourceObject": "North.arae.left maru side lattice.leaf2.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf2.lock rail": {
+    "memberId": "ildu.araechae.part.1826c4d54c464347ad7a",
+    "sourceObject": "North.arae.left maru side lattice.leaf2.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf2.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.4bc77bc0d02bf69467fa",
+    "sourceObject": "North.arae.left maru side lattice.leaf2.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf2.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.9666bfd13d06691f3974",
+    "sourceObject": "North.arae.left maru side lattice.leaf2.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf2.rail": {
+    "memberId": "ildu.araechae.part.beb1175d7df2312230ca",
+    "sourceObject": "North.arae.left maru side lattice.leaf2.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf2.rear paper rail": {
+    "memberId": "ildu.araechae.part.21b80a658d64d30f29d0",
+    "sourceObject": "North.arae.left maru side lattice.leaf2.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf2.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.2e07531cb43b60875c7e",
+    "sourceObject": "North.arae.left maru side lattice.leaf2.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf2.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.e2709f701b7fcb81e033",
+    "sourceObject": "North.arae.left maru side lattice.leaf2.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf2.recessed lower board": {
+    "memberId": "ildu.araechae.part.2e798c6698ad26f4c6d3",
+    "sourceObject": "North.arae.left maru side lattice.leaf2.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf2.stile": {
+    "memberId": "ildu.araechae.part.b6b074fb6f638294edc0",
+    "sourceObject": "North.arae.left maru side lattice.leaf2.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf2.vertical sal": {
+    "memberId": "ildu.araechae.part.f3568368e2738f7b17ac",
+    "sourceObject": "North.arae.left maru side lattice.leaf2.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf3.hanji backing": {
+    "memberId": "ildu.araechae.part.71cc1d3a4ba08c8ae8cf",
+    "sourceObject": "North.arae.left maru side lattice.leaf3.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf3.horizontal band": {
+    "memberId": "ildu.araechae.part.1afd83f0e7fdce3ae733",
+    "sourceObject": "North.arae.left maru side lattice.leaf3.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf3.lock rail": {
+    "memberId": "ildu.araechae.part.3433647fa1655d80f0ec",
+    "sourceObject": "North.arae.left maru side lattice.leaf3.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf3.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.01004e2255ab648802b1",
+    "sourceObject": "North.arae.left maru side lattice.leaf3.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf3.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.7517acdc99612e94927c",
+    "sourceObject": "North.arae.left maru side lattice.leaf3.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf3.rail": {
+    "memberId": "ildu.araechae.part.73408f80c4a940a54326",
+    "sourceObject": "North.arae.left maru side lattice.leaf3.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf3.rear paper rail": {
+    "memberId": "ildu.araechae.part.a232ca0f711f08918a94",
+    "sourceObject": "North.arae.left maru side lattice.leaf3.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf3.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.070f55f6f78660bf8562",
+    "sourceObject": "North.arae.left maru side lattice.leaf3.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf3.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.c0ac6f2007091e00ed1e",
+    "sourceObject": "North.arae.left maru side lattice.leaf3.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf3.recessed lower board": {
+    "memberId": "ildu.araechae.part.babfdfbcb9ac1af38c35",
+    "sourceObject": "North.arae.left maru side lattice.leaf3.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf3.stile": {
+    "memberId": "ildu.araechae.part.6afa059da195f41588c3",
+    "sourceObject": "North.arae.left maru side lattice.leaf3.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf3.vertical sal": {
+    "memberId": "ildu.araechae.part.e71e48164f44bba818d1",
+    "sourceObject": "North.arae.left maru side lattice.leaf3.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf4.hanji backing": {
+    "memberId": "ildu.araechae.part.6cde7b6ec45d309dd8d2",
+    "sourceObject": "North.arae.left maru side lattice.leaf4.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf4.horizontal band": {
+    "memberId": "ildu.araechae.part.ee4d9c28f22adb7026f0",
+    "sourceObject": "North.arae.left maru side lattice.leaf4.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf4.lock rail": {
+    "memberId": "ildu.araechae.part.e95116dd64ebbfaec1f5",
+    "sourceObject": "North.arae.left maru side lattice.leaf4.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf4.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.eb2949ee31296beb79be",
+    "sourceObject": "North.arae.left maru side lattice.leaf4.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf4.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.d581a96417e79d06969b",
+    "sourceObject": "North.arae.left maru side lattice.leaf4.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf4.rail": {
+    "memberId": "ildu.araechae.part.5eb2add20d2bdd8664bc",
+    "sourceObject": "North.arae.left maru side lattice.leaf4.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf4.rear paper rail": {
+    "memberId": "ildu.araechae.part.8ff28484fb66deb144d4",
+    "sourceObject": "North.arae.left maru side lattice.leaf4.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf4.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.de0ba4bc6b0e9a555ddd",
+    "sourceObject": "North.arae.left maru side lattice.leaf4.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf4.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.35788647e81bea278c4d",
+    "sourceObject": "North.arae.left maru side lattice.leaf4.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf4.recessed lower board": {
+    "memberId": "ildu.araechae.part.08598d0a5a294e36411f",
+    "sourceObject": "North.arae.left maru side lattice.leaf4.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf4.stile": {
+    "memberId": "ildu.araechae.part.efbf1eed16e390bdcc22",
+    "sourceObject": "North.arae.left maru side lattice.leaf4.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side lattice.leaf4.vertical sal": {
+    "memberId": "ildu.araechae.part.a547fbac8fd42b847b7c",
+    "sourceObject": "North.arae.left maru side lattice.leaf4.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.left maru side.head/sill": {
+    "memberId": "ildu.araechae.part.26cd68ae5224436f6b0f",
+    "sourceObject": "North.arae.left maru side.head/sill",
+    "reviewStage": 10,
+    "processId": "ildu.araechae-maru",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "North.arae.left maru side.jamb": {
+    "memberId": "ildu.araechae.part.43917f56bffc3ac2ba9f",
+    "sourceObject": "North.arae.left maru side.jamb",
+    "reviewStage": 10,
+    "processId": "ildu.araechae-maru",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "North.arae.ondol room": {
+    "memberId": "ildu.araechae.part.794e39133b18b1e5a096",
+    "sourceObject": "North.arae.ondol room",
+    "reviewStage": 9,
+    "processId": "ildu.araechae-ondol",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "North.arae.p11 passage wall timber bands": {
+    "memberId": "ildu.r12.connected.member.cf9c08bada9e6cbb2de0",
+    "sourceObject": "North.arae.p11 passage wall timber bands",
+    "reviewStage": 8,
+    "processId": "ildu.araechae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.arae.p12 passage hearth": {
+    "memberId": "ildu.r12.connected.member.b6d56223035d751d8f75",
+    "sourceObject": "North.arae.p12 passage hearth",
+    "reviewStage": 9,
+    "processId": "ildu.araechae-ondol",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "North.arae.p12 passage hearth iron pot 0.05": {
+    "memberId": "ildu.r12.connected.member.6c2d52c0546111864a93",
+    "sourceObject": "North.arae.p12 passage hearth iron pot 0.05",
+    "reviewStage": 12,
+    "processId": "ildu.araechae-complete-use",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.arae.p12 passage hearth iron pot 0.05 fine casting lines": {
+    "memberId": "ildu.r12.connected.member.74c6b26797e77bd74e25",
+    "sourceObject": "North.arae.p12 passage hearth iron pot 0.05 fine casting lines",
+    "reviewStage": 12,
+    "processId": "ildu.araechae-complete-use",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.arae.p12 passage hearth iron pot 0.05 tapered knob": {
+    "memberId": "ildu.r12.connected.member.6c9b766f7f2d2cdb4518",
+    "sourceObject": "North.arae.p12 passage hearth iron pot 0.05 tapered knob",
+    "reviewStage": 12,
+    "processId": "ildu.araechae-complete-use",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.arae.p12 passage hearth scattered charcoal 0 0": {
+    "memberId": "ildu.r12.connected.member.b5f6074efc5900fcd294",
+    "sourceObject": "North.arae.p12 passage hearth scattered charcoal 0 0",
+    "reviewStage": 12,
+    "processId": "ildu.araechae-complete-use",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.arae.p12 passage hearth scattered charcoal 0 1": {
+    "memberId": "ildu.r12.connected.member.1407c2480e2663632f21",
+    "sourceObject": "North.arae.p12 passage hearth scattered charcoal 0 1",
+    "reviewStage": 12,
+    "processId": "ildu.araechae-complete-use",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.arae.p12 passage hearth scattered charcoal 0 2": {
+    "memberId": "ildu.r12.connected.member.a3cbf94a351453b70602",
+    "sourceObject": "North.arae.p12 passage hearth scattered charcoal 0 2",
+    "reviewStage": 12,
+    "processId": "ildu.araechae-complete-use",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.arae.rear WD0.leaf1.hanji backing": {
+    "memberId": "ildu.araechae.part.cc7ef110106ba0ff3278",
+    "sourceObject": "North.arae.rear WD0.leaf1.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf1.horizontal band": {
+    "memberId": "ildu.araechae.part.cc1f36983595b22f21eb",
+    "sourceObject": "North.arae.rear WD0.leaf1.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf1.lock rail": {
+    "memberId": "ildu.araechae.part.64aee77607fe8d75f97a",
+    "sourceObject": "North.arae.rear WD0.leaf1.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf1.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.286a5c3f05434f6fe1b3",
+    "sourceObject": "North.arae.rear WD0.leaf1.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf1.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.7de92585a73cfcd49424",
+    "sourceObject": "North.arae.rear WD0.leaf1.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf1.rail": {
+    "memberId": "ildu.araechae.part.e1214e8425bf3702e03d",
+    "sourceObject": "North.arae.rear WD0.leaf1.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf1.rear paper rail": {
+    "memberId": "ildu.araechae.part.5169ebda33dc06dd097b",
+    "sourceObject": "North.arae.rear WD0.leaf1.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf1.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.f0dc5839d4f6451bf421",
+    "sourceObject": "North.arae.rear WD0.leaf1.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf1.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.94dcac1ba2b562a5d7b7",
+    "sourceObject": "North.arae.rear WD0.leaf1.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf1.recessed lower board": {
+    "memberId": "ildu.araechae.part.fbbbe055a2f668447982",
+    "sourceObject": "North.arae.rear WD0.leaf1.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf1.stile": {
+    "memberId": "ildu.araechae.part.f8708af725542d11aa9f",
+    "sourceObject": "North.arae.rear WD0.leaf1.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf1.vertical sal": {
+    "memberId": "ildu.araechae.part.1524216c399da89a90c6",
+    "sourceObject": "North.arae.rear WD0.leaf1.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf2.hanji backing": {
+    "memberId": "ildu.araechae.part.613e0e98dd018039ba4e",
+    "sourceObject": "North.arae.rear WD0.leaf2.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf2.horizontal band": {
+    "memberId": "ildu.araechae.part.bd2d77bea3c3b8dbee02",
+    "sourceObject": "North.arae.rear WD0.leaf2.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf2.lock rail": {
+    "memberId": "ildu.araechae.part.c8cd87d87dea8c04af7a",
+    "sourceObject": "North.arae.rear WD0.leaf2.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf2.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.6fe83e9d4474d4c5d1bb",
+    "sourceObject": "North.arae.rear WD0.leaf2.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf2.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.67420ecec7aaed75fd8c",
+    "sourceObject": "North.arae.rear WD0.leaf2.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf2.rail": {
+    "memberId": "ildu.araechae.part.f7eeb8c6a6f196c17e7f",
+    "sourceObject": "North.arae.rear WD0.leaf2.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf2.rear paper rail": {
+    "memberId": "ildu.araechae.part.313c2d1e760a4f7af350",
+    "sourceObject": "North.arae.rear WD0.leaf2.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf2.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.785ccc941f0536073aaf",
+    "sourceObject": "North.arae.rear WD0.leaf2.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf2.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.a532a12deb26308220fa",
+    "sourceObject": "North.arae.rear WD0.leaf2.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf2.recessed lower board": {
+    "memberId": "ildu.araechae.part.451bee10d0ec1e882ab6",
+    "sourceObject": "North.arae.rear WD0.leaf2.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf2.stile": {
+    "memberId": "ildu.araechae.part.96f8d4bd8cd54f2ca0e9",
+    "sourceObject": "North.arae.rear WD0.leaf2.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf2.vertical sal": {
+    "memberId": "ildu.araechae.part.105e62b0baab8354e3d0",
+    "sourceObject": "North.arae.rear WD0.leaf2.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf3.hanji backing": {
+    "memberId": "ildu.araechae.part.2db13bc3d2f88fc91136",
+    "sourceObject": "North.arae.rear WD0.leaf3.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf3.horizontal band": {
+    "memberId": "ildu.araechae.part.36eb658f87c11537975f",
+    "sourceObject": "North.arae.rear WD0.leaf3.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf3.lock rail": {
+    "memberId": "ildu.araechae.part.c29df5cebc2a952ab907",
+    "sourceObject": "North.arae.rear WD0.leaf3.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf3.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.50496ecf728d4bf34a9d",
+    "sourceObject": "North.arae.rear WD0.leaf3.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf3.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.a55f541efa233f24d77a",
+    "sourceObject": "North.arae.rear WD0.leaf3.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf3.rail": {
+    "memberId": "ildu.araechae.part.c6c53d670d4114cbba4c",
+    "sourceObject": "North.arae.rear WD0.leaf3.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf3.rear paper rail": {
+    "memberId": "ildu.araechae.part.e91c073eb8052e8cad11",
+    "sourceObject": "North.arae.rear WD0.leaf3.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf3.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.52a79dd9a49fe3be5277",
+    "sourceObject": "North.arae.rear WD0.leaf3.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf3.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.e09c9fc1f3d261ba2455",
+    "sourceObject": "North.arae.rear WD0.leaf3.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf3.recessed lower board": {
+    "memberId": "ildu.araechae.part.a0035b505039fd38c0fc",
+    "sourceObject": "North.arae.rear WD0.leaf3.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf3.stile": {
+    "memberId": "ildu.araechae.part.78e1260725ab0035b3f0",
+    "sourceObject": "North.arae.rear WD0.leaf3.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf3.vertical sal": {
+    "memberId": "ildu.araechae.part.a0b5d5f719075d5e9ea1",
+    "sourceObject": "North.arae.rear WD0.leaf3.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf4.hanji backing": {
+    "memberId": "ildu.araechae.part.3a9142e5935c9b169454",
+    "sourceObject": "North.arae.rear WD0.leaf4.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf4.horizontal band": {
+    "memberId": "ildu.araechae.part.1f4a711d213f8cc7ecd4",
+    "sourceObject": "North.arae.rear WD0.leaf4.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf4.lock rail": {
+    "memberId": "ildu.araechae.part.bc724834ea57cf44403d",
+    "sourceObject": "North.arae.rear WD0.leaf4.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf4.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.dbce7b25ffca06abc881",
+    "sourceObject": "North.arae.rear WD0.leaf4.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf4.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.54e3ea888918f82500c0",
+    "sourceObject": "North.arae.rear WD0.leaf4.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf4.rail": {
+    "memberId": "ildu.araechae.part.dc833273ce0cc4f08421",
+    "sourceObject": "North.arae.rear WD0.leaf4.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf4.rear paper rail": {
+    "memberId": "ildu.araechae.part.96b13e5de0d1eb1bdb69",
+    "sourceObject": "North.arae.rear WD0.leaf4.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf4.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.ce7160f180c539bdfea2",
+    "sourceObject": "North.arae.rear WD0.leaf4.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf4.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.e6722a435000c5bb5392",
+    "sourceObject": "North.arae.rear WD0.leaf4.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf4.recessed lower board": {
+    "memberId": "ildu.araechae.part.d710faf53a07baad364c",
+    "sourceObject": "North.arae.rear WD0.leaf4.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf4.stile": {
+    "memberId": "ildu.araechae.part.06e120dd817475716f21",
+    "sourceObject": "North.arae.rear WD0.leaf4.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD0.leaf4.vertical sal": {
+    "memberId": "ildu.araechae.part.de570553469ce8e71bd6",
+    "sourceObject": "North.arae.rear WD0.leaf4.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD2.leaf1.hanji backing": {
+    "memberId": "ildu.araechae.part.8c245203f7c123117e30",
+    "sourceObject": "North.arae.rear WD2.leaf1.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD2.leaf1.horizontal band": {
+    "memberId": "ildu.araechae.part.c21cc39599d7a527cf73",
+    "sourceObject": "North.arae.rear WD2.leaf1.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD2.leaf1.lock rail": {
+    "memberId": "ildu.araechae.part.eadcd87f60ade2456d40",
+    "sourceObject": "North.arae.rear WD2.leaf1.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD2.leaf1.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.ef3a114856dcea99792f",
+    "sourceObject": "North.arae.rear WD2.leaf1.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD2.leaf1.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.4d2fadd8422c84f0c2ec",
+    "sourceObject": "North.arae.rear WD2.leaf1.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD2.leaf1.rail": {
+    "memberId": "ildu.araechae.part.f243ae4afc6e129bac8d",
+    "sourceObject": "North.arae.rear WD2.leaf1.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD2.leaf1.rear paper rail": {
+    "memberId": "ildu.araechae.part.163c5be2502187d80d50",
+    "sourceObject": "North.arae.rear WD2.leaf1.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD2.leaf1.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.a5ef04a395aa24f0e5a1",
+    "sourceObject": "North.arae.rear WD2.leaf1.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD2.leaf1.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.ae059a1d1311bf1e7911",
+    "sourceObject": "North.arae.rear WD2.leaf1.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD2.leaf1.recessed lower board": {
+    "memberId": "ildu.araechae.part.b9092e2bf62364e6f034",
+    "sourceObject": "North.arae.rear WD2.leaf1.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD2.leaf1.stile": {
+    "memberId": "ildu.araechae.part.aaa28c71eec09a9e855e",
+    "sourceObject": "North.arae.rear WD2.leaf1.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear WD2.leaf1.vertical sal": {
+    "memberId": "ildu.araechae.part.5a8b9636cb33f2221135",
+    "sourceObject": "North.arae.rear WD2.leaf1.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.rear plaster": {
+    "memberId": "ildu.araechae.part.f477162e3452d12a846a",
+    "sourceObject": "North.arae.rear plaster",
+    "reviewStage": 8,
+    "processId": "ildu.araechae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.arae.rear plaster.head/sill": {
+    "memberId": "ildu.araechae.part.a31cc36ab197f2c7f86b",
+    "sourceObject": "North.arae.rear plaster.head/sill",
+    "reviewStage": 8,
+    "processId": "ildu.araechae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.arae.rear plaster.jamb": {
+    "memberId": "ildu.araechae.part.f0a0dd6c5ead78d5a6ca",
+    "sourceObject": "North.arae.rear plaster.jamb",
+    "reviewStage": 8,
+    "processId": "ildu.araechae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.arae.right ondol side": {
+    "memberId": "ildu.araechae.part.be6385e6b97a15b76ed4",
+    "sourceObject": "North.arae.right ondol side",
+    "reviewStage": 9,
+    "processId": "ildu.araechae-ondol",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "North.arae.roof": {
+    "memberId": "ildu.araechae.part.c1177afe2304697e2866",
+    "sourceObject": "North.arae.roof",
+    "reviewStage": 7,
+    "processId": "ildu.araechae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.arae.roof packed ridge core": {
+    "memberId": "ildu.araechae.part.1f09eba7627821b322c3",
+    "sourceObject": "North.arae.roof packed ridge core",
+    "reviewStage": 6,
+    "processId": "ildu.araechae-roof-bed",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_earth"
+  },
+  "North.arae.roof solid bedding": {
+    "memberId": "ildu.araechae.part.3757d058f9478ae7c2b9",
+    "sourceObject": "North.arae.roof solid bedding",
+    "reviewStage": 6,
+    "processId": "ildu.araechae-roof-bed",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_earth"
+  },
+  "North.arae.roof.001": {
+    "memberId": "ildu.araechae.part.95b54380decdc94b8026",
+    "sourceObject": "North.arae.roof.001",
+    "reviewStage": 7,
+    "processId": "ildu.araechae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.arae.roof.002": {
+    "memberId": "ildu.araechae.part.9944272f6f6c64e9d70e",
+    "sourceObject": "North.arae.roof.002",
+    "reviewStage": 7,
+    "processId": "ildu.araechae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.arae.roof.003": {
+    "memberId": "ildu.araechae.part.51e0af44237922df8710",
+    "sourceObject": "North.arae.roof.003",
+    "reviewStage": 7,
+    "processId": "ildu.araechae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.arae.roof.004": {
+    "memberId": "ildu.araechae.part.18a3b384a9359c0de3ab",
+    "sourceObject": "North.arae.roof.004",
+    "reviewStage": 7,
+    "processId": "ildu.araechae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.arae.roof.005": {
+    "memberId": "ildu.araechae.part.cce8f08bf26f3dd6f162",
+    "sourceObject": "North.arae.roof.005",
+    "reviewStage": 7,
+    "processId": "ildu.araechae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.arae.roof.eave beam": {
+    "memberId": "ildu.araechae.part.9792856efbb76daaa303",
+    "sourceObject": "North.arae.roof.eave beam",
+    "reviewStage": 5,
+    "processId": "ildu.araechae-rafters-eaves",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "North.arae.roof.gable timber": {
+    "memberId": "ildu.araechae.part.64888b3c58283119fac4",
+    "sourceObject": "North.arae.roof.gable timber",
+    "reviewStage": 8,
+    "processId": "ildu.araechae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.arae.roof.lower exposed rafters": {
+    "memberId": "ildu.araechae.part.b215a45d053b35839e4d",
+    "sourceObject": "North.arae.roof.lower exposed rafters",
+    "reviewStage": 5,
+    "processId": "ildu.araechae-rafters-eaves",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "North.arae.roof.rafters": {
+    "memberId": "ildu.araechae.part.67bd771fac70d35d4384",
+    "sourceObject": "North.arae.roof.rafters",
+    "reviewStage": 5,
+    "processId": "ildu.araechae-rafters-eaves",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "North.arae.roof.ridge stack": {
+    "memberId": "ildu.araechae.part.38b5611e29f13b948b83",
+    "sourceObject": "North.arae.roof.ridge stack",
+    "reviewStage": 7,
+    "processId": "ildu.araechae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.arae.roof.ridge stack.001": {
+    "memberId": "ildu.araechae.part.a32c1270e2f5ca091224",
+    "sourceObject": "North.arae.roof.ridge stack.001",
+    "reviewStage": 7,
+    "processId": "ildu.araechae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.arae.roof.ridge stack.002": {
+    "memberId": "ildu.araechae.part.06f8a613c32625e52697",
+    "sourceObject": "North.arae.roof.ridge stack.002",
+    "reviewStage": 7,
+    "processId": "ildu.araechae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.arae.roof.ridge stack.003": {
+    "memberId": "ildu.araechae.part.e728bf7b4ff8ab37ab4b",
+    "sourceObject": "North.arae.roof.ridge stack.003",
+    "reviewStage": 7,
+    "processId": "ildu.araechae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.arae.roof.ridge stack.004": {
+    "memberId": "ildu.araechae.part.819bbc1106a7a6a944b2",
+    "sourceObject": "North.arae.roof.ridge stack.004",
+    "reviewStage": 7,
+    "processId": "ildu.araechae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.arae.roof.ridge stack.005": {
+    "memberId": "ildu.araechae.part.4127b3b9884c6e26591d",
+    "sourceObject": "North.arae.roof.ridge stack.005",
+    "reviewStage": 7,
+    "processId": "ildu.araechae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.arae.roof.round tile ends": {
+    "memberId": "ildu.araechae.part.73c10a9636f3a77a2338",
+    "sourceObject": "North.arae.roof.round tile ends",
+    "reviewStage": 7,
+    "processId": "ildu.araechae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.arae.room ceiling": {
+    "memberId": "ildu.araechae.part.9e8b44c079c50d5e0ae9",
+    "sourceObject": "North.arae.room ceiling",
+    "reviewStage": 8,
+    "processId": "ildu.araechae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.arae.survey WD02.leaf1.hanji backing": {
+    "memberId": "ildu.araechae.part.74a12b8e15102ded1f7a",
+    "sourceObject": "North.arae.survey WD02.leaf1.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf1.horizontal band": {
+    "memberId": "ildu.araechae.part.a924d6be8082f2d9c9e4",
+    "sourceObject": "North.arae.survey WD02.leaf1.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf1.lock rail": {
+    "memberId": "ildu.araechae.part.8ef9093dd33f37bb7fcc",
+    "sourceObject": "North.arae.survey WD02.leaf1.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf1.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.fa78da378638b4dac99f",
+    "sourceObject": "North.arae.survey WD02.leaf1.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf1.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.cc1d76d40d8e561680c2",
+    "sourceObject": "North.arae.survey WD02.leaf1.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf1.rail": {
+    "memberId": "ildu.araechae.part.ea304244d5b2c59f47f6",
+    "sourceObject": "North.arae.survey WD02.leaf1.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf1.rear paper rail": {
+    "memberId": "ildu.araechae.part.ee9e3ecad98d39f05394",
+    "sourceObject": "North.arae.survey WD02.leaf1.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf1.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.ed2dc90b2fbaab9f560d",
+    "sourceObject": "North.arae.survey WD02.leaf1.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf1.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.d1a8685e099efc63fc5a",
+    "sourceObject": "North.arae.survey WD02.leaf1.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf1.recessed lower board": {
+    "memberId": "ildu.araechae.part.e99fba8bbe9e95b6d114",
+    "sourceObject": "North.arae.survey WD02.leaf1.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf1.stile": {
+    "memberId": "ildu.araechae.part.40b6204f2d4e7b7df460",
+    "sourceObject": "North.arae.survey WD02.leaf1.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf1.vertical sal": {
+    "memberId": "ildu.araechae.part.586535b942e93b655b7b",
+    "sourceObject": "North.arae.survey WD02.leaf1.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf2.hanji backing": {
+    "memberId": "ildu.araechae.part.e17ad241eaa99cfb03a2",
+    "sourceObject": "North.arae.survey WD02.leaf2.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf2.horizontal band": {
+    "memberId": "ildu.araechae.part.5bb5928ea0a513142fa2",
+    "sourceObject": "North.arae.survey WD02.leaf2.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf2.lock rail": {
+    "memberId": "ildu.araechae.part.643a63ad5149e31207c6",
+    "sourceObject": "North.arae.survey WD02.leaf2.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf2.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.15cbaaf00c489c071708",
+    "sourceObject": "North.arae.survey WD02.leaf2.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf2.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.41d20f0f1437a0e8606f",
+    "sourceObject": "North.arae.survey WD02.leaf2.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf2.rail": {
+    "memberId": "ildu.araechae.part.f0ff17e376d80b2b7f2a",
+    "sourceObject": "North.arae.survey WD02.leaf2.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf2.rear paper rail": {
+    "memberId": "ildu.araechae.part.7eaf67b3c12851ba1e0c",
+    "sourceObject": "North.arae.survey WD02.leaf2.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf2.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.68c914d160f6cc69868a",
+    "sourceObject": "North.arae.survey WD02.leaf2.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf2.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.995326f75a9fb1ae825a",
+    "sourceObject": "North.arae.survey WD02.leaf2.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf2.recessed lower board": {
+    "memberId": "ildu.araechae.part.8281de4c1ea1de518d26",
+    "sourceObject": "North.arae.survey WD02.leaf2.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf2.stile": {
+    "memberId": "ildu.araechae.part.136227885ce0c7bf6d2e",
+    "sourceObject": "North.arae.survey WD02.leaf2.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf2.vertical sal": {
+    "memberId": "ildu.araechae.part.e43586c983f8a0854a09",
+    "sourceObject": "North.arae.survey WD02.leaf2.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf3.hanji backing": {
+    "memberId": "ildu.araechae.part.24cf3f96311c06da8dc0",
+    "sourceObject": "North.arae.survey WD02.leaf3.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf3.horizontal band": {
+    "memberId": "ildu.araechae.part.c08d8f054c4673286cb2",
+    "sourceObject": "North.arae.survey WD02.leaf3.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf3.lock rail": {
+    "memberId": "ildu.araechae.part.b0ca1e07e045e1b9461a",
+    "sourceObject": "North.arae.survey WD02.leaf3.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf3.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.bf3a74e01aa4210743b9",
+    "sourceObject": "North.arae.survey WD02.leaf3.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf3.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.3e6f9301e1875f6f8e9b",
+    "sourceObject": "North.arae.survey WD02.leaf3.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf3.rail": {
+    "memberId": "ildu.araechae.part.d79467794ae61e532640",
+    "sourceObject": "North.arae.survey WD02.leaf3.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf3.rear paper rail": {
+    "memberId": "ildu.araechae.part.9f0ec5dc29ff8345ff68",
+    "sourceObject": "North.arae.survey WD02.leaf3.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf3.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.d288356502cd2df00f62",
+    "sourceObject": "North.arae.survey WD02.leaf3.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf3.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.e21ad7a3d2756b28a9b3",
+    "sourceObject": "North.arae.survey WD02.leaf3.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf3.recessed lower board": {
+    "memberId": "ildu.araechae.part.8174614a8adea7957d68",
+    "sourceObject": "North.arae.survey WD02.leaf3.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf3.stile": {
+    "memberId": "ildu.araechae.part.44783a9cc0d658bf12c9",
+    "sourceObject": "North.arae.survey WD02.leaf3.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf3.vertical sal": {
+    "memberId": "ildu.araechae.part.720e39f518d5af39c75f",
+    "sourceObject": "North.arae.survey WD02.leaf3.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf4.hanji backing": {
+    "memberId": "ildu.araechae.part.c4f75a071fe72e09274e",
+    "sourceObject": "North.arae.survey WD02.leaf4.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf4.horizontal band": {
+    "memberId": "ildu.araechae.part.7a2700b6361c8d65d163",
+    "sourceObject": "North.arae.survey WD02.leaf4.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf4.lock rail": {
+    "memberId": "ildu.araechae.part.72f6c104affc145a50a0",
+    "sourceObject": "North.arae.survey WD02.leaf4.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf4.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.d72c284a9e2250bb15b0",
+    "sourceObject": "North.arae.survey WD02.leaf4.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf4.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.7ce2a96afd4606ffb861",
+    "sourceObject": "North.arae.survey WD02.leaf4.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf4.rail": {
+    "memberId": "ildu.araechae.part.c8fb2a67d6961f5e7be0",
+    "sourceObject": "North.arae.survey WD02.leaf4.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf4.rear paper rail": {
+    "memberId": "ildu.araechae.part.20ff3862214c71aaf8ef",
+    "sourceObject": "North.arae.survey WD02.leaf4.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf4.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.b962ee2732a6e4f037b1",
+    "sourceObject": "North.arae.survey WD02.leaf4.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf4.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.285e3abf95ff921971a9",
+    "sourceObject": "North.arae.survey WD02.leaf4.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf4.recessed lower board": {
+    "memberId": "ildu.araechae.part.98cd28affbffa365673b",
+    "sourceObject": "North.arae.survey WD02.leaf4.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf4.stile": {
+    "memberId": "ildu.araechae.part.649af4fc0331923aab15",
+    "sourceObject": "North.arae.survey WD02.leaf4.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD02.leaf4.vertical sal": {
+    "memberId": "ildu.araechae.part.78cac4c40461d8faaf5f",
+    "sourceObject": "North.arae.survey WD02.leaf4.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf1.hanji backing": {
+    "memberId": "ildu.araechae.part.e8cc936ae6111408fc63",
+    "sourceObject": "North.arae.survey WD04.leaf1.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf1.horizontal band": {
+    "memberId": "ildu.araechae.part.ee13afee850abde7a0de",
+    "sourceObject": "North.arae.survey WD04.leaf1.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf1.lock rail": {
+    "memberId": "ildu.araechae.part.ae5635abe022dafa9a57",
+    "sourceObject": "North.arae.survey WD04.leaf1.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf1.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.7045d9997efafde4d9a8",
+    "sourceObject": "North.arae.survey WD04.leaf1.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf1.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.65dc7bd77a6fb5691ce0",
+    "sourceObject": "North.arae.survey WD04.leaf1.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf1.rail": {
+    "memberId": "ildu.araechae.part.9bfb6710136ad13e0ddf",
+    "sourceObject": "North.arae.survey WD04.leaf1.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf1.rear paper rail": {
+    "memberId": "ildu.araechae.part.430d8be1e89cb420d6a1",
+    "sourceObject": "North.arae.survey WD04.leaf1.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf1.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.d1c5a8777b6898de3a81",
+    "sourceObject": "North.arae.survey WD04.leaf1.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf1.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.6d7020a0f23e5dfe5ca4",
+    "sourceObject": "North.arae.survey WD04.leaf1.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf1.recessed lower board": {
+    "memberId": "ildu.araechae.part.72d8b64a1be64eb855c0",
+    "sourceObject": "North.arae.survey WD04.leaf1.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf1.stile": {
+    "memberId": "ildu.araechae.part.00bdb2a1afbb0bbd9976",
+    "sourceObject": "North.arae.survey WD04.leaf1.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf1.vertical sal": {
+    "memberId": "ildu.araechae.part.5b4d575019205ee20e52",
+    "sourceObject": "North.arae.survey WD04.leaf1.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf2.hanji backing": {
+    "memberId": "ildu.araechae.part.ed5076037e5a45873f01",
+    "sourceObject": "North.arae.survey WD04.leaf2.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf2.horizontal band": {
+    "memberId": "ildu.araechae.part.1fc4905675b84e56ced9",
+    "sourceObject": "North.arae.survey WD04.leaf2.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf2.lock rail": {
+    "memberId": "ildu.araechae.part.c38a329f21876f34152a",
+    "sourceObject": "North.arae.survey WD04.leaf2.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf2.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.65af463c265ce7da4309",
+    "sourceObject": "North.arae.survey WD04.leaf2.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf2.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.28961a47e746a5145e88",
+    "sourceObject": "North.arae.survey WD04.leaf2.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf2.rail": {
+    "memberId": "ildu.araechae.part.b7af7ebbcb97a7ec91dd",
+    "sourceObject": "North.arae.survey WD04.leaf2.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf2.rear paper rail": {
+    "memberId": "ildu.araechae.part.63b6ae2072c422b95adc",
+    "sourceObject": "North.arae.survey WD04.leaf2.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf2.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.bed53d9e900dcce0c4a3",
+    "sourceObject": "North.arae.survey WD04.leaf2.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf2.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.482679d5c728c0a3f7f1",
+    "sourceObject": "North.arae.survey WD04.leaf2.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf2.recessed lower board": {
+    "memberId": "ildu.araechae.part.e909ef2ff8d6edbec2c1",
+    "sourceObject": "North.arae.survey WD04.leaf2.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf2.stile": {
+    "memberId": "ildu.araechae.part.d7c20a3bf648cd5b8fcb",
+    "sourceObject": "North.arae.survey WD04.leaf2.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD04.leaf2.vertical sal": {
+    "memberId": "ildu.araechae.part.160828a124b47260c17b",
+    "sourceObject": "North.arae.survey WD04.leaf2.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf1.hanji backing": {
+    "memberId": "ildu.araechae.part.4d3a8dee7180612aac15",
+    "sourceObject": "North.arae.survey WD06.leaf1.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf1.horizontal band": {
+    "memberId": "ildu.araechae.part.1c4f574248d6fd94973f",
+    "sourceObject": "North.arae.survey WD06.leaf1.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf1.lock rail": {
+    "memberId": "ildu.araechae.part.f2dd51d6006eb95f5653",
+    "sourceObject": "North.arae.survey WD06.leaf1.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf1.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.575e605455847fe6e30a",
+    "sourceObject": "North.arae.survey WD06.leaf1.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf1.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.185be447c8306ee627ea",
+    "sourceObject": "North.arae.survey WD06.leaf1.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf1.rail": {
+    "memberId": "ildu.araechae.part.8d0f6cfcbf5b232206a6",
+    "sourceObject": "North.arae.survey WD06.leaf1.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf1.rear paper rail": {
+    "memberId": "ildu.araechae.part.f5befe695dc38df097fe",
+    "sourceObject": "North.arae.survey WD06.leaf1.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf1.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.cd415e28adda580372da",
+    "sourceObject": "North.arae.survey WD06.leaf1.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf1.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.4944da925b27e745850a",
+    "sourceObject": "North.arae.survey WD06.leaf1.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf1.recessed lower board": {
+    "memberId": "ildu.araechae.part.bb3a2465c0f6e3890f6a",
+    "sourceObject": "North.arae.survey WD06.leaf1.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf1.stile": {
+    "memberId": "ildu.araechae.part.71f1873e983c57d50059",
+    "sourceObject": "North.arae.survey WD06.leaf1.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf1.vertical sal": {
+    "memberId": "ildu.araechae.part.a01da16393ca9de6e294",
+    "sourceObject": "North.arae.survey WD06.leaf1.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf2.hanji backing": {
+    "memberId": "ildu.araechae.part.39b82ed62672d27e8319",
+    "sourceObject": "North.arae.survey WD06.leaf2.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf2.horizontal band": {
+    "memberId": "ildu.araechae.part.8a7af94e75cb3a51bf6d",
+    "sourceObject": "North.arae.survey WD06.leaf2.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf2.lock rail": {
+    "memberId": "ildu.araechae.part.a6efe6633f508ba77e59",
+    "sourceObject": "North.arae.survey WD06.leaf2.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf2.lower moulding.rail": {
+    "memberId": "ildu.araechae.part.53036fddf6661928921b",
+    "sourceObject": "North.arae.survey WD06.leaf2.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf2.lower moulding.stile": {
+    "memberId": "ildu.araechae.part.7fd4108100cfb2902d53",
+    "sourceObject": "North.arae.survey WD06.leaf2.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf2.rail": {
+    "memberId": "ildu.araechae.part.84bc3f8f385611399eb8",
+    "sourceObject": "North.arae.survey WD06.leaf2.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf2.rear paper rail": {
+    "memberId": "ildu.araechae.part.5221db3872a2b81a00bc",
+    "sourceObject": "North.arae.survey WD06.leaf2.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf2.rebated bead.rail": {
+    "memberId": "ildu.araechae.part.456eebda1bf46d63a021",
+    "sourceObject": "North.arae.survey WD06.leaf2.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf2.rebated bead.stile": {
+    "memberId": "ildu.araechae.part.44e98580b50b3026f071",
+    "sourceObject": "North.arae.survey WD06.leaf2.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf2.recessed lower board": {
+    "memberId": "ildu.araechae.part.ea505d0736142120c2e4",
+    "sourceObject": "North.arae.survey WD06.leaf2.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf2.stile": {
+    "memberId": "ildu.araechae.part.85b76c9453dbe570c05d",
+    "sourceObject": "North.arae.survey WD06.leaf2.stile",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey WD06.leaf2.vertical sal": {
+    "memberId": "ildu.araechae.part.377f7d3e82ef2093f6f2",
+    "sourceObject": "North.arae.survey WD06.leaf2.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.araechae-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.arae.survey front infill": {
+    "memberId": "ildu.araechae.part.8372af1c34652d03021c",
+    "sourceObject": "North.arae.survey front infill",
+    "reviewStage": 8,
+    "processId": "ildu.araechae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  }
+}

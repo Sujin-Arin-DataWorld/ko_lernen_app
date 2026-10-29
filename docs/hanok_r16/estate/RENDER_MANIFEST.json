@@ -1,0 +1,1159 @@
+{
+  "complete": true,
+  "preview": false,
+  "layers": [
+    "context",
+    "sarang",
+    "jung",
+    "anchae",
+    "arae",
+    "angotgan",
+    "ansarang",
+    "gokgan",
+    "changgo",
+    "sadang",
+    "toilet",
+    "toilet1",
+    "left",
+    "right",
+    "shrine"
+  ],
+  "settings": {
+    "camera": {
+      "position": [
+        -32,
+        -63,
+        72
+      ],
+      "target": [
+        8,
+        17,
+        2
+      ],
+      "orthoScale": 94,
+      "resolution": [
+        1600,
+        1700
+      ]
+    },
+    "light": {
+      "sunEnergy": 3.5,
+      "sunColor": [
+        1,
+        0.904661,
+        0.745404
+      ],
+      "sunDirection": [
+        -10,
+        -12,
+        20
+      ],
+      "sunAngle": 0.244346,
+      "worldColor": [
+        0.806952,
+        0.854993,
+        0.913099
+      ],
+      "worldStrength": 0.75,
+      "fillPosition": [
+        24,
+        -36,
+        21
+      ],
+      "fillEnergy": 8100,
+      "fillSize": 42,
+      "exposure": 0.2,
+      "viewTransform": "AgX",
+      "look": "AgX - Medium High Contrast"
+    }
+  },
+  "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+  "image": "complete.png",
+  "sha256": "11a77f254f74242862f2a176f447cbb4a3a677dd2345f868c5b05041f5720f59",
+  "layerReceipts": [
+    {
+      "complete": true,
+      "key": "context",
+      "meshCount": 671,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\inputs\\r12\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\ildu-estate-r5-three-gates-canonical.blend",
+          "sha256": "3195809855213946a330048b3b86cd3f75ccddac045dbaf640909cee4de36d48"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": -0.2546127140522003,
+        "right": 1.2228564023971558,
+        "top": 0.12135118246078491,
+        "bottom": 0.9947004113346338
+      },
+      "image": "context.exr",
+      "sha256": "6a19523697cf0eda3d30f8a0198179a93e1b5031eb13e1916f3cac93233d0529",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    },
+    {
+      "complete": true,
+      "key": "sarang",
+      "meshCount": 879,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\sarang\\full.blend",
+          "sha256": "b001666cef8bf9d0a23157c2aebb220d1df22f3b00698482e8277e9680049d12"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": 0.4569641053676605,
+        "right": 0.6948528289794922,
+        "top": 0.49899226427078247,
+        "bottom": 0.6640486717224121
+      },
+      "image": "sarang.exr",
+      "sha256": "4bf17d7b3584a83bf202b4e5979d14fe510c3297a4adb7880753a45a17f81586",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    },
+    {
+      "complete": true,
+      "key": "jung",
+      "meshCount": 244,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\jung\\full.blend",
+          "sha256": "5257728066bd62b8a38fbf897890b093ab98523316665927f00e7049fb8ac1ab"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": 0.40160688757896423,
+        "right": 0.5255842208862305,
+        "top": 0.4889677166938782,
+        "bottom": 0.6155356466770172
+      },
+      "image": "jung.exr",
+      "sha256": "d8796f0b17ecf37e51f43294de6c8ae2d4458a6ee5eb55e000956aee39d45677",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    },
+    {
+      "complete": true,
+      "key": "anchae",
+      "meshCount": 882,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\anchae\\full.blend",
+          "sha256": "3602b84f788337f1037b104daf525a95067e0def74e261a267b765064e818613"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": 0.4295327365398407,
+        "right": 0.6135588884353638,
+        "top": 0.37771159410476685,
+        "bottom": 0.6473134160041809
+      },
+      "image": "anchae.exr",
+      "sha256": "d6cefdeaf46116777e09acb23a49fca84c3a3edf7969c78676cbbc6ef1a4e0c5",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    },
+    {
+      "complete": true,
+      "key": "arae",
+      "meshCount": 259,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\arae\\full.blend",
+          "sha256": "b97426e3ed7e673a484bb4ca822289a4fc42fe7da2bfd6899daa08ffc69e035c"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": 0.33082297444343567,
+        "right": 0.4514884352684021,
+        "top": 0.39544808864593506,
+        "bottom": 0.48765307664871216
+      },
+      "image": "arae.exr",
+      "sha256": "7a641ccd253a6d1e232ce88386a7cb0f6d7249b239563801dea72011e8bd1931",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    },
+    {
+      "complete": true,
+      "key": "angotgan",
+      "meshCount": 108,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\angotgan\\full.blend",
+          "sha256": "e8f600ba76db069d1c70517ee29be321df5817e8441160e52ac98413e426b4ae"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": 0.2879158854484558,
+        "right": 0.4140044152736664,
+        "top": 0.4359828233718872,
+        "bottom": 0.5501784384250641
+      },
+      "image": "angotgan.exr",
+      "sha256": "56111405ff528b41067859fc74f9ab77613d1a00f8f5c23d22478bca23b4fe1e",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    },
+    {
+      "complete": true,
+      "key": "ansarang",
+      "meshCount": 385,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\ansarang\\full.blend",
+          "sha256": "06d3925b6ebd508967bb6b2c46d509e58e32c6d4c52b0df280a1d52a741e88f9"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": 0.7296386957168579,
+        "right": 0.8736541867256165,
+        "top": 0.5331428050994873,
+        "bottom": 0.676135241985321
+      },
+      "image": "ansarang.exr",
+      "sha256": "20b3c4b19f6d3ef283483b0137869d05be195a563a2d40882314fa48b3a4b3bc",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    },
+    {
+      "complete": true,
+      "key": "gokgan",
+      "meshCount": 75,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\gokgan\\full.blend",
+          "sha256": "302449fce492fe60e949757b44157cba0fd7849bd75022193b9a028ff5f0e8d8"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": 0.6384381055831909,
+        "right": 0.7789376974105835,
+        "top": 0.3991393446922302,
+        "bottom": 0.5457713305950165
+      },
+      "image": "gokgan.exr",
+      "sha256": "874460460bc9839322ddf186f8421d115b06659a85f5e10af52e520ff782f4ba",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    },
+    {
+      "complete": true,
+      "key": "changgo",
+      "meshCount": 209,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\changgo\\full.blend",
+          "sha256": "cbab7c5857cbb8d5d278629b6da6058f603a4a9aaa9d90f6d3f3cf4f1bd32a85"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": 0.34337761998176575,
+        "right": 0.4607883095741272,
+        "top": 0.5569766461849213,
+        "bottom": 0.6881118416786194
+      },
+      "image": "changgo.exr",
+      "sha256": "b41c915fe8427163ef35ba0ea895e200bebf59d8f472ccba37c0d22f504a2848",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    },
+    {
+      "complete": true,
+      "key": "sadang",
+      "meshCount": 229,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\sadang\\full.blend",
+          "sha256": "cccb2806bf97555eae3429faeec42752fb94e19d00ba456a97064efff964f8b6"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": 0.5747199058532715,
+        "right": 0.6990824937820435,
+        "top": 0.3448117971420288,
+        "bottom": 0.4571419358253479
+      },
+      "image": "sadang.exr",
+      "sha256": "dd7c3557515c1fd50e51585d2fea80c9b4a1d125bf5b2bf851a751da982553f8",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    },
+    {
+      "complete": true,
+      "key": "toilet",
+      "meshCount": 83,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\toilet\\full.blend",
+          "sha256": "001c38ecb9fdd10aeef7595b734796889b3661076efcc84823332651f3317b4f"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": 0.32048389315605164,
+        "right": 0.38622570037841797,
+        "top": 0.685009092092514,
+        "bottom": 0.7502095103263855
+      },
+      "image": "toilet.exr",
+      "sha256": "9902df1258d7e34af00baf198b6c493f6ac349b7980e274fad79ef1921632d47",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    },
+    {
+      "complete": true,
+      "key": "toilet1",
+      "meshCount": 83,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\toilet1\\full.blend",
+          "sha256": "d4877d10cf9cedc0a38804cd16e5ed4616d254cc9a8588e1a881b864bab5e8ef"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": 0.22319166362285614,
+        "right": 0.27906423807144165,
+        "top": 0.4673510193824768,
+        "bottom": 0.5237790942192078
+      },
+      "image": "toilet1.exr",
+      "sha256": "cc814dd4edd7d5d7908fd222190ed4b01cae5f18a0c54970e294ba443fc0fe09",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    },
+    {
+      "complete": true,
+      "key": "left",
+      "meshCount": 680,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\left-material.blend",
+          "sha256": "a44ba08bbdad79ac3fc0e746a2a1d8cc5ac062c4448e21150794f2225060afb7"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": 0.4209945797920227,
+        "right": 0.47693321108818054,
+        "top": 0.5781557261943817,
+        "bottom": 0.6342658996582031
+      },
+      "image": "left.exr",
+      "sha256": "7e6f1d24958366e89dffc9e7762243210c2d6eb6ab08172abda15e6abcfef712",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    },
+    {
+      "complete": true,
+      "key": "right",
+      "meshCount": 530,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\right-material.blend",
+          "sha256": "55f5c6c7a5b0a32f6f7ac79c6dbf9d11878b979b208ddcf66d64eeed1dc91699"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": 0.6549438238143921,
+        "right": 0.7105213403701782,
+        "top": 0.545747846364975,
+        "bottom": 0.6038139164447784
+      },
+      "image": "right.exr",
+      "sha256": "f9113f5aab27d18b032dc4b35c3a37f78b58d9c041382ce4ab5aa484dbfe3a97",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    },
+    {
+      "complete": true,
+      "key": "shrine",
+      "meshCount": 445,
+      "sourceFilesUnchanged": true,
+      "sources": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\shrine-material.blend",
+          "sha256": "a13ee80980f0445e1cd2bf79e028ec12c63517b9d54d40edba837f984210ce6e"
+        }
+      ],
+      "settings": {
+        "camera": {
+          "position": [
+            -32,
+            -63,
+            72
+          ],
+          "target": [
+            8,
+            17,
+            2
+          ],
+          "orthoScale": 94,
+          "resolution": [
+            1600,
+            1700
+          ]
+        },
+        "light": {
+          "sunEnergy": 3.5,
+          "sunColor": [
+            1,
+            0.904661,
+            0.745404
+          ],
+          "sunDirection": [
+            -10,
+            -12,
+            20
+          ],
+          "sunAngle": 0.244346,
+          "worldColor": [
+            0.806952,
+            0.854993,
+            0.913099
+          ],
+          "worldStrength": 0.75,
+          "fillPosition": [
+            24,
+            -36,
+            21
+          ],
+          "fillEnergy": 8100,
+          "fillSize": 42,
+          "exposure": 0.2,
+          "viewTransform": "AgX",
+          "look": "AgX - Medium High Contrast"
+        }
+      },
+      "settingsSha256": "6a97b44083d9f8ecf03e22d6a9eb0e5f7ee363f8c2e26ae58a88d7d43d1a54ee",
+      "projectedBounds": {
+        "left": 0.5962651371955872,
+        "right": 0.6376643776893616,
+        "top": 0.43746376037597656,
+        "bottom": 0.4796268939971924
+      },
+      "image": "shrine.exr",
+      "sha256": "77b305625994b29eecbf04e4a383b1ab1d5cfa8b2e1c472984879af199620cf8",
+      "samples": 24,
+      "scope": "completed artwork preview; no learner state"
+    }
+  ],
+  "geometryRedrawn": false,
+  "placement": "original stored world coordinates; rebuilt gates use original assembly matrices",
+  "crossBuildingBounceAndShadow": "layers preserve self shadows; cross-layer indirect lighting is not a single-scene path trace",
+  "runtimeIntegrated": false
+}

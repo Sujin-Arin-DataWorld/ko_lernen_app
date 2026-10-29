@@ -1,0 +1,3258 @@
+{
+  "complete": true,
+  "key": "sarang",
+  "kind": "full",
+  "native": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\roof-variants\\native\\sarang\\full.blend",
+  "sha256": "ef7b1ac264d26c56f121aa25e0af05a21ffb92fc1071b3eabe508ee93392b200",
+  "sourceConnectedNativeSha256": "b001666cef8bf9d0a23157c2aebb220d1df22f3b00698482e8277e9680049d12",
+  "sourceFilesUnchanged": true,
+  "roofLibrarySha256": "341adb75f1d91bc00a4a2f3cdd54457752598795e73f61dcc92904c593a5ac56",
+  "patches": [
+    {
+      "object": "R16 standalone complement | 01abb38ce7e6b2dfa512531d",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 01abb38ce7e6b2dfa512531d",
+      "donorRawGeometrySha256": "3ac089effdd63e9306a87a3d4189bddcd451a60caa7fa5c16d6f6a04325572f3"
+    },
+    {
+      "object": "R16 standalone complement | 05844c282257bff7edf50d58",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 05844c282257bff7edf50d58",
+      "donorRawGeometrySha256": "209ba02fa47f64236c60d2ad2930109eb48f4ef0f75fa2173121d837f52ff9ce"
+    },
+    {
+      "object": "R16 standalone complement | 0e3655491b6f9a842029714d",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 0e3655491b6f9a842029714d",
+      "donorRawGeometrySha256": "827d5da0c0d8762816e1bcc28c4ae37b87964265f2bb12b9d8681df5b966b1af"
+    },
+    {
+      "object": "R16 standalone complement | 136617d688eedf526c61b647",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 136617d688eedf526c61b647",
+      "donorRawGeometrySha256": "1e58c7ea0cc6a76abba163173a0d83c37b565fb949b606b095ccabf124ecada0"
+    },
+    {
+      "object": "R16 standalone complement | 167c9c3c779b35d2a4b3b633",
+      "sourceMembers": [
+        "Sarang.main roof.round tile ends"
+      ],
+      "requiredStage": 11,
+      "materials": [
+        [
+          "OBJECT",
+          "HS reference 3 tile-end | HS fresh tile-end | HS3 tile-end | HS2 tile-end | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+        ]
+      ],
+      "donorObject": "Standalone complement | 167c9c3c779b35d2a4b3b633",
+      "donorRawGeometrySha256": "90e42c232e0023f956f76ab8ec0efab77e13afedc036f175d048b49bc81bdb97"
+    },
+    {
+      "object": "R16 standalone complement | 18f44997d8197d127b5ebf68",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 18f44997d8197d127b5ebf68",
+      "donorRawGeometrySha256": "6d965a33de69dc688b18f56bf69a9372643f7cdefea26cbaf8812d6c4d37217d"
+    },
+    {
+      "object": "R16 standalone complement | 1a5c2b5e55349aa23eff3ada",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 1a5c2b5e55349aa23eff3ada",
+      "donorRawGeometrySha256": "5d80e1be05f34568e67beb6a4d9b0d716fee8f620fb8ba4dc675f9246175cf49"
+    },
+    {
+      "object": "R16 standalone complement | 1c56efa79e3fd057a3e9482c",
+      "sourceMembers": [
+        "Sarang.main roof.round tile ends"
+      ],
+      "requiredStage": 11,
+      "materials": [
+        [
+          "OBJECT",
+          "HS reference 3 tile-end | HS fresh tile-end | HS3 tile-end | HS2 tile-end | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+        ]
+      ],
+      "donorObject": "Standalone complement | 1c56efa79e3fd057a3e9482c",
+      "donorRawGeometrySha256": "c89632042db07bee93fc15489711eec517dcd95bfc444dd9aa22e9886e2f9926"
+    },
+    {
+      "object": "R16 standalone complement | 1e787d29f908597b13bfddb4",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 1e787d29f908597b13bfddb4",
+      "donorRawGeometrySha256": "82e1a88eb1ebcca17cb248d6580c862d2e543e6bfd5e0a7418612a58f83fd9e6"
+    },
+    {
+      "object": "R16 standalone complement | 21031cb37fb5bb31a5cb6abf",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 21031cb37fb5bb31a5cb6abf",
+      "donorRawGeometrySha256": "244b7ac1af88fe52b5f95ff82b6321cc9eb16f56177e58ce904c712bea3f10ab"
+    },
+    {
+      "object": "R16 standalone complement | 21553d171f2e6d65cb91c412",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 21553d171f2e6d65cb91c412",
+      "donorRawGeometrySha256": "d887ea3bd209962766a11b2da3c250b3d10f0a318c1a03124876a143e2d2a6ed"
+    },
+    {
+      "object": "R16 standalone complement | 218e3f5966042e409fa1dad0",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 218e3f5966042e409fa1dad0",
+      "donorRawGeometrySha256": "82fb44ef4e34a7209f7695e3b0ed91bc1b14482d5121b797c8a09bf85a37fd71"
+    },
+    {
+      "object": "R16 standalone complement | 27a51439015b64c3f262b3c1",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 27a51439015b64c3f262b3c1",
+      "donorRawGeometrySha256": "6f2957f64281f33928d496d0c32428e34a7333bf43e866d0db1175478d14b535"
+    },
+    {
+      "object": "R16 standalone complement | 35003b3c3cf6e40d0357a5d6",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 35003b3c3cf6e40d0357a5d6",
+      "donorRawGeometrySha256": "f061722fcb969d1378310d3c19ccb95734dd928c1d5c323b7b559664660d3a82"
+    },
+    {
+      "object": "R16 standalone complement | 372657ca917df77010fc045c",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 372657ca917df77010fc045c",
+      "donorRawGeometrySha256": "746eb5f91cd7f64aece9356337851a59acbd46c906ccc46c41557f25275c8e8f"
+    },
+    {
+      "object": "R16 standalone complement | 37ab4a1692360dcf28c3ec75",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 37ab4a1692360dcf28c3ec75",
+      "donorRawGeometrySha256": "62ea6bdbc4bef9169b9109c9c1ea57af041605be1ef88f650ca31ab42509d612"
+    },
+    {
+      "object": "R16 standalone complement | 3a76a1f5154f27d4e56b99a5",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 3a76a1f5154f27d4e56b99a5",
+      "donorRawGeometrySha256": "5a8bdd696bacf279c794f9bc24b9d6056cc81721a7008944be6538098246045d"
+    },
+    {
+      "object": "R16 standalone complement | 3d35069c14c1b024ce01501f",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 3d35069c14c1b024ce01501f",
+      "donorRawGeometrySha256": "3b549ae775773392c1ea9aee0f7dfd10ca1f36b3291244dd9c38496c2e487b8d"
+    },
+    {
+      "object": "R16 standalone complement | 3e518c89f3f4aff9d709f463",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 3e518c89f3f4aff9d709f463",
+      "donorRawGeometrySha256": "b8a9a2c59a52794fef15f53071443539b9bfb4db5eeb6708540504c04bbf23a1"
+    },
+    {
+      "object": "R16 standalone complement | 40004b6a0756971648d148e1",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 40004b6a0756971648d148e1",
+      "donorRawGeometrySha256": "82870ab67fdd1fdab44c1c41b28e83e2313a44cde0d6d8893c25f30261fd59d1"
+    },
+    {
+      "object": "R16 standalone complement | 404a4894c57a10e997e4adb3",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 404a4894c57a10e997e4adb3",
+      "donorRawGeometrySha256": "4dbc8df7043ed07dc306321ac0c58d243d3e5f724dc3f1286e416b8f0226407d"
+    },
+    {
+      "object": "R16 standalone complement | 41d473bccdb4e0b60ffada70",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 41d473bccdb4e0b60ffada70",
+      "donorRawGeometrySha256": "9cb6c99d17ad28b5ed0a579a6daf8a211f11e45a7ef03276f6ccfff217828f3b"
+    },
+    {
+      "object": "R16 standalone complement | 4370a6faf554e495ea391407",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 4370a6faf554e495ea391407",
+      "donorRawGeometrySha256": "0d10708b1a7f4e31da0b11a5b46ae9e997171a8854d0eda10639e10f712d66a1"
+    },
+    {
+      "object": "R16 standalone complement | 456d2b12d79e7c4fb6ddd102",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 456d2b12d79e7c4fb6ddd102",
+      "donorRawGeometrySha256": "c60452b5aea3d4b380a93aa27adf30300fdd587671b07698353159eea761c421"
+    },
+    {
+      "object": "R16 standalone complement | 457b17c623c74eb1b3ffcdbe",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 457b17c623c74eb1b3ffcdbe",
+      "donorRawGeometrySha256": "7e58997c359c3e06ac152820d7aed3606a3ecdaba59cb945f1fb4dccd19607ab"
+    },
+    {
+      "object": "R16 standalone complement | 46d57341578ffa56a2f1da90",
+      "sourceMembers": [
+        "Sarang.main roof.round tile ends"
+      ],
+      "requiredStage": 11,
+      "materials": [
+        [
+          "OBJECT",
+          "HS reference 3 tile-end | HS fresh tile-end | HS3 tile-end | HS2 tile-end | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+        ]
+      ],
+      "donorObject": "Standalone complement | 46d57341578ffa56a2f1da90",
+      "donorRawGeometrySha256": "0db5dad6ad91b22b6b6e4ea56472d0f7aea9a7620c6e3077c17040c897211611"
+    },
+    {
+      "object": "R16 standalone complement | 4c089f2af08a93d68ec9ea52",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 4c089f2af08a93d68ec9ea52",
+      "donorRawGeometrySha256": "9eab5c7c5305d363474b5fbd8dfd7dae10c35e26790e77ecb49f07cf868bbb29"
+    },
+    {
+      "object": "R16 standalone complement | 4da723f19e0ae18afa24d69a",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 4da723f19e0ae18afa24d69a",
+      "donorRawGeometrySha256": "d141e1249b19022d4890c9e1dc41d4da409e98e3a050cf48f8cb59fb7703a062"
+    },
+    {
+      "object": "R16 standalone complement | 4e29269913843c051267f5ac",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 4e29269913843c051267f5ac",
+      "donorRawGeometrySha256": "75eeedc6310c6cdcefb1a162c27e92887a7986ce765b1e95bd23d2e554a93905"
+    },
+    {
+      "object": "R16 standalone complement | 535580fb0061063f95f9a96a",
+      "sourceMembers": [
+        "Sarang.main roof.round tile ends"
+      ],
+      "requiredStage": 11,
+      "materials": [
+        [
+          "OBJECT",
+          "HS reference 3 tile-end | HS fresh tile-end | HS3 tile-end | HS2 tile-end | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+        ]
+      ],
+      "donorObject": "Standalone complement | 535580fb0061063f95f9a96a",
+      "donorRawGeometrySha256": "a273a9500e59b7706f9bdb5ad122ed494f854d5dd952cc382a3b5ae989c0f45b"
+    },
+    {
+      "object": "R16 standalone complement | 53cc5aefb3fd538780ca8e1a",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 53cc5aefb3fd538780ca8e1a",
+      "donorRawGeometrySha256": "d8e65546efe41be4879cad27f5b4076b1e366f2b30dfa7115b1a1d9a32866a64"
+    },
+    {
+      "object": "R16 standalone complement | 54db4f8771a39b2bde3ce7df",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 54db4f8771a39b2bde3ce7df",
+      "donorRawGeometrySha256": "c8f6df9c18b12f70593a633020cc8130a0d2b1505dfe737065c42aaa020c4377"
+    },
+    {
+      "object": "R16 standalone complement | 55ceac5352688e6d43a8b4a5",
+      "sourceMembers": [
+        "Sarang.main roof.round tile ends"
+      ],
+      "requiredStage": 11,
+      "materials": [
+        [
+          "OBJECT",
+          "HS reference 3 tile-end | HS fresh tile-end | HS3 tile-end | HS2 tile-end | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+        ]
+      ],
+      "donorObject": "Standalone complement | 55ceac5352688e6d43a8b4a5",
+      "donorRawGeometrySha256": "67d58f7227118aab3fb124f8f8180d27063811519cb7b6aa0d322a901d13269a"
+    },
+    {
+      "object": "R16 standalone complement | 5f0ed246575e572f0ccff703",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 5f0ed246575e572f0ccff703",
+      "donorRawGeometrySha256": "1152491ea9f5c39c0aa823b81a931742817ddc0d910c483596ef71a7d97cc7f5"
+    },
+    {
+      "object": "R16 standalone complement | 60cb46895e7ba95fa5c532fb",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 60cb46895e7ba95fa5c532fb",
+      "donorRawGeometrySha256": "e793c61e2f8fd12aa2b8d8584ffbdb6e3f38a0bdbec543a321d1d0135a821553"
+    },
+    {
+      "object": "R16 standalone complement | 60f3d7fa5592167b68823e2d",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 60f3d7fa5592167b68823e2d",
+      "donorRawGeometrySha256": "b05fe3512b8214b28341d5b4ef6cc6c1444aacf266e825f26d96340dfb9b640b"
+    },
+    {
+      "object": "R16 standalone complement | 62df844e35049f3221ee1436",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 62df844e35049f3221ee1436",
+      "donorRawGeometrySha256": "4d0eb784f7e6b5fc4166ed2ff0d3b7af03336e88c29dd32dcf741df1fe72daa7"
+    },
+    {
+      "object": "R16 standalone complement | 6391f326f571814675e1556a",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 6391f326f571814675e1556a",
+      "donorRawGeometrySha256": "8bc165d0faa082fb8fa3494d9697d2be2d9b3b21c13066bf7a354f748ed337fe"
+    },
+    {
+      "object": "R16 standalone complement | 63bdee10451d2baae0c1f89a",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 63bdee10451d2baae0c1f89a",
+      "donorRawGeometrySha256": "60b25915db831c6a527f6dec7d036f113973e9488da4a7d00608d66555e119af"
+    },
+    {
+      "object": "R16 standalone complement | 64c9e47245597bc6fbc58325",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 64c9e47245597bc6fbc58325",
+      "donorRawGeometrySha256": "36d28fe6454431a5ddd5ba221308ce383fb7d569291fa20f384337e1670b6e93"
+    },
+    {
+      "object": "R16 standalone complement | 6518cb6d686c735c880b658c",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 6518cb6d686c735c880b658c",
+      "donorRawGeometrySha256": "29d9d41bf2c22f1bd3bb3f80f3c819bbbf4c4acdfbfac099df47a2ff2bd69468"
+    },
+    {
+      "object": "R16 standalone complement | 6fe3e11d1e69aa5c61b3140c",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 6fe3e11d1e69aa5c61b3140c",
+      "donorRawGeometrySha256": "c7b4c3fb5cf678bf19ed37a2aa5478edb217777376a472290cf3e94ca73797a5"
+    },
+    {
+      "object": "R16 standalone complement | 712cacb76e3acfbee645b230",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 712cacb76e3acfbee645b230",
+      "donorRawGeometrySha256": "610d6709e066fd1a5cd934e768d290b4d5860b89bdbccc0bae70913fcd4352b4"
+    },
+    {
+      "object": "R16 standalone complement | 730e0eb4056ea5918af645c4",
+      "sourceMembers": [
+        "Sarang.main roof.round tile ends"
+      ],
+      "requiredStage": 11,
+      "materials": [
+        [
+          "OBJECT",
+          "HS reference 3 tile-end | HS fresh tile-end | HS3 tile-end | HS2 tile-end | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+        ]
+      ],
+      "donorObject": "Standalone complement | 730e0eb4056ea5918af645c4",
+      "donorRawGeometrySha256": "8df599864c2c5113a598d1fb0f00f88ee3a2eb8be2f7bf5d5c2d0997104b3be5"
+    },
+    {
+      "object": "R16 standalone complement | 7341f7e532bfffd7ccff8730",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 7341f7e532bfffd7ccff8730",
+      "donorRawGeometrySha256": "dab04ca769a1b65086231d5d79618853d790252517980417f71305bad14530c0"
+    },
+    {
+      "object": "R16 standalone complement | 75d3a4e484782399b78b228c",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 75d3a4e484782399b78b228c",
+      "donorRawGeometrySha256": "f5bf4335df6006c0235d0c797fa811538bc6ba017775dceb44a1b64528a8e73c"
+    },
+    {
+      "object": "R16 standalone complement | 7983093175523bd9dbd99cc1",
+      "sourceMembers": [
+        "Sarang.main roof.round tile ends"
+      ],
+      "requiredStage": 11,
+      "materials": [
+        [
+          "OBJECT",
+          "HS reference 3 tile-end | HS fresh tile-end | HS3 tile-end | HS2 tile-end | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+        ]
+      ],
+      "donorObject": "Standalone complement | 7983093175523bd9dbd99cc1",
+      "donorRawGeometrySha256": "ace4cd32353e10fc0f14d51d3944718ce6fd719dcbfed6571d9e2d23ca1481df"
+    },
+    {
+      "object": "R16 standalone complement | 7da896005b02fe39399057a7",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 7da896005b02fe39399057a7",
+      "donorRawGeometrySha256": "9cb499dd69df5ddb0b1fce9660e76e2f88217020cf7c5db667e979c90e3a60d7"
+    },
+    {
+      "object": "R16 standalone complement | 80ebd14f30e0915563b33ad6",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 80ebd14f30e0915563b33ad6",
+      "donorRawGeometrySha256": "3ecda2c72727a8becb800dbb327f00003cf26fc6181d97e7a31664b2a994b349"
+    },
+    {
+      "object": "R16 standalone complement | 833a2ca1782c677d5cef3853",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 833a2ca1782c677d5cef3853",
+      "donorRawGeometrySha256": "6a3f0d975447ed9828a36b17f911264d13539d0da6764bba4f41ba35fad274ca"
+    },
+    {
+      "object": "R16 standalone complement | 846436a10a520b3f34a2a940",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 846436a10a520b3f34a2a940",
+      "donorRawGeometrySha256": "507b78bd931d9d7e4d55b03d8acd9eaaa31cd2ef930268bbc6f1925505115911"
+    },
+    {
+      "object": "R16 standalone complement | 84e1c26ec52016bfe049bf53",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 84e1c26ec52016bfe049bf53",
+      "donorRawGeometrySha256": "8846b9f01a0d3e740fb248beb63516613dd702c765d2db8c6c3f2476923c7e5d"
+    },
+    {
+      "object": "R16 standalone complement | 8537a29638ff1b304a5f7c3c",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 8537a29638ff1b304a5f7c3c",
+      "donorRawGeometrySha256": "b1a92de1a3886beb4a1542acf5909f20a4a807557414a9d103cbfd0c284487c8"
+    },
+    {
+      "object": "R16 standalone complement | 859706ea44756ac90334cd7f",
+      "sourceMembers": [
+        "Sarang.main roof.gable frame"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 boards tone 3.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 gable master | HS15 individual grain gable | HS14 individual gable | HS13 sampled gable | HS12 timber gable | HS reference 3 gable | HS fresh gable | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 |"
+        ],
+        [
+          "OBJECT",
+          "HS16 gable master | HS15 individual grain gable | HS14 individual gable | HS13 sampled gable | HS12 timber gable | HS reference 3 gable | HS fresh gable | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 |.001"
+        ],
+        [
+          "OBJECT",
+          "HS16 gable master | HS15 individual grain gable | HS14 individual gable | HS13 sampled gable | HS12 timber gable | HS reference 3 gable | HS fresh gable | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 |.002"
+        ]
+      ],
+      "donorObject": "Standalone complement | 859706ea44756ac90334cd7f",
+      "donorRawGeometrySha256": "0e0af9f508717c2d0b8015ac402a3b20212f38265b98d5f96844edc9c0c94d25"
+    },
+    {
+      "object": "R16 standalone complement | 87d70cefa37bc4bb6e79d0ca",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 87d70cefa37bc4bb6e79d0ca",
+      "donorRawGeometrySha256": "4f58cc18f4387ded9260eaf5c5cb5619fffe8ad22362b3336a2ca918d95eed86"
+    },
+    {
+      "object": "R16 standalone complement | 88f94ad99cc976e01215289e",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 88f94ad99cc976e01215289e",
+      "donorRawGeometrySha256": "688f5ea7bae406fc199499f017fe7628ad7ff0a44f5f35c99f0b20245991c336"
+    },
+    {
+      "object": "R16 standalone complement | 89dd99827e240c88bea5f7e2",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 89dd99827e240c88bea5f7e2",
+      "donorRawGeometrySha256": "20105fd3c4e8155a8f55b21c42ad97862638366ba3960b84ec18383aa6e92731"
+    },
+    {
+      "object": "R16 standalone complement | 8d3d873bbe0cd899ed7a90ed",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 8d3d873bbe0cd899ed7a90ed",
+      "donorRawGeometrySha256": "6b4f1055a88e75200c0b265b14fe2dc72cb14b4baa17d789f34d28b9aa5d550c"
+    },
+    {
+      "object": "R16 standalone complement | 8ed1210182c33a221eac13b4",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 8ed1210182c33a221eac13b4",
+      "donorRawGeometrySha256": "45cf1da69729e7567e97dfb0ef0bd0f031eb30e4f816c5ab18232dd8cca64577"
+    },
+    {
+      "object": "R16 standalone complement | 9020c1f26691b55d59a9963c",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 9020c1f26691b55d59a9963c",
+      "donorRawGeometrySha256": "fd7ec46501b84cc2549d47a91b018d8f0ba292031f9b9a3e14e5000de296aa6d"
+    },
+    {
+      "object": "R16 standalone complement | 905da3db6a70871629336c07",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 905da3db6a70871629336c07",
+      "donorRawGeometrySha256": "f64e28da0864e02221cafa178ff0316166cca9d393c2a54ec8edfbc0699cdae5"
+    },
+    {
+      "object": "R16 standalone complement | 90b246b9957a23abf07bbe1a",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 90b246b9957a23abf07bbe1a",
+      "donorRawGeometrySha256": "93b51f60fdf6dd85cdf738370bedcd61ca2aaf520cd69e01d18db33d88e4b2bc"
+    },
+    {
+      "object": "R16 standalone complement | 90e0a3212525c935d79251d3",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 90e0a3212525c935d79251d3",
+      "donorRawGeometrySha256": "7735dbb6c6e271a346cf9c0448db2cb9efdaba108db599025f0d3ebd58cc13fa"
+    },
+    {
+      "object": "R16 standalone complement | 91f1286cdca8500eab196be2",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 91f1286cdca8500eab196be2",
+      "donorRawGeometrySha256": "f756ddf3a0e30a0607e8a6dc643b3cc2c4eb9f3d2d80e35d6828545bc68f2417"
+    },
+    {
+      "object": "R16 standalone complement | 93a7c24a7617728c42307503",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 93a7c24a7617728c42307503",
+      "donorRawGeometrySha256": "0edd43afd435a5a70ba6f9d436a87b0047c507ae911b7dd3bcf391e67b9d7a86"
+    },
+    {
+      "object": "R16 standalone complement | 97687a0fe71470c85507dcde",
+      "sourceMembers": [
+        "Sarang.main roof.round tile ends"
+      ],
+      "requiredStage": 11,
+      "materials": [
+        [
+          "OBJECT",
+          "HS reference 3 tile-end | HS fresh tile-end | HS3 tile-end | HS2 tile-end | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+        ]
+      ],
+      "donorObject": "Standalone complement | 97687a0fe71470c85507dcde",
+      "donorRawGeometrySha256": "56f9ba7e8821f5578b5c34f43b68d2112928d879a13dfdd131b3f6c3682248e4"
+    },
+    {
+      "object": "R16 standalone complement | 982e4d8dd937b6d150fa2ec9",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 982e4d8dd937b6d150fa2ec9",
+      "donorRawGeometrySha256": "80b9b3865fddce0649f4fcfd88b701431b4fef1efef704692d29a957292dc983"
+    },
+    {
+      "object": "R16 standalone complement | 9c717cbf50bba0fa9d805bac",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | 9c717cbf50bba0fa9d805bac",
+      "donorRawGeometrySha256": "b1e4b6899ddf97126642fecf3e69640584d378b81bd64e9c02207e8756679433"
+    },
+    {
+      "object": "R16 standalone complement | 9fd00346b973f7224bc8af67",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 9fd00346b973f7224bc8af67",
+      "donorRawGeometrySha256": "cb16b215b711fdd7ee4d99bc46364741160e470fca39c77894f9d5fc8f600f73"
+    },
+    {
+      "object": "R16 standalone complement | 9ff7dc5f4ad88cfaaa3b2c4e",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | 9ff7dc5f4ad88cfaaa3b2c4e",
+      "donorRawGeometrySha256": "bb0e1c74440a9864927c58e788692f4eedc37de2f37f6f075267ee830ac777bc"
+    },
+    {
+      "object": "R16 standalone complement | a411c5d9a1cc9454e397cb0a",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | a411c5d9a1cc9454e397cb0a",
+      "donorRawGeometrySha256": "75c53434653cd565930d2c50cd6b4048124eed3be7f21ce77b137a402d95eb35"
+    },
+    {
+      "object": "R16 standalone complement | a52f23465f3701da0eec1143",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | a52f23465f3701da0eec1143",
+      "donorRawGeometrySha256": "60d1f85f29578cba9ca708e5886b2ef7dd6b5f2b7786c04c014b6b4c928756c9"
+    },
+    {
+      "object": "R16 standalone complement | a80e086b49a6587bd77f8b12",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | a80e086b49a6587bd77f8b12",
+      "donorRawGeometrySha256": "be549f9b0f9b8a510071af6ee9be162cb185954718b2cf44f1d20dcaa29337d7"
+    },
+    {
+      "object": "R16 standalone complement | aa0087b2129ab5ddc7c8765e",
+      "sourceMembers": [
+        "Sarang.main roof.round tile ends"
+      ],
+      "requiredStage": 11,
+      "materials": [
+        [
+          "OBJECT",
+          "HS reference 3 tile-end | HS fresh tile-end | HS3 tile-end | HS2 tile-end | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+        ]
+      ],
+      "donorObject": "Standalone complement | aa0087b2129ab5ddc7c8765e",
+      "donorRawGeometrySha256": "1409ea79429e894d4a7861a491f2797d264e1912c276cfb5a9b30f2e74aff09a"
+    },
+    {
+      "object": "R16 standalone complement | abdf61d681906c2a7af86367",
+      "sourceMembers": [
+        "Sarang.main roof",
+        "Sarang.main roof.001",
+        "Sarang.main roof.002",
+        "Sarang.main roof.003",
+        "Sarang.main roof.004",
+        "Sarang.main roof.005"
+      ],
+      "requiredStage": 11,
+      "materials": [
+        [
+          "OBJECT",
+          "HS13 sampled tile | HS detail4 tile | HS reference 3 tile | HS fresh tile | HS3 tile | HS2 tile | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+        ]
+      ],
+      "donorObject": "Standalone complement | abdf61d681906c2a7af86367",
+      "donorRawGeometrySha256": "b7e620c83b7d86f51254aa5b98bba56baba27896cb4d1780f639156f9de630ea"
+    },
+    {
+      "object": "R16 standalone complement | ad23e1f83ef2b7d32eded381",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | ad23e1f83ef2b7d32eded381",
+      "donorRawGeometrySha256": "4ba4d828b5e1da788600151fce75686b13276ad083946c48a8bc10bdcf9410b5"
+    },
+    {
+      "object": "R16 standalone complement | ae6984ead7c4de9d0dfce609",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | ae6984ead7c4de9d0dfce609",
+      "donorRawGeometrySha256": "21a1268547d69f7264d4ddf8a6ee122b3abaff4b262860650f756ec09694633b"
+    },
+    {
+      "object": "R16 standalone complement | af9205e1ba4ade6a8d2aa24a",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | af9205e1ba4ade6a8d2aa24a",
+      "donorRawGeometrySha256": "9db3916051db069f28b1233f4d6178637a9d94eb066ce6ead23a11c2bebf9641"
+    },
+    {
+      "object": "R16 standalone complement | af9afcfb04cbf09821cb5416",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | af9afcfb04cbf09821cb5416",
+      "donorRawGeometrySha256": "06eabb99b928d4ef9aa5d4cf48dd4c9b60d58c9a8406fac72c21fea3980ea399"
+    },
+    {
+      "object": "R16 standalone complement | b01417de48cafb1855f91d23",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | b01417de48cafb1855f91d23",
+      "donorRawGeometrySha256": "496c110a9c9526e950d93113a1eaaa2c4a6c764b3e0f767738b52c34328ab5c1"
+    },
+    {
+      "object": "R16 standalone complement | b195eb2a71b9434f155fc1cb",
+      "sourceMembers": [
+        "Sarang.main roof.round tile ends"
+      ],
+      "requiredStage": 11,
+      "materials": [
+        [
+          "OBJECT",
+          "HS reference 3 tile-end | HS fresh tile-end | HS3 tile-end | HS2 tile-end | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+        ]
+      ],
+      "donorObject": "Standalone complement | b195eb2a71b9434f155fc1cb",
+      "donorRawGeometrySha256": "2f84df0d42962f44293d7eccd24d17c95ea63048eb53051cfcdf895ea0086edc"
+    },
+    {
+      "object": "R16 standalone complement | b323487a263a85c5c7b84873",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | b323487a263a85c5c7b84873",
+      "donorRawGeometrySha256": "d3cc499eff9ff56ccb9429e9161a1ec92c8c87bbc58403359c8ae4010bb12d20"
+    },
+    {
+      "object": "R16 standalone complement | b386d63a6202a7c9684c14d5",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | b386d63a6202a7c9684c14d5",
+      "donorRawGeometrySha256": "4fe6ff5ee4568357e949e3dccfbc16bf8a9b1418ee4d084c1849fd88d2207749"
+    },
+    {
+      "object": "R16 standalone complement | b3c9edd5164a4d3029e2acb9",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | b3c9edd5164a4d3029e2acb9",
+      "donorRawGeometrySha256": "a0075390276a96b8b5f111869401f3af446d232a7c557bab21b474f2a2a69b13"
+    },
+    {
+      "object": "R16 standalone complement | b4d332bf6b4f24e51635abdb",
+      "sourceMembers": [
+        "Sarang.main roof.round tile ends"
+      ],
+      "requiredStage": 11,
+      "materials": [
+        [
+          "OBJECT",
+          "HS reference 3 tile-end | HS fresh tile-end | HS3 tile-end | HS2 tile-end | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+        ]
+      ],
+      "donorObject": "Standalone complement | b4d332bf6b4f24e51635abdb",
+      "donorRawGeometrySha256": "07008738d007cb742bb4965b096d78586d446c9608fb879a4b6a75417efd3150"
+    },
+    {
+      "object": "R16 standalone complement | b525c688b13f7a1fb2430e08",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | b525c688b13f7a1fb2430e08",
+      "donorRawGeometrySha256": "13be34b2cc78c7193abca3ff60d3df4aeba278d3e0877b5530f4395756d24562"
+    },
+    {
+      "object": "R16 standalone complement | bc754c3876c03f4ba6de4cff",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | bc754c3876c03f4ba6de4cff",
+      "donorRawGeometrySha256": "b4a2500756795422567844a69ca59c5f7be64d7590f6c712abb45788766d5e46"
+    },
+    {
+      "object": "R16 standalone complement | bc9773eec99872ae20fc2549",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | bc9773eec99872ae20fc2549",
+      "donorRawGeometrySha256": "7e583690afb846909733df28c13b07af875657ab78289d76ce35e56ad0372f5a"
+    },
+    {
+      "object": "R16 standalone complement | c090e90c3e3e6d27cfe90a82",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | c090e90c3e3e6d27cfe90a82",
+      "donorRawGeometrySha256": "6d3990d74dd3457c913748a0c88c67dc0a20b8f9ac07d4baec50d93fffa5addb"
+    },
+    {
+      "object": "R16 standalone complement | c18afc2652c0774cbd052b8b",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | c18afc2652c0774cbd052b8b",
+      "donorRawGeometrySha256": "5943590a8c98fa62a38e8e07676d94aafcdf6a08dad6a581f130318105a800ce"
+    },
+    {
+      "object": "R16 standalone complement | c35f7adfcc694912ae304dcd",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | c35f7adfcc694912ae304dcd",
+      "donorRawGeometrySha256": "d1e084719c5b164ca23168cbe9c93ca4fb0805ccde69d25023988b5b658d86a3"
+    },
+    {
+      "object": "R16 standalone complement | c906fdb898a85e4d329205b4",
+      "sourceMembers": [
+        "Craft.Sarang roof underside boarding"
+      ],
+      "requiredStage": 9,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 boards tone 4.003"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 door_panel | HS fresh door_panel | HS3 wood | HS2 wood | Ildu craft board-door | R6 restored wood | Selected timber v2 |"
+        ]
+      ],
+      "donorObject": "Standalone complement | c906fdb898a85e4d329205b4",
+      "donorRawGeometrySha256": "81c596c3c5f6896146a0ddb3f5bcd89967591f7219c4c6f786124be52b9de0c1"
+    },
+    {
+      "object": "R16 standalone complement | ce4e651d8dd1a486f2c50774",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | ce4e651d8dd1a486f2c50774",
+      "donorRawGeometrySha256": "228c605d41ce2ba6989f4e2f0bd531be114e3b35172e8acaf009e18d20166bcc"
+    },
+    {
+      "object": "R16 standalone complement | d154dc1863d9c87e612f7a33",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | d154dc1863d9c87e612f7a33",
+      "donorRawGeometrySha256": "0b21d940a73bf4dbfa90229dac2439e25768e531f469007c1a3a52d51b4161d1"
+    },
+    {
+      "object": "R16 standalone complement | d1cb0a034f63bf40d59937ea",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | d1cb0a034f63bf40d59937ea",
+      "donorRawGeometrySha256": "49edecb3f77d9d2219c1eb0cfa7ef285e5f4a5e1efbb9658d941f92ce94df1d8"
+    },
+    {
+      "object": "R16 standalone complement | d282e08d31130e7ae83d5b2a",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | d282e08d31130e7ae83d5b2a",
+      "donorRawGeometrySha256": "eb10e09210fd8ad390b807c1cc9036fc22f8c50707de0046434df1617865717b"
+    },
+    {
+      "object": "R16 standalone complement | d565d19a6bc0f09cfb730289",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | d565d19a6bc0f09cfb730289",
+      "donorRawGeometrySha256": "6989634a6609319dd48973c176a6e2e9e643caf5fa059709e1608c8b08576e0e"
+    },
+    {
+      "object": "R16 standalone complement | d6c4de84592c8aea3f2abb4c",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | d6c4de84592c8aea3f2abb4c",
+      "donorRawGeometrySha256": "b26f98e0f3f409fb028e8884870f1a44705ffbc1baf8984b9c34a3e86795de70"
+    },
+    {
+      "object": "R16 standalone complement | da008a548b1e0c8394523f93",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | da008a548b1e0c8394523f93",
+      "donorRawGeometrySha256": "2a6c330d2fe300e9ba6cb4edc64da849a7dec2a5814ef7ba190bb6d66c8ae578"
+    },
+    {
+      "object": "R16 standalone complement | da39e05b880ee39e1a5f806b",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | da39e05b880ee39e1a5f806b",
+      "donorRawGeometrySha256": "34833b2cd493ea2b4e03661c80994cc2175b5d3d9536a0fa67f5af5525287d04"
+    },
+    {
+      "object": "R16 standalone complement | da9c4803b9f7436b7ea3e497",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | da9c4803b9f7436b7ea3e497",
+      "donorRawGeometrySha256": "990bc89d37915a02d8555e50140936003a85bf1cc828dd477bc9f7198044694d"
+    },
+    {
+      "object": "R16 standalone complement | dba5db4a93c76ff29114b4cb",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | dba5db4a93c76ff29114b4cb",
+      "donorRawGeometrySha256": "63e18b2e981e06f2be930b3e46e53f4ccd3d0002e100bbd77187b3227d4489e9"
+    },
+    {
+      "object": "R16 standalone complement | ddd28e5af5e376c6a18f851a",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | ddd28e5af5e376c6a18f851a",
+      "donorRawGeometrySha256": "847d1366aea75127337cea75fe134b84c7ba5168d4e9ba318e952d79aac28990"
+    },
+    {
+      "object": "R16 standalone complement | ddf2e45dc7d458e94e0dd0cb",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | ddf2e45dc7d458e94e0dd0cb",
+      "donorRawGeometrySha256": "97f07d76c34a0a2c706739f5725c84a5c9d914b7880ad873a18920a766279cb9"
+    },
+    {
+      "object": "R16 standalone complement | e488daf9c3a597a5e8d59cdc",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | e488daf9c3a597a5e8d59cdc",
+      "donorRawGeometrySha256": "2f5b9585434ced247049c70055f2d3aaaba6c6486b97211c5145741ccc11504f"
+    },
+    {
+      "object": "R16 standalone complement | eb8763092a7648d8c8865364",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | eb8763092a7648d8c8865364",
+      "donorRawGeometrySha256": "78955f4e22747ee7e470685b81481c2a38b0dff6c09790d0d069c7688638ec0e"
+    },
+    {
+      "object": "R16 standalone complement | ec083de304e4a40b0dcaf95a",
+      "sourceMembers": [
+        "Sarang.main roof.round tile ends"
+      ],
+      "requiredStage": 11,
+      "materials": [
+        [
+          "OBJECT",
+          "HS reference 3 tile-end | HS fresh tile-end | HS3 tile-end | HS2 tile-end | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+        ]
+      ],
+      "donorObject": "Standalone complement | ec083de304e4a40b0dcaf95a",
+      "donorRawGeometrySha256": "df651784f2009372af7d99c83274ff8187b5b44a857921109e6ab09effcae3d4"
+    },
+    {
+      "object": "R16 standalone complement | ed91664d25accc128fcf5cf3",
+      "sourceMembers": [
+        "Sarang.main roof.round tile ends"
+      ],
+      "requiredStage": 11,
+      "materials": [
+        [
+          "OBJECT",
+          "HS reference 3 tile-end | HS fresh tile-end | HS3 tile-end | HS2 tile-end | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+        ]
+      ],
+      "donorObject": "Standalone complement | ed91664d25accc128fcf5cf3",
+      "donorRawGeometrySha256": "94ea3b98f8937055a5b1f5a6ff6a338d35425e36a5a416886d032dc618692257"
+    },
+    {
+      "object": "R16 standalone complement | ef240959daa12e1fa89b5b62",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | ef240959daa12e1fa89b5b62",
+      "donorRawGeometrySha256": "132cd30fbe04fb74cf1f0f10b4d5093c09ea3ff375ed9daa4d09b725f574e78b"
+    },
+    {
+      "object": "R16 standalone complement | ef660d127c16357db1a90c2a",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | ef660d127c16357db1a90c2a",
+      "donorRawGeometrySha256": "9d5adddd03614b5dee38ea7d99321733c148bfe91de91028f09ff9ebdfc2587e"
+    },
+    {
+      "object": "R16 standalone complement | ef8a67c28ef630c0053f4612",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | ef8a67c28ef630c0053f4612",
+      "donorRawGeometrySha256": "85f10a45666bc6cfd018f417537c7259bda3ac32137467eec99767ab0d9c2e91"
+    },
+    {
+      "object": "R16 standalone complement | ef9a138b43d02e8ee59e6fe7",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | ef9a138b43d02e8ee59e6fe7",
+      "donorRawGeometrySha256": "0ebfe8c7ddc8565a822a5ac595c2552a83f13a839eed7337193f2c779a397a0a"
+    },
+    {
+      "object": "R16 standalone complement | f1fddbd7d44d58ab68e785da",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | f1fddbd7d44d58ab68e785da",
+      "donorRawGeometrySha256": "c6714bfe86f2f7befd8f5d6a5bfe40a32e5cb9a581e1cbe41dc6dd32f60a7327"
+    },
+    {
+      "object": "R16 standalone complement | f727da9bf10c2f049dc291fc",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | f727da9bf10c2f049dc291fc",
+      "donorRawGeometrySha256": "7d2d3eb5c91028c112229a530a5bef8d312110eb6186b1bbb38547908df9f7a0"
+    },
+    {
+      "object": "R16 standalone complement | f82b8459d563802b5cdbdf57",
+      "sourceMembers": [
+        "Sarang.main roof.gable timber"
+      ],
+      "requiredStage": 12,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 boards tone 0.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 gable master | HS15 individual grain gable | HS14 individual gable | HS13 sampled gable | HS12 timber gable | HS reference 3 gable | HS fresh gable | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v2 |.003"
+        ]
+      ],
+      "donorObject": "Standalone complement | f82b8459d563802b5cdbdf57",
+      "donorRawGeometrySha256": "1eb46e34e8c98163900a9623a6faf87104a6845c278f256efc76070f0c8d927a"
+    },
+    {
+      "object": "R16 standalone complement | fa7693453ea0603f9809cd94",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | fa7693453ea0603f9809cd94",
+      "donorRawGeometrySha256": "83c41173d5c1ddbdb62a95ef6977f5335f919194010dca149ee16c7903dee378"
+    },
+    {
+      "object": "R16 standalone complement | fb02b8061af10152a19bd79e",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.lower exposed rafters.end grain"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "HS16 endgrain master | HS14 individual endgrain | HS13 sampled endgrain | HS12 timber endgrain | HS reference 3 endgrain | HS fresh endgrain | HS3 endgrain | HS2 endgrain | Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft r"
+        ]
+      ],
+      "donorObject": "Standalone complement | fb02b8061af10152a19bd79e",
+      "donorRawGeometrySha256": "9b8bad5dc4e30e320bbbbd0b5fd0c1bcaf56eacbf696e1d24cc9ab30f34b92ed"
+    },
+    {
+      "object": "R16 standalone complement | fc5e48ec9cae57cc99940490",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | fc5e48ec9cae57cc99940490",
+      "donorRawGeometrySha256": "4ea3c7a8382b94130c25d35e510b4d3da7053f76d7ba0e4a702650be9898f4ad"
+    },
+    {
+      "object": "R16 standalone complement | fe883a7b9d61bbb59ef852ee",
+      "sourceMembers": [
+        "Craft.Sarang.main roof.rafters"
+      ],
+      "requiredStage": 8,
+      "materials": [
+        [
+          "OBJECT",
+          "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 frame tone 4.002"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber "
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber v"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timbe"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timb"
+        ],
+        [
+          "OBJECT",
+          "HS16 rafter master | HS15 individual grain rafter | HS14 individual rafter | HS13 sampled rafter | HS12 timber rafter | HS reference 3 rafter | HS fresh rafter | HS3 wood | HS2 wood | Ildu craft structural-long-grain | R6 restored wood | Selected timber"
+        ]
+      ],
+      "donorObject": "Standalone complement | fe883a7b9d61bbb59ef852ee",
+      "donorRawGeometrySha256": "352650e4e2a7c00a0c9a6649929370386684a173ff7f0059272d18909078236a"
+    }
+  ],
+  "repairedMeshObjects": [],
+  "hiddenHelpers": 2,
+  "nonRoofDataMaterialsTransformsHierarchyPreserved": true,
+  "packedImages": true,
+  "reopened": true,
+  "stageSelections": [
+    {
+      "sequence": 16,
+      "processId": "ildu.sarangchae-complete",
+      "originalVisible": 879,
+      "standaloneRoofVisible": 119
+    }
+  ],
+  "logicalProcessIdsUnchanged": true,
+  "newProgressOrReward": false,
+  "runtimeIntegrated": false
+}

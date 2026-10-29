@@ -1,0 +1,1227 @@
+{
+  "complete": true,
+  "checkedViews": 156,
+  "logicalStages": 128,
+  "roofVariantViews": 56,
+  "checks": [
+    {
+      "building": "안채",
+      "stage": 1,
+      "alt": "안채 1단계 집터",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/anchae/stages/01.png",
+      "width": 800
+    },
+    {
+      "building": "안채",
+      "stage": 2,
+      "alt": "안채 2단계 돌기단",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/anchae/stages/02.png",
+      "width": 800
+    },
+    {
+      "building": "안채",
+      "stage": 3,
+      "alt": "안채 3단계 기둥",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/anchae/stages/03.png",
+      "width": 800
+    },
+    {
+      "building": "안채",
+      "stage": 4,
+      "alt": "안채 4단계 보와 도리",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/anchae/stages/04.png",
+      "width": 800
+    },
+    {
+      "building": "안채",
+      "stage": 5,
+      "alt": "안채 5단계 추녀 틀",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/anchae/stages/05.png",
+      "width": 800
+    },
+    {
+      "building": "안채",
+      "stage": 6,
+      "alt": "안채 6단계 서까래와 처마",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/anchae/stages/06.png",
+      "width": 800
+    },
+    {
+      "building": "안채",
+      "stage": 7,
+      "alt": "안채 7단계 지붕 바탕",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/anchae/stages/07.png",
+      "width": 800
+    },
+    {
+      "building": "안채",
+      "stage": 8,
+      "alt": "안채 8단계 기와",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/anchae/stages/08.png",
+      "width": 800
+    },
+    {
+      "building": "안채",
+      "stage": 9,
+      "alt": "안채 9단계 벽체와 부엌",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/anchae/stages/09.png",
+      "width": 800
+    },
+    {
+      "building": "안채",
+      "stage": 10,
+      "alt": "안채 10단계 부엌과 다락",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/anchae/stages/10.png",
+      "width": 800
+    },
+    {
+      "building": "안채",
+      "stage": 11,
+      "alt": "안채 11단계 온돌",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/anchae/stages/11.png",
+      "width": 800
+    },
+    {
+      "building": "안채",
+      "stage": 12,
+      "alt": "안채 12단계 대청마루",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/anchae/stages/12.png",
+      "width": 800
+    },
+    {
+      "building": "안채",
+      "stage": 13,
+      "alt": "안채 13단계 창호",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/anchae/stages/13.png",
+      "width": 800
+    },
+    {
+      "building": "안채",
+      "stage": 14,
+      "alt": "안채 14단계 완성 · 사용",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/anchae/stages/14.png",
+      "width": 800
+    },
+    {
+      "building": "안사랑채",
+      "stage": 1,
+      "alt": "안사랑채 1단계 터 닦기",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/ansarang/stages/01.png"
+    },
+    {
+      "building": "안사랑채",
+      "stage": 2,
+      "alt": "안사랑채 2단계 기단",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/ansarang/stages/02.png"
+    },
+    {
+      "building": "안사랑채",
+      "stage": 3,
+      "alt": "안사랑채 3단계 초석",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/ansarang/stages/03.png"
+    },
+    {
+      "building": "안사랑채",
+      "stage": 4,
+      "alt": "안사랑채 4단계 기둥",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/ansarang/stages/04.png"
+    },
+    {
+      "building": "안사랑채",
+      "stage": 5,
+      "alt": "안사랑채 5단계 보",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/ansarang/stages/05.png"
+    },
+    {
+      "building": "안사랑채",
+      "stage": 6,
+      "alt": "안사랑채 6단계 서까래",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/ansarang/stages/06.png"
+    },
+    {
+      "building": "안사랑채",
+      "stage": 7,
+      "alt": "안사랑채 7단계 지붕 바탕",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/ansarang/stages/07.png"
+    },
+    {
+      "building": "안사랑채",
+      "stage": 8,
+      "alt": "안사랑채 8단계 기와",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/ansarang/stages/08.png"
+    },
+    {
+      "building": "안사랑채",
+      "stage": 9,
+      "alt": "안사랑채 9단계 벽체",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/ansarang/stages/09.png"
+    },
+    {
+      "building": "안사랑채",
+      "stage": 10,
+      "alt": "안사랑채 10단계 온돌",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/ansarang/stages/10.png"
+    },
+    {
+      "building": "안사랑채",
+      "stage": 11,
+      "alt": "안사랑채 11단계 마루 내부",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/ansarang/stages/11.png"
+    },
+    {
+      "building": "안사랑채",
+      "stage": 12,
+      "alt": "안사랑채 12단계 툇마루",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/ansarang/stages/12.png"
+    },
+    {
+      "building": "안사랑채",
+      "stage": 13,
+      "alt": "안사랑채 13단계 문",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/ansarang/stages/13.png"
+    },
+    {
+      "building": "안사랑채",
+      "stage": 14,
+      "alt": "안사랑채 14단계 완성",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/ansarang/stages/14.png"
+    },
+    {
+      "building": "사당",
+      "stage": 1,
+      "alt": "사당 1단계 터 닦기",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sadang/stages/01.png"
+    },
+    {
+      "building": "사당",
+      "stage": 2,
+      "alt": "사당 2단계 기단",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sadang/stages/02.png"
+    },
+    {
+      "building": "사당",
+      "stage": 3,
+      "alt": "사당 3단계 초석",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sadang/stages/03.png"
+    },
+    {
+      "building": "사당",
+      "stage": 4,
+      "alt": "사당 4단계 기둥",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sadang/stages/04.png"
+    },
+    {
+      "building": "사당",
+      "stage": 5,
+      "alt": "사당 5단계 공포",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sadang/stages/05.png"
+    },
+    {
+      "building": "사당",
+      "stage": 6,
+      "alt": "사당 6단계 서까래",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sadang/stages/06.png"
+    },
+    {
+      "building": "사당",
+      "stage": 7,
+      "alt": "사당 7단계 지붕 바탕",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sadang/stages/07.png"
+    },
+    {
+      "building": "사당",
+      "stage": 8,
+      "alt": "사당 8단계 기와",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sadang/stages/08.png"
+    },
+    {
+      "building": "사당",
+      "stage": 9,
+      "alt": "사당 9단계 마루 내부",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sadang/stages/09.png"
+    },
+    {
+      "building": "사당",
+      "stage": 10,
+      "alt": "사당 10단계 벽체",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sadang/stages/10.png"
+    },
+    {
+      "building": "사당",
+      "stage": 11,
+      "alt": "사당 11단계 마감",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sadang/stages/11.png"
+    },
+    {
+      "building": "사당",
+      "stage": 12,
+      "alt": "사당 12단계 완성",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sadang/stages/12.png"
+    },
+    {
+      "building": "아랫채",
+      "stage": 1,
+      "alt": "아랫채 1단계 터와 방 배치",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/arae/stages/01.png"
+    },
+    {
+      "building": "아랫채",
+      "stage": 2,
+      "alt": "아랫채 2단계 돌기단",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/arae/stages/02.png"
+    },
+    {
+      "building": "아랫채",
+      "stage": 3,
+      "alt": "아랫채 3단계 기둥과 바닥틀",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/arae/stages/03.png"
+    },
+    {
+      "building": "아랫채",
+      "stage": 4,
+      "alt": "아랫채 4단계 보와 도리",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/arae/stages/04.png"
+    },
+    {
+      "building": "아랫채",
+      "stage": 5,
+      "alt": "아랫채 5단계 서까래와 처마",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/arae/stages/05.png"
+    },
+    {
+      "building": "아랫채",
+      "stage": 6,
+      "alt": "아랫채 6단계 지붕 바탕",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/arae/stages/06.png"
+    },
+    {
+      "building": "아랫채",
+      "stage": 7,
+      "alt": "아랫채 7단계 기와",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/arae/stages/07.png"
+    },
+    {
+      "building": "아랫채",
+      "stage": 8,
+      "alt": "아랫채 8단계 방 벽체",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/arae/stages/08.png"
+    },
+    {
+      "building": "아랫채",
+      "stage": 9,
+      "alt": "아랫채 9단계 온돌",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/arae/stages/09.png"
+    },
+    {
+      "building": "아랫채",
+      "stage": 10,
+      "alt": "아랫채 10단계 마루",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/arae/stages/10.png"
+    },
+    {
+      "building": "아랫채",
+      "stage": 11,
+      "alt": "아랫채 11단계 창호",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/arae/stages/11.png"
+    },
+    {
+      "building": "아랫채",
+      "stage": 12,
+      "alt": "아랫채 12단계 완성 · 사용",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/arae/stages/12.png"
+    },
+    {
+      "building": "곳간채",
+      "stage": 1,
+      "alt": "곳간채 1단계 터 닦기",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/gokgan/stages/01.png"
+    },
+    {
+      "building": "곳간채",
+      "stage": 2,
+      "alt": "곳간채 2단계 기단",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/gokgan/stages/02.png"
+    },
+    {
+      "building": "곳간채",
+      "stage": 3,
+      "alt": "곳간채 3단계 기둥",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/gokgan/stages/03.png"
+    },
+    {
+      "building": "곳간채",
+      "stage": 4,
+      "alt": "곳간채 4단계 보",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/gokgan/stages/04.png"
+    },
+    {
+      "building": "곳간채",
+      "stage": 5,
+      "alt": "곳간채 5단계 서까래",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/gokgan/stages/05.png"
+    },
+    {
+      "building": "곳간채",
+      "stage": 6,
+      "alt": "곳간채 6단계 지붕 바탕",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/gokgan/stages/06.png"
+    },
+    {
+      "building": "곳간채",
+      "stage": 7,
+      "alt": "곳간채 7단계 기와",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/gokgan/stages/07.png"
+    },
+    {
+      "building": "곳간채",
+      "stage": 8,
+      "alt": "곳간채 8단계 벽체",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/gokgan/stages/08.png"
+    },
+    {
+      "building": "곳간채",
+      "stage": 9,
+      "alt": "곳간채 9단계 문",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/gokgan/stages/09.png"
+    },
+    {
+      "building": "곳간채",
+      "stage": 10,
+      "alt": "곳간채 10단계 돌길",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/gokgan/stages/10.png"
+    },
+    {
+      "building": "곳간채",
+      "stage": 11,
+      "alt": "곳간채 11단계 돌봄",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/gokgan/stages/11.png"
+    },
+    {
+      "building": "안채곳간채",
+      "stage": 1,
+      "alt": "안채곳간채 1단계 터와 수납 공간",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/angotgan/stages/01.png"
+    },
+    {
+      "building": "안채곳간채",
+      "stage": 2,
+      "alt": "안채곳간채 2단계 돌기단",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/angotgan/stages/02.png"
+    },
+    {
+      "building": "안채곳간채",
+      "stage": 3,
+      "alt": "안채곳간채 3단계 기둥",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/angotgan/stages/03.png"
+    },
+    {
+      "building": "안채곳간채",
+      "stage": 4,
+      "alt": "안채곳간채 4단계 보와 도리",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/angotgan/stages/04.png"
+    },
+    {
+      "building": "안채곳간채",
+      "stage": 5,
+      "alt": "안채곳간채 5단계 서까래와 처마",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/angotgan/stages/05.png"
+    },
+    {
+      "building": "안채곳간채",
+      "stage": 6,
+      "alt": "안채곳간채 6단계 지붕 바탕",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/angotgan/stages/06.png"
+    },
+    {
+      "building": "안채곳간채",
+      "stage": 7,
+      "alt": "안채곳간채 7단계 기와",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/angotgan/stages/07.png"
+    },
+    {
+      "building": "안채곳간채",
+      "stage": 8,
+      "alt": "안채곳간채 8단계 다짐 바닥",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/angotgan/stages/08.png"
+    },
+    {
+      "building": "안채곳간채",
+      "stage": 9,
+      "alt": "안채곳간채 9단계 벽체와 칸막이",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/angotgan/stages/09.png"
+    },
+    {
+      "building": "안채곳간채",
+      "stage": 10,
+      "alt": "안채곳간채 10단계 문과 환기창",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/angotgan/stages/10.png"
+    },
+    {
+      "building": "안채곳간채",
+      "stage": 11,
+      "alt": "안채곳간채 11단계 완성 · 사용",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/angotgan/stages/11.png"
+    },
+    {
+      "building": "창고",
+      "stage": 1,
+      "alt": "창고 1단계 터 닦기 · 기단",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/changgo/stages/01.png"
+    },
+    {
+      "building": "창고",
+      "stage": 2,
+      "alt": "창고 2단계 기둥",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/changgo/stages/02.png"
+    },
+    {
+      "building": "창고",
+      "stage": 3,
+      "alt": "창고 3단계 보와 도리",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/changgo/stages/03.png"
+    },
+    {
+      "building": "창고",
+      "stage": 4,
+      "alt": "창고 4단계 서까래와 산자",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/changgo/stages/04.png"
+    },
+    {
+      "building": "창고",
+      "stage": 5,
+      "alt": "창고 5단계 지붕 바탕",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/changgo/stages/05.png"
+    },
+    {
+      "building": "창고",
+      "stage": 6,
+      "alt": "창고 6단계 기와",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/changgo/stages/06.png"
+    },
+    {
+      "building": "창고",
+      "stage": 7,
+      "alt": "창고 7단계 벽체 채움",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/changgo/stages/07.png"
+    },
+    {
+      "building": "창고",
+      "stage": 8,
+      "alt": "창고 8단계 문과 창호 · 마감 · 완성",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/changgo/stages/08.png"
+    },
+    {
+      "building": "북측 측간",
+      "stage": 1,
+      "alt": "북측 측간 1단계 기단",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet/stages/01.png"
+    },
+    {
+      "building": "북측 측간",
+      "stage": 2,
+      "alt": "북측 측간 2단계 기둥",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet/stages/02.png"
+    },
+    {
+      "building": "북측 측간",
+      "stage": 3,
+      "alt": "북측 측간 3단계 보",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet/stages/03.png"
+    },
+    {
+      "building": "북측 측간",
+      "stage": 4,
+      "alt": "북측 측간 4단계 서까래",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet/stages/04.png"
+    },
+    {
+      "building": "북측 측간",
+      "stage": 5,
+      "alt": "북측 측간 5단계 지붕 바탕",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet/stages/05.png"
+    },
+    {
+      "building": "북측 측간",
+      "stage": 6,
+      "alt": "북측 측간 6단계 기와",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet/stages/06.png"
+    },
+    {
+      "building": "북측 측간",
+      "stage": 7,
+      "alt": "북측 측간 7단계 벽체",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet/stages/07.png"
+    },
+    {
+      "building": "북측 측간",
+      "stage": 8,
+      "alt": "북측 측간 8단계 문",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet/stages/08.png"
+    },
+    {
+      "building": "북측 측간",
+      "stage": 9,
+      "alt": "북측 측간 9단계 돌봄",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet/stages/09.png"
+    },
+    {
+      "building": "남측 측간",
+      "stage": 1,
+      "alt": "남측 측간 1단계 기단",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet1/stages/01.png"
+    },
+    {
+      "building": "남측 측간",
+      "stage": 2,
+      "alt": "남측 측간 2단계 기둥",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet1/stages/02.png"
+    },
+    {
+      "building": "남측 측간",
+      "stage": 3,
+      "alt": "남측 측간 3단계 보",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet1/stages/03.png"
+    },
+    {
+      "building": "남측 측간",
+      "stage": 4,
+      "alt": "남측 측간 4단계 서까래",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet1/stages/04.png"
+    },
+    {
+      "building": "남측 측간",
+      "stage": 5,
+      "alt": "남측 측간 5단계 지붕 바탕",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet1/stages/05.png"
+    },
+    {
+      "building": "남측 측간",
+      "stage": 6,
+      "alt": "남측 측간 6단계 기와",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet1/stages/06.png"
+    },
+    {
+      "building": "남측 측간",
+      "stage": 7,
+      "alt": "남측 측간 7단계 벽체",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet1/stages/07.png"
+    },
+    {
+      "building": "남측 측간",
+      "stage": 8,
+      "alt": "남측 측간 8단계 문",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet1/stages/08.png"
+    },
+    {
+      "building": "남측 측간",
+      "stage": 9,
+      "alt": "남측 측간 9단계 돌봄",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/toilet1/stages/09.png"
+    },
+    {
+      "building": "사랑채",
+      "stage": 1,
+      "variant": "단독 건물",
+      "alt": "사랑채 1단계 터 닦기 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/01.png",
+      "caption": "1 / 16 · 터 닦기"
+    },
+    {
+      "building": "사랑채",
+      "stage": 1,
+      "variant": "연결 후",
+      "alt": "사랑채 1단계 터 닦기 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/01.png",
+      "caption": "1 / 16 · 터 닦기"
+    },
+    {
+      "building": "사랑채",
+      "stage": 2,
+      "variant": "단독 건물",
+      "alt": "사랑채 2단계 기단 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/02.png",
+      "caption": "2 / 16 · 기단"
+    },
+    {
+      "building": "사랑채",
+      "stage": 2,
+      "variant": "연결 후",
+      "alt": "사랑채 2단계 기단 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/02.png",
+      "caption": "2 / 16 · 기단"
+    },
+    {
+      "building": "사랑채",
+      "stage": 3,
+      "variant": "단독 건물",
+      "alt": "사랑채 3단계 초석 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/03.png",
+      "caption": "3 / 16 · 초석"
+    },
+    {
+      "building": "사랑채",
+      "stage": 3,
+      "variant": "연결 후",
+      "alt": "사랑채 3단계 초석 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/03.png",
+      "caption": "3 / 16 · 초석"
+    },
+    {
+      "building": "사랑채",
+      "stage": 4,
+      "variant": "단독 건물",
+      "alt": "사랑채 4단계 목재 치목 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/04.png",
+      "caption": "4 / 16 · 목재 치목"
+    },
+    {
+      "building": "사랑채",
+      "stage": 4,
+      "variant": "연결 후",
+      "alt": "사랑채 4단계 목재 치목 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/04.png",
+      "caption": "4 / 16 · 목재 치목"
+    },
+    {
+      "building": "사랑채",
+      "stage": 5,
+      "variant": "단독 건물",
+      "alt": "사랑채 5단계 기둥 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/05.png",
+      "caption": "5 / 16 · 기둥"
+    },
+    {
+      "building": "사랑채",
+      "stage": 5,
+      "variant": "연결 후",
+      "alt": "사랑채 5단계 기둥 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/05.png",
+      "caption": "5 / 16 · 기둥"
+    },
+    {
+      "building": "사랑채",
+      "stage": 6,
+      "variant": "단독 건물",
+      "alt": "사랑채 6단계 보 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/06.png",
+      "caption": "6 / 16 · 보"
+    },
+    {
+      "building": "사랑채",
+      "stage": 6,
+      "variant": "연결 후",
+      "alt": "사랑채 6단계 보 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/06.png",
+      "caption": "6 / 16 · 보"
+    },
+    {
+      "building": "사랑채",
+      "stage": 7,
+      "variant": "단독 건물",
+      "alt": "사랑채 7단계 도리 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/07.png",
+      "caption": "7 / 16 · 도리"
+    },
+    {
+      "building": "사랑채",
+      "stage": 7,
+      "variant": "연결 후",
+      "alt": "사랑채 7단계 도리 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/07.png",
+      "caption": "7 / 16 · 도리"
+    },
+    {
+      "building": "사랑채",
+      "stage": 8,
+      "variant": "단독 건물",
+      "alt": "사랑채 8단계 서까래 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/sarang/stages/08.png",
+      "caption": "8 / 16 · 서까래"
+    },
+    {
+      "building": "사랑채",
+      "stage": 8,
+      "variant": "연결 후",
+      "alt": "사랑채 8단계 서까래 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/08.png",
+      "caption": "8 / 16 · 서까래"
+    },
+    {
+      "building": "사랑채",
+      "stage": 9,
+      "variant": "단독 건물",
+      "alt": "사랑채 9단계 마루판 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/sarang/stages/09.png",
+      "caption": "9 / 16 · 마루판"
+    },
+    {
+      "building": "사랑채",
+      "stage": 9,
+      "variant": "연결 후",
+      "alt": "사랑채 9단계 마루판 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/09.png",
+      "caption": "9 / 16 · 마루판"
+    },
+    {
+      "building": "사랑채",
+      "stage": 10,
+      "variant": "단독 건물",
+      "alt": "사랑채 10단계 지붕 흙 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/sarang/stages/10.png",
+      "caption": "10 / 16 · 지붕 흙"
+    },
+    {
+      "building": "사랑채",
+      "stage": 10,
+      "variant": "연결 후",
+      "alt": "사랑채 10단계 지붕 흙 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/10.png",
+      "caption": "10 / 16 · 지붕 흙"
+    },
+    {
+      "building": "사랑채",
+      "stage": 11,
+      "variant": "단독 건물",
+      "alt": "사랑채 11단계 기와 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/sarang/stages/11.png",
+      "caption": "11 / 16 · 기와"
+    },
+    {
+      "building": "사랑채",
+      "stage": 11,
+      "variant": "연결 후",
+      "alt": "사랑채 11단계 기와 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/11.png",
+      "caption": "11 / 16 · 기와"
+    },
+    {
+      "building": "사랑채",
+      "stage": 12,
+      "variant": "단독 건물",
+      "alt": "사랑채 12단계 벽체 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/sarang/stages/12.png",
+      "caption": "12 / 16 · 벽체"
+    },
+    {
+      "building": "사랑채",
+      "stage": 12,
+      "variant": "연결 후",
+      "alt": "사랑채 12단계 벽체 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/12.png",
+      "caption": "12 / 16 · 벽체"
+    },
+    {
+      "building": "사랑채",
+      "stage": 13,
+      "variant": "단독 건물",
+      "alt": "사랑채 13단계 온돌 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/sarang/stages/13.png",
+      "caption": "13 / 16 · 온돌"
+    },
+    {
+      "building": "사랑채",
+      "stage": 13,
+      "variant": "연결 후",
+      "alt": "사랑채 13단계 온돌 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/13.png",
+      "caption": "13 / 16 · 온돌"
+    },
+    {
+      "building": "사랑채",
+      "stage": 14,
+      "variant": "단독 건물",
+      "alt": "사랑채 14단계 마루 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/sarang/stages/14.png",
+      "caption": "14 / 16 · 마루"
+    },
+    {
+      "building": "사랑채",
+      "stage": 14,
+      "variant": "연결 후",
+      "alt": "사랑채 14단계 마루 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/14.png",
+      "caption": "14 / 16 · 마루"
+    },
+    {
+      "building": "사랑채",
+      "stage": 15,
+      "variant": "단독 건물",
+      "alt": "사랑채 15단계 창호 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/sarang/stages/15.png",
+      "caption": "15 / 16 · 창호"
+    },
+    {
+      "building": "사랑채",
+      "stage": 15,
+      "variant": "연결 후",
+      "alt": "사랑채 15단계 창호 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/15.png",
+      "caption": "15 / 16 · 창호"
+    },
+    {
+      "building": "사랑채",
+      "stage": 16,
+      "variant": "단독 건물",
+      "alt": "사랑채 16단계 완성 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/sarang/stages/16.png",
+      "caption": "16 / 16 · 완성"
+    },
+    {
+      "building": "사랑채",
+      "stage": 16,
+      "variant": "연결 후",
+      "alt": "사랑채 16단계 완성 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/sarang/stages/16.png",
+      "caption": "16 / 16 · 완성"
+    },
+    {
+      "building": "중문간채",
+      "stage": 1,
+      "variant": "단독 건물",
+      "alt": "중문간채 1단계 터와 통로 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/01.png",
+      "caption": "1 / 12 · 터와 통로"
+    },
+    {
+      "building": "중문간채",
+      "stage": 1,
+      "variant": "연결 후",
+      "alt": "중문간채 1단계 터와 통로 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/01.png",
+      "caption": "1 / 12 · 터와 통로"
+    },
+    {
+      "building": "중문간채",
+      "stage": 2,
+      "variant": "단독 건물",
+      "alt": "중문간채 2단계 돌기단 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/02.png",
+      "caption": "2 / 12 · 돌기단"
+    },
+    {
+      "building": "중문간채",
+      "stage": 2,
+      "variant": "연결 후",
+      "alt": "중문간채 2단계 돌기단 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/02.png",
+      "caption": "2 / 12 · 돌기단"
+    },
+    {
+      "building": "중문간채",
+      "stage": 3,
+      "variant": "단독 건물",
+      "alt": "중문간채 3단계 기둥 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/03.png",
+      "caption": "3 / 12 · 기둥"
+    },
+    {
+      "building": "중문간채",
+      "stage": 3,
+      "variant": "연결 후",
+      "alt": "중문간채 3단계 기둥 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/03.png",
+      "caption": "3 / 12 · 기둥"
+    },
+    {
+      "building": "중문간채",
+      "stage": 4,
+      "variant": "단독 건물",
+      "alt": "중문간채 4단계 보와 도리 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/04.png",
+      "caption": "4 / 12 · 보와 도리"
+    },
+    {
+      "building": "중문간채",
+      "stage": 4,
+      "variant": "연결 후",
+      "alt": "중문간채 4단계 보와 도리 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/04.png",
+      "caption": "4 / 12 · 보와 도리"
+    },
+    {
+      "building": "중문간채",
+      "stage": 5,
+      "variant": "단독 건물",
+      "alt": "중문간채 5단계 서까래와 처마 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/jung/stages/05.png",
+      "caption": "5 / 12 · 서까래와 처마"
+    },
+    {
+      "building": "중문간채",
+      "stage": 5,
+      "variant": "연결 후",
+      "alt": "중문간채 5단계 서까래와 처마 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/05.png",
+      "caption": "5 / 12 · 서까래와 처마"
+    },
+    {
+      "building": "중문간채",
+      "stage": 6,
+      "variant": "단독 건물",
+      "alt": "중문간채 6단계 지붕 바탕 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/jung/stages/06.png",
+      "caption": "6 / 12 · 지붕 바탕"
+    },
+    {
+      "building": "중문간채",
+      "stage": 6,
+      "variant": "연결 후",
+      "alt": "중문간채 6단계 지붕 바탕 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/06.png",
+      "caption": "6 / 12 · 지붕 바탕"
+    },
+    {
+      "building": "중문간채",
+      "stage": 7,
+      "variant": "단독 건물",
+      "alt": "중문간채 7단계 기와 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/jung/stages/07.png",
+      "caption": "7 / 12 · 기와"
+    },
+    {
+      "building": "중문간채",
+      "stage": 7,
+      "variant": "연결 후",
+      "alt": "중문간채 7단계 기와 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/07.png",
+      "caption": "7 / 12 · 기와"
+    },
+    {
+      "building": "중문간채",
+      "stage": 8,
+      "variant": "단독 건물",
+      "alt": "중문간채 8단계 방 벽체 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/jung/stages/08.png",
+      "caption": "8 / 12 · 방 벽체"
+    },
+    {
+      "building": "중문간채",
+      "stage": 8,
+      "variant": "연결 후",
+      "alt": "중문간채 8단계 방 벽체 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/08.png",
+      "caption": "8 / 12 · 방 벽체"
+    },
+    {
+      "building": "중문간채",
+      "stage": 9,
+      "variant": "단독 건물",
+      "alt": "중문간채 9단계 온돌과 바닥 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/jung/stages/09.png",
+      "caption": "9 / 12 · 온돌과 바닥"
+    },
+    {
+      "building": "중문간채",
+      "stage": 9,
+      "variant": "연결 후",
+      "alt": "중문간채 9단계 온돌과 바닥 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/09.png",
+      "caption": "9 / 12 · 온돌과 바닥"
+    },
+    {
+      "building": "중문간채",
+      "stage": 10,
+      "variant": "단독 건물",
+      "alt": "중문간채 10단계 열린 마루 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/jung/stages/10.png",
+      "caption": "10 / 12 · 열린 마루"
+    },
+    {
+      "building": "중문간채",
+      "stage": 10,
+      "variant": "연결 후",
+      "alt": "중문간채 10단계 열린 마루 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/10.png",
+      "caption": "10 / 12 · 열린 마루"
+    },
+    {
+      "building": "중문간채",
+      "stage": 11,
+      "variant": "단독 건물",
+      "alt": "중문간채 11단계 문과 창호 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/jung/stages/11.png",
+      "caption": "11 / 12 · 문과 창호"
+    },
+    {
+      "building": "중문간채",
+      "stage": 11,
+      "variant": "연결 후",
+      "alt": "중문간채 11단계 문과 창호 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/11.png",
+      "caption": "11 / 12 · 문과 창호"
+    },
+    {
+      "building": "중문간채",
+      "stage": 12,
+      "variant": "단독 건물",
+      "alt": "중문간채 12단계 완성 · 사용 단독 건물",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/estate/standalone/jung/stages/12.png",
+      "caption": "12 / 12 · 완성 · 사용"
+    },
+    {
+      "building": "중문간채",
+      "stage": 12,
+      "variant": "연결 후",
+      "alt": "중문간채 12단계 완성 · 사용 연결 후",
+      "loaded": true,
+      "src": "http://127.0.0.1:8876/family-r16/jung/stages/12.png",
+      "caption": "12 / 12 · 완성 · 사용"
+    }
+  ],
+  "progressRewardWrites": false
+}

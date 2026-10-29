@@ -1,0 +1,780 @@
+{
+  "schemaVersion": 1,
+  "status": "proposed_material_direction_not_render_verified",
+  "scope": "Sarangchae wood only; root implements nodes; this document changes no source geometry or material",
+  "reference": "C:/Users/vjinn/ELibrary/Downloads/Gemini_Generated_Image_824e6v824e6v824e.jpg",
+  "reviewedRender": "sarang-exact-r12/full.png",
+  "currentNodeEvidence": "wood-current-r12.json",
+  "colorSpace": "paletteA/paletteB are sRGB hex encoding of proposed albedo ramp stops. Convert once through existing f.rgb. These are NOT sampled final-render pixels and are NOT verified final matching colors.",
+  "paletteOrder": [
+    "dark growth grain",
+    "dominant timber body",
+    "pale timber fibre"
+  ],
+  "mixConvention": "mix(paletteA, paletteB, t). A is golden honey; B is nearby aged brown. Hold t constant for each physical member, not each pixel or polygon.",
+  "observations": [
+    "목표는 기둥의 꿀색 밝은 면, 짙은 창틀, 호박색 마루, 황토빛 박공, 밝은 난간과 더 짙고 결이 강한 하부판재가 구분된다.",
+    "현재 전면 난간과 하부판재의 일부 재질은 Fresh R4 shared maru and numaru timber 램프 63320F/9F5420/BE7732를 공유한다. 나머지 같은 profile 재질에는 이전 Reference only 램프도 남아 있다. 한 profile 안의 실제 경로도 전부 확인해야 한다.",
+    "R4 공유 경로의 부재 seed 계수는 0.018, reference 경로는 0.034이다. 이는 결 마스크를 이동시킬 뿐 독립적인 목재 바탕색 범위를 정의하지 않는다.",
+    "현재 원본형상에 적용된 wood 재질 216개는 12 profile로 나뉜다. 프로파일 수가 많아도 동일 램프 공유와 붉은 색역 집중 때문에 실제 화면의 차이가 약하다.",
+    "목표의 실내 황금빛과 문턱에서 안쪽으로 감쇠하는 빛은 조명 담당과 별도 판정한다. 목재 발광이나 전체 바탕색 상승으로 대체하지 않는다."
+  ],
+  "profiles": {
+    "column": {
+      "labelKo": "기둥",
+      "paletteA": [
+        "613B1A",
+        "A16B32",
+        "BE8946"
+      ],
+      "paletteB": [
+        "59371B",
+        "94602E",
+        "B17D40"
+      ],
+      "memberMixRange": [
+        0.1,
+        0.9
+      ],
+      "grainContrastMultiplier": 1.12,
+      "notes": "기둥은 난간보다 한 단계 묵직한 꿀색. 앞쪽 받광면에 넓은 꿀빛, 돌아가는 옆면은 갈색으로 읽혀야 한다. 밝은 면을 색칠하지 말고 기존 조명과 곡면이 만들게 한다. 길이 방향의 넓고 불규칙한 갈색 결과 드문 옹이; 가는 균일 줄무늬 금지. 인접 기둥을 밝음/어두움으로 교대로 배치하지 않는다."
+    },
+    "beam": {
+      "labelKo": "보와 인방",
+      "paletteA": [
+        "4F2F16",
+        "805027",
+        "A57239"
+      ],
+      "paletteB": [
+        "4A2B14",
+        "744A27",
+        "976532"
+      ],
+      "memberMixRange": [
+        0.18,
+        0.82
+      ],
+      "grainContrastMultiplier": 0.95,
+      "notes": "기둥보다 짙은 구운 갈색. 상부 구조를 묶는 무게를 유지하고 갈색 밑면과 황갈색 앞 모서리가 구분되도록 한다. 수평 결은 중간 강도, 보 접합부마다 다른 색 조각이 붙은 인상 금지."
+    },
+    "gable": {
+      "labelKo": "박공 판재",
+      "paletteA": [
+        "70461E",
+        "A87334",
+        "BD8A49"
+      ],
+      "paletteB": [
+        "684224",
+        "9B6E39",
+        "B58348"
+      ],
+      "memberMixRange": [
+        0.18,
+        0.82
+      ],
+      "grainContrastMultiplier": 0.85,
+      "notes": "넓은 삼각 판은 마른 황토꿀색. 붉은 오렌지/분홍 하이라이트를 줄인다. 판마다 작은 황토-갈색 차이를 주되 큰 삼각면의 한 덩어리감 유지. 지붕 안쪽으로 접하는 상단과 프레임 아래는 실제 접촉 그림자로 짙어져야 한다."
+    },
+    "rafter": {
+      "labelKo": "서까래와 처마 밑판",
+      "paletteA": [
+        "5A361B",
+        "8A5B2C",
+        "AF7B3D"
+      ],
+      "paletteB": [
+        "51321B",
+        "80532A",
+        "A27138"
+      ],
+      "memberMixRange": [
+        0.25,
+        0.75
+      ],
+      "grainContrastMultiplier": 0.75,
+      "notes": "기둥보다 차분한 갈색꿀색. 반복 부재의 전부가 똑같은 주황 단면이 되지 않도록 작은 차이. 처마의 좁은 부재에 하부판재와 같은 강한 옹이 무늬를 넣지 않는다."
+    },
+    "endgrain": {
+      "labelKo": "실제 절단면",
+      "paletteA": [
+        "664321",
+        "9C6E35",
+        "B98B4E"
+      ],
+      "paletteB": [
+        "5F3D21",
+        "906230",
+        "AE7E43"
+      ],
+      "memberMixRange": [
+        0.2,
+        0.8
+      ],
+      "grainContrastMultiplier": 0.8,
+      "notes": "연한 황토빛 절단면과 갈색 나이테. 기존 actual-cut mask와 endgrain UV 유지. 같은 목재 몸통에서 파생된 seed를 재사용하여 끝면만 독립적으로 엉뚱한 색이 되지 않도록 한다. 기와 흰 막새와 혼동하지 않는다."
+    },
+    "floor": {
+      "labelKo": "마루 판재",
+      "paletteA": [
+        "542D13",
+        "99531D",
+        "BD7933"
+      ],
+      "paletteB": [
+        "4C2B16",
+        "894C20",
+        "AC6B2D"
+      ],
+      "memberMixRange": [
+        0.05,
+        0.95
+      ],
+      "grainContrastMultiplier": 1.0,
+      "notes": "난간보다 깊은 호박갈색. 각 판의 바탕은 꿀갈색~성숙한 갈색 범위로 다르되 빨강/노랑 판이 교차하는 패턴 금지. 긴 판의 결은 중간 강도. 문턱과 앞쪽 노출부는 황금빛을 받아 밝고 안쪽은 점진적으로 깊어져야 하며 이를 albedo에 위치 그라데이션으로 구워 넣지 않는다."
+    },
+    "railing": {
+      "labelKo": "난간",
+      "paletteA": [
+        "6F421A",
+        "AF7A35",
+        "C68E48"
+      ],
+      "paletteB": [
+        "67401D",
+        "A26E31",
+        "BA8240"
+      ],
+      "memberMixRange": [
+        0.35,
+        0.65
+      ],
+      "grainContrastMultiplier": 0.72,
+      "notes": "가장 정돈된 밝은 꿀색 바탕. 손스침 상면의 빛은 밝고, 정면 띠는 amber, 하단/안쪽은 갈색으로 읽혀야 한다. 색 램프에 면 방향 명암을 굽지 않는다. 작은 살의 결은 약하게, 손스침의 길이 방향 넓은 결만 중간 강도. 한 모서리를 도는 연속 mitered rim에는 동일 t를 적용한다."
+    },
+    "apron": {
+      "labelKo": "대청 전면 수평 널판",
+      "paletteA": [
+        "613C1D",
+        "9B6A33",
+        "B58043"
+      ],
+      "paletteB": [
+        "58361B",
+        "8D5D2C",
+        "A97539"
+      ],
+      "memberMixRange": [
+        0.05,
+        0.95
+      ],
+      "grainContrastMultiplier": 1.18,
+      "notes": "난간보다 차분하고 기둥보다 넓게 드러나는 황갈색. 수평 널마다 중간 바탕 차이, 굵은 흐르는 결과 드문 옹이. 같은 굵기의 줄무늬를 전 길이에 반복하지 않는다. 널 경계의 짙음과 널 내부의 성장무늬를 구분한다."
+    },
+    "lower_board": {
+      "labelKo": "누마루 하부 세로 판재",
+      "paletteA": [
+        "5D3615",
+        "A16B2C",
+        "BF853A"
+      ],
+      "paletteB": [
+        "52321A",
+        "8E5D2B",
+        "AE7835"
+      ],
+      "memberMixRange": [
+        0.0,
+        1.0
+      ],
+      "grainContrastMultiplier": 1.22,
+      "notes": "밝은 난간 아래에 더 짙고 풍부한 황갈색 판을 둔다. 12종 중 개별 판 변주와 넓은 결을 가장 분명하게 한다. 세로판의 바탕은 서로 다르지만 색상은 꿀갈색 범위를 벗어나지 않는다. 깊고 좁은 갈색 결, 넓은 황갈색 면, 드문 옹이; 흰 세로선과 일정 간격 노이즈 줄무늬 금지."
+    },
+    "door_panel": {
+      "labelKo": "문짝 하단 막힌 판",
+      "paletteA": [
+        "4C2C17",
+        "764825",
+        "935F30"
+      ],
+      "paletteB": [
+        "482A18",
+        "6A4124",
+        "86572E"
+      ],
+      "memberMixRange": [
+        0.2,
+        0.8
+      ],
+      "grainContrastMultiplier": 0.9,
+      "notes": "문짝의 하단 판은 깊은 갈색. 창틀과 가까운 색역으로 묶고 난간이나 하부 외벽과 같은 밝은 주황으로 바꾸지 않는다. 같은 문짝의 rail/stile과 같은 assembly seed 사용."
+    },
+    "frame": {
+      "labelKo": "창틀과 문틀",
+      "paletteA": [
+        "4D2E18",
+        "7C4D25",
+        "A46C33"
+      ],
+      "paletteB": [
+        "472A17",
+        "704522",
+        "95612E"
+      ],
+      "memberMixRange": [
+        0.28,
+        0.72
+      ],
+      "grainContrastMultiplier": 0.78,
+      "notes": "창호지 주변을 잡아주는 구운 갈색. 기둥보다 짙고 난간과 확실히 다른 바탕. 한 문짝의 가로틀/세로틀이 같은 목재 묶음으로 보이도록 t를 공유하고 개별차는 작게 한다. 벽에 붙은 하방 수평틀 역시 짙은 갈색 유지."
+    },
+    "lattice": {
+      "labelKo": "창살과 작은 창호 몰딩",
+      "paletteA": [
+        "58371C",
+        "8A5B2B",
+        "AC793A"
+      ],
+      "paletteB": [
+        "50321A",
+        "7F5028",
+        "A06D35"
+      ],
+      "memberMixRange": [
+        0.35,
+        0.65
+      ],
+      "grainContrastMultiplier": 0.5,
+      "notes": "창틀보다 조금 연한 꿀갈색 살, 같은 창짝 안의 색 차이는 매우 작게. 가는 살은 재료감보다 격자 선명도가 우선이므로 확대에서도 강한 옹이와 흰 결을 넣지 않는다. 창호지 내부 황금빛과 창살 자체의 색을 구분한다."
+    }
+  },
+  "assemblyPolicy": {
+    "seedSources": "Existing original member ID + stable object seed + Random Per Island; no new mesh attributes or UV edits. Persist seed behavior across views and rerenders.",
+    "paletteMixIndependentFromGrain": "Keep original grain factor and growth/end-cut coordinates. Palette A/B interpolation is a separate constant-per-member operation. Do not enlarge the old grain-offset coefficient to simulate timber diversity.",
+    "railingConnectedAssembly": "For a connected railing bay use a common assembly t in [0.42,0.58], add a member residual in [-0.04,0.04], clamp final t to [0.35,0.65]. Continuous mitered rim is one member: residual must be identical around the turn. Adjacent connecting pieces must have |delta t| <= 0.08.",
+    "windowAssembly": "One leaf has shared assembly seed. Residual <=0.05 for frame and <=0.03 for lattice. Keep the semantic palette difference between frame and lattice; matching seed does not mean identical RGB.",
+    "boards": "Use independent existing physical plank/island IDs across lower_board, apron and floor. Do not use per-material random only, since one material can cover many original boards. Avoid forced alternating light/dark assignment.",
+    "geometryLock": "No positions, topology, object names, transforms, UVs, existing source attributes or process bindings changed.",
+    "pigmentClamp": "A/B palettes define the full initial color range. Do not stack extra random hue/saturation or a second global RGB multiplier on top.",
+    "grainPass": "grainContrastMultiplier is an optional subsequent comparison pass, 1.0 means current scalar-mask contrast. Apply around a per-profile median if needed, not a raw multiply that shifts the mean. First verify palette-only; do not simultaneously change palette, grain scale, roughness and bump.",
+    "lighting": "No wood emission, whole-scene exposure, white balance or common brightness correction. Interior warmth is reviewed separately with the lighting owner."
+  },
+  "mappingExceptionsToReview": [
+    {
+      "objects": [
+        "Craft.Sarang roof underside boarding",
+        "Craft.Sarang.main roof.eave beam.thin bedding board",
+        "Craft.Sarang.main roof.hip eave beam.thin bedding board"
+      ],
+      "currentProfile": "door_panel",
+      "recommendedProfile": "rafter",
+      "reason": "profile(row) tests usage=='board-door' before underside/bedding board. Roof underside boards should not inherit the dark door-panel palette merely because of legacy usage. Rebind only the material profile after verifying full object list; preserve object/UV/process data."
+    },
+    {
+      "objects": [
+        "Sarang.main roof.gable brace",
+        "Sarang.main roof.gable centre post",
+        "Sarang.main roof.gable frame",
+        "Sarang.numaru roof.gable brace",
+        "Sarang.numaru roof.gable centre post",
+        "Sarang.numaru roof.gable frame"
+      ],
+      "currentProfile": "gable",
+      "recommendedProfile": "gable with material-only structural variant",
+      "variant": "Blend gable palette 75% with beam palette 25% for framing pieces; keep gable timber infill at 100% gable. Shared assembly seed with the infill.",
+      "reason": "현재 gable 이름만으로 판재/사선/가운데 기둥을 같은 바탕으로 묶는다. 넓은 삼각 판과 이를 지지하는 선형 부재의 차이를 유지한다."
+    }
+  ],
+  "acceptance": [
+    "같은 화면에서 난간의 밝은 꿀색, 기둥의 중간 꿀갈색, 창틀의 짙은 갈색, 마루의 amber, 박공의 황토색, 하부 세로판의 풍부한 갈색이 구분된다.",
+    "동일 family의 인접 판재가 모두 같은 바탕으로 보이지 않는다. 차이는 판 단위이며 한 판 안에서 색조가 얼룩처럼 바뀌지 않는다.",
+    "누마루 난간 앞-모서리-옆면 연결을 확대했을 때 이음에 갑자기 다른 색 부품이 붙은 듯한 단절이 없다. 연속 rim은 같은 t를 유지한다.",
+    "밝은 꿀색 면의 결이 사라지거나 흰 줄로 바뀌지 않는다. 가장 강한 넓은 결은 하부판재/apron, 가장 약한 결은 창살/작은 난간살이다.",
+    "검수 순서: 난간과 하부판재 접점 → 기둥과 문틀 → 마루와 문턱 → 박공 판/프레임 → 같은 family의 인접 판. 한 번에 팔레트, 변주폭, 결 중 한 변수만 변경한다.",
+    "이 JSON은 수정 지시안이다. 구현·새 렌더·목표 일치·사용자 승인 증거가 아니다."
+  ],
+  "currentSnapshot": {
+    "materialCounts": {
+      "lower_board": 11,
+      "railing": 43,
+      "apron": 9,
+      "beam": 39,
+      "column": 11,
+      "door_panel": 16,
+      "endgrain": 2,
+      "floor": 17,
+      "frame": 28,
+      "gable": 13,
+      "lattice": 13,
+      "rafter": 14
+    },
+    "rampsSrgbForAuditOnly": {
+      "lower_board": [
+        [
+          "Fresh R4 shared maru and numaru timber",
+          [
+            [
+              0.012,
+              "63320F"
+            ],
+            [
+              0.075,
+              "9F5420"
+            ],
+            [
+              0.255,
+              "BE7732"
+            ]
+          ]
+        ],
+        [
+          "Fresh Reference only endgrain",
+          [
+            [
+              0.015,
+              "582608"
+            ],
+            [
+              0.075,
+              "77380E"
+            ],
+            [
+              0.28,
+              "AA6832"
+            ]
+          ]
+        ],
+        [
+          "Fresh Reference only lower_board",
+          [
+            [
+              0.012,
+              "713C18"
+            ],
+            [
+              0.075,
+              "A25F29"
+            ],
+            [
+              0.255,
+              "B46F32"
+            ]
+          ]
+        ]
+      ],
+      "railing": [
+        [
+          "Fresh R4 shared maru and numaru timber",
+          [
+            [
+              0.012,
+              "63320F"
+            ],
+            [
+              0.075,
+              "9F5420"
+            ],
+            [
+              0.255,
+              "BE7732"
+            ]
+          ]
+        ],
+        [
+          "Fresh Reference only endgrain",
+          [
+            [
+              0.015,
+              "582608"
+            ],
+            [
+              0.075,
+              "77380E"
+            ],
+            [
+              0.28,
+              "AA6832"
+            ]
+          ]
+        ],
+        [
+          "Fresh Reference only railing",
+          [
+            [
+              0.012,
+              "633103"
+            ],
+            [
+              0.075,
+              "9C6B16"
+            ],
+            [
+              0.255,
+              "B68B23"
+            ]
+          ]
+        ]
+      ],
+      "apron": [
+        [
+          "Fresh Reference only apron",
+          [
+            [
+              0.012,
+              "6A330E"
+            ],
+            [
+              0.075,
+              "8B5223"
+            ],
+            [
+              0.255,
+              "A06528"
+            ]
+          ]
+        ],
+        [
+          "Fresh Reference only endgrain",
+          [
+            [
+              0.015,
+              "582608"
+            ],
+            [
+              0.075,
+              "77380E"
+            ],
+            [
+              0.28,
+              "AA6832"
+            ]
+          ]
+        ]
+      ],
+      "beam": [
+        [
+          "Fresh Reference only beam",
+          [
+            [
+              0.012,
+              "532307"
+            ],
+            [
+              0.075,
+              "6F350A"
+            ],
+            [
+              0.255,
+              "9E642B"
+            ]
+          ]
+        ],
+        [
+          "Fresh Reference only endgrain",
+          [
+            [
+              0.015,
+              "582608"
+            ],
+            [
+              0.075,
+              "77380E"
+            ],
+            [
+              0.28,
+              "AA6832"
+            ]
+          ]
+        ]
+      ],
+      "column": [
+        [
+          "Fresh Reference only column",
+          [
+            [
+              0.012,
+              "5C2A0E"
+            ],
+            [
+              0.075,
+              "985928"
+            ],
+            [
+              0.255,
+              "AE6C31"
+            ]
+          ]
+        ],
+        [
+          "Fresh Reference only endgrain",
+          [
+            [
+              0.015,
+              "582608"
+            ],
+            [
+              0.075,
+              "77380E"
+            ],
+            [
+              0.28,
+              "AA6832"
+            ]
+          ]
+        ]
+      ],
+      "door_panel": [
+        [
+          "Fresh Reference only door_panel",
+          [
+            [
+              0.012,
+              "572B11"
+            ],
+            [
+              0.075,
+              "6D3918"
+            ],
+            [
+              0.255,
+              "7E461F"
+            ]
+          ]
+        ],
+        [
+          "Fresh Reference only endgrain",
+          [
+            [
+              0.015,
+              "582608"
+            ],
+            [
+              0.075,
+              "77380E"
+            ],
+            [
+              0.28,
+              "AA6832"
+            ]
+          ]
+        ]
+      ],
+      "endgrain": [
+        [
+          "Fresh Reference only endgrain",
+          [
+            [
+              0.012,
+              "582608"
+            ],
+            [
+              0.075,
+              "77380E"
+            ],
+            [
+              0.255,
+              "AA6832"
+            ]
+          ]
+        ]
+      ],
+      "floor": [
+        [
+          "Fresh Reference only endgrain",
+          [
+            [
+              0.015,
+              "582608"
+            ],
+            [
+              0.075,
+              "77380E"
+            ],
+            [
+              0.28,
+              "AA6832"
+            ]
+          ]
+        ],
+        [
+          "Fresh Reference only floor",
+          [
+            [
+              0.012,
+              "4D1907"
+            ],
+            [
+              0.075,
+              "82380B"
+            ],
+            [
+              0.255,
+              "BD6010"
+            ]
+          ]
+        ]
+      ],
+      "frame": [
+        [
+          "Fresh Reference only endgrain",
+          [
+            [
+              0.015,
+              "582608"
+            ],
+            [
+              0.075,
+              "77380E"
+            ],
+            [
+              0.28,
+              "AA6832"
+            ]
+          ]
+        ],
+        [
+          "Fresh Reference only frame",
+          [
+            [
+              0.012,
+              "5A2104"
+            ],
+            [
+              0.075,
+              "823506"
+            ],
+            [
+              0.255,
+              "B16528"
+            ]
+          ]
+        ]
+      ],
+      "gable": [
+        [
+          "Fresh Reference only endgrain",
+          [
+            [
+              0.015,
+              "582608"
+            ],
+            [
+              0.075,
+              "77380E"
+            ],
+            [
+              0.28,
+              "AA6832"
+            ]
+          ]
+        ],
+        [
+          "Fresh Reference only gable",
+          [
+            [
+              0.012,
+              "592303"
+            ],
+            [
+              0.075,
+              "934B06"
+            ],
+            [
+              0.255,
+              "A45A0B"
+            ]
+          ]
+        ]
+      ],
+      "lattice": [
+        [
+          "Fresh Reference only endgrain",
+          [
+            [
+              0.015,
+              "582608"
+            ],
+            [
+              0.075,
+              "77380E"
+            ],
+            [
+              0.28,
+              "AA6832"
+            ]
+          ]
+        ],
+        [
+          "Fresh Reference only lattice",
+          [
+            [
+              0.012,
+              "491804"
+            ],
+            [
+              0.075,
+              "712D08"
+            ],
+            [
+              0.255,
+              "9C4E19"
+            ]
+          ]
+        ]
+      ],
+      "rafter": [
+        [
+          "Fresh Reference only endgrain",
+          [
+            [
+              0.015,
+              "582608"
+            ],
+            [
+              0.075,
+              "77380E"
+            ],
+            [
+              0.28,
+              "AA6832"
+            ]
+          ]
+        ],
+        [
+          "Fresh Reference only rafter",
+          [
+            [
+              0.012,
+              "582407"
+            ],
+            [
+              0.075,
+              "77360A"
+            ],
+            [
+              0.255,
+              "AC6A33"
+            ]
+          ]
+        ]
+      ]
+    },
+    "evidence": {
+      "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\wood-current-r12.json": {
+        "sha256": "0a53e6c1ac5e8ade7356ebaaf8036edaec69f8e988dc20a00efc8420ffce5263",
+        "bytes": 4275712
+      },
+      "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-exact-r12\\full.png": {
+        "sha256": "f6ef77beab67593b8cac2311000a05f3cd1b9ccee5558ab723088c0f7ff9982e",
+        "bytes": 2617339
+      },
+      "C:\\Users\\vjinn\\ELibrary\\Downloads\\Gemini_Generated_Image_824e6v824e6v824e.jpg": {
+        "sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+        "bytes": 2624064
+      }
+    },
+    "reviewedUtc": "2026-10-24T00:41:48.587858+00:00",
+    "verificationLimit": "Fresh root-exported node dump inspected; no independent Blender execution. sRGB values reconstructed from dumped scene-linear ramp values."
+  }
+}

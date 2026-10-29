@@ -1,0 +1,264 @@
+{
+  "key": "changgo",
+  "source": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\changgo\\changgo.blend",
+  "sourceSha256": "16d6b494790dbefce46fe2c567c0c9984c2b91bf4667699f71265c05d736c995",
+  "native": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\changgo\\stage.blend",
+  "nativeSha256": "b5ac89a5ffb48c0bcca8f2e5cc42aabcd9341697bdd41f3b6919e06dd35c7f91",
+  "architecture": {
+    "stateSha256": "9ffedf0e70f8c3063a38293ac25030888f0c08dc5e47cfebad8ac133f777d1a0",
+    "normalsSha256": "4cd1c14a6c1ac85bc2d5c9e883a28d2767f9412c7e2785d88f8c8424c95d882a",
+    "meshCount": 209
+  },
+  "materialBindingSha256": "b823b77a57cc597bad12edaf324678650eba36a57c1b0771214fabb4772a8dc2",
+  "selection": "stage-selection.json",
+  "stageCount": 8,
+  "steps": [
+    {
+      "sequence": 1,
+      "processId": "ildu.changgo-foundation",
+      "label": "터 닦기 · 기단",
+      "isFinal": false,
+      "visibleMembers": 26,
+      "visibleSetSha256": "34a53a3e134cbd172298ff3435f6d920a3d29f53f29dbeef218e5f8518192eb8",
+      "materialBindingSha256": "b823b77a57cc597bad12edaf324678650eba36a57c1b0771214fabb4772a8dc2",
+      "camera": {
+        "position": [
+          43.85776901245117,
+          -71.25849914550781,
+          44.35578918457031
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -1.9723465527476947e-08,
+          0.6146630048751831
+        ],
+        "ortho": 16.415475845336914,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/01.png",
+      "sha256": "f9e38020547f80bd7d48acdf267c9db6fdce8440b2c3268dc8b4dc4c743ebbc4",
+      "seconds": 9.28,
+      "samples": 16
+    },
+    {
+      "sequence": 2,
+      "processId": "ildu.changgo-posts",
+      "label": "기둥",
+      "isFinal": false,
+      "visibleMembers": 27,
+      "visibleSetSha256": "62ab615286b83a03b72ee053cf653345caa420d2d0e3b1655887637632bb0a56",
+      "materialBindingSha256": "b823b77a57cc597bad12edaf324678650eba36a57c1b0771214fabb4772a8dc2",
+      "camera": {
+        "position": [
+          43.85776901245117,
+          -71.25849914550781,
+          44.35578918457031
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -1.9723465527476947e-08,
+          0.6146630048751831
+        ],
+        "ortho": 16.415475845336914,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/02.png",
+      "sha256": "75c1261630e0a60f55331d1dd1f5fc92526b3729448d93249092aed5fae45044",
+      "seconds": 10.38,
+      "samples": 16
+    },
+    {
+      "sequence": 3,
+      "processId": "ildu.changgo-beams",
+      "label": "보와 도리",
+      "isFinal": false,
+      "visibleMembers": 33,
+      "visibleSetSha256": "7cebcaca4b1ed4121fefcfb8d2e4961ae41b44dd3941999746cf1f0a6787fabe",
+      "materialBindingSha256": "b823b77a57cc597bad12edaf324678650eba36a57c1b0771214fabb4772a8dc2",
+      "camera": {
+        "position": [
+          43.85776901245117,
+          -71.25849914550781,
+          44.35578918457031
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -1.9723465527476947e-08,
+          0.6146630048751831
+        ],
+        "ortho": 16.415475845336914,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/03.png",
+      "sha256": "6d7e08e0049fa4dfd54ab94dafafd2eaf9c4f0e55a7721cd71a1d6aa2a22aa02",
+      "seconds": 13.74,
+      "samples": 16
+    },
+    {
+      "sequence": 4,
+      "processId": "ildu.changgo-rafters",
+      "label": "서까래와 산자",
+      "isFinal": false,
+      "visibleMembers": 41,
+      "visibleSetSha256": "fb257d00054b775de1497134fd2db8fe26e57a58d66198ab427e3fedadfdce3f",
+      "materialBindingSha256": "b823b77a57cc597bad12edaf324678650eba36a57c1b0771214fabb4772a8dc2",
+      "camera": {
+        "position": [
+          43.85776901245117,
+          -71.25849914550781,
+          44.35578918457031
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -1.9723465527476947e-08,
+          0.6146630048751831
+        ],
+        "ortho": 16.415475845336914,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/04.png",
+      "sha256": "2725c7c8486c9fe68322b9dc8bd711f7450663758c073676f3357453fcfaf0c2",
+      "seconds": 17.72,
+      "samples": 16
+    },
+    {
+      "sequence": 5,
+      "processId": "ildu.changgo-roof-bed",
+      "label": "지붕 바탕",
+      "isFinal": false,
+      "visibleMembers": 42,
+      "visibleSetSha256": "1fc10189bff42266ede9cd71435fd80502f925c9578e3821fbce71191a26a03e",
+      "materialBindingSha256": "b823b77a57cc597bad12edaf324678650eba36a57c1b0771214fabb4772a8dc2",
+      "camera": {
+        "position": [
+          43.85776901245117,
+          -71.25849914550781,
+          44.35578918457031
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -1.9723465527476947e-08,
+          0.6146630048751831
+        ],
+        "ortho": 16.415475845336914,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/05.png",
+      "sha256": "1feef33e460ab3e5d9ee827e2faae215e227bf0b3c62dfdf466354d8ef7934d9",
+      "seconds": 17.51,
+      "samples": 16
+    },
+    {
+      "sequence": 6,
+      "processId": "ildu.changgo-roof-tiles",
+      "label": "기와",
+      "isFinal": false,
+      "visibleMembers": 63,
+      "visibleSetSha256": "6986a0fe5b8c3562271b64c9e2e133d7e80d15afa0db2bda4ddf46d6fe2a345a",
+      "materialBindingSha256": "b823b77a57cc597bad12edaf324678650eba36a57c1b0771214fabb4772a8dc2",
+      "camera": {
+        "position": [
+          43.85776901245117,
+          -71.25849914550781,
+          44.35578918457031
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -1.9723465527476947e-08,
+          0.6146630048751831
+        ],
+        "ortho": 16.415475845336914,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/06.png",
+      "sha256": "e073b3f22dd7f28e27537e47c53faddcb44b6c728c713768d08c2673e3fd03f7",
+      "seconds": 17.56,
+      "samples": 16
+    },
+    {
+      "sequence": 7,
+      "processId": "ildu.changgo-walls",
+      "label": "벽체 채움",
+      "isFinal": false,
+      "visibleMembers": 77,
+      "visibleSetSha256": "539d936c96006d05691b127fd90454240730936a7911734cd068a9786ea1f16d",
+      "materialBindingSha256": "b823b77a57cc597bad12edaf324678650eba36a57c1b0771214fabb4772a8dc2",
+      "camera": {
+        "position": [
+          43.85776901245117,
+          -71.25849914550781,
+          44.35578918457031
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -1.9723465527476947e-08,
+          0.6146630048751831
+        ],
+        "ortho": 16.415475845336914,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/07.png",
+      "sha256": "c70bf704c2b8e217143a4a24f306aeb6513f3cc2258745301dd064674d896dd6",
+      "seconds": 18.28,
+      "samples": 16
+    },
+    {
+      "sequence": 8,
+      "processId": "ildu.changgo-complete",
+      "label": "문과 창호 · 마감 · 완성",
+      "isFinal": true,
+      "visibleMembers": 209,
+      "visibleSetSha256": "cca379cf4464ee5e139158b1dcf5d66e23eba11dc15d5beae5b70cbb6e1064f5",
+      "materialBindingSha256": "b823b77a57cc597bad12edaf324678650eba36a57c1b0771214fabb4772a8dc2",
+      "camera": {
+        "position": [
+          43.85776901245117,
+          -71.25849914550781,
+          44.35578918457031
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -1.9723465527476947e-08,
+          0.6146630048751831
+        ],
+        "ortho": 16.415475845336914,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/08.png",
+      "sha256": "fb07f3a3453b81214f71c9790cd429e17454ac736749d158b8aae540de5fec46",
+      "seconds": 18.18,
+      "samples": 16
+    }
+  ],
+  "renderComplete": true,
+  "userApproved": false,
+  "runtimeIntegrated": false,
+  "reopenedNativeVerified": true,
+  "allStageMaterialsIdenticalToSavedNative": true,
+  "allStageVisibilityVerified": true,
+  "sourceFilePreserved": true
+}

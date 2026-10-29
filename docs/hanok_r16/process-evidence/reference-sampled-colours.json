@@ -1,0 +1,249 @@
+{
+  "reference": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-c02e2044-93c6-4ef1-891d-ee6fd448abae.jpg",
+  "sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+  "size": [
+    2528,
+    1684
+  ],
+  "samples": {
+    "column": {
+      "region": [
+        0.145,
+        0.36,
+        0.171,
+        0.57
+      ],
+      "pixels": 15830,
+      "displayColors": [
+        "6A2E0D",
+        "AE6126",
+        "C7762E"
+      ]
+    },
+    "beam": {
+      "region": [
+        0.18,
+        0.375,
+        0.36,
+        0.415
+      ],
+      "pixels": 8637,
+      "displayColors": [
+        "672907",
+        "893D0C",
+        "C2722F"
+      ]
+    },
+    "gable": {
+      "region": [
+        0.505,
+        0.405,
+        0.565,
+        0.47
+      ],
+      "pixels": 14966,
+      "displayColors": [
+        "753912",
+        "C0722D",
+        "D5873C"
+      ]
+    },
+    "rafter": {
+      "region": [
+        0.17,
+        0.395,
+        0.34,
+        0.425
+      ],
+      "pixels": 12474,
+      "displayColors": [
+        "652806",
+        "883C09",
+        "C47430"
+      ]
+    },
+    "floor": {
+      "region": [
+        0.535,
+        0.62,
+        0.61,
+        0.69
+      ],
+      "pixels": 21100,
+      "displayColors": [
+        "591C03",
+        "953E0A",
+        "D8690F"
+      ]
+    },
+    "railing": {
+      "region": [
+        0.49,
+        0.72,
+        0.66,
+        0.755
+      ],
+      "pixels": 24616,
+      "displayColors": [
+        "762F08",
+        "B96726",
+        "D78639"
+      ]
+    },
+    "apron": {
+      "region": [
+        0.2,
+        0.51,
+        0.31,
+        0.565
+      ],
+      "pixels": 21513,
+      "displayColors": [
+        "833B10",
+        "AB5E26",
+        "C5732C"
+      ]
+    },
+    "lower_board": {
+      "region": [
+        0.46,
+        0.795,
+        0.64,
+        0.865
+      ],
+      "pixels": 33867,
+      "displayColors": [
+        "824216",
+        "B96827",
+        "CD792F"
+      ]
+    },
+    "door_panel": {
+      "region": [
+        0.75,
+        0.57,
+        0.81,
+        0.7
+      ],
+      "pixels": 11704,
+      "displayColors": [
+        "572B11",
+        "6D3918",
+        "7E461F"
+      ]
+    },
+    "frame": {
+      "region": [
+        0.18,
+        0.42,
+        0.35,
+        0.49
+      ],
+      "pixels": 40512,
+      "displayColors": [
+        "5D2204",
+        "863706",
+        "B66829"
+      ]
+    },
+    "lattice": {
+      "region": [
+        0.165,
+        0.41,
+        0.215,
+        0.465
+      ],
+      "pixels": 7846,
+      "displayColors": [
+        "4B1904",
+        "742F08",
+        "A0501A"
+      ]
+    },
+    "endgrain": {
+      "region": [
+        0.2,
+        0.387,
+        0.35,
+        0.414
+      ],
+      "pixels": 5729,
+      "displayColors": [
+        "652A07",
+        "893E0D",
+        "C2722F"
+      ]
+    },
+    "tile": {
+      "region": [
+        0.35,
+        0.14,
+        0.61,
+        0.3
+      ],
+      "pixels": 111994,
+      "displayColors": [
+        "26282F",
+        "4C4C52",
+        "6D6B6F"
+      ]
+    },
+    "tile-end": {
+      "region": [
+        0.041,
+        0.284,
+        0.048,
+        0.296
+      ],
+      "pixels": 180,
+      "displayColors": [
+        "E2CDB8",
+        "E6D0B8",
+        "EAD9CC"
+      ]
+    },
+    "stone": {
+      "region": [
+        0.07,
+        0.595,
+        0.36,
+        0.67
+      ],
+      "pixels": 66098,
+      "displayColors": [
+        "CAB298",
+        "DDC5A9",
+        "F2DBC1"
+      ]
+    },
+    "plaster": {
+      "region": [
+        0.835,
+        0.58,
+        0.865,
+        0.66
+      ],
+      "pixels": 2629,
+      "displayColors": [
+        "A18A75",
+        "AA9582",
+        "B19B86"
+      ]
+    },
+    "paper": {
+      "region": [
+        0.164,
+        0.413,
+        0.215,
+        0.47
+      ],
+      "pixels": 1329,
+      "displayColors": [
+        "EF9D54",
+        "FFB265",
+        "FFC373"
+      ]
+    }
+  },
+  "note": "Display pixel samples including reference lighting; not assumed to be measured physical albedo."
+}

@@ -1,0 +1,4185 @@
+{
+  "key": "arae",
+  "buildingId": "araechae",
+  "name": "아랫채",
+  "selectorAuthority": "canonical-review catalog and preserved GLB/native explicit reviewStage",
+  "canonicalCatalogSha256": "4f511d3c06b1dcc995cdf94f578b70f400f0ca96bc14fcf65e689eacaec9c6d1",
+  "steps": [
+    {
+      "sequence": 1,
+      "processId": "ildu.araechae-site-rooms",
+      "label": "터와 방 배치",
+      "isFinal": false,
+      "visibleObjects": [],
+      "visibleOriginals": [],
+      "visibleProxies": [],
+      "newMembers": 0,
+      "newOriginalMembers": 0,
+      "visibleMembers": 0,
+      "visibleSetSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "noNewGeometry": true
+    },
+    {
+      "sequence": 2,
+      "processId": "ildu.araechae-stone-foundation",
+      "label": "돌기단",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar"
+      ],
+      "visibleOriginals": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar"
+      ],
+      "visibleProxies": [],
+      "newMembers": 4,
+      "newOriginalMembers": 4,
+      "visibleMembers": 4,
+      "visibleSetSha256": "70ed07745125b826fc327fd0aae8f33d0fcad034d2d86d6d6495775a3896e0e8",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 3,
+      "processId": "ildu.araechae-posts-floor-support",
+      "label": "기둥과 바닥틀",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame square post"
+      ],
+      "visibleOriginals": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame square post"
+      ],
+      "visibleProxies": [],
+      "newMembers": 1,
+      "newOriginalMembers": 1,
+      "visibleMembers": 5,
+      "visibleSetSha256": "0929f321e33f9f593c92cbb82a250a0e0568976868bd780c85c8225fdec88681",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 4,
+      "processId": "ildu.araechae-beams-purlins",
+      "label": "보와 도리",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam"
+      ],
+      "visibleOriginals": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam"
+      ],
+      "visibleProxies": [],
+      "newMembers": 3,
+      "newOriginalMembers": 3,
+      "visibleMembers": 8,
+      "visibleSetSha256": "86d7049c7ff6a76d6ae045f85daf6f184bdd5513972c3a5b9cd37934eb88da08",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 5,
+      "processId": "ildu.araechae-rafters-eaves",
+      "label": "서까래와 처마",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters"
+      ],
+      "visibleOriginals": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters"
+      ],
+      "visibleProxies": [],
+      "newMembers": 3,
+      "newOriginalMembers": 3,
+      "visibleMembers": 11,
+      "visibleSetSha256": "d97bd5f79229130eeab647403398badf928298bb5e0a5e067b10b2e66bdb014c",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 6,
+      "processId": "ildu.araechae-roof-bed",
+      "label": "지붕 바탕",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.roof packed ridge core",
+        "North.arae.roof solid bedding",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters"
+      ],
+      "visibleOriginals": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.roof packed ridge core",
+        "North.arae.roof solid bedding",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters"
+      ],
+      "visibleProxies": [],
+      "newMembers": 2,
+      "newOriginalMembers": 2,
+      "visibleMembers": 13,
+      "visibleSetSha256": "87c0ed25af971c751ec488fe87843776b0a5aa9af40242ec4ef652f426a6450b",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 7,
+      "processId": "ildu.araechae-tiles",
+      "label": "기와",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.roof",
+        "North.arae.roof packed ridge core",
+        "North.arae.roof solid bedding",
+        "North.arae.roof.001",
+        "North.arae.roof.002",
+        "North.arae.roof.003",
+        "North.arae.roof.004",
+        "North.arae.roof.005",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters",
+        "North.arae.roof.ridge stack",
+        "North.arae.roof.ridge stack.001",
+        "North.arae.roof.ridge stack.002",
+        "North.arae.roof.ridge stack.003",
+        "North.arae.roof.ridge stack.004",
+        "North.arae.roof.ridge stack.005",
+        "North.arae.roof.round tile ends"
+      ],
+      "visibleOriginals": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.roof",
+        "North.arae.roof packed ridge core",
+        "North.arae.roof solid bedding",
+        "North.arae.roof.001",
+        "North.arae.roof.002",
+        "North.arae.roof.003",
+        "North.arae.roof.004",
+        "North.arae.roof.005",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters",
+        "North.arae.roof.ridge stack",
+        "North.arae.roof.ridge stack.001",
+        "North.arae.roof.ridge stack.002",
+        "North.arae.roof.ridge stack.003",
+        "North.arae.roof.ridge stack.004",
+        "North.arae.roof.ridge stack.005",
+        "North.arae.roof.round tile ends"
+      ],
+      "visibleProxies": [],
+      "newMembers": 13,
+      "newOriginalMembers": 13,
+      "visibleMembers": 26,
+      "visibleSetSha256": "4d040c08a0b241bde045920748c0c0cdc2115d09d0e0f468256311f732619edc",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 8,
+      "processId": "ildu.araechae-room-walls",
+      "label": "방 벽체",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.interior dividing wall",
+        "North.arae.p11 passage wall timber bands",
+        "North.arae.rear plaster",
+        "North.arae.rear plaster.head/sill",
+        "North.arae.rear plaster.jamb",
+        "North.arae.roof",
+        "North.arae.roof packed ridge core",
+        "North.arae.roof solid bedding",
+        "North.arae.roof.001",
+        "North.arae.roof.002",
+        "North.arae.roof.003",
+        "North.arae.roof.004",
+        "North.arae.roof.005",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.gable timber",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters",
+        "North.arae.roof.ridge stack",
+        "North.arae.roof.ridge stack.001",
+        "North.arae.roof.ridge stack.002",
+        "North.arae.roof.ridge stack.003",
+        "North.arae.roof.ridge stack.004",
+        "North.arae.roof.ridge stack.005",
+        "North.arae.roof.round tile ends",
+        "North.arae.room ceiling",
+        "North.arae.survey front infill"
+      ],
+      "visibleOriginals": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.interior dividing wall",
+        "North.arae.p11 passage wall timber bands",
+        "North.arae.rear plaster",
+        "North.arae.rear plaster.head/sill",
+        "North.arae.rear plaster.jamb",
+        "North.arae.roof",
+        "North.arae.roof packed ridge core",
+        "North.arae.roof solid bedding",
+        "North.arae.roof.001",
+        "North.arae.roof.002",
+        "North.arae.roof.003",
+        "North.arae.roof.004",
+        "North.arae.roof.005",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.gable timber",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters",
+        "North.arae.roof.ridge stack",
+        "North.arae.roof.ridge stack.001",
+        "North.arae.roof.ridge stack.002",
+        "North.arae.roof.ridge stack.003",
+        "North.arae.roof.ridge stack.004",
+        "North.arae.roof.ridge stack.005",
+        "North.arae.roof.round tile ends",
+        "North.arae.room ceiling",
+        "North.arae.survey front infill"
+      ],
+      "visibleProxies": [],
+      "newMembers": 8,
+      "newOriginalMembers": 8,
+      "visibleMembers": 34,
+      "visibleSetSha256": "60e80e7e19c83f9671288710e1797e91ca88a2f9195bd6cc93e7a56f591493bc",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 9,
+      "processId": "ildu.araechae-ondol",
+      "label": "온돌",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.hanji room floor",
+        "North.arae.interior dividing wall",
+        "North.arae.ondol room",
+        "North.arae.p11 passage wall timber bands",
+        "North.arae.p12 passage hearth",
+        "North.arae.rear plaster",
+        "North.arae.rear plaster.head/sill",
+        "North.arae.rear plaster.jamb",
+        "North.arae.right ondol side",
+        "North.arae.roof",
+        "North.arae.roof packed ridge core",
+        "North.arae.roof solid bedding",
+        "North.arae.roof.001",
+        "North.arae.roof.002",
+        "North.arae.roof.003",
+        "North.arae.roof.004",
+        "North.arae.roof.005",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.gable timber",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters",
+        "North.arae.roof.ridge stack",
+        "North.arae.roof.ridge stack.001",
+        "North.arae.roof.ridge stack.002",
+        "North.arae.roof.ridge stack.003",
+        "North.arae.roof.ridge stack.004",
+        "North.arae.roof.ridge stack.005",
+        "North.arae.roof.round tile ends",
+        "North.arae.room ceiling",
+        "North.arae.survey front infill"
+      ],
+      "visibleOriginals": [
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.hanji room floor",
+        "North.arae.interior dividing wall",
+        "North.arae.ondol room",
+        "North.arae.p11 passage wall timber bands",
+        "North.arae.p12 passage hearth",
+        "North.arae.rear plaster",
+        "North.arae.rear plaster.head/sill",
+        "North.arae.rear plaster.jamb",
+        "North.arae.right ondol side",
+        "North.arae.roof",
+        "North.arae.roof packed ridge core",
+        "North.arae.roof solid bedding",
+        "North.arae.roof.001",
+        "North.arae.roof.002",
+        "North.arae.roof.003",
+        "North.arae.roof.004",
+        "North.arae.roof.005",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.gable timber",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters",
+        "North.arae.roof.ridge stack",
+        "North.arae.roof.ridge stack.001",
+        "North.arae.roof.ridge stack.002",
+        "North.arae.roof.ridge stack.003",
+        "North.arae.roof.ridge stack.004",
+        "North.arae.roof.ridge stack.005",
+        "North.arae.roof.round tile ends",
+        "North.arae.room ceiling",
+        "North.arae.survey front infill"
+      ],
+      "visibleProxies": [],
+      "newMembers": 4,
+      "newOriginalMembers": 4,
+      "visibleMembers": 38,
+      "visibleSetSha256": "73536587e11b81d4903dee4349513da2ecb9f6a3baa413121a7a38419394bfb2",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 10,
+      "processId": "ildu.araechae-maru",
+      "label": "마루",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.arae.floor individual boards",
+        "North.arae.floor under joists",
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.hanji room floor",
+        "North.arae.interior dividing wall",
+        "North.arae.left maru side",
+        "North.arae.left maru side.head/sill",
+        "North.arae.left maru side.jamb",
+        "North.arae.ondol room",
+        "North.arae.p11 passage wall timber bands",
+        "North.arae.p12 passage hearth",
+        "North.arae.rear plaster",
+        "North.arae.rear plaster.head/sill",
+        "North.arae.rear plaster.jamb",
+        "North.arae.right ondol side",
+        "North.arae.roof",
+        "North.arae.roof packed ridge core",
+        "North.arae.roof solid bedding",
+        "North.arae.roof.001",
+        "North.arae.roof.002",
+        "North.arae.roof.003",
+        "North.arae.roof.004",
+        "North.arae.roof.005",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.gable timber",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters",
+        "North.arae.roof.ridge stack",
+        "North.arae.roof.ridge stack.001",
+        "North.arae.roof.ridge stack.002",
+        "North.arae.roof.ridge stack.003",
+        "North.arae.roof.ridge stack.004",
+        "North.arae.roof.ridge stack.005",
+        "North.arae.roof.round tile ends",
+        "North.arae.room ceiling",
+        "North.arae.survey front infill"
+      ],
+      "visibleOriginals": [
+        "North.arae.floor individual boards",
+        "North.arae.floor under joists",
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.hanji room floor",
+        "North.arae.interior dividing wall",
+        "North.arae.left maru side",
+        "North.arae.left maru side.head/sill",
+        "North.arae.left maru side.jamb",
+        "North.arae.ondol room",
+        "North.arae.p11 passage wall timber bands",
+        "North.arae.p12 passage hearth",
+        "North.arae.rear plaster",
+        "North.arae.rear plaster.head/sill",
+        "North.arae.rear plaster.jamb",
+        "North.arae.right ondol side",
+        "North.arae.roof",
+        "North.arae.roof packed ridge core",
+        "North.arae.roof solid bedding",
+        "North.arae.roof.001",
+        "North.arae.roof.002",
+        "North.arae.roof.003",
+        "North.arae.roof.004",
+        "North.arae.roof.005",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.gable timber",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters",
+        "North.arae.roof.ridge stack",
+        "North.arae.roof.ridge stack.001",
+        "North.arae.roof.ridge stack.002",
+        "North.arae.roof.ridge stack.003",
+        "North.arae.roof.ridge stack.004",
+        "North.arae.roof.ridge stack.005",
+        "North.arae.roof.round tile ends",
+        "North.arae.room ceiling",
+        "North.arae.survey front infill"
+      ],
+      "visibleProxies": [],
+      "newMembers": 5,
+      "newOriginalMembers": 5,
+      "visibleMembers": 43,
+      "visibleSetSha256": "6349377b77dd5ac0b69c9707e4d48b97fd8058963d87a3f2ce1e0bf764db83ff",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 11,
+      "processId": "ildu.araechae-changho",
+      "label": "창호",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.arae.floor individual boards",
+        "North.arae.floor under joists",
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.hanji room floor",
+        "North.arae.interior dividing wall",
+        "North.arae.left maru side",
+        "North.arae.left maru side lattice.leaf1.hanji backing",
+        "North.arae.left maru side lattice.leaf1.horizontal band",
+        "North.arae.left maru side lattice.leaf1.lock rail",
+        "North.arae.left maru side lattice.leaf1.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf1.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf1.rail",
+        "North.arae.left maru side lattice.leaf1.rear paper rail",
+        "North.arae.left maru side lattice.leaf1.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf1.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf1.recessed lower board",
+        "North.arae.left maru side lattice.leaf1.stile",
+        "North.arae.left maru side lattice.leaf1.vertical sal",
+        "North.arae.left maru side lattice.leaf2.hanji backing",
+        "North.arae.left maru side lattice.leaf2.horizontal band",
+        "North.arae.left maru side lattice.leaf2.lock rail",
+        "North.arae.left maru side lattice.leaf2.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf2.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf2.rail",
+        "North.arae.left maru side lattice.leaf2.rear paper rail",
+        "North.arae.left maru side lattice.leaf2.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf2.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf2.recessed lower board",
+        "North.arae.left maru side lattice.leaf2.stile",
+        "North.arae.left maru side lattice.leaf2.vertical sal",
+        "North.arae.left maru side lattice.leaf3.hanji backing",
+        "North.arae.left maru side lattice.leaf3.horizontal band",
+        "North.arae.left maru side lattice.leaf3.lock rail",
+        "North.arae.left maru side lattice.leaf3.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf3.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf3.rail",
+        "North.arae.left maru side lattice.leaf3.rear paper rail",
+        "North.arae.left maru side lattice.leaf3.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf3.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf3.recessed lower board",
+        "North.arae.left maru side lattice.leaf3.stile",
+        "North.arae.left maru side lattice.leaf3.vertical sal",
+        "North.arae.left maru side lattice.leaf4.hanji backing",
+        "North.arae.left maru side lattice.leaf4.horizontal band",
+        "North.arae.left maru side lattice.leaf4.lock rail",
+        "North.arae.left maru side lattice.leaf4.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf4.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf4.rail",
+        "North.arae.left maru side lattice.leaf4.rear paper rail",
+        "North.arae.left maru side lattice.leaf4.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf4.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf4.recessed lower board",
+        "North.arae.left maru side lattice.leaf4.stile",
+        "North.arae.left maru side lattice.leaf4.vertical sal",
+        "North.arae.left maru side.head/sill",
+        "North.arae.left maru side.jamb",
+        "North.arae.ondol room",
+        "North.arae.p11 passage wall timber bands",
+        "North.arae.p12 passage hearth",
+        "North.arae.rear WD0.leaf1.hanji backing",
+        "North.arae.rear WD0.leaf1.horizontal band",
+        "North.arae.rear WD0.leaf1.lock rail",
+        "North.arae.rear WD0.leaf1.lower moulding.rail",
+        "North.arae.rear WD0.leaf1.lower moulding.stile",
+        "North.arae.rear WD0.leaf1.rail",
+        "North.arae.rear WD0.leaf1.rear paper rail",
+        "North.arae.rear WD0.leaf1.rebated bead.rail",
+        "North.arae.rear WD0.leaf1.rebated bead.stile",
+        "North.arae.rear WD0.leaf1.recessed lower board",
+        "North.arae.rear WD0.leaf1.stile",
+        "North.arae.rear WD0.leaf1.vertical sal",
+        "North.arae.rear WD0.leaf2.hanji backing",
+        "North.arae.rear WD0.leaf2.horizontal band",
+        "North.arae.rear WD0.leaf2.lock rail",
+        "North.arae.rear WD0.leaf2.lower moulding.rail",
+        "North.arae.rear WD0.leaf2.lower moulding.stile",
+        "North.arae.rear WD0.leaf2.rail",
+        "North.arae.rear WD0.leaf2.rear paper rail",
+        "North.arae.rear WD0.leaf2.rebated bead.rail",
+        "North.arae.rear WD0.leaf2.rebated bead.stile",
+        "North.arae.rear WD0.leaf2.recessed lower board",
+        "North.arae.rear WD0.leaf2.stile",
+        "North.arae.rear WD0.leaf2.vertical sal",
+        "North.arae.rear WD0.leaf3.hanji backing",
+        "North.arae.rear WD0.leaf3.horizontal band",
+        "North.arae.rear WD0.leaf3.lock rail",
+        "North.arae.rear WD0.leaf3.lower moulding.rail",
+        "North.arae.rear WD0.leaf3.lower moulding.stile",
+        "North.arae.rear WD0.leaf3.rail",
+        "North.arae.rear WD0.leaf3.rear paper rail",
+        "North.arae.rear WD0.leaf3.rebated bead.rail",
+        "North.arae.rear WD0.leaf3.rebated bead.stile",
+        "North.arae.rear WD0.leaf3.recessed lower board",
+        "North.arae.rear WD0.leaf3.stile",
+        "North.arae.rear WD0.leaf3.vertical sal",
+        "North.arae.rear WD0.leaf4.hanji backing",
+        "North.arae.rear WD0.leaf4.horizontal band",
+        "North.arae.rear WD0.leaf4.lock rail",
+        "North.arae.rear WD0.leaf4.lower moulding.rail",
+        "North.arae.rear WD0.leaf4.lower moulding.stile",
+        "North.arae.rear WD0.leaf4.rail",
+        "North.arae.rear WD0.leaf4.rear paper rail",
+        "North.arae.rear WD0.leaf4.rebated bead.rail",
+        "North.arae.rear WD0.leaf4.rebated bead.stile",
+        "North.arae.rear WD0.leaf4.recessed lower board",
+        "North.arae.rear WD0.leaf4.stile",
+        "North.arae.rear WD0.leaf4.vertical sal",
+        "North.arae.rear WD2.leaf1.hanji backing",
+        "North.arae.rear WD2.leaf1.horizontal band",
+        "North.arae.rear WD2.leaf1.lock rail",
+        "North.arae.rear WD2.leaf1.lower moulding.rail",
+        "North.arae.rear WD2.leaf1.lower moulding.stile",
+        "North.arae.rear WD2.leaf1.rail",
+        "North.arae.rear WD2.leaf1.rear paper rail",
+        "North.arae.rear WD2.leaf1.rebated bead.rail",
+        "North.arae.rear WD2.leaf1.rebated bead.stile",
+        "North.arae.rear WD2.leaf1.recessed lower board",
+        "North.arae.rear WD2.leaf1.stile",
+        "North.arae.rear WD2.leaf1.vertical sal",
+        "North.arae.rear plaster",
+        "North.arae.rear plaster.head/sill",
+        "North.arae.rear plaster.jamb",
+        "North.arae.right ondol side",
+        "North.arae.roof",
+        "North.arae.roof packed ridge core",
+        "North.arae.roof solid bedding",
+        "North.arae.roof.001",
+        "North.arae.roof.002",
+        "North.arae.roof.003",
+        "North.arae.roof.004",
+        "North.arae.roof.005",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.gable timber",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters",
+        "North.arae.roof.ridge stack",
+        "North.arae.roof.ridge stack.001",
+        "North.arae.roof.ridge stack.002",
+        "North.arae.roof.ridge stack.003",
+        "North.arae.roof.ridge stack.004",
+        "North.arae.roof.ridge stack.005",
+        "North.arae.roof.round tile ends",
+        "North.arae.room ceiling",
+        "North.arae.survey WD02.leaf1.hanji backing",
+        "North.arae.survey WD02.leaf1.horizontal band",
+        "North.arae.survey WD02.leaf1.lock rail",
+        "North.arae.survey WD02.leaf1.lower moulding.rail",
+        "North.arae.survey WD02.leaf1.lower moulding.stile",
+        "North.arae.survey WD02.leaf1.rail",
+        "North.arae.survey WD02.leaf1.rear paper rail",
+        "North.arae.survey WD02.leaf1.rebated bead.rail",
+        "North.arae.survey WD02.leaf1.rebated bead.stile",
+        "North.arae.survey WD02.leaf1.recessed lower board",
+        "North.arae.survey WD02.leaf1.stile",
+        "North.arae.survey WD02.leaf1.vertical sal",
+        "North.arae.survey WD02.leaf2.hanji backing",
+        "North.arae.survey WD02.leaf2.horizontal band",
+        "North.arae.survey WD02.leaf2.lock rail",
+        "North.arae.survey WD02.leaf2.lower moulding.rail",
+        "North.arae.survey WD02.leaf2.lower moulding.stile",
+        "North.arae.survey WD02.leaf2.rail",
+        "North.arae.survey WD02.leaf2.rear paper rail",
+        "North.arae.survey WD02.leaf2.rebated bead.rail",
+        "North.arae.survey WD02.leaf2.rebated bead.stile",
+        "North.arae.survey WD02.leaf2.recessed lower board",
+        "North.arae.survey WD02.leaf2.stile",
+        "North.arae.survey WD02.leaf2.vertical sal",
+        "North.arae.survey WD02.leaf3.hanji backing",
+        "North.arae.survey WD02.leaf3.horizontal band",
+        "North.arae.survey WD02.leaf3.lock rail",
+        "North.arae.survey WD02.leaf3.lower moulding.rail",
+        "North.arae.survey WD02.leaf3.lower moulding.stile",
+        "North.arae.survey WD02.leaf3.rail",
+        "North.arae.survey WD02.leaf3.rear paper rail",
+        "North.arae.survey WD02.leaf3.rebated bead.rail",
+        "North.arae.survey WD02.leaf3.rebated bead.stile",
+        "North.arae.survey WD02.leaf3.recessed lower board",
+        "North.arae.survey WD02.leaf3.stile",
+        "North.arae.survey WD02.leaf3.vertical sal",
+        "North.arae.survey WD02.leaf4.hanji backing",
+        "North.arae.survey WD02.leaf4.horizontal band",
+        "North.arae.survey WD02.leaf4.lock rail",
+        "North.arae.survey WD02.leaf4.lower moulding.rail",
+        "North.arae.survey WD02.leaf4.lower moulding.stile",
+        "North.arae.survey WD02.leaf4.rail",
+        "North.arae.survey WD02.leaf4.rear paper rail",
+        "North.arae.survey WD02.leaf4.rebated bead.rail",
+        "North.arae.survey WD02.leaf4.rebated bead.stile",
+        "North.arae.survey WD02.leaf4.recessed lower board",
+        "North.arae.survey WD02.leaf4.stile",
+        "North.arae.survey WD02.leaf4.vertical sal",
+        "North.arae.survey WD04.leaf1.hanji backing",
+        "North.arae.survey WD04.leaf1.horizontal band",
+        "North.arae.survey WD04.leaf1.lock rail",
+        "North.arae.survey WD04.leaf1.lower moulding.rail",
+        "North.arae.survey WD04.leaf1.lower moulding.stile",
+        "North.arae.survey WD04.leaf1.rail",
+        "North.arae.survey WD04.leaf1.rear paper rail",
+        "North.arae.survey WD04.leaf1.rebated bead.rail",
+        "North.arae.survey WD04.leaf1.rebated bead.stile",
+        "North.arae.survey WD04.leaf1.recessed lower board",
+        "North.arae.survey WD04.leaf1.stile",
+        "North.arae.survey WD04.leaf1.vertical sal",
+        "North.arae.survey WD04.leaf2.hanji backing",
+        "North.arae.survey WD04.leaf2.horizontal band",
+        "North.arae.survey WD04.leaf2.lock rail",
+        "North.arae.survey WD04.leaf2.lower moulding.rail",
+        "North.arae.survey WD04.leaf2.lower moulding.stile",
+        "North.arae.survey WD04.leaf2.rail",
+        "North.arae.survey WD04.leaf2.rear paper rail",
+        "North.arae.survey WD04.leaf2.rebated bead.rail",
+        "North.arae.survey WD04.leaf2.rebated bead.stile",
+        "North.arae.survey WD04.leaf2.recessed lower board",
+        "North.arae.survey WD04.leaf2.stile",
+        "North.arae.survey WD04.leaf2.vertical sal",
+        "North.arae.survey WD06.leaf1.hanji backing",
+        "North.arae.survey WD06.leaf1.horizontal band",
+        "North.arae.survey WD06.leaf1.lock rail",
+        "North.arae.survey WD06.leaf1.lower moulding.rail",
+        "North.arae.survey WD06.leaf1.lower moulding.stile",
+        "North.arae.survey WD06.leaf1.rail",
+        "North.arae.survey WD06.leaf1.rear paper rail",
+        "North.arae.survey WD06.leaf1.rebated bead.rail",
+        "North.arae.survey WD06.leaf1.rebated bead.stile",
+        "North.arae.survey WD06.leaf1.recessed lower board",
+        "North.arae.survey WD06.leaf1.stile",
+        "North.arae.survey WD06.leaf1.vertical sal",
+        "North.arae.survey WD06.leaf2.hanji backing",
+        "North.arae.survey WD06.leaf2.horizontal band",
+        "North.arae.survey WD06.leaf2.lock rail",
+        "North.arae.survey WD06.leaf2.lower moulding.rail",
+        "North.arae.survey WD06.leaf2.lower moulding.stile",
+        "North.arae.survey WD06.leaf2.rail",
+        "North.arae.survey WD06.leaf2.rear paper rail",
+        "North.arae.survey WD06.leaf2.rebated bead.rail",
+        "North.arae.survey WD06.leaf2.rebated bead.stile",
+        "North.arae.survey WD06.leaf2.recessed lower board",
+        "North.arae.survey WD06.leaf2.stile",
+        "North.arae.survey WD06.leaf2.vertical sal",
+        "North.arae.survey front infill"
+      ],
+      "visibleOriginals": [
+        "North.arae.floor individual boards",
+        "North.arae.floor under joists",
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.hanji room floor",
+        "North.arae.interior dividing wall",
+        "North.arae.left maru side",
+        "North.arae.left maru side lattice.leaf1.hanji backing",
+        "North.arae.left maru side lattice.leaf1.horizontal band",
+        "North.arae.left maru side lattice.leaf1.lock rail",
+        "North.arae.left maru side lattice.leaf1.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf1.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf1.rail",
+        "North.arae.left maru side lattice.leaf1.rear paper rail",
+        "North.arae.left maru side lattice.leaf1.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf1.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf1.recessed lower board",
+        "North.arae.left maru side lattice.leaf1.stile",
+        "North.arae.left maru side lattice.leaf1.vertical sal",
+        "North.arae.left maru side lattice.leaf2.hanji backing",
+        "North.arae.left maru side lattice.leaf2.horizontal band",
+        "North.arae.left maru side lattice.leaf2.lock rail",
+        "North.arae.left maru side lattice.leaf2.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf2.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf2.rail",
+        "North.arae.left maru side lattice.leaf2.rear paper rail",
+        "North.arae.left maru side lattice.leaf2.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf2.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf2.recessed lower board",
+        "North.arae.left maru side lattice.leaf2.stile",
+        "North.arae.left maru side lattice.leaf2.vertical sal",
+        "North.arae.left maru side lattice.leaf3.hanji backing",
+        "North.arae.left maru side lattice.leaf3.horizontal band",
+        "North.arae.left maru side lattice.leaf3.lock rail",
+        "North.arae.left maru side lattice.leaf3.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf3.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf3.rail",
+        "North.arae.left maru side lattice.leaf3.rear paper rail",
+        "North.arae.left maru side lattice.leaf3.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf3.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf3.recessed lower board",
+        "North.arae.left maru side lattice.leaf3.stile",
+        "North.arae.left maru side lattice.leaf3.vertical sal",
+        "North.arae.left maru side lattice.leaf4.hanji backing",
+        "North.arae.left maru side lattice.leaf4.horizontal band",
+        "North.arae.left maru side lattice.leaf4.lock rail",
+        "North.arae.left maru side lattice.leaf4.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf4.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf4.rail",
+        "North.arae.left maru side lattice.leaf4.rear paper rail",
+        "North.arae.left maru side lattice.leaf4.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf4.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf4.recessed lower board",
+        "North.arae.left maru side lattice.leaf4.stile",
+        "North.arae.left maru side lattice.leaf4.vertical sal",
+        "North.arae.left maru side.head/sill",
+        "North.arae.left maru side.jamb",
+        "North.arae.ondol room",
+        "North.arae.p11 passage wall timber bands",
+        "North.arae.p12 passage hearth",
+        "North.arae.rear WD0.leaf1.hanji backing",
+        "North.arae.rear WD0.leaf1.horizontal band",
+        "North.arae.rear WD0.leaf1.lock rail",
+        "North.arae.rear WD0.leaf1.lower moulding.rail",
+        "North.arae.rear WD0.leaf1.lower moulding.stile",
+        "North.arae.rear WD0.leaf1.rail",
+        "North.arae.rear WD0.leaf1.rear paper rail",
+        "North.arae.rear WD0.leaf1.rebated bead.rail",
+        "North.arae.rear WD0.leaf1.rebated bead.stile",
+        "North.arae.rear WD0.leaf1.recessed lower board",
+        "North.arae.rear WD0.leaf1.stile",
+        "North.arae.rear WD0.leaf1.vertical sal",
+        "North.arae.rear WD0.leaf2.hanji backing",
+        "North.arae.rear WD0.leaf2.horizontal band",
+        "North.arae.rear WD0.leaf2.lock rail",
+        "North.arae.rear WD0.leaf2.lower moulding.rail",
+        "North.arae.rear WD0.leaf2.lower moulding.stile",
+        "North.arae.rear WD0.leaf2.rail",
+        "North.arae.rear WD0.leaf2.rear paper rail",
+        "North.arae.rear WD0.leaf2.rebated bead.rail",
+        "North.arae.rear WD0.leaf2.rebated bead.stile",
+        "North.arae.rear WD0.leaf2.recessed lower board",
+        "North.arae.rear WD0.leaf2.stile",
+        "North.arae.rear WD0.leaf2.vertical sal",
+        "North.arae.rear WD0.leaf3.hanji backing",
+        "North.arae.rear WD0.leaf3.horizontal band",
+        "North.arae.rear WD0.leaf3.lock rail",
+        "North.arae.rear WD0.leaf3.lower moulding.rail",
+        "North.arae.rear WD0.leaf3.lower moulding.stile",
+        "North.arae.rear WD0.leaf3.rail",
+        "North.arae.rear WD0.leaf3.rear paper rail",
+        "North.arae.rear WD0.leaf3.rebated bead.rail",
+        "North.arae.rear WD0.leaf3.rebated bead.stile",
+        "North.arae.rear WD0.leaf3.recessed lower board",
+        "North.arae.rear WD0.leaf3.stile",
+        "North.arae.rear WD0.leaf3.vertical sal",
+        "North.arae.rear WD0.leaf4.hanji backing",
+        "North.arae.rear WD0.leaf4.horizontal band",
+        "North.arae.rear WD0.leaf4.lock rail",
+        "North.arae.rear WD0.leaf4.lower moulding.rail",
+        "North.arae.rear WD0.leaf4.lower moulding.stile",
+        "North.arae.rear WD0.leaf4.rail",
+        "North.arae.rear WD0.leaf4.rear paper rail",
+        "North.arae.rear WD0.leaf4.rebated bead.rail",
+        "North.arae.rear WD0.leaf4.rebated bead.stile",
+        "North.arae.rear WD0.leaf4.recessed lower board",
+        "North.arae.rear WD0.leaf4.stile",
+        "North.arae.rear WD0.leaf4.vertical sal",
+        "North.arae.rear WD2.leaf1.hanji backing",
+        "North.arae.rear WD2.leaf1.horizontal band",
+        "North.arae.rear WD2.leaf1.lock rail",
+        "North.arae.rear WD2.leaf1.lower moulding.rail",
+        "North.arae.rear WD2.leaf1.lower moulding.stile",
+        "North.arae.rear WD2.leaf1.rail",
+        "North.arae.rear WD2.leaf1.rear paper rail",
+        "North.arae.rear WD2.leaf1.rebated bead.rail",
+        "North.arae.rear WD2.leaf1.rebated bead.stile",
+        "North.arae.rear WD2.leaf1.recessed lower board",
+        "North.arae.rear WD2.leaf1.stile",
+        "North.arae.rear WD2.leaf1.vertical sal",
+        "North.arae.rear plaster",
+        "North.arae.rear plaster.head/sill",
+        "North.arae.rear plaster.jamb",
+        "North.arae.right ondol side",
+        "North.arae.roof",
+        "North.arae.roof packed ridge core",
+        "North.arae.roof solid bedding",
+        "North.arae.roof.001",
+        "North.arae.roof.002",
+        "North.arae.roof.003",
+        "North.arae.roof.004",
+        "North.arae.roof.005",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.gable timber",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters",
+        "North.arae.roof.ridge stack",
+        "North.arae.roof.ridge stack.001",
+        "North.arae.roof.ridge stack.002",
+        "North.arae.roof.ridge stack.003",
+        "North.arae.roof.ridge stack.004",
+        "North.arae.roof.ridge stack.005",
+        "North.arae.roof.round tile ends",
+        "North.arae.room ceiling",
+        "North.arae.survey WD02.leaf1.hanji backing",
+        "North.arae.survey WD02.leaf1.horizontal band",
+        "North.arae.survey WD02.leaf1.lock rail",
+        "North.arae.survey WD02.leaf1.lower moulding.rail",
+        "North.arae.survey WD02.leaf1.lower moulding.stile",
+        "North.arae.survey WD02.leaf1.rail",
+        "North.arae.survey WD02.leaf1.rear paper rail",
+        "North.arae.survey WD02.leaf1.rebated bead.rail",
+        "North.arae.survey WD02.leaf1.rebated bead.stile",
+        "North.arae.survey WD02.leaf1.recessed lower board",
+        "North.arae.survey WD02.leaf1.stile",
+        "North.arae.survey WD02.leaf1.vertical sal",
+        "North.arae.survey WD02.leaf2.hanji backing",
+        "North.arae.survey WD02.leaf2.horizontal band",
+        "North.arae.survey WD02.leaf2.lock rail",
+        "North.arae.survey WD02.leaf2.lower moulding.rail",
+        "North.arae.survey WD02.leaf2.lower moulding.stile",
+        "North.arae.survey WD02.leaf2.rail",
+        "North.arae.survey WD02.leaf2.rear paper rail",
+        "North.arae.survey WD02.leaf2.rebated bead.rail",
+        "North.arae.survey WD02.leaf2.rebated bead.stile",
+        "North.arae.survey WD02.leaf2.recessed lower board",
+        "North.arae.survey WD02.leaf2.stile",
+        "North.arae.survey WD02.leaf2.vertical sal",
+        "North.arae.survey WD02.leaf3.hanji backing",
+        "North.arae.survey WD02.leaf3.horizontal band",
+        "North.arae.survey WD02.leaf3.lock rail",
+        "North.arae.survey WD02.leaf3.lower moulding.rail",
+        "North.arae.survey WD02.leaf3.lower moulding.stile",
+        "North.arae.survey WD02.leaf3.rail",
+        "North.arae.survey WD02.leaf3.rear paper rail",
+        "North.arae.survey WD02.leaf3.rebated bead.rail",
+        "North.arae.survey WD02.leaf3.rebated bead.stile",
+        "North.arae.survey WD02.leaf3.recessed lower board",
+        "North.arae.survey WD02.leaf3.stile",
+        "North.arae.survey WD02.leaf3.vertical sal",
+        "North.arae.survey WD02.leaf4.hanji backing",
+        "North.arae.survey WD02.leaf4.horizontal band",
+        "North.arae.survey WD02.leaf4.lock rail",
+        "North.arae.survey WD02.leaf4.lower moulding.rail",
+        "North.arae.survey WD02.leaf4.lower moulding.stile",
+        "North.arae.survey WD02.leaf4.rail",
+        "North.arae.survey WD02.leaf4.rear paper rail",
+        "North.arae.survey WD02.leaf4.rebated bead.rail",
+        "North.arae.survey WD02.leaf4.rebated bead.stile",
+        "North.arae.survey WD02.leaf4.recessed lower board",
+        "North.arae.survey WD02.leaf4.stile",
+        "North.arae.survey WD02.leaf4.vertical sal",
+        "North.arae.survey WD04.leaf1.hanji backing",
+        "North.arae.survey WD04.leaf1.horizontal band",
+        "North.arae.survey WD04.leaf1.lock rail",
+        "North.arae.survey WD04.leaf1.lower moulding.rail",
+        "North.arae.survey WD04.leaf1.lower moulding.stile",
+        "North.arae.survey WD04.leaf1.rail",
+        "North.arae.survey WD04.leaf1.rear paper rail",
+        "North.arae.survey WD04.leaf1.rebated bead.rail",
+        "North.arae.survey WD04.leaf1.rebated bead.stile",
+        "North.arae.survey WD04.leaf1.recessed lower board",
+        "North.arae.survey WD04.leaf1.stile",
+        "North.arae.survey WD04.leaf1.vertical sal",
+        "North.arae.survey WD04.leaf2.hanji backing",
+        "North.arae.survey WD04.leaf2.horizontal band",
+        "North.arae.survey WD04.leaf2.lock rail",
+        "North.arae.survey WD04.leaf2.lower moulding.rail",
+        "North.arae.survey WD04.leaf2.lower moulding.stile",
+        "North.arae.survey WD04.leaf2.rail",
+        "North.arae.survey WD04.leaf2.rear paper rail",
+        "North.arae.survey WD04.leaf2.rebated bead.rail",
+        "North.arae.survey WD04.leaf2.rebated bead.stile",
+        "North.arae.survey WD04.leaf2.recessed lower board",
+        "North.arae.survey WD04.leaf2.stile",
+        "North.arae.survey WD04.leaf2.vertical sal",
+        "North.arae.survey WD06.leaf1.hanji backing",
+        "North.arae.survey WD06.leaf1.horizontal band",
+        "North.arae.survey WD06.leaf1.lock rail",
+        "North.arae.survey WD06.leaf1.lower moulding.rail",
+        "North.arae.survey WD06.leaf1.lower moulding.stile",
+        "North.arae.survey WD06.leaf1.rail",
+        "North.arae.survey WD06.leaf1.rear paper rail",
+        "North.arae.survey WD06.leaf1.rebated bead.rail",
+        "North.arae.survey WD06.leaf1.rebated bead.stile",
+        "North.arae.survey WD06.leaf1.recessed lower board",
+        "North.arae.survey WD06.leaf1.stile",
+        "North.arae.survey WD06.leaf1.vertical sal",
+        "North.arae.survey WD06.leaf2.hanji backing",
+        "North.arae.survey WD06.leaf2.horizontal band",
+        "North.arae.survey WD06.leaf2.lock rail",
+        "North.arae.survey WD06.leaf2.lower moulding.rail",
+        "North.arae.survey WD06.leaf2.lower moulding.stile",
+        "North.arae.survey WD06.leaf2.rail",
+        "North.arae.survey WD06.leaf2.rear paper rail",
+        "North.arae.survey WD06.leaf2.rebated bead.rail",
+        "North.arae.survey WD06.leaf2.rebated bead.stile",
+        "North.arae.survey WD06.leaf2.recessed lower board",
+        "North.arae.survey WD06.leaf2.stile",
+        "North.arae.survey WD06.leaf2.vertical sal",
+        "North.arae.survey front infill"
+      ],
+      "visibleProxies": [],
+      "newMembers": 204,
+      "newOriginalMembers": 204,
+      "visibleMembers": 247,
+      "visibleSetSha256": "4e2dfd192422ebae943b77d1ec4f973d7ed12f075619dcc89e601fdc9320df3e",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 12,
+      "processId": "ildu.araechae-complete-use",
+      "label": "완성 · 사용",
+      "isFinal": true,
+      "visibleObjects": [
+        "GyeCraft.arae.irregular paving 0",
+        "GyeCraft.arae.irregular paving 1",
+        "GyeCraft.arae.irregular paving 2",
+        "GyeCraft.arae.irregular paving 3",
+        "GyeCraft.arae.irregular paving 4",
+        "North.arae.door stepping stone",
+        "North.arae.floor individual boards",
+        "North.arae.floor under joists",
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.hanji room floor",
+        "North.arae.interior dividing wall",
+        "North.arae.left maru side",
+        "North.arae.left maru side lattice.leaf1.hanji backing",
+        "North.arae.left maru side lattice.leaf1.horizontal band",
+        "North.arae.left maru side lattice.leaf1.lock rail",
+        "North.arae.left maru side lattice.leaf1.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf1.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf1.rail",
+        "North.arae.left maru side lattice.leaf1.rear paper rail",
+        "North.arae.left maru side lattice.leaf1.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf1.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf1.recessed lower board",
+        "North.arae.left maru side lattice.leaf1.stile",
+        "North.arae.left maru side lattice.leaf1.vertical sal",
+        "North.arae.left maru side lattice.leaf2.hanji backing",
+        "North.arae.left maru side lattice.leaf2.horizontal band",
+        "North.arae.left maru side lattice.leaf2.lock rail",
+        "North.arae.left maru side lattice.leaf2.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf2.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf2.rail",
+        "North.arae.left maru side lattice.leaf2.rear paper rail",
+        "North.arae.left maru side lattice.leaf2.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf2.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf2.recessed lower board",
+        "North.arae.left maru side lattice.leaf2.stile",
+        "North.arae.left maru side lattice.leaf2.vertical sal",
+        "North.arae.left maru side lattice.leaf3.hanji backing",
+        "North.arae.left maru side lattice.leaf3.horizontal band",
+        "North.arae.left maru side lattice.leaf3.lock rail",
+        "North.arae.left maru side lattice.leaf3.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf3.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf3.rail",
+        "North.arae.left maru side lattice.leaf3.rear paper rail",
+        "North.arae.left maru side lattice.leaf3.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf3.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf3.recessed lower board",
+        "North.arae.left maru side lattice.leaf3.stile",
+        "North.arae.left maru side lattice.leaf3.vertical sal",
+        "North.arae.left maru side lattice.leaf4.hanji backing",
+        "North.arae.left maru side lattice.leaf4.horizontal band",
+        "North.arae.left maru side lattice.leaf4.lock rail",
+        "North.arae.left maru side lattice.leaf4.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf4.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf4.rail",
+        "North.arae.left maru side lattice.leaf4.rear paper rail",
+        "North.arae.left maru side lattice.leaf4.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf4.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf4.recessed lower board",
+        "North.arae.left maru side lattice.leaf4.stile",
+        "North.arae.left maru side lattice.leaf4.vertical sal",
+        "North.arae.left maru side.head/sill",
+        "North.arae.left maru side.jamb",
+        "North.arae.ondol room",
+        "North.arae.p11 passage wall timber bands",
+        "North.arae.p12 passage hearth",
+        "North.arae.p12 passage hearth iron pot 0.05",
+        "North.arae.p12 passage hearth iron pot 0.05 fine casting lines",
+        "North.arae.p12 passage hearth iron pot 0.05 tapered knob",
+        "North.arae.p12 passage hearth scattered charcoal 0 0",
+        "North.arae.p12 passage hearth scattered charcoal 0 1",
+        "North.arae.p12 passage hearth scattered charcoal 0 2",
+        "North.arae.rear WD0.leaf1.hanji backing",
+        "North.arae.rear WD0.leaf1.horizontal band",
+        "North.arae.rear WD0.leaf1.lock rail",
+        "North.arae.rear WD0.leaf1.lower moulding.rail",
+        "North.arae.rear WD0.leaf1.lower moulding.stile",
+        "North.arae.rear WD0.leaf1.rail",
+        "North.arae.rear WD0.leaf1.rear paper rail",
+        "North.arae.rear WD0.leaf1.rebated bead.rail",
+        "North.arae.rear WD0.leaf1.rebated bead.stile",
+        "North.arae.rear WD0.leaf1.recessed lower board",
+        "North.arae.rear WD0.leaf1.stile",
+        "North.arae.rear WD0.leaf1.vertical sal",
+        "North.arae.rear WD0.leaf2.hanji backing",
+        "North.arae.rear WD0.leaf2.horizontal band",
+        "North.arae.rear WD0.leaf2.lock rail",
+        "North.arae.rear WD0.leaf2.lower moulding.rail",
+        "North.arae.rear WD0.leaf2.lower moulding.stile",
+        "North.arae.rear WD0.leaf2.rail",
+        "North.arae.rear WD0.leaf2.rear paper rail",
+        "North.arae.rear WD0.leaf2.rebated bead.rail",
+        "North.arae.rear WD0.leaf2.rebated bead.stile",
+        "North.arae.rear WD0.leaf2.recessed lower board",
+        "North.arae.rear WD0.leaf2.stile",
+        "North.arae.rear WD0.leaf2.vertical sal",
+        "North.arae.rear WD0.leaf3.hanji backing",
+        "North.arae.rear WD0.leaf3.horizontal band",
+        "North.arae.rear WD0.leaf3.lock rail",
+        "North.arae.rear WD0.leaf3.lower moulding.rail",
+        "North.arae.rear WD0.leaf3.lower moulding.stile",
+        "North.arae.rear WD0.leaf3.rail",
+        "North.arae.rear WD0.leaf3.rear paper rail",
+        "North.arae.rear WD0.leaf3.rebated bead.rail",
+        "North.arae.rear WD0.leaf3.rebated bead.stile",
+        "North.arae.rear WD0.leaf3.recessed lower board",
+        "North.arae.rear WD0.leaf3.stile",
+        "North.arae.rear WD0.leaf3.vertical sal",
+        "North.arae.rear WD0.leaf4.hanji backing",
+        "North.arae.rear WD0.leaf4.horizontal band",
+        "North.arae.rear WD0.leaf4.lock rail",
+        "North.arae.rear WD0.leaf4.lower moulding.rail",
+        "North.arae.rear WD0.leaf4.lower moulding.stile",
+        "North.arae.rear WD0.leaf4.rail",
+        "North.arae.rear WD0.leaf4.rear paper rail",
+        "North.arae.rear WD0.leaf4.rebated bead.rail",
+        "North.arae.rear WD0.leaf4.rebated bead.stile",
+        "North.arae.rear WD0.leaf4.recessed lower board",
+        "North.arae.rear WD0.leaf4.stile",
+        "North.arae.rear WD0.leaf4.vertical sal",
+        "North.arae.rear WD2.leaf1.hanji backing",
+        "North.arae.rear WD2.leaf1.horizontal band",
+        "North.arae.rear WD2.leaf1.lock rail",
+        "North.arae.rear WD2.leaf1.lower moulding.rail",
+        "North.arae.rear WD2.leaf1.lower moulding.stile",
+        "North.arae.rear WD2.leaf1.rail",
+        "North.arae.rear WD2.leaf1.rear paper rail",
+        "North.arae.rear WD2.leaf1.rebated bead.rail",
+        "North.arae.rear WD2.leaf1.rebated bead.stile",
+        "North.arae.rear WD2.leaf1.recessed lower board",
+        "North.arae.rear WD2.leaf1.stile",
+        "North.arae.rear WD2.leaf1.vertical sal",
+        "North.arae.rear plaster",
+        "North.arae.rear plaster.head/sill",
+        "North.arae.rear plaster.jamb",
+        "North.arae.right ondol side",
+        "North.arae.roof",
+        "North.arae.roof packed ridge core",
+        "North.arae.roof solid bedding",
+        "North.arae.roof.001",
+        "North.arae.roof.002",
+        "North.arae.roof.003",
+        "North.arae.roof.004",
+        "North.arae.roof.005",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.gable timber",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters",
+        "North.arae.roof.ridge stack",
+        "North.arae.roof.ridge stack.001",
+        "North.arae.roof.ridge stack.002",
+        "North.arae.roof.ridge stack.003",
+        "North.arae.roof.ridge stack.004",
+        "North.arae.roof.ridge stack.005",
+        "North.arae.roof.round tile ends",
+        "North.arae.room ceiling",
+        "North.arae.survey WD02.leaf1.hanji backing",
+        "North.arae.survey WD02.leaf1.horizontal band",
+        "North.arae.survey WD02.leaf1.lock rail",
+        "North.arae.survey WD02.leaf1.lower moulding.rail",
+        "North.arae.survey WD02.leaf1.lower moulding.stile",
+        "North.arae.survey WD02.leaf1.rail",
+        "North.arae.survey WD02.leaf1.rear paper rail",
+        "North.arae.survey WD02.leaf1.rebated bead.rail",
+        "North.arae.survey WD02.leaf1.rebated bead.stile",
+        "North.arae.survey WD02.leaf1.recessed lower board",
+        "North.arae.survey WD02.leaf1.stile",
+        "North.arae.survey WD02.leaf1.vertical sal",
+        "North.arae.survey WD02.leaf2.hanji backing",
+        "North.arae.survey WD02.leaf2.horizontal band",
+        "North.arae.survey WD02.leaf2.lock rail",
+        "North.arae.survey WD02.leaf2.lower moulding.rail",
+        "North.arae.survey WD02.leaf2.lower moulding.stile",
+        "North.arae.survey WD02.leaf2.rail",
+        "North.arae.survey WD02.leaf2.rear paper rail",
+        "North.arae.survey WD02.leaf2.rebated bead.rail",
+        "North.arae.survey WD02.leaf2.rebated bead.stile",
+        "North.arae.survey WD02.leaf2.recessed lower board",
+        "North.arae.survey WD02.leaf2.stile",
+        "North.arae.survey WD02.leaf2.vertical sal",
+        "North.arae.survey WD02.leaf3.hanji backing",
+        "North.arae.survey WD02.leaf3.horizontal band",
+        "North.arae.survey WD02.leaf3.lock rail",
+        "North.arae.survey WD02.leaf3.lower moulding.rail",
+        "North.arae.survey WD02.leaf3.lower moulding.stile",
+        "North.arae.survey WD02.leaf3.rail",
+        "North.arae.survey WD02.leaf3.rear paper rail",
+        "North.arae.survey WD02.leaf3.rebated bead.rail",
+        "North.arae.survey WD02.leaf3.rebated bead.stile",
+        "North.arae.survey WD02.leaf3.recessed lower board",
+        "North.arae.survey WD02.leaf3.stile",
+        "North.arae.survey WD02.leaf3.vertical sal",
+        "North.arae.survey WD02.leaf4.hanji backing",
+        "North.arae.survey WD02.leaf4.horizontal band",
+        "North.arae.survey WD02.leaf4.lock rail",
+        "North.arae.survey WD02.leaf4.lower moulding.rail",
+        "North.arae.survey WD02.leaf4.lower moulding.stile",
+        "North.arae.survey WD02.leaf4.rail",
+        "North.arae.survey WD02.leaf4.rear paper rail",
+        "North.arae.survey WD02.leaf4.rebated bead.rail",
+        "North.arae.survey WD02.leaf4.rebated bead.stile",
+        "North.arae.survey WD02.leaf4.recessed lower board",
+        "North.arae.survey WD02.leaf4.stile",
+        "North.arae.survey WD02.leaf4.vertical sal",
+        "North.arae.survey WD04.leaf1.hanji backing",
+        "North.arae.survey WD04.leaf1.horizontal band",
+        "North.arae.survey WD04.leaf1.lock rail",
+        "North.arae.survey WD04.leaf1.lower moulding.rail",
+        "North.arae.survey WD04.leaf1.lower moulding.stile",
+        "North.arae.survey WD04.leaf1.rail",
+        "North.arae.survey WD04.leaf1.rear paper rail",
+        "North.arae.survey WD04.leaf1.rebated bead.rail",
+        "North.arae.survey WD04.leaf1.rebated bead.stile",
+        "North.arae.survey WD04.leaf1.recessed lower board",
+        "North.arae.survey WD04.leaf1.stile",
+        "North.arae.survey WD04.leaf1.vertical sal",
+        "North.arae.survey WD04.leaf2.hanji backing",
+        "North.arae.survey WD04.leaf2.horizontal band",
+        "North.arae.survey WD04.leaf2.lock rail",
+        "North.arae.survey WD04.leaf2.lower moulding.rail",
+        "North.arae.survey WD04.leaf2.lower moulding.stile",
+        "North.arae.survey WD04.leaf2.rail",
+        "North.arae.survey WD04.leaf2.rear paper rail",
+        "North.arae.survey WD04.leaf2.rebated bead.rail",
+        "North.arae.survey WD04.leaf2.rebated bead.stile",
+        "North.arae.survey WD04.leaf2.recessed lower board",
+        "North.arae.survey WD04.leaf2.stile",
+        "North.arae.survey WD04.leaf2.vertical sal",
+        "North.arae.survey WD06.leaf1.hanji backing",
+        "North.arae.survey WD06.leaf1.horizontal band",
+        "North.arae.survey WD06.leaf1.lock rail",
+        "North.arae.survey WD06.leaf1.lower moulding.rail",
+        "North.arae.survey WD06.leaf1.lower moulding.stile",
+        "North.arae.survey WD06.leaf1.rail",
+        "North.arae.survey WD06.leaf1.rear paper rail",
+        "North.arae.survey WD06.leaf1.rebated bead.rail",
+        "North.arae.survey WD06.leaf1.rebated bead.stile",
+        "North.arae.survey WD06.leaf1.recessed lower board",
+        "North.arae.survey WD06.leaf1.stile",
+        "North.arae.survey WD06.leaf1.vertical sal",
+        "North.arae.survey WD06.leaf2.hanji backing",
+        "North.arae.survey WD06.leaf2.horizontal band",
+        "North.arae.survey WD06.leaf2.lock rail",
+        "North.arae.survey WD06.leaf2.lower moulding.rail",
+        "North.arae.survey WD06.leaf2.lower moulding.stile",
+        "North.arae.survey WD06.leaf2.rail",
+        "North.arae.survey WD06.leaf2.rear paper rail",
+        "North.arae.survey WD06.leaf2.rebated bead.rail",
+        "North.arae.survey WD06.leaf2.rebated bead.stile",
+        "North.arae.survey WD06.leaf2.recessed lower board",
+        "North.arae.survey WD06.leaf2.stile",
+        "North.arae.survey WD06.leaf2.vertical sal",
+        "North.arae.survey front infill"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.arae.irregular paving 0",
+        "GyeCraft.arae.irregular paving 1",
+        "GyeCraft.arae.irregular paving 2",
+        "GyeCraft.arae.irregular paving 3",
+        "GyeCraft.arae.irregular paving 4",
+        "North.arae.door stepping stone",
+        "North.arae.floor individual boards",
+        "North.arae.floor under joists",
+        "North.arae.foundation",
+        "North.arae.foundation earth top",
+        "North.arae.foundation individual plinth",
+        "North.arae.foundation.recessed earth mortar",
+        "North.arae.frame longitudinal beam",
+        "North.arae.frame mortise peg",
+        "North.arae.frame square post",
+        "North.arae.frame transverse beam",
+        "North.arae.hanji room floor",
+        "North.arae.interior dividing wall",
+        "North.arae.left maru side",
+        "North.arae.left maru side lattice.leaf1.hanji backing",
+        "North.arae.left maru side lattice.leaf1.horizontal band",
+        "North.arae.left maru side lattice.leaf1.lock rail",
+        "North.arae.left maru side lattice.leaf1.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf1.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf1.rail",
+        "North.arae.left maru side lattice.leaf1.rear paper rail",
+        "North.arae.left maru side lattice.leaf1.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf1.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf1.recessed lower board",
+        "North.arae.left maru side lattice.leaf1.stile",
+        "North.arae.left maru side lattice.leaf1.vertical sal",
+        "North.arae.left maru side lattice.leaf2.hanji backing",
+        "North.arae.left maru side lattice.leaf2.horizontal band",
+        "North.arae.left maru side lattice.leaf2.lock rail",
+        "North.arae.left maru side lattice.leaf2.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf2.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf2.rail",
+        "North.arae.left maru side lattice.leaf2.rear paper rail",
+        "North.arae.left maru side lattice.leaf2.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf2.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf2.recessed lower board",
+        "North.arae.left maru side lattice.leaf2.stile",
+        "North.arae.left maru side lattice.leaf2.vertical sal",
+        "North.arae.left maru side lattice.leaf3.hanji backing",
+        "North.arae.left maru side lattice.leaf3.horizontal band",
+        "North.arae.left maru side lattice.leaf3.lock rail",
+        "North.arae.left maru side lattice.leaf3.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf3.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf3.rail",
+        "North.arae.left maru side lattice.leaf3.rear paper rail",
+        "North.arae.left maru side lattice.leaf3.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf3.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf3.recessed lower board",
+        "North.arae.left maru side lattice.leaf3.stile",
+        "North.arae.left maru side lattice.leaf3.vertical sal",
+        "North.arae.left maru side lattice.leaf4.hanji backing",
+        "North.arae.left maru side lattice.leaf4.horizontal band",
+        "North.arae.left maru side lattice.leaf4.lock rail",
+        "North.arae.left maru side lattice.leaf4.lower moulding.rail",
+        "North.arae.left maru side lattice.leaf4.lower moulding.stile",
+        "North.arae.left maru side lattice.leaf4.rail",
+        "North.arae.left maru side lattice.leaf4.rear paper rail",
+        "North.arae.left maru side lattice.leaf4.rebated bead.rail",
+        "North.arae.left maru side lattice.leaf4.rebated bead.stile",
+        "North.arae.left maru side lattice.leaf4.recessed lower board",
+        "North.arae.left maru side lattice.leaf4.stile",
+        "North.arae.left maru side lattice.leaf4.vertical sal",
+        "North.arae.left maru side.head/sill",
+        "North.arae.left maru side.jamb",
+        "North.arae.ondol room",
+        "North.arae.p11 passage wall timber bands",
+        "North.arae.p12 passage hearth",
+        "North.arae.p12 passage hearth iron pot 0.05",
+        "North.arae.p12 passage hearth iron pot 0.05 fine casting lines",
+        "North.arae.p12 passage hearth iron pot 0.05 tapered knob",
+        "North.arae.p12 passage hearth scattered charcoal 0 0",
+        "North.arae.p12 passage hearth scattered charcoal 0 1",
+        "North.arae.p12 passage hearth scattered charcoal 0 2",
+        "North.arae.rear WD0.leaf1.hanji backing",
+        "North.arae.rear WD0.leaf1.horizontal band",
+        "North.arae.rear WD0.leaf1.lock rail",
+        "North.arae.rear WD0.leaf1.lower moulding.rail",
+        "North.arae.rear WD0.leaf1.lower moulding.stile",
+        "North.arae.rear WD0.leaf1.rail",
+        "North.arae.rear WD0.leaf1.rear paper rail",
+        "North.arae.rear WD0.leaf1.rebated bead.rail",
+        "North.arae.rear WD0.leaf1.rebated bead.stile",
+        "North.arae.rear WD0.leaf1.recessed lower board",
+        "North.arae.rear WD0.leaf1.stile",
+        "North.arae.rear WD0.leaf1.vertical sal",
+        "North.arae.rear WD0.leaf2.hanji backing",
+        "North.arae.rear WD0.leaf2.horizontal band",
+        "North.arae.rear WD0.leaf2.lock rail",
+        "North.arae.rear WD0.leaf2.lower moulding.rail",
+        "North.arae.rear WD0.leaf2.lower moulding.stile",
+        "North.arae.rear WD0.leaf2.rail",
+        "North.arae.rear WD0.leaf2.rear paper rail",
+        "North.arae.rear WD0.leaf2.rebated bead.rail",
+        "North.arae.rear WD0.leaf2.rebated bead.stile",
+        "North.arae.rear WD0.leaf2.recessed lower board",
+        "North.arae.rear WD0.leaf2.stile",
+        "North.arae.rear WD0.leaf2.vertical sal",
+        "North.arae.rear WD0.leaf3.hanji backing",
+        "North.arae.rear WD0.leaf3.horizontal band",
+        "North.arae.rear WD0.leaf3.lock rail",
+        "North.arae.rear WD0.leaf3.lower moulding.rail",
+        "North.arae.rear WD0.leaf3.lower moulding.stile",
+        "North.arae.rear WD0.leaf3.rail",
+        "North.arae.rear WD0.leaf3.rear paper rail",
+        "North.arae.rear WD0.leaf3.rebated bead.rail",
+        "North.arae.rear WD0.leaf3.rebated bead.stile",
+        "North.arae.rear WD0.leaf3.recessed lower board",
+        "North.arae.rear WD0.leaf3.stile",
+        "North.arae.rear WD0.leaf3.vertical sal",
+        "North.arae.rear WD0.leaf4.hanji backing",
+        "North.arae.rear WD0.leaf4.horizontal band",
+        "North.arae.rear WD0.leaf4.lock rail",
+        "North.arae.rear WD0.leaf4.lower moulding.rail",
+        "North.arae.rear WD0.leaf4.lower moulding.stile",
+        "North.arae.rear WD0.leaf4.rail",
+        "North.arae.rear WD0.leaf4.rear paper rail",
+        "North.arae.rear WD0.leaf4.rebated bead.rail",
+        "North.arae.rear WD0.leaf4.rebated bead.stile",
+        "North.arae.rear WD0.leaf4.recessed lower board",
+        "North.arae.rear WD0.leaf4.stile",
+        "North.arae.rear WD0.leaf4.vertical sal",
+        "North.arae.rear WD2.leaf1.hanji backing",
+        "North.arae.rear WD2.leaf1.horizontal band",
+        "North.arae.rear WD2.leaf1.lock rail",
+        "North.arae.rear WD2.leaf1.lower moulding.rail",
+        "North.arae.rear WD2.leaf1.lower moulding.stile",
+        "North.arae.rear WD2.leaf1.rail",
+        "North.arae.rear WD2.leaf1.rear paper rail",
+        "North.arae.rear WD2.leaf1.rebated bead.rail",
+        "North.arae.rear WD2.leaf1.rebated bead.stile",
+        "North.arae.rear WD2.leaf1.recessed lower board",
+        "North.arae.rear WD2.leaf1.stile",
+        "North.arae.rear WD2.leaf1.vertical sal",
+        "North.arae.rear plaster",
+        "North.arae.rear plaster.head/sill",
+        "North.arae.rear plaster.jamb",
+        "North.arae.right ondol side",
+        "North.arae.roof",
+        "North.arae.roof packed ridge core",
+        "North.arae.roof solid bedding",
+        "North.arae.roof.001",
+        "North.arae.roof.002",
+        "North.arae.roof.003",
+        "North.arae.roof.004",
+        "North.arae.roof.005",
+        "North.arae.roof.eave beam",
+        "North.arae.roof.gable timber",
+        "North.arae.roof.lower exposed rafters",
+        "North.arae.roof.rafters",
+        "North.arae.roof.ridge stack",
+        "North.arae.roof.ridge stack.001",
+        "North.arae.roof.ridge stack.002",
+        "North.arae.roof.ridge stack.003",
+        "North.arae.roof.ridge stack.004",
+        "North.arae.roof.ridge stack.005",
+        "North.arae.roof.round tile ends",
+        "North.arae.room ceiling",
+        "North.arae.survey WD02.leaf1.hanji backing",
+        "North.arae.survey WD02.leaf1.horizontal band",
+        "North.arae.survey WD02.leaf1.lock rail",
+        "North.arae.survey WD02.leaf1.lower moulding.rail",
+        "North.arae.survey WD02.leaf1.lower moulding.stile",
+        "North.arae.survey WD02.leaf1.rail",
+        "North.arae.survey WD02.leaf1.rear paper rail",
+        "North.arae.survey WD02.leaf1.rebated bead.rail",
+        "North.arae.survey WD02.leaf1.rebated bead.stile",
+        "North.arae.survey WD02.leaf1.recessed lower board",
+        "North.arae.survey WD02.leaf1.stile",
+        "North.arae.survey WD02.leaf1.vertical sal",
+        "North.arae.survey WD02.leaf2.hanji backing",
+        "North.arae.survey WD02.leaf2.horizontal band",
+        "North.arae.survey WD02.leaf2.lock rail",
+        "North.arae.survey WD02.leaf2.lower moulding.rail",
+        "North.arae.survey WD02.leaf2.lower moulding.stile",
+        "North.arae.survey WD02.leaf2.rail",
+        "North.arae.survey WD02.leaf2.rear paper rail",
+        "North.arae.survey WD02.leaf2.rebated bead.rail",
+        "North.arae.survey WD02.leaf2.rebated bead.stile",
+        "North.arae.survey WD02.leaf2.recessed lower board",
+        "North.arae.survey WD02.leaf2.stile",
+        "North.arae.survey WD02.leaf2.vertical sal",
+        "North.arae.survey WD02.leaf3.hanji backing",
+        "North.arae.survey WD02.leaf3.horizontal band",
+        "North.arae.survey WD02.leaf3.lock rail",
+        "North.arae.survey WD02.leaf3.lower moulding.rail",
+        "North.arae.survey WD02.leaf3.lower moulding.stile",
+        "North.arae.survey WD02.leaf3.rail",
+        "North.arae.survey WD02.leaf3.rear paper rail",
+        "North.arae.survey WD02.leaf3.rebated bead.rail",
+        "North.arae.survey WD02.leaf3.rebated bead.stile",
+        "North.arae.survey WD02.leaf3.recessed lower board",
+        "North.arae.survey WD02.leaf3.stile",
+        "North.arae.survey WD02.leaf3.vertical sal",
+        "North.arae.survey WD02.leaf4.hanji backing",
+        "North.arae.survey WD02.leaf4.horizontal band",
+        "North.arae.survey WD02.leaf4.lock rail",
+        "North.arae.survey WD02.leaf4.lower moulding.rail",
+        "North.arae.survey WD02.leaf4.lower moulding.stile",
+        "North.arae.survey WD02.leaf4.rail",
+        "North.arae.survey WD02.leaf4.rear paper rail",
+        "North.arae.survey WD02.leaf4.rebated bead.rail",
+        "North.arae.survey WD02.leaf4.rebated bead.stile",
+        "North.arae.survey WD02.leaf4.recessed lower board",
+        "North.arae.survey WD02.leaf4.stile",
+        "North.arae.survey WD02.leaf4.vertical sal",
+        "North.arae.survey WD04.leaf1.hanji backing",
+        "North.arae.survey WD04.leaf1.horizontal band",
+        "North.arae.survey WD04.leaf1.lock rail",
+        "North.arae.survey WD04.leaf1.lower moulding.rail",
+        "North.arae.survey WD04.leaf1.lower moulding.stile",
+        "North.arae.survey WD04.leaf1.rail",
+        "North.arae.survey WD04.leaf1.rear paper rail",
+        "North.arae.survey WD04.leaf1.rebated bead.rail",
+        "North.arae.survey WD04.leaf1.rebated bead.stile",
+        "North.arae.survey WD04.leaf1.recessed lower board",
+        "North.arae.survey WD04.leaf1.stile",
+        "North.arae.survey WD04.leaf1.vertical sal",
+        "North.arae.survey WD04.leaf2.hanji backing",
+        "North.arae.survey WD04.leaf2.horizontal band",
+        "North.arae.survey WD04.leaf2.lock rail",
+        "North.arae.survey WD04.leaf2.lower moulding.rail",
+        "North.arae.survey WD04.leaf2.lower moulding.stile",
+        "North.arae.survey WD04.leaf2.rail",
+        "North.arae.survey WD04.leaf2.rear paper rail",
+        "North.arae.survey WD04.leaf2.rebated bead.rail",
+        "North.arae.survey WD04.leaf2.rebated bead.stile",
+        "North.arae.survey WD04.leaf2.recessed lower board",
+        "North.arae.survey WD04.leaf2.stile",
+        "North.arae.survey WD04.leaf2.vertical sal",
+        "North.arae.survey WD06.leaf1.hanji backing",
+        "North.arae.survey WD06.leaf1.horizontal band",
+        "North.arae.survey WD06.leaf1.lock rail",
+        "North.arae.survey WD06.leaf1.lower moulding.rail",
+        "North.arae.survey WD06.leaf1.lower moulding.stile",
+        "North.arae.survey WD06.leaf1.rail",
+        "North.arae.survey WD06.leaf1.rear paper rail",
+        "North.arae.survey WD06.leaf1.rebated bead.rail",
+        "North.arae.survey WD06.leaf1.rebated bead.stile",
+        "North.arae.survey WD06.leaf1.recessed lower board",
+        "North.arae.survey WD06.leaf1.stile",
+        "North.arae.survey WD06.leaf1.vertical sal",
+        "North.arae.survey WD06.leaf2.hanji backing",
+        "North.arae.survey WD06.leaf2.horizontal band",
+        "North.arae.survey WD06.leaf2.lock rail",
+        "North.arae.survey WD06.leaf2.lower moulding.rail",
+        "North.arae.survey WD06.leaf2.lower moulding.stile",
+        "North.arae.survey WD06.leaf2.rail",
+        "North.arae.survey WD06.leaf2.rear paper rail",
+        "North.arae.survey WD06.leaf2.rebated bead.rail",
+        "North.arae.survey WD06.leaf2.rebated bead.stile",
+        "North.arae.survey WD06.leaf2.recessed lower board",
+        "North.arae.survey WD06.leaf2.stile",
+        "North.arae.survey WD06.leaf2.vertical sal",
+        "North.arae.survey front infill"
+      ],
+      "visibleProxies": [],
+      "newMembers": 12,
+      "newOriginalMembers": 12,
+      "visibleMembers": 259,
+      "visibleSetSha256": "d7b6c65757b4c1ea20dad0bf9ab36e389a10ab5ac8f87631085b6f81634160be",
+      "noNewGeometry": false
+    }
+  ],
+  "originalObjectCount": 259,
+  "proxyObjectCount": 0,
+  "baseline": {
+    "GyeCraft.arae.irregular paving 0": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.arae.irregular paving 1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.arae.irregular paving 2": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.arae.irregular paving 3": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.arae.irregular paving 4": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.door stepping stone": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.floor individual boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.floor under joists": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.foundation": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.foundation earth top": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.foundation individual plinth": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.foundation.recessed earth mortar": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.frame longitudinal beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.frame mortise peg": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.frame square post": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.frame transverse beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.hanji room floor": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.interior dividing wall": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf1.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf1.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf1.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf1.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf1.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf1.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf1.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf1.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf1.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf1.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf2.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf2.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf2.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf2.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf2.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf2.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf2.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf2.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf2.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf2.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf2.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf2.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf3.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf3.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf3.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf3.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf3.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf3.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf3.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf3.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf3.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf3.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf3.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf3.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf4.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf4.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf4.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf4.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf4.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf4.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf4.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf4.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf4.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf4.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf4.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side lattice.leaf4.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side.head/sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.left maru side.jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.ondol room": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.p11 passage wall timber bands": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.p12 passage hearth": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.p12 passage hearth iron pot 0.05": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.p12 passage hearth iron pot 0.05 fine casting lines": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.p12 passage hearth iron pot 0.05 tapered knob": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.p12 passage hearth scattered charcoal 0 0": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.p12 passage hearth scattered charcoal 0 1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.p12 passage hearth scattered charcoal 0 2": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf1.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf1.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf1.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf1.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf1.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf1.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf1.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf1.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf1.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf1.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf2.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf2.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf2.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf2.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf2.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf2.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf2.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf2.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf2.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf2.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf2.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf2.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf3.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf3.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf3.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf3.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf3.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf3.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf3.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf3.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf3.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf3.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf3.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf3.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf4.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf4.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf4.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf4.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf4.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf4.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf4.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf4.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf4.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf4.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf4.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD0.leaf4.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD2.leaf1.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD2.leaf1.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD2.leaf1.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD2.leaf1.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD2.leaf1.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD2.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD2.leaf1.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD2.leaf1.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD2.leaf1.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD2.leaf1.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD2.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear WD2.leaf1.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear plaster": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear plaster.head/sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.rear plaster.jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.right ondol side": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof packed ridge core": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof solid bedding": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.eave beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.gable timber": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.lower exposed rafters": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.rafters": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.ridge stack": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.ridge stack.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.ridge stack.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.ridge stack.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.ridge stack.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.ridge stack.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.roof.round tile ends": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.room ceiling": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf1.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf1.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf1.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf1.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf1.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf1.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf1.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf1.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf1.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf1.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf2.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf2.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf2.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf2.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf2.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf2.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf2.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf2.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf2.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf2.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf2.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf2.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf3.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf3.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf3.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf3.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf3.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf3.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf3.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf3.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf3.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf3.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf3.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf3.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf4.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf4.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf4.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf4.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf4.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf4.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf4.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf4.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf4.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf4.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf4.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD02.leaf4.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf1.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf1.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf1.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf1.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf1.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf1.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf1.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf1.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf1.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf1.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf2.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf2.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf2.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf2.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf2.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf2.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf2.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf2.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf2.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf2.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf2.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD04.leaf2.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf1.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf1.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf1.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf1.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf1.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf1.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf1.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf1.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf1.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf1.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf2.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf2.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf2.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf2.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf2.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf2.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf2.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf2.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf2.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf2.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf2.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey WD06.leaf2.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.arae.survey front infill": {
+      "hideRender": false,
+      "hideViewport": false
+    }
+  },
+  "requiredStage": {
+    "GyeCraft.arae.irregular paving 0": 12,
+    "GyeCraft.arae.irregular paving 1": 12,
+    "GyeCraft.arae.irregular paving 2": 12,
+    "GyeCraft.arae.irregular paving 3": 12,
+    "GyeCraft.arae.irregular paving 4": 12,
+    "North.arae.door stepping stone": 12,
+    "North.arae.floor individual boards": 10,
+    "North.arae.floor under joists": 10,
+    "North.arae.foundation": 2,
+    "North.arae.foundation earth top": 2,
+    "North.arae.foundation individual plinth": 2,
+    "North.arae.foundation.recessed earth mortar": 2,
+    "North.arae.frame longitudinal beam": 4,
+    "North.arae.frame mortise peg": 4,
+    "North.arae.frame square post": 3,
+    "North.arae.frame transverse beam": 4,
+    "North.arae.hanji room floor": 9,
+    "North.arae.interior dividing wall": 8,
+    "North.arae.left maru side": 10,
+    "North.arae.left maru side lattice.leaf1.hanji backing": 11,
+    "North.arae.left maru side lattice.leaf1.horizontal band": 11,
+    "North.arae.left maru side lattice.leaf1.lock rail": 11,
+    "North.arae.left maru side lattice.leaf1.lower moulding.rail": 11,
+    "North.arae.left maru side lattice.leaf1.lower moulding.stile": 11,
+    "North.arae.left maru side lattice.leaf1.rail": 11,
+    "North.arae.left maru side lattice.leaf1.rear paper rail": 11,
+    "North.arae.left maru side lattice.leaf1.rebated bead.rail": 11,
+    "North.arae.left maru side lattice.leaf1.rebated bead.stile": 11,
+    "North.arae.left maru side lattice.leaf1.recessed lower board": 11,
+    "North.arae.left maru side lattice.leaf1.stile": 11,
+    "North.arae.left maru side lattice.leaf1.vertical sal": 11,
+    "North.arae.left maru side lattice.leaf2.hanji backing": 11,
+    "North.arae.left maru side lattice.leaf2.horizontal band": 11,
+    "North.arae.left maru side lattice.leaf2.lock rail": 11,
+    "North.arae.left maru side lattice.leaf2.lower moulding.rail": 11,
+    "North.arae.left maru side lattice.leaf2.lower moulding.stile": 11,
+    "North.arae.left maru side lattice.leaf2.rail": 11,
+    "North.arae.left maru side lattice.leaf2.rear paper rail": 11,
+    "North.arae.left maru side lattice.leaf2.rebated bead.rail": 11,
+    "North.arae.left maru side lattice.leaf2.rebated bead.stile": 11,
+    "North.arae.left maru side lattice.leaf2.recessed lower board": 11,
+    "North.arae.left maru side lattice.leaf2.stile": 11,
+    "North.arae.left maru side lattice.leaf2.vertical sal": 11,
+    "North.arae.left maru side lattice.leaf3.hanji backing": 11,
+    "North.arae.left maru side lattice.leaf3.horizontal band": 11,
+    "North.arae.left maru side lattice.leaf3.lock rail": 11,
+    "North.arae.left maru side lattice.leaf3.lower moulding.rail": 11,
+    "North.arae.left maru side lattice.leaf3.lower moulding.stile": 11,
+    "North.arae.left maru side lattice.leaf3.rail": 11,
+    "North.arae.left maru side lattice.leaf3.rear paper rail": 11,
+    "North.arae.left maru side lattice.leaf3.rebated bead.rail": 11,
+    "North.arae.left maru side lattice.leaf3.rebated bead.stile": 11,
+    "North.arae.left maru side lattice.leaf3.recessed lower board": 11,
+    "North.arae.left maru side lattice.leaf3.stile": 11,
+    "North.arae.left maru side lattice.leaf3.vertical sal": 11,
+    "North.arae.left maru side lattice.leaf4.hanji backing": 11,
+    "North.arae.left maru side lattice.leaf4.horizontal band": 11,
+    "North.arae.left maru side lattice.leaf4.lock rail": 11,
+    "North.arae.left maru side lattice.leaf4.lower moulding.rail": 11,
+    "North.arae.left maru side lattice.leaf4.lower moulding.stile": 11,
+    "North.arae.left maru side lattice.leaf4.rail": 11,
+    "North.arae.left maru side lattice.leaf4.rear paper rail": 11,
+    "North.arae.left maru side lattice.leaf4.rebated bead.rail": 11,
+    "North.arae.left maru side lattice.leaf4.rebated bead.stile": 11,
+    "North.arae.left maru side lattice.leaf4.recessed lower board": 11,
+    "North.arae.left maru side lattice.leaf4.stile": 11,
+    "North.arae.left maru side lattice.leaf4.vertical sal": 11,
+    "North.arae.left maru side.head/sill": 10,
+    "North.arae.left maru side.jamb": 10,
+    "North.arae.ondol room": 9,
+    "North.arae.p11 passage wall timber bands": 8,
+    "North.arae.p12 passage hearth": 9,
+    "North.arae.p12 passage hearth iron pot 0.05": 12,
+    "North.arae.p12 passage hearth iron pot 0.05 fine casting lines": 12,
+    "North.arae.p12 passage hearth iron pot 0.05 tapered knob": 12,
+    "North.arae.p12 passage hearth scattered charcoal 0 0": 12,
+    "North.arae.p12 passage hearth scattered charcoal 0 1": 12,
+    "North.arae.p12 passage hearth scattered charcoal 0 2": 12,
+    "North.arae.rear WD0.leaf1.hanji backing": 11,
+    "North.arae.rear WD0.leaf1.horizontal band": 11,
+    "North.arae.rear WD0.leaf1.lock rail": 11,
+    "North.arae.rear WD0.leaf1.lower moulding.rail": 11,
+    "North.arae.rear WD0.leaf1.lower moulding.stile": 11,
+    "North.arae.rear WD0.leaf1.rail": 11,
+    "North.arae.rear WD0.leaf1.rear paper rail": 11,
+    "North.arae.rear WD0.leaf1.rebated bead.rail": 11,
+    "North.arae.rear WD0.leaf1.rebated bead.stile": 11,
+    "North.arae.rear WD0.leaf1.recessed lower board": 11,
+    "North.arae.rear WD0.leaf1.stile": 11,
+    "North.arae.rear WD0.leaf1.vertical sal": 11,
+    "North.arae.rear WD0.leaf2.hanji backing": 11,
+    "North.arae.rear WD0.leaf2.horizontal band": 11,
+    "North.arae.rear WD0.leaf2.lock rail": 11,
+    "North.arae.rear WD0.leaf2.lower moulding.rail": 11,
+    "North.arae.rear WD0.leaf2.lower moulding.stile": 11,
+    "North.arae.rear WD0.leaf2.rail": 11,
+    "North.arae.rear WD0.leaf2.rear paper rail": 11,
+    "North.arae.rear WD0.leaf2.rebated bead.rail": 11,
+    "North.arae.rear WD0.leaf2.rebated bead.stile": 11,
+    "North.arae.rear WD0.leaf2.recessed lower board": 11,
+    "North.arae.rear WD0.leaf2.stile": 11,
+    "North.arae.rear WD0.leaf2.vertical sal": 11,
+    "North.arae.rear WD0.leaf3.hanji backing": 11,
+    "North.arae.rear WD0.leaf3.horizontal band": 11,
+    "North.arae.rear WD0.leaf3.lock rail": 11,
+    "North.arae.rear WD0.leaf3.lower moulding.rail": 11,
+    "North.arae.rear WD0.leaf3.lower moulding.stile": 11,
+    "North.arae.rear WD0.leaf3.rail": 11,
+    "North.arae.rear WD0.leaf3.rear paper rail": 11,
+    "North.arae.rear WD0.leaf3.rebated bead.rail": 11,
+    "North.arae.rear WD0.leaf3.rebated bead.stile": 11,
+    "North.arae.rear WD0.leaf3.recessed lower board": 11,
+    "North.arae.rear WD0.leaf3.stile": 11,
+    "North.arae.rear WD0.leaf3.vertical sal": 11,
+    "North.arae.rear WD0.leaf4.hanji backing": 11,
+    "North.arae.rear WD0.leaf4.horizontal band": 11,
+    "North.arae.rear WD0.leaf4.lock rail": 11,
+    "North.arae.rear WD0.leaf4.lower moulding.rail": 11,
+    "North.arae.rear WD0.leaf4.lower moulding.stile": 11,
+    "North.arae.rear WD0.leaf4.rail": 11,
+    "North.arae.rear WD0.leaf4.rear paper rail": 11,
+    "North.arae.rear WD0.leaf4.rebated bead.rail": 11,
+    "North.arae.rear WD0.leaf4.rebated bead.stile": 11,
+    "North.arae.rear WD0.leaf4.recessed lower board": 11,
+    "North.arae.rear WD0.leaf4.stile": 11,
+    "North.arae.rear WD0.leaf4.vertical sal": 11,
+    "North.arae.rear WD2.leaf1.hanji backing": 11,
+    "North.arae.rear WD2.leaf1.horizontal band": 11,
+    "North.arae.rear WD2.leaf1.lock rail": 11,
+    "North.arae.rear WD2.leaf1.lower moulding.rail": 11,
+    "North.arae.rear WD2.leaf1.lower moulding.stile": 11,
+    "North.arae.rear WD2.leaf1.rail": 11,
+    "North.arae.rear WD2.leaf1.rear paper rail": 11,
+    "North.arae.rear WD2.leaf1.rebated bead.rail": 11,
+    "North.arae.rear WD2.leaf1.rebated bead.stile": 11,
+    "North.arae.rear WD2.leaf1.recessed lower board": 11,
+    "North.arae.rear WD2.leaf1.stile": 11,
+    "North.arae.rear WD2.leaf1.vertical sal": 11,
+    "North.arae.rear plaster": 8,
+    "North.arae.rear plaster.head/sill": 8,
+    "North.arae.rear plaster.jamb": 8,
+    "North.arae.right ondol side": 9,
+    "North.arae.roof": 7,
+    "North.arae.roof packed ridge core": 6,
+    "North.arae.roof solid bedding": 6,
+    "North.arae.roof.001": 7,
+    "North.arae.roof.002": 7,
+    "North.arae.roof.003": 7,
+    "North.arae.roof.004": 7,
+    "North.arae.roof.005": 7,
+    "North.arae.roof.eave beam": 5,
+    "North.arae.roof.gable timber": 8,
+    "North.arae.roof.lower exposed rafters": 5,
+    "North.arae.roof.rafters": 5,
+    "North.arae.roof.ridge stack": 7,
+    "North.arae.roof.ridge stack.001": 7,
+    "North.arae.roof.ridge stack.002": 7,
+    "North.arae.roof.ridge stack.003": 7,
+    "North.arae.roof.ridge stack.004": 7,
+    "North.arae.roof.ridge stack.005": 7,
+    "North.arae.roof.round tile ends": 7,
+    "North.arae.room ceiling": 8,
+    "North.arae.survey WD02.leaf1.hanji backing": 11,
+    "North.arae.survey WD02.leaf1.horizontal band": 11,
+    "North.arae.survey WD02.leaf1.lock rail": 11,
+    "North.arae.survey WD02.leaf1.lower moulding.rail": 11,
+    "North.arae.survey WD02.leaf1.lower moulding.stile": 11,
+    "North.arae.survey WD02.leaf1.rail": 11,
+    "North.arae.survey WD02.leaf1.rear paper rail": 11,
+    "North.arae.survey WD02.leaf1.rebated bead.rail": 11,
+    "North.arae.survey WD02.leaf1.rebated bead.stile": 11,
+    "North.arae.survey WD02.leaf1.recessed lower board": 11,
+    "North.arae.survey WD02.leaf1.stile": 11,
+    "North.arae.survey WD02.leaf1.vertical sal": 11,
+    "North.arae.survey WD02.leaf2.hanji backing": 11,
+    "North.arae.survey WD02.leaf2.horizontal band": 11,
+    "North.arae.survey WD02.leaf2.lock rail": 11,
+    "North.arae.survey WD02.leaf2.lower moulding.rail": 11,
+    "North.arae.survey WD02.leaf2.lower moulding.stile": 11,
+    "North.arae.survey WD02.leaf2.rail": 11,
+    "North.arae.survey WD02.leaf2.rear paper rail": 11,
+    "North.arae.survey WD02.leaf2.rebated bead.rail": 11,
+    "North.arae.survey WD02.leaf2.rebated bead.stile": 11,
+    "North.arae.survey WD02.leaf2.recessed lower board": 11,
+    "North.arae.survey WD02.leaf2.stile": 11,
+    "North.arae.survey WD02.leaf2.vertical sal": 11,
+    "North.arae.survey WD02.leaf3.hanji backing": 11,
+    "North.arae.survey WD02.leaf3.horizontal band": 11,
+    "North.arae.survey WD02.leaf3.lock rail": 11,
+    "North.arae.survey WD02.leaf3.lower moulding.rail": 11,
+    "North.arae.survey WD02.leaf3.lower moulding.stile": 11,
+    "North.arae.survey WD02.leaf3.rail": 11,
+    "North.arae.survey WD02.leaf3.rear paper rail": 11,
+    "North.arae.survey WD02.leaf3.rebated bead.rail": 11,
+    "North.arae.survey WD02.leaf3.rebated bead.stile": 11,
+    "North.arae.survey WD02.leaf3.recessed lower board": 11,
+    "North.arae.survey WD02.leaf3.stile": 11,
+    "North.arae.survey WD02.leaf3.vertical sal": 11,
+    "North.arae.survey WD02.leaf4.hanji backing": 11,
+    "North.arae.survey WD02.leaf4.horizontal band": 11,
+    "North.arae.survey WD02.leaf4.lock rail": 11,
+    "North.arae.survey WD02.leaf4.lower moulding.rail": 11,
+    "North.arae.survey WD02.leaf4.lower moulding.stile": 11,
+    "North.arae.survey WD02.leaf4.rail": 11,
+    "North.arae.survey WD02.leaf4.rear paper rail": 11,
+    "North.arae.survey WD02.leaf4.rebated bead.rail": 11,
+    "North.arae.survey WD02.leaf4.rebated bead.stile": 11,
+    "North.arae.survey WD02.leaf4.recessed lower board": 11,
+    "North.arae.survey WD02.leaf4.stile": 11,
+    "North.arae.survey WD02.leaf4.vertical sal": 11,
+    "North.arae.survey WD04.leaf1.hanji backing": 11,
+    "North.arae.survey WD04.leaf1.horizontal band": 11,
+    "North.arae.survey WD04.leaf1.lock rail": 11,
+    "North.arae.survey WD04.leaf1.lower moulding.rail": 11,
+    "North.arae.survey WD04.leaf1.lower moulding.stile": 11,
+    "North.arae.survey WD04.leaf1.rail": 11,
+    "North.arae.survey WD04.leaf1.rear paper rail": 11,
+    "North.arae.survey WD04.leaf1.rebated bead.rail": 11,
+    "North.arae.survey WD04.leaf1.rebated bead.stile": 11,
+    "North.arae.survey WD04.leaf1.recessed lower board": 11,
+    "North.arae.survey WD04.leaf1.stile": 11,
+    "North.arae.survey WD04.leaf1.vertical sal": 11,
+    "North.arae.survey WD04.leaf2.hanji backing": 11,
+    "North.arae.survey WD04.leaf2.horizontal band": 11,
+    "North.arae.survey WD04.leaf2.lock rail": 11,
+    "North.arae.survey WD04.leaf2.lower moulding.rail": 11,
+    "North.arae.survey WD04.leaf2.lower moulding.stile": 11,
+    "North.arae.survey WD04.leaf2.rail": 11,
+    "North.arae.survey WD04.leaf2.rear paper rail": 11,
+    "North.arae.survey WD04.leaf2.rebated bead.rail": 11,
+    "North.arae.survey WD04.leaf2.rebated bead.stile": 11,
+    "North.arae.survey WD04.leaf2.recessed lower board": 11,
+    "North.arae.survey WD04.leaf2.stile": 11,
+    "North.arae.survey WD04.leaf2.vertical sal": 11,
+    "North.arae.survey WD06.leaf1.hanji backing": 11,
+    "North.arae.survey WD06.leaf1.horizontal band": 11,
+    "North.arae.survey WD06.leaf1.lock rail": 11,
+    "North.arae.survey WD06.leaf1.lower moulding.rail": 11,
+    "North.arae.survey WD06.leaf1.lower moulding.stile": 11,
+    "North.arae.survey WD06.leaf1.rail": 11,
+    "North.arae.survey WD06.leaf1.rear paper rail": 11,
+    "North.arae.survey WD06.leaf1.rebated bead.rail": 11,
+    "North.arae.survey WD06.leaf1.rebated bead.stile": 11,
+    "North.arae.survey WD06.leaf1.recessed lower board": 11,
+    "North.arae.survey WD06.leaf1.stile": 11,
+    "North.arae.survey WD06.leaf1.vertical sal": 11,
+    "North.arae.survey WD06.leaf2.hanji backing": 11,
+    "North.arae.survey WD06.leaf2.horizontal band": 11,
+    "North.arae.survey WD06.leaf2.lock rail": 11,
+    "North.arae.survey WD06.leaf2.lower moulding.rail": 11,
+    "North.arae.survey WD06.leaf2.lower moulding.stile": 11,
+    "North.arae.survey WD06.leaf2.rail": 11,
+    "North.arae.survey WD06.leaf2.rear paper rail": 11,
+    "North.arae.survey WD06.leaf2.rebated bead.rail": 11,
+    "North.arae.survey WD06.leaf2.rebated bead.stile": 11,
+    "North.arae.survey WD06.leaf2.recessed lower board": 11,
+    "North.arae.survey WD06.leaf2.stile": 11,
+    "North.arae.survey WD06.leaf2.vertical sal": 11,
+    "North.arae.survey front infill": 8
+  },
+  "lineage": {
+    "GyeCraft.arae.irregular paving 0": {
+      "sourceObject": "GyeCraft.arae.irregular paving 0",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.arae.irregular paving 1": {
+      "sourceObject": "GyeCraft.arae.irregular paving 1",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.arae.irregular paving 2": {
+      "sourceObject": "GyeCraft.arae.irregular paving 2",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.arae.irregular paving 3": {
+      "sourceObject": "GyeCraft.arae.irregular paving 3",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.arae.irregular paving 4": {
+      "sourceObject": "GyeCraft.arae.irregular paving 4",
+      "processId": null,
+      "original": true
+    },
+    "North.arae.door stepping stone": {
+      "sourceObject": "North.arae.door stepping stone",
+      "processId": null,
+      "original": true
+    },
+    "North.arae.floor individual boards": {
+      "sourceObject": "North.arae.floor individual boards",
+      "processId": "ildu.araechae-maru",
+      "original": true
+    },
+    "North.arae.floor under joists": {
+      "sourceObject": "North.arae.floor under joists",
+      "processId": "ildu.araechae-maru",
+      "original": true
+    },
+    "North.arae.foundation": {
+      "sourceObject": "North.arae.foundation",
+      "processId": "ildu.araechae-stone-foundation",
+      "original": true
+    },
+    "North.arae.foundation earth top": {
+      "sourceObject": "North.arae.foundation earth top",
+      "processId": "ildu.araechae-stone-foundation",
+      "original": true
+    },
+    "North.arae.foundation individual plinth": {
+      "sourceObject": "North.arae.foundation individual plinth",
+      "processId": "ildu.araechae-stone-foundation",
+      "original": true
+    },
+    "North.arae.foundation.recessed earth mortar": {
+      "sourceObject": "North.arae.foundation.recessed earth mortar",
+      "processId": "ildu.araechae-stone-foundation",
+      "original": true
+    },
+    "North.arae.frame longitudinal beam": {
+      "sourceObject": "North.arae.frame longitudinal beam",
+      "processId": "ildu.araechae-beams-purlins",
+      "original": true
+    },
+    "North.arae.frame mortise peg": {
+      "sourceObject": "North.arae.frame mortise peg",
+      "processId": "ildu.araechae-beams-purlins",
+      "original": true
+    },
+    "North.arae.frame square post": {
+      "sourceObject": "North.arae.frame square post",
+      "processId": "ildu.araechae-posts-floor-support",
+      "original": true
+    },
+    "North.arae.frame transverse beam": {
+      "sourceObject": "North.arae.frame transverse beam",
+      "processId": "ildu.araechae-beams-purlins",
+      "original": true
+    },
+    "North.arae.hanji room floor": {
+      "sourceObject": "North.arae.hanji room floor",
+      "processId": "ildu.araechae-ondol",
+      "original": true
+    },
+    "North.arae.interior dividing wall": {
+      "sourceObject": "North.arae.interior dividing wall",
+      "processId": "ildu.araechae-room-walls",
+      "original": true
+    },
+    "North.arae.left maru side": {
+      "sourceObject": "North.arae.left maru side",
+      "processId": "ildu.araechae-maru",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf1.hanji backing": {
+      "sourceObject": "North.arae.left maru side lattice.leaf1.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf1.horizontal band": {
+      "sourceObject": "North.arae.left maru side lattice.leaf1.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf1.lock rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf1.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf1.lower moulding.rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf1.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf1.lower moulding.stile": {
+      "sourceObject": "North.arae.left maru side lattice.leaf1.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf1.rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf1.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf1.rear paper rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf1.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf1.rebated bead.rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf1.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf1.rebated bead.stile": {
+      "sourceObject": "North.arae.left maru side lattice.leaf1.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf1.recessed lower board": {
+      "sourceObject": "North.arae.left maru side lattice.leaf1.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf1.stile": {
+      "sourceObject": "North.arae.left maru side lattice.leaf1.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf1.vertical sal": {
+      "sourceObject": "North.arae.left maru side lattice.leaf1.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf2.hanji backing": {
+      "sourceObject": "North.arae.left maru side lattice.leaf2.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf2.horizontal band": {
+      "sourceObject": "North.arae.left maru side lattice.leaf2.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf2.lock rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf2.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf2.lower moulding.rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf2.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf2.lower moulding.stile": {
+      "sourceObject": "North.arae.left maru side lattice.leaf2.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf2.rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf2.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf2.rear paper rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf2.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf2.rebated bead.rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf2.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf2.rebated bead.stile": {
+      "sourceObject": "North.arae.left maru side lattice.leaf2.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf2.recessed lower board": {
+      "sourceObject": "North.arae.left maru side lattice.leaf2.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf2.stile": {
+      "sourceObject": "North.arae.left maru side lattice.leaf2.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf2.vertical sal": {
+      "sourceObject": "North.arae.left maru side lattice.leaf2.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf3.hanji backing": {
+      "sourceObject": "North.arae.left maru side lattice.leaf3.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf3.horizontal band": {
+      "sourceObject": "North.arae.left maru side lattice.leaf3.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf3.lock rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf3.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf3.lower moulding.rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf3.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf3.lower moulding.stile": {
+      "sourceObject": "North.arae.left maru side lattice.leaf3.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf3.rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf3.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf3.rear paper rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf3.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf3.rebated bead.rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf3.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf3.rebated bead.stile": {
+      "sourceObject": "North.arae.left maru side lattice.leaf3.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf3.recessed lower board": {
+      "sourceObject": "North.arae.left maru side lattice.leaf3.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf3.stile": {
+      "sourceObject": "North.arae.left maru side lattice.leaf3.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf3.vertical sal": {
+      "sourceObject": "North.arae.left maru side lattice.leaf3.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf4.hanji backing": {
+      "sourceObject": "North.arae.left maru side lattice.leaf4.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf4.horizontal band": {
+      "sourceObject": "North.arae.left maru side lattice.leaf4.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf4.lock rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf4.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf4.lower moulding.rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf4.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf4.lower moulding.stile": {
+      "sourceObject": "North.arae.left maru side lattice.leaf4.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf4.rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf4.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf4.rear paper rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf4.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf4.rebated bead.rail": {
+      "sourceObject": "North.arae.left maru side lattice.leaf4.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf4.rebated bead.stile": {
+      "sourceObject": "North.arae.left maru side lattice.leaf4.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf4.recessed lower board": {
+      "sourceObject": "North.arae.left maru side lattice.leaf4.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf4.stile": {
+      "sourceObject": "North.arae.left maru side lattice.leaf4.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side lattice.leaf4.vertical sal": {
+      "sourceObject": "North.arae.left maru side lattice.leaf4.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.left maru side.head/sill": {
+      "sourceObject": "North.arae.left maru side.head/sill",
+      "processId": "ildu.araechae-maru",
+      "original": true
+    },
+    "North.arae.left maru side.jamb": {
+      "sourceObject": "North.arae.left maru side.jamb",
+      "processId": "ildu.araechae-maru",
+      "original": true
+    },
+    "North.arae.ondol room": {
+      "sourceObject": "North.arae.ondol room",
+      "processId": "ildu.araechae-ondol",
+      "original": true
+    },
+    "North.arae.p11 passage wall timber bands": {
+      "sourceObject": "North.arae.p11 passage wall timber bands",
+      "processId": "ildu.araechae-room-walls",
+      "original": true
+    },
+    "North.arae.p12 passage hearth": {
+      "sourceObject": "North.arae.p12 passage hearth",
+      "processId": "ildu.araechae-ondol",
+      "original": true
+    },
+    "North.arae.p12 passage hearth iron pot 0.05": {
+      "sourceObject": "North.arae.p12 passage hearth iron pot 0.05",
+      "processId": "ildu.araechae-complete-use",
+      "original": true
+    },
+    "North.arae.p12 passage hearth iron pot 0.05 fine casting lines": {
+      "sourceObject": "North.arae.p12 passage hearth iron pot 0.05 fine casting lines",
+      "processId": "ildu.araechae-complete-use",
+      "original": true
+    },
+    "North.arae.p12 passage hearth iron pot 0.05 tapered knob": {
+      "sourceObject": "North.arae.p12 passage hearth iron pot 0.05 tapered knob",
+      "processId": "ildu.araechae-complete-use",
+      "original": true
+    },
+    "North.arae.p12 passage hearth scattered charcoal 0 0": {
+      "sourceObject": "North.arae.p12 passage hearth scattered charcoal 0 0",
+      "processId": "ildu.araechae-complete-use",
+      "original": true
+    },
+    "North.arae.p12 passage hearth scattered charcoal 0 1": {
+      "sourceObject": "North.arae.p12 passage hearth scattered charcoal 0 1",
+      "processId": "ildu.araechae-complete-use",
+      "original": true
+    },
+    "North.arae.p12 passage hearth scattered charcoal 0 2": {
+      "sourceObject": "North.arae.p12 passage hearth scattered charcoal 0 2",
+      "processId": "ildu.araechae-complete-use",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf1.hanji backing": {
+      "sourceObject": "North.arae.rear WD0.leaf1.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf1.horizontal band": {
+      "sourceObject": "North.arae.rear WD0.leaf1.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf1.lock rail": {
+      "sourceObject": "North.arae.rear WD0.leaf1.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf1.lower moulding.rail": {
+      "sourceObject": "North.arae.rear WD0.leaf1.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf1.lower moulding.stile": {
+      "sourceObject": "North.arae.rear WD0.leaf1.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf1.rail": {
+      "sourceObject": "North.arae.rear WD0.leaf1.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf1.rear paper rail": {
+      "sourceObject": "North.arae.rear WD0.leaf1.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf1.rebated bead.rail": {
+      "sourceObject": "North.arae.rear WD0.leaf1.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf1.rebated bead.stile": {
+      "sourceObject": "North.arae.rear WD0.leaf1.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf1.recessed lower board": {
+      "sourceObject": "North.arae.rear WD0.leaf1.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf1.stile": {
+      "sourceObject": "North.arae.rear WD0.leaf1.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf1.vertical sal": {
+      "sourceObject": "North.arae.rear WD0.leaf1.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf2.hanji backing": {
+      "sourceObject": "North.arae.rear WD0.leaf2.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf2.horizontal band": {
+      "sourceObject": "North.arae.rear WD0.leaf2.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf2.lock rail": {
+      "sourceObject": "North.arae.rear WD0.leaf2.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf2.lower moulding.rail": {
+      "sourceObject": "North.arae.rear WD0.leaf2.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf2.lower moulding.stile": {
+      "sourceObject": "North.arae.rear WD0.leaf2.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf2.rail": {
+      "sourceObject": "North.arae.rear WD0.leaf2.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf2.rear paper rail": {
+      "sourceObject": "North.arae.rear WD0.leaf2.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf2.rebated bead.rail": {
+      "sourceObject": "North.arae.rear WD0.leaf2.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf2.rebated bead.stile": {
+      "sourceObject": "North.arae.rear WD0.leaf2.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf2.recessed lower board": {
+      "sourceObject": "North.arae.rear WD0.leaf2.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf2.stile": {
+      "sourceObject": "North.arae.rear WD0.leaf2.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf2.vertical sal": {
+      "sourceObject": "North.arae.rear WD0.leaf2.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf3.hanji backing": {
+      "sourceObject": "North.arae.rear WD0.leaf3.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf3.horizontal band": {
+      "sourceObject": "North.arae.rear WD0.leaf3.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf3.lock rail": {
+      "sourceObject": "North.arae.rear WD0.leaf3.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf3.lower moulding.rail": {
+      "sourceObject": "North.arae.rear WD0.leaf3.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf3.lower moulding.stile": {
+      "sourceObject": "North.arae.rear WD0.leaf3.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf3.rail": {
+      "sourceObject": "North.arae.rear WD0.leaf3.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf3.rear paper rail": {
+      "sourceObject": "North.arae.rear WD0.leaf3.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf3.rebated bead.rail": {
+      "sourceObject": "North.arae.rear WD0.leaf3.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf3.rebated bead.stile": {
+      "sourceObject": "North.arae.rear WD0.leaf3.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf3.recessed lower board": {
+      "sourceObject": "North.arae.rear WD0.leaf3.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf3.stile": {
+      "sourceObject": "North.arae.rear WD0.leaf3.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf3.vertical sal": {
+      "sourceObject": "North.arae.rear WD0.leaf3.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf4.hanji backing": {
+      "sourceObject": "North.arae.rear WD0.leaf4.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf4.horizontal band": {
+      "sourceObject": "North.arae.rear WD0.leaf4.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf4.lock rail": {
+      "sourceObject": "North.arae.rear WD0.leaf4.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf4.lower moulding.rail": {
+      "sourceObject": "North.arae.rear WD0.leaf4.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf4.lower moulding.stile": {
+      "sourceObject": "North.arae.rear WD0.leaf4.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf4.rail": {
+      "sourceObject": "North.arae.rear WD0.leaf4.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf4.rear paper rail": {
+      "sourceObject": "North.arae.rear WD0.leaf4.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf4.rebated bead.rail": {
+      "sourceObject": "North.arae.rear WD0.leaf4.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf4.rebated bead.stile": {
+      "sourceObject": "North.arae.rear WD0.leaf4.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf4.recessed lower board": {
+      "sourceObject": "North.arae.rear WD0.leaf4.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf4.stile": {
+      "sourceObject": "North.arae.rear WD0.leaf4.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD0.leaf4.vertical sal": {
+      "sourceObject": "North.arae.rear WD0.leaf4.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD2.leaf1.hanji backing": {
+      "sourceObject": "North.arae.rear WD2.leaf1.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD2.leaf1.horizontal band": {
+      "sourceObject": "North.arae.rear WD2.leaf1.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD2.leaf1.lock rail": {
+      "sourceObject": "North.arae.rear WD2.leaf1.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD2.leaf1.lower moulding.rail": {
+      "sourceObject": "North.arae.rear WD2.leaf1.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD2.leaf1.lower moulding.stile": {
+      "sourceObject": "North.arae.rear WD2.leaf1.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD2.leaf1.rail": {
+      "sourceObject": "North.arae.rear WD2.leaf1.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD2.leaf1.rear paper rail": {
+      "sourceObject": "North.arae.rear WD2.leaf1.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD2.leaf1.rebated bead.rail": {
+      "sourceObject": "North.arae.rear WD2.leaf1.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD2.leaf1.rebated bead.stile": {
+      "sourceObject": "North.arae.rear WD2.leaf1.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD2.leaf1.recessed lower board": {
+      "sourceObject": "North.arae.rear WD2.leaf1.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD2.leaf1.stile": {
+      "sourceObject": "North.arae.rear WD2.leaf1.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear WD2.leaf1.vertical sal": {
+      "sourceObject": "North.arae.rear WD2.leaf1.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.rear plaster": {
+      "sourceObject": "North.arae.rear plaster",
+      "processId": "ildu.araechae-room-walls",
+      "original": true
+    },
+    "North.arae.rear plaster.head/sill": {
+      "sourceObject": "North.arae.rear plaster.head/sill",
+      "processId": "ildu.araechae-room-walls",
+      "original": true
+    },
+    "North.arae.rear plaster.jamb": {
+      "sourceObject": "North.arae.rear plaster.jamb",
+      "processId": "ildu.araechae-room-walls",
+      "original": true
+    },
+    "North.arae.right ondol side": {
+      "sourceObject": "North.arae.right ondol side",
+      "processId": "ildu.araechae-ondol",
+      "original": true
+    },
+    "North.arae.roof": {
+      "sourceObject": "North.arae.roof",
+      "processId": "ildu.araechae-tiles",
+      "original": true
+    },
+    "North.arae.roof packed ridge core": {
+      "sourceObject": "North.arae.roof packed ridge core",
+      "processId": "ildu.araechae-roof-bed",
+      "original": true
+    },
+    "North.arae.roof solid bedding": {
+      "sourceObject": "North.arae.roof solid bedding",
+      "processId": "ildu.araechae-roof-bed",
+      "original": true
+    },
+    "North.arae.roof.001": {
+      "sourceObject": "North.arae.roof.001",
+      "processId": "ildu.araechae-tiles",
+      "original": true
+    },
+    "North.arae.roof.002": {
+      "sourceObject": "North.arae.roof.002",
+      "processId": "ildu.araechae-tiles",
+      "original": true
+    },
+    "North.arae.roof.003": {
+      "sourceObject": "North.arae.roof.003",
+      "processId": "ildu.araechae-tiles",
+      "original": true
+    },
+    "North.arae.roof.004": {
+      "sourceObject": "North.arae.roof.004",
+      "processId": "ildu.araechae-tiles",
+      "original": true
+    },
+    "North.arae.roof.005": {
+      "sourceObject": "North.arae.roof.005",
+      "processId": "ildu.araechae-tiles",
+      "original": true
+    },
+    "North.arae.roof.eave beam": {
+      "sourceObject": "North.arae.roof.eave beam",
+      "processId": "ildu.araechae-rafters-eaves",
+      "original": true
+    },
+    "North.arae.roof.gable timber": {
+      "sourceObject": "North.arae.roof.gable timber",
+      "processId": "ildu.araechae-room-walls",
+      "original": true
+    },
+    "North.arae.roof.lower exposed rafters": {
+      "sourceObject": "North.arae.roof.lower exposed rafters",
+      "processId": "ildu.araechae-rafters-eaves",
+      "original": true
+    },
+    "North.arae.roof.rafters": {
+      "sourceObject": "North.arae.roof.rafters",
+      "processId": "ildu.araechae-rafters-eaves",
+      "original": true
+    },
+    "North.arae.roof.ridge stack": {
+      "sourceObject": "North.arae.roof.ridge stack",
+      "processId": "ildu.araechae-tiles",
+      "original": true
+    },
+    "North.arae.roof.ridge stack.001": {
+      "sourceObject": "North.arae.roof.ridge stack.001",
+      "processId": "ildu.araechae-tiles",
+      "original": true
+    },
+    "North.arae.roof.ridge stack.002": {
+      "sourceObject": "North.arae.roof.ridge stack.002",
+      "processId": "ildu.araechae-tiles",
+      "original": true
+    },
+    "North.arae.roof.ridge stack.003": {
+      "sourceObject": "North.arae.roof.ridge stack.003",
+      "processId": "ildu.araechae-tiles",
+      "original": true
+    },
+    "North.arae.roof.ridge stack.004": {
+      "sourceObject": "North.arae.roof.ridge stack.004",
+      "processId": "ildu.araechae-tiles",
+      "original": true
+    },
+    "North.arae.roof.ridge stack.005": {
+      "sourceObject": "North.arae.roof.ridge stack.005",
+      "processId": "ildu.araechae-tiles",
+      "original": true
+    },
+    "North.arae.roof.round tile ends": {
+      "sourceObject": "North.arae.roof.round tile ends",
+      "processId": "ildu.araechae-tiles",
+      "original": true
+    },
+    "North.arae.room ceiling": {
+      "sourceObject": "North.arae.room ceiling",
+      "processId": "ildu.araechae-room-walls",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf1.hanji backing": {
+      "sourceObject": "North.arae.survey WD02.leaf1.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf1.horizontal band": {
+      "sourceObject": "North.arae.survey WD02.leaf1.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf1.lock rail": {
+      "sourceObject": "North.arae.survey WD02.leaf1.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf1.lower moulding.rail": {
+      "sourceObject": "North.arae.survey WD02.leaf1.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf1.lower moulding.stile": {
+      "sourceObject": "North.arae.survey WD02.leaf1.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf1.rail": {
+      "sourceObject": "North.arae.survey WD02.leaf1.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf1.rear paper rail": {
+      "sourceObject": "North.arae.survey WD02.leaf1.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf1.rebated bead.rail": {
+      "sourceObject": "North.arae.survey WD02.leaf1.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf1.rebated bead.stile": {
+      "sourceObject": "North.arae.survey WD02.leaf1.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf1.recessed lower board": {
+      "sourceObject": "North.arae.survey WD02.leaf1.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf1.stile": {
+      "sourceObject": "North.arae.survey WD02.leaf1.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf1.vertical sal": {
+      "sourceObject": "North.arae.survey WD02.leaf1.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf2.hanji backing": {
+      "sourceObject": "North.arae.survey WD02.leaf2.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf2.horizontal band": {
+      "sourceObject": "North.arae.survey WD02.leaf2.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf2.lock rail": {
+      "sourceObject": "North.arae.survey WD02.leaf2.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf2.lower moulding.rail": {
+      "sourceObject": "North.arae.survey WD02.leaf2.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf2.lower moulding.stile": {
+      "sourceObject": "North.arae.survey WD02.leaf2.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf2.rail": {
+      "sourceObject": "North.arae.survey WD02.leaf2.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf2.rear paper rail": {
+      "sourceObject": "North.arae.survey WD02.leaf2.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf2.rebated bead.rail": {
+      "sourceObject": "North.arae.survey WD02.leaf2.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf2.rebated bead.stile": {
+      "sourceObject": "North.arae.survey WD02.leaf2.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf2.recessed lower board": {
+      "sourceObject": "North.arae.survey WD02.leaf2.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf2.stile": {
+      "sourceObject": "North.arae.survey WD02.leaf2.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf2.vertical sal": {
+      "sourceObject": "North.arae.survey WD02.leaf2.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf3.hanji backing": {
+      "sourceObject": "North.arae.survey WD02.leaf3.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf3.horizontal band": {
+      "sourceObject": "North.arae.survey WD02.leaf3.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf3.lock rail": {
+      "sourceObject": "North.arae.survey WD02.leaf3.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf3.lower moulding.rail": {
+      "sourceObject": "North.arae.survey WD02.leaf3.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf3.lower moulding.stile": {
+      "sourceObject": "North.arae.survey WD02.leaf3.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf3.rail": {
+      "sourceObject": "North.arae.survey WD02.leaf3.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf3.rear paper rail": {
+      "sourceObject": "North.arae.survey WD02.leaf3.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf3.rebated bead.rail": {
+      "sourceObject": "North.arae.survey WD02.leaf3.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf3.rebated bead.stile": {
+      "sourceObject": "North.arae.survey WD02.leaf3.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf3.recessed lower board": {
+      "sourceObject": "North.arae.survey WD02.leaf3.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf3.stile": {
+      "sourceObject": "North.arae.survey WD02.leaf3.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf3.vertical sal": {
+      "sourceObject": "North.arae.survey WD02.leaf3.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf4.hanji backing": {
+      "sourceObject": "North.arae.survey WD02.leaf4.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf4.horizontal band": {
+      "sourceObject": "North.arae.survey WD02.leaf4.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf4.lock rail": {
+      "sourceObject": "North.arae.survey WD02.leaf4.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf4.lower moulding.rail": {
+      "sourceObject": "North.arae.survey WD02.leaf4.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf4.lower moulding.stile": {
+      "sourceObject": "North.arae.survey WD02.leaf4.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf4.rail": {
+      "sourceObject": "North.arae.survey WD02.leaf4.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf4.rear paper rail": {
+      "sourceObject": "North.arae.survey WD02.leaf4.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf4.rebated bead.rail": {
+      "sourceObject": "North.arae.survey WD02.leaf4.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf4.rebated bead.stile": {
+      "sourceObject": "North.arae.survey WD02.leaf4.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf4.recessed lower board": {
+      "sourceObject": "North.arae.survey WD02.leaf4.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf4.stile": {
+      "sourceObject": "North.arae.survey WD02.leaf4.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD02.leaf4.vertical sal": {
+      "sourceObject": "North.arae.survey WD02.leaf4.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf1.hanji backing": {
+      "sourceObject": "North.arae.survey WD04.leaf1.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf1.horizontal band": {
+      "sourceObject": "North.arae.survey WD04.leaf1.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf1.lock rail": {
+      "sourceObject": "North.arae.survey WD04.leaf1.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf1.lower moulding.rail": {
+      "sourceObject": "North.arae.survey WD04.leaf1.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf1.lower moulding.stile": {
+      "sourceObject": "North.arae.survey WD04.leaf1.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf1.rail": {
+      "sourceObject": "North.arae.survey WD04.leaf1.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf1.rear paper rail": {
+      "sourceObject": "North.arae.survey WD04.leaf1.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf1.rebated bead.rail": {
+      "sourceObject": "North.arae.survey WD04.leaf1.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf1.rebated bead.stile": {
+      "sourceObject": "North.arae.survey WD04.leaf1.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf1.recessed lower board": {
+      "sourceObject": "North.arae.survey WD04.leaf1.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf1.stile": {
+      "sourceObject": "North.arae.survey WD04.leaf1.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf1.vertical sal": {
+      "sourceObject": "North.arae.survey WD04.leaf1.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf2.hanji backing": {
+      "sourceObject": "North.arae.survey WD04.leaf2.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf2.horizontal band": {
+      "sourceObject": "North.arae.survey WD04.leaf2.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf2.lock rail": {
+      "sourceObject": "North.arae.survey WD04.leaf2.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf2.lower moulding.rail": {
+      "sourceObject": "North.arae.survey WD04.leaf2.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf2.lower moulding.stile": {
+      "sourceObject": "North.arae.survey WD04.leaf2.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf2.rail": {
+      "sourceObject": "North.arae.survey WD04.leaf2.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf2.rear paper rail": {
+      "sourceObject": "North.arae.survey WD04.leaf2.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf2.rebated bead.rail": {
+      "sourceObject": "North.arae.survey WD04.leaf2.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf2.rebated bead.stile": {
+      "sourceObject": "North.arae.survey WD04.leaf2.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf2.recessed lower board": {
+      "sourceObject": "North.arae.survey WD04.leaf2.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf2.stile": {
+      "sourceObject": "North.arae.survey WD04.leaf2.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD04.leaf2.vertical sal": {
+      "sourceObject": "North.arae.survey WD04.leaf2.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf1.hanji backing": {
+      "sourceObject": "North.arae.survey WD06.leaf1.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf1.horizontal band": {
+      "sourceObject": "North.arae.survey WD06.leaf1.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf1.lock rail": {
+      "sourceObject": "North.arae.survey WD06.leaf1.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf1.lower moulding.rail": {
+      "sourceObject": "North.arae.survey WD06.leaf1.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf1.lower moulding.stile": {
+      "sourceObject": "North.arae.survey WD06.leaf1.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf1.rail": {
+      "sourceObject": "North.arae.survey WD06.leaf1.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf1.rear paper rail": {
+      "sourceObject": "North.arae.survey WD06.leaf1.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf1.rebated bead.rail": {
+      "sourceObject": "North.arae.survey WD06.leaf1.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf1.rebated bead.stile": {
+      "sourceObject": "North.arae.survey WD06.leaf1.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf1.recessed lower board": {
+      "sourceObject": "North.arae.survey WD06.leaf1.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf1.stile": {
+      "sourceObject": "North.arae.survey WD06.leaf1.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf1.vertical sal": {
+      "sourceObject": "North.arae.survey WD06.leaf1.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf2.hanji backing": {
+      "sourceObject": "North.arae.survey WD06.leaf2.hanji backing",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf2.horizontal band": {
+      "sourceObject": "North.arae.survey WD06.leaf2.horizontal band",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf2.lock rail": {
+      "sourceObject": "North.arae.survey WD06.leaf2.lock rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf2.lower moulding.rail": {
+      "sourceObject": "North.arae.survey WD06.leaf2.lower moulding.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf2.lower moulding.stile": {
+      "sourceObject": "North.arae.survey WD06.leaf2.lower moulding.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf2.rail": {
+      "sourceObject": "North.arae.survey WD06.leaf2.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf2.rear paper rail": {
+      "sourceObject": "North.arae.survey WD06.leaf2.rear paper rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf2.rebated bead.rail": {
+      "sourceObject": "North.arae.survey WD06.leaf2.rebated bead.rail",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf2.rebated bead.stile": {
+      "sourceObject": "North.arae.survey WD06.leaf2.rebated bead.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf2.recessed lower board": {
+      "sourceObject": "North.arae.survey WD06.leaf2.recessed lower board",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf2.stile": {
+      "sourceObject": "North.arae.survey WD06.leaf2.stile",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey WD06.leaf2.vertical sal": {
+      "sourceObject": "North.arae.survey WD06.leaf2.vertical sal",
+      "processId": "ildu.araechae-changho",
+      "original": true
+    },
+    "North.arae.survey front infill": {
+      "sourceObject": "North.arae.survey front infill",
+      "processId": "ildu.araechae-room-walls",
+      "original": true
+    }
+  },
+  "nullProcessOriginals": [
+    "GyeCraft.arae.irregular paving 0",
+    "GyeCraft.arae.irregular paving 1",
+    "GyeCraft.arae.irregular paving 2",
+    "GyeCraft.arae.irregular paving 3",
+    "GyeCraft.arae.irregular paving 4",
+    "North.arae.door stepping stone"
+  ],
+  "legacyDisplayPolicyDifferences": [],
+  "legacyPolicyUnmodified": true,
+  "processIdsAndOrderPreserved": true,
+  "sourceDataEdited": false
+}

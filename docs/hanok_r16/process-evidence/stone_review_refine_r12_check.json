@@ -1,0 +1,1282 @@
+{
+  "version": "r12-mineral-review-1",
+  "appliedObjects": 220,
+  "copiedMaterials": 6,
+  "objects": [
+    {
+      "object": "HS10 front apron course 0 block 00",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 front apron course 0 block 01",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 front apron course 0 block 02",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 front apron course 1 block 00",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 front apron course 1 block 01",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 front apron course 1 block 02",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 front apron course 2 block 00",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 front apron course 2 block 01",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 front apron course 2 block 02",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 left terrace course 0 block 00",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 left terrace course 1 block 00",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 left terrace course 2 block 00",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 00",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 01",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 02",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 03",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 04",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 05",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 06",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 07",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 08",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 09",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 10",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 11",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 12",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 13",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 0 block 14",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 00",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 01",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 02",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 03",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 04",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 05",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 06",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 07",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 08",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 09",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 10",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 11",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 12",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 13",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 1 block 14",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 00",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 01",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 02",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 03",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 04",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 05",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 06",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 07",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 08",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 09",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 10",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 11",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 12",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 13",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation front course 2 block 14",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation left course 0 block 00",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation left course 0 block 01",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation left course 0 block 02",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation left course 0 block 03",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation left course 0 block 04",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation left course 0 block 05",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation left course 0 block 06",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation left course 1 block 00",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation left course 1 block 01",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation left course 1 block 02",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation left course 1 block 03",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation left course 1 block 04",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation left course 1 block 05",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation left course 1 block 06",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation left course 2 block 00",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation left course 2 block 01",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation left course 2 block 02",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation left course 2 block 03",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation left course 2 block 04",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation left course 2 block 05",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation left course 2 block 06",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 00",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 01",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 02",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 03",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 04",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 05",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 06",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 07",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 08",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 09",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 10",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 11",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 12",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 13",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation rear course 0 block 14",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 00",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 01",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 02",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 03",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 04",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 05",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 06",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 07",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 08",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 09",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 10",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 11",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 12",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 13",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation rear course 1 block 14",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 00",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 01",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 02",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 03",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 04",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 05",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 06",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 07",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 08",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 09",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 10",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 11",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 12",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 13",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation rear course 2 block 14",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation right course 0 block 00",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation right course 0 block 01",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation right course 0 block 02",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation right course 0 block 03",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation right course 0 block 04",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation right course 0 block 05",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 main foundation right course 0 block 06",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation right course 1 block 00",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation right course 1 block 01",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation right course 1 block 02",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation right course 1 block 03",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation right course 1 block 04",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 main foundation right course 1 block 05",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation right course 1 block 06",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation right course 2 block 00",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation right course 2 block 01",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 main foundation right course 2 block 02",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 main foundation right course 2 block 03",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 main foundation right course 2 block 04",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 main foundation right course 2 block 05",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 main foundation right course 2 block 06",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 measured solid stair cheeks",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 numaru foundation front course 0 block 00",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 numaru foundation front course 0 block 01",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 numaru foundation front course 0 block 02",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 numaru foundation front course 0 block 03",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 numaru foundation front course 0 block 04",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 numaru foundation front course 0 block 05",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 numaru foundation front course 0 block 06",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 numaru foundation left course 0 block 00",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 numaru foundation left course 0 block 01",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 numaru foundation left course 0 block 02",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 numaru foundation left course 0 block 03",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 numaru foundation left course 0 block 04",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 numaru foundation left course 0 block 05",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 numaru foundation left course 0 block 06",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 numaru foundation left course 0 block 07",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 numaru foundation left course 0 block 08",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 numaru foundation left course 0 block 09",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 numaru foundation left course 0 block 10",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 numaru foundation left course 0 block 11",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 numaru foundation rear course 0 block 00",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 numaru foundation rear course 0 block 01",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 numaru foundation rear course 0 block 02",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 numaru foundation rear course 0 block 03",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 numaru foundation rear course 0 block 04",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 numaru foundation rear course 0 block 05",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 numaru foundation rear course 0 block 06",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 numaru foundation right course 0 block 00",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 numaru foundation right course 0 block 01",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 numaru foundation right course 0 block 02",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 numaru foundation right course 0 block 03",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 numaru foundation right course 0 block 04",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 numaru foundation right course 0 block 05",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 numaru foundation right course 0 block 06",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 numaru foundation right course 0 block 07",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 numaru foundation right course 0 block 08",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 numaru foundation right course 0 block 09",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 numaru foundation right course 0 block 10",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 numaru foundation right course 0 block 11",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 numaru front apron course 0 block 00",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 numaru front apron course 0 block 01",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 numaru front apron course 0 block 02",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 numaru front apron course 0 block 03",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 numaru front apron course 0 block 04",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 numaru front apron course 0 block 05",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 numaru inner apron course 0 block 00",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 stair 1 stone 0",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 stair 1 stone 1",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 stair 2 stone 0",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 stair 2 stone 1",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 stair 3 stone 0",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 stair 3 stone 1",
+      "sourceMaterial": "HS12 mineral | cream-greige",
+      "material": "HS12 mineral review | cream-greige"
+    },
+    {
+      "object": "HS10 stair 4 stone 0",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 stair 4 stone 1",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 stair 5 stone 0",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 stair 5 stone 1",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 stair landing course 0 block 00",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 stair landing course 0 block 01",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 stair landing course 0 block 02",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 stair landing course 0 block 03",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 stair landing course 0 block 04",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 stair landing course 0 block 05",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 stair landing course 1 block 00",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 stair landing course 1 block 01",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 stair landing course 1 block 02",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 stair landing course 1 block 03",
+      "sourceMaterial": "HS12 mineral | warm-sand",
+      "material": "HS12 mineral review | warm-sand"
+    },
+    {
+      "object": "HS10 stair landing course 1 block 04",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 stair landing course 1 block 05",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    },
+    {
+      "object": "HS10 stair landing course 2 block 00",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 stair landing course 2 block 01",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 stair landing course 2 block 02",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 stair landing course 2 block 03",
+      "sourceMaterial": "HS12 mineral | soft-ochre",
+      "material": "HS12 mineral review | soft-ochre"
+    },
+    {
+      "object": "HS10 stair landing course 2 block 04",
+      "sourceMaterial": "HS12 mineral | warm-greige",
+      "material": "HS12 mineral review | warm-greige"
+    },
+    {
+      "object": "HS10 stair landing course 2 block 05",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 upper entry solid 0",
+      "sourceMaterial": "HS12 mineral | pale-sand",
+      "material": "HS12 mineral review | pale-sand"
+    },
+    {
+      "object": "HS10 upper entry solid 1",
+      "sourceMaterial": "HS12 mineral | warm-mineral-grey",
+      "material": "HS12 mineral review | warm-mineral-grey"
+    }
+  ],
+  "materials": [
+    {
+      "material": "HS12 mineral review | cream-greige",
+      "baseBefore": [
+        0.5711248517036438,
+        0.4969329833984375,
+        0.3762621283531189,
+        1.0
+      ],
+      "baseAfter": [
+        0.5793544075773521,
+        0.5127227182144468,
+        0.3994398204779083,
+        1.0
+      ],
+      "activeSurface": "HS12 mineral | active dressed mineral PBR",
+      "authoredImage": "stone-material.png",
+      "newNodeCount": 15,
+      "sparsePoreParametersUnchanged": true
+    },
+    {
+      "material": "HS12 mineral review | pale-sand",
+      "baseBefore": [
+        0.6307571530342102,
+        0.5520114302635193,
+        0.4019777774810791,
+        1.0
+      ],
+      "baseAfter": [
+        0.6598580143736168,
+        0.5870786214823073,
+        0.4341559468006546,
+        1.0
+      ],
+      "activeSurface": "HS12 mineral | active dressed mineral PBR",
+      "authoredImage": "stone-material.png",
+      "newNodeCount": 15,
+      "sparsePoreParametersUnchanged": true
+    },
+    {
+      "material": "HS12 mineral review | soft-ochre",
+      "baseBefore": [
+        0.4969329833984375,
+        0.35640013217926025,
+        0.1946178376674652,
+        1.0
+      ],
+      "baseAfter": [
+        0.4791953853653236,
+        0.32300336906855753,
+        0.15422002805227583,
+        1.0
+      ],
+      "activeSurface": "HS12 mineral | active dressed mineral PBR",
+      "authoredImage": "stone-material.png",
+      "newNodeCount": 15,
+      "sparsePoreParametersUnchanged": true
+    },
+    {
+      "material": "HS12 mineral review | warm-greige",
+      "baseBefore": [
+        0.4564110338687897,
+        0.3967552185058594,
+        0.30054378509521484,
+        1.0
+      ],
+      "baseAfter": [
+        0.424490753500299,
+        0.3774827356094664,
+        0.29722005707973786,
+        1.0
+      ],
+      "activeSurface": "HS12 mineral | active dressed mineral PBR",
+      "authoredImage": "stone-material.png",
+      "newNodeCount": 15,
+      "sparsePoreParametersUnchanged": true
+    },
+    {
+      "material": "HS12 mineral review | warm-mineral-grey",
+      "baseBefore": [
+        0.5149176716804504,
+        0.43965718150138855,
+        0.3277781009674072,
+        1.0
+      ],
+      "baseAfter": [
+        0.5034747145460411,
+        0.43540038565343075,
+        0.33398638350719756,
+        1.0
+      ],
+      "activeSurface": "HS12 mineral | active dressed mineral PBR",
+      "authoredImage": "stone-material.png",
+      "newNodeCount": 15,
+      "sparsePoreParametersUnchanged": true
+    },
+    {
+      "material": "HS12 mineral review | warm-sand",
+      "baseBefore": [
+        0.5840784311294556,
+        0.4677838087081909,
+        0.2961382567882538,
+        1.0
+      ],
+      "baseAfter": [
+        0.596841739802198,
+        0.473371332382614,
+        0.29127259386534043,
+        1.0
+      ],
+      "activeSurface": "HS12 mineral | active dressed mineral PBR",
+      "authoredImage": "stone-material.png",
+      "newNodeCount": 15,
+      "sparsePoreParametersUnchanged": true
+    }
+  ],
+  "assignmentCounts": {
+    "HS12 mineral review | warm-sand": 60,
+    "HS12 mineral review | warm-mineral-grey": 16,
+    "HS12 mineral review | soft-ochre": 39,
+    "HS12 mineral review | cream-greige": 33,
+    "HS12 mineral review | warm-greige": 37,
+    "HS12 mineral review | pale-sand": 35
+  },
+  "paletteSpread": 1.35,
+  "weightedRGBMeanBefore": [
+    0.5476118349216201,
+    0.4518194553526965,
+    0.31004015085372055
+  ],
+  "weightedRGBMeanAfter": [
+    0.5476118332960389,
+    0.451819461313161,
+    0.31004014347087255
+  ],
+  "weightedPaletteMeanPreserved": true,
+  "broadColourSamples": 4,
+  "normalizedTapOffset": 0.0065,
+  "physicalFilterSpanMetres": [
+    0.021449999999999997,
+    0.0286
+  ],
+  "broadMineralRatioClamp": [
+    0.48,
+    1.18
+  ],
+  "broadMineralBlend": 0.9,
+  "roughnessRange": [
+    0.68,
+    0.9
+  ],
+  "broadToolBumpDistance": 0.0025,
+  "broadToolBumpStrength": 0.3,
+  "peakEffectiveToolHeightMetres": 0.00075,
+  "sparsePoresUnchanged": true,
+  "restrainedGrainUnchanged": true,
+  "sourceMaterialDatablocksUnchanged": true,
+  "original711Unchanged": true,
+  "geometryUnchanged": true,
+  "protectedMaterialBindingsUnchanged": true,
+  "lightingExposureColourManagementUnchanged": true,
+  "activePBRVerified": true,
+  "repeatApplication": "fail before copying",
+  "savedBlend": false,
+  "rendered": false,
+  "passed": true,
+  "blenderVersion": "5.2.2 LTS",
+  "threads": 2,
+  "seconds": 9.08,
+  "source": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\sarang-exact-r12\\sarang-exact-r12.blend",
+  "sourceSHA256": "01d256fba359bd53be100a0cbd46988ff52c25ac039e954d57a39152261dff1b",
+  "sourceFileUnchanged": true,
+  "moduleSHA256": "bdcf6a44eec9cc52044c2995133c1d3c8d12c3019beb2281818a8629fa96e3fa",
+  "repeatRejectedWithoutCopies": true,
+  "repeatRejection": "Stone review already applied; reopen the saved R12 source"
+}
