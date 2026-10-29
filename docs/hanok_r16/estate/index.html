@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ko">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>일두고택 · R16 전체 화면 검토</title><link rel="stylesheet" href="style.css"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>일두고택 · R16 전체 화면 검토</title><link rel="stylesheet" href="style.css?v=r16-2"></head>
 <body>
 <main class="app">
   <header class="top"><div class="topline"><a class="icon" href="../review/index.html" aria-label="건물 갤러리로 돌아가기"><img src="assets/chevron-ivory.png" class="back" alt=""></a><div><p class="eyebrow">완성본 둘러보기</p><h1>일두고택</h1></div><button class="icon" id="settingsOpen" aria-label="보기 설정"><img src="assets/settings-gold.png" alt=""></button></div><p class="intro">건물을 눌러 자세히 살펴보세요.</p><img class="cloud" src="assets/cloud-ivory.png" alt=""></header>
@@ -16,5 +16,5 @@
 <dialog id="processDialog" aria-labelledby="processTitle"><div class="dialogHead"><div><p class="eyebrow">지어진 순서</p><h2 id="processTitle">사랑채</h2></div><button class="close" data-close="processDialog">닫기</button></div><div class="variantOptions" id="variantOptions" hidden><button id="standaloneVariant" aria-pressed="true">단독 건물</button><button id="connectedVariant" aria-pressed="false">연결 후</button></div><p class="variantNote" id="variantNote"></p><div class="stageImage"><img id="processImage" alt=""><div id="processError" hidden><p>이 공정 이미지를 불러오지 못했어요.</p><button id="retryProcess">다시 불러오기</button></div></div><div class="stageControls"><button id="prevProcess" aria-label="이전 공정">←</button><label><span class="sr">공정 단계</span><select id="stageSelect" aria-label="공정 단계"></select></label><button id="nextProcess" aria-label="다음 공정">→</button></div><p id="processCaption"></p><button id="fullImageOpen" class="secondary">크게 보기</button></dialog>
 <dialog id="imageDialog" aria-label="공정 이미지 확대"><button class="close" data-close="imageDialog">닫기</button><img id="expandedImage" alt="확대한 공정 이미지"></dialog>
 <dialog id="settingsDialog" aria-labelledby="settingsTitle"><div class="dialogHead"><h2 id="settingsTitle">보기 설정</h2><button class="close" data-close="settingsDialog">닫기</button></div><fieldset><legend>글자 크기</legend><label><input type="radio" name="textSize" value="100" checked>기본 크기</label><label><input type="radio" name="textSize" value="200">큰 글자 검토</label></fieldset><label class="check"><input type="checkbox" id="reduceMotion">동작 줄이기</label><p>선택과 결과는 그대로 유지됩니다.</p></dialog>
-<script type="module" src="viewer.js"></script>
+<script type="module" src="viewer.js?v=r16-2"></script>
 </body></html>
