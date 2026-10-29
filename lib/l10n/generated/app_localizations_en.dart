@@ -8794,8 +8794,7 @@ class AppL10nEn extends AppL10n {
       'course': 'Your guided path through real situations.',
       'hangul': 'Build syllables and read with confidence.',
       'calligraphy': 'Discover one character every day.',
-      'pronunciation':
-          'Listen, repeat, and optionally assess. Scoring comes later.',
+      'pronunciation': 'Listen, record, and compare.',
       'vocab_packs': 'Learn words by everyday topic.',
       'srs': 'Refresh words at just the right moment.',
       'hard_words': 'Focus on the words that trip you up.',
