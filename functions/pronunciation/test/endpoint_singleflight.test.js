@@ -150,6 +150,39 @@ test("deletion fence denies completed replay", async () => {
 
 module.exports = {harness, request, azure, MemoryFirestore};
 
+test("unavailable diagnostics distinguish provider, parsing and receipt failures without private data", async () => {
+  for (const scenario of ["http", "transport", "parse", "claim", "complete"]) {
+    const h = harness();
+    if (scenario === "http") h.setProvider(async () => ({ok: false, status: 401,
+      text: async () => "PRIVATE_PROVIDER_PAYLOAD"}));
+    if (scenario === "transport") h.setProvider(async () => { throw new Error("PRIVATE_TRANSPORT_ERROR"); });
+    if (scenario === "parse") h.setProvider(async () => ({ok: true, status: 200,
+      json: async () => { throw new Error("PRIVATE_JSON_ERROR"); }}));
+    if (scenario === "claim") h.db.outage = true;
+    if (scenario === "complete") h.db.failCompleted = true;
+    await assert.rejects(h.run(request({referenceText: "PRIVATE_REFERENCE_TEXT"})), {code: "unavailable"});
+    assert.equal(h.logs.length, 1);
+    const expected = {event: "pronunciation_unavailable", stage: {
+      http: "provider", transport: "provider", parse: "provider", claim: "receipt-claim", complete: "receipt-complete",
+    }[scenario]};
+    if (scenario === "http") expected.providerHttpStatus = 401;
+    if (scenario === "parse") expected.providerHttpStatus = 200;
+    assert.deepEqual({...h.logs[0][1]}, expected);
+    const serialized = JSON.stringify(h.logs);
+    for (const secret of ["PRIVATE_", "user-1", "assessment-123", "AAECAw==", "test-only"]) {
+      assert.equal(serialized.includes(secret), false);
+    }
+  }
+});
+
+test("unavailable diagnostic sink failure preserves the original error and single dispatch", async () => {
+  const h = harness();
+  h.logs.push = () => { throw new Error("logging unavailable"); };
+  h.setProvider(async () => ({ok: false, status: 429}));
+  await assert.rejects(h.run(request()), {code: "unavailable"});
+  assert.equal(h.calls.length, 1);
+});
+
 test("missing and invalid approval emit only one bounded cost diagnostic", async () => {
   for (const missing of [true, false]) {
     const h = harness();

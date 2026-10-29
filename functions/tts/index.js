@@ -20,7 +20,9 @@
 
 const { HttpsError, onCall } = require("firebase-functions/v2/https");
 const { setGlobalOptions } = require("firebase-functions/v2");
-const admin = require("firebase-admin");
+const { initializeApp } = require("firebase-admin/app");
+const { getFirestore } = require("firebase-admin/firestore");
+const { getStorage } = require("firebase-admin/storage");
 const textToSpeech = require("@google-cloud/text-to-speech");
 const { scopedCacheKey, privateMetadataIsCurrent, cacheSaveOptions } = require("./tts_privacy");
 const { ServiceCostError, recordCostApprovalFailure } = require("./service_cost_policy");
@@ -42,7 +44,7 @@ const {
   withDeadline,
 } = require("./tts_request_guard");
 
-admin.initializeApp();
+initializeApp();
 setGlobalOptions({ region: "europe-west3" });
 
 const ttsClient = new textToSpeech.TextToSpeechClient();
@@ -127,8 +129,8 @@ async function synthesizeTts(request) {
 
       const key = scopedCacheKey(request.auth.uid, voice, text);
       const voiceKey = key.voice;
-      const db = admin.firestore();
-      const fileRef = admin.storage().bucket(BUCKET).file(key.storagePath);
+      const db = getFirestore();
+      const fileRef = getStorage().bucket(BUCKET).file(key.storagePath);
       const assertAccountActive = async () => {
         stage = "account";
         const marker = await db.collection("account_deletions").doc(request.auth.uid).get();
