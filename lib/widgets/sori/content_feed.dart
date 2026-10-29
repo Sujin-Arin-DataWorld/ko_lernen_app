@@ -332,7 +332,14 @@ class _SoriContentFeedState extends State<SoriContentFeed>
             fit: StackFit.passthrough,
             children: [
               if (widget.underlay != null)
-                Opacity(opacity: underlayOpacity, child: widget.underlay),
+                // The next card is a visual preview. Its word and controls
+                // become accessible only when it is promoted to the current card.
+                ExcludeSemantics(
+                  child: Opacity(
+                    opacity: underlayOpacity,
+                    child: widget.underlay,
+                  ),
+                ),
               // 카드 배경 — 더블탭(좋아요)+세로 드래그 판정은 이 레이어
               // 하나뿐이다. topAccessory(스피치 인디케이터)는 이 아래
               // Stack 형제로 얹히므로, 그 작은 사각형을 탭하면 Flutter
