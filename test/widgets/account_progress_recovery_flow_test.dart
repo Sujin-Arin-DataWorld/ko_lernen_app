@@ -232,7 +232,9 @@ void main() {
       final gate = Completer<void>();
       final operations = ResolutionOperations()..previewGate = gate;
       addTearDown(() {
-        if (!gate.isCompleted) gate.complete();
+        if (!gate.isCompleted) {
+          gate.complete();
+        }
       });
       await pumpPanel(tester, operations, includeSecondEntry: true);
       await tester.tap(find.text('Lernstand prüfen'));

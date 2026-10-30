@@ -1923,10 +1923,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _revealBackupAction() async {
     await WidgetsBinding.instance.endOfFrame;
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
     final target =
         _backupTileKey.currentContext ?? _accountSectionKey.currentContext;
-    if (target == null || !target.mounted) return;
+    if (target == null || !target.mounted) {
+      return;
+    }
     await Scrollable.ensureVisible(
       target,
       alignment: .25,
@@ -1934,11 +1938,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ? Duration.zero
           : const Duration(milliseconds: 180),
     );
-    if (mounted) _backupFocusNode.requestFocus();
+    if (mounted) {
+      _backupFocusNode.requestFocus();
+    }
   }
 
   Future<void> _onBackupTap() async {
-    if (_backupBusy) return;
+    if (_backupBusy) {
+      return;
+    }
     setState(() => _backupBusy = true);
     final t = AppL10n.of(context);
     try {
@@ -1962,7 +1970,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
           await (operations as AccountUiPendingStateSource)
               .refreshPendingState();
         }
-        if (!mounted) return;
+        if (!mounted) {
+          return;
+        }
         unawaited(showSafeAccountFailure(context, retry: _onBackupTap));
         return;
       }
@@ -1977,7 +1987,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (!mounted) return;
       _showOfflineDialog(retry: _onBackupTap);
     } finally {
-      if (mounted) setState(() => _backupBusy = false);
+      if (mounted) {
+        setState(() => _backupBusy = false);
+      }
     }
   }
 

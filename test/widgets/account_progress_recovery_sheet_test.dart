@@ -80,7 +80,9 @@ Future<void> openSheet(
 
 Future<void> capture(WidgetTester tester, String name) async {
   const output = String.fromEnvironment('ACCOUNT_RECOVERY_CAPTURE_DIR');
-  if (output.isEmpty) return;
+  if (output.isEmpty) {
+    return;
+  }
   final boundary = tester.renderObject<RenderRepaintBoundary>(
     find.byKey(const Key('recovery-render')),
   );

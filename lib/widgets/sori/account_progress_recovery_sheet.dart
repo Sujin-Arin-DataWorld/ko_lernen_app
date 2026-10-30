@@ -38,12 +38,16 @@ Future<AccountSwitchResolutionOutcome?> reviewPendingAccountProgress({
   if (operations is! AccountUiSwitchResolutionOperations) {
     return AccountSwitchResolutionOutcome.unavailable;
   }
-  if (_activeProgressReviews[operations] == true) return null;
+  if (_activeProgressReviews[operations] == true) {
+    return null;
+  }
   _activeProgressReviews[operations] = true;
   final resolution = operations as AccountUiSwitchResolutionOperations;
   try {
     final result = await resolution.previewPendingSwitchResolution();
-    if (!context.mounted) return null;
+    if (!context.mounted) {
+      return null;
+    }
     if (result.status == AccountSwitchResolutionPreviewStatus.resumeRequired) {
       final t = AppL10n.of(context);
       final confirmed = await showSoriDialog<bool>(
@@ -64,7 +68,9 @@ Future<AccountSwitchResolutionOutcome?> reviewPendingAccountProgress({
           ],
         ),
       );
-      if (confirmed != true || !context.mounted) return null;
+      if (confirmed != true || !context.mounted) {
+        return null;
+      }
       return await resolution.resumePendingSwitchResolution();
     }
     final preview = result.preview;
@@ -82,7 +88,9 @@ Future<AccountSwitchResolutionOutcome?> reviewPendingAccountProgress({
       context: context,
       preview: preview,
     );
-    if (side == null || !context.mounted) return null;
+    if (side == null || !context.mounted) {
+      return null;
+    }
     return await resolution.confirmPendingSwitchResolution(
       preview: preview,
       side: side,
@@ -160,7 +168,9 @@ class _AccountProgressRecoverySheetState
             onTap: _selected == null || _submitted
                 ? null
                 : () {
-                    if (_submitted) return;
+                    if (_submitted) {
+                      return;
+                    }
                     setState(() => _submitted = true);
                     Navigator.of(context).pop(_selected);
                   },

@@ -140,7 +140,9 @@ class _AccountPendingOperationPanelState
   AccountSwitchResolutionOutcome? _reviewOutcome;
 
   Future<void> _reviewSwitch() async {
-    if (_reviewing) return;
+    if (_reviewing) {
+      return;
+    }
     setState(() {
       _reviewing = true;
       _reviewOutcome = null;
@@ -149,7 +151,9 @@ class _AccountPendingOperationPanelState
       context: context,
       operations: widget.operations,
     );
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
     setState(() {
       _reviewing = false;
       _reviewOutcome = result;
@@ -592,7 +596,9 @@ Future<void> showAccountActionLocked(
         context: context,
         operations: operations,
       );
-      if (result == null || !context.mounted) return;
+      if (result == null || !context.mounted) {
+        return;
+      }
       return _showLinkProblem(
         context,
         title: t.accountRecoveryPendingTitle,
