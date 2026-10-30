@@ -5838,9 +5838,9 @@
     "semantic_hash": ""
   },
   "test/uiux_bible_closeout_inventory_test.dart": {
-    "mtime": 1793358331.579751,
-    "seen": 1793358716.82795,
-    "ast_hash": "e3ce6b4644fd296d9c76c877292bbc6e",
+    "mtime": 1793365457.138713,
+    "seen": 1793366160.180112,
+    "ast_hash": "6bd66aefd5e6c15d3a0bbeddceab6645",
     "semantic_hash": ""
   },
   "test/ux_gallery_no_write_test.dart": {
@@ -6498,9 +6498,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/audit_content_text.py": {
-    "mtime": 1793358332.0413356,
-    "seen": 1793358716.828703,
-    "ast_hash": "fa1a54119bbafd7c103ecfdfbdd710f5",
+    "mtime": 1793364592.6269424,
+    "seen": 1793366160.2837217,
+    "ast_hash": "d4de5dc598970be91c546f506b06bacd",
     "semantic_hash": ""
   },
   "tools/content_factory/audit_game_loader_coverage.py": {
@@ -8832,9 +8832,9 @@
     "semantic_hash": ""
   },
   "docs/UIUX_BIBLE_APPLICATION_EXECUTION_LOCK.md": {
-    "mtime": 1793358322.417944,
-    "seen": 1793358716.8301136,
-    "ast_hash": "d91312241c452f0db0cda4f7f6e061e4",
+    "mtime": 1793365491.7273986,
+    "seen": 1793366160.5090413,
+    "ast_hash": "59cf4ddbf472abf0ac121f33294984cd",
     "semantic_hash": ""
   },
   "docs/UIUX_DUOLINGO_GAP_AND_PLAN.md": {
@@ -25746,21 +25746,21 @@
     "semantic_hash": ""
   },
   "lib/screens/ildu_estate_screen.dart": {
-    "mtime": 1793362535.6828344,
-    "seen": 1793363477.5169215,
-    "ast_hash": "c07dba5a89e7a9ba4e55670dbf7b0e29",
+    "mtime": 1793365457.1311266,
+    "seen": 1793366159.8730874,
+    "ast_hash": "18f054cd90deef2d8f68d6c839863c1b",
     "semantic_hash": ""
   },
   "lib/widgets/sori/ildu_r16_estate_artwork.dart": {
-    "mtime": 1793362295.1341622,
-    "seen": 1793363477.6373756,
-    "ast_hash": "b120fe4e3162457dafc850db7320d1af",
+    "mtime": 1793365457.13529,
+    "seen": 1793366159.960994,
+    "ast_hash": "d919f9a88c16bab0461aef2a166945b7",
     "semantic_hash": ""
   },
   "lib/widgets/sori/ildu_r16_process_image.dart": {
-    "mtime": 1793360820.6649191,
-    "seen": 1793363477.6373804,
-    "ast_hash": "c0286c9903674f80f5f10fcc29a071e5",
+    "mtime": 1793364837.2801733,
+    "seen": 1793366159.9609962,
+    "ast_hash": "2a092d67c2e7accb24950b63acb75803",
     "semantic_hash": ""
   },
   "test/ildu_estate_screen_test.dart": {
@@ -25770,9 +25770,9 @@
     "semantic_hash": ""
   },
   "test/ildu_r16_art_test.dart": {
-    "mtime": 1793359362.009851,
-    "seen": 1793363477.7406156,
-    "ast_hash": "8e235b18576a2f568ec6990522e15ee3",
+    "mtime": 1793363867.27513,
+    "seen": 1793366160.0672755,
+    "ast_hash": "4b4965399b348df512ebfbc0070d5dee",
     "semantic_hash": ""
   },
   "test/ildu_r16_process_image_test.dart": {
@@ -25797,6 +25797,12 @@
     "mtime": 1793360581.6450417,
     "seen": 1793363478.2731671,
     "ast_hash": "f7b4fffde2efc61bdaf2f40dc37773bf",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/RUNTIME_RASTER_DELIVERY.json": {
+    "mtime": 1793366008.2509942,
+    "seen": 1793366159.7549899,
+    "ast_hash": "518e626eeeacc27bd412494c846eca50",
     "semantic_hash": ""
   }
 }
