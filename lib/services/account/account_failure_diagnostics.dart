@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import 'account_operation_client.dart';
+import '../../models/learner_level.dart';
 import '../privacy_consent_service.dart';
 import '../diagnostics_service.dart';
 
@@ -38,6 +39,18 @@ class AccountFailureRecord implements Exception {
 /// [AccountFailureDiagnostics.sink] 에 주입해 캡처한다.
 typedef AccountDiagnosticsSink =
     void Function(String line, AccountFailureRecord record);
+
+enum AccountResolutionFieldBucket {
+  appHistory,
+  wrongCounts,
+  studyLog,
+  grammarPlan,
+  learnerGoal,
+  wallet,
+  contentLearning,
+  practiceHistory,
+  unknown,
+}
 
 /// **계정 작업 실패를 로그에 남겨도 안전한 한 줄로 요약한다.**
 ///
@@ -73,6 +86,33 @@ abstract final class AccountFailureDiagnostics {
   /// [_defaultSink]. 실제 예외 객체·`toString()` 은 여기로 절대 전달하지
   /// 않는다([AccountFailureRecord] 만).
   static AccountDiagnosticsSink sink = _defaultSink;
+
+  /// Fixed-schema recovery diagnostics. No arbitrary identifiers are accepted.
+  static void logSwitchResolution({
+    required Set<AccountResolutionFieldBucket> fields,
+    required String? devicePlacement,
+    required String? cloudPlacement,
+    required int deviceCompletedCount,
+    required int cloudCompletedCount,
+  }) {
+    String level(String? value) {
+      return LearnerLevel.fromCode(value)?.code ?? 'unknown';
+    }
+
+    final buckets = fields.map((value) => value.name).toList()..sort();
+    final detail =
+        'fields=${buckets.join(',')} '
+        'devicePlacement=${level(devicePlacement)} cloudPlacement=${level(cloudPlacement)} '
+        'deviceCompleted=${deviceCompletedCount.clamp(0, 10000)} '
+        'cloudCompleted=${cloudCompletedCount.clamp(0, 10000)}';
+    try {
+      log('switch.resolution.summary', null, detail: detail);
+    } catch (_) {
+      // Optional diagnostics must never change account admission or writes.
+      // End here: reporting the sink failure could recurse or expose its data.
+      return;
+    }
+  }
 
   /// 테스트에서 주입한 [sink] 를 기본값으로 되돌린다.
   @visibleForTesting

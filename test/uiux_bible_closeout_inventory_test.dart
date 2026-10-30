@@ -154,10 +154,11 @@ void main() {
     // 2026-10-04: +5 — tactile reveal and auxiliary catalog/settings entrances.
     // 2026-10-18: +1 — approved Einleitung reference typography/material roles.
     // 2026-10-29: +1 — bounded Einleitung contact, selection and scene motion.
+    // 2026-10-30: +1 — user-initiated account progress recovery sheet.
     // 2026-10-30: +16 — documented approved C chrome/material/ink/Gye owners.
-    expect(actual, hasLength(170));
+    expect(actual, hasLength(171));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(170));
+    expect(listed, hasLength(171));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

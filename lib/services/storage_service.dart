@@ -13,6 +13,8 @@ import '../models/sori_stage_progression.dart' show SoriStageTab;
 
 import 'account/account_switch_coordinator.dart' show AccountSwitchJournal;
 import 'account/account_transition_journal.dart';
+import 'account/account_reconciliation_field_policy.dart';
+import 'account/reconciliation_errors.dart';
 import 'diagnostics_service.dart';
 import 'account/cloud_write_session.dart';
 import 'catalog_history_lease.dart';
@@ -4359,6 +4361,81 @@ class Storage {
     });
   }
 
+  /// Read-only strict capture; unlike the UI view, malformed/unconfirmed
+  /// native values cannot masquerade as an empty plan during reconciliation.
+  static String captureGrammarPlanRawJsonForReconciliation() {
+    const key = 'kl_gram_plan_v1';
+    if (_learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (_unknownStrictKeys.contains(key) ||
+        _unconfirmedGrammarPlanLevels.isNotEmpty) {
+      throw const LocalReconciliationGenerationConflict();
+    }
+    final _StringPreferenceState state;
+    try {
+      state = _StringPreferenceState.read(_grammarPlanStringStore(), key);
+    } on TypeError {
+      throw const FormatException('Invalid local grammar plan encoding.');
+    } on StateError {
+      throw const FormatException('Invalid local grammar plan encoding.');
+    }
+    final raw = state.value ?? '';
+    if (raw.isEmpty) {
+      return '';
+    }
+    AccountReconciliationFieldPolicy.mergeGrammarPlan(null, raw);
+    return raw;
+  }
+
+  /// Applies an already-committed candidate, never an ordinary remote restore.
+  /// A fresh local extension or changed pace requires a new source snapshot.
+  static Future<void> applyGrammarPlanRawJsonForReconciliation(
+    String raw, {
+    void Function()? assertCurrentWrite,
+  }) {
+    final canonicalTarget = AccountReconciliationFieldPolicy.mergeGrammarPlan(
+      null,
+      raw,
+    );
+    final lifetime = LocalDataLifetime.capture();
+    void assertWritable() {
+      lifetime.assertCurrent();
+      assertCurrentWrite?.call();
+      lifetime.assertCurrent();
+    }
+
+    _captureGrammarPlanConfirmedView();
+    return _enqueueGrammarPlanMutation(() async {
+      const key = 'kl_gram_plan_v1';
+      assertWritable();
+      final store = _grammarPlanStringStore();
+      if (_unknownStrictKeys.contains(key)) {
+        await _refreshUnknownStringKeys(store, [key]);
+      } else {
+        await store.reload();
+      }
+      assertWritable();
+      final before = _StringPreferenceState.read(store, key);
+      final merged = AccountReconciliationFieldPolicy.mergeGrammarPlan(
+        before.value,
+        raw,
+      );
+      if (merged != canonicalTarget) {
+        throw const LocalReconciliationGenerationConflict();
+      }
+      await _ssStrict(
+        key,
+        raw,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: assertWritable,
+      );
+      _unconfirmedGrammarPlanLevels.clear();
+      _confirmedGrammarPlanRaw = raw;
+    });
+  }
+
   static Future<void> setGrammarLastIdx(int v) => _si('kl_gram_last_idx', v);
   static Future<void> addGrammarSeen(String pattern) async {
     final list = grammarSeen;
@@ -4580,6 +4657,45 @@ class Storage {
       _ss('kl_last_open_date', value);
   static Future<void> setStreakDays(int value) => _si('kl_streak_days', value);
   static Future<void> setBestStreak(int value) => _si('kl_best_streak', value);
+
+  /// Applies the committed date/current-streak pair exactly. Ordinary restore
+  /// still uses its max rule; reconciliation must converge after a process
+  /// stops between these two native writes, even if the newer streak is lower.
+  static Future<void> applyAppStreakPairForReconciliation(
+    String dateIso,
+    int currentStreak, {
+    void Function()? assertCurrentWrite,
+  }) async {
+    if (currentStreak < 0 ||
+        (!_isCanonicalStudyLogDate(dateIso) &&
+            !(dateIso.isEmpty && currentStreak == 0))) {
+      throw const FormatException('Invalid committed app streak pair.');
+    }
+    final lifetime = LocalDataLifetime.capture();
+    void assertWritable() {
+      lifetime.assertCurrent();
+      assertCurrentWrite?.call();
+      lifetime.assertCurrent();
+    }
+
+    assertWritable();
+    if (lastOpenDate != dateIso) {
+      await _ssStrict(
+        'kl_last_open_date',
+        dateIso,
+        assertCurrentWrite: assertWritable,
+      );
+    }
+    assertWritable();
+    if (streakDays != currentStreak) {
+      await _siStrict(
+        'kl_streak_days',
+        currentStreak,
+        assertCurrentWrite: assertWritable,
+      );
+    }
+    assertWritable();
+  }
 
   /// §S3: calendar day (yyyy-MM-dd, local) the Gye life-promise projection
   /// backup ([CourseActivityReporter._scheduleLifePromiseProjectionSync])
@@ -5656,6 +5772,122 @@ class Storage {
     return parsed != null && _today(parsed) == dateIso;
   }
 
+  /// Synchronous capture for owned preview/source guards. No reload, recovery,
+  /// pruning or migration writes are performed here.
+  static String captureStudyLogRawJsonForReconciliation() {
+    if (_learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (_srsRecoveryClosed) {
+      throw const SrsRecoveryPendingException();
+    }
+    final prefs = _prefs;
+    if (prefs == null) {
+      throw StateError('Storage is not initialized.');
+    }
+    final store =
+        _studyLogStoreForTesting ?? _SharedPreferenceStringListStore(prefs);
+    final history = <String, List<String>>{};
+    for (final key in prefs.getKeys().where(
+      (key) => key.startsWith(_studyLogPrefix),
+    )) {
+      if (_unknownStrictKeys.contains(key)) {
+        throw const LocalReconciliationGenerationConflict();
+      }
+      final date = key.substring(_studyLogPrefix.length);
+      if (!_isCanonicalStudyLogDate(date)) {
+        throw const FormatException('Invalid local study history date.');
+      }
+      final List<String>? value;
+      try {
+        value = _StringListPreferenceState.read(store, key).value;
+      } on TypeError {
+        throw const FormatException('Invalid local study history encoding.');
+      } on StateError {
+        throw const FormatException('Invalid local study history encoding.');
+      }
+      if (value != null && value.isNotEmpty) {
+        history[date] = value;
+      }
+    }
+    return AccountReconciliationFieldPolicy.mergeStudyLog(
+      null,
+      jsonEncode(history),
+    );
+  }
+
+  /// The committed union may extend a nonempty date, unlike ordinary restore.
+  /// The latest local before-view must still be included; never truncate it.
+  static Future<void> applyStudyLogDateForReconciliation(
+    String dateIso,
+    List<String> targetIds, {
+    void Function()? assertCurrentWrite,
+  }) async {
+    final validated =
+        jsonDecode(
+              AccountReconciliationFieldPolicy.mergeStudyLog(
+                null,
+                jsonEncode({dateIso: targetIds}),
+              ),
+            )
+            as Map<String, dynamic>;
+    final target = targetIds.toSet().toList();
+    // Validation/candidate comparison is set-based, but the native ledger
+    // retains the order already committed in the candidate payload.
+    if ((validated[dateIso] as List).length != target.length) {
+      throw const FormatException('Invalid committed study history.');
+    }
+    final lifetime = LocalDataLifetime.capture();
+    void assertWritable() {
+      lifetime.assertCurrent();
+      assertCurrentWrite?.call();
+      lifetime.assertCurrent();
+    }
+
+    final saved = await _enqueueSrsReviewMutation((_) async {
+      assertWritable();
+      if (_srsRecoveryClosed) {
+        throw const SrsRecoveryPendingException();
+      }
+      final key = _studyLogKey(dateIso);
+      final store =
+          _studyLogStoreForTesting ??
+          (_prefs == null ? null : _SharedPreferenceStringListStore(_prefs!));
+      if (store == null) {
+        throw PreferenceWriteException(key);
+      }
+      if (_unknownStrictKeys.contains(key)) {
+        await _refreshUnknownStringListKeys(store, [key]);
+      } else {
+        await store.reload();
+      }
+      assertWritable();
+      final before = _StringListPreferenceState.read(store, key);
+      final merged = AccountReconciliationFieldPolicy.mergeStudyLog(
+        jsonEncode({dateIso: before.value ?? <String>[]}),
+        jsonEncode({dateIso: target}),
+      );
+      final candidate = AccountReconciliationFieldPolicy.mergeStudyLog(
+        null,
+        jsonEncode({dateIso: target}),
+      );
+      if (merged != candidate) {
+        throw const LocalReconciliationGenerationConflict();
+      }
+      await _slStrict(
+        key,
+        target,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: assertWritable,
+      );
+      return true;
+    });
+    if (!saved) {
+      throw const SrsRecoveryPendingException();
+    }
+  }
+
   /// Restores one historical ledger entry without changing the SRS deck.
   ///
   /// Cloud restore owns the session-lifetime guard. This helper intentionally
@@ -6303,6 +6535,23 @@ class Storage {
   /// (Onboarding-Trigger).
   static String? get userLevelCode =>
       LearnerLevel.fromCode(_s('kl_user_level'))?.code;
+
+  static String? captureLearnerGoalForReconciliation() {
+    if (_learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (_unknownStrictKeys.contains('kl_user_level')) {
+      throw const LocalReconciliationGenerationConflict();
+    }
+    final prefs = _prefs;
+    if (prefs == null) {
+      throw StateError('Storage is not initialized.');
+    }
+    return AccountReconciliationFieldPolicy.mergeLearnerGoal(
+      prefs.get('kl_user_level'),
+      null,
+    );
+  }
 
   static Future<void> setUserLevelCode(String code) =>
       _ss('kl_user_level', _requiredLearnerLevelCode(code));

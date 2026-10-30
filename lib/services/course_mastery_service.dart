@@ -362,6 +362,224 @@ class CourseMasteryService {
     return CourseMasteryMergeResult.merged(merged);
   }
 
+  /// Pure recovery merge after the caller binds explicit starting-point consent.
+  /// This never initializes a course, publishes a snapshot or grants a reward.
+  /// Both original graphs must already match the presented catalog generation.
+  CourseMasteryMergeResult mergeForConfirmedPlacement({
+    required CourseMasterySnapshot local,
+    required CourseMasterySnapshot remote,
+    required String selectedPlacementLevel,
+  }) {
+    final conflicts = <CourseMasteryMergeConflict>[];
+    if (catalog.validationIssues.isNotEmpty) {
+      for (final issue in catalog.validationIssues) {
+        conflicts.add(
+          CourseMasteryMergeConflict(
+            kind: CourseMasteryMergeConflictKind.progression,
+            id: 'catalog:$issue',
+          ),
+        );
+      }
+      return CourseMasteryMergeResult.conflicted(_sortedConflicts(conflicts));
+    }
+
+    // Validate the source graphs before changing any placement/bypass metadata.
+    // A generation migration that archives/drops proof is not placement consent.
+    _collectSnapshotConflicts(local, conflicts);
+    _collectSnapshotConflicts(remote, conflicts);
+    for (final source in [local, remote]) {
+      try {
+        _validateSnapshot(source);
+      } on FormatException {
+        if (conflicts.isEmpty) {
+          conflicts.add(
+            const CourseMasteryMergeConflict(
+              kind: CourseMasteryMergeConflictKind.progression,
+              id: 'sourceSnapshot',
+            ),
+          );
+        }
+      }
+    }
+    final selected = _normalizedPlacement(selectedPlacementLevel);
+    final localPlacement = _normalizedPlacement(local.placementLevel);
+    final remotePlacement = _normalizedPlacement(remote.placementLevel);
+    if (selected == null ||
+        localPlacement == null ||
+        remotePlacement == null ||
+        (selected != localPlacement && selected != remotePlacement)) {
+      conflicts.add(
+        const CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.placement,
+          id: 'selectedPlacementLevel',
+        ),
+      );
+    }
+    if (conflicts.isNotEmpty) {
+      return CourseMasteryMergeResult.conflicted(_sortedConflicts(conflicts));
+    }
+
+    List<T> identities<T>(
+      List<T> left,
+      List<T> right,
+      CourseMasteryMergeConflictKind kind,
+      String Function(T) idOf,
+      Map<String, dynamic> Function(T) bodyOf,
+    ) => _mergeIdentityHistory<T>(
+      left,
+      right,
+      kind: kind,
+      idOf: idOf,
+      bodyOf: (entry) => jsonEncode(bodyOf(entry)),
+      conflicts: conflicts,
+    );
+
+    final evidence = identities<MasteryEvidence>(
+      local.evidence,
+      remote.evidence,
+      CourseMasteryMergeConflictKind.evidence,
+      (e) => e.id,
+      (e) => e.toJson(),
+    );
+    final checkpoints = identities<ScenarioCheckpointEvidence>(
+      local.scenarioCheckpoints,
+      remote.scenarioCheckpoints,
+      CourseMasteryMergeConflictKind.checkpoint,
+      (e) => e.id,
+      (e) => e.toJson(),
+    );
+    final phases = identities<PhaseAttemptEvidence>(
+      local.phaseTaskEvidence,
+      remote.phaseTaskEvidence,
+      CourseMasteryMergeConflictKind.phaseTaskEvidence,
+      (e) => e.attemptId,
+      (e) => e.toJson(),
+    );
+    // Keep distinct productive attempts, including attempts in the same logical
+    // assessment slot. Consumers may project a winner; recovery cannot erase it.
+    final productive = identities<ProductiveMasteryEvidence>(
+      local.productiveEvidence,
+      remote.productiveEvidence,
+      CourseMasteryMergeConflictKind.productiveEvidence,
+      (e) => e.id,
+      (e) => e.toJson(),
+    );
+    final projectSteps = identities<ProductiveProjectStepEvidence>(
+      local.productiveProjectStepEvidence,
+      remote.productiveProjectStepEvidence,
+      CourseMasteryMergeConflictKind.productiveProjectStepEvidence,
+      (e) => e.id,
+      (e) => e.toJson(),
+    );
+    final archived = identities<ProductiveMasteryEvidence>(
+      local.archivedProductiveEvidence,
+      remote.archivedProductiveEvidence,
+      CourseMasteryMergeConflictKind.productiveEvidence,
+      (e) => e.id,
+      (e) => e.toJson(),
+    );
+    final archivedSteps = identities<ProductiveProjectStepEvidence>(
+      local.archivedProductiveProjectStepEvidence,
+      remote.archivedProductiveProjectStepEvidence,
+      CourseMasteryMergeConflictKind.productiveProjectStepEvidence,
+      (e) => e.id,
+      (e) => e.toJson(),
+    );
+    if (evidence.length > evidenceCap) {
+      conflicts.add(
+        const CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.evidence,
+          id: 'retentionOverflow',
+        ),
+      );
+    }
+    if (checkpoints.length > evidenceCap) {
+      conflicts.add(
+        const CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.checkpoint,
+          id: 'retentionOverflow',
+        ),
+      );
+    }
+    if (_retainedPhaseTaskEvidence(phases).length != phases.length) {
+      conflicts.add(
+        const CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.phaseTaskEvidence,
+          id: 'retentionOverflow',
+        ),
+      );
+    }
+    if (conflicts.isNotEmpty) {
+      return CourseMasteryMergeResult.conflicted(_sortedConflicts(conflicts));
+    }
+
+    final completed = {...local.completedUnitIds, ...remote.completedUnitIds};
+    final completedIds = completed.toList()..sort(_compareUnitIds);
+    final placement = selected!;
+    final units = _orderedUnits;
+    final bypassed = units
+        .where(
+          (unit) =>
+              _levelRank(unit.level) < _levelRank(placement) &&
+              !completed.contains(unit.id),
+        )
+        .map((unit) => unit.id)
+        .toList(growable: false);
+    final resolved = {...completed, ...bypassed};
+    final current = units
+        .where(
+          (unit) =>
+              _levelRank(unit.level) >= _levelRank(placement) &&
+              !resolved.contains(unit.id) &&
+              unit.prerequisiteUnitIds.every(resolved.contains),
+        )
+        .cast<CourseUnit?>()
+        .firstWhere((unit) => unit != null, orElse: () => null);
+    if (current == null && units.any((unit) => !resolved.contains(unit.id))) {
+      return const CourseMasteryMergeResult.conflicted([
+        CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.progression,
+          id: 'noReachableCurrent',
+        ),
+      ]);
+    }
+
+    evidence.sort(_compareEvidence);
+    checkpoints.sort(_compareCheckpoints);
+    phases.sort(_comparePhaseTaskEvidence);
+    productive.sort(_compareProductiveEvidence);
+    projectSteps.sort(_compareProductiveProjectStepEvidence);
+    archived.sort(_compareProductiveEvidence);
+    archivedSteps.sort(_compareProductiveProjectStepEvidence);
+    final candidate = CourseMasterySnapshot(
+      curriculumGeneration: catalog.scenarioCorpusGeneration,
+      placementLevel: placement,
+      currentCourseUnitId: current?.id,
+      completedUnitIds: completedIds,
+      bypassedPrerequisiteUnitIds: bypassed,
+      evidence: evidence,
+      scenarioCheckpoints: checkpoints,
+      phaseTaskEvidence: phases,
+      productiveEvidence: productive,
+      productiveProjectStepEvidence: projectSteps,
+      archivedProductiveEvidence: archived,
+      archivedProductiveProjectStepEvidence: archivedSteps,
+    );
+    try {
+      // A lower choice may remove a historical bypass needed by a real higher
+      // completion. Reject that choice rather than inventing earned prerequisites.
+      _validateSnapshot(candidate);
+    } on FormatException {
+      return const CourseMasteryMergeResult.conflicted([
+        CourseMasteryMergeConflict(
+          kind: CourseMasteryMergeConflictKind.progression,
+          id: 'mergedSnapshot',
+        ),
+      ]);
+    }
+    return CourseMasteryMergeResult.merged(candidate);
+  }
+
   /// Starts the sequential path at the first unit of a chosen CEFR level.
   /// Earlier units are explicitly listed as bypassed prerequisites; they are
   /// never represented as completed work.
@@ -470,7 +688,9 @@ class CourseMasteryService {
     if (raw.isEmpty) {
       final candidate = CourseMasterySnapshot(
         curriculumGeneration: catalog.scenarioCorpusGeneration,
-        placementLevel: Storage.placementLevelCode,
+        // A library/goal level is not proof that a sequential course started.
+        // Match reconciliation capture: only dedicated course input migrates.
+        placementLevel: Storage.dedicatedCoursePlacementLevelCode,
         currentCourseUnitId: Storage.courseUnitId,
       );
       await _persistSnapshot(candidate, mirrorLegacyUserLevel: true);
@@ -525,7 +745,9 @@ class CourseMasteryService {
   /// Reads only durable state that belongs to the sequential course without
   /// migrating, synthesizing, or persisting a canonical snapshot. In
   /// particular, the unrelated legacy user-level fallback is not course state.
-  CourseMasterySnapshot? readForReconciliation() {
+  CourseMasterySnapshot? readForReconciliation({
+    bool allowCatalogGenerationMigration = true,
+  }) {
     _ensureCatalogUsable();
     Storage.assertCourseMasteryStateConfirmed();
     final canonicalRaw = Storage.courseMasterySnapshotRawJson.trim();
@@ -541,7 +763,11 @@ class CourseMasteryService {
       final snapshot = CourseMasterySnapshot.decodeAndMigrate(
         decoded.map((key, value) => MapEntry(key.toString(), value)),
       );
-      final migrated = _migrateForCatalogGeneration(snapshot);
+      // Explicit account consent must see the stored generation and proof.
+      // General readers retain their existing in-memory migration behavior.
+      final migrated = allowCatalogGenerationMigration
+          ? _migrateForCatalogGeneration(snapshot)
+          : snapshot;
       _validateSnapshot(migrated);
       return migrated;
     }
@@ -1777,10 +2003,7 @@ class CourseMasteryService {
     entry.assessment,
   ]);
 
-  String _phaseTaskOutcomeKey(
-    PhaseAttemptEvidence entry,
-    String revisionKey,
-  ) {
+  String _phaseTaskOutcomeKey(PhaseAttemptEvidence entry, String revisionKey) {
     final criteria = entry.passedCriterionIds.toList()..sort();
     return jsonEncode([revisionKey, entry.score, criteria]);
   }
