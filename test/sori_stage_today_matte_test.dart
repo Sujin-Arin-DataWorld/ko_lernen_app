@@ -127,6 +127,8 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
         home: const Scaffold(
           body: SoriCharacterHero(
             greeting: 'Hello',

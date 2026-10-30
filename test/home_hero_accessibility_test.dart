@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/home_hero.dart';
@@ -37,6 +38,8 @@ void main() {
           await tester.pumpWidget(
             MaterialApp(
               theme: AppTheme.light,
+              supportedLocales: AppL10n.supportedLocales,
+              localizationsDelegates: AppL10n.localizationsDelegates,
               home: MediaQuery(
                 data: MediaQueryData(
                   size: const Size(320, 640),
@@ -96,6 +99,8 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
         home: MediaQuery(
           data: const MediaQueryData(
             size: Size(320, 640),

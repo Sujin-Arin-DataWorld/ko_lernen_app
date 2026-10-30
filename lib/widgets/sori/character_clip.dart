@@ -8,6 +8,7 @@ import '../../services/audio_policy.dart';
 import '../../services/haptic_service.dart';
 import '../../services/storage_service.dart';
 import '../../data/canonical_companion_art.dart';
+import '../../l10n/generated/app_localizations.dart';
 import 'mascot.dart';
 import 'mascot_preference.dart';
 import 'tiger_video.dart';
@@ -736,8 +737,8 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
                         ? Semantics(
                             image: true,
                             label: fallbackKind == MascotKind.magpie
-                                ? '마스코트 까치'
-                                : '마스코트 백호',
+                                ? AppL10n.of(context).characterRomanMagpie
+                                : AppL10n.of(context).characterRomanTiger,
                             child: Image.asset(
                               _canonicalStill!,
                               width: widget.size * 0.85,

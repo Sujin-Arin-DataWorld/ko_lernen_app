@@ -7,6 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:video_player_platform_interface/video_player_platform_interface.dart';
 import 'package:ko_lernen_app/data/canonical_companion_art.dart';
+import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
@@ -83,9 +84,16 @@ class _Platform extends VideoPlayerPlatform {
   Widget buildViewWithOptions(VideoViewOptions options) => const SizedBox();
 }
 
-Widget _host(Widget child, {bool visible = true}) => DefaultAssetBundle(
+Widget _host(
+  Widget child, {
+  bool visible = true,
+  Locale locale = const Locale('en'),
+}) => DefaultAssetBundle(
   bundle: _Bundle(),
   child: MaterialApp(
+    locale: locale,
+    supportedLocales: AppL10n.supportedLocales,
+    localizationsDelegates: AppL10n.localizationsDelegates,
     home: Scaffold(
       body: TickerMode(
         enabled: visible,
@@ -117,6 +125,43 @@ void main() {
     await platform.events.close();
     TigerStageVideo.videoReady = false;
   });
+
+  testWidgets(
+    'canonical still semantics use localized companion names in DE and EN',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      for (final language in ['de', 'en']) {
+        for (final (kind, clip) in [
+          (MascotKind.tiger, CharacterClips.tigerChoose),
+          (MascotKind.magpie, CharacterClips.magpieChoose),
+        ]) {
+          await tester.pumpWidget(
+            _host(
+              CharacterClipPlayer(
+                key: ValueKey('$language-${kind.name}'),
+                asset: clip,
+                loop: true,
+                fallbackKind: kind,
+              ),
+              locale: Locale(language),
+            ),
+          );
+          await tester.pumpAndSettle();
+          final t = AppL10n.of(
+            tester.element(find.byType(CharacterClipPlayer)),
+          );
+          expect(t.localeName, language);
+          final name = kind == MascotKind.magpie
+              ? t.characterRomanMagpie
+              : t.characterRomanTiger;
+          expect(find.bySemanticsLabel(name), findsOneWidget);
+          expect(platform.assets, isEmpty);
+        }
+      }
+      await tester.pumpWidget(const SizedBox());
+      semantics.dispose();
+    },
+  );
 
   for (final disposeBeforeFailure in [false, true]) {
     testWidgets(

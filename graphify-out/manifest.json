@@ -2694,9 +2694,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/character_clip.dart": {
-    "mtime": 1793319872.1652343,
-    "seen": 1793321960.502826,
-    "ast_hash": "42e7071a7c05142236561b40cec4ee22",
+    "mtime": 1793325396.0050976,
+    "seen": 1793327043.1461234,
+    "ast_hash": "2869674edd5a02c48319db96810fce42",
     "semantic_hash": ""
   },
   "lib/widgets/sori/chip.dart": {
@@ -4512,9 +4512,9 @@
     "semantic_hash": ""
   },
   "test/home_hero_accessibility_test.dart": {
-    "mtime": 1793320633.3986104,
-    "seen": 1793321960.7089963,
-    "ast_hash": "1df64d742f745676d7b5a4f54e6486d5",
+    "mtime": 1793325973.437835,
+    "seen": 1793327043.3284802,
+    "ast_hash": "77dadd1b250648e64941df53aae870d8",
     "semantic_hash": ""
   },
   "test/home_hero_matte_test.dart": {
@@ -5586,9 +5586,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_today_matte_test.dart": {
-    "mtime": 1793320682.6022816,
-    "seen": 1793321960.8689618,
-    "ast_hash": "ec91a883b44c7f6be0aea3541193690a",
+    "mtime": 1793326023.291559,
+    "seen": 1793327043.4698067,
+    "ast_hash": "31cb155413a2d207f5fe08ab7ea4c766",
     "semantic_hash": ""
   },
   "test/sori_stage_visual_evidence_test.dart": {
@@ -5628,9 +5628,9 @@
     "semantic_hash": ""
   },
   "test/sori_video_lease_test.dart": {
-    "mtime": 1793307160.901105,
-    "seen": 1793307679.8059745,
-    "ast_hash": "34e28967fd108fa06a3df4d0cd11adc4",
+    "mtime": 1793326032.6406014,
+    "seen": 1793327043.4736712,
+    "ast_hash": "6676978867833bf7f22fd7da3fe94fa3",
     "semantic_hash": ""
   },
   "test/sound_channel_coverage_test.dart": {
@@ -10044,21 +10044,21 @@
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_compact.png": {
-    "mtime": 1793307159.9963267,
-    "seen": 1793307679.8122916,
-    "ast_hash": "ab50457b6c54843f09759aee09e166aa",
+    "mtime": 1793323117.9434214,
+    "seen": 1793327044.5561435,
+    "ast_hash": "2edaccf06be4ca972aa19e85b7b39fd2",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_expanded.png": {
-    "mtime": 1793307160.0003479,
-    "seen": 1793307679.812294,
-    "ast_hash": "cc5433518ef89c4054859adb5ff49aa3",
+    "mtime": 1793323117.945745,
+    "seen": 1793327044.5561483,
+    "ast_hash": "900b9a7052ef66defa3596e151298326",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_medium.png": {
-    "mtime": 1793307160.0041623,
-    "seen": 1793307679.8122962,
-    "ast_hash": "c2ab91d357038d32f23771b95ba03481",
+    "mtime": 1793323117.9487858,
+    "seen": 1793327044.5561507,
+    "ast_hash": "cc37e7cbd5678c900ac6c5c15ebb1d08",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_vocab_packs_compact.png": {
@@ -11010,9 +11010,9 @@
     "semantic_hash": ""
   },
   "test/onboarding_v2_character_media_contract_test.dart": {
-    "mtime": 1793307160.3536756,
-    "seen": 1793307679.805219,
-    "ast_hash": "ad746fbe701e6f00ee61dc9ec79079c2",
+    "mtime": 1793325400.697936,
+    "seen": 1793327043.3646736,
+    "ast_hash": "902b4af158fe9272c32554539e19f123",
     "semantic_hash": ""
   },
   "test/onboarding_v2_copy_builder_test.dart": {
@@ -17190,9 +17190,9 @@
     "semantic_hash": ""
   },
   "test/learning_companion_layout_test.dart": {
-    "mtime": 1793320633.399611,
-    "seen": 1793321960.7225366,
-    "ast_hash": "a07c59855f22e2a6ca81021cbbeff6e7",
+    "mtime": 1793325973.4389052,
+    "seen": 1793327043.343074,
+    "ast_hash": "9b784b7259a8e4f582be4a068c0532ab",
     "semantic_hash": ""
   },
   "test/learning_focus_test.dart": {
@@ -19608,9 +19608,9 @@
     "semantic_hash": ""
   },
   "test/content_learning_ui_test.dart": {
-    "mtime": 1793307159.6991324,
-    "seen": 1793307679.8044398,
-    "ast_hash": "a291c72e21b02b779a70d1b4da44c365",
+    "mtime": 1793325549.651896,
+    "seen": 1793327043.2490168,
+    "ast_hash": "bae582c21c6cb302309bdfc7c20300c3",
     "semantic_hash": ""
   },
   "tool/author_listening_lessons.py": {
@@ -25704,9 +25704,9 @@
     "semantic_hash": ""
   },
   "test/canonical_companion_media_test.dart": {
-    "mtime": 1793319826.9787858,
-    "seen": 1793321960.6033149,
-    "ast_hash": "572ff38b8d7fea09465830309252f435",
+    "mtime": 1793325400.714541,
+    "seen": 1793327043.234286,
+    "ast_hash": "e4181f45c6df0f6e814f286804e7168e",
     "semantic_hash": ""
   },
   "test/practice_character_art_fallback_test.dart": {
