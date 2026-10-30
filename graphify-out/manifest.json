@@ -10044,21 +10044,21 @@
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_compact.png": {
-    "mtime": 1793338007.991911,
-    "seen": 1793346500.6672537,
-    "ast_hash": "e1b5ba112cf92219fc8cd723f454bbd4",
+    "mtime": 1793356871.7741704,
+    "seen": 1793357161.4543843,
+    "ast_hash": "d4fedc82099f1243cffd2dfcebf73450",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_expanded.png": {
-    "mtime": 1793338008.0056672,
-    "seen": 1793346500.6672559,
-    "ast_hash": "5ecc5b0f65b77901414916a7c57a1662",
+    "mtime": 1793356871.7779408,
+    "seen": 1793357161.4543903,
+    "ast_hash": "964374473bca6944654c3674d2b71818",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_medium.png": {
-    "mtime": 1793338008.021659,
-    "seen": 1793346500.6672583,
-    "ast_hash": "8287f244908c1c9b5c3a47cdfe923a93",
+    "mtime": 1793356871.7763512,
+    "seen": 1793357161.4543927,
+    "ast_hash": "3e05b4a5529c2c4f6857d781554d3baa",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_vocab_packs_compact.png": {
