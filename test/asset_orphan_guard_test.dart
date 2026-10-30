@@ -23,6 +23,9 @@ void main() {
   /// 하고, 없으면 그 폴더를 렌더하는 코드가 사라졌다는 뜻이라 테스트가 깨진다.
   /// 면제 폴더를 늘릴 때는 반드시 근거 문자열을 함께 적을 것.
   const dynamicDirs = <String, String>{
+    // IlDuR16ArtCatalog validates the content-addressed paths; ildu_r16_art_test
+    // verifies every referenced image's SHA and the complete file set.
+    'assets/illustrations/ildu_r16/': 'assets/illustrations/ildu_r16/',
     // ApprovedFigmaScene loads these five scene exports and their atlas map.
     'assets/illustrations/concept_c/approved_20261018/':
         'assets/illustrations/concept_c/approved_20261018/',

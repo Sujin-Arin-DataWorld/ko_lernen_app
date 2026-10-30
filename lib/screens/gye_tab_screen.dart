@@ -428,6 +428,7 @@ List<Widget> _introContent(
     ),
     const SizedBox(height: Spacing.sm),
     if (kHanokWorldUpdating) Text(t.soriStageGyeUpdating, style: tt.bodySmall),
+    if (!kHanokWorldUpdating) Text(t.ilduR16Reference, style: tt.bodySmall),
     const SizedBox(height: Spacing.lg),
     SoriButton.filled(
       key: const ValueKey('gye-empty-start'),
@@ -633,7 +634,9 @@ class _GyeCard extends StatelessWidget {
               SizedBox(
                 key: const ValueKey('c-gye-group-hero'),
                 height: compact ? 80 : 152,
-                child: const CReferenceArt(CReferencePart.studyTogether),
+                child: GyeHanok.isComplete(gye)
+                    ? GyeHanok(meta: gye, animate: false)
+                    : const CReferenceArt(CReferencePart.studyTogether),
               ),
               const SizedBox(height: 8),
               if (compact)
@@ -763,7 +766,7 @@ class _GyeCard extends StatelessWidget {
               ),
             ),
           AspectRatio(
-            aspectRatio: 16 / 7,
+            aspectRatio: GyeHanok.isComplete(gye) ? 1600 / 1700 : 16 / 7,
             child: kHanokWorldUpdating
                 ? Image.asset(
                     'assets/illustrations/hanok/estate_overview.webp',

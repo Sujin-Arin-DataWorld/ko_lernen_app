@@ -1,6 +1,5 @@
 import '../../models/ildu_construction_art.dart';
 import '../../models/sarangchae_construction.dart';
-import '../hanok_asset_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
@@ -15,6 +14,7 @@ import 'activity_illustration.dart';
 import 'toast.dart';
 import 'pressable.dart';
 import 'sheet.dart';
+import 'ildu_r16_process_image.dart';
 import 'approved_chrome_assets.dart';
 
 /// Saved money and construction ownership, with no optimistic spending.
@@ -200,8 +200,10 @@ class _YeopjeonWalletCardState extends State<YeopjeonWalletCard> {
                               future: _sarangchae ??=
                                   SarangchaeConstruction.load(),
                               builder: (context, art) => art.hasData
-                                  ? HanokAssetImage(
-                                      art.requireData
+                                  ? IlDuR16ProcessImage(
+                                      processId:
+                                          'ildu.${art.requireData.stage(wallet.sarangchaeOwnedStage).stageId}',
+                                      fallbackAsset: art.requireData
                                           .stage(wallet.sarangchaeOwnedStage)
                                           .assetPath,
                                       fit: BoxFit.contain,
@@ -236,8 +238,11 @@ class _YeopjeonWalletCardState extends State<YeopjeonWalletCard> {
                                             context,
                                             const Duration(milliseconds: 250),
                                           ),
-                                          child: HanokAssetImage(
-                                            reveal.afterStage.asset,
+                                          child: IlDuR16ProcessImage(
+                                            processId:
+                                                'ildu.${reveal.afterStage.id}',
+                                            fallbackAsset:
+                                                reveal.afterStage.asset,
                                             key: ValueKey(
                                               reveal.afterStage.asset,
                                             ),

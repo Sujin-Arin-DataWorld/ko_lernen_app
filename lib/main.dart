@@ -116,6 +116,7 @@ import 'screens/speed_match_screen.dart';
 import 'screens/silben_kreuz_screen.dart';
 import 'screens/hanok_preview_screen.dart';
 import 'screens/ildu_construction_screen.dart';
+import 'screens/ildu_estate_screen.dart';
 import 'screens/practice_hub_screen.dart';
 import 'screens/pronunciation_studio_screen.dart';
 import 'screens/sarangbang_furnish_screen.dart';
@@ -1382,6 +1383,11 @@ class _KoLernenAppState extends State<KoLernenApp> with WidgetsBindingObserver {
             case '/hanok/construction':
               return SoriTransitions.page(
                 (_) => const IlDuConstructionScreen(),
+                settings: settings,
+              );
+            case '/hanok/estate':
+              return SoriTransitions.page(
+                (_) => const IlDuEstateScreen(),
                 settings: settings,
               );
             case '/hanok':

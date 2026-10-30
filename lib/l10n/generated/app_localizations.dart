@@ -20585,6 +20585,120 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{title}. ㄱ + ㅏ = 가. 가 · ga. {previewLabel}'**
   String onboardingHangulEquationSemantics(String title, String previewLabel);
+
+  /// No description provided for @ilduR16Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Ildu-Gotaek'**
+  String get ilduR16Title;
+
+  /// No description provided for @ilduR16Explore.
+  ///
+  /// In de, this message translates to:
+  /// **'Ildu-Gotaek entdecken'**
+  String get ilduR16Explore;
+
+  /// No description provided for @ilduR16Reference.
+  ///
+  /// In de, this message translates to:
+  /// **'Vollendetes Anwesen · Architekturansicht'**
+  String get ilduR16Reference;
+
+  /// No description provided for @ilduR16ReferenceBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecke die Gebäude und ihren kulturellen Hintergrund. Diese Ansicht ist unabhängig von deinem Baufortschritt.'**
+  String get ilduR16ReferenceBody;
+
+  /// No description provided for @ilduR16Enlarge.
+  ///
+  /// In de, this message translates to:
+  /// **'Anwesen vergrößern'**
+  String get ilduR16Enlarge;
+
+  /// No description provided for @ilduR16Building.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Gebäude auswählen'**
+  String get ilduR16Building;
+
+  /// No description provided for @ilduR16AboutSpace.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Ort und seine Geschichte'**
+  String get ilduR16AboutSpace;
+
+  /// No description provided for @ilduR16Practice.
+  ///
+  /// In de, this message translates to:
+  /// **'Gelerntes wiederholen'**
+  String get ilduR16Practice;
+
+  /// No description provided for @ilduR16Sarangchae.
+  ///
+  /// In de, this message translates to:
+  /// **'Sarangchae · Gästetrakt'**
+  String get ilduR16Sarangchae;
+
+  /// No description provided for @ilduR16Changgo.
+  ///
+  /// In de, this message translates to:
+  /// **'Changgo · Lagerhaus'**
+  String get ilduR16Changgo;
+
+  /// No description provided for @ilduR16Jungmunganchae.
+  ///
+  /// In de, this message translates to:
+  /// **'Jungmunganchae · Innerer Torbau'**
+  String get ilduR16Jungmunganchae;
+
+  /// No description provided for @ilduR16Araechae.
+  ///
+  /// In de, this message translates to:
+  /// **'Araechae · Unterer Wohntrakt'**
+  String get ilduR16Araechae;
+
+  /// No description provided for @ilduR16SouthToilet.
+  ///
+  /// In de, this message translates to:
+  /// **'Südliche Toilette'**
+  String get ilduR16SouthToilet;
+
+  /// No description provided for @ilduR16Anchae.
+  ///
+  /// In de, this message translates to:
+  /// **'Anchae · Innerer Wohntrakt'**
+  String get ilduR16Anchae;
+
+  /// No description provided for @ilduR16AnchaeStore.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorratsraum des Anchae'**
+  String get ilduR16AnchaeStore;
+
+  /// No description provided for @ilduR16NorthToilet.
+  ///
+  /// In de, this message translates to:
+  /// **'Nördliche Toilette'**
+  String get ilduR16NorthToilet;
+
+  /// No description provided for @ilduR16Gokgan.
+  ///
+  /// In de, this message translates to:
+  /// **'Gokgan · Getreidespeicher'**
+  String get ilduR16Gokgan;
+
+  /// No description provided for @ilduR16Ansarang.
+  ///
+  /// In de, this message translates to:
+  /// **'Ansarangchae · Innerer Gästetrakt'**
+  String get ilduR16Ansarang;
+
+  /// No description provided for @ilduR16Sadang.
+  ///
+  /// In de, this message translates to:
+  /// **'Sadang · Ahnenschrein'**
+  String get ilduR16Sadang;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

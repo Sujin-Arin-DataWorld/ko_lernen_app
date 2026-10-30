@@ -12095,4 +12095,62 @@ class AppL10nEn extends AppL10n {
   String onboardingHangulEquationSemantics(String title, String previewLabel) {
     return '$title. ㄱ + ㅏ = 가. 가 · ga. $previewLabel';
   }
+
+  @override
+  String get ilduR16Title => 'Ildu Hanok';
+
+  @override
+  String get ilduR16Explore => 'Discover Ildu Hanok';
+
+  @override
+  String get ilduR16Reference => 'Completed estate · architecture reference';
+
+  @override
+  String get ilduR16ReferenceBody =>
+      'Explore the buildings and their cultural context. This reference view is separate from your construction progress.';
+
+  @override
+  String get ilduR16Enlarge => 'Enlarge the estate';
+
+  @override
+  String get ilduR16Building => 'Choose a building';
+
+  @override
+  String get ilduR16AboutSpace => 'The space and its story';
+
+  @override
+  String get ilduR16Practice => 'Review what you learned';
+
+  @override
+  String get ilduR16Sarangchae => 'Sarangchae · Guest quarters';
+
+  @override
+  String get ilduR16Changgo => 'Changgo · Storehouse';
+
+  @override
+  String get ilduR16Jungmunganchae => 'Jungmunganchae · Inner gate';
+
+  @override
+  String get ilduR16Araechae => 'Araechae · Lower quarters';
+
+  @override
+  String get ilduR16SouthToilet => 'South toilet';
+
+  @override
+  String get ilduR16Anchae => 'Anchae · Inner quarters';
+
+  @override
+  String get ilduR16AnchaeStore => 'Anchae storeroom';
+
+  @override
+  String get ilduR16NorthToilet => 'North toilet';
+
+  @override
+  String get ilduR16Gokgan => 'Gokgan · Grain store';
+
+  @override
+  String get ilduR16Ansarang => 'Ansarangchae · Inner guest quarters';
+
+  @override
+  String get ilduR16Sadang => 'Sadang · Ancestral shrine';
 }

@@ -12153,4 +12153,62 @@ class AppL10nDe extends AppL10n {
   String onboardingHangulEquationSemantics(String title, String previewLabel) {
     return '$title. ㄱ + ㅏ = 가. 가 · ga. $previewLabel';
   }
+
+  @override
+  String get ilduR16Title => 'Ildu-Gotaek';
+
+  @override
+  String get ilduR16Explore => 'Ildu-Gotaek entdecken';
+
+  @override
+  String get ilduR16Reference => 'Vollendetes Anwesen · Architekturansicht';
+
+  @override
+  String get ilduR16ReferenceBody =>
+      'Entdecke die Gebäude und ihren kulturellen Hintergrund. Diese Ansicht ist unabhängig von deinem Baufortschritt.';
+
+  @override
+  String get ilduR16Enlarge => 'Anwesen vergrößern';
+
+  @override
+  String get ilduR16Building => 'Ein Gebäude auswählen';
+
+  @override
+  String get ilduR16AboutSpace => 'Der Ort und seine Geschichte';
+
+  @override
+  String get ilduR16Practice => 'Gelerntes wiederholen';
+
+  @override
+  String get ilduR16Sarangchae => 'Sarangchae · Gästetrakt';
+
+  @override
+  String get ilduR16Changgo => 'Changgo · Lagerhaus';
+
+  @override
+  String get ilduR16Jungmunganchae => 'Jungmunganchae · Innerer Torbau';
+
+  @override
+  String get ilduR16Araechae => 'Araechae · Unterer Wohntrakt';
+
+  @override
+  String get ilduR16SouthToilet => 'Südliche Toilette';
+
+  @override
+  String get ilduR16Anchae => 'Anchae · Innerer Wohntrakt';
+
+  @override
+  String get ilduR16AnchaeStore => 'Vorratsraum des Anchae';
+
+  @override
+  String get ilduR16NorthToilet => 'Nördliche Toilette';
+
+  @override
+  String get ilduR16Gokgan => 'Gokgan · Getreidespeicher';
+
+  @override
+  String get ilduR16Ansarang => 'Ansarangchae · Innerer Gästetrakt';
+
+  @override
+  String get ilduR16Sadang => 'Sadang · Ahnenschrein';
 }

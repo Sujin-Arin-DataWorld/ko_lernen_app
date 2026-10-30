@@ -61,10 +61,15 @@ void main() {
     } else {
       expect(find.byType(GyeShowcaseArtwork), findsOneWidget);
       final showcase = tester.widget<Image>(
-        find.byKey(const ValueKey('gye-showcase-artwork')),
+        find
+            .descendant(
+              of: find.byKey(const ValueKey('gye-showcase-artwork')),
+              matching: find.byType(Image),
+            )
+            .first,
       );
       expect(
-        (showcase.image as AssetImage).assetName,
+        ((showcase.image as ResizeImage).imageProvider as AssetImage).assetName,
         GyeShowcaseArtwork.asset,
       );
     }
