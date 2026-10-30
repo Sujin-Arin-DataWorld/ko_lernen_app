@@ -1,0 +1,124 @@
+{
+  "status": "ASSET_REFERENCE_DOCUMENT_QA_PASS",
+  "checkedAtUtc": "2026-10-30T00:29:00.106806+00:00",
+  "baseCommit": "37f6196265fbb44d501a7f78d76a083d65527795",
+  "checks": [
+    {
+      "name": "all_378_existing_source_paths_current_size_and_sha256",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "119_frozen_manuscript_and_reference_files_unchanged",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "section_json_seals_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_asset_lock_json_parses",
+      "passed": true,
+      "detail": 6
+    },
+    {
+      "name": "59_raw_copy_sha_matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "zip_integrity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "zip_59_references_byte_identical",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "zip_prompt_copies_match_reviewed_docs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "zip_manifest_seal_matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "csv_has_same378_unique_source_paths",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_markdown_file_links_exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "portable_gallery_relative_links_exist",
+      "passed": true,
+      "detail": 62
+    },
+    {
+      "name": "basic_checkout_preexisting_index_unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "character_identity_count5plus11minus1equals15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "modern_persona_sources_match_runtime_bytes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "building_11full128stages22connected_natives",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "badge_ui_cloud_and_gate_scopes_separate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "latest_sep14_gate_source_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unresolved_story_and_icon_roles_remain_explicit",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "documentHashes": {
+    "production\\asset-lock\\AI_ASSET_LOCK_PROMPT_EN.md": "47c69a71e176ec660eec648ebcd9110e6d0d7492149fc2cf78c3b83394533081",
+    "production\\asset-lock\\AI_ASSET_LOCK_PROMPT_KO.md": "edbee1a8dcf24b65d4d94fab9573ebd45f8ccd579750e0521416b68ea097a123",
+    "production\\asset-lock\\ASSET_LOCK_LIST.csv": "54df9c25e79b3d08f4d269afde41e54024b145928ebba4e6aea3d1e532b72d0e",
+    "production\\asset-lock\\ASSET_LOCK_LIST.md": "c914effeed25d699ddd0a2d91177825968e4cd0b8bc3e1a49ecccf42e982271c",
+    "production\\asset-lock\\ASSET_LOCK_MANIFEST.json": "47358de94bf8a0531055190606443e08b11d554c44333e971655b0c3eb2bce62",
+    "production\\asset-lock\\BUILDING_LOCK.json": "a2b926b1d6869e09e7d6d1e0c89d808a0a4c5b249d3760afaa0e3ccc5fbaa532",
+    "production\\asset-lock\\BUILDING_LOCK.md": "a1e851d4f92d0038e3f927aae9becb5e622491b2004c7ee9711d90e15f24c160",
+    "production\\asset-lock\\CHARACTER_LOCK.json": "06a52b170fc4b7fb9805a8acf3c5438c9ce30adc3310ab5238ddfffbdf8353e1",
+    "production\\asset-lock\\CHARACTER_LOCK.md": "9aedae28ffa77d73c895a9e9cff1a763591862192e2caac1c5ed9b7e8451f3bb",
+    "production\\asset-lock\\DANCHEONG_SOURCE_INVENTORY.json": "8bcce8de1f5495b4c94fb29b85fcc9c145df58c279b02ac43bafc42ca6988569",
+    "production\\asset-lock\\INDEPENDENT_REVIEW.md": "5d6ee7b360ac0302d0ba99ced1357a17d70f89221f0246bfa954347626452660",
+    "production\\asset-lock\\SYMBOL_STYLE_LOCK.json": "bc90bc69890de2c314bfc5ad9d2be241a01d2a9d64d3317559c8c2c7d0a526e1",
+    "production\\asset-lock\\SYMBOL_STYLE_LOCK.md": "14300b4509ef198b057ac982f75e6332cec03f3a73ebde6324424c1e40e9a0f8",
+    "production\\README.md": "7ab603116740a7cad7052452c9459ea02981e790b43647b4abea0a7d76f56d73",
+    "README.md": "8dac08ace17a6d7129273221aaab5e3090964ceeed873c1d1a211ff991007ae8"
+  },
+  "limitations": [
+    "Current source identity/hash and document/pack integrity only; not every pose/stage visually re-reviewed.",
+    "No new images or videos generated; no uploads, app changes, native hinge/structure rerun, device or release verification.",
+    "Existing reference identity does not establish unresolved story-role/action approval."
+  ]
+}

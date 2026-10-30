@@ -17,7 +17,7 @@
   "document_graph": {
     "command": "graphify update .",
     "mode": "AST-only sparse-document scope",
-    "local_archive": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\graphify-docs-20261029T235317Z",
+    "local_archive": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\graphify-docs-20261030T002927Z",
     "paid_extraction": false,
     "app_graph_replaced": false
   },

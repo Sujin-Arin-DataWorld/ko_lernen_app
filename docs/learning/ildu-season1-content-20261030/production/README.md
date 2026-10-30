@@ -12,6 +12,7 @@
 | [챕터 이벤트 표](CHAPTER_EVENT_MATRIX.csv) · [구조화 이벤트](CHAPTER_EVENTS.json) | 기존 사실 ID를 재사용할 제작 제안. 현재 런타임 등록 데이터와 구분 |
 | [목업 이미지 브리프](MOCKUP_IMAGE_BRIEF.md) · [프레임·상태 표](MOCKUP_MATRIX.csv) | 어떤 화면을 어떤 상태로 그릴지, 실제 대사·문항·다음 행동·에셋 출처 |
 | [기존 에셋 재사용 기록](ASSET_REUSE_LEDGER.json) | 현재 파일·해시·화면 역할·확인 범위·경로 변경·추가 제작 필요 |
+| [제작에 그대로 가져갈 원본 목록](asset-lock/ASSET_LOCK_LIST.md) · [KO/EN AI 지시문](asset-lock/AI_ASSET_LOCK_PROMPT_KO.md) | 핵심 캐릭터·현대 페르소나·R16 건물/공정·솟을대문·상징·C안·소품의 현재 원본과 고정 디테일, 59개 동일 바이트 참조팩 |
 | [영상 제작 계획](VIDEO_PRODUCTION_PLAN.md) · [장면별 샷리스트](VIDEO_SHOTLIST.csv) | 영상이 필요한 사건, 2.5D/Blender/생성 영상의 역할, 제작 장소·파일·합성·음성·자막·검수 |
 
 기존 [100단원·128공정 집필본](../manuscripts/season1-rpg-v35/README.md)을 바탕으로 썼다. 새 기획은 기존 원고와 따로 읽을 수 있고, 원고 사본의 바이트는 변경하지 않는다.
