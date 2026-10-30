@@ -6,6 +6,9 @@ import 'package:ko_lernen_app/models/ildu_construction_art.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_reward_receipt_sheet.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
+import 'package:ko_lernen_app/widgets/sori/ildu_r16_process_image.dart';
+import 'support/r16_test_asset_bundle.dart';
+import 'support/sori_stage_pump.dart';
 
 void main() {
   testWidgets('receipt sheet renders only observed items', (tester) async {
@@ -122,7 +125,10 @@ void main() {
             data: MediaQuery.of(
               context,
             ).copyWith(textScaler: const TextScaler.linear(2)),
-            child: child!,
+            child: DefaultAssetBundle(
+              bundle: R16TestAssetBundle(),
+              child: child!,
+            ),
           ),
           home: Scaffold(
             body: Builder(
@@ -271,10 +277,16 @@ void main() {
       );
       expect(find.text('부재 14'), findsOneWidget);
       expect(find.text('부재 3'), findsOneWidget);
-      final images = tester.widgetList<Image>(find.byType(Image)).toList();
-      expect(images, hasLength(4)); // Three actual parts and the small Haechi.
+      await pumpSoriStage(tester);
+      // The fixture deliberately uses non-canonical IDs/assets. The wrapper
+      // must keep all three exact fallback identities even after a missing
+      // fixture image has resolved to its error placeholder.
+      final images = tester
+          .widgetList<IlDuR16ProcessImage>(find.byType(IlDuR16ProcessImage))
+          .toList();
+      expect(images, hasLength(3));
       expect(
-        images.map((image) => (image.image as AssetImage).assetName),
+        images.map((image) => image.fallbackAsset),
         containsAll(<String>[
           'assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_11_part.png',
           'assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_part.png',
@@ -289,6 +301,8 @@ Widget _app(Widget home) => MaterialApp(
   locale: const Locale('en'),
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
+  builder: (_, child) =>
+      DefaultAssetBundle(bundle: R16TestAssetBundle(), child: child!),
   home: Scaffold(body: home),
 );
 

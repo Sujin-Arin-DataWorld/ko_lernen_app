@@ -7,6 +7,7 @@ import 'chip.dart';
 import 'progress.dart';
 import 'tokens.dart';
 import 'updating_scene.dart';
+import 'ildu_r16_process_image.dart';
 
 /// Future-state artwork used only by the no-progression onboarding preview.
 const String kIlDuV3PreviewAsset =
@@ -73,13 +74,20 @@ class SarangchaeStageArtwork extends StatelessWidget {
         .toInt();
     final stage = construction.stage(shown);
     final unlocked = shown <= earned;
-    final image = Image.asset(
-      stage.assetPath,
-      key: ValueKey('sarangchae-stage-artwork-$shown'),
-      fit: BoxFit.contain,
-      alignment: Alignment.center,
-      excludeFromSemantics: true,
-    );
+    final image = unlocked
+        ? IlDuR16ProcessImage(
+            key: ValueKey('sarangchae-stage-artwork-$shown'),
+            processId: 'ildu.${stage.stageId}',
+            fallbackAsset: stage.assetPath,
+            fit: BoxFit.contain,
+            excludeFromSemantics: true,
+          )
+        : Image.asset(
+            stage.assetPath,
+            key: ValueKey('sarangchae-stage-artwork-$shown'),
+            fit: BoxFit.contain,
+            excludeFromSemantics: true,
+          );
     return Semantics(
       image: true,
       label: unlocked

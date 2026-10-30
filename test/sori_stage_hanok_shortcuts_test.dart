@@ -16,6 +16,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 
 import 'support/hanok_competence_fixture.dart';
+import 'support/r16_test_asset_bundle.dart';
 
 void main() {
   setUp(() async {
@@ -173,6 +174,8 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
+        builder: (_, child) =>
+            DefaultAssetBundle(bundle: R16TestAssetBundle(), child: child!),
         theme: AppTheme.light,
         locale: const Locale('en'),
         supportedLocales: AppL10n.supportedLocales,

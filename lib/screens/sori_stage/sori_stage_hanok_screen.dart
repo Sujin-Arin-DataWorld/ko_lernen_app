@@ -24,6 +24,7 @@ import '../../widgets/sori/screen_background.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/window_class.dart';
 import '../bojagi_screen.dart' show kBojagiClosed;
+import '../../widgets/sori/ildu_r16_estate_artwork.dart';
 
 class SoriStageHanokScreen extends StatefulWidget {
   const SoriStageHanokScreen({
@@ -257,6 +258,10 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                       onBuilt: _refresh,
                     ),
                   ),
+                ),
+                SliverPadding(
+                  padding: EdgeInsets.symmetric(horizontal: padding.left),
+                  sliver: const SliverToBoxAdapter(child: IlDuR16EstateEntry()),
                 ),
                 _SarangchaeConstructionSliver(
                   progressionFuture: _future,

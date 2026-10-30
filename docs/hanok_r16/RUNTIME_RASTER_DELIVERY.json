@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-30",
+  "baseSha": "5e778d6b5b34f37947f21325170de28fe2252c77",
+  "scope": "Approved R16 raster artwork connected to existing native flows; existing policy retained",
+  "catalog": "assets/data/ildu_r16_art_v1.json",
+  "uniqueBundledImages": 135,
+  "bundledBytes": 56271614,
+  "referenceBuildings": 11,
+  "preservedR16Processes": 128,
+  "legacyExactIdMatches": 99,
+  "legacyGateImagesRetained": 14,
+  "additionalProcessesWithoutNewOwnershipTrack": 29,
+  "standaloneConstructionRoofs": ["sarangchae", "jungmunganchae"],
+  "entryPoints": ["Hanok", "Gye", "hanok culture", "gye culture", "sarangchae culture", "anchae culture", "sadang culture"],
+  "route": "/hanok/estate",
+  "gyePermanentElementCount": 8,
+  "gyeCompletionLifetimeGoals": 7,
+  "progressOrOwnershipMigrationIncluded": false,
+  "newStoryPolicyIncluded": false,
+  "realtime3dIncluded": false,
+  "sourcePixels": "RUNTIME_ART_PACK_VERIFICATION.json: 135 decoded RGBA comparisons passed without pixel changes",
+  "verification": {
+    "targetedTests": 114,
+    "passedAfterCorrections": 114,
+    "testFiles": 18,
+    "notes": "The 18-file run passed113/114; its single asynchronous fixture failure was corrected and all5 tests in that file passed on rerun. No assertions were removed for reward or ownership behavior.",
+    "analyze": "Changed production files and new tests: no issues",
+    "layout": "EN/DE at390px and320px, text100% and200%, real bundled UI fonts",
+    "recovery": "Catalog retry, image retry, enlargement close, selected building retained after lesson return",
+    "state": "Reference interactions leave SharedPreferences unchanged; existing durable purchase, double-tap, receipt and Gye threshold tests retained",
+    "review": {
+      "spec": "Completed Gye exhibits were aligned to the same fitted portrait coordinate space as R16 artwork; rect/aspect assertions added",
+      "standards": "Legacy Gye source guard distinguishes active R16 artwork from preserved original showcase; targeted guard passes"
+    },
+    "captures": "C:/dev/hangulsori/_codex_artifacts/ildu-r16-live-gye-20261030/ui",
+    "deviceQa": "Not established by widget captures",
+    "deployment": "Pending exact-head PR CI, merge and exact-main release validation"
+  },
+  "staticFirstSoundArchive": "dc0e7333a7a90e2a06c333032e1c1c37e90f77ae"
+}
