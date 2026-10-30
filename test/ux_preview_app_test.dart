@@ -459,7 +459,8 @@ void main() {
       find.byWidgetPredicate(
         (widget) =>
             widget is StickerImage &&
-            widget.spec.asset == 'assets/stickers/tiger_clap.png',
+            widget.spec.code == 2 &&
+            widget.spec.slug == 'tiger_clap',
       ),
       findsOneWidget,
     );

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/data/canonical_companion_art.dart';
 import 'package:ko_lernen_app/features/onboarding_v2/first_run_coordinator.dart';
 import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_repository.dart';
 import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_state.dart';
@@ -288,16 +289,20 @@ void main() {
     (companionId: OnboardingV2Ids.companionTaego, characterId: 'tiger'),
     (companionId: OnboardingV2Ids.companionJoy, characterId: 'magpie'),
   ]) {
-    testWidgets('${testCase.companionId} confirmation uses one-shot '
-        '${testCase.characterId} media', (tester) async {
+    testWidgets('${testCase.companionId} confirmation shows canonical '
+        '${testCase.characterId} still and keeps both actions available', (
+      tester,
+    ) async {
+      var starts = 0;
+      var changes = 0;
       await _pump(
         tester,
         Builder(
           builder: (context) => OnboardingCompanionConfirmationScreen(
             copy: onboardingV2Copy(AppL10n.of(context)),
             companionId: testCase.companionId,
-            onStart: () {},
-            onChange: () {},
+            onStart: () => starts++,
+            onChange: () => changes++,
           ),
         ),
       );
@@ -309,8 +314,11 @@ void main() {
       expect(media.characterId, testCase.characterId);
       expect(media.motion, OnboardingCharacterMotion.confirm);
       expect(media.active, isTrue);
-      expect(media.resolvedAnimationAsset, contains('_choose.webp'));
-      expect(media.resolvedAnimationAsset, isNot(contains('/video/')));
+      final expectedPoster = testCase.characterId == 'tiger'
+          ? CanonicalCompanionArt.baekhoStanding
+          : CanonicalCompanionArt.magpieStanding;
+      expect(media.resolvedPosterAsset, expectedPoster);
+      expect(media.resolvedAnimationAsset, isNull);
       expect(
         find.byKey(const ValueKey('onboarding-character-neutral-fallback')),
         findsNothing,
@@ -321,6 +329,43 @@ void main() {
         ),
         findsOneWidget,
       );
+      final poster = tester.widget<Image>(
+        find.byKey(ValueKey('onboarding-character-poster-$expectedPoster')),
+      );
+      expect(poster.fit, BoxFit.contain);
+      expect(
+        find.byWidgetPredicate(
+          (widget) =>
+              widget is RawImage &&
+              widget.key is ValueKey<String> &&
+              (widget.key! as ValueKey<String>).value.startsWith(
+                'onboarding-character-animation-',
+              ),
+        ),
+        findsNothing,
+      );
+      expect(
+        starts,
+        0,
+        reason: 'A poster cannot advance onboarding by itself.',
+      );
+      expect(changes, 0);
+      await tester.tap(
+        find.byKey(const ValueKey('onboarding-v2-confirmation-change')),
+      );
+      await tester.pump();
+      expect(changes, 1);
+      expect(starts, 0);
+      await tester.tap(
+        find.byKey(const ValueKey('onboarding-v2-confirmation-start')),
+      );
+      await tester.pump();
+      expect(
+        starts,
+        1,
+        reason: 'Start stays available without media completion.',
+      );
+      expect(changes, 1);
       _expectNoLegacyMediaOrTint();
       expect(tester.takeException(), isNull);
     });

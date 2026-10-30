@@ -784,6 +784,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final currentLocale = localeNotifier.value;
     final account = widget.account ?? AuthService.accountSnapshot;
     final providers = account.providers;
+    final displayName = account.displayName;
 
     return SoriStandardPage(
       appBarTitle: t.settingsTitle,
@@ -871,7 +872,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             title: Text(
               t.settingsCloudSignedIn(
-                account.displayName ?? _providerLabel(t, providers),
+                displayName != null && displayName.trim().isNotEmpty
+                    ? displayName
+                    : _providerLabel(t, providers),
               ),
             ),
             subtitle: Text(t.settingsCloudSignedInDesc),

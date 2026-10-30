@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/data/canonical_companion_art.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -299,6 +300,19 @@ void main() {
 
         final t = AppL10n.of(tester.element(find.byType(StatsScreen)));
         final finalCard = find.text(t.gameWordleTitle);
+        final baekho = find.image(
+          const AssetImage(CanonicalCompanionArt.baekhoStanding),
+        );
+        final magpie = find.image(
+          const AssetImage(CanonicalCompanionArt.magpieCelebrate),
+        );
+        expect(baekho, findsOneWidget);
+        expect(magpie, findsOneWidget);
+        final left = tester.getRect(baekho);
+        final right = tester.getRect(magpie);
+        expect(left.right, lessThanOrEqualTo(right.left));
+        expect(tester.widget<Image>(baekho).fit, BoxFit.contain);
+        expect(tester.widget<Image>(magpie).fit, BoxFit.contain);
         await tester.scrollUntilVisible(
           finalCard,
           240,

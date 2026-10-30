@@ -28,7 +28,9 @@
     "assets/icons/navigation/games_controller.png": "assets/icons/navigation/games.png",
     "assets/icons/navigation/hanok_gate.png": "assets/icons/navigation/hanok.png",
     "assets/icons/navigation/gye_people.png": "assets/icons/navigation/gye.png",
-    "assets/illustrations/concept_c/lantern_v2.png": "assets/illustrations/gye/weekly_lantern/lit.png"
+    "assets/illustrations/concept_c/lantern_v2.png": "assets/illustrations/gye/weekly_lantern/lit.png",
+    "assets/illustrations/companions/canonical/taego_portrait.png": "assets/illustrations/companions/baekho/portrait.png",
+    "assets/illustrations/companions/canonical/joy_portrait.png": "assets/illustrations/companions/magpie/portrait.png"
   },
   "copied_asset_bytes": 32785928,
   "assets": [
@@ -240,7 +242,7 @@
     {
       "file": "assets/illustrations/concept_c/approved_20261018/figma-assets.json",
       "source_sha256": "b87dd499fdf8c2e6bba19ae56bf61544488eb52969d15b12b26b564d16452eb9",
-      "adapter_sha256": "2e41da8d27dff209e0bedfaf8061b0e5d5dbd3b04370fd23812be695feca3cdb",
+      "adapter_sha256": "83b1815b74fa92b5a91854a2fae7eee9177570cc7d5762553a884b21c32e34dc",
       "byte_identical": false
     }
   ],
@@ -343,5 +345,12 @@
     "diagnostics": 0,
     "source_unchanged_during_analysis": true,
     "base_target_head": "0c85a1599324764eb318f01961348f119f71e99f"
+  },
+  "canonical_main_integration": {
+    "main_sha": "5e778d6b5b34f37947f21325170de28fe2252c77",
+    "original_pngs_preserved": true,
+    "portrait_bytes_identical": true,
+    "duplicate_legacy_portraits_bundled": false,
+    "account_changes_preserved": true
   }
 }

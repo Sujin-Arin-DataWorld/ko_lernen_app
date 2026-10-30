@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'package:flutter/material.dart';
 import '../features/scenarios/scenario_quest_stock.dart';
 import '../features/personas/persona_people_screen.dart';
@@ -195,7 +196,7 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
         maxWidth: SoriMaxWidth.hub,
         children: [
           SoriEmptyState(
-            asset: 'assets/illustrations/error/lost_magpie.png',
+            asset: CanonicalCompanionArt.magpieStanding,
             icon: Icons.signal_wifi_statusbar_null_rounded,
             title: t.scenariosLoadFailedTitle,
             body: ScenarioLoader.lastError,
@@ -217,7 +218,7 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
         maxWidth: SoriMaxWidth.hub,
         children: [
           SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CanonicalCompanionArt.baekhoSeated,
             icon: Icons.bedtime_outlined,
             title: t.scenariosEmptyTitle,
             body: t.scenariosEmptyBody,

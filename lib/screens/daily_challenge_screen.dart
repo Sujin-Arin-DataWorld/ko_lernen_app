@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
 import 'dart:math';
@@ -288,7 +289,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
         padding: EdgeInsets.zero,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_encourage.png',
+            asset: CanonicalCompanionArt.magpieGuide,
             icon: Icons.today_outlined,
             title: t.dailyTitle,
             body: t.clozeEmptyBody,

@@ -8,6 +8,7 @@ import '../../widgets/sori/learning_focus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../data/canonical_companion_art.dart';
 import '../../data/milestone.dart';
 import '../../data/quest_catalog.dart';
 import '../../data/sori_activity_catalog.dart';
@@ -439,8 +440,8 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
                   height: compact ? 104 : 128,
                   child: Image.asset(
                     kind.name == 'tiger'
-                        ? 'assets/illustrations/companions/canonical/taego_portrait.png'
-                        : 'assets/illustrations/companions/canonical/joy_portrait.png',
+                        ? CanonicalCompanionArt.baekhoPortrait
+                        : CanonicalCompanionArt.magpiePortrait,
                     fit: BoxFit.contain,
                     excludeFromSemantics: true,
                   ),

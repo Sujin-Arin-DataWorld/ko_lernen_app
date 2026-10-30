@@ -24,11 +24,14 @@ class PracticeScholarArt extends StatelessWidget {
     fit: BoxFit.contain,
     cacheWidth: 512,
     excludeFromSemantics: true,
-    errorBuilder: (_, __, ___) => Image.asset(
-      'assets/illustrations/tactile/hahoe_scholar.png',
-      fit: BoxFit.contain,
-      cacheWidth: 512,
-      excludeFromSemantics: true,
-    ),
+    errorBuilder: (_, __, ___) => pose == PracticeScholarPose.calm
+        ? const SizedBox.shrink()
+        : Image.asset(
+            PracticeScholarPose.calm.asset,
+            fit: BoxFit.contain,
+            cacheWidth: 512,
+            excludeFromSemantics: true,
+            errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+          ),
   );
 }

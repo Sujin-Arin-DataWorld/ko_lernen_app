@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/haptic_service.dart';
 import '../widgets/sori/game_reward.dart';
 import '../services/learning_journey.dart';
@@ -591,7 +592,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   }
 
   Widget _buildEmpty(AppL10n t) => SoriEmptyState(
-    asset: 'assets/illustrations/mascot/magpie_celebrate.png',
+    asset: CanonicalCompanionArt.magpieCelebrate,
     icon: Icons.celebration_rounded,
     title: t.reviewEmptyTitle,
     body: t.reviewEmptyBody,

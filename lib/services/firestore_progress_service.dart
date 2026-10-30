@@ -21,11 +21,19 @@ class FirestorePackSnapshot {
     required this.progress,
     required this.revisions,
     this.membershipRevision,
+    this.membershipPackIds,
+    this.legacyDocuments = const {},
   });
 
   final Map<String, PackProgress> progress;
   final Map<String, int?> revisions;
   final int? membershipRevision;
+
+  /// The manifest actually observed, which may omit pre-manifest legacy packs.
+  /// Kept separate from [revisions] so reconciliation can compare-and-swap the
+  /// original manifest while retaining every validated progress document.
+  final Set<String>? membershipPackIds;
+  final Map<String, Map<String, dynamic>> legacyDocuments;
 }
 
 class FirestorePackMembership {
@@ -82,6 +90,7 @@ typedef FirestorePackCasWriter =
       required String uid,
       required Iterable<PackProgress> progresses,
       required Map<String, int?> expectedRevisions,
+      required Map<String, Map<String, dynamic>> expectedLegacyDocuments,
       required int? expectedMembershipRevision,
       required Set<String> expectedMembershipPackIds,
       required String operationId,
@@ -117,6 +126,7 @@ class FirestoreProgressService {
       required uid,
       required progresses,
       required expectedRevisions,
+      required expectedLegacyDocuments,
       required expectedMembershipRevision,
       required expectedMembershipPackIds,
       required operationId,
@@ -128,6 +138,7 @@ class FirestoreProgressService {
       fenceUid: fenceUid,
       progresses: progresses,
       expectedRevisions: expectedRevisions,
+      expectedLegacyDocuments: expectedLegacyDocuments,
       expectedMembershipRevision: expectedMembershipRevision,
       expectedMembershipPackIds: expectedMembershipPackIds,
       operationId: operationId,
@@ -217,12 +228,24 @@ class FirestoreProgressService {
     if (!_sameMembershipReads(membershipBefore, membership)) {
       return const CloudReadResult.unavailable();
     }
-    if (membership.state == CloudReadState.present &&
-        !_sameIds(
-          membership.value!.packIds,
-          documents.map((document) => document.id).toSet(),
-        )) {
-      return const CloudReadResult.invalid();
+    if (membership.state == CloudReadState.present) {
+      final manifestIds = membership.value!.packIds;
+      final documentIds = documents.map((document) => document.id).toSet();
+      if (!documentIds.containsAll(manifestIds)) {
+        return const CloudReadResult.invalid();
+      }
+      // The first ready write used to bootstrap a missing manifest from only
+      // the pack being saved. Older, unversioned documents can therefore be
+      // absent from an otherwise stable manifest. Preserve these documents for
+      // the normal strict decode/catalog merge and fenced CAS; never admit an
+      // unexpected document written by a versioned/reconciliation writer.
+      for (final document in documents) {
+        if (!manifestIds.contains(document.id) &&
+            (document.data.containsKey('sync_revision') ||
+                document.data.containsKey('reconciliation_operation_id'))) {
+          return const CloudReadResult.invalid();
+        }
+      }
     }
     if (documents.isEmpty) {
       if (membership.state != CloudReadState.present) {
@@ -239,12 +262,14 @@ class FirestoreProgressService {
           progress: const {},
           revisions: const {},
           membershipRevision: membership.value!.revision,
+          membershipPackIds: membership.value!.packIds,
         ),
       );
     }
 
     final progress = <String, PackProgress>{};
     final revisions = <String, int?>{};
+    final legacyDocuments = <String, Map<String, dynamic>>{};
     final sizePayload = <Object?>[];
     try {
       for (final document in documents) {
@@ -264,6 +289,11 @@ class FirestoreProgressService {
         sizePayload.add({'id': document.id, 'data': data});
         progress[document.id] = PackProgress.fromJson(document.id, data);
         revisions[document.id] = revision as int?;
+        if (membership.value != null &&
+            !membership.value!.packIds.contains(document.id)) {
+          legacyDocuments[document.id] =
+              _captureLegacyValue(document.data) as Map<String, dynamic>;
+        }
       }
       if (utf8.encode(jsonEncode(sizePayload)).length > maxBytes) {
         return const CloudReadResult.tooLarge();
@@ -276,6 +306,8 @@ class FirestoreProgressService {
         progress: progress,
         revisions: revisions,
         membershipRevision: membership.value?.revision,
+        membershipPackIds: membership.value?.packIds,
+        legacyDocuments: legacyDocuments,
       ),
     );
   }
@@ -286,6 +318,8 @@ class FirestoreProgressService {
     required Iterable<PackProgress> progresses,
     required Map<String, int?> expectedRevisions,
     required int? expectedMembershipRevision,
+    Set<String>? expectedMembershipPackIds,
+    Map<String, Map<String, dynamic>> expectedLegacyDocuments = const {},
     required String operationId,
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
@@ -303,9 +337,22 @@ class FirestoreProgressService {
     }
     final values = progresses.toList();
     final targetIds = values.map((progress) => progress.packId).toSet();
-    final expectedMembershipPackIds = expectedRevisions.keys.toSet();
+    final observedMembershipPackIds =
+        expectedMembershipPackIds ?? expectedRevisions.keys.toSet();
     if (targetIds.length != values.length ||
-        !targetIds.containsAll(expectedMembershipPackIds)) {
+        !targetIds.containsAll(expectedRevisions.keys) ||
+        !expectedRevisions.keys.toSet().containsAll(
+          observedMembershipPackIds,
+        ) ||
+        expectedRevisions.entries.any(
+          (entry) =>
+              !observedMembershipPackIds.contains(entry.key) &&
+              entry.value != null,
+        ) ||
+        !_sameIds(
+          expectedLegacyDocuments.keys.toSet(),
+          expectedRevisions.keys.toSet().difference(observedMembershipPackIds),
+        )) {
       return Future.value(const FirestorePackCasResult.revisionConflict());
     }
     final selectedWriter =
@@ -314,6 +361,7 @@ class FirestoreProgressService {
           required uid,
           required progresses,
           required expectedRevisions,
+          required expectedLegacyDocuments,
           required expectedMembershipRevision,
           required expectedMembershipPackIds,
           required operationId,
@@ -325,6 +373,7 @@ class FirestoreProgressService {
           fenceUid: expectedFenceUid,
           progresses: progresses,
           expectedRevisions: expectedRevisions,
+          expectedLegacyDocuments: expectedLegacyDocuments,
           expectedMembershipRevision: expectedMembershipRevision,
           expectedMembershipPackIds: expectedMembershipPackIds,
           operationId: operationId,
@@ -335,8 +384,9 @@ class FirestoreProgressService {
       uid: uid,
       progresses: values,
       expectedRevisions: expectedRevisions,
+      expectedLegacyDocuments: expectedLegacyDocuments,
       expectedMembershipRevision: expectedMembershipRevision,
-      expectedMembershipPackIds: expectedMembershipPackIds,
+      expectedMembershipPackIds: observedMembershipPackIds,
       operationId: operationId,
       session: session,
       sessions: sessions,
@@ -430,6 +480,7 @@ class FirestoreProgressService {
     required String fenceUid,
     required Iterable<PackProgress> progresses,
     required Map<String, int?> expectedRevisions,
+    required Map<String, Map<String, dynamic>> expectedLegacyDocuments,
     required int? expectedMembershipRevision,
     required Set<String> expectedMembershipPackIds,
     required String operationId,
@@ -506,6 +557,12 @@ class FirestoreProgressService {
               return const FirestorePackCasResult.revisionConflict();
             }
           }
+          if (!legacyDocumentsUnchanged(expectedLegacyDocuments, {
+            for (final id in expectedLegacyDocuments.keys)
+              id: snapshots[id]?.data(),
+          })) {
+            return const FirestorePackCasResult.revisionConflict();
+          }
           sessions.assertCurrent(session);
           if (session.mode != CloudWriteMode.reconciling ||
               session.uid != fenceUid) {
@@ -514,6 +571,8 @@ class FirestoreProgressService {
           for (final progress in values) {
             final nextRevision = (expectedRevisions[progress.packId] ?? 0) + 1;
             transaction.set(collection.doc(progress.packId), {
+              if (expectedLegacyDocuments.containsKey(progress.packId))
+                ...expectedLegacyDocuments[progress.packId]!,
               ...progress.toJson(),
               'sync_revision': nextRevision,
               'reconciliation_operation_id': operationId,
@@ -769,6 +828,52 @@ class FirestoreProgressService {
     } catch (_) {
       return CloudWriteResult.blocked;
     }
+  }
+
+  /// A missing revision is not a concurrency token. Before adopting an orphan,
+  /// its transaction read must still match every captured field, including
+  /// unknown fields and timestamps. A newly versioned/tagged record is retried.
+  static bool legacyDocumentsUnchanged(
+    Map<String, Map<String, dynamic>> expected,
+    Map<String, Map<String, dynamic>?> current,
+  ) => expected.entries.every((entry) {
+    final actual = current[entry.key];
+    return actual != null &&
+        !actual.containsKey('sync_revision') &&
+        !actual.containsKey('reconciliation_operation_id') &&
+        _sameLegacyValue(entry.value, actual);
+  });
+
+  static Object? _captureLegacyValue(Object? value) {
+    if (value is Map) {
+      return Map<String, dynamic>.unmodifiable(
+        value.map(
+          (key, item) => MapEntry(key as String, _captureLegacyValue(item)),
+        ),
+      );
+    }
+    if (value is List) {
+      return List<Object?>.unmodifiable(value.map(_captureLegacyValue));
+    }
+    return value;
+  }
+
+  static bool _sameLegacyValue(Object? left, Object? right) {
+    if (left is Map && right is Map) {
+      return left.length == right.length &&
+          left.entries.every(
+            (entry) =>
+                right.containsKey(entry.key) &&
+                _sameLegacyValue(entry.value, right[entry.key]),
+          );
+    }
+    if (left is List && right is List) {
+      return left.length == right.length &&
+          Iterable<int>.generate(
+            left.length,
+          ).every((index) => _sameLegacyValue(left[index], right[index]));
+    }
+    return left.runtimeType == right.runtimeType && left == right;
   }
 
   static bool _containsProgress(

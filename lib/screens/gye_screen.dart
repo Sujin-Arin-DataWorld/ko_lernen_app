@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
@@ -279,7 +280,7 @@ class _GyeScreenState extends State<GyeScreen>
                   padding: padding,
                   child: Center(
                     child: SoriEmptyState(
-                      asset: 'assets/illustrations/mascot/magpie_perched.png',
+                      asset: CanonicalCompanionArt.magpieStanding,
                       icon: Icons.groups_2_outlined,
                       title: t.gyeNotFoundTitle,
                       body: t.gyeNotFoundBody,

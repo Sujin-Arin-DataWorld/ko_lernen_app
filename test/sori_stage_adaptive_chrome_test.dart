@@ -189,7 +189,7 @@ void main() {
     expect(find.text('7'), findsOneWidget);
     expect(find.text('Lv 4'), findsOneWidget);
 
-    await tester.tap(find.bySemanticsLabel(RegExp('7 Days')));
+    await tester.tap(find.bySemanticsLabel(RegExp('7 days')));
     await tester.tap(find.bySemanticsLabel(RegExp('Lv 4 · 320 XP')));
     expect(streakTaps, 1);
     expect(statsTaps, 1);

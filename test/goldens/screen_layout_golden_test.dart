@@ -20,6 +20,7 @@ import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/services/yeopjeon_service.dart';
 import 'package:ko_lernen_app/services/yeopjeon_wallet_notifier.dart';
 import 'package:ko_lernen_app/widgets/sori/top_chrome.dart';
+import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
@@ -198,6 +199,33 @@ void main() {
             }
             if (screen.key == 'sori_today') {
               await settleSoriStageCaptureAssets(tester);
+              await tester.runAsync(() async {
+                final context = tester.element(
+                  find.byType(SoriStageTodayScreen),
+                );
+                await Future.wait([
+                  precacheImage(
+                    const AssetImage(
+                      'assets/illustrations/activities/srs.webp',
+                    ),
+                    context,
+                  ),
+                  precacheImage(
+                    const AssetImage(
+                      'assets/illustrations/companions/baekho/standing.png',
+                    ),
+                    context,
+                  ),
+                  precacheImage(const AssetImage(kIlDuV3PreviewAsset), context),
+                  precacheImage(
+                    const AssetImage(
+                      'assets/illustrations/stamps/stamp_yeopjeon.png',
+                    ),
+                    context,
+                  ),
+                ]);
+              });
+              await tester.pump();
             }
             await tester.pump(const Duration(milliseconds: 100));
             await tester.pump(const Duration(milliseconds: 1200));

@@ -39,6 +39,8 @@ class AccountReconciliationSnapshot {
     this.ilduWorldState,
     this.packRevisions = const {},
     this.packMembershipRevision,
+    this.packMembershipIds,
+    this.legacyPackDocuments = const {},
     this.localSrsGeneration,
     this.localCustomPackGeneration,
     this.localPackProgressGeneration,
@@ -70,6 +72,8 @@ class AccountReconciliationSnapshot {
   final IlDuWorldState? ilduWorldState;
   final Map<String, int?> packRevisions;
   final int? packMembershipRevision;
+  final Set<String>? packMembershipIds;
+  final Map<String, Map<String, dynamic>> legacyPackDocuments;
   final String? localSrsGeneration;
   final String? localCustomPackGeneration;
   final String? localPackProgressGeneration;
@@ -81,6 +85,8 @@ class AccountReconciliationSnapshot {
     Map<String, PackProgress> packProgress = const {},
     Map<String, int?> packRevisions = const {},
     int? packMembershipRevision,
+    Set<String>? packMembershipIds,
+    Map<String, Map<String, dynamic>> legacyPackDocuments = const {},
   }) {
     if (document.containsKey('hanok_practice_json')) {
       try {
@@ -127,6 +133,8 @@ class AccountReconciliationSnapshot {
             ilduWorldState: ilduResult.value,
             packRevisions: packRevisions,
             packMembershipRevision: packMembershipRevision,
+            packMembershipIds: packMembershipIds,
+            legacyPackDocuments: legacyPackDocuments,
           ),
         ),
         CloudReadState.tooLarge => const CloudReadResult.tooLarge(),
@@ -152,6 +160,8 @@ class AccountReconciliationSnapshot {
         ilduWorldState: ilduResult.value,
         packRevisions: packRevisions,
         packMembershipRevision: packMembershipRevision,
+        packMembershipIds: packMembershipIds,
+        legacyPackDocuments: legacyPackDocuments,
       ),
     );
   }
@@ -445,6 +455,8 @@ class AccountReconciliationMerger {
         ilduWorldState: ilduWorldState,
         packRevisions: remote.packRevisions,
         packMembershipRevision: remote.packMembershipRevision,
+        packMembershipIds: remote.packMembershipIds,
+        legacyPackDocuments: remote.legacyPackDocuments,
         localSrsGeneration: local.localSrsGeneration,
         localCustomPackGeneration: local.localCustomPackGeneration,
         localPackProgressGeneration: local.localPackProgressGeneration,
@@ -762,6 +774,8 @@ class LocalAccountReconciliationStore {
       ilduWorldState: snapshot.ilduWorldState,
       packRevisions: snapshot.packRevisions,
       packMembershipRevision: snapshot.packMembershipRevision,
+      packMembershipIds: snapshot.packMembershipIds,
+      legacyPackDocuments: snapshot.legacyPackDocuments,
       localSrsGeneration: srsGeneration,
       localCustomPackGeneration: customPackGeneration,
       localPackProgressGeneration: packProgressGeneration,
@@ -1477,6 +1491,8 @@ class FirebaseAccountReconciliationAdapter {
               packProgress: packSnapshot?.progress ?? const {},
               packRevisions: packSnapshot?.revisions ?? const {},
               packMembershipRevision: packSnapshot?.membershipRevision,
+              packMembershipIds: packSnapshot?.membershipPackIds,
+              legacyPackDocuments: packSnapshot?.legacyDocuments ?? const {},
             ),
           )
         : AccountReconciliationSnapshot.decodeCloudDocument(
@@ -1484,6 +1500,8 @@ class FirebaseAccountReconciliationAdapter {
             packProgress: packSnapshot?.progress ?? const {},
             packRevisions: packSnapshot?.revisions ?? const {},
             packMembershipRevision: packSnapshot?.membershipRevision,
+            packMembershipIds: packSnapshot?.membershipPackIds,
+            legacyPackDocuments: packSnapshot?.legacyDocuments ?? const {},
           );
     if (!decoded.isPresent) return decoded;
     return CloudReadResult.present(decoded.value!, revision: root.revision);
@@ -1517,6 +1535,8 @@ class FirebaseAccountReconciliationAdapter {
       progresses: snapshot.packProgress.values,
       expectedRevisions: snapshot.packRevisions,
       expectedMembershipRevision: snapshot.packMembershipRevision,
+      expectedMembershipPackIds: snapshot.packMembershipIds,
+      expectedLegacyDocuments: snapshot.legacyPackDocuments,
       operationId: operationId,
       session: session,
       sessions: sessions,
