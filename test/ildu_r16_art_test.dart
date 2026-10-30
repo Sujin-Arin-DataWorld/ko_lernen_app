@@ -51,6 +51,12 @@ void main() {
       expect(file.existsSync(), isTrue, reason: image.asset);
       expect(sha256.convert(file.readAsBytesSync()).toString(), image.sha256);
     }
+    final bundledFiles = Directory('assets/illustrations/ildu_r16')
+        .listSync()
+        .whereType<File>()
+        .map((file) => file.path.replaceAll('\\', '/'))
+        .toSet();
+    expect(bundledFiles, images.map((image) => image.asset).toSet());
     expect(
       File('pubspec.yaml').readAsStringSync(),
       contains('- assets/illustrations/ildu_r16/'),
