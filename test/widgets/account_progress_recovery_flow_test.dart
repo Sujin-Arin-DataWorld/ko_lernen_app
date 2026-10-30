@@ -1,8 +1,11 @@
 import 'dart:async';
+import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
@@ -98,34 +101,46 @@ Future<void> pumpPanel(
   WidgetTester tester,
   ResolutionOperations operations, {
   bool includeSecondEntry = false,
+  Locale locale = const Locale('de'),
+  Size size = const Size(390, 844),
+  double textScale = 1,
 }) async {
-  tester.view.physicalSize = const Size(390, 844);
+  tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
   await tester.pumpWidget(
-    MaterialApp(
-      theme: AppTheme.light,
-      locale: const Locale('de'),
-      supportedLocales: AppL10n.supportedLocales,
-      localizationsDelegates: AppL10n.localizationsDelegates,
-      home: Scaffold(
-        body: includeSecondEntry
-            ? Builder(
-                builder: (context) => Column(
-                  children: [
-                    AccountPendingOperationPanel(operations: operations),
-                    TextButton(
-                      onPressed: () => reviewPendingAccountProgress(
-                        context: context,
-                        operations: operations,
+    RepaintBoundary(
+      key: const Key('account-review-capture'),
+      child: MaterialApp(
+        theme: AppTheme.light,
+        locale: locale,
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(
+            context,
+          ).copyWith(textScaler: TextScaler.linear(textScale)),
+          child: child!,
+        ),
+        home: Scaffold(
+          body: includeSecondEntry
+              ? Builder(
+                  builder: (context) => Column(
+                    children: [
+                      AccountPendingOperationPanel(operations: operations),
+                      TextButton(
+                        onPressed: () => reviewPendingAccountProgress(
+                          context: context,
+                          operations: operations,
+                        ),
+                        child: const Text('Second review entry'),
                       ),
-                      child: const Text('Second review entry'),
-                    ),
-                  ],
-                ),
-              )
-            : AccountPendingOperationPanel(operations: operations),
+                    ],
+                  ),
+                )
+              : AccountPendingOperationPanel(operations: operations),
+        ),
       ),
     ),
   );
@@ -139,6 +154,77 @@ void main() {
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
   });
+
+  for (final language in ['de', 'en']) {
+    for (final size in [const Size(320, 780), const Size(390, 844)]) {
+      for (final scale in [1.0, 2.0]) {
+        testWidgets(
+          'resume actions fit $language ${size.width}dp ${scale}x and retain explicit consent',
+          (tester) async {
+            final operations = ResolutionOperations()
+              ..status = AccountSwitchResolutionPreviewStatus.resumeRequired;
+            await pumpPanel(
+              tester,
+              operations,
+              locale: Locale(language),
+              size: size,
+              textScale: scale,
+            );
+            final t = AppL10n.of(
+              tester.element(find.byType(AccountPendingOperationPanel)),
+            );
+            Future<void> open() async {
+              await tester.tap(find.text(t.accountRecoveryReview));
+              await tester.pumpAndSettle();
+              expect(tester.takeException(), isNull);
+              expect(operations.resumes, 0);
+              for (final label in [
+                t.btnCancel,
+                t.accountRecoveryResumeConfirm,
+              ]) {
+                final rect = tester.getRect(find.text(label));
+                expect(rect.left, greaterThanOrEqualTo(0));
+                expect(rect.right, lessThanOrEqualTo(size.width));
+                expect(rect.top, greaterThanOrEqualTo(0));
+                expect(rect.bottom, lessThanOrEqualTo(size.height));
+              }
+            }
+
+            await open();
+            const captureDir = String.fromEnvironment(
+              'ACCOUNT_RECOVERY_CAPTURE_DIR',
+            );
+            if (captureDir.isNotEmpty) {
+              final boundary = tester.renderObject<RenderRepaintBoundary>(
+                find.byKey(const Key('account-review-capture')),
+              );
+              await tester.runAsync(() async {
+                final image = await boundary.toImage();
+                try {
+                  final bytes = await image.toByteData(
+                    format: ui.ImageByteFormat.png,
+                  );
+                  await File(
+                    '$captureDir/resume-${size.width.toInt()}-$language-${scale.toInt()}x.png',
+                  ).writeAsBytes(bytes!.buffer.asUint8List());
+                } finally {
+                  image.dispose();
+                }
+              });
+            }
+            await tester.tap(find.text(t.btnCancel));
+            await tester.pumpAndSettle();
+            expect(operations.resumes, 0);
+            await open();
+            await tester.tap(find.text(t.accountRecoveryResumeConfirm));
+            await tester.pumpAndSettle();
+            expect(operations.resumes, 1);
+            expect(operations.confirmations, 0);
+          },
+        );
+      }
+    }
+  }
 
   testWidgets(
     'two entry points share one in-flight review and cancel allows a fresh review',

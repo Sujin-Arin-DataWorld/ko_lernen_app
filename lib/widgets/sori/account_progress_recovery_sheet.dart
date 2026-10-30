@@ -52,13 +52,14 @@ Future<AccountSwitchResolutionOutcome?> reviewPendingAccountProgress({
           title: Text(t.accountRecoveryResumeTitle),
           content: Text(t.accountRecoveryResumeBody),
           actions: [
-            TextButton(
-              onPressed: () => Navigator.of(dialogContext).pop(false),
-              child: Text(t.btnCancel),
+            SoriButton.ghost(
+              onTap: () => Navigator.of(dialogContext).pop(false),
+              label: t.btnCancel,
             ),
-            FilledButton(
-              onPressed: () => Navigator.of(dialogContext).pop(true),
-              child: Text(t.accountRecoveryResumeConfirm),
+            SoriButton.filled(
+              size: SoriButtonSize.md,
+              onTap: () => Navigator.of(dialogContext).pop(true),
+              label: t.accountRecoveryResumeConfirm,
             ),
           ],
         ),
