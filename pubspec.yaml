@@ -156,18 +156,34 @@ flutter:
     - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문6.png
     - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문8.png
     - assets/illustrations/personal_hanok_v3/sarangchae/
+    - assets/illustrations/personal_hanok_v3/world/sarangchae.png
     - assets/illustrations/personal_hanok_v3/construction/hyeopmun/
     - assets/illustrations/personal_hanok_v3/construction/lessons/
     - assets/illustrations/decorations/
     - assets/illustrations/reward/
     - assets/illustrations/stamps/
     - assets/illustrations/dancheong_studio/v1/
+    - assets/illustrations/concept_c/spiele_preview/
+    - assets/illustrations/concept_c/
+    - assets/illustrations/concept_c/approved_20261018/
+    - assets/illustrations/concept_c/pronunciation/
+    - assets/illustrations/concept_c/hangul_atelier/
+    - assets/illustrations/c_learning/
+    - assets/illustrations/companions/canonical/
+    - assets/illustrations/culture_scenes/hanok_home_changho.png
+    - assets/icons/chrome/
+    - assets/icons/navigation/
+    - assets/fonts/Chubbo/FFL.txt
+    - assets/fonts/Supreme/FFL.txt
+    - assets/fonts/Belgrano/OFL.txt
+    - assets/fonts/EncodeSansCondensed/OFL.txt
     - assets/illustrations/mascot/
     - assets/illustrations/tactile/hahoe_scholar.png
     - assets/illustrations/tactile/dokkaebi.png
     - assets/illustrations/personas/v3/
     - assets/illustrations/burst/
     - assets/illustrations/gye/
+    - assets/illustrations/gye/weekly_lantern/
     - assets/illustrations/book/
     - assets/illustrations/scenes/
     - assets/illustrations/error/
@@ -239,6 +255,32 @@ flutter:
   # OFL: Paperlogy for interface lettering; Noto Sans KR for learning copy.
   # Both families contain Korean, German and English glyphs (font bundle guard).
   fonts:
+    - family: Chubbo
+      fonts:
+        - asset: assets/fonts/Chubbo/Chubbo-Bold.otf
+          weight: 700
+    - family: Supreme
+      fonts:
+        - asset: assets/fonts/Supreme/Supreme-Regular.otf
+          weight: 400
+        - asset: assets/fonts/Supreme/Supreme-Medium.otf
+          weight: 500
+        - asset: assets/fonts/Supreme/Supreme-Bold.otf
+          weight: 700
+    - family: Belgrano
+      fonts:
+        - asset: assets/fonts/Belgrano/Belgrano-Regular.ttf
+          weight: 400
+    - family: EncodeSansCondensed
+      fonts:
+        - asset: assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/EncodeSansCondensed/EncodeSansCondensed-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Bold.ttf
+          weight: 700
     - family: Roboto
       fonts:
         - asset: assets/fonts/Roboto/Roboto-Variable.ttf

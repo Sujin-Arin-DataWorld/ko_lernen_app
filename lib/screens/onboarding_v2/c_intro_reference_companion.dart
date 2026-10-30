@@ -5,7 +5,8 @@ import '../../widgets/sori/intro_motion.dart';
 import 'c_intro_art.dart';
 import 'onboarding_v2_presentation.dart';
 
-/// Native 07 controls at the approved 402 x 934 reference coordinates.
+/// Native 07 controls reserve readable labels before shrinking the portraits.
+/// Unbounded previews retain the approved 402 x 934 reference coordinates.
 /// Selection only changes paint and semantics; both cards keep their bounds.
 class IntroReferenceCompanion extends StatelessWidget {
   const IntroReferenceCompanion({
@@ -23,6 +24,38 @@ class IntroReferenceCompanion extends StatelessWidget {
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, bounds) {
       final s = bounds.maxWidth / 402;
+      if (bounds.hasBoundedHeight) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: Column(
+            children: [
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    for (final id in [
+                      OnboardingV2Ids.companionTaego,
+                      OnboardingV2Ids.companionJoy,
+                    ]) ...[
+                      if (id == OnboardingV2Ids.companionJoy)
+                        const SizedBox(width: 8),
+                      Expanded(
+                        child: _FiniteCompanionCard(
+                          companion: copy.companion.companion(id),
+                          selected: selectedCompanionId == id,
+                          onTap: () => onCompanionChanged(id),
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+              const SizedBox(height: 8),
+              const _FiniteGye(),
+            ],
+          ),
+        );
+      }
       return SizedBox(
         height: 525 * s,
         child: Stack(
@@ -56,6 +89,191 @@ class IntroReferenceCompanion extends StatelessWidget {
       );
     },
   );
+}
+
+class _FiniteCompanionCard extends StatelessWidget {
+  const _FiniteCompanionCard({
+    required this.companion,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final OnboardingCompanionSpec companion;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final taego = companion.id == OnboardingV2Ids.companionTaego;
+    final role = taego ? t.onboardingCTaegoRole : t.onboardingCJoyRole;
+    return MergeSemantics(
+      child: Semantics(
+        key: ValueKey('onboarding-v2-companion-semantics-${companion.id}'),
+        button: true,
+        selected: selected,
+        inMutuallyExclusiveGroup: true,
+        label: '${companion.name}. $role',
+        onTap: onTap,
+        child: IntroPressable(
+          key: ValueKey('onboarding-v2-companion-${companion.id}'),
+          onTap: onTap,
+          pressScale: .995,
+          surfaceDepth: 0,
+          child: ExcludeSemantics(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: const Color(0xccfff6e7),
+                borderRadius: BorderRadius.circular(
+                  IntroGeometry.companionCard,
+                ),
+                border: Border.all(color: const Color(0xfff5e5cf)),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0x2e967b53),
+                    offset: Offset(0, 1.5),
+                    blurRadius: 1,
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(4),
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(
+                              IntroGeometry.portrait,
+                            ),
+                            child: CIntroArt(
+                              taego ? 'taego-close' : 'joy-close',
+                            ),
+                          ),
+                          Positioned.fill(
+                            child: IntroCompanionPortraitRim(
+                              selected: selected,
+                            ),
+                          ),
+                          Positioned(
+                            left: 4,
+                            bottom: 4,
+                            child: IntroSelectionMotion(
+                              selected: selected,
+                              child: const IntroMedal('✓', size: 28),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    SizedBox(
+                      height: 24,
+                      child: Center(
+                        child: Text(
+                          companion.name,
+                          textAlign: TextAlign.center,
+                          style: IntroTypography.localized(
+                            context,
+                            IntroTypography.body(18, true, IntroPalette.ink),
+                            heading: true,
+                          ).copyWith(height: 1.2),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    SizedBox(
+                      height: 40,
+                      child: Center(
+                        child: Text(
+                          role,
+                          textAlign: TextAlign.center,
+                          maxLines: 2,
+                          style: IntroTypography.localized(
+                            context,
+                            IntroTypography.body(
+                              16,
+                              false,
+                              IntroPalette.mutedInk,
+                            ),
+                          ).copyWith(height: 1.2),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _FiniteGye extends StatelessWidget {
+  const _FiniteGye();
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: const Color(0x99fff6e7),
+        borderRadius: BorderRadius.circular(IntroGeometry.card),
+        border: Border.all(color: const Color(0xfffff9e9)),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x3d967b53),
+            offset: Offset(0, 1.4),
+            blurRadius: 1.1,
+          ),
+        ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Row(
+          children: [
+            const Expanded(
+              flex: 2,
+              child: AspectRatio(
+                aspectRatio: 1.5,
+                child: CIntroArt('gye-reading'),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              flex: 3,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    t.onboardingCGyeTitle,
+                    style: IntroTypography.localized(
+                      context,
+                      IntroTypography.body(18, true, IntroPalette.ink),
+                      heading: true,
+                    ).copyWith(height: 1.2),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    t.onboardingCGyeBody,
+                    style: IntroTypography.localized(
+                      context,
+                      IntroTypography.body(16, false, IntroPalette.mutedInk),
+                    ).copyWith(height: 1.2),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
 class _ReferenceCompanionCard extends StatelessWidget {

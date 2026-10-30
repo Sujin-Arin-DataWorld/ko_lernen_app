@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'app_bar.dart';
+import 'c_learning_surface.dart';
 import 'home_action.dart';
 import 'page_header.dart';
 import 'responsive.dart';
@@ -29,6 +30,9 @@ class SoriStandardFrame extends StatelessWidget {
     this.particles = false,
     this.bottomNavigationBar,
     this.showHome = true,
+    this.cMaterial = false,
+    this.cPaperBody = false,
+    this.headerBuilder,
   });
 
   final String appBarTitle;
@@ -48,6 +52,14 @@ class SoriStandardFrame extends StatelessWidget {
   /// 없다)은 자연히 영향받지 않는다. `false`로 끄면 이 페이지는 절대 홈
   /// 액션을 받지 않는다.
   final bool showHome;
+  final bool cMaterial;
+  final bool cPaperBody;
+  final PreferredSizeWidget Function(
+    BuildContext context,
+    Widget? leading,
+    List<Widget> actions,
+  )?
+  headerBuilder;
 
   @override
   Widget build(BuildContext context) {
@@ -58,26 +70,33 @@ class SoriStandardFrame extends StatelessWidget {
       if (showHome && !hasHomeAction && Navigator.of(context).canPop())
         const SoriHomeAction(),
     ];
+    final pageBody = SafeArea(
+      top: false,
+      child: SoriContentClamp(
+        maxWidth: maxWidth,
+        base: padding,
+        builder: (context, resolvedPadding) {
+          final content = builder(context, resolvedPadding);
+          return cMaterial && cPaperBody
+              ? SoriCMaterialSurface(raised: false, child: content)
+              : content;
+        },
+      ),
+    );
     return Scaffold(
-      appBar: SoriAppBar(
-        title: appBarTitle,
-        actions: effectiveActions.isEmpty ? null : effectiveActions,
-        leading: leading,
-        automaticallyImplyLeading: automaticallyImplyLeading,
-        textScale: MediaQuery.textScalerOf(context).scale(1),
-        viewportWidth: MediaQuery.sizeOf(context).width,
-      ),
-      body: SoriScreenBackground(
-        particles: particles,
-        child: SafeArea(
-          top: false,
-          child: SoriContentClamp(
-            maxWidth: maxWidth,
-            base: padding,
-            builder: builder,
+      appBar:
+          headerBuilder?.call(context, leading, effectiveActions) ??
+          SoriAppBar(
+            title: appBarTitle,
+            actions: effectiveActions.isEmpty ? null : effectiveActions,
+            leading: leading,
+            automaticallyImplyLeading: automaticallyImplyLeading,
+            textScale: MediaQuery.textScalerOf(context).scale(1),
+            viewportWidth: MediaQuery.sizeOf(context).width,
           ),
-        ),
-      ),
+      body: cMaterial
+          ? SoriCLearningBackground(child: pageBody)
+          : SoriScreenBackground(particles: particles, child: pageBody),
       bottomNavigationBar: bottomNavigationBar,
     );
   }
@@ -151,6 +170,9 @@ class SoriStandardPage extends StatelessWidget {
     this.showHome = true,
     this.fill = false,
     this.fillIntrinsic = true,
+    this.cMaterial = false,
+    this.cPaperBody = false,
+    this.headerBuilder,
   }) : assert(
          headline != null || (eyebrow == null && description == null),
          'eyebrow와 description은 headline이 있을 때만 사용할 수 있다.',
@@ -186,10 +208,18 @@ class SoriStandardPage extends StatelessWidget {
   /// `false` 로 넘긴다 — [SoriMinHeightScroll]의 클래스 doc 참고
   /// (예: `practice_hub_screen.dart`의 `ModuleCard`).
   final bool fillIntrinsic;
+  final bool cMaterial;
+  final bool cPaperBody;
+  final PreferredSizeWidget Function(
+    BuildContext context,
+    Widget? leading,
+    List<Widget> actions,
+  )?
+  headerBuilder;
 
   @override
   Widget build(BuildContext context) {
-    final header = headline == null
+    Widget? header = headline == null
         ? null
         : SoriPageHeader(
             eyebrow: eyebrow,
@@ -197,6 +227,13 @@ class SoriStandardPage extends StatelessWidget {
             body: description,
             trailing: headerTrailing,
           );
+
+    if (cMaterial && header != null) {
+      header = SoriCMaterialSurface(
+        padding: const EdgeInsets.all(SoriCLearningTokens.group),
+        child: header,
+      );
+    }
 
     return SoriStandardFrame(
       appBarTitle: appBarTitle,
@@ -207,11 +244,17 @@ class SoriStandardPage extends StatelessWidget {
       padding: padding,
       particles: particles,
       showHome: showHome,
+      cMaterial: cMaterial,
+      cPaperBody: cPaperBody,
+      headerBuilder: headerBuilder,
       builder: (context, resolvedPadding) {
         final content = [
           if (header != null) ...[
             header,
-            if (children.isNotEmpty) const SizedBox(height: Spacing.xl),
+            if (children.isNotEmpty)
+              SizedBox(
+                height: cMaterial ? SoriCLearningTokens.section : Spacing.xl,
+              ),
           ],
           ...children,
         ];

@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import 'pressable.dart';
+import 'approved_chrome_assets.dart';
+import 'tokens.dart';
 
 /// Tactile settings entry. The existing SettingsScreen owns every setting.
 class SoriSettingsButton extends StatelessWidget {
   const SoriSettingsButton({super.key});
 
-  static const asset = 'assets/icons/tactile_settings.png';
+  static const asset = ApprovedChromeAssets.settings;
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +21,15 @@ class SoriSettingsButton extends StatelessWidget {
         button: true,
         label: label,
         child: SoriPressable(
+          pressOffsetY: 2,
+          releaseCurve: SoriMotion.gentle,
+          tactileTilt: true,
           onTap: () => Navigator.of(context).pushNamed('/settings'),
           child: SizedBox.square(
             dimension: 48,
             child: Center(
               child: ExcludeSemantics(
-                child: Image.asset(asset, width: 36, height: 36),
+                child: const ApprovedChromeImage(asset: asset, size: 36),
               ),
             ),
           ),

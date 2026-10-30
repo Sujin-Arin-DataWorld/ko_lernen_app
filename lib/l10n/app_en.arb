@@ -5570,5 +5570,83 @@
   "onboardingCBuild": "Build",
   "onboardingCCollect": "Collect",
   "onboardingCCreate": "Create",
-  "grammarBookExample": "Example"
+  "grammarBookExample": "Example",
+  "atelierAutoOff": "Auto advance: Off",
+  "atelierAutoOn": "Auto advance: On",
+  "atelierChartHint": "Tap to listen. All 19 consonants are available below.",
+  "atelierDemo": "Demonstrate",
+  "atelierDemoEnd": "Finish demonstration",
+  "atelierDemoNext": "Next stroke",
+  "atelierDemoPhase": "Demonstration",
+  "atelierDemoRestart": "Show again",
+  "atelierDifficult": "Difficult",
+  "atelierDiscover": "Discover syllables",
+  "atelierDonePhase": "Complete",
+  "atelierFeedHint": "Swipe up: next card · Swipe down: previous\nDouble tap to like",
+  "atelierFinish": "Finish practice",
+  "atelierFlipHint": "Tap to flip",
+  "atelierKnown": "Known",
+  "atelierMore": "More",
+  "atelierNotYet": "Not yet",
+  "atelierPracticePhase": "Your turn",
+  "atelierRandom": "Random card",
+  "atelierRemember": "Like",
+  "atelierSaveFailed": "Not saved yet. Please try again.",
+  "atelierShare": "Share",
+  "atelierSkip": "Skip",
+  "atelierStructure": "Syllable building",
+  "atelierSubtitle": "Script. Sound. Meaning.",
+  "atelierUseInChart": "Select in the syllable chart",
+  "atelierWatchBrush": "Watch the brush first.",
+  "cHangulCardsReceipt": "{count, plural, =1{1 card action in this practice} other{{count} card actions in this practice}}",
+  "@cHangulCardsReceipt": {
+    "description": "C internal learning screen; counts are actual activity state.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cHangulCompleted": "Hangul practice complete",
+  "cHangulHardCharacters": "Difficult letters only",
+  "cHangulKeepPractising": "You can keep practising any time.",
+  "cHangulListen": "Listen",
+  "cHangulListenWord": "Hear word",
+  "cHangulSelectionTitle": "Card selection",
+  "cHangulWritingLettersReceipt": "{letters, plural, =1{1 letter practised} other{{letters} letters practised}}",
+  "@cHangulWritingLettersReceipt": {
+    "placeholders": {
+      "letters": {
+        "type": "int"
+      }
+    }
+  },
+  "cHangulWritingReceipt": "{letters, plural, =1{1 letter practised} other{{letters} letters practised}} · {strokes, plural, =1{1 stroke attempt} other{{strokes} stroke attempts}} · {mode}",
+  "@cHangulWritingReceipt": {
+    "description": "C internal learning screen; counts are actual activity state.",
+    "placeholders": {
+      "letters": {
+        "type": "int"
+      },
+      "strokes": {
+        "type": "int"
+      },
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "cHangulWritingStrokesReceipt": "{strokes, plural, =1{1 stroke attempt} other{{strokes} stroke attempts}} · {mode}",
+  "@cHangulWritingStrokesReceipt": {
+    "placeholders": {
+      "strokes": {
+        "type": "int"
+      },
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "c5AllLearningActivities": "All learning activities",
+  "c5AllGames": "All games"
 }

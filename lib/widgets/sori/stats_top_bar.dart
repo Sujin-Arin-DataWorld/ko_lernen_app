@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import 'pressable.dart';
 import 'tokens.dart';
+import 'approved_chrome_assets.dart';
+import 'settings_button.dart';
 
 /// **SoriStatsTopBar** — 워드마크 + 스트릭/레벨 칩 + 설정 진입.
 ///
@@ -74,19 +76,15 @@ class SoriStatsTopBar extends StatelessWidget {
             final textScale = MediaQuery.textScalerOf(context).scale(1);
             final stacked = !showLevelChip || textScale > 1.3;
 
-            final logo = ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
-                'assets/icons/icon-192.png',
-                width: 36,
-                height: 36,
-                fit: BoxFit.cover,
-              ),
+            const logo = ApprovedChromeImage(
+              asset: ApprovedChromeAssets.cloud,
+              size: 36,
             );
             final wordmark = Text(
               'Hangul Sori',
               style: TextStyle(
-                fontFamily: SoriFonts.sans,
+                fontFamily: SoriLocaleFonts.of(context).body,
+                fontFamilyFallback: SoriLocaleFonts.fallback,
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
                 color: s.text,
@@ -119,11 +117,7 @@ class SoriStatsTopBar extends StatelessWidget {
                     semanticLabel: effectiveProfileLabel,
                     onTap: onProfileTap!,
                   );
-            final settingsButton = _RoundIconButton(
-              icon: Icons.settings_outlined,
-              semanticLabel: t.settingsTitle,
-              onTap: () => Navigator.pushNamed(context, '/settings'),
-            );
+            const settingsButton = SoriSettingsButton();
 
             if (stacked) {
               return Column(

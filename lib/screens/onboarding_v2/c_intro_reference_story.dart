@@ -34,6 +34,9 @@ class IntroReferenceStoryHero extends StatelessWidget {
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, bounds) {
       final s = bounds.maxWidth / 402;
+      if (bounds.hasBoundedHeight) {
+        return _fittedHero(context, bounds);
+      }
       Widget at(double x, double y, double w, double h, Widget child) =>
           Positioned(
             left: x * s,
@@ -131,11 +134,15 @@ class IntroReferenceStoryHero extends StatelessWidget {
                 header: true,
                 child: Text(
                   title,
-                  style: IntroTypography.storyTitle(
-                    titleSize[index],
-                    titleLine[index],
-                    s,
-                    index,
+                  style: IntroTypography.localized(
+                    context,
+                    IntroTypography.storyTitle(
+                      titleSize[index],
+                      titleLine[index],
+                      s,
+                      index,
+                    ),
+                    heading: true,
                   ),
                 ),
               ),
@@ -175,7 +182,10 @@ class IntroReferenceStoryHero extends StatelessWidget {
                     child: Text(
                       labels[i],
                       textAlign: TextAlign.center,
-                      style: IntroTypography.storyToolLabel(s),
+                      style: IntroTypography.localized(
+                        context,
+                        IntroTypography.storyToolLabel(s),
+                      ),
                     ),
                   ),
                 ),
@@ -209,7 +219,10 @@ class IntroReferenceStoryHero extends StatelessWidget {
                       ),
                     ),
                   ),
-                  textStyle: IntroTypography.body(16, true, IntroPalette.ink),
+                  textStyle: IntroTypography.localized(
+                    context,
+                    IntroTypography.body(16, true, IntroPalette.ink),
+                  ),
                 ),
               ),
           ],
@@ -217,6 +230,121 @@ class IntroReferenceStoryHero extends StatelessWidget {
       );
     },
   );
+
+  Widget _fittedHero(BuildContext context, BoxConstraints bounds) {
+    final t = AppL10n.of(context);
+    final compact = bounds.maxHeight < 330;
+    final titleStyle = IntroTypography.localized(
+      context,
+      IntroTypography.storyTitle(
+        compact ? 27 : 32,
+        compact ? 30 : 36,
+        1,
+        index,
+      ),
+      heading: true,
+    );
+    final titleHeight = (TextPainter(
+      text: TextSpan(text: title, style: titleStyle),
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+    )..layout(maxWidth: bounds.maxWidth - 36)).height;
+    // The scene gives up decorative space first. The heading and the live sound
+    // and preview controls keep their natural text height and 48dp hit targets.
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(18, 4, 18, 6),
+          child: SizedBox(
+            height: titleHeight,
+            child: Semantics(
+              header: true,
+              child: Text(title, style: titleStyle),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Semantics(
+            button: true,
+            label: index == 1
+                ? '$title. ㄱ + ㅏ = 가. 가 · ga. $previewLabel'
+                : '$title. $previewLabel',
+            onTap: onPreview,
+            child: IntroPressable(
+              key: ValueKey('c-onboarding-preview-${index + 2}'),
+              onTap: onPreview,
+              surfaceDepth: 0,
+              pressScale: .997,
+              child: _croppedScene(context),
+            ),
+          ),
+        ),
+        if (labels.isNotEmpty)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
+            child: Row(
+              children: [
+                for (final label in labels)
+                  Expanded(
+                    child: Text(
+                      label,
+                      textAlign: TextAlign.center,
+                      style: IntroTypography.localized(
+                        context,
+                        IntroTypography.body(16, true, IntroPalette.white),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        if (index == 1)
+          const SizedBox(height: 58, child: COnboardingSoundScene()),
+        if (index == 2)
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
+            child: IntroAction(
+              key: const ValueKey('c-onboarding-games-preview-button'),
+              label: t.guideAvailabilityPreview,
+              onTap: onPreview,
+              gold: false,
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _croppedScene(BuildContext context) {
+    // The original sound tiles include the exact Korean lettering. Crop away
+    // only the German heading and painted listen control; the live UI owns them.
+    final originalSound = index == 1;
+    final canvasHeight = originalSound ? 573.052349 : 603.0;
+    final top = originalSound ? 120.0 : 150.0;
+    final bottom = originalSound ? 452.0 : 603.0;
+    return FittedBox(
+      fit: BoxFit.contain,
+      child: ClipRect(
+        child: SizedBox(
+          width: 402,
+          height: bottom - top,
+          child: Stack(
+            children: [
+              Positioned(
+                left: 0,
+                top: -top,
+                width: 402,
+                height: canvasHeight,
+                child: originalSound
+                    ? const CIntroArt('sound-original-de-hero')
+                    : IntroStoryArtwork(index: index),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 /// This is shared with the flowing large-text layout, so educational text stays
@@ -301,6 +429,7 @@ class IntroStoryArtwork extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       _ink(
+                        context,
                         t.grammarBookExample,
                         12.5,
                         20,
@@ -308,11 +437,17 @@ class IntroStoryArtwork extends StatelessWidget {
                         align: TextAlign.left,
                       ),
                       const SizedBox(height: IntroSpacing.bookLine),
-                      _ink('안녕하세요', 26, 38, korean: true),
+                      _ink(context, '안녕하세요', 26, 38, korean: true),
                       const SizedBox(height: IntroSpacing.bookLine),
-                      _ink('annyeonghaseyo', 11.5, 19),
+                      _ink(context, 'annyeonghaseyo', 11.5, 19),
                       const SizedBox(height: IntroSpacing.bookLine),
-                      _ink(t.introGreetingTranslation, 17, 24, bold: true),
+                      _ink(
+                        context,
+                        t.introGreetingTranslation,
+                        17,
+                        24,
+                        bold: true,
+                      ),
                     ],
                   ),
                 ),
@@ -325,7 +460,7 @@ class IntroStoryArtwork extends StatelessWidget {
                 child: Transform.rotate(
                   angle: -5 * math.pi / 180,
                   alignment: Alignment.topLeft,
-                  child: _ink('안녕하세요', 25, 35, korean: true),
+                  child: _ink(context, '안녕하세요', 25, 35, korean: true),
                 ),
               ),
             ],
@@ -336,6 +471,7 @@ class IntroStoryArtwork extends StatelessWidget {
   }
 
   Widget _ink(
+    BuildContext context,
     String value,
     double size,
     double line, {
@@ -346,7 +482,10 @@ class IntroStoryArtwork extends StatelessWidget {
     value,
     textScaler: TextScaler.noScaling,
     textAlign: align,
-    style: IntroTypography.bookInk(size, line, korean, bold),
+    style: IntroTypography.localized(
+      context,
+      IntroTypography.bookInk(size, line, korean, bold),
+    ),
   );
 }
 
@@ -363,10 +502,10 @@ class IntroReferenceStoryBody extends StatelessWidget {
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, bounds) {
       final t = AppL10n.of(context), s = bounds.maxWidth / 402;
-      final summarySize = const [23.0, 23.2, 25.3, 24.0, 21.5][index];
-      final summaryLine = const [30.0, 31.0, 34.0, 31.0, 31.0][index];
-      final bodySize = const [16.4, 19.5, 17.6, 19.5, 18.7][index];
-      final bodyLine = const [23.0, 26.0, 26.0, 25.0, 25.0][index];
+      final summarySize = const [20.0, 20.0, 21.0, 20.0, 20.0][index];
+      final summaryLine = const [25.0, 25.0, 26.0, 25.0, 25.0][index];
+      final bodySize = const [16.0, 17.0, 16.0, 17.0, 17.0][index];
+      final bodyLine = const [21.0, 22.0, 21.0, 22.0, 22.0][index];
       Widget text(
         String value,
         double size,
@@ -378,7 +517,10 @@ class IntroReferenceStoryBody extends StatelessWidget {
         value,
         key: key,
         textAlign: index == 2 ? TextAlign.left : TextAlign.center,
-        style: IntroTypography.storyBody(size, line, s, bold, color),
+        style: IntroTypography.localized(
+          context,
+          IntroTypography.storyBody(size, line, s, bold, color),
+        ),
       );
       return Padding(
         padding: EdgeInsets.fromLTRB(
@@ -404,8 +546,8 @@ class IntroReferenceStoryBody extends StatelessWidget {
             if (index == 0)
               text(
                 t.introTwelveTools,
-                20.5,
-                30,
+                17,
+                22,
                 bold: true,
                 color: IntroPalette.ink,
               ),

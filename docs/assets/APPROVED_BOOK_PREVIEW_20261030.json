@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "authority": "User attachments, approved for content artwork extraction on 2026-10-30",
+  "operation": "Lossless PNG crop; transparent cutout of the painted corner control; no regeneration or resampling",
+  "excluded": [
+    "outer device frame",
+    "outer status bar",
+    "outer navigation chrome",
+    "outer painted app buttons"
+  ],
+  "contentContract": "Illustration only; existing level example, speech and local-only preview state remain authoritative",
+  "items": [
+    {
+      "id": "book_capture",
+      "sourceFile": "codex-clipboard-20b7acfa-be5d-4a8f-84ac-1ab6b5ebb08b.png",
+      "sourceSha256": "aaef1e2ab9a15dabd23013bdd4bead1bdd6bf573a18465bd948f8089ad2d93dd",
+      "sourceSize": [
+        492,
+        927
+      ],
+      "cropLTRB": [
+        18,
+        312,
+        474,
+        670
+      ],
+      "excludedControlLTRB": null,
+      "assetPath": "assets/illustrations/onboarding/book_capture_approved_20261030.png",
+      "size": [
+        456,
+        358
+      ],
+      "sha256": "e455b2fe5327ab29553d92b8a8e34b2f22a6abebb93ff12be75a3e8af5276988",
+      "pixelSha256": "7a5f28783080e9cebb277732b344b6b51cbc59fe65367eeb584b658a9270d8ca"
+    },
+    {
+      "id": "book_study",
+      "sourceFile": "codex-clipboard-356b5762-c927-4b5e-9ff1-1a88152a4a7b.png",
+      "sourceSha256": "d3607520de81e1439c24714bfc5eff4d8ecf2ad488431ea148dcbc51f02b3d32",
+      "sourceSize": [
+        495,
+        922
+      ],
+      "cropLTRB": [
+        31,
+        142,
+        474,
+        446
+      ],
+      "excludedControlLTRB": [
+        400,
+        430,
+        474,
+        446
+      ],
+      "assetPath": "assets/illustrations/onboarding/book_study_approved_20261030.png",
+      "size": [
+        443,
+        304
+      ],
+      "sha256": "928e3aee78fb99b6ddaedc6d08143b2d33d47852df407e7afbf65b07c2f0c763",
+      "pixelSha256": "e414afee008b4bf207cb999a34b3f4b31858fda690e7d774b0dd91783e26a1de"
+    }
+  ]
+}

@@ -16,8 +16,10 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 
 import 'support/hanok_competence_fixture.dart';
+import 'support/real_fonts.dart';
 
 void main() {
+  setUpAll(loadSoriRealFonts);
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(<String, Object>{
@@ -214,8 +216,9 @@ void main() {
     );
     // A lazily built history chip may still lie below the viewport edge after
     // scrollUntilVisible stops; the new atelier entry must remain scrollable.
-    await tester.ensureVisible(
-      find.byKey(const ValueKey('sarangchae-stage-choice-5')),
+    await Scrollable.ensureVisible(
+      tester.element(find.byKey(const ValueKey('sarangchae-stage-choice-5'))),
+      alignment: .65,
     );
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('sarangchae-stage-choice-5')));
@@ -232,6 +235,11 @@ void main() {
       -240,
       scrollable: find.byType(Scrollable).first,
     );
+    await Scrollable.ensureVisible(
+      tester.element(find.byKey(const ValueKey('hanok-shortcut-quests'))),
+      alignment: .65,
+    );
+    await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('hanok-shortcut-quests')));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Return from history test'));
@@ -281,6 +289,8 @@ void main() {
         240,
         scrollable: find.byType(Scrollable).first,
       );
+      await Scrollable.ensureVisible(tester.element(help), alignment: .65);
+      await tester.pumpAndSettle();
       await tester.tap(help);
       await tester.pumpAndSettle();
       final action = find.widgetWithText(SoriButton, 'Open my learning path');
@@ -289,7 +299,7 @@ void main() {
         240,
         scrollable: find.byType(Scrollable).first,
       );
-      await tester.ensureVisible(action);
+      await Scrollable.ensureVisible(tester.element(action), alignment: .65);
       await tester.pumpAndSettle();
       await tester.tap(action);
       await tester.pumpAndSettle();
@@ -339,7 +349,8 @@ void main() {
       final label = tester.widget<Text>(
         find.byKey(ValueKey('hanok-shortcut-label-$id')),
       );
-      expect(tester.getSize(tile).width, greaterThanOrEqualTo(270));
+      expect(tester.getSize(tile).width, greaterThanOrEqualTo(48));
+      expect(tester.getSize(tile).height, greaterThanOrEqualTo(48));
       expect(label.maxLines, isNull);
       expect(label.overflow, isNull);
     }

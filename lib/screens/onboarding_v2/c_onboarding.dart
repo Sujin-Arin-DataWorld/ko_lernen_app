@@ -75,6 +75,9 @@ class COnboardingFrame extends StatelessWidget {
             child: LayoutBuilder(
               builder: (context, bounds) {
                 final w = bounds.maxWidth;
+                if (IntroLayout.usesReferenceText(context)) {
+                  return _finiteLayout(context, bounds);
+                }
                 final reference =
                     w >= 360 && IntroLayout.usesReferenceText(context);
                 final ctaTop = const [
@@ -272,7 +275,10 @@ class COnboardingFrame extends StatelessWidget {
                                   ),
                                   alignment: Alignment.topCenter,
                                 ),
-                                textStyle: IntroTypography.backAction(step),
+                                textStyle: IntroTypography.localized(
+                                  context,
+                                  IntroTypography.backAction(step),
+                                ),
                               ),
                             ],
                           ],
@@ -288,6 +294,181 @@ class COnboardingFrame extends StatelessWidget {
       ),
     ),
   );
+
+  Widget _finiteLayout(BuildContext context, BoxConstraints bounds) {
+    final padding = MediaQuery.paddingOf(context);
+    final availableHeight = bounds.maxHeight - padding.vertical;
+    final compactSetup =
+        step == 1 && bounds.maxWidth < 380 && availableHeight < 740;
+    final headerHeight = compactSetup ? 60.0 : 77.0;
+    final compactFooter = onBack != null && availableHeight < 740;
+    final footerHeight = compactFooter || onBack == null ? 70.0 : 122.0;
+    final contentHeight = availableHeight - footerHeight;
+    final heroHeight = step == 1
+        ? compactSetup
+              ? (contentHeight - 402).clamp(116.0, 260.0)
+              : (contentHeight - 350).clamp(170.0, 260.0)
+        : step == 7
+        ? (contentHeight * .22).clamp(136.0, 180.0)
+        : 0.0;
+    final paperTop = step == 1 || step == 7 ? heroHeight : contentHeight;
+    final header = Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: _IntroHeader(
+        step: step,
+        progress: progress,
+        compact: compactSetup,
+      ),
+    );
+    Widget headedHero() => SizedBox(
+      height: heroHeight,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          hero,
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            height: headerHeight,
+            child: header,
+          ),
+        ],
+      ),
+    );
+    final action = IntroAction(
+      key: continueKey,
+      label: continueLabel,
+      onTap: onContinue,
+      arrow: !compactFooter,
+      stableLabelCandidates: continueLabelCandidates,
+    );
+
+    return Stack(
+      children: [
+        const Positioned.fill(child: ColoredBox(color: IntroPalette.paper)),
+        Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          height: padding.top + paperTop,
+          child: const Stack(
+            fit: StackFit.expand,
+            children: [
+              CIntroArt('jade-surface', fit: BoxFit.cover),
+              ColoredBox(color: Color(0x99094838)),
+            ],
+          ),
+        ),
+        Positioned(
+          key: step == 1 || step == 7
+              ? const ValueKey('c-onboarding-paper-surface')
+              : null,
+          top: padding.top + paperTop,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          child: ClipRRect(
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(step == 1 ? IntroGeometry.paper : 0),
+            ),
+            child: const CIntroArt('paper-footer', fit: BoxFit.cover),
+          ),
+        ),
+        SafeArea(
+          child: Column(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (step == 1 || step == 7) headedHero() else header,
+                    if (step == 1)
+                      Expanded(
+                        child: SizedBox.expand(key: bodyKey, child: body),
+                      )
+                    else if (step == 7)
+                      Expanded(
+                        child: SizedBox.expand(key: bodyKey, child: body),
+                      )
+                    else ...[
+                      Expanded(child: hero),
+                      SizedBox(
+                        key: bodyKey,
+                        width: bounds.maxWidth,
+                        child: Stack(
+                          key: const ValueKey('c-onboarding-paper-surface'),
+                          children: [
+                            const Positioned.fill(
+                              child: CIntroArt(
+                                'paper-footer',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            body,
+                          ],
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 6, 12, 6),
+                child: compactFooter
+                    ? Row(
+                        children: [
+                          Semantics(
+                            button: true,
+                            label: AppL10n.of(context).onboardingV2Back,
+                            onTap: onBack,
+                            child: IntroPressable(
+                              key: backKey,
+                              onTap: onBack,
+                              child: const SizedBox.square(
+                                dimension: 48,
+                                child: ExcludeSemantics(
+                                  child: Icon(
+                                    Icons.chevron_left,
+                                    color: IntroPalette.mutedInk,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(child: action),
+                        ],
+                      )
+                    : Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          action,
+                          if (onBack != null) ...[
+                            const SizedBox(height: 4),
+                            SoriTextAction(
+                              key: backKey,
+                              label: AppL10n.of(context).onboardingV2Back,
+                              onPressed: onBack,
+                              style: TextButton.styleFrom(
+                                minimumSize: const Size(96, 48),
+                              ),
+                              textStyle: IntroTypography.localized(
+                                context,
+                                IntroTypography.backAction(step),
+                              ),
+                            ),
+                          ],
+                        ],
+                      ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
 }
 
 /// Keeps material boundaries attached to content without owning its scroll
@@ -365,7 +546,11 @@ class CIntroText extends StatelessWidget {
   Widget build(BuildContext context) => Text(
     text,
     textAlign: center ? TextAlign.center : TextAlign.start,
-    style: IntroTypography.body(size, bold, color),
+    style: IntroTypography.localized(
+      context,
+      IntroTypography.body(size, bold, color),
+      heading: bold && size >= 21,
+    ),
   );
 }
 
@@ -410,7 +595,10 @@ class IntroAction extends StatelessWidget {
                 final fontSize = gold
                     ? (arrow || compactGold ? 23.0 : 20.0)
                     : 16.0;
-                final textStyle = IntroTypography.primaryAction(fontSize, gold);
+                final textStyle = IntroTypography.localized(
+                  context,
+                  IntroTypography.primaryAction(fontSize, gold),
+                );
                 var stableHeight = 0.0;
                 if (large && stableLabelCandidates.isNotEmpty) {
                   for (final candidate in stableLabelCandidates) {
@@ -426,7 +614,10 @@ class IntroAction extends StatelessWidget {
                 final labelWidget = Text(
                   label,
                   textAlign: TextAlign.center,
-                  style: IntroTypography.primaryAction(fontSize, gold),
+                  style: IntroTypography.localized(
+                    context,
+                    IntroTypography.primaryAction(fontSize, gold),
+                  ),
                 );
                 final content = large
                     ? Padding(
@@ -550,34 +741,43 @@ class IntroAction extends StatelessWidget {
 }
 
 class _IntroHeader extends StatelessWidget {
-  const _IntroHeader({required this.step, required this.progress});
+  const _IntroHeader({
+    required this.step,
+    required this.progress,
+    this.compact = false,
+  });
   final int step;
   final String progress;
+  final bool compact;
   @override
   Widget build(BuildContext context) => SizedBox(
-    height: 77,
+    height: compact ? 60 : 77,
     child: Stack(
       clipBehavior: Clip.none,
       children: [
-        const Positioned(
+        Positioned(
           left: -4,
           top: 0,
-          width: 55,
-          height: 55,
-          child: CIntroArt('cloud-mark'),
+          width: compact ? 44 : 55,
+          height: compact ? 44 : 55,
+          child: const CIntroArt('cloud-mark'),
         ),
         Positioned(
-          left: 52,
-          top: 18,
+          left: compact ? 44 : 52,
+          top: compact ? 10 : 18,
           child: Text(
             AppL10n.of(context).onboardingCBrand,
-            textScaler: TextScaler.noScaling,
-            style: IntroTypography.brand,
+            textScaler: compact ? null : TextScaler.noScaling,
+            style: IntroTypography.localized(
+              context,
+              IntroTypography.brand,
+              heading: true,
+            ),
           ),
         ),
         Positioned(
           right: 0,
-          top: 15,
+          top: compact ? 7 : 15,
           width: 66,
           child: Semantics(
             label: progress,
@@ -585,14 +785,18 @@ class _IntroHeader extends StatelessWidget {
             child: Text(
               '${step.toString().padLeft(2, '0')}/07',
               textAlign: TextAlign.right,
-              textScaler: TextScaler.noScaling,
-              style: IntroTypography.progress,
+              textScaler: compact ? null : TextScaler.noScaling,
+              style: IntroTypography.localized(
+                context,
+                IntroTypography.progress,
+                heading: true,
+              ),
             ),
           ),
         ),
         Positioned(
-          left: 54,
-          top: 53,
+          left: compact ? 44 : 54,
+          top: compact ? 40 : 53,
           width: 227.2,
           height: 16,
           child: ExcludeSemantics(
@@ -649,6 +853,71 @@ class _IntroHero extends StatelessWidget {
       final scale = bounds.maxWidth / 402;
       final compression = _introCompression(context, bounds.maxWidth);
       final large = !IntroLayout.usesReferenceText(context);
+      if (bounds.hasBoundedHeight && !large && (setup || scene == null)) {
+        final compact = bounds.maxHeight < 210;
+        final compactSetup =
+            setup && bounds.maxWidth < 380 && bounds.maxHeight < 240;
+        final titleStyle = setup
+            ? IntroTypography.localized(
+                context,
+                IntroTypography.setupTitle(1),
+                heading: true,
+              )
+            : IntroTypography.localized(
+                context,
+                IntroTypography.companionTitle(1),
+                heading: true,
+              );
+        final headingStyle = titleStyle.copyWith(
+          fontSize: setup
+              ? (compact || compactSetup ? 22 : 28)
+              : (compact ? 24 : 30),
+          height: 1.1,
+        );
+        final nativeHeading = Semantics(
+          header: true,
+          child: Text(title, style: headingStyle),
+        );
+        if (compactSetup) {
+          final portraitWidth = (bounds.maxWidth - 252).clamp(68.0, 100.0);
+          final painter = TextPainter(
+            text: TextSpan(text: title, style: headingStyle),
+            textDirection: Directionality.of(context),
+            textScaler: MediaQuery.textScalerOf(context),
+            locale: Localizations.localeOf(context),
+          )..layout(maxWidth: bounds.maxWidth - 28 - 8 - portraitWidth);
+          final headingHeight = painter.height;
+          painter.dispose();
+          return Padding(
+            padding: const EdgeInsets.fromLTRB(16, 60, 12, 4),
+            child: Row(
+              children: [
+                Expanded(
+                  child: SizedBox(height: headingHeight, child: nativeHeading),
+                ),
+                const SizedBox(width: 8),
+                SizedBox(
+                  width: portraitWidth,
+                  height: math.min(bounds.maxHeight - 64, portraitWidth * 1.15),
+                  child: const CIntroArt('taego-header'),
+                ),
+              ],
+            ),
+          );
+        }
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(16, 77, 12, 4),
+          child: setup
+              ? Row(
+                  children: [
+                    Expanded(flex: 3, child: nativeHeading),
+                    const SizedBox(width: 4),
+                    const Expanded(flex: 2, child: CIntroArt('taego-header')),
+                  ],
+                )
+              : Align(alignment: Alignment.centerLeft, child: nativeHeading),
+        );
+      }
       final heading = Semantics(
         header: true,
         child: CIntroText(
@@ -694,7 +963,11 @@ class _IntroHero extends StatelessWidget {
                   header: true,
                   child: Text(
                     title,
-                    style: IntroTypography.companionTitle(scale),
+                    style: IntroTypography.localized(
+                      context,
+                      IntroTypography.companionTitle(scale),
+                      heading: true,
+                    ),
                   ),
                 ),
               ),
@@ -735,7 +1008,14 @@ class _IntroHero extends StatelessWidget {
                 width: 274 * scale,
                 child: Semantics(
                   header: true,
-                  child: Text(title, style: IntroTypography.setupTitle(scale)),
+                  child: Text(
+                    title,
+                    style: IntroTypography.localized(
+                      context,
+                      IntroTypography.setupTitle(scale),
+                      heading: true,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -894,7 +1174,10 @@ class _IntroHero extends StatelessWidget {
         borderRadius: BorderRadius.circular(IntroGeometry.preview),
       ),
     ),
-    textStyle: IntroTypography.body(16, true, IntroPalette.ink),
+    textStyle: IntroTypography.localized(
+      context,
+      IntroTypography.body(16, true, IntroPalette.ink),
+    ),
   );
 }
 
@@ -942,8 +1225,7 @@ class COnboardingSetup extends StatelessWidget {
       bodyKey: const ValueKey('onboarding-v2-setup-scroll'),
       body: LayoutBuilder(
         builder: (context, bounds) {
-          if (bounds.maxWidth >= SoriBreakpoints.narrowPhone &&
-              IntroLayout.usesReferenceText(context)) {
+          if (IntroLayout.usesReferenceText(context)) {
             return IntroReferenceSetup(
               copy: copy,
               selectedPurposeId: selectedPurposeId,
@@ -1412,7 +1694,10 @@ class _COnboardingSoundSceneState
               ? Center(
                   child: Text(
                     label,
-                    style: IntroTypography.primaryAction(20, true),
+                    style: IntroTypography.localized(
+                      context,
+                      IntroTypography.primaryAction(20, true),
+                    ),
                   ),
                 )
               : const SizedBox.expand(),
@@ -1492,16 +1777,30 @@ class _COnboardingSoundSceneState
     }
     return LayoutBuilder(
       builder: (context, bounds) {
-        const speaker = SizedBox.square(
-          dimension: 100,
-          child: CIntroArt('speaker'),
+        final speaker = Semantics(
+          button: true,
+          selected: demoPlaying,
+          label: label,
+          onTap: _listen,
+          child: ExcludeSemantics(
+            child: IntroPressable(
+              key: const ValueKey('c-onboarding-original-speaker'),
+              onTap: _listen,
+              pressScale: .995,
+              surfaceDepth: 0,
+              child: const SizedBox.square(
+                dimension: 100,
+                child: CIntroArt('speaker'),
+              ),
+            ),
+          ),
         );
         if (bounds.maxWidth < SoriBreakpoints.introAccessibleStack &&
             MediaQuery.textScalerOf(context).scale(20) > 28) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Center(child: speaker),
+              Center(child: speaker),
               const SizedBox(height: IntroSpacing.inlineGap),
               action,
             ],
@@ -1594,8 +1893,7 @@ class COnboardingStory extends StatelessWidget {
       progress: copy.navigation.progress(pageIndex + 2, 7),
       hero: LayoutBuilder(
         builder: (context, bounds) {
-          if (bounds.maxWidth >= SoriBreakpoints.narrowPhone &&
-              IntroLayout.usesReferenceText(context)) {
+          if (IntroLayout.usesReferenceText(context)) {
             return IntroReferenceStoryHero(
               index: pageIndex,
               title: title,
@@ -1619,8 +1917,7 @@ class COnboardingStory extends StatelessWidget {
       bodyKey: ValueKey('onboarding-v2-story-scroll-${ids[pageIndex]}'),
       body: LayoutBuilder(
         builder: (context, bounds) {
-          if (bounds.maxWidth >= SoriBreakpoints.narrowPhone &&
-              IntroLayout.usesReferenceText(context)) {
+          if (IntroLayout.usesReferenceText(context)) {
             return IntroReferenceStoryBody(
               index: pageIndex,
               summary: summary,
@@ -1681,6 +1978,14 @@ class COnboardingStory extends StatelessWidget {
   }
 
   void _openPreview(BuildContext context, String label) {
+    if (pageIndex == 2) {
+      Navigator.of(context).push<void>(
+        MaterialPageRoute<void>(
+          builder: (_) => OnboardingGamesDemo.fullScreen(level: level),
+        ),
+      );
+      return;
+    }
     final preview = switch (pageIndex) {
       0 => OnboardingPathScene(
         level: level,
@@ -1722,8 +2027,7 @@ class COnboardingCompanion extends StatelessWidget {
       bodyKey: const ValueKey('onboarding-v2-companion-scroll'),
       body: LayoutBuilder(
         builder: (context, bounds) {
-          if (bounds.maxWidth >= SoriBreakpoints.narrowPhone &&
-              IntroLayout.usesReferenceText(context)) {
+          if (IntroLayout.usesReferenceText(context)) {
             return IntroReferenceCompanion(
               copy: copy,
               selectedCompanionId: selectedCompanionId,

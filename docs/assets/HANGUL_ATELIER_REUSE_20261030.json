@@ -1,0 +1,166 @@
+{
+  "sourceHead": "2d68784d3b642a14fe174de26d55b0c82209a694",
+  "policy": "Exact original bytes; source WIP untouched; latest approved chrome is retained separately.",
+  "assets": [
+    {
+      "asset": "assets/illustrations/concept_c/calligraphy_brush.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\calligraphy_brush.png",
+      "sha256": "040ecbf35016927812e66a8a1624fb62a554982bc685cf0ac3d6995d5e461364"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/craft_gold_cta.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\craft_gold_cta.png",
+      "sha256": "5d3ce82ad26b5bbf00ab5457fbef0cfaf0fb7c3e65d774f5846e1893fe98312f"
+    },
+    {
+      "asset": "assets_unused/approved_atelier_20261030/brush.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\hangul_atelier\\brush.png",
+      "sha256": "040ecbf35016927812e66a8a1624fb62a554982bc685cf0ac3d6995d5e461364",
+      "bundled": false,
+      "reason": "Old static preview brush is unused by this runtime. The pressure canvas uses exact calligraphy_brush.png (040ecbf...). Preserve the copy outside the bundle."
+    },
+    {
+      "asset": "assets/illustrations/concept_c/hangul_atelier/composition-stage.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\hangul_atelier\\composition-stage.png",
+      "sha256": "e9b2a6a65cb908c887d46a136a47290cf8f1a81f8155113a491871d38314f6a1"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/hangul_atelier/ink-desk.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\hangul_atelier\\ink-desk.png",
+      "sha256": "d0ae0f3411c2e3cd64c65cd58ae13d01292f72d7ca17a410ba8cf6a253214654"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/hangul_atelier/jade.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\hangul_atelier\\jade.png",
+      "sha256": "88bd3a7d543ac5fb7b7436c892b174ec977bc717520f218699fc137c255c77fe"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/hangul_atelier/letter-tile.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\hangul_atelier\\letter-tile.png",
+      "sha256": "63e34823786920440c3fe74dbefa50fff77140fd4d92927f9269374e34c3cb8c"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/hangul_atelier/paper-atlas.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\hangul_atelier\\paper-atlas.png",
+      "sha256": "de51969fdc7fbd7f2f4c0c87acbe5061afdaf799b9a90937c5abbf2b6570e464"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/hangul_atelier/social-heart.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\hangul_atelier\\social-heart.png",
+      "sha256": "92f20c9dfdb3e65faa43b56399fef7be38754136773674b3dbf2506186c1dc22"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/hangul_atelier/social-share.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\hangul_atelier\\social-share.png",
+      "sha256": "d6a07f08a239c422bd1fee8de03fdbfe93602b4fdcb0a97e1c030416646a9e14"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/hangul_atelier/speaker.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\hangul_atelier\\speaker.png",
+      "sha256": "5ba9ee8d83d2db10128735ccbd68f63a3df16654fda166de13c1f52408d033cc"
+    },
+    {
+      "asset": "assets/illustrations/c_learning/jade.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\c_learning\\jade.png",
+      "sha256": "88bd3a7d543ac5fb7b7436c892b174ec977bc717520f218699fc137c255c77fe"
+    },
+    {
+      "asset": "assets/illustrations/c_learning/paper-atlas.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\c_learning\\paper-atlas.png",
+      "sha256": "de51969fdc7fbd7f2f4c0c87acbe5061afdaf799b9a90937c5abbf2b6570e464"
+    }
+  ],
+  "codeSections": [
+    {
+      "path": "lib/screens/hangul_screen.dart",
+      "sourceSha256": "31f46491eaab1a487efa53da3757db518c5487798c25cd93a56d57d9d186c852",
+      "integratedSha256": "42d961a0611ed5cefff456af2503acd7bd4c80ffe30f274bae50ac08ea042772"
+    },
+    {
+      "path": "lib/screens/hangul_atelier.dart",
+      "sourceSha256": "bd11425935b0270605b5b9904b3e25fc99476b7271531a33be30b6c51fe07004",
+      "integratedSha256": "cc4e13e9a299f97ee4c31f6a4413fbda2c34b20e04eab40646ab8337bcefefdc"
+    },
+    {
+      "path": "lib/widgets/trace_canvas.dart",
+      "sourceSha256": "5cb67498fc5703bba7c55a5c1f5fcdf7319559e4b568ea2b218254db0d78c9e2",
+      "integratedSha256": "9599cd08d708a384e404c927cab5d53bab456cd7f1ceff0895925fe266a580b9"
+    },
+    {
+      "path": "lib/widgets/sori/c_gallery/c_atelier_materials.dart",
+      "sourceSha256": "d211f3ca1e760f25bf7e9bf1bb4dba418aad934e7b61f9fce8f62d459b6cf93f",
+      "integratedSha256": "9de7e14f8601de2f11832962e4a34eb586173dc016b81a75b0703ccc3fc3ea4b"
+    },
+    {
+      "path": "lib/widgets/sori/c_gallery/c_calligraphy_canvas.dart",
+      "sourceSha256": "b23509d2bb507c690387c1ba10935c9f4285504e03e68c2a595a0c0d04a7e441",
+      "integratedSha256": "b23509d2bb507c690387c1ba10935c9f4285504e03e68c2a595a0c0d04a7e441"
+    },
+    {
+      "path": "lib/widgets/sori/c_gallery/c_calligraphy_ink.dart",
+      "sourceSha256": "942d19d192d6aba470ab5780476408fbaaf2503e2e7a5e8cde521637d5620d5a",
+      "integratedSha256": "942d19d192d6aba470ab5780476408fbaaf2503e2e7a5e8cde521637d5620d5a"
+    },
+    {
+      "path": "lib/widgets/sori/c_learning_surface.dart",
+      "sourceSha256": "a6bb8a961cced96811d7e35faf33e9e73601f6260a970b057f01e9c224bddac2",
+      "integratedSha256": "b244ccc7347b26d67b19436f696cabb0a3fb4b2d75f2c221fb71eb38dff9aeb7"
+    },
+    {
+      "path": "lib/features/dancheong/dancheong_screens.dart",
+      "sourceSha256": "469481c2bb3d25da1db9a23d8dde31da5b1957519126eb5d89d8f96820193d62",
+      "integratedSha256": "79eaeec79aa1f2a93c459bb6c5984676cc9f8fc4f76e9bdb7768d392d463b042"
+    }
+  ],
+  "retainedIdenticalContracts": [
+    {
+      "path": "lib/data/hangul_data.dart",
+      "sha256": "59258bba3b9ffb21d07a0c1d01a53aaa4336aedf5afc655ab0b5cc48409237fc",
+      "sourceByteIdentical": true
+    },
+    {
+      "path": "lib/data/hangul_strokes.dart",
+      "sha256": "b81c08324d3a2a8a909493a8cd482418477acce61bf00ea89a27c7550fa87113",
+      "sourceByteIdentical": true
+    },
+    {
+      "path": "lib/services/stroke_matcher.dart",
+      "sha256": "ae2a0267c1607256021e79157021afb293fde56c29b5cd43ef4bea0f51dab056",
+      "sourceByteIdentical": true
+    },
+    {
+      "path": "lib/features/dancheong/dancheong_catalog.dart",
+      "sha256": "2779ebc3a979e6af8a4f3da2a77110bda650e04b89e05aa91e1118a48bfc2374",
+      "sourceByteIdentical": true
+    },
+    {
+      "path": "lib/features/dancheong/dancheong_controller.dart",
+      "sha256": "841afcbca91698d56ec1e7fe9a127adc6412bce6e93e165df5b94525150129e7",
+      "sourceByteIdentical": true
+    },
+    {
+      "path": "lib/features/dancheong/dancheong_store.dart",
+      "sha256": "56b229baf0d5d4c4e8f236c38e1e27cd8203989c338c95fb199d8bea0600c77b",
+      "sourceByteIdentical": true
+    },
+    {
+      "path": "lib/features/dancheong/dancheong_renderer.dart",
+      "sha256": "511c1cc604eae89a47fa5c2066a675dc47e2d6cf5c2729469bffb9531e122d04",
+      "sourceByteIdentical": true
+    }
+  ],
+  "runtimeContract": "Existing /hangul route and data/assessment owners retained; pointer pressure/time is a visual sidecar; canonical 220 coordinates feed the unchanged matcher. Completion records unique accepted glyphs, not demonstration strokes. Scoped Hangul storage queue keeps the same hard/strict keys and adds the original auto-advance preference with account/reset guards. Dancheong changes are material opt-ins only.",
+  "fontAndChrome": "CAtelier and material header resolve SoriLocaleFonts from their real BuildContext. Korean keeps learningKorean. Cloud and settings reuse current ApprovedChromeAssets; no old source font or chrome asset is promoted.",
+  "officialReferencesCheckedOn": "2026-10-30",
+  "officialReferences": [
+    "https://api.flutter.dev/flutter/widgets/WidgetsBindingObserver/didChangeAppLifecycleState.html",
+    "https://api.flutter.dev/flutter/rendering/RenderBox/globalToLocal.html",
+    "https://api.flutter.dev/flutter/gestures/PointerEvent/pressure.html"
+  ],
+  "integrationAdapters": [
+    "StudyFrame optional visual/surface props retain frame-owned exits and input-lock scope",
+    "HomeAction optional content/visual props retain original leave/navigation methods",
+    "One actual public CAtelierTabs owns the adopted tab chrome; StudyFrame inventory follows its Dart part",
+    "Only Hangul-local Storage hard/strict/auto APIs changed; no Dancheong controller/store/renderer/matcher changes"
+  ]
+}

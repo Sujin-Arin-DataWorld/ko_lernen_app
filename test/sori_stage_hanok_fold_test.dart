@@ -113,7 +113,10 @@ void main() {
     final scrolledRect = tester.getRect(mapKey);
     expect(scrolledRect.height, lessThan(expandedHeight));
     expect(scrolledRect.height, greaterThanOrEqualTo(88));
-    expect(scrolledRect.top, lessThanOrEqualTo(80));
+    final chrome = tester.getRect(
+      find.byKey(const ValueKey('sori-root-top-chrome')),
+    );
+    expect(scrolledRect.top, closeTo(chrome.bottom + kToolbarHeight, .5));
     expect(tester.takeException(), isNull);
   });
 

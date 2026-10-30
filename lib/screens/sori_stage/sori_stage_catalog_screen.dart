@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 import '../../widgets/sori/window_class.dart';
 
 import 'package:flutter/material.dart';
@@ -14,18 +15,21 @@ import '../../services/storage_service.dart';
 import '../../services/today_learning_snapshot.dart';
 import '../../widgets/sori/activity_sheet.dart';
 import '../../widgets/sori/activity_illustration.dart';
-import '../../widgets/sori/settings_button.dart';
+import '../../widgets/sori/approved_figma_scene.dart';
+import '../../widgets/sori/c_gallery/c_materials.dart';
+import '../../widgets/sori/top_chrome.dart';
 import '../../widgets/sori/study_library_button.dart';
 import '../../widgets/sori/book_capture_choice.dart';
 import '../../widgets/sori/media_phrase_link.dart';
 import '../../widgets/sori/catalog_card.dart';
 import '../../widgets/sori/card.dart';
-import '../../widgets/sori/collapsing_header.dart';
+import '../../widgets/sori/button.dart';
 import '../../widgets/sori/learning_focus.dart';
 import '../../widgets/sori/responsive.dart';
-import '../../widgets/sori/screen_background.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/toast.dart';
+import 'c_stage_chrome.dart';
+import 'c5_catalog_overview.dart';
 import 'sori_stage_common.dart';
 import 'sori_stage_reward_receipt_sheet.dart';
 
@@ -40,10 +44,12 @@ class SoriStageCatalogScreen extends StatefulWidget {
     this.loadSnapshot,
     this.refreshGeneration = 0,
     this.active = true,
+    this.initialShowAll = false,
   });
   final SoriStageTab tab;
   final Future<SoriStageProgressionSnapshot> Function()? loadSnapshot;
   final bool active;
+  final bool initialShowAll;
   final int refreshGeneration;
 
   @override
@@ -63,6 +69,23 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
   bool _jumping = false;
   bool _selectionScheduled = false;
   bool _opening = false;
+  late bool _showAll;
+  double _overviewOffset = 0;
+  double _catalogOffset = 0;
+
+  double get _catalogHeaderInset {
+    final viewport = _viewport.currentContext?.findRenderObject();
+    final width = viewport is RenderBox && viewport.hasSize
+        ? viewport.size.width
+        : MediaQuery.sizeOf(context).width;
+    return kToolbarHeight +
+        SoriTopChrome.metrics(
+          context,
+          math.max(1, math.min(880, width - 40)),
+        ).height +
+        8;
+  }
+
   int _openGeneration = 0;
 
   Future<SoriStageProgressionSnapshot> _load() =>
@@ -71,6 +94,7 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
   @override
   void initState() {
     super.initState();
+    _showAll = widget.initialShowAll;
     _scroll.addListener(_sectionChanged);
     cloudWriteSessionController.changes.addListener(_accountChanged);
     Storage.catalogHistoryChanges.addListener(_historyChanged);
@@ -164,7 +188,8 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
     if (viewport is! RenderBox || !viewport.hasSize) {
       return;
     }
-    final threshold = viewport.localToGlobal(Offset.zero).dy + 80;
+    final threshold =
+        viewport.localToGlobal(Offset.zero).dy + _catalogHeaderInset;
     var current = SoriLearnSection.words;
     for (final section in SoriLearnSection.values) {
       final box = _sectionKeys[section]!.currentContext?.findRenderObject();
@@ -185,8 +210,15 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
   }
 
   Future<void> _jump(SoriLearnSection section) async {
+    if (!_showAll) {
+      _toggleCatalog(true);
+      await WidgetsBinding.instance.endOfFrame;
+      if (!mounted) {
+        return;
+      }
+    }
     final target = _sectionKeys[section]!.currentContext;
-    if (target == null) {
+    if (target == null || !target.mounted) {
       return;
     }
     setState(() => _selected = section);
@@ -194,11 +226,37 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
     try {
       await Scrollable.ensureVisible(
         target,
-        alignment: (72 / _scroll.position.viewportDimension).clamp(0.0, 1.0),
+        alignment: (_catalogHeaderInset / _scroll.position.viewportDimension)
+            .clamp(0.0, 1.0),
         duration: MediaQuery.disableAnimationsOf(context)
             ? Duration.zero
             : const Duration(milliseconds: 220),
       );
+      // A pinned brand/wallet row grows at large text. Keep the entire target
+      // heading below its actual obstruction after the first scroll layout.
+      await WidgetsBinding.instance.endOfFrame;
+      if (!mounted || !target.mounted) {
+        return;
+      }
+      final box = target.findRenderObject();
+      final viewport = _viewport.currentContext?.findRenderObject();
+      if (mounted &&
+          box is RenderBox &&
+          viewport is RenderBox &&
+          _scroll.hasClients) {
+        final missing =
+            viewport.localToGlobal(Offset.zero).dy +
+            _catalogHeaderInset -
+            box.localToGlobal(Offset.zero).dy;
+        if (missing > .5) {
+          _scroll.jumpTo(
+            (_scroll.offset - missing).clamp(
+              0.0,
+              _scroll.position.maxScrollExtent,
+            ),
+          );
+        }
+      }
     } finally {
       _jumping = false;
     }
@@ -400,6 +458,139 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
     );
   }
 
+  void _toggleCatalog(bool showAll) {
+    if (_showAll == showAll) {
+      return;
+    }
+    if (_scroll.hasClients) {
+      if (_showAll) {
+        _catalogOffset = _scroll.offset;
+      } else {
+        _overviewOffset = _scroll.offset;
+      }
+    }
+    setState(() => _showAll = showAll);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !_scroll.hasClients) {
+        return;
+      }
+      _scroll.jumpTo(
+        (showAll ? _catalogOffset : _overviewOffset).clamp(
+          0.0,
+          _scroll.position.maxScrollExtent,
+        ),
+      );
+    });
+  }
+
+  /// C5 artwork binds only to existing catalog launches, locks and details.
+  Widget _approvedOverview(
+    SoriStageProgressionSnapshot? data,
+    bool games, {
+    double? maxHeight,
+  }) {
+    final t = AppL10n.of(context);
+    ActivityCatalogEntry? entry(String id) => soriActivityCatalog
+        .where((item) => item.tab == widget.tab && item.id == id)
+        .firstOrNull;
+    void open(ActivityCatalogEntry item, {bool details = false}) {
+      if (details || isActivityLocked(item, data?.activityProgress[item.id])) {
+        showSoriActivitySheet(
+          context,
+          entry: item,
+          progress: data?.activityProgress[item.id],
+          onStart: () => _start(item),
+        );
+      } else {
+        _start(item);
+      }
+    }
+
+    final course = entry('course');
+    final hero = entry('syllable_cross');
+    const gameIds = [
+      'daily_game',
+      'chosung',
+      'cloze',
+      'speed_match',
+      'sentence_arcade',
+      'kkeunmari',
+    ];
+    final ownEntry = entry('custom_practice');
+    CGameReferencePart partFor(String? id) => switch (id) {
+      'daily_game' => CGameReferencePart.daily,
+      'chosung' => CGameReferencePart.firstSounds,
+      'cloze' => CGameReferencePart.cloze,
+      'speed_match' => CGameReferencePart.pairs,
+      'sentence_arcade' => CGameReferencePart.sentence,
+      'kkeunmari' => CGameReferencePart.wordChain,
+      'custom_practice' => CGameReferencePart.yourWords,
+      _ => CGameReferencePart.hero,
+    };
+    final heroPart = partFor(hero?.id);
+    final unit = LearningFocusScope.maybeOf(context)
+        ?.notifier
+        ?.value
+        ?.brief
+        ?.unit
+        .title
+        .pick(Localizations.localeOf(context).languageCode);
+    return C5CatalogOverview(
+      key: const ValueKey('c5-catalog-overview'),
+      games: games,
+      maxHeight: maxHeight,
+      primaryLabel: games
+          ? t.catalogStartSession
+          : localCopy(context, course!.title),
+      heroLabel: games
+          ? localCopy(context, hero!.title)
+          : unit ?? localCopy(context, course!.title),
+      hero: games
+          ? CGameReferenceArt(heroPart)
+          : const CReferenceArt(CReferencePart.book),
+      onPrimary: _opening ? null : () => open(games ? hero! : course!),
+      detailsLabel: t.catalogDetails,
+      onDetails: games && hero != null ? () => open(hero, details: true) : null,
+      steps: [t.soriStageActivityStart, t.catalogListen, t.onboardingCPractice],
+      tiles: games
+          ? [
+              for (final id in gameIds)
+                if (entry(id) case final item?)
+                  C5OverviewTile(
+                    key: ValueKey('c5-game-$id'),
+                    label: localCopy(context, item.title),
+                    art: CGameReferenceArt(partFor(id)),
+                    onTap: () => open(item, details: true),
+                  ),
+            ]
+          : [
+              for (final (i, section) in SoriLearnSection.values.indexed)
+                C5OverviewTile(
+                  key: ValueKey('c5-category-${section.name}'),
+                  label: [
+                    t.catalogWords,
+                    t.catalogListen,
+                    t.catalogHangul,
+                    t.catalogReview,
+                  ][i],
+                  art: ApprovedFigmaArt(
+                    scene: 'lernen-65.json',
+                    nodeId: '65:${385 + i * 3}',
+                  ),
+                  onTap: () => _jump(section),
+                ),
+            ],
+      footer: games && ownEntry != null
+          ? C5OverviewTile(
+              key: const ValueKey('c5-game-custom_practice'),
+              label: localCopy(context, ownEntry.title),
+              art: CGameReferenceArt(partFor(ownEntry.id)),
+              onTap: () => open(ownEntry, details: true),
+            )
+          : null,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -432,193 +623,274 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
       header: true,
       child: Text(value, style: text.h2.copyWith(fontSize: 20, height: 1.35)),
     );
-    return Scaffold(
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: SoriContentClamp(
-            maxWidth: 880,
-            base: const EdgeInsets.fromLTRB(20, 20, 20, 48),
-            builder: (context, padding) => CustomScrollView(
-              key: _viewport,
-              controller: _scroll,
-              slivers: [
-                SliverToBoxAdapter(child: SizedBox(height: padding.top)),
-                SliverPadding(
-                  padding: EdgeInsets.symmetric(horizontal: padding.left),
-                  sliver: Builder(
-                    builder: (context) {
-                      return SoriCollapsingHeader(
-                        title: title,
-                        titleStyle: text.h1.copyWith(
-                          fontSize: 26,
-                          height: 1.35,
-                        ),
-                        collapsedTitle: title,
-                        trailingSlots: isGames ? 1 : 2,
-                        trailing: isGames
-                            ? const SoriSettingsButton()
-                            : const Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  SoriStudyLibraryButton(),
-                                  SizedBox(width: Spacing.xs),
-                                  SoriSettingsButton(),
-                                ],
-                              ),
-                      );
-                    },
+    return PopScope(
+      canPop: !widget.active || !_showAll,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop && widget.active && _showAll) {
+          _toggleCatalog(false);
+        }
+      },
+      child: Scaffold(
+        body: CStageBackground(
+          child: SafeArea(
+            child: SoriContentClamp(
+              maxWidth: 880,
+              base: const EdgeInsets.fromLTRB(20, 20, 20, 48),
+              builder: (context, padding) => CustomScrollView(
+                key: _viewport,
+                controller: _scroll,
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: SizedBox(height: _showAll ? padding.top : 8),
                   ),
-                ),
-                const SliverToBoxAdapter(child: SizedBox(height: 16)),
-                FutureBuilder<SoriStageProgressionSnapshot>(
-                  future: _progress,
-                  builder: (context, snapshot) {
-                    final data =
-                        snapshot.connectionState == ConnectionState.done &&
-                            !snapshot.hasError
-                        ? snapshot.data
-                        : null;
-                    return SliverPadding(
-                      padding: EdgeInsets.fromLTRB(
-                        padding.left,
-                        0,
-                        padding.right,
-                        padding.bottom,
-                      ),
-                      sliver: SliverToBoxAdapter(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            _quick(data),
-                            if (!isGames) ...[
-                              LearningFocusScope.maybeOf(context) != null
-                                  ? const SoriLearningFocus()
-                                  : TextButton(
-                                      onPressed: () => _start(
-                                        entries.firstWhere(
-                                          (e) => e.id == 'course',
+                  SliverPadding(
+                    padding: EdgeInsets.symmetric(horizontal: padding.left),
+                    sliver: Builder(
+                      builder: (context) {
+                        return SoriRootHeader(
+                          title: title,
+                          foreground: CPalette.paper,
+                          background: CPalette.jade,
+                          trailingSlots: (isGames ? 0 : 1) + (_showAll ? 1 : 0),
+                          trailing: !_showAll && isGames
+                              ? null
+                              : Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    if (_showAll)
+                                      IconButton(
+                                        key: const ValueKey('c5-catalog-close'),
+                                        tooltip: t.btnClose,
+                                        onPressed: () => _toggleCatalog(false),
+                                        icon: const Icon(
+                                          Icons.close_rounded,
+                                          color: CPalette.paper,
                                         ),
                                       ),
-                                      child: Text(
-                                        localCopy(
-                                          context,
-                                          entries
-                                              .firstWhere(
-                                                (e) => e.id == 'course',
-                                              )
-                                              .title,
+                                    if (!isGames)
+                                      const IconTheme(
+                                        data: IconThemeData(
+                                          color: CPalette.paper,
                                         ),
+                                        child: SoriStudyLibraryButton(),
+                                      ),
+                                  ],
+                                ),
+                        );
+                      },
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: SizedBox(height: _showAll ? 16 : 4),
+                  ),
+                  FutureBuilder<SoriStageProgressionSnapshot>(
+                    future: _progress,
+                    builder: (context, snapshot) {
+                      final data =
+                          snapshot.connectionState == ConnectionState.done &&
+                              !snapshot.hasError
+                          ? snapshot.data
+                          : null;
+                      if (!_showAll) {
+                        return SliverLayoutBuilder(
+                          builder: (context, constraints) {
+                            final normal =
+                                MediaQuery.textScalerOf(context).scale(16) <=
+                                16.1;
+                            final available =
+                                constraints.viewportMainAxisExtent -
+                                constraints.precedingScrollExtent -
+                                64;
+                            return SliverPadding(
+                              padding: const EdgeInsets.only(bottom: 8),
+                              sliver: SliverToBoxAdapter(
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    _approvedOverview(
+                                      data,
+                                      isGames,
+                                      maxHeight:
+                                          normal &&
+                                              available >= 280 &&
+                                              MediaQuery.viewInsetsOf(
+                                                    context,
+                                                  ).bottom ==
+                                                  0
+                                          ? available.clamp(280.0, 900.0)
+                                          : null,
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: padding.left,
+                                      ),
+                                      child: SoriButton.outlined(
+                                        key: const ValueKey('c5-catalog-all'),
+                                        cMaterial: true,
+                                        fullWidth: true,
+                                        label: isGames
+                                            ? t.c5AllGames
+                                            : t.c5AllLearningActivities,
+                                        onTap: () => _toggleCatalog(true),
                                       ),
                                     ),
-                              const SizedBox(height: Spacing.lg),
-                            ],
-                            if (snapshot.hasError) ...[
-                              Text(
-                                t.catalogProgressUnavailable,
-                                style: text.bodySmall,
-                              ),
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: TextButton(
-                                  onPressed: _reload,
-                                  child: Text(t.btnRetry),
+                                  ],
                                 ),
                               ),
-                            ],
-                            if (featured != null) ...[
-                              _card(featured, data, featured: true),
-                              const SizedBox(height: 24),
-                              heading(t.catalogAnotherRound),
-                              const SizedBox(height: 12),
-                              _grid(
-                                entries
-                                    .where((e) => e.id != featured.id)
-                                    .toList(),
-                                data,
-                              ),
-                            ] else ...[
-                              const SizedBox(height: 20),
-                              heading(t.catalogChoosePractice),
-                              const SizedBox(height: 4),
-                              Wrap(
-                                spacing: 8,
-                                runSpacing: 8,
-                                children: [
-                                  for (final section in SoriLearnSection.values)
-                                    ChoiceChip(
-                                      key: ValueKey(
-                                        'learn-category-${section.name}',
-                                      ),
-                                      selected: _selected == section,
-                                      showCheckmark: false,
-                                      selectedColor: SoriColors.primary,
-                                      backgroundColor:
-                                          SoriCard.resolvedBackground(context),
-                                      side: BorderSide(
-                                        color: _selected == section
-                                            ? SoriColors.primary
-                                            : SoriColors.primary.withValues(
-                                                alpha: .6,
-                                              ),
-                                      ),
-                                      shape: const StadiumBorder(),
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: 4,
-                                      ),
-                                      labelPadding: const EdgeInsets.symmetric(
-                                        horizontal: 6,
-                                      ),
-                                      materialTapTargetSize:
-                                          MaterialTapTargetSize.padded,
-                                      onSelected: (_) => _jump(section),
-                                      label: Text(
-                                        sectionLabels[section]!,
-                                        style: text.bodySmall.copyWith(
-                                          fontSize: 15,
-                                          height: 1.35,
-                                          fontWeight: _selected == section
-                                              ? FontWeight.w600
-                                              : FontWeight.w400,
-                                          color: _selected == section
-                                              ? Colors.white
-                                              : Theme.of(context).brightness ==
-                                                    Brightness.dark
-                                              ? SoriColors.primaryOnDark
-                                              : SoriColors.primary,
+                            );
+                          },
+                        );
+                      }
+                      return SliverPadding(
+                        padding: EdgeInsets.fromLTRB(
+                          padding.left,
+                          0,
+                          padding.right,
+                          padding.bottom,
+                        ),
+                        sliver: SliverToBoxAdapter(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              _quick(data),
+                              if (!isGames) ...[
+                                LearningFocusScope.maybeOf(context) != null
+                                    ? const SoriLearningFocus()
+                                    : TextButton(
+                                        onPressed: () => _start(
+                                          entries.firstWhere(
+                                            (e) => e.id == 'course',
+                                          ),
+                                        ),
+                                        child: Text(
+                                          localCopy(
+                                            context,
+                                            entries
+                                                .firstWhere(
+                                                  (e) => e.id == 'course',
+                                                )
+                                                .title,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                ],
-                              ),
-                              for (final section
-                                  in SoriLearnSection.values) ...[
-                                Padding(
-                                  key: _sectionKeys[section],
-                                  padding: EdgeInsets.only(
-                                    top: section == SoriLearnSection.words
-                                        ? 8
-                                        : 24,
-                                    bottom: 8,
+                                const SizedBox(height: Spacing.lg),
+                              ],
+                              if (snapshot.hasError) ...[
+                                Text(
+                                  t.catalogProgressUnavailable,
+                                  style: text.bodySmall,
+                                ),
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: TextButton(
+                                    onPressed: _reload,
+                                    child: Text(t.btnRetry),
                                   ),
-                                  child: heading(sectionTitles[section]!),
                                 ),
-                                if (section == SoriLearnSection.listen)
-                                  const SoriMediaPhraseLink(),
+                              ],
+                              if (featured != null) ...[
+                                _card(featured, data, featured: true),
+                                const SizedBox(height: 24),
+                                heading(t.catalogAnotherRound),
+                                const SizedBox(height: 12),
                                 _grid(
                                   entries
-                                      .where((e) => e.learnSection == section)
+                                      .where((e) => e.id != featured.id)
                                       .toList(),
                                   data,
                                 ),
+                              ] else ...[
+                                const SizedBox(height: 20),
+                                heading(t.catalogChoosePractice),
+                                const SizedBox(height: 4),
+                                Wrap(
+                                  spacing: 8,
+                                  runSpacing: 8,
+                                  children: [
+                                    for (final section
+                                        in SoriLearnSection.values)
+                                      ChoiceChip(
+                                        key: ValueKey(
+                                          'learn-category-${section.name}',
+                                        ),
+                                        selected: _selected == section,
+                                        showCheckmark: false,
+                                        selectedColor: SoriColors.primary,
+                                        backgroundColor:
+                                            SoriCard.resolvedBackground(
+                                              context,
+                                            ),
+                                        side: BorderSide(
+                                          color: _selected == section
+                                              ? SoriColors.primary
+                                              : SoriColors.primary.withValues(
+                                                  alpha: .6,
+                                                ),
+                                        ),
+                                        shape: const StadiumBorder(),
+                                        padding: const EdgeInsets.symmetric(
+                                          vertical: 4,
+                                        ),
+                                        labelPadding:
+                                            const EdgeInsets.symmetric(
+                                              horizontal: 6,
+                                            ),
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.padded,
+                                        onSelected: (_) => _jump(section),
+                                        label: Text(
+                                          sectionLabels[section]!,
+                                          style: text.bodySmall.copyWith(
+                                            fontSize: 15,
+                                            height: 1.35,
+                                            fontWeight: _selected == section
+                                                ? FontWeight.w600
+                                                : FontWeight.w400,
+                                            color: _selected == section
+                                                ? Colors.white
+                                                : Theme.of(
+                                                        context,
+                                                      ).brightness ==
+                                                      Brightness.dark
+                                                ? SoriColors.primaryOnDark
+                                                : SoriColors.primary,
+                                          ),
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                                for (final section
+                                    in SoriLearnSection.values) ...[
+                                  Padding(
+                                    key: _sectionKeys[section],
+                                    padding: EdgeInsets.only(
+                                      top: section == SoriLearnSection.words
+                                          ? 8
+                                          : 24,
+                                      bottom: 8,
+                                    ),
+                                    child: heading(sectionTitles[section]!),
+                                  ),
+                                  if (section == SoriLearnSection.listen)
+                                    const SoriMediaPhraseLink(),
+                                  _grid(
+                                    entries
+                                        .where((e) => e.learnSection == section)
+                                        .toList(),
+                                    data,
+                                  ),
+                                ],
                               ],
                             ],
-                          ],
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                ),
-              ],
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),

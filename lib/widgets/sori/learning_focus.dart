@@ -10,6 +10,8 @@ import 'card.dart';
 import 'tokens.dart';
 import 'window_class.dart';
 import 'activity_illustration.dart';
+import 'c_gallery/c_materials.dart';
+import 'c_gallery/c_objects.dart';
 
 class LearningFocusScope extends InheritedNotifier<LearningFocusController> {
   const LearningFocusScope({
@@ -30,8 +32,23 @@ class LearningFocusScope extends InheritedNotifier<LearningFocusController> {
 }
 
 class SoriLearningFocus extends StatelessWidget {
-  const SoriLearningFocus({super.key, this.introduction});
+  const SoriLearningFocus({
+    super.key,
+    this.introduction,
+    this.conceptC = false,
+    this.conceptArt,
+    this.conceptSummary = true,
+    this.conceptCourseOverview = true,
+    this.conceptArtOnlyAction = false,
+    this.conceptCompactSummary = false,
+  });
   final Widget? introduction;
+  final bool conceptC;
+  final Widget? conceptArt;
+  final bool conceptSummary;
+  final bool conceptCourseOverview;
+  final bool conceptArtOnlyAction;
+  final bool conceptCompactSummary;
   @override
   Widget build(BuildContext context) {
     final scope = LearningFocusScope.maybeOf(context)!;
@@ -63,6 +80,164 @@ class SoriLearningFocus extends StatelessWidget {
             subject.contains('카페')
         ? SoriArtwork.coffee
         : SoriArtwork.action(entry?.id ?? 'course');
+    if (conceptC) {
+      final body = text.body.copyWith(
+        fontSize: 16,
+        height: 1.3,
+        color: CPalette.ink,
+      );
+      final compact =
+          MediaQuery.sizeOf(context).height < 750 &&
+          MediaQuery.textScalerOf(context).scale(16) <= 16;
+      final artHeight = conceptCompactSummary
+          ? (compact ? 48.0 : 96.0)
+          : (compact ? 88.0 : 146.0);
+      final subjectArt =
+          conceptArt ??
+          SizedBox(
+            height: artHeight,
+            child:
+                subject.contains('coffee') ||
+                    subject.contains('kaffee') ||
+                    subject.contains('카페')
+                ? CSceneArt(CScene.coffee, height: artHeight)
+                : switch (focus?.today.pick) {
+                    HangulIntroPick() => const CReferenceArt(
+                      CReferencePart.hangul,
+                    ),
+                    ReviewPick() => const CReferenceArt(CReferencePart.review),
+                    _ => const CObjectArt(CObject.book),
+                  },
+          );
+      VoidCallback? start =
+          controller.loading || controller.launching || focus?.ready != true
+          ? null
+          : () => scope.open(
+              context,
+              focus!.destination!,
+              focus: focus,
+              activityId: focus.activityId,
+            );
+      return Column(
+        key: const ValueKey('learning-focus-surface'),
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (introduction != null) introduction!,
+          if (conceptSummary) ...[
+            Wrap(
+              spacing: 8,
+              runSpacing: 4,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
+                Text(t.soriStageTodayMissionEyebrow, style: body),
+                if (focus?.minutes case final minutes?)
+                  Text(
+                    [
+                      if (focus?.brief?.unit.level case final level?)
+                        level.toUpperCase(),
+                      t.learningFocusMinutes(minutes),
+                    ].join(' · '),
+                    style: body,
+                  ),
+              ],
+            ),
+            const SizedBox(height: 6),
+            Semantics(
+              header: true,
+              child: Text(
+                title,
+                style: body.copyWith(
+                  fontSize: conceptCompactSummary ? 22 : 25,
+                  fontWeight: FontWeight.w700,
+                  height: 1.15,
+                ),
+              ),
+            ),
+          ],
+          if (focus?.ready == true) ...[
+            const SizedBox(height: 8),
+            if (conceptArtOnlyAction)
+              CImageTap(
+                key: const ValueKey('learning-focus-start'),
+                label: '${t.learningFocusStart}: $title',
+                onTap: start,
+                child: subjectArt,
+              )
+            else ...[
+              subjectArt,
+              const SizedBox(height: 8),
+              CMaterialAction(
+                key: const ValueKey('learning-focus-start'),
+                label: t.learningFocusStart,
+                compact: compact,
+                onTap: start,
+              ),
+            ],
+          ],
+          if (controller.loading) ...[
+            const SizedBox(height: 12),
+            LinearProgressIndicator(semanticsLabel: t.speechIndicatorResolving),
+          ],
+          if (!controller.loading &&
+              (controller.error != null || focus?.failure != null)) ...[
+            Text(
+              focus?.failure == LearningFocusFailure.destinationUnavailable
+                  ? t.learningFocusDestinationUnavailable
+                  : t.loadErrorTryAgain,
+              style: body,
+            ),
+            const SizedBox(height: 8),
+            CMaterialAction(
+              label: t.btnRetry,
+              compact: true,
+              gold: false,
+              onTap: () => controller.refresh(force: true),
+            ),
+            if (focus?.today.isUnavailable == true &&
+                (focus?.today.dueCount ?? 0) > 0)
+              TextButton(
+                onPressed: () => scope.open(
+                  context,
+                  const TodayLearningDestination(route: '/review'),
+                ),
+                child: Text(t.reviewHubTitle, style: body),
+              ),
+          ],
+          if (!controller.loading &&
+              focus != null &&
+              focus.failure == null &&
+              !focus.ready)
+            Text(t.soriStageTodayEmpty, style: body),
+          if (conceptCourseOverview)
+            if (focus?.brief?.unit case final unit?) ...[
+              const SizedBox(height: 4),
+              Text(
+                t.learningFocusCoursePosition(
+                  unit.level.toUpperCase(),
+                  switch (focus?.today.pick) {
+                    CoursePick(:final missionNumber) => missionNumber,
+                    _ => unit.order,
+                  },
+                ),
+                style: body,
+              ),
+            ],
+          if (conceptCourseOverview)
+            TextButton(
+              key: const ValueKey('learning-focus-course-overview'),
+              style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+              onPressed: controller.launching
+                  ? null
+                  : () => scope.open(
+                      context,
+                      const TodayLearningDestination(route: '/path'),
+                      activityId: 'course',
+                    ),
+              child: Text(t.learningFocusViewCourse, style: body),
+            ),
+        ],
+      );
+    }
     final foreground = focal ? Colors.white : SoriSurfaces.of(context).text;
     final metadata = Column(
       crossAxisAlignment: CrossAxisAlignment.start,

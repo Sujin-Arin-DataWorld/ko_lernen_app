@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 
 import 'tokens.dart';
 import 'window_class.dart';
+import 'image_navigation_bar.dart';
 
 @immutable
 class SoriAdaptiveNavigationItem {
   final String label;
   final IconData icon;
   final IconData selectedIcon;
+  final String? imageAsset;
 
   const SoriAdaptiveNavigationItem({
     required this.label,
     required this.icon,
     required this.selectedIcon,
+    this.imageAsset,
   });
 }
 
@@ -59,6 +62,14 @@ class SoriAdaptiveNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     if (!usesRailForWidth(width)) {
+      if (items.length == 5 && items.every((item) => item.imageAsset != null)) {
+        return SoriImageNavigationBar(
+          selectedIndex: selectedIndex,
+          onDestinationSelected: onDestinationSelected,
+          labels: [for (final item in items) item.label],
+          assets: [for (final item in items) item.imageAsset!],
+        );
+      }
       return NavigationBar(
         selectedIndex: selectedIndex,
         onDestinationSelected: onDestinationSelected,
@@ -77,41 +88,54 @@ class SoriAdaptiveNavigation extends StatelessWidget {
     final railLabelStyle = SoriTextTheme.of(
       context,
     ).menuLabel.copyWith(letterSpacing: 0);
-    return NavigationRail(
-      selectedIndex: selectedIndex,
-      onDestinationSelected: onDestinationSelected,
-      extended: extended,
-      minWidth: _compactRailWidth,
-      minExtendedWidth: _expandedRailWidth,
-      labelType: extended
-          ? NavigationRailLabelType.none
-          : NavigationRailLabelType.all,
-      destinations: [
-        for (final item in items)
-          NavigationRailDestination(
-            icon: Icon(item.icon),
-            selectedIcon: Icon(item.selectedIcon),
-            // 라벨은 **한 줄 고정**이다. 예전엔 `maxLines: 2` 였는데, 독일어
-            // 합성어에는 줄바꿈 기회가 없어서 Flutter 가 글자 사이를 끊었다 —
-            // 96dp 레일에서 `Lerngruppe` 가 "Lerngrupp / e" 로 떨어져 UI 가
-            // 미완성처럼 보였다(2026-08-06 Jin 태블릿 실기기). 한 줄로 못을
-            // 박고, 그래도 넘치면 `FittedBox` 가 **줄바꿈이나 말줄임 대신
-            // 전체 단어를 축소**한다.
-            label: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 2),
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  item.label,
-                  style: railLabelStyle,
-                  textAlign: TextAlign.center,
-                  maxLines: 1,
-                  softWrap: false,
+    return PrimaryScrollController.none(
+      child: NavigationRail(
+        scrollable: true,
+        selectedIndex: selectedIndex,
+        onDestinationSelected: onDestinationSelected,
+        extended: extended,
+        minWidth: _compactRailWidth,
+        minExtendedWidth: _expandedRailWidth,
+        labelType: extended
+            ? NavigationRailLabelType.none
+            : NavigationRailLabelType.all,
+        destinations: [
+          for (final (index, item) in items.indexed)
+            NavigationRailDestination(
+              icon: item.imageAsset == null
+                  ? Icon(item.icon)
+                  : SoriNavigationImage(
+                      asset: item.imageAsset!,
+                      selected: selectedIndex == index,
+                    ),
+              selectedIcon: item.imageAsset == null
+                  ? Icon(item.selectedIcon)
+                  : SoriNavigationImage(
+                      asset: item.imageAsset!,
+                      selected: selectedIndex == index,
+                    ),
+              // 라벨은 **한 줄 고정**이다. 예전엔 `maxLines: 2` 였는데, 독일어
+              // 합성어에는 줄바꿈 기회가 없어서 Flutter 가 글자 사이를 끊었다 —
+              // 96dp 레일에서 `Lerngruppe` 가 "Lerngrupp / e" 로 떨어져 UI 가
+              // 미완성처럼 보였다(2026-08-06 Jin 태블릿 실기기). 한 줄로 못을
+              // 박고, 그래도 넘치면 `FittedBox` 가 **줄바꿈이나 말줄임 대신
+              // 전체 단어를 축소**한다.
+              label: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 2),
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    item.label,
+                    style: railLabelStyle,
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
+                    softWrap: false,
+                  ),
                 ),
               ),
             ),
-          ),
-      ],
+        ],
+      ),
     );
   }
 }

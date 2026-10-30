@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'c_learning_surface.dart';
 import 'hanok/eaves_corner.dart';
 import 'hanok/hanji_texture.dart';
 import 'pressable.dart';
@@ -68,6 +69,14 @@ class SoriCard extends StatefulWidget {
   /// Reading panels keep their stable surface and existing motion.
   final bool raised;
 
+  /// Opt-in C paper material. Geometry, gestures and semantics stay here;
+  /// callers use SoriCBookPanel for a book around a whole content group.
+  final bool cMaterial;
+
+  /// Optional overlay on the C paper, retaining its texture and raised edge.
+  /// Null preserves every existing material consumer.
+  final Color? cTint;
+
   /// 접근성 라벨 — null이면 child의 Semantics를 그대로 사용.
   /// tappable card는 button 역할로 트리에 등록된다.
   final String? semanticLabel;
@@ -93,6 +102,8 @@ class SoriCard extends StatefulWidget {
     this.selectable = false,
     this.selected = false,
     this.raised = false,
+    this.cMaterial = false,
+    this.cTint,
     this.semanticLabel,
     this.semanticValue,
   }) : assert(selectable || !selected, 'selected는 selectable 카드 전용');
@@ -107,7 +118,11 @@ class SoriCard extends StatefulWidget {
     BuildContext context, {
     Color? accent,
     bool tinted = false,
+    bool cMaterial = false,
   }) {
+    if (cMaterial) {
+      return SoriCLearningTokens.paper;
+    }
     final s = SoriSurfaces.of(context);
     final isLight = s.brightness == Brightness.light;
     final accentColor = accent ?? SoriColors.primary;
@@ -168,6 +183,7 @@ class _SoriCardState extends State<SoriCard> {
           context,
           accent: widget.accent,
           tinted: widget.tinted,
+          cMaterial: widget.cMaterial,
         );
 
     // 표면 v2 테두리 규칙 (§4.1·§10.3): 라이트 기본은 무테두리.
@@ -224,7 +240,20 @@ class _SoriCardState extends State<SoriCard> {
     }
 
     Widget body;
-    if (_useHanji) {
+    if (widget.cMaterial) {
+      body = SoriCMaterialSurface(
+        borderRadius: _borderRadius,
+        tint: widget.cTint,
+        child: DecoratedBox(
+          position: DecorationPosition.foreground,
+          decoration: BoxDecoration(
+            borderRadius: _borderRadius,
+            border: border,
+          ),
+          child: content,
+        ),
+      );
+    } else if (_useHanji) {
       // hanji 는 HanjiTexture 가 배경을 그린다 — 그림자는 바깥, 테두리는
       // 전경(foreground)으로 올려 텍스처가 테두리를 덮지 않게 한다.
       body = Container(

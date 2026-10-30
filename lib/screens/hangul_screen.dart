@@ -3,43 +3,43 @@ import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/semantics.dart';
 
 import '../models/feedback_completion.dart';
 import '../models/guide_contract.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/card.dart';
-import '../widgets/sori/chip.dart';
-import '../widgets/sori/chrome_row.dart';
-import '../widgets/sori/button.dart';
-import '../widgets/sori/content_feedback_card.dart';
-import '../widgets/sori/content_feed.dart';
-import '../widgets/sori/confirmed_choice_action.dart';
 import '../widgets/sori/dialog.dart';
+import '../widgets/sori/toast.dart';
+import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/confirmed_choice_action.dart';
 import '../widgets/sori/content_share_recovery.dart';
 import '../services/liked_content_service.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
-import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/study_frame.dart';
-import '../widgets/sori/sheet.dart';
-import '../widgets/sori/tts_speed_control.dart';
-import '../widgets/sori/window_class.dart';
 import '../data/hangul_data.dart';
 import '../data/hangul_strokes.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/stroke_matcher.dart';
 import '../widgets/flip_card.dart';
-import '../widgets/stroke_canvas.dart';
 import '../widgets/trace_canvas.dart';
-import '../widgets/hangul_syllable_table.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/tts_recorded_jamo.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../widgets/sori/c_gallery/c_atelier_materials.dart';
+import '../widgets/sori/c_gallery/c_calligraphy_canvas.dart';
+import '../widgets/sori/c_gallery/c_calligraphy_ink.dart';
+import '../services/hangul_util.dart';
+import '../services/tts_service.dart';
+import '../services/local_data_lifetime.dart';
+import '../services/account/cloud_write_session.dart';
+import 'settings_screen.dart' show SettingsInitialFocus;
+
+part 'hangul_atelier.dart';
 
 class HangulScreen extends StatefulWidget {
   const HangulScreen({
@@ -61,15 +61,80 @@ class HangulScreen extends StatefulWidget {
 }
 
 class _HangulScreenState extends State<HangulScreen>
-    with SingleTickerProviderStateMixin, ScreenCoachMixin<HangulScreen> {
+    with
+        SingleTickerProviderStateMixin,
+        ScreenCoachMixin<HangulScreen>,
+        WidgetsBindingObserver {
   late final TabController _tabs;
   int _tabIndex = 0;
+  bool _foreground = true, _settingsOpen = false, _retired = false;
+  bool get _enabled => _foreground && !_settingsOpen && !_retired;
+  var _writingKey = GlobalKey<_WriteTabState>();
+  int _accountEpoch = cloudWriteSessionController.identityEpoch;
+  void _accountChanged() {
+    final current = cloudWriteSessionController.identityEpoch;
+    if (_accountEpoch == current) {
+      return;
+    }
+    _accountEpoch = current;
+    _retireLocalSession();
+  }
+
+  void _retireLocalSession() {
+    _pause();
+    if (mounted) {
+      setState(() => _retired = true);
+    }
+  }
+
+  void _pause() {
+    _writingKey.currentState?._pause();
+    unawaited(SoriSpeech.stop());
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state != AppLifecycleState.resumed) {
+      _pause();
+    }
+    if (mounted) {
+      setState(() => _foreground = state == AppLifecycleState.resumed);
+    }
+  }
+
+  Future<void> _openSettings({bool voice = false}) async {
+    if (_settingsOpen) {
+      return;
+    }
+    _pause();
+    setState(() => _settingsOpen = true);
+    try {
+      await Navigator.of(context).pushNamed(
+        '/settings',
+        arguments: voice ? SettingsInitialFocus.voiceSpeed : null,
+      );
+    } finally {
+      if (mounted) {
+        setState(() => _settingsOpen = false);
+        if (_retired) {
+          setState(() {
+            _writingKey = GlobalKey<_WriteTabState>();
+            _cardsKey = GlobalKey<_CardsTabState>();
+            _retired = false;
+          });
+        }
+        _writingKey.currentState?._refreshPreferences();
+      }
+    }
+  }
+
   final FeedbackCompletionSlot _cardsCompletion = FeedbackCompletionSlot();
   final FeedbackCompletionSlot _writingCompletion = FeedbackCompletionSlot();
   late final QuestAbandonTracker _abandonTracker;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _tabBarKey = GlobalKey();
+  var _cardsKey = GlobalKey<_CardsTabState>();
 
   @override
   String get coachId => 'hangul';
@@ -90,10 +155,16 @@ class _HangulScreenState extends State<HangulScreen>
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    LocalDataLifetime.changes.addListener(_retireLocalSession);
+    cloudWriteSessionController.changes.addListener(_accountChanged);
     _tabIndex = widget.initialTarget.index;
     _tabs = TabController(length: 3, initialIndex: _tabIndex, vsync: this);
     _tabs.addListener(() {
-      if (_tabs.index != _tabIndex) setState(() => _tabIndex = _tabs.index);
+      if (_tabs.index != _tabIndex) {
+        _pause();
+        setState(() => _tabIndex = _tabs.index);
+      }
     });
     scheduleCoach();
     Analytics.lessonStarted(lessonType: 'hangul');
@@ -111,6 +182,10 @@ class _HangulScreenState extends State<HangulScreen>
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    LocalDataLifetime.changes.removeListener(_retireLocalSession);
+    cloudWriteSessionController.changes.removeListener(_accountChanged);
+    _pause();
     _abandonTracker.dispose();
     _tabs.dispose();
     super.dispose();
@@ -147,6 +222,9 @@ class _HangulScreenState extends State<HangulScreen>
   }
 
   Future<void> _finishCards(int interactionCount) async {
+    if (!mounted || !_enabled || interactionCount <= 0) {
+      return;
+    }
     if (interactionCount > 0) {
       LearningJourneyObserver.beginAttempt()?.complete();
     }
@@ -159,11 +237,17 @@ class _HangulScreenState extends State<HangulScreen>
         interactionCount: interactionCount,
       ),
     );
-    await _showCompletion(completion, t.testerFeedbackCompleteHangul);
+    await _showCompletion(
+      completion,
+      summary: t.cHangulCardsReceipt(interactionCount),
+    );
     _cardsCompletion.reset();
   }
 
   Future<void> _finishWriting(HangulWritingResult result) async {
+    if (!mounted || !_enabled || result.letters <= 0) {
+      return;
+    }
     if (result.letters > 0) {
       LearningJourneyObserver.beginAttempt()?.complete();
     }
@@ -178,49 +262,114 @@ class _HangulScreenState extends State<HangulScreen>
         strict: result.strict,
       ),
     );
-    await _showCompletion(completion, t.testerFeedbackCompleteHangul);
+    await _showCompletion(
+      completion,
+      summary: t.cHangulWritingReceipt(
+        result.letters,
+        result.strokes,
+        result.strict ? t.hangulCheckModeExam : t.hangulCheckModePractice,
+      ),
+      primarySummary: t.cHangulWritingLettersReceipt(result.letters),
+      detailSummary: t.cHangulWritingStrokesReceipt(
+        result.strokes,
+        result.strict ? t.hangulCheckModeExam : t.hangulCheckModePractice,
+      ),
+      glyphs: result.glyphs,
+    );
     _writingCompletion.reset();
   }
 
   Future<void> _showCompletion(
-    FeedbackCompletion completion,
-    String title,
-  ) async {
-    await showSoriSheet<void>(
-      context: context,
-      builder: (sheetContext) {
-        final t = AppL10n.of(sheetContext);
-        final feedbackScope = ContentFeedbackControllerScope.maybeOf(
-          sheetContext,
-        );
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              title,
-              style: SoriTextTheme.of(sheetContext).h2,
-              textAlign: TextAlign.center,
-            ),
-            if (feedbackScope != null &&
-                feedbackScope.featureGate.isEnabled) ...[
-              const SizedBox(height: Spacing.lg),
-              ContentFeedbackCard(
-                feedbackContext: completion.context,
-                featureGate: feedbackScope.featureGate,
-                submitFeedback: feedbackScope.submitFeedback,
-                completedMissionIds: feedbackScope.completedMissionIds,
+    FeedbackCompletion completion, {
+    required String summary,
+    String? primarySummary,
+    String? detailSummary,
+    List<String> glyphs = const [],
+  }) async {
+    final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
+    _pause();
+    await _atelierDialog(context, AppL10n.of(context).cHangulCompleted, (
+      sheetContext,
+    ) {
+      final t = AppL10n.of(sheetContext);
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Semantics(
+            key: const Key('hangul-completion-receipt'),
+            label: summary,
+            child: ExcludeSemantics(
+              child: Column(
+                children: [
+                  Text(
+                    primarySummary ?? summary,
+                    style: CAtelier.text(context, 23, bold: true),
+                    textAlign: TextAlign.center,
+                  ),
+                  if (detailSummary != null)
+                    Text(
+                      detailSummary,
+                      style: CAtelier.text(context, 14),
+                      textAlign: TextAlign.center,
+                    ),
+                ],
               ),
-            ],
-            const SizedBox(height: Spacing.lg),
-            SoriButton.filled(
-              label: t.btnClose,
-              fullWidth: true,
-              onTap: () => Navigator.pop(sheetContext),
+            ),
+          ),
+          if (glyphs.isNotEmpty) ...[
+            const SizedBox(height: Spacing.md),
+            Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 8,
+              children: [
+                for (final glyph in glyphs.toSet())
+                  SizedBox.square(
+                    dimension: 72,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        CAtelier.art('letter-tile'),
+                        Text(
+                          glyph,
+                          style: CAtelier.text(
+                            context,
+                            28,
+                            korean: true,
+                            color: CAtelier.jade,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+              ],
             ),
           ],
-        );
-      },
-    );
+          if (feedbackScope != null && feedbackScope.featureGate.isEnabled) ...[
+            const SizedBox(height: Spacing.md),
+            ContentFeedbackCard(
+              feedbackContext: completion.context,
+              featureGate: feedbackScope.featureGate,
+              submitFeedback: feedbackScope.submitFeedback,
+              completedMissionIds: feedbackScope.completedMissionIds,
+              mascotKind: null,
+            ),
+          ],
+          const SizedBox(height: Spacing.md),
+          CAtelierButton(
+            label: t.btnClose,
+            face: CAtelierFace.gold,
+            onTap: () => Navigator.pop(sheetContext),
+          ),
+          const SizedBox(height: Spacing.sm),
+          Text(
+            t.cHangulKeepPractising,
+            style: CAtelier.text(context, 14),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      );
+    });
   }
 
   Future<bool> _speakJamo(String letter) {
@@ -244,443 +393,36 @@ class _HangulScreenState extends State<HangulScreen>
       );
 
   @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    return SoriStudyFrame(
-      title: t.screenHangulTitle,
-      actions: const [TtsSpeedAction()],
-      padding: EdgeInsets.zero,
-      bottom: TabBar(
-        key: _tabBarKey,
-        controller: _tabs,
-        indicatorColor: SoriColors.primary,
-        labelColor: SoriColors.primary,
-        unselectedLabelColor: SoriSurfaces.of(context).textMuted,
-        tabs: [
-          Tab(
-            icon: const Icon(Icons.grid_view_rounded),
-            text: t.hangulTabOverview,
-          ),
-          Tab(icon: const Icon(Icons.style_outlined), text: t.hangulTabCards),
-          Tab(icon: const Icon(Icons.gesture), text: t.hangulTabWrite),
-        ],
-      ),
-      child: TabBarView(
-        controller: _tabs,
-        // 탭 넘김 스와이프는 **개요 탭에서만** 켠다.
-        //
-        // 카드 탭과 쓰기 탭은 둘 다 가로 드래그를 스스로 쓴다 — 카드는
-        // 카드 탭은 세로 피드(이전/다음 글자), 쓰기는 손가락 그리기와 좌우 이동.
-        // TabBarView 의 가로 드래그 인식기는 제스처 아레나에서 카드의
-        // Pan 인식기를 이겨버리기 때문에, 켜두면 카드를 미는 대신 탭이
-        // 넘어간다(2026-08-18 실측). 탭 전환은 상단 TabBar 로 한다.
-        physics: _tabIndex == 0 ? null : const NeverScrollableScrollPhysics(),
-        children: [
-          _OverviewTab(speak: _speakJamo, speakSyllable: _speakSyllable),
-          _CardsTab(
-            onFinish: _finishCards,
-            random: widget.cardsRandom ?? math.Random(),
-            speak: _speakJamo,
-            prefetch: _prefetch,
-          ),
-          _WriteTab(onFinish: _finishWriting, speak: _speakJamo),
-        ],
-      ),
-    );
-  }
+  Widget build(BuildContext context) => _atelierScreen(this, context);
 }
-
-// ═══════════════════════════════════════════════════════════════════════════
-// Tab 1 — Übersicht (Grid + Detail Bottom Sheet)
-// ═══════════════════════════════════════════════════════════════════════════
-
-class _OverviewTab extends StatelessWidget {
-  const _OverviewTab({required this.speak, required this.speakSyllable});
-  final Future<bool> Function(String letter) speak;
-  final Future<bool> Function(String syllable) speakSyllable;
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    return SoriContentClamp(
-      base: const EdgeInsets.fromLTRB(12, 12, 12, 24),
-      builder: (context, padding) => ListView(
-        key: const Key('hangul-overview-scroll'),
-        padding: padding,
-        children: [
-          _SectionLabel(t.hangulSyllableTableTitle),
-          HangulSyllableTable(speak: speakSyllable),
-          const SizedBox(height: 24),
-          _SectionLabel('${t.hangulConsonantsLabel} (${consonants.length})'),
-          _CharGrid(chars: consonants, color: SoriColors.primary, speak: speak),
-          const SizedBox(height: 24),
-          _SectionLabel('${t.hangulVowelsLabel} (${vowels.length})'),
-          _CharGrid(chars: vowels, color: SoriColors.info, speak: speak),
-          const SizedBox(height: 24),
-          _SectionLabel(t.hangulSyllableLabel),
-          const _SyllableDemo(),
-        ],
-      ),
-    );
-  }
-}
-
-class _SectionLabel extends StatelessWidget {
-  final String label;
-  const _SectionLabel(this.label);
-  @override
-  Widget build(BuildContext context) {
-    return Semantics(header: true, child: SoriSectionHeader(label));
-  }
-}
-
-class _CharGrid extends StatelessWidget {
-  final List<HangulChar> chars;
-  final Color color;
-  final Future<bool> Function(String letter) speak;
-  const _CharGrid({
-    required this.chars,
-    required this.color,
-    required this.speak,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final textScaler = MediaQuery.textScalerOf(context);
-    // 기본 배율에서는 기존 정사각형에 가까운 리듬을 유지한다. 큰 글자에서는
-    // 한글과 로마자가 둘 다 잘리지 않도록 셀 높이도 실제 글자 높이만큼 늘린다.
-    // 개요 전체가 ListView 안에 있어 늘어난 그리드는 끝까지 스크롤할 수 있다.
-    final cellHeight = math.max(
-      68.0,
-      textScaler.scale(36) + textScaler.scale(11) + 21,
-    );
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4,
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
-        mainAxisExtent: cellHeight,
-      ),
-      itemCount: chars.length,
-      itemBuilder: (ctx, i) {
-        final c = chars[i];
-        return _CharCell(
-          key: ValueKey('hangul-overview-${c.letter}'),
-          char: c,
-          color: color,
-          onTap: () => _showDetail(ctx, c, color),
-        );
-      },
-    );
-  }
-
-  void _showDetail(BuildContext ctx, HangulChar c, Color color) {
-    HapticService.selectionClick();
-    // 낱자를 누르는 행위 자체가 발음 학습이다. 상세 창 안의 스피커를 다시
-    // 눌러야만 들리는 구조로 만들지 않는다.
-    unawaited(speak(c.letter));
-    // 바텀시트 대신 중앙 다이얼로그 — 화면 정중앙에 떠서 상단/하단 시스템바에
-    // 구조적으로 안 걸림(기기 무관 동일). 내용은 스크롤 가능해 오버플로도 0.
-    showSoriDialog<void>(
-      context: ctx,
-      builder: (_) => _DetailSheet(char: c, color: color, speak: speak),
-    );
-  }
-}
-
-class _CharCell extends StatelessWidget {
-  final HangulChar char;
-  final Color color;
-  final VoidCallback onTap;
-  const _CharCell({
-    super.key,
-    required this.char,
-    required this.color,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SoriCard(
-      variant: SoriCardVariant.compact,
-      accent: color,
-      onTap: onTap,
-      padding: const EdgeInsets.all(4),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // FittedBox로 셀 사이즈에 자동 적응 — 어떤 폰에서도 overflow 0
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              char.letter,
-              style: SoriTextTheme.of(context).caption.copyWith(
-                fontFamily: SoriFonts.sans,
-                fontSize: 36,
-                fontWeight: FontWeight.w700,
-                color: color,
-                height: 1,
-              ),
-            ),
-          ),
-          const SizedBox(height: 3),
-          // §W-A2: 이 로마자 표기는 공백 없는 짧은 라틴 문자열(예: "ga")이라
-          // 200% 배율에서 줄바꿈으로 흡수가 안 되고 고정 그리드 셀을 넘긴다
-          // — 위 글자와 같은 FittedBox(scaleDown) 관용구를 적용한다.
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              char.romanization,
-              style: SoriTextTheme.of(context).caption.copyWith(
-                fontFamily: SoriFonts.sans,
-                fontSize: 13,
-                color: color.withValues(alpha: 0.75),
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w600,
-                height: 1,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _DetailSheet extends StatelessWidget {
-  final HangulChar char;
-  final Color color;
-  final Future<bool> Function(String letter) speak;
-  const _DetailSheet({
-    required this.char,
-    required this.color,
-    required this.speak,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    // 중앙 다이얼로그: 화면 정중앙 → 시스템바에 안 걸림(기기 무관 동일).
-    // SingleChildScrollView → 설명이 길거나 글자배율이 커도 스크롤(오버플로 0).
-    // insetPadding responsive — 좁은 폰(width < 360) 대비.
-    final screenWidth = MediaQuery.sizeOf(context).width;
-    return SoriDialogFrame(
-      backgroundColor: SoriSurfaces.of(context).surface,
-      insetPadding: EdgeInsets.symmetric(
-        horizontal: screenWidth < 360 ? 16 : 32,
-        vertical: 24,
-      ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(24, 28, 24, 24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                char.letter,
-                style: SoriTextTheme.of(context).caption.copyWith(
-                  fontSize: 92,
-                  fontWeight: FontWeight.w700,
-                  color: color,
-                  height: 1,
-                ),
-              ),
-              const SizedBox(height: 6),
-              Text(
-                '[${char.romanization}]',
-                style: SoriTextTheme.of(context).caption.copyWith(
-                  fontSize: 18,
-                  color: color.withValues(alpha: 0.85),
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(height: 16),
-              Text(
-                // 2026-08-17 테스터(Amor): EN UI 인데 연상 힌트가 독일어였다.
-                // descriptionEn 은 처음부터 채워져 있었고 읽히지만 않았다.
-                char.descriptionFor(
-                  Localizations.localeOf(context).languageCode,
-                ),
-                textAlign: TextAlign.center,
-                style: SoriTextTheme.of(context).caption.copyWith(
-                  fontSize: 14,
-                  color: SoriSurfaces.of(context).text,
-                  height: 1.5,
-                ),
-              ),
-              const SizedBox(height: 24),
-              FilledButton.icon(
-                style: FilledButton.styleFrom(backgroundColor: color),
-                onPressed: () => unawaited(speak(char.letter)),
-                icon: const Icon(Icons.volume_up),
-                label: Text(AppL10n.of(context).hangulPronounceBtn),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _SyllableDemo extends StatelessWidget {
-  const _SyllableDemo();
-
-  @override
-  Widget build(BuildContext context) {
-    final examples = [
-      ('한', ['ㅎ', 'ㅏ', 'ㄴ'], 'han'),
-      ('국', ['ㄱ', 'ㅜ', 'ㄱ'], 'guk'),
-      ('말', ['ㅁ', 'ㅏ', 'ㄹ'], 'mal'),
-    ];
-    return Column(
-      children: examples
-          .map(
-            (e) => Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: SoriCard(
-                variant: SoriCardVariant.base,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 14,
-                  vertical: 10,
-                ),
-                child: Semantics(
-                  label: '${e.$1} = ${e.$2.join(' + ')}; ${e.$3}',
-                  child: ExcludeSemantics(
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        final surfaces = SoriSurfaces.of(context);
-                        final accessibleLayout =
-                            MediaQuery.textScalerOf(context).scale(1) >= 1.6 ||
-                            constraints.maxWidth <
-                                SoriAdaptiveWidth.criticalActionRow;
-                        final syllable = Text(
-                          e.$1,
-                          style: SoriTextTheme.of(context).caption.copyWith(
-                            fontSize: 32,
-                            fontWeight: FontWeight.w700,
-                            color: SoriColors.info,
-                          ),
-                        );
-                        final romanization = Text(
-                          e.$3,
-                          style: SoriTextTheme.of(context).caption.copyWith(
-                            color: SoriColors.primary,
-                            fontWeight: FontWeight.w700,
-                            fontStyle: FontStyle.italic,
-                          ),
-                        );
-                        final equals = Text(
-                          '=',
-                          style: SoriTextTheme.of(
-                            context,
-                          ).caption.copyWith(color: surfaces.textMuted),
-                        );
-                        final components = <Widget>[
-                          for (var i = 0; i < e.$2.length; i++) ...[
-                            Text(
-                              e.$2[i],
-                              style: SoriTextTheme.of(context).caption.copyWith(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            if (i < e.$2.length - 1)
-                              Text(
-                                ' + ',
-                                style: SoriTextTheme.of(
-                                  context,
-                                ).caption.copyWith(color: surfaces.textDim),
-                              ),
-                          ],
-                        ];
-                        final decomposition = <Widget>[equals, ...components];
-                        if (accessibleLayout) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Row(
-                                children: [
-                                  syllable,
-                                  const Spacer(),
-                                  romanization,
-                                ],
-                              ),
-                              const SizedBox(height: Spacing.xs),
-                              Wrap(
-                                alignment: WrapAlignment.center,
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                spacing: Spacing.sm,
-                                runSpacing: Spacing.xs,
-                                children: decomposition,
-                              ),
-                            ],
-                          );
-                        }
-                        return Row(
-                          children: [
-                            syllable,
-                            const SizedBox(width: 10),
-                            equals,
-                            const SizedBox(width: 6),
-                            ...components,
-                            const Spacer(),
-                            romanization,
-                          ],
-                        );
-                      },
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          )
-          .toList(),
-    );
-  }
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-// Tab 2 — Karten (Flip + Aussprache)
-// ═══════════════════════════════════════════════════════════════════════════
 
 class _CardsTab extends StatefulWidget {
   const _CardsTab({
+    super.key,
+    required this.active,
     required this.onFinish,
     required this.random,
     required this.speak,
     required this.prefetch,
   });
-  final Future<void> Function(int interactionCount) onFinish;
+  final bool active;
+  final Future<void> Function(int) onFinish;
   final math.Random random;
-  final Future<bool> Function(String letter) speak;
-  final Future<void> Function(String text) prefetch;
+  final Future<bool> Function(String) speak;
+  final Future<void> Function(String) prefetch;
   @override
   State<_CardsTab> createState() => _CardsTabState();
 }
 
-class _HangulCardsViewport extends StatelessWidget {
-  const _HangulCardsViewport({required this.child});
-
-  final Widget child;
-
+class _CardsTabState extends State<_CardsTab>
+    with AutomaticKeepAliveClientMixin {
   @override
-  Widget build(BuildContext context) {
-    return SoriStudyClamp(
-      child: SoriAdaptiveStudyBody(minHeight: 560, child: child),
-    );
-  }
-}
-
-class _CardsTabState extends State<_CardsTab> {
+  bool get wantKeepAlive => true;
   int _mode = 0; // 0=consonants, 1=vowels, 2=syllables
   int _idx = 0;
   bool _flipped = false;
   int _sessionInteractions = 0;
+  final _lifetime = LocalDataLifetime.capture();
 
   /// 플립 전 판정 시도 → 힌트 칩 펄스 (deck_coach.dart 계약).
   final ValueNotifier<int> _flipHint = ValueNotifier<int>(0);
@@ -697,7 +439,9 @@ class _CardsTabState extends State<_CardsTab> {
     super.initState();
     _choiceOwner = ConfirmedChoiceActionOwner(
       isCurrentSource: () =>
-          mounted && (ModalRoute.of(context)?.isActive ?? false),
+          mounted &&
+          widget.active &&
+          (ModalRoute.of(context)?.isCurrent ?? false),
       onConfirmed: () {
         if (mounted) {
           setState(() {});
@@ -708,7 +452,9 @@ class _CardsTabState extends State<_CardsTab> {
       if (!mounted) {
         return;
       }
-      _playCurrentAndPrefetch();
+      if (widget.active) {
+        _playCurrentAndPrefetch();
+      }
     });
   }
 
@@ -748,13 +494,17 @@ class _CardsTabState extends State<_CardsTab> {
     }
   }
 
+  List<HangulChar> get _hardPool {
+    final hard = Storage.hangulHard.toSet();
+    return _basePool.where((c) => hard.contains(c.letter)).toList();
+  }
+
   List<HangulChar> get _pool {
     final base = _basePool;
     if (!_hardOnly) {
       return base;
     }
-    final hard = Storage.hangulHard.toSet();
-    final filtered = base.where((c) => hard.contains(c.letter)).toList();
+    final filtered = _hardPool;
     // 마지막 어려운 글자를 "앎"으로 지우면 덱이 비어 `_pool[_idx % 0]` 이
     // 터진다. 빈 결과는 필터를 없는 셈 치고 전체를 돌려준다 — 다음 build 에서
     // 칩도 자동으로 꺼진 것처럼 보인다.
@@ -762,7 +512,9 @@ class _CardsTabState extends State<_CardsTab> {
   }
 
   void _speakCurrent() {
-    unawaited(widget.speak(_pool[_idx % _pool.length].letter));
+    if (widget.active) {
+      unawaited(widget.speak(_pool[_idx % _pool.length].letter));
+    }
   }
 
   /// Publish playback first, then warm the surrounding cards.
@@ -793,20 +545,49 @@ class _CardsTabState extends State<_CardsTab> {
   /// 자모는 어휘가 아니라 **SRS 를 건드리지 않는다** — 문법의 `grammarHard` 와
   /// 같은 SRS 밖 집합(`Storage.hangulHard`)만 쓴다.
   void _known() {
-    final letter = _pool[_idx % _pool.length].letter;
-    unawaited(Storage.markHangulEasy(letter));
-    _advance();
+    unawaited(_saveJudgment(true));
   }
 
   /// 좌 = 모름. 다시 볼 낱자로 표시하고 넘어간다.
   void _dontKnow() {
+    unawaited(_saveJudgment(false));
+  }
+
+  bool _saving = false;
+  Future<void> _saveJudgment(bool known) async {
+    if (_saving || !widget.active || !_flipped || _pool.isEmpty) {
+      return;
+    }
+    _saving = true;
     final letter = _pool[_idx % _pool.length].letter;
-    unawaited(Storage.markHangulHard(letter));
-    _advance();
+    final source = _likeSourceGeneration;
+    void guard() {
+      if (!mounted || !widget.active || source != _likeSourceGeneration) {
+        throw const StaleLocalDataLifetimeException();
+      }
+    }
+
+    try {
+      await (known
+          ? Storage.markHangulEasy(letter, assertCurrentWrite: guard)
+          : Storage.markHangulHard(letter, assertCurrentWrite: guard));
+      guard();
+      _advance();
+    } on StaleLocalDataLifetimeException {
+      /* Cancelled source, no new result. */
+    } on Object {
+      if (mounted) {
+        soriToast(context, AppL10n.of(context).atelierSaveFailed);
+      }
+    } finally {
+      _saving = false;
+    }
   }
 
   /// 판정 후 전진 — 햅틱은 커밋 순간 `SoriSwipeCard` 가 방향별로 이미 쳤다.
   void _advance() {
+    _likeSourceGeneration++;
+    _choiceOwner.replaceSource();
     setState(() {
       _sessionInteractions++;
       _flipped = false;
@@ -816,6 +597,8 @@ class _CardsTabState extends State<_CardsTab> {
   }
 
   void _next() {
+    _likeSourceGeneration++;
+    _choiceOwner.replaceSource();
     HapticService.selectionClick();
     setState(() {
       _sessionInteractions++;
@@ -826,6 +609,8 @@ class _CardsTabState extends State<_CardsTab> {
   }
 
   void _prev() {
+    _likeSourceGeneration++;
+    _choiceOwner.replaceSource();
     HapticService.selectionClick();
     setState(() {
       _sessionInteractions++;
@@ -836,8 +621,12 @@ class _CardsTabState extends State<_CardsTab> {
   }
 
   void _random() {
+    _likeSourceGeneration++;
+    _choiceOwner.replaceSource();
     final candidate = widget.random.nextInt(_pool.length);
-    if (candidate == _idx) return;
+    if (candidate == _idx) {
+      return;
+    }
     HapticService.lightImpact();
     setState(() {
       _sessionInteractions++;
@@ -853,21 +642,28 @@ class _CardsTabState extends State<_CardsTab> {
       _sessionInteractions++;
       _flipped = !_flipped;
     });
+    _speakCurrent();
   }
 
-  Future<void> _likeLetter(String letter, int sourceGeneration) async {
+  Future<void> _likeLetter(
+    String letter,
+    int sourceGeneration, {
+    bool addOnly = false,
+  }) async {
     if (sourceGeneration != _likeSourceGeneration ||
         _pool[_idx % _pool.length].letter != letter) {
       return;
     }
-    await _choiceOwner.toggle(
-      context,
-      ConfirmedChoiceTarget.liked(
-        label: letter,
-        kind: LikedContentService.hangul,
-        id: letter,
-      ),
+    final target = ConfirmedChoiceTarget.liked(
+      label: letter,
+      kind: LikedContentService.hangul,
+      id: letter,
     );
+    if (addOnly) {
+      await _choiceOwner.set(context, target, true);
+    } else {
+      await _choiceOwner.toggle(context, target);
+    }
   }
 
   Future<void> _shareCurrent() async {
@@ -880,7 +676,9 @@ class _CardsTabState extends State<_CardsTab> {
   }
 
   void _setMode(int m) {
-    if (_mode == m) return;
+    if (_mode == m) {
+      return;
+    }
     HapticService.selectionClick();
     _likeSourceGeneration++;
     _choiceOwner.replaceSource();
@@ -895,619 +693,399 @@ class _CardsTabState extends State<_CardsTab> {
 
   Future<void> _showCardModeSheet() async {
     final t = AppL10n.of(context);
-    await showSoriSheet<void>(
-      context: context,
-      builder: (sheetContext) => Column(
-        mainAxisSize: MainAxisSize.min,
+    await _atelierDialog(
+      context,
+      t.cHangulSelectionTitle,
+      (dialogContext) => Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          for (final option in [
-            (0, t.hangulChipConsonants),
-            (1, t.hangulChipVowels),
-            (2, t.hangulChipSyllables),
+          for (final item in [
+            (0, t.hangulChipConsonants, consonants.length),
+            (1, t.hangulChipVowels, vowels.length),
+            (2, t.hangulChipSyllables, syllables.length),
           ]) ...[
-            SoriChip(
-              key: ValueKey('hangul-cards-mode-${option.$1}'),
-              label: option.$2,
-              accent: SoriColors.primary,
-              selected: _mode == option.$1,
-              minInteractiveHeight: 48,
-              maxLines: null,
+            CAtelierButton(
+              key: ValueKey('hangul-cards-mode-${item.$1}'),
+              label: '${item.$2} (${item.$3})',
+              face: _mode == item.$1 ? CAtelierFace.jade : CAtelierFace.paper,
               onTap: () {
-                _setMode(option.$1);
-                Navigator.pop(sheetContext);
+                _setMode(item.$1);
+                Navigator.pop(dialogContext);
               },
             ),
             const SizedBox(height: Spacing.sm),
           ],
-          if (Storage.hangulHard.isNotEmpty)
-            SoriChip(
-              key: const Key('hangul-cards-hard-only'),
-              label: t.hangulHardOnly,
-              accent: SoriColors.danger,
-              selected: _hardOnly,
-              minInteractiveHeight: 48,
-              onTap: () {
-                _toggleHardOnly();
-                Navigator.pop(sheetContext);
-              },
-            ),
+          CAtelierButton(
+            key: const Key('hangul-cards-hard-only'),
+            label: '${t.cHangulHardCharacters} (${_hardPool.length})',
+            selected: _hardOnly && _hardPool.isNotEmpty,
+            onTap: _hardPool.isEmpty
+                ? null
+                : () {
+                    _toggleHardOnly();
+                    Navigator.pop(dialogContext);
+                  },
+          ),
+          const SizedBox(height: Spacing.sm),
+          CAtelierButton(
+            label: t.atelierRandom,
+            onTap: () {
+              _random();
+              Navigator.pop(dialogContext);
+            },
+          ),
         ],
       ),
     );
   }
 
+  bool _finishing = false;
   Future<void> _finish() async {
-    if (_sessionInteractions == 0) return;
-    await widget.onFinish(_sessionInteractions);
-    if (!mounted) return;
-    setState(() => _sessionInteractions = 0);
+    if (!widget.active ||
+        !_lifetime.isCurrent ||
+        _sessionInteractions == 0 ||
+        _finishing) {
+      return;
+    }
+    _finishing = true;
+    try {
+      await widget.onFinish(_sessionInteractions);
+      if (mounted) {
+        setState(() => _sessionInteractions = 0);
+      }
+    } finally {
+      _finishing = false;
+    }
   }
 
-  // 카드 앞면 — 글자 하나가 카드를 채우는 대형 헤드라인. 짧은 단일 글자(음절은
-  // 최대 두 글자)라 FittedBox(scaleDown) 으로 폭 넘침만 방지하고, 크기는 카드
-  // 높이 [h] 에 비례시켜 기기 무관 충전율을 맞춘다.
-  List<Widget> _frontFace(HangulChar c, double h) => [
-    FittedBox(
-      fit: BoxFit.scaleDown,
-      child: Text(
-        c.letter,
-        textAlign: TextAlign.center,
-        style: SoriTextTheme.of(context).caption.copyWith(
-          fontSize: soriFillSize(h, 0.40, 110, 200),
-          fontWeight: FontWeight.w700,
-          color: SoriColors.primary,
-        ),
-      ),
-    ),
-  ];
-
-  // 카드 뒷면 — 글자(헤드라인) + [로마자·설명] 묶음 + 예문 박스. spaceEvenly 가
-  // 흩뜨리지 않도록 로마자와 설명은 한 Column 으로 묶는다. 폰트/아이콘 크기는
-  // 카드 높이 [h] 에 비례(soriFillSize), 최소값은 기존 고정값이라 폰 축소 없음.
-  List<Widget> _backFace(
-    BuildContext context,
-    HangulChar c,
-    SoriSurfaces s,
-    double h,
-  ) {
-    final t = AppL10n.of(context);
-    final lang = Localizations.localeOf(context).languageCode;
-    return [
-      FittedBox(
-        fit: BoxFit.scaleDown,
-        child: Text(
-          c.letter,
-          textAlign: TextAlign.center,
-          style: SoriTextTheme.of(context).caption.copyWith(
-            fontSize: soriFillSize(h, 0.16, 60, 110),
-            fontWeight: FontWeight.w700,
-            color: SoriColors.primary,
-          ),
-        ),
-      ),
-      Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            '[${c.romanization}]',
-            textAlign: TextAlign.center,
-            style: SoriTextTheme.of(context).caption.copyWith(
-              fontSize: soriFillSize(h, 0.05, 20, 30),
-              color: SoriColors.info,
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          SizedBox(height: soriFillSize(h, 0.02, 6, 14)),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Text(
-              c.descriptionFor(lang),
-              textAlign: TextAlign.center,
-              style: SoriTextTheme.of(context).caption.copyWith(
-                fontSize: soriFillSize(h, 0.045, 13, 22),
-                color: s.text,
-                height: 1.5,
-              ),
-            ),
-          ),
-        ],
-      ),
-      if (c.exampleWord.isNotEmpty)
-        Container(
-          padding: const EdgeInsets.fromLTRB(18, 6, 10, 6),
-          decoration: BoxDecoration(
-            color: SoriColors.primary.withValues(alpha: 0.10),
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(
-              color: SoriColors.primary.withValues(alpha: 0.30),
-            ),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    c.exampleWord,
-                    style: SoriTextTheme.of(context).caption.copyWith(
-                      fontSize: soriFillSize(h, 0.075, 22, 40),
-                      fontWeight: FontWeight.w700,
-                      color: SoriColors.primary,
-                    ),
-                  ),
-                  const SizedBox(width: 6),
-                  // 2026-08-17 테스터(Amor): "카드를 누르면 예시어가 나온다."
-                  // 예전엔 이 칩 **전체**가 GestureDetector 라 카드 탭을 가로챘다.
-                  // 예시어는 이 스피커 버튼으로만 재생한다 — 카드 아무 데나
-                  // 누르면 언제나 낱자 음가다.
-                  IconButton(
-                    key: ValueKey('hangul-example-speak-${c.letter}'),
-                    onPressed: () => unawaited(SoriSpeech.speak(c.exampleWord)),
-                    icon: Icon(
-                      Icons.volume_up_rounded,
-                      size: soriFillSize(h, 0.05, 16, 28),
-                      color: SoriColors.primary,
-                    ),
-                    tooltip: t.hangulPronounceLetter(c.exampleWord),
-                    padding: const EdgeInsets.all(6),
-                    visualDensity: VisualDensity.compact,
-                    constraints: const BoxConstraints(
-                      minWidth: 40,
-                      minHeight: 40,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 2),
-              Text(
-                c.exampleFor(lang),
-                style: SoriTextTheme.of(context).caption.copyWith(
-                  fontSize: soriFillSize(h, 0.05, 13, 26),
-                  color: s.text,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ],
-          ),
-        ),
-    ];
+  @override
+  void didUpdateWidget(covariant _CardsTab old) {
+    super.didUpdateWidget(old);
+    if (!widget.active) {
+      _likeSourceGeneration++;
+      _choiceOwner.replaceSource();
+    }
+    if (widget.active && !old.active) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && widget.active) {
+          _playCurrentAndPrefetch();
+        }
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final c = _pool[_idx % _pool.length];
-    final likeSourceGeneration = _likeSourceGeneration;
-    final s = SoriSurfaces.of(context);
-    return _HangulCardsViewport(
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          children: [
-            SoriChromeRow(
-              meta: Text(
-                [
-                  AppL10n.of(context).hangulChipConsonants,
-                  AppL10n.of(context).hangulChipVowels,
-                  AppL10n.of(context).hangulChipSyllables,
-                ][_mode],
-                style: SoriTextTheme.of(context).meta,
-              ),
-              trailing: IconButton(
-                key: const Key('hangul-cards-mode-selector'),
-                tooltip: AppL10n.of(context).hangulTabCards,
-                onPressed: _showCardModeSheet,
-                icon: const Icon(Icons.tune_rounded),
-              ),
-            ),
-            const SizedBox(height: 12),
-            // Counter
-            Text(
-              '${_idx + 1} / ${_pool.length}',
-              style: SoriTextTheme.of(
-                context,
-              ).meta.copyWith(color: s.textMuted),
-            ),
-            const SizedBox(height: 8),
-
-            Expanded(
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  // 카드가 놓이는 세로 영역의 높이 — 카드 안 학습 텍스트를 이 높이에
-                  // 비례해 키워(soriFillSize) 기기와 무관하게 균일한 세로 충전율을
-                  // 만든다. FlipCard 가 이미 SingleChildScrollView + minHeight 로
-                  // 감싸므로 콘텐츠가 넘칠 땐 스크롤로 받아낸다(오버플로 0, 기존
-                  // 계약 유지). 이 LayoutBuilder 는 Expanded(경계 있음) 안이라 h 는
-                  // 유한하다 — 카드 안쪽은 스크롤 컨텍스트라 무한이 되므로 여기서
-                  // 잡아 아래로 넘긴다.
-                  final h = constraints.maxHeight.isFinite
-                      ? constraints.maxHeight
-                      : 360.0;
-                  // 덱 미리보기는 **다음 카드 앞면만** — swipe_card.dart 계약.
-                  // (한글 카드엔 유출될 정답이 없지만 관례를 깨지 않는다.)
-                  final next = _pool[(_idx + 1) % _pool.length];
-                  final t = AppL10n.of(context);
-                  return SoriContentFeed(
-                    judgmentsEnabled: _flipped,
-                    onBlockedJudgment: () => _flipHint.value++,
-                    flipHintTrigger: _flipHint,
-                    onNext: _known,
-                    onHard: _dontKnow,
-                    onSkip: _next,
-                    onPrevious: _prev,
-                    onLike: () => _likeLetter(c.letter, likeSourceGeneration),
-                    onShare: _shareCurrent,
-                    onFlip: () {
-                      unawaited(widget.speak(c.letter));
-                      _onFlip();
-                    },
-                    showBookmark: false,
-                    liked: LikedContentService.isLiked(
-                      kind: LikedContentService.hangul,
-                      id: c.letter,
-                    ),
-                    underlay: _HangulCardFace(
-                      borderColor: SoriColors.primary,
-                      children: _frontFace(next, h),
-                    ),
-                    knowLabel: t.btnGewusst,
-                    hardLabel: t.btnNichtGewusst,
-                    skipLabel: t.btnSkip,
-                    child: FlipCard(
-                      key: ValueKey('hangul-card-${c.letter}'),
-                      flipped: _flipped,
-                      onTap: () {
-                        unawaited(widget.speak(c.letter));
-                        _onFlip();
-                      },
-                      front: _HangulCardFace(
-                        borderColor: SoriColors.primary,
-                        children: _frontFace(c, h),
-                      ),
-                      back: _HangulCardFace(
-                        borderColor: SoriColors.info,
-                        children: _backFace(context, c, s, h),
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
-            const SizedBox(height: 10),
-            // 보조 동작(이전·듣기·무작위)은 판정이 아니므로 48dp 아이콘 행으로
-            // 내린다 — legacy_vocab 의 보조 행과 같은 계층 규칙.
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  key: const Key('hangul-cards-prev'),
-                  onPressed: _prev,
-                  icon: const Icon(Icons.arrow_back_rounded),
-                  tooltip: AppL10n.of(context).btnPrev,
-                  constraints: const BoxConstraints(
-                    minWidth: 48,
-                    minHeight: 48,
-                  ),
-                ),
-                const SizedBox(width: Spacing.md),
-                IconButton(
-                  key: const Key('hangul-cards-speak'),
-                  onPressed: () => unawaited(widget.speak(c.letter)),
-                  icon: const Icon(Icons.volume_up_rounded),
-                  color: SoriColors.primary,
-                  tooltip: AppL10n.of(context).btnHoeren,
-                  constraints: const BoxConstraints(
-                    minWidth: 48,
-                    minHeight: 48,
-                  ),
-                ),
-                const SizedBox(width: Spacing.md),
-                IconButton(
-                  key: const Key('hangul-cards-random'),
-                  onPressed: _random,
-                  icon: const Icon(Icons.shuffle_rounded),
-                  tooltip: AppL10n.of(context).btnRandom,
-                  constraints: const BoxConstraints(
-                    minWidth: 48,
-                    minHeight: 48,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            SoriButton.filled(
-              key: const Key('hangul-cards-finish'),
-              label: AppL10n.of(context).testerFeedbackCompleteHangul,
-              accent: SoriColors.primary,
-              onTap: _sessionInteractions == 0 ? null : _finish,
-              fullWidth: true,
-            ),
-          ],
-        ),
-      ),
-    );
+    super.build(context);
+    return _atelierCards(this, context);
   }
 }
 
-class _HangulCardFace extends StatelessWidget {
-  final Color borderColor;
-  final List<Widget> children;
-  const _HangulCardFace({required this.borderColor, required this.children});
-
-  @override
-  Widget build(BuildContext context) {
-    return SoriCard(
-      variant: SoriCardVariant.hero,
-      accent: borderColor,
-      tinted: true,
-      width: double.infinity,
-      // spaceEvenly 로 카드 높이를 채운다(가운데 정렬 유지). FlipCard._fitFace 가
-      // 이미 SingleChildScrollView + ConstrainedBox(minHeight: 뷰포트높이) 로
-      // 감싸므로, 이 Column 은 그 minHeight(카드 padding 만큼만 줄어든 값)를 받아
-      // 여백을 균등 분배하고, 콘텐츠가 더 크면 그 스크롤뷰가 받아낸다(오버플로 0).
-      child: children.length == 1
-          ? LayoutBuilder(
-              builder: (context, constraints) {
-                if (!constraints.maxHeight.isFinite) {
-                  return children.single;
-                }
-                return SizedBox(
-                  width: double.infinity,
-                  height: constraints.maxHeight,
-                  child: children.single,
-                );
-              },
-            )
-          : Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: children,
-            ),
-    );
-  }
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-// Tab 3 — Schreiben (Stroke Order Animation + Practice)
-// ═══════════════════════════════════════════════════════════════════════════
-
-/// Schreiben 탭 한 세션의 결과.
-///
-/// [letters] 는 **획순까지 맞게 완성한 글자 수**다. 예전엔 획 수만 세서 아무
-/// 낙서 1획으로도 완료가 됐다 (2026-08-17 테스터 지적).
-typedef HangulWritingResult = ({int letters, int strokes, bool strict});
+typedef HangulWritingResult = ({
+  int letters,
+  int strokes,
+  bool strict,
+  List<String> glyphs,
+});
 
 class _WriteTab extends StatefulWidget {
-  const _WriteTab({required this.onFinish, required this.speak});
-  final Future<void> Function(HangulWritingResult result) onFinish;
-  final Future<bool> Function(String letter) speak;
+  const _WriteTab({
+    super.key,
+    required this.active,
+    required this.onFinish,
+    required this.speak,
+  });
+  final bool active;
+  final Future<void> Function(HangulWritingResult) onFinish;
+  final Future<bool> Function(String) speak;
   @override
   State<_WriteTab> createState() => _WriteTabState();
 }
 
-class _WriteTabState extends State<_WriteTab> {
-  int _mode = 0; // 0=cons, 1=vowels
-  int _idx = 0;
-
-  /// 세션 총 획 수 — 완료 payload 용. **Finish 게이트가 아니다.**
-  int _strokeCount = 0;
-
-  /// 현재 글자에서 통과한 획 수 = 다음에 기대하는 획 index.
-  int _acceptedStrokes = 0;
-
-  /// 획순까지 맞게 끝낸 글자 수 — 이것만이 Finish 를 연다.
-  int _completedLetters = 0;
-
-  /// 마지막 판정. 힌트 문구용. 맞으면 null.
+class _WriteTabState extends State<_WriteTab>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+  int _mode = 0,
+      _idx = 0,
+      _strokeCount = 0,
+      _acceptedStrokes = 0,
+      _completedLetters = 0,
+      _demoGeneration = 0,
+      _demoStep = 0;
+  final List<String> _completedGlyphs = [];
   StrokeAttempt? _lastAttempt;
-
-  /// 완성 연출 중 — 입력·판정을 정지시킨다.
-  bool _letterDone = false;
-
-  late bool _strict;
-
-  Timer? _errorTimer;
-  Timer? _advanceTimer;
-
-  static const Duration _errorFlash = Duration(milliseconds: 450);
-  static const Duration _advanceDelay = Duration(milliseconds: 650);
-
+  bool _letterDone = false,
+      _demonstrating = true,
+      _toolsOpen = false,
+      _finishing = false;
+  late bool _strict, _auto;
   final _practiceController = TraceCanvasController();
-
+  final _lifetime = LocalDataLifetime.capture();
+  Timer? _errorTimer, _advanceTimer;
+  static const _errorFlash = Duration(milliseconds: 450);
   @override
   void initState() {
     super.initState();
     _strict = Storage.hangulStrictStrokes;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) {
-        return;
-      }
-      unawaited(widget.speak(_current.letter));
-      if (Storage.tutSeen('hangulWriteRules')) {
-        return;
-      }
-      unawaited(_showRules());
-    });
-  }
-
-  void _speakCurrent() {
-    unawaited(widget.speak(_current.letter));
-  }
-
-  Future<void> _showRules() async {
-    if (!mounted) {
-      return;
-    }
-    final t = AppL10n.of(context);
-    await showSoriSheet<void>(
-      context: context,
-      builder: (sheetContext) {
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              t.hangulRulesTitle,
-              style: SoriTextTheme.of(sheetContext).h2,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: Spacing.md),
-            Text(
-              t.hangulRulesBody,
-              style: SoriTextTheme.of(sheetContext).gloss,
-            ),
-            const SizedBox(height: Spacing.lg),
-            SoriButton.filled(
-              label: t.btnClose,
-              accent: SoriColors.contentCta,
-              fullWidth: true,
-              onTap: () => Navigator.pop(sheetContext),
-            ),
-          ],
-        );
-      },
-    );
-    await Storage.setTutSeen('hangulWriteRules');
-  }
-
-  Future<void> _showWriteSettings() async {
-    final t = AppL10n.of(context);
-    await showSoriSheet<void>(
-      context: context,
-      builder: (sheetContext) {
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                SoriChip(
-                  label: t.hangulChipConsonants,
-                  accent: SoriColors.contentCta,
-                  selected: _mode == 0,
-                  onTap: () {
-                    _setMode(0);
-                    Navigator.pop(sheetContext);
-                  },
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriChip(
-                  label: t.hangulChipVowels,
-                  accent: SoriColors.contentCta,
-                  selected: _mode == 1,
-                  onTap: () {
-                    _setMode(1);
-                    Navigator.pop(sheetContext);
-                  },
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriChip(
-                  key: const Key('hangul-check-strict'),
-                  label: t.hangulCheckModeExam,
-                  accent: SoriColors.contentCta,
-                  selected: _strict,
-                  onTap: () {
-                    _setStrict(true);
-                    Navigator.pop(sheetContext);
-                  },
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriChip(
-                  key: const Key('hangul-check-practice'),
-                  label: t.hangulCheckModePractice,
-                  accent: SoriColors.contentCta,
-                  selected: !_strict,
-                  onTap: () {
-                    _setStrict(false);
-                    Navigator.pop(sheetContext);
-                  },
-                ),
-              ],
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  @override
-  void dispose() {
-    // Future.delayed 는 취소할 수 없어 Timer 로 바꿨다. dispose 후 _next 가
-    // 튀는 것과, 완성 직후 Weiter 를 눌러 글자를 건너뛰는 것을 둘 다 막는다.
-    _errorTimer?.cancel();
-    _advanceTimer?.cancel();
-    _practiceController.dispose();
-    super.dispose();
+    _auto = Storage.hangulAutoAdvance;
   }
 
   List<HangulChar> get _pool => _mode == 0 ? consonants : vowels;
-  HangulChar get _current => _pool[_idx % _pool.length];
-  List<Stroke> get _targetStrokes =>
-      hangulStrokes[_current.letter] ?? const <Stroke>[];
-
-  /// 현재 글자 진행 상태를 처음으로 되돌린다.
-  ///
-  /// 예전엔 Löschen 이 캔버스만 지우고 획 카운터를 남겨, **지운 뒤로는 그
-  /// 글자가 두 번 다시 판정되지 않았다** — 테스터가 본 "성공음이 일관되지
-  /// 않다" 의 정체다. 되돌리기는 한 군데(여기)로 모은다.
-  void _resetLetter() {
-    _errorTimer?.cancel();
+  HangulChar get _current => _pool[_idx];
+  List<Stroke> get _targetStrokes => hangulStrokes[_current.letter]!;
+  void _pause() {
     _advanceTimer?.cancel();
+    _errorTimer?.cancel();
+  }
+
+  @override
+  void didUpdateWidget(covariant _WriteTab old) {
+    super.didUpdateWidget(old);
+    if (!widget.active) {
+      _pause();
+    }
+  }
+
+  void _refreshPreferences() {
+    if (!mounted) {
+      return;
+    }
+    // Route returns preserve accepted ink. A changed grading rule starts a new
+    // attempt, never silently re-labels an already accepted stroke.
+    if (_strict != Storage.hangulStrictStrokes) {
+      _strict = Storage.hangulStrictStrokes;
+      _resetLetter();
+    }
+    setState(() => _auto = Storage.hangulAutoAdvance);
+  }
+
+  void _speakCurrent() {
+    if (widget.active) {
+      unawaited(widget.speak(_current.letter));
+    }
+  }
+
+  void _resetLetter() {
+    _pause();
+    _practiceController.reset();
     setState(() {
       _acceptedStrokes = 0;
       _lastAttempt = null;
       _letterDone = false;
+      _demonstrating = true;
+      _demoGeneration++;
+      _demoStep = 0;
     });
-    _practiceController.reset();
   }
 
-  void _next() {
+  void _selectAbsolute(int index) {
     HapticService.selectionClick();
-    setState(() => _idx = (_idx + 1) % _pool.length);
-    _resetLetter();
-    _speakCurrent();
-  }
-
-  void _prev() {
-    HapticService.selectionClick();
-    setState(() => _idx = (_idx - 1 + _pool.length) % _pool.length);
-    _resetLetter();
-    _speakCurrent();
-  }
-
-  void _setMode(int m) {
-    if (_mode == m) {
-      return;
-    }
-    HapticService.selectionClick();
+    final i = index.clamp(0, consonants.length + vowels.length - 1);
     setState(() {
-      _mode = m;
-      _idx = 0;
+      _mode = i < consonants.length ? 0 : 1;
+      _idx = _mode == 0 ? i : i - consonants.length;
     });
     _resetLetter();
     _speakCurrent();
   }
 
-  void _setStrict(bool strict) {
-    if (_strict == strict) {
+  void _next() =>
+      _selectAbsolute((_mode == 0 ? _idx : consonants.length + _idx) + 1);
+  void _prev() =>
+      _selectAbsolute((_mode == 0 ? _idx : consonants.length + _idx) - 1);
+  void _clearPractice() => _resetLetter();
+  void _restartDemo() {
+    if (!widget.active || !_lifetime.isCurrent) {
       return;
     }
-    HapticService.selectionClick();
-    setState(() => _strict = strict);
-    // 판정 규칙이 바뀌면 진행 중인 글자는 무효다.
-    _resetLetter();
-    unawaited(Storage.setHangulStrictStrokes(strict));
+    _pause();
+    setState(() {
+      _demonstrating = true;
+      _demoGeneration++;
+      _demoStep = 0;
+    });
   }
 
-  void _clearPractice() {
-    HapticService.selectionClick();
-    _resetLetter();
+  void _demoComplete() {
+    if (mounted) {
+      setState(() => _demonstrating = false);
+      if (_letterDone) {
+        _scheduleAdvance();
+      }
+    }
   }
 
-  void _onStrokeEnd(TraceCanvasSnapshot snapshot, Size canvasSize) {
+  void _demonstrateAction() {
+    if (!_demonstrating || !SoriMotion.reduceMotion(context)) {
+      _restartDemo();
+    } else if (_demoStep < _targetStrokes.length - 1) {
+      setState(() => _demoStep++);
+    } else {
+      _demoComplete();
+    }
+  }
+
+  bool _preferenceSaving = false;
+  void _toggleAuto() => unawaited(_savePreference(auto: !_auto));
+  Future<void> _savePreference({bool? auto, bool? strict}) async {
+    if (_preferenceSaving || !widget.active || !_lifetime.isCurrent) {
+      return;
+    }
+    _preferenceSaving = true;
+    void guard() {
+      _lifetime.assertCurrent();
+      if (!mounted || !widget.active) {
+        throw const StaleLocalDataLifetimeException();
+      }
+    }
+
+    try {
+      if (auto != null) {
+        await Storage.setHangulAutoAdvance(auto, assertCurrentWrite: guard);
+      }
+      if (strict != null) {
+        await Storage.setHangulStrictStrokes(strict, assertCurrentWrite: guard);
+      }
+      guard();
+      setState(() {
+        if (auto != null) {
+          _auto = auto;
+        }
+        if (strict != null) {
+          _strict = strict;
+        }
+      });
+      if (strict != null) {
+        _resetLetter();
+      }
+      _advanceTimer?.cancel();
+      if (_auto && _letterDone) {
+        _scheduleAdvance();
+      }
+    } on StaleLocalDataLifetimeException {
+      /* Account/reset retired this choice. */
+    } on Object {
+      if (mounted) {
+        soriToast(context, AppL10n.of(context).atelierSaveFailed);
+      }
+    } finally {
+      _preferenceSaving = false;
+    }
+  }
+
+  void _scheduleAdvance() {
+    _advanceTimer?.cancel();
+    if (!_auto ||
+        !widget.active ||
+        _toolsOpen ||
+        !_lifetime.isCurrent ||
+        (_mode == 1 && _idx == vowels.length - 1)) {
+      return;
+    }
+    final letter = _current.letter, generation = _demoGeneration;
+    _advanceTimer = Timer(const Duration(milliseconds: 900), () {
+      if (mounted &&
+          widget.active &&
+          !_toolsOpen &&
+          _auto &&
+          _letterDone &&
+          _lifetime.isCurrent &&
+          (ModalRoute.of(context)?.isCurrent ?? false) &&
+          _current.letter == letter &&
+          _demoGeneration == generation) {
+        _next();
+      }
+    });
+  }
+
+  Future<void> _showLetters() async {
+    _pause();
+    setState(() => _toolsOpen = true);
+    final t = AppL10n.of(context), chars = [...consonants, ...vowels];
+    try {
+      await _atelierDialog(
+        context,
+        t.cHangulSelectionTitle,
+        (dialogContext) => Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            for (final item in chars.indexed)
+              SizedBox(
+                width: 54,
+                child: CAtelierButton(
+                  key: ValueKey('hangul-writing-letter-${item.$2.letter}'),
+                  label: item.$2.letter,
+                  child: Text(
+                    item.$2.letter,
+                    style: CAtelier.text(context, 24, korean: true),
+                  ),
+                  onTap: () {
+                    Navigator.pop(dialogContext);
+                    _selectAbsolute(item.$1);
+                  },
+                ),
+              ),
+          ],
+        ),
+      );
+    } finally {
+      if (mounted) {
+        setState(() => _toolsOpen = false);
+      }
+    }
+  }
+
+  Future<void> _showWriteSettings() async {
+    _pause();
+    setState(() => _toolsOpen = true);
+    final t = AppL10n.of(context);
+    try {
+      await _atelierDialog(
+        context,
+        t.hangulCheckModeLabel,
+        (dialogContext) => Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(t.hangulRulesBody, style: CAtelier.text(context, 14)),
+            const SizedBox(height: Spacing.md),
+            for (final item in [
+              (true, t.hangulCheckModeExam),
+              (false, t.hangulCheckModePractice),
+            ]) ...[
+              CAtelierButton(
+                label: item.$2,
+                face: _strict == item.$1
+                    ? CAtelierFace.jade
+                    : CAtelierFace.paper,
+                onTap: () {
+                  unawaited(_savePreference(strict: item.$1));
+                  Navigator.pop(dialogContext);
+                },
+              ),
+              const SizedBox(height: Spacing.sm),
+            ],
+          ],
+        ),
+      );
+    } finally {
+      if (mounted) {
+        setState(() => _toolsOpen = false);
+      }
+    }
+  }
+
+  void _onStrokeEnd(TraceCanvasSnapshot snapshot, Size size) {
+    if (!widget.active ||
+        _toolsOpen ||
+        _demonstrating ||
+        _letterDone ||
+        !_lifetime.isCurrent) {
+      return;
+    }
     setState(() => _strokeCount++);
-    _judgeLastStroke(snapshot, canvasSize);
+    _judgeLastStroke(snapshot, size);
   }
 
   /// 획을 뗄 때마다 **그 획 하나만** 기대 획과 대조한다.
@@ -1557,17 +1135,13 @@ class _WriteTabState extends State<_WriteTab> {
   void _completeLetter() {
     setState(() {
       _letterDone = true;
-      _completedLetters++;
+      if (!_completedGlyphs.contains(_current.letter)) {
+        _completedGlyphs.add(_current.letter);
+      }
+      _completedLetters = _completedGlyphs.length;
     });
     SoundService.correct();
-    _advanceTimer?.cancel();
-    // 방금 그린 게 맞았는지 눈으로 볼 틈을 준 뒤 넘어간다.
-    _advanceTimer = Timer(_advanceDelay, () {
-      if (!mounted) {
-        return;
-      }
-      _next();
-    });
+    _scheduleAdvance();
   }
 
   void _rejectStroke(StrokeAttempt attempt) {
@@ -1591,22 +1165,32 @@ class _WriteTabState extends State<_WriteTab> {
   }
 
   Future<void> _finish() async {
-    if (_completedLetters == 0) {
+    if (!widget.active ||
+        !_lifetime.isCurrent ||
+        _completedLetters == 0 ||
+        _finishing) {
       return;
     }
     _errorTimer?.cancel();
     _advanceTimer?.cancel();
-    await widget.onFinish((
-      letters: _completedLetters,
-      strokes: _strokeCount,
-      strict: _strict,
-    ));
+    _finishing = true;
+    try {
+      await widget.onFinish((
+        letters: _completedLetters,
+        strokes: _strokeCount,
+        strict: _strict,
+        glyphs: List<String>.unmodifiable(_completedGlyphs),
+      ));
+    } finally {
+      _finishing = false;
+    }
     if (!mounted) {
       return;
     }
     setState(() {
       _completedLetters = 0;
       _strokeCount = 0;
+      _completedGlyphs.clear();
     });
     _resetLetter();
   }
@@ -1648,177 +1232,19 @@ class _WriteTabState extends State<_WriteTab> {
     if (_lastAttempt != null) {
       return SoriColors.danger;
     }
-    return SoriSurfaces.of(context).textMuted;
+    return CAtelier.muted;
   }
 
   @override
   Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final c = _current;
-    final strokes = _targetStrokes;
-    final total = strokes.length;
-    final shown = _letterDone ? total : math.min(_acceptedStrokes + 1, total);
+    super.build(context);
+    return _atelierWriting(this, context);
+  }
 
-    return LayoutBuilder(
-      builder: (context, viewport) {
-        final tt = SoriTextTheme.of(context);
-        final chrome = 48.0;
-        final nav = 56.0;
-        final hintH = strokes.isNotEmpty ? 52.0 : 0.0;
-        final finishH = _completedLetters > 0 ? 92.0 : 0.0;
-        final canvasSize = math.min(
-          viewport.maxWidth - 28,
-          math.max(
-            220.0,
-            viewport.maxHeight - chrome - nav - hintH - finishH - 16,
-          ),
-        );
-        return Semantics(
-          container: true,
-          label: t.hangulTraceTitle,
-          value: strokes.isEmpty
-              ? c.letter
-              : t.hangulStrokeProgress(shown, total),
-          customSemanticsActions: <CustomSemanticsAction, VoidCallback>{
-            CustomSemanticsAction(label: t.btnPrev): _prev,
-            CustomSemanticsAction(label: t.btnNext): _next,
-          },
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(14, 4, 14, 8),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: chrome,
-                  child: Row(
-                    children: [
-                      IconButton(
-                        key: const Key('hangul-write-rules'),
-                        onPressed: () => unawaited(_showRules()),
-                        tooltip: t.hangulRulesTitle,
-                        icon: Text('?', style: tt.h2),
-                      ),
-                      if (strokes.isNotEmpty)
-                        Flexible(
-                          child: SoriChip(
-                            key: const Key('hangul-stroke-progress'),
-                            label: t.hangulStrokeProgress(shown, total),
-                            accent: _letterDone
-                                ? SoriColors.success
-                                : SoriColors.contentCta,
-                            selected: _letterDone,
-                          ),
-                        ),
-                      const Spacer(),
-                      IconButton(
-                        key: const Key('hangul-write-speak'),
-                        onPressed: () => unawaited(widget.speak(c.letter)),
-                        icon: const Icon(Icons.volume_up_rounded),
-                        tooltip: t.hangulPronounceLetter(c.letter),
-                      ),
-                      IconButton(
-                        key: const Key('hangul-write-overflow'),
-                        onPressed: () => unawaited(_showWriteSettings()),
-                        tooltip: t.hangulCheckModeLabel,
-                        icon: const Icon(Icons.more_horiz_rounded),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Center(
-                    child: SizedBox(
-                      width: canvasSize,
-                      height: canvasSize,
-                      child: Stack(
-                        fit: StackFit.expand,
-                        children: [
-                          ExcludeSemantics(
-                            child: IgnorePointer(
-                              child: StrokeCanvas(
-                                letter: c.letter,
-                                strokes: strokes,
-                                size: canvasSize,
-                                color: SoriColors.contentCta,
-                                highlightIndex: _letterDone || strokes.isEmpty
-                                    ? null
-                                    : _acceptedStrokes,
-                              ),
-                            ),
-                          ),
-                          KeyedSubtree(
-                            key: const Key('hangul-practice-canvas'),
-                            child: TraceCanvas(
-                              controller: _practiceController,
-                              ghost: c.letter,
-                              color: SoriColors.primary,
-                              errorColor: SoriColors.danger,
-                              enabled: !_letterDone,
-                              semanticLabel: t.hangulTraceTitle,
-                              paintKey: ValueKey(
-                                'hangul-practice-ghost-${c.letter}',
-                              ),
-                              onStrokeEnd: _onStrokeEnd,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                if (strokes.isNotEmpty) ...[
-                  const SizedBox(height: 6),
-                  Text(
-                    key: const Key('hangul-stroke-hint'),
-                    _hintText(t),
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
-                    style: tt.meta.copyWith(color: _hintColor()),
-                  ),
-                ],
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      key: const Key('hangul-write-prev'),
-                      onPressed: _prev,
-                      icon: const Icon(Icons.chevron_left_rounded),
-                      tooltip: t.btnPrev,
-                    ),
-                    Text('${_idx + 1} / ${_pool.length}', style: tt.meta),
-                    IconButton(
-                      key: const Key('hangul-write-next'),
-                      onPressed: _next,
-                      icon: const Icon(Icons.chevron_right_rounded),
-                      tooltip: t.btnNext,
-                    ),
-                    IconButton(
-                      key: const Key('hangul-write-clear'),
-                      onPressed: _clearPractice,
-                      icon: const Icon(Icons.delete_outline_rounded),
-                      color: SoriColors.danger,
-                      tooltip: t.hangulClearBtn,
-                    ),
-                  ],
-                ),
-                if (_completedLetters > 0) ...[
-                  Text(
-                    t.hangulLettersDone(_completedLetters),
-                    style: tt.meta.copyWith(color: SoriColors.success),
-                  ),
-                  const SizedBox(height: 6),
-                  SoriButton.filled(
-                    key: const Key('hangul-writing-finish'),
-                    label: t.testerFeedbackCompleteHangul,
-                    accent: SoriColors.contentCta,
-                    onTap: _finish,
-                    fullWidth: true,
-                  ),
-                ],
-              ],
-            ),
-          ),
-        );
-      },
-    );
+  @override
+  void dispose() {
+    _pause();
+    _practiceController.dispose();
+    super.dispose();
   }
 }

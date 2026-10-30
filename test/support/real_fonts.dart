@@ -58,6 +58,19 @@ Future<void> _loadTextFonts() async {
       'assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf',
       'assets/fonts/Paperlogy/Paperlogy-Bold.ttf',
     ],
+    'Chubbo': ['assets/fonts/Chubbo/Chubbo-Bold.otf'],
+    'Supreme': [
+      'assets/fonts/Supreme/Supreme-Regular.otf',
+      'assets/fonts/Supreme/Supreme-Medium.otf',
+      'assets/fonts/Supreme/Supreme-Bold.otf',
+    ],
+    'Belgrano': ['assets/fonts/Belgrano/Belgrano-Regular.ttf'],
+    'EncodeSansCondensed': [
+      'assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Regular.ttf',
+      'assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Medium.ttf',
+      'assets/fonts/EncodeSansCondensed/EncodeSansCondensed-SemiBold.ttf',
+      'assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Bold.ttf',
+    ],
   };
   for (final family in families.entries) {
     final loader = FontLoader(family.key);

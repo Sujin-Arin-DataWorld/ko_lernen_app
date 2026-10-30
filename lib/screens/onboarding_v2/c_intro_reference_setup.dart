@@ -6,7 +6,8 @@ import '../../widgets/sori/button.dart';
 import 'c_intro_art.dart';
 import 'onboarding_v2_presentation.dart';
 
-/// Native controls at the reviewed 402 x 934 reference coordinates.
+/// Native controls that use the height allocated by the onboarding frame.
+/// Unbounded reference previews retain the reviewed 402 x 934 coordinates.
 /// Large text uses the flowing layout in COnboardingSetup instead.
 class IntroReferenceSetup extends StatelessWidget {
   const IntroReferenceSetup({
@@ -38,6 +39,9 @@ class IntroReferenceSetup extends StatelessWidget {
       final label = beginnerSelected
           ? t.onboardingCStartLevel
           : level?.code ?? copy.setup.selectLevelPrompt;
+      if (bounds.hasBoundedHeight) {
+        return _boundedSetup(context, level, label, bounds);
+      }
       Widget at(double x, double y, double w, double h, Widget child) =>
           Positioned(
             left: x * s,
@@ -55,7 +59,10 @@ class IntroReferenceSetup extends StatelessWidget {
       }) => Text(
         text,
         textAlign: center ? TextAlign.center : TextAlign.start,
-        style: IntroTypography.setupWords(size, s, bold, color),
+        style: IntroTypography.localized(
+          context,
+          IntroTypography.setupWords(size, s, bold, color),
+        ),
       );
       return SizedBox(
         height: 504 * s,
@@ -281,6 +288,228 @@ class IntroReferenceSetup extends StatelessWidget {
       );
     },
   );
+
+  Widget _boundedSetup(
+    BuildContext context,
+    OnboardingLevelSpec? level,
+    String label,
+    BoxConstraints bounds,
+  ) {
+    final t = AppL10n.of(context);
+    final compact = bounds.maxWidth < 380 && bounds.maxHeight < 440;
+    Widget words(
+      String text,
+      double size, {
+      bool bold = false,
+      bool center = false,
+      Color color = IntroPalette.ink,
+      int? maxLines,
+    }) => Text(
+      text,
+      textAlign: center ? TextAlign.center : TextAlign.start,
+      maxLines: maxLines,
+      style: IntroTypography.localized(
+        context,
+        IntroTypography.setupWords(size, 1, bold, color),
+      ).copyWith(height: 1.15),
+    );
+    final hint = beginnerSelected
+        ? t.onboardingJourneyBeginnerHint
+        : level == null
+        ? copy.setup.selectLevelPrompt
+        : level.code == 'A2'
+        ? t.introA2Hint
+        : level.name;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          words(
+            beginnerSelected
+                ? t.onboardingJourneyStartWhere
+                : t.onboardingCStartLevel,
+            compact ? 18 : 22,
+            bold: true,
+          ),
+          const SizedBox(height: 4),
+          Semantics(
+            label: '$label. ${t.onboardingCChange}',
+            button: true,
+            onTap: onChooseLevel,
+            child: IntroPressable(
+              key: const ValueKey('c-onboarding-change-level'),
+              onTap: onChooseLevel,
+              pressScale: .995,
+              surfaceDepth: 0,
+              child: ExcludeSemantics(
+                child: Container(
+                  height: compact ? 68 : 72,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: compact ? 2 : 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: IntroPalette.paper,
+                    borderRadius: BorderRadius.circular(
+                      IntroGeometry.levelField,
+                    ),
+                    border: Border.all(
+                      color: beginnerSelected
+                          ? IntroPalette.brass
+                          : IntroPalette.jade,
+                      width: 2,
+                    ),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color(0x402f1c0a),
+                        offset: Offset(0, 3),
+                        blurRadius: 3,
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      if (beginnerSelected || level != null) ...[
+                        IntroMedal(
+                          beginnerSelected ? '가' : level!.code,
+                          size: 44,
+                        ),
+                        const SizedBox(width: 8),
+                      ],
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            words(
+                              level == null ? t.onboardingCStartLevel : label,
+                              18,
+                              bold: true,
+                              maxLines: 1,
+                            ),
+                            const SizedBox(height: 2),
+                            words(
+                              hint,
+                              16,
+                              color: IntroPalette.mutedInk,
+                              maxLines: 2,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      if (!beginnerSelected && level != null)
+                        Container(
+                          height: 48,
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                              IntroGeometry.levelAction,
+                            ),
+                            gradient: const LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [Color(0xff0b6553), Color(0xff034a3d)],
+                            ),
+                            border: Border.all(
+                              color: IntroPalette.brass,
+                              width: 1.5,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              words(
+                                t.onboardingCChange,
+                                16,
+                                color: IntroPalette.white,
+                              ),
+                              const Icon(
+                                Icons.keyboard_arrow_down,
+                                size: 20,
+                                color: IntroPalette.brass,
+                              ),
+                            ],
+                          ),
+                        )
+                      else
+                        const Icon(
+                          Icons.chevron_right,
+                          size: 24,
+                          color: IntroPalette.brass,
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 4),
+          words(
+            t.onboardingCLevelRange,
+            16,
+            center: true,
+            color: IntroPalette.mutedInk,
+          ),
+          const SizedBox(height: 4),
+          words(t.onboardingCInterest, compact ? 18 : 20, bold: true),
+          const SizedBox(height: 6),
+          Expanded(
+            child: Column(
+              children: [
+                for (var row = 0; row < 2; row++) ...[
+                  if (row > 0) const SizedBox(height: 8),
+                  Expanded(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        for (var column = 0; column < 2; column++) ...[
+                          if (column > 0) const SizedBox(width: 8),
+                          Expanded(
+                            child: _InterestCard(
+                              id: copy.setup.purposes[row * 2 + column].id,
+                              title:
+                                  copy.setup.purposes[row * 2 + column].title,
+                              selected:
+                                  copy.setup.purposes[row * 2 + column].id ==
+                                  selectedPurposeId,
+                              index: row * 2 + column,
+                              scale: 1,
+                              compact: true,
+                              onTap: () => onPurposeChanged(
+                                copy.setup.purposes[row * 2 + column].id,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          const SizedBox(height: 4),
+          words(
+            t.onboardingCLater,
+            16,
+            center: true,
+            color: IntroPalette.mutedInk,
+          ),
+          const SizedBox(height: 4),
+          words(
+            t.introNextPath,
+            16,
+            bold: true,
+            center: true,
+            color: IntroPalette.emphasisInk,
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _InterestCard extends StatelessWidget {
@@ -291,6 +520,7 @@ class _InterestCard extends StatelessWidget {
     required this.index,
     required this.scale,
     required this.onTap,
+    this.compact = false,
   });
   final String id;
   final String title;
@@ -298,9 +528,13 @@ class _InterestCard extends StatelessWidget {
   final int index;
   final double scale;
   final VoidCallback onTap;
+  final bool compact;
 
   @override
   Widget build(BuildContext context) {
+    if (compact) {
+      return _compactCard(context);
+    }
     final s = scale;
     final artHeight = (index < 2 ? 96.0 : 91.0) * s;
     final zoom = switch (index) {
@@ -364,7 +598,7 @@ class _InterestCard extends StatelessWidget {
                           'interest-study',
                           'interest-kcontent',
                         ][index],
-                        fit: BoxFit.fill,
+                        fit: BoxFit.contain,
                       ),
                     ),
                   ),
@@ -377,7 +611,10 @@ class _InterestCard extends StatelessWidget {
                 child: Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: IntroTypography.interestLabel(s),
+                  style: IntroTypography.localized(
+                    context,
+                    IntroTypography.interestLabel(s),
+                  ),
                 ),
               ),
               if (selected) ...[
@@ -411,6 +648,106 @@ class _InterestCard extends StatelessWidget {
       ),
     );
   }
+
+  Widget _compactCard(BuildContext context) => Semantics(
+    label: title,
+    selected: selected,
+    inMutuallyExclusiveGroup: true,
+    button: true,
+    onTap: onTap,
+    child: IntroPressable(
+      key: ValueKey('onboarding-purpose-$id'),
+      onTap: onTap,
+      pressScale: .995,
+      surfaceDepth: 0,
+      child: ExcludeSemantics(
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            DecoratedBox(
+              decoration: BoxDecoration(
+                color: const Color(0xfffff5e8),
+                borderRadius: BorderRadius.circular(IntroGeometry.interest),
+                border: Border.all(color: const Color(0xffd2b991)),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0x603d2b12),
+                    offset: Offset(0, 2),
+                    blurRadius: 2,
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(2),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(IntroGeometry.interestArt),
+                      ),
+                      child: LayoutBuilder(
+                        builder: (context, bounds) => Stack(
+                          fit: StackFit.expand,
+                          children: [
+                            CIntroArt(
+                              [
+                                'interest-travel',
+                                'interest-culture',
+                                'interest-study',
+                                'interest-kcontent',
+                              ][index],
+                              fit: BoxFit.contain,
+                            ),
+                            Positioned(
+                              top: 2,
+                              right: 2,
+                              child: IntroSelectionMotion(
+                                selected: selected,
+                                child: IntroMedal(
+                                  '✓',
+                                  size: (bounds.maxHeight - 4).clamp(0, 28),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  SizedBox(
+                    height: 40,
+                    child: Center(
+                      child: Text(
+                        title,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        style: IntroTypography.localized(
+                          context,
+                          IntroTypography.interestLabel(1),
+                        ).copyWith(fontSize: 16, height: 1.15),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if (selected)
+              IgnorePointer(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(IntroGeometry.interest),
+                    border: Border.all(color: IntroPalette.jade, width: 4),
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
+    ),
+  );
 }
 
 class IntroReferenceLevelSheet extends StatelessWidget {
@@ -452,7 +789,10 @@ class IntroReferenceLevelSheet extends StatelessWidget {
       }) => Text(
         text,
         textAlign: TextAlign.center,
-        style: IntroTypography.levelWords(size, s, serif, bold, color),
+        style: IntroTypography.localized(
+          context,
+          IntroTypography.levelWords(size, s, serif, bold, color),
+        ),
       );
       Widget option(
         String code,
@@ -612,7 +952,10 @@ class IntroReferenceLevelSheet extends StatelessWidget {
                   ),
                   maxLines: 1,
                   softWrap: false,
-                  textStyle: IntroTypography.sheetClose(s),
+                  textStyle: IntroTypography.localized(
+                    context,
+                    IntroTypography.sheetClose(s),
+                  ),
                 ),
               ),
               at(

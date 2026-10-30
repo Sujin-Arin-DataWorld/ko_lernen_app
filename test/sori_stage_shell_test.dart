@@ -727,7 +727,7 @@ void main() {
 
     await tester.pumpWidget(_app(const AppShell()));
     await tester.pump();
-    await tester.tap(find.text('Games').last);
+    await tester.tap(find.byTooltip('Games').last);
     await tester.pump();
     expect(
       tester.widget<NavigationBar>(find.byType(NavigationBar)).selectedIndex,

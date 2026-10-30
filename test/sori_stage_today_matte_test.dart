@@ -8,25 +8,22 @@ import 'package:ko_lernen_app/models/quest.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_common.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
+import 'package:ko_lernen_app/screens/sori_stage/c_stage_chrome.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/home_hero.dart';
-import 'package:ko_lernen_app/widgets/sori/learning_companion.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/reward_thumb.dart';
 import 'package:ko_lernen_app/widgets/sori/stats_top_bar.dart';
 
-/// SoriStage Today 의 **매트 배경 계약** (`home_hero_matte_test.dart` 의 화면판).
-///
-/// 히어로 클립은 한지색 매트(#FBF5EB)를 미리 합성한 불투명 mp4 다. Today 의
-/// 라이트 배경이 정확히 그 값의 평면 단색이 아니면 Android 에서 영상 사각형이
-/// 액자처럼 뜬다 (2026-08-12 실기기 실측 — 홈이 네 번 겪은 결함). 이 테스트는
-/// Phase 2b(2026-08-14) 히어로 이식이 그 계약을 지키는지 고정한다.
+/// The approved C5 jade material and transparent canonical companion replace
+/// the retired video-matte composition; interaction/state contracts remain.
 void main() {
   setUp(() async {
     Storage.resetForTesting();
@@ -73,21 +70,32 @@ void main() {
     await tester.pump(const Duration(milliseconds: 400));
   }
 
-  testWidgets('라이트 배경은 히어로 클립 매트와 같은 평면 단색이다', (tester) async {
-    await pumpToday(tester);
+  testWidgets(
+    'Today uses the approved jade material behind its native header',
+    (tester) async {
+      await pumpToday(tester);
 
-    final bg = tester.widget<ColoredBox>(
-      find.byKey(const ValueKey('sori-today-bg')),
-    );
-    expect(bg.color, HomeHeroClips.matte);
-    // 토큰 드리프트 가드 — 매트 실측값 자체가 바뀌면 여기서 잡는다.
-    expect(bg.color, const Color(0xFFFBF5EB));
-  });
+      final bg = find.byKey(const ValueKey('sori-today-bg'));
+      expect(tester.widget(bg), isA<CStageBackground>());
+      expect(
+        find.descendant(
+          of: bg,
+          matching: find.byWidgetPredicate(
+            (widget) => widget is ColoredBox && widget.color == CPalette.jade,
+          ),
+        ),
+        findsOneWidget,
+      );
+    },
+  );
 
   testWidgets('마스코트 히어로와 스탯 톱바가 Today 를 이끈다 (RootHeader 부재)', (tester) async {
     await pumpToday(tester);
 
-    expect(find.byType(SoriLearningCompanion), findsOneWidget);
+    expect(
+      find.byKey(const ValueKey('today-companion-greeting')),
+      findsOneWidget,
+    );
     expect(find.byType(SoriStatsTopBar), findsOneWidget);
     // 2026-08-13 롤백 사유의 수리 증명: 텍스트 RootHeader 는 이 탭에 없다.
     expect(find.byType(SoriStageRootHeader), findsNothing);
@@ -104,22 +112,20 @@ void main() {
       await pumpToday(tester);
 
       expect(find.byType(CharacterClipPlayer), findsNothing);
-      final companion = find.byType(SoriLearningCompanion);
-      expect(
-        tester.widget<SoriLearningCompanion>(companion).forceStatic,
-        isTrue,
-      );
+      final companion = find.byKey(const ValueKey('learning-companion-ground'));
       final portrait = find.descendant(
         of: companion,
-        matching: find.byType(Mascot),
+        matching: find.byType(Image),
       );
-      expect(tester.widget<Mascot>(portrait).kind, MascotKind.tiger);
-      expect(tester.widget<Mascot>(portrait).size, 84);
+      expect(
+        (tester.widget<Image>(portrait).image as AssetImage).assetName,
+        'assets/illustrations/companions/canonical/taego_portrait.png',
+      );
       final ground = tester.getSize(
         find.byKey(const ValueKey('learning-companion-ground')),
       );
-      expect(ground, const Size(144, 125));
-      expect(tester.widget<Mascot>(portrait).size, lessThan(ground.height));
+      expect(ground, const Size(104, 104));
+      expect(tester.widget<Image>(portrait).fit, BoxFit.contain);
     },
   );
 

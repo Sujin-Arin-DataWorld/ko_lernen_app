@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
@@ -7,9 +5,10 @@ import '../../widgets/sori/intro_motion.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/type_scale.dart';
 import '../../widgets/sori/intro_tokens.dart';
+import '../../widgets/sori/approved_chrome_assets.dart';
 
 /// Native text and actions on the complete 941 × 1672 approved welcome artwork.
-/// Reference geometry is 402 × 714.2869, centered within taller viewports.
+/// The image fills the viewport; only native text and actions use safe insets.
 class CIntroWelcomeReference extends StatelessWidget {
   const CIntroWelcomeReference({
     super.key,
@@ -27,196 +26,182 @@ class CIntroWelcomeReference extends StatelessWidget {
   final VoidCallback onLater;
 
   static const _cream = Color(0xfffff2d5);
-  static const _aspect = 941 / 1672;
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final media = MediaQuery.of(context);
-    return DecoratedBox(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Color(0xff164c48), Color(0xff123e38)],
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        Image.asset(
+          artwork,
+          key: const ValueKey('welcome-whole-art'),
+          fit: BoxFit.cover,
+          semanticLabel: t.welcomeCharacters,
+          filterQuality: FilterQuality.medium,
         ),
-      ),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 600),
-          child: SoriViewportTypeScale(
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                final width = constraints.maxWidth;
-                final scale = width / 402;
-                // Use a flowing layout before source scaling would make the CTA
-                // smaller than a 48dp target, or larger text would crowd the art.
-                final adaptive =
-                    50 * scale < 48 || !IntroLayout.usesReferenceText(context);
-                final sceneHeight = width / _aspect;
-                final art = Image.asset(
-                  artwork,
-                  key: const ValueKey('welcome-whole-art'),
-                  fit: BoxFit.contain,
-                  semanticLabel: t.welcomeCharacters,
-                  filterQuality: FilterQuality.medium,
-                );
-                if (adaptive) {
-                  return SingleChildScrollView(
-                    padding: EdgeInsets.only(
-                      top: media.padding.top + 20,
-                      bottom: media.padding.bottom + 16,
-                    ),
-                    child: Column(
+        // One continuous picture owns the background, including system insets.
+        // Only interactive content is inset; no second scene or colored bands.
+        SafeArea(
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 600),
+              child: SoriViewportTypeScale(
+                child: LayoutBuilder(
+                  builder: (context, bounds) {
+                    final compact = bounds.maxHeight < 690;
+                    final accessibility = !IntroLayout.usesReferenceText(
+                      context,
+                    );
+                    final titleScale = compact ? .9 : 1.0;
+                    final top = Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        const SizedBox(
-                          width: 58,
-                          height: 25,
-                          child: CustomPaint(painter: _WelcomeCloud()),
-                        ),
-                        const SizedBox(height: IntroSpacing.welcomeBrandGap),
-                        _brand(1),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(24, 12, 24, 8),
-                          child: _title(
-                            t.welcomeTitle,
-                            width < 360 ? 22 / 28 : 1,
+                        SizedBox(
+                          height: compact ? 28 : 38,
+                          width: 74,
+                          child: Image.asset(
+                            ApprovedChromeAssets.cloud,
+                            fit: BoxFit.contain,
+                            excludeFromSemantics: true,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(24, 0, 24, 16),
-                          child: _body(t.welcomeBody, 16),
-                        ),
-                        AspectRatio(aspectRatio: _aspect, child: art),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(24, 16, 24, 0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              if (failed) ...[
-                                _error(t),
-                                const SizedBox(height: 8),
+                        _brand(context, 1),
+                        const SizedBox(height: 10),
+                        _title(context, t.welcomeTitle, titleScale),
+                        const SizedBox(height: 8),
+                        _body(context, t.welcomeBody, 16),
+                      ],
+                    );
+                    final actions = Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        if (failed) ...[
+                          _error(context, t),
+                          const SizedBox(height: 8),
+                        ],
+                        _start(context, t, adaptive: true),
+                        const SizedBox(height: 4),
+                        _later(context, t, adaptive: true),
+                      ],
+                    );
+                    return Padding(
+                      key: const ValueKey('welcome-reference-scene'),
+                      padding: EdgeInsets.fromLTRB(
+                        24,
+                        compact ? 12 : 28,
+                        24,
+                        8,
+                      ),
+                      child: accessibility
+                          ? LayoutBuilder(
+                              builder: (context, contentBounds) =>
+                                  SingleChildScrollView(
+                                    child: ConstrainedBox(
+                                      constraints: BoxConstraints(
+                                        minHeight: contentBounds.maxHeight,
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          top,
+                                          const SizedBox(height: 24),
+                                          ConstrainedBox(
+                                            constraints: const BoxConstraints(
+                                              maxWidth: 380,
+                                            ),
+                                            child: actions,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                            )
+                          : Column(
+                              children: [
+                                top,
+                                const Spacer(),
+                                ConstrainedBox(
+                                  constraints: const BoxConstraints(
+                                    maxWidth: 380,
+                                  ),
+                                  child: actions,
+                                ),
                               ],
-                              _start(t, adaptive: true),
-                              const SizedBox(height: 8),
-                              _later(t, adaptive: true),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                }
-                final margin = (constraints.maxHeight - sceneHeight) / 2;
-                return SingleChildScrollView(
-                  padding: EdgeInsets.only(
-                    top: math.max(media.padding.top, margin),
-                    bottom: math.max(media.padding.bottom, margin),
-                  ),
-                  child: SizedBox(
-                    key: const ValueKey('welcome-reference-scene'),
-                    width: width,
-                    height: sceneHeight,
-                    child: Stack(
-                      children: [
-                        Positioned.fill(child: art),
-                        _at(
-                          172,
-                          14.5,
-                          58,
-                          25,
-                          scale,
-                          const CustomPaint(painter: _WelcomeCloud()),
-                        ),
-                        _at(
-                          17,
-                          20,
-                          63,
-                          46,
-                          scale,
-                          _partialCloud(-36, 98, 44, scale),
-                        ),
-                        _at(
-                          306,
-                          45,
-                          55,
-                          34,
-                          scale,
-                          _partialCloud(0, 96, 43, scale),
-                        ),
-                        _at(100, 40, 202, 18, scale, _brand(scale)),
-                        _at(
-                          65,
-                          69,
-                          272,
-                          68,
-                          scale,
-                          Center(child: _title(t.welcomeTitle, scale)),
-                        ),
-                        _at(
-                          75,
-                          139,
-                          252,
-                          33,
-                          scale,
-                          Center(child: _body(t.welcomeBody, 12.5 * scale)),
-                        ),
-                        if (failed)
-                          Positioned(
-                            left: 24 * scale,
-                            right: 24 * scale,
-                            bottom: 121 * scale,
-                            child: _error(t),
-                          ),
-                        _at(
-                          84.5,
-                          601.5,
-                          233,
-                          50,
-                          scale,
-                          _start(t, scale: scale),
-                        ),
-                        Positioned(
-                          left: 151 * scale,
-                          top: 650 * scale,
-                          width: 100 * scale,
-                          height: math.max(48, 48 * scale),
-                          child: _later(t, scale: scale),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
+                            ),
+                    );
+                  },
+                ),
+              ),
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 
-  Widget _brand(double scale) => Text(
+  Widget _brand(BuildContext context, double scale) => Text(
     'HANGUL SORI',
     textAlign: TextAlign.center,
-    style: IntroTypography.welcomeBrand(scale),
+    style: IntroTypography.localized(
+      context,
+      IntroTypography.welcomeBrand(scale),
+      heading: true,
+    ),
   );
 
-  Widget _title(String title, double scale) => Semantics(
+  Widget _title(BuildContext context, String title, double scale) => Semantics(
     header: true,
     child: Text(
       title,
       textAlign: TextAlign.center,
-      style: IntroTypography.welcomeTitle(scale),
+      style: IntroTypography.localized(
+        context,
+        IntroTypography.welcomeTitle(scale),
+        heading: true,
+      ),
     ),
   );
 
-  Widget _body(String body, double size) => Text(
+  Widget _body(BuildContext context, String body, double size) => Text(
     body,
     textAlign: TextAlign.center,
-    style: IntroTypography.welcomeBody(size),
+    style: IntroTypography.localized(context, IntroTypography.welcomeBody(size))
+        .copyWith(
+          shadows: const [
+            Shadow(
+              color: Color(0xff0c302d),
+              offset: Offset(0, 1),
+              blurRadius: 2.5,
+            ),
+            Shadow(
+              color: Color(0xff0c302d),
+              offset: Offset(-.65, 0),
+              blurRadius: .4,
+            ),
+            Shadow(
+              color: Color(0xff0c302d),
+              offset: Offset(.65, 0),
+              blurRadius: .4,
+            ),
+            Shadow(
+              color: Color(0xff0c302d),
+              offset: Offset(0, -.65),
+              blurRadius: .4,
+            ),
+            Shadow(
+              color: Color(0xff0c302d),
+              offset: Offset(0, .65),
+              blurRadius: .4,
+            ),
+          ],
+        ),
   );
 
-  Widget _error(AppL10n t) => Semantics(
+  Widget _error(BuildContext context, AppL10n t) => Semantics(
     liveRegion: true,
     child: Container(
       padding: const EdgeInsets.all(12),
@@ -224,17 +209,25 @@ class CIntroWelcomeReference extends StatelessWidget {
       child: Text(
         t.loadErrorTryAgain,
         textAlign: TextAlign.center,
-        style: IntroTypography.welcomeError,
+        style: IntroTypography.localized(context, IntroTypography.welcomeError),
       ),
     ),
   );
 
-  Widget _start(AppL10n t, {double scale = 1, bool adaptive = false}) {
+  Widget _start(
+    BuildContext context,
+    AppL10n t, {
+    double scale = 1,
+    bool adaptive = false,
+  }) {
     final action = busy ? null : onStart;
     final label = Text(
       t.welcomeStart,
       textAlign: TextAlign.center,
-      style: IntroTypography.welcomeAction(scale),
+      style: IntroTypography.localized(
+        context,
+        IntroTypography.welcomeAction(scale).copyWith(fontSize: 22),
+      ),
     );
     final arrow = busy
         ? const SizedBox(
@@ -304,38 +297,28 @@ class CIntroWelcomeReference extends StatelessWidget {
     );
   }
 
-  Widget _later(AppL10n t, {double scale = 1, bool adaptive = false}) =>
-      Semantics(
-        hint: t.welcomeLaterHint,
-        child: SoriTextAction(
-          key: const ValueKey('welcome-later'),
-          label: t.welcomeLater,
-          onPressed: busy ? null : onLater,
-          style: TextButton.styleFrom(
-            minimumSize: const Size(48, 48),
-            padding: EdgeInsets.zero,
-            foregroundColor: const Color(0xffe8e5d6),
-          ),
-          textStyle: IntroTypography.welcomeLater(scale, adaptive),
-        ),
-      );
-
-  Widget _partialCloud(double x, double width, double height, double scale) =>
-      ClipRect(
-        child: Stack(
-          children: [
-            Positioned(
-              left: x * scale,
-              top: 0,
-              width: width * scale,
-              height: height * scale,
-              child: const CustomPaint(
-                painter: _WelcomeCloud(color: Color(0xbfc4aa6e), stroke: 1.1),
-              ),
-            ),
-          ],
-        ),
-      );
+  Widget _later(
+    BuildContext context,
+    AppL10n t, {
+    double scale = 1,
+    bool adaptive = false,
+  }) => Semantics(
+    hint: t.welcomeLaterHint,
+    child: SoriTextAction(
+      key: const ValueKey('welcome-later'),
+      label: t.welcomeLater,
+      onPressed: busy ? null : onLater,
+      style: TextButton.styleFrom(
+        minimumSize: const Size(48, 48),
+        padding: EdgeInsets.zero,
+        foregroundColor: const Color(0xffe8e5d6),
+      ),
+      textStyle: IntroTypography.localized(
+        context,
+        IntroTypography.welcomeLater(scale, adaptive),
+      ),
+    ),
+  );
 
   static Widget _at(
     double x,
@@ -397,15 +380,6 @@ class _WelcomeButtonFace extends CustomPainter {
           stops: [0, .45, 1],
         ).createShader(rect),
     );
-    final cloud = const _WelcomeCloud(color: Color(0x336e9c84), stroke: 1.2);
-    canvas.save();
-    canvas.translate(-9, size.height - 30);
-    cloud.paint(canvas, const Size(58, 26));
-    canvas.restore();
-    canvas.save();
-    canvas.translate(size.width - 40, size.height - 19);
-    cloud.paint(canvas, const Size(58, 26));
-    canvas.restore();
     canvas.drawRRect(
       face,
       Paint()
@@ -436,58 +410,4 @@ class _WelcomeButtonFace extends CustomPainter {
 
   @override
   bool shouldRepaint(_WelcomeButtonFace oldDelegate) => false;
-}
-
-class _WelcomeCloud extends CustomPainter {
-  const _WelcomeCloud({this.color = const Color(0xffd8b777), this.stroke = .9});
-  final Color color;
-  final double stroke;
-  @override
-  void paint(Canvas canvas, Size size) {
-    final path = Path()
-      ..moveTo(8, 36)
-      ..lineTo(30, 36)
-      ..cubicTo(32, 27, 38, 23, 43, 24)
-      ..cubicTo(44, 11, 55, 3, 67, 4)
-      ..cubicTo(80, 4, 86, 11, 89, 20)
-      ..cubicTo(101, 17, 112, 25, 112, 36)
-      ..lineTo(128, 36)
-      ..cubicTo(137, 36, 137, 44, 128, 44)
-      ..lineTo(109, 44)
-      ..cubicTo(105, 55, 91, 60, 80, 55)
-      ..cubicTo(70, 62, 54, 59, 47, 52)
-      ..cubicTo(39, 55, 31, 51, 29, 44)
-      ..lineTo(8, 44)
-      ..cubicTo(0, 44, 0, 36, 8, 36)
-      ..close()
-      ..moveTo(67, 20)
-      ..cubicTo(58, 15, 51, 21, 53, 29)
-      ..cubicTo(55, 36, 64, 35, 65, 29)
-      ..cubicTo(66, 25, 63, 24, 61, 25)
-      ..moveTo(45, 34)
-      ..cubicTo(34, 30, 31, 42, 39, 47)
-      ..cubicTo(47, 52, 56, 44, 53, 38)
-      ..moveTo(85, 29)
-      ..cubicTo(96, 24, 104, 33, 100, 41)
-      ..cubicTo(96, 48, 85, 45, 86, 38)
-      ..cubicTo(86, 34, 90, 33, 93, 35);
-    final matrix = Matrix4.diagonal3Values(
-      size.width / 137,
-      size.height / 59,
-      1,
-    );
-    canvas.drawPath(
-      path.transform(matrix.storage),
-      Paint()
-        ..color = color
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = stroke
-        ..strokeCap = StrokeCap.round
-        ..strokeJoin = StrokeJoin.round,
-    );
-  }
-
-  @override
-  bool shouldRepaint(_WelcomeCloud oldDelegate) =>
-      color != oldDelegate.color || stroke != oldDelegate.stroke;
 }

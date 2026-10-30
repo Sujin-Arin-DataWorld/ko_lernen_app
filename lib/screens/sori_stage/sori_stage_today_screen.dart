@@ -1,4 +1,6 @@
+import '../../widgets/sori/top_chrome.dart';
 import '../../widgets/sori/yeopjeon_wallet_card.dart';
+import 'dart:async' show unawaited;
 import '../../features/dancheong/dancheong_connections.dart';
 import '../../features/dancheong/dancheong_store.dart';
 import '../../features/content_learning/content_learning_widgets.dart';
@@ -24,12 +26,11 @@ import '../../widgets/app_loading.dart';
 import '../../widgets/sori/activity_illustration.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
-import '../../widgets/sori/character_clip.dart';
 import '../../widgets/sori/cultural_help.dart';
 import '../../widgets/sori/hanok_stage_names.dart';
 import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/home_hero.dart';
-import '../../widgets/sori/learning_companion.dart';
+import '../../widgets/sori/c_gallery/c_materials.dart';
 import '../../widgets/sori/mascot_preference.dart';
 import '../../widgets/sori/milestone_celebration.dart';
 import '../../widgets/sori/motion.dart';
@@ -46,15 +47,14 @@ import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/week_sheet.dart';
 import '../../widgets/sori/window_class.dart';
 import 'sori_stage_common.dart';
+import 'c_stage_chrome.dart';
 import 'sori_stage_reward_receipt_sheet.dart';
 
 /// Today: compact greeting and companion grounded to the shared learning goal.
 /// [SoriStatsTopBar] keeps profile and statistics access above that next step.
 ///
-/// ⚠️ **배경 계약 (홈과 동일)**: 라이트 = [HomeHeroClips.matte] 평면 단색.
-/// 히어로 클립이 한지색 매트를 미리 합성한 불투명 mp4 라, 배경이 이 값이
-/// 아니거나 균일하지 않으면 영상 사각형이 액자처럼 뜬다 (2026-08-12 실측,
-/// 상세는 home_hero.dart 와 홈 build 주석). 그라데이션·한지 그레인 금지.
+/// Approved C5 jade carries the native chrome and transparent canonical hero;
+/// the shared learning goal remains on one paper board below it.
 class SoriStageTodayScreen extends StatefulWidget {
   const SoriStageTodayScreen({
     super.key,
@@ -382,7 +382,23 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
       profileTooltip: t.soriStageProfileTooltip,
     );
 
-    return topBar;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Theme(
+          data: Theme.of(context).copyWith(brightness: Brightness.dark),
+          child: topBar,
+        ),
+        if (SoriWalletScope.maybeOf(context) != null)
+          Align(
+            alignment: Alignment.centerRight,
+            child: SoriWalletBadge(
+              onReturned: _reload,
+              foreground: CPalette.paper,
+            ),
+          ),
+      ],
+    );
   }
 
   Widget _companion(BuildContext context, AppL10n t) {
@@ -390,15 +406,47 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
       valueListenable: MascotPreference.preference,
       builder: (context, preference, _) {
         final kind = MascotPreference.mascotKindFor(preference);
-        return SoriLearningCompanion(
-          greeting: soriHeroGreeting(t, _phase),
-          title: t.soriStageNavToday,
-          kind: kind,
-          // teal kill-switch: 흰 배경 위 한지 매트 클립은 액자가 된다 →
-          // 다크와 같은 정적 마스코트 경로로.
-          // The approved tactile portrait replaces the old raster video
-          // appearance. Dignity is preserved through one restrained entrance.
-          forceStatic: true,
+        final compact = MediaQuery.sizeOf(context).height < 750;
+        final type = SoriTextTheme.of(context);
+        final words = Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              soriHeroGreeting(t, _phase),
+              key: const ValueKey('today-companion-greeting'),
+              style: type.body.copyWith(fontSize: 16, color: CPalette.paper),
+            ),
+            const SizedBox(height: 4),
+            Text(t.soriStageNavToday, style: cStageTitle(context)),
+          ],
+        );
+        return Padding(
+          key: kind == null
+              ? const ValueKey('sori-today-companion-hidden')
+              : null,
+          padding: const EdgeInsets.only(bottom: 8),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Expanded(child: words),
+              if (kind != null) ...[
+                const SizedBox(width: 8),
+                SizedBox(
+                  key: const ValueKey('learning-companion-ground'),
+                  width: compact ? 104 : 128,
+                  height: compact ? 104 : 128,
+                  child: Image.asset(
+                    kind.name == 'tiger'
+                        ? 'assets/illustrations/companions/canonical/taego_portrait.png'
+                        : 'assets/illustrations/companions/canonical/joy_portrait.png',
+                    fit: BoxFit.contain,
+                    excludeFromSemantics: true,
+                  ),
+                ),
+              ],
+            ],
+          ),
         );
       },
     );
@@ -407,61 +455,61 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
-    final bool isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      body: Stack(
-        children: [
-          // 배경 계약: 클래스 doc-comment 참조. 라이트 = 매트 평면 단색.
-          Positioned.fill(
-            child: ColoredBox(
-              key: const ValueKey('sori-today-bg'),
-              color: isDark ? s.bg : HomeHeroClips.matte,
-            ),
-          ),
-          SafeArea(
-            child: FutureBuilder<SoriStageProgressionSnapshot>(
-              future: _future,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return _TodayContent(
-                    snapshot: snapshot.requireData,
-                    onRefresh: _reload,
-                    missionTourKey: _missionTourKey,
-                    header: _header(context, t),
-                    companion: _companion(context, t),
-                  );
-                }
-                // 로딩/오류에도 헤더(톱바+히어로)는 즉시 보인다 — 홈과 같은
-                // "캐릭터가 먼저 맞이하는" 진입이자, 셸 테스트의 Profile 툴팁
-                // 계약(스냅샷 로드와 무관)이기도 하다. ListView 인 이유:
-                // 낮은 높이(가로 폰·분할 화면 360dp)에서 헤더+스피너가 화면을
-                // 넘칠 수 있어 스크롤로 받는다.
-                final bool waiting =
-                    snapshot.connectionState == ConnectionState.waiting;
-                return SoriContentClamp(
-                  maxWidth: SoriMaxWidth.hub,
-                  base: Spacing.page,
-                  builder: (context, padding) => ListView(
-                    padding: padding,
-                    children: [
-                      _header(context, t),
-                      if (LearningFocusScope.maybeOf(context) != null)
-                        SoriLearningFocus(introduction: _companion(context, t))
-                      else
-                        _companion(context, t),
-                      const SizedBox(height: Spacing.xl),
-                      if (waiting)
-                        const AppLoading()
-                      else
-                        _TodayError(onRetry: _reload),
-                    ],
-                  ),
+      body: CStageBackground(
+        key: const ValueKey('sori-today-bg'),
+        child: SafeArea(
+          child: FutureBuilder<SoriStageProgressionSnapshot>(
+            future: _future,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return _TodayContent(
+                  snapshot: snapshot.requireData,
+                  onRefresh: () {
+                    final wallet = SoriWalletScope.maybeOf(context);
+                    if (wallet != null) {
+                      unawaited(wallet.refresh());
+                    }
+                    _reload();
+                  },
+                  missionTourKey: _missionTourKey,
+                  header: _header(context, t),
+                  companion: _companion(context, t),
                 );
-              },
-            ),
+              }
+              // 로딩/오류에도 헤더(톱바+히어로)는 즉시 보인다 — 홈과 같은
+              // "캐릭터가 먼저 맞이하는" 진입이자, 셸 테스트의 Profile 툴팁
+              // 계약(스냅샷 로드와 무관)이기도 하다. ListView 인 이유:
+              // 낮은 높이(가로 폰·분할 화면 360dp)에서 헤더+스피너가 화면을
+              // 넘칠 수 있어 스크롤로 받는다.
+              final bool waiting =
+                  snapshot.connectionState == ConnectionState.waiting;
+              return SoriContentClamp(
+                maxWidth: SoriMaxWidth.hub,
+                base: Spacing.page,
+                builder: (context, padding) => ListView(
+                  padding: padding,
+                  children: [
+                    _header(context, t),
+                    _companion(context, t),
+                    if (LearningFocusScope.maybeOf(context) != null)
+                      const CPaperPanel(
+                        child: SoriLearningFocus(
+                          conceptC: true,
+                          conceptCompactSummary: true,
+                        ),
+                      ),
+                    const SizedBox(height: Spacing.xl),
+                    if (waiting)
+                      const AppLoading()
+                    else
+                      _TodayError(onRetry: _reload),
+                  ],
+                ),
+              );
+            },
           ),
-        ],
+        ),
       ),
     );
   }
@@ -510,7 +558,7 @@ class _TodayContent extends StatelessWidget {
 
     return SoriContentClamp(
       maxWidth: SoriMaxWidth.hub,
-      base: Spacing.page,
+      base: const EdgeInsets.fromLTRB(12, 12, 12, 24),
       builder: (context, padding) => RefreshIndicator(
         onRefresh: () async => onRefresh(),
         child: ListView(
@@ -518,83 +566,97 @@ class _TodayContent extends StatelessWidget {
           padding: padding,
           children: [
             header,
-            if (!todayUnavailable &&
+            if (SoriWalletScope.maybeOf(context) == null &&
+                !todayUnavailable &&
                 !snapshot.walletUnavailable &&
                 snapshot.wallet != null)
               Align(
                 alignment: Alignment.centerRight,
-                child: YeopjeonWalletBadge(
-                  wallet: snapshot.wallet!,
+                child: SoriWalletBadge(
+                  fallback: snapshot.wallet,
                   onReturned: onRefresh,
                 ),
               ),
-            stagger(
-              LearningFocusScope.maybeOf(context) != null
-                  ? SoriLearningFocus(
-                      key: missionTourKey,
-                      introduction: companion,
-                    )
-                  : Column(
-                      children: [
-                        companion,
-                        _TodayMissionStage(
-                          key: missionTourKey,
-                          snapshot: snapshot,
-                          onActivityReturned: onRefresh,
-                        ),
-                      ],
+            companion,
+            CPaperPanel(
+              key: const ValueKey('c-today-board'),
+              radius: 18,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  stagger(
+                    LearningFocusScope.maybeOf(context) != null
+                        ? SoriLearningFocus(
+                            key: missionTourKey,
+                            conceptC: true,
+                            conceptCompactSummary: true,
+                          )
+                        : Column(
+                            children: [
+                              _TodayMissionStage(
+                                key: missionTourKey,
+                                snapshot: snapshot,
+                                onActivityReturned: onRefresh,
+                              ),
+                            ],
+                          ),
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                  const TodayGuideChecklistSection(),
+                  const ContentDailyGoals(),
+                  // A partial Today snapshot must not look like a complete daily
+                  // dashboard. In particular, neither reward collection nor
+                  // unrelated activity CTAs may accompany its safe retry path.
+                  if (!todayUnavailable) ...[
+                    if (snapshot.pendingBojagiCount > 0) ...[
+                      const SizedBox(height: Spacing.lg),
+                      stagger(
+                        _PendingBojagi(count: snapshot.pendingBojagiCount),
+                      ),
+                    ],
+                    const SizedBox(height: Spacing.xl),
+                    DancheongDraftResume(
+                      store: DancheongStore(),
+                      onOpen: (arguments) => Navigator.of(context).pushNamed(
+                        '/dancheong-studio/edit',
+                        arguments: arguments,
+                      ),
                     ),
-            ),
-            const SizedBox(height: Spacing.lg),
-            const TodayGuideChecklistSection(),
-            const ContentDailyGoals(),
-            // A partial Today snapshot must not look like a complete daily
-            // dashboard. In particular, neither reward collection nor
-            // unrelated activity CTAs may accompany its safe retry path.
-            if (!todayUnavailable) ...[
-              if (snapshot.pendingBojagiCount > 0) ...[
-                const SizedBox(height: Spacing.lg),
-                stagger(_PendingBojagi(count: snapshot.pendingBojagiCount)),
-              ],
-              const SizedBox(height: Spacing.xl),
-              DancheongDraftResume(
-                store: DancheongStore(),
-                onOpen: (arguments) => Navigator.of(
-                  context,
-                ).pushNamed('/dancheong-studio/edit', arguments: arguments),
+                    stagger(_HanokProgress(snapshot: snapshot)),
+                    const SizedBox(height: Spacing.md),
+                    YeopjeonWalletCard(key: ObjectKey(snapshot), compact: true),
+                    if (nearlyComplete.isNotEmpty) ...[
+                      const SizedBox(height: Spacing.xl),
+                      stagger(
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // §D: 섹션 제목은 SoriSectionHeader(골드 hairline)
+                            // 규격 — 자체 하단 여백(Spacing.sm)을 갖는다.
+                            SoriSectionHeader(t.soriStageClosestQuests),
+                            for (final quest in nearlyComplete)
+                              _QuestProgressRow(progress: quest),
+                          ],
+                        ),
+                      ),
+                    ],
+                    if (upNext.isNotEmpty) ...[
+                      const SizedBox(height: Spacing.xl),
+                      stagger(
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SoriSectionHeader(t.soriStageNextQuests),
+                            for (final quest in upNext)
+                              _QuestProgressRow(progress: quest),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ],
+                ],
               ),
-              stagger(_HanokProgress(snapshot: snapshot)),
-              const SizedBox(height: Spacing.md),
-              YeopjeonWalletCard(key: ObjectKey(snapshot), compact: true),
-              if (nearlyComplete.isNotEmpty) ...[
-                const SizedBox(height: Spacing.xl),
-                stagger(
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // §D: 섹션 제목은 SoriSectionHeader(골드 hairline)
-                      // 규격 — 자체 하단 여백(Spacing.sm)을 갖는다.
-                      SoriSectionHeader(t.soriStageClosestQuests),
-                      for (final quest in nearlyComplete)
-                        _QuestProgressRow(progress: quest),
-                    ],
-                  ),
-                ),
-              ],
-              if (upNext.isNotEmpty) ...[
-                const SizedBox(height: Spacing.xl),
-                stagger(
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SoriSectionHeader(t.soriStageNextQuests),
-                      for (final quest in upNext)
-                        _QuestProgressRow(progress: quest),
-                    ],
-                  ),
-                ),
-              ],
-            ],
+            ),
           ],
         ),
       ),
@@ -639,134 +701,125 @@ class _TodayMissionStage extends StatelessWidget {
         : (entry == null
               ? t.soriStageMissionAction
               : localCopy(context, entry.title));
-    return Container(
-      // §P3-1: padding 0 — 상단 21:9 일러스트가 카드 모서리까지 간다.
-      clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-        color: SoriActivityColors.hanokStage,
-        borderRadius: BorderRadius.circular(SoriRadius.xl),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          if (entry != null && destination != null)
-            // errorBuilder 는 2차 가드일 뿐: AspectRatio 는 자식이 아니라
-            // 제약으로 크기가 잡히므로 errorBuilder 만으론 빈 다크 밴드가
-            // 남는다. 1차 강등은 위 entry null 게이트다.
-            ClipRRect(
-              borderRadius: const BorderRadius.vertical(
-                top: Radius.circular(SoriRadius.xl),
-              ),
-              child: AspectRatio(
-                aspectRatio: 21 / 9,
-                child: Image.asset(
-                  activityIllustrationAsset(entry.id),
-                  fit: BoxFit.contain,
-                  errorBuilder: (_, _, _) => const SizedBox.shrink(),
-                ),
-              ),
+    final compact = MediaQuery.sizeOf(context).height < 750;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (entry != null && destination != null)
+          // errorBuilder 는 2차 가드일 뿐: AspectRatio 는 자식이 아니라
+          // 제약으로 크기가 잡히므로 errorBuilder 만으론 빈 다크 밴드가
+          // 남는다. 1차 강등은 위 entry null 게이트다.
+          ClipRRect(
+            borderRadius: const BorderRadius.vertical(
+              top: Radius.circular(SoriRadius.xl),
             ),
-          Padding(
-            padding: const EdgeInsets.all(Spacing.xl),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  t.soriStageTodayMissionEyebrow,
-                  // eyebrow 토큰 — 짙은 한옥 스테이지 위라 석간주 대신 골드.
-                  style: tt.eyebrow.copyWith(color: SoriColors.gold),
-                ),
-                const SizedBox(height: Spacing.sm),
-                Text(
-                  title,
-                  // §D: 카드 내부 헤드라인은 h1 상한 — hero(38)는 페이지
-                  // 헤더 전용.
-                  style: tt.h1.copyWith(color: Colors.white),
-                ),
-                if (contract != null && contract.items.isNotEmpty) ...[
-                  const SizedBox(height: Spacing.lg),
-                  // §W-D D5.2: "Mögliche Belohnung:" 은 골드 라벨보다
-                  // 낮은 위계 — meta(13.5) + white@0.8.
-                  Text(
-                    '${t.soriStagePossibleReward}:',
-                    style: tt.meta.copyWith(
-                      color: Colors.white.withValues(alpha: 0.8),
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  // §W-D D5.1: 세로 3열(아이콘 위·라벨 아래) — items 는 kind 가
-                  // 아이템마다 다르다(단일 roofing 아이콘 금지 원칙 유지).
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      for (final item in contract.items)
-                        Expanded(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                soriRewardIcon(item.kind),
-                                size: 20,
-                                color: SoriColors.gold,
-                              ),
-                              const SizedBox(height: Spacing.xs),
-                              Text(
-                                localCopy(context, item.label),
-                                textAlign: TextAlign.center,
-                                style: tt.label.copyWith(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                    ],
-                  ),
-                ],
-                const SizedBox(height: Spacing.xl),
-                SoriButton(
-                  illustrationAsset: SoriArtwork.action(entry?.id ?? 'course'),
-                  trailingIcon: Icons.arrow_forward_rounded,
-                  accent: SoriActivityColors.actionGold,
-                  fullWidth: true,
-                  // 제목이 이미 무엇인지 말한다 — CTA 는 "Starten" 한 단어.
-                  // 미션이 없을 때는 기존 안내형 라벨 유지.
-                  label: destination == null || entry == null
-                      ? t.soriStageMissionAction
-                      : t.soriStageMissionStart,
-                  onTap: () async {
-                    final activityId =
-                        contract?.activityId ?? destination?.route ?? 'today';
-                    final receipt = await SoriStageRewardReceiptService.capture(
-                      activityId: activityId,
-                      loadSnapshot: SoriStageProgressionService.load,
-                      openActivity: () async {
-                        if (destination == null) {
-                          await Navigator.of(context).pushNamed('/path');
-                          return;
-                        }
-                        await TodayLearningNavigation.open(
-                          destination,
-                          openRoute: (route, arguments) async {
-                            await Navigator.of(
-                              context,
-                            ).pushNamed(route, arguments: arguments);
-                          },
-                        );
-                      },
-                    );
-                    if (!context.mounted) {
-                      return;
-                    }
-                    onActivityReturned();
-                    if (receipt != null) {
-                      await showSoriStageRewardReceipt(context, receipt);
-                    }
-                  },
-                ),
-              ],
+            child: SizedBox(
+              height: compact ? 48 : 96,
+              child: Image.asset(
+                activityIllustrationAsset(entry.id),
+                fit: BoxFit.contain,
+                errorBuilder: (_, _, _) => const SizedBox.shrink(),
+              ),
             ),
           ),
-        ],
-      ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                t.soriStageTodayMissionEyebrow,
+                // eyebrow 토큰 — 짙은 한옥 스테이지 위라 석간주 대신 골드.
+                style: tt.body.copyWith(fontSize: 16, color: CPalette.ink),
+              ),
+              const SizedBox(height: Spacing.sm),
+              Text(
+                title,
+                // §D: 카드 내부 헤드라인은 h1 상한 — hero(38)는 페이지
+                // 헤더 전용.
+                style: tt.h1.copyWith(fontSize: 22, color: CPalette.ink),
+              ),
+              if (contract != null && contract.items.isNotEmpty) ...[
+                const SizedBox(height: Spacing.lg),
+                // §W-D D5.2: "Mögliche Belohnung:" 은 골드 라벨보다
+                // 낮은 위계 — meta(13.5) + white@0.8.
+                Text(
+                  '${t.soriStagePossibleReward}:',
+                  style: tt.meta.copyWith(color: CPalette.ink, fontSize: 16),
+                ),
+                const SizedBox(height: Spacing.sm),
+                // §W-D D5.1: 세로 3열(아이콘 위·라벨 아래) — items 는 kind 가
+                // 아이템마다 다르다(단일 roofing 아이콘 금지 원칙 유지).
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    for (final item in contract.items)
+                      Expanded(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              soriRewardIcon(item.kind),
+                              size: 20,
+                              color: SoriColors.gold,
+                            ),
+                            const SizedBox(height: Spacing.xs),
+                            Text(
+                              localCopy(context, item.label),
+                              textAlign: TextAlign.center,
+                              style: tt.label.copyWith(
+                                fontSize: 16,
+                                color: CPalette.ink,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                  ],
+                ),
+              ],
+              const SizedBox(height: 8),
+              CMaterialAction(
+                compact: compact,
+                // 제목이 이미 무엇인지 말한다 — CTA 는 "Starten" 한 단어.
+                // 미션이 없을 때는 기존 안내형 라벨 유지.
+                label: destination == null || entry == null
+                    ? t.soriStageMissionAction
+                    : t.soriStageMissionStart,
+                onTap: () async {
+                  final activityId =
+                      contract?.activityId ?? destination?.route ?? 'today';
+                  final receipt = await SoriStageRewardReceiptService.capture(
+                    activityId: activityId,
+                    loadSnapshot: SoriStageProgressionService.load,
+                    openActivity: () async {
+                      if (destination == null) {
+                        await Navigator.of(context).pushNamed('/path');
+                        return;
+                      }
+                      await TodayLearningNavigation.open(
+                        destination,
+                        openRoute: (route, arguments) async {
+                          await Navigator.of(
+                            context,
+                          ).pushNamed(route, arguments: arguments);
+                        },
+                      );
+                    },
+                  );
+                  if (!context.mounted) {
+                    return;
+                  }
+                  onActivityReturned();
+                  if (receipt != null) {
+                    await showSoriStageRewardReceipt(context, receipt);
+                  }
+                },
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

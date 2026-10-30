@@ -1,0 +1,164 @@
+{
+  "verified_on": "2026-10-30",
+  "authority": "Latest explicit user attachments: all five navigation sources in 한글_5탭 확정; image-only destinations.",
+  "processing": "Original PNG bytes copied unchanged; no crop, background removal, recolor, or generation.",
+  "learning_book_evidence": "Latest explicit user source exec-edf9765c-df4f-4527-b2c2-ec8844d06539.png supersedes the prior app_newDesign book. New book SHA256 c4db0fd39d3b16c79db99ce75b1fccbea1eaf9acda64c52ed40bb6c4c8fc0b42.",
+  "assets": [
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-efcabadf-1c35-408f-a052-4209b9969487.png",
+      "asset": "assets/icons/chrome/yeopjeon-angled.png",
+      "sha256": "9786f2acaae738972bfdb91104d8be43c9bc0ec8ce64c4b3ac1ad2a3ae51c0c9",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "byte_identical": true
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-92edb7ca-b8ac-44f1-9a2f-23fd2e4b324f.png",
+      "asset": "assets/icons/chrome/yeopjeon-front.png",
+      "sha256": "c187032485925a52d6a6148fdeea11382a95648f0c37eecdfd1cd5654959f40f",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "byte_identical": true
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-d84fefd7-5e20-4733-8c02-fe24e9b76956.png",
+      "asset": "assets/icons/chrome/cloud.png",
+      "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "byte_identical": true
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\한글_5탭 확정\\exec-9c3a27f8-15cf-47e4-9b96-510158d83a69.png",
+      "asset": "assets/icons/chrome/settings-gear.png",
+      "sha256": "bee0e7a48115fe34c1a1a6f3fba17d022c0bd978470004ae5e92a2bf378c068d",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "byte_identical": true
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\한글_5탭 확정\\exec-d0abcd6e-3c27-46de-8c6b-85caa1ac23e3.png",
+      "asset": "assets/icons/navigation/today.png",
+      "sha256": "a8ef18b79cc93d75600f2fccb35d8830c2277e9d42151176c0e22d34eb6bf22a",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "byte_identical": true
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\한글_5탭 확정\\exec-edf9765c-df4f-4527-b2c2-ec8844d06539.png",
+      "asset": "assets/icons/navigation/learn.png",
+      "sha256": "c4db0fd39d3b16c79db99ce75b1fccbea1eaf9acda64c52ed40bb6c4c8fc0b42",
+      "dimensions": [
+        1312,
+        1199
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "byte_identical": true
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\한글_5탭 확정\\exec-0341b149-61b9-4a48-acb3-74fa59314392.png",
+      "asset": "assets/icons/navigation/games.png",
+      "sha256": "11c9d9004f23cb9a4c63eb53fe546b3c745e7b5c10047996b94b724f9eabe5b1",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "byte_identical": true
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\한글_5탭 확정\\exec-801c0e2c-d79d-466c-b2ea-915356b4fe29.png",
+      "asset": "assets/icons/navigation/hanok.png",
+      "sha256": "4c42fda8e624093c8ba39699492bbc5bf27efc1f3a04d9669b1d7d8720df61bf",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "byte_identical": true
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\한글_5탭 확정\\exec-effff9d2-a719-420a-9eb2-54f9b5d4a076.png",
+      "asset": "assets/icons/navigation/gye.png",
+      "sha256": "42c2618b59241ff79f5413471b7b4f2bd61ce6d8c18b6acbdee9fff4f51a19b5",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "byte_identical": true
+    }
+  ],
+  "motion_sources": [
+    {
+      "url": "https://developer.android.com/reference/kotlin/androidx/compose/material3/MotionScheme",
+      "source_updated": "2026-10-21",
+      "reviewed_on": "2026-10-30",
+      "applied": "Separate short spatial press/selection depth from non-overshooting state effects; no idle loops."
+    },
+    {
+      "url": "https://api.flutter.dev/flutter/widgets/MediaQuery/disableAnimationsOf.html",
+      "reviewed_on": "2026-10-30",
+      "applied": "Reduced motion uses static transforms with the same selected state and destinations."
+    },
+    {
+      "url": "https://api.flutter.dev/flutter/widgets/TickerMode-class.html",
+      "reviewed_on": "2026-10-30",
+      "applied": "Inactive shell tabs keep the existing TickerMode gate; navigation motion stops while backgrounded."
+    }
+  ],
+  "navigation_source_verification": {
+    "gye_hanok_today_games": "Latest 한글_5탭 확정 files are byte-identical to the former Nevi_Bar5 copies.",
+    "learn": "Replaced with latest explicit user book; runtime path remains assets/icons/navigation/learn.png."
+  },
+  "superseded_learning_book": {
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\app_newDesign\\exec-d4b132de-c9c0-4222-80ab-b67106a02ff0.png",
+    "sha256": "48df8d3540f0a58f149e6a6303b5825d5a1cd05887aec3351cedea399136ddd8",
+    "dimensions": [
+      1254,
+      1254
+    ]
+  }
+}

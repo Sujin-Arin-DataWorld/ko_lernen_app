@@ -12048,4 +12048,162 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get grammarBookExample => 'Beispiel';
+
+  @override
+  String get atelierAutoOff => 'Auto weiter: Aus';
+
+  @override
+  String get atelierAutoOn => 'Auto weiter: An';
+
+  @override
+  String get atelierChartHint =>
+      '19 Konsonanten · Im Feld nach oben oder unten wischen.';
+
+  @override
+  String get atelierDemo => 'Strichfolge zeigen';
+
+  @override
+  String get atelierDemoEnd => 'Vorführung beenden';
+
+  @override
+  String get atelierDemoNext => 'Nächster Strich';
+
+  @override
+  String get atelierDemoPhase => 'Schau zu';
+
+  @override
+  String get atelierDemoRestart => 'Neu vorführen';
+
+  @override
+  String get atelierDifficult => 'Schwierige';
+
+  @override
+  String get atelierDiscover => 'Silben entdecken';
+
+  @override
+  String get atelierDonePhase => 'Geschafft';
+
+  @override
+  String get atelierFeedHint =>
+      'Oben / unten: nächste / vorige Karte.\nZweimal tippen: merken. Einmal tippen: umdrehen.';
+
+  @override
+  String get atelierFinish => 'Übung abschließen';
+
+  @override
+  String get atelierFlipHint => 'Tippen zum Umdrehen';
+
+  @override
+  String get atelierKnown => 'Gewusst';
+
+  @override
+  String get atelierMore => 'Mehr';
+
+  @override
+  String get atelierNotYet => 'Nicht gewusst';
+
+  @override
+  String get atelierPracticePhase => 'Du bist dran';
+
+  @override
+  String get atelierRandom => 'Zufällige Karte';
+
+  @override
+  String get atelierRemember => 'Merken';
+
+  @override
+  String get atelierSaveFailed =>
+      'Noch nicht gespeichert. Bitte erneut versuchen.';
+
+  @override
+  String get atelierShare => 'Teilen';
+
+  @override
+  String get atelierSkip => 'Überspringen';
+
+  @override
+  String get atelierStructure => 'Silbenaufbau';
+
+  @override
+  String get atelierSubtitle => 'Zeichen · Klang · Handschrift';
+
+  @override
+  String get atelierUseInChart => 'In der Silbentafel auswählen';
+
+  @override
+  String get atelierWatchBrush => 'Zuerst ansehen. Dann selbst schreiben.';
+
+  @override
+  String cHangulCardsReceipt(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Kartenaktionen in dieser Übung',
+      one: '1 Kartenaktion in dieser Übung',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get cHangulCompleted => 'Hangul-Übung abgeschlossen';
+
+  @override
+  String get cHangulHardCharacters => 'Nur schwierige Zeichen';
+
+  @override
+  String get cHangulKeepPractising => 'Du kannst jederzeit weiterüben.';
+
+  @override
+  String get cHangulListen => 'Anhören';
+
+  @override
+  String get cHangulListenWord => 'Wort anhören';
+
+  @override
+  String get cHangulSelectionTitle => 'Kartenauswahl';
+
+  @override
+  String cHangulWritingLettersReceipt(int letters) {
+    String _temp0 = intl.Intl.pluralLogic(
+      letters,
+      locale: localeName,
+      other: '$letters Buchstaben geübt',
+      one: '1 Buchstabe geübt',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String cHangulWritingReceipt(int letters, int strokes, String mode) {
+    String _temp0 = intl.Intl.pluralLogic(
+      letters,
+      locale: localeName,
+      other: '$letters Buchstaben geübt',
+      one: '1 Buchstabe geübt',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      strokes,
+      locale: localeName,
+      other: '$strokes Strichversuche',
+      one: '1 Strichversuch',
+    );
+    return '$_temp0 · $_temp1 · $mode';
+  }
+
+  @override
+  String cHangulWritingStrokesReceipt(int strokes, String mode) {
+    String _temp0 = intl.Intl.pluralLogic(
+      strokes,
+      locale: localeName,
+      other: '$strokes Strichversuche',
+      one: '1 Strichversuch',
+    );
+    return '$_temp0 · $mode';
+  }
+
+  @override
+  String get c5AllLearningActivities => 'Alle Lernangebote';
+
+  @override
+  String get c5AllGames => 'Alle Spiele';
 }

@@ -454,13 +454,18 @@ class _OnboardingBookSceneState
                     child: _captured
                         ? Column(
                             children: [
-                              if (!compact)
+                              if (!compact ||
+                                  MediaQuery.textScalerOf(context).scale(16) <=
+                                      24)
                                 Expanded(
-                                  flex: 2,
+                                  flex: compact ? 1 : 2,
                                   child: Image.asset(
-                                    'assets/illustrations/onboarding/book_extract.webp',
+                                    'assets/illustrations/onboarding/book_study_approved_20261030.png',
+                                    key: const ValueKey(
+                                      'onboarding-v3-book-extract',
+                                    ),
                                     fit: BoxFit.contain,
-                                    semanticLabel: t.onboardingJourneyFromBook,
+                                    excludeFromSemantics: true,
                                   ),
                                 ),
                               Expanded(
@@ -483,7 +488,7 @@ class _OnboardingBookSceneState
                             ],
                           )
                         : Image.asset(
-                            'assets/illustrations/onboarding/book_scan.png',
+                            'assets/illustrations/onboarding/book_capture_approved_20261030.png',
                             key: const ValueKey('onboarding-v3-book-photo'),
                             fit: BoxFit.contain,
                             semanticLabel: t.onboardingJourneySamplePage,
