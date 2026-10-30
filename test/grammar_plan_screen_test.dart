@@ -335,7 +335,11 @@ void main() {
           itemsPerDay: 3,
           servedIdsByDate: {
             for (var i = 0; i < completedDays; i++)
-              '2026-08-${i + 1}': const <String>[],
+              DateTime(2026, 8, i + 1).toIso8601String().substring(0, 10): a1
+                  .skip(i * 3)
+                  .take(3)
+                  .map((row) => row.id)
+                  .toList(),
           },
         ),
         'b1': const GrammarStudyPlan(

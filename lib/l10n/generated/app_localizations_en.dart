@@ -12153,4 +12153,85 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get ilduR16Sadang => 'Sadang · Ancestral shrine';
+
+  @override
+  String get accountRecoveryTitle => 'Where would you like to continue?';
+
+  @override
+  String get accountRecoveryBody =>
+      'Saved practice from both sets of progress will be kept. You choose the starting point for your learning path.';
+
+  @override
+  String get accountRecoveryDevice => 'This device';
+
+  @override
+  String get accountRecoveryCloud => 'Cloud';
+
+  @override
+  String accountRecoveryCompletedUnits(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count completed units',
+      one: '1 completed unit',
+      zero: 'No completed units yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get accountRecoveryUnavailableChoice =>
+      'This starting point does not fit your saved completions.';
+
+  @override
+  String get accountRecoveryUnknownLevel => 'Starting point unavailable';
+
+  @override
+  String get accountRecoveryCountUnavailable => 'Saved unit count unavailable';
+
+  @override
+  String get accountRecoveryConfirm => 'Use selection';
+
+  @override
+  String get accountRecoveryReview => 'Review progress';
+
+  @override
+  String get accountRecoveryPendingTitle => 'Your backup needs attention';
+
+  @override
+  String get accountRecoveryPendingBody =>
+      'Your latest progress could not be connected safely yet. Review the saved starting points.';
+
+  @override
+  String get accountRecoveryWorking => 'Checking progress …';
+
+  @override
+  String get accountRecoveryUnavailable =>
+      'Your progress cannot be reviewed right now. Try again.';
+
+  @override
+  String get accountRecoveryBlocked =>
+      'Your saved progress needs another review. It remains preserved.';
+
+  @override
+  String get accountRecoveryStale =>
+      'Your progress has changed. Review it again before continuing.';
+
+  @override
+  String get accountRecoveryReady =>
+      'Your progress is connected. You can back it up now.';
+
+  @override
+  String get accountRecoveryBackupWaiting =>
+      'Connected; backup awaiting review';
+
+  @override
+  String get accountRecoveryResumeTitle => 'Continue your confirmed choice?';
+
+  @override
+  String get accountRecoveryResumeBody =>
+      'Your choice is already saved. You can continue the same operation without choosing a new starting point.';
+
+  @override
+  String get accountRecoveryResumeConfirm => 'Continue confirmed choice';
 }

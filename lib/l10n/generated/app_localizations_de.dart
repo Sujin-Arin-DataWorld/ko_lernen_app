@@ -12211,4 +12211,87 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get ilduR16Sadang => 'Sadang · Ahnenschrein';
+
+  @override
+  String get accountRecoveryTitle => 'Wo möchtest du weiterlernen?';
+
+  @override
+  String get accountRecoveryBody =>
+      'Gespeicherte Übungen aus beiden Lernständen bleiben erhalten. Du wählst den Startpunkt für deinen Lernpfad.';
+
+  @override
+  String get accountRecoveryDevice => 'Dieses Gerät';
+
+  @override
+  String get accountRecoveryCloud => 'Cloud';
+
+  @override
+  String accountRecoveryCompletedUnits(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Einheiten geschafft',
+      one: '1 Einheit geschafft',
+      zero: 'Noch keine Einheit geschafft',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get accountRecoveryUnavailableChoice =>
+      'Dieser Startpunkt passt nicht zu deinen gespeicherten Abschlüssen.';
+
+  @override
+  String get accountRecoveryUnknownLevel => 'Startpunkt nicht verfügbar';
+
+  @override
+  String get accountRecoveryCountUnavailable =>
+      'Gespeicherte Einheiten nicht verfügbar';
+
+  @override
+  String get accountRecoveryConfirm => 'Bestätigen';
+
+  @override
+  String get accountRecoveryReview => 'Lernstand prüfen';
+
+  @override
+  String get accountRecoveryPendingTitle =>
+      'Sicherung braucht deine Aufmerksamkeit';
+
+  @override
+  String get accountRecoveryPendingBody =>
+      'Die letzten Lernstände konnten noch nicht sicher verbunden werden. Prüfe die gespeicherten Startpunkte.';
+
+  @override
+  String get accountRecoveryWorking => 'Lernstand wird geprüft …';
+
+  @override
+  String get accountRecoveryUnavailable =>
+      'Dein Lernstand kann gerade nicht geprüft werden. Versuche es erneut.';
+
+  @override
+  String get accountRecoveryBlocked =>
+      'Deine gespeicherten Lernstände brauchen noch eine Prüfung. Sie bleiben erhalten.';
+
+  @override
+  String get accountRecoveryStale =>
+      'Dein Lernstand hat sich inzwischen geändert. Prüfe ihn bitte noch einmal.';
+
+  @override
+  String get accountRecoveryReady =>
+      'Der Lernstand ist verbunden. Du kannst jetzt sichern.';
+
+  @override
+  String get accountRecoveryBackupWaiting =>
+      'Verbunden; Sicherung wartet auf Prüfung';
+
+  @override
+  String get accountRecoveryResumeTitle => 'Bestätigte Auswahl fortsetzen?';
+
+  @override
+  String get accountRecoveryResumeBody =>
+      'Deine Auswahl wurde bereits gespeichert. Du kannst denselben Vorgang fortsetzen. Der Startpunkt wird dabei nicht neu gewählt.';
+
+  @override
+  String get accountRecoveryResumeConfirm => 'Bestätigte Auswahl fortsetzen';
 }

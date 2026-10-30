@@ -1551,9 +1551,9 @@ class _GrammarScreenState extends State<GrammarScreen>
                           'allowedTargetIds': servedIds.toSet(),
                           'planDayLabel': t.grammarPlanDayHeader(
                             completed.completedDays,
-                            GrammarPlanService.totalDays(
-                              _curatedRowsForPlan(completed),
-                              completed.itemsPerDay,
+                            GrammarPlanService.totalDaysForPlan(
+                              curatedRows: _curatedRowsForPlan(completed),
+                              plan: completed,
                             ),
                           ),
                         },
@@ -1910,9 +1910,9 @@ class _GrammarScreenState extends State<GrammarScreen>
                           Text(
                             t.grammarPlanDayHeader(
                               plan.completedDays + 1,
-                              GrammarPlanService.totalDays(
-                                _curatedRowsForPlan(plan),
-                                plan.itemsPerDay,
+                              GrammarPlanService.totalDaysForPlan(
+                                curatedRows: _curatedRowsForPlan(plan),
+                                plan: plan,
                               ),
                             ),
                             style: SoriTextTheme.of(context).label,

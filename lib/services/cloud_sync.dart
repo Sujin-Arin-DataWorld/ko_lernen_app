@@ -11,6 +11,8 @@ import '../features/content_learning/content_learning_state.dart';
 import 'account/cloud_read_result.dart';
 import 'account/cloud_restore_result.dart';
 import 'account/cloud_write_session.dart';
+import 'account/account_reconciliation_field_policy.dart';
+import 'account/reconciliation_errors.dart';
 import 'auth_service.dart';
 import 'bookshelf_service.dart';
 import 'cloud_sync_service.dart';
@@ -82,45 +84,7 @@ class CloudSync {
   }) async {
     PackCompletionStorage.assertSnapshotReady();
     Storage.assertSrsSnapshotReady();
-    final payload = <String, dynamic>{
-      'vok': {
-        'correct': Storage.vokCorrect,
-        'wrong': Storage.vokWrong,
-        'skipped': Storage.vokSkipped,
-        'last_idx': Storage.vokLastIdx,
-        'seen_ids': Storage.vokSeenIds,
-      },
-      'chosung': {
-        'correct': Storage.chosungCorrect,
-        'wrong': Storage.chosungWrong,
-      },
-      'wordle': {
-        'wins': Storage.wordleWins,
-        'losses': Storage.wordleLosses,
-        'streak': Storage.wordleStreak,
-        'best_streak': Storage.wordleBestStreak,
-      },
-      'grammar': {
-        'last_idx': Storage.grammarLastIdx,
-        'seen': Storage.grammarSeen,
-      },
-      'app': {
-        'last_open': Storage.lastOpenDate,
-        'streak_days': Storage.streakDays,
-        'best_streak': Storage.bestStreak,
-      },
-      // Phase 1~8 Fortschritt (Reinstall/Gerätewechsel-Schutz).
-      'progress': {
-        'xp': Storage.xp,
-        'level': Storage.userLevelCode,
-        'earned_stamps': Storage.earnedStamps,
-        'quest_completions': Storage.questCompletions,
-        // 사랑방 장식은 중복 없는 보유 컬렉션이라 기기 간 합집합 복원이
-        // 가능하다. 미개봉 꾸러미/슬롯 배치는 고유 보상 id·충돌 정책이
-        // 확정될 때까지 의도적으로 이 스냅샷에 넣지 않는다.
-        'owned_decor': Storage.ownedDecor,
-      },
-    };
+    final payload = _captureCounterBackupFields();
     // ⚠️ 손상 격리 중인 SRS 덱은 **업로드하지 않는다.** 올리면 로컬 한 대의
     // 손상이 클라우드의 멀쩡한 백업을 덮어써서 모든 기기로 번진다.
     // 이 write 는 `SetOptions(merge: true)` 라 키를 빼면 서버의 기존 값이
@@ -175,6 +139,75 @@ class CloudSync {
       payload['ildu_world_state_json'] = jsonEncode(state.toJson());
     }
     return payload;
+  }
+
+  static Map<String, dynamic> _captureCounterBackupFields() =>
+      <String, dynamic>{
+        'vok': {
+          'correct': Storage.vokCorrect,
+          'wrong': Storage.vokWrong,
+          'skipped': Storage.vokSkipped,
+          'last_idx': Storage.vokLastIdx,
+          'seen_ids': Storage.vokSeenIds,
+        },
+        'chosung': {
+          'correct': Storage.chosungCorrect,
+          'wrong': Storage.chosungWrong,
+        },
+        'wordle': {
+          'wins': Storage.wordleWins,
+          'losses': Storage.wordleLosses,
+          'streak': Storage.wordleStreak,
+          'best_streak': Storage.wordleBestStreak,
+        },
+        'grammar': {
+          'last_idx': Storage.grammarLastIdx,
+          'seen': Storage.grammarSeen,
+        },
+        'app': {
+          'last_open': Storage.lastOpenDate,
+          'streak_days': Storage.streakDays,
+          'best_streak': Storage.bestStreak,
+        },
+        // Phase 1~8 Fortschritt (Reinstall/Gerätewechsel-Schutz).
+        'progress': {
+          'xp': Storage.xp,
+          'level': Storage.userLevelCode,
+          'earned_stamps': Storage.earnedStamps,
+          'quest_completions': Storage.questCompletions,
+          // 사랑방 장식은 중복 없는 보유 컬렉션이라 기기 간 합집합 복원이
+          // 가능하다. 미개봉 꾸러미/슬롯 배치는 고유 보상 id·충돌 정책이
+          // 확정될 때까지 의도적으로 이 스냅샷에 넣지 않는다.
+          'owned_decor': Storage.ownedDecor,
+        },
+      };
+
+  /// Synchronous, read-only fields used by the owned preview/native guards.
+  /// Course, world, packs, SRS and wallet keep their existing separate owners.
+  static Map<String, dynamic> captureReconciliationFields() {
+    final fields = _captureCounterBackupFields();
+    (fields['progress'] as Map<String, dynamic>)['level'] =
+        Storage.captureLearnerGoalForReconciliation();
+    fields['wrong_count_json'] = Storage.wrongCountRawJson;
+    final content = Storage.contentLearningRawJson;
+    if (content.isNotEmpty) {
+      ContentLearningState.decode(content);
+      fields['content_learning_json'] = content;
+    }
+    final practice = Storage.hanokPracticeRawJson;
+    if (practice.isNotEmpty) {
+      PracticeHistory.decode(practice);
+      fields['hanok_practice_json'] = practice;
+    }
+    final study = Storage.captureStudyLogRawJsonForReconciliation();
+    if ((jsonDecode(study) as Map).isNotEmpty) {
+      fields['study_log_json'] = study;
+    }
+    final grammar = Storage.captureGrammarPlanRawJsonForReconciliation();
+    if (grammar.isNotEmpty) {
+      fields['gram_plan_json'] = grammar;
+    }
+    return fields;
   }
 
   /// Lokale Werte → Firestore. Idempotent.
@@ -321,13 +354,15 @@ class CloudSync {
     required String uid,
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
+    void Function()? assertCurrentLocalSource,
   }) async {
-    PrivacyConsentService.retireForImport();
     final localLifetime = LocalDataLifetime.capture();
     void assertWritable() {
       localLifetime.assertCurrent();
       sessions.assertCurrent(session);
+      assertCurrentLocalSource?.call();
       localLifetime.assertCurrent();
+      sessions.assertCurrent(session);
     }
 
     assertWritable();
@@ -339,9 +374,23 @@ class CloudSync {
     if (session.uid != uid) {
       throw StateError('Validated bookshelf restore UID does not match.');
     }
+    final candidate = _validatedReconciliationFields(data);
+    if (candidate.containsKey('yeopjeon_wallet_json')) {
+      final current = await YeopjeonService.captureBackupJson();
+      assertWritable();
+      final target = candidate['yeopjeon_wallet_json'] as String;
+      if (AccountReconciliationFieldPolicy.mergeWallet(current, target) !=
+          AccountReconciliationFieldPolicy.mergeWallet(null, target)) {
+        throw const LocalReconciliationGenerationConflict();
+      }
+    }
+    _assertReconciliationFieldsIncluded(candidate);
+    assertWritable();
+    PrivacyConsentService.retireForImport();
     await _applyRestorePayload(
-      data,
+      candidate,
       beforeWrite: assertWritable,
+      reconciliationFields: true,
       validateLegacyBookshelfRestore: (restoredJson) {
         assertWritable();
         BookshelfService.validateParentOnlyLegacyRestore(restoredJson);
@@ -360,9 +409,104 @@ class CloudSync {
     );
   }
 
+  static Map<String, dynamic> _validatedReconciliationFields(
+    Map<String, dynamic> data,
+  ) {
+    final result = Map<String, dynamic>.from(data);
+    if (data.containsKey('app')) {
+      final app = data['app'];
+      if (app is! Map<String, dynamic>) {
+        throw const FormatException('Invalid reconciliation app state.');
+      }
+      if (app.containsKey('last_open') || app.containsKey('streak_days')) {
+        final date = app['last_open'];
+        final streak = app['streak_days'];
+        if (streak is! int ||
+            streak < 0 ||
+            (_validIsoDate(date) == null && !(date == '' && streak == 0))) {
+          throw const FormatException('Invalid committed app streak pair.');
+        }
+      }
+    }
+    if (data.containsKey('study_log_json')) {
+      final raw = data['study_log_json'];
+      final validated = AccountReconciliationFieldPolicy.mergeStudyLog(
+        null,
+        raw,
+      );
+      result['study_log_json'] = raw is String && raw.isNotEmpty
+          ? raw
+          : validated;
+    }
+    if (data.containsKey('gram_plan_json')) {
+      final raw = data['gram_plan_json'];
+      final validated = AccountReconciliationFieldPolicy.mergeGrammarPlan(
+        null,
+        raw,
+      );
+      result['gram_plan_json'] = raw is String && raw.isNotEmpty
+          ? raw
+          : validated;
+    }
+    if (data.containsKey('yeopjeon_wallet_json')) {
+      AccountReconciliationFieldPolicy.mergeWallet(
+        null,
+        data['yeopjeon_wallet_json'],
+      );
+    }
+    if (data.containsKey('progress')) {
+      final progress = data['progress'];
+      if (progress is! Map<String, dynamic>) {
+        throw const FormatException('Invalid reconciliation progress.');
+      }
+      final normalized = Map<String, dynamic>.from(progress);
+      if (progress.containsKey('level')) {
+        normalized['level'] = AccountReconciliationFieldPolicy.mergeLearnerGoal(
+          null,
+          progress['level'],
+        );
+      }
+      result['progress'] = normalized;
+    }
+    return result;
+  }
+
+  static void _assertReconciliationFieldsIncluded(
+    Map<String, dynamic> candidate,
+  ) {
+    if (candidate.containsKey('study_log_json')) {
+      final current = Storage.captureStudyLogRawJsonForReconciliation();
+      final target = candidate['study_log_json'] as String;
+      if (AccountReconciliationFieldPolicy.mergeStudyLog(current, target) !=
+          AccountReconciliationFieldPolicy.mergeStudyLog(null, target)) {
+        throw const LocalReconciliationGenerationConflict();
+      }
+    }
+    if (candidate.containsKey('gram_plan_json')) {
+      final current = Storage.captureGrammarPlanRawJsonForReconciliation();
+      final target = candidate['gram_plan_json'] as String;
+      if (AccountReconciliationFieldPolicy.mergeGrammarPlan(current, target) !=
+          AccountReconciliationFieldPolicy.mergeGrammarPlan(null, target)) {
+        throw const LocalReconciliationGenerationConflict();
+      }
+    }
+    final progress = candidate['progress'];
+    if (progress is Map<String, dynamic> && progress.containsKey('level')) {
+      final target = progress['level'];
+      if (AccountReconciliationFieldPolicy.mergeLearnerGoal(
+            Storage.captureLearnerGoalForReconciliation(),
+            target,
+          ) !=
+          target) {
+        throw const LocalReconciliationGenerationConflict();
+      }
+    }
+  }
+
   static Future<void> _applyRestorePayload(
     Map<String, dynamic> data, {
     void Function()? beforeWrite,
+    bool reconciliationFields = false,
     void Function(String restoredJson)? validateLegacyBookshelfRestore,
     Future<void> Function(String restoredJson)?
     onValidatedLegacyBookshelfRestored,
@@ -504,7 +648,19 @@ class CloudSync {
     );
     final cloudLastOpen = _validIsoDate(app['last_open']);
     final cloudCurrentStreak = _nonNegativeInt(app['streak_days']);
-    if (cloudLastOpen != null && cloudCurrentStreak != null) {
+    if (reconciliationFields && app.containsKey('last_open')) {
+      await Storage.applyAppStreakPairForReconciliation(
+        app['last_open'] as String,
+        app['streak_days'] as int,
+        assertCurrentWrite: beforeWrite,
+      );
+      if (Storage.streakDays > Storage.bestStreak) {
+        await _guardedWrite(
+          beforeWrite,
+          () => Storage.setBestStreak(Storage.streakDays),
+        );
+      }
+    } else if (cloudLastOpen != null && cloudCurrentStreak != null) {
       final localLastOpen = _validIsoDate(Storage.lastOpenDate);
       if (localLastOpen == null ||
           cloudLastOpen.date.isAfter(localLastOpen.date)) {
@@ -623,6 +779,17 @@ class CloudSync {
       final decoded = jsonDecode(studyLogJson);
       if (decoded is Map) {
         for (final entry in decoded.entries) {
+          if (reconciliationFields) {
+            await _guardedWrite(
+              beforeWrite,
+              () => Storage.applyStudyLogDateForReconciliation(
+                entry.key as String,
+                (entry.value as List).cast<String>(),
+                assertCurrentWrite: beforeWrite,
+              ),
+            );
+            continue;
+          }
           final dateIso = entry.key;
           if (dateIso is! String || !_isCanonicalStudyLogDate(dateIso)) {
             continue;
@@ -691,6 +858,13 @@ class CloudSync {
     }
     if (grammarPlanJson != null) {
       await _guardedWrite(beforeWrite, () async {
+        if (reconciliationFields) {
+          await Storage.applyGrammarPlanRawJsonForReconciliation(
+            grammarPlanJson,
+            assertCurrentWrite: beforeWrite,
+          );
+          return;
+        }
         switch (await Storage.setGrammarPlanRawJsonForRestore(
           grammarPlanJson,
           assertCurrentWrite: beforeWrite,
