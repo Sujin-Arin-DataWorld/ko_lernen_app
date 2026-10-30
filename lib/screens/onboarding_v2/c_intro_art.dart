@@ -11,10 +11,12 @@ class CIntroArt extends StatelessWidget {
   final String name;
   final BoxFit fit;
   static const directory = 'assets/illustrations/einleitung_generated';
+  static const kContentAsset =
+      '$directory/intro-interest-kcontent-approved.jpg';
 
   @override
   Widget build(BuildContext context) => Image.asset(
-    '$directory/intro-$name.png',
+    name == 'interest-kcontent' ? kContentAsset : '$directory/intro-$name.png',
     fit: fit,
     excludeFromSemantics: true,
     filterQuality: FilterQuality.medium,
@@ -125,7 +127,13 @@ class IntroMedal extends StatelessWidget {
             ),
             if (label == '–')
               Center(
-                child: Text('–', style: IntroTypography.medalPlaceholder(size)),
+                child: Text(
+                  '–',
+                  style: IntroTypography.localized(
+                    context,
+                    IntroTypography.medalPlaceholder(size),
+                  ),
+                ),
               ),
           ],
         ),

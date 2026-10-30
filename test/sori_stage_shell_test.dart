@@ -31,7 +31,10 @@ import 'package:ko_lernen_app/screens/sori_stage/sori_stage_shell.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/real_fonts.dart';
+
 void main() {
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
   setUp(() async {
     LearningJourneyObserver.shared.cancel();
     CourseProgressService.shared.resetForTesting();
@@ -669,11 +672,13 @@ void main() {
       await tester.tap(find.text('Learn').last);
       await pumpUntilFound(
         tester,
-        find.byKey(const ValueKey('learning-focus-start')),
+        find.byKey(const ValueKey('c5-course-start')),
       );
       await pumpSoriStage(tester);
       expect(controller.value?.brief?.unit.id, expected!.brief!.unit.id);
-      final learnContext = tester.element(find.byType(SoriLearningFocus).first);
+      final learnContext = tester.element(
+        find.byKey(const ValueKey('c5-course-start')),
+      );
       expect(
         LearningFocusScope.maybeOf(learnContext)!.notifier,
         same(controller),
@@ -727,7 +732,7 @@ void main() {
 
     await tester.pumpWidget(_app(const AppShell()));
     await tester.pump();
-    await tester.tap(find.text('Games').last);
+    await tester.tap(find.byTooltip('Games').last);
     await tester.pump();
     expect(
       tester.widget<NavigationBar>(find.byType(NavigationBar)).selectedIndex,

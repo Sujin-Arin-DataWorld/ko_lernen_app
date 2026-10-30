@@ -7,21 +7,27 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_games_demo.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/approved_games_preview_art.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/approved_games_preview_data.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_learning_demo.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
-import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v3_demo_support.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/trace_canvas.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'support/einleitung_capture_assets.dart';
+import 'support/real_fonts.dart';
 import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(loadEinleitungFonts);
+  setUpAll(() async {
+    await loadEinleitungFonts();
+    await loadSoriRealFonts();
+    await Future.wait(LearnerLevel.values.map(ApprovedGamesPreviewData.load));
+  });
   setUp(
     () =>
         SharedPreferences.setMockInitialValues({'kl_xp': 42, 'kl_level': 'b1'}),
@@ -160,6 +166,17 @@ void main() {
     final prefs = await SharedPreferences.getInstance();
     final before = {for (final key in prefs.getKeys()) key: prefs.get(key)};
     await show(tester, const OnboardingGamesDemo(level: LearnerLevel.a1));
+    final source = await ApprovedGamesPreviewData.load(LearnerLevel.a1);
+    Future<void> action(String key) async {
+      FocusManager.instance.primaryFocus?.unfocus();
+      await tester.pump();
+      final target = find.byKey(ValueKey(key));
+      await tester.ensureVisible(target);
+      await tester.pumpAndSettle();
+      await tester.tap(target);
+      await tester.pumpAndSettle();
+    }
+
     Future<void> selectGame(int game) async {
       final back = find.byKey(const ValueKey('demo-games-back'));
       if (back.evaluate().isNotEmpty) {
@@ -174,85 +191,105 @@ void main() {
     }
 
     await selectGame(0);
-    expect(find.byKey(const ValueKey('demo-choice-안녕')), findsOneWidget);
-    expect(find.byKey(const ValueKey('demo-choice-아니요')), findsOneWidget);
-    expect(find.byKey(const ValueKey('demo-choice-이름')), findsOneWidget);
-    expect(find.byKey(const ValueKey('demo-more-choices')), findsNothing);
-    await tester.tap(find.byKey(const ValueKey('demo-choice-안녕')));
-    await tester.pump();
-    expect(
-      find.byKey(const ValueKey('demo-initial-answer')).evaluate().isNotEmpty ||
-          tester
-              .widgetList<DemoPagedText>(find.byType(DemoPagedText))
-              .any((widget) => widget.text == '안녕'),
-      isTrue,
+    await tester.enterText(
+      find.byKey(const ValueKey('demo-initial-input')),
+      source.words.first.korean,
     );
+    await action('demo-game-submit');
+    expect(find.text('Gewusst!'), findsOneWidget);
     await selectGame(1);
-    await tester.tap(find.byKey(const ValueKey('demo-cross-cell-1')));
-    await tester.tap(find.byKey(const ValueKey('demo-choice-제')));
-    await tester.pump();
+    await action('demo-cross-cell-1');
+    final syllable = source.puzzle.solution[(0, 1)]!;
+    final wrongSyllable = source.puzzle.pool.firstWhere(
+      (value) => value != syllable,
+    );
+    await action('demo-choice-$wrongSyllable');
     expect(
       tester
-          .widget<DemoChoice>(find.byKey(const ValueKey('demo-cross-cell-1')))
+          .widget<GamesPreviewAction>(
+            find.byKey(const ValueKey('demo-cross-cell-1')),
+          )
           .label,
-      '제',
+      '·',
+    );
+    await action('demo-choice-$syllable');
+    expect(
+      tester
+          .widget<GamesPreviewAction>(
+            find.byKey(const ValueKey('demo-cross-cell-1')),
+          )
+          .label,
+      syllable,
     );
     await selectGame(2);
-    await tester.tap(find.byKey(const ValueKey('demo-choice-이름')));
-    await tester.pump();
+    await action('demo-choice-${source.daily.distractors.first}');
     expect(
-      tester
-          .widget<Text>(find.byKey(const ValueKey('demo-cloze-sentence')))
-          .data,
-      contains('이름'),
+      find.text(source.daily.sentenceKo),
+      findsOneWidget,
+      reason: 'Wrong-answer retry keeps the same question baseline and options',
     );
+    await action('demo-choice-${source.daily.answer}');
+    expect(find.text('Gewusst!'), findsOneWidget);
     await selectGame(3);
-    await tester.tap(find.byKey(const ValueKey('demo-pair-ko-0')));
-    await tester.pump();
-    await tester.tap(find.byKey(const ValueKey('demo-pair-meaning-0')));
-    await tester.pump();
+    await action('demo-pair-ko-0');
+    await action('demo-pair-meaning-0');
     expect(
       tester
-          .widget<DemoChoice>(find.byKey(const ValueKey('demo-pair-ko-0')))
+          .widget<GamesPreviewAction>(
+            find.byKey(const ValueKey('demo-pair-ko-0')),
+          )
           .label,
-      contains('↔'),
+      contains('✓'),
     );
     await selectGame(4);
-    await tester.tap(find.byKey(const ValueKey('demo-word-0')));
-    await tester.pump();
+    await tester.enterText(
+      find.byKey(const ValueKey('demo-chain-input')),
+      '틀린입력',
+    );
+    await action('demo-game-submit');
     expect(
-      tester.widget<Text>(find.byKey(const ValueKey('demo-assembled'))).data,
-      '저는',
+      tester
+          .widget<TextField>(find.byKey(const ValueKey('demo-chain-input')))
+          .controller!
+          .text,
+      '틀린입력',
+    );
+    await action('demo-chain-next');
+    await action('demo-game-submit');
+    expect(
+      tester.widget<Text>(find.byKey(const ValueKey('demo-chain-word'))).data,
+      source.chain[1].word,
     );
     await selectGame(5);
-    await tester.tap(find.byKey(const ValueKey('demo-chain-next')));
-    await tester.pump();
-    expect(find.text('과자'), findsOneWidget);
+    await action('demo-card-flip');
+    expect(
+      tester
+          .widget<GamesPreviewAction>(
+            find.byKey(const ValueKey('demo-card-flip')),
+          )
+          .label,
+      source.words.first.translationFor('de'),
+    );
     await tester.pumpWidget(const SizedBox.shrink());
     expect({for (final key in prefs.getKeys()) key: prefs.get(key)}, before);
     await show(tester, const OnboardingGamesDemo(level: LearnerLevel.a1));
-    expect(find.byKey(const ValueKey('demo-initial-answer')), findsNothing);
+    await selectGame(0);
+    expect(
+      tester
+          .widget<TextField>(find.byKey(const ValueKey('demo-initial-input')))
+          .controller!
+          .text,
+      isEmpty,
+    );
   });
 
   testWidgets('short crossword exposes its final choice without paging', (
     tester,
   ) async {
     stubSoriSpeech();
-    final data =
-        jsonDecode(
-              File(
-                'assets/data/onboarding_v3_demo_content.json',
-              ).readAsStringSync(),
-            )
-            as Map<String, dynamic>;
-    final levels = data['levels'] as Map<String, dynamic>;
-    final a1 = levels['A1'] as Map<String, dynamic>;
-    final cross = a1['cross'] as Map<String, dynamic>;
-    final lastChoice = (cross['solution'] as List)
-        .cast<String>()
-        .where((value) => value.isNotEmpty)
-        .toSet()
-        .last;
+    final source = await ApprovedGamesPreviewData.load(LearnerLevel.a1);
+    final lastChoice = source.puzzle.pool.last;
+    final firstAnswer = source.puzzle.solution.values.first;
 
     for (final scale in [1.0, 2.0]) {
       await show(
@@ -270,20 +307,25 @@ void main() {
       expect(find.byKey(const ValueKey('demo-more-choices')), findsNothing);
       await tester.ensureVisible(option);
       await tester.pumpAndSettle();
-      await tester.tap(option);
+      final answer = find.byKey(ValueKey('demo-choice-$firstAnswer'));
+      await tester.ensureVisible(answer);
+      await tester.pumpAndSettle();
+      await tester.tap(answer);
       await tester.pump();
       expect(
         tester
-            .widget<DemoChoice>(find.byKey(const ValueKey('demo-cross-cell-0')))
+            .widget<GamesPreviewAction>(
+              find.byKey(const ValueKey('demo-cross-cell-0')),
+            )
             .label,
-        lastChoice,
+        firstAnswer,
       );
       expect(tester.takeException(), isNull);
     }
   });
 
   testWidgets(
-    'compact sentence toolbar offers working reset without a no-op example',
+    'card preview flips and reset restores Korean without changing storage',
     (tester) async {
       stubSoriSpeech();
       final prefs = await SharedPreferences.getInstance();
@@ -295,33 +337,38 @@ void main() {
           lang: lang,
           scale: 2,
         );
-        await tester.ensureVisible(find.byKey(const ValueKey('demo-game-4')));
-        await tester.tap(find.byKey(const ValueKey('demo-game-4')));
+        final source = await ApprovedGamesPreviewData.load(LearnerLevel.a1);
+        await tester.ensureVisible(find.byKey(const ValueKey('demo-game-5')));
+        await tester.tap(find.byKey(const ValueKey('demo-game-5')));
         await tester.pump();
         expect(find.byKey(const ValueKey('demo-game-example')), findsNothing);
-        await tester.tap(find.byKey(const ValueKey('demo-word-1')));
+        final card = find.byKey(const ValueKey('demo-card-flip'));
+        await tester.ensureVisible(card);
+        await tester.pumpAndSettle();
+        await tester.tap(card);
         await tester.pump();
         expect(
-          tester
-              .widget<Text>(find.byKey(const ValueKey('demo-assembled')))
-              .data,
-          '학생이에요.',
+          tester.widget<GamesPreviewAction>(card).label,
+          source.words.first.translationFor(lang),
         );
         await tester.tap(find.byKey(const ValueKey('demo-game-reset')));
         await tester.pump();
         expect(
-          tester
-              .widget<Text>(find.byKey(const ValueKey('demo-assembled')))
-              .data,
-          '···',
+          tester.widget<GamesPreviewAction>(card).label,
+          source.words.first.korean,
         );
         await tester.tap(find.byKey(const ValueKey('demo-games-back')));
         await tester.pump();
+        await tester.ensureVisible(find.byKey(const ValueKey('demo-game-0')));
+        await tester.pumpAndSettle();
         await tester.tap(find.byKey(const ValueKey('demo-game-0')));
         await tester.pump();
-        await tester.tap(find.byKey(const ValueKey('demo-game-example')));
+        final hint = find.byKey(const ValueKey('demo-game-example'));
+        await tester.ensureVisible(hint);
+        await tester.pumpAndSettle();
+        await tester.tap(hint);
         await tester.pump();
-        expect(find.text('안녕'), findsWidgets);
+        expect(find.text(source.words.first.korean), findsWidgets);
         expect(tester.takeException(), isNull);
       }
       expect({for (final key in prefs.getKeys()) key: prefs.get(key)}, before);
@@ -479,11 +526,23 @@ void main() {
         }
 
         Future<void> tap(String key) async {
-          if (RegExp(r'^demo-game-[0-5]$').hasMatch(key)) {
-            await tester.ensureVisible(find.byKey(ValueKey(key)));
-            await tester.pumpAndSettle();
+          final action = find.byKey(ValueKey(key));
+          await tester.ensureVisible(action);
+          await tester.pumpAndSettle();
+          expect(tester.getSize(action).height, greaterThanOrEqualTo(48));
+          expect(action.hitTestable(), findsOneWidget);
+          var visible = tester.getRect(action);
+          for (final scroll
+              in find
+                  .ancestor(of: action, matching: find.byType(Scrollable))
+                  .evaluate()) {
+            visible = visible.intersect(
+              tester.getRect(find.byWidget(scroll.widget)),
+            );
           }
-          await tester.tap(find.byKey(ValueKey(key)));
+          expect(visible.width, greaterThanOrEqualTo(48));
+          expect(visible.height, greaterThanOrEqualTo(48));
+          await tester.tapAt(visible.center);
           await tester.pumpAndSettle();
           expect(tester.takeException(), isNull, reason: '$lang after $key');
         }
@@ -516,9 +575,6 @@ void main() {
           await page(2, level);
           for (var game = 0; game < 6; game++) {
             await tap('demo-game-$game');
-            if (game == 1) {
-              await tap('demo-cross-row');
-            }
             await tap('demo-games-back');
           }
         }

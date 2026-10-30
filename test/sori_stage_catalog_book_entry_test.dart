@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/catalog_card.dart';
+import 'package:ko_lernen_app/widgets/sori/collapsing_header.dart';
 import 'support/catalog_test_support.dart';
 import 'support/real_fonts.dart';
 import 'support/sori_stage_pump.dart';
@@ -26,6 +27,26 @@ Future<void> _showBook(WidgetTester tester) async {
   );
   await Scrollable.ensureVisible(tester.element(_book), alignment: .15);
   await pumpSoriStage(tester);
+  // The shared brand/wallet row is part of the pinned native header. Reveal
+  // the card below its measured obstruction, including after rotation.
+  final header = tester.renderObject<RenderSliver>(
+    find.byType(SoriCollapsingHeader),
+  );
+  final viewport = tester.getTopLeft(find.byType(Scrollable).last).dy;
+  final obscured =
+      viewport + header.geometry!.paintExtent + 8 - tester.getTopLeft(_book).dy;
+  if (obscured > 0) {
+    final position = tester
+        .state<ScrollableState>(find.byType(Scrollable).last)
+        .position;
+    position.jumpTo(
+      (position.pixels - obscured).clamp(
+        position.minScrollExtent,
+        position.maxScrollExtent,
+      ),
+    );
+    await pumpSoriStage(tester);
+  }
 }
 
 void main() {

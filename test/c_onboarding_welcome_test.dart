@@ -12,63 +12,141 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'support/einleitung_capture_assets.dart';
+import 'support/real_fonts.dart';
 
 const _capture = Key('welcome-native-capture');
 const _output = String.fromEnvironment('EINLEITUNG_EVIDENCE_DIR');
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(loadEinleitungFonts);
+  setUpAll(() async {
+    await loadSoriRealFonts();
+    await loadEinleitungFonts();
+  });
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
   });
 
-  for (final scale in [1.0, 2.0]) {
-    testWidgets('welcome native actions and full text $scale', (tester) async {
-      var starts = 0, later = 0;
-      await _pump(
-        tester,
-        scale,
-        WelcomeScreen(onStart: () async => starts++, onLater: () => later++),
-      );
-      await settleEinleitungCaptureAssets(tester);
-      await _write(tester, 'welcome-${scale == 1 ? '402-100' : '320-200'}');
-      final art = tester.widget<Image>(
-        find.byKey(const ValueKey('welcome-whole-art')),
-      );
-      expect(art.fit, BoxFit.contain);
-      if (scale == 1) {
-        final scene = tester.getRect(
-          find.byKey(const ValueKey('welcome-reference-scene')),
+  for (final language in ['de', 'en']) {
+    for (final size in [
+      const Size(320, 640),
+      const Size(393, 873),
+      const Size(402, 934),
+    ]) {
+      for (final scale in [1.0, 2.0]) {
+        testWidgets(
+          'welcome full bleed and native text $language $size $scale',
+          (tester) async {
+            var starts = 0, later = 0;
+            await _pump(
+              tester,
+              scale,
+              WelcomeScreen(
+                onStart: () async => starts++,
+                onLater: () => later++,
+              ),
+              size: size,
+              language: language,
+            );
+            await settleEinleitungCaptureAssets(tester);
+            if (size.width == 393) {
+              await _write(
+                tester,
+                'welcome-$language-393-873-${scale == 1 ? '100' : '200'}',
+              );
+            }
+            final t = lookupAppL10n(Locale(language));
+            expect(find.text(t.welcomeTitle), findsOneWidget);
+            expect(find.text(t.welcomeBody), findsOneWidget);
+            _expectCompleteParagraph(tester, find.text(t.welcomeTitle));
+            _expectCompleteParagraph(tester, find.text(t.welcomeBody));
+            final art = tester.widget<Image>(
+              find.byKey(const ValueKey('welcome-whole-art')),
+            );
+            expect(art.fit, BoxFit.cover);
+            final viewport = Offset.zero & size;
+            expect(
+              tester.getRect(find.byKey(const ValueKey('welcome-whole-art'))),
+              viewport,
+            );
+            final renderedArt = tester.renderObject<RenderImage>(
+              find.descendant(
+                of: find.byKey(const ValueKey('welcome-whole-art')),
+                matching: find.byType(RawImage),
+              ),
+            );
+            expect(renderedArt.image, isNotNull);
+            final fit = applyBoxFit(
+              BoxFit.cover,
+              Size(
+                renderedArt.image!.width.toDouble(),
+                renderedArt.image!.height.toDouble(),
+              ),
+              renderedArt.size,
+            );
+            expect(
+              fit.destination,
+              size,
+              reason: 'The decoded front image must fill the entire Scaffold.',
+            );
+            if (scale == 1) {
+              expect(find.byType(Scrollable), findsNothing);
+              final safeViewport = Rect.fromLTWH(
+                0,
+                62,
+                size.width,
+                size.height - 96,
+              );
+              for (final target in [
+                find.text(t.welcomeTitle),
+                find.text(t.welcomeBody),
+                find.byKey(const ValueKey('welcome-start')),
+                find.byKey(const ValueKey('welcome-later')),
+              ]) {
+                final rect = tester.getRect(target);
+                expect(safeViewport.contains(rect.topLeft), isTrue);
+                expect(
+                  safeViewport.contains(
+                    rect.bottomRight - const Offset(.01, .01),
+                  ),
+                  isTrue,
+                );
+              }
+            }
+            await tester.ensureVisible(
+              find.byKey(const ValueKey('welcome-start')),
+            );
+            await tester.tap(find.byKey(const ValueKey('welcome-start')));
+            await tester.pump();
+            expect(starts, 1);
+            await tester.ensureVisible(
+              find.byKey(const ValueKey('welcome-later')),
+            );
+            await tester.tap(find.byKey(const ValueKey('welcome-later')));
+            expect(later, 1);
+            expect(
+              tester
+                  .getSize(find.byKey(const ValueKey('welcome-start')))
+                  .height,
+              greaterThanOrEqualTo(48),
+            );
+            expect(
+              tester
+                  .getSize(find.byKey(const ValueKey('welcome-later')))
+                  .height,
+              greaterThanOrEqualTo(48),
+            );
+            expect(
+              tester.getRect(find.byKey(const ValueKey('welcome-whole-art'))),
+              viewport,
+            );
+            expect(tester.takeException(), isNull);
+          },
         );
-        final start = tester.getRect(
-          find.byKey(const ValueKey('welcome-start')),
-        );
-        expect(scene.width, 402);
-        expect(scene.height, closeTo(402 * 1672 / 941, .001));
-        expect(scene.center.dy, 467);
-        expect(start.left, closeTo(84.5, .001));
-        expect(start.top - scene.top, closeTo(601.5, .001));
-        expect(start.size, const Size(233, 50));
       }
-      await tester.ensureVisible(find.byKey(const ValueKey('welcome-start')));
-      await tester.tap(find.byKey(const ValueKey('welcome-start')));
-      await tester.pump();
-      expect(starts, 1);
-      await tester.ensureVisible(find.byKey(const ValueKey('welcome-later')));
-      if (scale == 2) {
-        await _write(tester, 'welcome-320-200-actions');
-      }
-      await tester.tap(find.byKey(const ValueKey('welcome-later')));
-      expect(later, 1);
-      expect(
-        tester.getSize(find.byKey(const ValueKey('welcome-start'))).height,
-        greaterThanOrEqualTo(48),
-      );
-      expect(tester.takeException(), isNull);
-    });
+    }
   }
 
   testWidgets('welcome failed write keeps both actions and retries', (
@@ -124,11 +202,15 @@ void main() {
   });
 }
 
-Future<void> _pump(WidgetTester tester, double scale, Widget home) async {
+Future<void> _pump(
+  WidgetTester tester,
+  double scale,
+  Widget home, {
+  Size size = const Size(402, 934),
+  String language = 'de',
+}) async {
   tester.view.devicePixelRatio = 1;
-  tester.view.physicalSize = scale == 1
-      ? const Size(402, 934)
-      : const Size(320, 740);
+  tester.view.physicalSize = size;
   addTearDown(tester.view.resetDevicePixelRatio);
   addTearDown(tester.view.resetPhysicalSize);
   await tester.pumpWidget(
@@ -137,7 +219,7 @@ Future<void> _pump(WidgetTester tester, double scale, Widget home) async {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppTheme.light,
-        locale: const Locale('de'),
+        locale: Locale(language),
         localizationsDelegates: AppL10n.localizationsDelegates,
         supportedLocales: AppL10n.supportedLocales,
         builder: (context, child) => MediaQuery(
@@ -153,6 +235,22 @@ Future<void> _pump(WidgetTester tester, double scale, Widget home) async {
       ),
     ),
   );
+}
+
+void _expectCompleteParagraph(WidgetTester tester, Finder finder) {
+  final paragraph = tester.renderObject<RenderParagraph>(finder);
+  final natural = TextPainter(
+    text: paragraph.text,
+    textDirection: paragraph.textDirection,
+    textScaler: paragraph.textScaler,
+    locale: paragraph.locale,
+    strutStyle: paragraph.strutStyle,
+    textHeightBehavior: paragraph.textHeightBehavior,
+    textWidthBasis: paragraph.textWidthBasis,
+  )..layout(maxWidth: paragraph.size.width);
+  expect(paragraph.didExceedMaxLines, isFalse);
+  expect(paragraph.size.height, greaterThanOrEqualTo(natural.height - .1));
+  natural.dispose();
 }
 
 Future<void> _write(WidgetTester tester, String name) async {

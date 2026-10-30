@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'c_learning_surface.dart';
 import 'pressable.dart';
 import 'tokens.dart';
 
@@ -53,6 +54,11 @@ class SoriButton extends StatelessWidget {
   /// Result and purchase actions emit feedback after confirmation.
   final bool feedbackOnTap;
   final SoriButtonTextRole textRole;
+  final bool cMaterial;
+
+  /// Optional text-free material art. The button retains all action semantics,
+  /// disabled/loading behavior and pressure ownership.
+  final Widget Function(BuildContext, Widget)? surfaceBuilder;
 
   const SoriButton({
     super.key,
@@ -71,6 +77,8 @@ class SoriButton extends StatelessWidget {
     this.loading = false,
     this.feedbackOnTap = true,
     this.textRole = SoriButtonTextRole.action,
+    this.cMaterial = false,
+    this.surfaceBuilder,
   }) : assert(maxLines == null || maxLines > 0);
 
   const SoriButton.filled({
@@ -89,6 +97,8 @@ class SoriButton extends StatelessWidget {
     this.loading = false,
     this.feedbackOnTap = true,
     this.textRole = SoriButtonTextRole.action,
+    this.cMaterial = false,
+    this.surfaceBuilder,
   }) : variant = SoriButtonVariant.filled,
        assert(maxLines == null || maxLines > 0);
 
@@ -108,6 +118,8 @@ class SoriButton extends StatelessWidget {
     this.loading = false,
     this.feedbackOnTap = true,
     this.textRole = SoriButtonTextRole.action,
+    this.cMaterial = false,
+    this.surfaceBuilder,
   }) : variant = SoriButtonVariant.outlined,
        assert(maxLines == null || maxLines > 0);
 
@@ -127,6 +139,8 @@ class SoriButton extends StatelessWidget {
     this.loading = false,
     this.feedbackOnTap = true,
     this.textRole = SoriButtonTextRole.action,
+    this.cMaterial = false,
+    this.surfaceBuilder,
   }) : variant = SoriButtonVariant.ghost,
        assert(maxLines == null || maxLines > 0);
 
@@ -156,26 +170,37 @@ class SoriButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final fonts = SoriLocaleFonts.of(context);
     final s = SoriSurfaces.of(context);
     final isLight = s.brightness == Brightness.light;
     final disabled = onTap == null;
     final comfortScale = soriComfortScale(MediaQuery.sizeOf(context).width);
+    final useCGold =
+        cMaterial &&
+        variant == SoriButtonVariant.filled &&
+        accent == null &&
+        !destructive;
+    final effectiveMaxLines =
+        cMaterial && textRole == SoriButtonTextRole.learning ? null : maxLines;
     final visualHeight =
         (illustrationAsset != null ? 64 : _height) * comfortScale;
     // 글자 배율은 SoriTypeScale(MaterialApp.builder) 이 유일하게 담당한다 —
     // 여기서 곱하면 comfort 가 두 번 겹친다(2026-08-19).
     final visualFontSize = _fontSize;
-    final visualHorizontalPadding = _hpad * comfortScale;
+    final visualHorizontalPadding = cMaterial ? 12.0 : _hpad * comfortScale;
     final color = destructive
         ? SoriColors.danger
-        : (accent ?? SoriColors.primary);
+        : (accent ??
+              (useCGold ? SoriCLearningTokens.gold : SoriColors.primary));
 
     // outlined·ghost용 텍스트 색: accent 미지정 시 light 한지 위 대비 보강
     // (primary `#1F7A6B` 5.8:1 → primaryOnLight `#0E443B` 12.6:1).
     final fgAccent = destructive
         ? SoriColors.danger
         : (accent ??
-              (isLight ? SoriColors.primaryOnLight : SoriColors.primaryOnDark));
+              (isLight || cMaterial
+                  ? SoriColors.primaryOnLight
+                  : SoriColors.primaryOnDark));
 
     // filled 채움이 배경에서 3:1로 안 떨어지면(예: tiger 2.14:1) 같은 색상의
     // 어두운 테두리를 자동으로 붙인다 — SC 1.4.11. 충분하면 null.
@@ -183,7 +208,7 @@ class SoriButton extends StatelessWidget {
         ? SoriColors.fillOutline(color, s.bg)
         : null;
 
-    final (Color bg, Color fg, BoxBorder? border) = switch (variant) {
+    final (Color bg, Color legacyFg, BoxBorder? border) = switch (variant) {
       SoriButtonVariant.filled => (
         // §4.4-3: 비활성은 "죽은 회색 벽"이 아니라 저채도 한지톤 —
         // surfaceAlt 채움 + 모티프 색 15% 알파로 색상 정체성을 남긴다.
@@ -208,6 +233,9 @@ class SoriButton extends StatelessWidget {
         null,
       ),
     };
+    final fg = useCGold || cMaterial && disabled
+        ? SoriCLearningTokens.ink
+        : legacyFg;
 
     final content = loading
         ? SizedBox(
@@ -263,26 +291,29 @@ class SoriButton extends StatelessWidget {
                   final text = ExcludeSemantics(
                     child: Text(
                       label,
-                      maxLines: maxLines,
+                      maxLines: effectiveMaxLines,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: textRole == SoriButtonTextRole.learning
                             ? SoriFonts.sans
-                            : SoriFonts.interface,
-                        fontFamilyFallback: SoriFonts.fallback,
+                            : fonts.body,
+                        fontFamilyFallback:
+                            textRole == SoriButtonTextRole.learning
+                            ? SoriFonts.fallback
+                            : SoriLocaleFonts.fallback,
                         color: fg,
-                        fontWeight:
-                            textRole == SoriButtonTextRole.action ||
-                                variant == SoriButtonVariant.filled
-                            ? FontWeight.w600
-                            : FontWeight.w500,
+                        fontWeight: textRole == SoriButtonTextRole.learning
+                            ? (variant == SoriButtonVariant.filled
+                                  ? FontWeight.w600
+                                  : FontWeight.w500)
+                            : fonts.bodyWeight(FontWeight.w600),
                         fontSize: visualFontSize,
                         letterSpacing: -0.2,
                         height: 1.2,
                       ),
                     ),
                   );
-                  return maxLines == 1
+                  return effectiveMaxLines == 1
                       ? FittedBox(
                           fit: BoxFit.scaleDown,
                           alignment: Alignment.center,
@@ -303,14 +334,25 @@ class SoriButton extends StatelessWidget {
           );
 
     final box = Container(
-      constraints: BoxConstraints(minHeight: visualHeight),
+      constraints: BoxConstraints(
+        minHeight: cMaterial && visualHeight < 48 ? 48 : visualHeight,
+      ),
       padding: EdgeInsets.symmetric(
         horizontal: visualHorizontalPadding,
-        vertical: maxLines != 1 ? Spacing.xs * comfortScale : 0,
+        vertical: effectiveMaxLines != 1 ? Spacing.xs * comfortScale : 0,
       ),
       decoration: BoxDecoration(
-        color: bg,
-        gradient: variant == SoriButtonVariant.ghost || disabled
+        color:
+            surfaceBuilder != null ||
+                useCGold ||
+                cMaterial && variant == SoriButtonVariant.outlined
+            ? Colors.transparent
+            : bg,
+        gradient:
+            surfaceBuilder != null ||
+                variant == SoriButtonVariant.ghost ||
+                disabled ||
+                useCGold
             ? null
             : LinearGradient(
                 begin: Alignment.topCenter,
@@ -320,16 +362,29 @@ class SoriButton extends StatelessWidget {
                   bg,
                 ],
               ),
-        border: border,
+        border: surfaceBuilder == null ? border : null,
         borderRadius: BorderRadius.circular(_radius * comfortScale),
       ),
       alignment: Alignment.center,
       child: content,
     );
 
-    final wrapped = fullWidth
-        ? SizedBox(width: double.infinity, child: box)
+    final materialBox = surfaceBuilder != null
+        ? Opacity(
+            opacity: disabled ? .65 : 1,
+            child: surfaceBuilder!(context, box),
+          )
+        : useCGold || cMaterial && variant == SoriButtonVariant.outlined
+        ? SoriCMaterialSurface(
+            material: useCGold ? SoriCMaterial.gold : SoriCMaterial.paper,
+            borderRadius: BorderRadius.circular(_radius * comfortScale),
+            raised: false,
+            child: Opacity(opacity: disabled ? .65 : 1, child: box),
+          )
         : box;
+    final wrapped = fullWidth
+        ? SizedBox(width: double.infinity, child: materialBox)
+        : materialBox;
 
     if (disabled) {
       return Semantics(
@@ -355,7 +410,9 @@ class SoriButton extends StatelessWidget {
         },
         tactileTilt: variant != SoriButtonVariant.ghost,
         surfaceRadius: _radius * comfortScale,
-        surfaceEdgeColor: variant == SoriButtonVariant.filled
+        surfaceEdgeColor: surfaceBuilder != null
+            ? Colors.transparent
+            : variant == SoriButtonVariant.filled
             ? Color.lerp(bg, SoriColors.lightText, .45)
             : Color.lerp(s.border, fgAccent, .35),
         child: wrapped,

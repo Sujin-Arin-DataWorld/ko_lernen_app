@@ -1,3 +1,5 @@
+import 'dart:ui' show SemanticsAction;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -37,14 +39,12 @@ import 'package:ko_lernen_app/services/silben_puzzle_loader.dart';
 import 'package:ko_lernen_app/services/smalltalk_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/chrome_row.dart';
 import 'package:ko_lernen_app/widgets/sori/cloze_prompt.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/home_action.dart';
-import 'package:ko_lernen_app/widgets/sori/section_header.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_atelier_materials.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
@@ -436,31 +436,31 @@ void main() {
         );
         await tester.pump(const Duration(milliseconds: 500));
 
-        expect(find.byType(SoriAppBar), findsOneWidget);
-        expect(find.byType(TabBarView), findsOneWidget);
-        // §NAV-1(J2): hangul_screen.dart moved into SoriStudyFrame — pin the
-        // frame-owned close/home actions and the TabBar it forwards via
-        // `bottom:`.
-        expect(find.byType(SoriStudyFrame), findsOneWidget);
-        expect(find.byType(SoriCloseAction), findsOneWidget);
-        expect(find.byType(SoriHomeAction), findsOneWidget);
-        expect(find.byType(TabBar), findsOneWidget);
-        // §NAV-1(J2): `_OverviewTab` used to clamp its own padding against
-        // the *screen* width (soriClampPadding(MediaQuery width)) while
-        // SoriStudyFrame separately clamps the whole frame to a 760dp
-        // column — double clamp. `getSize().width` is always ~760 here
-        // regardless of the bug, so it can't catch the regression; the
-        // horizontal padding sum can: pre-fix it hit 384 at 1024dp, fixed
-        // it stays at 24 (base) since the ListView's own LayoutBuilder now
-        // sees the already-clamped ~760dp column, not the full 1024dp.
-        final overviewScroll = find.byKey(const Key('hangul-overview-scroll'));
-        if (overviewScroll.evaluate().isNotEmpty) {
-          final padding = tester
-              .widget<ListView>(overviewScroll)
-              .padding!
-              .resolve(TextDirection.ltr);
-          expect(padding.horizontal, lessThanOrEqualTo(24 + 2 * 60));
+        final semantics = tester.ensureSemantics();
+        await tester.pump();
+        _expectNativeHangulChrome(tester);
+        for (var index = 0; index < 3; index++) {
+          final tab = find.byKey(ValueKey('hangul-tab-$index'));
+          await tester.ensureVisible(tab);
+          await tester.pumpAndSettle();
+          await tester.tap(tab);
+          await tester.pumpAndSettle();
+          expect(tester.widget<CAtelierButton>(tab).selected, isTrue);
+          expect(tester.getSize(tab).height, greaterThanOrEqualTo(48));
+          expect(tester.getSize(tab).width, greaterThanOrEqualTo(48));
         }
+        final paperOwner = find.ancestor(
+          of: find.byType(TabBarView),
+          matching: find.byType(CAtelierPaper),
+        );
+        expect(paperOwner, findsOneWidget);
+        final paper = tester.getSize(paperOwner);
+        expect(paper.width, lessThanOrEqualTo(viewport.size.width));
+        expect(
+          paper.width,
+          greaterThanOrEqualTo(viewport.size.width.clamp(0, 1100) - 48),
+        );
+        semantics.dispose();
         expect(tester.takeException(), isNull);
       });
     }
@@ -494,47 +494,54 @@ void main() {
         await tester.pump(const Duration(milliseconds: 500));
 
         final t = AppL10n.of(tester.element(find.byType(HangulScreen)));
-        final overviewScroll = find
-            .descendant(
-              of: find.byKey(const Key('hangul-overview-scroll')),
-              matching: find.byType(Scrollable),
-            )
-            .first;
-        final headers = <Finder>[
-          find.byWidgetPredicate(
-            (widget) =>
-                widget is SoriSectionHeader &&
-                widget.title.startsWith(t.hangulConsonantsLabel),
-          ),
-          find.byWidgetPredicate(
-            (widget) =>
-                widget is SoriSectionHeader &&
-                widget.title.startsWith(t.hangulVowelsLabel),
-          ),
-          find.widgetWithText(SoriSectionHeader, t.hangulSyllableLabel),
-        ];
-
-        for (final header in headers) {
-          await tester.scrollUntilVisible(
-            header,
-            240,
-            scrollable: overviewScroll,
-          );
-          await tester.pump();
-          expect(header, findsOneWidget);
-          final title = tester.widget<SoriSectionHeader>(header).title;
-          final label = find.text(title);
-          final text = tester.widget<Text>(label);
-          expect(text.maxLines, isNull);
-          expect(text.overflow, isNull);
+        final discover = find.text(t.atelierDiscover);
+        expect(
+          tester
+              .getSemantics(discover)
+              .getSemanticsData()
+              .flagsCollection
+              .isHeader,
+          isTrue,
+        );
+        for (final item in [
+          (t.hangulChipConsonants, '${t.hangulChipConsonants} · 19', 19),
+          (t.hangulChipVowels, '${t.hangulChipVowels} · 15', 15),
+          (t.hangulChipSyllables, '${t.atelierStructure} · 16', 16),
+        ]) {
+          final action = _nativeHangulButton(item.$2);
+          await tester.ensureVisible(action);
+          await tester.pumpAndSettle();
+          expect(tester.getSize(action).height, greaterThanOrEqualTo(48));
+          expect(tester.widget<Text>(find.text(item.$2)).maxLines, isNull);
+          expect(tester.widget<Text>(find.text(item.$2)).overflow, isNull);
+          await tester.tap(action);
+          await tester.pumpAndSettle();
+          final title = find.text('${item.$1} (${item.$3})');
+          expect(title, findsOneWidget);
+          expect(tester.widget<Text>(title).maxLines, isNull);
+          expect(tester.widget<Text>(title).overflow, isNull);
           expect(
             tester
-                .getSemantics(label)
+                .getSemantics(title)
                 .getSemanticsData()
                 .flagsCollection
                 .isHeader,
             isTrue,
           );
+          final catalog = find.descendant(
+            of: find.byType(Dialog),
+            matching: find.byWidgetPredicate(
+              (w) =>
+                  w is CAtelierButton &&
+                  (w.key is ValueKey<String>) &&
+                  ((w.key! as ValueKey<String>).value.startsWith(
+                    'hangul-catalog-',
+                  )),
+            ),
+          );
+          expect(catalog, findsNWidgets(item.$3));
+          Navigator.of(tester.element(find.byType(Dialog))).pop();
+          await tester.pumpAndSettle();
         }
         expect(tester.takeException(), isNull);
         semantics.dispose();
@@ -560,35 +567,40 @@ void main() {
       await tester.pump(const Duration(milliseconds: 500));
 
       final t = AppL10n.of(tester.element(find.byType(HangulScreen)));
-      await tester.tap(find.text(t.hangulTabCards));
+      final tab = find.byKey(const ValueKey('hangul-tab-1'));
+      await tester.ensureVisible(tab);
       await tester.pumpAndSettle();
-      final modeSelector = find.byKey(const Key('hangul-cards-mode-selector'));
+      await tester.tap(tab);
+      await tester.pumpAndSettle();
+      final modeSelector = find.byKey(const Key('hangul-cards-selection'));
+      await tester.ensureVisible(modeSelector);
+      await tester.pumpAndSettle();
       expect(tester.getSize(modeSelector).height, greaterThanOrEqualTo(48));
       await tester.tap(modeSelector);
       await tester.pumpAndSettle();
-
-      for (final label in [
-        t.hangulChipConsonants,
-        t.hangulChipVowels,
-        t.hangulChipSyllables,
-      ]) {
-        final chip = find.widgetWithText(SoriChip, label);
-        final text = find.descendant(of: chip, matching: find.text(label));
-        expect(chip, findsOneWidget);
-        expect(tester.getSize(chip).height, greaterThanOrEqualTo(48));
-        expect(tester.widget<Text>(text).maxLines, isNull);
-        expect(tester.widget<Text>(text).overflow, isNull);
-      }
-      for (final key in const [
-        Key('hangul-cards-prev'),
-        Key('hangul-cards-speak'),
-        Key('hangul-cards-random'),
-      ]) {
-        expect(
-          tester.getSize(find.byKey(key)).height,
-          greaterThanOrEqualTo(48),
+      for (final index in [0, 1, 2]) {
+        final button = find.byKey(ValueKey('hangul-cards-mode-$index'));
+        final widget = tester.widget<CAtelierButton>(button);
+        final label = find.descendant(
+          of: button,
+          matching: find.text(widget.label),
         );
-        expect(tester.getSize(find.byKey(key)).width, greaterThanOrEqualTo(48));
+        expect(widget.onTap, isNotNull);
+        expect(tester.getSize(button).height, greaterThanOrEqualTo(48));
+        expect(tester.widget<Text>(label).maxLines, isNull);
+        expect(tester.widget<Text>(label).overflow, isNull);
+      }
+      Navigator.of(tester.element(find.byType(Dialog))).pop();
+      await tester.pumpAndSettle();
+      for (final control in [
+        modeSelector,
+        find.byKey(const Key('hangul-cards-filter')),
+        find.byKey(const Key('hangul-card-like')),
+        _nativeHangulButton(t.cHangulListen),
+        find.byKey(const Key('hangul-finish-cards')),
+      ]) {
+        expect(tester.getSize(control).height, greaterThanOrEqualTo(48));
+        expect(tester.getSize(control).width, greaterThanOrEqualTo(48));
       }
       expect(tester.takeException(), isNull);
     });
@@ -905,3 +917,44 @@ List<Grammar> _grammarDeck() => const [
     quizDistractorIds: ['grammar_a1_one', 'grammar_a1_two', 'grammar_a1_three'],
   ),
 ];
+
+Finder _nativeHangulButton(String label) => find.byWidgetPredicate(
+  (widget) => widget is CAtelierButton && widget.label == label,
+);
+
+void _expectNativeHangulChrome(WidgetTester tester) {
+  expect(find.byKey(const ValueKey('hangul-atelier-header')), findsOneWidget);
+  expect(find.byType(CAtelierTabs), findsOneWidget);
+  expect(find.byType(TabBarView), findsOneWidget);
+  expect(find.byType(SoriStudyFrame), findsOneWidget);
+  expect(
+    tester.widget<SoriStudyFrame>(find.byType(SoriStudyFrame)).onLeave,
+    isNotNull,
+  );
+  for (final action in [
+    find.byType(SoriCloseAction),
+    find.byType(SoriHomeAction),
+    find.byKey(const Key('hangul-settings')),
+  ]) {
+    expect(action, findsOneWidget);
+    expect(tester.getSize(action).width, greaterThanOrEqualTo(48));
+    expect(tester.getSize(action).height, greaterThanOrEqualTo(48));
+  }
+  final t = AppL10n.of(tester.element(find.byType(HangulScreen)));
+  for (final label in [
+    t.closeActionLabel,
+    t.homeActionLabel,
+    t.settingsTitle,
+  ]) {
+    final node = tester.getSemantics(find.bySemanticsLabel(label));
+    expect(node.getSemanticsData().flagsCollection.isButton, isTrue);
+    expect(node.getSemanticsData().hasAction(SemanticsAction.tap), isTrue);
+  }
+  final title = find.text(
+    AppL10n.of(tester.element(find.byType(HangulScreen))).screenHangulTitle,
+  );
+  expect(
+    tester.getSemantics(title).getSemanticsData().flagsCollection.isHeader,
+    isTrue,
+  );
+}

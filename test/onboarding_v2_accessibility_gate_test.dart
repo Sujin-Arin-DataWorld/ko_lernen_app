@@ -7,6 +7,8 @@ import 'package:ko_lernen_app/features/guide/guide_topic_detail_screen.dart';
 import 'package:ko_lernen_app/features/study_library/study_library.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/guide_contract.dart';
+import 'package:ko_lernen_app/models/learner_level.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/approved_games_preview_data.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_character_media.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_setup_screen.dart';
@@ -24,6 +26,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() async {
     await loadEinleitungFonts();
+    await Future.wait(LearnerLevel.values.map(ApprovedGamesPreviewData.load));
   });
 
   group('Onboarding V2 compact accessibility gate', () {
@@ -266,7 +269,11 @@ void main() {
                   reason: evidence,
                 );
                 final close = find.byKey(
-                  const ValueKey('c-onboarding-sheet-close'),
+                  ValueKey(
+                    surface.name == 'story page 3'
+                        ? 'demo-games-close'
+                        : 'c-onboarding-sheet-close',
+                  ),
                 );
                 await Scrollable.ensureVisible(
                   tester.element(close),
@@ -275,7 +282,9 @@ void main() {
                 await _pumpFinite(tester);
                 _expectLabeled48DpButton(tester, close);
                 await _tapReachable(tester, close);
-                await _pumpFinite(tester);
+                // Full-screen game previews use the native route's exit
+                // transition rather than the bottom sheet's fixed duration.
+                await tester.pumpAndSettle();
                 expect(
                   close,
                   findsNothing,
@@ -673,7 +682,7 @@ void _expectHeader(WidgetTester tester, Finder finder) {
 
 void _expectLabeled48DpButton(WidgetTester tester, Finder finder) {
   final data = tester.getSemantics(finder).getSemanticsData();
-  expect(data.flagsCollection.isButton, isTrue);
+  expect(data.flagsCollection.isButton, isTrue, reason: '$finder: $data');
   if (data.label.trim().isEmpty) {
     final tooltip = find.descendant(of: finder, matching: find.byType(Tooltip));
     expect(

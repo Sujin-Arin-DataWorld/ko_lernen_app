@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'real_fonts.dart';
+
 bool _fontsLoaded = false;
 
 /// The introduction Latin and Korean display faces plus the main text families.
@@ -12,6 +14,8 @@ Future<void> loadEinleitungFonts() async {
   if (_fontsLoaded) {
     return;
   }
+  // Keep measurements on the same localized faces used by the application.
+  await loadSoriRealFonts();
   const families = {
     'Roboto': ['assets/fonts/Roboto/Roboto-Variable.ttf'],
     'RobotoCondensed': [

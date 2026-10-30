@@ -13,7 +13,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'package:ko_lernen_app/widgets/sori/learning_companion.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
 
 /// The Stage shell must keep [TodayLearningSnapshot]'s availability contract:
 /// a partial recommendation is never displayed or recorded as a fresh Today
@@ -35,7 +35,7 @@ void main() {
 
     await _pumpToday(tester, loadSnapshot: () async => _readySnapshot());
     await tester.scrollUntilVisible(
-      find.widgetWithText(SoriButton, t.soriStageMissionStart),
+      find.widgetWithText(CMaterialAction, t.soriStageMissionStart),
       300,
     );
     await tester.pumpAndSettle();
@@ -45,7 +45,7 @@ void main() {
       findsNothing,
     );
     expect(
-      find.widgetWithText(SoriButton, t.soriStageMissionStart),
+      find.widgetWithText(CMaterialAction, t.soriStageMissionStart),
       findsOneWidget,
     );
     expect(find.text('${t.soriStagePossibleReward}:'), findsOneWidget);
@@ -80,7 +80,10 @@ void main() {
       await tester.pumpAndSettle();
       expect(attempts, 2);
       expect(find.text(t.homeLocalUnavailableTitle), findsNothing);
-      expect(find.byType(SoriLearningCompanion), findsOneWidget);
+      expect(
+        find.byKey(const ValueKey('today-companion-greeting')),
+        findsOneWidget,
+      );
       expect(Storage.xp, 320);
       expect(Storage.celebratedMilestones, isEmpty);
       expect(Storage.pendingBoxes, isEmpty);
@@ -97,15 +100,15 @@ void main() {
     await Storage.setMotivation('travel');
     await _pumpToday(tester, loadSnapshot: () async => _readySnapshot());
     final travelGreeting = tester
-        .widget<SoriLearningCompanion>(find.byType(SoriLearningCompanion))
-        .greeting;
+        .widget<Text>(find.byKey(const ValueKey('today-companion-greeting')))
+        .data;
 
     await tester.pumpWidget(const SizedBox.shrink());
     await Storage.setMotivation('kdrama');
     await _pumpToday(tester, loadSnapshot: () async => _readySnapshot());
     final contentGreeting = tester
-        .widget<SoriLearningCompanion>(find.byType(SoriLearningCompanion))
-        .greeting;
+        .widget<Text>(find.byKey(const ValueKey('today-companion-greeting')))
+        .data;
 
     expect(travelGreeting, t.homeHeroGreetingMorning);
     expect(contentGreeting, travelGreeting);
@@ -131,7 +134,7 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(
-      find.widgetWithText(SoriButton, t.soriStageMissionStart),
+      find.widgetWithText(CMaterialAction, t.soriStageMissionStart),
       findsOneWidget,
     );
     expect(
@@ -251,7 +254,7 @@ void main() {
       expect(loads, 2);
       expect(find.text(t.homeUnavailableEyebrow), findsNothing);
       final missionStart = find.widgetWithText(
-        SoriButton,
+        CMaterialAction,
         t.soriStageMissionStart,
       );
       if (missionStart.evaluate().isEmpty) {

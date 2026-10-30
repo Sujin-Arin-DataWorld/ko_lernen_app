@@ -90,33 +90,40 @@ void main() {
     );
   });
 
-  test('§19 migrated surfaces own one public chrome row, not a private rail', () {
-    const migrated = <String>{
-      'lib/screens/chosung_quiz_screen.dart',
-      'lib/screens/hangul_screen.dart',
-      'lib/screens/legacy_vocab_screen.dart',
-      'lib/screens/study_library_screen.dart',
-    };
-    final offenders = <String>[];
-    for (final path in migrated) {
-      final clean = _blankStringsAndComments(File(path).readAsStringSync());
-      final chromeRows = RegExp(
-        r'(^|[^A-Za-z0-9_$])SoriChromeRow\(',
-      ).allMatches(clean).length;
-      final privateChipRail = hasPrivateChipRail(clean);
-      if (chromeRows != 1 || privateChipRail) {
-        offenders.add(
-          '$path: chromeRows=$chromeRows, privateChipRail=$privateChipRail',
-        );
+  test(
+    '§19 migrated surfaces own one public chrome component, not a private rail',
+    () {
+      // The adopted Atelier moves its real frame/tab view into a Dart part.
+      // Its approved three-tab material component replaces the old mode rail;
+      // it remains exactly one public owner rather than a guard exemption.
+      const migrated = <String, String>{
+        'lib/screens/chosung_quiz_screen.dart': 'SoriChromeRow',
+        'lib/screens/hangul_atelier.dart': 'CAtelierTabs',
+        'lib/screens/legacy_vocab_screen.dart': 'SoriChromeRow',
+        'lib/screens/study_library_screen.dart': 'SoriChromeRow',
+      };
+      final offenders = <String>[];
+      for (final entry in migrated.entries) {
+        final path = entry.key;
+        final clean = _blankStringsAndComments(File(path).readAsStringSync());
+        final chromeRows = RegExp(
+          r'(^|[^A-Za-z0-9_$])' + entry.value + r'\(',
+        ).allMatches(clean).length;
+        final privateChipRail = hasPrivateChipRail(clean);
+        if (chromeRows != 1 || privateChipRail) {
+          offenders.add(
+            '$path: chromeRows=$chromeRows, privateChipRail=$privateChipRail',
+          );
+        }
       }
-    }
-    expect(
-      offenders,
-      isEmpty,
-      reason:
-          '§19 surfaces must expose one SoriChromeRow and put choices in a sheet, not add a private chip rail.\n${offenders.join('\n')}',
-    );
-  });
+      expect(
+        offenders,
+        isEmpty,
+        reason:
+            '§19 surfaces must expose one public chrome component and keep additional choices out of private chip rails.\n${offenders.join('\n')}',
+      );
+    },
+  );
 
   test('raw InkWell( 은 더 늘지 않는다 (SoriPressable 사용)', () {
     var total = 0;

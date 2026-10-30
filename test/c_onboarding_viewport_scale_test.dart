@@ -135,7 +135,7 @@ void main() {
       );
       expect(
         find.byKey(const ValueKey('welcome-reference-scene')),
-        scale == 1 ? findsOneWidget : findsNothing,
+        findsOneWidget,
       );
       final t = lookupAppL10n(const Locale('de'));
       _expectBaseScale(tester, find.text(t.welcomeTitle), scaler);
