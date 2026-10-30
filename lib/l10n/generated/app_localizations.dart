@@ -2095,30 +2095,6 @@ abstract class AppL10n {
   /// **'Schreiben'**
   String get hangulTabWrite;
 
-  /// No description provided for @hangulConsonantsLabel.
-  ///
-  /// In de, this message translates to:
-  /// **'자음 · Konsonanten'**
-  String get hangulConsonantsLabel;
-
-  /// No description provided for @hangulVowelsLabel.
-  ///
-  /// In de, this message translates to:
-  /// **'모음 · Vokale'**
-  String get hangulVowelsLabel;
-
-  /// No description provided for @hangulSyllableLabel.
-  ///
-  /// In de, this message translates to:
-  /// **'🧩 음절 구조 · Silbenaufbau'**
-  String get hangulSyllableLabel;
-
-  /// No description provided for @hangulSyllableTableTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Silbentafel'**
-  String get hangulSyllableTableTitle;
-
   /// No description provided for @hangulSyllableTableHint.
   ///
   /// In de, this message translates to:
@@ -2130,12 +2106,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Aussprechen'**
   String get hangulPronounceBtn;
-
-  /// No description provided for @hangulRulesTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Hangul-Schreibregeln'**
-  String get hangulRulesTitle;
 
   /// No description provided for @hangulRulesBody.
   ///
@@ -2160,12 +2130,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Löschen'**
   String get hangulClearBtn;
-
-  /// No description provided for @hangulPronounceLetter.
-  ///
-  /// In de, this message translates to:
-  /// **'{letter} aussprechen'**
-  String hangulPronounceLetter(Object letter);
 
   /// No description provided for @hangulChipConsonants.
   ///
@@ -2256,18 +2220,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{letter} sitzt! Weiter zum nächsten.'**
   String hangulStrokeLetterDone(Object letter);
-
-  /// No description provided for @hangulLettersDone.
-  ///
-  /// In de, this message translates to:
-  /// **'{count, plural, one{1 Buchstabe fertig} other{{count} Buchstaben fertig}}'**
-  String hangulLettersDone(int count);
-
-  /// No description provided for @hangulHardOnly.
-  ///
-  /// In de, this message translates to:
-  /// **'Nur schwierige'**
-  String get hangulHardOnly;
 
   /// No description provided for @chosungModeWithVowels.
   ///
@@ -11826,12 +11778,6 @@ abstract class AppL10n {
   /// **'Grammatikübung abschließen'**
   String get testerFeedbackCompleteGrammar;
 
-  /// No description provided for @testerFeedbackCompleteHangul.
-  ///
-  /// In de, this message translates to:
-  /// **'Hangul-Übung abschließen'**
-  String get testerFeedbackCompleteHangul;
-
   /// No description provided for @testerFeedbackCompleteDailyHangul.
   ///
   /// In de, this message translates to:
@@ -18282,48 +18228,6 @@ abstract class AppL10n {
   /// **'Wort'**
   String get onboardingDemoWord;
 
-  /// No description provided for @onboardingDemoInitials.
-  ///
-  /// In de, this message translates to:
-  /// **'Anlautspiel'**
-  String get onboardingDemoInitials;
-
-  /// No description provided for @onboardingDemoCross.
-  ///
-  /// In de, this message translates to:
-  /// **'Silben-Kreuz'**
-  String get onboardingDemoCross;
-
-  /// No description provided for @onboardingDemoCloze.
-  ///
-  /// In de, this message translates to:
-  /// **'Lückentext'**
-  String get onboardingDemoCloze;
-
-  /// No description provided for @onboardingDemoPairs.
-  ///
-  /// In de, this message translates to:
-  /// **'Wortpaare'**
-  String get onboardingDemoPairs;
-
-  /// No description provided for @onboardingDemoSentence.
-  ///
-  /// In de, this message translates to:
-  /// **'Satz bauen'**
-  String get onboardingDemoSentence;
-
-  /// No description provided for @onboardingDemoChain.
-  ///
-  /// In de, this message translates to:
-  /// **'Wortkette'**
-  String get onboardingDemoChain;
-
-  /// No description provided for @onboardingDemoExample.
-  ///
-  /// In de, this message translates to:
-  /// **'Beispiel zeigen'**
-  String get onboardingDemoExample;
-
   /// No description provided for @onboardingJourneyStartTitle.
   ///
   /// In de, this message translates to:
@@ -20675,6 +20579,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Alle Spiele'**
   String get c5AllGames;
+
+  /// Accessible native Hangul equation with localized section and preview labels. Korean lesson glyphs remain Korean.
+  ///
+  /// In de, this message translates to:
+  /// **'{title}. ㄱ + ㅏ = 가. 가 · ga. {previewLabel}'**
+  String onboardingHangulEquationSemantics(String title, String previewLabel);
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

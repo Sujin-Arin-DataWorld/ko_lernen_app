@@ -1183,26 +1183,11 @@ class AppL10nDe extends AppL10n {
   String get hangulTabWrite => 'Schreiben';
 
   @override
-  String get hangulConsonantsLabel => '자음 · Konsonanten';
-
-  @override
-  String get hangulVowelsLabel => '모음 · Vokale';
-
-  @override
-  String get hangulSyllableLabel => '🧩 음절 구조 · Silbenaufbau';
-
-  @override
-  String get hangulSyllableTableTitle => 'Silbentafel';
-
-  @override
   String get hangulSyllableTableHint =>
       'Tippe auf eine Silbe, um sie zu hören. Wische seitlich für weitere Vokale.';
 
   @override
   String get hangulPronounceBtn => 'Aussprechen';
-
-  @override
-  String get hangulRulesTitle => 'Hangul-Schreibregeln';
 
   @override
   String get hangulRulesBody =>
@@ -1217,11 +1202,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get hangulClearBtn => 'Löschen';
-
-  @override
-  String hangulPronounceLetter(Object letter) {
-    return '$letter aussprechen';
-  }
 
   @override
   String get hangulChipConsonants => 'Konsonanten';
@@ -1281,20 +1261,6 @@ class AppL10nDe extends AppL10n {
   String hangulStrokeLetterDone(Object letter) {
     return '$letter sitzt! Weiter zum nächsten.';
   }
-
-  @override
-  String hangulLettersDone(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count Buchstaben fertig',
-      one: '1 Buchstabe fertig',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get hangulHardOnly => 'Nur schwierige';
 
   @override
   String get chosungModeWithVowels => 'Anlaut + Vokal';
@@ -6849,9 +6815,6 @@ class AppL10nDe extends AppL10n {
   String get testerFeedbackCompleteGrammar => 'Grammatikübung abschließen';
 
   @override
-  String get testerFeedbackCompleteHangul => 'Hangul-Übung abschließen';
-
-  @override
   String get testerFeedbackCompleteDailyHangul =>
       'Heutiges Zeichen abschließen';
 
@@ -10810,27 +10773,6 @@ class AppL10nDe extends AppL10n {
   String get onboardingDemoWord => 'Wort';
 
   @override
-  String get onboardingDemoInitials => 'Anlautspiel';
-
-  @override
-  String get onboardingDemoCross => 'Silben-Kreuz';
-
-  @override
-  String get onboardingDemoCloze => 'Lückentext';
-
-  @override
-  String get onboardingDemoPairs => 'Wortpaare';
-
-  @override
-  String get onboardingDemoSentence => 'Satz bauen';
-
-  @override
-  String get onboardingDemoChain => 'Wortkette';
-
-  @override
-  String get onboardingDemoExample => 'Beispiel zeigen';
-
-  @override
   String get onboardingJourneyStartTitle => 'Dein Koreanisch.\nDein Rhythmus.';
 
   @override
@@ -12206,4 +12148,9 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get c5AllGames => 'Alle Spiele';
+
+  @override
+  String onboardingHangulEquationSemantics(String title, String previewLabel) {
+    return '$title. ㄱ + ㅏ = 가. 가 · ga. $previewLabel';
+  }
 }

@@ -1181,26 +1181,11 @@ class AppL10nEn extends AppL10n {
   String get hangulTabWrite => 'Writing';
 
   @override
-  String get hangulConsonantsLabel => '자음 · Consonants';
-
-  @override
-  String get hangulVowelsLabel => '모음 · Vowels';
-
-  @override
-  String get hangulSyllableLabel => '🧩 음절 구조 · Syllable composition';
-
-  @override
-  String get hangulSyllableTableTitle => 'Syllable chart';
-
-  @override
   String get hangulSyllableTableHint =>
       'Tap a syllable to hear it. Swipe sideways for more vowels.';
 
   @override
   String get hangulPronounceBtn => 'Pronounce';
-
-  @override
-  String get hangulRulesTitle => 'Hangul writing rules';
 
   @override
   String get hangulRulesBody =>
@@ -1214,11 +1199,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hangulClearBtn => 'Clear';
-
-  @override
-  String hangulPronounceLetter(Object letter) {
-    return 'Pronounce $letter';
-  }
 
   @override
   String get hangulChipConsonants => 'Consonants';
@@ -1279,20 +1259,6 @@ class AppL10nEn extends AppL10n {
   String hangulStrokeLetterDone(Object letter) {
     return '$letter is done! On to the next one.';
   }
-
-  @override
-  String hangulLettersDone(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count letters done',
-      one: '1 letter done',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get hangulHardOnly => 'Difficult only';
 
   @override
   String get chosungModeWithVowels => 'Initial + vowel';
@@ -6817,9 +6783,6 @@ class AppL10nEn extends AppL10n {
   String get testerFeedbackCompleteGrammar => 'Finish grammar practice';
 
   @override
-  String get testerFeedbackCompleteHangul => 'Finish Hangul practice';
-
-  @override
   String get testerFeedbackCompleteDailyHangul => 'Finish today\'s character';
 
   @override
@@ -10757,27 +10720,6 @@ class AppL10nEn extends AppL10n {
   String get onboardingDemoWord => 'Word';
 
   @override
-  String get onboardingDemoInitials => 'First sounds';
-
-  @override
-  String get onboardingDemoCross => 'Syllable cross';
-
-  @override
-  String get onboardingDemoCloze => 'Fill the gap';
-
-  @override
-  String get onboardingDemoPairs => 'Word pairs';
-
-  @override
-  String get onboardingDemoSentence => 'Build a sentence';
-
-  @override
-  String get onboardingDemoChain => 'Word chain';
-
-  @override
-  String get onboardingDemoExample => 'Show example';
-
-  @override
   String get onboardingJourneyStartTitle => 'Your Korean.\nYour rhythm.';
 
   @override
@@ -12148,4 +12090,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get c5AllGames => 'All games';
+
+  @override
+  String onboardingHangulEquationSemantics(String title, String previewLabel) {
+    return '$title. ㄱ + ㅏ = 가. 가 · ga. $previewLabel';
+  }
 }

@@ -142,6 +142,19 @@ abstract final class SoriMaxWidth {
 /// 창 전체의 size class가 아니라 padding과 clamp를 지난 실제 내부 폭에 쓴다.
 /// 화면 파일에 숫자 비교가 흩어지지 않도록 이곳에서만 관리한다.
 abstract final class SoriAdaptiveWidth {
+  /// Reference onboarding prose remains a single readable phone column.
+  static const double onboardingReferenceColumn = 450;
+
+  /// The compact reference artwork yields space to its native copy.
+  static const double onboardingCompactBody = 380;
+
+  /// Onboarding demo artwork budgets before and after phone-sized columns.
+  static const double onboardingDemoCompact = 300;
+  static const double onboardingDemoExpanded = 700;
+
+  /// Native learning wordmarks need room beside their approved cloud.
+  static const double learnHeaderWordmark = 180;
+
   /// Two scenario topic cards retain readable names and counts.
   static const double scenarioTopicTwoColumns = 280;
 

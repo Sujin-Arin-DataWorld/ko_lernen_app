@@ -526,11 +526,23 @@ void main() {
         }
 
         Future<void> tap(String key) async {
-          if (RegExp(r'^demo-game-[0-5]$').hasMatch(key)) {
-            await tester.ensureVisible(find.byKey(ValueKey(key)));
-            await tester.pumpAndSettle();
+          final action = find.byKey(ValueKey(key));
+          await tester.ensureVisible(action);
+          await tester.pumpAndSettle();
+          expect(tester.getSize(action).height, greaterThanOrEqualTo(48));
+          expect(action.hitTestable(), findsOneWidget);
+          var visible = tester.getRect(action);
+          for (final scroll
+              in find
+                  .ancestor(of: action, matching: find.byType(Scrollable))
+                  .evaluate()) {
+            visible = visible.intersect(
+              tester.getRect(find.byWidget(scroll.widget)),
+            );
           }
-          await tester.tap(find.byKey(ValueKey(key)));
+          expect(visible.width, greaterThanOrEqualTo(48));
+          expect(visible.height, greaterThanOrEqualTo(48));
+          await tester.tapAt(visible.center);
           await tester.pumpAndSettle();
           expect(tester.takeException(), isNull, reason: '$lang after $key');
         }

@@ -8,6 +8,7 @@ import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/c_onboarding.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_games_demo.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/approved_games_preview_data.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_journey_scenes.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_learning_demo.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_setup_screen.dart';
@@ -20,7 +21,10 @@ import 'support/einleitung_capture_assets.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(loadEinleitungFonts);
+  setUpAll(() async {
+    await loadEinleitungFonts();
+    await Future.wait(LearnerLevel.values.map(ApprovedGamesPreviewData.load));
+  });
   setUp(() => SharedPreferences.setMockInitialValues({}));
   const ids = [
     OnboardingV2Ids.storyPersonalCurriculum,

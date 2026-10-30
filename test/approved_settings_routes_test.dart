@@ -11,7 +11,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'support/sori_stage_pump.dart';
 
+import 'support/real_fonts.dart';
+
 void main() {
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
   setUp(() async {
     LearningJourneyObserver.shared.cancel();
     CourseProgressService.shared.resetForTesting();

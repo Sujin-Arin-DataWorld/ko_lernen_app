@@ -1,11 +1,13 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import '../../widgets/sori/button.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/learner_level.dart';
 import '../../services/hangul_composer.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/window_class.dart';
 import 'approved_games_preview_art.dart';
 import 'approved_games_preview_data.dart';
 import 'onboarding_v3_demo_support.dart';
@@ -144,7 +146,9 @@ class _OnboardingGamesDemoState
                   );
                 }
                 if (!snapshot.hasData) {
-                  return const Center(child: CircularProgressIndicator());
+                  return const Center(
+                    child: SoriLoadingIndicator(color: SoriColors.primary),
+                  );
                 }
                 return _game == null
                     ? _picker(t, snapshot.data!)
@@ -244,9 +248,9 @@ class _OnboardingGamesDemoState
     builder: (context, bounds) {
       final columns =
           MediaQuery.textScalerOf(context).scale(1) > 1.4 ||
-              bounds.maxWidth < 300
+              bounds.maxWidth < SoriAdaptiveWidth.onboardingDemoCompact
           ? 1
-          : bounds.maxWidth >= 700
+          : bounds.maxWidth >= SoriAdaptiveWidth.onboardingDemoExpanded
           ? 3
           : 2;
       return SingleChildScrollView(
@@ -532,17 +536,19 @@ class _OnboardingGamesDemoState
                       width: 390 * factor,
                       height: 50 * factor,
                       child: Center(
-                        child: Text(
-                          (puzzle.memberships[selected]!.first).meaningFor(
-                            _lang,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontFamily: SoriLocaleFonts.of(context).body,
-                            color: const Color(0xffffedce),
-                            fontSize: 14,
-                            height: 1,
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Text(
+                            (puzzle.memberships[selected]!.first).meaningFor(
+                              _lang,
+                            ),
+                            maxLines: 1,
+                            style: TextStyle(
+                              fontFamily: SoriLocaleFonts.of(context).body,
+                              color: const Color(0xffffedce),
+                              fontSize: 14,
+                              height: 1,
+                            ),
                           ),
                         ),
                       ),

@@ -37,7 +37,10 @@ import 'support/scenario_fixtures.dart';
 /// ⚠️ 이 테스트가 **실기기 검사를 대체하지 않는다.** TalkBack·VoiceOver 낭독
 /// 순서, 초점 이동, 색상 반전, Reduce Motion 은 여전히 사람이 봐야 한다
 /// (`docs/store/RELEASE_QA_CHECKLIST.md` §5).
+import 'support/real_fonts.dart';
+
 void main() {
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {

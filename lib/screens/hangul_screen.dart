@@ -357,6 +357,7 @@ class _HangulScreenState extends State<HangulScreen>
           ],
           const SizedBox(height: Spacing.md),
           CAtelierButton(
+            key: const Key('hangul-completion-close'),
             label: t.btnClose,
             face: CAtelierFace.gold,
             onTap: () => Navigator.pop(sheetContext),
@@ -728,6 +729,7 @@ class _CardsTabState extends State<_CardsTab>
           ),
           const SizedBox(height: Spacing.sm),
           CAtelierButton(
+            key: const Key('hangul-cards-random'),
             label: t.atelierRandom,
             onTap: () {
               _random();

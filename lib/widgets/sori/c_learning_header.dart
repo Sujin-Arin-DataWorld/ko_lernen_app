@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'tokens.dart';
+import 'window_class.dart';
 import 'approved_chrome_assets.dart';
 import 'c_learning_surface.dart';
 
@@ -57,14 +58,15 @@ PreferredSizeWidget soriCLernenHeader(
                     width: 22,
                     height: 22,
                   ),
-                  if (bounds.maxWidth >= 180 &&
+                  if (bounds.maxWidth >=
+                          SoriAdaptiveWidth.learnHeaderWordmark &&
                       MediaQuery.textScalerOf(context).scale(12) <= 15) ...[
                     const SizedBox(width: 6),
                     Text(
                       'HANGUL SORI',
                       style: TextStyle(
                         fontFamily: SoriLocaleFonts.of(context).body,
-                        fontSize: 11,
+                        fontSize: 13,
                         letterSpacing: 1.5,
                         color: SoriCLearningTokens.gold,
                       ),

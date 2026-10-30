@@ -785,7 +785,7 @@ class _ShortcutTiles extends StatelessWidget {
             ],
           );
         }
-        if (MediaQuery.sizeOf(context).width < 360) {
+        if (MediaQuery.sizeOf(context).width < SoriBreakpoints.narrowPhone) {
           return Column(
             children: [
               for (var row = 0; row < 2; row++) ...[
@@ -845,7 +845,7 @@ class _ShortcutTile extends StatelessWidget {
     final tt = SoriTextTheme.of(context);
     final s = SoriSurfaces.of(context);
     final horizontal =
-        MediaQuery.sizeOf(context).width < 360 &&
+        MediaQuery.sizeOf(context).width < SoriBreakpoints.narrowPhone &&
         MediaQuery.textScalerOf(context).scale(1) < 1.6;
     final labelText = Text(
       label,

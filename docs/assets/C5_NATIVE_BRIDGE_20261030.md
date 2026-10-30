@@ -78,10 +78,35 @@ Native widget captures, live Figma edits, device/APK checks and release evidence
 are separate checks. This intake does not claim global pixel parity or release
 completion.
 
-Final native verification: 73/73 tests passed in one serial run. The 16 PNGs
-cover DE/EN, 320x640 and 393x873, 100/200 percent text with 24dp top and
-bottom OS insets. All eight normal configurations have zero scroll extent
-and an 8dp gap before navigation. The matrix also verifies 48dp fully painted
-Details controls, All/close/back restoration, real activity IDs and keyboard
-reflow. Existing catalog, book, rotation, recent history, lazy reads and reward
-receipt tests remain green. A braces-only cleanup was reanalyzed afterwards.
+The initial kernel/catalog integration passed 73/73 checks. After full-CI
+remediation, the final root/chrome/native-capture batch passed 24/24. Its
+current 16 real-font PNGs and measurements are under
+`C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-c5-number-contrast/`;
+the run log is `ci-root-chrome-final.log` in the parent directory. These cover
+DE/EN, 320x640 and 393x873, 100/200 percent text, and 24dp top/bottom OS
+insets. All eight normal configurations have zero scroll extent and an 8dp
+gap before navigation. Fully painted 48dp Details controls, keyboard reflow,
+All/close/back restoration and existing activity IDs remain verified.
+
+The selected first-step marker now uses the existing deep-jade face, paper
+bold numeral and brass edge. The unchanged text-contrast guideline passes
+with actual fonts. Six UI-measurement hosts load the bundled locale fonts
+instead of Ahem; their overflow, 48dp target, labels and contrast assertions
+remain. Current Gye schema checks validate translated server-derived counts
+and exact lit/target lantern state.
+
+Shared-card paint values remain unchanged. `SoriCard.resolvedBorder` supplies
+the same border to painting and fixed-grid measurement. Persona text layout
+subtracts its actual horizontal dimensions and includes the vertical
+dimensions, retaining the 180dp portrait, font roles and touch targets.
+The existing 12-case Persona light/dark viewport matrix and five adjacent
+selection/interaction checks passed without test changes.
+
+Current adapter SHA-256 values and individual verification logs are recorded
+in the intake JSON. The final changed-Dart analysis scope and complete output
+are `ci-source-freeze-analyze.json` and `ci-source-freeze-analyze.log` under
+the same artifact parent directory. All 44 changed Dart files analyzed with
+no issues; their SHA-256 values were unchanged during analysis. This metadata
+refresh does not edit
+product source or execute Flutter tests. Whole-PR CI, exact-APK/device checks
+and release remain separate evidence.

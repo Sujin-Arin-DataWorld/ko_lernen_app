@@ -88,6 +88,7 @@ class SoriStandardFrame extends StatelessWidget {
           headerBuilder?.call(context, leading, effectiveActions) ??
           SoriAppBar(
             title: appBarTitle,
+            locale: Localizations.localeOf(context),
             actions: effectiveActions.isEmpty ? null : effectiveActions,
             leading: leading,
             automaticallyImplyLeading: automaticallyImplyLeading,

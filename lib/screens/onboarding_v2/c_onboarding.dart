@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 import '../../features/onboarding_v2/curriculum_evidence_projector.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/learner_level.dart';
+import '../../motion/transitions.dart';
 import '../../widgets/sori/intro_motion.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/toast.dart';
 import '../../widgets/sori/tokens.dart' show SoriBreakpoints, Spacing;
 import '../../widgets/sori/type_scale.dart';
+import '../../widgets/sori/window_class.dart';
 import 'c_intro_art.dart';
 import 'c_intro_reference_setup.dart';
 import 'c_intro_reference_companion.dart';
@@ -23,7 +25,8 @@ import 'onboarding_v2_shell.dart' show showOnboardingV2ModalWithFocusRestore;
 import 'onboarding_v3_demo_support.dart';
 
 double _introCompression(BuildContext context, double width) =>
-    width <= 450 && IntroLayout.usesReferenceText(context)
+    width <= SoriAdaptiveWidth.onboardingReferenceColumn &&
+        IntroLayout.usesReferenceText(context)
     ? (934 - MediaQuery.sizeOf(context).height).clamp(0, 120).toDouble()
     : 0;
 
@@ -75,7 +78,12 @@ class COnboardingFrame extends StatelessWidget {
             child: LayoutBuilder(
               builder: (context, bounds) {
                 final w = bounds.maxWidth;
-                if (IntroLayout.usesReferenceText(context)) {
+                final shortWindow =
+                    bounds.maxHeight - MediaQuery.paddingOf(context).vertical <
+                    520;
+                // Short landscape windows need native scrolling so portraits,
+                // readable copy and 48dp actions retain their actual height.
+                if (IntroLayout.usesReferenceText(context) && !shortWindow) {
                   return _finiteLayout(context, bounds);
                 }
                 final reference =
@@ -243,45 +251,52 @@ class COnboardingFrame extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(
-                          16,
-                          step == 2 && reference ? 4 : 12,
-                          16,
-                          math.max(
-                            footerBottom,
-                            MediaQuery.paddingOf(context).bottom,
-                          ),
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IntroAction(
-                              key: continueKey,
-                              label: continueLabel,
-                              onTap: onContinue,
-                              stableLabelCandidates: continueLabelCandidates,
+                      ColoredBox(
+                        // The scrolled jade artwork must not move behind the
+                        // fixed ink-colored back action in a short window.
+                        color: shortWindow
+                            ? IntroPalette.paper
+                            : Colors.transparent,
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(
+                            16,
+                            step == 2 && reference ? 4 : 12,
+                            16,
+                            math.max(
+                              footerBottom,
+                              MediaQuery.paddingOf(context).bottom,
                             ),
-                            if (onBack != null) ...[
-                              SizedBox(height: backGap),
-                              SoriTextAction(
-                                key: backKey,
-                                label: AppL10n.of(context).onboardingV2Back,
-                                onPressed: onBack,
-                                style: TextButton.styleFrom(
-                                  minimumSize: const Size(96, 48),
-                                  padding: const EdgeInsets.only(
-                                    top: IntroSpacing.backBaselineInset,
-                                  ),
-                                  alignment: Alignment.topCenter,
-                                ),
-                                textStyle: IntroTypography.localized(
-                                  context,
-                                  IntroTypography.backAction(step),
-                                ),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IntroAction(
+                                key: continueKey,
+                                label: continueLabel,
+                                onTap: onContinue,
+                                stableLabelCandidates: continueLabelCandidates,
                               ),
+                              if (onBack != null) ...[
+                                SizedBox(height: backGap),
+                                SoriTextAction(
+                                  key: backKey,
+                                  label: AppL10n.of(context).onboardingV2Back,
+                                  onPressed: onBack,
+                                  style: TextButton.styleFrom(
+                                    minimumSize: const Size(96, 48),
+                                    padding: const EdgeInsets.only(
+                                      top: IntroSpacing.backBaselineInset,
+                                    ),
+                                    alignment: Alignment.topCenter,
+                                  ),
+                                  textStyle: IntroTypography.localized(
+                                    context,
+                                    IntroTypography.backAction(step),
+                                  ),
+                                ),
+                              ],
                             ],
-                          ],
+                          ),
                         ),
                       ),
                     ],
@@ -299,7 +314,9 @@ class COnboardingFrame extends StatelessWidget {
     final padding = MediaQuery.paddingOf(context);
     final availableHeight = bounds.maxHeight - padding.vertical;
     final compactSetup =
-        step == 1 && bounds.maxWidth < 380 && availableHeight < 740;
+        step == 1 &&
+        bounds.maxWidth < SoriAdaptiveWidth.onboardingCompactBody &&
+        availableHeight < 740;
     final headerHeight = compactSetup ? 60.0 : 77.0;
     final compactFooter = onBack != null && availableHeight < 740;
     final footerHeight = compactFooter || onBack == null ? 70.0 : 122.0;
@@ -418,19 +435,21 @@ class COnboardingFrame extends StatelessWidget {
                 child: compactFooter
                     ? Row(
                         children: [
-                          Semantics(
-                            button: true,
-                            label: AppL10n.of(context).onboardingV2Back,
-                            onTap: onBack,
-                            child: IntroPressable(
-                              key: backKey,
+                          MergeSemantics(
+                            key: backKey,
+                            child: Semantics(
+                              button: true,
+                              label: AppL10n.of(context).onboardingV2Back,
                               onTap: onBack,
-                              child: const SizedBox.square(
-                                dimension: 48,
-                                child: ExcludeSemantics(
-                                  child: Icon(
-                                    Icons.chevron_left,
-                                    color: IntroPalette.mutedInk,
+                              child: IntroPressable(
+                                onTap: onBack,
+                                child: const SizedBox.square(
+                                  dimension: 48,
+                                  child: ExcludeSemantics(
+                                    child: Icon(
+                                      Icons.chevron_left,
+                                      color: IntroPalette.mutedInk,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -856,7 +875,9 @@ class _IntroHero extends StatelessWidget {
       if (bounds.hasBoundedHeight && !large && (setup || scene == null)) {
         final compact = bounds.maxHeight < 210;
         final compactSetup =
-            setup && bounds.maxWidth < 380 && bounds.maxHeight < 240;
+            setup &&
+            bounds.maxWidth < SoriAdaptiveWidth.onboardingCompactBody &&
+            bounds.maxHeight < 240;
         final titleStyle = setup
             ? IntroTypography.localized(
                 context,
@@ -1980,7 +2001,7 @@ class COnboardingStory extends StatelessWidget {
   void _openPreview(BuildContext context, String label) {
     if (pageIndex == 2) {
       Navigator.of(context).push<void>(
-        MaterialPageRoute<void>(
+        SoriPageRoute<void>(
           builder: (_) => OnboardingGamesDemo.fullScreen(level: level),
         ),
       );
@@ -2028,11 +2049,17 @@ class COnboardingCompanion extends StatelessWidget {
       body: LayoutBuilder(
         builder: (context, bounds) {
           if (IntroLayout.usesReferenceText(context)) {
-            return IntroReferenceCompanion(
+            final companions = IntroReferenceCompanion(
               copy: copy,
               selectedCompanionId: selectedCompanionId,
               onCompanionChanged: onCompanionChanged,
             );
+            // The short-window scroller still uses native 16dp role copy.
+            // Give the finite card layout room instead of scaling its text
+            // with the old reference drawing's width.
+            return bounds.hasBoundedHeight
+                ? companions
+                : SizedBox(height: 525, child: companions);
           }
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),

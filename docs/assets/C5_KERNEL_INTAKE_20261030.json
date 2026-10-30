@@ -178,7 +178,7 @@
     {
       "file": "lib/widgets/sori/c_gallery/c_objects.dart",
       "source_sha256": "e392ad09908a1c6cf23c23d7a6d4ee2b00849139af3df7fd04e76060ebdeb5d4",
-      "adapter_sha256": "91b92bc08f3ab1a0008faf7f0d2da842cede252a808b33776ff8118483387462"
+      "adapter_sha256": "b4d4c8bb80eb02dc6bafbf0760800dfb5a97301207959979bfa867f94b53fcb6"
     },
     {
       "file": "lib/widgets/sori/c_gallery/c_palette.dart",
@@ -188,12 +188,12 @@
     {
       "file": "lib/widgets/sori/standard_page.dart",
       "source_sha256": "cade4a7ca9ba275fd1b1e6305e865aa4ca371905febd8827a16b238dfdf69047",
-      "adapter_sha256": "cade4a7ca9ba275fd1b1e6305e865aa4ca371905febd8827a16b238dfdf69047"
+      "adapter_sha256": "5572f37f918790af0cf53daea7151f81e5ad13ac3f74aa13c26482f8b145a639"
     },
     {
       "file": "lib/widgets/sori/card.dart",
       "source_sha256": "e62e8d0a20c68a4cdf087beba1d05f51ebe34fa0f13f64fa9a160f247511318b",
-      "adapter_sha256": "bb0c5885cd4da53d5c432ac39d228eabc4b8823f970db64579809ec95e9f6bc7"
+      "adapter_sha256": "ad263fc12ce1844a0422601f521d08301917c0f2ea1bac9e1228c145fb48e1be"
     },
     {
       "file": "lib/widgets/sori/button.dart",
@@ -254,13 +254,16 @@
     "No source business service, reward rule, free-learning route or source-only feature API was imported.",
     "C5CatalogOverview reflows the exact steps/book/four-object and Silben/six-object/own-words composition as native widgets; ApprovedFigmaArt resolves image crops from original JSON.",
     "Normal mobile evidence includes 24dp status and 24dp bottom system inset; enlarged text and keyboard use normal scrolling.",
-    "Short-landscape NavigationRail scrolls in its own primary-controller scope."
+    "Short-landscape NavigationRail scrolls in its own primary-controller scope.",
+    "UI geometry/contrast tests load actual bundled locale fonts instead of the Ahem test glyphs; no overflow, target, label or contrast checks were removed.",
+    "The first step marker uses the existing deep-jade/paper/brass palette and native bold numerals for clear rendered contrast.",
+    "SoriCard exposes its existing resolved border without changing colors or widths; Persona grid text measurement uses the same border dimensions, locale and text scaler."
   ],
-  "verification_status": "73/73 tests PASS in one serial run; 21 scoped Dart files analyze clean; final braces-only style cleanup reanalyzed clean. Figma/device/APK/release are separate gates.",
+  "verification_status": "Initial integration 73/73 PASS; latest root/chrome and final native-capture checks 24/24 PASS; Persona matrix 12/12 and adjacent card interaction 5/5 PASS. All 44 currently changed Dart files analyze with no issues; their hashes remained unchanged during analysis. Whole PR CI/device/APK/release are separate gates.",
   "native_adapter_hashes": [
     {
       "file": "lib/screens/sori_stage/c5_catalog_overview.dart",
-      "sha256": "67bed77f01e93e58304ee5504edf44f8068e4283b9fb65795a12cece79c63b79"
+      "sha256": "40f81d3b3c824756be53a51e498378d6eb6585fd6c3bf8d9641044c94236c6b7"
     },
     {
       "file": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
@@ -272,8 +275,8 @@
     }
   ],
   "native_evidence": {
-    "directory": "C:/dev/hangulsori/_codex_artifacts/c5-native-integration-20261030/catalog",
-    "log": "C:/dev/hangulsori/_codex_artifacts/c5-native-integration-20261030/catalog-all-final.log",
+    "directory": "C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-c5-number-contrast",
+    "log": "C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-root-chrome-final.log",
     "captures": 16,
     "locales": [
       "de",
@@ -299,6 +302,46 @@
     "normal_all_button_to_navigation_gap": 8,
     "keyboard_reflow_test": "PASS",
     "details_fully_painted_min_48dp": "PASS",
-    "tests_passed": 73
+    "tests_passed": 24,
+    "initial_integration_log": "C:/dev/hangulsori/_codex_artifacts/c5-native-integration-20261030/catalog-all-final.log",
+    "initial_integration_tests_passed": 73,
+    "text_contrast_guideline": "PASS with real fonts and a deep-jade/paper/brass first step marker"
+  },
+  "verification_runs": [
+    {
+      "scope": "Initial kernel/catalog integration",
+      "passed": 73,
+      "failed": 0,
+      "log": "C:/dev/hangulsori/_codex_artifacts/c5-native-integration-20261030/catalog-all-final.log"
+    },
+    {
+      "scope": "CI root/chrome remediation and final native captures",
+      "passed": 24,
+      "failed": 0,
+      "log": "C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-root-chrome-final.log"
+    },
+    {
+      "scope": "Persona light/dark and 100/200 percent viewport matrix",
+      "passed": 12,
+      "failed": 0,
+      "log": "C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-persona-border-matrix.log"
+    },
+    {
+      "scope": "Adjacent card selection and persona interaction",
+      "passed": 5,
+      "failed": 0,
+      "log": "C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-persona-card-adjacent.log"
+    }
+  ],
+  "source_freeze_analysis": {
+    "scope_file": "C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-source-freeze-analyze.json",
+    "log": "C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-source-freeze-analyze.log",
+    "product_changes_performed_by_refresh": false,
+    "flutter_tests_executed_by_refresh": false,
+    "changed_dart_files": 44,
+    "exit_code": 0,
+    "diagnostics": 0,
+    "source_unchanged_during_analysis": true,
+    "base_target_head": "0c85a1599324764eb318f01961348f119f71e99f"
   }
 }

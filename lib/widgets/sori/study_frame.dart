@@ -187,6 +187,7 @@ class SoriStudyFrame extends StatelessWidget {
             : headerBuilder?.call(context, leading, effectiveActions) ??
                   SoriAppBar(
                     title: title,
+                    locale: Localizations.localeOf(context),
                     textScale: MediaQuery.textScalerOf(context).scale(1),
                     viewportWidth:
                         MediaQuery.sizeOf(context).width -

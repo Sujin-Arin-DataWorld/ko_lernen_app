@@ -569,23 +569,12 @@
   "hangulTabOverview": "Übersicht",
   "hangulTabCards": "Karten",
   "hangulTabWrite": "Schreiben",
-  "hangulConsonantsLabel": "자음 · Konsonanten",
-  "hangulVowelsLabel": "모음 · Vokale",
-  "hangulSyllableLabel": "🧩 음절 구조 · Silbenaufbau",
-  "hangulSyllableTableTitle": "Silbentafel",
   "hangulSyllableTableHint": "Tippe auf eine Silbe, um sie zu hören. Wische seitlich für weitere Vokale.",
   "hangulPronounceBtn": "Aussprechen",
-  "hangulRulesTitle": "Hangul-Schreibregeln",
   "hangulRulesBody": "① Oben → Unten   ② Horizontal → Vertikal   ③ Links → Rechts",
   "hangulStrokeOrderTitle": "📽 Strichreihenfolge (zum Wiederholen tippen)",
   "hangulTraceTitle": "Mit dem Finger nachzeichnen",
   "hangulClearBtn": "Löschen",
-  "hangulPronounceLetter": "{letter} aussprechen",
-  "@hangulPronounceLetter": {
-    "placeholders": {
-      "letter": {}
-    }
-  },
   "hangulChipConsonants": "Konsonanten",
   "hangulChipVowels": "Vokale",
   "hangulChipSyllables": "Silben",
@@ -645,15 +634,6 @@
   "@hangulStrokeLetterDone": {
     "placeholders": {
       "letter": {}
-    }
-  },
-  "hangulLettersDone": "{count, plural, one{1 Buchstabe fertig} other{{count} Buchstaben fertig}}",
-  "hangulHardOnly": "Nur schwierige",
-  "@hangulLettersDone": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
     }
   },
   "chosungModeWithVowels": "Anlaut + Vokal",
@@ -3396,7 +3376,6 @@
   "testerFeedbackMissionGames": "Eine Spielrunde abschließen",
   "testerFeedbackMissionLanguageForm": "Grammatik oder Hangul üben",
   "testerFeedbackCompleteGrammar": "Grammatikübung abschließen",
-  "testerFeedbackCompleteHangul": "Hangul-Übung abschließen",
   "testerFeedbackCompleteDailyHangul": "Heutiges Zeichen abschließen",
   "testerFeedbackPromptScenario": "Gab es eine Stelle, die du in dieser Situation wirklich sagen würdest?",
   "testerFeedbackPromptWordWork": "Fühlen sich diese Wörter nützlich und einprägsam an?",
@@ -5205,13 +5184,6 @@
   "onboardingDemoDuck": "Ente",
   "onboardingDemoSound": "Laut",
   "onboardingDemoWord": "Wort",
-  "onboardingDemoInitials": "Anlautspiel",
-  "onboardingDemoCross": "Silben-Kreuz",
-  "onboardingDemoCloze": "Lückentext",
-  "onboardingDemoPairs": "Wortpaare",
-  "onboardingDemoSentence": "Satz bauen",
-  "onboardingDemoChain": "Wortkette",
-  "onboardingDemoExample": "Beispiel zeigen",
   "onboardingJourneyStartTitle": "Dein Koreanisch.\nDein Rhythmus.",
   "onboardingJourneyReturningHint": "Bei deinem Können anknüpfen.",
   "onboardingJourneyStartWith": "Mit {name} beginnen",
@@ -5830,5 +5802,17 @@
     }
   },
   "c5AllLearningActivities": "Alle Lernangebote",
-  "c5AllGames": "Alle Spiele"
+  "c5AllGames": "Alle Spiele",
+  "onboardingHangulEquationSemantics": "{title}. ㄱ + ㅏ = 가. 가 · ga. {previewLabel}",
+  "@onboardingHangulEquationSemantics": {
+    "description": "Accessible native Hangul equation with localized section and preview labels. Korean lesson glyphs remain Korean.",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "previewLabel": {
+        "type": "String"
+      }
+    }
+  }
 }

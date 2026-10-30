@@ -83,6 +83,7 @@ Widget _atelierScreen(_HangulScreenState state, BuildContext context) {
       // Shared escape widgets must keep their existing route/leave owners.
       final chrome = Builder(
         builder: (_) => CAtelierSurface(
+          key: const ValueKey('hangul-atelier-header'),
           face: CAtelierFace.jade,
           radius: 0,
           depth: false,
@@ -127,15 +128,19 @@ Widget _atelierScreen(_HangulScreenState state, BuildContext context) {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          t.screenHangulTitle,
-                          style: CAtelier.text(
-                            context,
-                            30,
-                            bold: true,
-                            color: CAtelier.paper,
-                            height: 1.2,
-                          ).copyWith(letterSpacing: -.6),
+                        Semantics(
+                          header: true,
+                          namesRoute: true,
+                          child: Text(
+                            t.screenHangulTitle,
+                            style: CAtelier.text(
+                              context,
+                              30,
+                              bold: true,
+                              color: CAtelier.paper,
+                              height: 1.2,
+                            ).copyWith(letterSpacing: -.6),
+                          ),
                         ),
                         const SizedBox(height: Spacing.xs),
                         Text(
@@ -912,6 +917,7 @@ Widget _atelierCards(_CardsTabState state, BuildContext context) {
                   'social-heart',
                   () => unawaited(state._likeLetter(c.letter, generation)),
                   liked: liked,
+                  key: const Key('hangul-card-like'),
                 ),
                 const SizedBox(height: Spacing.sm),
                 _atelierSocial(
@@ -1146,7 +1152,9 @@ Widget _atelierSocial(
   String image,
   VoidCallback onTap, {
   bool liked = false,
+  Key? key,
 }) => CAtelierTouch(
+  key: key,
   onTap: onTap,
   child: Semantics(
     button: true,

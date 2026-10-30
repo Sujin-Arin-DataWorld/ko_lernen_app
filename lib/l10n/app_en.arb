@@ -560,23 +560,12 @@
   "hangulTabOverview": "Overview",
   "hangulTabCards": "Cards",
   "hangulTabWrite": "Writing",
-  "hangulConsonantsLabel": "자음 · Consonants",
-  "hangulVowelsLabel": "모음 · Vowels",
-  "hangulSyllableLabel": "🧩 음절 구조 · Syllable composition",
-  "hangulSyllableTableTitle": "Syllable chart",
   "hangulSyllableTableHint": "Tap a syllable to hear it. Swipe sideways for more vowels.",
   "hangulPronounceBtn": "Pronounce",
-  "hangulRulesTitle": "Hangul writing rules",
   "hangulRulesBody": "① Top → Bottom   ② Horizontal → Vertical   ③ Left → Right",
   "hangulStrokeOrderTitle": "📽 Stroke order (tap to replay)",
   "hangulTraceTitle": "Trace with your finger",
   "hangulClearBtn": "Clear",
-  "hangulPronounceLetter": "Pronounce {letter}",
-  "@hangulPronounceLetter": {
-    "placeholders": {
-      "letter": {}
-    }
-  },
   "hangulChipConsonants": "Consonants",
   "hangulChipVowels": "Vowels",
   "hangulChipSyllables": "Syllables",
@@ -636,15 +625,6 @@
   "@hangulStrokeLetterDone": {
     "placeholders": {
       "letter": {}
-    }
-  },
-  "hangulLettersDone": "{count, plural, one{1 letter done} other{{count} letters done}}",
-  "hangulHardOnly": "Difficult only",
-  "@hangulLettersDone": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
     }
   },
   "chosungModeWithVowels": "Initial + vowel",
@@ -3258,7 +3238,6 @@
   "testerFeedbackMissionGames": "Complete a game round",
   "testerFeedbackMissionLanguageForm": "Practise grammar or Hangul",
   "testerFeedbackCompleteGrammar": "Finish grammar practice",
-  "testerFeedbackCompleteHangul": "Finish Hangul practice",
   "testerFeedbackCompleteDailyHangul": "Finish today's character",
   "testerFeedbackPromptScenario": "Did any part feel like something you could really say in this situation?",
   "testerFeedbackPromptWordWork": "Do these words feel useful and memorable?",
@@ -5023,13 +5002,6 @@
   "onboardingDemoDuck": "duck",
   "onboardingDemoSound": "Sound",
   "onboardingDemoWord": "Word",
-  "onboardingDemoInitials": "First sounds",
-  "onboardingDemoCross": "Syllable cross",
-  "onboardingDemoCloze": "Fill the gap",
-  "onboardingDemoPairs": "Word pairs",
-  "onboardingDemoSentence": "Build a sentence",
-  "onboardingDemoChain": "Word chain",
-  "onboardingDemoExample": "Show example",
   "onboardingJourneyStartTitle": "Your Korean.\nYour rhythm.",
   "onboardingJourneyReturningHint": "Start from what you know.",
   "onboardingJourneyStartWith": "Begin with {name}",
@@ -5648,5 +5620,17 @@
     }
   },
   "c5AllLearningActivities": "All learning activities",
-  "c5AllGames": "All games"
+  "c5AllGames": "All games",
+  "onboardingHangulEquationSemantics": "{title}. ㄱ + ㅏ = 가. 가 · ga. {previewLabel}",
+  "@onboardingHangulEquationSemantics": {
+    "description": "Accessible native Hangul equation with localized section and preview labels. Korean lesson glyphs remain Korean.",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "previewLabel": {
+        "type": "String"
+      }
+    }
+  }
 }

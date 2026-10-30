@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/intro_motion.dart';
 import '../../widgets/sori/button.dart';
+import '../../widgets/sori/window_class.dart';
 import 'c_intro_art.dart';
 import 'onboarding_v2_presentation.dart';
 
@@ -296,7 +297,9 @@ class IntroReferenceSetup extends StatelessWidget {
     BoxConstraints bounds,
   ) {
     final t = AppL10n.of(context);
-    final compact = bounds.maxWidth < 380 && bounds.maxHeight < 440;
+    final compact =
+        bounds.maxWidth < SoriAdaptiveWidth.onboardingCompactBody &&
+        bounds.maxHeight < 440;
     Widget words(
       String text,
       double size, {

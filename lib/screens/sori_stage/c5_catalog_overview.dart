@@ -228,15 +228,20 @@ class _StepNumber extends StatelessWidget {
     height: MediaQuery.textScalerOf(context).scale(16) + 8,
     alignment: Alignment.center,
     decoration: BoxDecoration(
-      color: number == 1 ? CPalette.brass : CPalette.paper,
+      color: number == 1 ? CPalette.deepJade : CPalette.paper,
       shape: BoxShape.circle,
-      border: Border.all(color: CPalette.fineEdge),
+      border: Border.all(
+        color: number == 1 ? CPalette.brass : CPalette.fineEdge,
+      ),
     ),
     child: Text(
       '$number',
-      style: SoriTextTheme.of(
-        context,
-      ).body.copyWith(fontSize: 16, height: 1, color: CPalette.ink),
+      style: SoriTextTheme.of(context).body.copyWith(
+        fontSize: 16,
+        height: 1,
+        color: number == 1 ? CPalette.paper : CPalette.ink,
+        fontWeight: SoriLocaleFonts.of(context).bodyWeight(FontWeight.w700),
+      ),
     ),
   );
 }

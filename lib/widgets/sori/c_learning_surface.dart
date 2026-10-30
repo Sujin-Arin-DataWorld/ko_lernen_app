@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'pressable.dart';
 import 'tokens.dart';
+import 'button.dart' show SoriLoadingIndicator;
 
 /// Material colors and spacing from the approved 2026-10-10 Hangul snapshot.
 /// Shared material reuse is separate from each screen's visual approval.
@@ -166,7 +167,7 @@ class SoriCBookPanel extends StatelessWidget {
     child: SoriCMaterialSurface(
       padding: padding,
       raised: false,
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: SoriRadius.brSm,
       child: DefaultTextStyle.merge(
         style: const TextStyle(color: SoriCLearningTokens.ink),
         child: child,
@@ -198,19 +199,19 @@ class SoriCPrimaryButton extends StatelessWidget {
     final face = SoriCMaterialSurface(
       material: SoriCMaterial.gold,
       raised: false,
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: SoriRadius.brSm,
       child: Container(
         constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
           border: Border.all(color: const Color(0xFFEDCE8F)),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: SoriRadius.brSm,
         ),
         alignment: Alignment.center,
         child: loading
             ? const SizedBox.square(
                 dimension: 20,
-                child: CircularProgressIndicator(
+                child: SoriLoadingIndicator(
                   strokeWidth: 2,
                   color: SoriCLearningTokens.ink,
                 ),

@@ -139,6 +139,30 @@ class SoriCard extends StatefulWidget {
     );
   }
 
+  /// Shared paint border. Normal container cards reserve [Border.dimensions]
+  /// inside their outer size, so fixed-height consumers must measure it too.
+  static Border? resolvedBorder(
+    BuildContext context, {
+    bool selectable = false,
+    bool selected = false,
+  }) {
+    final isLight = SoriSurfaces.of(context).brightness == Brightness.light;
+    if (selectable && selected) {
+      return Border.all(color: SoriColors.primary, width: 2);
+    }
+    if (selectable) {
+      return Border.all(
+        color: isLight
+            ? SoriColors.lightBorderStrong
+            : SoriColors.darkBorderStrong,
+        width: 1.5,
+      );
+    }
+    return isLight
+        ? null
+        : Border.all(color: SoriColors.darkBorderStrong, width: 1.5);
+  }
+
   @override
   State<SoriCard> createState() => _SoriCardState();
 }
@@ -188,21 +212,11 @@ class _SoriCardState extends State<SoriCard> {
 
     // 표면 v2 테두리 규칙 (§4.1·§10.3): 라이트 기본은 무테두리.
     // selectable(경계=정보)과 다크(그림자 무효)만 테두리를 가진다.
-    final Border? border;
-    if (widget.selectable && widget.selected) {
-      border = Border.all(color: SoriColors.primary, width: 2);
-    } else if (widget.selectable) {
-      border = Border.all(
-        color: isLight
-            ? SoriColors.lightBorderStrong
-            : SoriColors.darkBorderStrong,
-        width: 1.5,
-      );
-    } else if (!isLight) {
-      border = Border.all(color: SoriColors.darkBorderStrong, width: 1.5);
-    } else {
-      border = null;
-    }
+    final border = SoriCard.resolvedBorder(
+      context,
+      selectable: widget.selectable,
+      selected: widget.selected,
+    );
 
     // 라이트 전용 그림자 — 흰 한지 카드가 크림(lightBg) 위에 "떠 있는" 문법.
     final List<BoxShadow>? shadows = isLight

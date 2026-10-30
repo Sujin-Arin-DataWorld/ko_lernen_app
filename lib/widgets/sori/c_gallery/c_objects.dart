@@ -53,7 +53,7 @@ class CBrandWordmark extends StatelessWidget {
       style: TextStyle(
         fontFamily: SoriLocaleFonts.of(context).body,
         fontFamilyFallback: SoriLocaleFonts.fallback,
-        fontSize: 11.5,
+        fontSize: 13,
         fontWeight: FontWeight.w600,
         letterSpacing: 2,
         color: Color(0xffe9c98a),

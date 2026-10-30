@@ -92,7 +92,7 @@ void main() {
         await expectLater(
           find.byType(Scaffold),
           matchesGoldenFile(
-            '../docs/screenshots/sori-bojagi-receipt-$language-390.png',
+            '../docs/screenshots/sori-stage-today-390-$language-bojagi-receipt.png',
           ),
         );
       },

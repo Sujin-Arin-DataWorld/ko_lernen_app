@@ -74,12 +74,12 @@
     {
       "path": "lib/screens/hangul_screen.dart",
       "sourceSha256": "31f46491eaab1a487efa53da3757db518c5487798c25cd93a56d57d9d186c852",
-      "integratedSha256": "42d961a0611ed5cefff456af2503acd7bd4c80ffe30f274bae50ac08ea042772"
+      "integratedSha256": "7e261ee559e5e75ada5b4bd5b791821f5570307445fe393260ddc286d1e3335f"
     },
     {
       "path": "lib/screens/hangul_atelier.dart",
       "sourceSha256": "bd11425935b0270605b5b9904b3e25fc99476b7271531a33be30b6c51fe07004",
-      "integratedSha256": "cc4e13e9a299f97ee4c31f6a4413fbda2c34b20e04eab40646ab8337bcefefdc"
+      "integratedSha256": "57307e35e72435cbefc8ba2af734b7f151ac467770481ee807640a5f73b49039"
     },
     {
       "path": "lib/widgets/trace_canvas.dart",
@@ -104,7 +104,7 @@
     {
       "path": "lib/widgets/sori/c_learning_surface.dart",
       "sourceSha256": "a6bb8a961cced96811d7e35faf33e9e73601f6260a970b057f01e9c224bddac2",
-      "integratedSha256": "b244ccc7347b26d67b19436f696cabb0a3fb4b2d75f2c221fb71eb38dff9aeb7"
+      "integratedSha256": "58d8c70419e611776875129759985a88595868a3f74cfb8c6d23f38b15893a41"
     },
     {
       "path": "lib/features/dancheong/dancheong_screens.dart",

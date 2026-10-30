@@ -315,7 +315,7 @@ class _OnboardingLearningDemoState
         sentence: ko,
       );
     }
-    return Column(
+    final content = Column(
       children: [
         if (_skill == 1 && !compact)
           Text(
@@ -409,6 +409,22 @@ class _OnboardingLearningDemoState
           ),
       ],
     );
+    if (compact && _skill == 1) {
+      // Keep the model action and speaking controls at their natural size.
+      // A small preview at large text sizes can scroll the complete content.
+      return LayoutBuilder(
+        builder: (context, bounds) => SingleChildScrollView(
+          child: SizedBox(
+            height: math.max(
+              bounds.maxHeight,
+              MediaQuery.textScalerOf(context).scale(140),
+            ),
+            child: content,
+          ),
+        ),
+      );
+    }
+    return content;
   }
 
   Widget _conversation(Map<String, dynamic> conversation) {

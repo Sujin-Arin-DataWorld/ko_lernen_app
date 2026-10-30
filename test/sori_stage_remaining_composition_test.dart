@@ -23,6 +23,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/adaptive_navigation.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
+import 'package:ko_lernen_app/widgets/sori/gye_weekly_lanterns.dart';
 import 'package:ko_lernen_app/widgets/sori/stepper.dart';
 import 'support/catalog_test_support.dart';
 import 'support/sori_stage_pump.dart';
@@ -424,7 +425,7 @@ void main() {
   });
   for (final schema in [0, 1, 2]) {
     testWidgets(
-      'Gye schema $schema retains actual goal selection above preview',
+      'Gye schema $schema retains actual counts before approved lanterns',
       (tester) async {
         final controller = LearningFocusController()
           ..value = focus
@@ -453,9 +454,18 @@ void main() {
           const Size(390, 844),
           controller,
         );
-        final count = find.text(schema == 1 ? '1 / 3' : '2 / 5');
+        final count = find.text(
+          schema == 1
+              ? lookupAppL10n(const Locale('en')).gyePromiseProgress(1, 3)
+              : '2 / 5',
+        );
         expect(count, findsOneWidget);
-        final art = find.byType(Image).last;
+        final progress = tester.widget<GyeWeeklyLanternRow>(
+          find.byType(GyeWeeklyLanternRow),
+        );
+        expect(progress.done, schema == 1 ? 1 : 0);
+        expect(progress.target, schema == 1 ? 3 : 1);
+        final art = find.byKey(const ValueKey('gye-weekly-lantern-0'));
         expect(
           tester.getTopLeft(find.text('Mondhof')).dy,
           lessThan(tester.getTopLeft(count).dy),

@@ -4479,7 +4479,10 @@ class Storage {
       }
     }
     if (changed) {
-      await _sl('kl_milestones', list);
+      // Read-only wallet loading can reload the shared preference cache while
+      // the celebration opens. Confirm the persisted list before acknowledging
+      // it so that a stale reload cannot hide an already displayed milestone.
+      await _slStrict('kl_milestones', list);
     }
   }
 

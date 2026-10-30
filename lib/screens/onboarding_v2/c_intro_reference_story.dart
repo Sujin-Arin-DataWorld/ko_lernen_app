@@ -268,7 +268,9 @@ class IntroReferenceStoryHero extends StatelessWidget {
           child: Semantics(
             button: true,
             label: index == 1
-                ? '$title. ㄱ + ㅏ = 가. 가 · ga. $previewLabel'
+                ? AppL10n.of(
+                    context,
+                  ).onboardingHangulEquationSemantics(title, previewLabel)
                 : '$title. $previewLabel',
             onTap: onPreview,
             child: IntroPressable(
