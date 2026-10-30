@@ -77,12 +77,9 @@ class _IlDuR16ProcessImageState extends State<IlDuR16ProcessImage> {
       if (!snapshot.hasData &&
           !snapshot.hasError &&
           snapshot.connectionState != ConnectionState.done) {
-        return const Center(
-          child: SizedBox.square(
-            dimension: 24,
-            child: CircularProgressIndicator(),
-          ),
-        );
+        // The surrounding artwork frame retains its dimensions while local
+        // metadata resolves. Static artwork does not need a repeating timer.
+        return const SizedBox.shrink();
       }
       final stage = snapshot.data?.stagesByProcessId[widget.processId];
       if (stage == null) {

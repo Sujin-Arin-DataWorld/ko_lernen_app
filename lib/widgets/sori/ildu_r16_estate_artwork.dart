@@ -52,7 +52,6 @@ class IlDuR16EstateEntry extends StatelessWidget {
   Widget build(BuildContext context) => SoriButton.outlined(
     key: const ValueKey('ildu-r16-estate-entry'),
     label: AppL10n.of(context).ilduR16Explore,
-    icon: Icons.account_balance_outlined,
     fullWidth: true,
     onTap: () => Navigator.of(context).pushNamed('/hanok/estate'),
   );

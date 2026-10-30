@@ -5,6 +5,8 @@ import '../models/ildu_r16_art.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/app_bar.dart';
+import '../widgets/sori/dialog.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/ildu_r16_estate_artwork.dart';
 import '../widgets/sori/standard_page.dart';
@@ -83,13 +85,15 @@ class _IlDuEstateScreenState extends State<IlDuEstateScreen> {
     }
   }
 
-  Future<void> _enlarge() => showDialog<void>(
+  Future<void> _enlarge() => showSoriDialog<void>(
     context: context,
     builder: (context) => Dialog.fullscreen(
       child: Scaffold(
-        appBar: AppBar(
+        appBar: SoriAppBar(
           leading: const CloseButton(),
-          title: Text(AppL10n.of(context).ilduR16Title),
+          title: AppL10n.of(context).ilduR16Title,
+          textScale: MediaQuery.textScalerOf(context).scale(1),
+          viewportWidth: MediaQuery.sizeOf(context).width,
         ),
         body: SafeArea(
           child: InteractiveViewer(
@@ -142,7 +146,6 @@ class _IlDuEstateScreenState extends State<IlDuEstateScreen> {
               SoriButton.outlined(
                 key: const ValueKey('ildu-r16-estate-enlarge'),
                 label: t.ilduR16Enlarge,
-                icon: Icons.zoom_in_rounded,
                 fullWidth: true,
                 onTap: _enlarge,
               ),

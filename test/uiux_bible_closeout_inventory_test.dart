@@ -36,7 +36,7 @@ void main() {
     }
     expect(unresolved, isEmpty);
     expect(ambiguous, isEmpty);
-    expect(registered, hasLength(86));
+    expect(registered, hasLength(87));
     expect(registered.toSet(), hasLength(registered.length));
 
     final lock = File(_lockPath).readAsStringSync();
@@ -52,7 +52,7 @@ void main() {
       r'^\| `(/[^`]*)` \|',
       multiLine: true,
     ).allMatches(routeInventory).map((match) => match.group(1)!).toList();
-    expect(documented, hasLength(86));
+    expect(documented, hasLength(87));
     expect(documented.toSet(), hasLength(documented.length));
 
     registered.sort();
@@ -111,8 +111,8 @@ void main() {
     }
 
     // Includes the bounded Welcome owner and reference level-selection sheet.
-    expect(seen, hasLength(127));
-    expect(documented, hasLength(127));
+    expect(seen, hasLength(128));
+    expect(documented, hasLength(128));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });
@@ -154,9 +154,10 @@ void main() {
     // 2026-10-04: +5 — tactile reveal and auxiliary catalog/settings entrances.
     // 2026-10-18: +1 — approved Einleitung reference typography/material roles.
     // 2026-10-29: +1 — bounded Einleitung contact, selection and scene motion.
-    expect(actual, hasLength(154));
+    // 2026-10-30: +2 — presentation-only R16 process and estate artwork.
+    expect(actual, hasLength(156));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(154));
+    expect(listed, hasLength(156));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();
