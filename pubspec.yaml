@@ -147,16 +147,8 @@ flutter:
     # hanok_compound/ (동결 프로토타입, lib/ 참조 0건) — 번들에서 제외해 ~11MB 절감.
     # #208(360d61c8)에서 삭제됨 — 필요시 f29f87e7 참조.
     # - assets/illustrations/hanok_compound/
-    # Hanok routes use assets/illustrations/hanok/ildu_v3_preview.png until the
-    # V3 world is promoted. Dormant V3 code and contract tests still load these
-    # authored assets; bundling them does not expose the unfinished map.
-    - assets/illustrations/personal_hanok_v3/turnarounds/changgo_relocation.png
-    - assets/illustrations/personal_hanok_v3/turnarounds/사랑채
-    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문.png
-    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문1.png
-    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문2.png
-    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문6.png
-    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문8.png
+    # Legacy authoring turnarounds stay at their original paths, unbundled.
+    # The active ildu_* catalog and asset-delivery manifest remain unchanged.
     - assets/illustrations/personal_hanok_v3/sarangchae/
     - assets/illustrations/personal_hanok_v3/world/sarangchae.png
     - assets/illustrations/personal_hanok_v3/construction/hyeopmun/
@@ -169,8 +161,15 @@ flutter:
     - assets/illustrations/concept_c/
     - assets/illustrations/concept_c/approved_20261018/
     - assets/illustrations/concept_c/pronunciation/
-    - assets/illustrations/concept_c/hangul_atelier/
-    - assets/illustrations/c_learning/
+    # C-learning and Atelier share the original material_atlas.png and jade.png.
+    # Duplicate texture originals remain on disk, outside this explicit list.
+    - assets/illustrations/concept_c/hangul_atelier/composition-stage.png
+    - assets/illustrations/concept_c/hangul_atelier/ink-desk.png
+    - assets/illustrations/concept_c/hangul_atelier/jade.png
+    - assets/illustrations/concept_c/hangul_atelier/letter-tile.png
+    - assets/illustrations/concept_c/hangul_atelier/social-heart.png
+    - assets/illustrations/concept_c/hangul_atelier/social-share.png
+    - assets/illustrations/concept_c/hangul_atelier/speaker.png
     - assets/illustrations/culture_scenes/hanok_home_changho.png
     - assets/icons/chrome/
     - assets/icons/navigation/

@@ -1,4 +1,15 @@
+import com.android.build.api.artifact.SingleArtifact
 import java.util.Properties
+import javax.inject.Inject
+import org.gradle.api.DefaultTask
+import org.gradle.api.file.DirectoryProperty
+import org.gradle.api.file.FileSystemOperations
+import org.gradle.api.tasks.CacheableTask
+import org.gradle.api.tasks.InputDirectory
+import org.gradle.api.tasks.OutputDirectory
+import org.gradle.api.tasks.PathSensitive
+import org.gradle.api.tasks.PathSensitivity
+import org.gradle.api.tasks.TaskAction
 
 plugins {
     id("com.android.application")
@@ -106,7 +117,7 @@ android {
     namespace = "com.sujinarin.ko_lernen_app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
-    dynamicFeatures += setOf(":proofreading_feature")
+    dynamicFeatures += setOf(":proofreading_feature", ":c_artwork")
 
     compileOptions {
         // M3: flutter_local_notifications braucht core library desugaring
@@ -170,6 +181,75 @@ kotlin {
 
 flutter {
     source = "../.."
+}
+
+// Select the artifact pipeline at configuration time. Requested task names
+// belong to Gradle's configuration-cache key; no task action reads taskGraph.
+val cArtworkRequestedTaskLeaves = gradle.startParameter.taskNames.map {
+    it.substringAfterLast(':').lowercase()
+}
+val cArtworkBundleRequested = cArtworkRequestedTaskLeaves.any {
+    it == "bundle" || Regex("^(bundle.*release|package.*releasebundle)$").matches(it)
+}
+val cArtworkApkRequested = cArtworkRequestedTaskLeaves.any {
+    it.startsWith("assemble") || it.startsWith("install") ||
+        (it.startsWith("package") && !it.endsWith("bundle")) ||
+        it in setOf("build", "buildneeded", "builddependents")
+}
+if (cArtworkBundleRequested && cArtworkApkRequested) {
+    throw GradleException(
+        "c_artwork cannot combine bundle tasks with APK-producing " +
+            "assemble/install/package/build tasks in one invocation. " +
+            "Run the AAB and standalone APK builds separately to preserve their artwork assets."
+    )
+}
+
+// AABs relocate artwork. Standalone APKs (including release), debug and profile
+// keep the full base pipeline; an old transformed directory is never selected.
+if (cArtworkBundleRequested) {
+    androidComponents {
+        onVariants(selector().withBuildType("release")) { variant ->
+            val variantSuffix = variant.name.replaceFirstChar { it.uppercaseChar() }
+            val relocatedAssets = tasks.register<RemoveCArtworkFromBaseAssets>(
+                "remove${variantSuffix}CArtworkFromBaseAssets"
+            ) {
+                // Flutter copies into mergeAssets.outputDir after AGP's merge.
+                dependsOn("copyFlutterAssets$variantSuffix")
+            }
+            variant.artifacts.use(relocatedAssets)
+                .wiredWithDirectories(
+                    RemoveCArtworkFromBaseAssets::inputDirectory,
+                    RemoveCArtworkFromBaseAssets::outputDirectory
+                )
+                .toTransform(SingleArtifact.ASSETS)
+        }
+    }
+}
+
+@CacheableTask
+abstract class RemoveCArtworkFromBaseAssets @Inject constructor(
+    private val fileSystemOperations: FileSystemOperations
+) : DefaultTask() {
+    @get:InputDirectory
+    @get:PathSensitive(PathSensitivity.RELATIVE)
+    abstract val inputDirectory: DirectoryProperty
+
+    @get:OutputDirectory
+    abstract val outputDirectory: DirectoryProperty
+
+    @TaskAction
+    fun removeArtworkDuplicate() {
+        val prefix = "flutter_assets/assets/illustrations/ildu_r16"
+        check(inputDirectory.dir(prefix).get().asFile.isDirectory) {
+            "R16 Flutter assets are missing from merged assets; " +
+                "copyFlutterAssets must finish before the relocation transform."
+        }
+        fileSystemOperations.sync {
+            from(inputDirectory)
+            into(outputDirectory)
+            exclude("$prefix/**")
+        }
+    }
 }
 
 dependencies {

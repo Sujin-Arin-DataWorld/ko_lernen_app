@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../tokens.dart';
+import '../c_material_assets.dart';
 import '../approved_chrome_assets.dart';
 
 /// Tokens measured from the approved 2026-10-10 HTML, not the earlier crops.
@@ -52,6 +53,7 @@ abstract final class CAtelier {
         switch (name) {
           'cloud' => ApprovedChromeAssets.cloud,
           'settings-gear' => ApprovedChromeAssets.settings,
+          'paper-atlas' => SoriCMaterialAssets.paperAtlas,
           _ => '$root$name.png',
         },
         width: width,
@@ -255,7 +257,7 @@ class _JadeTexture extends StatelessWidget {
   Widget build(BuildContext context) => DecoratedBox(
     decoration: const BoxDecoration(
       image: DecorationImage(
-        image: AssetImage('${CAtelier.root}jade.png'),
+        image: AssetImage(SoriCMaterialAssets.jade),
         repeat: ImageRepeat.repeat,
         scale: 1254 / 420,
         alignment: Alignment.center,
@@ -299,7 +301,7 @@ class _PaperTexture extends StatelessWidget {
         maxWidth: box.maxWidth * 2,
         minHeight: box.maxHeight * 2,
         maxHeight: box.maxHeight * 2,
-        child: Image.asset('${CAtelier.root}paper-atlas.png', fit: BoxFit.fill),
+        child: Image.asset(SoriCMaterialAssets.paperAtlas, fit: BoxFit.fill),
       ),
     ),
   );
