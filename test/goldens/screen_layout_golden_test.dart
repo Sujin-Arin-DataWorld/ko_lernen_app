@@ -200,7 +200,7 @@ void main() {
                   ),
                   precacheImage(
                     const AssetImage(
-                      'assets/illustrations/mascot/tiger_front.png',
+                      'assets/illustrations/companions/baekho/standing.png',
                     ),
                     context,
                   ),

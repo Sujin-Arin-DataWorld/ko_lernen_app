@@ -8,11 +8,76 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_companion.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
+import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
+import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 
 import 'support/real_fonts.dart';
+import 'support/companion_ink_bounds.dart';
 
 void main() {
   setUpAll(loadSoriRealFonts);
+  final sourceBounds = <String, CompanionInkBounds>{};
+  setUpAll(() async {
+    for (final asset in [
+      HomeHeroClips.magpieWalkingFront,
+      HomeHeroClips.tigerSitting2,
+    ]) {
+      final still = CharacterClips.retiredStillFor(asset)!;
+      sourceBounds[still] = await CompanionInkBounds.load(still);
+    }
+  });
+  for (final kind in [MascotKind.tiger, MascotKind.magpie]) {
+    for (final scale in [1.0, 2.0]) {
+      testWidgets(
+        'canonical Today $kind ink fits its unchanged ground at $scale',
+        (tester) async {
+          final previous = TigerStageVideo.videoReady;
+          TigerStageVideo.videoReady = true;
+          addTearDown(() => TigerStageVideo.videoReady = previous);
+          tester.view.physicalSize = const Size(320, 640);
+          tester.view.devicePixelRatio = 1;
+          addTearDown(tester.view.resetPhysicalSize);
+          addTearDown(tester.view.resetDevicePixelRatio);
+          await tester.pumpWidget(
+            MaterialApp(
+              theme: AppTheme.light,
+              home: MediaQuery(
+                data: MediaQueryData(
+                  size: const Size(320, 640),
+                  textScaler: TextScaler.linear(scale),
+                ),
+                child: Scaffold(
+                  body: SingleChildScrollView(
+                    child: SoriLearningCompanion(
+                      greeting: 'Schön, dass du da bist.',
+                      title: 'Heute',
+                      kind: kind,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+          await tester.pump();
+          final player = find.byType(CharacterClipPlayer);
+          final still = CharacterClips.retiredStillFor(
+            tester.widget<CharacterClipPlayer>(player).asset,
+          )!;
+          final slot = tester.getRect(
+            find.byKey(const ValueKey('learning-companion-ground')),
+          );
+          expect(slot.size, Size(144, kind == MascotKind.tiger ? 125 : 144));
+          expectCompanionInkWithin(
+            sourceBounds[still]!.inContainedImage(
+              tester.getRect(find.image(AssetImage(still))),
+            ),
+            slot,
+          );
+          expect(tester.takeException(), isNull);
+        },
+      );
+    }
+  }
   testWidgets(
     'companion remains grounded through focus states and hides without a blank slot',
     (tester) async {

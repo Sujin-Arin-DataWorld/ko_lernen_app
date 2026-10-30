@@ -151,6 +151,21 @@ class SoriCharacterHero extends StatelessWidget {
         // 정적 폴백이 번쩍여 폐지 → 한 화면에는 루프 하나만 유지한다.
         // staticFallback:false → 로드 전/실패에도 흰 박스 대신 투명(배경 그대로).
         // 영상 불가·다크에서는 정적 폴백을 명시적으로 켠다.
+        final clipAsset = kind == MascotKind.magpie
+            ? HomeHeroClips.magpieWalkingFront
+            : HomeHeroClips.tigerThinking;
+        final isCanonicalStill =
+            CharacterClips.retiredStillFor(clipAsset) != null;
+        final player = CharacterClipPlayer(
+          key: ValueKey('home_hero_${kind.name}'),
+          asset: clipAsset,
+          size: bandHeight,
+          loop: true,
+          applyMultiplyFilter: false,
+          staticFallback: CharacterClipPlayer.videoUnavailable(context),
+          fallbackKind: kind,
+          fallbackEmotion: _emotion,
+        );
         final band = SizedBox(
           height: bandHeight,
           width: double.infinity,
@@ -165,6 +180,10 @@ class SoriCharacterHero extends StatelessWidget {
                     size: bandHeight * 0.92,
                     animate: true,
                   )
+                // Approved transparent stills already contain the whole pose.
+                // Keep their hat and feet inside the existing band.
+                : isCanonicalStill
+                ? player
                 // §P3-2 크롭-줌 (2026-08-14): 클립은 정사각+매트 베이크
                 // (#FBF5EB = 배경 동일)라 크롭이 시각적으로 불가시 — 밴드를
                 // 키우는 대신 줌으로 캐릭터(까치)를 키운다. 픽셀 소스 불변
@@ -182,23 +201,7 @@ class SoriCharacterHero extends StatelessWidget {
                       alignment: kind == MascotKind.magpie
                           ? Alignment.bottomCenter
                           : Alignment.center,
-                      child: CharacterClipPlayer(
-                        key: ValueKey('home_hero_${kind.name}'),
-                        asset: kind == MascotKind.magpie
-                            ? HomeHeroClips.magpieWalkingFront
-                            : HomeHeroClips.tigerThinking,
-                        size: bandHeight,
-                        loop: true,
-                        // These home-only clips already contain the flat Hanji
-                        // backdrop. Avoid the Android external-texture color
-                        // filter that can expose the original white matte.
-                        applyMultiplyFilter: false,
-                        staticFallback: CharacterClipPlayer.videoUnavailable(
-                          context,
-                        ),
-                        fallbackKind: kind,
-                        fallbackEmotion: _emotion,
-                      ),
+                      child: player,
                     ),
                   ),
           ),

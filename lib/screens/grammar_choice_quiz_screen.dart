@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -288,7 +289,7 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
 
   Widget _buildLoadFailure(AppL10n t) => Center(
     child: SoriEmptyState(
-      asset: 'assets/illustrations/mascot/tiger_front.png',
+      asset: CanonicalCompanionArt.baekhoSeated,
       icon: Icons.error_outline_rounded,
       title: t.grammarChoiceUnavailableTitle,
       body: _loadError,
@@ -308,7 +309,7 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
 
   Widget _buildEmpty(AppL10n t) => Center(
     child: SoriEmptyState(
-      asset: 'assets/illustrations/mascot/magpie_encourage.png',
+      asset: CanonicalCompanionArt.magpieGuide,
       icon: Icons.fact_check_outlined,
       title: t.grammarChoiceUnavailableTitle,
       body: t.grammarChoiceUnavailableBody,

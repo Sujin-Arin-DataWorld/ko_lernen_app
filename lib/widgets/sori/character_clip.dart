@@ -7,6 +7,7 @@ import 'package:video_player/video_player.dart';
 import '../../services/audio_policy.dart';
 import '../../services/haptic_service.dart';
 import '../../services/storage_service.dart';
+import '../../data/canonical_companion_art.dart';
 import 'mascot.dart';
 import 'mascot_preference.dart';
 import 'tiger_video.dart';
@@ -65,6 +66,34 @@ class HomeHeroClips {
 /// multiply 블렌드 방식으로 라이트 배경에 녹는다.
 class CharacterClips {
   CharacterClips._();
+
+  /// Compatibility keys only. These retired movies never acquire a controller;
+  /// custom media and the independent practice clips keep their video path.
+  static String? retiredStillFor(String asset) => _retiredStills[asset];
+
+  static const _retiredStills = <String, String>{
+    tigerRise: CanonicalCompanionArt.baekhoStanding,
+    tigerRoar: CanonicalCompanionArt.baekhoStanding,
+    tigerCelebrateHifive: CanonicalCompanionArt.baekhoStanding,
+    tigerRest: CanonicalCompanionArt.baekhoSeated,
+    tigerSitting2: CanonicalCompanionArt.baekhoSeated,
+    tigerBob: CanonicalCompanionArt.baekhoGuide,
+    tigerStretch: CanonicalCompanionArt.baekhoStanding,
+    tigerThinking: CanonicalCompanionArt.baekhoGuide,
+    tigerChoose: CanonicalCompanionArt.baekhoStanding,
+    tigerGreetPawflash: CanonicalCompanionArt.baekhoStanding,
+    magpieFlight: CanonicalCompanionArt.magpieCelebrate,
+    magpieCelebrate: CanonicalCompanionArt.magpieCelebrate,
+    magpieWorry: CanonicalCompanionArt.magpieGuide,
+    magpiePerched: CanonicalCompanionArt.magpieStanding,
+    magpieChoose: CanonicalCompanionArt.magpieStanding,
+    magpieBob: CanonicalCompanionArt.magpieStanding,
+    magpieBob2: CanonicalCompanionArt.magpiePortrait,
+    magpieWalkingFront: CanonicalCompanionArt.magpieStanding,
+    HomeHeroClips.tigerThinking: CanonicalCompanionArt.baekhoGuide,
+    HomeHeroClips.tigerSitting2: CanonicalCompanionArt.baekhoSeated,
+    HomeHeroClips.magpieWalkingFront: CanonicalCompanionArt.magpieStanding,
+  };
 
   static const String _base = 'assets/video/character';
 
@@ -377,7 +406,8 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
   VideoPlayerController? _video;
   VideoLeaseRequest<VideoPlayerController>? _lease;
   late final VideoLeaseEligibilityBinding _eligibility;
-  late final OneShotVideoLeaseCompletion? _completion;
+  OneShotVideoLeaseCompletion? _completion;
+  int _generation = 0;
   AudioPlayer? _audio;
   bool _ready = false;
   bool _failed = false;
@@ -398,13 +428,32 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
     super.initState();
     _eligibility = VideoLeaseEligibilityBinding(onChanged: _syncEligibility);
     HapticService.preferencesChanged.addListener(_onPreferencesChanged);
+    _configureMedia();
+  }
+
+  String? get _canonicalStill => CharacterClips.retiredStillFor(widget.asset);
+
+  bool get _unavailable =>
+      _canonicalStill != null || CharacterClipPlayer.videoUnavailable(context);
+
+  void _configureMedia() {
+    final generation = ++_generation;
     _completion = widget.loop
         ? null
         : OneShotVideoLeaseCompletion(
             fallbackCompleteAfter: widget.fallbackCompleteAfter,
-            onRelease: _releaseAfterCompletion,
-            onCompleted: () => widget.onCompleted?.call(),
+            onRelease: () async {
+              if (mounted && generation == _generation) {
+                await _releaseAfterCompletion();
+              }
+            },
+            onCompleted: () {
+              if (mounted && generation == _generation) {
+                widget.onCompleted?.call();
+              }
+            },
           );
+    if (_canonicalStill != null) return;
     _lease = soriVideoLease.register(
       asset: widget.asset,
       eligible: false,
@@ -416,10 +465,42 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
         await video.setLooping(widget.loop);
         await video.setPlaybackSpeed(widget.playbackSpeed);
       },
-      onGranted: _onGranted,
-      onRevoked: _onRevoked,
-      onFailed: _onFailed,
+      onGranted: (video) {
+        if (mounted && generation == _generation) _onGranted(video);
+      },
+      onRevoked: () {
+        if (mounted && generation == _generation) _onRevoked();
+      },
+      onFailed: (error, stack) {
+        if (mounted && generation == _generation) _onFailed(error, stack);
+      },
     );
+  }
+
+  @override
+  void didUpdateWidget(covariant CharacterClipPlayer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Same-key rebuilds can switch a retired companion to custom media.
+    // https://api.flutter.dev/flutter/widgets/State/didUpdateWidget.html
+    if (oldWidget.asset == widget.asset && oldWidget.loop == widget.loop) {
+      return;
+    }
+    _generation++;
+    _completion?.dispose();
+    _video?.removeListener(_onTick);
+    _video = null;
+    final lease = _lease;
+    _lease = null;
+    if (lease != null) unawaited(lease.release());
+    _audio?.dispose();
+    _audio = null;
+    _ready = false;
+    _failed = false;
+    _clipRetired = false;
+    _sfxStarted = false;
+    _reportedFailures.clear();
+    _configureMedia();
+    _syncEligibility();
   }
 
   @override
@@ -435,7 +516,7 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
     if (_eligibility.isVisible(context)) {
       _playSfxOnce();
     }
-    if (CharacterClipPlayer.videoUnavailable(context)) {
+    if (_unavailable) {
       _completion?.fallbackNeeded();
     }
   }
@@ -454,7 +535,7 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
     // 영상 경로가 **범주적으로 불가**하면(기기 미지원·reduce-motion·다크)
     // lease 를 아예 요청하지 않는다 — 다크에서 흰 매트를 multiply 하면 배경이
     // blendColor 단색 사각형으로 그대로 칠해지기 때문(multiply(#FFFFFF,C)==C).
-    final unavailable = CharacterClipPlayer.videoUnavailable(context);
+    final unavailable = _unavailable;
     _completion?.visibilityChanged(_eligibility.isVisible(context));
     final eligible =
         !unavailable &&
@@ -479,11 +560,15 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
   /// 선택 미리보기 tiger_rise, 프로필 초상 tigerStretch·magpieFlight)에서
   /// 마운트마다 소리가 반복 재생되는 사고가 났다(2026-08-02 실기기).
   Future<void> _playSfxOnce() async {
+    final generation = _generation;
+    final asset = widget.asset;
     final volume = AudioPolicy.instance.volumeFor(SoundChannel.companion);
     if (volume <= 0) return;
     final sfx =
         widget.sfxAsset ??
-        (widget.loop ? null : CharacterClips.sfxFor(widget.asset));
+        (widget.loop || _canonicalStill != null
+            ? null
+            : CharacterClips.sfxFor(widget.asset));
     if (sfx == null) return;
     if (_sfxStarted) return;
     _sfxStarted = true;
@@ -491,6 +576,13 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
       final audio = AudioPlayer();
       _audio = audio;
       await audio.setReleaseMode(ReleaseMode.release);
+      if (!mounted ||
+          generation != _generation ||
+          asset != widget.asset ||
+          !identical(_audio, audio) ||
+          !_eligibility.isVisible(context)) {
+        return;
+      }
       await audio.play(AssetSource(sfx), volume: volume);
     } catch (_) {
       // 효과음은 항상 best-effort — 파일이 없으면 무음.
@@ -518,10 +610,17 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
   }
 
   Future<void> _startPlayback(VideoPlayerController video) async {
+    final generation = _generation;
+    final asset = widget.asset;
     try {
       await video.play();
     } catch (_) {
-      _reportFailure(CharacterClipFailureReason.playback);
+      if (mounted &&
+          generation == _generation &&
+          asset == widget.asset &&
+          identical(_video, video)) {
+        _reportFailure(CharacterClipFailureReason.playback);
+      }
     }
   }
 
@@ -596,6 +695,7 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
 
   @override
   void dispose() {
+    _generation++;
     HapticService.preferencesChanged.removeListener(_onPreferencesChanged);
     _completion?.dispose();
     _video?.removeListener(_onTick);
@@ -616,7 +716,7 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
     // 텍스처가 한 프레임 남아 크림 사각형이 번쩍이는 걸 막는다. 동시에 이
     // 호출이 Theme 의존성을 등록해 테마 전환 시 didChangeDependencies →
     // _syncEligibility 가 실제로 다시 돈다.
-    final blocked = CharacterClipPlayer.videoUnavailable(context);
+    final blocked = _unavailable;
     // 영상 텍스처가 없을 때 무엇을 그릴지는 **상태로만** 정한다 —
     // "몇 초 기다렸나"는 조건이 아니다([CharacterClipFallbackPolicy]).
     final showStatic = CharacterClipFallbackPolicy.showStaticFallback(
@@ -632,12 +732,31 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
         duration: const Duration(milliseconds: 200),
         child: blocked || _failed || !_ready || video == null
             ? (showStatic && fallbackKind != null
-                  ? Mascot(
-                      kind: fallbackKind,
-                      emotion: widget.fallbackEmotion,
-                      size: widget.size * 0.85,
-                      animate: true,
-                    )
+                  ? (_canonicalStill != null
+                        ? Semantics(
+                            image: true,
+                            label: fallbackKind == MascotKind.magpie
+                                ? '마스코트 까치'
+                                : '마스코트 백호',
+                            child: Image.asset(
+                              _canonicalStill!,
+                              width: widget.size * 0.85,
+                              height: widget.size * 0.85,
+                              fit: BoxFit.contain,
+                              excludeFromSemantics: true,
+                              errorBuilder: (_, __, ___) => Mascot(
+                                kind: fallbackKind,
+                                emotion: widget.fallbackEmotion,
+                                size: widget.size * 0.85,
+                              ),
+                            ),
+                          )
+                        : Mascot(
+                            kind: fallbackKind,
+                            emotion: widget.fallbackEmotion,
+                            size: widget.size * 0.85,
+                            animate: true,
+                          ))
                   // 초기화 진행 중 + `staticFallback:false` → **투명**.
                   // 배경이 그대로 비치고, first frame 이 준비되면 200ms
                   // 크로스페이드로 mp4 가 들어온다. PNG 플립북은 이 경로에

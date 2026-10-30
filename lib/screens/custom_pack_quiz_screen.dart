@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/game_result_recovery.dart';
 import 'dart:math' as math;
@@ -274,7 +275,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
         title: t.wbQuiz,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CanonicalCompanionArt.baekhoSeated,
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -289,7 +290,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
         title: t.wbQuiz,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_encourage.png',
+            asset: CanonicalCompanionArt.magpieGuide,
             icon: Icons.quiz_outlined,
             title: t.wbQuiz,
             body: t.quizNeedMore,
