@@ -87,6 +87,22 @@ class InternalSymbolWorkflowTest(unittest.TestCase):
         self.assertIn('--dimensions=ABI', gate['run'])
         self.assertIn('--apks "$measurement/size.apks"', gate['run'])
 
+    def test_public_failed_marker_retains_exact_diagnostics_without_enabling_upload(self):
+        public = yaml.safe_load((ROOT / '.github/workflows/play_closed.yml').read_text())
+        steps = next(iter(public['jobs'].values()))['steps']
+        by_name = {step.get('name'): step for step in steps}
+        gate = by_name['Verify artwork split and base download size before publishing']['run']
+        self.assertLess(gate.index('capture_android_artwork_diagnostics.py'),
+                        gate.index('AndroidArtworkDownloadSize.java'))
+        archive = by_name['Preserve AAB and Dart symbols']
+        self.assertEqual(archive['if'], "always() && steps.release-meta.outcome == 'success'")
+        paths = archive['with']['path'].splitlines()
+        self.assertIn('build/app/outputs/bundle/release/artwork-diagnostics/**', paths)
+        self.assertFalse(any(value in archive['with']['path'] for value in ('measurement', '.jks', '.apks', 'key.properties')))
+        upload = by_name['Upload to Google Play Public Testing']
+        self.assertNotIn('if', upload)
+        self.assertNotIn('continue-on-error', upload)
+
     def test_diagnostic_inputs_survive_symbol_failure_without_credentials(self):
         inputs = self.by_name['Preserve AAB and Dart symbols']
         self.assertLess(self.index(inputs['name']), self.index('Upload and verify Crashlytics symbol evidence'))

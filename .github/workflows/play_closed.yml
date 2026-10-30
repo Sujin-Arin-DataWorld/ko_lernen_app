@@ -338,6 +338,9 @@ jobs:
           java -jar "$BUNDLETOOL_JAR" build-apks --bundle="$aab" \
             --output="$measurement/size.apks" --ks="$measurement/size-only.jks" \
             --ks-key-alias=size-only --ks-pass=pass:android --key-pass=pass:android
+          python3 tool/capture_android_artwork_diagnostics.py --aab "$aab" \
+            --apks "$measurement/size.apks" --source-sha "$GITHUB_SHA" \
+            --output "$evidence/artwork-diagnostics"
           java -jar "$BUNDLETOOL_JAR" get-size total --apks="$measurement/size.apks" \
             --dimensions=ABI | tee "$evidence/initial-download-size.csv"
           java -jar "$BUNDLETOOL_JAR" dump manifest --bundle="$aab" \
@@ -447,6 +450,7 @@ jobs:
           retention-days: 90
 
       - name: Preserve AAB and Dart symbols
+        if: always() && steps.release-meta.outcome == 'success'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: android-public-${{ inputs.target_track }}-v${{ steps.release-meta.outputs.version-code }}-${{ github.sha }}
@@ -457,6 +461,7 @@ jobs:
             build/app/outputs/bundle/release/c-artwork-manifest.xml
             build/app/outputs/bundle/release/artwork-delivery.json
             build/app/outputs/bundle/release/artwork-apk-sizes.json
+            build/app/outputs/bundle/release/artwork-diagnostics/**
             build/app/outputs/symbols/**
           if-no-files-found: error
           retention-days: 30
