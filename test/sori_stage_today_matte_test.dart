@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/data/canonical_companion_art.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/quest.dart';
@@ -119,7 +120,7 @@ void main() {
       );
       expect(
         (tester.widget<Image>(portrait).image as AssetImage).assetName,
-        'assets/illustrations/companions/canonical/taego_portrait.png',
+        CanonicalCompanionArt.baekhoPortrait,
       );
       final ground = tester.getSize(
         find.byKey(const ValueKey('learning-companion-ground')),
