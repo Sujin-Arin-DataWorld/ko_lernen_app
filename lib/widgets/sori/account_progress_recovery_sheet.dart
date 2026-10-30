@@ -10,6 +10,10 @@ import 'dialog.dart';
 import 'sheet.dart';
 import 'tokens.dart';
 
+// Settings and its pending-state panel share the same account operations.
+// Keep one owner through preview, selection and confirmation across both entries.
+final _activeProgressReviews = Expando<bool>('activeAccountProgressReviews');
+
 Future<AccountSwitchResolutionSide?> showAccountProgressRecoverySheet({
   required BuildContext context,
   required AccountSwitchResolutionPreview preview,
@@ -34,6 +38,8 @@ Future<AccountSwitchResolutionOutcome?> reviewPendingAccountProgress({
   if (operations is! AccountUiSwitchResolutionOperations) {
     return AccountSwitchResolutionOutcome.unavailable;
   }
+  if (_activeProgressReviews[operations] == true) return null;
+  _activeProgressReviews[operations] = true;
   final resolution = operations as AccountUiSwitchResolutionOperations;
   try {
     final result = await resolution.previewPendingSwitchResolution();
@@ -82,6 +88,8 @@ Future<AccountSwitchResolutionOutcome?> reviewPendingAccountProgress({
     );
   } catch (_) {
     return AccountSwitchResolutionOutcome.unavailable;
+  } finally {
+    _activeProgressReviews[operations] = null;
   }
 }
 

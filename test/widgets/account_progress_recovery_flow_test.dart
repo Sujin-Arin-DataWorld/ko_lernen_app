@@ -15,6 +15,7 @@ import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/account_operation_ui.dart';
+import 'package:ko_lernen_app/widgets/sori/account_progress_recovery_sheet.dart';
 
 import '../support/real_fonts.dart';
 
@@ -95,8 +96,9 @@ class ResolutionOperations
 
 Future<void> pumpPanel(
   WidgetTester tester,
-  ResolutionOperations operations,
-) async {
+  ResolutionOperations operations, {
+  bool includeSecondEntry = false,
+}) async {
   tester.view.physicalSize = const Size(390, 844);
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
@@ -108,7 +110,22 @@ Future<void> pumpPanel(
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
       home: Scaffold(
-        body: AccountPendingOperationPanel(operations: operations),
+        body: includeSecondEntry
+            ? Builder(
+                builder: (context) => Column(
+                  children: [
+                    AccountPendingOperationPanel(operations: operations),
+                    TextButton(
+                      onPressed: () => reviewPendingAccountProgress(
+                        context: context,
+                        operations: operations,
+                      ),
+                      child: const Text('Second review entry'),
+                    ),
+                  ],
+                ),
+              )
+            : AccountPendingOperationPanel(operations: operations),
       ),
     ),
   );
@@ -122,6 +139,38 @@ void main() {
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
   });
+
+  testWidgets(
+    'two entry points share one in-flight review and cancel allows a fresh review',
+    (tester) async {
+      final gate = Completer<void>();
+      final operations = ResolutionOperations()..previewGate = gate;
+      addTearDown(() {
+        if (!gate.isCompleted) gate.complete();
+      });
+      await pumpPanel(tester, operations, includeSecondEntry: true);
+      await tester.tap(find.text('Lernstand prüfen'));
+      await tester.pump();
+      await tester.tap(find.text('Second review entry'));
+      await tester.pump();
+      expect(operations.previews, 1);
+      gate.complete();
+      await tester.pumpAndSettle();
+      expect(
+        find.byType(AccountProgressRecoverySheet, skipOffstage: false),
+        findsOneWidget,
+      );
+      await tester.tap(find.byKey(const Key('account-recovery-cancel')));
+      await tester.pumpAndSettle();
+      expect(operations.confirmations, 0);
+      await tester.tap(find.text('Second review entry'));
+      await tester.pumpAndSettle();
+      expect(operations.previews, 2);
+      await tester.tap(find.byKey(const Key('account-recovery-cancel')));
+      await tester.pumpAndSettle();
+      expect(operations.confirmations, 0);
+    },
+  );
 
   testWidgets(
     'pending switch offers review, cancel writes nothing, explicit choice confirms once',
