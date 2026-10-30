@@ -52,7 +52,11 @@ void main() {
       ),
     };
     for (final entry in originals.entries) {
-      final base = 'assets/illustrations/onboarding/${entry.key}';
+      // The former book is preserved outside the bundle after the newly
+      // approved book previews replaced its production consumer.
+      final base = entry.key == 'book_extract'
+          ? 'assets_unused/approved_book_20261030/${entry.key}'
+          : 'assets/illustrations/onboarding/${entry.key}';
       expect(File('$base.png').existsSync(), isFalse, reason: entry.key);
       final image = img.decodeWebP(File('$base.webp').readAsBytesSync())!;
       expect((image.width, image.height), (entry.value.$1, entry.value.$2));

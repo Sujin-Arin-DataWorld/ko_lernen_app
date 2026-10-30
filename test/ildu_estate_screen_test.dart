@@ -10,7 +10,9 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/gye.dart';
 import 'package:ko_lernen_app/models/ildu_r16_art.dart';
 import 'package:ko_lernen_app/screens/ildu_estate_screen.dart';
+import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/palette_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/gye_hanok.dart';
 import 'package:ko_lernen_app/widgets/sori/ildu_r16_estate_artwork.dart';
@@ -36,27 +38,28 @@ Future<void> capture(GlobalKey key, String name) async {
   image.dispose();
 }
 
-Widget app(Widget home, {String locale = 'en', double scale = 1}) =>
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      locale: Locale(locale),
-      localizationsDelegates: AppL10n.localizationsDelegates,
-      supportedLocales: AppL10n.supportedLocales,
-      theme: AppTheme.light,
-      builder: (context, child) => MediaQuery(
-        data: MediaQuery.of(
-          context,
-        ).copyWith(textScaler: TextScaler.linear(scale)),
-        child: child!,
-      ),
-      home: home,
-      routes: {
-        '/hanok/estate': (_) => IlDuEstateScreen(loader: () async => catalog()),
-        '/hanok/construction': (_) =>
-            Scaffold(appBar: AppBar(), body: const Text('existing lessons')),
-        '/hanok/practice': (_) => const Scaffold(body: Text('existing review')),
-      },
-    );
+Widget app(
+  Widget home, {
+  String locale = 'en',
+  double scale = 1,
+}) => MaterialApp(
+  debugShowCheckedModeBanner: false,
+  locale: Locale(locale),
+  localizationsDelegates: AppL10n.localizationsDelegates,
+  supportedLocales: AppL10n.supportedLocales,
+  theme: AppTheme.lightFor(PaletteVariant.dancheong, locale: Locale(locale)),
+  builder: (context, child) => MediaQuery(
+    data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(scale)),
+    child: child!,
+  ),
+  home: home,
+  routes: {
+    '/hanok/estate': (_) => IlDuEstateScreen(loader: () async => catalog()),
+    '/hanok/construction': (_) =>
+        Scaffold(appBar: AppBar(), body: const Text('existing lessons')),
+    '/hanok/practice': (_) => const Scaffold(body: Text('existing review')),
+  },
+);
 
 void main() {
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
@@ -65,6 +68,7 @@ void main() {
     SharedPreferences.setMockInitialValues({
       'kl_user_level': 'a1',
       'kl_tut_home_tour': true,
+      'kl_tut_gye_tab': true,
     });
     await Storage.init();
   });
@@ -234,6 +238,44 @@ void main() {
         tester.getSize(find.byType(GyeDedicationLayer)).aspectRatio,
         closeTo(1600 / 1700, 0.001),
       );
+    },
+  );
+  testWidgets(
+    'C5 Gye overview uses R16 only at the existing shared completion',
+    (tester) async {
+      tester.view.physicalSize = const Size(390, 844);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      for (final done in [0, 7]) {
+        await tester.pumpWidget(
+          app(
+            GyeTabScreen(
+              key: ValueKey(done),
+              conceptC: true,
+              loadGyeMetas: () async => [
+                GyeMeta(
+                  id: 'ABC234',
+                  name: 'Courtyard',
+                  code: 'ABC234',
+                  ownerId: 'owner',
+                  lifetimeGoalsAchieved: done,
+                ),
+              ],
+            ),
+          ),
+        );
+        await pumpUntilFound(
+          tester,
+          find.byKey(const ValueKey('c-gye-group-hero')),
+        );
+        await pumpSoriStage(tester);
+        expect(
+          find.byType(IlDuR16EstateArtwork),
+          done == 7 ? findsOneWidget : findsNothing,
+        );
+        expect(tester.takeException(), isNull);
+      }
     },
   );
   testWidgets('estate image failure can retry without replacing the route', (

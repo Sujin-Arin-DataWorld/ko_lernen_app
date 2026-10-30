@@ -23,6 +23,10 @@ void main() {
           if (!['bok.png', 'yupjeon.png'].contains(file.uri.pathSegments.last))
             file.path.replaceAll('\\', '/'),
         'assets/illustrations/error/lost_magpie.png',
+        for (final file in Directory(
+          'assets/illustrations/companions/canonical',
+        ).listSync().whereType<File>())
+          file.path.replaceAll('\\', '/'),
         'assets/illustrations/onboarding/tiger_crystal.png',
         for (final file in Directory(
           'assets/illustrations/onboarding/companions',
@@ -42,7 +46,8 @@ void main() {
         'assets/illustrations/mascot/yupjeon.png',
         'assets/illustrations/error/offline_lantern.png',
         'assets/illustrations/onboarding/book_scan.png',
-        'assets/illustrations/onboarding/book_extract.webp',
+        'assets/illustrations/onboarding/book_capture_approved_20261030.png',
+        'assets/illustrations/onboarding/book_study_approved_20261030.png',
         'assets/illustrations/onboarding/gate-01-alpha.webp',
         'assets/illustrations/onboarding/gate-02-alpha.webp',
         'assets/illustrations/onboarding/sarangchae-01-alpha.webp',
@@ -52,6 +57,21 @@ void main() {
         expect(assets, contains(path), reason: path);
         expect((await rootBundle.load(path)).lengthInBytes, greaterThan(0));
       }
+      expect(
+        assets,
+        isNot(contains('assets/illustrations/onboarding/book_extract.webp')),
+      );
+      expect(
+        sha256
+            .convert(
+              File(
+                'assets_unused/approved_book_20261030/book_extract.webp',
+              ).readAsBytesSync(),
+            )
+            .toString(),
+        'fcc8d3c0d95493b6e8a596c45bf4197dfca9beb046ce3ed84a65e8dbe6a915e8',
+        reason: 'The superseded book art remains byte-identical to main.',
+      );
     },
   );
 

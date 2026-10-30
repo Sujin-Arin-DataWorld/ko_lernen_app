@@ -169,6 +169,7 @@ class _OnboardingLearningDemoState
     }
     final isSkills = _compactView == 1;
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         SizedBox(
           height: 48,
@@ -197,7 +198,8 @@ class _OnboardingLearningDemoState
             ],
           ),
         ),
-        Expanded(
+        Flexible(
+          fit: FlexFit.loose,
           child: isSkills
               ? Column(
                   children: [
@@ -315,7 +317,64 @@ class _OnboardingLearningDemoState
         sentence: ko,
       );
     }
-    return Column(
+    Widget modelAction() => DemoChoice(
+      key: const ValueKey('demo-speaking-model'),
+      label: t.onboardingDemoModel,
+      onTap: () => setState(() => _model = true),
+    );
+    Widget noRecording() => Text(
+      t.onboardingDemoNoRecording,
+      style: const TextStyle(fontSize: 13),
+      textAlign: TextAlign.center,
+    );
+    Widget speakingActions() => DemoChoiceRow(
+      children: [
+        DemoChoice(
+          key: const ValueKey('demo-course-audio'),
+          label: demoPlaying ? t.onboardingDemoStop : t.onboardingDemoListen,
+          icon: demoPlaying ? Icons.stop : Icons.volume_up_outlined,
+          onTap: () => demoSpeak(ko),
+        ),
+        DemoChoice(
+          key: const ValueKey('demo-own-turn'),
+          label: _ownTurn ? t.onboardingDemoAgain : t.onboardingDemoYourTurn,
+          selected: _ownTurn,
+          onTap: () {
+            demoStop();
+            setState(() {
+              _ownTurn = !_ownTurn;
+              _model = false;
+              _meaning = false;
+            });
+          },
+        ),
+      ],
+    );
+    if (compact && _skill == 1 && _ownTurn && !_model) {
+      return SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Center(
+              child: Icon(
+                Icons.mic_none,
+                key: ValueKey('demo-speaking-microphone'),
+                size: 64,
+                color: SoriColors.primary,
+              ),
+            ),
+            const SizedBox(height: 8),
+            modelAction(),
+            const SizedBox(height: 8),
+            noRecording(),
+            const SizedBox(height: 8),
+            speakingActions(),
+          ],
+        ),
+      );
+    }
+    final content = Column(
       children: [
         if (_skill == 1 && !compact)
           Text(
@@ -333,16 +392,13 @@ class _OnboardingLearningDemoState
                       child: Center(
                         child: Icon(
                           Icons.mic_none,
+                          key: ValueKey('demo-speaking-microphone'),
                           size: 64,
                           color: SoriColors.primary,
                         ),
                       ),
                     ),
-                    DemoChoice(
-                      key: const ValueKey('demo-speaking-model'),
-                      label: t.onboardingDemoModel,
-                      onTap: () => setState(() => _model = true),
-                    ),
+                    modelAction(),
                   ],
                 )
               : DemoPagedText(
@@ -353,38 +409,8 @@ class _OnboardingLearningDemoState
                 ),
         ),
         if (_skill == 1) ...[
-          Text(
-            t.onboardingDemoNoRecording,
-            style: const TextStyle(fontSize: 13),
-            textAlign: TextAlign.center,
-          ),
-          DemoChoiceRow(
-            children: [
-              DemoChoice(
-                key: const ValueKey('demo-course-audio'),
-                label: demoPlaying
-                    ? t.onboardingDemoStop
-                    : t.onboardingDemoListen,
-                icon: demoPlaying ? Icons.stop : Icons.volume_up_outlined,
-                onTap: () => demoSpeak(ko),
-              ),
-              DemoChoice(
-                key: const ValueKey('demo-own-turn'),
-                label: _ownTurn
-                    ? t.onboardingDemoAgain
-                    : t.onboardingDemoYourTurn,
-                selected: _ownTurn,
-                onTap: () {
-                  demoStop();
-                  setState(() {
-                    _ownTurn = !_ownTurn;
-                    _model = false;
-                    _meaning = false;
-                  });
-                },
-              ),
-            ],
-          ),
+          noRecording(),
+          speakingActions(),
         ] else
           DemoChoiceRow(
             children: [
@@ -409,6 +435,22 @@ class _OnboardingLearningDemoState
           ),
       ],
     );
+    if (compact && _skill == 1) {
+      // Keep the model action and speaking controls at their natural size.
+      // A small preview at large text sizes can scroll the complete content.
+      return LayoutBuilder(
+        builder: (context, bounds) => SingleChildScrollView(
+          child: SizedBox(
+            height: math.max(
+              bounds.maxHeight,
+              MediaQuery.textScalerOf(context).scale(140),
+            ),
+            child: content,
+          ),
+        ),
+      );
+    }
+    return content;
   }
 
   Widget _conversation(Map<String, dynamic> conversation) {

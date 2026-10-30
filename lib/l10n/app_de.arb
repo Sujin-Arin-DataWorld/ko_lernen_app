@@ -569,23 +569,12 @@
   "hangulTabOverview": "Übersicht",
   "hangulTabCards": "Karten",
   "hangulTabWrite": "Schreiben",
-  "hangulConsonantsLabel": "자음 · Konsonanten",
-  "hangulVowelsLabel": "모음 · Vokale",
-  "hangulSyllableLabel": "🧩 음절 구조 · Silbenaufbau",
-  "hangulSyllableTableTitle": "Silbentafel",
   "hangulSyllableTableHint": "Tippe auf eine Silbe, um sie zu hören. Wische seitlich für weitere Vokale.",
   "hangulPronounceBtn": "Aussprechen",
-  "hangulRulesTitle": "Hangul-Schreibregeln",
   "hangulRulesBody": "① Oben → Unten   ② Horizontal → Vertikal   ③ Links → Rechts",
   "hangulStrokeOrderTitle": "📽 Strichreihenfolge (zum Wiederholen tippen)",
   "hangulTraceTitle": "Mit dem Finger nachzeichnen",
   "hangulClearBtn": "Löschen",
-  "hangulPronounceLetter": "{letter} aussprechen",
-  "@hangulPronounceLetter": {
-    "placeholders": {
-      "letter": {}
-    }
-  },
   "hangulChipConsonants": "Konsonanten",
   "hangulChipVowels": "Vokale",
   "hangulChipSyllables": "Silben",
@@ -645,15 +634,6 @@
   "@hangulStrokeLetterDone": {
     "placeholders": {
       "letter": {}
-    }
-  },
-  "hangulLettersDone": "{count, plural, one{1 Buchstabe fertig} other{{count} Buchstaben fertig}}",
-  "hangulHardOnly": "Nur schwierige",
-  "@hangulLettersDone": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
     }
   },
   "chosungModeWithVowels": "Anlaut + Vokal",
@@ -3396,7 +3376,6 @@
   "testerFeedbackMissionGames": "Eine Spielrunde abschließen",
   "testerFeedbackMissionLanguageForm": "Grammatik oder Hangul üben",
   "testerFeedbackCompleteGrammar": "Grammatikübung abschließen",
-  "testerFeedbackCompleteHangul": "Hangul-Übung abschließen",
   "testerFeedbackCompleteDailyHangul": "Heutiges Zeichen abschließen",
   "testerFeedbackPromptScenario": "Gab es eine Stelle, die du in dieser Situation wirklich sagen würdest?",
   "testerFeedbackPromptWordWork": "Fühlen sich diese Wörter nützlich und einprägsam an?",
@@ -5205,13 +5184,6 @@
   "onboardingDemoDuck": "Ente",
   "onboardingDemoSound": "Laut",
   "onboardingDemoWord": "Wort",
-  "onboardingDemoInitials": "Anlautspiel",
-  "onboardingDemoCross": "Silben-Kreuz",
-  "onboardingDemoCloze": "Lückentext",
-  "onboardingDemoPairs": "Wortpaare",
-  "onboardingDemoSentence": "Satz bauen",
-  "onboardingDemoChain": "Wortkette",
-  "onboardingDemoExample": "Beispiel zeigen",
   "onboardingJourneyStartTitle": "Dein Koreanisch.\nDein Rhythmus.",
   "onboardingJourneyReturningHint": "Bei deinem Können anknüpfen.",
   "onboardingJourneyStartWith": "Mit {name} beginnen",
@@ -5753,6 +5725,96 @@
   "onboardingCCollect": "Sammeln",
   "onboardingCCreate": "Gestalten",
   "grammarBookExample": "Beispiel",
+  "atelierAutoOff": "Auto weiter: Aus",
+  "atelierAutoOn": "Auto weiter: An",
+  "atelierChartHint": "19 Konsonanten · Im Feld nach oben oder unten wischen.",
+  "atelierDemo": "Strichfolge zeigen",
+  "atelierDemoEnd": "Vorführung beenden",
+  "atelierDemoNext": "Nächster Strich",
+  "atelierDemoPhase": "Schau zu",
+  "atelierDemoRestart": "Neu vorführen",
+  "atelierDifficult": "Schwierige",
+  "atelierDiscover": "Silben entdecken",
+  "atelierDonePhase": "Geschafft",
+  "atelierFeedHint": "Oben / unten: nächste / vorige Karte.\nZweimal tippen: merken. Einmal tippen: umdrehen.",
+  "atelierFinish": "Übung abschließen",
+  "atelierFlipHint": "Tippen zum Umdrehen",
+  "atelierKnown": "Gewusst",
+  "atelierMore": "Mehr",
+  "atelierNotYet": "Nicht gewusst",
+  "atelierPracticePhase": "Du bist dran",
+  "atelierRandom": "Zufällige Karte",
+  "atelierRemember": "Merken",
+  "atelierSaveFailed": "Noch nicht gespeichert. Bitte erneut versuchen.",
+  "atelierShare": "Teilen",
+  "atelierSkip": "Überspringen",
+  "atelierStructure": "Silbenaufbau",
+  "atelierSubtitle": "Zeichen · Klang · Handschrift",
+  "atelierUseInChart": "In der Silbentafel auswählen",
+  "atelierWatchBrush": "Zuerst ansehen. Dann selbst schreiben.",
+  "cHangulCardsReceipt": "{count, plural, =1{1 Kartenaktion in dieser Übung} other{{count} Kartenaktionen in dieser Übung}}",
+  "@cHangulCardsReceipt": {
+    "description": "C internal learning screen; counts are actual activity state.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cHangulCompleted": "Hangul-Übung abgeschlossen",
+  "cHangulHardCharacters": "Nur schwierige Zeichen",
+  "cHangulKeepPractising": "Du kannst jederzeit weiterüben.",
+  "cHangulListen": "Anhören",
+  "cHangulListenWord": "Wort anhören",
+  "cHangulSelectionTitle": "Kartenauswahl",
+  "cHangulWritingLettersReceipt": "{letters, plural, =1{1 Buchstabe geübt} other{{letters} Buchstaben geübt}}",
+  "@cHangulWritingLettersReceipt": {
+    "placeholders": {
+      "letters": {
+        "type": "int"
+      }
+    }
+  },
+  "cHangulWritingReceipt": "{letters, plural, =1{1 Buchstabe geübt} other{{letters} Buchstaben geübt}} · {strokes, plural, =1{1 Strichversuch} other{{strokes} Strichversuche}} · {mode}",
+  "@cHangulWritingReceipt": {
+    "description": "C internal learning screen; counts are actual activity state.",
+    "placeholders": {
+      "letters": {
+        "type": "int"
+      },
+      "strokes": {
+        "type": "int"
+      },
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "cHangulWritingStrokesReceipt": "{strokes, plural, =1{1 Strichversuch} other{{strokes} Strichversuche}} · {mode}",
+  "@cHangulWritingStrokesReceipt": {
+    "placeholders": {
+      "strokes": {
+        "type": "int"
+      },
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "c5AllLearningActivities": "Alle Lernangebote",
+  "c5AllGames": "Alle Spiele",
+  "onboardingHangulEquationSemantics": "{title}. ㄱ + ㅏ = 가. 가 · ga. {previewLabel}",
+  "@onboardingHangulEquationSemantics": {
+    "description": "Accessible native Hangul equation with localized section and preview labels. Korean lesson glyphs remain Korean.",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "previewLabel": {
+        "type": "String"
+      }
+    }
+  },
   "ilduR16Title": "Ildu-Gotaek",
   "ilduR16Explore": "Ildu-Gotaek entdecken",
   "ilduR16Reference": "Vollendetes Anwesen · Architekturansicht",

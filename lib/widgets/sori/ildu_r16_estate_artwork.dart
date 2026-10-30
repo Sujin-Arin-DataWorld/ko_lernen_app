@@ -30,14 +30,14 @@ class _IlDuR16EstateArtworkState extends State<IlDuR16EstateArtwork> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(AppL10n.of(context).loadErrorTryAgain),
-          TextButton(
-            onPressed: () async {
+          SoriButton.ghost(
+            onTap: () async {
               await const AssetImage(kIlDuR16EstateAsset).evict();
               if (mounted) {
                 setState(() => _generation++);
               }
             },
-            child: Text(AppL10n.of(context).btnRetry),
+            label: AppL10n.of(context).btnRetry,
           ),
         ],
       ),

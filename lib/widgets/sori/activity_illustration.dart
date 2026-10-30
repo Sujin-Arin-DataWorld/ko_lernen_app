@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../models/sori_stage_progression.dart';
 import 'tokens.dart';
+import 'approved_chrome_assets.dart';
 
 /// §C-3c P1-③: 잠금 판정 통일 — 카드(카탈로그)와 시트가 같은 판정을 쓴다.
 /// progress 가 locked 를 이미 선언했으면 그것을 존중하고, 아니면 unlock gate.
@@ -30,7 +31,7 @@ abstract final class SoriArtwork {
   static const conversation = '$root/conversation.png';
   static const hangul = '$root/hangul.png';
   static const grammar = '$root/grammar.png';
-  static const yeopjeon = '$root/yeopjeon.png';
+  static const yeopjeon = ApprovedChromeAssets.coinAngled;
   static const haechi = '$root/haechi.png';
   static const hahoeMask = '$root/hahoe_mask.png';
   static const dokkaebi = '$root/dokkaebi.png';

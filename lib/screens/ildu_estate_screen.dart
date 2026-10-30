@@ -169,14 +169,14 @@ class _IlDuEstateScreenState extends State<IlDuEstateScreen> {
                   cacheWidth: 960,
                   semanticLabel: _name(t, _selected),
                   errorBuilder: (_, _, _) => Center(
-                    child: TextButton(
-                      onPressed: () async {
+                    child: SoriButton.ghost(
+                      onTap: () async {
                         await AssetImage(selected.full.asset).evict();
                         if (mounted) {
                           setState(() => _imageGeneration++);
                         }
                       },
-                      child: Text(t.btnRetry),
+                      label: t.btnRetry,
                     ),
                   ),
                 ),

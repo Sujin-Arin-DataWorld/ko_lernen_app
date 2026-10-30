@@ -110,9 +110,9 @@ void main() {
       }
     }
 
-    // Includes the bounded Welcome owner and reference level-selection sheet.
-    expect(seen, hasLength(128));
-    expect(documented, hasLength(128));
+    // Includes the C5 overview, R16 reference and existing indirect owners.
+    expect(seen, hasLength(129));
+    expect(documented, hasLength(129));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });
@@ -154,10 +154,10 @@ void main() {
     // 2026-10-04: +5 — tactile reveal and auxiliary catalog/settings entrances.
     // 2026-10-18: +1 — approved Einleitung reference typography/material roles.
     // 2026-10-29: +1 — bounded Einleitung contact, selection and scene motion.
-    // 2026-10-30: +2 — presentation-only R16 process and estate artwork.
-    expect(actual, hasLength(156));
+    // 2026-10-30: +16 — documented approved C chrome/material/ink/Gye owners.
+    expect(actual, hasLength(170));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(156));
+    expect(listed, hasLength(170));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

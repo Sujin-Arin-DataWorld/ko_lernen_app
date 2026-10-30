@@ -15,6 +15,7 @@ import 'toast.dart';
 import 'pressable.dart';
 import 'sheet.dart';
 import 'ildu_r16_process_image.dart';
+import 'approved_chrome_assets.dart';
 
 /// Saved money and construction ownership, with no optimistic spending.
 class YeopjeonWalletCard extends StatefulWidget {
@@ -125,7 +126,10 @@ class _YeopjeonWalletCardState extends State<YeopjeonWalletCard> {
           return const SizedBox(
             height: 48,
             child: Center(
-              child: Icon(Icons.toll_rounded, color: SoriColors.gold),
+              child: ApprovedChromeImage(
+                asset: ApprovedChromeAssets.coinFront,
+                size: 32,
+              ),
             ),
           );
         }
@@ -335,9 +339,15 @@ class _YeopjeonWalletCardState extends State<YeopjeonWalletCard> {
 /// The header reads the already-confirmed progression snapshot, never a
 /// preview balance. Opening and closing the wallet refreshes its owner.
 class YeopjeonWalletBadge extends StatelessWidget {
-  const YeopjeonWalletBadge({super.key, required this.wallet, this.onReturned});
+  const YeopjeonWalletBadge({
+    super.key,
+    required this.wallet,
+    this.onReturned,
+    this.compact = false,
+  });
   final YeopjeonWallet wallet;
   final VoidCallback? onReturned;
+  final bool compact;
 
   @override
   Widget build(BuildContext context) {
@@ -346,6 +356,9 @@ class YeopjeonWalletBadge extends StatelessWidget {
       button: true,
       label: '${t.yeopjeonTitle}. ${t.yeopjeonBalance(wallet.balance)}',
       child: SoriPressable(
+        pressOffsetY: 2,
+        releaseCurve: SoriMotion.gentle,
+        tactileTilt: true,
         onTap: () async {
           await showSoriSheet<void>(
             context: context,
@@ -358,7 +371,10 @@ class YeopjeonWalletBadge extends StatelessWidget {
         child: Container(
           key: const ValueKey('yeopjeon-header-balance'),
           constraints: const BoxConstraints(minHeight: 48),
-          padding: const EdgeInsets.symmetric(horizontal: Spacing.md),
+          padding: EdgeInsets.symmetric(
+            horizontal: compact ? 8 : Spacing.md,
+            vertical: compact ? 4 : 0,
+          ),
           decoration: BoxDecoration(
             color: SoriActivityColors.actionGold,
             borderRadius: SoriRadius.brLg,
@@ -366,16 +382,24 @@ class YeopjeonWalletBadge extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.asset(
-                SoriArtwork.yeopjeon,
-                width: 38,
-                height: 38,
-                fit: BoxFit.contain,
-                excludeFromSemantics: true,
+              ApprovedChromeImage(
+                asset: ApprovedChromeAssets.coinFront,
+                size: compact ? 32 : 38,
               ),
-              const SizedBox(width: Spacing.sm),
-              Text('${wallet.balance}', style: SoriTextTheme.of(context).label),
-              const Icon(Icons.chevron_right_rounded, size: 18),
+              SizedBox(width: compact ? 4 : Spacing.sm),
+              if (compact)
+                Flexible(
+                  child: Text(
+                    '${wallet.balance}',
+                    style: SoriTextTheme.of(context).label,
+                  ),
+                )
+              else
+                Text(
+                  '${wallet.balance}',
+                  style: SoriTextTheme.of(context).label,
+                ),
+              if (!compact) const Icon(Icons.chevron_right_rounded, size: 18),
             ],
           ),
         ),

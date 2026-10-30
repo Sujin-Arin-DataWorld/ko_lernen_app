@@ -11,13 +11,8 @@ import 'package:flutter_test/flutter_test.dart';
 /// careless rename/delete can't silently drop a root's evidence from the
 /// repository.
 ///
-/// `games` (the catalog's other tab) shares the same pipeline and naming
-/// convention as `today`/`learn`/`hanok`/`gye` but has no dedicated capture
-/// in this PR — the brief's evidence count is exactly 7 PNGs across those
-/// four roots (today x1, learn x2, hanok x2, gye x2); adding an 8th `games`
-/// PNG would contradict that count. `games` stays in [roots] for naming
-/// validation but is intentionally excluded from [requiredRoots] rather
-/// than silently expected and always failing.
+/// All five current roots have DE/EN captures. Receipt states remain attached
+/// to their owning Today root through the same suffix convention.
 void main() {
   test(
     'every captured UI root has at least one non-empty evidence PNG on disk',
@@ -36,7 +31,7 @@ void main() {
           .toList();
 
       const roots = ['today', 'learn', 'games', 'hanok', 'gye'];
-      const requiredRoots = ['today', 'learn', 'hanok', 'gye'];
+      const requiredRoots = roots;
       final namePattern = RegExp(
         r'^sori-stage-(today|learn|games|hanok|gye)-\d+(-[a-z]+(?:-[a-z]+)*)?\.png$',
       );
@@ -77,14 +72,6 @@ void main() {
           }
         }
       }
-      // `games` has no required capture (see doc comment above), but any PNG
-      // that does exist under that name still gets the empty-file check.
-      for (final file in byRoot['games']!) {
-        if (file.lengthSync() == 0) {
-          emptyFiles.add(file.path);
-        }
-      }
-
       expect(
         missingRoots,
         isEmpty,

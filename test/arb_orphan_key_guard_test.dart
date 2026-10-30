@@ -65,7 +65,9 @@ void main() {
 
     // §COPY-5(J15): 2026-09-03 W-F/W-G 착지(+ W-J J1 파일럿 삭제) 후
     // 같은 스코프·방법으로 재실측 — 317개(2026-09-01 값 319에서 하향).
-    const ceiling = 317;
+    // Native Hangul/preview controls replaced 16 unused legacy strings;
+    // two formerly orphaned keys now have actual native actions.
+    const ceiling = 315;
     expect(
       orphaned.length,
       lessThanOrEqualTo(ceiling),

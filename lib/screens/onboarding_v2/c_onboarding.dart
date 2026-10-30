@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 import '../../features/onboarding_v2/curriculum_evidence_projector.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/learner_level.dart';
+import '../../motion/transitions.dart';
 import '../../widgets/sori/intro_motion.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/toast.dart';
 import '../../widgets/sori/tokens.dart' show SoriBreakpoints, Spacing;
 import '../../widgets/sori/type_scale.dart';
+import '../../widgets/sori/window_class.dart';
 import 'c_intro_art.dart';
 import 'c_intro_reference_setup.dart';
 import 'c_intro_reference_companion.dart';
@@ -23,7 +25,8 @@ import 'onboarding_v2_shell.dart' show showOnboardingV2ModalWithFocusRestore;
 import 'onboarding_v3_demo_support.dart';
 
 double _introCompression(BuildContext context, double width) =>
-    width <= 450 && IntroLayout.usesReferenceText(context)
+    width <= SoriAdaptiveWidth.onboardingReferenceColumn &&
+        IntroLayout.usesReferenceText(context)
     ? (934 - MediaQuery.sizeOf(context).height).clamp(0, 120).toDouble()
     : 0;
 
@@ -43,6 +46,7 @@ class COnboardingFrame extends StatelessWidget {
     this.backKey,
     this.onBack,
     this.continueLabelCandidates = const [],
+    this.naturalHeroExtent,
   });
   final int step;
   final String progress;
@@ -55,6 +59,7 @@ class COnboardingFrame extends StatelessWidget {
   final Key? backKey;
   final VoidCallback? onBack;
   final List<String> continueLabelCandidates;
+  final double Function(BuildContext context, double width)? naturalHeroExtent;
 
   @override
   Widget build(BuildContext context) => Theme(
@@ -75,6 +80,14 @@ class COnboardingFrame extends StatelessWidget {
             child: LayoutBuilder(
               builder: (context, bounds) {
                 final w = bounds.maxWidth;
+                final shortWindow =
+                    bounds.maxHeight - MediaQuery.paddingOf(context).vertical <
+                    520;
+                // Short landscape windows need native scrolling so portraits,
+                // readable copy and 48dp actions retain their actual height.
+                if (IntroLayout.usesReferenceText(context) && !shortWindow) {
+                  return _finiteLayout(context, bounds);
+                }
                 final reference =
                     w >= 360 && IntroLayout.usesReferenceText(context);
                 final ctaTop = const [
@@ -240,42 +253,52 @@ class COnboardingFrame extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(
-                          16,
-                          step == 2 && reference ? 4 : 12,
-                          16,
-                          math.max(
-                            footerBottom,
-                            MediaQuery.paddingOf(context).bottom,
-                          ),
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IntroAction(
-                              key: continueKey,
-                              label: continueLabel,
-                              onTap: onContinue,
-                              stableLabelCandidates: continueLabelCandidates,
+                      ColoredBox(
+                        // The scrolled jade artwork must not move behind the
+                        // fixed ink-colored back action in a short window.
+                        color: shortWindow
+                            ? IntroPalette.paper
+                            : Colors.transparent,
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(
+                            16,
+                            step == 2 && reference ? 4 : 12,
+                            16,
+                            math.max(
+                              footerBottom,
+                              MediaQuery.paddingOf(context).bottom,
                             ),
-                            if (onBack != null) ...[
-                              SizedBox(height: backGap),
-                              SoriTextAction(
-                                key: backKey,
-                                label: AppL10n.of(context).onboardingV2Back,
-                                onPressed: onBack,
-                                style: TextButton.styleFrom(
-                                  minimumSize: const Size(96, 48),
-                                  padding: const EdgeInsets.only(
-                                    top: IntroSpacing.backBaselineInset,
-                                  ),
-                                  alignment: Alignment.topCenter,
-                                ),
-                                textStyle: IntroTypography.backAction(step),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IntroAction(
+                                key: continueKey,
+                                label: continueLabel,
+                                onTap: onContinue,
+                                stableLabelCandidates: continueLabelCandidates,
                               ),
+                              if (onBack != null) ...[
+                                SizedBox(height: backGap),
+                                SoriTextAction(
+                                  key: backKey,
+                                  label: AppL10n.of(context).onboardingV2Back,
+                                  onPressed: onBack,
+                                  style: TextButton.styleFrom(
+                                    minimumSize: const Size(96, 48),
+                                    padding: const EdgeInsets.only(
+                                      top: IntroSpacing.backBaselineInset,
+                                    ),
+                                    alignment: Alignment.topCenter,
+                                  ),
+                                  textStyle: IntroTypography.localized(
+                                    context,
+                                    IntroTypography.backAction(step),
+                                  ),
+                                ),
+                              ],
                             ],
-                          ],
+                          ),
                         ),
                       ),
                     ],
@@ -288,6 +311,228 @@ class COnboardingFrame extends StatelessWidget {
       ),
     ),
   );
+
+  Widget _finiteLayout(BuildContext context, BoxConstraints bounds) {
+    final padding = MediaQuery.paddingOf(context);
+    final naturalGroup = step == 7 || naturalHeroExtent != null;
+    final contentWidth = bounds.maxWidth - padding.horizontal;
+    final availableHeight = bounds.maxHeight - padding.vertical;
+    final compactSetup =
+        step == 1 &&
+        bounds.maxWidth < SoriAdaptiveWidth.onboardingCompactBody &&
+        availableHeight < 740;
+    final headerHeight = compactSetup ? 60.0 : 77.0;
+    final compactFooter = onBack != null && availableHeight < 740;
+    final footerHeight = compactFooter || onBack == null ? 70.0 : 122.0;
+    final contentHeight = availableHeight - footerHeight;
+    final heroHeight = step == 1
+        ? compactSetup
+              ? (contentHeight - 402).clamp(116.0, 260.0)
+              : (contentHeight - 350).clamp(170.0, 260.0)
+        : step == 7
+        ? _IntroHero.naturalCompanionHeight(context, contentWidth)
+        : 0.0;
+    final paperTop = step == 1 || step == 7 ? heroHeight : contentHeight;
+    final header = Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: _IntroHeader(
+        step: step,
+        progress: progress,
+        compact: compactSetup,
+      ),
+    );
+    Widget headedHero() => SizedBox(
+      height: heroHeight,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          hero,
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            height: headerHeight,
+            child: header,
+          ),
+        ],
+      ),
+    );
+    final action = IntroAction(
+      key: continueKey,
+      label: continueLabel,
+      onTap: onContinue,
+      arrow: !compactFooter,
+      stableLabelCandidates: continueLabelCandidates,
+    );
+
+    return Stack(
+      children: [
+        const Positioned.fill(child: ColoredBox(color: IntroPalette.paper)),
+        Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          height: padding.top + paperTop,
+          child: const Stack(
+            fit: StackFit.expand,
+            children: [
+              CIntroArt('jade-surface', fit: BoxFit.cover),
+              ColoredBox(color: Color(0x99094838)),
+            ],
+          ),
+        ),
+        Positioned(
+          key: step == 1 || step == 7
+              ? const ValueKey('c-onboarding-paper-surface')
+              : null,
+          top: padding.top + paperTop,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          child: ClipRRect(
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(step == 1 ? IntroGeometry.paper : 0),
+            ),
+            child: const CIntroArt('paper-footer', fit: BoxFit.cover),
+          ),
+        ),
+        SafeArea(
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Column(
+              mainAxisSize: naturalGroup ? MainAxisSize.min : MainAxisSize.max,
+              children: [
+                Flexible(
+                  fit: naturalGroup ? FlexFit.loose : FlexFit.tight,
+                  child: Column(
+                    mainAxisSize: naturalGroup
+                        ? MainAxisSize.min
+                        : MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      if (step == 1 || step == 7) headedHero() else header,
+                      if (step == 1)
+                        Expanded(
+                          child: SizedBox.expand(key: bodyKey, child: body),
+                        )
+                      else if (step == 7)
+                        Flexible(
+                          fit: FlexFit.loose,
+                          child: SizedBox(
+                            key: bodyKey,
+                            width: contentWidth,
+                            child: body,
+                          ),
+                        )
+                      else ...[
+                        Flexible(
+                          fit: naturalGroup ? FlexFit.loose : FlexFit.tight,
+                          child: naturalHeroExtent == null
+                              ? hero
+                              : ConstrainedBox(
+                                  constraints: BoxConstraints(
+                                    maxHeight: naturalHeroExtent!(
+                                      context,
+                                      contentWidth,
+                                    ),
+                                  ),
+                                  child: hero,
+                                ),
+                        ),
+                        SizedBox(
+                          key: bodyKey,
+                          width: bounds.maxWidth,
+                          child: Stack(
+                            key: const ValueKey('c-onboarding-paper-surface'),
+                            clipBehavior: naturalGroup
+                                ? Clip.none
+                                : Clip.hardEdge,
+                            children: [
+                              if (naturalGroup)
+                                Positioned(
+                                  top: 0,
+                                  left: 0,
+                                  right: 0,
+                                  height: bounds.maxHeight,
+                                  child: const CIntroArt(
+                                    'paper-footer',
+                                    fit: BoxFit.cover,
+                                  ),
+                                )
+                              else
+                                const Positioned.fill(
+                                  child: CIntroArt(
+                                    'paper-footer',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              body,
+                            ],
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(12, 6, 12, 6),
+                  child: compactFooter
+                      ? Row(
+                          children: [
+                            MergeSemantics(
+                              key: backKey,
+                              child: Semantics(
+                                button: true,
+                                label: AppL10n.of(context).onboardingV2Back,
+                                onTap: onBack,
+                                child: IntroPressable(
+                                  onTap: onBack,
+                                  child: const SizedBox.square(
+                                    dimension: 48,
+                                    child: ExcludeSemantics(
+                                      child: Icon(
+                                        Icons.chevron_left,
+                                        color: IntroPalette.mutedInk,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(child: action),
+                          ],
+                        )
+                      : Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            action,
+                            if (onBack != null) ...[
+                              const SizedBox(height: 4),
+                              SoriTextAction(
+                                key: backKey,
+                                label: AppL10n.of(context).onboardingV2Back,
+                                onPressed: onBack,
+                                style: TextButton.styleFrom(
+                                  minimumSize: const Size(96, 48),
+                                ),
+                                textStyle: IntroTypography.localized(
+                                  context,
+                                  IntroTypography.backAction(step),
+                                ),
+                              ),
+                            ],
+                          ],
+                        ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }
 
 /// Keeps material boundaries attached to content without owning its scroll
@@ -365,7 +610,11 @@ class CIntroText extends StatelessWidget {
   Widget build(BuildContext context) => Text(
     text,
     textAlign: center ? TextAlign.center : TextAlign.start,
-    style: IntroTypography.body(size, bold, color),
+    style: IntroTypography.localized(
+      context,
+      IntroTypography.body(size, bold, color),
+      heading: bold && size >= 21,
+    ),
   );
 }
 
@@ -410,7 +659,10 @@ class IntroAction extends StatelessWidget {
                 final fontSize = gold
                     ? (arrow || compactGold ? 23.0 : 20.0)
                     : 16.0;
-                final textStyle = IntroTypography.primaryAction(fontSize, gold);
+                final textStyle = IntroTypography.localized(
+                  context,
+                  IntroTypography.primaryAction(fontSize, gold),
+                );
                 var stableHeight = 0.0;
                 if (large && stableLabelCandidates.isNotEmpty) {
                   for (final candidate in stableLabelCandidates) {
@@ -426,7 +678,10 @@ class IntroAction extends StatelessWidget {
                 final labelWidget = Text(
                   label,
                   textAlign: TextAlign.center,
-                  style: IntroTypography.primaryAction(fontSize, gold),
+                  style: IntroTypography.localized(
+                    context,
+                    IntroTypography.primaryAction(fontSize, gold),
+                  ),
                 );
                 final content = large
                     ? Padding(
@@ -550,34 +805,43 @@ class IntroAction extends StatelessWidget {
 }
 
 class _IntroHeader extends StatelessWidget {
-  const _IntroHeader({required this.step, required this.progress});
+  const _IntroHeader({
+    required this.step,
+    required this.progress,
+    this.compact = false,
+  });
   final int step;
   final String progress;
+  final bool compact;
   @override
   Widget build(BuildContext context) => SizedBox(
-    height: 77,
+    height: compact ? 60 : 77,
     child: Stack(
       clipBehavior: Clip.none,
       children: [
-        const Positioned(
+        Positioned(
           left: -4,
           top: 0,
-          width: 55,
-          height: 55,
-          child: CIntroArt('cloud-mark'),
+          width: compact ? 44 : 55,
+          height: compact ? 44 : 55,
+          child: const CIntroArt('cloud-mark'),
         ),
         Positioned(
-          left: 52,
-          top: 18,
+          left: compact ? 44 : 52,
+          top: compact ? 10 : 18,
           child: Text(
             AppL10n.of(context).onboardingCBrand,
-            textScaler: TextScaler.noScaling,
-            style: IntroTypography.brand,
+            textScaler: compact ? null : TextScaler.noScaling,
+            style: IntroTypography.localized(
+              context,
+              IntroTypography.brand,
+              heading: true,
+            ),
           ),
         ),
         Positioned(
           right: 0,
-          top: 15,
+          top: compact ? 7 : 15,
           width: 66,
           child: Semantics(
             label: progress,
@@ -585,14 +849,18 @@ class _IntroHeader extends StatelessWidget {
             child: Text(
               '${step.toString().padLeft(2, '0')}/07',
               textAlign: TextAlign.right,
-              textScaler: TextScaler.noScaling,
-              style: IntroTypography.progress,
+              textScaler: compact ? null : TextScaler.noScaling,
+              style: IntroTypography.localized(
+                context,
+                IntroTypography.progress,
+                heading: true,
+              ),
             ),
           ),
         ),
         Positioned(
-          left: 54,
-          top: 53,
+          left: compact ? 44 : 54,
+          top: compact ? 40 : 53,
           width: 227.2,
           height: 16,
           child: ExcludeSemantics(
@@ -643,12 +911,99 @@ class _IntroHero extends StatelessWidget {
   final VoidCallback? onPreview;
   final Key? previewKey;
   final bool showPreviewButton;
+
+  static double naturalCompanionHeight(BuildContext context, double width) {
+    final style = IntroTypography.localized(
+      context,
+      IntroTypography.companionTitle(1),
+      heading: true,
+    ).copyWith(fontSize: 24, height: 1.1);
+    final painter = TextPainter(
+      text: TextSpan(
+        text: AppL10n.of(context).onboardingCCompanionTitle,
+        style: style,
+      ),
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+    )..layout(maxWidth: width - 28);
+    final height = 77 + painter.height + 4;
+    painter.dispose();
+    return height;
+  }
+
   @override
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, bounds) {
       final scale = bounds.maxWidth / 402;
       final compression = _introCompression(context, bounds.maxWidth);
       final large = !IntroLayout.usesReferenceText(context);
+      if (bounds.hasBoundedHeight && !large && (setup || scene == null)) {
+        final compact = bounds.maxHeight < 210;
+        final compactSetup =
+            setup &&
+            bounds.maxWidth < SoriAdaptiveWidth.onboardingCompactBody &&
+            bounds.maxHeight < 240;
+        final titleStyle = setup
+            ? IntroTypography.localized(
+                context,
+                IntroTypography.setupTitle(1),
+                heading: true,
+              )
+            : IntroTypography.localized(
+                context,
+                IntroTypography.companionTitle(1),
+                heading: true,
+              );
+        final headingStyle = titleStyle.copyWith(
+          fontSize: setup
+              ? (compact || compactSetup ? 22 : 28)
+              : (compact ? 24 : 30),
+          height: 1.1,
+        );
+        final nativeHeading = Semantics(
+          header: true,
+          child: Text(title, style: headingStyle),
+        );
+        if (compactSetup) {
+          final portraitWidth = (bounds.maxWidth - 252).clamp(68.0, 100.0);
+          final painter = TextPainter(
+            text: TextSpan(text: title, style: headingStyle),
+            textDirection: Directionality.of(context),
+            textScaler: MediaQuery.textScalerOf(context),
+            locale: Localizations.localeOf(context),
+          )..layout(maxWidth: bounds.maxWidth - 28 - 8 - portraitWidth);
+          final headingHeight = painter.height;
+          painter.dispose();
+          return Padding(
+            padding: const EdgeInsets.fromLTRB(16, 60, 12, 4),
+            child: Row(
+              children: [
+                Expanded(
+                  child: SizedBox(height: headingHeight, child: nativeHeading),
+                ),
+                const SizedBox(width: 8),
+                SizedBox(
+                  width: portraitWidth,
+                  height: math.min(bounds.maxHeight - 64, portraitWidth * 1.15),
+                  child: const CIntroArt('taego-header'),
+                ),
+              ],
+            ),
+          );
+        }
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(16, 77, 12, 4),
+          child: setup
+              ? Row(
+                  children: [
+                    Expanded(flex: 3, child: nativeHeading),
+                    const SizedBox(width: 4),
+                    const Expanded(flex: 2, child: CIntroArt('taego-header')),
+                  ],
+                )
+              : Align(alignment: Alignment.centerLeft, child: nativeHeading),
+        );
+      }
       final heading = Semantics(
         header: true,
         child: CIntroText(
@@ -694,7 +1049,11 @@ class _IntroHero extends StatelessWidget {
                   header: true,
                   child: Text(
                     title,
-                    style: IntroTypography.companionTitle(scale),
+                    style: IntroTypography.localized(
+                      context,
+                      IntroTypography.companionTitle(scale),
+                      heading: true,
+                    ),
                   ),
                 ),
               ),
@@ -735,7 +1094,14 @@ class _IntroHero extends StatelessWidget {
                 width: 274 * scale,
                 child: Semantics(
                   header: true,
-                  child: Text(title, style: IntroTypography.setupTitle(scale)),
+                  child: Text(
+                    title,
+                    style: IntroTypography.localized(
+                      context,
+                      IntroTypography.setupTitle(scale),
+                      heading: true,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -894,7 +1260,10 @@ class _IntroHero extends StatelessWidget {
         borderRadius: BorderRadius.circular(IntroGeometry.preview),
       ),
     ),
-    textStyle: IntroTypography.body(16, true, IntroPalette.ink),
+    textStyle: IntroTypography.localized(
+      context,
+      IntroTypography.body(16, true, IntroPalette.ink),
+    ),
   );
 }
 
@@ -942,8 +1311,7 @@ class COnboardingSetup extends StatelessWidget {
       bodyKey: const ValueKey('onboarding-v2-setup-scroll'),
       body: LayoutBuilder(
         builder: (context, bounds) {
-          if (bounds.maxWidth >= SoriBreakpoints.narrowPhone &&
-              IntroLayout.usesReferenceText(context)) {
+          if (IntroLayout.usesReferenceText(context)) {
             return IntroReferenceSetup(
               copy: copy,
               selectedPurposeId: selectedPurposeId,
@@ -1412,7 +1780,10 @@ class _COnboardingSoundSceneState
               ? Center(
                   child: Text(
                     label,
-                    style: IntroTypography.primaryAction(20, true),
+                    style: IntroTypography.localized(
+                      context,
+                      IntroTypography.primaryAction(20, true),
+                    ),
                   ),
                 )
               : const SizedBox.expand(),
@@ -1492,16 +1863,40 @@ class _COnboardingSoundSceneState
     }
     return LayoutBuilder(
       builder: (context, bounds) {
-        const speaker = SizedBox.square(
-          dimension: 100,
-          child: CIntroArt('speaker'),
+        final speaker = Semantics(
+          button: true,
+          selected: demoPlaying,
+          label: label,
+          onTap: _listen,
+          child: ExcludeSemantics(
+            child: IntroPressable(
+              key: const ValueKey('c-onboarding-original-speaker'),
+              onTap: _listen,
+              pressScale: .995,
+              surfaceDepth: 0,
+              child: const SizedBox.square(
+                dimension: 48,
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    IntroAssetBody(
+                      name: 'speaker',
+                      canvas: Size(1312, 1199),
+                      body: Rect.fromLTRB(198, 207, 1120, 1047),
+                      visibleWidth: 48,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
         );
         if (bounds.maxWidth < SoriBreakpoints.introAccessibleStack &&
             MediaQuery.textScalerOf(context).scale(20) > 28) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Center(child: speaker),
+              Center(child: speaker),
               const SizedBox(height: IntroSpacing.inlineGap),
               action,
             ],
@@ -1510,7 +1905,7 @@ class _COnboardingSoundSceneState
         return Row(
           children: [
             speaker,
-            const SizedBox(width: 12),
+            const SizedBox(width: 8),
             Expanded(child: action),
           ],
         );
@@ -1591,11 +1986,17 @@ class COnboardingStory extends StatelessWidget {
     };
     return COnboardingFrame(
       step: pageIndex + 2,
+      naturalHeroExtent: pageIndex == 1
+          ? (context, width) => IntroReferenceStoryHero.naturalSoundHeight(
+              context,
+              width,
+              title,
+            )
+          : null,
       progress: copy.navigation.progress(pageIndex + 2, 7),
       hero: LayoutBuilder(
         builder: (context, bounds) {
-          if (bounds.maxWidth >= SoriBreakpoints.narrowPhone &&
-              IntroLayout.usesReferenceText(context)) {
+          if (IntroLayout.usesReferenceText(context)) {
             return IntroReferenceStoryHero(
               index: pageIndex,
               title: title,
@@ -1619,8 +2020,7 @@ class COnboardingStory extends StatelessWidget {
       bodyKey: ValueKey('onboarding-v2-story-scroll-${ids[pageIndex]}'),
       body: LayoutBuilder(
         builder: (context, bounds) {
-          if (bounds.maxWidth >= SoriBreakpoints.narrowPhone &&
-              IntroLayout.usesReferenceText(context)) {
+          if (IntroLayout.usesReferenceText(context)) {
             return IntroReferenceStoryBody(
               index: pageIndex,
               summary: summary,
@@ -1681,6 +2081,14 @@ class COnboardingStory extends StatelessWidget {
   }
 
   void _openPreview(BuildContext context, String label) {
+    if (pageIndex == 2) {
+      Navigator.of(context).push<void>(
+        SoriPageRoute<void>(
+          builder: (_) => OnboardingGamesDemo.fullScreen(level: level),
+        ),
+      );
+      return;
+    }
     final preview = switch (pageIndex) {
       0 => OnboardingPathScene(
         level: level,
@@ -1694,7 +2102,12 @@ class COnboardingStory extends StatelessWidget {
       3 => OnboardingBookScene(level: level),
       _ => const OnboardingHanokScene(),
     };
-    showCOnboardingSheet(context, title: label, body: preview);
+    showCOnboardingSheet(
+      context,
+      title: label,
+      body: preview,
+      naturalBody: pageIndex == 1 || pageIndex == 3,
+    );
   }
 }
 
@@ -1722,13 +2135,18 @@ class COnboardingCompanion extends StatelessWidget {
       bodyKey: const ValueKey('onboarding-v2-companion-scroll'),
       body: LayoutBuilder(
         builder: (context, bounds) {
-          if (bounds.maxWidth >= SoriBreakpoints.narrowPhone &&
-              IntroLayout.usesReferenceText(context)) {
-            return IntroReferenceCompanion(
+          if (IntroLayout.usesReferenceText(context)) {
+            final companions = IntroReferenceCompanion(
               copy: copy,
               selectedCompanionId: selectedCompanionId,
               onCompanionChanged: onCompanionChanged,
             );
+            // The short-window scroller still uses native 16dp role copy.
+            // Give the finite card layout room instead of scaling its text
+            // with the old reference drawing's width.
+            return bounds.hasBoundedHeight
+                ? companions
+                : SizedBox(height: 525, child: companions);
           }
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -1907,6 +2325,7 @@ Future<void> showCOnboardingSheet(
   BuildContext context, {
   required String title,
   required Widget body,
+  bool naturalBody = false,
 }) async {
   final verticalInset =
       MediaQuery.sizeOf(context).height < IntroGeometry.previewWorkingHeight &&
@@ -1920,9 +2339,12 @@ Future<void> showCOnboardingSheet(
         backgroundColor: IntroPalette.paper,
       ),
       builder: (sheet) => SoriViewportTypeScale(
-        child: SizedBox(
-          height: MediaQuery.sizeOf(sheet).height * .88,
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.sizeOf(sheet).height * .88,
+          ),
           child: Column(
+            mainAxisSize: naturalBody ? MainAxisSize.min : MainAxisSize.max,
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(
@@ -1934,7 +2356,10 @@ Future<void> showCOnboardingSheet(
                   child: CIntroText(title, size: 24, bold: true),
                 ),
               ),
-              Expanded(child: body),
+              Flexible(
+                fit: naturalBody ? FlexFit.loose : FlexFit.tight,
+                child: body,
+              ),
               SafeArea(
                 top: false,
                 child: Padding(
