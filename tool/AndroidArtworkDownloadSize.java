@@ -38,14 +38,22 @@ public final class AndroidArtworkDownloadSize {
     return "\"" + value.replace("\\", "\\\\").replace("\"", "\\\"")
         .replace("\n", "\\n").replace("\r", "\\r").replace("\t", "\\t") + "\"";
   }
-  private static String digest(InputStream input) throws Exception {
+  private record EntryDigest(String sha256, long bytes) {}
+  private static EntryDigest digestEntry(InputStream input) throws Exception {
     MessageDigest sha = MessageDigest.getInstance("SHA-256");
     byte[] buffer = new byte[65536];
     int count;
-    while ((count = input.read(buffer)) != -1) { sha.update(buffer, 0, count); }
+    long bytes = 0;
+    while ((count = input.read(buffer)) != -1) {
+      sha.update(buffer, 0, count);
+      bytes += count;
+    }
     StringBuilder result = new StringBuilder();
     for (byte b : sha.digest()) { result.append(String.format("%02x", b & 255)); }
-    return result.toString();
+    return new EntryDigest(result.toString(), bytes);
+  }
+  private static String digest(InputStream input) throws Exception {
+    return digestEntry(input).sha256();
   }
   private static String fileDigest(Path file) throws Exception {
     try (InputStream input = Files.newInputStream(file)) { return digest(input); }
@@ -90,9 +98,13 @@ public final class AndroidArtworkDownloadSize {
         String name = payload.getName();
         if (name.endsWith(".dex") || name.startsWith("lib/")) {
           codeEntries.add(name);
-          require(name.equals("classes.dex") && digest(apk).equals(REVIEWED_RESOURCE_DEX)
+          require(name.equals("classes.dex"), "Artwork contains unexpected application code: " + name);
+          EntryDigest marker = digestEntry(apk);
+          require(marker.sha256().equals(REVIEWED_RESOURCE_DEX) && marker.bytes() == 748
               && payload.getSize() == 748,
-              "Artwork contains code other than its reviewed empty resource marker: " + name);
+              "Artwork resource marker differs from reviewed pin: " + name
+                  + " actualBytes=" + marker.bytes() + " zipBytes=" + payload.getSize()
+                  + " sha256=" + marker.sha256());
         }
         if (name.startsWith(APK_PREFIX + ART) && !payload.isDirectory()) {
           String key = name.substring(APK_PREFIX.length());
