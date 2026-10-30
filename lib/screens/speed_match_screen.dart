@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/haptic_service.dart';
 import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
@@ -587,7 +588,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
         title: t.speedMatchTitle,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_encourage.png',
+            asset: CanonicalCompanionArt.magpieGuide,
             icon: Icons.bolt_rounded,
             title: t.speedMatchTitle,
             body: t.speedMatchEmptyBody,

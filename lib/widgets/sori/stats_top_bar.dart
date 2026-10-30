@@ -97,7 +97,7 @@ class SoriStatsTopBar extends StatelessWidget {
               icon: Icons.local_fire_department_rounded,
               color: SoriColors.warning,
               label: '$streak',
-              semanticLabel: '$streak ${t.statsDays}',
+              semanticLabel: t.streakDisplay(streak),
               onTap: onStreakTap,
             );
             final levelChip = _HeaderChip(

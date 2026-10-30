@@ -9,6 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/features/onboarding_v2/first_run_coordinator.dart';
+import 'package:ko_lernen_app/data/canonical_companion_art.dart';
 import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_repository.dart';
 import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_state.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
@@ -533,6 +534,64 @@ void main() {
     await _disposeEntry(tester);
   });
 
+  for (final failPortrait in [false, true]) {
+    testWidgets('code gate keeps skip usable after companion image failure '
+        '(portrait also missing: $failPortrait)', (tester) async {
+      PaintingBinding.instance.imageCache.clear();
+      PaintingBinding.instance.imageCache.clearLiveImages();
+      final repository = _MemoryJourneyRepository(_gateState());
+      final bundle = _MissingGateCompanionBundle(failPortrait: failPortrait);
+      await _pumpEntry(
+        tester,
+        DefaultAssetBundle(
+          bundle: bundle,
+          child: IntroGateScreen(
+            firstRunCoordinator: _coordinator(repository: repository),
+          ),
+        ),
+        locale: const Locale('en'),
+        viewport: (size: const Size(390, 844), textScale: 1),
+        disableAnimations: false,
+      );
+      await _pumpUntilFound(tester, find.byKey(const ValueKey('intro-skip')));
+      await tester.pump(const Duration(milliseconds: 1600));
+      for (var frame = 0; frame < 6; frame++) {
+        await tester.pump();
+      }
+      expect(bundle.attemptedCompanions, [
+        CanonicalCompanionArt.magpieStanding,
+        CanonicalCompanionArt.magpiePortrait,
+      ]);
+      final portrait = find.image(
+        const AssetImage(CanonicalCompanionArt.magpiePortrait),
+      );
+      expect(portrait, findsOneWidget);
+      expect(
+        find.descendant(of: portrait, matching: find.byType(RawImage)),
+        failPortrait ? findsNothing : findsOneWidget,
+      );
+      if (failPortrait) {
+        expect(
+          find.descendant(
+            of: portrait,
+            matching: find.byWidgetPredicate(
+              (widget) =>
+                  widget is SizedBox && widget.width == 0 && widget.height == 0,
+            ),
+          ),
+          findsOneWidget,
+        );
+      }
+      expect(repository.state!.gateIntroConsumed, isFalse);
+      expect(tester.takeException(), isNull);
+      await _tapPointerOwned(tester, find.byKey(const ValueKey('intro-skip')));
+      await _pumpUntilFound(tester, find.byType(AppShell));
+      expect(repository.state!.phase, OnboardingPhase.complete);
+      expect(tester.takeException(), isNull);
+      await _disposeEntry(tester);
+    });
+  }
+
   testWidgets(
     'gate skip surface accepts Enter Space and Escape across presentation states',
     (tester) async {
@@ -1048,6 +1107,24 @@ OnboardingJourneyState _gateState() {
     companionDraft: OnboardingCompanion.taego,
     commitStage: OnboardingCommitStage.completed,
   );
+}
+
+class _MissingGateCompanionBundle extends CachingAssetBundle {
+  _MissingGateCompanionBundle({required this.failPortrait});
+  final bool failPortrait;
+  final attemptedCompanions = <String>[];
+
+  @override
+  Future<ByteData> load(String key) {
+    if (key == CanonicalCompanionArt.magpieStanding ||
+        key == CanonicalCompanionArt.magpiePortrait) {
+      attemptedCompanions.add(key);
+      if (key == CanonicalCompanionArt.magpieStanding || failPortrait) {
+        return Future.error(StateError('Missing test companion asset: $key'));
+      }
+    }
+    return rootBundle.load(key);
+  }
 }
 
 class _MemoryJourneyRepository implements OnboardingJourneyRepository {

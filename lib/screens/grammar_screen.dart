@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/haptic_service.dart';
 import '../services/learning_journey.dart';
 import 'dart:async';
@@ -1820,7 +1821,7 @@ class _GrammarScreenState extends State<GrammarScreen>
         child: SoriStudyFrame(
           title: t.screenGrammarTitle,
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_wave.png',
+            asset: CanonicalCompanionArt.magpieGuide,
             icon: Icons.menu_book_outlined,
             title: t.emptyGrammar,
             ctaLabel: _isCoursePractice ? null : t.filterOpenBtn,

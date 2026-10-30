@@ -49,7 +49,7 @@ admin.initializeApp();
 
 const bridge = createAuthUserDeletionBridge({ firestore: admin.firestore() });
 
-exports.on_auth_user_deleted = functionsV1
+const deletionTrigger = functionsV1
   .region("europe-west3")
   .auth.user()
   .onDelete(async (user) => {
@@ -57,3 +57,20 @@ exports.on_auth_user_deleted = functionsV1
     // 던져야 실행이 실패로 기록되고 --retry 가 다시 시도한다.
     return bridge({ uid: user.uid });
   });
+
+// Gen-1 deployments can omit the legacy variable required by the Auth SDK
+// before it enters our callback. Use only the provider's project context, as
+// with the account-creation observer; never infer a project from user data.
+const onAuthUserDeleted = (data, context) => {
+  if (!process.env.GCLOUD_PROJECT) {
+    const resource = typeof context?.resource === "string"
+      ? context.resource : context?.resource?.name;
+    const project = typeof resource === "string"
+      ? /^projects\/([^/]+)$/.exec(resource) : null;
+    if (project) process.env.GCLOUD_PROJECT = project[1];
+  }
+  return deletionTrigger(data, context);
+};
+// Retain lazy deployment descriptors and the SDK's original test handler.
+Object.defineProperties(onAuthUserDeleted, Object.getOwnPropertyDescriptors(deletionTrigger));
+exports.on_auth_user_deleted = onAuthUserDeleted;

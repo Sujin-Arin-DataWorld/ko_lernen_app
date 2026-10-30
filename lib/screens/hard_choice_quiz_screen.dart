@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -400,7 +401,7 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
 
   Widget _buildEmpty(AppL10n t, int presentation) => Center(
     child: SoriEmptyState(
-      asset: 'assets/illustrations/mascot/magpie_encourage.png',
+      asset: CanonicalCompanionArt.magpieGuide,
       icon: Icons.fact_check_outlined,
       title: t.hardWordsEmptyTitle,
       body: t.hardWordsEmptyBody,

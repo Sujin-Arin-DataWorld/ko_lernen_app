@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -169,7 +170,7 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
         else if (deck.isEmpty)
           SoriEmptyState(
             // §E5: ASSET_GAP §3-2 "복습 완료" 배선 — 기존 마스코트 재사용.
-            asset: 'assets/illustrations/mascot/magpie_celebrate.png',
+            asset: CanonicalCompanionArt.magpieCelebrate,
             icon: Icons.today_outlined,
             title: t.reviewHubEmptyToday,
           )

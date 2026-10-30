@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/learning_journey.dart';
 import 'package:flutter/material.dart';
 
@@ -250,7 +251,7 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
   Widget _buildEmpty(AppL10n t) {
     return Center(
       child: SoriEmptyState(
-        asset: 'assets/illustrations/mascot/magpie_encourage.png',
+        asset: CanonicalCompanionArt.magpieGuide,
         icon: Icons.hub_outlined,
         title: t.wordWebQuizEmptyTitle,
         body: t.wordWebQuizEmptyBody,

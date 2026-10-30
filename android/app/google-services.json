@@ -38,6 +38,14 @@
           }
         },
         {
+          "client_id": "573567222361-bcg06id7ll6pgdbabcvphvdt0fvi9ukp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sujinarin.ko_lernen_app",
+            "certificate_hash": "d0700389ab3c8a0b7289a0e5b30096ff2826da6e"
+          }
+        },
+        {
           "client_id": "573567222361-spcm503sda3g4qftb21lqbogehk4nic8.apps.googleusercontent.com",
           "client_type": 3
         }

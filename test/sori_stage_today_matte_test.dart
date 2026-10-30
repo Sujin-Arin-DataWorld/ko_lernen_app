@@ -123,10 +123,12 @@ void main() {
     },
   );
 
-  testWidgets('까치 홈 히어로는 기존 보행 루프와 하단 기준을 유지한다', (tester) async {
+  testWidgets('까치 홈 히어로는 정본 PNG에 예전 영상 확대를 적용하지 않는다', (tester) async {
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
         home: const Scaffold(
           body: SoriCharacterHero(
             greeting: 'Hello',
@@ -143,10 +145,8 @@ void main() {
       find.byType(CharacterClipPlayer),
     );
     expect(player.asset, HomeHeroClips.magpieWalkingFront);
-    final scale = tester.widget<Transform>(
-      find.byKey(const ValueKey('home_hero_magpie_scale')),
-    );
-    expect(scale.alignment, Alignment.bottomCenter);
+    expect(CharacterClips.retiredStillFor(player.asset), isNotNull);
+    expect(find.byKey(const ValueKey('home_hero_magpie_scale')), findsNothing);
   });
 
   testWidgets('아침 9시 인사말이 헤더를 대신한다', (tester) async {

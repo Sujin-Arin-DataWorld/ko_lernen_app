@@ -2,27 +2,26 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../data/canonical_companion_art.dart';
+import '../practice_dokkaebi_art.dart';
 import 'tokens.dart';
 import 'activity_illustration.dart';
 import '../../l10n/generated/app_localizations.dart';
 
-/// Sori mascot widget backed by separated tiger and magpie pose PNGs.
+/// Sori companions backed by the user's canonical Baekho and Magpie stills.
 ///
 /// The public API stays compatible with the older combined welcome-hero based
 /// widget. Callers keep using [Mascot.tiger], [Mascot.magpie], and
 /// [Mascot.forSpeaker], while this widget selects the right pose internally.
 class Mascot extends StatefulWidget {
-  /// 호랑이 마스코트 정지 한 장. **잠금 자산** — 바꾸려면
-  /// `test/mascot_asset_lock_test.dart` 를 먼저 고쳐야 한다(Jin 2026-08-25).
-  static const String kTigerAsset =
-      'assets/illustrations/mascot/tiger_front.png';
+  /// Stable Taego identity, presented with the user's canonical Baekho artwork.
+  static const String kTigerAsset = CanonicalCompanionArt.baekhoStanding;
 
   final MascotKind kind;
   final MascotEmotion emotion;
   final double size;
 
-  /// Gentle idle motion. Tiger breathes and blinks; magpie can flap while
-  /// flying contexts use it.
+  /// Optional gentle Magpie motion, respecting the existing motion preference.
   final bool animate;
 
   const Mascot({
@@ -98,21 +97,12 @@ class Mascot extends StatefulWidget {
 // TickerProviderStateMixin (nicht Single): _motion kann beim Umschalten von
 // widget.animate (true→false→true) mehrfach neu erstellt werden.
 class _MascotState extends State<Mascot> with TickerProviderStateMixin {
-  // Jin 2026-08-06: 호랑이는 감정·프레임 구분 없이 정지 한 장으로 통일
-  // (옛 tiger_* 포즈 PNG 전량 폐지). 까치는 기존 포즈 시스템 유지.
-  //
-  // Jin 2026-08-25: 단일 포즈 규칙은 그대로 두고 **어느 한 장이냐만** 바꿨다.
-  // 옛 `tiger_sitting2.png` 는 누워서 정면을 보는 자세라 정지 상태에서 축 처져
-  // 보였다 — 같은 그림인 `tiger_sitting2.mp4` 는 움직이니 괜찮았지만 마스코트는
-  // 항상 멈춰 있다. 새 `tiger_front.png` 는 정본 페어 아트
-  // `magpie_tiger_together.png` 속 호랑이와 같은 태고 저폴리 캐논·같은 서 있는
-  // 자세다. 화풍이 아니라 자세만 바꿨다.
+  // Stored Tiger/Magpie identity remains compatible; actual state selects
+  // reviewed canonical stills without creating progress or rewards.
   static const _tigerAsset = Mascot.kTigerAsset;
 
-  /// 조이 정면 — 태고의 `tiger_neutral`(정면)과 짝을 맞추는 중립 자세.
-  /// 기존 중립 정지는 `magpie_perched`(측면)이라 태고는 사용자를 보고
-  /// 조이는 옆을 보는 비대칭이 있었다.
-  static const _magpieFront = 'assets/illustrations/mascot/magpie_front.png';
+  /// Joy's canonical default posture.
+  static const _magpieFront = CanonicalCompanionArt.magpieStanding;
 
   AnimationController? _motion;
 
@@ -167,12 +157,25 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   }
 
   String _assetFor(double t, {required bool animating}) {
-    // Approved mature silhouettes remain consistent across every state.
-    return _isMagpie ? _magpieFront : _tigerAsset;
+    if (_isMagpie) {
+      return switch (widget.emotion) {
+        MascotEmotion.celebrate ||
+        MascotEmotion.surprised => CanonicalCompanionArt.magpieCelebrate,
+        MascotEmotion.thinking ||
+        MascotEmotion.worry => CanonicalCompanionArt.magpieGuide,
+        _ => _magpieFront,
+      };
+    }
+    return switch (widget.emotion) {
+      MascotEmotion.thinking ||
+      MascotEmotion.worry => CanonicalCompanionArt.baekhoGuide,
+      MascotEmotion.sleepy => CanonicalCompanionArt.baekhoSeated,
+      _ => _tigerAsset,
+    };
   }
 
   String get _semanticsLabel {
-    final kindLabel = _isMagpie ? '까치' : '호랑이';
+    final kindLabel = _isMagpie ? '까치' : '백호';
     final emotionLabel = switch (widget.emotion) {
       MascotEmotion.celebrate => ', 축하',
       MascotEmotion.worry => ', 걱정',
@@ -251,19 +254,13 @@ class _Fallback extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isMagpie = kind == MascotKind.magpie;
-    final color = isMagpie ? const Color(0xFF5A7BA0) : const Color(0xFFFF8C42);
-    return Container(
+    return SizedBox(
       width: size,
       height: size,
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.18),
-        shape: BoxShape.circle,
-      ),
-      alignment: Alignment.center,
-      child: Text(
-        isMagpie ? '🐦' : '🐯',
-        style: TextStyle(fontSize: size * 0.5, height: 1),
+      child: Icon(
+        Icons.pets_outlined,
+        color: SoriSurfaces.of(context).textMuted,
+        size: size * 0.5,
       ),
     );
   }
@@ -315,7 +312,7 @@ class SoriCultureComment extends StatelessWidget {
         t.cultureHahoeMaskHint,
       ),
       SoriCulturalRole.dokkaebi => (
-        SoriArtwork.dokkaebi,
+        PracticeDokkaebiPose.inviting.asset,
         t.cultureDokkaebiName,
         t.cultureDokkaebiLineKo,
         t.cultureDokkaebiLine,
