@@ -117,7 +117,8 @@ android {
     namespace = "com.sujinarin.ko_lernen_app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
-    dynamicFeatures += setOf(":proofreading_feature", ":c_artwork")
+    dynamicFeatures += setOf(":proofreading_feature")
+    dynamicFeatures += setOf(":c_artwork")
 
     compileOptions {
         // M3: flutter_local_notifications braucht core library desugaring

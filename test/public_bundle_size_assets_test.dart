@@ -162,6 +162,30 @@ void main() {
     },
   );
 
+  test(
+    'every approved Figma image mapping resolves in the real bundle',
+    () async {
+      final assets = (await AssetManifest.loadFromAssetBundle(
+        rootBundle,
+      )).listAssets().toSet();
+      final mapping =
+          jsonDecode(
+                await rootBundle.loadString(
+                  'assets/illustrations/concept_c/approved_20261018/figma-assets.json',
+                ),
+              )
+              as Map<String, dynamic>;
+      for (final path in mapping.values.cast<String>()) {
+        expect(assets, contains(path), reason: path);
+        expect((await rootBundle.load(path)).lengthInBytes, greaterThan(0));
+      }
+      expect(
+        mapping['8971d77b820b68883c8029704ba31f01c1d3f059'],
+        SoriCMaterialAssets.jade,
+      );
+    },
+  );
+
   testWidgets('intro cloud reuses the approved complete original', (
     tester,
   ) async {
