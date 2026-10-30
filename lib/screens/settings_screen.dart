@@ -37,6 +37,7 @@ import '../services/account/account_failure_diagnostics.dart';
 import '../services/account/account_failure_reason.dart';
 import '../services/account/account_transition_coordinator.dart';
 import '../services/account/account_ui_operations.dart';
+import '../services/account/account_switch_resolution.dart';
 import '../services/account/cloud_backup_deletion.dart';
 import '../services/account/cloud_restore_result.dart';
 import '../services/account/cloud_write_session.dart';
@@ -48,6 +49,7 @@ import '../models/scenario.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../motion/transitions.dart';
 import '../widgets/sori/account_operation_ui.dart';
+import '../widgets/sori/account_progress_recovery_sheet.dart';
 import 'placement_diagnostic_screen.dart';
 import 'hanok_downloads_screen.dart';
 
@@ -371,6 +373,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool _updateChecking = false;
   String? _updateMessage;
   DateTime? _lastBackupAt;
+  bool _backupBusy = false;
+  AccountSwitchResolutionOutcome? _backupRecoveryOutcome;
   final ScrollController _scrollController = ScrollController();
   final GlobalKey _courseStartKey = GlobalKey();
   final GlobalKey _browseLevelKey = GlobalKey();
@@ -378,6 +382,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   final GlobalKey _voiceSpeedKey = GlobalKey();
   final GlobalKey _guideKey = GlobalKey();
   final GlobalKey _accountSectionKey = GlobalKey();
+  final GlobalKey _backupTileKey = GlobalKey();
+  final FocusNode _backupFocusNode = FocusNode();
   final GlobalKey _accountDeletionKey = GlobalKey();
   final FocusNode _courseStartFocusNode = FocusNode(
     debugLabel: 'settings-course-start',
@@ -405,6 +411,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   AccountUiOperations get _accountOperations =>
       widget.accountOperations ?? const ProductionAccountUiOperations();
+
+  bool get _needsProgressReview {
+    final operations = _accountOperations;
+    return operations is AccountUiPendingStateSource &&
+        (operations as AccountUiPendingStateSource).pendingState.value ==
+            AccountUiPendingState.switchResolutionNeeded;
+  }
+
+  Widget _cloudStatus(AppL10n t) {
+    final operations = _accountOperations;
+    if (operations is! AccountUiPendingStateSource) {
+      return Text(t.settingsCloudSignedInDesc);
+    }
+    return ValueListenableBuilder<AccountUiPendingState>(
+      valueListenable: (operations as AccountUiPendingStateSource).pendingState,
+      builder: (context, state, _) => Text(
+        state == AccountUiPendingState.switchResolutionNeeded
+            ? t.accountRecoveryBackupWaiting
+            : t.settingsCloudSignedInDesc,
+      ),
+    );
+  }
 
   ValueListenable<CloudBackupDeletionJournalState>
   get _cloudDataDeletionJournalState =>
@@ -508,6 +536,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   void dispose() {
     _scrollController.dispose();
+    _backupFocusNode.dispose();
     _courseStartFocusNode.dispose();
     _browseLevelFocusNode.dispose();
     _companionFocusNode.dispose();
@@ -813,6 +842,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
           retryLocalDeletion: _onDeleteAccount,
           cloudDeletionState: _cloudDataDeletionJournalState,
           resumeCloudDeletion: _onDeleteCloudData,
+          onSwitchResolved: () async {
+            if (mounted) {
+              setState(
+                () => _backupRecoveryOutcome =
+                    AccountSwitchResolutionOutcome.completed,
+              );
+            }
+            await _revealBackupAction();
+          },
           onCompleted: () async {
             if (mounted) setState(() {});
           },
@@ -877,7 +915,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     : _providerLabel(t, providers),
               ),
             ),
-            subtitle: Text(t.settingsCloudSignedInDesc),
+            subtitle: _cloudStatus(t),
           ),
           AccountNewLinkGuard(
             operations: _accountOperations,
@@ -886,17 +924,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ValueListenableBuilder<CloudBackupDeletionJournalState>(
                   valueListenable: _cloudDataDeletionJournalState,
                   builder: (context, cloudDeletionState, _) => ListTile(
+                    key: _backupTileKey,
+                    focusNode: _backupFocusNode,
                     leading: const Icon(Icons.cloud_upload_outlined),
                     title: Text(t.settingsCloudBackupNow),
                     subtitle: Text(
-                      _lastBackupAt == null
-                          ? t.settingsCloudLastBackupNever
-                          : t.settingsCloudLastBackup(
-                              _formatBackupTime(_lastBackupAt!),
-                            ),
+                      [
+                        if (_backupRecoveryOutcome != null)
+                          accountProgressRecoveryMessage(
+                            t,
+                            _backupRecoveryOutcome!,
+                          ),
+                        _lastBackupAt == null
+                            ? t.settingsCloudLastBackupNever
+                            : t.settingsCloudLastBackup(
+                                _formatBackupTime(_lastBackupAt!),
+                              ),
+                      ].join('\n'),
                     ),
                     onTap:
-                        accountActionsAvailable &&
+                        (accountActionsAvailable || _needsProgressReview) &&
                             cloudDeletionState ==
                                 CloudBackupDeletionJournalState.clear
                         ? _onBackupTap
@@ -1874,15 +1921,52 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
+  Future<void> _revealBackupAction() async {
+    await WidgetsBinding.instance.endOfFrame;
+    if (!mounted) return;
+    final target =
+        _backupTileKey.currentContext ?? _accountSectionKey.currentContext;
+    if (target == null || !target.mounted) return;
+    await Scrollable.ensureVisible(
+      target,
+      alignment: .25,
+      duration: MediaQuery.disableAnimationsOf(context)
+          ? Duration.zero
+          : const Duration(milliseconds: 180),
+    );
+    if (mounted) _backupFocusNode.requestFocus();
+  }
+
   Future<void> _onBackupTap() async {
+    if (_backupBusy) return;
+    setState(() => _backupBusy = true);
     final t = AppL10n.of(context);
     try {
+      if (_needsProgressReview) {
+        final result = await reviewPendingAccountProgress(
+          context: context,
+          operations: _accountOperations,
+        );
+        if (mounted && result != null) {
+          setState(() => _backupRecoveryOutcome = result);
+        }
+        await _revealBackupAction();
+        // Reviewing or choosing a starting point is never an implicit backup.
+        return;
+      }
       final result = await CloudSync.backupWithResult();
       if (!mounted) return;
       if (result != CloudWriteResult.completed) {
-        soriToast(context, t.accountOperationRetryBody);
+        final operations = _accountOperations;
+        if (operations is AccountUiPendingStateSource) {
+          await (operations as AccountUiPendingStateSource)
+              .refreshPendingState();
+        }
+        if (!mounted) return;
+        unawaited(showSafeAccountFailure(context, retry: _onBackupTap));
         return;
       }
+      setState(() => _backupRecoveryOutcome = null);
       soriNotice(
         context,
         t.settingsCloudBackupSuccess,
@@ -1892,6 +1976,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     } catch (_) {
       if (!mounted) return;
       _showOfflineDialog(retry: _onBackupTap);
+    } finally {
+      if (mounted) setState(() => _backupBusy = false);
     }
   }
 

@@ -5752,5 +5752,33 @@
   "onboardingCBuild": "Bauen",
   "onboardingCCollect": "Sammeln",
   "onboardingCCreate": "Gestalten",
-  "grammarBookExample": "Beispiel"
+  "grammarBookExample": "Beispiel",
+  "accountRecoveryTitle": "Wo möchtest du weiterlernen?",
+  "accountRecoveryBody": "Gespeicherte Übungen aus beiden Lernständen bleiben erhalten. Du wählst den Startpunkt für deinen Lernpfad.",
+  "accountRecoveryDevice": "Dieses Gerät",
+  "accountRecoveryCloud": "Cloud",
+  "accountRecoveryCompletedUnits": "{count, plural, =0{Noch keine Einheit geschafft} =1{1 Einheit geschafft} other{{count} Einheiten geschafft}}",
+  "@accountRecoveryCompletedUnits": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "accountRecoveryUnavailableChoice": "Dieser Startpunkt passt nicht zu deinen gespeicherten Abschlüssen.",
+  "accountRecoveryUnknownLevel": "Startpunkt nicht verfügbar",
+  "accountRecoveryCountUnavailable": "Gespeicherte Einheiten nicht verfügbar",
+  "accountRecoveryConfirm": "Bestätigen",
+  "accountRecoveryReview": "Lernstand prüfen",
+  "accountRecoveryPendingTitle": "Sicherung braucht deine Aufmerksamkeit",
+  "accountRecoveryPendingBody": "Die letzten Lernstände konnten noch nicht sicher verbunden werden. Prüfe die gespeicherten Startpunkte.",
+  "accountRecoveryWorking": "Lernstand wird geprüft …",
+  "accountRecoveryUnavailable": "Dein Lernstand kann gerade nicht geprüft werden. Versuche es erneut.",
+  "accountRecoveryBlocked": "Deine gespeicherten Lernstände brauchen noch eine Prüfung. Sie bleiben erhalten.",
+  "accountRecoveryStale": "Dein Lernstand hat sich inzwischen geändert. Prüfe ihn bitte noch einmal.",
+  "accountRecoveryReady": "Der Lernstand ist verbunden. Du kannst jetzt sichern.",
+  "accountRecoveryBackupWaiting": "Verbunden; Sicherung wartet auf Prüfung",
+  "accountRecoveryResumeTitle": "Bestätigte Auswahl fortsetzen?",
+  "accountRecoveryResumeBody": "Deine Auswahl wurde bereits gespeichert. Du kannst denselben Vorgang fortsetzen. Der Startpunkt wird dabei nicht neu gewählt.",
+  "accountRecoveryResumeConfirm": "Bestätigte Auswahl fortsetzen"
 }

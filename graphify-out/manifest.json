@@ -936,21 +936,21 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1793307450.2781537,
-    "seen": 1793307679.8027177,
-    "ast_hash": "291bb4d2e8576e1d9045b9ec466a17d3",
+    "mtime": 1793362786.706664,
+    "seen": 1793363935.3966324,
+    "ast_hash": "33f0bdfbab8d263252d00b54d0260de2",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1793307449.9085763,
-    "seen": 1793307679.8027203,
-    "ast_hash": "ad16e6a41f00bf5529a5efcbd483fb9e",
+    "mtime": 1793362786.3978546,
+    "seen": 1793363935.3966362,
+    "ast_hash": "462720edd35b75c73932bc7127572c07",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1793307450.074713,
-    "seen": 1793307679.8027225,
-    "ast_hash": "d4fcbc96388ea883a548e051ca5faf17",
+    "mtime": 1793362786.563543,
+    "seen": 1793363935.3966382,
+    "ast_hash": "d8554dd1a3113176cf286f6ff5be9e80",
     "semantic_hash": ""
   },
   "lib/l10n/gye_error_text.dart": {
@@ -1374,9 +1374,9 @@
     "semantic_hash": ""
   },
   "lib/screens/grammar_screen.dart": {
-    "mtime": 1793318230.0576334,
-    "seen": 1793321960.3543978,
-    "ast_hash": "01c641e3a511a1f4aed6c9bada7cffa2",
+    "mtime": 1793362988.622366,
+    "seen": 1793363935.4179027,
+    "ast_hash": "7db0c825e6808c39f72f1a29aa61d93a",
     "semantic_hash": ""
   },
   "lib/screens/gye_create_screen.dart": {
@@ -1494,9 +1494,9 @@
     "semantic_hash": ""
   },
   "lib/screens/profile_screen.dart": {
-    "mtime": 1793307158.1391711,
-    "seen": 1793307679.8030934,
-    "ast_hash": "791b4688866c66220e562fe7b2071aa3",
+    "mtime": 1793363101.557349,
+    "seen": 1793363935.4313781,
+    "ast_hash": "63991703627db13edded124fefc088e1",
     "semantic_hash": ""
   },
   "lib/screens/pronunciation_studio_screen.dart": {
@@ -1608,9 +1608,9 @@
     "semantic_hash": ""
   },
   "lib/screens/settings_screen.dart": {
-    "mtime": 1793315298.6959379,
-    "seen": 1793316431.3508258,
-    "ast_hash": "e1c2697c9377d32cbcad554de08808a8",
+    "mtime": 1793359935.3677008,
+    "seen": 1793363935.436481,
+    "ast_hash": "ea9f6fc3f7ea1dc9260b04f24ac0866c",
     "semantic_hash": ""
   },
   "lib/screens/silben_kreuz_screen.dart": {
@@ -1782,9 +1782,9 @@
     "semantic_hash": ""
   },
   "lib/services/account/account_failure_diagnostics.dart": {
-    "mtime": 1793307158.2942202,
-    "seen": 1793307679.803221,
-    "ast_hash": "20236d517a1576df90d287d5db052f1f",
+    "mtime": 1793362741.5249262,
+    "seen": 1793363935.444731,
+    "ast_hash": "ee501af04b212a0a958cfb6a872af6bc",
     "semantic_hash": ""
   },
   "lib/services/account/account_failure_reason.dart": {
@@ -1800,9 +1800,9 @@
     "semantic_hash": ""
   },
   "lib/services/account/account_reconciliation.dart": {
-    "mtime": 1793315830.1857567,
-    "seen": 1793316431.3599048,
-    "ast_hash": "a37d64aaac40fb4f69c0bab3458ea0c6",
+    "mtime": 1793360918.7772393,
+    "seen": 1793363935.4452302,
+    "ast_hash": "ce8718e1ef796a75c4dad820181b07a3",
     "semantic_hash": ""
   },
   "lib/services/account/account_transition_coordinator.dart": {
@@ -1812,15 +1812,15 @@
     "semantic_hash": ""
   },
   "lib/services/account/account_transition_journal.dart": {
-    "mtime": 1793307158.3110354,
-    "seen": 1793307679.8032358,
-    "ast_hash": "03277d4820794ace0ddea644a10b8f2e",
+    "mtime": 1793360918.8353848,
+    "seen": 1793363935.445503,
+    "ast_hash": "f188201ec58829dc9b05ab8038b39a19",
     "semantic_hash": ""
   },
   "lib/services/account/account_ui_operations.dart": {
-    "mtime": 1793307158.313835,
-    "seen": 1793307679.803238,
-    "ast_hash": "c3a90d9b9a6b4926f205c36b32bff85e",
+    "mtime": 1793362649.4235024,
+    "seen": 1793363935.4455068,
+    "ast_hash": "c462d61cffaea8f830d4a219ccfe40b4",
     "semantic_hash": ""
   },
   "lib/services/account/bookshelf_generation_manifest.dart": {
@@ -1932,9 +1932,9 @@
     "semantic_hash": ""
   },
   "lib/services/auth_service.dart": {
-    "mtime": 1793307158.374284,
-    "seen": 1793307679.8032925,
-    "ast_hash": "dd8579af4dd9e480471c6d8c5f56940d",
+    "mtime": 1793360918.9054153,
+    "seen": 1793363935.450472,
+    "ast_hash": "cd7e3fad640b7e4bb1cdf96df6cb77ad",
     "semantic_hash": ""
   },
   "lib/services/book_analysis_service.dart": {
@@ -1986,9 +1986,9 @@
     "semantic_hash": ""
   },
   "lib/services/cloud_sync.dart": {
-    "mtime": 1793307158.3983154,
-    "seen": 1793307679.8033247,
-    "ast_hash": "76113445339397e624bd066f494beb02",
+    "mtime": 1793360918.9401631,
+    "seen": 1793363935.4536958,
+    "ast_hash": "3639b29518ada108174824a623f692a3",
     "semantic_hash": ""
   },
   "lib/services/cloud_sync_service.dart": {
@@ -2052,9 +2052,9 @@
     "semantic_hash": ""
   },
   "lib/services/course_mastery_service.dart": {
-    "mtime": 1793307158.4157698,
-    "seen": 1793307679.8033507,
-    "ast_hash": "6d69238be4c1136c54eaeada36763679",
+    "mtime": 1793359300.910573,
+    "seen": 1793363935.456331,
+    "ast_hash": "4d43f8e16910b7e7d653fc04058c8711",
     "semantic_hash": ""
   },
   "lib/services/course_mission_navigation.dart": {
@@ -2502,9 +2502,9 @@
     "semantic_hash": ""
   },
   "lib/services/storage_service.dart": {
-    "mtime": 1793307472.1355739,
-    "seen": 1793307679.8036342,
-    "ast_hash": "14f967f50308e5a2d7b457bac9900515",
+    "mtime": 1793360919.1839983,
+    "seen": 1793363935.4878206,
+    "ast_hash": "a2e95d6af140f451828a2e40a24382ab",
     "semantic_hash": ""
   },
   "lib/services/stroke_matcher.dart": {
@@ -2616,9 +2616,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/account_operation_ui.dart": {
-    "mtime": 1793307158.8384545,
-    "seen": 1793307679.8037617,
-    "ast_hash": "caa2b9d3da245f8fbfe0fc091c38c9ba",
+    "mtime": 1793362956.2403827,
+    "seen": 1793363935.5014184,
+    "ast_hash": "49fd94b9e8269aae5f6c45e07b814566",
     "semantic_hash": ""
   },
   "lib/widgets/sori/activity_illustration.dart": {
@@ -5286,9 +5286,9 @@
     "semantic_hash": ""
   },
   "test/services/account/account_ui_pending_state_test.dart": {
-    "mtime": 1793307160.6999998,
-    "seen": 1793307679.8056793,
-    "ast_hash": "4b3320edc8b77c6c75544ebe3a3f2533",
+    "mtime": 1793362793.5548248,
+    "seen": 1793363935.69257,
+    "ast_hash": "93182a0fd72286af5bb36892579bcdcc",
     "semantic_hash": ""
   },
   "test/services/account/bookshelf_generation_manifest_test.dart": {
@@ -5838,9 +5838,9 @@
     "semantic_hash": ""
   },
   "test/uiux_bible_closeout_inventory_test.dart": {
-    "mtime": 1793307161.066009,
-    "seen": 1793307679.8062072,
-    "ast_hash": "e3ce6b4644fd296d9c76c877292bbc6e",
+    "mtime": 1793362764.279241,
+    "seen": 1793363935.7451346,
+    "ast_hash": "dd13f04bf42056b65f287bd0e8026735",
     "semantic_hash": ""
   },
   "test/ux_gallery_no_write_test.dart": {
@@ -8832,9 +8832,9 @@
     "semantic_hash": ""
   },
   "docs/UIUX_BIBLE_APPLICATION_EXECUTION_LOCK.md": {
-    "mtime": 1793307147.311237,
-    "seen": 1793307679.8100626,
-    "ast_hash": "d91312241c452f0db0cda4f7f6e061e4",
+    "mtime": 1793362781.9264143,
+    "seen": 1793363936.0936065,
+    "ast_hash": "e6916aa3f142a02df3f5709f6db01b1b",
     "semantic_hash": ""
   },
   "docs/UIUX_DUOLINGO_GAP_AND_PLAN.md": {
@@ -11250,9 +11250,9 @@
     "semantic_hash": ""
   },
   "lib/services/grammar_plan_service.dart": {
-    "mtime": 1793307158.4421148,
-    "seen": 1793307679.8033924,
-    "ast_hash": "bb50e42f8178668102451e2f8c7db0dc",
+    "mtime": 1793363101.830294,
+    "seen": 1793363935.4600823,
+    "ast_hash": "ce2affb6a06308d4fa0d3f1f0831c295",
     "semantic_hash": ""
   },
   "lib/services/vocab_pack_finish_coordinator.dart": {
@@ -11286,15 +11286,15 @@
     "semantic_hash": ""
   },
   "test/grammar_plan_screen_test.dart": {
-    "mtime": 1793307160.0575917,
-    "seen": 1793307679.8048012,
-    "ast_hash": "c129cd84f7e35117df16132e9f56f707",
+    "mtime": 1793363102.0920074,
+    "seen": 1793363935.6146314,
+    "ast_hash": "2692eee5087f0ec0856bd8979823fab6",
     "semantic_hash": ""
   },
   "test/grammar_plan_service_test.dart": {
-    "mtime": 1793307160.0595868,
-    "seen": 1793307679.8048038,
-    "ast_hash": "e64b655e527f647450f621dfc35421e3",
+    "mtime": 1793363102.0965843,
+    "seen": 1793363935.6146348,
+    "ast_hash": "5b7d7d4e8782bda1b4360336975d0f63",
     "semantic_hash": ""
   },
   "test/grammar_plan_storage_test.dart": {
@@ -14340,9 +14340,9 @@
     "semantic_hash": ""
   },
   "lib/services/account/account_switch_coordinator.dart": {
-    "mtime": 1793307158.3055382,
-    "seen": 1793307679.803231,
-    "ast_hash": "dd6502b52661bd92cc6f50b1a3ec26a3",
+    "mtime": 1793362792.9065466,
+    "seen": 1793363935.4452426,
+    "ast_hash": "1aa6996aeb65eb272fc1a8142d1dfd4d",
     "semantic_hash": ""
   },
   "lib/widgets/sori/illustrated_card_grid.dart": {
@@ -25731,6 +25731,120 @@
     "mtime": 1793321966.10726,
     "seen": 1793322820.7099514,
     "ast_hash": "35ae8d0de4e3f75416326c921aa743e9",
+    "semantic_hash": ""
+  },
+  "lib/services/account/account_reconciliation_field_policy.dart": {
+    "mtime": 1793363096.7540054,
+    "seen": 1793363935.4452357,
+    "ast_hash": "dbcc7b41c5e47a0c272637b970549d2b",
+    "semantic_hash": ""
+  },
+  "lib/services/account/account_switch_resolution.dart": {
+    "mtime": 1793362792.916187,
+    "seen": 1793363935.4452453,
+    "ast_hash": "b27c1d9050fdea41f8f83f58eccece20",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/account_progress_recovery_sheet.dart": {
+    "mtime": 1793362793.384165,
+    "seen": 1793363935.501424,
+    "ast_hash": "92dd1d70645280e5fa668c380b8f2d03",
+    "semantic_hash": ""
+  },
+  "test/course_mastery_confirmed_placement_merge_test.dart": {
+    "mtime": 1793359935.3687675,
+    "seen": 1793363935.5816667,
+    "ast_hash": "b8309791bcc1f7fd7f1d245704e01036",
+    "semantic_hash": ""
+  },
+  "test/course_mastery_refresh_placement_provenance_test.dart": {
+    "mtime": 1793354415.0728965,
+    "seen": 1793363935.5818765,
+    "ast_hash": "af5548c86dcdd3c2924199ac1bbd0e5e",
+    "semantic_hash": ""
+  },
+  "test/grammar_plan_pace_history_test.dart": {
+    "mtime": 1793362997.6290545,
+    "seen": 1793363935.6146266,
+    "ast_hash": "6ace650970fec586297cc6409a2cd310",
+    "semantic_hash": ""
+  },
+  "test/services/account/account_reconciliation_field_apply_test.dart": {
+    "mtime": 1793360919.3141127,
+    "seen": 1793363935.6908557,
+    "ast_hash": "9b5937cd44d421a4a60714e54fcf0e8f",
+    "semantic_hash": ""
+  },
+  "test/services/account/account_reconciliation_field_policy_test.dart": {
+    "mtime": 1793363102.1197765,
+    "seen": 1793363935.690859,
+    "ast_hash": "69e5184e87e7632e97b73d27f3444a20",
+    "semantic_hash": ""
+  },
+  "test/services/account/account_reconciliation_legacy_fields_test.dart": {
+    "mtime": 1793354005.7110314,
+    "seen": 1793363935.6908612,
+    "ast_hash": "4562f240a02ab9095c657af8526f1a7b",
+    "semantic_hash": ""
+  },
+  "test/services/account/account_resolution_diagnostics_test.dart": {
+    "mtime": 1793358825.0808601,
+    "seen": 1793363935.6912794,
+    "ast_hash": "49bb3e9cb6ccdde98371ff37c975a126",
+    "semantic_hash": ""
+  },
+  "test/services/account/account_switch_resolution_recovery_test.dart": {
+    "mtime": 1793360919.3636653,
+    "seen": 1793363935.6917243,
+    "ast_hash": "10702087acc158456af466b8003de89d",
+    "semantic_hash": ""
+  },
+  "test/services/account/account_switch_resolution_retirement_test.dart": {
+    "mtime": 1793360919.3728406,
+    "seen": 1793363935.6917284,
+    "ast_hash": "5185fa3de90853de89c198756685e9e0",
+    "semantic_hash": ""
+  },
+  "test/services/account/account_switch_resolution_test.dart": {
+    "mtime": 1793359180.948255,
+    "seen": 1793363935.6917307,
+    "ast_hash": "f728bed6451a95fc5c2ea7bca22afae9",
+    "semantic_hash": ""
+  },
+  "test/services/account/support/account_switch_resolution_harness.dart": {
+    "mtime": 1793360706.8918855,
+    "seen": 1793363935.697944,
+    "ast_hash": "48974965a2e08faf00f8513e96df42ac",
+    "semantic_hash": ""
+  },
+  "test/widgets/account_progress_recovery_flow_test.dart": {
+    "mtime": 1793359445.7263503,
+    "seen": 1793363935.7578394,
+    "ast_hash": "d80a562bdedbf86fbd2c568af41c6a79",
+    "semantic_hash": ""
+  },
+  "test/widgets/account_progress_recovery_profile_test.dart": {
+    "mtime": 1793362793.6115632,
+    "seen": 1793363935.7578442,
+    "ast_hash": "605460961a9a2bd63b21fa038d108913",
+    "semantic_hash": ""
+  },
+  "test/widgets/account_progress_recovery_sheet_test.dart": {
+    "mtime": 1793359935.3750615,
+    "seen": 1793363935.7578466,
+    "ast_hash": "802b74cdd8c8a7fc636466806fd0a158",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-10-30-account-conflict-recovery.md": {
+    "mtime": 1793363011.5998528,
+    "seen": 1793363936.155077,
+    "ast_hash": "1971e35618d7b2250a10d7081ed07bb8",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/specs/2026-10-30-account-conflict-recovery.md": {
+    "mtime": 1793356697.3879783,
+    "seen": 1793363936.161457,
+    "ast_hash": "24852b19a015d9676fafaed41b3a0d7c",
     "semantic_hash": ""
   }
 }

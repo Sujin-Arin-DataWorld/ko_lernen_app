@@ -5570,5 +5570,33 @@
   "onboardingCBuild": "Build",
   "onboardingCCollect": "Collect",
   "onboardingCCreate": "Create",
-  "grammarBookExample": "Example"
+  "grammarBookExample": "Example",
+  "accountRecoveryTitle": "Where would you like to continue?",
+  "accountRecoveryBody": "Saved practice from both sets of progress will be kept. You choose the starting point for your learning path.",
+  "accountRecoveryDevice": "This device",
+  "accountRecoveryCloud": "Cloud",
+  "accountRecoveryCompletedUnits": "{count, plural, =0{No completed units yet} =1{1 completed unit} other{{count} completed units}}",
+  "@accountRecoveryCompletedUnits": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "accountRecoveryUnavailableChoice": "This starting point does not fit your saved completions.",
+  "accountRecoveryUnknownLevel": "Starting point unavailable",
+  "accountRecoveryCountUnavailable": "Saved unit count unavailable",
+  "accountRecoveryConfirm": "Use selection",
+  "accountRecoveryReview": "Review progress",
+  "accountRecoveryPendingTitle": "Your backup needs attention",
+  "accountRecoveryPendingBody": "Your latest progress could not be connected safely yet. Review the saved starting points.",
+  "accountRecoveryWorking": "Checking progress …",
+  "accountRecoveryUnavailable": "Your progress cannot be reviewed right now. Try again.",
+  "accountRecoveryBlocked": "Your saved progress needs another review. It remains preserved.",
+  "accountRecoveryStale": "Your progress has changed. Review it again before continuing.",
+  "accountRecoveryReady": "Your progress is connected. You can back it up now.",
+  "accountRecoveryBackupWaiting": "Connected; backup awaiting review",
+  "accountRecoveryResumeTitle": "Continue your confirmed choice?",
+  "accountRecoveryResumeBody": "Your choice is already saved. You can continue the same operation without choosing a new starting point.",
+  "accountRecoveryResumeConfirm": "Continue confirmed choice"
 }

@@ -742,7 +742,11 @@ class _ProfileScreenState extends State<ProfileScreen>
           ),
           const SizedBox(height: Spacing.lg),
           _ProfileSectionLabel(label: t.profileProgressSection),
-          const _StatsRow(),
+          _StatsRow(
+            streak: Storage.streakDays,
+            level: Storage.xpLevel,
+            words: Storage.vokCorrect,
+          ),
           const SizedBox(height: Spacing.md),
           SoriButton.outlined(
             label: t.profileViewStats,
@@ -1069,7 +1073,15 @@ class _ProfileSettingTile extends StatelessWidget {
 }
 
 class _StatsRow extends StatelessWidget {
-  const _StatsRow();
+  const _StatsRow({
+    required this.streak,
+    required this.level,
+    required this.words,
+  });
+
+  final int streak;
+  final int level;
+  final int words;
 
   @override
   Widget build(BuildContext context) {
@@ -1079,7 +1091,7 @@ class _StatsRow extends StatelessWidget {
         Expanded(
           child: _StatTile(
             icon: Icons.local_fire_department_rounded,
-            value: '${Storage.streakDays}',
+            value: '$streak',
             label: t.profileStatStreak,
             color: SoriColors.tiger,
           ),
@@ -1088,7 +1100,7 @@ class _StatsRow extends StatelessWidget {
         Expanded(
           child: _StatTile(
             icon: Icons.star_rounded,
-            value: '${Storage.xpLevel}',
+            value: '$level',
             label: t.profileStatLevel,
             color: SoriColors.gold,
           ),
@@ -1097,7 +1109,7 @@ class _StatsRow extends StatelessWidget {
         Expanded(
           child: _StatTile(
             icon: Icons.menu_book_rounded,
-            value: '${Storage.vokCorrect}',
+            value: '$words',
             label: t.profileStatWords,
             color: SoriColors.primary,
           ),

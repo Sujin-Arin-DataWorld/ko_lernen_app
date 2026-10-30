@@ -20441,6 +20441,132 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Beispiel'**
   String get grammarBookExample;
+
+  /// No description provided for @accountRecoveryTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wo möchtest du weiterlernen?'**
+  String get accountRecoveryTitle;
+
+  /// No description provided for @accountRecoveryBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeicherte Übungen aus beiden Lernständen bleiben erhalten. Du wählst den Startpunkt für deinen Lernpfad.'**
+  String get accountRecoveryBody;
+
+  /// No description provided for @accountRecoveryDevice.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Gerät'**
+  String get accountRecoveryDevice;
+
+  /// No description provided for @accountRecoveryCloud.
+  ///
+  /// In de, this message translates to:
+  /// **'Cloud'**
+  String get accountRecoveryCloud;
+
+  /// No description provided for @accountRecoveryCompletedUnits.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =0{Noch keine Einheit geschafft} =1{1 Einheit geschafft} other{{count} Einheiten geschafft}}'**
+  String accountRecoveryCompletedUnits(int count);
+
+  /// No description provided for @accountRecoveryUnavailableChoice.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieser Startpunkt passt nicht zu deinen gespeicherten Abschlüssen.'**
+  String get accountRecoveryUnavailableChoice;
+
+  /// No description provided for @accountRecoveryUnknownLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'Startpunkt nicht verfügbar'**
+  String get accountRecoveryUnknownLevel;
+
+  /// No description provided for @accountRecoveryCountUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeicherte Einheiten nicht verfügbar'**
+  String get accountRecoveryCountUnavailable;
+
+  /// No description provided for @accountRecoveryConfirm.
+  ///
+  /// In de, this message translates to:
+  /// **'Bestätigen'**
+  String get accountRecoveryConfirm;
+
+  /// No description provided for @accountRecoveryReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernstand prüfen'**
+  String get accountRecoveryReview;
+
+  /// No description provided for @accountRecoveryPendingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Sicherung braucht deine Aufmerksamkeit'**
+  String get accountRecoveryPendingTitle;
+
+  /// No description provided for @accountRecoveryPendingBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die letzten Lernstände konnten noch nicht sicher verbunden werden. Prüfe die gespeicherten Startpunkte.'**
+  String get accountRecoveryPendingBody;
+
+  /// No description provided for @accountRecoveryWorking.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernstand wird geprüft …'**
+  String get accountRecoveryWorking;
+
+  /// No description provided for @accountRecoveryUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernstand kann gerade nicht geprüft werden. Versuche es erneut.'**
+  String get accountRecoveryUnavailable;
+
+  /// No description provided for @accountRecoveryBlocked.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine gespeicherten Lernstände brauchen noch eine Prüfung. Sie bleiben erhalten.'**
+  String get accountRecoveryBlocked;
+
+  /// No description provided for @accountRecoveryStale.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernstand hat sich inzwischen geändert. Prüfe ihn bitte noch einmal.'**
+  String get accountRecoveryStale;
+
+  /// No description provided for @accountRecoveryReady.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Lernstand ist verbunden. Du kannst jetzt sichern.'**
+  String get accountRecoveryReady;
+
+  /// No description provided for @accountRecoveryBackupWaiting.
+  ///
+  /// In de, this message translates to:
+  /// **'Verbunden; Sicherung wartet auf Prüfung'**
+  String get accountRecoveryBackupWaiting;
+
+  /// No description provided for @accountRecoveryResumeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Bestätigte Auswahl fortsetzen?'**
+  String get accountRecoveryResumeTitle;
+
+  /// No description provided for @accountRecoveryResumeBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Auswahl wurde bereits gespeichert. Du kannst denselben Vorgang fortsetzen. Der Startpunkt wird dabei nicht neu gewählt.'**
+  String get accountRecoveryResumeBody;
+
+  /// No description provided for @accountRecoveryResumeConfirm.
+  ///
+  /// In de, this message translates to:
+  /// **'Bestätigte Auswahl fortsetzen'**
+  String get accountRecoveryResumeConfirm;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {
