@@ -8,6 +8,7 @@ import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/window_class.dart';
 import '../gye_tab_screen.dart';
+import '../../widgets/sori/ildu_r16_estate_artwork.dart';
 import 'c_stage_chrome.dart';
 
 /// A single scroll surface for optional group entry and actual memberships.
@@ -79,6 +80,15 @@ class SoriStageGyeScreen extends StatelessWidget {
                   refreshGeneration: refreshGeneration,
                   loadGyeMetas: loadGyeMetas,
                   onContinueSolo: onContinueSolo,
+                ),
+                SliverPadding(
+                  padding: EdgeInsets.fromLTRB(
+                    padding.left,
+                    0,
+                    padding.right,
+                    Spacing.lg,
+                  ),
+                  sliver: const SliverToBoxAdapter(child: IlDuR16EstateEntry()),
                 ),
               ],
             ),

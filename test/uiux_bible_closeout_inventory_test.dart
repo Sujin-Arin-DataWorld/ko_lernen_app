@@ -36,7 +36,7 @@ void main() {
     }
     expect(unresolved, isEmpty);
     expect(ambiguous, isEmpty);
-    expect(registered, hasLength(86));
+    expect(registered, hasLength(87));
     expect(registered.toSet(), hasLength(registered.length));
 
     final lock = File(_lockPath).readAsStringSync();
@@ -52,7 +52,7 @@ void main() {
       r'^\| `(/[^`]*)` \|',
       multiLine: true,
     ).allMatches(routeInventory).map((match) => match.group(1)!).toList();
-    expect(documented, hasLength(86));
+    expect(documented, hasLength(87));
     expect(documented.toSet(), hasLength(documented.length));
 
     registered.sort();
@@ -110,9 +110,9 @@ void main() {
       }
     }
 
-    // Includes the catalog-owned C5 overview and existing indirect screen owners.
-    expect(seen, hasLength(128));
-    expect(documented, hasLength(128));
+    // Includes the C5 overview, R16 reference and existing indirect owners.
+    expect(seen, hasLength(129));
+    expect(documented, hasLength(129));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });
@@ -155,10 +155,10 @@ void main() {
     // 2026-10-18: +1 — approved Einleitung reference typography/material roles.
     // 2026-10-29: +1 — bounded Einleitung contact, selection and scene motion.
     // 2026-10-30: +1 — user-initiated account progress recovery sheet.
-    // 2026-10-30: +14 — documented approved C chrome/material/ink/Gye owners.
-    expect(actual, hasLength(169));
+    // 2026-10-30: +16 — documented approved C chrome/material/ink/Gye owners.
+    expect(actual, hasLength(171));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(169));
+    expect(listed, hasLength(171));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

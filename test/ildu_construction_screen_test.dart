@@ -17,6 +17,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'support/r16_test_asset_bundle.dart';
 
 final catalog = IlDuConstructionArtCatalog.fromJson(
   jsonDecode(File(IlDuConstructionArtCatalog.assetPath).readAsStringSync()),
@@ -39,7 +40,7 @@ Widget app(Widget child, {String language = 'en', double scale = 1}) =>
         '/hanok/construction': (_) =>
             IlDuConstructionScreen(loader: () async => catalog),
       },
-      home: child,
+      home: DefaultAssetBundle(bundle: R16TestAssetBundle(), child: child),
     );
 
 Finder key(String value) => find.byKey(ValueKey(value));
