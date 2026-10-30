@@ -30,6 +30,28 @@ class IntroReferenceStoryHero extends StatelessWidget {
   static const titleSize = [39.0, 43.0, 37.0, 40.0, 34.0];
   static const titleLine = [40.5, 47.0, 40.5, 41.0, 35.5];
 
+  /// Full-width sound artwork, measured native heading and its live action.
+  /// A taller window must not turn the image's aspect letterbox into gaps.
+  static double naturalSoundHeight(
+    BuildContext context,
+    double width,
+    String title,
+  ) {
+    final style = IntroTypography.localized(
+      context,
+      IntroTypography.storyTitle(32, 36, 1, 1),
+      heading: true,
+    );
+    final painter = TextPainter(
+      text: TextSpan(text: title, style: style),
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+    )..layout(maxWidth: width - 36);
+    final height = painter.height + 10 + width * (452 - 120) / 402 + 4 + 58;
+    painter.dispose();
+    return height;
+  }
+
   @override
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, bounds) {
@@ -301,8 +323,10 @@ class IntroReferenceStoryHero extends StatelessWidget {
               ],
             ),
           ),
-        if (index == 1)
+        if (index == 1) ...[
+          const SizedBox(height: 4),
           const SizedBox(height: 58, child: COnboardingSoundScene()),
+        ],
         if (index == 2)
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),

@@ -115,7 +115,10 @@ class GyeWeeklyLanternRow extends StatelessWidget {
               const SizedBox(height: 8),
               LayoutBuilder(
                 builder: (context, bounds) {
-                  final columns = math.min(count, 3);
+                  // A five-light promise fits the phone card in one row. Do
+                  // not force a second row while horizontal space is available;
+                  // Wrap still handles genuinely narrow presentation surfaces.
+                  final columns = count;
                   final width =
                       ((bounds.maxWidth - (columns - 1) * 12) / columns)
                           .clamp(

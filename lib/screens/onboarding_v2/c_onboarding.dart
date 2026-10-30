@@ -46,6 +46,7 @@ class COnboardingFrame extends StatelessWidget {
     this.backKey,
     this.onBack,
     this.continueLabelCandidates = const [],
+    this.naturalHeroExtent,
   });
   final int step;
   final String progress;
@@ -58,6 +59,7 @@ class COnboardingFrame extends StatelessWidget {
   final Key? backKey;
   final VoidCallback? onBack;
   final List<String> continueLabelCandidates;
+  final double Function(BuildContext context, double width)? naturalHeroExtent;
 
   @override
   Widget build(BuildContext context) => Theme(
@@ -312,6 +314,8 @@ class COnboardingFrame extends StatelessWidget {
 
   Widget _finiteLayout(BuildContext context, BoxConstraints bounds) {
     final padding = MediaQuery.paddingOf(context);
+    final naturalGroup = step == 7 || naturalHeroExtent != null;
+    final contentWidth = bounds.maxWidth - padding.horizontal;
     final availableHeight = bounds.maxHeight - padding.vertical;
     final compactSetup =
         step == 1 &&
@@ -326,7 +330,7 @@ class COnboardingFrame extends StatelessWidget {
               ? (contentHeight - 402).clamp(116.0, 260.0)
               : (contentHeight - 350).clamp(170.0, 260.0)
         : step == 7
-        ? (contentHeight * .22).clamp(136.0, 180.0)
+        ? _IntroHero.naturalCompanionHeight(context, contentWidth)
         : 0.0;
     final paperTop = step == 1 || step == 7 ? heroHeight : contentHeight;
     final header = Padding(
@@ -393,96 +397,137 @@ class COnboardingFrame extends StatelessWidget {
           ),
         ),
         SafeArea(
-          child: Column(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    if (step == 1 || step == 7) headedHero() else header,
-                    if (step == 1)
-                      Expanded(
-                        child: SizedBox.expand(key: bodyKey, child: body),
-                      )
-                    else if (step == 7)
-                      Expanded(
-                        child: SizedBox.expand(key: bodyKey, child: body),
-                      )
-                    else ...[
-                      Expanded(child: hero),
-                      SizedBox(
-                        key: bodyKey,
-                        width: bounds.maxWidth,
-                        child: Stack(
-                          key: const ValueKey('c-onboarding-paper-surface'),
-                          children: [
-                            const Positioned.fill(
-                              child: CIntroArt(
-                                'paper-footer',
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            body,
-                          ],
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Column(
+              mainAxisSize: naturalGroup ? MainAxisSize.min : MainAxisSize.max,
+              children: [
+                Flexible(
+                  fit: naturalGroup ? FlexFit.loose : FlexFit.tight,
+                  child: Column(
+                    mainAxisSize: naturalGroup
+                        ? MainAxisSize.min
+                        : MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      if (step == 1 || step == 7) headedHero() else header,
+                      if (step == 1)
+                        Expanded(
+                          child: SizedBox.expand(key: bodyKey, child: body),
+                        )
+                      else if (step == 7)
+                        Flexible(
+                          fit: FlexFit.loose,
+                          child: SizedBox(
+                            key: bodyKey,
+                            width: contentWidth,
+                            child: body,
+                          ),
+                        )
+                      else ...[
+                        Flexible(
+                          fit: naturalGroup ? FlexFit.loose : FlexFit.tight,
+                          child: naturalHeroExtent == null
+                              ? hero
+                              : ConstrainedBox(
+                                  constraints: BoxConstraints(
+                                    maxHeight: naturalHeroExtent!(
+                                      context,
+                                      contentWidth,
+                                    ),
+                                  ),
+                                  child: hero,
+                                ),
                         ),
-                      ),
+                        SizedBox(
+                          key: bodyKey,
+                          width: bounds.maxWidth,
+                          child: Stack(
+                            key: const ValueKey('c-onboarding-paper-surface'),
+                            clipBehavior: naturalGroup
+                                ? Clip.none
+                                : Clip.hardEdge,
+                            children: [
+                              if (naturalGroup)
+                                Positioned(
+                                  top: 0,
+                                  left: 0,
+                                  right: 0,
+                                  height: bounds.maxHeight,
+                                  child: const CIntroArt(
+                                    'paper-footer',
+                                    fit: BoxFit.cover,
+                                  ),
+                                )
+                              else
+                                const Positioned.fill(
+                                  child: CIntroArt(
+                                    'paper-footer',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              body,
+                            ],
+                          ),
+                        ),
+                      ],
                     ],
-                  ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(12, 6, 12, 6),
-                child: compactFooter
-                    ? Row(
-                        children: [
-                          MergeSemantics(
-                            key: backKey,
-                            child: Semantics(
-                              button: true,
-                              label: AppL10n.of(context).onboardingV2Back,
-                              onTap: onBack,
-                              child: IntroPressable(
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(12, 6, 12, 6),
+                  child: compactFooter
+                      ? Row(
+                          children: [
+                            MergeSemantics(
+                              key: backKey,
+                              child: Semantics(
+                                button: true,
+                                label: AppL10n.of(context).onboardingV2Back,
                                 onTap: onBack,
-                                child: const SizedBox.square(
-                                  dimension: 48,
-                                  child: ExcludeSemantics(
-                                    child: Icon(
-                                      Icons.chevron_left,
-                                      color: IntroPalette.mutedInk,
+                                child: IntroPressable(
+                                  onTap: onBack,
+                                  child: const SizedBox.square(
+                                    dimension: 48,
+                                    child: ExcludeSemantics(
+                                      child: Icon(
+                                        Icons.chevron_left,
+                                        color: IntroPalette.mutedInk,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(child: action),
-                        ],
-                      )
-                    : Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          action,
-                          if (onBack != null) ...[
-                            const SizedBox(height: 4),
-                            SoriTextAction(
-                              key: backKey,
-                              label: AppL10n.of(context).onboardingV2Back,
-                              onPressed: onBack,
-                              style: TextButton.styleFrom(
-                                minimumSize: const Size(96, 48),
-                              ),
-                              textStyle: IntroTypography.localized(
-                                context,
-                                IntroTypography.backAction(step),
-                              ),
-                            ),
+                            const SizedBox(width: 8),
+                            Expanded(child: action),
                           ],
-                        ],
-                      ),
-              ),
-            ],
+                        )
+                      : Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            action,
+                            if (onBack != null) ...[
+                              const SizedBox(height: 4),
+                              SoriTextAction(
+                                key: backKey,
+                                label: AppL10n.of(context).onboardingV2Back,
+                                onPressed: onBack,
+                                style: TextButton.styleFrom(
+                                  minimumSize: const Size(96, 48),
+                                ),
+                                textStyle: IntroTypography.localized(
+                                  context,
+                                  IntroTypography.backAction(step),
+                                ),
+                              ),
+                            ],
+                          ],
+                        ),
+                ),
+              ],
+            ),
           ),
         ),
       ],
@@ -866,6 +911,26 @@ class _IntroHero extends StatelessWidget {
   final VoidCallback? onPreview;
   final Key? previewKey;
   final bool showPreviewButton;
+
+  static double naturalCompanionHeight(BuildContext context, double width) {
+    final style = IntroTypography.localized(
+      context,
+      IntroTypography.companionTitle(1),
+      heading: true,
+    ).copyWith(fontSize: 24, height: 1.1);
+    final painter = TextPainter(
+      text: TextSpan(
+        text: AppL10n.of(context).onboardingCCompanionTitle,
+        style: style,
+      ),
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+    )..layout(maxWidth: width - 28);
+    final height = 77 + painter.height + 4;
+    painter.dispose();
+    return height;
+  }
+
   @override
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, bounds) {
@@ -1810,8 +1875,18 @@ class _COnboardingSoundSceneState
               pressScale: .995,
               surfaceDepth: 0,
               child: const SizedBox.square(
-                dimension: 100,
-                child: CIntroArt('speaker'),
+                dimension: 48,
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    IntroAssetBody(
+                      name: 'speaker',
+                      canvas: Size(1312, 1199),
+                      body: Rect.fromLTRB(198, 207, 1120, 1047),
+                      visibleWidth: 48,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -1830,7 +1905,7 @@ class _COnboardingSoundSceneState
         return Row(
           children: [
             speaker,
-            const SizedBox(width: 12),
+            const SizedBox(width: 8),
             Expanded(child: action),
           ],
         );
@@ -1911,6 +1986,13 @@ class COnboardingStory extends StatelessWidget {
     };
     return COnboardingFrame(
       step: pageIndex + 2,
+      naturalHeroExtent: pageIndex == 1
+          ? (context, width) => IntroReferenceStoryHero.naturalSoundHeight(
+              context,
+              width,
+              title,
+            )
+          : null,
       progress: copy.navigation.progress(pageIndex + 2, 7),
       hero: LayoutBuilder(
         builder: (context, bounds) {
@@ -2020,7 +2102,12 @@ class COnboardingStory extends StatelessWidget {
       3 => OnboardingBookScene(level: level),
       _ => const OnboardingHanokScene(),
     };
-    showCOnboardingSheet(context, title: label, body: preview);
+    showCOnboardingSheet(
+      context,
+      title: label,
+      body: preview,
+      naturalBody: pageIndex == 1 || pageIndex == 3,
+    );
   }
 }
 
@@ -2238,6 +2325,7 @@ Future<void> showCOnboardingSheet(
   BuildContext context, {
   required String title,
   required Widget body,
+  bool naturalBody = false,
 }) async {
   final verticalInset =
       MediaQuery.sizeOf(context).height < IntroGeometry.previewWorkingHeight &&
@@ -2251,9 +2339,12 @@ Future<void> showCOnboardingSheet(
         backgroundColor: IntroPalette.paper,
       ),
       builder: (sheet) => SoriViewportTypeScale(
-        child: SizedBox(
-          height: MediaQuery.sizeOf(sheet).height * .88,
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.sizeOf(sheet).height * .88,
+          ),
           child: Column(
+            mainAxisSize: naturalBody ? MainAxisSize.min : MainAxisSize.max,
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(
@@ -2265,7 +2356,10 @@ Future<void> showCOnboardingSheet(
                   child: CIntroText(title, size: 24, bold: true),
                 ),
               ),
-              Expanded(child: body),
+              Flexible(
+                fit: naturalBody ? FlexFit.loose : FlexFit.tight,
+                child: body,
+              ),
               SafeArea(
                 top: false,
                 child: Padding(

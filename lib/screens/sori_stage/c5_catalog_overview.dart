@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../../widgets/sori/button.dart';
@@ -45,11 +47,26 @@ class C5CatalogOverview extends StatelessWidget {
   final double? maxHeight;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, bounds) => _content(context, bounds.maxWidth),
+  );
+
+  Widget _content(BuildContext context, double width) {
     final large = MediaQuery.textScalerOf(context).scale(16) > 20;
     final compact = !large && maxHeight != null && maxHeight! < 440;
-    final gap = compact ? 2.0 : 4.0;
-    final tileHeight = compact ? 68.0 : 104.0;
+    final compactGame = compact && games;
+    final panelInset = compact ? Spacing.xs / 2 : Spacing.xs;
+    final rowGap = compact ? Spacing.xs : Spacing.sm;
+    final sectionGap = compactGame
+        ? Spacing.xs
+        : compact
+        ? Spacing.sm
+        : Spacing.md;
+    final actionGap = compactGame ? Spacing.xs : Spacing.sm;
+    final heroHeight = math.min(
+      large ? 150.0 : 180.0,
+      math.max(0, width - Spacing.sm * 2 - panelInset * 2) / 1.5,
+    );
     final fonts = SoriLocaleFonts.of(context);
     final labelStyle = SoriTextTheme.of(context).body.copyWith(
       fontSize: 16,
@@ -57,9 +74,9 @@ class C5CatalogOverview extends StatelessWidget {
       color: CPalette.ink,
       fontWeight: fonts.bodyWeight(FontWeight.w500),
     );
-    Widget label(String value) => Text(
+    Widget label(String value, {TextAlign align = TextAlign.center}) => Text(
       value.replaceAll('Tageschallenge', 'Tages\u00adchallenge'),
-      textAlign: TextAlign.center,
+      textAlign: align,
       style: labelStyle,
     );
     Widget tile(C5OverviewTile item, {bool horizontal = false}) => CImageTap(
@@ -76,68 +93,74 @@ class C5CatalogOverview extends StatelessWidget {
             BoxShadow(color: Color(0xffbfa27d), offset: Offset(0, 2)),
           ],
         ),
-        padding: EdgeInsets.symmetric(horizontal: 3, vertical: large ? 8 : 1),
+        padding: EdgeInsets.symmetric(
+          horizontal: Spacing.xs,
+          vertical: large
+              ? Spacing.sm
+              : compactGame
+              ? 0
+              : Spacing.xs,
+        ),
         child: horizontal || large
             ? Row(
                 children: [
                   SizedBox.square(dimension: large ? 64 : 32, child: item.art),
-                  const SizedBox(width: 4),
-                  Expanded(child: label(item.label)),
+                  const SizedBox(width: Spacing.sm),
+                  Expanded(child: label(item.label, align: TextAlign.start)),
                 ],
               )
             : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: compact ? 24 : 56, child: item.art),
-                  const SizedBox(height: 2),
+                  SizedBox(height: compact ? 24 : 48, child: item.art),
+                  const SizedBox(height: Spacing.xs),
                   label(item.label),
                 ],
               ),
       ),
     );
+    final art = SizedBox(height: heroHeight, child: _hero());
+    final columns = games ? 3 : 2;
     final children = <Widget>[
       if (!games)
         large
             ? Column(
                 children: [
+                  for (final (i, text) in steps.indexed) ...[
+                    if (i > 0) const SizedBox(height: Spacing.xs),
+                    Row(
+                      children: [
+                        _StepNumber(i + 1),
+                        const SizedBox(width: Spacing.sm),
+                        Expanded(child: label(text, align: TextAlign.start)),
+                      ],
+                    ),
+                  ],
+                ],
+              )
+            : Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   for (final (i, text) in steps.indexed)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 4),
-                      child: Row(
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           _StepNumber(i + 1),
-                          const SizedBox(width: 8),
-                          Expanded(child: label(text)),
+                          const SizedBox(height: Spacing.xs),
+                          label(text),
                         ],
                       ),
                     ),
                 ],
-              )
-            : SizedBox(
-                height: 48,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    for (final (i, text) in steps.indexed)
-                      Expanded(
-                        child: Column(
-                          children: [
-                            _StepNumber(i + 1),
-                            const SizedBox(height: 3),
-                            label(text),
-                          ],
-                        ),
-                      ),
-                  ],
-                ),
               ),
-      if (!games) SizedBox(height: gap),
+      if (!games) const SizedBox(height: Spacing.xs),
       if (!large && maxHeight != null)
-        Expanded(child: _hero())
+        Flexible(fit: FlexFit.loose, child: art)
       else
-        SizedBox(height: games ? 180 : 150, child: _hero()),
+        art,
+      const SizedBox(height: Spacing.xs),
       if (games) ...[
-        SizedBox(height: gap),
         Text(
           heroLabel,
           textAlign: TextAlign.center,
@@ -147,47 +170,49 @@ class C5CatalogOverview extends StatelessWidget {
             color: CPalette.ink,
           ),
         ),
-        SizedBox(height: gap),
+        SizedBox(height: compactGame ? Spacing.xs / 2 : Spacing.sm),
         _primary(),
-      ] else ...[
-        SizedBox(height: gap),
+      ] else
         label(heroLabel),
-      ],
-      SizedBox(height: gap),
+      SizedBox(height: sectionGap),
       if (large)
-        for (final item in tiles) ...[tile(item), SizedBox(height: gap)]
+        for (var i = 0; i < tiles.length; i++) ...[
+          if (i > 0) const SizedBox(height: Spacing.sm),
+          tile(tiles[i]),
+        ]
       else
-        for (var i = 0; i < tiles.length; i += games ? 3 : 2) ...[
-          SizedBox(
-            height: tileHeight,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                for (var j = i; j < i + (games ? 3 : 2); j++) ...[
-                  if (j > i) const SizedBox(width: 4),
-                  Expanded(child: tile(tiles[j])),
-                ],
+        for (var i = 0; i < tiles.length; i += columns) ...[
+          if (i > 0) SizedBox(height: rowGap),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              for (var j = i; j < i + columns && j < tiles.length; j++) ...[
+                if (j > i) const SizedBox(width: Spacing.sm),
+                Expanded(child: tile(tiles[j])),
               ],
-            ),
+            ],
           ),
-          SizedBox(height: gap),
         ],
+      SizedBox(height: actionGap),
       if (!games) _primary(),
       if (footer case final item?) tile(item, horizontal: true),
     ];
     final board = CPaperPanel(
-      padding: EdgeInsets.all(compact ? 2 : 8),
+      padding: EdgeInsets.all(panelInset),
       child: Column(
-        mainAxisSize: maxHeight == null ? MainAxisSize.min : MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: children,
       ),
     );
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: Spacing.sm),
       child: maxHeight == null
           ? board
-          : SizedBox(height: maxHeight, child: board),
+          : ConstrainedBox(
+              constraints: BoxConstraints(maxHeight: maxHeight!),
+              child: board,
+            ),
     );
   }
 

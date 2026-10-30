@@ -24,6 +24,7 @@ class SoriStatsTopBar extends StatelessWidget {
 
   /// [onProfileTap] 아이콘의 라벨 재정의. 비어 있으면 번역된 기본 라벨 사용.
   final String? profileTooltip;
+  final double bottomSpacing;
 
   const SoriStatsTopBar({
     super.key,
@@ -34,6 +35,7 @@ class SoriStatsTopBar extends StatelessWidget {
     required this.onStatsTap,
     this.onProfileTap,
     this.profileTooltip,
+    this.bottomSpacing = Spacing.lg,
   });
 
   @override
@@ -160,7 +162,7 @@ class SoriStatsTopBar extends StatelessWidget {
             );
           },
         ),
-        const SizedBox(height: Spacing.lg),
+        SizedBox(height: bottomSpacing),
       ],
     );
   }

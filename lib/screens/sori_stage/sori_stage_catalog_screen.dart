@@ -700,43 +700,57 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                             final available =
                                 constraints.viewportMainAxisExtent -
                                 constraints.precedingScrollExtent -
-                                64;
+                                (48 *
+                                        soriComfortScale(
+                                          MediaQuery.sizeOf(context).width,
+                                        ) +
+                                    Spacing.xs +
+                                    Spacing.sm);
                             return SliverPadding(
                               padding: const EdgeInsets.only(bottom: 8),
                               sliver: SliverToBoxAdapter(
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
-                                  children: [
-                                    _approvedOverview(
-                                      data,
-                                      isGames,
-                                      maxHeight:
-                                          normal &&
-                                              available >= 280 &&
-                                              MediaQuery.viewInsetsOf(
-                                                    context,
-                                                  ).bottom ==
-                                                  0
-                                          ? available.clamp(280.0, 900.0)
-                                          : null,
+                                child: Center(
+                                  child: ConstrainedBox(
+                                    constraints: const BoxConstraints(
+                                      maxWidth: SoriMaxWidth.focus,
                                     ),
-                                    const SizedBox(height: 8),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: padding.left,
-                                      ),
-                                      child: SoriButton.outlined(
-                                        key: const ValueKey('c5-catalog-all'),
-                                        cMaterial: true,
-                                        fullWidth: true,
-                                        label: isGames
-                                            ? t.c5AllGames
-                                            : t.c5AllLearningActivities,
-                                        onTap: () => _toggleCatalog(true),
-                                      ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.stretch,
+                                      children: [
+                                        _approvedOverview(
+                                          data,
+                                          isGames,
+                                          maxHeight:
+                                              normal &&
+                                                  available >= 280 &&
+                                                  MediaQuery.viewInsetsOf(
+                                                        context,
+                                                      ).bottom ==
+                                                      0
+                                              ? available.clamp(280.0, 900.0)
+                                              : null,
+                                        ),
+                                        const SizedBox(height: Spacing.xs),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 20,
+                                          ),
+                                          child: SoriButton.outlined(
+                                            key: const ValueKey(
+                                              'c5-catalog-all',
+                                            ),
+                                            cMaterial: true,
+                                            fullWidth: true,
+                                            label: isGames
+                                                ? t.c5AllGames
+                                                : t.c5AllLearningActivities,
+                                            onTap: () => _toggleCatalog(true),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
+                                  ),
                                 ),
                               ),
                             );

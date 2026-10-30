@@ -79,8 +79,8 @@ are separate checks. This intake does not claim global pixel parity or release
 completion.
 
 The initial kernel/catalog integration passed 73/73 checks. After full-CI
-remediation, the final root/chrome/native-capture batch passed 24/24. Its
-current 16 real-font PNGs and measurements are under
+remediation, the root/chrome/native-capture batch passed 24/24. That earlier
+batch's 16 real-font PNGs and measurements are under
 `C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-c5-number-contrast/`;
 the run log is `ci-root-chrome-final.log` in the parent directory. These cover
 DE/EN, 320x640 and 393x873, 100/200 percent text, and 24dp top/bottom OS
@@ -88,8 +88,8 @@ insets. All eight normal configurations have zero scroll extent and an 8dp
 gap before navigation. Fully painted 48dp Details controls, keyboard reflow,
 All/close/back restoration and existing activity IDs remain verified.
 
-The selected first-step marker now uses the existing deep-jade face, paper
-bold numeral and brass edge. The unchanged text-contrast guideline passes
+The selected first-step marker uses the existing deep-jade face, paper
+bold numeral and brass edge. Its earlier text-contrast check passes
 with actual fonts. Six UI-measurement hosts load the bundled locale fonts
 instead of Ahem; their overflow, 48dp target, labels and contrast assertions
 remain. Current Gye schema checks validate translated server-derived counts
@@ -103,10 +103,65 @@ The existing 12-case Persona light/dark viewport matrix and five adjacent
 selection/interaction checks passed without test changes.
 
 Current adapter SHA-256 values and individual verification logs are recorded
-in the intake JSON. The final changed-Dart analysis scope and complete output
+in the intake JSON. The earlier pre-spacing changed-Dart analysis scope and output
 are `ci-source-freeze-analyze.json` and `ci-source-freeze-analyze.log` under
 the same artifact parent directory. All 44 changed Dart files analyzed with
 no issues; their SHA-256 values were unchanged during analysis. This metadata
 refresh does not edit
-product source or execute Flutter tests. Whole-PR CI, exact-APK/device checks
-and release remain separate evidence.
+product source or execute Flutter tests.
+
+The latest spacing revision replaces fixed-height tile filler and expanding
+hero space with natural content heights and a loose artwork bound. Related
+art/text uses 4dp; normal groups use 8/12dp, with compact adaptations to preserve
+the fold. The overview is at most 480dp wide, while artwork keeps its 3:2 ratio
+and a 180dp normal / 150dp enlarged upper bound. At 393dp, Lernen's board is
+506dp rather than 561dp, category faces are 80dp rather than 104dp, inner
+top/bottom space is 5dp rather than 14dp, and the adjacent primary/All gap is
+9dp rather than 17dp. Spare room remains outside the content instead of
+stretching cards or text. Current activity IDs, state and action owners remain.
+
+The latest catalog batch passed 25/25 checks, with 24 actual-font PNGs under
+`C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/spacing-catalog-after/`.
+It covers DE/EN, 320x640, 393x873 and 1280x900, 100/200 percent text and 24dp
+top/bottom OS insets, plus keyboard reflow. All 12 normal configurations have
+zero scroll extent. Native 48dp targets, fully painted Details, current
+course/game launches and All/close/back offset restoration remain checked.
+The log is `spacing-catalog-aa-after.log` in the parent artifact directory.
+
+The AA screen matrix passed 45/45 checks and its paint-verification regressions
+passed 8/8 in `aa-native-threshold-proof.log`. The helper runs Flutter's native
+guideline first. A reported failure is mapped to its actual RenderParagraph;
+the required ratio is `max(nativeReported, SDKstyleTarget)`, retaining the same
+4.5 normal / 3.0 large criteria and never lowering a reported 4.5 to 3.0.
+Proof requires actual opaque ink cores and the material directly under painted
+glyphs, with no frame/time advance and byte-identical restored RGBA. Unknown,
+unsupported, mixed, translucent, missing-paint or restoration failures retain
+the original failure. The same 18dp test text has measured contrast 3.5668:
+reported 3.0 passes and reported 4.5 fails. The three locally adjudicated labels
+have minimum ratios 14.5528, 13.8138 and 5.2052 at unchanged 4.5 requirements;
+individual PNGs, resolved styles and per-node proof JSONs are under
+`aa-native-threshold-proof/`. Consent/Gye's native checks pass locally; their
+earlier Linux-only histogram failures remain for exact-head CI verification.
+
+The final Gye capture fixture uses the actual `cafe_order` definition,
+schema version 1, target 3 and saved progress 3 (four members). The capture's
+schema unit checks the canonical ID/target and bounded progress. Viewing this
+explicit saved snapshot does not earn a light or write reward state. The
+23-check docs capture/schema run passed in `spacing-roots-evidence-final.log`;
+the DE/EN Gye PNGs in `docs/screenshots/` show this three-light state.
+The separate partial-progress matrix uses saved progress 1 of that same actual
+target 3. Its schema/viewport/OS-inset checks passed 17/17 in
+`C:/dev/hangulsori/_codex_artifacts/native-design-review-20261030/spacing-0eaaf0cce/real-promise-run.log`;
+DE/EN, 320/393dp and 100/200 percent partial-state PNGs are under that run's
+`after-root-real/`. These are additional 1/3 checks; the final docs gallery
+uses the distinct 3/3 saved state.
+
+The final post-format WIP analysis covers 23 Dart files, including all four
+untracked Dart files. `spacing-final-wip-dart-analyze.json` and `.log` record
+no issues and identical before/after SHA-256 values, file scope and HEAD
+`0eaaf0cce102598606c5d9db03a1c779ea5c937f`. Before the accepted snapshot, root
+requested only `dart format test/c_today_spacing_test.dart`; it changed
+formatting in one file. This refresh otherwise changes metadata only and runs
+no Flutter tests. `spacing-aa-final-report.json` links the final scope, capture
+and contrast evidence. Whole-PR CI, exact-APK/device checks and release remain
+separate evidence.

@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/data/sori_activity_catalog.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
+import 'package:ko_lernen_app/screens/sori_stage/c5_catalog_overview.dart';
 import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/approved_figma_scene.dart';
@@ -17,6 +18,64 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'support/catalog_test_support.dart';
 import 'support/real_fonts.dart';
 import 'support/sori_stage_pump.dart';
+
+Map<String, Object> _spacingMetrics(
+  WidgetTester tester,
+  Rect primary,
+  Rect all,
+) {
+  final root = find.byKey(const ValueKey('c5-catalog-overview'));
+  final overview = tester.widget<C5CatalogOverview>(root);
+  final hero = tester.getRect(find.byKey(const ValueKey('c5-overview-hero')));
+  final caption = tester.getRect(
+    find.descendant(of: root, matching: find.text(overview.heroLabel)).first,
+  );
+  final tileMetrics = <Map<String, Object>>[];
+  for (final item in overview.tiles) {
+    final tile = find.byKey(item.key);
+    final box = tester.getRect(tile);
+    final art = tester.getRect(find.byWidget(item.art));
+    final label = tester.getRect(
+      find.descendant(of: tile, matching: find.byType(Text)).last,
+    );
+    tileMetrics.add({
+      'label': item.label,
+      'height': box.height,
+      'artHeight': art.height,
+      'artTopInset': art.top - box.top,
+      'artToLabel': label.top - art.bottom,
+      'labelBottomInset': box.bottom - label.bottom,
+    });
+  }
+  return {
+    'overviewWidth': tester.getSize(root).width,
+    'overviewHeight': tester.getSize(root).height,
+    'heroWidth': hero.width,
+    'heroHeight': hero.height,
+    'heroToCaption': caption.top - hero.bottom,
+    'primaryToAll': all.top - primary.bottom,
+    'lastActionToAll':
+        all.top -
+        (overview.footer == null
+            ? primary.bottom
+            : tester.getRect(find.byKey(overview.footer!.key)).bottom),
+    'tiles': tileMetrics,
+    if (!overview.games)
+      'stepsToHero':
+          hero.top -
+          overview.steps
+              .map(
+                (text) => tester
+                    .getBottomLeft(
+                      find
+                          .descendant(of: root, matching: find.text(text))
+                          .first,
+                    )
+                    .dy,
+              )
+              .reduce((a, b) => a > b ? a : b),
+  };
+}
 
 void main() {
   const output = String.fromEnvironment('C5_EVIDENCE_DIR');
@@ -46,7 +105,11 @@ void main() {
   });
 
   for (final language in ['de', 'en']) {
-    for (final size in [const Size(320, 640), const Size(393, 873)]) {
+    for (final size in [
+      const Size(320, 640),
+      const Size(393, 873),
+      const Size(1280, 900),
+    ]) {
       for (final scale in [1.0, 2.0]) {
         for (final tab in [SoriStageTab.learn, SoriStageTab.games]) {
           testWidgets('C5 ${tab.name} $language ${size.width} $scale', (
@@ -96,15 +159,32 @@ void main() {
               ),
             );
             final all = find.byKey(const ValueKey('c5-catalog-all'));
-            final navTop = tester.getTopLeft(find.byType(NavigationBar)).dy;
+            final navigation = find.byType(NavigationBar);
+            final navTop = navigation.evaluate().isEmpty
+                ? size.height - 24
+                : tester.getTopLeft(navigation).dy;
             final primaryRect = tester.getRect(primary);
             final allRect = tester.getRect(all);
+            final spacing = _spacingMetrics(tester, primaryRect, allRect);
             expect(primaryRect.height, greaterThanOrEqualTo(48 - 1e-9));
             expect(allRect.height, greaterThanOrEqualTo(48 - 1e-9));
+            expect(spacing['overviewWidth'], lessThanOrEqualTo(480 + .01));
+            expect(spacing['heroHeight'], lessThanOrEqualTo(180 + .01));
+            expect(spacing['heroToCaption'], closeTo(4, .01));
+            expect(spacing['lastActionToAll'], inInclusiveRange(4.0, 12.0));
             if (scale == 1) {
               expect(primaryRect.bottom, lessThanOrEqualTo(navTop + 1));
               expect(allRect.bottom, lessThanOrEqualTo(navTop + 1));
               expect(scroll.position.maxScrollExtent, lessThanOrEqualTo(1));
+              for (final tile
+                  in spacing['tiles']! as List<Map<String, Object>>) {
+                expect(tile['artToLabel'], closeTo(4, .01));
+                expect(tile['artTopInset'], lessThanOrEqualTo(5 + .01));
+                expect(tile['labelBottomInset'], lessThanOrEqualTo(5 + .01));
+              }
+              if (tab == SoriStageTab.learn) {
+                expect(spacing['stepsToHero'], closeTo(4, .01));
+              }
             }
             expect(find.byType(SoriCatalogCard), findsNothing);
             if (tab == SoriStageTab.games) {
@@ -146,6 +226,7 @@ void main() {
               'textScale': scale,
               'topInset': 24,
               'bottomInset': 24,
+              ...spacing,
             });
             if (output.isNotEmpty) {
               await tester.runAsync(() async {

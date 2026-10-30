@@ -173,7 +173,7 @@
     {
       "file": "lib/widgets/sori/c_gallery/c_materials.dart",
       "source_sha256": "a9f912b6c0af4c54b92154e41610b37971d96abb5058ff506bd9b205c176781f",
-      "adapter_sha256": "bce33dd710650d1512d648aa01d86780d2e6e68d126288c35dc2c0958c743941"
+      "adapter_sha256": "0b135dcb81f899a76e65167a30affb30b5de9f136fb336945c8ae950e54ad2d1"
     },
     {
       "file": "lib/widgets/sori/c_gallery/c_objects.dart",
@@ -263,11 +263,11 @@
   "native_adapter_hashes": [
     {
       "file": "lib/screens/sori_stage/c5_catalog_overview.dart",
-      "sha256": "40f81d3b3c824756be53a51e498378d6eb6585fd6c3bf8d9641044c94236c6b7"
+      "sha256": "a19611f61d48260e173b2606a6b31d6ea7c0021e0ebb740d243ab8ad90e50977"
     },
     {
       "file": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
-      "sha256": "801bc9d9b19102e5734d7a6e5d6a4db86af968968fd503caf3eef93ea42484c2"
+      "sha256": "b097061dd4d3ddae6ce1bacf586dbc8d9571e682c952dadd8a77a30ce5e8ce70"
     },
     {
       "file": "lib/widgets/sori/adaptive_navigation.dart",

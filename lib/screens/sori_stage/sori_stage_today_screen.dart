@@ -380,6 +380,7 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
       onStatsTap: () => Navigator.pushNamed(context, '/stats'),
       onProfileTap: () => Navigator.pushNamed(context, '/profile'),
       profileTooltip: t.soriStageProfileTooltip,
+      bottomSpacing: Spacing.sm,
     );
 
     return Column(
@@ -601,20 +602,18 @@ class _TodayContent extends StatelessWidget {
                             ],
                           ),
                   ),
-                  const SizedBox(height: Spacing.lg),
-                  const TodayGuideChecklistSection(),
+                  const TodayGuideChecklistSection(topSpacing: Spacing.md),
                   const ContentDailyGoals(),
                   // A partial Today snapshot must not look like a complete daily
                   // dashboard. In particular, neither reward collection nor
                   // unrelated activity CTAs may accompany its safe retry path.
                   if (!todayUnavailable) ...[
                     if (snapshot.pendingBojagiCount > 0) ...[
-                      const SizedBox(height: Spacing.lg),
+                      const SizedBox(height: Spacing.md),
                       stagger(
                         _PendingBojagi(count: snapshot.pendingBojagiCount),
                       ),
                     ],
-                    const SizedBox(height: Spacing.xl),
                     DancheongDraftResume(
                       store: DancheongStore(),
                       onOpen: (arguments) => Navigator.of(context).pushNamed(
@@ -622,11 +621,12 @@ class _TodayContent extends StatelessWidget {
                         arguments: arguments,
                       ),
                     ),
+                    const SizedBox(height: Spacing.lg),
                     stagger(_HanokProgress(snapshot: snapshot)),
                     const SizedBox(height: Spacing.md),
                     YeopjeonWalletCard(key: ObjectKey(snapshot), compact: true),
                     if (nearlyComplete.isNotEmpty) ...[
-                      const SizedBox(height: Spacing.xl),
+                      const SizedBox(height: Spacing.lg),
                       stagger(
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -641,7 +641,7 @@ class _TodayContent extends StatelessWidget {
                       ),
                     ],
                     if (upNext.isNotEmpty) ...[
-                      const SizedBox(height: Spacing.xl),
+                      const SizedBox(height: Spacing.lg),
                       stagger(
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -996,7 +996,7 @@ class _PendingBojagi extends StatelessWidget {
           borderRadius: BorderRadius.circular(SoriRadius.md),
           child: Container(
             constraints: const BoxConstraints(minHeight: 88),
-            padding: const EdgeInsets.all(Spacing.lg),
+            padding: const EdgeInsets.all(Spacing.md),
             decoration: BoxDecoration(
               color: SoriColors.gold.withValues(alpha: .18),
               border: Border.all(color: SoriColors.gold),

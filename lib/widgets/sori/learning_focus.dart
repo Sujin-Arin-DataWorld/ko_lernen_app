@@ -89,12 +89,18 @@ class SoriLearningFocus extends StatelessWidget {
       final compact =
           MediaQuery.sizeOf(context).height < 750 &&
           MediaQuery.textScalerOf(context).scale(16) <= 16;
-      final artHeight = conceptCompactSummary
+      final nominalArtHeight = conceptCompactSummary
           ? (compact ? 48.0 : 96.0)
           : (compact ? 88.0 : 146.0);
+      final trimReviewCanvas =
+          conceptCompactSummary && focus?.today.pick is ReviewPick;
+      final artHeight = trimReviewCanvas
+          ? nominalArtHeight * 720 / 1254
+          : nominalArtHeight;
       final subjectArt =
           conceptArt ??
           SizedBox(
+            key: const ValueKey('learning-focus-art'),
             height: artHeight,
             child:
                 subject.contains('coffee') ||
@@ -105,7 +111,10 @@ class SoriLearningFocus extends StatelessWidget {
                     HangulIntroPick() => const CReferenceArt(
                       CReferencePart.hangul,
                     ),
-                    ReviewPick() => const CReferenceArt(CReferencePart.review),
+                    ReviewPick() => CReferenceArt(
+                      CReferencePart.review,
+                      opticalFit: trimReviewCanvas,
+                    ),
                     _ => const CObjectArt(CObject.book),
                   },
           );
@@ -146,6 +155,7 @@ class SoriLearningFocus extends StatelessWidget {
               header: true,
               child: Text(
                 title,
+                key: const ValueKey('learning-focus-title'),
                 style: body.copyWith(
                   fontSize: conceptCompactSummary ? 22 : 25,
                   fontWeight: FontWeight.w700,

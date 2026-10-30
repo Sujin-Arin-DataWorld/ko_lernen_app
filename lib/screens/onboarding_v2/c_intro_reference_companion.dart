@@ -25,29 +25,57 @@ class IntroReferenceCompanion extends StatelessWidget {
     builder: (context, bounds) {
       final s = bounds.maxWidth / 402;
       if (bounds.hasBoundedHeight) {
+        final t = AppL10n.of(context);
+        final cardWidth = (bounds.maxWidth - 24 - 8) / 2;
+        final roleStyle = IntroTypography.localized(
+          context,
+          IntroTypography.body(16, false, IntroPalette.mutedInk),
+        ).copyWith(height: 1.2);
+        var roleHeight = 0.0;
+        for (final role in [t.onboardingCTaegoRole, t.onboardingCJoyRole]) {
+          final painter = TextPainter(
+            text: TextSpan(text: role, style: roleStyle),
+            textDirection: Directionality.of(context),
+            textScaler: MediaQuery.textScalerOf(context),
+            maxLines: 2,
+          )..layout(maxWidth: cardWidth - 8);
+          if (painter.height > roleHeight) {
+            roleHeight = painter.height;
+          }
+          painter.dispose();
+        }
+        // Both complete portrait masters are 1024 x 1536. Their natural aspect
+        // sets the card ceiling; spare window height stays outside the cards.
+        final cardHeight = (cardWidth - 8) * 1.5 + 8 + 4 + 24 + 4 + roleHeight;
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Expanded(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    for (final id in [
-                      OnboardingV2Ids.companionTaego,
-                      OnboardingV2Ids.companionJoy,
-                    ]) ...[
-                      if (id == OnboardingV2Ids.companionJoy)
-                        const SizedBox(width: 8),
-                      Expanded(
-                        child: _FiniteCompanionCard(
-                          companion: copy.companion.companion(id),
-                          selected: selectedCompanionId == id,
-                          onTap: () => onCompanionChanged(id),
+              Flexible(
+                fit: FlexFit.loose,
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(maxHeight: cardHeight),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      for (final id in [
+                        OnboardingV2Ids.companionTaego,
+                        OnboardingV2Ids.companionJoy,
+                      ]) ...[
+                        if (id == OnboardingV2Ids.companionJoy)
+                          const SizedBox(width: 8),
+                        Expanded(
+                          child: _FiniteCompanionCard(
+                            companion: copy.companion.companion(id),
+                            roleHeight: roleHeight,
+                            selected: selectedCompanionId == id,
+                            onTap: () => onCompanionChanged(id),
+                          ),
                         ),
-                      ),
+                      ],
                     ],
-                  ],
+                  ),
                 ),
               ),
               const SizedBox(height: 8),
@@ -94,11 +122,13 @@ class IntroReferenceCompanion extends StatelessWidget {
 class _FiniteCompanionCard extends StatelessWidget {
   const _FiniteCompanionCard({
     required this.companion,
+    required this.roleHeight,
     required this.selected,
     required this.onTap,
   });
 
   final OnboardingCompanionSpec companion;
+  final double roleHeight;
   final bool selected;
   final VoidCallback onTap;
 
@@ -183,10 +213,11 @@ class _FiniteCompanionCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 2),
+                    const SizedBox(height: 4),
                     SizedBox(
-                      height: 40,
-                      child: Center(
+                      height: roleHeight,
+                      child: Align(
+                        alignment: Alignment.topCenter,
                         child: Text(
                           role,
                           textAlign: TextAlign.center,

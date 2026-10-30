@@ -23,8 +23,9 @@ void main() {
     Widget child, {
     String lang = 'de',
     double scale = 1,
+    Size size = const Size(320, 640),
   }) async {
-    tester.view.physicalSize = const Size(320, 640);
+    tester.view.physicalSize = size;
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
@@ -174,6 +175,58 @@ void main() {
       );
     }
   }
+
+  testWidgets('five confirmed source lights use one row in the tab card', (
+    tester,
+  ) async {
+    for (final lang in ['de', 'en']) {
+      for (final scale in [1.0, 2.0]) {
+        for (final cardWidth in [256.0, 329.0]) {
+          await show(
+            tester,
+            Center(
+              child: SizedBox(
+                width: cardWidth,
+                child: GyeWeeklyLanternRow(
+                  done: 2,
+                  target: 5,
+                  maxLanternWidth: cardWidth < 288 ? 40 : 76,
+                ),
+              ),
+            ),
+            lang: lang,
+            scale: scale,
+            size: cardWidth < 288 ? const Size(320, 640) : const Size(393, 873),
+          );
+          final lights = [
+            for (var i = 0; i < 5; i++)
+              tester.getRect(find.byKey(ValueKey('gye-weekly-lantern-$i'))),
+          ];
+          expect(lights.map((rect) => rect.top).toSet(), hasLength(1));
+          expect(
+            lights.last.right - lights.first.left,
+            lessThanOrEqualTo(cardWidth),
+          );
+          for (final light in lights) {
+            expect(light.height / light.width, closeTo(1698 / 926, .001));
+          }
+          final images = tester.widgetList<Image>(find.byType(Image));
+          expect(
+            images.where(
+              (image) => assetPath(image) == GyeWeeklyLanternAssets.lit,
+            ),
+            hasLength(2),
+          );
+          expect(
+            images.where(
+              (image) => assetPath(image) == GyeWeeklyLanternAssets.off,
+            ),
+            hasLength(3),
+          );
+        }
+      }
+    }
+  });
 
   if (const bool.fromEnvironment('CAPTURE_GYE_LANTERN_EVIDENCE')) {
     testWidgets('capture weekly lantern source state in both languages', (

@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/models/cultural_glossary.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/gye.dart';
+import 'package:ko_lernen_app/models/gye_weekly_promise.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/sarangchae_construction.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
@@ -52,6 +53,14 @@ late LearningFocus _bookCardFocus;
 /// already on disk — not the capture command; see AGENTS.md's UI 루트 증거
 /// bullet for the exact regeneration command.
 void main() {
+  test('Gye evidence uses a server-defined promise and matching count', () {
+    final meta = _gyeMeta();
+    final promise = GyeWeeklyPromises.byId(meta.weeklyPromiseId);
+    expect(promise, isNotNull);
+    expect(meta.weeklyPromiseSchemaVersion, 1);
+    expect(meta.weeklyPromiseTarget, promise!.target);
+    expect(meta.weeklyPromiseProgress, inInclusiveRange(0, promise.target));
+  });
   for (final language in ['de', 'en']) {
     testWidgets(
       'capture confirmed Bojagi receipt $language',
@@ -512,9 +521,8 @@ Future<void> _settleHanok(WidgetTester tester) async {
   }
 }
 
-/// A weekly-promise goal fully met -> `GyeLanternProgress.currentStepFor`
-/// returns 1 ("lantern earned"), highlighting the stepper's 2nd of 3 steps
-/// (`gye_tab_screen.dart`'s `SoriStepper`) instead of its step-0 default.
+/// Fully met cafe-order fixture follows the server-owned target of three.
+/// This explicit saved-state snapshot never earns a light by opening the view.
 GyeMeta _gyeMeta() => const GyeMeta(
   id: 'ABC234',
   name: 'Mondhof',
@@ -523,9 +531,9 @@ GyeMeta _gyeMeta() => const GyeMeta(
   memberCount: 4,
   lifetimeGoalsAchieved: 2,
   weeklyPromiseSchemaVersion: 1,
-  weeklyPromiseId: 'promise_daily_streak',
-  weeklyPromiseTarget: 5,
-  weeklyPromiseProgress: 5,
+  weeklyPromiseId: GyeWeeklyPromises.cafeOrder,
+  weeklyPromiseTarget: 3,
+  weeklyPromiseProgress: 3,
   weeklyPromiseWeekKey: '2026-W36',
 );
 

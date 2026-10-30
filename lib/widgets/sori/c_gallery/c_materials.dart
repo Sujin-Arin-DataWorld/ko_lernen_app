@@ -37,11 +37,31 @@ enum CReferencePart {
 }
 
 class CReferenceArt extends StatelessWidget {
-  const CReferenceArt(this.part, {super.key, this.fit = BoxFit.contain});
+  const CReferenceArt(
+    this.part, {
+    super.key,
+    this.fit = BoxFit.contain,
+    this.opticalFit = false,
+  });
   final CReferencePart part;
   final BoxFit fit;
+  final bool opticalFit;
   @override
   Widget build(BuildContext context) {
+    if (opticalFit && part == CReferencePart.review) {
+      // Keep the original pixels and contact shadow; the square authoring
+      // canvas otherwise adds blank space above and below the wide object.
+      return CAtlasArt(
+        path: 'assets/illustrations/tactile/grammar.png',
+        region: const Rect.fromLTRB(
+          24 / 1254,
+          280 / 1254,
+          1234 / 1254,
+          1000 / 1254,
+        ),
+        fit: fit,
+      );
+    }
     final object = switch (part) {
       CReferencePart.cloudLogo2 => CObject.cloud,
       CReferencePart.coin => CObject.coin,

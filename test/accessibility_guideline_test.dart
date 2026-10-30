@@ -23,6 +23,7 @@ import 'package:ko_lernen_app/theme.dart';
 
 import 'support/scenario_stock_fixtures.dart';
 import 'support/scenario_fixtures.dart';
+import 'support/text_paint_evidence.dart';
 
 /// Flutter 공식 접근성 가이드라인 자동 검사.
 ///
@@ -128,7 +129,11 @@ void main() {
     for (final entry in screens.entries) {
       testWidgets(entry.key, (tester) async {
         final handle = await pumpScreen(tester, entry.value());
-        await expectLater(tester, meetsGuideline(textContrastGuideline));
+        await captureTextPaintEvidence(tester, entry.key);
+        await expectLater(
+          tester,
+          meetsGuideline(PaintedTextContrastGuideline(evidenceName: entry.key)),
+        );
         handle.dispose();
       });
     }
