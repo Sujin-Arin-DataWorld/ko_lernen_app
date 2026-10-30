@@ -156,9 +156,10 @@ void main() {
     // 2026-10-29: +1 — bounded Einleitung contact, selection and scene motion.
     // 2026-10-30: +1 — user-initiated account progress recovery sheet.
     // 2026-10-30: +16 — documented approved C chrome/material/ink/Gye owners.
-    expect(actual, hasLength(171));
+    // 2026-10-30: +1 — byte-identical shared material asset aliases.
+    expect(actual, hasLength(172));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(171));
+    expect(listed, hasLength(172));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

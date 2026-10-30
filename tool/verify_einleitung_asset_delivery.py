@@ -14,8 +14,11 @@ def main():
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     manifest = json.loads((root / 'tool/einleitung_generated_assets.json').read_text(encoding='utf-8'))
+    for item in manifest.get('preservedFiles', []):
+        preserved = (root / item['asset']).read_bytes()
+        assert hashlib.sha256(preserved).hexdigest() == item['sha256'], item['asset'] + ': preserved source mismatch'
     records = []
-    for item in manifest['files']:
+    for item in [*manifest['files'], *manifest.get('runtimeAliases', [])]:
         source = (root / item['asset']).read_bytes()
         expected = hashlib.sha256(source).hexdigest()
         assert expected == item['sha256'], item['asset'] + ': source mismatch'

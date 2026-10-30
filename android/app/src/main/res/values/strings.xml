@@ -1,4 +1,5 @@
 <resources>
     <!-- Dynamic-feature titles must live in the base resource table. -->
     <string name="title_proofreading_feature">Korean proofreading</string>
+    <string name="title_c_artwork">Hanok artwork</string>
 </resources>

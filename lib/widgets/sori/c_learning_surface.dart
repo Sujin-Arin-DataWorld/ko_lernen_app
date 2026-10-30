@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'pressable.dart';
+import 'c_material_assets.dart';
 import 'tokens.dart';
 import 'button.dart' show SoriLoadingIndicator;
 
@@ -87,7 +88,7 @@ class SoriCMaterialSurface extends StatelessWidget {
                 child: ExcludeSemantics(
                   child: material == SoriCMaterial.jade
                       ? Image.asset(
-                          'assets/illustrations/c_learning/jade.png',
+                          SoriCMaterialAssets.jade,
                           scale: 1254 / 420,
                           repeat: ImageRepeat.repeat,
                           fit: BoxFit.none,
@@ -105,7 +106,7 @@ class SoriCMaterialSurface extends StatelessWidget {
                                 minHeight: bounds.maxHeight * 2,
                                 maxHeight: bounds.maxHeight * 2,
                                 child: Image.asset(
-                                  'assets/illustrations/c_learning/paper-atlas.png',
+                                  SoriCMaterialAssets.paperAtlas,
                                   fit: BoxFit.fill,
                                 ),
                               ),

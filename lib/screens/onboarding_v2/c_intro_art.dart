@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/learner_level.dart';
+import '../../widgets/sori/approved_chrome_assets.dart';
 import '../../widgets/sori/intro_tokens.dart';
 export '../../widgets/sori/intro_tokens.dart';
 
@@ -16,7 +17,11 @@ class CIntroArt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Image.asset(
-    name == 'interest-kcontent' ? kContentAsset : '$directory/intro-$name.png',
+    switch (name) {
+      'cloud-mark' => ApprovedChromeAssets.cloud,
+      'interest-kcontent' => kContentAsset,
+      _ => '$directory/intro-$name.png',
+    },
     fit: fit,
     excludeFromSemantics: true,
     filterQuality: FilterQuality.medium,

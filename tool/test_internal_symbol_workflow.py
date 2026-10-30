@@ -65,7 +65,27 @@ class InternalSymbolWorkflowTest(unittest.TestCase):
                      'Upload and verify Crashlytics symbol evidence', 'Archive symbol evidence'):
             with self.subTest(step=name):
                 reference = next(step for step in public_steps if step.get('name') == name)
-                self.assertEqual(self.by_name[name], reference)
+                internal = dict(self.by_name[name])
+                reference = dict(reference)
+                if name in ('Read pinned release-toolchain versions', 'Download and verify bundletool'):
+                    # Public size checks now require these pinned tools even
+                    # when the separate Crashlytics publication gate is off.
+                    self.assertEqual(internal.pop('if'), GATE)
+                    self.assertNotIn('if', reference)
+                self.assertEqual(internal, reference)
+
+    def test_public_artwork_size_gate_runs_before_upload_and_cannot_be_ignored(self):
+        public = yaml.safe_load((ROOT / '.github/workflows/play_closed.yml').read_text())
+        steps = next(iter(public['jobs'].values()))['steps']
+        names = [step.get('name') for step in steps]
+        gate = steps[names.index('Verify artwork split and base download size before publishing')]
+        self.assertLess(names.index(gate['name']), names.index('Upload to Google Play Public Testing'))
+        self.assertNotIn('if', gate)
+        self.assertNotIn('continue-on-error', gate)
+        self.assertIn('set -euo pipefail', gate['run'])
+        self.assertIn('verify_android_artwork_delivery.py', gate['run'])
+        self.assertIn('--dimensions=ABI', gate['run'])
+        self.assertIn('--apks "$measurement/size.apks"', gate['run'])
 
     def test_diagnostic_inputs_survive_symbol_failure_without_credentials(self):
         inputs = self.by_name['Preserve AAB and Dart symbols']

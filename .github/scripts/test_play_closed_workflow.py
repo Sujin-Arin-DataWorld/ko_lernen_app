@@ -113,8 +113,13 @@ class PlayClosedWorkflowTest(unittest.TestCase):
             end = workflow.index("      - name:", start)
             with self.subTest(step=name):
                 self.assertLess(start, signing)
-                self.assertIn("if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'",
-                              workflow[start:end])
+                if name in ("Read pinned release-toolchain versions", "Download and verify bundletool"):
+                    # Pinned bundletool is also required by the independent
+                    # artwork/size gate, including when symbol upload is off.
+                    self.assertNotIn("\n        if:", workflow[start:end])
+                else:
+                    self.assertIn("if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'",
+                                  workflow[start:end])
         upload = workflow.index("- name: Upload and verify Crashlytics symbol evidence")
         publication = workflow.index("- name: Upload to Google Play Public Testing")
         self.assertLess(signing, upload)
