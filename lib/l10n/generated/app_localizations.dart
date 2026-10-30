@@ -2095,30 +2095,6 @@ abstract class AppL10n {
   /// **'Schreiben'**
   String get hangulTabWrite;
 
-  /// No description provided for @hangulConsonantsLabel.
-  ///
-  /// In de, this message translates to:
-  /// **'자음 · Konsonanten'**
-  String get hangulConsonantsLabel;
-
-  /// No description provided for @hangulVowelsLabel.
-  ///
-  /// In de, this message translates to:
-  /// **'모음 · Vokale'**
-  String get hangulVowelsLabel;
-
-  /// No description provided for @hangulSyllableLabel.
-  ///
-  /// In de, this message translates to:
-  /// **'🧩 음절 구조 · Silbenaufbau'**
-  String get hangulSyllableLabel;
-
-  /// No description provided for @hangulSyllableTableTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Silbentafel'**
-  String get hangulSyllableTableTitle;
-
   /// No description provided for @hangulSyllableTableHint.
   ///
   /// In de, this message translates to:
@@ -2130,12 +2106,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Aussprechen'**
   String get hangulPronounceBtn;
-
-  /// No description provided for @hangulRulesTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Hangul-Schreibregeln'**
-  String get hangulRulesTitle;
 
   /// No description provided for @hangulRulesBody.
   ///
@@ -2160,12 +2130,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Löschen'**
   String get hangulClearBtn;
-
-  /// No description provided for @hangulPronounceLetter.
-  ///
-  /// In de, this message translates to:
-  /// **'{letter} aussprechen'**
-  String hangulPronounceLetter(Object letter);
 
   /// No description provided for @hangulChipConsonants.
   ///
@@ -2256,18 +2220,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{letter} sitzt! Weiter zum nächsten.'**
   String hangulStrokeLetterDone(Object letter);
-
-  /// No description provided for @hangulLettersDone.
-  ///
-  /// In de, this message translates to:
-  /// **'{count, plural, one{1 Buchstabe fertig} other{{count} Buchstaben fertig}}'**
-  String hangulLettersDone(int count);
-
-  /// No description provided for @hangulHardOnly.
-  ///
-  /// In de, this message translates to:
-  /// **'Nur schwierige'**
-  String get hangulHardOnly;
 
   /// No description provided for @chosungModeWithVowels.
   ///
@@ -11826,12 +11778,6 @@ abstract class AppL10n {
   /// **'Grammatikübung abschließen'**
   String get testerFeedbackCompleteGrammar;
 
-  /// No description provided for @testerFeedbackCompleteHangul.
-  ///
-  /// In de, this message translates to:
-  /// **'Hangul-Übung abschließen'**
-  String get testerFeedbackCompleteHangul;
-
   /// No description provided for @testerFeedbackCompleteDailyHangul.
   ///
   /// In de, this message translates to:
@@ -18282,48 +18228,6 @@ abstract class AppL10n {
   /// **'Wort'**
   String get onboardingDemoWord;
 
-  /// No description provided for @onboardingDemoInitials.
-  ///
-  /// In de, this message translates to:
-  /// **'Anlautspiel'**
-  String get onboardingDemoInitials;
-
-  /// No description provided for @onboardingDemoCross.
-  ///
-  /// In de, this message translates to:
-  /// **'Silben-Kreuz'**
-  String get onboardingDemoCross;
-
-  /// No description provided for @onboardingDemoCloze.
-  ///
-  /// In de, this message translates to:
-  /// **'Lückentext'**
-  String get onboardingDemoCloze;
-
-  /// No description provided for @onboardingDemoPairs.
-  ///
-  /// In de, this message translates to:
-  /// **'Wortpaare'**
-  String get onboardingDemoPairs;
-
-  /// No description provided for @onboardingDemoSentence.
-  ///
-  /// In de, this message translates to:
-  /// **'Satz bauen'**
-  String get onboardingDemoSentence;
-
-  /// No description provided for @onboardingDemoChain.
-  ///
-  /// In de, this message translates to:
-  /// **'Wortkette'**
-  String get onboardingDemoChain;
-
-  /// No description provided for @onboardingDemoExample.
-  ///
-  /// In de, this message translates to:
-  /// **'Beispiel zeigen'**
-  String get onboardingDemoExample;
-
   /// No description provided for @onboardingJourneyStartTitle.
   ///
   /// In de, this message translates to:
@@ -20441,6 +20345,246 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Beispiel'**
   String get grammarBookExample;
+
+  /// No description provided for @atelierAutoOff.
+  ///
+  /// In de, this message translates to:
+  /// **'Auto weiter: Aus'**
+  String get atelierAutoOff;
+
+  /// No description provided for @atelierAutoOn.
+  ///
+  /// In de, this message translates to:
+  /// **'Auto weiter: An'**
+  String get atelierAutoOn;
+
+  /// No description provided for @atelierChartHint.
+  ///
+  /// In de, this message translates to:
+  /// **'19 Konsonanten · Im Feld nach oben oder unten wischen.'**
+  String get atelierChartHint;
+
+  /// No description provided for @atelierDemo.
+  ///
+  /// In de, this message translates to:
+  /// **'Strichfolge zeigen'**
+  String get atelierDemo;
+
+  /// No description provided for @atelierDemoEnd.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorführung beenden'**
+  String get atelierDemoEnd;
+
+  /// No description provided for @atelierDemoNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächster Strich'**
+  String get atelierDemoNext;
+
+  /// No description provided for @atelierDemoPhase.
+  ///
+  /// In de, this message translates to:
+  /// **'Schau zu'**
+  String get atelierDemoPhase;
+
+  /// No description provided for @atelierDemoRestart.
+  ///
+  /// In de, this message translates to:
+  /// **'Neu vorführen'**
+  String get atelierDemoRestart;
+
+  /// No description provided for @atelierDifficult.
+  ///
+  /// In de, this message translates to:
+  /// **'Schwierige'**
+  String get atelierDifficult;
+
+  /// No description provided for @atelierDiscover.
+  ///
+  /// In de, this message translates to:
+  /// **'Silben entdecken'**
+  String get atelierDiscover;
+
+  /// No description provided for @atelierDonePhase.
+  ///
+  /// In de, this message translates to:
+  /// **'Geschafft'**
+  String get atelierDonePhase;
+
+  /// No description provided for @atelierFeedHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Oben / unten: nächste / vorige Karte.\nZweimal tippen: merken. Einmal tippen: umdrehen.'**
+  String get atelierFeedHint;
+
+  /// No description provided for @atelierFinish.
+  ///
+  /// In de, this message translates to:
+  /// **'Übung abschließen'**
+  String get atelierFinish;
+
+  /// No description provided for @atelierFlipHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippen zum Umdrehen'**
+  String get atelierFlipHint;
+
+  /// No description provided for @atelierKnown.
+  ///
+  /// In de, this message translates to:
+  /// **'Gewusst'**
+  String get atelierKnown;
+
+  /// No description provided for @atelierMore.
+  ///
+  /// In de, this message translates to:
+  /// **'Mehr'**
+  String get atelierMore;
+
+  /// No description provided for @atelierNotYet.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht gewusst'**
+  String get atelierNotYet;
+
+  /// No description provided for @atelierPracticePhase.
+  ///
+  /// In de, this message translates to:
+  /// **'Du bist dran'**
+  String get atelierPracticePhase;
+
+  /// No description provided for @atelierRandom.
+  ///
+  /// In de, this message translates to:
+  /// **'Zufällige Karte'**
+  String get atelierRandom;
+
+  /// No description provided for @atelierRemember.
+  ///
+  /// In de, this message translates to:
+  /// **'Merken'**
+  String get atelierRemember;
+
+  /// No description provided for @atelierSaveFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch nicht gespeichert. Bitte erneut versuchen.'**
+  String get atelierSaveFailed;
+
+  /// No description provided for @atelierShare.
+  ///
+  /// In de, this message translates to:
+  /// **'Teilen'**
+  String get atelierShare;
+
+  /// No description provided for @atelierSkip.
+  ///
+  /// In de, this message translates to:
+  /// **'Überspringen'**
+  String get atelierSkip;
+
+  /// No description provided for @atelierStructure.
+  ///
+  /// In de, this message translates to:
+  /// **'Silbenaufbau'**
+  String get atelierStructure;
+
+  /// No description provided for @atelierSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeichen · Klang · Handschrift'**
+  String get atelierSubtitle;
+
+  /// No description provided for @atelierUseInChart.
+  ///
+  /// In de, this message translates to:
+  /// **'In der Silbentafel auswählen'**
+  String get atelierUseInChart;
+
+  /// No description provided for @atelierWatchBrush.
+  ///
+  /// In de, this message translates to:
+  /// **'Zuerst ansehen. Dann selbst schreiben.'**
+  String get atelierWatchBrush;
+
+  /// C internal learning screen; counts are actual activity state.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 Kartenaktion in dieser Übung} other{{count} Kartenaktionen in dieser Übung}}'**
+  String cHangulCardsReceipt(int count);
+
+  /// No description provided for @cHangulCompleted.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul-Übung abgeschlossen'**
+  String get cHangulCompleted;
+
+  /// No description provided for @cHangulHardCharacters.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur schwierige Zeichen'**
+  String get cHangulHardCharacters;
+
+  /// No description provided for @cHangulKeepPractising.
+  ///
+  /// In de, this message translates to:
+  /// **'Du kannst jederzeit weiterüben.'**
+  String get cHangulKeepPractising;
+
+  /// No description provided for @cHangulListen.
+  ///
+  /// In de, this message translates to:
+  /// **'Anhören'**
+  String get cHangulListen;
+
+  /// No description provided for @cHangulListenWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort anhören'**
+  String get cHangulListenWord;
+
+  /// No description provided for @cHangulSelectionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kartenauswahl'**
+  String get cHangulSelectionTitle;
+
+  /// No description provided for @cHangulWritingLettersReceipt.
+  ///
+  /// In de, this message translates to:
+  /// **'{letters, plural, =1{1 Buchstabe geübt} other{{letters} Buchstaben geübt}}'**
+  String cHangulWritingLettersReceipt(int letters);
+
+  /// C internal learning screen; counts are actual activity state.
+  ///
+  /// In de, this message translates to:
+  /// **'{letters, plural, =1{1 Buchstabe geübt} other{{letters} Buchstaben geübt}} · {strokes, plural, =1{1 Strichversuch} other{{strokes} Strichversuche}} · {mode}'**
+  String cHangulWritingReceipt(int letters, int strokes, String mode);
+
+  /// No description provided for @cHangulWritingStrokesReceipt.
+  ///
+  /// In de, this message translates to:
+  /// **'{strokes, plural, =1{1 Strichversuch} other{{strokes} Strichversuche}} · {mode}'**
+  String cHangulWritingStrokesReceipt(int strokes, String mode);
+
+  /// No description provided for @c5AllLearningActivities.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Lernangebote'**
+  String get c5AllLearningActivities;
+
+  /// No description provided for @c5AllGames.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Spiele'**
+  String get c5AllGames;
+
+  /// Accessible native Hangul equation with localized section and preview labels. Korean lesson glyphs remain Korean.
+  ///
+  /// In de, this message translates to:
+  /// **'{title}. ㄱ + ㅏ = 가. 가 · ga. {previewLabel}'**
+  String onboardingHangulEquationSemantics(String title, String previewLabel);
 
   /// No description provided for @accountRecoveryTitle.
   ///

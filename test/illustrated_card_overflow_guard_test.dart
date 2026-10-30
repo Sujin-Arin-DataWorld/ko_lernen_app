@@ -114,6 +114,7 @@ void main() {
                       ),
                       home: SoriStageCatalogScreen(
                         tab: tab,
+                        initialShowAll: true,
                         loadSnapshot: () async =>
                             _snapshot(progressFor(entries, variant)),
                       ),

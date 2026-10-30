@@ -42,6 +42,10 @@ class SoriCollapsingHeader extends StatelessWidget {
     this.expandedBuilder,
     this.titleStyle,
     required this.collapsedTitle,
+    this.topChrome,
+    this.topChromeHeight = 0,
+    this.foreground,
+    this.background,
   });
 
   /// 헤드라인 위 소형 라벨. [SoriPageHeader]와 같은 계약 — 대문자화는
@@ -71,6 +75,10 @@ class SoriCollapsingHeader extends StatelessWidget {
   /// 접힌 56dp 크롬 바 제목. 반드시 짧은 nav 라벨(`soriStageNav*`), 320dp
   /// 1줄 — LAYOUT-3 가드(`sori_stage_root_header_lines_test.dart`)가 잰다.
   final String collapsedTitle;
+  final Widget? topChrome;
+  final double topChromeHeight;
+  final Color? foreground;
+  final Color? background;
 
   /// [trailing]이 있을 때 헤드라인 텍스트 폭에서 미리 빼 두는 여유 —
   /// [slots]개의 48dp 액션(WCAG 터치 타깃)이 [Spacing.xs] 갭으로 나란히
@@ -172,11 +180,15 @@ class SoriCollapsingHeader extends StatelessWidget {
         return SliverPersistentHeader(
           pinned: true,
           delegate: _SoriCollapsingHeaderDelegate(
-            expandedHeight: expandedHeight,
+            expandedHeight: expandedHeight + topChromeHeight,
             collapsedTitle: collapsedTitle,
             trailing: trailing,
             reduceMotion: reduceMotion,
             expandedBuilder: _buildExpanded,
+            topChrome: topChrome,
+            topChromeHeight: topChromeHeight,
+            foreground: foreground,
+            background: background,
           ),
         );
       },
@@ -191,6 +203,10 @@ class _SoriCollapsingHeaderDelegate extends SliverPersistentHeaderDelegate {
     required this.trailing,
     required this.reduceMotion,
     required this.expandedBuilder,
+    required this.topChrome,
+    required this.topChromeHeight,
+    required this.foreground,
+    required this.background,
   });
 
   final double expandedHeight;
@@ -198,9 +214,13 @@ class _SoriCollapsingHeaderDelegate extends SliverPersistentHeaderDelegate {
   final Widget? trailing;
   final bool reduceMotion;
   final WidgetBuilder expandedBuilder;
+  final Widget? topChrome;
+  final double topChromeHeight;
+  final Color? foreground;
+  final Color? background;
 
   @override
-  double get minExtent => kToolbarHeight;
+  double get minExtent => kToolbarHeight + topChromeHeight;
 
   @override
   double get maxExtent => expandedHeight;
@@ -239,8 +259,18 @@ class _SoriCollapsingHeaderDelegate extends SliverPersistentHeaderDelegate {
             // 스크롤되는 그리드 콘텐츠를 가린다. 펼친 상태(progress 0)에선
             // 완전 투명이라 SoriScreenBackground의 한지 결이 그대로 비친다.
             Positioned.fill(
-              child: ColoredBox(color: s.bg.withValues(alpha: progress)),
+              child: ColoredBox(
+                color: (background ?? s.bg).withValues(alpha: progress),
+              ),
             ),
+            if (topChrome != null)
+              Positioned(
+                left: 0,
+                right: 0,
+                top: 0,
+                height: topChromeHeight,
+                child: topChrome!,
+              ),
             // §E3 검수: trailing(프로필 버튼 등)이 두 레이어 모두에 있어
             // 둘 다 동시에 트리에 남아 있으면 `find.byTooltip`/`find.text` 가
             // 중복(2개)으로 잡힌다 — 실제 반응형/접근성 테스트에서 재현됨.
@@ -250,7 +280,7 @@ class _SoriCollapsingHeaderDelegate extends SliverPersistentHeaderDelegate {
             Positioned(
               left: 0,
               right: 0,
-              top: 0,
+              top: topChromeHeight,
               child: Visibility(
                 visible: expandedOpacity > 0,
                 maintainState: false,
@@ -273,8 +303,8 @@ class _SoriCollapsingHeaderDelegate extends SliverPersistentHeaderDelegate {
             Positioned(
               left: 0,
               right: 0,
-              top: 0,
-              height: minExtent,
+              top: topChromeHeight,
+              height: kToolbarHeight,
               child: Visibility(
                 visible: collapsedOpacity > 0,
                 maintainState: false,
@@ -291,7 +321,7 @@ class _SoriCollapsingHeaderDelegate extends SliverPersistentHeaderDelegate {
                           Expanded(
                             child: Text(
                               collapsedTitle,
-                              style: tt.chromeTitle,
+                              style: tt.chromeTitle.copyWith(color: foreground),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -315,6 +345,10 @@ class _SoriCollapsingHeaderDelegate extends SliverPersistentHeaderDelegate {
     return expandedHeight != oldDelegate.expandedHeight ||
         collapsedTitle != oldDelegate.collapsedTitle ||
         trailing != oldDelegate.trailing ||
+        topChrome != oldDelegate.topChrome ||
+        topChromeHeight != oldDelegate.topChromeHeight ||
+        foreground != oldDelegate.foreground ||
+        background != oldDelegate.background ||
         reduceMotion != oldDelegate.reduceMotion;
   }
 }

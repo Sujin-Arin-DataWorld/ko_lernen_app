@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'tokens.dart' show SoriLocaleFonts;
 
 /// Approved Einleitung Figma 77:2 / Welcome 85:32 typography and material tokens.
 /// Keep reference metrics separate from the flowing accessibility layout.
@@ -80,6 +81,29 @@ abstract final class IntroPalette {
 
 abstract final class IntroTypography {
   static const welcomeCream = Color(0xfffff2d5);
+
+  /// Resolve interface lettering from the locale of the actual screen, including
+  /// previews/tests hosted outside the app's root theme. Learning Hangul keeps
+  /// its own glyph family; it must never fall through to a Latin display face.
+  static TextStyle localized(
+    BuildContext context,
+    TextStyle style, {
+    bool heading = false,
+  }) {
+    if (style.fontFamily == IntroFonts.korean ||
+        style.fontFamily == IntroFonts.koreanDisplay) {
+      return style;
+    }
+    final fonts = SoriLocaleFonts.forLocale(Localizations.localeOf(context));
+    return style.copyWith(
+      fontFamily: heading ? fonts.heading : fonts.body,
+      fontFamilyFallback: const [IntroFonts.korean],
+      fontWeight: heading
+          ? fonts.headingWeight
+          : fonts.bodyWeight(style.fontWeight ?? FontWeight.w400),
+      fontVariations: const [],
+    );
+  }
 
   static TextStyle medalPlaceholder(double size) => TextStyle(
     fontFamily: IntroFonts.sans,

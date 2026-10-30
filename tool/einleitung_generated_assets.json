@@ -104,8 +104,26 @@
       "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-4cb45d7f-3958-4b29-9d64-2ddaf5c2eb3c.png",
       "asset": "assets/illustrations/einleitung_generated/intro-interest-kcontent.png",
       "sha256": "b1142b8f1311980024294f4676947bd2720dbc4715c7203c45d96f1747045ef5",
+      "supersededBy": "intro-interest-kcontent-approved",
       "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
       "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-interest-kcontent-approved",
+      "source": "C:\\Users\\vjinn\\ELibrary\\Downloads\\Gemini_Generated_Image_js0ec6js0ec6js0e.jpg",
+      "asset": "assets/illustrations/einleitung_generated/intro-interest-kcontent-approved.jpg",
+      "sha256": "ff2b2d617a3e582208fd3cd97b8c6a5f8ef735c9082424709d9e8b1d82f5cbe6",
+      "sourceSha256": "ff2b2d617a3e582208fd3cd97b8c6a5f8ef735c9082424709d9e8b1d82f5cbe6",
+      "bytes": 2695887,
+      "canvasPx": [2400, 1792],
+      "contentType": "image/jpeg",
+      "generation": "None; byte-identical copy of the latest explicit user attachment, with no crop, re-encoding or image editing.",
+      "provenanceKind": "user_selected_original",
+      "byteIdentical": true,
+      "authorizationDate": "2026-10-30",
+      "runtimeArtKey": "interest-kcontent",
+      "runtimeScope": "Every introductory K-content purpose card using the shared art key; existing selection state and layout remain unchanged.",
+      "designReview": "Latest user-selected K-pop original; source and bundled bytes verified. Visual device and Figma verification are separate gates."
     },
     {
       "name": "intro-gye-reading",

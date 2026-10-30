@@ -1183,26 +1183,11 @@ class AppL10nDe extends AppL10n {
   String get hangulTabWrite => 'Schreiben';
 
   @override
-  String get hangulConsonantsLabel => '자음 · Konsonanten';
-
-  @override
-  String get hangulVowelsLabel => '모음 · Vokale';
-
-  @override
-  String get hangulSyllableLabel => '🧩 음절 구조 · Silbenaufbau';
-
-  @override
-  String get hangulSyllableTableTitle => 'Silbentafel';
-
-  @override
   String get hangulSyllableTableHint =>
       'Tippe auf eine Silbe, um sie zu hören. Wische seitlich für weitere Vokale.';
 
   @override
   String get hangulPronounceBtn => 'Aussprechen';
-
-  @override
-  String get hangulRulesTitle => 'Hangul-Schreibregeln';
 
   @override
   String get hangulRulesBody =>
@@ -1217,11 +1202,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get hangulClearBtn => 'Löschen';
-
-  @override
-  String hangulPronounceLetter(Object letter) {
-    return '$letter aussprechen';
-  }
 
   @override
   String get hangulChipConsonants => 'Konsonanten';
@@ -1281,20 +1261,6 @@ class AppL10nDe extends AppL10n {
   String hangulStrokeLetterDone(Object letter) {
     return '$letter sitzt! Weiter zum nächsten.';
   }
-
-  @override
-  String hangulLettersDone(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count Buchstaben fertig',
-      one: '1 Buchstabe fertig',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get hangulHardOnly => 'Nur schwierige';
 
   @override
   String get chosungModeWithVowels => 'Anlaut + Vokal';
@@ -6849,9 +6815,6 @@ class AppL10nDe extends AppL10n {
   String get testerFeedbackCompleteGrammar => 'Grammatikübung abschließen';
 
   @override
-  String get testerFeedbackCompleteHangul => 'Hangul-Übung abschließen';
-
-  @override
   String get testerFeedbackCompleteDailyHangul =>
       'Heutiges Zeichen abschließen';
 
@@ -10810,27 +10773,6 @@ class AppL10nDe extends AppL10n {
   String get onboardingDemoWord => 'Wort';
 
   @override
-  String get onboardingDemoInitials => 'Anlautspiel';
-
-  @override
-  String get onboardingDemoCross => 'Silben-Kreuz';
-
-  @override
-  String get onboardingDemoCloze => 'Lückentext';
-
-  @override
-  String get onboardingDemoPairs => 'Wortpaare';
-
-  @override
-  String get onboardingDemoSentence => 'Satz bauen';
-
-  @override
-  String get onboardingDemoChain => 'Wortkette';
-
-  @override
-  String get onboardingDemoExample => 'Beispiel zeigen';
-
-  @override
   String get onboardingJourneyStartTitle => 'Dein Koreanisch.\nDein Rhythmus.';
 
   @override
@@ -12048,6 +11990,169 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get grammarBookExample => 'Beispiel';
+
+  @override
+  String get atelierAutoOff => 'Auto weiter: Aus';
+
+  @override
+  String get atelierAutoOn => 'Auto weiter: An';
+
+  @override
+  String get atelierChartHint =>
+      '19 Konsonanten · Im Feld nach oben oder unten wischen.';
+
+  @override
+  String get atelierDemo => 'Strichfolge zeigen';
+
+  @override
+  String get atelierDemoEnd => 'Vorführung beenden';
+
+  @override
+  String get atelierDemoNext => 'Nächster Strich';
+
+  @override
+  String get atelierDemoPhase => 'Schau zu';
+
+  @override
+  String get atelierDemoRestart => 'Neu vorführen';
+
+  @override
+  String get atelierDifficult => 'Schwierige';
+
+  @override
+  String get atelierDiscover => 'Silben entdecken';
+
+  @override
+  String get atelierDonePhase => 'Geschafft';
+
+  @override
+  String get atelierFeedHint =>
+      'Oben / unten: nächste / vorige Karte.\nZweimal tippen: merken. Einmal tippen: umdrehen.';
+
+  @override
+  String get atelierFinish => 'Übung abschließen';
+
+  @override
+  String get atelierFlipHint => 'Tippen zum Umdrehen';
+
+  @override
+  String get atelierKnown => 'Gewusst';
+
+  @override
+  String get atelierMore => 'Mehr';
+
+  @override
+  String get atelierNotYet => 'Nicht gewusst';
+
+  @override
+  String get atelierPracticePhase => 'Du bist dran';
+
+  @override
+  String get atelierRandom => 'Zufällige Karte';
+
+  @override
+  String get atelierRemember => 'Merken';
+
+  @override
+  String get atelierSaveFailed =>
+      'Noch nicht gespeichert. Bitte erneut versuchen.';
+
+  @override
+  String get atelierShare => 'Teilen';
+
+  @override
+  String get atelierSkip => 'Überspringen';
+
+  @override
+  String get atelierStructure => 'Silbenaufbau';
+
+  @override
+  String get atelierSubtitle => 'Zeichen · Klang · Handschrift';
+
+  @override
+  String get atelierUseInChart => 'In der Silbentafel auswählen';
+
+  @override
+  String get atelierWatchBrush => 'Zuerst ansehen. Dann selbst schreiben.';
+
+  @override
+  String cHangulCardsReceipt(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Kartenaktionen in dieser Übung',
+      one: '1 Kartenaktion in dieser Übung',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get cHangulCompleted => 'Hangul-Übung abgeschlossen';
+
+  @override
+  String get cHangulHardCharacters => 'Nur schwierige Zeichen';
+
+  @override
+  String get cHangulKeepPractising => 'Du kannst jederzeit weiterüben.';
+
+  @override
+  String get cHangulListen => 'Anhören';
+
+  @override
+  String get cHangulListenWord => 'Wort anhören';
+
+  @override
+  String get cHangulSelectionTitle => 'Kartenauswahl';
+
+  @override
+  String cHangulWritingLettersReceipt(int letters) {
+    String _temp0 = intl.Intl.pluralLogic(
+      letters,
+      locale: localeName,
+      other: '$letters Buchstaben geübt',
+      one: '1 Buchstabe geübt',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String cHangulWritingReceipt(int letters, int strokes, String mode) {
+    String _temp0 = intl.Intl.pluralLogic(
+      letters,
+      locale: localeName,
+      other: '$letters Buchstaben geübt',
+      one: '1 Buchstabe geübt',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      strokes,
+      locale: localeName,
+      other: '$strokes Strichversuche',
+      one: '1 Strichversuch',
+    );
+    return '$_temp0 · $_temp1 · $mode';
+  }
+
+  @override
+  String cHangulWritingStrokesReceipt(int strokes, String mode) {
+    String _temp0 = intl.Intl.pluralLogic(
+      strokes,
+      locale: localeName,
+      other: '$strokes Strichversuche',
+      one: '1 Strichversuch',
+    );
+    return '$_temp0 · $mode';
+  }
+
+  @override
+  String get c5AllLearningActivities => 'Alle Lernangebote';
+
+  @override
+  String get c5AllGames => 'Alle Spiele';
+
+  @override
+  String onboardingHangulEquationSemantics(String title, String previewLabel) {
+    return '$title. ㄱ + ㅏ = 가. 가 · ga. $previewLabel';
+  }
 
   @override
   String get accountRecoveryTitle => 'Wo möchtest du weiterlernen?';

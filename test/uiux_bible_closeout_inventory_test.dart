@@ -110,9 +110,9 @@ void main() {
       }
     }
 
-    // Includes the bounded Welcome owner and reference level-selection sheet.
-    expect(seen, hasLength(127));
-    expect(documented, hasLength(127));
+    // Includes the catalog-owned C5 overview and existing indirect screen owners.
+    expect(seen, hasLength(128));
+    expect(documented, hasLength(128));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });
@@ -155,9 +155,10 @@ void main() {
     // 2026-10-18: +1 — approved Einleitung reference typography/material roles.
     // 2026-10-29: +1 — bounded Einleitung contact, selection and scene motion.
     // 2026-10-30: +1 — user-initiated account progress recovery sheet.
-    expect(actual, hasLength(155));
+    // 2026-10-30: +14 — documented approved C chrome/material/ink/Gye owners.
+    expect(actual, hasLength(169));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(155));
+    expect(listed, hasLength(169));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

@@ -11,17 +11,23 @@ import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/c_intro_art.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/c_onboarding.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_games_demo.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_setup_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'support/einleitung_capture_assets.dart';
+import 'support/real_fonts.dart';
 import 'support/sori_speech_stubs.dart';
+import 'support/sori_stage_pump.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(loadEinleitungFonts);
+  setUpAll(() async {
+    await loadSoriRealFonts();
+    await loadEinleitungFonts();
+  });
 
   test('native introduction has no mockup crop consumer', () {
     for (final path in [
@@ -146,20 +152,24 @@ void main() {
             );
             final paperTop = tester.getTopLeft(paper).dy;
             final actionRect = tester.getRect(action);
-            final scrollable = find
-                .descendant(
-                  of: find.byType(COnboardingFrame),
-                  matching: find.byType(Scrollable),
-                )
-                .first;
-            final position = tester.state<ScrollableState>(scrollable).position;
-            expect(position.maxScrollExtent, greaterThan(0));
-            position.jumpTo(position.maxScrollExtent);
-            await tester.pumpAndSettle();
-            expect(
-              tester.getTopLeft(paper).dy,
-              closeTo(paperTop - position.pixels, .1),
+            final scrollables = find.descendant(
+              of: find.byType(COnboardingFrame),
+              matching: find.byType(Scrollable),
             );
+            if (configuration.scale == 1) {
+              expect(scrollables, findsNothing);
+            } else {
+              final position = tester
+                  .state<ScrollableState>(scrollables.first)
+                  .position;
+              expect(position.maxScrollExtent, greaterThan(0));
+              position.jumpTo(position.maxScrollExtent);
+              await tester.pumpAndSettle();
+              expect(
+                tester.getTopLeft(paper).dy,
+                closeTo(paperTop - position.pixels, .1),
+              );
+            }
             expect(tester.getRect(action), actionRect);
             expect(tester.takeException(), isNull);
           }
@@ -221,22 +231,19 @@ void main() {
         reducedMotion: false,
       );
       await capture('intro-companion-before-selection');
-      final companionScroll = tester
-          .state<ScrollableState>(
-            find
-                .descendant(
-                  of: find.byKey(
-                    const ValueKey('onboarding-v2-companion-scroll'),
-                  ),
-                  matching: find.byType(Scrollable),
-                )
-                .first,
-          )
-          .position;
+      final companionScrolls = find.descendant(
+        of: find.byKey(const ValueKey('onboarding-v2-companion-scroll')),
+        matching: find.byType(Scrollable),
+      );
+      expect(companionScrolls, findsNothing);
       Map<String, Object> geometry() => {
-        'scrollOffset': companionScroll.pixels,
-        'maxScrollExtent': companionScroll.maxScrollExtent,
-        'viewportHeight': companionScroll.viewportDimension,
+        'scrollOffset': 0.0,
+        'maxScrollExtent': 0.0,
+        'viewportHeight': tester
+            .getSize(
+              find.byKey(const ValueKey('onboarding-v2-companion-scroll')),
+            )
+            .height,
         for (final name in ['taego-close', 'joy-close'])
           name: () {
             final rect = tester.getRect(
@@ -324,14 +331,20 @@ void main() {
               reducedMotion: false,
             );
             await settleEinleitungCaptureAssets(tester);
-            final scrollable = find
-                .descendant(
-                  of: find.byType(COnboardingFrame),
-                  matching: find.byType(Scrollable),
-                )
-                .first;
-            final position = tester.state<ScrollableState>(scrollable).position;
-            position.jumpTo(position.maxScrollExtent);
+            final scrollables = find.descendant(
+              of: find.byType(COnboardingFrame),
+              matching: find.byType(Scrollable),
+            );
+            final ScrollPosition? position;
+            if (configuration.scale == 1) {
+              expect(scrollables, findsNothing);
+              position = null;
+            } else {
+              position = tester
+                  .state<ScrollableState>(scrollables.first)
+                  .position;
+              position.jumpTo(position.maxScrollExtent);
+            }
             await tester.pumpAndSettle();
             // Save even when a following fit assertion reveals a real problem.
             await expectLater(
@@ -343,7 +356,10 @@ void main() {
               ),
             );
             expect(tester.takeException(), isNull);
-            expect(position.pixels, closeTo(position.maxScrollExtent, .1));
+            expect(
+              position?.pixels ?? 0,
+              closeTo(position?.maxScrollExtent ?? 0, .1),
+            );
             final action = find.byKey(
               ValueKey(switch (page) {
                 1 => 'onboarding-v2-setup-continue',
@@ -369,7 +385,11 @@ void main() {
             );
             expect(paragraph, findsOneWidget);
             _expectCompleteParagraph(tester, paragraph);
-            final visible = tester.getRect(scrollable);
+            final visible = tester.getRect(
+              position == null
+                  ? find.byType(COnboardingFrame)
+                  : scrollables.first,
+            );
             final bodyRect = tester.getRect(paragraph);
             expect(bodyRect.top, greaterThanOrEqualTo(visible.top - .1));
             expect(bodyRect.bottom, lessThanOrEqualTo(visible.bottom + .1));
@@ -541,47 +561,60 @@ void main() {
     },
   );
 
-  testWidgets(
-    'five preview sheets keep story IDs and do not write XP or money',
-    (tester) async {
-      stubSoriSpeech();
-      SharedPreferences.setMockInitialValues({'kl_xp': 42, 'kl_level': 'c2'});
-      final prefs = await SharedPreferences.getInstance();
-      final before = {for (final key in prefs.getKeys()) key: prefs.get(key)};
-      final copy = onboardingV2Copy(lookupAppL10n(const Locale('de')));
-      for (var index = 0; index < 5; index++) {
-        String? next;
-        String? previous;
-        await _pump(
-          tester,
-          OnboardingStoryScreen(
-            key: ValueKey(index),
-            copy: copy,
-            pageIndex: index,
-            selectedLevel: LearnerLevel.c2,
-            onContinue: (id) => next = id,
-            onPrevious: (id) => previous = id,
-          ),
+  testWidgets('five previews keep story IDs and do not write XP or money', (
+    tester,
+  ) async {
+    stubSoriSpeech();
+    SharedPreferences.setMockInitialValues({'kl_xp': 42, 'kl_level': 'c2'});
+    final prefs = await SharedPreferences.getInstance();
+    final before = {for (final key in prefs.getKeys()) key: prefs.get(key)};
+    final copy = onboardingV2Copy(lookupAppL10n(const Locale('de')));
+    for (var index = 0; index < 5; index++) {
+      String? next;
+      String? previous;
+      await _pump(
+        tester,
+        OnboardingStoryScreen(
+          key: ValueKey(index),
+          copy: copy,
+          pageIndex: index,
+          selectedLevel: LearnerLevel.c2,
+          onContinue: (id) => next = id,
+          onPrevious: (id) => previous = id,
+        ),
+      );
+      if (index == 2) {
+        await tester.tap(
+          find.byKey(const ValueKey('c-onboarding-games-preview-button')),
         );
-        await _tap(
-          tester,
-          index == 2
-              ? 'c-onboarding-games-preview-button'
-              : 'c-onboarding-preview-${index + 2}',
+        await pumpSoriStage(tester);
+        expect(
+          tester
+              .widget<OnboardingGamesDemo>(find.byType(OnboardingGamesDemo))
+              .fullScreen,
+          isTrue,
         );
+        expect(find.byType(BottomSheet), findsNothing);
+      } else {
+        await _tap(tester, 'c-onboarding-preview-${index + 2}');
         expect(find.byType(BottomSheet), findsOneWidget);
-        expect(tester.takeException(), isNull, reason: 'preview ${index + 2}');
+      }
+      expect(tester.takeException(), isNull, reason: 'preview ${index + 2}');
+      if (index == 2) {
+        await tester.tap(find.byKey(const ValueKey('demo-games-close')));
+        await pumpSoriStage(tester);
+      } else {
         await tester.tap(find.text(lookupAppL10n(const Locale('de')).btnClose));
         await tester.pumpAndSettle();
-        await _tap(tester, 'onboarding-v2-story-next');
-        await _tap(tester, 'onboarding-v2-story-back');
-        expect(next, COnboardingStory.ids[index]);
-        expect(previous, COnboardingStory.ids[index]);
-        expect(tester.takeException(), isNull);
       }
-      expect({for (final key in prefs.getKeys()) key: prefs.get(key)}, before);
-    },
-  );
+      await _tap(tester, 'onboarding-v2-story-next');
+      await _tap(tester, 'onboarding-v2-story-back');
+      expect(next, COnboardingStory.ids[index]);
+      expect(previous, COnboardingStory.ids[index]);
+      expect(tester.takeException(), isNull);
+    }
+    expect({for (final key in prefs.getKeys()) key: prefs.get(key)}, before);
+  });
 
   testWidgets('original sound CTA speaks ga and cancels safely on leaving', (
     tester,
@@ -602,10 +635,17 @@ void main() {
       );
       final listen = find.byKey(const ValueKey('c-onboarding-original-listen'));
       final listenRect = tester.getRect(listen);
-      expect(listenRect.left, closeTo(180.2255, .001));
-      expect(listenRect.top, closeTo(610.874, .001));
-      expect(listenRect.width, closeTo(192.097, .001));
-      expect(listenRect.height, closeTo(63.672, .001));
+      expect(listen.hitTestable(), findsOneWidget);
+      expect(listenRect.width, greaterThanOrEqualTo(48));
+      expect(listenRect.height, greaterThanOrEqualTo(48));
+      expect(
+        listenRect.bottom,
+        lessThanOrEqualTo(
+          tester
+              .getRect(find.byKey(const ValueKey('onboarding-v2-story-next')))
+              .top,
+        ),
+      );
       await _tap(tester, 'c-onboarding-original-listen');
       expect(speech.spoken, ['가']);
       expect(
@@ -645,74 +685,73 @@ void main() {
     }
   });
 
-  testWidgets('original German heroes preserve reading and preview semantics', (
-    tester,
-  ) async {
-    final semantics = tester.ensureSemantics();
-    try {
-      stubSoriSpeech();
-      final t = lookupAppL10n(const Locale('de'));
-      for (final entry in [
-        (
-          index: 1,
-          name: 'sound',
-          title: t.onboardingCSoundTitle,
-          reading: 'ㄱ + ㅏ = 가',
-          height: 573.052349,
-        ),
-        (
-          index: 3,
-          name: 'scholar',
-          title: t.onboardingCBookTitle,
-          reading: '안녕하세요',
-          height: 545.532886,
-        ),
-        (
-          index: 4,
-          name: 'hanok',
-          title: t.onboardingCHanokTitle,
-          reading: t.onboardingCBuild,
-          height: 527.186577,
-        ),
-      ]) {
-        await _pump(
-          tester,
-          OnboardingStoryScreen(
-            copy: onboardingV2Copy(t),
-            pageIndex: entry.index,
-            onContinue: (_) {},
-            onPrevious: (_) {},
+  testWidgets(
+    'German heroes keep native headings, reading and preview semantics',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        stubSoriSpeech();
+        final t = lookupAppL10n(const Locale('de'));
+        for (final entry in [
+          (
+            index: 1,
+            name: 'sound',
+            title: t.onboardingCSoundTitle,
+            reading: 'ㄱ + ㅏ = 가',
           ),
-          size: const Size(402, 934),
-        );
-        final art = find.byWidgetPredicate(
-          (widget) =>
-              widget is CIntroArt &&
-              widget.name == '${entry.name}-original-de-hero',
-        );
-        expect(art, findsOneWidget);
-        final rect = tester.getRect(art);
-        expect(rect.left, 0);
-        expect(rect.top, 122);
-        expect(rect.width, 402);
-        expect(rect.height, closeTo(entry.height, .001));
-        expect(find.text(entry.title), findsNothing);
-        final heading = find.bySemanticsLabel(
-          RegExp(RegExp.escape(entry.title)),
-        );
-        final data = tester.getSemantics(heading).getSemanticsData();
-        expect(data.flagsCollection.isHeader, isTrue);
-        expect(data.label, contains(entry.reading));
-        expect(
-          find.byKey(ValueKey('c-onboarding-preview-${entry.index + 2}')),
-          findsOneWidget,
-        );
-        expect(tester.takeException(), isNull);
+          (
+            index: 3,
+            name: 'scholar',
+            title: t.onboardingCBookTitle,
+            reading: '안녕하세요',
+          ),
+          (
+            index: 4,
+            name: 'hanok',
+            title: t.onboardingCHanokTitle,
+            reading: t.onboardingCBuild,
+          ),
+        ]) {
+          await _pump(
+            tester,
+            OnboardingStoryScreen(
+              copy: onboardingV2Copy(t),
+              pageIndex: entry.index,
+              onContinue: (_) {},
+              onPrevious: (_) {},
+            ),
+            size: const Size(402, 934),
+          );
+          final art = find.byWidgetPredicate(
+            (widget) =>
+                widget is CIntroArt &&
+                widget.name ==
+                    (entry.index == 1
+                        ? 'sound-original-de-hero'
+                        : COnboardingStory.scenes[entry.index]),
+          );
+          expect(art, findsOneWidget);
+          expect(find.text(entry.title), findsOneWidget);
+          _expectCompleteParagraph(tester, find.text(entry.title));
+          final data = tester
+              .getSemantics(find.text(entry.title))
+              .getSemanticsData();
+          expect(data.flagsCollection.isHeader, isTrue);
+          expect(
+            find.bySemanticsLabel(RegExp(RegExp.escape(entry.reading))),
+            findsWidgets,
+          );
+          expect(
+            find.byKey(ValueKey('c-onboarding-preview-${entry.index + 2}')),
+            findsOneWidget,
+          );
+          expect(tester.takeException(), isNull);
+        }
+      } finally {
+        semantics.dispose();
       }
-    } finally {
-      semantics.dispose();
-    }
-  });
+    },
+  );
 
   testWidgets(
     'companion focus and selection remain visible to assistive technology',

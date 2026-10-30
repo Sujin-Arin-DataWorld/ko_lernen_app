@@ -23,6 +23,9 @@ void main() {
   /// 하고, 없으면 그 폴더를 렌더하는 코드가 사라졌다는 뜻이라 테스트가 깨진다.
   /// 면제 폴더를 늘릴 때는 반드시 근거 문자열을 함께 적을 것.
   const dynamicDirs = <String, String>{
+    // ApprovedFigmaScene loads these five scene exports and their atlas map.
+    'assets/illustrations/concept_c/approved_20261018/':
+        'assets/illustrations/concept_c/approved_20261018/',
     // CIntroArt assembles intro-$name.png; IntroMedal selects level-$code.
     // c_onboarding_native_test renders every page and loads every level, and
     // verify_einleitung_asset_delivery.py checks all shipped bytes against
@@ -103,12 +106,16 @@ void main() {
   late final List<String> assetDirs;
 
   setUpAll(() {
-    libSource = Directory('lib')
-        .listSync(recursive: true)
-        .whereType<File>()
-        .where((f) => f.path.endsWith('.dart'))
-        .map((f) => f.readAsStringSync())
-        .join('\n');
+    libSource = [
+      ...Directory('lib')
+          .listSync(recursive: true)
+          .whereType<File>()
+          .where((f) => f.path.endsWith('.dart'))
+          .map((f) => f.readAsStringSync()),
+      File(
+        'assets/illustrations/concept_c/approved_20261018/figma-assets.json',
+      ).readAsStringSync(),
+    ].join('\n');
 
     // pubspec 의 `assets:` 항목. Flutter 는 디렉터리를 **비재귀**로 포함하므로
     // 여기 적힌 폴더의 직속 파일만이 번들 대상이다 — 같은 규칙으로 훑는다.

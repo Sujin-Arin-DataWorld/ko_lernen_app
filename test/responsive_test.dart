@@ -10,7 +10,10 @@ import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 import 'support/responsive_screens.dart';
 
+import 'support/real_fonts.dart';
+
 void main() {
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
   TestWidgetsFlutterBinding.ensureInitialized();
 
   // ── 1. 순수 함수: 클램프 padding 수학 ──────────────────────────────────

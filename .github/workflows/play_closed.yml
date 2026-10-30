@@ -240,6 +240,7 @@ jobs:
 
       - name: Install dependencies and generate localizations
         run: |
+          python3 tool/prepare_fontshare_fonts.py
           flutter pub get
           flutter gen-l10n
 

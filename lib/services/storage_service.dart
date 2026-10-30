@@ -3939,21 +3939,27 @@ class Storage {
   // 좌=모름/우=앎 계약을 따르게 하면서 필요해진 저장소).
   static List<String> get hangulHard => _l('kl_hangul_hard');
 
-  static Future<void> markHangulHard(String letter) async {
+  static Future<void> markHangulHard(
+    String letter, {
+    void Function()? assertCurrentWrite,
+  }) => _writeHangul('kl_hangul_hard', (guard) async {
     final list = hangulHard;
     if (!list.contains(letter)) {
       list.add(letter);
-      await _sl('kl_hangul_hard', list);
     }
-  }
+    await _slStrict('kl_hangul_hard', list, assertCurrentWrite: guard);
+  }, assertCurrentWrite: assertCurrentWrite);
 
-  static Future<void> markHangulEasy(String letter) async {
+  static Future<void> markHangulEasy(
+    String letter, {
+    void Function()? assertCurrentWrite,
+  }) => _writeHangul('kl_hangul_hard', (guard) async {
     final list = hangulHard;
     if (list.contains(letter)) {
       list.remove(letter);
-      await _sl('kl_hangul_hard', list);
     }
-  }
+    await _slStrict('kl_hangul_hard', list, assertCurrentWrite: guard);
+  }, assertCurrentWrite: assertCurrentWrite);
 
   // ───────── Grammatik ─────────
   static int get grammarLastIdx => _i('kl_gram_last_idx');
@@ -4550,7 +4556,10 @@ class Storage {
       }
     }
     if (changed) {
-      await _sl('kl_milestones', list);
+      // Read-only wallet loading can reload the shared preference cache while
+      // the celebration opens. Confirm the persisted list before acknowledging
+      // it so that a stale reload cannot hide an already displayed milestone.
+      await _slStrict('kl_milestones', list);
     }
   }
 
@@ -5255,8 +5264,72 @@ class Storage {
   /// (`stroke_matcher.dart` 에 적힌 관대함 논리는 그 모드로 살아남는다).
   static bool get hangulStrictStrokes =>
       _prefs?.getBool('kl_hangul_strict_strokes') ?? true;
-  static Future<void> setHangulStrictStrokes(bool v) =>
-      _sb('kl_hangul_strict_strokes', v);
+  static bool get hangulAutoAdvance => _b('kl_hangul_auto_advance_v1', true);
+
+  static Future<void>? _hangulMutationTail;
+  static Future<void> _writeHangul(
+    String key,
+    Future<void> Function(void Function()) write, {
+    void Function()? assertCurrentWrite,
+  }) {
+    final lifetime = LocalDataLifetime.capture();
+    final identity = cloudWriteSessionController.identityEpoch;
+    void guard() {
+      lifetime.assertCurrent();
+      if (identity != cloudWriteSessionController.identityEpoch) {
+        throw const StaleLocalDataLifetimeException();
+      }
+      assertCurrentWrite?.call();
+    }
+
+    return PackCompletionStorage.trackWrite(key, () {
+      Future<void> run() {
+        guard();
+        return write(guard);
+      }
+
+      final previous = _hangulMutationTail;
+      final result = previous == null
+          ? Future<void>.sync(run)
+          : previous.then((_) => run());
+      late final Future<void> tail;
+      void release() {
+        if (identical(_hangulMutationTail, tail)) {
+          _hangulMutationTail = null;
+        }
+      }
+
+      tail = result.then<void>(
+        (_) => release(),
+        onError: (Object _, StackTrace __) => release(),
+      );
+      _hangulMutationTail = tail;
+      return result;
+    });
+  }
+
+  static Future<void> setHangulStrictStrokes(
+    bool value, {
+    void Function()? assertCurrentWrite,
+  }) => _writeHangul(
+    'kl_hangul_strict_strokes',
+    (guard) =>
+        _sbStrict('kl_hangul_strict_strokes', value, assertCurrentWrite: guard),
+    assertCurrentWrite: assertCurrentWrite,
+  );
+
+  static Future<void> setHangulAutoAdvance(
+    bool value, {
+    void Function()? assertCurrentWrite,
+  }) => _writeHangul(
+    'kl_hangul_auto_advance_v1',
+    (guard) => _sbStrict(
+      'kl_hangul_auto_advance_v1',
+      value,
+      assertCurrentWrite: guard,
+    ),
+    assertCurrentWrite: assertCurrentWrite,
+  );
 
   // ───────── 온보딩 코치마크 1회성 플래그 (Stage 1) ─────────
   // `introSeen` 패턴과 동일. 각각 진입 화면에서 최초 1회 시트 표시.

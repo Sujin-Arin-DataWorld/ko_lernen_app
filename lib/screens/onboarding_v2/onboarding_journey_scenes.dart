@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -155,15 +156,22 @@ class JourneyPanel extends StatelessWidget {
 }
 
 class JourneyReading extends StatelessWidget {
-  const JourneyReading({super.key, required this.text, required this.korean});
+  const JourneyReading({
+    super.key,
+    required this.text,
+    required this.korean,
+    this.measureHorizontalInset = 24,
+  });
   final String text;
   final bool korean;
+  final double measureHorizontalInset;
   @override
   Widget build(BuildContext context) {
     return DemoPagedText(
       text: text,
       korean: korean,
       fontSize: _journeyReadingSize(context, text, korean: korean),
+      measureHorizontalInset: measureHorizontalInset,
     );
   }
 }
@@ -392,6 +400,115 @@ class _OnboardingBookSceneState
     });
   }
 
+  double _readingHeight(
+    BuildContext context,
+    String text,
+    bool korean,
+    double width,
+  ) {
+    final painter = TextPainter(
+      text: TextSpan(
+        text: text,
+        style: DefaultTextStyle.of(context).style.merge(
+          TextStyle(
+            fontSize: _journeyReadingSize(context, text, korean: korean),
+            height: 1.35,
+            fontWeight: korean ? FontWeight.w600 : FontWeight.normal,
+            fontFamily: korean
+                ? SoriFonts.learningKorean
+                : Theme.of(context).textTheme.bodyLarge?.fontFamily,
+          ),
+        ),
+      ),
+      textDirection: TextDirection.ltr,
+      textScaler: MediaQuery.textScalerOf(context),
+    )..layout(maxWidth: math.max(1, width));
+    final height = painter.height.ceilToDouble() + 1;
+    painter.dispose();
+    return height;
+  }
+
+  Widget _study(
+    BuildContext context,
+    Map<String, dynamic> example,
+    bool compact,
+  ) {
+    return LayoutBuilder(
+      builder: (context, bounds) {
+        final showImage =
+            !compact || MediaQuery.textScalerOf(context).scale(16) <= 24;
+        final text = compact && _meaning
+            ? demoMeaning(context, example)
+            : example['ko'] as String;
+        final korean = !(compact && _meaning);
+        final extraMeaning = !compact && _meaning;
+        final textHeight = _readingHeight(
+          context,
+          text,
+          korean,
+          bounds.maxWidth,
+        );
+        final meaning = demoMeaning(context, example);
+        final meaningHeight = extraMeaning
+            ? _readingHeight(context, meaning, false, bounds.maxWidth)
+            : 0.0;
+        final gaps = (showImage ? 8.0 : 0.0) + (extraMeaning ? 8.0 : 0.0);
+        final textBudget = math.max(
+          1.0,
+          bounds.maxHeight - gaps - (showImage ? 60 : 0),
+        );
+        final textFit = math.min(
+          1.0,
+          textBudget / (textHeight + meaningHeight),
+        );
+        final imageHeight = math.min(
+          bounds.maxWidth * 304 / 443,
+          math.max(
+            0.0,
+            bounds.maxHeight - gaps - (textHeight + meaningHeight) * textFit,
+          ),
+        );
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (showImage) ...[
+              SizedBox(
+                height: imageHeight,
+                width: double.infinity,
+                child: Image.asset(
+                  'assets/illustrations/onboarding/book_study_approved_20261030.png',
+                  key: const ValueKey('onboarding-v3-book-extract'),
+                  fit: BoxFit.contain,
+                  excludeFromSemantics: true,
+                ),
+              ),
+              const SizedBox(height: 8),
+            ],
+            SizedBox(
+              height: textHeight * textFit,
+              child: JourneyReading(
+                text: text,
+                korean: korean,
+                measureHorizontalInset: 0,
+              ),
+            ),
+            if (extraMeaning) ...[
+              const SizedBox(height: 8),
+              SizedBox(
+                height: meaningHeight * textFit,
+                child: JourneyReading(
+                  text: meaning,
+                  korean: false,
+                  measureHorizontalInset: 0,
+                ),
+              ),
+            ],
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -405,6 +522,7 @@ class _OnboardingBookSceneState
           builder: (data) {
             final example = data['course'] as Map<String, dynamic>;
             return Column(
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Row(
@@ -449,44 +567,25 @@ class _OnboardingBookSceneState
                     ),
                   ],
                 ),
-                Expanded(
+                Flexible(
+                  fit: FlexFit.loose,
                   child: JourneyPanel(
                     child: _captured
-                        ? Column(
-                            children: [
-                              if (!compact)
-                                Expanded(
-                                  flex: 2,
-                                  child: Image.asset(
-                                    'assets/illustrations/onboarding/book_extract.webp',
-                                    fit: BoxFit.contain,
-                                    semanticLabel: t.onboardingJourneyFromBook,
-                                  ),
-                                ),
-                              Expanded(
-                                flex: 3,
-                                child: JourneyReading(
-                                  text: compact && _meaning
-                                      ? demoMeaning(context, example)
-                                      : example['ko'] as String,
-                                  korean: !(compact && _meaning),
-                                ),
+                        ? _study(context, example, compact)
+                        : LayoutBuilder(
+                            builder: (context, bounds) => SizedBox(
+                              height: math.min(
+                                bounds.maxHeight,
+                                bounds.maxWidth * 358 / 456,
                               ),
-                              if (!compact && _meaning)
-                                Expanded(
-                                  flex: 2,
-                                  child: JourneyReading(
-                                    text: demoMeaning(context, example),
-                                    korean: false,
-                                  ),
-                                ),
-                            ],
-                          )
-                        : Image.asset(
-                            'assets/illustrations/onboarding/book_scan.png',
-                            key: const ValueKey('onboarding-v3-book-photo'),
-                            fit: BoxFit.contain,
-                            semanticLabel: t.onboardingJourneySamplePage,
+                              width: double.infinity,
+                              child: Image.asset(
+                                'assets/illustrations/onboarding/book_capture_approved_20261030.png',
+                                key: const ValueKey('onboarding-v3-book-photo'),
+                                fit: BoxFit.contain,
+                                semanticLabel: t.onboardingJourneySamplePage,
+                              ),
+                            ),
                           ),
                   ),
                 ),

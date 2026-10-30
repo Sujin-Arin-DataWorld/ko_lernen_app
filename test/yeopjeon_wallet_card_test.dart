@@ -8,6 +8,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/yeopjeon_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/yeopjeon_wallet_card.dart';
+import 'package:ko_lernen_app/widgets/sori/approved_chrome_assets.dart';
 import 'package:ko_lernen_app/widgets/sori/video_lease.dart';
 import 'support/real_fonts.dart';
 
@@ -68,6 +69,102 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
   }
+
+  testWidgets(
+    'read-only ledger snapshots update header and card for earned and different owner balances',
+    (tester) async {
+      final empty = YeopjeonWallet.grandfather(sarangchaeStage: 0, b2Stage: 0);
+      final firstOwner = _ReadOnlyWalletStore(empty.encode());
+      final secondOwner = _ReadOnlyWalletStore(wallet().encode());
+      Future<YeopjeonWallet> read(_ReadOnlyWalletStore store) async =>
+          YeopjeonWallet.decode(
+            (await YeopjeonService.captureBackupJson(preferences: store))!,
+          );
+      var activeStore = firstOwner;
+      final displayed = ValueNotifier(await read(activeStore));
+      addTearDown(displayed.dispose);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          locale: const Locale('en'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          home: ValueListenableBuilder(
+            valueListenable: displayed,
+            builder: (_, current, __) => Scaffold(
+              body: Column(
+                children: [
+                  YeopjeonWalletBadge(wallet: current),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: YeopjeonWalletCard(
+                        // Matches the production parent's snapshot-keyed card.
+                        key: ObjectKey(current),
+                        compact: true,
+                        loader: () => read(activeStore),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+
+      Future<void> expectBalance(int amount) async {
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+        expect(
+          find.descendant(
+            of: find.byKey(const ValueKey('yeopjeon-header-balance')),
+            matching: find.text('$amount'),
+          ),
+          findsOneWidget,
+        );
+        expect(
+          tester
+              .widget<Text>(find.byKey(const ValueKey('yeopjeon-balance')))
+              .data,
+          '$amount yeopjeon',
+        );
+        expect(find.text('80'), findsNothing);
+        expect(find.text('80 yeopjeon'), findsNothing);
+        expect(
+          tester
+              .widgetList<ApprovedChromeImage>(find.byType(ApprovedChromeImage))
+              .where((image) => image.asset == ApprovedChromeAssets.coinFront),
+          hasLength(1),
+        );
+        expect(tester.takeException(), isNull);
+      }
+
+      await expectBalance(0);
+      firstOwner.document = empty
+          .copyWith(
+            balance: 20,
+            claims: const {'daily:2026-10-30:first': 20},
+            completedSourceIds: const {'unit:confirmed-completion-a'},
+          )
+          .encode();
+      displayed.value = await read(firstOwner);
+      await expectBalance(20);
+
+      activeStore = secondOwner;
+      displayed.value = await read(secondOwner);
+      await expectBalance(40);
+      expect(find.text('20 yeopjeon'), findsNothing);
+
+      activeStore = firstOwner;
+      displayed.value = await read(firstOwner);
+      await expectBalance(20);
+      expect(firstOwner.writeAttempts, 0);
+      expect(secondOwner.writeAttempts, 0);
+      expect(firstOwner.lastReadKey, Storage.yeopjeonWalletPreferenceKey);
+      expect(secondOwner.lastReadKey, Storage.yeopjeonWalletPreferenceKey);
+    },
+  );
 
   testWidgets(
     'purchase never spends or celebrates before durable confirmation and blocks double tap',
@@ -175,5 +272,38 @@ void main() {
         expect(tester.takeException(), isNull);
       },
     );
+  }
+}
+
+/// Explicit read-only native preference seam: this test cannot mint or spend.
+class _ReadOnlyWalletStore implements PreferenceStringStore {
+  _ReadOnlyWalletStore(this.document);
+
+  String document;
+  String? lastReadKey;
+  var writeAttempts = 0;
+
+  @override
+  bool containsKey(String key) => key == Storage.yeopjeonWalletPreferenceKey;
+
+  @override
+  String? getString(String key) {
+    lastReadKey = key;
+    return containsKey(key) ? document : null;
+  }
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> setString(String key, String value) {
+    writeAttempts++;
+    throw StateError('Read-only wallet test store');
+  }
+
+  @override
+  Future<bool> remove(String key) {
+    writeAttempts++;
+    throw StateError('Read-only wallet test store');
   }
 }
