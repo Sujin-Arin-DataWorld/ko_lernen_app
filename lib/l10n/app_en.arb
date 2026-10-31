@@ -560,23 +560,12 @@
   "hangulTabOverview": "Overview",
   "hangulTabCards": "Cards",
   "hangulTabWrite": "Writing",
-  "hangulConsonantsLabel": "자음 · Consonants",
-  "hangulVowelsLabel": "모음 · Vowels",
-  "hangulSyllableLabel": "🧩 음절 구조 · Syllable composition",
-  "hangulSyllableTableTitle": "Syllable chart",
   "hangulSyllableTableHint": "Tap a syllable to hear it. Swipe sideways for more vowels.",
   "hangulPronounceBtn": "Pronounce",
-  "hangulRulesTitle": "Hangul writing rules",
   "hangulRulesBody": "① Top → Bottom   ② Horizontal → Vertical   ③ Left → Right",
   "hangulStrokeOrderTitle": "📽 Stroke order (tap to replay)",
   "hangulTraceTitle": "Trace with your finger",
   "hangulClearBtn": "Clear",
-  "hangulPronounceLetter": "Pronounce {letter}",
-  "@hangulPronounceLetter": {
-    "placeholders": {
-      "letter": {}
-    }
-  },
   "hangulChipConsonants": "Consonants",
   "hangulChipVowels": "Vowels",
   "hangulChipSyllables": "Syllables",
@@ -636,15 +625,6 @@
   "@hangulStrokeLetterDone": {
     "placeholders": {
       "letter": {}
-    }
-  },
-  "hangulLettersDone": "{count, plural, one{1 letter done} other{{count} letters done}}",
-  "hangulHardOnly": "Difficult only",
-  "@hangulLettersDone": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
     }
   },
   "chosungModeWithVowels": "Initial + vowel",
@@ -3258,7 +3238,6 @@
   "testerFeedbackMissionGames": "Complete a game round",
   "testerFeedbackMissionLanguageForm": "Practise grammar or Hangul",
   "testerFeedbackCompleteGrammar": "Finish grammar practice",
-  "testerFeedbackCompleteHangul": "Finish Hangul practice",
   "testerFeedbackCompleteDailyHangul": "Finish today's character",
   "testerFeedbackPromptScenario": "Did any part feel like something you could really say in this situation?",
   "testerFeedbackPromptWordWork": "Do these words feel useful and memorable?",
@@ -5023,13 +5002,6 @@
   "onboardingDemoDuck": "duck",
   "onboardingDemoSound": "Sound",
   "onboardingDemoWord": "Word",
-  "onboardingDemoInitials": "First sounds",
-  "onboardingDemoCross": "Syllable cross",
-  "onboardingDemoCloze": "Fill the gap",
-  "onboardingDemoPairs": "Word pairs",
-  "onboardingDemoSentence": "Build a sentence",
-  "onboardingDemoChain": "Word chain",
-  "onboardingDemoExample": "Show example",
   "onboardingJourneyStartTitle": "Your Korean.\nYour rhythm.",
   "onboardingJourneyReturningHint": "Start from what you know.",
   "onboardingJourneyStartWith": "Begin with {name}",
@@ -5570,5 +5542,142 @@
   "onboardingCBuild": "Build",
   "onboardingCCollect": "Collect",
   "onboardingCCreate": "Create",
-  "grammarBookExample": "Example"
+  "grammarBookExample": "Example",
+  "atelierAutoOff": "Auto advance: Off",
+  "atelierAutoOn": "Auto advance: On",
+  "atelierChartHint": "Tap to listen. All 19 consonants are available below.",
+  "atelierDemo": "Demonstrate",
+  "atelierDemoEnd": "Finish demonstration",
+  "atelierDemoNext": "Next stroke",
+  "atelierDemoPhase": "Demonstration",
+  "atelierDemoRestart": "Show again",
+  "atelierDifficult": "Difficult",
+  "atelierDiscover": "Discover syllables",
+  "atelierDonePhase": "Complete",
+  "atelierFeedHint": "Swipe up: next card · Swipe down: previous\nDouble tap to like",
+  "atelierFinish": "Finish practice",
+  "atelierFlipHint": "Tap to flip",
+  "atelierKnown": "Known",
+  "atelierMore": "More",
+  "atelierNotYet": "Not yet",
+  "atelierPracticePhase": "Your turn",
+  "atelierRandom": "Random card",
+  "atelierRemember": "Like",
+  "atelierSaveFailed": "Not saved yet. Please try again.",
+  "atelierShare": "Share",
+  "atelierSkip": "Skip",
+  "atelierStructure": "Syllable building",
+  "atelierSubtitle": "Script. Sound. Meaning.",
+  "atelierUseInChart": "Select in the syllable chart",
+  "atelierWatchBrush": "Watch the brush first.",
+  "cHangulCardsReceipt": "{count, plural, =1{1 card action in this practice} other{{count} card actions in this practice}}",
+  "@cHangulCardsReceipt": {
+    "description": "C internal learning screen; counts are actual activity state.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cHangulCompleted": "Hangul practice complete",
+  "cHangulHardCharacters": "Difficult letters only",
+  "cHangulKeepPractising": "You can keep practising any time.",
+  "cHangulListen": "Listen",
+  "cHangulListenWord": "Hear word",
+  "cHangulSelectionTitle": "Card selection",
+  "cHangulWritingLettersReceipt": "{letters, plural, =1{1 letter practised} other{{letters} letters practised}}",
+  "@cHangulWritingLettersReceipt": {
+    "placeholders": {
+      "letters": {
+        "type": "int"
+      }
+    }
+  },
+  "cHangulWritingReceipt": "{letters, plural, =1{1 letter practised} other{{letters} letters practised}} · {strokes, plural, =1{1 stroke attempt} other{{strokes} stroke attempts}} · {mode}",
+  "@cHangulWritingReceipt": {
+    "description": "C internal learning screen; counts are actual activity state.",
+    "placeholders": {
+      "letters": {
+        "type": "int"
+      },
+      "strokes": {
+        "type": "int"
+      },
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "cHangulWritingStrokesReceipt": "{strokes, plural, =1{1 stroke attempt} other{{strokes} stroke attempts}} · {mode}",
+  "@cHangulWritingStrokesReceipt": {
+    "placeholders": {
+      "strokes": {
+        "type": "int"
+      },
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "c5AllLearningActivities": "All learning activities",
+  "c5AllGames": "All games",
+  "onboardingHangulEquationSemantics": "{title}. ㄱ + ㅏ = 가. 가 · ga. {previewLabel}",
+  "@onboardingHangulEquationSemantics": {
+    "description": "Accessible native Hangul equation with localized section and preview labels. Korean lesson glyphs remain Korean.",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "previewLabel": {
+        "type": "String"
+      }
+    }
+  },
+  "ilduR16Title": "Ildu Hanok",
+  "ilduR16Explore": "Discover Ildu Hanok",
+  "ilduR16Reference": "Completed estate · architecture reference",
+  "ilduR16ReferenceBody": "Explore the buildings and their cultural context. This reference view is separate from your construction progress.",
+  "ilduR16Enlarge": "Enlarge the estate",
+  "ilduR16Building": "Choose a building",
+  "ilduR16AboutSpace": "The space and its story",
+  "ilduR16Practice": "Review what you learned",
+  "ilduR16Sarangchae": "Sarangchae · Guest quarters",
+  "ilduR16Changgo": "Changgo · Storehouse",
+  "ilduR16Jungmunganchae": "Jungmunganchae · Inner gate",
+  "ilduR16Araechae": "Araechae · Lower quarters",
+  "ilduR16SouthToilet": "South toilet",
+  "ilduR16Anchae": "Anchae · Inner quarters",
+  "ilduR16AnchaeStore": "Anchae storeroom",
+  "ilduR16NorthToilet": "North toilet",
+  "ilduR16Gokgan": "Gokgan · Grain store",
+  "ilduR16Ansarang": "Ansarangchae · Inner guest quarters",
+  "ilduR16Sadang": "Sadang · Ancestral shrine",
+  "accountRecoveryTitle": "Where would you like to continue?",
+  "accountRecoveryBody": "Saved practice from both sets of progress will be kept. You choose the starting point for your learning path.",
+  "accountRecoveryDevice": "This device",
+  "accountRecoveryCloud": "Cloud",
+  "accountRecoveryCompletedUnits": "{count, plural, =0{No completed units yet} =1{1 completed unit} other{{count} completed units}}",
+  "@accountRecoveryCompletedUnits": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "accountRecoveryUnavailableChoice": "This starting point does not fit your saved completions.",
+  "accountRecoveryUnknownLevel": "Starting point unavailable",
+  "accountRecoveryCountUnavailable": "Saved unit count unavailable",
+  "accountRecoveryConfirm": "Use selection",
+  "accountRecoveryReview": "Review progress",
+  "accountRecoveryPendingTitle": "Your backup needs attention",
+  "accountRecoveryPendingBody": "Your latest progress could not be connected safely yet. Review the saved starting points.",
+  "accountRecoveryWorking": "Checking progress …",
+  "accountRecoveryUnavailable": "Your progress cannot be reviewed right now. Try again.",
+  "accountRecoveryBlocked": "Your saved progress needs another review. It remains preserved.",
+  "accountRecoveryStale": "Your progress has changed. Review it again before continuing.",
+  "accountRecoveryReady": "Your progress is connected. You can back it up now.",
+  "accountRecoveryBackupWaiting": "Connected; backup awaiting review",
+  "accountRecoveryResumeTitle": "Continue your confirmed choice?",
+  "accountRecoveryResumeBody": "Your choice is already saved. You can continue the same operation without choosing a new starting point.",
+  "accountRecoveryResumeConfirm": "Continue confirmed choice"
 }

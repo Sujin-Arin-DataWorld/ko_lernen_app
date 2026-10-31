@@ -2,6 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
+import '../../services/locale_service.dart';
 import 'tokens.dart';
 
 /// **SoriAppBar** — 공용 앱바 (2026-08-13 UI 개편 Phase 1).
@@ -30,6 +32,7 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.viewportWidth,
     this.adaptTitleAtNormalScale = false,
     this.titleBelowToolbar = false,
+    this.locale,
   });
 
   final String title;
@@ -53,27 +56,25 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// Gives a long scene title the full width below navigation and actions.
   final bool titleBelowToolbar;
 
-  // 레이아웃 측정 전용 — 색은 TextPainter geometry에 영향이 없어 뺐다.
-  // `SoriTypeSpecs.chromeTitle`/`.eyebrow` 에서 직접 만든다 — 측정에는
-  // BuildContext 없는 getter 들이 쓰여 `SoriTextTheme.of(context)` 를 못 부르지만,
-  // 같은 const spec을 참조하므로 `SoriTextTheme.chromeTitle`/`.eyebrow` 와
-  // 수치가 갈라질 수 없다(§W-A2 d, 2026-09-03 — 옛 수동 동기화 제거).
-  static final _titleStyle = TextStyle(
-    fontFamily: SoriFonts.interface,
-    fontFamilyFallback: SoriFonts.fallback,
-    fontSize: SoriTypeSpecs.chromeTitle.size,
-    fontWeight: SoriTypeSpecs.chromeTitle.weight,
-    letterSpacing: SoriTypeSpecs.chromeTitle.letterSpacing,
-    height: SoriTypeSpecs.chromeTitle.height,
-  );
-  static final _eyebrowStyle = TextStyle(
-    fontFamily: SoriFonts.sans,
-    fontFamilyFallback: SoriFonts.fallback,
-    fontSize: SoriTypeSpecs.eyebrow.size,
-    fontWeight: SoriTypeSpecs.eyebrow.weight,
-    letterSpacing: SoriTypeSpecs.eyebrow.letterSpacing,
-    height: SoriTypeSpecs.eyebrow.height,
-  );
+  /// Isolated hosts with a locale separate from the app's LocaleService may
+  /// pass it here so PreferredSize measures the same fonts as their context.
+  final Locale? locale;
+
+  // PreferredSize has no BuildContext. Use main.dart's selected/system locale
+  // resolution; build itself measures and paints the active context tokens.
+  SoriTextTheme get _measurementTypography {
+    final selected = locale ?? localeNotifier.value;
+    final resolved = basicLocaleListResolution(
+      selected == null
+          ? WidgetsBinding.instance.platformDispatcher.locales
+          : [selected],
+      AppL10n.supportedLocales,
+    );
+    return SoriTextTheme.forSurfaces(
+      SoriSurfaces.light,
+      fonts: SoriLocaleFonts.forLocale(resolved),
+    );
+  }
 
   /// Large display text follows mobile nonlinear scaling: body copy and
   /// controls still receive the full ambient scale, while page chrome grows
@@ -118,41 +119,44 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// Keep ordinary bounded 100% chrome pixel-stable. Eyebrow chrome, narrow
   /// phones, and explicitly unbounded titles expand instead of clipping or
   /// hiding measured multi-line copy.
-  bool get _usesAdaptiveChrome =>
+  bool _usesAdaptiveChrome(SoriTextTheme tt) =>
       titleBelowToolbar ||
       textScale > 1 ||
       ((adaptTitleAtNormalScale ||
               eyebrow != null ||
               viewportWidth < SoriBreakpoints.narrowPhone) &&
-          (_textLines(title, _titleStyle) > 1 ||
-              (eyebrow != null && _textLines(eyebrow!, _eyebrowStyle) > 1)));
+          (_textLines(title, tt.chromeTitle) > 1 ||
+              (eyebrow != null && _textLines(eyebrow!, tt.eyebrow) > 1)));
 
-  double get _titleBlockHeight {
-    final titleHeight = _textMetrics(title, _titleStyle).height;
+  double _titleBlockHeight(SoriTextTheme tt) {
+    final titleHeight = _textMetrics(title, tt.chromeTitle).height;
     final eyebrowHeight = eyebrow == null
         ? 0.0
-        : _textMetrics(eyebrow!, _eyebrowStyle).height + Spacing.xs;
+        : _textMetrics(eyebrow!, tt.eyebrow).height + Spacing.xs;
     final verticalPadding = _stackTitle ? Spacing.md : Spacing.sm;
     return titleHeight + eyebrowHeight + verticalPadding;
   }
 
-  double get _toolbarHeight => _stackTitle
+  double _toolbarHeight(SoriTextTheme tt) => _stackTitle
       ? kToolbarHeight
-      : math.max(kToolbarHeight, _titleBlockHeight);
+      : math.max(kToolbarHeight, _titleBlockHeight(tt));
 
   @override
-  Size get preferredSize => !_usesAdaptiveChrome
-      ? Size.fromHeight(kToolbarHeight + (bottom?.preferredSize.height ?? 0))
-      : Size.fromHeight(
-          _toolbarHeight +
-              (_stackTitle ? _titleBlockHeight : 0) +
-              (bottom?.preferredSize.height ?? 0),
-        );
+  Size get preferredSize {
+    final tt = _measurementTypography;
+    return !_usesAdaptiveChrome(tt)
+        ? Size.fromHeight(kToolbarHeight + (bottom?.preferredSize.height ?? 0))
+        : Size.fromHeight(
+            _toolbarHeight(tt) +
+                (_stackTitle ? _titleBlockHeight(tt) : 0) +
+                (bottom?.preferredSize.height ?? 0),
+          );
+  }
 
   @override
   Widget build(BuildContext context) {
     final tt = SoriTextTheme.of(context);
-    if (!_usesAdaptiveChrome) {
+    if (!_usesAdaptiveChrome(tt)) {
       return AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -202,14 +206,14 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
         ? bottom
         : PreferredSize(
             preferredSize: Size.fromHeight(
-              _titleBlockHeight + (bottom?.preferredSize.height ?? 0),
+              _titleBlockHeight(tt) + (bottom?.preferredSize.height ?? 0),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(
                   width: double.infinity,
-                  height: _titleBlockHeight,
+                  height: _titleBlockHeight(tt),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: Spacing.lg,
@@ -236,7 +240,7 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.transparent,
       elevation: 0,
       scrolledUnderElevation: 0,
-      toolbarHeight: _toolbarHeight,
+      toolbarHeight: _toolbarHeight(tt),
       centerTitle: false,
       titleSpacing: eyebrow == null ? null : Spacing.xs,
       leading: leading,

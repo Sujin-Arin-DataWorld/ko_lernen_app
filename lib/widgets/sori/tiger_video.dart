@@ -6,6 +6,7 @@ import 'package:video_player/video_player.dart';
 
 import '../../services/audio_policy.dart';
 import 'mascot.dart';
+import 'character_clip.dart' show CharacterClips;
 import 'mascot_preference.dart';
 import 'tokens.dart';
 import 'video_lease.dart';
@@ -184,11 +185,13 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
       return;
     }
     final pacePhase = _showPace;
+    final asset = pacePhase
+        ? TigerStageVideo.paceFor(kind)
+        : TigerStageVideo.greetFor(kind);
+    if (CharacterClips.retiredStillFor(asset) != null) return;
     _builtFor = kind;
     _lease = soriVideoLease.register(
-      asset: pacePhase
-          ? TigerStageVideo.paceFor(kind)
-          : TigerStageVideo.greetFor(kind),
+      asset: asset,
       eligible: false,
       prepare: (video) async {
         // audio-policy: exempt — 홈 히어로 영상은 정책상 상시 무음(트랙 없음)
@@ -219,7 +222,17 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
   // reduce-motion 항 제거(Jin 2026-08-06, 샤오미 패드) — MIUI 배터리 절약이
   // 같은 플래그를 켜서 캐릭터가 정적으로 고정됐다. 근거는 video_lease.dart
   // `isEligible` 주석. `context` 는 호출부 시그니처 호환을 위해 남긴다.
-  bool _shouldPlay(BuildContext context) => TigerStageVideo.videoReady;
+  bool _shouldPlay(BuildContext context) {
+    final kind = _kind;
+    return TigerStageVideo.videoReady &&
+        kind != null &&
+        CharacterClips.retiredStillFor(
+              _showPace
+                  ? TigerStageVideo.paceFor(kind)
+                  : TigerStageVideo.greetFor(kind),
+            ) ==
+            null;
+  }
 
   void _onGranted(VideoPlayerController video, {required bool pacePhase}) {
     _video = video;
@@ -460,6 +473,10 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
     if (kind == null || _lease != null) {
       return;
     }
+    if (CharacterClips.retiredStillFor(TigerStageVideo.greetFor(kind)) !=
+        null) {
+      return;
+    }
     _lease = soriVideoLease.register(
       asset: TigerStageVideo.greetFor(kind),
       eligible: false,
@@ -480,10 +497,15 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
       _lease?.setEligible(false);
       return;
     }
-    final eligible = _eligibility.isEligible(
-      context,
-      videoReady: TigerStageVideo.videoReady,
-    );
+    final retired =
+        CharacterClips.retiredStillFor(TigerStageVideo.greetFor(_kind!)) !=
+        null;
+    final eligible =
+        !retired &&
+        _eligibility.isEligible(
+          context,
+          videoReady: TigerStageVideo.videoReady,
+        );
     if (eligible) {
       _completion.leaseRequested();
     }
@@ -491,7 +513,7 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
     // reduce-motion 은 더 이상 폴백 사유가 아니다(위 `_shouldPlay` 주석) —
     // 온보딩 첫 인사(TigerGreetClip)는 신규 사용자가 처음 보는 화면이라
     // 배터리 절약 상태에서 정적 PNG 로 떨어지면 첫인상이 통째로 바뀐다.
-    if (!TigerStageVideo.videoReady) {
+    if (retired || !TigerStageVideo.videoReady) {
       _completion.fallbackNeeded();
     }
   }

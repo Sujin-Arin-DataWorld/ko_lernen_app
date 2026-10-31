@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/services/palette_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
@@ -7,9 +9,9 @@ import 'support/real_fonts.dart';
 
 void main() {
   setUpAll(loadSoriRealFonts);
-  for (final action in [
-    'In einer anderen Situation üben',
-    'Try a different situation',
+  for (final (locale, action) in [
+    (const Locale('de'), 'In einer anderen Situation üben'),
+    (const Locale('en'), 'Try a different situation'),
   ]) {
     testWidgets('$action stays readable at 320dp and 200% text', (
       tester,
@@ -20,7 +22,10 @@ void main() {
       addTearDown(tester.view.resetDevicePixelRatio);
       await tester.pumpWidget(
         MaterialApp(
-          theme: AppTheme.light,
+          locale: locale,
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          theme: AppTheme.lightFor(PaletteVariant.dancheong, locale: locale),
           home: MediaQuery(
             data: const MediaQueryData(
               size: Size(320, 844),
@@ -54,7 +59,8 @@ void main() {
       expect(tester.takeException(), isNull);
       final menu = tester.widget<Text>(find.text(action));
       final lesson = tester.widget<Text>(find.text('오늘은 약속이 있어. 내일은 어때?'));
-      expect(menu.style?.fontFamily, SoriFonts.interface);
+      expect(menu.style?.fontFamily, SoriLocaleFonts.forLocale(locale).body);
+      expect(menu.style?.fontFamilyFallback, contains(SoriFonts.korean));
       expect(lesson.style?.fontFamily, SoriFonts.sans);
       expect(menu.maxLines, isNull);
       expect(lesson.maxLines, isNull);

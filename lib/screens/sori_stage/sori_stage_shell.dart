@@ -1,4 +1,6 @@
 import '../../services/storage_service.dart';
+import '../../services/yeopjeon_wallet_notifier.dart';
+import '../../widgets/sori/top_chrome.dart';
 import '../../models/course_mastery.dart';
 import '../../services/catalog_history_lease.dart';
 import '../../widgets/sori/toast.dart';
@@ -19,6 +21,7 @@ import 'package:flutter/foundation.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../widgets/sori/adaptive_navigation.dart';
+import '../../widgets/sori/approved_chrome_assets.dart';
 import '../../widgets/sori/tab_reselect.dart';
 import '../../widgets/sori/route_observer.dart';
 import 'sori_stage_catalog_screen.dart';
@@ -63,6 +66,7 @@ class SoriStageShell extends StatefulWidget {
 class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
   int _index = 0;
   late final LearningFocusController _focus;
+  late final YeopjeonWalletNotifier _wallet;
   int _refreshGeneration = 0;
   ModalRoute<dynamic>? _route;
 
@@ -87,16 +91,19 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
       return;
     }
     setState(() => _refreshGeneration++);
+    unawaited(_wallet.refresh());
     unawaited(_focus.refresh(force: true));
   }
 
   void _refreshFocusForTab(int index) {
+    unawaited(_wallet.refresh());
     if ((index == 0 || index == 1) && !_focus.launching) {
       unawaited(_focus.refresh());
     }
   }
 
   void _accountChanged() {
+    unawaited(_wallet.refresh(clear: true));
     LearningJourneyObserver.forContext(context)?.cancel();
     _focus.lastJourneyResult = null;
     unawaited(_focus.refresh(force: true));
@@ -227,6 +234,9 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
         observer?.cancel();
       }
       _focus.releaseLaunch();
+      if (mounted) {
+        unawaited(_wallet.refresh());
+      }
     }
   }
 
@@ -235,6 +245,8 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
   @override
   void initState() {
     super.initState();
+    _wallet = YeopjeonWalletNotifier();
+    unawaited(_wallet.refresh());
     _focus = LearningFocusController(
       loader:
           widget.loadLearningFocus ??
@@ -274,6 +286,7 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
     soriRouteObserver.unsubscribe(this);
     cloudWriteSessionController.changes.removeListener(_accountChanged);
     _focus.dispose();
+    _wallet.dispose();
     widget.replayHomeTour.removeListener(_onReplayRequested);
     widget.requestedTab?.removeListener(_onTabRequested);
     for (final controller in _scrollControllers) {
@@ -332,26 +345,31 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
           icon: Icons.today_outlined,
           selectedIcon: Icons.today_rounded,
           label: t.soriStageNavToday,
+          imageAsset: ApprovedChromeAssets.today,
         ),
         SoriAdaptiveNavigationItem(
           icon: Icons.school_outlined,
           selectedIcon: Icons.school_rounded,
           label: t.soriStageNavLearn,
+          imageAsset: ApprovedChromeAssets.learn,
         ),
         SoriAdaptiveNavigationItem(
           icon: Icons.sports_esports_outlined,
           selectedIcon: Icons.sports_esports_rounded,
           label: t.soriStageNavGames,
+          imageAsset: ApprovedChromeAssets.games,
         ),
         SoriAdaptiveNavigationItem(
           icon: Icons.home_work_outlined,
           selectedIcon: Icons.home_work_rounded,
           label: t.soriStageNavHanok,
+          imageAsset: ApprovedChromeAssets.hanok,
         ),
         SoriAdaptiveNavigationItem(
           icon: Icons.groups_2_outlined,
           selectedIcon: Icons.groups_2_rounded,
           label: t.soriStageNavGye,
+          imageAsset: ApprovedChromeAssets.gye,
         ),
       ],
     );
@@ -383,37 +401,40 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
       ),
     ];
 
-    return LearningFocusScope(
-      controller: _focus,
-      open: _open,
-      child: Scaffold(
-        body: Row(
-          children: [
-            if (usesRail)
-              SafeArea(
-                child: SizedBox(
-                  width: SoriAdaptiveNavigation.railWidthForWidth(width),
-                  child: navigation,
+    return SoriWalletScope(
+      notifier: _wallet,
+      child: LearningFocusScope(
+        controller: _focus,
+        open: _open,
+        child: Scaffold(
+          body: Row(
+            children: [
+              if (usesRail)
+                SafeArea(
+                  child: SizedBox(
+                    width: SoriAdaptiveNavigation.railWidthForWidth(width),
+                    child: navigation,
+                  ),
+                ),
+              Expanded(
+                child: IndexedStack(
+                  index: _index,
+                  children: [
+                    for (var index = 0; index < screens.length; index++)
+                      PrimaryScrollController(
+                        controller: _scrollControllers[index],
+                        child: TickerMode(
+                          enabled: _index == index,
+                          child: screens[index],
+                        ),
+                      ),
+                  ],
                 ),
               ),
-            Expanded(
-              child: IndexedStack(
-                index: _index,
-                children: [
-                  for (var index = 0; index < screens.length; index++)
-                    PrimaryScrollController(
-                      controller: _scrollControllers[index],
-                      child: TickerMode(
-                        enabled: _index == index,
-                        child: screens[index],
-                      ),
-                    ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
+          bottomNavigationBar: usesRail ? null : navigation,
         ),
-        bottomNavigationBar: usesRail ? null : navigation,
       ),
     );
   }

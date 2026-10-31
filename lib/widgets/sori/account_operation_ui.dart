@@ -7,10 +7,14 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../services/account/account_failure_diagnostics.dart';
 import '../../services/account/account_failure_reason.dart';
 import '../../services/account/account_switch_coordinator.dart';
+import '../../services/account/account_switch_resolution.dart';
 import '../../services/account/account_transition_coordinator.dart';
 import '../../services/account/account_ui_operations.dart';
 import '../../services/account/cloud_backup_deletion.dart';
 import '../../services/cloud_sync.dart';
+import 'account_progress_recovery_sheet.dart';
+import 'button.dart';
+import 'card.dart';
 import 'dialog.dart';
 import 'tokens.dart';
 
@@ -102,6 +106,7 @@ class AccountPendingOperationPanel extends StatefulWidget {
     required this.operations,
     this.retryLocalDeletion,
     this.onCompleted,
+    this.onSwitchResolved,
     this.cloudDeletionState,
     this.resumeCloudDeletion,
     this.refreshOnMount = true,
@@ -110,6 +115,7 @@ class AccountPendingOperationPanel extends StatefulWidget {
   final AccountUiOperations operations;
   final Future<void> Function()? retryLocalDeletion;
   final Future<void> Function()? onCompleted;
+  final Future<void> Function()? onSwitchResolved;
 
   /// When supplied, a `blocked` panel caused by a pending cloud-backup
   /// deletion journal names that journal and offers to resume it via
@@ -130,6 +136,33 @@ class AccountPendingOperationPanel extends StatefulWidget {
 
 class _AccountPendingOperationPanelState
     extends State<AccountPendingOperationPanel> {
+  bool _reviewing = false;
+  AccountSwitchResolutionOutcome? _reviewOutcome;
+
+  Future<void> _reviewSwitch() async {
+    if (_reviewing) {
+      return;
+    }
+    setState(() {
+      _reviewing = true;
+      _reviewOutcome = null;
+    });
+    final result = await reviewPendingAccountProgress(
+      context: context,
+      operations: widget.operations,
+    );
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _reviewing = false;
+      _reviewOutcome = result;
+    });
+    if (result == AccountSwitchResolutionOutcome.completed) {
+      await (widget.onSwitchResolved ?? widget.onCompleted)?.call();
+    }
+  }
+
   AccountUiPendingStateSource? get _source =>
       widget.operations is AccountUiPendingStateSource
       ? widget.operations as AccountUiPendingStateSource
@@ -178,11 +211,47 @@ class _AccountPendingOperationPanelState
     AccountUiPendingState state, {
     required bool cloudPending,
   }) {
-    if (state == AccountUiPendingState.loading ||
-        state == AccountUiPendingState.none) {
+    if (!_reviewing &&
+        (state == AccountUiPendingState.loading ||
+            state == AccountUiPendingState.none)) {
       return const SizedBox.shrink();
     }
     final t = AppL10n.of(context);
+    if (!cloudPending &&
+        (state == AccountUiPendingState.switchResolutionNeeded || _reviewing)) {
+      return SoriCard(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              t.accountRecoveryPendingTitle,
+              style: SoriTextTheme.of(
+                context,
+              ).body.copyWith(fontWeight: FontWeight.w800),
+            ),
+            const SizedBox(height: Spacing.sm),
+            Text(t.accountRecoveryPendingBody),
+            if (_reviewOutcome != null) ...[
+              const SizedBox(height: Spacing.sm),
+              Semantics(
+                liveRegion: true,
+                child: Text(accountProgressRecoveryMessage(t, _reviewOutcome!)),
+              ),
+            ],
+            const SizedBox(height: Spacing.md),
+            SoriButton.filled(
+              key: const Key('account-recovery-review'),
+              label: _reviewing
+                  ? t.accountRecoveryWorking
+                  : t.accountRecoveryReview,
+              feedbackOnTap: false,
+              onTap: _reviewing ? null : _reviewSwitch,
+              fullWidth: true,
+            ),
+          ],
+        ),
+      );
+    }
     final deletion = state == AccountUiPendingState.deletionLocalCleanup;
     final blocked = state == AccountUiPendingState.blocked;
     final cloudResumable =
@@ -522,6 +591,19 @@ Future<void> showAccountActionLocked(
           action: retryDeletion,
         );
       }
+    case AccountUiPendingState.switchResolutionNeeded:
+      final result = await reviewPendingAccountProgress(
+        context: context,
+        operations: operations,
+      );
+      if (result == null || !context.mounted) {
+        return;
+      }
+      return _showLinkProblem(
+        context,
+        title: t.accountRecoveryPendingTitle,
+        body: accountProgressRecoveryMessage(t, result),
+      );
     case AccountUiPendingState.loading:
     case AccountUiPendingState.none:
     case AccountUiPendingState.blocked:

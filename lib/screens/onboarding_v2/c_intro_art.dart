@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/learner_level.dart';
+import '../../widgets/sori/approved_chrome_assets.dart';
 import '../../widgets/sori/intro_tokens.dart';
 export '../../widgets/sori/intro_tokens.dart';
 
@@ -11,10 +12,16 @@ class CIntroArt extends StatelessWidget {
   final String name;
   final BoxFit fit;
   static const directory = 'assets/illustrations/einleitung_generated';
+  static const kContentAsset =
+      '$directory/intro-interest-kcontent-approved.jpg';
 
   @override
   Widget build(BuildContext context) => Image.asset(
-    '$directory/intro-$name.png',
+    switch (name) {
+      'cloud-mark' => ApprovedChromeAssets.cloud,
+      'interest-kcontent' => kContentAsset,
+      _ => '$directory/intro-$name.png',
+    },
     fit: fit,
     excludeFromSemantics: true,
     filterQuality: FilterQuality.medium,
@@ -125,7 +132,13 @@ class IntroMedal extends StatelessWidget {
             ),
             if (label == '–')
               Center(
-                child: Text('–', style: IntroTypography.medalPlaceholder(size)),
+                child: Text(
+                  '–',
+                  style: IntroTypography.localized(
+                    context,
+                    IntroTypography.medalPlaceholder(size),
+                  ),
+                ),
               ),
           ],
         ),

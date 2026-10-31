@@ -100,12 +100,24 @@
       "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
     },
     {
-      "name": "intro-interest-kcontent",
-      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-4cb45d7f-3958-4b29-9d64-2ddaf5c2eb3c.png",
-      "asset": "assets/illustrations/einleitung_generated/intro-interest-kcontent.png",
-      "sha256": "b1142b8f1311980024294f4676947bd2720dbc4715c7203c45d96f1747045ef5",
-      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
-      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+      "name": "intro-interest-kcontent-approved",
+      "source": "C:\\Users\\vjinn\\ELibrary\\Downloads\\Gemini_Generated_Image_js0ec6js0ec6js0e.jpg",
+      "asset": "assets/illustrations/einleitung_generated/intro-interest-kcontent-approved.jpg",
+      "sha256": "ff2b2d617a3e582208fd3cd97b8c6a5f8ef735c9082424709d9e8b1d82f5cbe6",
+      "sourceSha256": "ff2b2d617a3e582208fd3cd97b8c6a5f8ef735c9082424709d9e8b1d82f5cbe6",
+      "bytes": 2695887,
+      "canvasPx": [
+        2400,
+        1792
+      ],
+      "contentType": "image/jpeg",
+      "generation": "None; byte-identical copy of the latest explicit user attachment, with no crop, re-encoding or image editing.",
+      "provenanceKind": "user_selected_original",
+      "byteIdentical": true,
+      "authorizationDate": "2026-10-30",
+      "runtimeArtKey": "interest-kcontent",
+      "runtimeScope": "Every introductory K-content purpose card using the shared art key; existing selection state and layout remain unchanged.",
+      "designReview": "Latest user-selected K-pop original; source and bundled bytes verified. Visual device and Figma verification are separate gates."
     },
     {
       "name": "intro-gye-reading",
@@ -146,14 +158,6 @@
       "generation": "image_gen built-in; new whole portrait or mark; reference-guided; no screenshot crop",
       "sha256": "9c49d07afeb6a23f9bc160a8fab6fd51a3911cebafc9ae7573f328c74b6f96ac",
       "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
-    },
-    {
-      "name": "intro-cloud-mark",
-      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-d84fefd7-5e20-4733-8c02-fe24e9b76956.png",
-      "asset": "assets/illustrations/einleitung_generated/intro-cloud-mark.png",
-      "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
-      "generation": "User-provided original whole PNG; no crop, resize, recolor or regeneration",
-      "designReview": "2026-10-29 exact original and optical geometry verified; Figma first, runtime review pending"
     },
     {
       "name": "intro-welcome-scene",
@@ -371,5 +375,39 @@
     "kind": "user_authorized_original_extraction",
     "instruction": "Use exact original image pixels INCLUDING text instead of font matching or image generation. This supersedes prior no-crop instructions only for explicitly requested hero extractions.",
     "notGenerated": true
-  }
+  },
+  "preservedFiles": [
+    {
+      "name": "intro-interest-kcontent",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-4cb45d7f-3958-4b29-9d64-2ddaf5c2eb3c.png",
+      "asset": "assets_unused/approved_bundle_size_20261030/intro-interest-kcontent.png",
+      "sha256": "b1142b8f1311980024294f4676947bd2720dbc4715c7203c45d96f1747045ef5",
+      "supersededBy": "intro-interest-kcontent-approved",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified",
+      "originalAsset": "assets/illustrations/einleitung_generated/intro-interest-kcontent.png",
+      "runtimeReplacement": "assets/illustrations/einleitung_generated/intro-interest-kcontent-approved.jpg",
+      "preservation": "Byte-identical original retained outside the app bundle; no encoding or pixel changes."
+    },
+    {
+      "name": "intro-cloud-mark",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-d84fefd7-5e20-4733-8c02-fe24e9b76956.png",
+      "asset": "assets_unused/approved_bundle_size_20261030/intro-cloud-mark.png",
+      "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+      "generation": "User-provided original whole PNG; no crop, resize, recolor or regeneration",
+      "designReview": "2026-10-29 exact original and optical geometry verified; Figma first, runtime review pending",
+      "originalAsset": "assets/illustrations/einleitung_generated/intro-cloud-mark.png",
+      "runtimeReplacement": "assets/icons/chrome/cloud.png",
+      "preservation": "Byte-identical original retained outside the app bundle; no encoding or pixel changes."
+    }
+  ],
+  "runtimeAliases": [
+    {
+      "name": "intro-cloud-mark",
+      "asset": "assets/icons/chrome/cloud.png",
+      "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+      "preservedAsset": "assets_unused/approved_bundle_size_20261030/intro-cloud-mark.png",
+      "generation": "Byte-identical approved shared cloud; no crop, resize, recolor or regeneration."
+    }
+  ]
 }

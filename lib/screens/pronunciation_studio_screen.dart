@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math' as math;
@@ -783,7 +784,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
           }
           if (_loadFailed) {
             return SoriEmptyState(
-              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              asset: CanonicalCompanionArt.magpieGuide,
               icon: Icons.volume_off_rounded,
               title: t.pronunciationPhrasesUnavailableTitle,
               body: t.pronunciationPhrasesUnavailableBody,
@@ -794,7 +795,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
           }
           if (phrase == null) {
             return SoriEmptyState(
-              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              asset: CanonicalCompanionArt.magpieGuide,
               icon: Icons.record_voice_over_outlined,
               title: t.pronunciationPhrasesEmptyTitle,
               body: t.pronunciationPhrasesEmptyBody,

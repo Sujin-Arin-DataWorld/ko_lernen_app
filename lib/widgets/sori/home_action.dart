@@ -31,6 +31,7 @@ class SoriHomeAction extends StatelessWidget {
     super.key,
     this.escape = const SoriHomeEscape(),
     this.onLeave,
+    this.content,
   });
 
   final SoriHomeEscape escape;
@@ -38,6 +39,9 @@ class SoriHomeAction extends StatelessWidget {
   /// 확인 뒤(또는 확인이 필요 없을 때) 실제 이동 **직전** 호출 — 화면이
   /// 타이머 정지 등 정리를 할 자리.
   final VoidCallback? onLeave;
+
+  /// Presentation only; the existing route and leave guard still own the action.
+  final Widget? content;
 
   Future<void> _leave(BuildContext context) async {
     if (!await showLeaveConfirmSheet(context, escape)) {
@@ -71,10 +75,10 @@ class SoriHomeAction extends StatelessWidget {
         child: ExcludeSemantics(
           child: SoriPressable(
             onTap: () => _leave(context),
-            child: const SizedBox(
-              width: SoriLayout.chromeRowTouchHeight,
+            child: SizedBox(
+              width: content == null ? SoriLayout.chromeRowTouchHeight : null,
               height: SoriLayout.chromeRowTouchHeight,
-              child: Icon(Icons.home_rounded),
+              child: Center(child: content ?? const Icon(Icons.home_rounded)),
             ),
           ),
         ),
@@ -93,6 +97,7 @@ class SoriCloseAction extends StatelessWidget {
     super.key,
     this.escape = const SoriHomeEscape(),
     this.onLeave,
+    this.visual,
   });
 
   final SoriHomeEscape escape;
@@ -100,6 +105,9 @@ class SoriCloseAction extends StatelessWidget {
   /// 확인 뒤(또는 확인이 필요 없을 때) 실제 닫기 **직전** 호출 — 화면이
   /// 타이머 정지 등 정리를 할 자리.
   final VoidCallback? onLeave;
+
+  /// Presentation only; semantics, confirmation and close behavior stay here.
+  final Widget? visual;
 
   Future<void> _close(BuildContext context) async {
     if (!await showLeaveConfirmSheet(context, escape)) {
@@ -134,11 +142,13 @@ class SoriCloseAction extends StatelessWidget {
         child: ExcludeSemantics(
           child: SoriPressable(
             onTap: () => _close(context),
-            child: const SizedBox(
-              width: SoriLayout.chromeRowTouchHeight,
-              height: SoriLayout.chromeRowTouchHeight,
-              child: Icon(Icons.close_rounded),
-            ),
+            child:
+                visual ??
+                const SizedBox(
+                  width: SoriLayout.chromeRowTouchHeight,
+                  height: SoriLayout.chromeRowTouchHeight,
+                  child: Icon(Icons.close_rounded),
+                ),
           ),
         ),
       ),

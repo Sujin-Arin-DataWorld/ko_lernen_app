@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/haptic_service.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
 import 'dart:async';
@@ -357,7 +358,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         title: t.customPackPlayTitle,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CanonicalCompanionArt.baekhoSeated,
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -373,7 +374,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         title: t.customPackPlayTitle,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_encourage.png',
+            asset: CanonicalCompanionArt.magpieGuide,
             icon: Icons.style_outlined,
             title: t.customPackEmptyTitle,
             body: t.customPackEmptyBody,

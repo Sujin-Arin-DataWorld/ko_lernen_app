@@ -30,3 +30,4 @@ plugins {
 
 include(":app")
 include(":proofreading_feature")
+include(":c_artwork")

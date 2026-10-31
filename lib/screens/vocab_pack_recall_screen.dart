@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/haptic_service.dart';
 import 'dart:math' as math;
 
@@ -293,7 +294,7 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen>
         title: t.vocabPackRecallTitle,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CanonicalCompanionArt.baekhoSeated,
             icon: Icons.keyboard_alt_outlined,
             title: t.vocabPackRecallTitle,
             body: t.vocabPackRecallNoBossWords,

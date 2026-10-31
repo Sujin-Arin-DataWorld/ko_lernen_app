@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -145,8 +146,7 @@ class _HardWordsBodyState extends State<HardWordsBody>
       hardLiked = all
           .where(
             (v) =>
-                likedVocabIds.contains(v.korean) &&
-                !autoIds.contains(v.korean),
+                likedVocabIds.contains(v.korean) && !autoIds.contains(v.korean),
           )
           .toList();
     } catch (_) {
@@ -231,7 +231,7 @@ class _HardWordsBodyState extends State<HardWordsBody>
         child: Padding(
           padding: padding,
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_celebrate.png',
+            asset: CanonicalCompanionArt.magpieCelebrate,
             icon: Icons.emoji_events_outlined,
             title: t.hardWordsEmptyTitle,
             body: t.hardWordsEmptyBody,

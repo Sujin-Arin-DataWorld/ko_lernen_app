@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_character_media.dart';
+import 'package:ko_lernen_app/data/canonical_companion_art.dart';
 
 const _animatedWebpBase64 =
     'UklGRpAAAABXRUJQVlA4WAoAAAASAAAAAwAAAQAAQU5JTQYAAAAAAAAAAABBTk1GLgAAAAAAAAAAAAIAAAEAACgAAAJWUDhMFgAAAC8CQAAQFxDzHwKCoudMDy4cASKi/yFBTk1GLgAAAAAAAAAAAAIAAAEAADwAAAJWUDhMFgAAAC8CQAAQFxAx/wKCoudMDy4cASKi/yE=';
@@ -15,29 +16,59 @@ const _largeAnimatedWebpBase64 =
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  test('default assets resolve to the onboarding companion namespace', () {
-    const tiger = OnboardingCharacterMedia(characterId: 'tiger');
-    const magpie = OnboardingCharacterMedia(
-      characterId: 'magpie',
-      motion: OnboardingCharacterMotion.confirm,
-    );
+  test(
+    'default companions resolve to canonical stills without an animation',
+    () {
+      const tiger = OnboardingCharacterMedia(characterId: 'tiger');
+      const magpie = OnboardingCharacterMedia(
+        characterId: 'magpie',
+        motion: OnboardingCharacterMotion.confirm,
+      );
 
-    expect(
-      tiger.resolvedPosterAsset,
-      'assets/illustrations/onboarding/companions/taego_idle.png',
-    );
-    expect(
-      tiger.resolvedAnimationAsset,
-      'assets/illustrations/onboarding/companions/taego_choose.webp',
-    );
-    expect(
-      magpie.resolvedPosterAsset,
-      'assets/illustrations/onboarding/companions/joy_idle.png',
-    );
-    expect(
-      magpie.resolvedAnimationAsset,
-      'assets/illustrations/onboarding/companions/joy_choose.webp',
-    );
+      expect(tiger.resolvedPosterAsset, CanonicalCompanionArt.baekhoStanding);
+      expect(tiger.resolvedAnimationAsset, isNull);
+      expect(magpie.resolvedPosterAsset, CanonicalCompanionArt.magpieStanding);
+      expect(magpie.resolvedAnimationAsset, isNull);
+    },
+  );
+
+  testWidgets('default select, confirm and replay never load a legacy codec', (
+    tester,
+  ) async {
+    final bundle = _FixtureBundle(<String, Uint8List>{
+      CanonicalCompanionArt.baekhoStanding: base64Decode(_posterPngBase64),
+      CanonicalCompanionArt.magpieStanding: base64Decode(_posterPngBase64),
+    });
+    for (final character in ['tiger', 'magpie']) {
+      for (final motion in OnboardingCharacterMotion.values) {
+        await tester.pumpWidget(
+          DefaultAssetBundle(
+            bundle: bundle,
+            child: MaterialApp(
+              home: Center(
+                child: OnboardingCharacterMedia(
+                  characterId: character,
+                  motion: motion,
+                  replayToken: motion.index,
+                  size: 32,
+                ),
+              ),
+            ),
+          ),
+        );
+        await _pumpAsyncFrames(tester);
+        expect(_animationFinder(), findsNothing);
+        final expected = character == 'tiger'
+            ? CanonicalCompanionArt.baekhoStanding
+            : CanonicalCompanionArt.magpieStanding;
+        expect(
+          find.byKey(ValueKey('onboarding-character-poster-$expected')),
+          findsOneWidget,
+        );
+      }
+    }
+    expect(bundle.loadCount.keys.any((key) => key.endsWith('.webp')), isFalse);
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('only an active companion decodes animated WebP', (tester) async {

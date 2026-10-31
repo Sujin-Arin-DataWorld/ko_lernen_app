@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/haptic_service.dart';
 import '../services/learning_journey.dart';
 import 'dart:async';
@@ -1550,9 +1551,9 @@ class _GrammarScreenState extends State<GrammarScreen>
                           'allowedTargetIds': servedIds.toSet(),
                           'planDayLabel': t.grammarPlanDayHeader(
                             completed.completedDays,
-                            GrammarPlanService.totalDays(
-                              _curatedRowsForPlan(completed),
-                              completed.itemsPerDay,
+                            GrammarPlanService.totalDaysForPlan(
+                              curatedRows: _curatedRowsForPlan(completed),
+                              plan: completed,
                             ),
                           ),
                         },
@@ -1820,7 +1821,7 @@ class _GrammarScreenState extends State<GrammarScreen>
         child: SoriStudyFrame(
           title: t.screenGrammarTitle,
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_wave.png',
+            asset: CanonicalCompanionArt.magpieGuide,
             icon: Icons.menu_book_outlined,
             title: t.emptyGrammar,
             ctaLabel: _isCoursePractice ? null : t.filterOpenBtn,
@@ -1909,9 +1910,9 @@ class _GrammarScreenState extends State<GrammarScreen>
                           Text(
                             t.grammarPlanDayHeader(
                               plan.completedDays + 1,
-                              GrammarPlanService.totalDays(
-                                _curatedRowsForPlan(plan),
-                                plan.itemsPerDay,
+                              GrammarPlanService.totalDaysForPlan(
+                                curatedRows: _curatedRowsForPlan(plan),
+                                plan: plan,
                               ),
                             ),
                             style: SoriTextTheme.of(context).label,

@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
@@ -24,6 +25,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/gye_dedication_action.dart';
 import '../widgets/sori/gye_feed.dart';
 import '../widgets/sori/gye_hanok.dart';
+import '../widgets/sori/gye_weekly_lanterns.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
@@ -278,7 +280,7 @@ class _GyeScreenState extends State<GyeScreen>
                   padding: padding,
                   child: Center(
                     child: SoriEmptyState(
-                      asset: 'assets/illustrations/mascot/magpie_perched.png',
+                      asset: CanonicalCompanionArt.magpieStanding,
                       icon: Icons.groups_2_outlined,
                       title: t.gyeNotFoundTitle,
                       body: t.gyeNotFoundBody,
@@ -894,79 +896,53 @@ class _GyeAnonymousPromiseProgress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     // Remote group metadata is untrusted. The supported weekly promises use
     // three lights; keep a malformed payload from creating an unbounded list.
     final target = meta.weeklyPromiseTarget.clamp(1, 5).toInt();
     final progress = meta.weeklyPromiseProgress.clamp(0, target).toInt();
-    final fraction = target > 0 ? progress / target : 0.0;
-    return Semantics(
-      label: t.gyePromiseProgress(progress, target),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            t.gyePromiseProgress(progress, target),
-            style: SoriTextTheme.of(context).cardTitle,
-          ),
-          const SizedBox(height: Spacing.sm),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(SoriRadius.pill),
-            child: SizedBox(
-              height: 12,
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  ColoredBox(color: s.border),
-                  FractionallySizedBox(
-                    alignment: Alignment.centerLeft,
-                    widthFactor: fraction,
-                    child: const ColoredBox(color: SoriColors.gold),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: Spacing.sm),
-          Text(
-            t.gyePromiseRemaining((target - progress).clamp(0, target)),
-            style: SoriTextTheme.of(context).bodySmall,
-          ),
-          const SizedBox(height: Spacing.md),
-          for (var index = 0; index < target; index++) ...[
-            _AnonymousContributionRow(complete: index < progress),
-            if (index < target - 1) const SizedBox(height: Spacing.sm),
-          ],
-          const SizedBox(height: Spacing.md),
-          Semantics(
-            container: true,
-            child: Container(
-              padding: const EdgeInsets.all(Spacing.sm),
-              decoration: BoxDecoration(
-                color: SoriColors.primary.withValues(alpha: 0.08),
-                borderRadius: SoriRadius.brSm,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(
-                    Icons.shield_outlined,
-                    size: 20,
-                    color: SoriColors.primary,
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  Expanded(
-                    child: Text(
-                      t.gyePromisePrivacyRule,
-                      style: SoriTextTheme.of(context).bodySmall,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        GyeWeeklyLanternRow(done: progress, target: target),
+        const SizedBox(height: Spacing.sm),
+        Text(
+          t.gyePromiseRemaining((target - progress).clamp(0, target)),
+          style: SoriTextTheme.of(context).bodySmall,
+        ),
+        const SizedBox(height: Spacing.md),
+        for (var index = 0; index < target; index++) ...[
+          _AnonymousContributionRow(complete: index < progress),
+          if (index < target - 1) const SizedBox(height: Spacing.sm),
         ],
-      ),
+        const SizedBox(height: Spacing.md),
+        Semantics(
+          container: true,
+          child: Container(
+            padding: const EdgeInsets.all(Spacing.sm),
+            decoration: BoxDecoration(
+              color: SoriColors.primary.withValues(alpha: 0.08),
+              borderRadius: SoriRadius.brSm,
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Icon(
+                  Icons.shield_outlined,
+                  size: 20,
+                  color: SoriColors.primary,
+                ),
+                const SizedBox(width: Spacing.sm),
+                Expanded(
+                  child: Text(
+                    t.gyePromisePrivacyRule,
+                    style: SoriTextTheme.of(context).bodySmall,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

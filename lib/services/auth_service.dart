@@ -17,6 +17,12 @@ import 'account/account_deletion_status_receipt.dart';
 import 'account/account_operation_client.dart';
 import 'account/account_reconciliation.dart';
 import 'account/account_switch_coordinator.dart';
+import 'account/account_switch_resolution.dart';
+import 'course_mastery_service.dart';
+import 'curriculum_catalog.dart';
+import 'vocab_pack_service.dart';
+import 'cloud_sync.dart';
+import 'local_data_lifetime.dart';
 import 'account/account_transition_coordinator.dart';
 import 'account/account_transition_journal.dart';
 import 'account/cloud_backup_deletion.dart';
@@ -2523,11 +2529,111 @@ class AuthService {
   static AccountSwitchCoordinator _accountSwitchCoordinator(
     SharedPreferences preferences, {
     required CourseMasteryReconciliationMerger courseMasteryMerger,
+    ({
+      Map<String, PackCatalogEntry> catalog,
+      CourseMasteryService course,
+      String fingerprint,
+    })?
+    resolution,
   }) {
+    final switchMarkers = SharedPreferencesAccountSwitchJournalStore(
+      preferences,
+      preserveMalformed: resolution != null,
+    );
     return AccountSwitchCoordinator(
       sessions: cloudWriteSessionController,
       identity: const _FirebaseAccountSwitchIdentity(),
-      journalStore: SharedPreferencesAccountSwitchJournalStore(preferences),
+      journalStore: switchMarkers,
+      isSwitchMarkerCurrent: switchMarkers.isCurrent,
+      resolutionCatalog: resolution?.catalog ?? const {},
+      readCommitEvidence: resolution == null
+          ? null
+          : ({required operationId}) async {
+              final session = cloudWriteSessionController.current;
+              final uid = current?.uid;
+              if (session == null ||
+                  uid == null ||
+                  session.uid != uid ||
+                  current?.isAnonymous != false) {
+                return AccountSwitchCommitEvidence.unavailable;
+              }
+              return FirebaseAccountReconciliationAdapter(
+                uid: uid,
+                session: session,
+                sessions: cloudWriteSessionController,
+                remote: FirebaseAccountReconciliationRemote.firestore(
+                  firestore: FirebaseFirestore.instance,
+                  fenceUid: uid,
+                ),
+              ).readResolutionCommitEvidence(operationId: operationId);
+            },
+      readResolutionInputs: resolution == null
+          ? null
+          : () async {
+              final session = cloudWriteSessionController.current;
+              final uid = current?.uid;
+              if (session == null || uid == null || session.uid != uid) {
+                throw const AccountLinkSafetyFailure();
+              }
+              final fresh = await _loadSwitchResolutionComposition();
+              final local = await LocalAccountReconciliationStore.load(
+                readOnlyCourse: fresh.course,
+              );
+              final remote = await FirebaseAccountReconciliationAdapter(
+                uid: uid,
+                session: session,
+                sessions: cloudWriteSessionController,
+                remote: FirebaseAccountReconciliationRemote.firestore(
+                  firestore: FirebaseFirestore.instance,
+                  fenceUid: uid,
+                ),
+              ).readRemote();
+              if (!remote.isPresent || remote.value == null) {
+                throw const FormatException(
+                  'Resolution requires valid cloud history.',
+                );
+              }
+              final after = await LocalAccountReconciliationStore.load(
+                readOnlyCourse: fresh.course,
+              );
+              if (local != after ||
+                  local.localCourseMasteryGeneration !=
+                      after.localCourseMasteryGeneration ||
+                  local.localCustomPackGeneration !=
+                      after.localCustomPackGeneration ||
+                  local.localSrsGeneration != after.localSrsGeneration ||
+                  local.localIlDuWorldGeneration !=
+                      after.localIlDuWorldGeneration) {
+                throw const AccountLinkSafetyFailure();
+              }
+              return AccountSwitchResolutionInputs(
+                device: after,
+                cloud: remote.value!,
+                catalogFingerprint: fresh.fingerprint,
+                remoteRevision: remote.revision,
+              );
+            },
+      buildResolutionCandidate: resolution == null
+          ? null
+          : ({required inputs, required side}) {
+              final selected = side == AccountSwitchResolutionSide.device
+                  ? inputs.device.courseMastery?.placementLevel
+                  : inputs.cloud.courseMastery?.placementLevel;
+              if (selected == null) {
+                return null;
+              }
+              return AccountReconciliationMerger.merge(
+                local: inputs.device,
+                remote: inputs.cloud,
+                catalog: resolution.catalog,
+                courseMasteryMerger: ({required local, required remote}) =>
+                    resolution.course.mergeForConfirmedPlacement(
+                      local: local ?? const CourseMasterySnapshot.empty(),
+                      remote: remote ?? const CourseMasterySnapshot.empty(),
+                      selectedPlacementLevel: selected,
+                    ),
+              ).merged;
+            },
       reconciliationJournalStore:
           SharedPreferencesAccountTransitionJournalStore(
             preferences,
@@ -2550,23 +2656,87 @@ class AuthService {
             required session,
             required operationId,
             required catalog,
-          }) {
-            return FirebaseAccountReconciliationAdapter(
-                  uid: targetUid,
-                  fenceUid: targetUid,
-                  session: session,
-                  sessions: cloudWriteSessionController,
-                  remote: FirebaseAccountReconciliationRemote.firestore(
-                    firestore: FirebaseFirestore.instance,
-                    fenceUid: targetUid,
-                  ),
-                )
+          }) async {
+            final lifetime = LocalDataLifetime.capture();
+            final identityEpoch = cloudWriteSessionController.identityEpoch;
+            final store = SharedPreferencesAccountTransitionJournalStore(
+              preferences,
+              storageKey: AccountSwitchJournal.reconciliationStorageKey,
+            );
+            final consent = (await store.read())?.switchResolutionConsent;
+            if (consent != null &&
+                preferences.containsKey(
+                  CloudBackupDeletionJournal.storageKey,
+                )) {
+              return const AccountReconciliationResult(
+                AccountReconciliationStatus.blocked,
+              );
+            }
+            final composition = consent == null
+                ? null
+                : await _loadSwitchResolutionComposition();
+            final adapter = FirebaseAccountReconciliationAdapter(
+              uid: targetUid,
+              fenceUid: targetUid,
+              session: session,
+              sessions: cloudWriteSessionController,
+              remote: FirebaseAccountReconciliationRemote.firestore(
+                firestore: FirebaseFirestore.instance,
+                fenceUid: targetUid,
+              ),
+            );
+            return adapter
                 .coordinator(
-                  journalStore: SharedPreferencesAccountTransitionJournalStore(
-                    preferences,
-                    storageKey: AccountSwitchJournal.reconciliationStorageKey,
-                  ),
-                  courseMasteryMerger: courseMasteryMerger,
+                  journalStore: store,
+                  courseMasteryMerger: consent == null
+                      ? courseMasteryMerger
+                      : ({
+                          required local,
+                          required remote,
+                        }) => composition!.course.mergeForConfirmedPlacement(
+                          local: local ?? const CourseMasterySnapshot.empty(),
+                          remote: remote ?? const CourseMasterySnapshot.empty(),
+                          selectedPlacementLevel:
+                              consent.selectedPlacementLevel,
+                        ),
+                  resolutionCatalogFingerprint: composition?.fingerprint,
+                  validateResolutionRemote: adapter.validateResolutionReceipt,
+                  loadLocal: composition == null
+                      ? null
+                      : () => LocalAccountReconciliationStore.load(
+                          readOnlyCourse: composition.course,
+                        ),
+                  writeLocal: consent == null
+                      ? null
+                      : (
+                          snapshot, {
+                          required session,
+                          required sessions,
+                        }) => LocalAccountReconciliationStore.write(
+                          snapshot,
+                          session: session,
+                          sessions: sessions,
+                          assertCurrentLocalSource: () {
+                            lifetime.assertCurrent();
+                            if (current?.uid != targetUid ||
+                                current?.isAnonymous != false ||
+                                cloudWriteSessionController.identityEpoch !=
+                                    identityEpoch) {
+                              throw const LocalReconciliationSessionConflict();
+                            }
+                            final fields =
+                                CloudSync.captureReconciliationFields();
+                            final wallet = preferences.getString(
+                              Storage.yeopjeonWalletPreferenceKey,
+                            );
+                            if (wallet != null) {
+                              fields['yeopjeon_wallet_json'] = wallet;
+                            }
+                            if (!consent.acceptsLocalFields(fields)) {
+                              throw const LocalReconciliationGenerationConflict();
+                            }
+                          },
+                        ),
                 )
                 .reconcile(
                   session: session,
@@ -2585,6 +2755,151 @@ class AuthService {
         await preferences.remove(AccountSwitchJournal.reconciliationStorageKey);
       },
     );
+  }
+
+  static AccountSwitchCoordinator? _switchResolutionOwner;
+
+  static Future<
+    ({
+      Map<String, PackCatalogEntry> catalog,
+      CourseMasteryService course,
+      String fingerprint,
+    })
+  >
+  _loadSwitchResolutionComposition() async {
+    final curriculum = await CurriculumCatalog.load();
+    final packs = await VocabPackService.loadAll();
+    final catalog = <String, PackCatalogEntry>{
+      for (final pack in packs)
+        pack.id: PackCatalogEntry(
+          packId: pack.id,
+          level: pack.level,
+          wordsTotal: pack.total,
+        ),
+    };
+    final fingerprint = AccountSwitchResolutionFingerprint.hash({
+      'generation': curriculum.scenarioCorpusGeneration,
+      'units': curriculum.courseUnits.map((e) => e.toJson()).toList(),
+      'concepts': curriculum.concepts.map((e) => e.toJson()).toList(),
+      'forms': curriculum.surfaceForms.map((e) => e.toJson()).toList(),
+      'families': curriculum.formFamilies.map((e) => e.toJson()).toList(),
+      'contexts': curriculum.scenarioContexts.map((e) => e.toJson()).toList(),
+      'links': curriculum.contentLinks.map((e) => e.toJson()).toList(),
+      'packs': {
+        for (final pack in packs) pack.id: [pack.level, pack.total],
+      },
+    });
+    return (
+      catalog: catalog,
+      course: CourseMasteryService(curriculum),
+      fingerprint: fingerprint,
+    );
+  }
+
+  /// Null means an unresolved marker belongs to unknown or different authority.
+  static Future<bool?> pendingSwitchResolutionNeeded() async {
+    final preferences = await SharedPreferences.getInstance();
+    await preferences.reload();
+    if (!preferences.containsKey(AccountSwitchJournal.storageKey)) {
+      return false;
+    }
+    return runDurableAccountAdmission<bool?>(
+      allowAccountSwitchJournal: true,
+      onBlocked: () async => null,
+      onAdmitted: () async {
+        try {
+          final marker = await SharedPreferencesAccountSwitchJournalStore(
+            preferences,
+            preserveMalformed: true,
+          ).read();
+          final user = current;
+          final session = cloudWriteSessionController.current;
+          return marker != null &&
+                  user != null &&
+                  !user.isAnonymous &&
+                  marker.targetUid == user.uid &&
+                  session?.uid == user.uid &&
+                  session?.mode == CloudWriteMode.reconciling
+              ? true
+              : null;
+        } catch (_) {
+          return null;
+        }
+      },
+    );
+  }
+
+  static Future<AccountSwitchResolutionPreviewResult>
+  previewPendingSwitchResolution() async {
+    _switchResolutionOwner = null;
+    return runDurableAccountAdmission<AccountSwitchResolutionPreviewResult>(
+      allowAccountSwitchJournal: true,
+      onBlocked: () async => const AccountSwitchResolutionPreviewResult(
+        AccountSwitchResolutionPreviewStatus.blocked,
+      ),
+      onAdmitted: () async {
+        try {
+          final composition = await _loadSwitchResolutionComposition();
+          final owner = _accountSwitchCoordinator(
+            await SharedPreferences.getInstance(),
+            courseMasteryMerger: composition.course.mergeForReconciliation,
+            resolution: composition,
+          );
+          final result = await owner.previewPendingSwitchResolution();
+          if (result.status == AccountSwitchResolutionPreviewStatus.ready) {
+            _switchResolutionOwner = owner;
+          }
+          return result;
+        } catch (_) {
+          return const AccountSwitchResolutionPreviewResult(
+            AccountSwitchResolutionPreviewStatus.unavailable,
+          );
+        }
+      },
+    );
+  }
+
+  static Future<AccountSwitchResolutionOutcome> confirmPendingSwitchResolution({
+    required AccountSwitchResolutionPreview preview,
+    required AccountSwitchResolutionSide side,
+  }) {
+    final owner = _switchResolutionOwner;
+    return runDurableAccountAdmission<AccountSwitchResolutionOutcome>(
+      allowAccountSwitchJournal: true,
+      onBlocked: () async => AccountSwitchResolutionOutcome.blocked,
+      onAdmitted: () async => owner == null
+          ? AccountSwitchResolutionOutcome.stale
+          : owner.confirmPendingSwitchResolution(preview: preview, side: side),
+    );
+  }
+
+  static Future<AccountSwitchResolutionOutcome>
+  resumePendingSwitchResolution() async {
+    try {
+      final composition = await _loadSwitchResolutionComposition();
+      return runDurableAccountAdmission<AccountSwitchResolutionOutcome>(
+        allowAccountSwitchJournal: true,
+        onBlocked: () async => AccountSwitchResolutionOutcome.blocked,
+        onAdmitted: () async {
+          final preferences = await SharedPreferences.getInstance();
+          final store = SharedPreferencesAccountTransitionJournalStore(
+            preferences,
+            storageKey: AccountSwitchJournal.reconciliationStorageKey,
+          );
+          final journal = await store.read();
+          if (journal?.switchResolutionConsent == null) {
+            return AccountSwitchResolutionOutcome.blocked;
+          }
+          return _accountSwitchCoordinator(
+            preferences,
+            courseMasteryMerger: composition.course.mergeForReconciliation,
+            resolution: composition,
+          ).resumePendingSwitchResolution();
+        },
+      );
+    } catch (_) {
+      return AccountSwitchResolutionOutcome.unavailable;
+    }
   }
 
   /// Apple liefert den Namen nur beim allerersten Login — übernehmen, wenn

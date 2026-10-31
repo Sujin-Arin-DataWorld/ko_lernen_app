@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/haptic_service.dart';
 import 'package:flutter/material.dart';
 
@@ -300,7 +301,7 @@ class _ListeningScreenState extends State<ListeningScreen>
           child: Padding(
             padding: padding,
             child: SoriEmptyState(
-              asset: 'assets/illustrations/error/lost_magpie.png',
+              asset: CanonicalCompanionArt.magpieStanding,
               icon: Icons.signal_wifi_statusbar_null_rounded,
               title: t.listeningTitle,
               body: _loadError,
@@ -319,7 +320,7 @@ class _ListeningScreenState extends State<ListeningScreen>
           child: Padding(
             padding: padding,
             child: SoriEmptyState(
-              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              asset: CanonicalCompanionArt.magpieGuide,
               icon: Icons.headphones_outlined,
               title: t.listeningEmptyTitle,
               body: t.listeningEmptyBody,

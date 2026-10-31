@@ -2,6 +2,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'support/real_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
@@ -30,6 +31,7 @@ const _viewports = <Size>[
 const _textScales = <double>[1, 1.3, 1.6, 2];
 
 void main() {
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
@@ -187,7 +189,7 @@ void main() {
     expect(find.text('7'), findsOneWidget);
     expect(find.text('Lv 4'), findsOneWidget);
 
-    await tester.tap(find.bySemanticsLabel(RegExp('7 Days')));
+    await tester.tap(find.bySemanticsLabel(RegExp('7 days')));
     await tester.tap(find.bySemanticsLabel(RegExp('Lv 4 · 320 XP')));
     expect(streakTaps, 1);
     expect(statsTaps, 1);

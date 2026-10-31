@@ -261,7 +261,7 @@ class _ContentDailyGoalsState extends State<ContentDailyGoals>
       }
       final t = AppL10n.of(context);
       return Padding(
-        padding: const EdgeInsets.only(top: Spacing.lg),
+        padding: const EdgeInsets.only(top: Spacing.md),
         child: SoriCard(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

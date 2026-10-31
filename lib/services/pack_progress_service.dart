@@ -71,8 +71,14 @@ class PackProgressService {
     // those to the id that owns them now — same rules as [getAll] — before
     // validating, so a remote snapshot containing an old id can still be
     // judged against (and merged with) today's catalog.
-    final normalizedLocal = _withAliasesResolved(local);
-    final normalizedRemote = _withAliasesResolved(remote);
+    final normalizedLocal = _withVerifiedHistoricalTotals(
+      _withAliasesResolved(local),
+      catalog,
+    );
+    final normalizedRemote = _withVerifiedHistoricalTotals(
+      _withAliasesResolved(remote),
+      catalog,
+    );
 
     final invalid = <String>{};
     for (final entry in [
@@ -125,6 +131,33 @@ class PackProgressService {
     }
     return PackProgressMergeResult.valid(merged);
   }
+
+  static Map<String, PackProgress> _withVerifiedHistoricalTotals(
+    Map<String, PackProgress> source,
+    Map<String, PackCatalogEntry> catalog,
+  ) => source.map((id, progress) {
+    final current = catalog[id];
+    // This same A2 pack shipped with 8 words (55f5ef1f2), then 9
+    // (55c1a29ee), then 12 (61f5c819d), retaining all earlier words. Match
+    // recordWordLearned's cached-total update without inventing new learning,
+    // attempts or a clear. Unverified catalog changes still fail validation.
+    if (id != 'a2_daily_1' ||
+        current == null ||
+        current.level != 'A2' ||
+        current.wordsTotal != 12 ||
+        (progress.wordsTotal != 8 && progress.wordsTotal != 9) ||
+        !_validForCatalog(
+          progress,
+          PackCatalogEntry(
+            packId: current.packId,
+            level: current.level,
+            wordsTotal: progress.wordsTotal,
+          ),
+        )) {
+      return MapEntry(id, progress);
+    }
+    return MapEntry(id, progress.copyWith(wordsTotal: 12));
+  });
 
   static bool _validForCatalog(
     PackProgress progress,

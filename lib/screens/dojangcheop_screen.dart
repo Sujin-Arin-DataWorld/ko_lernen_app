@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -24,8 +25,13 @@ import '../widgets/sori/window_class.dart';
 /// 획득 = 풀컬러 도장(PNG). 미획득 = 흐릿 + 자물쇠. 0개면 빈 상태.
 /// 획득 영속: `Storage.earnedStamps`(`DancheongMotif.name` slug).
 class DojangcheopScreen extends StatefulWidget {
-  const DojangcheopScreen({super.key, this.embedded = false});
+  const DojangcheopScreen({
+    super.key,
+    this.embedded = false,
+    this.cMaterial = false,
+  });
   final bool embedded;
+  final bool cMaterial;
 
   @override
   State<DojangcheopScreen> createState() => _DojangcheopScreenState();
@@ -121,7 +127,7 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
             container: true,
             explicitChildNodes: true,
             child: SoriEmptyState(
-              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              asset: CanonicalCompanionArt.magpieGuide,
               icon: Icons.workspace_premium_outlined,
               title: t.dojangEmptyTitle,
               body: t.dojangEmptyBody,
@@ -135,8 +141,9 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
           // 도장은 이 컬렉션에 남으면서 개인 방에도 한 번 배치할 수
           // 있다. 획득 상태와 방 배치는 서로 다른 투영이다.
           SoriCard(
+            cMaterial: widget.cMaterial,
             variant: SoriCardVariant.base,
-            accent: SoriColors.info,
+            accent: widget.cMaterial ? SoriColors.primary : SoriColors.info,
             tinted: true,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,6 +159,7 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
                 ),
                 const SizedBox(height: Spacing.md),
                 SoriButton.outlined(
+                  cMaterial: widget.cMaterial,
                   label: t.dojangDecorHintCta,
                   fullWidth: true,
                   onTap: () =>
@@ -167,6 +175,7 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
           child: Column(
             children: [
               _StampSeriesSection(
+                cMaterial: widget.cMaterial,
                 title: t.dojangSeriesDancheongTitle,
                 body: t.dojangSeriesDancheongBody,
                 motifs: dancheong,
@@ -174,6 +183,7 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
               ),
               const SizedBox(height: Spacing.lg),
               _StampSeriesSection(
+                cMaterial: widget.cMaterial,
                 title: t.dojangSeriesLivingCultureTitle,
                 body: t.dojangSeriesLivingCultureBody,
                 motifs: livingCulture,
@@ -235,6 +245,7 @@ Widget _seriesTitle(BuildContext context, String title) {
 
 class _StampSeriesSection extends StatelessWidget {
   const _StampSeriesSection({
+    this.cMaterial = false,
     required this.title,
     required this.body,
     required this.motifs,
@@ -242,6 +253,7 @@ class _StampSeriesSection extends StatelessWidget {
   });
 
   final String title;
+  final bool cMaterial;
   final String body;
   final List<DancheongMotif> motifs;
   final Set<String> earned;
@@ -252,6 +264,7 @@ class _StampSeriesSection extends StatelessWidget {
     final surfaces = SoriSurfaces.of(context);
     final got = motifs.where((motif) => earned.contains(motif.name)).length;
     return SoriCard(
+      cMaterial: cMaterial,
       variant: SoriCardVariant.base,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

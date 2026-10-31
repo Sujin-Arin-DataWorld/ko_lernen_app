@@ -19,6 +19,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'support/einleitung_capture_assets.dart';
+import 'support/real_fonts.dart';
 import 'support/sori_speech_stubs.dart';
 
 const _scrollKey = ValueKey('onboarding-v2-companion-scroll');
@@ -32,6 +33,7 @@ const _cases = [
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() async {
+    await loadSoriRealFonts();
     await loadEinleitungFonts();
   });
   setUp(() async {
@@ -51,13 +53,14 @@ void main() {
         reducedMotion: config.reduced,
       );
       expect(_action(tester).onTap, isNull);
+      expect(_scrollables, config.scale == 1 ? findsNothing : findsOneWidget);
       final initial = _Layout.read(tester);
 
       for (final fraction in [0.0, .5, 1.0]) {
         final position = _position(tester);
         // This is intentional user scrolling before the measurement. Do not
         // ensureVisible after a selection: it would hide a scroll regression.
-        position.jumpTo(position.maxScrollExtent * fraction);
+        position?.jumpTo(position.maxScrollExtent * fraction);
         await tester.pumpAndSettle();
         final before = _Layout.read(tester);
         var previous = _selected(tester);
@@ -136,7 +139,7 @@ void main() {
         selected: OnboardingCompanion.taego,
       );
       final position = _position(tester);
-      position.jumpTo(position.maxScrollExtent * .5);
+      position?.jumpTo(position.maxScrollExtent * .5);
       await tester.pumpAndSettle();
       final before = _Layout.read(tester);
       final blocker = Completer<void>();
@@ -393,11 +396,14 @@ Finder _card(String id) => find.byKey(ValueKey('onboarding-v2-companion-$id'));
 Finder _semantics(String id) =>
     find.byKey(ValueKey('onboarding-v2-companion-semantics-$id'));
 Finder get _screen => find.byType(OnboardingCompanionScreen);
-Finder get _scrollable => find
-    .descendant(of: find.byKey(_scrollKey), matching: find.byType(Scrollable))
-    .first;
-ScrollPosition _position(WidgetTester tester) =>
-    tester.state<ScrollableState>(_scrollable).position;
+Finder get _scrollables => find.descendant(
+  of: find.byKey(_scrollKey),
+  matching: find.byType(Scrollable),
+);
+ScrollPosition? _position(WidgetTester tester) =>
+    _scrollables.evaluate().isEmpty
+    ? null
+    : tester.state<ScrollableState>(_scrollables.first).position;
 IntroAction _action(WidgetTester tester) =>
     tester.widget<IntroAction>(find.byKey(_continueKey));
 String? _selected(WidgetTester tester) =>
@@ -442,11 +448,15 @@ void _expectCtaTextFits(WidgetTester tester) {
 class _Layout {
   _Layout.read(WidgetTester tester)
     : screen = tester.element(_screen),
-      scrollState = tester.state<ScrollableState>(_scrollable),
+      scrollState = _scrollables.evaluate().isEmpty
+          ? null
+          : tester.state<ScrollableState>(_scrollables.first),
       position = _position(tester),
-      pixels = _position(tester).pixels,
-      extent = _position(tester).maxScrollExtent,
-      viewport = _position(tester).viewportDimension,
+      pixels = _position(tester)?.pixels ?? 0,
+      extent = _position(tester)?.maxScrollExtent ?? 0,
+      viewport =
+          _position(tester)?.viewportDimension ??
+          tester.getSize(find.byKey(_scrollKey)).height,
       hero = tester.getRect(
         find.text(lookupAppL10n(const Locale('de')).onboardingCCompanionTitle),
       ),
@@ -457,8 +467,8 @@ class _Layout {
       cta = tester.getRect(find.byKey(_continueKey));
 
   final Element screen;
-  final ScrollableState scrollState;
-  final ScrollPosition position;
+  final ScrollableState? scrollState;
+  final ScrollPosition? position;
   final double pixels, extent, viewport;
   final Rect hero, taego, joy, taegoPortrait, joyPortrait, cta;
 

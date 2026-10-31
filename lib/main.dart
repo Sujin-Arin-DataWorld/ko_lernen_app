@@ -116,6 +116,7 @@ import 'screens/speed_match_screen.dart';
 import 'screens/silben_kreuz_screen.dart';
 import 'screens/hanok_preview_screen.dart';
 import 'screens/ildu_construction_screen.dart';
+import 'screens/ildu_estate_screen.dart';
 import 'screens/practice_hub_screen.dart';
 import 'screens/pronunciation_studio_screen.dart';
 import 'screens/sarangbang_furnish_screen.dart';
@@ -685,12 +686,28 @@ class KoLernenApp extends StatefulWidget {
   State<KoLernenApp> createState() => _KoLernenAppState();
 }
 
-class _KoLernenAppState extends State<KoLernenApp> {
+class _KoLernenAppState extends State<KoLernenApp> with WidgetsBindingObserver {
   final _packRecoveryNavigator = GlobalKey<NavigatorState>();
   final _resumeDeliveryNotifier = ContentFeedbackResumeDeliveryNotifier();
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeLocales(List<Locale>? locales) {
+    // MaterialApp resolves system locale changes itself; rebuild the font
+    // theme with the same preferred locales when no language was chosen.
+    if (localeNotifier.value == null) {
+      setState(() {});
+    }
+  }
+
+  @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _resumeDeliveryNotifier.dispose();
     super.dispose();
   }
@@ -709,8 +726,24 @@ class _KoLernenAppState extends State<KoLernenApp> {
         debugShowCheckedModeBanner: false,
         // Dark Mode deaktiviert (v2.0): App immer im Light-Theme.
         // darkTheme spiegelt das Light-Theme, falls das System Dark erzwingt.
-        theme: AppTheme.lightFor(paletteVariantNotifier.value),
-        darkTheme: AppTheme.lightFor(paletteVariantNotifier.value),
+        theme: AppTheme.lightFor(
+          paletteVariantNotifier.value,
+          locale: basicLocaleListResolution(
+            localeNotifier.value == null
+                ? WidgetsBinding.instance.platformDispatcher.locales
+                : [localeNotifier.value!],
+            AppL10n.supportedLocales,
+          ),
+        ),
+        darkTheme: AppTheme.lightFor(
+          paletteVariantNotifier.value,
+          locale: basicLocaleListResolution(
+            localeNotifier.value == null
+                ? WidgetsBinding.instance.platformDispatcher.locales
+                : [localeNotifier.value!],
+            AppL10n.supportedLocales,
+          ),
+        ),
         themeMode: ThemeMode.light,
         // 영상 위젯이 "내 화면 위에 다른 화면이 올라왔는지"를 알아야
         // 디코더를 놓을 수 있다 (route_observer.dart 주석 참조).
@@ -1350,6 +1383,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/hanok/construction':
               return SoriTransitions.page(
                 (_) => const IlDuConstructionScreen(),
+                settings: settings,
+              );
+            case '/hanok/estate':
+              return SoriTransitions.page(
+                (_) => const IlDuEstateScreen(),
                 settings: settings,
               );
             case '/hanok':

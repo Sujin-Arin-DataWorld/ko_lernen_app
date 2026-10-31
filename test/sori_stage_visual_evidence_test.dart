@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/models/cultural_glossary.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/gye.dart';
+import 'package:ko_lernen_app/models/gye_weekly_promise.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/sarangchae_construction.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
@@ -26,6 +27,9 @@ import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
 import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
+import 'package:ko_lernen_app/services/palette_service.dart';
+import 'package:ko_lernen_app/services/yeopjeon_wallet_notifier.dart';
+import 'package:ko_lernen_app/widgets/sori/top_chrome.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -34,19 +38,29 @@ import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
 import 'support/catalog_test_support.dart' as catalog;
 import 'support/real_fonts.dart';
 import 'support/sori_stage_pump.dart';
+import 'support/sori_stage_capture_assets.dart';
 
 const _captureEvidence = bool.fromEnvironment('CAPTURE_SORI_STAGE_EVIDENCE');
 late LearningFocusController _focusController;
+late YeopjeonWalletNotifier _walletNotifier;
 late LearningFocus _bookCardFocus;
 
-/// §LAYOUT-4(J14) — 5 root evidence PNGs (today/learn/hanok/gye) share one
+/// §LAYOUT-4 — five roots and DE/EN state evidence share one
 /// pipeline. Flag OFF (default `flutter test`): every `skip:
 /// !_captureEvidence` case is skipped, 0 failures. Flag ON *and*
-/// `--update-goldens`: 7 PNGs regenerate under `docs/screenshots/`. Flag ON
+/// `--update-goldens`: 22 PNGs regenerate under `docs/screenshots/`. Flag ON
 /// *without* `--update-goldens` is a comparison run against whatever is
 /// already on disk — not the capture command; see AGENTS.md's UI 루트 증거
 /// bullet for the exact regeneration command.
 void main() {
+  test('Gye evidence uses a server-defined promise and matching count', () {
+    final meta = _gyeMeta();
+    final promise = GyeWeeklyPromises.byId(meta.weeklyPromiseId);
+    expect(promise, isNotNull);
+    expect(meta.weeklyPromiseSchemaVersion, 1);
+    expect(meta.weeklyPromiseTarget, promise!.target);
+    expect(meta.weeklyPromiseProgress, inInclusiveRange(0, promise.target));
+  });
   for (final language in ['de', 'en']) {
     testWidgets(
       'capture confirmed Bojagi receipt $language',
@@ -60,7 +74,10 @@ void main() {
         await Storage.setPendingBoxes(['q_punggyeong', 'q_kite']);
         await tester.pumpWidget(
           MaterialApp(
-            theme: AppTheme.light,
+            theme: AppTheme.lightFor(
+              PaletteVariant.dancheong,
+              locale: Locale(language),
+            ),
             locale: Locale(language),
             supportedLocales: AppL10n.supportedLocales,
             localizationsDelegates: AppL10n.localizationsDelegates,
@@ -84,7 +101,7 @@ void main() {
         await expectLater(
           find.byType(Scaffold),
           matchesGoldenFile(
-            '../docs/screenshots/sori-bojagi-receipt-$language-390.png',
+            '../docs/screenshots/sori-stage-today-390-$language-bojagi-receipt.png',
           ),
         );
       },
@@ -113,7 +130,10 @@ void main() {
         );
         await tester.pumpWidget(
           MaterialApp(
-            theme: AppTheme.light,
+            theme: AppTheme.lightFor(
+              PaletteVariant.dancheong,
+              locale: Locale(language),
+            ),
             locale: Locale(language),
             supportedLocales: AppL10n.supportedLocales,
             localizationsDelegates: AppL10n.localizationsDelegates,
@@ -151,6 +171,7 @@ void main() {
 
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
   setUpAll(() async {
+    await prepareSoriStageCaptureAssets();
     _bookCardFocus = await catalog.loadFirstCatalogFocus();
     // Wallet art uses the real bundle; warm it outside widget fake async.
     await SarangchaeConstruction.load();
@@ -181,6 +202,8 @@ void main() {
       competenceLoader: () async => const HanokCompetenceProjection.empty(),
       evidenceScanner: () async => {},
     );
+    _walletNotifier = YeopjeonWalletNotifier();
+    await _walletNotifier.refresh();
     _focusController = LearningFocusController(
       loader: () =>
           LearningFocus.load(loadToday: () async => _snapshot().today),
@@ -199,6 +222,7 @@ void main() {
 
   tearDown(CulturalGlossaryRepository.resetForTesting);
   tearDown(() => _focusController.dispose());
+  tearDown(() => _walletNotifier.dispose());
 
   for (final largeText in [false, true]) {
     testWidgets(
@@ -242,202 +266,251 @@ void main() {
     );
   }
 
-  testWidgets('capture Today at 390dp', skip: !_captureEvidence, (
-    tester,
-  ) async {
-    _setViewport(tester, const Size(390, 844));
-    await tester.pumpWidget(
-      _app(
-        locale: const Locale('en'),
-        home: SoriStageTodayScreen(loadSnapshot: () async => _snapshot()),
-      ),
-    );
-    await pumpSoriStage(tester);
-    await _awaitImageDecode(tester);
-
-    await expectLater(
-      find.byType(SoriStageTodayScreen),
-      matchesGoldenFile('../docs/screenshots/sori-stage-today-390.png'),
-    );
-  });
-
-  testWidgets('capture Learn at 1280dp', skip: !_captureEvidence, (
-    tester,
-  ) async {
-    _setViewport(tester, const Size(1280, 900));
-    await tester.pumpWidget(
-      _app(
-        locale: const Locale('de'),
-        home: const SoriStageCatalogScreen(tab: SoriStageTab.learn),
-      ),
-    );
-    await pumpSoriStage(tester);
-    await _awaitImageDecode(tester);
-
-    await expectLater(
-      find.byType(SoriStageCatalogScreen),
-      matchesGoldenFile('../docs/screenshots/sori-stage-learn-1280.png'),
-    );
-  });
-
-  // §E7 (Fable 시각 심사, 2026-09-03): hero 40→36 근거 증거. 390dp 폰 폭에서
-  // "Wähle, wie du lernen möchtest." 가 첫 화면을 얼마나 차지하는지 실제
-  // MaruBuri 로 렌더해 남긴다.
-  testWidgets('capture Learn at 390dp', skip: !_captureEvidence, (
-    tester,
-  ) async {
-    _setViewport(tester, const Size(390, 844));
-    await tester.pumpWidget(
-      _app(
-        locale: const Locale('de'),
-        home: const SoriStageCatalogScreen(tab: SoriStageTab.learn),
-      ),
-    );
-    await pumpSoriStage(tester);
-    await _awaitImageDecode(tester);
-
-    await expectLater(
-      find.byType(SoriStageCatalogScreen),
-      matchesGoldenFile('../docs/screenshots/sori-stage-learn-390.png'),
-    );
-  });
-
-  testWidgets('capture Hanok at 390dp', skip: !_captureEvidence, (
-    tester,
-  ) async {
-    await Storage.writeYeopjeonRawJsonStrict(
-      YeopjeonWallet.grandfather(sarangchaeStage: 8, b2Stage: 0).encode(),
-    );
-    _setViewport(tester, const Size(390, 844));
-    await tester.pumpWidget(
-      _app(
-        locale: const Locale('de'),
-        home: SoriStageHanokScreen(
-          loadSnapshot: () async => _snapshot(hanok: true),
-          loadConstruction: () async => construction,
+  for (final language in ['de', 'en']) {
+    testWidgets('capture Today at 390dp $language', skip: !_captureEvidence, (
+      tester,
+    ) async {
+      _setViewport(tester, const Size(390, 844));
+      await tester.pumpWidget(
+        _app(
+          locale: Locale(language),
+          home: SoriStageTodayScreen(loadSnapshot: () async => _snapshot()),
         ),
-      ),
-    );
-    await _settleHanok(tester);
-    await _awaitImageDecode(tester);
+      );
+      await pumpSoriStage(tester);
+      await _awaitImageDecode(tester);
 
-    await expectLater(
-      find.byType(SoriStageHanokScreen),
-      matchesGoldenFile('../docs/screenshots/sori-stage-hanok-390.png'),
-    );
-  });
-
-  testWidgets('capture Games at 390dp', skip: !_captureEvidence, (
-    tester,
-  ) async {
-    _setViewport(tester, const Size(390, 844));
-    await tester.pumpWidget(
-      _app(
-        locale: const Locale('de'),
-        home: SoriStageCatalogScreen(
-          tab: SoriStageTab.games,
-          loadSnapshot: () async => _snapshot(),
+      await expectLater(
+        find.byType(SoriStageTodayScreen),
+        matchesGoldenFile(
+          _rootEvidencePath(
+            'sori-stage-today-390',
+            language,
+            originalLanguage: 'en',
+          ),
         ),
-      ),
-    );
-    await pumpSoriStage(tester);
-    await _awaitImageDecode(tester);
-    await expectLater(
-      find.byType(SoriStageCatalogScreen),
-      matchesGoldenFile('../docs/screenshots/sori-stage-games-390.png'),
-    );
-  });
+      );
+    });
 
-  testWidgets('capture Hanok at 390dp scrolled 600', skip: !_captureEvidence, (
-    tester,
-  ) async {
-    await Storage.writeYeopjeonRawJsonStrict(
-      YeopjeonWallet.grandfather(sarangchaeStage: 8, b2Stage: 0).encode(),
-    );
-    _setViewport(tester, const Size(390, 844));
-    await tester.pumpWidget(
-      _app(
-        locale: const Locale('de'),
-        home: SoriStageHanokScreen(
-          loadSnapshot: () async => _snapshot(hanok: true),
-          loadConstruction: () async => construction,
+    testWidgets('capture Learn at 1280dp $language', skip: !_captureEvidence, (
+      tester,
+    ) async {
+      _setViewport(tester, const Size(1280, 900));
+      await tester.pumpWidget(
+        _app(
+          locale: Locale(language),
+          home: const SoriStageCatalogScreen(tab: SoriStageTab.learn),
         ),
-      ),
-    );
-    await _settleHanok(tester);
-    await _awaitImageDecode(tester);
+      );
+      await pumpSoriStage(tester);
+      await _awaitImageDecode(tester);
 
-    await tester.drag(find.byType(CustomScrollView), const Offset(0, -600));
-    await tester.pumpAndSettle();
-    await _awaitImageDecode(tester);
+      await expectLater(
+        find.byType(SoriStageCatalogScreen),
+        matchesGoldenFile(
+          _rootEvidencePath(
+            'sori-stage-learn-1280',
+            language,
+            originalLanguage: 'de',
+          ),
+        ),
+      );
+    });
 
-    await expectLater(
-      find.byType(SoriStageHanokScreen),
-      matchesGoldenFile(
-        '../docs/screenshots/sori-stage-hanok-390-collapsed.png',
-      ),
-    );
-  });
+    // §E7 (Fable 시각 심사, 2026-09-03): hero 40→36 근거 증거. 390dp 폰 폭에서
+    // "Wähle, wie du lernen möchtest." 가 첫 화면을 얼마나 차지하는지 실제
+    // MaruBuri 로 렌더해 남긴다.
+    testWidgets('capture Learn at 390dp $language', skip: !_captureEvidence, (
+      tester,
+    ) async {
+      _setViewport(tester, const Size(390, 844));
+      await tester.pumpWidget(
+        _app(
+          locale: Locale(language),
+          home: const SoriStageCatalogScreen(tab: SoriStageTab.learn),
+        ),
+      );
+      await pumpSoriStage(tester);
+      await _awaitImageDecode(tester);
 
-  testWidgets('capture Gye empty at 390dp', skip: !_captureEvidence, (
-    tester,
-  ) async {
-    _setViewport(tester, const Size(390, 844));
-    await tester.pumpWidget(
-      _app(
-        locale: const Locale('de'),
-        home: SoriStageGyeScreen(loadGyeMetas: () async => const []),
-      ),
-    );
-    await pumpSoriStage(tester);
-    await _awaitImageDecode(tester);
+      await expectLater(
+        find.byType(SoriStageCatalogScreen),
+        matchesGoldenFile(
+          _rootEvidencePath(
+            'sori-stage-learn-390',
+            language,
+            originalLanguage: 'de',
+          ),
+        ),
+      );
+    });
 
-    await expectLater(
-      find.byType(SoriStageGyeScreen),
-      matchesGoldenFile('../docs/screenshots/sori-stage-gye-390-empty.png'),
-    );
-  });
+    testWidgets('capture Hanok at 390dp $language', skip: !_captureEvidence, (
+      tester,
+    ) async {
+      await Storage.writeYeopjeonRawJsonStrict(
+        YeopjeonWallet.grandfather(sarangchaeStage: 8, b2Stage: 0).encode(),
+      );
+      _setViewport(tester, const Size(390, 844));
+      await tester.pumpWidget(
+        _app(
+          locale: Locale(language),
+          home: SoriStageHanokScreen(
+            loadSnapshot: () async => _snapshot(hanok: true),
+            loadConstruction: () async => construction,
+          ),
+        ),
+      );
+      await _settleHanok(tester);
+      await _awaitImageDecode(tester);
 
-  testWidgets('capture Gye one group at 390dp', skip: !_captureEvidence, (
-    tester,
-  ) async {
-    _setViewport(tester, const Size(390, 844));
-    await tester.pumpWidget(
-      _app(
-        locale: const Locale('de'),
-        home: SoriStageGyeScreen(loadGyeMetas: () async => [_gyeMeta()]),
-      ),
-    );
-    await pumpSoriStage(tester);
-    await _awaitImageDecode(tester);
+      await expectLater(
+        find.byType(SoriStageHanokScreen),
+        matchesGoldenFile(
+          _rootEvidencePath(
+            'sori-stage-hanok-390',
+            language,
+            originalLanguage: 'de',
+          ),
+        ),
+      );
+    });
 
-    await expectLater(
-      find.byType(SoriStageGyeScreen),
-      matchesGoldenFile('../docs/screenshots/sori-stage-gye-390.png'),
+    testWidgets('capture Games at 390dp $language', skip: !_captureEvidence, (
+      tester,
+    ) async {
+      _setViewport(tester, const Size(390, 844));
+      await tester.pumpWidget(
+        _app(
+          locale: Locale(language),
+          home: SoriStageCatalogScreen(
+            tab: SoriStageTab.games,
+            loadSnapshot: () async => _snapshot(),
+          ),
+        ),
+      );
+      await pumpSoriStage(tester);
+      await _awaitImageDecode(tester);
+      await expectLater(
+        find.byType(SoriStageCatalogScreen),
+        matchesGoldenFile(
+          _rootEvidencePath(
+            'sori-stage-games-390',
+            language,
+            originalLanguage: 'de',
+          ),
+        ),
+      );
+    });
+
+    testWidgets(
+      'capture Hanok at 390dp scrolled 600 $language',
+      skip: !_captureEvidence,
+      (tester) async {
+        await Storage.writeYeopjeonRawJsonStrict(
+          YeopjeonWallet.grandfather(sarangchaeStage: 8, b2Stage: 0).encode(),
+        );
+        _setViewport(tester, const Size(390, 844));
+        await tester.pumpWidget(
+          _app(
+            locale: Locale(language),
+            home: SoriStageHanokScreen(
+              loadSnapshot: () async => _snapshot(hanok: true),
+              loadConstruction: () async => construction,
+            ),
+          ),
+        );
+        await _settleHanok(tester);
+        await _awaitImageDecode(tester);
+
+        await tester.drag(find.byType(CustomScrollView), const Offset(0, -600));
+        await tester.pumpAndSettle();
+        await _awaitImageDecode(tester);
+
+        await expectLater(
+          find.byType(SoriStageHanokScreen),
+          matchesGoldenFile(
+            _rootEvidencePath(
+              'sori-stage-hanok-390-collapsed',
+              language,
+              originalLanguage: 'de',
+            ),
+          ),
+        );
+      },
     );
-  });
+
+    testWidgets(
+      'capture Gye empty at 390dp $language',
+      skip: !_captureEvidence,
+      (tester) async {
+        _setViewport(tester, const Size(390, 844));
+        await tester.pumpWidget(
+          _app(
+            locale: Locale(language),
+            home: SoriStageGyeScreen(loadGyeMetas: () async => const []),
+          ),
+        );
+        await pumpSoriStage(tester);
+        await _awaitImageDecode(tester);
+
+        await expectLater(
+          find.byType(SoriStageGyeScreen),
+          matchesGoldenFile(
+            _rootEvidencePath(
+              'sori-stage-gye-390-empty',
+              language,
+              originalLanguage: 'de',
+            ),
+          ),
+        );
+      },
+    );
+
+    testWidgets(
+      'capture Gye one group at 390dp $language',
+      skip: !_captureEvidence,
+      (tester) async {
+        _setViewport(tester, const Size(390, 844));
+        await tester.pumpWidget(
+          _app(
+            locale: Locale(language),
+            home: SoriStageGyeScreen(loadGyeMetas: () async => [_gyeMeta()]),
+          ),
+        );
+        await pumpSoriStage(tester);
+        await _awaitImageDecode(tester);
+
+        await expectLater(
+          find.byType(SoriStageGyeScreen),
+          matchesGoldenFile(
+            _rootEvidencePath(
+              'sori-stage-gye-390',
+              language,
+              originalLanguage: 'de',
+            ),
+          ),
+        );
+      },
+    );
+  }
 }
 
-/// Real `dart:ui.Image` decode/codec work (`Image.asset`'s `RawImage` leaf)
-/// does not advance inside `flutter_test`'s fake-async zone — `runAsync`
-/// steps into the real event loop so any image already resolving actually
-/// finishes decoding and paints before the frame under test is captured.
-/// §W-J2: unifies the fix originally found for Gye's 8-layer `GyeHanok`
-/// composite across every capture (Today's mascot art, Hanok's map, etc.).
+/// Refresh from the saved fixture ledger, then await all native image layers.
 Future<void> _awaitImageDecode(WidgetTester tester) async {
-  final context = tester.element(find.byType(MaterialApp));
-  final providers = tester
-      .widgetList<Image>(find.byType(Image))
-      .map((image) => image.image)
-      .toList(growable: false);
-  await tester.runAsync(() async {
-    await Future.wait([
-      for (final provider in providers) precacheImage(provider, context),
-    ]);
-  });
-  await tester.pump();
-  await tester.pump(const Duration(milliseconds: 300));
+  await _walletNotifier.refresh();
+  expect(_walletNotifier.value.failed, isFalse);
+  expect(_walletNotifier.value.wallet, isNotNull);
+  await settleSoriStageCaptureAssets(tester);
+  expect(tester.takeException(), isNull);
 }
+
+String _rootEvidencePath(
+  String stem,
+  String language, {
+  required String originalLanguage,
+}) =>
+    '../docs/screenshots/$stem${language == originalLanguage ? '' : '-$language'}.png';
 
 /// The Hanok tab resolves its competency snapshot asynchronously before
 /// showing the approved construction stage. A few pumps keep this harness aligned
@@ -448,9 +521,8 @@ Future<void> _settleHanok(WidgetTester tester) async {
   }
 }
 
-/// A weekly-promise goal fully met -> `GyeLanternProgress.currentStepFor`
-/// returns 1 ("lantern earned"), highlighting the stepper's 2nd of 3 steps
-/// (`gye_tab_screen.dart`'s `SoriStepper`) instead of its step-0 default.
+/// Fully met cafe-order fixture follows the server-owned target of three.
+/// This explicit saved-state snapshot never earns a light by opening the view.
 GyeMeta _gyeMeta() => const GyeMeta(
   id: 'ABC234',
   name: 'Mondhof',
@@ -459,9 +531,9 @@ GyeMeta _gyeMeta() => const GyeMeta(
   memberCount: 4,
   lifetimeGoalsAchieved: 2,
   weeklyPromiseSchemaVersion: 1,
-  weeklyPromiseId: 'promise_daily_streak',
-  weeklyPromiseTarget: 5,
-  weeklyPromiseProgress: 5,
+  weeklyPromiseId: GyeWeeklyPromises.cafeOrder,
+  weeklyPromiseTarget: 3,
+  weeklyPromiseProgress: 3,
   weeklyPromiseWeekKey: '2026-W36',
 );
 
@@ -541,18 +613,22 @@ SoriStageProgressionSnapshot _snapshot({bool hanok = false}) =>
 
 Widget _app({required Locale locale, required Widget home}) => MaterialApp(
   debugShowCheckedModeBanner: false,
-  theme: AppTheme.light,
+  theme: AppTheme.lightFor(PaletteVariant.dancheong, locale: locale),
   locale: locale,
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
-  home: MediaQuery(
-    data: const MediaQueryData(disableAnimations: true),
-    child: LearningFocusScope(
-      controller: _focusController,
-      open: (_, destination, {focus, activityId}) async {},
-      child: home,
+  builder: (context, child) => MediaQuery(
+    data: MediaQuery.of(context).copyWith(disableAnimations: true),
+    child: SoriWalletScope(
+      notifier: _walletNotifier,
+      child: LearningFocusScope(
+        controller: _focusController,
+        open: (_, destination, {focus, activityId}) async {},
+        child: child!,
+      ),
     ),
   ),
+  home: home,
   onGenerateRoute: (_) => MaterialPageRoute<void>(
     builder: (_) => const Scaffold(body: Text('route')),
   ),

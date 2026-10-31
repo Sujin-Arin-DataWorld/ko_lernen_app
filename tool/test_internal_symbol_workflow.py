@@ -65,7 +65,43 @@ class InternalSymbolWorkflowTest(unittest.TestCase):
                      'Upload and verify Crashlytics symbol evidence', 'Archive symbol evidence'):
             with self.subTest(step=name):
                 reference = next(step for step in public_steps if step.get('name') == name)
-                self.assertEqual(self.by_name[name], reference)
+                internal = dict(self.by_name[name])
+                reference = dict(reference)
+                if name in ('Read pinned release-toolchain versions', 'Download and verify bundletool'):
+                    # Public size checks now require these pinned tools even
+                    # when the separate Crashlytics publication gate is off.
+                    self.assertEqual(internal.pop('if'), GATE)
+                    self.assertNotIn('if', reference)
+                self.assertEqual(internal, reference)
+
+    def test_public_artwork_size_gate_runs_before_upload_and_cannot_be_ignored(self):
+        public = yaml.safe_load((ROOT / '.github/workflows/play_closed.yml').read_text())
+        steps = next(iter(public['jobs'].values()))['steps']
+        names = [step.get('name') for step in steps]
+        gate = steps[names.index('Verify artwork split and base download size before publishing')]
+        self.assertLess(names.index(gate['name']), names.index('Upload to Google Play Public Testing'))
+        self.assertNotIn('if', gate)
+        self.assertNotIn('continue-on-error', gate)
+        self.assertIn('set -euo pipefail', gate['run'])
+        self.assertIn('verify_android_artwork_delivery.py', gate['run'])
+        self.assertIn('--dimensions=ABI', gate['run'])
+        self.assertIn('--apks "$measurement/size.apks"', gate['run'])
+
+    def test_public_failed_marker_retains_exact_diagnostics_without_enabling_upload(self):
+        public = yaml.safe_load((ROOT / '.github/workflows/play_closed.yml').read_text())
+        steps = next(iter(public['jobs'].values()))['steps']
+        by_name = {step.get('name'): step for step in steps}
+        gate = by_name['Verify artwork split and base download size before publishing']['run']
+        self.assertLess(gate.index('capture_android_artwork_diagnostics.py'),
+                        gate.index('AndroidArtworkDownloadSize.java'))
+        archive = by_name['Preserve AAB and Dart symbols']
+        self.assertEqual(archive['if'], "always() && steps.release-meta.outcome == 'success'")
+        paths = archive['with']['path'].splitlines()
+        self.assertIn('build/app/outputs/bundle/release/artwork-diagnostics/**', paths)
+        self.assertFalse(any(value in archive['with']['path'] for value in ('measurement', '.jks', '.apks', 'key.properties')))
+        upload = by_name['Upload to Google Play Public Testing']
+        self.assertNotIn('if', upload)
+        self.assertNotIn('continue-on-error', upload)
 
     def test_diagnostic_inputs_survive_symbol_failure_without_credentials(self):
         inputs = self.by_name['Preserve AAB and Dart symbols']

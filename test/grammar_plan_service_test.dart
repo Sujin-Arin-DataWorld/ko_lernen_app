@@ -4,23 +4,23 @@ import 'package:ko_lernen_app/models/grammar_study_plan.dart';
 import 'package:ko_lernen_app/services/grammar_plan_service.dart';
 
 Grammar _g(String id, String level) => Grammar(
-      id: id,
-      pattern: id,
-      level: level,
-      typeDe: '',
-      explanationDe: '',
-      exampleKorean: '',
-      exampleGerman: '',
-      note: '',
-      typeEn: '',
-      explanationEn: '',
-      exampleEn: '',
-      noteEn: '',
-      exampleGermanFocus: '',
-      exampleEnFocus: '',
-      quizEnabled: false,
-      quizDistractorIds: const [],
-    );
+  id: id,
+  pattern: id,
+  level: level,
+  typeDe: '',
+  explanationDe: '',
+  exampleKorean: '',
+  exampleGerman: '',
+  note: '',
+  typeEn: '',
+  explanationEn: '',
+  exampleEn: '',
+  noteEn: '',
+  exampleGermanFocus: '',
+  exampleEnFocus: '',
+  quizEnabled: false,
+  quizDistractorIds: const [],
+);
 
 void main() {
   final rows = [
@@ -39,7 +39,7 @@ void main() {
     expect(lowerCase.map((g) => g.id), ['a1_01', 'a1_02', 'a1_03']);
   });
 
-  test('todaysSlice 는 completedDays 기반 결정적 윈도우다 (달력 아님)', () {
+  test('todaysSlice retains CSV order and excludes actual served IDs', () {
     const plan = GrammarStudyPlan(
       level: 'a1',
       itemsPerDay: 2,
@@ -52,7 +52,9 @@ void main() {
     expect(slice0.map((g) => g.id), ['a1_01', 'a1_02']);
 
     final planDay1 = plan.copyWith(
-      servedIdsByDate: {'2026-08-20': ['a1_01', 'a1_02']},
+      servedIdsByDate: {
+        '2026-08-20': ['a1_01', 'a1_02'],
+      },
     );
     final slice1 = GrammarPlanService.todaysSlice(
       curatedRows: GrammarPlanService.curatedRowsForLevel(rows, 'A1'),
@@ -148,7 +150,9 @@ void main() {
       'a1': GrammarStudyPlan(
         level: 'a1',
         itemsPerDay: 5,
-        servedIdsByDate: {'2026-08-20': ['a1_01']},
+        servedIdsByDate: {
+          '2026-08-20': ['a1_01'],
+        },
       ),
     };
     final raw = GrammarPlanService.encodePlans(plans);

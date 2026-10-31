@@ -202,3 +202,12 @@ graphify-out/.graphify_root
 
 # Temporary Superdesign export/import buffers
 .superdesign/tmp/
+
+# Fontshare FFL originals: own-app embedding is allowed, public raw-font
+# redistribution is restricted. Prepare these exact files from the vendor.
+/assets/fonts/Chubbo/Chubbo-Bold.otf
+/assets/fonts/Chubbo/FFL.txt
+/assets/fonts/Supreme/Supreme-Regular.otf
+/assets/fonts/Supreme/Supreme-Medium.otf
+/assets/fonts/Supreme/Supreme-Bold.otf
+/assets/fonts/Supreme/FFL.txt

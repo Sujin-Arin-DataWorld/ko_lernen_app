@@ -1,27 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/data/canonical_companion_art.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 
-/// 마스코트·히어로 정지 그림 **잠금** (Jin 2026-08-25).
-///
-/// Jin 이 두 번 갈아엎은 자산이라 못 박는다:
-/// ① 호랑이 마스코트는 `tiger_front.png` — 옛 `tiger_sitting2.png` 는 누운 자세라
-///    정지 상태에서 축 처져 보였다. **영상** `tiger_sitting2.mp4` 는 그대로 쓴다
-///    (움직일 땐 문제없다) — 그래서 이 잠금은 `.png` 만 막고 `.mp4` 는 건드리지
-///    않는다.
-/// ② 온보딩 히어로 포스터는 정본 페어 아트 `magpie_tiger_together.png` —
-///    옛 `hanok/welcome-hero.png` 는 폐기했다.
-///
-/// 자산을 바꾸려면 이 테스트를 **먼저** 고쳐야 한다. 그게 잠금의 목적이다.
-///
-/// 2026-09-04 PR3-T2: 이 상수의 원래 소유자였던 `OnboardingLevelScreen`
-/// (`OnboardingLevelScreen.kHeroPoster`)이 죽은 사슬이라 `assets_unused/`
-/// 로 격리됐다. 상수 자체는 사라졌지만 이 png는 `stats_screen.dart`·
-/// `mascot.dart` 주석이 계속 정본으로 지목하므로 잠금은 문자열 리터럴로
-/// 재구성해 유지한다.
+/// The explicit canonical replacement on 2026-10-30 supersedes the old
+/// single-pose lock. Keep the new identity active and old source bytes
+/// recoverable, without rendering a superseded character as a fallback.
 void main() {
-  const tigerAsset = 'assets/illustrations/mascot/tiger_front.png';
+  const tigerAsset = CanonicalCompanionArt.baekhoStanding;
   const heroPoster = 'assets/illustrations/mascot/magpie_tiger_together.png';
 
   // 코드가 되살리면 안 되는 옛 그림들. 경로 전체가 문자열 리터럴로 등장하는
@@ -31,12 +18,12 @@ void main() {
     'assets/illustrations/hanok/welcome-hero.png',
   ];
 
-  test('tiger mascot pose is locked to tiger_front (Jin 2026-08-25)', () {
+  test('tiger identity uses the new canonical Baekho (Jin 2026-10-30)', () {
     expect(Mascot.kTigerAsset, tigerAsset);
     expect(File(tigerAsset).existsSync(), isTrue, reason: '$tigerAsset 없음');
   });
 
-  test('onboarding hero poster is locked to the canonical pair art', () {
+  test('superseded pair original remains recoverable during replacement', () {
     expect(File(heroPoster).existsSync(), isTrue, reason: '$heroPoster 없음');
   });
 
@@ -57,7 +44,12 @@ void main() {
           .readAsLinesSync()
           .where((line) => !line.trimLeft().startsWith('//'))
           .join('\n');
-      for (final path in retired) {
+      for (final path in [
+        ...retired,
+        'assets/illustrations/mascot/tiger_front.png',
+        'assets/illustrations/mascot/magpie_front.png',
+        heroPoster,
+      ]) {
         if (code.contains(path)) offenders.add('${entity.path} → $path');
       }
     }

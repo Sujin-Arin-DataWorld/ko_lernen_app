@@ -5,18 +5,17 @@ import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../data/canonical_companion_art.dart';
+
 enum OnboardingCharacterMotion { idle, select, confirm }
 
 typedef OnboardingCharacterMediaFailure =
     void Function(Object error, StackTrace stackTrace);
 
-/// Transparent, onboarding-only companion media.
-///
-/// The widget owns a single animated WebP codec. The bundled idle is a poster;
-/// select and confirm play the authored choose gesture once and return to it.
-/// An explicitly supplied idle animation may loop. Reduced motion,
-/// a disabled [TickerMode], and a background app all
-/// release the codec immediately.
+/// Canonical onboarding companion posters, with optional explicit custom media.
+/// The still-only default never opens a legacy choose codec. A supplied custom
+/// animation keeps its one-shot/idle-loop behavior and releases its codec for
+/// reduced motion, a disabled [TickerMode], or a background app.
 class OnboardingCharacterMedia extends StatefulWidget {
   const OnboardingCharacterMedia({
     super.key,
@@ -47,24 +46,14 @@ class OnboardingCharacterMedia extends StatefulWidget {
     return posterAsset ?? assets.poster;
   }
 
-  String get resolvedAnimationAsset {
-    final assets = _characterAssets(characterId);
-    return animationAsset ?? assets.animation;
-  }
+  // No legacy choose gesture is inferred for the new still-only companions.
+  // Explicit custom media keeps the existing codec/lifecycle contract.
+  String? get resolvedAnimationAsset => animationAsset;
 
-  static ({String poster, String animation}) _characterAssets(
-    String characterId,
-  ) {
+  static ({String poster}) _characterAssets(String characterId) {
     return switch (characterId) {
-      'tiger' => (
-        poster: 'assets/illustrations/onboarding/companions/taego_idle.png',
-        animation:
-            'assets/illustrations/onboarding/companions/taego_choose.webp',
-      ),
-      'magpie' => (
-        poster: 'assets/illustrations/onboarding/companions/joy_idle.png',
-        animation: 'assets/illustrations/onboarding/companions/joy_choose.webp',
-      ),
+      'tiger' => (poster: CanonicalCompanionArt.baekhoStanding),
+      'magpie' => (poster: CanonicalCompanionArt.magpieStanding),
       _ => throw ArgumentError.value(
         characterId,
         'characterId',
@@ -97,6 +86,7 @@ class _OnboardingCharacterMediaState extends State<OnboardingCharacterMedia>
 
   bool get _eligible =>
       widget.active &&
+      widget.resolvedAnimationAsset != null &&
       (widget.motion != OnboardingCharacterMotion.idle ||
           widget.animationAsset != null) &&
       !_reduceMotion &&
@@ -208,6 +198,7 @@ class _OnboardingCharacterMediaState extends State<OnboardingCharacterMedia>
     }
     final generation = ++_generation;
     final asset = widget.resolvedAnimationAsset;
+    if (asset == null) return;
     final bundle = DefaultAssetBundle.of(context);
     _playingAsset = asset;
 

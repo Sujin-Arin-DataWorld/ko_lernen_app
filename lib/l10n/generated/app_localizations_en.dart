@@ -1181,26 +1181,11 @@ class AppL10nEn extends AppL10n {
   String get hangulTabWrite => 'Writing';
 
   @override
-  String get hangulConsonantsLabel => '자음 · Consonants';
-
-  @override
-  String get hangulVowelsLabel => '모음 · Vowels';
-
-  @override
-  String get hangulSyllableLabel => '🧩 음절 구조 · Syllable composition';
-
-  @override
-  String get hangulSyllableTableTitle => 'Syllable chart';
-
-  @override
   String get hangulSyllableTableHint =>
       'Tap a syllable to hear it. Swipe sideways for more vowels.';
 
   @override
   String get hangulPronounceBtn => 'Pronounce';
-
-  @override
-  String get hangulRulesTitle => 'Hangul writing rules';
 
   @override
   String get hangulRulesBody =>
@@ -1214,11 +1199,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hangulClearBtn => 'Clear';
-
-  @override
-  String hangulPronounceLetter(Object letter) {
-    return 'Pronounce $letter';
-  }
 
   @override
   String get hangulChipConsonants => 'Consonants';
@@ -1279,20 +1259,6 @@ class AppL10nEn extends AppL10n {
   String hangulStrokeLetterDone(Object letter) {
     return '$letter is done! On to the next one.';
   }
-
-  @override
-  String hangulLettersDone(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count letters done',
-      one: '1 letter done',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get hangulHardOnly => 'Difficult only';
 
   @override
   String get chosungModeWithVowels => 'Initial + vowel';
@@ -6817,9 +6783,6 @@ class AppL10nEn extends AppL10n {
   String get testerFeedbackCompleteGrammar => 'Finish grammar practice';
 
   @override
-  String get testerFeedbackCompleteHangul => 'Finish Hangul practice';
-
-  @override
   String get testerFeedbackCompleteDailyHangul => 'Finish today\'s character';
 
   @override
@@ -10757,27 +10720,6 @@ class AppL10nEn extends AppL10n {
   String get onboardingDemoWord => 'Word';
 
   @override
-  String get onboardingDemoInitials => 'First sounds';
-
-  @override
-  String get onboardingDemoCross => 'Syllable cross';
-
-  @override
-  String get onboardingDemoCloze => 'Fill the gap';
-
-  @override
-  String get onboardingDemoPairs => 'Word pairs';
-
-  @override
-  String get onboardingDemoSentence => 'Build a sentence';
-
-  @override
-  String get onboardingDemoChain => 'Word chain';
-
-  @override
-  String get onboardingDemoExample => 'Show example';
-
-  @override
   String get onboardingJourneyStartTitle => 'Your Korean.\nYour rhythm.';
 
   @override
@@ -11991,4 +11933,305 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get grammarBookExample => 'Example';
+
+  @override
+  String get atelierAutoOff => 'Auto advance: Off';
+
+  @override
+  String get atelierAutoOn => 'Auto advance: On';
+
+  @override
+  String get atelierChartHint =>
+      'Tap to listen. All 19 consonants are available below.';
+
+  @override
+  String get atelierDemo => 'Demonstrate';
+
+  @override
+  String get atelierDemoEnd => 'Finish demonstration';
+
+  @override
+  String get atelierDemoNext => 'Next stroke';
+
+  @override
+  String get atelierDemoPhase => 'Demonstration';
+
+  @override
+  String get atelierDemoRestart => 'Show again';
+
+  @override
+  String get atelierDifficult => 'Difficult';
+
+  @override
+  String get atelierDiscover => 'Discover syllables';
+
+  @override
+  String get atelierDonePhase => 'Complete';
+
+  @override
+  String get atelierFeedHint =>
+      'Swipe up: next card · Swipe down: previous\nDouble tap to like';
+
+  @override
+  String get atelierFinish => 'Finish practice';
+
+  @override
+  String get atelierFlipHint => 'Tap to flip';
+
+  @override
+  String get atelierKnown => 'Known';
+
+  @override
+  String get atelierMore => 'More';
+
+  @override
+  String get atelierNotYet => 'Not yet';
+
+  @override
+  String get atelierPracticePhase => 'Your turn';
+
+  @override
+  String get atelierRandom => 'Random card';
+
+  @override
+  String get atelierRemember => 'Like';
+
+  @override
+  String get atelierSaveFailed => 'Not saved yet. Please try again.';
+
+  @override
+  String get atelierShare => 'Share';
+
+  @override
+  String get atelierSkip => 'Skip';
+
+  @override
+  String get atelierStructure => 'Syllable building';
+
+  @override
+  String get atelierSubtitle => 'Script. Sound. Meaning.';
+
+  @override
+  String get atelierUseInChart => 'Select in the syllable chart';
+
+  @override
+  String get atelierWatchBrush => 'Watch the brush first.';
+
+  @override
+  String cHangulCardsReceipt(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count card actions in this practice',
+      one: '1 card action in this practice',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get cHangulCompleted => 'Hangul practice complete';
+
+  @override
+  String get cHangulHardCharacters => 'Difficult letters only';
+
+  @override
+  String get cHangulKeepPractising => 'You can keep practising any time.';
+
+  @override
+  String get cHangulListen => 'Listen';
+
+  @override
+  String get cHangulListenWord => 'Hear word';
+
+  @override
+  String get cHangulSelectionTitle => 'Card selection';
+
+  @override
+  String cHangulWritingLettersReceipt(int letters) {
+    String _temp0 = intl.Intl.pluralLogic(
+      letters,
+      locale: localeName,
+      other: '$letters letters practised',
+      one: '1 letter practised',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String cHangulWritingReceipt(int letters, int strokes, String mode) {
+    String _temp0 = intl.Intl.pluralLogic(
+      letters,
+      locale: localeName,
+      other: '$letters letters practised',
+      one: '1 letter practised',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      strokes,
+      locale: localeName,
+      other: '$strokes stroke attempts',
+      one: '1 stroke attempt',
+    );
+    return '$_temp0 · $_temp1 · $mode';
+  }
+
+  @override
+  String cHangulWritingStrokesReceipt(int strokes, String mode) {
+    String _temp0 = intl.Intl.pluralLogic(
+      strokes,
+      locale: localeName,
+      other: '$strokes stroke attempts',
+      one: '1 stroke attempt',
+    );
+    return '$_temp0 · $mode';
+  }
+
+  @override
+  String get c5AllLearningActivities => 'All learning activities';
+
+  @override
+  String get c5AllGames => 'All games';
+
+  @override
+  String onboardingHangulEquationSemantics(String title, String previewLabel) {
+    return '$title. ㄱ + ㅏ = 가. 가 · ga. $previewLabel';
+  }
+
+  @override
+  String get ilduR16Title => 'Ildu Hanok';
+
+  @override
+  String get ilduR16Explore => 'Discover Ildu Hanok';
+
+  @override
+  String get ilduR16Reference => 'Completed estate · architecture reference';
+
+  @override
+  String get ilduR16ReferenceBody =>
+      'Explore the buildings and their cultural context. This reference view is separate from your construction progress.';
+
+  @override
+  String get ilduR16Enlarge => 'Enlarge the estate';
+
+  @override
+  String get ilduR16Building => 'Choose a building';
+
+  @override
+  String get ilduR16AboutSpace => 'The space and its story';
+
+  @override
+  String get ilduR16Practice => 'Review what you learned';
+
+  @override
+  String get ilduR16Sarangchae => 'Sarangchae · Guest quarters';
+
+  @override
+  String get ilduR16Changgo => 'Changgo · Storehouse';
+
+  @override
+  String get ilduR16Jungmunganchae => 'Jungmunganchae · Inner gate';
+
+  @override
+  String get ilduR16Araechae => 'Araechae · Lower quarters';
+
+  @override
+  String get ilduR16SouthToilet => 'South toilet';
+
+  @override
+  String get ilduR16Anchae => 'Anchae · Inner quarters';
+
+  @override
+  String get ilduR16AnchaeStore => 'Anchae storeroom';
+
+  @override
+  String get ilduR16NorthToilet => 'North toilet';
+
+  @override
+  String get ilduR16Gokgan => 'Gokgan · Grain store';
+
+  @override
+  String get ilduR16Ansarang => 'Ansarangchae · Inner guest quarters';
+
+  @override
+  String get ilduR16Sadang => 'Sadang · Ancestral shrine';
+
+  @override
+  String get accountRecoveryTitle => 'Where would you like to continue?';
+
+  @override
+  String get accountRecoveryBody =>
+      'Saved practice from both sets of progress will be kept. You choose the starting point for your learning path.';
+
+  @override
+  String get accountRecoveryDevice => 'This device';
+
+  @override
+  String get accountRecoveryCloud => 'Cloud';
+
+  @override
+  String accountRecoveryCompletedUnits(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count completed units',
+      one: '1 completed unit',
+      zero: 'No completed units yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get accountRecoveryUnavailableChoice =>
+      'This starting point does not fit your saved completions.';
+
+  @override
+  String get accountRecoveryUnknownLevel => 'Starting point unavailable';
+
+  @override
+  String get accountRecoveryCountUnavailable => 'Saved unit count unavailable';
+
+  @override
+  String get accountRecoveryConfirm => 'Use selection';
+
+  @override
+  String get accountRecoveryReview => 'Review progress';
+
+  @override
+  String get accountRecoveryPendingTitle => 'Your backup needs attention';
+
+  @override
+  String get accountRecoveryPendingBody =>
+      'Your latest progress could not be connected safely yet. Review the saved starting points.';
+
+  @override
+  String get accountRecoveryWorking => 'Checking progress …';
+
+  @override
+  String get accountRecoveryUnavailable =>
+      'Your progress cannot be reviewed right now. Try again.';
+
+  @override
+  String get accountRecoveryBlocked =>
+      'Your saved progress needs another review. It remains preserved.';
+
+  @override
+  String get accountRecoveryStale =>
+      'Your progress has changed. Review it again before continuing.';
+
+  @override
+  String get accountRecoveryReady =>
+      'Your progress is connected. You can back it up now.';
+
+  @override
+  String get accountRecoveryBackupWaiting =>
+      'Connected; backup awaiting review';
+
+  @override
+  String get accountRecoveryResumeTitle => 'Continue your confirmed choice?';
+
+  @override
+  String get accountRecoveryResumeBody =>
+      'Your choice is already saved. You can continue the same operation without choosing a new starting point.';
+
+  @override
+  String get accountRecoveryResumeConfirm => 'Continue confirmed choice';
 }

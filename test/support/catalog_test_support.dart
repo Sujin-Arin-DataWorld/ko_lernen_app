@@ -10,6 +10,8 @@ import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/services/palette_service.dart';
+import 'package:ko_lernen_app/widgets/sori/approved_chrome_assets.dart';
 import 'package:ko_lernen_app/widgets/sori/adaptive_navigation.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
 
@@ -57,6 +59,7 @@ Widget catalogTestApp({
   SoriStageTab tab = SoriStageTab.learn,
   String locale = 'en',
   double scale = 1,
+  bool showAll = true,
   ThemeData? theme,
   LearningFocusController? controller,
   FutureOr<void> Function(TodayLearningDestination destination, String? id)?
@@ -66,7 +69,9 @@ Widget catalogTestApp({
   RouteFactory? onGenerateRoute,
 }) => MaterialApp(
   debugShowCheckedModeBanner: false,
-  theme: theme ?? AppTheme.light,
+  theme:
+      theme ??
+      AppTheme.lightFor(PaletteVariant.dancheong, locale: Locale(locale)),
   locale: Locale(locale),
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
@@ -76,6 +81,7 @@ Widget catalogTestApp({
       final t = AppL10n.of(context);
       Widget catalog = SoriStageCatalogScreen(
         tab: tab,
+        initialShowAll: showAll,
         loadSnapshot: loadSnapshot ?? () async => catalogSnapshot(),
       );
       if (scrollController != null) {
@@ -98,26 +104,31 @@ Widget catalogTestApp({
         items: [
           SoriAdaptiveNavigationItem(
             label: t.soriStageNavToday,
+            imageAsset: ApprovedChromeAssets.today,
             icon: Icons.today_outlined,
             selectedIcon: Icons.today_rounded,
           ),
           SoriAdaptiveNavigationItem(
             label: t.soriStageNavLearn,
+            imageAsset: ApprovedChromeAssets.learn,
             icon: Icons.school_outlined,
             selectedIcon: Icons.school_rounded,
           ),
           SoriAdaptiveNavigationItem(
             label: t.soriStageNavGames,
+            imageAsset: ApprovedChromeAssets.games,
             icon: Icons.sports_esports_outlined,
             selectedIcon: Icons.sports_esports_rounded,
           ),
           SoriAdaptiveNavigationItem(
             label: t.soriStageNavHanok,
+            imageAsset: ApprovedChromeAssets.hanok,
             icon: Icons.home_work_outlined,
             selectedIcon: Icons.home_work_rounded,
           ),
           SoriAdaptiveNavigationItem(
             label: t.soriStageNavGye,
+            imageAsset: ApprovedChromeAssets.gye,
             icon: Icons.groups_2_outlined,
             selectedIcon: Icons.groups_2_rounded,
           ),

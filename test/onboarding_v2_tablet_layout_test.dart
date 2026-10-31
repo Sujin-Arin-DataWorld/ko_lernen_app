@@ -195,8 +195,12 @@ void main() {
         of: find.byKey(const ValueKey('onboarding-v2-companion-scroll')),
         matching: find.byType(Scrollable),
       );
-      final position = tester.state<ScrollableState>(scroll).position;
-      final beforeOffset = position.pixels;
+      // The approved normal-size composition now fills a finite body without
+      // a scroll owner. Selection must preserve that body and all card bounds.
+      expect(scroll, findsNothing);
+      final bodyRect = tester.getRect(
+        find.byKey(const ValueKey('onboarding-v2-companion-scroll')),
+      );
 
       expect(
         tester.getRect(find.text(heading)).bottom,
@@ -215,7 +219,8 @@ void main() {
         tester.getRect(taegoTile).right,
         lessThan(tester.getRect(joyTile).left),
       );
-      expect(tester.getSize(taegoTile).height, lessThanOrEqualTo(440));
+      expect(beforeTaego.top, greaterThanOrEqualTo(bodyRect.top));
+      expect(beforeTaego.bottom, lessThanOrEqualTo(bodyRect.bottom));
       for (final (tile, companion) in [(taegoTile, taego), (joyTile, joy)]) {
         final artwork = find.descendant(
           of: tile,
@@ -317,15 +322,15 @@ void main() {
       expect(tester.element(joyTile), same(joyElement));
       expect(tester.getRect(taegoTile), beforeTaego);
       expect(tester.getRect(joyTile), beforeJoy);
-      expect(tester.state<ScrollableState>(scroll).position, same(position));
-      expect(position.pixels, beforeOffset);
+      expect(scroll, findsNothing);
 
       final cta = find.byKey(
         const ValueKey('onboarding-v2-companion-continue'),
       );
       _expectLabeled48DpButton(tester, cta);
       _expectInsideSafeViewport(tester, cta, size);
-      expect(position.maxScrollExtent, 0);
+      final gye = find.text(t.onboardingCGyeTitle);
+      _expectInsideSafeViewport(tester, gye, size);
       await tester.tap(cta);
       expect(
         harnessKey.currentState?.submittedCompanionId,

@@ -26,6 +26,18 @@ const _introLatinFaces = [
   'assets/fonts/NotoSerif/NotoSerif-Variable.ttf',
 ];
 
+const _localeLatinWeights = {
+  'assets/fonts/Chubbo/Chubbo-Bold.otf': 700,
+  'assets/fonts/Supreme/Supreme-Regular.otf': 400,
+  'assets/fonts/Supreme/Supreme-Medium.otf': 500,
+  'assets/fonts/Supreme/Supreme-Bold.otf': 700,
+  'assets/fonts/Belgrano/Belgrano-Regular.ttf': 400,
+  'assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Regular.ttf': 400,
+  'assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Medium.ttf': 500,
+  'assets/fonts/EncodeSansCondensed/EncodeSansCondensed-SemiBold.ttf': 600,
+  'assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Bold.ttf': 700,
+};
+
 const _introKoreanDisplayFaces = [
   'assets/fonts/MaruBuri/MaruBuri-Regular.otf',
   'assets/fonts/MaruBuri/MaruBuri-SemiBold.otf',
@@ -54,6 +66,7 @@ void main() {
       unorderedEquals([
         ..._koreanFaces,
         ..._introLatinFaces,
+        ..._localeLatinWeights.keys,
         ..._introKoreanDisplayFaces,
       ]),
     );
@@ -80,6 +93,30 @@ void main() {
           .map((e) => e.key)
           .toList();
       expect(missing, isEmpty, reason: '$asset 에 글리프 없음: $missing');
+    }
+  });
+
+  test('locale fonts carry their actual weights and original licenses', () {
+    for (final entry in _localeLatinWeights.entries) {
+      final bytes = File(entry.key).readAsBytesSync();
+      final data = ByteData.sublistView(bytes);
+      int? weight;
+      for (var i = 0; i < data.getUint16(4); i++) {
+        final record = 12 + i * 16;
+        if (String.fromCharCodes(bytes.sublist(record, record + 4)) == 'OS/2') {
+          weight = data.getUint16(data.getUint32(record + 8) + 4);
+          break;
+        }
+      }
+      expect(weight, entry.value, reason: '${entry.key} actual OS/2 weight');
+    }
+    for (final path in [
+      'assets/fonts/Chubbo/FFL.txt',
+      'assets/fonts/Supreme/FFL.txt',
+      'assets/fonts/Belgrano/OFL.txt',
+      'assets/fonts/EncodeSansCondensed/OFL.txt',
+    ]) {
+      expect(File(path).readAsStringSync(), contains('License'));
     }
   });
 

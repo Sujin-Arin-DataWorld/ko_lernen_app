@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/haptic_service.dart';
 import 'package:flutter/material.dart';
 
@@ -328,7 +329,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                     SliverFillRemaining(
                       hasScrollBody: false,
                       child: SoriEmptyState(
-                        asset: 'assets/illustrations/mascot/magpie_wave.png',
+                        asset: CanonicalCompanionArt.magpieGuide,
                         icon: Icons.menu_book_outlined,
                         title: t.vocabPacksEmptyTitle,
                         body: t.vocabPacksEmptyBody,

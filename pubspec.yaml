@@ -136,6 +136,8 @@ flutter:
   assets:
     - assets/illustrations/einleitung_generated/
     - assets/data/
+    # Approved R16 renders, losslessly packaged with exact process identities.
+    - assets/illustrations/ildu_r16/
     - assets/tts/v3/female/
     - assets/tts/v3/male/
     - assets/tts/recorded_jamo/
@@ -145,34 +147,59 @@ flutter:
     # hanok_compound/ (동결 프로토타입, lib/ 참조 0건) — 번들에서 제외해 ~11MB 절감.
     # #208(360d61c8)에서 삭제됨 — 필요시 f29f87e7 참조.
     # - assets/illustrations/hanok_compound/
-    # Hanok routes use assets/illustrations/hanok/ildu_v3_preview.png until the
-    # V3 world is promoted. Dormant V3 code and contract tests still load these
-    # authored assets; bundling them does not expose the unfinished map.
-    - assets/illustrations/personal_hanok_v3/turnarounds/changgo_relocation.png
-    - assets/illustrations/personal_hanok_v3/turnarounds/사랑채
-    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문.png
-    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문1.png
-    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문2.png
-    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문6.png
-    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문8.png
+    # Legacy authoring turnarounds stay at their original paths, unbundled.
+    # The active ildu_* catalog and asset-delivery manifest remain unchanged.
     - assets/illustrations/personal_hanok_v3/sarangchae/
+    - assets/illustrations/personal_hanok_v3/world/sarangchae.png
     - assets/illustrations/personal_hanok_v3/construction/hyeopmun/
     - assets/illustrations/personal_hanok_v3/construction/lessons/
     - assets/illustrations/decorations/
     - assets/illustrations/reward/
     - assets/illustrations/stamps/
     - assets/illustrations/dancheong_studio/v1/
-    - assets/illustrations/mascot/
+    - assets/illustrations/concept_c/spiele_preview/
+    - assets/illustrations/concept_c/
+    - assets/illustrations/concept_c/approved_20261018/
+    - assets/illustrations/concept_c/pronunciation/
+    # C-learning and Atelier share the original material_atlas.png and jade.png.
+    # Duplicate texture originals remain on disk, outside this explicit list.
+    - assets/illustrations/concept_c/hangul_atelier/composition-stage.png
+    - assets/illustrations/concept_c/hangul_atelier/ink-desk.png
+    - assets/illustrations/concept_c/hangul_atelier/jade.png
+    - assets/illustrations/concept_c/hangul_atelier/letter-tile.png
+    - assets/illustrations/concept_c/hangul_atelier/social-heart.png
+    - assets/illustrations/concept_c/hangul_atelier/social-share.png
+    - assets/illustrations/concept_c/hangul_atelier/speaker.png
+    - assets/illustrations/culture_scenes/hanok_home_changho.png
+    - assets/icons/chrome/
+    - assets/icons/navigation/
+    - assets/fonts/Chubbo/FFL.txt
+    - assets/fonts/Supreme/FFL.txt
+    - assets/fonts/Belgrano/OFL.txt
+    - assets/fonts/EncodeSansCondensed/OFL.txt
+    # Preserve retired companion originals on disk without shipping them.
+    # Existing reward particles still use these two independent illustrations.
+    - assets/illustrations/mascot/bok.png
+    - assets/illustrations/mascot/yupjeon.png
+    - assets/illustrations/companions/baekho/
+    - assets/illustrations/companions/magpie/
     - assets/illustrations/tactile/hahoe_scholar.png
     - assets/illustrations/tactile/dokkaebi.png
     - assets/illustrations/personas/v3/
     - assets/illustrations/burst/
     - assets/illustrations/gye/
+    - assets/illustrations/gye/weekly_lantern/
     - assets/illustrations/book/
     - assets/illustrations/scenes/
-    - assets/illustrations/error/
-    - assets/illustrations/onboarding/
-    - assets/illustrations/onboarding/companions/
+    - assets/illustrations/error/offline_lantern.png
+    - assets/illustrations/onboarding/book_capture_approved_20261030.png
+    - assets/illustrations/onboarding/book_study_approved_20261030.png
+    - assets/illustrations/onboarding/book_scan.png
+    - assets/illustrations/onboarding/gate-01-alpha.webp
+    - assets/illustrations/onboarding/gate-02-alpha.webp
+    - assets/illustrations/onboarding/sarangchae-01-alpha.webp
+    - assets/illustrations/onboarding/sarangchae-02-alpha.webp
+    - assets/illustrations/onboarding/sarangchae_canonical.webp
     # 단어팩 motif 일러스트 (2026-08-13 UI 개편 Phase 1) — 규약:
     # packs/{DancheongMotif.name}.webp. 파일이 없으면 PackCard 가 단청 도장
     # 폴백을 그리므로, 아트 드롭 전에도 화면은 정상 배포된다.
@@ -239,6 +266,32 @@ flutter:
   # OFL: Paperlogy for interface lettering; Noto Sans KR for learning copy.
   # Both families contain Korean, German and English glyphs (font bundle guard).
   fonts:
+    - family: Chubbo
+      fonts:
+        - asset: assets/fonts/Chubbo/Chubbo-Bold.otf
+          weight: 700
+    - family: Supreme
+      fonts:
+        - asset: assets/fonts/Supreme/Supreme-Regular.otf
+          weight: 400
+        - asset: assets/fonts/Supreme/Supreme-Medium.otf
+          weight: 500
+        - asset: assets/fonts/Supreme/Supreme-Bold.otf
+          weight: 700
+    - family: Belgrano
+      fonts:
+        - asset: assets/fonts/Belgrano/Belgrano-Regular.ttf
+          weight: 400
+    - family: EncodeSansCondensed
+      fonts:
+        - asset: assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/EncodeSansCondensed/EncodeSansCondensed-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Bold.ttf
+          weight: 700
     - family: Roboto
       fonts:
         - asset: assets/fonts/Roboto/Roboto-Variable.ttf
