@@ -2580,7 +2580,7 @@ Nodes (40): angle, asset, _assets, build, burst, _CelebrationLayer, _Celebration
 Cohesion: 0.03
 Nodes (61): compact,
 
-  
+
   medium,, alignment, AppContentFrame, AppWindowClass, appWindowClassOf, build, catalogCardArtRow, catalogFeaturedRow (+53 more)
 
 ### Community 192 - "diktat_quest.dart"
@@ -3234,9 +3234,9 @@ Nodes (35): bookshelf_service.dart, custom_pack_service.dart, data_loader.dart, 
 
 ### Community 345 - "_"
 Cohesion: 0.05
-Nodes (41): course_mastery.dart, dancheong, 
-  gate, 
-  windows, 
+Nodes (41): course_mastery.dart, dancheong,
+  gate,
+  windows,
   sideBuilding,, hanok_stage.dart, ildu_construction_art.dart, CourseUnit, _, a1Ratio, a2Ratio (+33 more)
 
 ### Community 346 - "content_learning_widgets.dart"
