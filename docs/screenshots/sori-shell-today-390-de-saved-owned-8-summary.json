@@ -1,7 +1,7 @@
 {
   "file": "sori-shell-today-390-de-saved-owned-8-summary.png",
-  "captured_at_utc": "2026-10-31T01:09:47.873160Z",
-  "source_revision": "922b7b2401b39ccede797d8e43969ef1acd89268",
+  "captured_at_utc": "2026-10-31T16:01:17.432067Z",
+  "source_revision": "83f95f8c3474ad70d97482895b93708530bd07eb+today-native-20261031-WIP",
   "scope": "actual SoriStageShell; isolated widget-test account",
   "language": "de",
   "tab": "today",
@@ -15,36 +15,45 @@
     "top": 24,
     "bottom": 24
   },
-  "greeting_text": "Guten Morgen!",
+  "greeting_text": "Hallo!",
   "header_actions": {
-    "week": {
-      "left": 52.0,
-      "top": 36.0,
-      "width": 55.0,
-      "height": 48.0
-    },
-    "stats": {
-      "left": 111.0,
-      "top": 36.0,
-      "width": 54.0,
+    "profile": {
+      "left": 12.0,
+      "top": 28.0,
+      "width": 157.0,
       "height": 48.0
     },
     "wallet": {
       "left": 169.0,
-      "top": 36.0,
-      "width": 64.0,
-      "height": 48.0
-    },
-    "profile": {
-      "left": 237.0,
-      "top": 36.0,
-      "width": 80.0,
+      "top": 28.0,
+      "width": 61.76300048828125,
       "height": 48.0
     },
     "settings": {
-      "left": 330.0,
-      "top": 36.0,
+      "left": 234.76300048828125,
+      "top": 28.0,
       "width": 48.0,
+      "height": 48.0
+    },
+    "details": {
+      "left": 12.0,
+      "top": 76.0,
+      "width": 366.0,
+      "height": 146.0
+    }
+  },
+  "header_actions_measurement_view": "initial compact dashboard",
+  "details_actions": {
+    "week": {
+      "left": 12.0,
+      "top": 174.0,
+      "width": 94.31057521275112,
+      "height": 48.0
+    },
+    "stats": {
+      "left": 106.31057521275112,
+      "top": 174.0,
+      "width": 102.6055886404855,
       "height": 48.0
     }
   },
@@ -58,7 +67,7 @@
   "wallet_balance": 0,
   "sarangchae_owned_stage": 8,
   "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
-  "capture_view": "scrolled to actual owned Today summary",
+  "capture_view": "Today details modal; scrolled to actual owned Hanok summary",
   "r16_decoded_layers": [
     {
       "process_id": "ildu.sarangchae-rafters",
@@ -75,18 +84,18 @@
   ],
   "summary_action_rect": {
     "left": 25.0,
-    "top": 400.0,
+    "top": 464.0,
     "width": 340.0,
     "height": 149.0
   },
   "primary_action": {
     "key": "learning-focus-start",
-    "measurement_view": "initial fold before any summary scroll",
+    "measurement_view": "initial fold before opening details or scrolling",
     "rect": {
       "left": 25.0,
-      "top": 454.0,
+      "top": 455.0,
       "width": 340.0,
-      "height": 54.0
+      "height": 48.0
     },
     "fully_visible_above_navigation": true,
     "hit_testable": true

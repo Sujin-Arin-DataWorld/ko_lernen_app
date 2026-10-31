@@ -75,7 +75,7 @@ class C5CatalogOverview extends StatelessWidget {
         constraints: const BoxConstraints(minHeight: 48),
         decoration: BoxDecoration(
           color: CPalette.paper,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(SoriRadius.c5DetailAction),
           border: Border.all(color: CPalette.fineEdge),
           boxShadow: const [
             BoxShadow(color: Color(0xffad8a60), offset: Offset(0, 3)),
@@ -227,7 +227,7 @@ class C5CatalogOverview extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
                 color: CPalette.paper,
-                borderRadius: BorderRadius.circular(9),
+                borderRadius: BorderRadius.circular(SoriRadius.c5Tile),
                 border: Border.all(color: CPalette.fineEdge),
                 boxShadow: const [
                   BoxShadow(color: Color(0xffad8a60), offset: Offset(0, 2)),

@@ -443,8 +443,42 @@ class CMaterialAction extends StatefulWidget {
   State<CMaterialAction> createState() => _CMaterialActionState();
 }
 
-class _CMaterialActionState extends State<CMaterialAction> {
+class _CMaterialActionState extends State<CMaterialAction>
+    with WidgetsBindingObserver {
   bool pressed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!TickerMode.valuesOf(context).enabled) pressed = false;
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state != AppLifecycleState.resumed) {
+      setState(() => pressed = false);
+    }
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  Duration get _feedbackDuration =>
+      TickerMode.valuesOf(context).enabled &&
+          (WidgetsBinding.instance.lifecycleState == null ||
+              WidgetsBinding.instance.lifecycleState ==
+                  AppLifecycleState.resumed)
+      ? SoriMotion.respect(context, SoriMotion.fast)
+      : Duration.zero;
 
   @override
   void didUpdateWidget(covariant CMaterialAction oldWidget) {
@@ -490,9 +524,8 @@ class _CMaterialActionState extends State<CMaterialAction> {
         onPressedChanged: (value) => setState(() => pressed = value),
         child: AnimatedContainer(
           width: widget.compact ? null : double.infinity,
-          duration: MediaQuery.disableAnimationsOf(context)
-              ? Duration.zero
-              : const Duration(milliseconds: 120),
+          duration: _feedbackDuration,
+          curve: SoriMotion.gentle,
           constraints: BoxConstraints(
             minWidth: 48,
             minHeight: widget.compact ? 48 : 54,
@@ -531,15 +564,17 @@ class _CMaterialActionState extends State<CMaterialAction> {
                           : const CTexture(CMaterial.jade, opacity: .82)),
                 ),
                 Positioned.fill(
-                  child: DecoratedBox(
+                  child: AnimatedContainer(
+                    duration: _feedbackDuration,
+                    curve: SoriMotion.gentle,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          Colors.white.withValues(alpha: .30),
+                          Colors.white.withValues(alpha: pressed ? .14 : .30),
                           Colors.transparent,
-                          Colors.black.withValues(alpha: .18),
+                          Colors.black.withValues(alpha: pressed ? .24 : .18),
                         ],
                       ),
                     ),
@@ -557,10 +592,32 @@ class _CMaterialActionState extends State<CMaterialAction> {
                                   Expanded(child: actionText()),
                                   if (!widget.compact) ...[
                                     const SizedBox(width: 8),
-                                    SizedBox(
-                                      width: 18,
-                                      height: 24,
-                                      child: CArrow(dark: widget.gold),
+                                    TweenAnimationBuilder<double>(
+                                      tween: Tween(
+                                        begin: 0,
+                                        end:
+                                            pressed &&
+                                                !SoriMotion.reduceMotion(
+                                                  context,
+                                                )
+                                            ? 2
+                                            : 0,
+                                      ),
+                                      duration: _feedbackDuration,
+                                      curve: SoriMotion.gentle,
+                                      builder: (_, value, child) =>
+                                          Transform.translate(
+                                            key: const ValueKey(
+                                              'c-material-cta-direction',
+                                            ),
+                                            offset: Offset(value, 0),
+                                            child: child,
+                                          ),
+                                      child: SizedBox(
+                                        width: 18,
+                                        height: 24,
+                                        child: CArrow(dark: widget.gold),
+                                      ),
                                     ),
                                   ],
                                 ],

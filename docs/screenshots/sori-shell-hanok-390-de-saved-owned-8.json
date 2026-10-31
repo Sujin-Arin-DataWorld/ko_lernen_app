@@ -1,7 +1,7 @@
 {
   "file": "sori-shell-hanok-390-de-saved-owned-8.png",
-  "captured_at_utc": "2026-10-31T01:09:47.393206Z",
-  "source_revision": "922b7b2401b39ccede797d8e43969ef1acd89268",
+  "captured_at_utc": "2026-10-31T16:01:15.714107Z",
+  "source_revision": "83f95f8c3474ad70d97482895b93708530bd07eb+today-native-20261031-WIP",
   "scope": "actual SoriStageShell; isolated widget-test account",
   "language": "de",
   "tab": "hanok",
@@ -44,7 +44,7 @@
   ],
   "primary_action": {
     "key": "hanok-construction-entry",
-    "measurement_view": "initial fold before any summary scroll",
+    "measurement_view": "initial fold before opening details or scrolling",
     "rect": {
       "left": 25.0,
       "top": 521.5,

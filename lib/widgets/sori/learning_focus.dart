@@ -277,7 +277,7 @@ class SoriLearningFocus extends StatelessWidget {
                     ),
                     style: body,
                   ),
-                TextButton(
+                SoriTextAction(
                   key: const ValueKey('learning-focus-course-overview'),
                   style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
                   onPressed: controller.launching
@@ -287,7 +287,8 @@ class SoriLearningFocus extends StatelessWidget {
                           const TodayLearningDestination(route: '/path'),
                           activityId: 'course',
                         ),
-                  child: Text(t.learningFocusViewCourse, style: body),
+                  label: t.learningFocusViewCourse,
+                  textStyle: body,
                 ),
               ],
             ),

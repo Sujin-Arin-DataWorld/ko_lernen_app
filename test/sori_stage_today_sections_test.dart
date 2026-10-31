@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 
 import 'support/hanok_competence_fixture.dart';
+import 'support/real_fonts.dart';
 
 /// **§W-D D3/D7** — Today 퀘스트 행이 fraction 으로 "Fast geschafft"(≥60%)와
 /// "Als Nächstes"(<60%) 두 섹션으로 갈리는지, 빈 섹션은 헤더까지 숨는지.
@@ -21,6 +22,7 @@ import 'support/hanok_competence_fixture.dart';
 /// [AppL10n.soriStageConfirmedUnits] 문구를 쓰며, 그 total 이 모델의
 /// [HanokCompetenceProjection.totalUnitCount] 와 일치하는지.
 void main() {
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(<String, Object>{
@@ -66,6 +68,13 @@ void main() {
     // §MOTION-1(J5): reduce-motion 이면 SoriEntrance 가 타이머를 아예
     // 예약하지 않는다 — 더 이상 흘려보낼 것이 없다.
     await tester.pump();
+    // Secondary evidence remains reachable from the compact Today dashboard.
+    final details = find.byKey(const ValueKey('today-details'));
+    expect(details, findsOneWidget);
+    await tester.tap(details);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(find.byKey(const ValueKey('c-today-board')), findsOneWidget);
   }
 
   SoriStageProgressionSnapshot buildSnapshot({

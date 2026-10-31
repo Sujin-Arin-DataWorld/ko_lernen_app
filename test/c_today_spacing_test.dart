@@ -71,16 +71,20 @@ void main() {
             final art = tester.getRect(
               find.byKey(const ValueKey('learning-focus-art')),
             );
+            final context = tester.getRect(
+              find.byKey(const ValueKey('learning-focus-context')),
+            );
             final action = tester.getRect(
               find.byKey(const ValueKey('learning-focus-start')),
             );
-            expect(art.top - title.bottom, closeTo(8, .01));
+            expect(context.top - title.bottom, closeTo(4, .01));
+            expect(art.top - context.bottom, closeTo(0, .01));
             expect(action.top - art.bottom, closeTo(8, .01));
             expect(
               art.height,
-              lessThan(60),
+              closeTo(160, .01),
               reason:
-                  'The wide review object must not reserve a square blank canvas.',
+                  'The reviewed standalone C5 scene keeps its 160dp art slot.',
             );
             expect(
               tester

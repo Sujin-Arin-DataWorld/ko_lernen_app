@@ -1,6 +1,7 @@
 import '../../models/ildu_construction_art.dart';
 import '../../models/sarangchae_construction.dart';
 import 'package:flutter/material.dart';
+import 'c_gallery/c_palette.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/yeopjeon_wallet.dart';
@@ -345,10 +346,12 @@ class YeopjeonWalletBadge extends StatelessWidget {
     required this.wallet,
     this.onReturned,
     this.compact = false,
+    this.jadeSurface = false,
   });
   final YeopjeonWallet wallet;
   final VoidCallback? onReturned;
   final bool compact;
+  final bool jadeSurface;
 
   @override
   Widget build(BuildContext context) {
@@ -369,42 +372,153 @@ class YeopjeonWalletBadge extends StatelessWidget {
             onReturned?.call();
           }
         },
-        child: Container(
-          key: const ValueKey('yeopjeon-header-balance'),
-          constraints: const BoxConstraints(minHeight: 48),
-          padding: EdgeInsets.symmetric(
-            horizontal: compact ? 8 : Spacing.md,
-            vertical: compact ? 4 : 0,
-          ),
-          decoration: BoxDecoration(
-            color: SoriActivityColors.actionGold,
-            borderRadius: SoriRadius.brLg,
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ApprovedChromeImage(
-                asset: ApprovedChromeAssets.coinFront,
-                size: compact ? 32 : 38,
-              ),
-              SizedBox(width: compact ? 4 : Spacing.sm),
-              if (compact)
-                Flexible(
-                  child: Text(
+        child: _ConfirmedBalanceFeedback(
+          balance: wallet.balance,
+          child: Container(
+            key: const ValueKey('yeopjeon-header-balance'),
+            constraints: const BoxConstraints(minHeight: 48),
+            padding: EdgeInsets.symmetric(
+              horizontal: compact ? 8 : Spacing.md,
+              vertical: compact ? 4 : 0,
+            ),
+            decoration: BoxDecoration(
+              color: jadeSurface
+                  ? CPalette.deepJade
+                  : SoriActivityColors.actionGold,
+              borderRadius: SoriRadius.brLg,
+              border: jadeSurface ? Border.all(color: SoriColors.gold) : null,
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ApprovedChromeImage(
+                  asset: ApprovedChromeAssets.coinFront,
+                  size: compact ? 32 : 38,
+                ),
+                SizedBox(width: compact ? 4 : Spacing.sm),
+                if (compact)
+                  Flexible(
+                    child: Text(
+                      '${wallet.balance}',
+                      style: SoriTextTheme.of(context).label.copyWith(
+                        color: jadeSurface ? CPalette.paper : null,
+                      ),
+                    ),
+                  )
+                else
+                  Text(
                     '${wallet.balance}',
                     style: SoriTextTheme.of(context).label,
                   ),
-                )
-              else
-                Text(
-                  '${wallet.balance}',
-                  style: SoriTextTheme.of(context).label,
-                ),
-              if (!compact) const Icon(Icons.chevron_right_rounded, size: 18),
-            ],
+                if (!compact) const Icon(Icons.chevron_right_rounded, size: 18),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+}
+
+/// Emphasizes a confirmed ledger change without inventing intermediate balances.
+/// Initial reads, repeated snapshots and returns from a hidden route stay quiet.
+class _ConfirmedBalanceFeedback extends StatefulWidget {
+  const _ConfirmedBalanceFeedback({required this.balance, required this.child});
+  final int balance;
+  final Widget child;
+
+  @override
+  State<_ConfirmedBalanceFeedback> createState() =>
+      _ConfirmedBalanceFeedbackState();
+}
+
+class _ConfirmedBalanceFeedbackState extends State<_ConfirmedBalanceFeedback>
+    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    value: 1,
+    duration: SoriMotion.medium,
+  );
+  bool _motionAllowed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  void _settle() {
+    _controller.stop();
+    _controller.value = 1;
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _motionAllowed =
+        !SoriMotion.reduceMotion(context) &&
+        TickerMode.valuesOf(context).enabled;
+    if (!_motionAllowed) _settle();
+  }
+
+  @override
+  void didUpdateWidget(covariant _ConfirmedBalanceFeedback oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.balance == widget.balance) return;
+    final lifecycle = WidgetsBinding.instance.lifecycleState;
+    if (_motionAllowed &&
+        (lifecycle == null || lifecycle == AppLifecycleState.resumed)) {
+      _controller.forward(from: 0);
+    } else {
+      _settle();
+    }
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state != AppLifecycleState.resumed) _settle();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+    animation: _controller,
+    child: widget.child,
+    builder: (_, child) => CustomPaint(
+      key: const ValueKey('yeopjeon-confirmed-balance-feedback'),
+      foregroundPainter: _BalanceUpdateRim(_controller.value),
+      child: child,
+    ),
+  );
+}
+
+class _BalanceUpdateRim extends CustomPainter {
+  const _BalanceUpdateRim(this.progress);
+  final double progress;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final envelope = progress <= .5 ? progress * 2 : (1 - progress) * 2;
+    if (envelope <= 0) return;
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(
+        (Offset.zero & size).deflate(1.5),
+        const Radius.circular(SoriRadius.lg - 1.5),
+      ),
+      Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2
+        ..color = const Color(0xfffff7de).withValues(alpha: envelope * .9),
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant _BalanceUpdateRim oldDelegate) =>
+      oldDelegate.progress != progress;
 }

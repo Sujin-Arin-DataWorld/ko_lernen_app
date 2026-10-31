@@ -55,6 +55,9 @@ class SoriBreakpoints {
   /// into an unreadably narrow side-by-side column.
   static const double missionHeaderStack = 280;
 
+  /// Owned Hanok art and its progress summary need a full-width stack here.
+  static const double hanokSummaryStack = 280;
+
   /// Deck judgment labels become full-width rows at this component width.
   static const double contentActionStack = 320;
 
@@ -195,6 +198,8 @@ double soriComfortScale(double width) {
 // RADIUS — round corners scale
 // ─────────────────────────────────────────────────────────────────────────
 class SoriRadius {
+  static const double c5Tile = 9;
+  static const double c5DetailAction = 10;
   static const double xs = 8;
   static const double sm = 12;
   static const double md = 16; // default card

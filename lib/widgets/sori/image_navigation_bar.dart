@@ -57,7 +57,7 @@ class _SoriImageNavigationBarState extends State<SoriImageNavigationBar>
     enabled: _resumed,
     child: NavigationBar(
       key: const ValueKey('sori-image-navigation-bar'),
-      height: 76,
+      height: 60,
       backgroundColor: SoriSurfaces.of(context).surface,
       indicatorColor: Colors.transparent,
       labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
@@ -187,7 +187,7 @@ class SoriNavigationImage extends StatelessWidget {
               curve: SoriMotion.gentle,
               decoration: BoxDecoration(
                 color: selected ? const Color(0xff084a3e) : Colors.transparent,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(SoriRadius.sm),
                 border: Border.all(
                   color: selected
                       ? const Color(0xffd4bc80)

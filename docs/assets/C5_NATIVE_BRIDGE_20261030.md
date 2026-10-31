@@ -1,5 +1,41 @@
 # C5 native presentation bridge
 
+Current presentation, updated 2026-10-31: main C5 scenes now use the six
+standalone originals in `C5_SCENE_ORIGINALS_20261030.json`, with native localized
+text and current action/state owners. The earlier image-crop adapter below is
+historical intake context, not the current main-tab scene source. Approved R16
+Sarangchae uses its separate foreground/multiply-shadow catalog; no white studio
+background or generic parent fade is substituted.
+
+The latest responsive/motion batch passed 133 checks: DE/EN at 320x640,
+375x667, 390x844, 393x873 and 430x932, normal/enlarged text, OS-inset states,
+native launch/return behavior, wallet persistence and shared guard tests.
+The dedicated six-case material-feedback tests cover rapid reversal, native
+one-tap activation, unchanged input bounds, immediate confirmed balance text,
+reduced motion, hidden routes and background settling. These are native widget
+checks; physical iPhone/Android QA and store availability remain separate.
+
+Selected-card rims interpolate for 180ms, CTA lighting/direction use the shared
+150ms token, and confirmed wallet changes receive one 250ms neutral rim cue.
+Initial wallet reads and repeated snapshots stay quiet; no count-up values,
+reward claims or repeated decorative loops are introduced. All settled artwork,
+text and layout remain the approved composition.
+
+Design sources checked 2026-10-31: Flutter's
+[safe areas](https://docs.flutter.dev/ui/adaptive-responsive/safearea-mediaquery)
+and [constraint-driven layout](https://docs.flutter.dev/ui/adaptive-responsive/general),
+and Google's current
+[expressive motion direction](https://blog.google/products-and-platforms/platforms/android/material-3-expressive-android-wearos-launch/).
+The Google article was published in May 2025; these are current references
+checked in 2026, not a claim that every technique originated in 2026. The
+application keeps its pinned Flutter SDK and C materials.
+
+Three intentional Today layout baselines use untouched actual Linux test
+renders from CI run `41154239532`, source `83f95f8c3`; their final exact-head
+pixel comparison is still mandatory. The typography in those layout goldens
+is Ahem, while the 28 separate native C5/R16 presentation captures use bundled
+locale fonts. Neither set is physical-device evidence.
+
 Source: the existing dirty `c-app-integration-20261012` checkout at
 `2d68784d3b642a14fe174de26d55b0c82209a694`. It was read without modification.
 Per-file and asset hashes are in [the intake record](C5_KERNEL_INTAKE_20261030.json).

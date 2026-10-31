@@ -1,7 +1,7 @@
 {
   "file": "sori-shell-today-390-en-due-review-12.png",
-  "captured_at_utc": "2026-10-31T01:09:53.442563Z",
-  "source_revision": "922b7b2401b39ccede797d8e43969ef1acd89268",
+  "captured_at_utc": "2026-10-31T16:01:29.778513Z",
+  "source_revision": "83f95f8c3474ad70d97482895b93708530bd07eb+today-native-20261031-WIP",
   "scope": "actual SoriStageShell; isolated widget-test account",
   "language": "en",
   "tab": "today",
@@ -15,39 +15,34 @@
     "top": 24,
     "bottom": 24
   },
-  "greeting_text": "Good morning!",
+  "greeting_text": "Hi there!",
   "header_actions": {
-    "week": {
-      "left": 52.0,
-      "top": 36.0,
-      "width": 60.0,
-      "height": 48.0
-    },
-    "stats": {
-      "left": 116.0,
-      "top": 36.0,
-      "width": 54.0,
+    "profile": {
+      "left": 12.0,
+      "top": 28.0,
+      "width": 157.0,
       "height": 48.0
     },
     "wallet": {
-      "left": 174.0,
-      "top": 36.0,
-      "width": 64.0,
-      "height": 48.0
-    },
-    "profile": {
-      "left": 242.0,
-      "top": 36.0,
-      "width": 80.0,
+      "left": 169.0,
+      "top": 28.0,
+      "width": 62.66600036621094,
       "height": 48.0
     },
     "settings": {
-      "left": 330.0,
-      "top": 36.0,
+      "left": 235.66600036621094,
+      "top": 28.0,
       "width": 48.0,
       "height": 48.0
+    },
+    "details": {
+      "left": 12.0,
+      "top": 76.0,
+      "width": 366.0,
+      "height": 146.0
     }
   },
+  "header_actions_measurement_view": "initial compact dashboard",
   "native_context": "12 words due",
   "disable_animations": true,
   "fixture": "due-review-12",
@@ -62,12 +57,12 @@
   "r16_decoded_layers": [],
   "primary_action": {
     "key": "learning-focus-start",
-    "measurement_view": "initial fold before any summary scroll",
+    "measurement_view": "initial fold before opening details or scrolling",
     "rect": {
       "left": 25.0,
-      "top": 445.0,
+      "top": 455.0,
       "width": 340.0,
-      "height": 54.0
+      "height": 48.0
     },
     "fully_visible_above_navigation": true,
     "hit_testable": true

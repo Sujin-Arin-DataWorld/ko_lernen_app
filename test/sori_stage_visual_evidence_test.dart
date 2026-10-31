@@ -39,6 +39,10 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
 import 'package:ko_lernen_app/widgets/sori/approved_chrome_assets.dart';
 import 'package:ko_lernen_app/widgets/sori/ildu_r16_layer_artwork.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/settings_button.dart';
+import 'package:ko_lernen_app/widgets/sori/today_subject_art.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
 
 import 'support/catalog_test_support.dart' as catalog;
 import 'support/real_fonts.dart';
@@ -183,6 +187,10 @@ void main() {
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
   setUpAll(() async {
     await prepareSoriStageCaptureAssets();
+    await Future.wait([
+      CImageCache.load(TodaySubjectArt.atlas),
+      CImageCache.load(TodaySubjectArt.environments),
+    ]);
     _bookCardFocus = await catalog.loadFirstCatalogFocus();
     _emptyCourseEvidence = HanokCompetenceProjection.fromSnapshot(
       snapshot: const CourseMasterySnapshot.empty(),
@@ -686,9 +694,19 @@ Future<void> _captureWholeShell(
       ? null
       : tester.widget<Text>(greeting).data;
   final headerActions = <String, Map<String, double>>{};
+  final detailActions = <String, Map<String, double>>{};
   if (tab == SoriStageTab.today) {
-    for (final id in const ['week', 'stats', 'wallet', 'profile', 'settings']) {
-      final action = find.byKey(ValueKey('today-header-$id'));
+    final t = AppL10n.of(tester.element(find.byType(SoriStageTodayScreen)));
+    expect(find.text('HANGUL SORI'), findsOneWidget);
+    final actions = {
+      'profile': find.byTooltip(t.soriStageProfileTooltip),
+      'wallet': find.byKey(const ValueKey('yeopjeon-header-balance')),
+      'settings': find.byType(SoriSettingsButton),
+      'details': find.byKey(const ValueKey('today-details')),
+    };
+    for (final entry in actions.entries) {
+      final id = entry.key;
+      final action = entry.value;
       expect(action, findsOneWidget);
       final rect = tester.getRect(action);
       expect(rect.width, greaterThanOrEqualTo(48), reason: id);
@@ -708,11 +726,37 @@ Future<void> _captureWholeShell(
       : tester.widget<Text>(contextLine).data;
   Rect? summaryRect;
   if (focusHanokSummary) {
+    // Detailed ownership/evidence moved behind the visible dashboard action.
+    // The captured surface is the real details modal, never a staged summary.
+    final t = AppL10n.of(tester.element(find.byType(SoriStageTodayScreen)));
+    await tester.tap(find.byKey(const ValueKey('today-details')));
+    await pumpSoriStage(tester);
+    await settleSoriStageCaptureAssets(tester);
+    expect(find.text(t.todayDetails), findsOneWidget);
+    expect(find.byKey(const ValueKey('c-today-board')), findsOneWidget);
+    for (final entry in {
+      'week': t.statsThisWeek,
+      'stats': t.todayProgress,
+    }.entries) {
+      final action = find.widgetWithText(SoriTextAction, entry.value);
+      expect(action, findsOneWidget);
+      expect(tester.widget<SoriTextAction>(action).onPressed, isNotNull);
+      final rect = tester.getRect(action);
+      expect(rect.width, greaterThanOrEqualTo(48), reason: entry.key);
+      expect(rect.height, greaterThanOrEqualTo(48), reason: entry.key);
+      expect(action.hitTestable(), findsOneWidget);
+      detailActions[entry.key] = {
+        'left': rect.left,
+        'top': rect.top,
+        'width': rect.width,
+        'height': rect.height,
+      };
+    }
     final summary = find.byKey(const ValueKey('today-hanok-summary'));
     await tester.scrollUntilVisible(
       summary,
       200,
-      scrollable: find.byType(Scrollable).first,
+      scrollable: find.byType(Scrollable).last,
     );
     await Scrollable.ensureVisible(tester.element(summary), alignment: .45);
     await pumpSoriStage(tester);
@@ -728,18 +772,26 @@ Future<void> _captureWholeShell(
   }
   final layerEvidence = <Map<String, Object?>>[];
   if (tab == SoriStageTab.hanok || focusHanokSummary) {
+    final evidenceSurface = focusHanokSummary
+        ? find.byKey(const ValueKey('c-today-board'))
+        : find.byType(SoriStageHanokScreen);
+    Finder inEvidence(Finder target) =>
+        find.descendant(of: evidenceSurface, matching: target);
     if (ownedStages <= 1) {
-      expect(find.byKey(const ValueKey('hanok-empty-site')), findsOneWidget);
-      expect(find.byType(IlDuR16LayerArtwork), findsNothing);
+      expect(
+        inEvidence(find.byKey(const ValueKey('hanok-empty-site'))),
+        findsOneWidget,
+      );
+      expect(inEvidence(find.byType(IlDuR16LayerArtwork)), findsNothing);
     } else {
       final construction = await tester.runAsync(SarangchaeConstruction.load);
       final expectedId = 'ildu.${construction!.stage(ownedStages).stageId}';
       final layers = tester.widgetList<IlDuR16LayerArtwork>(
-        find.byType(IlDuR16LayerArtwork),
+        inEvidence(find.byType(IlDuR16LayerArtwork)),
       );
       expect(layers.map((art) => art.processId), contains(expectedId));
       final paints = tester
-          .widgetList<CustomPaint>(find.byType(CustomPaint))
+          .widgetList<CustomPaint>(inEvidence(find.byType(CustomPaint)))
           .where((paint) => paint.painter is IlDuR16LayerPainter)
           .toList();
       expect(
@@ -793,6 +845,9 @@ Future<void> _captureWholeShell(
           'safe_insets': {'top': 24, 'bottom': 24},
           'greeting_text': greetingText,
           'header_actions': headerActions,
+          if (tab == SoriStageTab.today)
+            'header_actions_measurement_view': 'initial compact dashboard',
+          if (detailActions.isNotEmpty) 'details_actions': detailActions,
           'native_context': nativeContext,
           'disable_animations': true,
           'fixture': fixture,
@@ -805,7 +860,7 @@ Future<void> _captureWholeShell(
           'ownership_source':
               'isolated Storage saved-ledger fixture; grandfathered ownership',
           'capture_view': focusHanokSummary
-              ? 'scrolled to actual owned Today summary'
+              ? 'Today details modal; scrolled to actual owned Hanok summary'
               : 'initial fold',
           'r16_decoded_layers': layerEvidence,
           if (summaryRect != null)
@@ -817,7 +872,8 @@ Future<void> _captureWholeShell(
             },
           'primary_action': {
             'key': primaryKey,
-            'measurement_view': 'initial fold before any summary scroll',
+            'measurement_view':
+                'initial fold before opening details or scrolling',
             'rect': {
               'left': primaryRect.left,
               'top': primaryRect.top,

@@ -92,8 +92,10 @@ void main() {
   for (final language in ['de', 'en']) {
     for (final viewport in const [
       Size(320, 640),
+      Size(375, 667),
       Size(390, 844),
       Size(393, 873),
+      Size(430, 932),
     ]) {
       final width = viewport.width;
       for (final safeInsets in [false, true]) {

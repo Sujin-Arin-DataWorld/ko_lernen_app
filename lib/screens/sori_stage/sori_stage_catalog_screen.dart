@@ -22,6 +22,7 @@ import '../../widgets/sori/book_capture_choice.dart';
 import '../../widgets/sori/media_phrase_link.dart';
 import '../../widgets/sori/catalog_card.dart';
 import '../../widgets/sori/card.dart';
+import '../../widgets/sori/button.dart';
 import '../../widgets/sori/learning_focus.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/tokens.dart';
@@ -650,22 +651,36 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                     padding: EdgeInsets.symmetric(horizontal: padding.left),
                     sliver: Builder(
                       builder: (context) {
+                        final compactActions =
+                            MediaQuery.textScalerOf(context).scale(16) > 22.4;
                         return SoriRootHeader(
                           title: title,
                           foreground: CPalette.paper,
                           background: CPalette.jade,
-                          trailingSlots: _showAll
+                          trailingSlots: _showAll || compactActions
                               ? (isGames ? 1 : 2)
                               : (isGames ? 3 : 4),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              if (!_showAll)
+                              if (!_showAll && compactActions)
+                                IconButton(
+                                  key: const ValueKey('c5-catalog-all'),
+                                  tooltip: isGames
+                                      ? t.c5AllGames
+                                      : t.c5AllLearningActivities,
+                                  onPressed: () => _toggleCatalog(true),
+                                  icon: const Icon(
+                                    Icons.grid_view_rounded,
+                                    color: CPalette.paper,
+                                  ),
+                                ),
+                              if (!_showAll && !compactActions)
                                 ConstrainedBox(
                                   constraints: const BoxConstraints(
                                     maxWidth: 152,
                                   ),
-                                  child: TextButton(
+                                  child: SoriTextAction(
                                     key: const ValueKey('c5-catalog-all'),
                                     style: TextButton.styleFrom(
                                       minimumSize: const Size(48, 48),
@@ -679,11 +694,9 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                                       ),
                                     ),
                                     onPressed: () => _toggleCatalog(true),
-                                    child: Text(
-                                      isGames
-                                          ? t.c5AllGames
-                                          : t.c5AllLearningActivities,
-                                    ),
+                                    label: isGames
+                                        ? t.c5AllGames
+                                        : t.c5AllLearningActivities,
                                   ),
                                 ),
                               if (_showAll)

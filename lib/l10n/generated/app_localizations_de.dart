@@ -12294,4 +12294,51 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get accountRecoveryResumeConfirm => 'Bestätigte Auswahl fortsetzen';
+
+  @override
+  String get todayNextStep => 'DEIN NÄCHSTER SCHRITT';
+
+  @override
+  String get todayFirstSyllable => 'Deine erste Silbe';
+
+  @override
+  String get todayFirstSyllableBody => 'Höre und verbinde zwei Zeichen.';
+
+  @override
+  String get todayReviewTitle => 'Zeit zum Wiederholen';
+
+  @override
+  String get todayStartHangul => 'Hangul starten';
+
+  @override
+  String get todayStartReview => 'Jetzt wiederholen';
+
+  @override
+  String get todayContinue => 'Weiterlernen';
+
+  @override
+  String get todayFinds => 'Deine Funde';
+
+  @override
+  String get todayViewFinds => 'Ansehen';
+
+  @override
+  String get todayYourHanok => 'Dein Hanok';
+
+  @override
+  String get todayQuickPlay => 'Kurz spielen';
+
+  @override
+  String get todayDetails => 'Dein Tag im Überblick';
+
+  @override
+  String get todayProgress => 'Lernfortschritt';
+
+  @override
+  String todayFindCount(int count) {
+    return '$count zum Auspacken';
+  }
+
+  @override
+  String get todayHanokPreview => 'Vorschau';
 }

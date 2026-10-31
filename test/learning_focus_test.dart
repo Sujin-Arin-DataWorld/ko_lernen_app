@@ -364,9 +364,19 @@ void main() {
 
           expect(controller.claimLaunch(), isTrue);
           await tester.pump();
-          expect(tester.widget<TextButton>(overview).onPressed, isNull);
+          final nativeOverview = find.descendant(
+            of: overview,
+            matching: find.byType(TextButton),
+            matchRoot: true,
+          );
+          expect(nativeOverview, findsOneWidget);
+          expect(tester.widget<TextButton>(nativeOverview).onPressed, isNull);
           controller.releaseLaunch();
           await tester.pump();
+          expect(
+            tester.widget<TextButton>(nativeOverview).onPressed,
+            isNotNull,
+          );
 
           if (state == 'ready') {
             await tester.tap(find.text(t.learningFocusStart));
