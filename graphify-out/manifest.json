@@ -60,9 +60,9 @@
     "semantic_hash": "90f7a1bd392990ef8919264bbfb71773"
   },
   "android/app/build.gradle.kts": {
-    "mtime": 1793376201.3841677,
-    "seen": 1793380187.0558922,
-    "ast_hash": "1ecca99475642dd135302e91057c5428",
+    "mtime": 1793407003.5854373,
+    "seen": 1793407063.1102164,
+    "ast_hash": "1874876576a2ade879781d07c21a486d",
     "semantic_hash": ""
   },
   "android/app/google-services.json": {
@@ -1404,9 +1404,9 @@
     "semantic_hash": ""
   },
   "lib/screens/gye_tab_screen.dart": {
-    "mtime": 1793372592.3436694,
-    "seen": 1793380187.0573323,
-    "ast_hash": "3571df767884eed48db29cef551df79e",
+    "mtime": 1793400286.6055765,
+    "seen": 1793407063.2592285,
+    "ast_hash": "ec73a86588e1b4c18ddbd4278c6ff0f4",
     "semantic_hash": ""
   },
   "lib/screens/hangul_screen.dart": {
@@ -1626,9 +1626,9 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_catalog_screen.dart": {
-    "mtime": 1793351501.7263649,
-    "seen": 1793380187.0574896,
-    "ast_hash": "1492201ecdde9428b5c452713bc74ad7",
+    "mtime": 1793399570.3216717,
+    "seen": 1793407063.2838724,
+    "ast_hash": "6892fed4b4c0409388c39707a2a8393b",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_common.dart": {
@@ -1638,15 +1638,15 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_gye_screen.dart": {
-    "mtime": 1793372592.3472075,
-    "seen": 1793380187.0574934,
-    "ast_hash": "66a60f1eeb137f5621272a241903af63",
+    "mtime": 1793399460.6917505,
+    "seen": 1793407063.2842002,
+    "ast_hash": "de1657952d35c057fd758281b723d02e",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_hanok_screen.dart": {
-    "mtime": 1793372592.3497446,
-    "seen": 1793380187.057495,
-    "ast_hash": "9f82d7cfc426b74ad428855d85985795",
+    "mtime": 1793405143.95091,
+    "seen": 1793407063.284203,
+    "ast_hash": "7a465eb75cbd027d91a6ee23d48f6b26",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_preview_screens.dart": {
@@ -1668,9 +1668,9 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_today_screen.dart": {
-    "mtime": 1793358123.7331698,
-    "seen": 1793380187.0575023,
-    "ast_hash": "847c40b82f8cdf5cd8fa08266642d40b",
+    "mtime": 1793402740.4322257,
+    "seen": 1793407063.2851737,
+    "ast_hash": "812d424e6183609eb7e3b99317a382f2",
     "semantic_hash": ""
   },
   "lib/screens/speed_match_screen.dart": {
@@ -3192,9 +3192,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/stats_top_bar.dart": {
-    "mtime": 1793357778.3250327,
-    "seen": 1793380187.0585084,
-    "ast_hash": "c871bc0ea34308f8079e147487bddf7b",
+    "mtime": 1793399168.1806097,
+    "seen": 1793407063.412479,
+    "ast_hash": "b7af179511c7f01f887a2c1dbe9201d7",
     "semantic_hash": ""
   },
   "lib/widgets/sori/sticker_image.dart": {
@@ -3522,9 +3522,9 @@
     "semantic_hash": ""
   },
   "test/asset_orphan_guard_test.dart": {
-    "mtime": 1793372592.3663769,
-    "seen": 1793380187.058732,
-    "ast_hash": "db15fef032f82122369abe43a3a473d7",
+    "mtime": 1793403357.8804753,
+    "seen": 1793407063.4367971,
+    "ast_hash": "717a6bd307d6d13c41ee1e88d22da72b",
     "semantic_hash": ""
   },
   "test/audio_policy_guard_test.dart": {
@@ -4320,9 +4320,9 @@
     "semantic_hash": ""
   },
   "test/gye_embedded_fit_test.dart": {
-    "mtime": 1793312632.21332,
-    "seen": 1793380187.059555,
-    "ast_hash": "69dc85d340d281119d7581c5fa1cb4cc",
+    "mtime": 1793399809.4838548,
+    "seen": 1793407063.5137205,
+    "ast_hash": "ac122b6cf8de656e4e1bba8b416403c6",
     "semantic_hash": ""
   },
   "test/gye_entry_uiux_test.dart": {
@@ -5532,9 +5532,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_adaptive_chrome_test.dart": {
-    "mtime": 1793357778.3499043,
-    "seen": 1793380187.0610294,
-    "ast_hash": "4d538faba53fbeb5cdbb80b1956bc438",
+    "mtime": 1793398548.6274698,
+    "seen": 1793407063.640167,
+    "ast_hash": "4af53fd8aed724c0ffe44aa6d13a0528",
     "semantic_hash": ""
   },
   "test/sori_stage_catalog_reward_flow_test.dart": {
@@ -5544,9 +5544,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_hanok_shortcuts_test.dart": {
-    "mtime": 1793372592.3772223,
-    "seen": 1793380187.0610628,
-    "ast_hash": "df6de8f2000d4ed61c1fede4a274b998",
+    "mtime": 1793402474.2869642,
+    "seen": 1793407063.642634,
+    "ast_hash": "992f0243fb2ae8842dff14641fcc3aa2",
     "semantic_hash": ""
   },
   "test/sori_stage_progression_rules_test.dart": {
@@ -5592,9 +5592,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_visual_evidence_test.dart": {
-    "mtime": 1793353860.5141156,
-    "seen": 1793380187.0610943,
-    "ast_hash": "8e619bc498bf59323ca5dbdc1575a710",
+    "mtime": 1793404451.3956044,
+    "seen": 1793407063.6465914,
+    "ast_hash": "33b7b3d468d97ad56913fb2374fd7a8e",
     "semantic_hash": ""
   },
   "test/sori_standard_page_test.dart": {
@@ -5838,9 +5838,9 @@
     "semantic_hash": ""
   },
   "test/uiux_bible_closeout_inventory_test.dart": {
-    "mtime": 1793379789.228222,
-    "seen": 1793380187.0614452,
-    "ast_hash": "7df738352b05d0d77c2e6557f90a4f6e",
+    "mtime": 1793403357.879014,
+    "seen": 1793407063.6745598,
+    "ast_hash": "5b675b3b28cbfdc8efec39d915196b45",
     "semantic_hash": ""
   },
   "test/ux_gallery_no_write_test.dart": {
@@ -8832,9 +8832,9 @@
     "semantic_hash": ""
   },
   "docs/UIUX_BIBLE_APPLICATION_EXECUTION_LOCK.md": {
-    "mtime": 1793379789.152526,
-    "seen": 1793380187.065409,
-    "ast_hash": "2ffe166d57f2e254f4f8225cdf84b269",
+    "mtime": 1793404002.493018,
+    "seen": 1793407064.0716412,
+    "ast_hash": "6296b6c8ccc74ff0277f440f624df023",
     "semantic_hash": ""
   },
   "docs/UIUX_DUOLINGO_GAP_AND_PLAN.md": {
@@ -9300,9 +9300,9 @@
     "semantic_hash": ""
   },
   "pubspec.yaml": {
-    "mtime": 1793372857.283033,
-    "seen": 1793380187.0663395,
-    "ast_hash": "3f5a139c517ef34cc35cd23f65d7c9b6",
+    "mtime": 1793403592.0988803,
+    "seen": 1793407064.154233,
+    "ast_hash": "96f55927b3e2935b50ba0c1f1c0060ab",
     "semantic_hash": ""
   },
   "scripts/cache/README.md": {
@@ -9630,9 +9630,9 @@
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-today-390.png": {
-    "mtime": 1793358174.1483312,
-    "seen": 1793380187.0673764,
-    "ast_hash": "102fa0297cebc02beb16642ebe20b363",
+    "mtime": 1793405240.87386,
+    "seen": 1793407064.28614,
+    "ast_hash": "5fea052de4a558e7a4cee3c292d8a78d",
     "semantic_hash": ""
   },
   "docs/social/bbanana/hangul-sori-one-sound-one-space-background-v2.png": {
@@ -11172,15 +11172,15 @@
     "semantic_hash": ""
   },
   ".github/scripts/test_play_closed_workflow.py": {
-    "mtime": 1793312607.4898498,
-    "seen": 1793380187.0558562,
-    "ast_hash": "5e5434f2b7cc37ce3063e6dbc9c991ab",
+    "mtime": 1793380940.1519094,
+    "seen": 1793392634.9204006,
+    "ast_hash": "5eb3ecb4b1fdc375ed11afd85349e5d0",
     "semantic_hash": ""
   },
   ".github/workflows/play_closed.yml": {
-    "mtime": 1793377372.0369592,
-    "seen": 1793380187.0649152,
-    "ast_hash": "75cf3140dc13ac67ba07edf2311a1553",
+    "mtime": 1793405282.0834684,
+    "seen": 1793407064.0227013,
+    "ast_hash": "68c418c17f3c212d87e1d14f2a752c61",
     "semantic_hash": ""
   },
   "docs/HANDOFF-2026-08-27-waves.md": {
@@ -13914,9 +13914,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_hanok_fold_test.dart": {
-    "mtime": 1793328435.6734233,
-    "seen": 1793380187.0610611,
-    "ast_hash": "0904fde893eba47f756eafdb0d87cce2",
+    "mtime": 1793404635.1057634,
+    "seen": 1793407063.6426308,
+    "ast_hash": "0d33aac6c0fe6cef0b7846f49b0a5250",
     "semantic_hash": ""
   },
   "test/sori_stage_pump_guard_test.dart": {
@@ -13938,9 +13938,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_today_stage_term_test.dart": {
-    "mtime": 1793312632.5454178,
-    "seen": 1793380187.0610917,
-    "ast_hash": "9675bb0f75c634962fe575edfe2f8288",
+    "mtime": 1793402740.433226,
+    "seen": 1793407063.646585,
+    "ast_hash": "ffe283ebdb5020d0d1953e119ccf16dc",
     "semantic_hash": ""
   },
   "test/sori_stepper_test.dart": {
@@ -14070,15 +14070,15 @@
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-hanok-390-collapsed.png": {
-    "mtime": 1793355154.6685574,
-    "seen": 1793380187.06735,
-    "ast_hash": "b152335e4e9956f3ee45fa48bc23f666",
+    "mtime": 1793405240.6562896,
+    "seen": 1793407064.2829752,
+    "ast_hash": "f73fff2ddba052845af1fad8a11996b3",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-hanok-390.png": {
-    "mtime": 1793355154.0307403,
-    "seen": 1793380187.0673578,
-    "ast_hash": "122041c0384eeb274f6cbf0ce68fe583",
+    "mtime": 1793405240.3776293,
+    "seen": 1793407064.2835991,
+    "ast_hash": "0565ce6e005fb194abfd4c1cfd08514a",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-learn-390.png": {
@@ -15912,9 +15912,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/hanok_v3_preview.dart": {
-    "mtime": 1793372592.3554513,
-    "seen": 1793380187.058332,
-    "ast_hash": "0726d5201cadfd7f5918140518916410",
+    "mtime": 1793402682.7659147,
+    "seen": 1793407063.3922489,
+    "ast_hash": "85ba4090cb8dac6442a0df5701f0a7a6",
     "semantic_hash": ""
   },
   "test/hanok_migration_concurrency_test.dart": {
@@ -15936,9 +15936,9 @@
     "semantic_hash": ""
   },
   "test/hanok_v3_preview_test.dart": {
-    "mtime": 1793372592.3688867,
-    "seen": 1793380187.0596652,
-    "ast_hash": "8316e0dafd831a5cc55d0f7cee8b3da1",
+    "mtime": 1793403155.8712068,
+    "seen": 1793407063.5257683,
+    "ast_hash": "b96e4eac4b9c09197fc2a3ec012b96fa",
     "semantic_hash": ""
   },
   "test/ildu_projection_source_guard_test.dart": {
@@ -17172,9 +17172,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/learning_focus.dart": {
-    "mtime": 1793351691.7337875,
-    "seen": 1793380187.058371,
-    "ast_hash": "19303c8a0cc06a4ba9f0f0e3ec5f4cf6",
+    "mtime": 1793399170.8097494,
+    "seen": 1793407063.3958127,
+    "ast_hash": "0e67d623684197b436ad194223a04e12",
     "semantic_hash": ""
   },
   "test/catalog_history_test.dart": {
@@ -17196,9 +17196,9 @@
     "semantic_hash": ""
   },
   "test/learning_focus_test.dart": {
-    "mtime": 1793333696.2282302,
-    "seen": 1793380187.0597951,
-    "ast_hash": "e13ac8b3c3c00a129707f0c5064e499e",
+    "mtime": 1793399366.9865594,
+    "seen": 1793407063.5409102,
+    "ast_hash": "6bc886819644f6e9d384fadadf16bedd",
     "semantic_hash": ""
   },
   "test/learning_journey_test.dart": {
@@ -17226,9 +17226,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_remaining_composition_test.dart": {
-    "mtime": 1793342329.9574454,
-    "seen": 1793380187.0610704,
-    "ast_hash": "7d4b2642d8f0518cacafc8fcdde24376",
+    "mtime": 1793402717.0384316,
+    "seen": 1793407063.643722,
+    "ast_hash": "9ae00f3313ae2d7ef7bc2d07ab81496e",
     "semantic_hash": ""
   },
   "test/support/catalog_test_support.dart": {
@@ -20112,9 +20112,9 @@
     "semantic_hash": ""
   },
   "tool/test_internal_symbol_workflow.py": {
-    "mtime": 1793375569.4008064,
-    "seen": 1793380187.0632792,
-    "ast_hash": "61d6ca3edea1c898e5cfcdf2d777e215",
+    "mtime": 1793405282.0844688,
+    "seen": 1793407063.7683246,
+    "ast_hash": "bc285c8e554971bb91a1c1f877d7ff88",
     "semantic_hash": ""
   },
   "tool/collect_android_coldstart.py": {
@@ -20724,9 +20724,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/yeopjeon_wallet_card.dart": {
-    "mtime": 1793372592.3617501,
-    "seen": 1793380187.0585873,
-    "ast_hash": "5e09fc742acc8cdc493ea3b6fa73bf07",
+    "mtime": 1793404877.6978076,
+    "seen": 1793407063.4204977,
+    "ast_hash": "f4da83922242faa558f764adfab38305",
     "semantic_hash": ""
   },
   "test/services/haptic_service_test.dart": {
@@ -25716,9 +25716,9 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/c5_catalog_overview.dart": {
-    "mtime": 1793351501.6838045,
-    "seen": 1793380187.0574827,
-    "ast_hash": "4e9f4850b2545f1960f914d5809686d6",
+    "mtime": 1793399974.1198537,
+    "seen": 1793407063.2835126,
+    "ast_hash": "56b1d7e4c1a54547e4e696bd47d705f5",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/c_stage_chrome.dart": {
@@ -25770,9 +25770,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/c_gallery/c_materials.dart": {
-    "mtime": 1793351568.8569279,
-    "seen": 1793380187.0581825,
-    "ast_hash": "daa3664245e974d9ff8a8abd98d4219f",
+    "mtime": 1793398322.1031158,
+    "seen": 1793407063.3731582,
+    "ast_hash": "048d68739e5035a82612b33d36aa608e",
     "semantic_hash": ""
   },
   "lib/widgets/sori/c_gallery/c_objects.dart": {
@@ -25812,9 +25812,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/image_navigation_bar.dart": {
-    "mtime": 1793315303.287849,
-    "seen": 1793380187.0583541,
-    "ast_hash": "040d82c56f25497e644996fb7aed1a67",
+    "mtime": 1793400455.4107318,
+    "seen": 1793407063.3942587,
+    "ast_hash": "32bd50fbf2097b23c4b263e696e3d57c",
     "semantic_hash": ""
   },
   "lib/widgets/sori/top_chrome.dart": {
@@ -25848,9 +25848,9 @@
     "semantic_hash": ""
   },
   "test/c5_catalog_capture_test.dart": {
-    "mtime": 1793351830.739242,
-    "seen": 1793380187.0588255,
-    "ast_hash": "5b45dd499503be1c8756b42f18fcda34",
+    "mtime": 1793399974.1414058,
+    "seen": 1793407063.4456966,
+    "ast_hash": "0efea6ed6ec36c2d32f12337fbbac9a2",
     "semantic_hash": ""
   },
   "test/c5_kernel_test.dart": {
@@ -25860,9 +25860,9 @@
     "semantic_hash": ""
   },
   "test/c5_live_body_adapter_test.dart": {
-    "mtime": 1793335750.8343325,
-    "seen": 1793380187.058829,
-    "ast_hash": "db8832d4e96e61d177d5bab7f2ff40e5",
+    "mtime": 1793402802.484529,
+    "seen": 1793407063.4460282,
+    "ast_hash": "a2be38a93350a3a5346c682ca603fac1",
     "semantic_hash": ""
   },
   "test/c_calligraphy_test.dart": {
@@ -25926,9 +25926,9 @@
     "semantic_hash": ""
   },
   "test/support/sori_stage_capture_assets.dart": {
-    "mtime": 1793335832.729917,
-    "seen": 1793380187.0613117,
-    "ast_hash": "80393706131dda528731237b3662904d",
+    "mtime": 1793404141.3646607,
+    "seen": 1793407063.6648786,
+    "ast_hash": "8a64683e8ecb295fd8d9ef92bf86d333",
     "semantic_hash": ""
   },
   "test/tts_bundled_introduction_test.dart": {
@@ -25980,15 +25980,15 @@
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-hanok-390-collapsed-en.png": {
-    "mtime": 1793355157.0916257,
-    "seen": 1793380187.0673475,
-    "ast_hash": "1b4b2cf2fd38235425d57233b34b3914",
+    "mtime": 1793405241.4026427,
+    "seen": 1793407064.2829719,
+    "ast_hash": "8f12870e8b79830acfa739e703ff3e15",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-hanok-390-en.png": {
-    "mtime": 1793355156.627748,
-    "seen": 1793380187.0673516,
-    "ast_hash": "2535a2cb96cbe0a60354eb73318b46af",
+    "mtime": 1793405241.1350777,
+    "seen": 1793407064.2829783,
+    "ast_hash": "ac352aa2d107e6db36a72e7476394cee",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-learn-1280-en.png": {
@@ -26004,9 +26004,9 @@
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-today-390-de.png": {
-    "mtime": 1793355152.3921845,
-    "seen": 1793380187.0673723,
-    "ast_hash": "c5c6f186db636390f93b794239f65763",
+    "mtime": 1793405240.1116862,
+    "seen": 1793407064.2858202,
+    "ast_hash": "b64e9c030416cd875d072206e18c8e81",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-today-390-de-bojagi-receipt.png": {
@@ -26124,9 +26124,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/ildu_r16_process_image.dart": {
-    "mtime": 1793372592.3574812,
-    "seen": 1793380187.0583456,
-    "ast_hash": "af3396f411854ba2d999c0fe76bbbd6c",
+    "mtime": 1793405054.7667685,
+    "seen": 1793407063.3935826,
+    "ast_hash": "4a26c009beb8341c2ef3eeb38ec3efc3",
     "semantic_hash": ""
   },
   "test/ildu_estate_screen_test.dart": {
@@ -26280,9 +26280,9 @@
     "semantic_hash": ""
   },
   "android/c_artwork/build.gradle.kts": {
-    "mtime": 1793376201.3851924,
-    "seen": 1793380187.0559103,
-    "ast_hash": "37e496d8b777b12ba0561dcd4b0ee378",
+    "mtime": 1793407003.5999448,
+    "seen": 1793407063.1111736,
+    "ast_hash": "429aff34fc0ca2db364106cb6e822537",
     "semantic_hash": ""
   },
   "lib/widgets/sori/c_material_assets.dart": {
@@ -26292,33 +26292,381 @@
     "semantic_hash": ""
   },
   "test/public_bundle_size_assets_test.dart": {
-    "mtime": 1793378666.473034,
-    "seen": 1793380187.0603397,
-    "ast_hash": "d24c4f1e085739c6bb1e4bcb2146edc5",
+    "mtime": 1793383809.1894524,
+    "seen": 1793392635.315035,
+    "ast_hash": "8727e9f13901d5519d25ee7b22980b79",
     "semantic_hash": ""
   },
   "tool/AndroidArtworkDownloadSize.java": {
-    "mtime": 1793378894.8096607,
-    "seen": 1793380187.0616448,
-    "ast_hash": "faa14e859641451b7a9951c6b130912c",
+    "mtime": 1793405950.6481104,
+    "seen": 1793407063.6904135,
+    "ast_hash": "e99779348bbcf54c167c721a9a530fdb",
     "semantic_hash": ""
   },
   "tool/test_verify_android_artwork_delivery.py": {
-    "mtime": 1793378431.1736188,
-    "seen": 1793380187.0633357,
-    "ast_hash": "e26166fc8b7506be20985f7f09f7550b",
+    "mtime": 1793405950.652395,
+    "seen": 1793407063.7728686,
+    "ast_hash": "e020fe8c0e022ccc03807fc3eb701782",
     "semantic_hash": ""
   },
   "tool/verify_android_artwork_delivery.py": {
-    "mtime": 1793378431.172567,
-    "seen": 1793380187.0633552,
-    "ast_hash": "4ded8be8d1ac44b707dcd0c608bfa672",
+    "mtime": 1793405950.6513853,
+    "seen": 1793407063.7746892,
+    "ast_hash": "ec2b24e75e74dd163ae6b161f0cf74bc",
     "semantic_hash": ""
   },
   "docs/runbooks/android-artwork-delivery.md": {
     "mtime": 1793378431.1736188,
     "seen": 1793380187.0659606,
     "ast_hash": "cdb58d47bc73b93d817d92209cd45a2c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/presentation/SARANGCHAE_TRANSPARENT_V1.json": {
+    "mtime": 1793406613.9798703,
+    "seen": 1793407063.130111,
+    "ast_hash": "7cfc9e34f3eeecb0de099400d44a4af7",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/c5-r16-final-manifest.json": {
+    "mtime": 1793405443.7684498,
+    "seen": 1793407063.1616476,
+    "ast_hash": "d6d8a1873924b7bc5d921ac75698c158",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-games-390-de-bundled-first-course.json": {
+    "mtime": 1793405443.3771741,
+    "seen": 1793407063.1616514,
+    "ast_hash": "3ec3126abfb665652f686aa72b0f276b",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-games-390-en-bundled-first-course.json": {
+    "mtime": 1793405443.403593,
+    "seen": 1793407063.1616542,
+    "ast_hash": "de0171b2d4a5739035fcf732c1e00935",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-gye-390-de-bundled-first-course.json": {
+    "mtime": 1793405443.423444,
+    "seen": 1793407063.1616564,
+    "ast_hash": "baff9f6f64f7d7ed0b1af2d5687dffd1",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-gye-390-en-bundled-first-course.json": {
+    "mtime": 1793405443.4429288,
+    "seen": 1793407063.1616583,
+    "ast_hash": "939077be6ff43cbd78121238bb614c05",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-bundled-first-course.json": {
+    "mtime": 1793405443.4617243,
+    "seen": 1793407063.161661,
+    "ast_hash": "819408897458b0c574171fad474f15ec",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-saved-owned-1.json": {
+    "mtime": 1793405443.4793732,
+    "seen": 1793407063.1616626,
+    "ast_hash": "e29c3f04ee50451e01c6d1572bd38f75",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-saved-owned-16.json": {
+    "mtime": 1793405443.499066,
+    "seen": 1793407063.161664,
+    "ast_hash": "b32db973ecf15d08d5f1265c9b298d93",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-saved-owned-8.json": {
+    "mtime": 1793405443.5107653,
+    "seen": 1793407063.1616652,
+    "ast_hash": "41cb868c10ad989ed7b640fab4d8fc1a",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-bundled-first-course.json": {
+    "mtime": 1793405443.528616,
+    "seen": 1793407063.1616676,
+    "ast_hash": "4d6082b64834368ff298aa1c2ba1ded8",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-saved-owned-1.json": {
+    "mtime": 1793405443.547028,
+    "seen": 1793407063.161669,
+    "ast_hash": "7c21856920b5c2208889c6351cc94493",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-saved-owned-16.json": {
+    "mtime": 1793405443.5680096,
+    "seen": 1793407063.1616707,
+    "ast_hash": "e3a00950b1406ccbf491631023c8be2d",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-saved-owned-8.json": {
+    "mtime": 1793405443.5816782,
+    "seen": 1793407063.161672,
+    "ast_hash": "415f33f562b894fbbeecccb0b831b557",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-learn-390-de-bundled-first-course.json": {
+    "mtime": 1793405443.6019895,
+    "seen": 1793407063.1616738,
+    "ast_hash": "83c5f338ab45db59fab5d80f17e42ec3",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-learn-390-en-bundled-first-course.json": {
+    "mtime": 1793405443.6197884,
+    "seen": 1793407063.1616752,
+    "ast_hash": "5e4935724abdd42faee76cc39103379d",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-bundled-first-course.json": {
+    "mtime": 1793405443.6388502,
+    "seen": 1793407063.161677,
+    "ast_hash": "13204a43594a37c94e538a69b83a581f",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-due-review-12.json": {
+    "mtime": 1793405443.6582541,
+    "seen": 1793407063.161678,
+    "ast_hash": "66c0013217da5711fa698f925056b3da",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-saved-owned-16-summary.json": {
+    "mtime": 1793405443.668794,
+    "seen": 1793407063.1616802,
+    "ast_hash": "bef715fba3b8a43672d8b74bf2619d69",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-saved-owned-8-summary.json": {
+    "mtime": 1793405443.6908479,
+    "seen": 1793407063.1616814,
+    "ast_hash": "7066d0ef435a63b78182132556abf26d",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-bundled-first-course.json": {
+    "mtime": 1793405443.708779,
+    "seen": 1793407063.1616828,
+    "ast_hash": "04c36916bc84b4f45d6f72ae8fd8600b",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-due-review-12.json": {
+    "mtime": 1793405443.7268896,
+    "seen": 1793407063.1616845,
+    "ast_hash": "928e4c860d968b67422f361e9937aa53",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-saved-owned-16-summary.json": {
+    "mtime": 1793405443.7456553,
+    "seen": 1793407063.161686,
+    "ast_hash": "0c2928cba555d9fa2a8b5e99d8720338",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-saved-owned-8-summary.json": {
+    "mtime": 1793405443.7581472,
+    "seen": 1793407063.1616874,
+    "ast_hash": "465617bae5759059553740714d29d758",
+    "semantic_hash": ""
+  },
+  "lib/models/ildu_r16_layers.dart": {
+    "mtime": 1793403153.6696944,
+    "seen": 1793407063.2428963,
+    "ast_hash": "54e53fd33cb5c6915a495aacff1619b1",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/c_gallery/c5_scene_assets.dart": {
+    "mtime": 1793398875.15491,
+    "seen": 1793407063.372229,
+    "ast_hash": "6ce71201d12bafa548f3f006a3023a7f",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/ildu_r16_layer_artwork.dart": {
+    "mtime": 1793402995.4784162,
+    "seen": 1793407063.393578,
+    "ast_hash": "3d3a5480bc2720fc7c519ce41f081040",
+    "semantic_hash": ""
+  },
+  "test/ildu_r16_layer_artwork_test.dart": {
+    "mtime": 1793402995.479416,
+    "seen": 1793407063.532098,
+    "ast_hash": "ea89449e86ceb8e95e7b73e537abeafe",
+    "semantic_hash": ""
+  },
+  "test/ildu_r16_layer_sources_test.dart": {
+    "mtime": 1793404007.4258602,
+    "seen": 1793407063.5321012,
+    "ast_hash": "100aaec26e797a199e282a2cdca2908d",
+    "semantic_hash": ""
+  },
+  "tool/AndroidArtworkMarkerTest.java": {
+    "mtime": 1793405282.8183148,
+    "seen": 1793407063.690416,
+    "ast_hash": "830a8da4732b763f8eb29e42cb35fc29",
+    "semantic_hash": ""
+  },
+  "tool/android_artwork_manifest.py": {
+    "mtime": 1793403433.1669855,
+    "seen": 1793407063.6906552,
+    "ast_hash": "482dfe7b8d0c7d1a3d31341592467ec0",
+    "semantic_hash": ""
+  },
+  "tool/capture_android_artwork_diagnostics.py": {
+    "mtime": 1793401553.7660618,
+    "seen": 1793407063.6994233,
+    "ast_hash": "dddf1ec74dcf3e6e19b452afc82033b7",
+    "semantic_hash": ""
+  },
+  "tool/test_android_artwork_manifest.py": {
+    "mtime": 1793403433.1689887,
+    "seen": 1793407063.7598758,
+    "ast_hash": "c9d4fb9d3c682541ddef3c402f7d8c65",
+    "semantic_hash": ""
+  },
+  "tool/test_capture_android_artwork_diagnostics.py": {
+    "mtime": 1793401553.7675507,
+    "seen": 1793407063.7642806,
+    "ast_hash": "c0d16eae8f3ff084a2cd302b5538994c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/presentation/README.md": {
+    "mtime": 1793406613.9786627,
+    "seen": 1793407064.11337,
+    "ast_hash": "773e9f275109e1ce1a6c086a0807a9e2",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/c5-r16-final-index.html": {
+    "mtime": 1793405443.778963,
+    "seen": 1793407064.1254983,
+    "ast_hash": "e44ec7cd0e8fe43f65fd67f80ef9ea38",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-games-390-de-bundled-first-course.png": {
+    "mtime": 1793405443.3673534,
+    "seen": 1793407064.2803721,
+    "ast_hash": "f9a20fbd446f5107eb10bb9500c3b737",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-games-390-en-bundled-first-course.png": {
+    "mtime": 1793405443.3921194,
+    "seen": 1793407064.280376,
+    "ast_hash": "c17678cb9e80f40aa4481a0364eec8c8",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-gye-390-de-bundled-first-course.png": {
+    "mtime": 1793405443.4150434,
+    "seen": 1793407064.2803788,
+    "ast_hash": "189aa98a9f0972583eb4dce614ac7760",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-gye-390-en-bundled-first-course.png": {
+    "mtime": 1793405443.433324,
+    "seen": 1793407064.2803824,
+    "ast_hash": "daf23e37a84ab6fdac8007944889707a",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-bundled-first-course.png": {
+    "mtime": 1793405443.4531014,
+    "seen": 1793407064.2803853,
+    "ast_hash": "7aea28f2a4ca3cc6e9eaa6e31e847ee1",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-saved-owned-1.png": {
+    "mtime": 1793405443.4715033,
+    "seen": 1793407064.2803884,
+    "ast_hash": "cb231721b716567ad8a4156829e8e22e",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-saved-owned-16.png": {
+    "mtime": 1793405443.491134,
+    "seen": 1793407064.2803926,
+    "ast_hash": "077aacfa1da590807942fe6ac92bcdce",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-saved-owned-8.png": {
+    "mtime": 1793405443.5036173,
+    "seen": 1793407064.2803957,
+    "ast_hash": "559655a12b487cf24d06d505fc4a5aae",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-bundled-first-course.png": {
+    "mtime": 1793405443.5211082,
+    "seen": 1793407064.2803984,
+    "ast_hash": "225195404c12769fe9a1667352e182b0",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-saved-owned-1.png": {
+    "mtime": 1793405443.537731,
+    "seen": 1793407064.2804022,
+    "ast_hash": "3bd9b912a9fe26a619825e6a20fd879d",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-saved-owned-16.png": {
+    "mtime": 1793405443.5581093,
+    "seen": 1793407064.2804065,
+    "ast_hash": "3249b1bfa9786fd4ae898883f78317a6",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-saved-owned-8.png": {
+    "mtime": 1793405443.5719438,
+    "seen": 1793407064.2804093,
+    "ast_hash": "4c58d3921747ffb8bc3289dec27f42b8",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-learn-390-de-bundled-first-course.png": {
+    "mtime": 1793405443.5924177,
+    "seen": 1793407064.2804124,
+    "ast_hash": "7970e965c2ca53515e115f3035d8f9af",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-learn-390-en-bundled-first-course.png": {
+    "mtime": 1793405443.6123633,
+    "seen": 1793407064.2804148,
+    "ast_hash": "13ba086f267e5d79684d5e41ea61d301",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-bundled-first-course.png": {
+    "mtime": 1793405443.6317537,
+    "seen": 1793407064.280417,
+    "ast_hash": "9a7ee2b2745830db0b1301a107212d2a",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-due-review-12.png": {
+    "mtime": 1793405443.650549,
+    "seen": 1793407064.280421,
+    "ast_hash": "a362edd60b28b5756eebcdece47b79b1",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-saved-owned-16-summary.png": {
+    "mtime": 1793405443.661617,
+    "seen": 1793407064.2804239,
+    "ast_hash": "a168bbb027f59b97047831c08104ef41",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-saved-owned-8-summary.png": {
+    "mtime": 1793405443.6807418,
+    "seen": 1793407064.2804277,
+    "ast_hash": "6ae35dcc6fe7c4a669ae2bbb2bfeb378",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-bundled-first-course.png": {
+    "mtime": 1793405443.700835,
+    "seen": 1793407064.280431,
+    "ast_hash": "554e28fe97df983b41d14343c4255a33",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-due-review-12.png": {
+    "mtime": 1793405443.7173162,
+    "seen": 1793407064.2804346,
+    "ast_hash": "0e3d623cfea07efc737397c029a9a8e4",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-saved-owned-16-summary.png": {
+    "mtime": 1793405443.7368662,
+    "seen": 1793407064.2804375,
+    "ast_hash": "330c695508e9c6e4d0f4bca1329f93b7",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-saved-owned-8-summary.png": {
+    "mtime": 1793405443.7491143,
+    "seen": 1793407064.2804403,
+    "ast_hash": "9e7db98d9e3f270d5c4328fd6a122114",
     "semantic_hash": ""
   }
 }
