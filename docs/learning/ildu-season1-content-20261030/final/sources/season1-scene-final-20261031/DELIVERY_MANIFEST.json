@@ -1,0 +1,29 @@
+{
+  "files": {
+    "COPY.json": "75359872154517ebfadbad440da7b041d1444b4e0055cdefc5013e2afec65979",
+    "LAYOUT.json": "0d5607aa610075ecccf15e3c5327655a27c80513aa18978803f1740415d236e3",
+    "QA.json": "db07d3c9e2fed09b2a374956d8a1f9bc2cf332bb956545641775c4b9f9bec031",
+    "README.md": "d026a715a2c96fde7d38bd4ab565b6d3514973a290b647dc1fc747c0969b682d",
+    "SOURCE_FILES.json": "f046ebba1e803180a8fd352dccdd3c9f56956e2709ab06f9cbd6e5048867c0ea",
+    "book-EN-DE.png": "f61c6ea6b2f2bf2a6d3c1440dcf58aaa852973252c6fc367f38c6caadc1ed20e",
+    "book-de.png": "f068c199b70f2ff33671c43902f2562d1e4da3e8eef3df49bd6dbab2e69a5ef3",
+    "book-en.png": "dd5731adcfc7eeb9bd75d44b23bab9b2571a4a9ac7c5ceabdaa947928b321b74",
+    "dokkaebi-source-display-layer.png": "59ac47d9b54493feba1e6d2ae97b53632174c29b0eae2c2087525a7a55071b0a",
+    "fonts/lora-OFL.txt": "1d9a970809ac804b582a6ce7f0ebc4e7fefcbfd7ff6299cad35ee656a21be716",
+    "fonts/lora500.ttf": "84f1a8995440f942ae9d82fb2bc7174fdb9487417dab0a8c8b0ac68ea65fe549",
+    "fonts/source400.ttf": "e184c1b7f400a8a814a508341ad7630a4da7da114afd9737166f4c9e2806813c",
+    "fonts/source600.ttf": "99ec7bd86db938f268b99261f042d3651f77bd179ee574faaf33517a8d589b0b",
+    "fonts/sourcesans3-OFL.txt": "09746787287a289323b0ec3cff4d1a4a801331b82b7207c1e186f5d26619a392",
+    "gate-EN-DE.png": "a04d73cc07e3bcfcd14c674b74246616544554d2e34ab7cc7cdb420265109374",
+    "gate-de.png": "fb2f16e46fe79b0b77b1f30bc8f74d92395d30a99e306a01513793a559fff961",
+    "gate-en.png": "f05025bbcbe476fd7aa7c684a9bcb28e0b496ecc528f0bb2eed302b68ba34d23",
+    "inputs/book-background-plate.png": "fbb3b4e24f1a754cd8edd7f0a8a1f6ab555dd432a3c6078b1e934598fb6c6c24",
+    "inputs/dokkaebi-original.png": "2e1c3fd6f47b0930233c70a7b9e2f93dd2d374d404136e28480dd4ddc74b8202",
+    "inputs/gate-empty-background-plate.png": "ea66946b4af3ffec9594b267f35030b08aeeeed042faafc12088756e57a83f28",
+    "inputs/jung-stage06-original.webp": "235db45c7b1fbc12d26ded670107514a5ca22dfe2663e96b95ea33666db7506a",
+    "jung-source-display-layer.png": "809330c969a22bf9138bc00b4735620e2f28e2e18bb60e08361a104822ee8006"
+  },
+  "screenCount": 4,
+  "comparisonBoardCount": 2,
+  "status": "STATIC_MOCKUPS_DELIVERED_FOR_REVIEW"
+}

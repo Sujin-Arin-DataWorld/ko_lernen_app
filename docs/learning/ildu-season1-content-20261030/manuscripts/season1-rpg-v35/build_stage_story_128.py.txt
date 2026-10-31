@@ -1,0 +1,475 @@
+"""Build the standalone authored story proposal; never writes runtime/curriculum files."""
+import hashlib
+import json
+from pathlib import Path
+
+OUT = Path(__file__).resolve().parent
+CANON = Path(r"C:\Users\vjinn\ELibrary\Downloads\한글소리_게임스토리\1_v3_5.md")
+CONTRACT = Path(r"C:\dev\hangulsori\_codex_artifacts\ildu-r16-publication-20261028\APP_ASSET_CONTRACT.json")
+ROWS = {}
+
+# Row columns: title | microproblem | learner action | tangible narrative consequence |
+# speaker | KO | EN | de-DE | reprise motif. All added microbeats are proposals, new_clue=0.
+ROWS['sarang'] = '''
+첫 소리를 놓다|공부책 첫 장의 소리 조각이 흩어졌다.|시범과 번역을 보며 ㅇ과 ㅏ를 맞추고 아를 읽거나 지원 낭독을 선택한다.|첫 장이 이어지고 탈선비와 도깨비가 다시 마주한다.|탈선비|허허, 새 제자가 내 첫 장을 찾아 주었구먼.|You found my first page, new pupil.|Du hast meine erste Seite gefunden.|첫 장→마지막 빈 쪽
+앉을 자리 하나|조이가 서안의 앞뒤를 헷갈려 빙빙 돈다.|그림으로 앞과 뒤를 골라 오늘의 이야기 좌석표에 붙인다.|조이가 제자 옆의 작은 자리를 양보한다.|조이|내 자리는 여기! 네 옆은 비워 둘게.|Here is my spot! I will leave yours open.|Hier ist mein Platz! Deinen halte ich frei.|빈자리→기다리는 동료
+작은 돌의 이름|도깨비가 초석 이름을 모두 큰 돌이라고 부른다.|돌과 나무 그림 중 돌을 찾고 소리를 다시 듣는다.|연습장에 돌 그림 하나와 배운 말이 남는다.|도깨비|작아도 제자리가 있다 이거지?|Even a small one has its place, eh?|Auch ein kleiner Stein hat seinen Platz, was?|제자리→돌아갈 집
+툭, 딱, 사각|도구 소리가 겹쳐 조이가 엉뚱한 흉내를 낸다.|듣기 시범이나 자막으로 같은 소리 두 개를 짝짓는다.|조이는 목재 두드리는 흉내를 멈추고 박수를 한 번 친다.|조이|내 소리보다 네 귀가 낫네!|Your ears are better than my impressions!|Deine Ohren sind besser als meine Imitationen!|듣기→목소리 전하기
+기둥 옆 인사|도깨비는 친구가 돌아와도 반가웠다는 말을 못 한다.|아 소리와 인사 음성을 고르거나 수진의 인사를 따라 한다.|도깨비가 탈선비 쪽으로 몸을 돌려 고개를 끄덕인다.|수진|짧은 소리 하나로도 시작할 수 있어.|One small sound can be a beginning.|Auch mit einem kleinen Laut kannst du anfangen.|짧은 소리→첫 대답
+말을 받치는 말|탈선비가 설명을 길게 하자 조이가 졸기 시작한다.|다시 듣기와 잠깐 쉬기 중 필요한 도움을 가리킨다.|탈선비가 설명을 한 장씩 나눠 보여 준다.|탈선비|길면 나누어 읽으면 되지.|If it is long, we can read it in parts.|Wenn es lang ist, lesen wir es in Teilen.|나누기→읽는 사람의 속도
+위에 둔 책|책을 어디 두었는지 조이가 잊는다.|그림 속 위와 아래 위치를 살피고 책을 가리킨다.|조이가 서안 위 책을 찾아 날개를 접는다.|조이|찾았다! 오늘은 내가 조용히 있을게.|Found it! I will be quiet for a moment.|Gefunden! Jetzt bin ich kurz still.|위치→서안으로 돌아오기
+비를 그리는 손|수진이 처마 그림을 그리는데 빗방울 방향이 뒤집혔다.|안과 밖 그림을 비교해 빗방울 위치를 고른다.|이야기 연습장에 비를 피하는 자리 그림이 완성된다.|수진|여기라면 책이 젖지 않겠네.|The book will stay dry here.|Hier bleibt das Buch trocken.|비→계절의 돌봄, 단서 없음
+한 칸씩 걷기|조이가 마루판 그림을 한꺼번에 뛰어넘어 낱말을 놓친다.|한 칸에 한 소리씩 천천히 짚어 본다.|조이가 제자의 속도에 맞춰 한 칸씩 이동한다.|조이|좋아, 이번엔 네 속도로 갈게.|All right, I will follow your pace.|Gut, diesmal gehe ich in deinem Tempo.|속도→수진의 기다림
+흙빛과 먹빛|도깨비가 흙색과 먹색을 바꿔 말해 웃음이 난다.|색 그림을 짝짓고 모르면 그림 도움을 펼친다.|도깨비가 자기 연습장의 색 이름을 고쳐 붙인다.|도깨비|내가 틀린 게 아니라, 말이 미끄러진 거다!|I did not get it wrong. The word slipped!|Ich lag nicht falsch. Das Wort ist ausgerutscht!|고쳐 말하기→배우는 수호신
+등불의 첫 흔적|지붕까지 이어진 기억에 낡은 심지 포장 조각이 보인다.|시범을 따라 심지 그림과 등잔 그림을 함께 가리킨다.|E02의 생활 물건이 기록되고 햇살 속 벗들의 짧은 기억이 열린다.|탈선비|작은 심지가 긴 밤을 밝히는 법이지.|A little wick can brighten a long night.|Ein kleiner Docht kann eine lange Nacht erhellen.|심지→피날레에서 받은 물건
+벽에 기대지 않는 글|조이가 큰 글자 종이를 벽 모서리에 접어 숨겨 버린다.|같은 글자 모양을 찾아 펼친 페이지에 놓는다.|글자 전체가 보이고 조이가 종이를 평평하게 편다.|조이|이번엔 날개로 가리지 않을게!|This time I will not cover it with my wings!|Diesmal verdecke ich es nicht mit meinen Flügeln!|가리지 않기→번역과 그림 지원
+따뜻한 소리 연습|도깨비가 딱딱한 말투로 쉬라고 하니 모두 굳는다.|쉬어요의 다정한 음성을 듣거나 자막으로 골라 본다.|도깨비가 조용히 방석을 밀어 준다.|도깨비|잠깐 쉬어라. 방석도 비워 놨다.|Take a short rest. I left a cushion for you.|Ruh dich kurz aus. Ein Kissen liegt bereit.|빈 방석→머물 자리
+마루의 약속|제자가 현대 일상으로 돌아가도 되는지 망설인다.|돌아가기와 이어하기 그림을 살펴 안전한 왕복을 확인한다.|수진이 공부책의 같은 쪽에 책갈피를 끼운다.|수진|다녀와도 괜찮아. 이 쪽에서 다시 만나.|You can go and come back. We will meet on this page.|Du kannst gehen und wiederkommen. Wir treffen uns auf dieser Seite.|책갈피→언제든 귀환
+바람과 창호|조이는 창호 종이에 입김으로 소리를 적으려 한다.|아와 어를 지원 음성과 비교하거나 소리 모양을 짚는다.|조이는 종이 대신 연습장에 표식을 남기고 웃는다.|탈선비|바람은 지나가도 배운 소리는 남는다네.|The breeze passes, but a learned sound stays.|Der Wind zieht weiter, ein gelernter Laut bleibt.|남는 소리→남겨진 목소리
+처음 쓴 집|등불 아래 빈 쪽지에 무엇을 남길지 정하지 못한다.|F0.4의 집과 이 집을 시범·그림·입력 도움으로 써 본다.|첫 집 쪽지가 서안에 보관되고 도깨비는 등불 앞에서 잠시 말을 멈춘다.|도깨비|이 집이라…… 그래, 여기에 두어라.|This house… yes, leave it here.|Dieses Haus … ja, lass es hier.|집 쪽지→마지막 편지 옆 재등장
+'''
+
+ROWS['changgo'] = '''
+푯말이 뒤바뀐 아침|도깨비가 쓴 자재 푯말이 뒤섞여 모두 엉뚱한 상자를 본다.|나무·도구·마루를 시범과 그림으로 나누어 이야기 푯말을 정리한다.|오늘 쓸 말의 그림 안내가 생기고 도깨비의 글 서툼이 웃음으로 풀린다.|도깨비|글자들이 밤새 자리를 바꿨구나!|The letters swapped places overnight!|Die Buchstaben haben über Nacht die Plätze getauscht!|푯말→제대로 전하는 말
+나무 둘의 차이|조이가 살아 있는 소나무와 목재 그림을 같은 칸에 넣는다.|그림 도움으로 나무의 두 뜻을 구분하고 하나씩 말한다.|소나무 그림은 바깥 풍경 칸으로 옮겨진다.|수진|같은 말도 그림을 보면 뜻이 달라져.|Pictures can show different meanings of the same word.|Bilder zeigen die verschiedenen Bedeutungen desselben Wortes.|같은 말→해석의 차이
+도구를 돌려주세요|조이는 모자를 도구 바구니에 넣고 당당해한다.|모자와 도구 그림을 비교해 요청할 물건을 가리킨다.|조이는 모자를 자기 머리에 얹고 바구니를 돌려준다.|조이|이건 머리 도구라고 하면 안 돼?|Can I call this a tool for my head?|Darf ich das ein Werkzeug für den Kopf nennen?|부탁→작은 협동
+매듭의 잔상|상자와 매듭의 짧은 옛 모습이 겹쳐 도깨비가 멈춘다.|보이는 상자만 묘사하고 누가 보냈는지는 모른다고 구분한다.|기억 노트에는 상자 관찰만 남고 발신인 칸은 비어 있다.|태고|본 것까지만 말해 보게.|Tell us only what you have seen.|Erzähle nur, was du gesehen hast.|빈 발신인→E11까지 확정 보류
+바구니 길 찾기|조이가 같은 모양 바구니 앞에서 두 번 멈춘다.|나무·모자처럼 받침 없는 낱말을 그림과 짝짓는다.|조이가 자기 연습 바구니를 찾아 깃털을 정돈한다.|탈선비|서두르지 않아도 제 물건을 찾는구먼.|You can find your things without rushing.|Du findest deine Sachen auch ohne Eile.|천천히 찾기→기다림
+비 아래의 낱말|처마 아래 참고 그림에 비와 바다가 함께 그려졌다.|바다와 다리를 음성·그림으로 비교하고 지원을 골라 본다.|수진이 비슷한 소리의 두 그림을 나란히 남겨 준다.|수진|헷갈린 두 말을 같이 두면 비교하기 좋아.|Keeping the two words together makes them easier to compare.|Wenn beide Wörter nebeneinanderstehen, lassen sie sich leichter vergleichen.|나란히 두기→두 기록 비교
+마루를 아직 짓지 않아도|조이는 완성 한옥의 참고 사진을 지금 창고라고 소개한다.|참고 사진과 현재 기억 장면의 차이를 가리킨다.|사진에 참고 표시가 붙어 지금 공정과 구분된다.|수진|이건 참고 사진이야. 지금 모습과 나눠 보자.|This is a reference photo. Let us keep it separate from the current scene.|Das ist ein Vergleichsfoto. Trennen wir es von der aktuellen Szene.|출처 표시→자료 경로 분리
+버릴 수 없는 빈 주머니|조이가 낡은 상자에서 빈 씨앗 주머니를 물어 온다.|빈 것과 없는 것을 그림으로 살피고 도깨비에게 돌려준다.|E03이 공개되고 도깨비가 주머니를 품는다. 주인의 이름은 밝혀지지 않는다.|도깨비|비었다고 버리면 안 된다.|Being empty does not mean it should be thrown away.|Nur weil es leer ist, wirft man es nicht weg.|빈 주머니→봄마다 온 씨앗
+'''
+
+ROWS['jung'] = '''
+문에 이름 달기|안채로 가는 두 번째 문 주변에서 모두 길을 헷갈린다.|F0.3의 문·방·길·마당을 배운 범위와 도움으로 안내 그림에 붙인다.|중문 이름표와 동선 안내가 생긴다. 폭풍 기억은 아직 열리지 않는다.|탈선비|문 하나에도 이름이 있으면 길이 되는군.|A name can turn a doorway into a path.|Ein Name kann aus einer Tür einen Weg machen.|이름표→길을 이어 주기
+길 끝의 받침|조이가 길의 마지막 소리를 날개 소리로 덮는다.|길의 받침을 시범 듣기나 글자 색 도움으로 짚는다.|조이가 끝까지 듣고 나서 한 번 고개를 끄덕인다.|조이|끝소리까지 기다렸어. 이번엔 맞지?|I waited for the last sound. Was that right?|Ich habe auf den letzten Laut gewartet. So richtig?|끝까지 듣기→마지막 편지
+마당의 동그라미|초성 ㅇ과 종성 ㅇ을 보고 도깨비가 같은 일이라 우긴다.|마당 그림과 음절 칸을 보며 서로 다른 자리를 가리킨다.|도깨비의 연습장에 두 자리 표시가 붙는다.|도깨비|같은 동그라미도 일이 다르단 말이냐?|The same circle can do different jobs?|Derselbe Kreis hat verschiedene Aufgaben?|자리와 역할→작성자·전달자·보관자
+문 밖인가 안인가|조이가 출입 예절 그림을 거꾸로 들었다.|들어가기 전 멈추는 자리와 인사 그림을 순서대로 놓는다.|수진이 부탁하고 들어가는 짧은 시범을 보여 준다.|수진|먼저 물어보면 서로 편해져.|Asking first helps everyone feel at ease.|Wenn wir zuerst fragen, fühlen sich alle wohler.|문턱→열어 두는 문
+방이 길이 되다|조이는 방 표지를 길 위에 붙여 모두를 웃긴다.|문·방·길을 그림 지도에서 다시 짝짓는다.|잘못 붙인 표지가 바로잡히고 조이가 새 안내를 읽는다.|조이|방을 따라 걷다가 벽에 인사할 뻔했네!|I nearly followed the room sign into a wall!|Fast wäre ich dem Zimmer-Schild bis zur Wand gefolgt!|다시 보기→오류를 고치는 재미
+문지기와 첫 인사|도깨비가 중문 앞을 막고 누구인지 묻는다.|A1.1의 자기소개와 다시 말해 주세요를 지원과 함께 사용한다.|LQ-05 문지기 소동이 끝나고 도깨비가 한 발 옆으로 비킨다.|도깨비|이름을 말했으니 이번엔 내가 잘 들어 주마.|Now you have said your name, I will listen properly.|Jetzt hast du deinen Namen gesagt. Nun höre ich richtig zu.|이름을 듣기→가족 이름 회복
+한 번 더 부탁|도깨비가 인사를 너무 빨리 해 조이가 놓친다.|다시 말해 주세요나 천천히 말해 주세요를 골라 요청한다.|도깨비가 속도를 낮춰 같은 인사를 반복한다.|도깨비|한 번 더 말하는 정도야 어렵지 않지.|Saying it once more is easy enough.|Es noch einmal zu sagen ist nicht schwer.|다시 말하기→안전한 도움 요청
+제가 누구냐면요|수진이 제자를 대신 소개하려다 멈춘다.|이름 말하기·이름표 가리키기·통역 요청 중 편한 방식을 고른다.|수진은 선택한 지원만 제공하고 도깨비가 직접 반응한다.|수진|네 방식으로 해 봐. 필요하면 내가 이어 줄게.|Try it your way. I can help you along.|Versuch es auf deine Weise. Wenn nötig, helfe ich dir weiter.|기다리는 수진→피날레 지원 선택
+처음 보는 말|조이가 누군지 묻는 말을 물건에도 써 버린다.|누구와 무엇의 그림 상황을 비교한다.|조이는 문에게 자기소개를 시키던 장난을 접는다.|조이|문은 이름표로 대답하네!|The door answers with its sign!|Die Tür antwortet mit ihrem Schild!|이름표→말의 대상
+조용한 열린 마루|도깨비가 대답을 기다리며 발을 구르려 한다.|잠깐만요를 말하거나 기다림 카드를 보여 준다.|도깨비가 발을 멈추고 열린 마루 끝에 앉는다.|도깨비|알았다. 여기서 기다리마.|All right. I will wait here.|Gut. Ich warte hier.|기다리기→500년의 기다림
+대문 빗장 첫 회수|중문 안내를 마치자 멀리 어긋난 대문 빗장이 눈에 들어온다.|중문과 솟을대문을 그림에서 구분하고 가까운 길을 확인한다.|도깨비가 대문을 바라보다 고개를 돌린다. 새 수리 공정은 생기지 않는다.|도깨비|저 빗장은 곧 고칠 게다.|I will fix that latch soon.|Den Riegel werde ich bald richten.|빗장 1막→스스로 여는 문
+넘어간 뒷모습|문이 완성된 기억에 거센 비와 급한 발소리가 겹친다.|보이는 인영과 들리는 발소리만 이야기 카드로 구분한다.|E04가 처음 공개되고 도깨비의 아픔이 떠남의 기억으로 바뀐다. 이름·목적은 미확인이다.|태고|발소리는 들린다. 하지만 얼굴은 아직 보이지 않네.|I hear footsteps, but I cannot yet see a face.|Ich höre Schritte. Doch ein Gesicht sehe ich noch nicht.|발소리→E10에서 맥락 회수
+'''
+
+ROWS['arae'] = '''
+새벽 시간표 협상|도깨비가 새벽 일정을 혼자 정하고 책 보자기 매듭의 기억이 스친다.|몇 시예요와 다른 시간 제안을 시범과 함께 사용한다.|오늘의 이야기 만남 시간이 서로 맞춰진다. 매듭의 주인과 의도는 모른다.|수진|시간도 같이 정하면 약속이 돼.|A time becomes a promise when we choose it together.|Wenn wir die Zeit gemeinsam wählen, wird daraus eine Verabredung.|약속 시간→약속의 무게
+해 뜨기 전인가 후인가|조이가 아침 그림 두 장에 같은 시간을 적었다.|시계·해 그림을 보며 전과 후를 비교한다.|연습 시간표의 혼동이 풀리고 조이가 늦잠 변명을 접는다.|조이|해님도 내 시간표를 못 읽겠대!|Even the sun cannot read my timetable!|Nicht einmal die Sonne kann meinen Zeitplan lesen!|순서→발송과 수령의 시간
+요일을 묻는 용기|도깨비가 어느 날을 말했는지 빠뜨린다.|무슨 요일이에요를 묻거나 요일 카드를 가리킨다.|도깨비가 빠진 요일을 덧붙인다.|도깨비|아, 요일까지 말해야 했구나.|Ah, I should have said the day too.|Ach, den Wochentag hätte ich auch nennen sollen.|빠진 말→앞뒤 맥락
+괜찮은 시간 찾기|수진과 조이의 이야기 연습 시간이 겹친다.|두 제안을 비교해 가능한 시간을 말하거나 선택한다.|둘이 같은 시간에 한 자리에서 만나는 계획이 남는다.|수진|둘 다 가능한 시간을 찾았네.|We found a time that works for both.|Wir haben eine Zeit gefunden, die für beide passt.|함께 정하기→합의하는 말
+틀린 시간을 고치다|조이가 들은 시간과 적은 시간이 다르다.|제가 잘못 들었어요와 다시 확인하기를 연습한다.|시간표에 정정 표시가 붙고 누구도 잘못을 숨길 필요가 없다.|탈선비|다시 묻는 이는 약속을 가볍게 여기지 않네.|Asking again shows that you care about the promise.|Wer noch einmal fragt, nimmt die Verabredung ernst.|정정 표시→관찰과 추측 구분
+먹으로 지운 이름|지붕 바탕 시점의 제한된 기억에 겁먹은 소녀와 검게 지운 이름이 보인다.|봤어요와 아직 몰라요를 구분해 관찰만 적는다.|E05의 제한된 장면이 공개된다. 지운 이유와 소녀 이름은 비어 있다.|태고|두려운 얼굴은 보았네. 까닭은 아직 모른다.|I saw fear on her face. I do not yet know why.|Ich habe Angst in ihrem Gesicht gesehen. Den Grund kenne ich noch nicht.|검은 먹→E11의 보호 이유
+들린 말의 빈자리|태고는 짧은 외침만 기억하고 조이는 뜻을 단정하려 한다.|들은 말과 내 생각을 두 칸에 나누어 놓는다.|전달 카드에 미확인 표시가 남아 뒤의 대조를 기다린다.|탈선비|들은 말의 앞뒤가 비었구먼.|The words before and after are missing.|Was davor und danach gesagt wurde, fehlt.|빈 앞뒤→기록의 한계
+두려움에 붙인 말|도깨비가 도둑이라고 부르려 하고 수진이 잠시 멈춘다.|보인 표정과 훔쳤다는 판단이 다른 종류임을 그림·번역으로 확인한다.|기억 노트에 표정 관찰이 남고 판단은 미확인 칸으로 이동한다.|수진|두려워 보였다는 것까지는 말할 수 있어.|We can say that she looked afraid.|Wir können sagen, dass sie Angst zu haben schien.|다른 서랍→LQ-10 증거 분리
+지금은 쉬어도|도깨비가 속상해 대화 중간에 등을 돌린다.|지금 쉬기와 나중에 이어가기 중 원하는 방식을 선택한다.|수진이 책갈피를 두고 기존 학습과 이동 선택을 그대로 안내한다.|수진|지금은 쉬자. 이야기는 여기 남겨 둘게.|Let us rest now. We will leave the story here.|Ruhen wir uns aus. Die Geschichte wartet hier.|남겨 두기→W02 안전한 중단
+마루의 말없는 동행|도깨비가 혼자 앉아 있지만 무슨 말이든 강요받고 싶지 않아 보인다.|질문하기·조용히 함께 있기·돌아오기 중 편한 참여를 고른다.|조이가 빈자리에 조용히 앉는다. 정답 화해 선택지는 없다.|조이|오늘은 말 안 해도 옆에 있을게.|I will stay beside you, even if we do not talk today.|Ich bleibe bei dir, auch wenn wir heute nichts sagen.|빈자리→친구 곁에 있기
+빗장 두 번째 회수|어긋난 대문 이야기가 나오자 도깨비가 고칠 필요 없다고 툴툴댄다.|지금의 감정과 바뀌지 않은 관찰 사실을 나누어 본다.|새 수리 요구 없이 빗장 모티프만 남는다.|수진|속상한 마음도 적어 두자. 결론은 기다리고.|Let us note the hurt too, and wait before deciding.|Halten wir auch den Schmerz fest. Mit dem Urteil warten wir.|빗장 2막→분노에서 선택으로
+오늘은 그만|완성된 아랫채 기억 앞에서 도깨비가 배신당했다는 감정에 잠긴다.|봤던 장면과 아직 모르는 까닭을 구분하고 이야기를 멈출 권리를 고른다.|W11의 저점이 남는다. 학습·이동·기존 지급·공정 소유에는 불이익이 없다.|도깨비|오늘은 그 이야기 그만하자.|Let us stop talking about that for today.|Lassen wir das Thema für heute ruhen.|멈춘 대화→안채의 가족 기억
+'''
+
+ROWS['toilet1'] = '''
+수호신은 괜찮다더니|도깨비가 그런 곳은 필요 없다고 으스대며 홍시를 슬쩍 본다.|필요해요와 괜찮아요의 상황을 그림으로 비교한다.|조이가 도깨비의 허세에 웃지만 아무 새 단서도 생기지 않는다.|도깨비|나는 수호신이니 늘 멀쩡하다!|I am a guardian. I am always perfectly fine!|Ich bin ein Schutzgeist. Mir geht es immer bestens!|허세→도움을 받아들이기
+홍시는 몇 개|조이가 홍시 그림 수를 세다 자기 몫까지 센다.|수량을 가리키고 더 먹기와 그만 먹기를 상황에 맞춰 고른다.|연습 접시에 적당한 수량 표시가 남는다.|조이|내 몫은 세지 마. 아니, 세어 줘!|Do not count my share. No, count it too!|Zähl meinen Anteil nicht. Doch, zähl ihn mit!|수량→살림의 작은 말
+어디가 불편해요|도깨비가 배를 감추며 아무 일 없다는 표정을 짓는다.|어디가 불편해요를 묻거나 증상 그림을 고른다.|도깨비가 배가 불편하다고 작게 인정한다.|도깨비|배가 조금…… 아주 조금 불편하다.|My stomach is a little… just a little uncomfortable.|Mein Bauch tut ein wenig … nur ein wenig weh.|아프다고 말하기→솔직한 부탁
+참는 것과 쉬는 것|도깨비가 괜찮은 척하며 계속 서 있으려 한다.|쉬어 보세요를 듣고 앉기 그림으로 대안을 제안한다.|수진이 쉬는 자리를 안내하고 장면이 잠시 느려진다.|수진|괜찮은 척보다 쉬는 게 나을 때도 있어.|Sometimes resting helps more than pretending to be fine.|Manchmal hilft Ausruhen mehr, als so zu tun, als wäre alles gut.|쉼→돌봄의 행동
+도깨비 돌봄 상담|홍시를 몰래 먹은 도깨비가 배탈 난 일을 털어놓는다.|LQ-07의 따뜻한 물·휴식 제안을 시범·번역과 함께 비교한다.|생활 조언을 받은 도깨비가 고맙다는 말을 삼키며 물 그림을 고른다.|도깨비|따뜻한 물이라…… 나쁘지 않겠군.|Warm water… that does not sound bad.|Warmes Wasser … das klingt nicht schlecht.|따뜻한 물→따뜻한 말, 의학 평가 아님
+금지 대신 대안|조이는 먹으면 안 돼요만 반복해서 도깨비가 더 토라진다.|같은 상황에 할 수 있는 대안을 덧붙여 본다.|조이가 금지 문장 옆에 쉬기 제안을 남긴다.|탈선비|안 되는 일 뒤에는 가능한 길도 알려 주게.|After saying no, show what is possible too.|Zeig nach einem Nein auch, was möglich ist.|가능한 길→도움 요청의 회복
+문 앞의 예절|조이가 노크 소리를 너무 크게 흉내 낸다.|노크·대답 기다리기·들어가기 그림을 순서대로 놓는다.|조이가 작은 노크 한 번 뒤 멈춘다.|조이|작게 두 번, 그리고 기다리기!|Two quiet knocks, then wait!|Zweimal leise klopfen, dann warten!|노크→문턱의 배려
+말하지 않을 권리|도깨비가 민망해 자세한 이야기는 하고 싶지 않다.|괜찮아요·여기까지 말할게요·도와주세요 중 원하는 표현을 고른다.|수진이 더 묻지 않고 조용히 자리를 비켜 준다.|수진|말하고 싶은 만큼만 말해도 돼.|You can say only as much as you want.|Du musst nur so viel sagen, wie du möchtest.|말의 범위→공개 범위 합의
+작은 감사의 돌봄|분위기가 풀리자 도깨비가 도움을 준 이들을 슬쩍 둘러본다.|고마워요를 말하거나 감사 그림을 전한다.|도깨비가 빈 컵을 제자 쪽에서 자기 쪽으로 정리하며 미소를 숨긴다.|도깨비|그 조언, 꽤 쓸 만하더구나.|That advice was quite useful.|Der Rat war durchaus brauchbar.|작은 감사→가족 기억을 받을 준비
+'''
+
+ROWS['anchae'] = '''
+안마당의 웃음소리|빈 안마당 기억에서 아이의 웃음과 발소리가 들린다.|들린 소리와 보이지 않는 대상을 따로 가리킨다.|첫 소리 조각이 연습장에 놓인다. 이름과 가족 약속은 아직 공개하지 않는다.|수진|웃음은 들렸어. 누군지는 천천히 알아보자.|We heard laughter. We can learn whose it was in time.|Wir haben Lachen gehört. Von wem es war, finden wir nach und nach heraus.|웃음→가족의 온기
+돌기단의 잠깐|도깨비가 웃음소리에 멈춰 서고 모두 말을 고른다.|기다리기·다시 듣기·지원 보기 중 필요한 방식을 선택한다.|동료들이 말을 덧씌우지 않고 같은 소리를 함께 듣는다.|태고|급히 이름 붙이지 않아도 괜찮네.|We need not give it a name in haste.|Wir müssen nicht vorschnell einen Namen dafür finden.|이름 기다리기→완공의 연이
+뛰었어요, 들었어요|조이가 직접 본 일과 소리로 들은 일을 섞는다.|본 적과 들은 적의 그림 상황을 나누어 본다.|관찰 노트에 눈과 귀 표시가 따로 생긴다.|탈선비|눈의 기억과 귀의 기억을 나누어 보세.|Let us separate what the eyes and ears remember.|Trennen wir, woran sich Augen und Ohren erinnern.|눈·귀→증언의 범위
+보와 도리의 짝|도깨비가 혼자 모든 설명을 하려다 말이 꼬인다.|하나씩 설명해 주세요를 요청하고 짝 그림을 살핀다.|도깨비가 제자의 요청에 맞춰 설명을 짧게 나눈다.|도깨비|좋다. 하나씩 말하면 나도 덜 헷갈리지.|Fine. One at a time is less confusing for me too.|Gut. Eins nach dem anderen verwirrt mich auch weniger.|함께 설명→독립된 동료 역할
+기억의 가장자리|조이가 소리 조각을 빨리 잇고 싶어 빈 부분을 채우려 한다.|모르는 부분은 빈 칸으로 두고 있는 조각만 나란히 놓는다.|추측 그림이 관찰 그림과 섞이지 않는다.|수진|빈 칸은 틀린 답이 아니야.|An empty space is not a wrong answer.|Eine leere Stelle ist keine falsche Antwort.|빈 칸→불확실함을 견디기
+처마 아래 작은 장난|아이의 웃음을 떠올린 조이가 지금 제자에게 장난스러운 인사를 한다.|장난과 부탁의 어조를 시범·번역으로 비교한다.|조이는 제자가 고른 말투를 듣고 같은 인사를 되돌린다.|조이|장난도 상대가 웃어야 성공이지!|A joke works when the other person smiles too!|Ein Scherz gelingt, wenn auch der andere lächelt!|장난→약속의 여러 해석
+햇살의 가족 장면|어린아이가 보호받고 배우며 벗들과 놀던 기억이 돌아온다.|LQ-08에서 소리 조각 셋을 모으고 경험을 묻거나 오해를 정정한다.|E06 중간의 햇살 장면이 열린다. 전체 약속과 이름 회복은 완공까지 기다린다.|도깨비|이 웃음소리…… 낯설지 않구나.|That laughter… it is familiar.|Dieses Lachen … es kommt mir vertraut vor.|익숙한 웃음→이름을 되찾기
+제가 잘못 말했어요|조이가 앞선 판단을 고치고 싶지만 쑥스러워한다.|제가 잘못 말했어요 뒤에 관찰 문장을 덧붙여 본다.|조이가 지운 평가 대신 새 관찰을 적는다.|조이|내가 너무 빨리 말했어.|I spoke too soon.|Ich habe zu vorschnell gesprochen.|사과와 정정→관계 회복
+함께 쓰는 부엌 말|수진이 생활 그림을 보며 함께 하는 일과 혼자 하는 일을 묻는다.|밥·물·함께 같은 낱말이나 수준에 맞는 경험 문장을 고른다.|이야기 식탁 그림에 각자 고른 말이 놓인다.|수진|한 단어로 말해도 네 이야기가 돼.|Even one word can tell your story.|Auch ein Wort kann deine Geschichte erzählen.|밥→평범한 생활의 돌봄
+높은 곳의 작은 물건|조이는 다락 그림을 보며 아무것이나 비밀 보물이라고 부른다.|보이는 생활 물건만 묘사하고 보물이라는 추측을 분리한다.|상상 표시는 놀이 칸으로 옮겨지고 새 단서는 생기지 않는다.|탈선비|살림살이도 저마다 이야기가 있지.|Everyday things have stories too.|Auch Alltagsdinge haben ihre Geschichten.|생활 물건→심지·꽃씨·천
+따뜻했던 적|도깨비가 이 집에서 느꼈던 기분을 말하려다 멈춘다.|따뜻해요 낱말이나 따뜻했던 적이 있어요의 지원 문장을 고른다.|제자의 답이 현재 감정 쪽지로 남고 과거 사실을 대신하지 않는다.|도깨비|따뜻했다는 말이…… 이런 거였나.|So this… is what warm meant.|So hat sich also … Wärme angefühlt.|따뜻함→가족의 말
+대청의 나란한 자리|도깨비가 제자들 앞이 아니라 옆에 앉는다.|함께와 혼자의 그림을 비교해 지금 장면을 말한다.|수진이 번역을 마친 뒤 모두 한 박자 기다린다.|수진|오늘은 나란히 앉았네.|Today we are sitting side by side.|Heute sitzen wir nebeneinander.|나란히→수평적 우정
+묻고 싶은 한 문장|조이가 아이에게 묻고 싶은 말을 지금 대신 답하려 한다.|질문과 답을 구분하고 답이 없는 질문은 남겨 둔다.|기억 노트에 기다리는 질문 하나가 남는다.|태고|답을 서두르지 않는 것도 벗의 일이지.|A friend can wait for an answer.|Ein Freund kann auf eine Antwort warten.|질문→피날레의 대답
+그 아이의 이름|가족이 있느냐는 어린아이의 물음과 가족 약속이 온전히 돌아온다.|지원 낭독으로 약속을 듣고 도깨비가 되찾은 이름을 함께 확인한다.|E06 완공에서 연이의 이름·가족 약속·60% 기억 회복이 공개되고 진실을 찾는 결심이 생긴다.|도깨비|연이…… 내가 기다린 아이였구나.|Yeoni… she was the child I was waiting for.|Yeoni … auf dieses Kind habe ich gewartet.|가족 약속→C2.1 후반 재방문
+'''
+
+ROWS['angotgan'] = '''
+다시 본 매듭|조이가 창고의 빈 주머니와 같은 매듭 흔적을 찾아낸다.|이전 그림과 지금 그림의 공통점만 짚고 발신인은 미확인으로 둔다.|E07 착공의 매듭 연결이 보인다. 연이가 보냈다는 확정은 없다.|조이|이 매듭, 전에 본 모양이야!|We have seen this kind of knot before!|So einen Knoten haben wir schon gesehen!|매듭→경로 대조
+먼저와 나중|조이가 꽃 그림부터 놓아 심는 과정이 거꾸로 된다.|씨앗·물·싹·꽃 그림의 순서를 시범과 함께 놓는다.|연습 화분 카드가 순서대로 이어진다.|탈선비|꽃도 첫 장부터 피어나는 법은 아니지.|A flower does not bloom on its first page.|Eine Blume blüht nicht schon auf der ersten Seite.|순서→끊기지 않는 이야기
+바로 뒤의 일|도깨비가 싹이 나자마자 꽃이 되었다고 과장한다.|하고 나서와 하자마자의 예시를 비교해 관찰 가능한 순서를 고른다.|과장 문장은 웃음 칸으로, 관찰 문장은 연습장으로 나뉜다.|도깨비|내가 좀 빨리 기억했구나.|I remembered that a little too quickly.|Da habe ich mich wohl etwas zu schnell erinnert.|과장과 관찰→증언의 한계
+왜 기다렸을까|조이는 꽃이 아직 없으면 실패라고 말한다.|때문에와 아직을 지원 문장으로 써서 기다림을 설명한다.|연습 노트에 아직이라는 낱말이 남아 성급한 실패 판단을 늦춘다.|수진|아직은 실패와 다른 말이야.|Not yet is different from failure.|Noch nicht ist etwas anderes als gescheitert.|아직→돌아오지 않은 목소리
+봄 준비 목록|도깨비가 오늘 필요한 말과 나중에 볼 말을 한꺼번에 쏟아낸다.|먼저 할 일과 나중 할 일을 두 칸에 정리한다.|조이가 한 번에 한 카드만 가져오기로 한다.|조이|한 번에 하나! 내 부리도 하나니까.|One at a time! I only have one beak.|Eins nach dem anderen! Ich habe nur einen Schnabel.|하나씩→책갈피의 속도
+몇 번의 짧은 안부|초기의 무사 안부가 끊긴 뒤 봄마다 익명 꽃씨가 오던 기억이 돌아온다.|안부가 온 때와 꽃씨가 온 때를 순서대로 놓고 원인을 단정하지 않는다.|E07 중간의 안부·단절·익명 봄 물품이 공개된다. 발신인은 여전히 모른다.|탈선비|짧은 기별은 읽어 주었지. 그 뒤의 일은 나도 다 모르네.|I read those brief messages. I do not know everything that followed.|Die kurzen Nachrichten habe ich vorgelesen. Was danach geschah, weiß auch ich nicht alles.|짧은 안부→잠든 스승의 한계
+비가 와서, 기다리느라|조이가 순서와 까닭을 같은 것으로 적는다.|고 나서의 순서와 느라고의 이유 예시를 비교한다.|연습 카드에 순서 화살표와 이유 메모가 따로 붙는다.|수진|무엇이 먼저인지와 왜 그랬는지는 나눠 보자.|Let us separate what came first from why it happened.|Trennen wir, was zuerst geschah, von seinem Grund.|순서·이유 분리→E11 대조
+꽃이 없는 그림도|조이가 꽃 핀 그림만 예쁘다며 씨앗 그림을 감춘다.|과정의 각 그림에 짧은 말이나 선택한 수준의 설명을 붙인다.|씨앗과 기다리는 그림도 이야기 연습장에 남는다.|탈선비|기다리는 장면도 이야기의 한 쪽이라네.|Waiting has a page in the story too.|Auch das Warten hat eine Seite in der Geschichte.|씨앗→돌봄의 시간
+남겨 둔 빈 칸|도깨비가 발신인 칸을 채우려다 손을 멈춘다.|같은 매듭이라는 관찰과 같은 사람이라는 가설을 나누어 본다.|가설에는 물음표가 붙어 뒤의 증거와 비교할 수 있다.|도깨비|그 칸은…… 아직 비워 두어라.|Leave that space… empty for now.|Lass diese Stelle … vorerst leer.|빈 이름 칸→사당에서만 확인
+문 앞에 선 목소리|도깨비는 과거 문밖에 불렀던 말을 떠올리지만 답이 없었던 이유를 곱씹는다.|보이는 사람과 보이지 않는 수호신의 시점 차이를 지원 그림으로 살핀다.|일반 심부름꾼과 도깨비의 직접 대화는 생기지 않는다.|태고|듣지 못한 것과 외면한 것은 같지 않네.|Not hearing is different from turning away.|Nicht hören ist etwas anderes als sich abwenden.|들리지 않음→양방향 미확인 돌봄
+꽃이 피기까지|꽃 한 구역의 기억이 활기를 찾고 도깨비가 처음의 의심을 말한다.|LQ-09로 꽃이 피기까지 순서를 설명하거나 그림·번역으로 전한다.|E07 완공에서 보이지 않아 답을 못 받은 설움과 연이일지 모른다는 의심이 공개된다.|도깨비|처음엔 연이인가 싶기도 했지.|At first, I did wonder if it was Yeoni.|Anfangs dachte ich schon, es könnte Yeoni sein.|꽃씨→피날레의 받은 물건
+'''
+
+ROWS['toilet'] = '''
+옛말을 가져온 제자|탈선비가 익숙한 옛 표현을 가르치고 수진이 현대 장면을 덧댄다.|기억 고택의 말과 현대의 말 그림을 나누어 놓는다.|두 공간을 잇는 연습 페이지가 생기고 도깨비는 고택 안에 남는다.|수진|밖에서는 이렇게 말하면 자연스러워.|Outside, this sounds more natural.|Draußen klingt es so natürlicher.|안과 밖→W01 공간 분리
+처음 보는 새 말|조이가 현대 말을 과거 인물이 쓴 것처럼 흉내 낸다.|지금과 옛날의 예시 출처를 확인한다.|새 말은 현대 연습 칸에만 적힌다.|탈선비|이 말은 내 옛 책에는 없던 말이구먼.|That expression was not in my old book.|Diesen Ausdruck gab es in meinem alten Buch noch nicht.|새 말→배우는 스승
+너무 공손한 부탁|탈선비의 옛 어투로 물을 부탁하자 수진이 웃는다.|같은 부탁의 옛말과 현대 해요체 예시를 비교한다.|상대와 공간에 맞춘 부탁 문장 두 개가 나란히 남는다.|수진|뜻은 같아도 지금은 이렇게 부탁해.|The meaning is the same; today we ask like this.|Die Bedeutung ist gleich. Heute bitten wir so.|같은 뜻·다른 말→청자 맞춤
+누구에게 하는 말|조이가 친구에게 할 말과 처음 만난 이에게 할 말을 바꾼다.|청자 그림을 보고 편한 말투와 공손한 말투를 고른다.|조이는 고른 말투로 제자에게 다시 부탁한다.|조이|친하다고 아무 말이나 하는 건 아니구나.|Being close does not mean saying just anything.|Auch unter Freunden kann man nicht einfach alles sagen.|청자→LQ-14 전달 방식
+스승의 새 메모|탈선비가 제자의 현대 표현을 자기 책에 적고 싶어 한다.|선택한 수준으로 현대 표현 한 가지를 보여 주거나 지원 문장을 고른다.|중간 접점에서 스승도 새 제자에게 배우는 페이지가 열린다. 새 단서는 없다.|탈선비|오늘은 자네가 내 스승이로군.|Today you are my teacher.|Heute bist du mein Lehrmeister.|스승의 메모→C2.2 다음 사람의 글
+짧게 다시 말하기|조이가 긴 옛 표현을 한 호흡에 따라 하다 말을 놓친다.|짧은 현대 표현으로 같은 뜻을 다시 전한다.|조이가 말을 끝까지 하고 작은 인사를 남긴다.|조이|짧아졌는데 마음은 그대로네!|It is shorter, but the feeling is still there!|Es ist kürzer, doch das Gefühl bleibt!|쉬운 설명→수진용·도깨비용 보고
+현대의 연습, 고택의 친구|현대 약속 연습을 하려는데 도깨비가 자기도 갈 듯 말한다.|구름 배지 왕복과 고택 경계 그림을 확인한다.|현대 MQ는 현대 동료와 하고 고택으로 돌아와 말만 나눈다.|도깨비|다녀와라. 나는 여기서 듣고 있겠다.|Go and come back. I will listen here.|Geh und komm zurück. Ich höre dir hier zu.|안전한 왕복→언제든 돌아오기
+고친 말을 지우지 않기|탈선비가 옛 문장 위에 새 표현을 덮어 쓰려 한다.|원문과 현대 풀이를 두 줄로 나눠 남긴다.|옛 표현의 출처와 지금의 도움말이 함께 보존된다.|탈선비|옛말도 남기고 새말도 배우세.|Let us keep the old words and learn new ones.|Bewahren wir die alten Worte und lernen wir neue dazu.|원문·풀이→마지막 편지 두 층
+평범한 하루의 완성|탈선비는 새 표현을 읽으며 긴 세월을 실감한다.|오늘 써 본 말을 한 개 고르고 다음에 쓸 상황을 말하거나 가리킨다.|완공 접점에서 스승의 책에 현대 표현이 남고 75% 기억 연출이 이어진다.|탈선비|책도 제자와 함께 자라는구먼.|A book grows with its pupils.|Ein Buch wächst mit seinen Schülern.|자라는 책→마지막 빈 쪽
+'''
+
+ROWS['gokgan'] = '''
+안과 밖의 두 기록|집 안 수령 장부와 별도 외부 수탁 쪽지 일부가 드러난다.|원본 기억·전승 사본·추정 표시를 지원 그림으로 나누어 놓는다.|E08 착공의 자료 두 경로가 보인다. 작성자와 발신인은 자동 동일시하지 않는다.|탈선비|받은 이와 보낸 이는 다를 수 있네.|The receiver and sender may be different people.|Empfänger und Absender können verschiedene Menschen sein.|두 경로→독립 증거 검토
+누가 적었나요|조이가 장부를 쓴 사람이 물품도 보냈다고 단정한다.|작성자·전달자·보관자의 역할 카드를 나눈다.|각 기록에 누가 무엇을 했는지 묻는 칸이 생긴다.|수진|적은 사람과 보낸 사람을 나눠 보자.|Let us distinguish who wrote it from who sent it.|Trennen wir die Person, die es aufschrieb, von der, die es schickte.|역할 분리→지워진 사람들의 목소리
+같은 종이 두 장|같은 쪽지의 사진과 필사본을 조이가 증거 둘로 센다.|같은 원문에서 나온 사본을 한 묶음으로 합친다.|사본 수가 늘어도 독립 증거 수는 늘지 않는 표시가 남는다.|탈선비|그림자가 둘이어도 물건은 하나일 수 있지.|Two shadows can still belong to one object.|Auch zwei Schatten können zu einem Gegenstand gehören.|같은 원문→W09 중복 금지
+누가 뭐라고 했나|도깨비가 들은 말과 제자의 해석을 같은 말로 인용한다.|다고와 나 보다의 지원 문장을 나누어 말한다.|인용과 추측이 서로 다른 카드에 남는다.|도깨비|그렇게 적혔다는 말과 네 생각은 다르구나.|What it says and what you think are different.|Was dort steht und was du denkst, ist nicht dasselbe.|인용→보고문과 쉬운 설명
+겨울 천의 용도|무명천 그림을 보며 조이가 비밀 표식부터 찾는다.|보이는 바느질·두께·문틈막이 용도를 묘사한다.|생활 물건으로 관찰한 기록이 남는다. 문장이나 마법 인장은 추가하지 않는다.|수진|무늬보다 어디에 썼는지부터 보자.|Let us look at its use before looking for symbols.|Sehen wir zuerst, wozu es diente, bevor wir nach Zeichen suchen.|천의 사용감→피날레의 받은 물건
+나누어 맡긴 책|수탁 쪽지가 책의 분산 보호를 보여 주고 세 물품의 경로가 비교된다.|LQ-10으로 인용·관찰·추측을 나누고 중복 사본을 합친다.|E08 중간에서 절도가 아닌 분산 보호가 확인된다. 세 물품의 발신인 확정은 보류한다.|수진|없앤 게 아니라, 나누어 맡긴 거였어.|She did not destroy it. She entrusted it to different places.|Sie hat es nicht vernichtet, sondern an verschiedenen Orten anvertraut.|나누어 맡김→R2 보호 이유는 E11
+같아 보이는 경로|조이가 비슷한 매듭만으로 같은 발신인이라고 외친다.|공통점·차이·더 필요한 자료를 한 가지씩 찾는다.|같은 발신인 가설에는 물음표가 유지된다.|태고|비슷하다는 것은 끝이 아니라 시작일세.|A resemblance is a beginning, not a conclusion.|Ähnlichkeit ist ein Anfang, noch kein Schluss.|물음표→사당의 발송 메모
+대답 없는 문의|도깨비가 문의 쪽지에 답을 받지 못한 일을 떠올린다.|보낸 물음과 확인된 답을 따로 표시한다.|답 없음은 거절 증거로 바뀌지 않고 열린 칸으로 남는다.|탈선비|답이 없던 까닭까지 안다고 할 수는 없네.|We cannot claim to know why no answer came.|Warum keine Antwort kam, können wir nicht behaupten zu wissen.|없는 답→마지막 편지의 미확인
+문틈과 빗장 세 번째 회수|천을 썼던 기억과 여전히 어긋난 대문 빗장이 겹친다.|찬바람을 막은 천과 빗장을 고친 일을 구분한다.|천은 생활의 돌봄으로 남고 도깨비의 3막 약속이 회수된다. 새 수리 비용은 없다.|도깨비|저 빗장은 곧 고칠 게다. 이번엔 잊지 않았다.|I will fix that latch soon. I have not forgotten.|Den Riegel richte ich bald. Diesmal habe ich es nicht vergessen.|빗장 3막→피날레의 자발적 수리
+누구나 이해할 설명|기록을 한꺼번에 설명하자 도깨비가 고개를 젓는다.|같은 관찰을 한 문장과 상세 메모 두 방식으로 전한다.|연습장에 쉬운 설명의 초안이 생긴다. LQ-13 정식 재검토는 완공 후다.|수진|같은 사실을 더 쉽게 말해 볼까.|Shall we say the same fact more simply?|Wollen wir dieselbe Tatsache einfacher ausdrücken?|쉬운 말→수진과 도깨비 보고
+희망 앞의 물음표|탈선비의 마지막 문의와 도깨비의 오랜 체념이 완전히 돌아온다.|관찰·가설·미확인을 정리하고 완공 후 LQ-13의 이중 설명을 선택한다.|E08 완공에서 85% 회복과 조심스러운 희망이 공개된다. 발신인은 E11까지 확정하지 않는다.|도깨비|혹시, 그 아이가 보낸 건가?|Could it have been that child who sent it?|Könnte es dieses Kind gewesen sein, das es geschickt hat?|조심스러운 희망→평생의 돌봄 확인
+'''
+
+ROWS['ansarang'] = '''
+나무탈 선생님의 시작|어린 연이의 선생님 놀이와 도깨비 마법으로 탈선비가 태어난 기억이 열린다.|E09를 본 뒤 LQ-11로 공부책과 장부의 출처·역할 차이를 비교한다.|책의 정령인 탈선비의 독립된 기원이 보인다. 폭풍 구출의 진실은 아직 공개하지 않는다.|탈선비|허허, 내 첫 제자도 질문이 많았지.|My first pupil had many questions too.|Auch mein erster Schützling hatte viele Fragen.|첫 제자→새 제자가 배우는 스승
+놀이와 사실의 두 칸|조이가 창작 기억 장면을 역사 자료처럼 발표하려 한다.|실제 역사 해설과 명시적 창작 장면의 표시를 구분한다.|발표 노트에 역사와 창작의 출처가 따로 적힌다.|수진|이 장면은 이야기야. 역사 자료 표시는 따로 두자.|This scene belongs to the story. Historical sources need their own label.|Diese Szene gehört zur Erzählung. Historische Quellen kennzeichnen wir gesondert.|출처→문화 자료 발표
+자네라는 부름|조이가 정여창과 태고의 옛 대화를 떠올린다.|상하 관계가 아닌 벗의 호칭을 지원 풀이로 비교한다.|정여창과 신수들의 수평적 우정이 해설에 보존된다.|태고|정여창, 그 친구도 남의 작은 말을 들었지.|Jeong Yeochang, that friend of ours, listened to small voices too.|Jeong Yeochang, dieser Freund von uns, hörte auch den leisen Stimmen zu.|작은 목소리→마지막 낭독
+따라서의 함정|조이가 한 장부를 보고 결론을 너무 멀리 끌어간다.|근거·결론·한계를 각 한 문장으로 나누거나 그림으로 표시한다.|근거 없는 결론에 미확인 꼬리표가 붙는다.|탈선비|따라서 뒤에 모든 말을 붙일 수는 없네.|Not every claim belongs after therefore.|Nach deshalb lässt sich nicht jede Behauptung setzen.|결론의 범위→자료 비판
+같은 이야기를 보는 눈|도깨비와 탈선비는 같은 시기를 서로 다른 만큼 기억한다.|각 인물이 직접 아는 때와 모르는 때를 비교한다.|인물별 시점표가 생겨 잠든 뒤 행적을 탈선비가 인증하지 않는다.|수진|같은 날이어도 본 것은 다를 수 있어.|Even on the same day, people may have seen different things.|Auch am selben Tag können Menschen Verschiedenes gesehen haben.|시점→오해를 바꾸는 자료
+쉬운 말로 되묻기|도깨비가 복잡한 비교 설명에서 한 부분을 놓친다.|는지의 질문이나 쉬운 재진술로 확인한다.|도깨비가 모르는 부분을 직접 가리키고 대화가 이어진다.|도깨비|모르는 데는 다시 물으면 된다 했지?|You said I could ask again when I do not understand, eh?|Wenn ich etwas nicht verstehe, darf ich noch einmal fragen, richtig?|배우는 도깨비→첫 문지기의 되묻기
+닫히던 책장|탈선비가 마지막 안부와 문의를 읽어 준 뒤 잠들던 비화가 돌아온다.|E09 중간에서 스승이 아는 마지막 시점과 이후의 빈 구간을 표시한다.|스승이 모든 진실을 숨겼던 것이 아님이 드러난다. E10은 아직 보류한다.|탈선비|그 뒤의 세월은 나도 이제 배우는 중일세.|I too am only now learning about the years after that.|Auch ich erfahre erst jetzt von den Jahren danach.|닫힌 책→다시 열린 배움
+이기는 말과 닿는 말|친구들은 사랑채 토론에서 서로의 상처를 설명할 말을 고른다.|LQ-12의 재방문 선택으로 관찰과 추측·공개 범위를 토론한다.|기존 사실만 쓴 합의 초안이 남는다. R2의 지운 이유를 아직 확정하지 않는다.|수진|상처를 더하지 않고도 물을 수 있어.|We can ask without adding to the hurt.|Wir können fragen, ohne noch mehr zu verletzen.|닿는 말→두 번의 대답
+도움과 독립의 표시|긴 비교문을 번역으로 읽은 제자가 혼자 읽은 것과 같은지 궁금해한다.|도움 사용 표시와 독립 확인 표시를 나누어 본다.|이야기 이해는 이어지고 한국어 수행 증거는 도움 상태와 함께 분리된다.|탈선비|도움을 받은 길도 자네가 걸은 길이지.|A path walked with help is still one you walked.|Auch einen Weg mit Hilfe bist du selbst gegangen.|도움의 가치→결말 접근 보장
+안개에 남은 밤|태고와 조이는 마지막 밤을 아직 이어 말하지 못한다.|미확인 부분은 기다리고 이미 본 E04·E05·E09만 다시 놓는다.|자료의 빈 부분이 유지된다. 폭풍 구출의 구체 원인은 중간②까지 앞당겨 밝히지 않는다.|태고|이 밤의 앞뒤는 아직 이어지지 않았네.|The pieces of that night do not yet connect.|Die Teile jener Nacht passen noch nicht zusammen.|안개→E10 중간②에서 연결
+열린 마루의 고마움|도깨비가 돌아온 친구들에게 고맙다는 말을 연습한다.|내가 아는 고마움 한 가지를 수준에 맞게 말하거나 지원 문장을 고른다.|현재의 감사 쪽지가 남고 아직 모르는 과거 희생을 대신하지 않는다.|도깨비|돌아와 준 건…… 고맙다.|For coming back… thank you.|Dass ihr zurückgekommen seid … danke.|친구의 귀환→첫 번째 보상 재회수
+폭풍의 밤, 세 기억이 이어지다|중간②에서 E04·E05·E09가 이어지며 태고와 조이의 마지막 밤이 선명해진다.|지금 보기·쉬고 보기·번역 켜기를 고른 뒤 구출 순서와 두 신수의 역할을 지원과 함께 확인한다.|E10의 첫 공개: 태고의 청록 구름 결계·조이 두 날개의 인도·배지 속 자발적 동면이 드러난다.|태고|우리는 그 아이를 지키러 갔네.|We went to protect that child.|Wir gingen, um dieses Kind zu beschützen.|안개 속 세 기억→구출과 잠듦의 인과
+구출 뒤에 남은 질문|E10을 본 동료들이 누구의 어떤 행동이 확인되었는지 되짚는다.|LQ-11의 E10 공개 후 확장으로 기억·장부의 시점과 한계를 비교하고 모르는 발신 사실은 비워 둔다.|구출은 확인되지만 연이의 평생 발신·R2 보호 이유·편지의 미확인 도착은 확정되지 않는다.|수진|이제 확인한 일과 남은 질문을 나눠 보자.|Let us separate what we now know from the questions still open.|Trennen wir, was wir jetzt wissen, von den offenen Fragen.|구출의 확인→남은 기록을 존중하기
+벗들의 선택을 다시 듣다|완공 접점에서 도깨비가 중간②의 구출과 동면 기억을 다시 마주한다.|이미 공개된 E10을 지원 낭독으로 회상하고 고마움을 말하거나 가리킨다.|E10을 회수하며 95% 기억 연출과 도깨비의 감사가 이어진다. E10의 첫 공개는 중간②다.|도깨비|나를 버린 게 아니라, 그 아이를 지킨 것이었구나.|You did not abandon me. You were protecting that child.|Ihr habt mich nicht verlassen. Ihr habt dieses Kind beschützt.|버려짐의 오해→서로의 돌봄
+'''
+
+ROWS['sadang'] = '''
+조용히 들어가는 말|도깨비가 사당에서는 장난을 멈추고 경건히 대해 달라고 부탁한다.|LQ-14로 같은 사실을 도깨비·수진·태고에게 청자에 맞게 전한다.|기림의 태도가 합의된다. 사당을 파헤치거나 숨은 유물을 얻는 장면은 없다.|도깨비|여기서는 조금만 조용히 해 다오.|Please be a little quieter here.|Seid hier bitte etwas leiser.|조용한 존중→목소리를 듣는 자리
+부재를 말하는 방식|조이가 떠난 벗을 떠올리며 어떤 말을 써야 할지 망설인다.|직접 표현과 완곡한 표현을 번역·청자 그림으로 비교한다.|정여창의 부재를 존중하는 한 문장이 연습장에 남는다.|태고|기리는 말도 듣는 이를 생각해야 하네.|Words of remembrance should consider the listener too.|Auch Worte des Gedenkens sollten an die Zuhörenden denken.|청자 배려→전하는 사람
+공개할 것과 남길 것|수진이 발표용 자료에 얼마나 담을지 동료들에게 묻는다.|이미 공개된 관찰과 아직 확인 중인 내용을 분리한다.|공개 범위 초안에 미확인 표시가 남고 R2의 이유는 아직 열리지 않는다.|수진|확인한 것부터 함께 읽자.|Let us read what we have confirmed first.|Lesen wir zuerst gemeinsam, was bestätigt ist.|공개 범위→이름 보호 확인
+다섯 역할의 탁자|다섯 동료가 같은 자료를 한꺼번에 잡으려 한다.|읽기·비교·질문·쉽게 풀기 역할을 자유롭게 나눈다.|동료들의 관찰이 모일 자리가 생기며 신규 상주 NPC는 추가되지 않는다.|조이|나는 질문 맡을래. 그건 자신 있어!|I will take the questions. I am good at those!|Ich übernehme die Fragen. Darin bin ich gut!|질문의 자리→합동 검증
+자료실로 가는 책갈피|외부 자료를 보려는데 조이가 사당 바닥부터 찾는다.|현대 자료실과 기억 고택의 자료 경로를 그림으로 확인한다.|외부 사본은 현대 디지털 학습 자료실에서만 제시된다.|수진|바깥 기록은 자료실에서 보자.|Let us read the outside records in the archive.|Die Unterlagen von außerhalb sehen wir uns im Archiv an.|바깥 경로→W09 독립성
+지운 이름과 보낸 물건|현대 자료실의 R2·R3-SEND·R3-COPY를 집 안 장부와 대조한다.|이름 분리의 보호 이유와 물품 시기·종류·경로의 일치를 함께 확인한다.|E11에서 사람들을 살리려 이름을 지운 이유와 평생 세 물건의 발신인이 연이였음이 확인된다.|탈선비|그 아이가 시작한 공부가 아직도 끝나지 않았네.|The learning that child began has still not ended.|Das Lernen, mit dem dieses Kind begann, ist noch immer nicht zu Ende.|연결된 기록→편지의 두 방향
+심지의 새 뜻|이름을 모를 때는 살림살이였던 심지를 다시 본다.|처음의 관찰과 새로 확인된 발신 사실을 나란히 적는다.|같은 물건의 사실은 유지되고 그 의미만 새 근거로 깊어진다.|도깨비|그 불빛에도 그 아이의 손길이 있었구나.|That light held the touch of that child too.|Auch in diesem Licht lag die Fürsorge dieses Kindes.|심지→집을 잊지 않은 마음
+씨앗의 새 뜻|도깨비가 봄마다 심었던 씨앗을 떠올린다.|씨앗을 받은 일과 보낸 일의 서로 다른 시점을 설명한다.|두 사람의 돌봄이 같은 계절선 위에 놓인다. 도착 확인 여부는 편지까지 보류한다.|수진|보내는 손과 받는 손을 이제 같이 볼 수 있어.|Now we can see both the sending hand and the receiving hand.|Jetzt können wir die sendende und die empfangende Hand gemeinsam sehen.|꽃씨→기다림과 전달
+천의 새 뜻|도깨비가 겨울마다 썼던 무명천을 조심스럽게 만진다.|물건의 쓰임과 확인된 발신 사실을 쉬운 문장으로 전한다.|천의 실제 바느질·사용감이 돌봄의 의미와 함께 남는다.|도깨비|겨울마다…… 혼자만 버틴 게 아니었어.|Each winter… I was not enduring it alone.|Jeden Winter … habe ich nicht allein durchgehalten.|천→어긋난 문틈과 마지막 수리
+스승이 배우는 생애|탈선비는 잠든 동안 연이가 글을 전하며 살았음을 알게 된다.|스승이 직접 기억한 일과 외부 기록으로 새로 배운 일을 나눈다.|탈선비의 앎이 자료와 함께 넓어지고 500년 전지적 증언은 생기지 않는다.|탈선비|이제야 그 아이에게 배울 것이 보이는구먼.|Only now do I see what I can learn from that child.|Erst jetzt sehe ich, was ich von diesem Kind lernen kann.|배우는 스승→다음 사람의 빈 쪽
+집 쪽지로 돌아갈 준비|동료들이 처음 사랑채에 남긴 쪽지를 다시 떠올린다.|집 한 단어와 지금 이해한 집의 의미를 편한 방식으로 비교한다.|최종 낭독의 자리는 사랑채 서안으로 정해진다. 편지의 핵심 문장은 아직 공개하지 않는다.|수진|처음 남긴 그 말 옆으로 돌아가자.|Let us return to the word you first left there.|Gehen wir zu dem Wort zurück, das du am Anfang dort gelassen hast.|집 쪽지→편지 옆의 첫 낱말
+돌아온 목소리의 문턱|사당 완공의 이야기 접점 뒤 사랑채에서 마지막 편지를 만난다.|선택 수준과 무관하게 그림·번역·지원 낭독으로 편지에 참여하고 도움 여부를 따로 남긴다.|E12에서 연이의 미확인 도착과 잊지 않은 집이 전해진다. 도깨비는 두 번 답하고 자유롭게 남아 대문을 직접 고친다.|도깨비|다 왔다, 연아. 내가 다 받았어.|It all arrived, Yeoni. I received everything.|Alles ist angekommen, Yeoni. Ich habe alles bekommen.|첫 집·심지·꽃씨·천·빗장→두 번의 대답
+'''
+
+ORDER = ['sarang', 'changgo', 'jung', 'arae', 'toilet1', 'anchae', 'angotgan', 'toilet', 'gokgan', 'ansarang', 'sadang']
+# Numeric middle bindings are authored proposals: v3.5 locks semantic hooks, not sequences.
+MIDDLE = {'sarang': 11, 'changgo': 4, 'jung': 6, 'arae': 6, 'toilet1': 5, 'anchae': 7, 'angotgan': 6, 'toilet': 5, 'gokgan': 6, 'ansarang': 7, 'sadang': 6}
+ANSARANG_MIDDLE_2 = 12  # Unconfirmed numeric binding; subphase of the same basic STRUCTURE_MILESTONE.
+PERCENT = dict(zip(ORDER, [10, 20, 30, 40, 45, 60, 70, 75, 85, 95, 100]))
+ACT = dict(zip(ORDER, [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4]))
+SOURCE_RANGE = {'sarang': [203, 208], 'changgo': [210, 215], 'jung': [217, 222], 'arae': [228, 233], 'toilet1': [235, 238], 'anchae': [240, 245], 'angotgan': [251, 256], 'toilet': [258, 261], 'gokgan': [263, 268], 'ansarang': [274, 279], 'sadang': [281, 289]}
+BASE_STUDY = {'sarang': ('F0.1', 'LQ-01', '사랑채 착공 전·착공'), 'changgo': ('F0.2', 'LQ-02', '창고 착공'), 'jung': ('F0.3', 'LQ-03', '중문간채 착공'), 'arae': ('A1.2', 'LQ-06', '아랫채 착공'), 'toilet1': ('A2.1', 'LQ-07', '남측 측간 중간'), 'anchae': ('A2.2', 'LQ-08', '안채 중간'), 'angotgan': ('B1.1', 'LQ-09', '안채곳간채 완공'), 'toilet': ('B1.1–C2.2 선택 연습', None, '북측 측간의 옛말·현대어 교차; MQ 지원'), 'gokgan': ('B1.2', 'LQ-10', '곳간채 중간'), 'ansarang': ('B2.1', 'LQ-11', '안사랑채 착공~중간①'), 'sadang': ('C1.2', 'LQ-14', '사당 착공')}
+SPEAKERS = {'도깨비': 'dokkaebi', '탈선비': 'talsunbi', '태고': 'taego', '조이': 'joy', '수진': 'human:sujin'}
+HOOK_TEXT = {
+ 'sarang': ['첫 아를 복원해 탈선비 각성; 도깨비는 깨어 버텼고 탈선비는 책에서 잠들었다.', '햇살 속 정여창·신수들의 벗 관계 기억과 오래된 심지 포장 E02; 발신인 미공개.', '등불 점등·이유 모를 가슴앓이·F0.4 첫 집 쪽지.'],
+ 'changgo': ['뒤섞인 푯말 정리와 도깨비의 글 서툼; LQ-02.', '오래전 상자·매듭의 짧은 잔상; 발신인 미공개.', 'E03 빈 씨앗 주머니를 버리지 못하는 도깨비; 연이 이름 언급 없음.'],
+ 'jung': ['F0.3 문·방·길·마당 이름표와 출입 예절; E04 없음.', 'A1.1 자기소개·되묻기 문지기 소동; E04 없음.', 'E04 폭풍·발소리·책 보자기를 안고 문을 넘는 인영; 이름·목적 미확인.'],
+ 'arae': ['시간표 조율과 책 보자기 매듭의 기억.', 'E05 이름을 먹으로 지우고 책 보자기를 안고 떠나는 두려운 소녀. 동기 미확인.', '도깨비의 제한된 해석과 W11 저점; 대화 회피에 학습·이동·지급 불이익 없음.'],
+ 'toilet1': ['수호신은 필요 없다는 허세와 홍시 생활 코미디; 단서 없음.', 'LQ-07 배탈 난 도깨비에게 생활 조언; 단서 없음.', '일상의 활기가 돌아오며 안채에서의 마음 회복을 준비; 단서 없음.'],
+ 'anchae': ['아이의 웃음·발소리; 이름·가족 약속의 전체 공개는 아직 없음.', 'E06 중간 햇살 기억과 소리 조각; LQ-08 경험·정정.', 'E06 가족 약속 전체와 연이라는 이름 회복; 진실을 찾기로 결심.'],
+ 'angotgan': ['E07 창고의 빈 주머니와 같은 매듭 흔적; 익명 발신.', '짧은 무사 안부→연락 단절→봄마다 익명 꽃씨; 발신인 미확인.', 'E07 꽃 구역·순서와 보이지 않아 대답 못 받은 설움; 연이일지 의심할 뿐 확정 금지.'],
+ 'toilet': ['옛말·현대어 교차 도입. 현대 MQ와 기억 고택 공간 분리; 단서 없음.', '스승이 현대 새 표현을 제자에게도 배우는 장면; 단서 없음.', '책에 현대 표현을 적는 성장과 500년 체감; 단서 없음.'],
+ 'gokgan': ['E08 착수: 집 안 R3-HOUSE와 별도 외부 R3-TRUST 일부; 작성·발송·보관 역할 분리.', 'E08: 분산 보호 1차 증명, 심지·꽃씨·천의 경로 비교. 발신인과 이름 지운 이유는 미확정.', '마지막 문의 쪽지와 수십 년 체념 회수; 혹시 연이인가라는 희망, 확정은 E11.'],
+ 'ansarang': ['E09: 어린 연이의 나무탈 놀이와 도깨비 마법으로 독립 책 정령 탈선비 탄생.', '중간① E09: 마지막 안부·문의 후 잠든 스승의 한계 회수. 같은 STRUCTURE_MILESTONE의 중간②에서 E10 첫 공개; 숫자 연결 제안은 sequence 12.', '중간②에서 공개된 E10의 청록 구름 결계·조이 두 날개·자발적 배지 동면을 회수하고 95% 기억·감사 연출.'],
+ 'sadang': ['경건한 기림과 LQ-14; 사당 발굴·던전 금지.', 'E11: 현대 디지털 자료실의 R2·R3-SEND·R3-COPY와 집 안 R3-HOUSE 합동 검증. 이름 분리의 보호 이유와 연이의 평생 발신 확정.', '사랑채→솟을대문 피날레 E12와 두 번의 대답으로 연결. 128/128·C2 성적 필수 조건을 만들지 않음.'],
+}
+REVEAL = {
+ ('sarang', 'STRUCTURE_MILESTONE'): ['S1-E02'],
+ ('changgo', 'BUILD_FINISHED'): ['S1-E03'],
+ ('jung', 'BUILD_FINISHED'): ['S1-E04'],
+ ('arae', 'BUILD_STARTED'): ['S1-E05'], ('arae', 'STRUCTURE_MILESTONE'): ['S1-E05'],
+ ('anchae', 'STRUCTURE_MILESTONE'): ['S1-E06'], ('anchae', 'BUILD_FINISHED'): ['S1-E06'],
+ ('angotgan', 'BUILD_STARTED'): ['S1-E07'], ('angotgan', 'STRUCTURE_MILESTONE'): ['S1-E07'], ('angotgan', 'BUILD_FINISHED'): ['S1-E07'],
+ ('gokgan', 'BUILD_STARTED'): ['S1-E08'], ('gokgan', 'STRUCTURE_MILESTONE'): ['S1-E08'], ('gokgan', 'BUILD_FINISHED'): ['S1-E08'],
+ ('ansarang', 'BUILD_STARTED'): ['S1-E09'], ('ansarang', 'STRUCTURE_MILESTONE'): ['S1-E09'], ('ansarang', 'BUILD_FINISHED'): ['S1-E10'],
+ ('sadang', 'STRUCTURE_MILESTONE'): ['S1-E11'], ('sadang', 'BUILD_FINISHED'): ['S1-E12'],
+}
+BEFORE = {'sarang': [], 'changgo': ['사랑채의 첫 장·심지 생활 물건'], 'jung': ['창고 E03 빈 주머니'], 'arae': ['중문간채 완공 E04'], 'toilet1': ['아랫채 완공 W11 저점'], 'anchae': ['아랫채 E05, 남측 측간 생활 코미디'], 'angotgan': ['안채 완공 E06 이름·가족 약속'], 'toilet': ['안채곳간채 E07'], 'gokgan': ['E02·E03·E06·E07'], 'ansarang': ['곳간채 E08 분산 보호·발신인 미확정'], 'sadang': ['안사랑채 E09·E10']}
+FUTURE = {
+ 'sarang': ['연이 이름·가족 약속', '선물 발신인', '이름을 지운 보호 이유', '폭풍 구출', '마지막 편지'],
+ 'changgo': ['연이 이름 언급', '꽃씨 발신인', '폭풍 구출', '마지막 편지'],
+ 'jung': ['E04는 완공 전 노출 금지', '인영의 이름·떠난 목적', '폭풍 구출', '마지막 편지'],
+ 'arae': ['연이 이름·가족 약속', '먹으로 이름을 지운 이유', '꽃씨·심지·천 발신인', '폭풍 구출'],
+ 'toilet1': ['새 필수 단서', '연이 이름·가족 약속', '선물 발신인'],
+ 'anchae': ['전체 가족 약속·이름 회복은 완공 전 금지', '선물 발신인', '이름 지운 보호 이유', '폭풍 구출'],
+ 'angotgan': ['꽃씨 발신인을 연이로 확정', 'R2의 이름 보호 이유', '폭풍 구출', '편지의 도착 미확인'],
+ 'toilet': ['새 필수 단서', '선물 발신인 확정', '폭풍 구출'],
+ 'gokgan': ['세 물품 발신인을 연이로 확정', 'R2의 이름 보호 이유', '폭풍 구출', '편지의 도착 미확인'],
+ 'ansarang': ['E10 구출은 선택한 공개 접점 전 금지', '연이 평생 발신 확정', 'R2 보호 이유', '편지의 도착 미확인'],
+ 'sadang': ['E11 내용은 중간 전 금지', 'E12 편지의 도착 미확인은 최종 사랑채 전 금지', '노인 환생·왕손 확정', '새 시즌2 필수 단서'],
+}
+
+def sha(p):
+    return hashlib.sha256(p.read_bytes()).hexdigest()
+
+def parsed(key):
+    out = []
+    for line in ROWS[key].strip().splitlines():
+        cells = line.split('|')
+        assert len(cells) == 9, (key, len(cells), line)
+        out.append(cells)
+    return out
+
+def study(key, seq, n):
+    band, quest, anchor = BASE_STUDY[key]
+    status = 'optional_echo_of_quest_not_new_canonical_quest'
+    if key == 'sarang' and seq == n:
+        band, quest, anchor = 'F0.4', 'LQ-04', '사랑채 완공의 첫 집 쪽지'
+    elif key == 'jung' and seq >= MIDDLE[key]:
+        band, quest, anchor = 'A1.1', 'LQ-05', '중문간채 중간 문지기 소동'
+    elif key == 'gokgan' and seq == n:
+        band, quest, anchor = 'C1.1', 'LQ-13', '곳간채 완공 이후; LQ-10의 재검토'
+    elif key == 'ansarang' and seq == 8:
+        band, quest, anchor = 'B2.2', 'LQ-12', '4막 사랑채 재방문; 이 공정의 새 고정 퀘스트가 아님'
+    if seq == 1 and key in ['sarang', 'changgo', 'jung', 'arae', 'ansarang', 'sadang']:
+        status = 'canonical_quest_anchor_with_authored_microbeat'
+    if (key, seq) in [('sarang', n), ('jung', MIDDLE['jung']), ('toilet1', MIDDLE['toilet1']), ('anchae', MIDDLE['anchae']), ('angotgan', n), ('gokgan', MIDDLE['gokgan'])]:
+        status = 'canonical_quest_anchor_with_authored_microbeat'
+    options = []
+    if key == 'anchae':
+        options.append({'band': 'C2.1', 'questId': 'LQ-15', 'when': '후반 재방문·E06 공개 후', 'task': '가족 약속의 농담·위로·약속 해석을 비교한다. 새로운 사실·필수 조건 없음.'})
+    if key == 'sadang' and seq == n:
+        options.append({'band': 'C2.2', 'questId': 'LQ-16', 'when': 'S1-END 이후에만', 'task': '다음 사람에게 남기는 글을 빈 쪽에 작성한다. 미평가 포트폴리오이며 결말 게이트 아님.'})
+    if key == 'sarang' and seq == n:
+        options.append({'band': 'B2.2', 'questId': 'LQ-12', 'when': '4막 재방문·E05 이후; E08 전후 분기', 'task': 'E08 전 관찰·미확인 추측, E08 후 공개 범위 논의. R2 보호 이유는 E11 전 확정 금지.'})
+    result = {'suggestedStudyBand': band, 'questAnchorId': quest, 'canonicalQuestAnchor': anchor, 'placementStatus': status, 'optionalReprises': options, 'allChosenLevelsCanParticipate': True, 'translationAndSupportAvailable': True, 'changesChosenLevel': False, 'masteryEvidenceGrantedByStory': False}
+    if key == 'ansarang':
+        result['canonicalLQ11RequiredFacts'] = ['S1-E08', 'S1-E09']
+        result['lq11ContentBranch'] = 'after_E10_publication' if seq >= ANSARANG_MIDDLE_2 else 'before_E10_publication'
+        result['availableReexaminationFacts'] = ['S1-E08', 'S1-E09'] + (['S1-E10'] if seq >= ANSARANG_MIDDLE_2 else [])
+        result['lq11E10Extension'] = 'E10 공개 뒤에만 구출 기억과 기존 기록의 시점·한계를 비교한다. 새 단서·새 필수 LQ 조건 없음.' if seq >= ANSARANG_MIDDLE_2 else 'E10 구출·배지 동면 인과율은 아직 인용하지 않는다.'
+    return result
+
+def build():
+    src = json.loads(CONTRACT.read_text(encoding='utf-8-sig'))
+    by_key = {b['key']: (idx, b) for idx, b in enumerate(src['buildings'])}
+    stages, hooks, subphases = [], [], []
+    for b_ord, key in enumerate(ORDER, 1):
+        src_b_idx, b = by_key[key]
+        rows = parsed(key)
+        assert len(rows) == len(b['stages']), (key, len(rows))
+        n = len(rows)
+        for idx, (s, row) in enumerate(zip(b['stages'], rows)):
+            assert s['sequence'] == idx + 1
+            title, problem, action, consequence, speaker, ko, en, de, motif = row
+            seq = s['sequence']
+            hook = 'BUILD_STARTED' if seq == 1 else 'STRUCTURE_MILESTONE' if seq == MIDDLE[key] else 'BUILD_FINISHED' if seq == n else None
+            is_middle_2 = key == 'ansarang' and seq == ANSARANG_MIDDLE_2
+            hook_idx = {'BUILD_STARTED': 0, 'STRUCTURE_MILESTONE': 1, 'BUILD_FINISHED': 2}.get(hook)
+            canonical = {
+                'classification': 'essential_canon_hook' if hook else 'no_essential_reveal_optional_microbeat',
+                'hook': hook,
+                'sourceLines': SOURCE_RANGE[key] if hook else None,
+                'canonicalBeat': HOOK_TEXT[key][hook_idx] if hook else None,
+                'revealClueIds': REVEAL.get((key, hook), []) if hook else [],
+                'newClueIds': [],
+                'numericSequenceBindingStatus': 'authored_unconfirmed_binding_of_locked_semantic_hook' if hook else 'not_a_reveal_trigger',
+                'scriptedMemoryPercent': PERCENT[key] if hook == 'BUILD_FINISHED' else None,
+                'memoryPercentCondition': 'narrative_resolution_only_never_quiz_score_or_actual_progress_inference' if hook == 'BUILD_FINISHED' else None,
+            }
+            if key == 'ansarang' and hook == 'STRUCTURE_MILESTONE':
+                canonical['subphase'] = 'middle_1'
+            if is_middle_2:
+                canonical.update({
+                    'classification': 'essential_canon_subphase',
+                    'canonicalParentHook': 'STRUCTURE_MILESTONE',
+                    'subphase': 'middle_2',
+                    'semanticTrigger': 'STRUCTURE_MILESTONE.middle_2',
+                    'countsAsAdditionalBasicHook': False,
+                    'sourceLines': [278, 279],
+                    'canonicalBeat': '중간②에서 E04·E05·E09가 모여 E10 폭풍의 밤 구출·청록 구름 결계·조이 두 날개 인도·자발적 배지 동면이 처음 공개된다.',
+                    'revealClueIds': ['S1-E10'],
+                    'revealMode': 'first_publication',
+                    'numericSequenceBindingStatus': 'authored_unconfirmed_numeric_binding_preserving_canonical_middle_2',
+                })
+            if key == 'ansarang' and hook == 'BUILD_FINISHED':
+                canonical['revealMode'] = 'recall_of_E10_already_published_at_middle_2'
+            if key == 'sadang' and seq == n:
+                canonical['scriptedMemoryPercent'] = None
+                canonical['finaleScriptedMemoryPercent'] = 100
+                canonical['finaleCondition'] = 'E12 story resolution; 128/128 and C2 completion must not be added as mandatory access gates'
+            item = {
+                'narrativeOrdinal': len(stages) + 1,
+                'act': ACT[key],
+                'narrativeBuildingOrdinal': b_ord,
+                'buildingKey': key,
+                'catalogBuildingId': b['catalogBuildingId'],
+                'buildingName': b['name'],
+                'processId': s['processId'],
+                'sequence': seq,
+                'label': s['label'],
+                'sourceContractPointer': f'/buildings/{src_b_idx}/stages/{idx}',
+                'requiredCourseUnitIds': list(s['requiredCourseUnitIds']),
+                'requiredCourseUnitIdsStatus': 'exact_legacy_runtime_evidence_copy_not_narrative_policy_approval',
+                'proposedStoryBeat': {'title': title, 'microProblem': problem, 'learnerAction': action, 'tangibleNarrativeConsequence': consequence, 'authoredStatus': 'proposal_unconfirmed', 'new_clue': 0, 'optionalLayer': True, 'doesNotGrantConstructionOrCurrency': True},
+                'npcLine': {'speakerId': SPEAKERS[speaker], 'speaker': speaker, 'ko': ko, 'en': en, 'de-DE': de, 'localizationStatus': 'authored_candidate_needs_native_review_and_voice_QA'},
+                'study': study(key, seq, n),
+                'canon': canonical,
+                'spoilerGate': {'knownBeforeBuilding': BEFORE[key], 'revealOnlyAtSemanticHook': 'STRUCTURE_MILESTONE.middle_2' if is_middle_2 else hook, 'mustNotRevealEarly': FUTURE[key], 'languageLevelGate': None, 'quizScoreGate': None, 'supportUseBlocksStory': False, 'gateEvaluationOwner': 'existing_story_fact_state_not_this_document'},
+                'repriseMotif': motif,
+                'evidenceSeparation': ['chosen_level', 'story_facts', 'assisted_performance', 'independent_performance', 'delayed_retention', 'construction_and_reward_ownership'],
+            }
+            # Early-reveal restrictions refer to earlier rows, not the named hook itself.
+            if key == 'jung' and hook == 'BUILD_FINISHED':
+                item['spoilerGate']['mustNotRevealEarly'] = [x for x in FUTURE[key] if not x.startswith('E04')]
+            if key == 'anchae' and hook == 'BUILD_FINISHED':
+                item['spoilerGate']['mustNotRevealEarly'] = [x for x in FUTURE[key] if not x.startswith('전체')]
+            if key == 'ansarang' and seq >= ANSARANG_MIDDLE_2:
+                item['spoilerGate']['mustNotRevealEarly'] = [x for x in FUTURE[key] if not x.startswith('E10')]
+            if key == 'sadang' and seq >= MIDDLE[key]:
+                item['spoilerGate']['mustNotRevealEarly'] = [x for x in FUTURE[key] if not x.startswith('E11')]
+            if key == 'sadang' and seq == n:
+                item['spoilerGate']['mustNotRevealEarly'] = [x for x in item['spoilerGate']['mustNotRevealEarly'] if not x.startswith('E12')]
+            stages.append(item)
+            if hook:
+                hooks.append({'processId': s['processId'], 'buildingName': b['name'], 'sequence': seq, 'hook': hook, 'canonicalBeat': canonical['canonicalBeat'], 'numericBindingStatus': canonical['numericSequenceBindingStatus']})
+            if is_middle_2:
+                subphases.append({'processId': s['processId'], 'buildingName': b['name'], 'sequence': seq, 'parentHook': 'STRUCTURE_MILESTONE', 'subphase': 'middle_2', 'canonicalBeat': canonical['canonicalBeat'], 'revealClueIds': ['S1-E10'], 'countsAsAdditionalBasicHook': False, 'numericBindingStatus': canonical['numericSequenceBindingStatus']})
+
+    conflicts = [
+        {'id': 'CONFLICT-01', 'severity': 'unresolved_policy', 'sourceA': 'v3.5 §6·§8: F0.1 사랑채 시작, F0.4 사랑채 완공 첫 집 쪽지', 'sourceB': 'APP_ASSET_CONTRACT 사랑채 완공 requiredCourseUnitIds는 누적 A1~C2 48개', 'handling': '48개를 원문 그대로 복사했다. F0 완공 이야기는 narrative overlay proposal이며 기존 런타임 정책을 덮어쓰지 않는다. 별도 권한 있는 정책 결정과 검증 전 앱 통합 금지.'},
+        {'id': 'CONFLICT-02', 'severity': 'unconfirmed_numeric_binding', 'sourceA': 'v3.5는 착공·중간·완공 및 안사랑채 중간①·②를 지정', 'sourceB': '공정 계약에는 서사 훅 또는 중간 sequence가 없음', 'handling': '33개 basic semantic hook을 보존하고 안사랑채 중간①·②를 하나의 STRUCTURE_MILESTONE 하위 단계로 둔다. E10 첫 공개는 정본 중간②를 유지하며 sequence 12를 미확정 숫자 연결로 제안한다. 완공 14에서는 E10과 95%를 회수한다. 34번째 기본 접점·기존 런타임 selector·게이트 변경 아님.'},
+        {'id': 'CONFLICT-03', 'severity': 'resolved_canon_interpretation', 'resolutionStatus': 'resolved_canon_interpretation', 'sourceA': 'v3.5 §0 AP-1: 128/128 여부로 결말 진입을 잠그지 않음; §11 초보 지원 결말 접근', 'sourceB': '§6 사당 완공 및 §7.2 피날레에서 11동 기억 100%를 연출', 'handling': '정본 AP-1에 따라 해결된 해석이다. 100%는 scripted narrative reveal이며 128/128 의무 완료 정책이 아니다. 실제 공정 소유·기억 공개·언어 수행을 분리하므로 새로운 사용자 정책 결정이 필요하다는 뜻이 아니다.'},
+        {'id': 'CONFLICT-04', 'severity': 'resolved_canon_interpretation', 'resolutionStatus': 'resolved_canon_interpretation', 'sourceA': 'v3.5 §6 사당 LQ-16(C2.2) 연동 및 §5 E12/LQ-16 참조', 'sourceB': '§8.1 LQ-16은 S1-END 이후 후일담의 미평가 포트폴리오', 'handling': '후일담으로만 배치. C2는 필수 엔딩 게이트가 아니며 결말 낭독은 모든 선택 수준에서 번역·그림·지원으로 접근. 원고에서 이미 적용한 정본 해석이다.'},
+        {'id': 'CONFLICT-05', 'severity': 'resolved_canon_interpretation', 'resolutionStatus': 'resolved_canon_interpretation', 'sourceA': 'v3.5 §5는 W14 등 전역에서 연이의 기원을 설명하는 제작자 정보 포함', 'sourceB': '§5.2·§6은 플레이어의 연이 이름·가족 약속 회복을 안채에 둠', 'handling': '제작자 전지적 정보와 플레이어 공개 정보를 구분하면 해결되는 정본 해석이다. 사랑채·창고·중문·아랫채·남측 측간 NPC 대사에 연이 이름을 넣지 않는다. 미해결 사용자 정책 결정이 아니다.'},
+        {'id': 'CONFLICT-06', 'severity': 'resolved_canon_interpretation', 'resolutionStatus': 'resolved_canon_interpretation', 'sourceA': 'v3.5 LQ-12 요약은 E08 후 보호를 위해 지운 이름의 공개 범위 논의', 'sourceB': 'R2로 지운 이유를 확정하는 시점은 E11 사당 중간', 'handling': 'E08 후에는 보호를 가정한 공개 범위·분산 보호만 논의. 이름을 지운 보호 이유를 사실로 단정하는 문장은 E11 전 금지. 본 원고에서 이미 적용한 보수적 공개 해석이다.'},
+        {'id': 'CONFLICT-07', 'severity': 'applied_current_scope_override', 'resolutionStatus': 'applied_current_scope_override', 'sourceA': 'v3.5 문서의 V2 맵 언급', 'sourceB': '현재 사용자 지침은 퇴역 V2 재생성 금지·R16/현행 형상 보존', 'handling': 'v3.5는 서사 근거로만 읽고 R16의 processId·label·sequence를 복사했다. V2 복원·형상 변경·자산 승격을 수행하지 않는다. 현재 사용자 지침을 이미 적용했으며 재승인할 정본 쟁점이 아니다.'},
+    ]
+    result = {
+        'schemaVersion': 'authored-season1-stage-story-proposal/1.0',
+        'status': 'standalone_authored_proposal_unconfirmed_not_runtime_policy',
+        'date': '2026-10-29',
+        'scope': '11 buildings / exact 128 process identities; authored microbeats and KO/EN/de-DE candidate lines only',
+        'sourceEvidence': [{'path': str(CANON), 'sha256': sha(CANON), 'role': 'v3.5 narrative canon and reveal thresholds'}, {'path': str(CONTRACT), 'sha256': sha(CONTRACT), 'role': 'exact building/process/label/sequence and legacy requiredCourseUnitIds evidence'}],
+        'invariants': {'buildingCount': 11, 'stageCount': 128, 'canonicalSemanticHookCount': 33, 'actStageCounts': [36, 35, 31, 26], 'additionalRequiredClues': 0, 'canonicalClueUniverse': [f'S1-E{i:02d}' for i in range(1, 13)], 'newResidentNPCs': 0, 'mainGateIsBuilding12': False, 'courtyardWallIsBuilding12': False, 'geometryChanged': False, 'appChanged': False, 'curriculumChanged': False, 'runtimeGatesChanged': False, 'pricesOrCurrencyAmountsAuthored': False, 'constructionGrantedByMicrobeat': False},
+        'readingRules': [
+            'proposedStoryBeat는 128개 공정에 붙는 선택 서사 층이다. optionalLayer=true는 정본 본편 사건을 생략한다는 뜻이 아니다. 필수 정본 공개는 canon 필드의 33개 semantic hook에서만 다룬다.',
+            '공정 완료 자체를 이 학습 행동의 보상으로 새로 지급하지 않는다. 결과는 대화·연습장·그림 안내·기억 장면의 서사 결과이며 실제 시공·엽전·가격·경제 수치를 새로 만들지 않는다.',
+            'requiredCourseUnitIds는 기존 APP_ASSET_CONTRACT의 exact copy이다. suggestedStudyBand와 questAnchorId는 서사 연습 제안이며 배열을 재할당하거나 신규 과정 ID를 만들지 않는다.',
+            '33 semantic hook의 건물·의미·정본 공개 순서는 고정한다. numericSequenceBindingStatus는 미확정이며 이 문서만으로 실제 게임 트리거를 바꾸지 않는다.',
+            'NPC 대사는 현대 학습용 한국어 초안 및 EN/de-DE 번역 후보이다. 제안 대사·번역 검토가 성우 녹음·TTS·기기 검증을 뜻하지 않는다.',
+            '모든 선택 수준은 전체 이야기를 번역·그림·지원 낭독으로 경험할 수 있다. 선택 수준, 도움 수행, 독립 수행, 지연 유지, 이야기 공개, 건축·보상 소유를 합치지 않는다.',
+            '기억 회복률은 정본 서사 연출 수치이고 퀴즈 점수·CEFR·능력 인증이 아니다. 번역 사용을 독해 증거로 기록하지 않으며 C2·128/128 완료를 새 엔딩 조건으로 만들지 않는다.',
+            '서사 순서가 계약의 buildings 배열 순서와 다르므로 narrativeOrdinal을 별도로 둔다. processId·sequence·label·building identity는 원문과 동일하다.',
+            '솟을대문·담장·전면 줄행랑은 경계와 연출 공간이다. 마당 담장도 열두 번째 건물로 세지 않으며 새 공정·수리 가격·입장 비용을 만들지 않는다.',
+        ],
+        'prologueOutside128': {'clueId': 'S1-E01', 'sourceLines': [299, 394], 'beat': '먼저 내민 손·수진의 이어 주는 목소리·두려움 없는 배움 약속이 세 소용돌이를 공명시킨다. 고택 문턱에서 도깨비와 재회한 뒤 고택 영공 안에서만 합동 비행한다. 배지 각성은 한국어 발음 시험이 아니다.', 'gateMotif': '첫날의 어긋난 솟을대문 빗장은 W10 모티프이며 12번째 건물·유료 수리 아님.'},
+        'canonicalHooks': hooks,
+        'canonicalSubphases': subphases,
+        'sourceIssues': conflicts,
+        'unresolvedSourceConflicts': [x for x in conflicts if x['id'] in {'CONFLICT-01', 'CONFLICT-02'}],
+        'resolvedCanonInterpretations': [x for x in conflicts if x.get('resolutionStatus') == 'resolved_canon_interpretation'],
+        'appliedCurrentScopeOverrides': [x for x in conflicts if x.get('resolutionStatus') == 'applied_current_scope_override'],
+        'stages': stages,
+        'endingOutside128': {'sourceLines': [502, 537], 'storyAccess': '모든 선택 수준에 번역·그림·지원 제공; C2·128/128 mandatory gate 추가 금지', 'sequence': [
+            {'where': '사랑채 서안', 'beat': '처음 쓴 집 쪽지 옆에서 E12 편지를 읽는다. 연이는 보낸 물건이 닿았는지 끝내 몰랐고 집을 잊지 않았다는 마음이 전해진다.', 'npcLine': {'speaker': '도깨비', 'ko': '다 왔다, 연아. 내가 다 받았어.', 'en': 'It all arrived, Yeoni. I received everything.', 'de-DE': 'Alles ist angekommen, Yeoni. Ich habe alles bekommen.'}},
+            {'where': '솟을대문', 'beat': '수호력과 떠날 자유를 회복한 도깨비는 스스로 남기를 택해 빗장을 한 손으로 고쳐 활짝 연다. 별도 수리 학습·가격·12번째 건물 없음.', 'npcLine': {'speaker': '도깨비', 'ko': '연아. 이제 문은 고쳐 놨다.', 'en': 'Yeoni. The door is fixed now.', 'de-DE': 'Yeoni. Jetzt habe ich die Tür gerichtet.'}},
+            {'where': '열린 문턱', 'beat': '주인공의 마지막 인사.', 'npcLine': {'speaker': 'player:custom_traveler', 'ko': '다녀왔습니다.', 'en': 'I am home.', 'de-DE': 'Ich bin wieder da.'}},
+        ], 'scriptedMemoryPercentAfterResolution': 100, 'newClue': 0, 'actualConstructionProgressChanged': False},
+        'afterEndingOptionalReprise': {'band': 'C2.2', 'questId': 'LQ-16', 'requiresStoryFact': 'S1-END', 'assessed': False, 'task': '복합 자료 재구성과 비판 질의 뒤 책의 빈 쪽에 다음 사람에게 남기는 글. F0~C1도 그림·번역·짧은 말로 참여 가능하며 C2 목표와 독립 능력 증거는 별도로 유지.'},
+        'validationStatus': 'structural checks by this helper only; native localization, teacher, learner, media, app and device approval open',
+    }
+    validate(result, src)
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / 'STAGE_STORY_128.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    write_markdown(result)
+    print(json.dumps({'buildings': 11, 'stages': len(stages), 'hooks': len(hooks), 'uniqueProcessIds': len({s['processId'] for s in stages}), 'candidateNpcLines': len(stages), 'languages': ['ko', 'en', 'de-DE'], 'legacyCourseArraysExact': True, 'outputs': [str(OUT / 'STAGE_STORY_128.json'), str(OUT / 'STAGE_STORY_128.md')]}, ensure_ascii=False))
+
+def validate(d, src):
+    flat = {s['processId']: (b, s) for b in src['buildings'] for s in b['stages']}
+    assert len(d['stages']) == len(flat) == 128
+    assert len(d['canonicalHooks']) == 33
+    assert len(d['canonicalSubphases']) == 1
+    assert len({s['processId'] for s in d['stages']}) == 128
+    assert [sum(s['act'] == a for s in d['stages']) for a in range(1, 5)] == [36, 35, 31, 26]
+    assert len({s['buildingKey'] for s in d['stages']}) == 11
+    for x in d['stages']:
+        b, s = flat[x['processId']]
+        assert all(x[k] == s[k] for k in ['sequence', 'label', 'requiredCourseUnitIds'])
+        assert x['catalogBuildingId'] == b['catalogBuildingId'] and x['buildingName'] == b['name']
+        assert all(x['npcLine'][lang].strip() for lang in ['ko', 'en', 'de-DE'])
+        assert all(x['proposedStoryBeat'][k].strip() for k in ['title', 'microProblem', 'learnerAction', 'tangibleNarrativeConsequence'])
+        assert x['proposedStoryBeat']['new_clue'] == 0
+        assert not x['study']['changesChosenLevel']
+        if x['narrativeBuildingOrdinal'] < 6:
+            assert '연이' not in x['npcLine']['ko'], x['processId']
+        if x['buildingKey'] == 'jung' and x['sequence'] < 12:
+            assert 'S1-E04' not in x['canon']['revealClueIds']
+    for key in ORDER:
+        bs = [s for s in d['stages'] if s['buildingKey'] == key]
+        assert len([s for s in bs if s['canon']['hook']]) == 3
+    assert d['afterEndingOptionalReprise']['requiresStoryFact'] == 'S1-END'
+    ans = [s for s in d['stages'] if s['buildingKey'] == 'ansarang']
+    first_e10 = next(s for s in ans if 'S1-E10' in s['canon']['revealClueIds'])
+    assert first_e10['sequence'] == ANSARANG_MIDDLE_2
+    assert first_e10['canon']['subphase'] == 'middle_2'
+    assert first_e10['canon']['canonicalParentHook'] == 'STRUCTURE_MILESTONE'
+    assert first_e10['canon']['countsAsAdditionalBasicHook'] is False
+    assert ans[-1]['canon']['revealMode'].startswith('recall')
+    assert ans[-1]['canon']['scriptedMemoryPercent'] == 95
+    assert all(s['study']['lq11ContentBranch'] == ('after_E10_publication' if s['sequence'] >= ANSARANG_MIDDLE_2 else 'before_E10_publication') for s in ans)
+    assert {x['id'] for x in d['resolvedCanonInterpretations']} == {'CONFLICT-03', 'CONFLICT-04', 'CONFLICT-05', 'CONFLICT-06'}
+    assert {x['id'] for x in d['unresolvedSourceConflicts']} == {'CONFLICT-01', 'CONFLICT-02'}
+    assert {x['id'] for x in d['appliedCurrentScopeOverrides']} == {'CONFLICT-07'}
+
+def write_markdown(d):
+    lines = ['# 시즌 1 · 128공정 이야기 제안', '', '상태: **정본을 보존하는 별도 집필 제안 / 미확정 / 앱·경제·공정 게이트 정책 아님**. 작성일 2026-10-29.', '', '11동·128개의 processId·한국어 공정명·sequence와 기존 requiredCourseUnitIds를 R16 계약에서 그대로 가져왔다. 문장·작은 사건·숫자 공정에 대한 서사 훅 연결은 이 제안의 집필물이다.', '', '## 읽는 기준', '']
+    lines.extend('- ' + x for x in d['readingRules'])
+    lines += ['', '## 근거', '', '| 근거 | SHA-256 |', '|---|---|']
+    lines.extend(f"| `{s['path']}` | `{s['sha256']}` |" for s in d['sourceEvidence'])
+    lines += ['', 'v3.5 §0·§5·§6·§7·§8을 대조했다. 아래 각 행의 정본 줄 범위는 `1_v3_5.md`의 1-based 줄 번호다. 스키마의 기존 과정 배열은 JSON에서 공정별로 모두 확인할 수 있다.', '', '## 근거 차이와 해결 상태', '', 'CONFLICT-03·04·05·06은 **원고에 적용한 정본 해석**이고 CONFLICT-07은 **이미 적용한 현재 사용자 지침**이다. 추가 정본 승인을 요구하는 쟁점이 아니다. 남은 통합 과제는 CONFLICT-01 기존 누적 과정 게이트와 초급 서사 연결, CONFLICT-02 실제 숫자 sequence 배치다. 앱을 수정하지 않은 이번 집필 범위에서는 그대로 기록한다.', '']
+    for x in d['sourceIssues']:
+        lines += [f"### {x['id']} · {x['severity']}", '', f"- 근거 A: {x['sourceA']}", f"- 근거 B: {x['sourceB']}", f"- 이 원고의 처리: {x['handling']}", '']
+    lines += ['## 프롤로그와 엔딩의 경계', '', d['prologueOutside128']['beat'], '', d['prologueOutside128']['gateMotif'], '', '프롤로그의 E01은 128개 공정 중 새 공정이 아니다. 각 건물의 세 접점 총 33개와 아래의 선택 소사건을 구분한다. 공정별 대사는 모두 새 집필·번역 후보이며 원어민·교원·음성 검수 전이다.', '', '## 33개 정본 접점과 숫자 연결 제안', '', '| 건물 | 제안 sequence | 정본 훅 | 정본 공개 내용 |', '|---|---:|---|---|']
+    lines.extend(f"| {h['buildingName']} | {h['sequence']} | {h['hook']} | {h['canonicalBeat']} |" for h in d['canonicalHooks'])
+    lines += ['', '**중간 숫자 sequence는 v3.5가 지정한 값이 아니다.** 사랑채는 지붕이 올라간 뒤의 기와 11을 제안했다. 안사랑채는 같은 `STRUCTURE_MILESTONE` 안에서 중간①(E09, 제안 7)과 중간②(E10 첫 공개, 제안 12)를 유지한다. 중간②는 34번째 기본 접점이 아니며 완공 14는 E10과 95% 회복을 다시 회수한다. 모든 숫자의 실제 런타임 연결은 별도 결정 대상이다.', '', '## 128개 공정별 집필', '']
+    last = None
+    for s in d['stages']:
+        if s['buildingKey'] != last:
+            last = s['buildingKey']
+            lines += [f"## {s['narrativeBuildingOrdinal']:02d} · {s['buildingName']} · {s['act']}막", '']
+        b, c, q = s['proposedStoryBeat'], s['canon'], s['study']
+        lines += [f"### {s['narrativeOrdinal']:03d} · {s['label']} · sequence {s['sequence']} — {b['title']}", '', f"- 정확한 연결: `{s['processId']}` / `{s['catalogBuildingId']}` / 계약 `{s['sourceContractPointer']}`.", f"- **작은 문제:** {b['microProblem']}", f"- **학습자 행동:** {b['learnerAction']}", f"- **눈에 보이는 서사 결과:** {b['tangibleNarrativeConsequence']}", f"- **학습 제안:** {q['suggestedStudyBand']} · `{q['questAnchorId'] or '고정 LQ 없음'}` · 정본 앵커: {q['canonicalQuestAnchor']}. 이 공정의 선택 소사건과 정본 퀘스트 앵커는 별개이며 선택 레벨을 바꾸지 않는다.", f"- **{s['npcLine']['speaker']} KO:** “{s['npcLine']['ko']}”", f"- **EN:** “{s['npcLine']['en']}”", f"- **de-DE:** „{s['npcLine']['de-DE']}“", f"- **재등장 모티프:** {s['repriseMotif']}."]
+        if c['hook']:
+            lines += [f"- **정본 접점:** `{c['hook']}` · v3.5 {c['sourceLines'][0]}–{c['sourceLines'][1]}줄. {c['canonicalBeat']} 숫자 연결은 미확정 제안.", f"- **이번 접점 단서:** {', '.join(c['revealClueIds']) or '새 단서 없음'}; 부분 공개와 완전 확인은 정본 접점 설명을 따른다."]
+        elif c['classification'] == 'essential_canon_subphase':
+            lines += [f"- **정본 중간②:** 같은 `{c['canonicalParentHook']}`의 하위 단계 · v3.5 {c['sourceLines'][0]}–{c['sourceLines'][1]}줄. {c['canonicalBeat']} 제안 sequence {s['sequence']}는 미확정이며 34번째 기본 접점으로 세지 않는다.", '- **이번 하위 단계 단서:** S1-E10 첫 공개. 완공은 이 기억을 회수한다.']
+        else:
+            lines += ['- **정본 공개:** 없음. 선택 소사건 `new_clue=0`; 필수 단서를 앞당기지 않는다.']
+        lines += [f"- **스포일러 경계:** {'; '.join(s['spoilerGate']['mustNotRevealEarly'])}.", f"- **기존 과정 근거:** requiredCourseUnitIds {len(s['requiredCourseUnitIds'])}개 exact copy를 JSON에 보존. 서사 권장 수준과 재할당하지 않는다."]
+        if c.get('scriptedMemoryPercent') is not None:
+            lines += [f"- **정본 기억 연출:** {c['scriptedMemoryPercent']}%; 퀴즈 점수·숙달·실제 건축 소유를 뜻하지 않는다."]
+        for rp in q['optionalReprises']:
+            lines += [f"- **선택 재방문:** {rp['band']} `{rp['questId']}` · {rp['when']} · {rp['task']}"]
+        if 'lq11ContentBranch' in q:
+            lines += [f"- **LQ-11 공개 분기:** `{q['lq11ContentBranch']}` · {q['lq11E10Extension']}"]
+        lines += ['']
+    lines += ['## 최종 사랑채 → 솟을대문 · 128개 밖의 회수', '', d['endingOutside128']['storyAccess'], '']
+    for x in d['endingOutside128']['sequence']:
+        n = x['npcLine']
+        lines += [f"### {x['where']}", '', x['beat'], '', f"- {n['speaker']} KO: “{n['ko']}”", f"- EN: “{n['en']}”", f"- de-DE: „{n['de-DE']}“", '']
+    lines += ['기억 100%는 이 서사 해결의 연출 수치다. C2.2 LQ-16은 S1-END 이후 책의 빈 쪽에 다음 사람을 위한 글을 남기는 **선택·미평가 후일담**이며, 엔딩에 들어가기 위한 학습·퀴즈·공정 조건이 아니다.', '', '## 확인 범위', '', '- 11동 / 128개 고유 processId / 정본 4막 36·35·31·26 / 33개 semantic hook.', '- 계약의 building identity·label·sequence·requiredCourseUnitIds 128행 exact 비교 통과.', '- NPC 대사 KO·EN·de-DE 각 128개, 모든 행의 문제·행동·결과·학습 앵커·스포일러 경계·모티프 존재 확인.', '- 새 필수 단서·새 상주 NPC·12번째 건물·가격·엽전 수량·실제 시공/게이트 변경 없음.', '- 원어민·교원 감수, 실제 학습자 관찰, 음성·미디어, 앱·Flutter·기기 검증은 미완료. 이 구조 검사를 그 승인으로 바꾸지 않는다.', '']
+    (OUT / 'STAGE_STORY_128.md').write_text('\n'.join(lines), encoding='utf-8')
+
+if __name__ == '__main__':
+    build()

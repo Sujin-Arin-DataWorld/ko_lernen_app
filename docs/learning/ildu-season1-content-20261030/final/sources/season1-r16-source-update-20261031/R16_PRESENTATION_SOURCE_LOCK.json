@@ -1,0 +1,537 @@
+{
+  "recordedAtUtc": "2026-10-31T00:45:30.348806+00:00",
+  "userDirection": "Use the assets from Plan R16 archiving and cleanup, as of the latest message. Keep EN/DE, actual Lora500 and SourceSans3 and C direction. No application code work.",
+  "sourceThread": {
+    "title": "Plan R16 archiving and cleanup",
+    "id": "01a184bb-ba11-7021-8541-686ef9aae8c8"
+  },
+  "readOnlySourceWorktree": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023",
+  "observedSourceHead": "28dd72a8c159c0547732d961121b1352dbf285ad",
+  "originalRuntimeCatalog": {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\data\\ildu_r16_art_v1.json",
+    "sha256": "f0dfbb6fd210e32fe4b5771f58c2dbeebfb3d0e27aa5c85158cc531f98152859",
+    "uniqueImageCountVerified": 135,
+    "buildingCount": 11,
+    "processCount": 128
+  },
+  "transparentPresentationCatalog": {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\data\\ildu_r16_sarang_layers_v1.json",
+    "sha256": "9461915fb5bc6c09db500e2ad7a6fb2fdc0f033c60bc00d0d502cb84f9bc554c",
+    "runtimeStageRows": 16,
+    "sourceProductionDerivativeCount": 17,
+    "standaloneFullSourceForeground": {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\full.png",
+      "sha256": "a0d5a2fbff5787fbf1ca31912474ecc079e15c108d45395edd1a442d9b958a25",
+      "runtimeFullEntryVerified": false
+    },
+    "sourceDeliverySha256": "8d9ac12234f6e294422e8e9e35056ae58a707c3022ad1e20bd62ce851e35ee01",
+    "records": [
+      {
+        "processId": "ildu.sarangchae-site",
+        "sequence": 1,
+        "foregroundMeshCount": 0,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\8dc5b45405e82d65ffc88fe755d16079deb42d5adc02ae35d1c2fb9c216d147b.png",
+          "sha256": "8dc5b45405e82d65ffc88fe755d16079deb42d5adc02ae35d1c2fb9c216d147b",
+          "bytes": 462605,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            0
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\75bb8d389bf9d377c198435c6e8984c5a6f23bee3931839b8317addb5b52fa4a.webp",
+          "sha256": "75bb8d389bf9d377c198435c6e8984c5a6f23bee3931839b8317addb5b52fa4a",
+          "bytes": 1098,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-foundation",
+        "sequence": 2,
+        "foregroundMeshCount": 239,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\f7a3bcedf472109c33504b56e4eebb37108b634bde0d0317fff5ceee77bf6a12.png",
+          "sha256": "f7a3bcedf472109c33504b56e4eebb37108b634bde0d0317fff5ceee77bf6a12",
+          "bytes": 1138434,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\af6131c47e31c6f8a55b364e7df90258dc90375560f5377c6d78075ccf69ef17.webp",
+          "sha256": "af6131c47e31c6f8a55b364e7df90258dc90375560f5377c6d78075ccf69ef17",
+          "bytes": 297308,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-choseok",
+        "sequence": 3,
+        "foregroundMeshCount": 249,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\62376b33e9ce1cdfa59323460aa755820ed15c561c58a8c47ed88035927626ab.png",
+          "sha256": "62376b33e9ce1cdfa59323460aa755820ed15c561c58a8c47ed88035927626ab",
+          "bytes": 1160836,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607.webp",
+          "sha256": "2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607",
+          "bytes": 300736,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-fitting",
+        "sequence": 4,
+        "foregroundMeshCount": 249,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\840225967e9911537f79e9f1e9275e23abf7b5fc554e3ae30f99e05d7fb765e3.png",
+          "sha256": "840225967e9911537f79e9f1e9275e23abf7b5fc554e3ae30f99e05d7fb765e3",
+          "bytes": 1160836,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607.webp",
+          "sha256": "2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607",
+          "bytes": 300736,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-columns",
+        "sequence": 5,
+        "foregroundMeshCount": 267,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\bfdf7418975f907c3ff1686d4ab051ae9f5e978420228685698ba20647a474b1.png",
+          "sha256": "bfdf7418975f907c3ff1686d4ab051ae9f5e978420228685698ba20647a474b1",
+          "bytes": 1384675,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\f8fb31432ef30f35622154f9f9a5cf31caf88e457ae68fbe39cf1196f33900f0.webp",
+          "sha256": "f8fb31432ef30f35622154f9f9a5cf31caf88e457ae68fbe39cf1196f33900f0",
+          "bytes": 466240,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-beams",
+        "sequence": 6,
+        "foregroundMeshCount": 296,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\21da05dede8f88538e6d14a8db1eeaa24e478adb6ca97e9053af093187ad1148.png",
+          "sha256": "21da05dede8f88538e6d14a8db1eeaa24e478adb6ca97e9053af093187ad1148",
+          "bytes": 1710677,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\2eb151473608a5fdab232bdc4e62674fbe1cb247a6ba0e2c80b8674954c8a278.webp",
+          "sha256": "2eb151473608a5fdab232bdc4e62674fbe1cb247a6ba0e2c80b8674954c8a278",
+          "bytes": 611528,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-purlins",
+        "sequence": 7,
+        "foregroundMeshCount": 297,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\9051a7f1c277f5b017edc5a57d99a2629cecf76ba34a37d207a79eb3ea3f0271.png",
+          "sha256": "9051a7f1c277f5b017edc5a57d99a2629cecf76ba34a37d207a79eb3ea3f0271",
+          "bytes": 1749655,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\fbd0d881f9353bebc4db172bc3c5685515923d4ee6a3a12699035388bef621cc.webp",
+          "sha256": "fbd0d881f9353bebc4db172bc3c5685515923d4ee6a3a12699035388bef621cc",
+          "bytes": 614478,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-rafters",
+        "sequence": 8,
+        "foregroundMeshCount": 417,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\7a710b233c9786647b9ec8d1b34c2113b5bbfc9cba3cbf31b298088f02d9b4d0.png",
+          "sha256": "7a710b233c9786647b9ec8d1b34c2113b5bbfc9cba3cbf31b298088f02d9b4d0",
+          "bytes": 2002718,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\f395d3dfef32907bd9538122b9cf68d3fefa35aee66f3db8f4b2d6047d605acf.webp",
+          "sha256": "f395d3dfef32907bd9538122b9cf68d3fefa35aee66f3db8f4b2d6047d605acf",
+          "bytes": 633568,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-decking",
+        "sequence": 9,
+        "foregroundMeshCount": 422,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\02c949261de229fb82f3a14a53bf234583757bcbc44175e009f29e53be583a25.png",
+          "sha256": "02c949261de229fb82f3a14a53bf234583757bcbc44175e009f29e53be583a25",
+          "bytes": 1947927,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\a18d38c8100e575b1dc794226e4ce22ea2c9af90f0f41244d723ab6ed58b4eb8.webp",
+          "sha256": "a18d38c8100e575b1dc794226e4ce22ea2c9af90f0f41244d723ab6ed58b4eb8",
+          "bytes": 505754,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-earth-roof",
+        "sequence": 10,
+        "foregroundMeshCount": 422,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\f349146bab2da2887a6ae6d94297668d2df142335bc3876c0f80e2a110f2177f.png",
+          "sha256": "f349146bab2da2887a6ae6d94297668d2df142335bc3876c0f80e2a110f2177f",
+          "bytes": 1947870,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\6e953047edc5609623359349d13d8bf8fa8db5f944e2a24367a89848b765eb4b.webp",
+          "sha256": "6e953047edc5609623359349d13d8bf8fa8db5f944e2a24367a89848b765eb4b",
+          "bytes": 505786,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-tiles",
+        "sequence": 11,
+        "foregroundMeshCount": 476,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\56d4df2634c5c0f6e1b459b25f0984be99598cdac5a5c994e36a95835256cc32.png",
+          "sha256": "56d4df2634c5c0f6e1b459b25f0984be99598cdac5a5c994e36a95835256cc32",
+          "bytes": 2146743,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\a2467fb72e89865445f3387c741d3724279368b2fe5452dd375592786dfaca9d.webp",
+          "sha256": "a2467fb72e89865445f3387c741d3724279368b2fe5452dd375592786dfaca9d",
+          "bytes": 528002,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-walls",
+        "sequence": 12,
+        "foregroundMeshCount": 536,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\a9391f799e2815338300e7317aacff28e3c2506b6377a3f8f0877c296a0252d2.png",
+          "sha256": "a9391f799e2815338300e7317aacff28e3c2506b6377a3f8f0877c296a0252d2",
+          "bytes": 2158712,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\43ea508d510296d7ea6f37be3b1ec1a1950dd17d1feba5f446a15c139060aa04.webp",
+          "sha256": "43ea508d510296d7ea6f37be3b1ec1a1950dd17d1feba5f446a15c139060aa04",
+          "bytes": 514648,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-ondol",
+        "sequence": 13,
+        "foregroundMeshCount": 546,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\f680ff2f191431fe1f6ecd542761a734945bc9032e6dba9f09e821064d50a2a3.png",
+          "sha256": "f680ff2f191431fe1f6ecd542761a734945bc9032e6dba9f09e821064d50a2a3",
+          "bytes": 2167800,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\4606c369b5708765a60cd05638950bb8541b7248ec6f879119c89d0729e53b73.webp",
+          "sha256": "4606c369b5708765a60cd05638950bb8541b7248ec6f879119c89d0729e53b73",
+          "bytes": 512856,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-maru",
+        "sequence": 14,
+        "foregroundMeshCount": 681,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\01b432d7420aad48da38e1222f269d916ab54c1b2484e3899676b2784d825db1.png",
+          "sha256": "01b432d7420aad48da38e1222f269d916ab54c1b2484e3899676b2784d825db1",
+          "bytes": 2197164,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\7d291b54cf2be4f02798b89800cc229c818cec5fe06d0cf839e812c5862133a6.webp",
+          "sha256": "7d291b54cf2be4f02798b89800cc229c818cec5fe06d0cf839e812c5862133a6",
+          "bytes": 522574,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-changho",
+        "sequence": 15,
+        "foregroundMeshCount": 983,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\bac6d3b46fb01b2eb521c9fb9bfbcb0431e84ecc64d200e7697d84e0d0becaea.png",
+          "sha256": "bac6d3b46fb01b2eb521c9fb9bfbcb0431e84ecc64d200e7697d84e0d0becaea",
+          "bytes": 2215213,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\be78c771be2b39c6359b1e208920629e56a6560e83485c8c26027dde8ad6d39d.webp",
+          "sha256": "be78c771be2b39c6359b1e208920629e56a6560e83485c8c26027dde8ad6d39d",
+          "bytes": 555026,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      },
+      {
+        "processId": "ildu.sarangchae-complete",
+        "sequence": 16,
+        "foregroundMeshCount": 998,
+        "foreground": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\1fbc7e9cb972395493d6d1c62b195ecef2042eb84196e0d5b32361dab2afcacf.png",
+          "sha256": "1fbc7e9cb972395493d6d1c62b195ecef2042eb84196e0d5b32361dab2afcacf",
+          "bytes": 2219814,
+          "size": [
+            1800,
+            1200
+          ],
+          "alphaRange": [
+            0,
+            255
+          ]
+        },
+        "shadow": {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\0da7f78eb52ffef358b309a2da966bc3a461669a552ceb3dfab3b92f55ce2056.webp",
+          "sha256": "0da7f78eb52ffef358b309a2da966bc3a461669a552ceb3dfab3b92f55ce2056",
+          "bytes": 555554,
+          "size": [
+            1800,
+            1200
+          ]
+        }
+      }
+    ]
+  },
+  "compositionRules": {
+    "foregroundAndShadowSameCanvas": [
+      1800,
+      1200
+    ],
+    "fit": "contain; same rect and alignment; no independent crop",
+    "owned0or1": "draw neither architecture nor studio shadow; retain progress/lock meaning",
+    "shadowOperation": "multiply-then-foreground-source-over",
+    "extraTintOrToneMap": false,
+    "preserveGeometryUVRoofMaterialAndIds": true,
+    "doNotRegenerateHanokWithAI": true
+  },
+  "mockupUse": {
+    "firstBook": "Keep approved EN/DE first-book composition; no completed house or construction foreground invented for this early moment. Existing illustrated room is a story-vignette candidate, not a new R16 exterior.",
+    "middleGate": "Use exact current Jungmunganchae catalog source at story-appropriate stage. Transparent Sarangchae bundle is not a Jung source. Existing stage06 reference is a composition reference, not an implemented story trigger.",
+    "middleGateStage06Reference": {
+      "processId": "ildu.jungmunganchae-roof-bed",
+      "sequence": 6,
+      "labelKo": "지붕 바탕",
+      "roofVariant": "standalone",
+      "asset": "assets/illustrations/ildu_r16/235db45c7b1fbc12d26ded670107514a5ca22dfe2663e96b95ea33666db7506a.webp",
+      "sha256": "235db45c7b1fbc12d26ded670107514a5ca22dfe2663e96b95ea33666db7506a",
+      "width": 1200,
+      "height": 800,
+      "sourceImage": "docs/hanok_r16/estate/standalone/jung/stages/06.png",
+      "sourceSha256": "7932f49676d8f932d55871828b4557cef780e0ca91199930a1ff383a618543b6",
+      "pixelSha256": "a09783e9a95a306deaab102a7d8a9aff18f1b35b928d74ead72798a559ae73a9",
+      "bytes": 637906,
+      "absolutePath": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16\\235db45c7b1fbc12d26ded670107514a5ca22dfe2663e96b95ea33666db7506a.webp"
+    },
+    "SarangchaeExteriorWhenNeeded": "Use the verified foreground/shadow pair in this catalog, selected by actual stage, instead of the earlier opaque Sarangchae review render.",
+    "noTransparentJungOrWholeEstateInThisSarangBundle": true
+  },
+  "sourceCatalogAndAppAssetsChangedByThisTask": false,
+  "previousMockupFilesOverwritten": false,
+  "appIntegrationOrReleaseRevalidatedHere": false,
+  "verification": {
+    "original135FileHashes": "PASS",
+    "runtime16ForegroundAnd16ShadowReferences": "PASS",
+    "stage1NoArchitectureAlpha": "PASS",
+    "sourceCatalogHash": "PASS"
+  },
+  "byteIdenticalReferenceCopies": [
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\7a710b233c9786647b9ec8d1b34c2113b5bbfc9cba3cbf31b298088f02d9b4d0.png",
+      "copy": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-r16-source-update-20261031\\references\\sarang-stage08-foreground.png",
+      "sha256": "7a710b233c9786647b9ec8d1b34c2113b5bbfc9cba3cbf31b298088f02d9b4d0"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\f395d3dfef32907bd9538122b9cf68d3fefa35aee66f3db8f4b2d6047d605acf.webp",
+      "copy": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-r16-source-update-20261031\\references\\sarang-stage08-shadow.webp",
+      "sha256": "f395d3dfef32907bd9538122b9cf68d3fefa35aee66f3db8f4b2d6047d605acf"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\1fbc7e9cb972395493d6d1c62b195ecef2042eb84196e0d5b32361dab2afcacf.png",
+      "copy": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-r16-source-update-20261031\\references\\sarang-stage16-foreground.png",
+      "sha256": "1fbc7e9cb972395493d6d1c62b195ecef2042eb84196e0d5b32361dab2afcacf"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16_layers\\0da7f78eb52ffef358b309a2da966bc3a461669a552ceb3dfab3b92f55ce2056.webp",
+      "copy": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-r16-source-update-20261031\\references\\sarang-stage16-shadow.webp",
+      "sha256": "0da7f78eb52ffef358b309a2da966bc3a461669a552ceb3dfab3b92f55ce2056"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\full.png",
+      "copy": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-r16-source-update-20261031\\references\\sarang-standalone-full-foreground.png",
+      "sha256": "a0d5a2fbff5787fbf1ca31912474ecc079e15c108d45395edd1a442d9b958a25"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\ildu_r16\\235db45c7b1fbc12d26ded670107514a5ca22dfe2663e96b95ea33666db7506a.webp",
+      "copy": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-r16-source-update-20261031\\references\\jung-stage06-original.webp",
+      "sha256": "235db45c7b1fbc12d26ded670107514a5ca22dfe2663e96b95ea33666db7506a"
+    }
+  ]
+}

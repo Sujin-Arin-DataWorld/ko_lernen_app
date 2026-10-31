@@ -1,0 +1,49 @@
+from pathlib import Path
+from datetime import datetime,timezone
+from zoneinfo import ZoneInfo
+import json,hashlib,re,subprocess
+
+B=Path(__file__).parent
+A=B/'a1-1-v35'; S=B/'season1-rpg-v35'
+W=Path(r'C:\dev\hangulsori\ko_lernen_app_worktrees\lernpfad-v2-20261023')
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def j(p):return json.loads(p.read_text(encoding='utf-8'))
+def write(p,d):p.write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8')
+now=datetime.now(timezone.utc)
+qa=j(A/'SOURCE_AND_QA.json'); aq=j(A/'STRUCTURAL_QA.json'); sq=j(S/'STRUCTURAL_QA.json')
+assert aq['status']==sq['status']=='MODEL_STRUCTURAL_QA_PASS'
+assert 'MODEL_MANUSCRIPT_REVIEW_PASS' in (A/'A11_INDEPENDENT_REVIEW.md').read_text(encoding='utf-8')
+assert 'MODEL_REVIEW_PASS' in (S/'SEASON1_INDEPENDENT_REVIEW.md').read_text(encoding='utf-8')
+assert all(sha(Path(x['path']))==x['sha256'] for x in qa['protected_files'])
+head=subprocess.check_output(['rtk','proxy','git','-C',str(W),'rev-parse','HEAD'],text=True).strip()
+assert head==qa['source_head']
+state=subprocess.check_output(['rtk','proxy','git','-C',str(W),'status','--porcelain'],text=True)
+assert len(state.splitlines())==qa['preexisting_status_paths']
+links=[]
+for root in (A,S):
+    for p in root.glob('*.md'):
+        for target in re.findall(r'\]\(([^)]+)\)',p.read_text(encoding='utf-8')):
+            if ':' not in target and not target.startswith('#'):
+                actual=p.parent/target.split('#')[0]
+                if actual.name in {'DELIVERY_MANIFEST.json'}:continue
+                links.append(dict(file=str(p),target=target,exists=actual.exists()))
+assert all(x['exists'] for x in links),[x for x in links if not x['exists']]
+qa.update(status='MODEL_MANUSCRIPT_REVIEW_PASS_AUTHORING_COMPLETE',completed_at_utc=now.isoformat(),completed_at_berlin=now.astimezone(ZoneInfo('Europe/Berlin')).isoformat(),
+ counts=aq['counts'],structural_checks_passed=len(aq['checks']),protected_file_hashes_unchanged=len(qa['protected_files']),source_head_verified_after=head,preexisting_status_paths_after=len(state.splitlines()),
+ independent_review='A11_INDEPENDENT_REVIEW.md',human_teacher_native_approval=False,media_render_runtime_verified=False,app_code_or_design_changed=False,original_story_or_prior_manuscripts_changed=False)
+write(A/'SOURCE_AND_QA.json',qa)
+manifest=dict(status='MANUSCRIPT_DELIVERY_COMPLETE',completed_at_utc=now.isoformat(),completed_at_berlin=now.astimezone(ZoneInfo('Europe/Berlin')).isoformat(),
+ deadline_berlin='2026-10-30T09:00:00+01:00',requested_scope='A1.1 detailed six units plus100unit/128stage story and key dialogue plus2x10second epilogue timelines',
+ scope_complete=dict(a11_units=6,a11_items=91,P=29,I=31,R=31,grammar_rows=15,story_units=100,required_units=99,optional_units=1,story_bands=16,buildings=11,stages=128,basic_story_hooks=33,epilogue_versions=2,epilogue_timeline_seconds_each=10),
+ quality=dict(a11_structural_checks=len(aq['checks']),season_structural_checks=len(sq['checks']),a11_independent_model_review='PASS',season_independent_model_review='PASS',protected_sources_unchanged=len(qa['protected_files']),local_markdown_links_verified=len(links)),
+ entrypoints=[str(S/'README.md'),str(S/'STORY_MANAGER_GUIDE.md'),str(A/'README.md'),str(S/'EPILOGUES_10S.md')],
+ unchanged=dict(app_code=True,app_design=True,prior_foundation_manuscripts=True,canon_v35=True,r16_contract=True,curriculum_source=True,construction_currency_policy=True),
+ remaining_actual_production=['human Korean teacher and EN/de-DE review','audio and image creation and learner pilot','actual10second voice/subtitle/render verification','runtime gate/evidence/persistence/ownership integration and device checks'],
+ remaining_integration_decisions=['existing cumulative course conditions versus canon beginner narrative/support path','exact numeric process-to-semantic-hook binding'],
+ snapshot_head=head,files=[])
+for root in (A,S):
+    for p in sorted(root.iterdir()):
+        if p.is_file() and p.suffix in {'.md','.json','.csv'} and p.name!='DELIVERY_MANIFEST.json':
+            manifest['files'].append(dict(path=str(p),bytes=p.stat().st_size,sha256=sha(p)))
+write(S/'DELIVERY_MANIFEST.json',manifest)
+print(json.dumps({k:manifest[k] for k in ['status','completed_at_berlin','scope_complete','quality']},ensure_ascii=False))

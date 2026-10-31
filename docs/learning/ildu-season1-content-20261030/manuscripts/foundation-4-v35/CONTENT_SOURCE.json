@@ -1,0 +1,568 @@
+{
+  "version": "1.0-document-authoring-only",
+  "date": "2026-10-29",
+  "lessons": [
+    {
+      "n": 1,
+      "id": "F0.4.closed-endings",
+      "file": "01_CLOSED_FINALS.md",
+      "title": [
+        "끝에서 멈추는 소리",
+        "Sounds that close a syllable",
+        "Laute am Silbenende"
+      ],
+      "mode": "finals",
+      "targets": [
+        {
+          "taught": "국",
+          "target": "목",
+          "taught_concept": "SOUP",
+          "target_concept": "NECK",
+          "new_finals": "ㄱ",
+          "focus": "ㄱ 끝소리",
+          "audio_choices": [
+            "목",
+            "모",
+            "몸"
+          ],
+          "note": [
+            "국은 먹는 국이에요. 국의 끝에서 ㄱ 소리로 멈추는 것을 들어요. 뒤에 으 같은 모음을 더 붙이지 않아요. 목의 뜻도 사진과 함께 먼저 알아봐요.",
+            "국 is soup. Listen to how it closes with ㄱ, without adding a vowel such as 으. Learn the meaning of 목 from its photo too.",
+            "국 bedeutet Suppe. Hör, wie die Silbe mit ㄱ endet, ohne einen Vokal wie 으 anzuhängen. Lerne auch die Bedeutung von 목 anhand des Fotos kennen."
+          ]
+        },
+        {
+          "taught": "옷",
+          "target": "낮",
+          "taught_concept": "CLOTHES",
+          "target_concept": "DAY",
+          "new_finals": "ㅅㅈㅊ",
+          "focus": "ㄷ 계열 끝소리",
+          "audio_choices": [
+            "낮",
+            "나",
+            "남"
+          ],
+          "note": [
+            "옷은 입는 옷이에요. 옷의 받침은 ㅅ으로 쓰지만, 여기서 낱말을 끝내면 대표 끝소리 ㄷ으로 닫혀요. 이처럼 낱말 끝의 ㅅ·ㅈ·ㅊ은 ㄷ 소리로 닫힐 수 있어요. 낮의 뜻은 해가 떠 있는 시간이에요. 글자를 옫이나 낟으로 바꾸어 쓰지는 않아요.",
+            "옷 means clothes. It is written with final ㅅ, but at the end of this word the sound closes as ㄷ. Word-final ㅅ, ㅈ and ㅊ can close this way. 낮 means daytime. Keep the spellings 옷 and 낮; don't replace them with pronunciation spellings.",
+            "옷 bedeutet Kleidung. Geschrieben wird es mit ㅅ am Ende, doch am Wortende klingt der Abschluss wie ㄷ. So können auch ㅈ und ㅊ am Wortende klingen. 낮 bedeutet die Tageszeit bei Licht. Die Schreibweisen 옷 und 낮 bleiben erhalten; ersetze sie nicht durch Lautschreibungen."
+          ]
+        },
+        {
+          "taught": "밥",
+          "target": "집",
+          "taught_concept": "RICE",
+          "target_concept": "HOUSE",
+          "new_finals": "ㅂ",
+          "focus": "ㅂ 끝소리",
+          "audio_choices": [
+            "집",
+            "지",
+            "짐"
+          ],
+          "note": [
+            "밥은 이 사진의 익힌 쌀밥이에요. 밥의 끝에서 ㅂ으로 닫히는 소리를 들어요. 집의 뜻은 사진 속 사람이 지내는 집이에요. 두 낱말의 받침 ㅂ을 전체 소리와 연결해요.",
+            "밥 is cooked rice in this photo. Listen to its closing ㅂ sound. 집 means the house where people live in the other photo. Connect final ㅂ with the whole sound of each word.",
+            "밥 bezeichnet hier gekochten Reis. Hör auf den Abschluss mit ㅂ. 집 bezeichnet das Haus auf dem anderen Foto, in dem Menschen wohnen. Verbinde das ㅂ am Ende mit dem Klang des ganzen Wortes."
+          ]
+        }
+      ],
+      "scenes": [
+        [
+          "수진→플레이어",
+          "서안에 남길 첫 낱말을 준비해 보자. 먼저 글자 끝에서 멈추는 소리를 더 들어 볼까?",
+          "Let's prepare the first word we'll leave on the writing desk. Shall we listen to more syllable endings first?",
+          "Bereiten wir das erste Wort vor, das wir auf dem Schreibpult hinterlassen. Hören wir uns zuerst weitere Silbenenden an?"
+        ],
+        [
+          "탈선비→플레이어",
+          "끝자리를 살피되 소리를 억지로 밀어내지는 말게. 한 낱말씩 들어 보세.",
+          "Notice the final position without forcing the sound out. Let's listen to one word at a time.",
+          "Achte auf die Endposition, ohne den Laut herauszupressen. Hören wir ein Wort nach dem anderen."
+        ]
+      ],
+      "oral": [
+        [
+          "탈선비→플레이어",
+          "같은 낱말을 한 번 더 들을 텐가?",
+          "Would you like to hear the same word again?",
+          "Möchtest du dasselbe Wort noch einmal hören?"
+        ],
+        [
+          "플레이어·표현 시범",
+          "다시 말해 주세요.",
+          "Please say that again.",
+          "Sagen Sie das bitte noch einmal."
+        ],
+        [
+          "탈선비→플레이어",
+          "물론이지. 자네가 고른 낱말을 다시 들려주겠네.",
+          "Of course. I'll play the word you chose again.",
+          "Natürlich. Ich spiele dir das gewählte Wort noch einmal vor."
+        ]
+      ],
+      "oral_note": "재요청에는 실제로 선택한 같은 녹음을 제공한다. ㄱ·ㄷ·ㅂ 계열은 작은 활동별로 나누며 모든 받침/음운 규칙이나 발음 점수 통과를 요구하지 않는다. 지금은 글자/소리표 연습이며 서안 쪽지를 생성하지 않는다.",
+      "ending": [
+        "끝소리 세 묶음을 하나씩 살펴봤어요. 책이라는 낱말도 도움과 함께 만나 봤어요.",
+        "You explored three groups of final sounds and met the word 책 with help.",
+        "Du hast drei Gruppen von Endlauten kennengelernt und das Wort 책 mit Hilfe geübt."
+      ],
+      "followup": "5단원에서 옷과 옷이의 실제 소리를 다시 비교한다. 집·책·밥의 뜻과 표기는 LQ-04의 준비이며 이 수업만으로 사랑채 완공·집 쪽지·기억10%를 만들지 않는다."
+    },
+    {
+      "n": 2,
+      "id": "F0.4.wide-vowels",
+      "file": "02_WAE_WE_FORMS.md",
+      "title": [
+        "ㅙ·ㅞ의 모양을 더 살펴보기",
+        "A closer look at ㅙ and ㅞ",
+        "ㅙ und ㅞ genauer ansehen"
+      ],
+      "mode": "visual",
+      "targets": [
+        {
+          "taught": "왜",
+          "target": "괘",
+          "focus": "ㅙ",
+          "new_vowel": "ㅙ",
+          "prior_vowel": "ㅘ",
+          "note": [
+            "ㅙ의 모양에서 ㅗ 부분과 ㅐ 부분을 찾아요. 왜의 소리를 듣고 ㅇ과 ㅙ를 한 음절로 모아요. 두 음절을 차례로 읽는다는 뜻은 아니에요.",
+            "Find the ㅗ and ㅐ parts in the written form ㅙ. Listen to 왜 and put ㅇ and ㅙ into one syllable block. These are not two syllables to say in sequence.",
+            "Finde die Teile ㅗ und ㅐ in der Schriftform ㅙ. Hör dir 왜 an und verbinde ㅇ und ㅙ zu einem Silbenblock. Das sind keine zwei nacheinander zu sprechenden Silben."
+          ]
+        },
+        {
+          "taught": "웨",
+          "target": "궤",
+          "focus": "ㅞ",
+          "new_vowel": "ㅞ",
+          "prior_vowel": "ㅙ",
+          "note": [
+            "이번에는 ㅜ 부분과 ㅔ 부분이 있는 ㅞ예요. 웨의 표기를 만들고 소리를 들어요. ㅙ·ㅞ는 글자 모양으로 확인하며 소리만으로 반드시 구별할 필요는 없어요.",
+            "Now try ㅞ, whose written form includes ㅜ and ㅔ. Make 웨 and listen. Check ㅙ and ㅞ by their written forms; you don't have to distinguish them by sound alone.",
+            "Jetzt kommt ㅞ mit den Schriftteilen ㅜ und ㅔ. Bilde 웨 und hör zu. Prüfe ㅙ und ㅞ an ihrer Schriftform; du musst sie nicht allein am Klang unterscheiden können."
+          ]
+        }
+      ],
+      "scenes": [
+        [
+          "수진→플레이어",
+          "전에 본 모음에 작은 획이 더 있네. 이번에도 모양부터 하나씩 볼까?",
+          "There are extra strokes on vowels we've seen before. Shall we look at each written form first?",
+          "Die bekannten Vokale haben zusätzliche Striche. Sehen wir uns die Formen wieder einzeln an?"
+        ],
+        [
+          "탈선비→플레이어",
+          "비슷하게 들리는 소리를 억지로 가를 것 없네. 눈에 보이는 조각부터 살펴보게.",
+          "There's no need to force similar sounds apart. Start with the visible written pieces.",
+          "Du musst ähnlich klingende Laute nicht mit Gewalt unterscheiden. Beginne mit den sichtbaren Schriftteilen."
+        ]
+      ],
+      "oral": [
+        [
+          "수진→플레이어",
+          "이 사진을 조금 더 가까이서 보자.",
+          "Let's look at this photo a little closer.",
+          "Sehen wir uns das Foto etwas näher an."
+        ],
+        [
+          "플레이어·표현 시범",
+          "왜요?",
+          "Why?",
+          "Warum?"
+        ],
+        [
+          "수진→플레이어",
+          "작은 획을 더 잘 볼 수 있거든.",
+          "So we can see the small strokes better.",
+          "Damit wir die kleinen Striche besser sehen können."
+        ]
+      ],
+      "oral_note": "왜요는 이유를 묻는 뜻·음성 청크다. 원인 문장 만들기나 왜/웨 청각 변별을 시험하지 않는다. 괘/궤는 표기 조합 과제이며 낱말 뜻을 묻지 않는다.",
+      "ending": [
+        "ㅙ와 ㅞ를 표기로 살펴봤어요. 다음에는 ㅒ·ㅖ를 봐요.",
+        "You explored ㅙ and ㅞ in writing. Next, you'll look at ㅒ and ㅖ.",
+        "Du hast ㅙ und ㅞ an der Schrift kennengelernt. Als Nächstes siehst du dir ㅒ und ㅖ an."
+      ],
+      "followup": "4단원의 선택 회상 활동에 왜/웨가 실제 모형 재구성 문항으로 등장한다. 선택한 표기만 도움과 함께 다시 보며 공식 단원을 늘리지 않는다."
+    },
+    {
+      "n": 3,
+      "id": "F0.4.small-pair",
+      "file": "03_YAE_YE_AND_YES.md",
+      "title": [
+        "ㅒ·ㅖ와 짧은 대답",
+        "ㅒ, ㅖ and a short reply",
+        "ㅒ, ㅖ und eine kurze Antwort"
+      ],
+      "mode": "visual",
+      "targets": [
+        {
+          "taught": "얘",
+          "target": "걔",
+          "focus": "ㅒ",
+          "new_vowel": "ㅒ",
+          "prior_vowel": "ㅑ",
+          "note": [
+            "야와 얘의 표기를 비교해요. ㅒ의 모양을 살펴보고 ㅇ과 ㅒ를 모아요. 이번 작은 활동은 글자 구성이고 사람을 부르는 연습은 아니에요.",
+            "Compare the written forms 야 and 얘. Look at ㅒ and put it with ㅇ. This small activity is about written structure, not calling someone by this word.",
+            "Vergleiche die Schriftformen 야 und 얘. Sieh dir ㅒ an und verbinde es mit ㅇ. In dieser kleinen Übung geht es um die Schrift, nicht darum, jemanden so anzusprechen."
+          ]
+        },
+        {
+          "taught": "예",
+          "target": "계",
+          "focus": "ㅖ",
+          "new_vowel": "ㅖ",
+          "prior_vowel": "ㅒ",
+          "note": [
+            "이번에는 예예요. ㅇ과 ㅖ를 모으고 실제 소리를 들어요. 예는 뒤의 대화에서 네와 함께 동의하는 대답으로 만나 봐요.",
+            "Now try 예. Put ㅇ and ㅖ together and listen. In the dialogue, you'll meet 예 alongside 네 as a yes response.",
+            "Jetzt kommt 예. Verbinde ㅇ und ㅖ und hör zu. Im Dialog lernst du 예 neben 네 als Ja-Antwort kennen."
+          ]
+        }
+      ],
+      "scenes": [
+        [
+          "수진→플레이어",
+          "짧은 대답으로 들었던 소리도 글자로 만나네. 모양부터 차근차근 보자.",
+          "We're meeting a sound from short replies in writing too. Let's look at the forms carefully.",
+          "Einen Laut aus kurzen Antworten sehen wir jetzt auch geschrieben. Schauen wir uns die Formen in Ruhe an."
+        ],
+        [
+          "탈선비→플레이어",
+          "말의 모양을 익히고, 누구에게 쓰는지도 따로 살펴보세.",
+          "Let's learn the written form, then separately consider whom the word is used with.",
+          "Lernen wir die Schriftform und sehen uns gesondert an, wem gegenüber das Wort verwendet wird."
+        ]
+      ],
+      "oral": [
+        [
+          "탈선비→플레이어",
+          "같은 시범을 다시 보겠는가?",
+          "Would you like to see the same example again?",
+          "Möchtest du dasselbe Beispiel noch einmal sehen?"
+        ],
+        [
+          "플레이어·표현 시범",
+          "예.",
+          "Yes.",
+          "Ja."
+        ],
+        [
+          "탈선비→플레이어·예 선택 뒤",
+          "좋네. 같은 시범을 다시 보세.",
+          "All right. Let's see the same example again.",
+          "Gut. Sehen wir uns dasselbe Beispiel noch einmal an."
+        ]
+      ],
+      "oral_note": "이 장면에서는 네/예 모두 동의이며 아니요도 유효한 선택이다. 네/예를 각각 반말/존댓말로 단정하지 않는다. 걔는 아래의 친한 친구 사이 예시를 이해만 하며 낯선 어른/플레이어에게 직접 사용하게 하지 않는다. 계의 뜻과 예외 발음 전체는 읽기 조건이 아니다.",
+      "ending": [
+        "ㅒ·ㅖ의 표기를 보고 예라는 대답도 다시 들어 봤어요.",
+        "You explored the written forms ㅒ and ㅖ and heard the reply 예 again.",
+        "Du hast die Schriftformen ㅒ und ㅖ kennengelernt und die Antwort 예 noch einmal gehört."
+      ],
+      "followup": "A1.1-01에서 네/예 응답과 이름 확인을 뜻·음성으로 재사용한다. 발음이 같을 수 있는 얘/예·걔/계로 필수 청각 변별을 만들지 않는다."
+    },
+    {
+      "n": 4,
+      "id": "F0.4.last-vowel",
+      "file": "04_UI_AND_CHOSEN_REVIEW.md",
+      "title": [
+        "마지막 모음과 골라 보는 복습",
+        "The last vowel and a review you choose",
+        "Der letzte Vokal und deine Wiederholung"
+      ],
+      "mode": "ui",
+      "scenes": [
+        [
+          "수진→플레이어",
+          "이번에는 ㅡ와 ㅣ가 함께 보이는 모음이야. 글자 모양과 말 속 소리를 나누어 살펴보자.",
+          "This vowel has the written parts ㅡ and ㅣ. Let's look separately at its written form and its sound in speech.",
+          "Dieser Vokal enthält die Schriftteile ㅡ und ㅣ. Sehen wir uns die Schriftform und den Klang im Wort getrennt an."
+        ],
+        [
+          "탈선비→플레이어",
+          "모양을 안다고 모든 말의 소리까지 다 안 것은 아니네. 필요한 낱말부터 들어 보세.",
+          "Knowing the written form doesn't mean knowing every word's pronunciation. Let's hear the words we need first.",
+          "Die Schriftform zu kennen heißt nicht, jede Wortaussprache zu kennen. Hören wir zuerst die Wörter, die wir brauchen."
+        ]
+      ],
+      "teaching": [
+        [
+          "T01",
+          "ㅢ의 표기는 ㅡ 부분과 ㅣ 부분을 함께 봐요. ㅇ과 ㅢ를 모아 의를 만들어요. 의의 단독 시범 소리를 들어요.",
+          "Look at the ㅡ and ㅣ parts in ㅢ. Put ㅇ and ㅢ together to make 의 and listen to the isolated example.",
+          "Sieh dir die Teile ㅡ und ㅣ in ㅢ an. Verbinde ㅇ und ㅢ zu 의 und hör dir das einzelne Beispiel an."
+        ],
+        [
+          "T02",
+          "희·늬는 여기서 낱말 뜻이나 사람 이름을 묻지 않는 글자 조합이에요. 각각 ㅎ·ㅢ, ㄴ·ㅢ의 모양을 연습해요. 한국어에 뜻이 전혀 없는 글자라고 단정하지는 않아요.",
+          "Here, 희 and 늬 are written combinations for practice, not questions about word meanings or people's names. Practise ㅎ with ㅢ and ㄴ with ㅢ. This doesn't mean these forms can never have meanings in Korean.",
+          "희 und 늬 sind hier Schriftkombinationen zum Üben, keine Fragen zu Wortbedeutungen oder Personennamen. Übe ㅎ mit ㅢ und ㄴ mit ㅢ. Das bedeutet nicht, dass diese Formen im Koreanischen nie eine Bedeutung haben können."
+        ],
+        [
+          "T03",
+          "이 의자는 앉는 의자예요. 의자라는 낱말의 실제 소리를 함께 들어요. ㅢ가 들어간 모든 낱말을 한 가지 소리로 읽으라는 규칙은 아니에요.",
+          "의자 is a chair to sit on. Listen to the actual word 의자. This is not a rule that every word containing ㅢ must sound the same.",
+          "의자 ist ein Stuhl zum Sitzen. Hör dir das tatsächliche Wort 의자 an. Daraus folgt nicht, dass jedes Wort mit ㅢ gleich ausgesprochen wird."
+        ]
+      ],
+      "oral": [
+        [
+          "수진→플레이어",
+          "헷갈렸던 모양을 하나 골라 볼래? 같은 모형으로 다시 해 보자.",
+          "Would you like to choose one written form you found confusing? Let's use the same example again.",
+          "Möchtest du eine Schriftform auswählen, die dich verwirrt hat? Üben wir sie noch einmal mit demselben Beispiel."
+        ],
+        [
+          "플레이어·선택 행동",
+          "다시 볼 모음을 하나 골라요.",
+          "Choose one vowel to revisit.",
+          "Wähle einen Vokal zum Wiederholen."
+        ],
+        [
+          "수진→플레이어",
+          "좋아. 네가 고른 모형을 다시 보여 줄게.",
+          "All right. I'll show you the example you chose again.",
+          "Gut. Ich zeige dir das gewählte Beispiel noch einmal."
+        ]
+      ],
+      "oral_note": "회상 선택은 선호이며 정답/오답이 없다. 아래 다섯 분기 중 선택한 하나만 진행해도 된다. 희/늬의 실제 인명 발음, 의의 소유 기능과 모든 발음 규칙을 여기서 시험하지 않는다.",
+      "ending": [
+        "ㅢ의 표기를 보고 의자라는 낱말을 들어 봤어요. 다음에는 받침과 뒤 모음이 이어지는 소리를 만나요.",
+        "You explored ㅢ in writing and heard the word 의자. Next, you'll hear final consonants linking to following vowels.",
+        "Du hast ㅢ an der Schrift kennengelernt und das Wort 의자 gehört. Als Nächstes hörst du, wie Endkonsonanten mit folgenden Vokalen verbunden werden."
+      ],
+      "followup": "A1.1-05에서 소유의 의는 새 문법으로 지도한다. 모음 선택 복습 성공을 그 문법이나 모든 의 발음 숙달로 바꾸지 않는다."
+    },
+    {
+      "n": 5,
+      "id": "F0.4.linked-sounds",
+      "file": "05_LINKED_SOUNDS.md",
+      "title": [
+        "글자는 두고 소리를 잇기",
+        "Keeping the spelling, linking the sounds",
+        "Die Schreibung behalten, die Laute verbinden"
+      ],
+      "mode": "link",
+      "targets": [
+        {
+          "taught": "문이",
+          "target": "밥이",
+          "noun": "밥",
+          "link_final": "ㅂ",
+          "spoken_author": "바비",
+          "audio_choices": [
+            "밥이",
+            "바이",
+            "밤이"
+          ],
+          "note": [
+            "문이라는 낱말에 이가 이어진 문이의 소리를 들어요. [무니]처럼 이어져 들리지만 문이라는 표기는 그대로예요. 받침과 모음으로 시작하는 이가 이어지는 모형을 봐요.",
+            "Listen to 문이, where 이 follows 문. It sounds linked, like [무니], while the spelling 문 remains. Look at the example linking a final consonant with 이.",
+            "Hör dir 문이 an, bei dem 이 auf 문 folgt. Es klingt verbunden wie [무니], während die Schreibung 문 erhalten bleibt. Sieh dir an, wie Endkonsonant und 이 verbunden werden."
+          ]
+        },
+        {
+          "taught": "옷이",
+          "target": "집에",
+          "noun": "집",
+          "link_final": "ㅂ",
+          "spoken_author": "지베",
+          "audio_choices": [
+            "집에",
+            "지에",
+            "짐에"
+          ],
+          "note": [
+            "옷을 낱말 끝에서 읽을 때와 옷이에 이가 이어질 때를 따로 들어요. 옷이는 [오시]처럼 들려요. 여기서는 뒤 모음과 이어질 때 원래 받침 자음의 소리가 나타나며 표기는 옷이로 유지해요.",
+            "Listen separately to word-final 옷 and to 옷이. 옷이 sounds like [오시]. Here, the original final consonant's sound links to the following vowel, while the spelling stays 옷이.",
+            "Hör dir 옷 am Wortende und 옷이 getrennt an. 옷이 klingt wie [오시]. Hier verbindet sich der Laut des ursprünglichen Endkonsonanten mit dem folgenden Vokal; die Schreibung 옷이 bleibt erhalten."
+          ]
+        }
+      ],
+      "scenes": [
+        [
+          "수진→플레이어",
+          "같은 글자라도 뒤에 오는 소리와 이어져 들릴 수 있어. 글자를 지우거나 바꾸지 않고 들어 보자.",
+          "A written form can sound linked to what follows. Let's listen while keeping the spelling.",
+          "Ein Schriftzeichen kann mit dem folgenden Laut verbunden klingen. Hören wir zu und behalten dabei die Schreibung bei."
+        ],
+        [
+          "탈선비→플레이어",
+          "오늘은 익힌 낱말의 쉬운 이어짐부터 보세. 모든 규칙을 한꺼번에 외울 것은 없네.",
+          "Let's start with simple linking in familiar words. There's no need to memorise every rule at once.",
+          "Beginnen wir mit einfachen Verbindungen in bekannten Wörtern. Du musst nicht alle Regeln auf einmal lernen."
+        ]
+      ],
+      "oral": [
+        [
+          "수진→플레이어",
+          "소리가 이어져서 어려우면 다시 부탁해도 돼.",
+          "You can ask to hear it again if the linked sounds are difficult.",
+          "Wenn die verbundenen Laute schwierig sind, kannst du um Wiederholung bitten."
+        ],
+        [
+          "플레이어·표현 시범",
+          "다시 말해 주세요.",
+          "Please say that again.",
+          "Sag das bitte noch einmal."
+        ],
+        [
+          "수진→플레이어",
+          "응, 같은 표현을 다시 들려줄게.",
+          "Yes, I'll play the same expression again.",
+          "Ja, ich spiele dir denselben Ausdruck noch einmal vor."
+        ]
+      ],
+      "oral_note": "이 장면의 재요청은 가까운 수진에게 하므로 DE du. 이/에의 뜻은 예시 문장 번역으로 돕고 이번 점수는 소리 연결/표기 보존에 한정한다. 겹받침·ㅎ의 전체 규칙은 필수 통과 범위가 아니다.",
+      "ending": [
+        "익힌 낱말의 소리가 이어지는 것을 듣고 표기는 그대로 두었어요.",
+        "You heard familiar words link to following sounds while keeping their spelling.",
+        "Du hast gehört, wie bekannte Wörter mit folgenden Lauten verbunden werden, und ihre Schreibung beibehalten."
+      ],
+      "followup": "A1.1-03의 옷이 있어요에서는 배운 부분만 읽고 새 조사/문장 기능은 따로 지도한다. 방/방에의 받침ㅇ 유지 비교를 이 단원 실제 회상 활동에 포함한다."
+    },
+    {
+      "n": 6,
+      "id": "F0.4.first-input",
+      "file": "06_FIRST_NOTE_INPUT.md",
+      "title": [
+        "처음 남기는 쪽지",
+        "The first note",
+        "Der erste Zettel"
+      ],
+      "mode": "input",
+      "scenes": [
+        [
+          "수진→플레이어",
+          "등불 아래 남길 첫 낱말을 써 보자. 먼저 입력하는 방법을 짧게 볼까?",
+          "Let's write the first word we'll leave by the lamp. Shall we briefly see how to enter the letters first?",
+          "Schreiben wir das erste Wort, das wir bei der Lampe hinterlassen. Sehen wir uns zuerst kurz an, wie man die Zeichen eingibt?"
+        ],
+        [
+          "탈선비→플레이어",
+          "자판이 낯설면 글자 조각으로 시작해도 좋네. 자네가 쓴 내용은 천천히 다시 살펴보세.",
+          "If the keyboard is unfamiliar, you can start with letter pieces. We'll take time to check what you've written.",
+          "Wenn die Tastatur ungewohnt ist, kannst du mit Schriftteilen beginnen. Sehen wir uns in Ruhe an, was du geschrieben hast."
+        ]
+      ],
+      "teaching": [
+        [
+          "T01",
+          "한글 두벌식 입력을 선택했는지 확인해요. ㅇ과 ㅏ로 아 한 글자가 모이는 시범을 봐요. 글자가 모이는 동안 잠깐 기다리고, 완성된 글자를 확인한 뒤 계속해요.",
+          "Check that Korean Dubeolsik input is selected. Watch ㅇ and ㅏ form 아. Wait while the characters are being composed, then check the completed block before continuing.",
+          "Prüfe, ob die koreanische Dubeolsik-Eingabe ausgewählt ist. Sieh zu, wie ㅇ und ㅏ zu 아 werden. Warte während der Zusammensetzung und prüfe den fertigen Block, bevor du weitermachst."
+        ],
+        [
+          "T02",
+          "키보드를 쓰기 어렵다면 같은 글자 조각을 선택해 모을 수 있어요. 어느 방법으로 해도 쪽지 장면은 이어갈 수 있어요.",
+          "If typing is difficult, choose and combine the same letter pieces instead. Either method lets you continue to the note scene.",
+          "Wenn Tippen schwierig ist, kannst du dieselben Schriftteile auswählen und verbinden. Mit beiden Methoden kannst du die Zettelszene fortsetzen."
+        ]
+      ],
+      "oral": [
+        [
+          "수진→플레이어",
+          "방금 쓴 낱말을 함께 확인해 볼까?",
+          "Shall we check the word you've just entered together?",
+          "Sehen wir uns das gerade eingegebene Wort gemeinsam an?"
+        ],
+        [
+          "플레이어·표현 시범",
+          "네.",
+          "Yes.",
+          "Ja."
+        ],
+        [
+          "수진→플레이어·네 선택 뒤",
+          "좋아. 입력한 내용부터 그대로 보자.",
+          "All right. Let's look at exactly what was entered.",
+          "Gut. Sehen wir uns genau an, was eingegeben wurde."
+        ]
+      ],
+      "oral_note": "이 확인은 입력 내용 점검이며 자동 정답 고침/실제 발화 점수가 아니다. 원 응답을 남기고 명시적으로 고칠 수 있다. 아니요는 원래 작성으로 돌아가거나 멈추는 유효한 선택이다.",
+      "ending": [
+        "입력하고 고치는 방법을 연습했어요. 쪽지의 실제 보관 여부도 따로 확인해요.",
+        "You practised entering and correcting text. Check separately whether the note has actually been kept.",
+        "Du hast das Eingeben und Korrigieren geübt. Prüfe gesondert, ob der Zettel tatsächlich aufbewahrt wurde."
+      ],
+      "followup": "A1.1-05에서 배운 소유물 이름을 짧은 메시지에 입력한다. 복사/짧은 회상 입력/조각 재구성/필기/자유 작문을 구분한다. 집 쪽지는 이 수업의 첫 낱말이며 후속 연습으로 덮어쓰지 않는다."
+    },
+    {
+      "n": 7,
+      "id": "F0.4.space-and-place",
+      "file": "07_THIS_HOUSE_AND_REQUESTS.md",
+      "title": [
+        "짧은 말 사이의 자리",
+        "Spaces between short words",
+        "Abstände zwischen kurzen Wörtern"
+      ],
+      "mode": "space",
+      "scenes": [
+        [
+          "수진→플레이어",
+          "앞에서 연습한 낱말은 그대로 두자. 이번에는 가까이 있는 대상을 가리키고 짧은 말 사이의 자리도 볼까?",
+          "Let us keep the word we practised as it is. This time, shall we point to something nearby and look at spaces between short words?",
+          "Lassen wir das geübte Wort unverändert. Zeigen wir diesmal auf etwas in der Nähe und sehen uns die Abstände zwischen kurzen Wörtern an?"
+        ],
+        [
+          "탈선비→플레이어",
+          "낱말 사이에도 자리가 있구먼. 같은 뜻을 보며 천천히 나누어 보세.",
+          "There are spaces between words too. Let's separate them carefully while keeping the meaning in view.",
+          "Auch zwischen Wörtern gibt es Platz. Teilen wir sie in Ruhe auf und behalten die Bedeutung im Blick."
+        ]
+      ],
+      "teaching": [
+        [
+          "T01",
+          "가까이서 지금 가리키는 집을 이 집이라고 해요. 여기서 이는 가까운 대상을 가리키고, 집은 앞에서 배운 낱말이에요. 두 낱말 사이를 띄어요.",
+          "이 집 means this house, the nearby house being pointed to. 이 points to the nearby thing, and 집 is the word you've learned. Put a space between the two words.",
+          "이 집 bedeutet dieses Haus, auf das gerade in der Nähe gezeigt wird. 이 weist auf das nahe Objekt, 집 ist das bekannte Wort. Zwischen den beiden Wörtern steht ein Leerzeichen."
+        ],
+        [
+          "T02",
+          "모자는 머리에 쓰는 물건, 주세요는 이 장면에서 달라고 부탁하는 말이에요. 모자 주세요에서 물건 이름과 부탁하는 말 사이를 띄어요.",
+          "모자 is a hat, and 주세요 asks someone to give it to you in this scene. In 모자 주세요, put a space between the object name and the request.",
+          "모자 bezeichnet einen Hut; 주세요 bittet in dieser Szene darum, ihn zu bekommen. Setze in 모자 주세요 ein Leerzeichen zwischen Gegenstandsbezeichnung und Bitte."
+        ],
+        [
+          "T03",
+          "이 사진의 물은 마시는 물이에요. 물 주세요는 물을 달라는 부탁이에요. 물의 뜻과 소리를 먼저 배우고 물 주세요의 띄어쓰기를 봐요.",
+          "물 is drinking water in this photo. 물 주세요 asks for water. Learn the meaning and sound of 물 first, then look at the space in 물 주세요.",
+          "물 ist auf diesem Foto Trinkwasser. 물 주세요 ist eine Bitte um Wasser. Lerne zuerst Bedeutung und Laut von 물 und sieh dir dann das Leerzeichen in 물 주세요 an."
+        ]
+      ],
+      "oral": [
+        [
+          "수진→플레이어",
+          "배운 말로 나한테 물을 부탁해 볼래?",
+          "Would you like to ask me for water using the phrase we practised?",
+          "Möchtest du mich mit dem geübten Ausdruck um Wasser bitten?"
+        ],
+        [
+          "플레이어·표현 시범",
+          "물 주세요.",
+          "Please give me some water.",
+          "Gib mir bitte Wasser."
+        ],
+        [
+          "수진→플레이어",
+          "여기 있어. 마실 물이야.",
+          "Here you are. Some drinking water for you.",
+          "Hier bitte. Trinkwasser für dich."
+        ]
+      ],
+      "oral_note": "사진은 물의 뜻을 보여 주는 도움 자료이며 역할 장면의 요청 대상은 마실 물이다. 실제 학습자가 물을 마시는 행동은 통과 조건이 아니다. 모자 주세요/물 주세요의 기존 목표를 실제 문항으로 보존하며 전체 조사·어미 숙달로 확대하지 않는다.",
+      "ending": [
+        "이 집과 배운 요청 문구에서 낱말 사이의 자리를 살펴봤어요. 다음에는 이름을 소개하고 모르는 말을 다시 묻는 장면으로 이어져요.",
+        "You explored spaces in 이 집 and familiar requests. Next come scenes for introducing a name and asking to hear something again.",
+        "Du hast die Abstände in 이 집 und bekannten Bitten geübt. Danach folgen Szenen zum Vorstellen eines Namens und zum Nachfragen."
+      ],
+      "followup": "A1.1-04에서 새 대상의 뜻과 이름을 먼저 배운 뒤 주세요 요청을 재사용한다. 이 집은 별도 연습 문구이며 서안의 원래 집 쪽지를 덮어쓰거나 새 필수 단서를 만들지 않는다."
+    }
+  ]
+}

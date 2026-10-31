@@ -1,0 +1,468 @@
+{
+  "schema": "authored-season1-world-contract/3.2",
+  "date": "2026-10-24",
+  "status": "design_not_runtime_or_final_historical_approval",
+  "invariants": {
+    "buildings": 11,
+    "toilets": 2,
+    "target_construction_stages": 128,
+    "acts": [
+      36,
+      35,
+      31,
+      26
+    ],
+    "main_episodes": 10,
+    "prologue": 1,
+    "building_hooks": 33,
+    "clues": 12,
+    "learning_bands": 16,
+    "learning_units": 100,
+    "required_units": 99,
+    "optional_unit": "C2.1-06",
+    "new_resident_npcs": 0
+  },
+  "themes": [
+    "기다림",
+    "전달",
+    "지킴"
+  ],
+  "protected_records": [
+    {
+      "record_id": "R1",
+      "name": "곁기록 본문",
+      "origin": "fictional_father_and_later_writers_distinguished",
+      "independence_group": "private_text_corpus",
+      "not_official_sacho": true
+    },
+    {
+      "record_id": "R2",
+      "name": "이름 별지",
+      "origin": "yeoni_private_index",
+      "independence_group": "yeoni_index",
+      "stored_separately": true
+    },
+    {
+      "record_id": "R3-HOUSE",
+      "name": "집 안 수령 장부",
+      "origin": "household_recipient",
+      "independence_group": "house_receipts",
+      "clue_id": "S1-E08"
+    },
+    {
+      "record_id": "R3-TRUST",
+      "name": "외부 수탁 쪽지",
+      "origin": "external_custodian",
+      "independence_group": "external_receipts",
+      "clue_id": "S1-E08"
+    },
+    {
+      "record_id": "R3-SEND",
+      "name": "발송 메모",
+      "origin": "yeoni",
+      "independence_group": "yeoni_dispatch",
+      "clue_id": "S1-E11"
+    },
+    {
+      "record_id": "R3-COPY",
+      "name": "후대 필사 경위",
+      "origin": "later_copyist",
+      "independence_group": "copy_colophon",
+      "clue_id": "S1-E11",
+      "not_independent_of_copied_content": true
+    },
+    {
+      "record_id": "LETTER",
+      "name": "마지막 편지",
+      "origin": "yeoni_via_explicit_copy",
+      "independence_group": "yeoni_letter",
+      "clue_id": "S1-E12",
+      "not_a_third_independent_sender_record": true
+    },
+    {
+      "record_id": "R3-UNSENT",
+      "name": "미발송 안부 초고",
+      "origin": "yeoni",
+      "independence_group": "yeoni_dispatch",
+      "clue_id": "S1-E11",
+      "not_new_clue": true,
+      "not_independent_of_yeoni_account": true
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "fact:S1-E01.public",
+      "clue_id": "S1-E01",
+      "title": "메달",
+      "default_episode": "S1-P",
+      "claim": "메달을 받았고 반응함",
+      "limit": "문양으로 과거 소유자·노인 신원을 확정하지 않음",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    },
+    {
+      "fact_id": "fact:S1-E02.public",
+      "clue_id": "S1-E02",
+      "title": "심지",
+      "default_episode": "S1-01",
+      "claim": "집에서 심지를 받아 실제로 썼음",
+      "limit": "선물 발신인은 아직 모름",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    },
+    {
+      "fact_id": "fact:S1-E03.public",
+      "clue_id": "S1-E03",
+      "title": "빈 상자·포장",
+      "default_episode": "S1-01",
+      "claim": "남은 포장과 수령 흔적을 보관함",
+      "limit": "소모품 전체가 500년 실물 보존된 것은 아님",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    },
+    {
+      "fact_id": "fact:S1-E04.public",
+      "clue_id": "S1-E04",
+      "title": "인영",
+      "default_episode": "S1-02",
+      "claim": "급히 문을 지나는 사람의 제한된 모습",
+      "limit": "도둑·의도·신원 확정 아님",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    },
+    {
+      "fact_id": "fact:S1-E05.public",
+      "clue_id": "S1-E05",
+      "title": "책 꾸러미",
+      "default_episode": "S1-03",
+      "claim": "연이가 책을 들고 떠남",
+      "limit": "운반=작성·소유·절도라고 단정하지 않음",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    },
+    {
+      "fact_id": "fact:S1-E06.public",
+      "clue_id": "S1-E06",
+      "title": "가족의 말",
+      "default_episode": "S1-04",
+      "claim": "연이와 도깨비의 가족 대화",
+      "limit": "수진의 과거 목격 증언 아님",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    },
+    {
+      "fact_id": "fact:S1-E07.public",
+      "clue_id": "S1-E07",
+      "title": "씨앗",
+      "default_episode": "S1-05",
+      "claim": "발신인 없는 씨앗을 심었음",
+      "limit": "계절·꽃·매듭만으로 신원 확정 금지",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    },
+    {
+      "fact_id": "fact:S1-E08.public",
+      "clue_id": "S1-E08",
+      "title": "집 안 수령 장부",
+      "default_episode": "S1-07",
+      "claim": "물품·수령 시기·중간 전달자, 별도 수탁 기록과의 대응",
+      "limit": "한 원문의 복제는 독립 증거 아님",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    },
+    {
+      "fact_id": "fact:S1-E09.public",
+      "clue_id": "S1-E09",
+      "title": "탈·공부책",
+      "default_episode": "S1-08",
+      "claim": "탈선비의 탄생과 연이의 공부",
+      "limit": "떠난 뒤 연이의 생애는 책이 알지 못함",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    },
+    {
+      "fact_id": "fact:S1-E10.public",
+      "clue_id": "S1-E10",
+      "title": "구출 기억",
+      "default_episode": "S1-09",
+      "claim": "태고·조이가 마지막 힘으로 연이를 구했고 직후 살아 있었음",
+      "limit": "긴 생애·물품 발신인은 별도 확인",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    },
+    {
+      "fact_id": "fact:S1-E11.public",
+      "clue_id": "S1-E11",
+      "title": "발송·수령·전승 경로",
+      "default_episode": "S1-10",
+      "claim": "외부 사본과 별도 기록을 식별해 연이의 긴 생애와 선물 연결 확인",
+      "limit": "필체·계절·포장만으로 판정하지 않음",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    },
+    {
+      "fact_id": "fact:S1-E12.public",
+      "clue_id": "S1-E12",
+      "title": "마지막 편지",
+      "default_episode": "S1-10",
+      "claim": "출처 경위를 밝힌 창작 편지 사본의 말",
+      "limit": "국가 사료·마법 인증·늦춘 해독 잠금 아님",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    },
+    {
+      "fact_id": "fact:S1-E08.preservation",
+      "clue_id": "S1-E08",
+      "default_episode": "S1-07",
+      "claim": "책을 없애지 않고 나누어 맡기려 했다는 의뢰와 별도 수령의 대응",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    },
+    {
+      "fact_id": "fact:S1-E08.cloth",
+      "clue_id": "S1-E08",
+      "default_episode": "S1-07",
+      "claim": "집에서 받아 문틈에 실제 사용한 천과 수령 기록",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    },
+    {
+      "fact_id": "fact:S1-END",
+      "clue_id": null,
+      "default_episode": "S1-10",
+      "claim": "사랑채 낭독과 대문 결말을 보거나 요약으로 확인함",
+      "mandatory_story_fact": true,
+      "accessible_via": [
+        "main_scene",
+        "translated_or_picture_journal_summary"
+      ],
+      "ownership_requirement": null,
+      "proficiency_requirement": null
+    }
+  ],
+  "knowledge": [
+    {
+      "actor": "story:dokkaebi",
+      "initial": [
+        "연이의 집 안 생활과 떠남",
+        "물품 사용",
+        "첫 전달자에게 외쳤으나 보이지 않아 응답 없음; 글 문의도 익명 경로에서 끊김",
+        "연이일지도 모른다는 희망과 체념"
+      ],
+      "unknown": [
+        "구출",
+        "집 밖 발신 주문",
+        "연이의 긴 생애",
+        "외부 편지"
+      ],
+      "policy": "본인이 아는 사실과 의심은 질문받으면 즉시 말함; E07 기본 대본에서 의심 고백"
+    },
+    {
+      "actor": "story:talsunbi",
+      "initial": [
+        "자신의 탄생과 연이의 공부 중 자신이 경험한 범위"
+      ],
+      "unknown": [
+        "떠난 뒤 생애",
+        "아직 식별하지 못한 외부 사본"
+      ],
+      "policy": "가진 자료는 즉시 읽고 번역 도움 제공; E09는 기본 회상 장면이며 비밀 의무 없음"
+    },
+    {
+      "actor": "story:taego;story:joy",
+      "initial": [
+        "인물과 순서가 특정되지 않은 마지막 손·소리 단편"
+      ],
+      "unknown": [
+        "단편의 구출 의미",
+        "구출 이후 생애"
+      ],
+      "policy": "단편을 초반부터 제시; E04/E05/E09에서 연결; E10에서 구출 확인 후 즉시 말함"
+    },
+    {
+      "actor": "human:sujin",
+      "initial": [
+        "현재 경험과 현재 자료 해석"
+      ],
+      "unknown": [
+        "1498년 목격",
+        "옛 문서의 자동 진위 판정"
+      ],
+      "policy": "도움 요청에 응답; E11에서 외부 전승 사본을 자료 대조로 식별; 전문 감정 권위 없음"
+    }
+  ],
+  "visibility": {
+    "past_human_observers": [
+      "Jeong Yeo-chang (explicit fictionalization)",
+      "story:yeoni"
+    ],
+    "current_observers": "medal-invited consenting companions, including Christian, learner and Sujin",
+    "current_location": "memory_house_only",
+    "ordinary_delivery_person_can_see_or_hear": false,
+    "spirits_not_counted_as_two_humans": true,
+    "can_leave_house": false,
+    "invitation_not_language_or_morality_test": true,
+    "first_delivery_attempt": "shouting unheard; written inquiry cannot trace anonymous chain",
+    "modern_MQ": "no physical Dokkaebi on street, at school or at work",
+    "supersedes": "earlier director proposal of optional visibility to everyone"
+  },
+  "memory": {
+    "historical_results_changeable": false,
+    "facts_immutable": true,
+    "clarity_cosmetic_only": true,
+    "full_clarity_available_from_start": true,
+    "translation_always_available": true,
+    "source_limit_not_proficiency_causes_incomplete_testimony": true
+  },
+  "gift_policy": {
+    "records_channel_separate": true,
+    "gifts_contain_cipher": false,
+    "magical_identity_marks": false,
+    "arrival_intermittent": true,
+    "intended_season_not_guaranteed_arrival": true,
+    "needs_and_routes_both_matter": true,
+    "exact_years_and_counts_unfixed": true,
+    "only_remainders_and_memories_preserved": true,
+    "summer_fourth_gift": false,
+    "season_or_knot_not_identity_proof": true
+  },
+  "medal": {
+    "current_diegetic_holder": "human:christian",
+    "handover": "human_custom_of_help_not_moral_score",
+    "elder": "prior_human_custodian_identity_deliberately_open_for_sequel",
+    "account_or_item_ownership_mutation": false
+  },
+  "ending": {
+    "letters_source": "fictional_external_digital_study_collection_explicit_transmission_copy",
+    "reading_access": "immediate_after_identification_at_E11_no_mastery_gate",
+    "read_at": "sarangchae",
+    "voluntary_reader": "human:christian",
+    "help_readers": [
+      "human:sujin",
+      "story:talsunbi"
+    ],
+    "equal_emotional_outcome_for_all_levels": true,
+    "final_gate_is_memory_scene_not_new_building": true,
+    "season2_not_required_for_closure": true,
+    "not_exclusive_reader": true,
+    "shrine_moment": "commemorate known absence; not first discovery that a human from 500 years ago died",
+    "why_no_early_greeting": "TalSunbi could have read a sent note; Yeoni chose silence for early anonymity and later could not break it through guilt and fear of promising return. E11 includes an unsent draft. This is regret, not physical impossibility or moral exoneration.",
+    "greeting_physically_possible": true,
+    "silence_was_character_choice": true,
+    "forgiveness_forced": false
+  },
+  "event_namespace": "S1-LQ-nn / S1-EV-nn / S1-MQ-nn are proposal identifiers, not existing runtime IDs",
+  "fact_gate_contract": {
+    "requires_fact_ids": "all-of for spoiler-bearing variant only; neutral/modern variant always open",
+    "mark_seen": "story fact presented through scene or translated/picture journal summary; no language answer required",
+    "late_replay": "never reset known facts; explain current confirmed state",
+    "initial_npc_knowledge": "direct questions can disclose known facts before default montage",
+    "building_or_band_unlock": false
+  },
+  "assessment": {
+    "policy": "AC-1",
+    "event_completion_never_mastery": true,
+    "legacy_ids_preserved": true,
+    "audio_off_never_listening_evidence": true,
+    "free_production_unassessed_until_valid_assessor": true,
+    "retained_mastery_schema": "CourseMastery v5"
+  },
+  "canonical_humans": [
+    "andrea",
+    "byeongcheol",
+    "christian",
+    "daniel",
+    "dongsun",
+    "hyuna",
+    "jun",
+    "lena",
+    "maya",
+    "minho",
+    "sujin"
+  ],
+  "story_role_ids": [
+    "story:taego",
+    "story:joy",
+    "story:dokkaebi",
+    "story:talsunbi",
+    "story:yeoni",
+    "story:elder"
+  ],
+  "runtime_story_aliases": "unmapped; do not copy appendix joi into existing persona catalog",
+  "production_notes": "Exact dates, 128 real stage IDs, content item IDs, reviewed Korean/DE/EN/media and human validation remain original T2-T12 work.",
+  "themes_actions": [
+    "보는 사람",
+    "읽는 사람",
+    "전하는 사람"
+  ]
+}

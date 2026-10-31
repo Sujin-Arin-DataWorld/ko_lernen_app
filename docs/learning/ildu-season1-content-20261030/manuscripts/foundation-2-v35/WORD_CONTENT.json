@@ -1,0 +1,124 @@
+{
+  "lessons": [
+    {
+      "n": 6,
+      "id": "F0.2.tree-and-hat",
+      "file": "06_TREE_HAT_TIMBER.md",
+      "title": ["나무와 모자, 그리고 목재", "A tree, a hat, and timber", "Ein Baum, ein Hut und Holz"],
+      "new": "",
+      "words": ["나무", "모자"],
+      "concepts": ["TREE", "HAT"],
+      "scenes": [
+        ["수진", "배운 조각을 모으니 낱말도 만들 수 있네. 이번에는 그림과 뜻도 함께 알아보자.", "We can make words with the pieces we've learned. This time, let's learn their pictures and meanings too.", "Aus den bekannten Teilen können wir Wörter bilden. Lernen wir jetzt auch die Bilder und Bedeutungen dazu kennen."],
+        ["탈선비", "배운 글자로 이름을 읽을 수 있겠구나. 그림을 보고 소리를 들으며 무엇을 가리키는지 함께 찾아보세.", "We can use familiar written forms to read these names. Let's look at the pictures, listen and find what they refer to together.", "Mit bekannten Schriftformen können wir diese Bezeichnungen lesen. Sehen wir uns die Bilder an, hören zu und finden gemeinsam heraus, was sie bezeichnen."],
+        ["도깨비", "좋다. 그림부터 살펴보아라. 나중에 내 자재 푯말과 헷갈리지 않게 말이다.", "All right. Look at the pictures first, so you won't confuse them with my material labels later.", "Gut. Seht euch zuerst die Bilder an, damit ihr sie später nicht mit meinen Materialschildern verwechselt."]
+      ],
+      "teaching": [
+        ["나무", "이 그림의 나무는 뿌리를 내리고 줄기와 가지가 자라는 식물이에요. 나·무를 이어 나무 소리를 들어요.", "In this picture, 나무 is a living tree with roots, a trunk and branches. Listen to 나 and 무 together as 나무.", "Auf diesem Bild bedeutet 나무 einen lebenden Baum mit Wurzeln, Stamm und Ästen. Hör dir 나 und 무 zusammen als 나무 an."],
+        ["나무", "다른 나무 그림도 살펴봐요. 모양이나 색이 달라도 여기서는 같은 뜻의 나무예요.", "Look at another picture of a tree. Its shape or colour may differ, but 나무 has the same meaning here.", "Sieh dir ein anderes Bild eines Baums an. Form und Farbe können anders sein, doch 나무 hat hier dieselbe Bedeutung."],
+        ["모자", "모자는 머리에 쓰는 물건이에요. 모·자를 이어 모자 소리를 들어요.", "모자 is something you wear on your head. Listen to 모 and 자 together as 모자.", "모자 ist etwas, das man auf dem Kopf trägt. Hör dir 모 und 자 zusammen als 모자 an."],
+        ["모자", "색과 모양이 다른 모자도 같은 낱말로 불러요. 그림의 위치가 아니라 무엇인지 살펴봐요.", "Hats with different colours and shapes can use the same word. Look at what the object is, not where its picture is placed.", "Auch Hüte mit anderer Farbe und Form können mit demselben Wort bezeichnet werden. Achte darauf, was zu sehen ist, nicht auf den Platz des Bildes."]
+      ],
+      "help": ["나무는 이 장면에서 살아 있는 식물, 모자는 머리에 쓰는 물건이에요. 두 그림과 낱말, 소리를 다시 연결해 봐요.", "Here, 나무 is a living tree and 모자 is something worn on the head. Let's connect the two pictures, words and sounds again.", "Hier ist 나무 ein lebender Baum und 모자 etwas, das man auf dem Kopf trägt. Verbinden wir Bilder, Wörter und Laute noch einmal."],
+      "oral": [
+        ["수진", "모자가 필요하면 이름을 넣어서 부탁해 볼까?", "If you need the hat, shall we ask for it using its name?", "Wenn du den Hut brauchst, wollen wir mit seiner Bezeichnung darum bitten?"],
+        ["플레이어·시범", "모자 주세요.", "Please give me the hat.", "Gib mir bitte den Hut."],
+        ["수진", "여기 있어. 네가 부탁한 모자야.", "Here you are. This is the hat you asked for.", "Hier bitte. Das ist der Hut, um den du gebeten hast."]
+      ],
+      "oral_note": "모자의 뜻을 배운 뒤에만 명칭 요청을 제공한다. 수진이 실제 모자/학습 소품을 건넨다. 듣고 따라 하거나 표현 음성을 선택해도 참여하며 자유 말하기·조사 숙달로 기록하지 않는다. 모자 주세요 전체의 미학습 글자 해독을 요구하지 않는다.",
+      "ending": ["나무와 모자의 소리·글자·뜻을 연결했어요. 창고에서 쓰는 목재인 나무의 뜻도 따로 살펴봤어요.", "You connected the sounds, written forms and meanings of 나무 and 모자, and separately explored 나무 as timber in the storeroom.", "Du hast Laute, Schriftformen und Bedeutungen von 나무 und 모자 verbunden und 나무 als Holz im Vorratsraum gesondert kennengelernt."],
+      "ending_no_supplement": ["나무와 모자의 소리·글자·뜻을 연결했어요. 이어서 창고에서 쓰는 나무의 다른 뜻을 따로 살펴봐요.", "You connected the sounds, written forms and meanings of 나무 and 모자. Next, let's separately look at another meaning of 나무 used in the storeroom.", "Du hast Laute, Schriftformen und Bedeutungen von 나무 und 모자 verbunden. Als Nächstes sehen wir uns eine andere Bedeutung von 나무 im Vorratsraum gesondert an."],
+      "followup": "A1.1-03의 분실물에서 다른 모자 그림으로 회수한다. 식물 나무와 재료 나무는 같은 단어지만 다른 뜻의 학습이다. 목재 보충 활동을 하지 않았다면 나무를 목재 푯말 정답으로 요구하지 않는다.",
+      "supplement": "timber"
+    },
+    {
+      "n": 7,
+      "id": "F0.2.sea-and-bridge",
+      "file": "07_PHOTO_CARDS_AND_LABELS.md",
+      "title": ["사진 카드와 창고 푯말 정리", "Photo cards and the storeroom labels", "Fotokarten und Schilder im Vorratsraum ordnen"],
+      "new": "",
+      "words": ["바다", "다리"],
+      "concepts": ["SEA", "BRIDGE"],
+      "scenes": [
+        ["수진", "창고 정리 연습에 쓸 사진 카드도 있어. 어떤 곳인지 먼저 배워 보자.", "There are photo cards for our storeroom practice too. Let's first learn what places they show.", "Für unsere Übung im Vorratsraum gibt es auch Fotokarten. Lernen wir zuerst, welche Orte darauf zu sehen sind."],
+        ["탈선비", "물빛이 넓게 펼쳐진 사진도 있고, 물을 건너는 길이 보이는 사진도 있구나. 하나씩 이름을 알아보세.", "One photo shows a wide stretch of water; another shows a way across water. Let's learn their names one at a time.", "Ein Foto zeigt eine weite Wasserfläche, ein anderes einen Weg über das Wasser. Lernen wir ihre Bezeichnungen einzeln kennen."],
+        ["도깨비", "사진을 익혔으면 내 푯말도 정리해 보아라. 물건과 이름을 제자리에 놓는 게 중요한 일이다!", "Once you've learned the photos, try sorting my labels too. Putting things and their names in the right places matters!", "Wenn ihr die Fotos kennengelernt habt, ordnet auch meine Schilder. Es ist wichtig, dass Sachen und ihre Bezeichnungen an den richtigen Stellen sind!"]
+      ],
+      "teaching": [
+        ["바다", "이 그림은 넓은 바닷물이 보이는 바다예요. 바·다를 이어 소리를 들어요.", "This picture shows the sea: a wide area of seawater. Listen to 바 and 다 together.", "Dieses Bild zeigt das Meer, eine große Fläche mit Meerwasser. Hör dir 바 und 다 zusammen an."],
+        ["바다", "모래 해변의 바다와 바위 해안의 바다를 함께 봐요. 다른 사진에서도 바다를 찾아요.", "Look at the sea by a sandy beach and by a rocky coast. Find the sea in different photos too.", "Sieh dir das Meer an einem Sandstrand und an einer Felsküste an. Erkenne das Meer auch auf anderen Fotos."],
+        ["다리", "여기서 다리는 물 위를 건너도록 만든 구조물이에요. 다·리를 이어 다리 소리를 들어요.", "Here, 다리 means a bridge built for crossing over water. Listen to 다 and 리 together as 다리.", "Hier bedeutet 다리 eine Brücke, über die man Wasser überqueren kann. Hör dir 다 und 리 zusammen als 다리 an."],
+        ["다리", "돌로 된 다리와 나무로 된 다리도 같은 뜻의 다리예요. 이번에는 몸의 다리라는 뜻은 배우지 않아요.", "A stone bridge and a wooden bridge both use this meaning of 다리. We aren't learning the meaning 'leg' this time.", "Eine Steinbrücke und eine Holzbrücke gehören beide zu dieser Bedeutung von 다리. Die Bedeutung Bein lernen wir diesmal nicht."]
+      ],
+      "help": ["바다는 넓은 바닷물, 다리는 여기서 물을 건너는 구조물이에요. 뜻이 보이는 두 사진을 다시 비교해요.", "바다 is the sea; 다리 here is a structure for crossing water. Let's compare two photos that show those meanings.", "바다 ist das Meer; 다리 ist hier ein Bauwerk zum Überqueren von Wasser. Vergleichen wir zwei Fotos, die diese Bedeutungen zeigen."],
+      "oral": [
+        ["수진", "보고 싶은 사진을 가리키면서 주세요라고 해 볼까?", "Shall we point to the photo we want and ask with 주세요?", "Wollen wir auf das gewünschte Foto zeigen und mit 주세요 darum bitten?"],
+        ["플레이어·시범", "주세요.", "Please give it to me.", "Bitte gib es mir."],
+        ["수진", "여기 있어. 가리킨 사진이야.", "Here you are. This is the photo you pointed to.", "Hier bitte. Das ist das Foto, auf das du gezeigt hast."]
+      ],
+      "oral_note": "이미 가르친 바다/다리 사진만 사용한다. 주세요를 상황·음성으로 재사용하며 사진이라는 낱말이나 복잡한 문장을 독립 독해해야 하는 조건은 없다. 모든 사진은 현대 연습 소품이다.",
+      "ending": ["낱말을 읽고 배운 뜻에 맞는 그림과 푯말을 찾았어요. 다음에는 모음에 획을 더한 야·여를 배워요.", "You read words and matched pictures and labels to their learned meanings. Next, you'll learn 야 and 여, with an extra stroke in the vowel.", "Du hast Wörter gelesen und Bilder und Schilder den gelernten Bedeutungen zugeordnet. Als Nächstes lernst du 야 und 여 mit einem zusätzlichen Strich im Vokal kennen."],
+      "followup": "A1.2-02의 다른 지도 사진에서 바다·건너는 다리 뜻을 회수한다. 몸의 다리를 오답 사진으로 쓰지 않는다. 창고 정리는 착공 장면의 학습 행동이며 완공·기억 20%·S1-E03 공개를 자동 생성하지 않는다.",
+      "final_labels": true
+    }
+  ],
+  "media": {
+    "TREE-T1": "잎이 있는 성목 전체가 뿌리의 땅과 함께 보이는 현대 사진. 나무/언어 표기 없음.",
+    "TREE-T2": "첫 사진과 수종·형태가 다른 성목. 줄기와 가지가 분명하고 화분 소품과 혼동되지 않음.",
+    "TREE-I1": "가르친 종류의 나무를 다른 구도에서 본 사진. 사진 위치·색 하나로 정답이 되지 않음.",
+    "TREE-R1": "다른 날 보는 나무 사진. 줄기·가지·자라는 땅이 보임. 목재 더미 아님.",
+    "HAT-T1": "머리에 쓰는 챙 있는 모자 한 개. 문자 로고 없음.",
+    "HAT-T2": "다른 색·형태의 모자. 첫 그림과 같은 배경색을 정답 단서로 쓰지 않음.",
+    "HAT-I1": "배운 범주의 모자를 다른 각도에서 찍은 사진. 나무 그림과 크기·선명도 차이를 맞춤.",
+    "HAT-R1": "다른 천 모자 사진. 나무·목재와 혼합 의미를 만들지 않음.",
+    "SEA-T1": "바닷물과 수평선이 분명한 모래 해변의 현대 사진. 글자 표기 없음.",
+    "SEA-T2": "바닷물과 수평선이 보이는 바위 해안 사진. 강·호수와 경계가 흐린 자료를 피함.",
+    "SEA-I1": "가르친 해안 범주의 바다를 다른 구도로 본 사진.",
+    "SEA-R1": "다른 해변의 넓은 바닷물 사진. 문제에 필요한 바다 부분이 분명함.",
+    "BRIDGE-T1": "하천 위를 건너는 돌다리 전체와 양쪽 연결 지점이 보임.",
+    "BRIDGE-T2": "작은 물길을 가로지르는 목조 보행교. 몸의 다리 없음.",
+    "BRIDGE-I1": "배운 다리 범주의 다른 구도 사진. 물 위를 건너는 기능이 분명함.",
+    "BRIDGE-R1": "다른 각도의 보행교 사진. 낯선 문화·지명으로 답을 추론하게 하지 않음.",
+    "TOOLS-T1": "망치와 집게를 사용하는 짧은 목적 시범 또는 두 정지 사진. 한국어 도구의 의미 설명과 함께 제공.",
+    "TOOLS-T2": "같은 종류의 망치·집게를 다른 각도로 보여 주는 도구 사진.",
+    "TOOLS-I1": "망치와 집게가 놓인 창고 도구칸. 글자 표지는 제거. 기능을 모르는 새 도구만 제시하지 않음.",
+    "TOOLS-R1": "가르친 도구 종류가 다른 배열에 놓인 사진. 이미 보인 푯말 없음.",
+    "FLOOR-T1": "다른 완성 한옥의 마루 참고 사진. 목재 바닥이 사람이 앉고 서는 높인 공간임을 보여 줌. 이 고택의 완공 상태로 표시하지 않음.",
+    "FLOOR-T2": "같은 뜻의 마루를 다른 구도로 보여 주는 참고 사진. 느슨한 판재 더미 아님.",
+    "FLOOR-I1": "창고 옆 참고 자료판에 놓인 별도의 완성 마루 사진. 사진 자체에 정답 글자 없음.",
+    "FLOOR-R1": "다른 구도의 완성 마루 참고 사진. 원 고택 완공으로 오인시키지 않음.",
+    "TIMBER-T1": "복원 재료로 정리한 잘린 목재와 판재. 뿌리·잎이 있는 살아 있는 나무와 명확히 구분.",
+    "TIMBER-T2": "다른 배열의 목재 재료 사진. 이 문맥의 나무=재료 뜻을 별도로 설명.",
+    "TIMBER-I1": "창고 목재칸의 판재와 잘린 목재. 완성 바닥이나 살아 있는 나무 아님. 글자 표지 없음.",
+    "TIMBER-R1": "다른 배열의 목재칸 사진. 판재의 색만 정답 단서로 쓰지 않음."
+  },
+  "supplements": {
+    "tools": {
+      "word": "도구",
+      "concept": "TOOLS",
+      "teaching": ["물건을 만들거나 고칠 때 쓰는 물건을 도구라고 해요. 그림의 망치와 집게를 보고 도·구를 이어 들어요.", "도구 means tools used to make or repair things. Look at the hammer and pliers and listen to 도 and 구 together.", "도구 bezeichnet Werkzeug zum Herstellen oder Reparieren von Dingen. Sieh dir Hammer und Zange an und hör dir 도 und 구 zusammen an."],
+      "response": ["이 도구 사진에 도구 푯말을 함께 놓아 봐요.", "Let's put the 도구 label with this picture of tools.", "Legen wir das Schild 도구 gemeinsam zu diesem Werkzeugfoto."],
+      "help": ["물건을 만들고 고칠 때 쓰는 물건의 뜻이에요. 쓰임을 보여 주는 시범을 다시 봐요.", "This word refers to things used to make and repair things. Let's watch their use again.", "Das Wort bezeichnet Dinge zum Herstellen und Reparieren. Sehen wir uns ihre Verwendung noch einmal an."]
+    },
+    "floor": {
+      "word": "마루",
+      "concept": "FLOOR",
+      "teaching": ["이 참고 사진에서 사람이 앉고 서는 나무 바닥 공간을 마루라고 해요. 마·루를 이어 들어요. 목재 한 조각의 이름은 아니에요.", "In this reference photo, 마루 is the wooden floor space where people sit and stand. Listen to 마 and 루 together. It isn't the name of a loose piece of timber.", "Auf diesem Referenzfoto bezeichnet 마루 den hölzernen Bodenbereich, auf dem man sitzt und steht. Hör dir 마 und 루 zusammen an. Es ist nicht die Bezeichnung für ein loses Stück Holz."],
+      "response": ["완성된 마루 참고 사진과 마루 푯말을 함께 놓아요. 우리 고택이 완공됐다는 뜻은 아니에요.", "Put the 마루 label with the reference photo of a finished maru. This doesn't mean our house is finished.", "Lege das Schild 마루 zu dem Referenzfoto eines fertigen Maru. Das bedeutet nicht, dass unser Haus fertig ist."],
+      "help": ["마루는 사진 속 나무 바닥 공간이에요. 느슨한 판재와 구별해서 다시 봐요.", "마루 is the wooden floor space in the photo. Let's distinguish it from loose boards.", "마루 ist der hölzerne Bodenbereich auf dem Foto. Unterscheiden wir ihn von losen Brettern."]
+    },
+    "timber": {
+      "word": "나무",
+      "concept": "TIMBER",
+      "teaching": ["앞에서는 살아 있는 식물을 나무라고 불렀어요. 창고에서는 물건을 만드는 재료인 목재도 나무라고 해요. 같은 낱말의 다른 뜻을 따로 배우는 거예요.", "Earlier, 나무 meant a living tree. In the storeroom, 나무 can also mean timber used to make things. We're learning another meaning of the same word separately.", "Vorhin bedeutete 나무 einen lebenden Baum. Im Vorratsraum kann 나무 auch Holz als Material bezeichnen. Wir lernen diese andere Bedeutung desselben Wortes gesondert."],
+      "response": ["지금은 재료인 나무를 정리해요. 목재 사진과 나무 푯말을 함께 놓아 봐요.", "This time, we're sorting 나무 as a material. Put the 나무 label with the timber photo.", "Diesmal ordnen wir 나무 als Material. Lege das Schild 나무 zu dem Holzfoto."],
+      "help": ["이번 나무는 자라는 식물이 아니라 재료를 가리켜요. 두 뜻의 사진을 설명과 함께 다시 봐요.", "Here, 나무 refers to a material, not a growing plant. Let's revisit both pictures with their meanings.", "Hier bezeichnet 나무 Material und keine wachsende Pflanze. Sehen wir uns beide Bilder mit ihren Bedeutungen noch einmal an."]
+    }
+  },
+  "label_scene": [
+    ["도깨비", "이제 푯말을 정리해 보아라. 물건과 사진을 하나씩 잘 살펴보거라.", "Now sort the labels. Look carefully at the objects and photos, one at a time.", "Ordnet jetzt die Schilder. Seht euch die Gegenstände und Fotos einzeln genau an."],
+    ["수진", "우리가 뜻을 배운 푯말부터 해 보자. 사진과 물건을 잘 보고 놓으면 돼.", "Let's start with the labels whose meanings we've learned. Look at the photos and things before placing them.", "Beginnen wir mit den Schildern, deren Bedeutung wir gelernt haben. Sieh dir die Fotos und Sachen an, bevor du die Schilder zuordnest."],
+    ["탈선비·v3.5 책갈피 원문", "글자는 도망가지 않네. 자리를 바꿔 앉았을 뿐이지.", "The letters haven't run away. They've only changed seats.", "Die Zeichen sind nicht weggelaufen. Sie haben nur die Plätze getauscht."],
+    ["도깨비", "이제 필요한 걸 찾기가 낫겠군. 창고 일은 아직 남았으니, 낡은 상자들은 함부로 건드리지 마라.", "It should be easier to find what we need now. There's still work to do in the storeroom, so leave the old boxes alone.", "Jetzt sollte es leichter sein, das Benötigte zu finden. Im Vorratsraum bleibt noch Arbeit. Lasst die alten Kisten deshalb in Ruhe."]
+  ]
+}

@@ -1,0 +1,1060 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-30T00:12:38.319060+00:00",
+  "scope": "Season1 AI input source lock: symbols, C materials, Hanok direction, Sotdaeulmun, room/props, appropriate Yeopjeon references.",
+  "status": "PARTIAL_SOURCE_LOCK_WITH_EXPLICIT_PENDING_ROLES",
+  "generation_authorized_by_this_document": false,
+  "source_mutations": 0,
+  "new_images_generated": 0,
+  "runtime_or_pubspec_changes": 0,
+  "git_actions_by_this_subtask": 0,
+  "change_receipt": {
+    "path": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-changes.json",
+    "exists": true,
+    "scope": "Parent ran changed --verify-reviewed; current subtask used narrow live paths and hashes. Index snapshot is not current approval."
+  },
+  "status_definitions": {
+    "SOURCE_LOCKED": "Exact existing path and bytes verified; only stated source/role scope is locked.",
+    "SOURCE_PENDING": "Missing exact source or missing role/approval mapping. Blocks generation or substitution for that role.",
+    "REFERENCE_ONLY": "Existing bytes locked for identification; not promoted to required story/runtime asset.",
+    "SUPERSEDED_REFERENCE": "Retained historical reference; later explicit canonical artwork takes priority.",
+    "EXCLUDED_FOR_STORY_LETTER": "Viewed source is semantically wrong for the requested narrative letter."
+  },
+  "assets": [
+    {
+      "asset_id": "three_swirl_emblem",
+      "label_ko": "세 소용돌이 청록·금색 엠블럼",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\금빛 테두리의 청록 구름 소용돌이 엠블럼.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_ROLE_PENDING",
+      "scope": "Original identity locked; S1 badge selection not established by a filename or visual similarity.",
+      "sha256": "e341e9ede04c27594c1142d611371c904238b7ecd6082dd088841488fbeeb48f",
+      "bytes": 1189238,
+      "visual_review_this_task": true,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "limits": [
+        "Three swirls visibly present; preserve contour, count, teal face and gold rim.",
+        "This is not the separate approved_cloud_spiral UI asset.",
+        "Do not create a new badge, replace a swirl, derive per-swirl layers or promote story use automatically."
+      ],
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "approved_ui_cloud",
+      "label_ko": "기존 Spiele UI 구름",
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\spiele-figma-first-20261018\\assets\\illustrations\\concept_c\\games\\approved_cloud_spiral.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_UI_ONLY",
+      "scope": "Exact existing UI cloud; explicitly separate from S1 narrative badge.",
+      "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+      "bytes": 512974,
+      "visual_review_this_task": false,
+      "expected_sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+      "expected_sha256_matches": true,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "limits": [
+        "No regeneration, substitution, or editing completed mockups.",
+        "Never infer S1 badge identity from this UI asset."
+      ],
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "hanok_direction_N0019",
+      "label_ko": "승인 Hanok 방향 N0019",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\한옥탭 확정\\exec-2dcf8ee9-e4f3-4d4c-87c1-11b99f646589.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_DIRECTION",
+      "scope": "User-selected folder direction; whole-board contents are not a blanket feature, character or runtime approval.",
+      "sha256": "1dd21a47793ae5c3ebb908d4f312e2a17e2a4439ec0ea777c048c231a1ff2585",
+      "bytes": 2056266,
+      "visual_review_this_task": false,
+      "expected_sha256": "1dd21a47793ae5c3ebb908d4f312e2a17e2a4439ec0ea777c048c231a1ff2585",
+      "expected_sha256_matches": true,
+      "dimensions_px": [
+        1586,
+        992
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "historical_source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12775-dac1-7942-88e0-6842577140b3\\exec-2dcf8ee9-e4f3-4d4c-87c1-11b99f646589.png",
+      "historical_source_path_exists_now": false,
+      "alias_method": "same basename and full SHA-256 match to recorded selected source",
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "hanok_direction_N0020",
+      "label_ko": "승인 Hanok 방향 N0020",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\한옥탭 확정\\exec-39862329-33d9-4677-a576-64e951f9c3ab.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_DIRECTION",
+      "scope": "User-selected folder direction; whole-board contents are not a blanket feature, character or runtime approval.",
+      "sha256": "6c92da83a99236ec9d99ca06dd01c06f2da92846da045f7a1561c0d3f9d0e7c7",
+      "bytes": 2189367,
+      "visual_review_this_task": true,
+      "expected_sha256": "6c92da83a99236ec9d99ca06dd01c06f2da92846da045f7a1561c0d3f9d0e7c7",
+      "expected_sha256_matches": true,
+      "dimensions_px": [
+        1586,
+        992
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "historical_source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12775-dac1-7942-88e0-6842577140b3\\exec-39862329-33d9-4677-a576-64e951f9c3ab.png",
+      "historical_source_path_exists_now": false,
+      "alias_method": "same basename and full SHA-256 match to recorded selected source",
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "hanok_direction_N0021",
+      "label_ko": "승인 Hanok 방향 N0021",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\한옥탭 확정\\exec-6a637622-a46c-4e05-8566-5a354fcf05d5.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_DIRECTION",
+      "scope": "User-selected folder direction; whole-board contents are not a blanket feature, character or runtime approval.",
+      "sha256": "2fe31c7a0a989c2a83d3d4e6060795d7a938f7710874a82b0e62dd07af1bff7a",
+      "bytes": 2321735,
+      "visual_review_this_task": false,
+      "expected_sha256": "2fe31c7a0a989c2a83d3d4e6060795d7a938f7710874a82b0e62dd07af1bff7a",
+      "expected_sha256_matches": true,
+      "dimensions_px": [
+        1586,
+        992
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "historical_source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12775-dac1-7942-88e0-6842577140b3\\exec-6a637622-a46c-4e05-8566-5a354fcf05d5.png",
+      "historical_source_path_exists_now": false,
+      "alias_method": "same basename and full SHA-256 match to recorded selected source",
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "hanok_direction_N0022",
+      "label_ko": "승인 Hanok 방향 N0022",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\한옥탭 확정\\exec-7cac6dba-792c-4cc2-8acc-3871d137f42f.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_DIRECTION",
+      "scope": "User-selected folder direction; whole-board contents are not a blanket feature, character or runtime approval.",
+      "sha256": "ee342cd32f94efb2948164f17682396c18bcda5a43e1c5c419cbb43d14c5e049",
+      "bytes": 1948472,
+      "visual_review_this_task": false,
+      "expected_sha256": "ee342cd32f94efb2948164f17682396c18bcda5a43e1c5c419cbb43d14c5e049",
+      "expected_sha256_matches": true,
+      "dimensions_px": [
+        1586,
+        992
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "historical_source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12775-dac1-7942-88e0-6842577140b3\\exec-7cac6dba-792c-4cc2-8acc-3871d137f42f.png",
+      "historical_source_path_exists_now": false,
+      "alias_method": "same basename and full SHA-256 match to recorded selected source",
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "hanok_direction_N0024",
+      "label_ko": "승인 Hanok 방향 N0024",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\한옥탭 확정\\exec-a268cf39-5fb1-4b01-a47c-bea20892d934.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_DIRECTION",
+      "scope": "User-selected folder direction; whole-board contents are not a blanket feature, character or runtime approval.",
+      "sha256": "e8f814fc45eb10de63f7f7fe12ee7e7eee9f1315cbcd5c4581b21dd81effe025",
+      "bytes": 2048625,
+      "visual_review_this_task": false,
+      "expected_sha256": "e8f814fc45eb10de63f7f7fe12ee7e7eee9f1315cbcd5c4581b21dd81effe025",
+      "expected_sha256_matches": true,
+      "dimensions_px": [
+        1585,
+        992
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "historical_source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12775-dac1-7942-88e0-6842577140b3\\exec-a268cf39-5fb1-4b01-a47c-bea20892d934.png",
+      "historical_source_path_exists_now": false,
+      "alias_method": "same basename and full SHA-256 match to recorded selected source",
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "hanok_direction_N0027",
+      "label_ko": "승인 Hanok 방향 N0027",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\한옥탭 확정\\exec-f1272b05-b5e5-43a2-aaab-7002ad3b987b.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_DIRECTION",
+      "scope": "User-selected folder direction; whole-board contents are not a blanket feature, character or runtime approval.",
+      "sha256": "f94dc36f57a547214224e072238b3679a0b548b3a56a0733e0cbe11ecc6fa929",
+      "bytes": 1969959,
+      "visual_review_this_task": false,
+      "expected_sha256": "f94dc36f57a547214224e072238b3679a0b548b3a56a0733e0cbe11ecc6fa929",
+      "expected_sha256_matches": true,
+      "dimensions_px": [
+        1586,
+        992
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "historical_source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12775-dac1-7942-88e0-6842577140b3\\exec-f1272b05-b5e5-43a2-aaab-7002ad3b987b.png",
+      "historical_source_path_exists_now": false,
+      "alias_method": "same basename and full SHA-256 match to recorded selected source",
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "nevi_spiele",
+      "label_ko": "게임 컨트롤러",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\Nevi_Bar5\\exec-0341b149-61b9-4a48-acb3-74fa59314392.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED",
+      "scope": "Standalone Nevi_Bar5 original; destination label is metadata and accessible name, never a visible caption.",
+      "sha256": "11c9d9004f23cb9a4c63eb53fe546b3c745e7b5c10047996b94b724f9eabe5b1",
+      "bytes": 2417100,
+      "visual_review_this_task": true,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "nevi_hanok",
+      "label_ko": "한옥 탭 아이콘",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\Nevi_Bar5\\exec-801c0e2c-d79d-466c-b2ea-915356b4fe29.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED",
+      "scope": "Standalone Nevi_Bar5 original; destination label is metadata and accessible name, never a visible caption.",
+      "sha256": "4c42fda8e624093c8ba39699492bbc5bf27efc1f3a04d9669b1d7d8720df61bf",
+      "bytes": 1817279,
+      "visual_review_this_task": true,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "nevi_heute",
+      "label_ko": "달력 아이콘",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\Nevi_Bar5\\exec-d0abcd6e-3c27-46de-8c6b-85caa1ac23e3.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED",
+      "scope": "Standalone Nevi_Bar5 original; destination label is metadata and accessible name, never a visible caption.",
+      "sha256": "a8ef18b79cc93d75600f2fccb35d8830c2277e9d42151176c0e22d34eb6bf22a",
+      "bytes": 2283006,
+      "visual_review_this_task": true,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "nevi_gemeinsam",
+      "label_ko": "함께 아이콘",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\Nevi_Bar5\\exec-effff9d2-a719-420a-9eb2-54f9b5d4a076.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED",
+      "scope": "Standalone Nevi_Bar5 original; destination label is metadata and accessible name, never a visible caption.",
+      "sha256": "42c2618b59241ff79f5413471b7b4f2bd61ce6d8c18b6acbdee9fff4f51a19b5",
+      "bytes": 2028175,
+      "visual_review_this_task": true,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "sotdaeulmun_approved_art03",
+      "label_ko": "솟을대문 승인 원화 3번",
+      "source_path": "C:\\dev\\hangulsori\\_codex_artifacts\\sotdaeulmun-promotion-20260914\\preserved\\assets_unused\\pending_review\\personal_hanok_v3\\sotdaeulmun_jin_20260914\\sources\\art_03.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_APPROVED_ART",
+      "scope": "Sep14 primary artwork source; canonical construction still, not a measured restoration or new R16 mesh.",
+      "sha256": "85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44",
+      "bytes": 1594929,
+      "visual_review_this_task": false,
+      "expected_sha256": "85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44",
+      "expected_sha256_matches": true,
+      "dimensions_px": [
+        1448,
+        1086
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "sotdaeulmun_complete12",
+      "label_ko": "솟을대문 12단계 완성 정본",
+      "source_path": "C:\\dev\\hangulsori\\_codex_artifacts\\sotdaeulmun-promotion-20260914\\approved-canonical\\assets\\illustrations\\personal_hanok_v3\\construction\\sotdaeulmun\\12_complete.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_APPROVED_ART",
+      "scope": "Byte-identical approved artwork 03; construction-art approval only.",
+      "sha256": "85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44",
+      "bytes": 1594929,
+      "visual_review_this_task": true,
+      "expected_sha256": "85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44",
+      "expected_sha256_matches": true,
+      "dimensions_px": [
+        1448,
+        1086
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "limits": [
+        "RGB black background; not a transparent layer.",
+        "Do not use it as a ready-to-open door animation, mesh, hidden structure, exact historical inscription or R16 gate approval.",
+        "The approved README explicitly replaces the older Sotdaeulmun original."
+      ],
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "sotdaeulmun_aug24_historical",
+      "label_ko": "8월 24일 솟을대문 과거 원본",
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-hanok-design-audit-20261010\\assets_unused\\pending_review\\personal_hanok_v3\\turnaround_2d\\ildu_sotdaeulmun_v02\\references\\canonical_source\\sotdaeulmun_approved_jin_20260824.png",
+      "exists": true,
+      "source_status": "SUPERSEDED_REFERENCE",
+      "scope": "Retained historical reference; do not promote over Sep14 artwork 03.",
+      "sha256": "161d23a981e8c0533f902933ef79c646a95f8d86c210cba48fbd954af7d4d687",
+      "bytes": 5712433,
+      "visual_review_this_task": false,
+      "expected_sha256": "161d23a981e8c0533f902933ef79c646a95f8d86c210cba48fbd954af7d4d687",
+      "expected_sha256_matches": true,
+      "dimensions_px": [
+        3072,
+        2048
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "sotdaeulmun_existing_world_sprite",
+      "label_ko": "현재 보존된 main-gate 이미지",
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personal_hanok_v3\\world\\main-gate.png",
+      "exists": true,
+      "source_status": "REFERENCE_ONLY",
+      "scope": "Existing maintained-checkout world sprite; different bytes do not establish lineage to approved artwork 03 or R16.",
+      "sha256": "849cfcb120efc874ff53278a9815581854d9ef34ded61a61008749c767567fe4",
+      "bytes": 1199906,
+      "visual_review_this_task": false,
+      "dimensions_px": [
+        1100,
+        733
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "sarangbang_background_existing",
+      "label_ko": "기존 사랑방 빈 배경",
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\hanok\\sarangbang_empty.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_EXISTING",
+      "scope": "F-D room background and existing PersonalRoom catalog source. Exact S1 approved Sarangchae interior selection remains pending.",
+      "sha256": "e9eb5e8de810c96d4f80b45fb83c05422e45d1a86ed8755f345c52de8e83227d",
+      "bytes": 2555888,
+      "visual_review_this_task": true,
+      "dimensions_px": [
+        1086,
+        1448
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "limits": [
+        "Do not infer correspondence to R16 Sarangchae rooms or alter Ildu architecture from this illustration."
+      ],
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "seoan_existing",
+      "label_ko": "기존 서안",
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\decorations\\decoration_seoan.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_EXISTING",
+      "scope": "F-A anchor object; reuse existing source identity before considering new props.",
+      "sha256": "59e488f8cf212911439f7d73818d809a0667ad9c06361ddc08571a331b96f4e7",
+      "bytes": 496455,
+      "visual_review_this_task": true,
+      "dimensions_px": [
+        1330,
+        490
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "limits": [
+        "Matte faceted walnut with restrained muted accents; object has no room/ground shadow baked in.",
+        "Existing object identity does not authorize a new S1 room composition."
+      ],
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "deungjan_existing",
+      "label_ko": "기존 등잔대",
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\decorations\\decoration_deungjan.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_ADOPTED",
+      "scope": "Explicitly adopted in A2_SARANGBANG_FURNISHING_2026-08-17.md and included in F-A.",
+      "sha256": "1393b9490fb94fc954e0464eeee3036b54ae320275e088e280863870ba412f8f",
+      "bytes": 107922,
+      "visual_review_this_task": true,
+      "dimensions_px": [
+        409,
+        1330
+      ],
+      "mode": "P",
+      "has_alpha_channel_or_transparency": true,
+      "limits": [
+        "Existing image includes lamp, flame and stand. No independent wick source or unlit alternative has been verified.",
+        "Do not cut out or invent a wick state under this source lock."
+      ],
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "book_existing_tactile",
+      "label_ko": "기존 입체 책 이미지",
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\tactile\\book.png",
+      "exists": true,
+      "source_status": "REFERENCE_ONLY",
+      "scope": "Existing generic book identity only. Not the S1 story book, historical text, or missing Nevi_Bar5 Lernen sprite.",
+      "sha256": "58b15aa67c40c541124425d3b750fc59990664b4ee4e2f16f5d82b17966d6696",
+      "bytes": 1512411,
+      "visual_review_this_task": false,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "book_existing_open_scene",
+      "label_ko": "기존 열린 책 장면",
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\einleitung\\05-open-book-scene.png",
+      "exists": true,
+      "source_status": "REFERENCE_ONLY",
+      "scope": "Existing introduction book scene only; no automatic S1 story book assignment.",
+      "sha256": "721ebff509468bdc8d1a0c4e68b461f01d72913fc045403fe0854bc40e0ae743",
+      "bytes": 581188,
+      "visual_review_this_task": false,
+      "dimensions_px": [
+        747,
+        269
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "letter_longevity_excluded",
+      "label_ko": "장수 문구 학 정물 편지지",
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\dancheong_studio\\v1\\letter.png",
+      "exists": true,
+      "source_status": "EXCLUDED_FOR_STORY_LETTER",
+      "scope": "Viewed: crane-patterned artwork with 오래 오래 건강하세요; must not replace first-house note or final letter.",
+      "sha256": "616793932d2b2635bb7b1d6d56daf13b54cd52a4b1cfd306ea03f709a8f22f62",
+      "bytes": 3247684,
+      "visual_review_this_task": true,
+      "dimensions_px": [
+        1122,
+        1402
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "letter_pouch_existing",
+      "label_ko": "기존 편지 보관 주머니",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\청록빛 꽃무늬 편지 보관 주머니.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_ROLE_PENDING",
+      "scope": "Viewed: ornate teal pouch with a tied floral envelope. Exact story role pending.",
+      "sha256": "3baa7f3f26235b11b9235c814013a89c86c1a187312a78a1b6d97c5c6b0d8612",
+      "bytes": 2299587,
+      "visual_review_this_task": true,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "limits": [
+        "Do not silently relabel as a seed pouch, historic first-house note, or final letter."
+      ],
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "bojagi_open",
+      "label_ko": "보자기 사용자 참고 open",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\보자기후보\\exec-a26c2094-9d42-4bfb-acf6-0c80058f978a.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_REFERENCE",
+      "scope": "Exact user-provided open/closed reference; story prop assignment and reward ownership are separate.",
+      "sha256": "b5c2e2ce3f2603a38b982934853e9029839e0d30026206e98c0d25d22e46da38",
+      "bytes": 2410008,
+      "visual_review_this_task": false,
+      "expected_sha256": "b5c2e2ce3f2603a38b982934853e9029839e0d30026206e98c0d25d22e46da38",
+      "expected_sha256_matches": true,
+      "dimensions_px": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "limits": [
+        "Do not infer runtime integration or reward-screen approval.",
+        "Do not convert into first-house plain cloth or a reward chest."
+      ],
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "bojagi_closed",
+      "label_ko": "보자기 사용자 참고 closed",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\보자기후보\\exec-47c09768-89b5-4510-b783-36af01b83b6b.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_REFERENCE",
+      "scope": "Exact user-provided open/closed reference; story prop assignment and reward ownership are separate.",
+      "sha256": "1eabfc6400d3fea373027eb2c6b3183c5aa90e2c7f9e12b44a81cf50b0ea0dcd",
+      "bytes": 2674205,
+      "visual_review_this_task": false,
+      "expected_sha256": "1eabfc6400d3fea373027eb2c6b3183c5aa90e2c7f9e12b44a81cf50b0ea0dcd",
+      "expected_sha256_matches": true,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "limits": [
+        "Do not infer runtime integration or reward-screen approval.",
+        "Do not convert into first-house plain cloth or a reward chest."
+      ],
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "yeopjeon_transparentCoinPedestal",
+      "label_ko": "도깨비엽전 transparentCoinPedestal",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비엽전\\exec-d8f32401-4538-4c4f-a3d5-bdc5b48d6a4d.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_REWARD_REFERENCE",
+      "scope": "Latest exact-folder reference selected by Oct29 source map. Not a story relic or narrative reveal.",
+      "sha256": "cb8484dbe7019de7e5a0f0714283136173aaa07708e949546598108c9d7c10a4",
+      "bytes": 2457113,
+      "visual_review_this_task": false,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "limits": [
+        "Reference mockups contain baked amounts; actual balances and amounts belong to validated runtime state.",
+        "No parent-folder video/poster substitution; no isolated Dokkaebi sprite is established by the map.",
+        "This lock neither implements payout nor authorizes a new story economy."
+      ],
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "yeopjeon_firstCurrentLessonDe",
+      "label_ko": "도깨비엽전 firstCurrentLessonDe",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비엽전\\exec-cb532a61-4202-43d1-884d-1a73e819a1fd.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_REWARD_REFERENCE",
+      "scope": "Latest exact-folder reference selected by Oct29 source map. Not a story relic or narrative reveal.",
+      "sha256": "949e94106d4ddbc0e930ccf9e8fdb33dab5273c9774cfc18b92a8a4eba97bca5",
+      "bytes": 2267478,
+      "visual_review_this_task": false,
+      "dimensions_px": [
+        851,
+        1847
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "limits": [
+        "Reference mockups contain baked amounts; actual balances and amounts belong to validated runtime state.",
+        "No parent-folder video/poster substitution; no isolated Dokkaebi sprite is established by the map.",
+        "This lock neither implements payout nor authorizes a new story economy."
+      ],
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "yeopjeon_firstCurrentLessonEn",
+      "label_ko": "도깨비엽전 firstCurrentLessonEn",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비엽전\\exec-72c4950e-c703-4c70-88d1-2b7243c203d3.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_REWARD_REFERENCE",
+      "scope": "Latest exact-folder reference selected by Oct29 source map. Not a story relic or narrative reveal.",
+      "sha256": "ae45919f6cc9978c08cd68e8d4329972a5011f1dde5c4d4ed6a2e65fbe221f44",
+      "bytes": 2207368,
+      "visual_review_this_task": false,
+      "dimensions_px": [
+        852,
+        1846
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "limits": [
+        "Reference mockups contain baked amounts; actual balances and amounts belong to validated runtime state.",
+        "No parent-folder video/poster substitution; no isolated Dokkaebi sprite is established by the map.",
+        "This lock neither implements payout nor authorizes a new story economy."
+      ],
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "yeopjeon_walletDe",
+      "label_ko": "도깨비엽전 walletDe",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비엽전\\exec-184e0b70-ed75-4277-a33c-8260ac2985f5.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_REWARD_REFERENCE",
+      "scope": "Latest exact-folder reference selected by Oct29 source map. Not a story relic or narrative reveal.",
+      "sha256": "0319f9d857dff49581575159c271086dd4d94240fa5c42a62ab6f10dabed6694",
+      "bytes": 2228448,
+      "visual_review_this_task": false,
+      "dimensions_px": [
+        851,
+        1848
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "limits": [
+        "Reference mockups contain baked amounts; actual balances and amounts belong to validated runtime state.",
+        "No parent-folder video/poster substitution; no isolated Dokkaebi sprite is established by the map.",
+        "This lock neither implements payout nor authorizes a new story economy."
+      ],
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "yeopjeon_walletEn",
+      "label_ko": "도깨비엽전 walletEn",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비엽전\\exec-b2462324-03e3-48fa-8bc0-15c152ebd61b.png",
+      "exists": true,
+      "source_status": "SOURCE_LOCKED_REWARD_REFERENCE",
+      "scope": "Latest exact-folder reference selected by Oct29 source map. Not a story relic or narrative reveal.",
+      "sha256": "4f0efff3ebfd56863e6306d761afa09080d335fa8b7d16ce57c1d077ac2de572",
+      "bytes": 2171097,
+      "visual_review_this_task": false,
+      "dimensions_px": [
+        851,
+        1848
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "limits": [
+        "Reference mockups contain baked amounts; actual balances and amounts belong to validated runtime state.",
+        "No parent-folder video/poster substitution; no isolated Dokkaebi sprite is established by the map.",
+        "This lock neither implements payout nor authorizes a new story economy."
+      ],
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "c_material_hanji_material",
+      "label_ko": "기존 C 재료 참고 한지",
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\games\\hanji_material.png",
+      "exists": true,
+      "source_status": "REFERENCE_ONLY",
+      "scope": "Existing games material original; identity reference only, not automatic permission to re-skin Hanok or redraw source art.",
+      "sha256": "6d9fcb2e702e515634911a83ece52b73ee441f86a74e41d19a1e1b903f043602",
+      "bytes": 1727506,
+      "visual_review_this_task": false,
+      "dimensions_px": [
+        941,
+        1672
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "c_material_wood_material",
+      "label_ko": "기존 C 재료 참고 목재",
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\games\\wood_material.png",
+      "exists": true,
+      "source_status": "REFERENCE_ONLY",
+      "scope": "Existing games material original; identity reference only, not automatic permission to re-skin Hanok or redraw source art.",
+      "sha256": "102da3a4483477b33112e41957a515b09a2b4ef11fb91738a798801208119df0",
+      "bytes": 2642437,
+      "visual_review_this_task": false,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "has_alpha_channel_or_transparency": false,
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "c_material_gold_action",
+      "label_ko": "기존 C 재료 참고 금색 CTA",
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\games\\gold_action.png",
+      "exists": true,
+      "source_status": "REFERENCE_ONLY",
+      "scope": "Existing games material original; identity reference only, not automatic permission to re-skin Hanok or redraw source art.",
+      "sha256": "5d3ce82ad26b5bbf00ab5457fbef0cfaf0fb7c3e65d774f5846e1893fe98312f",
+      "bytes": 1177273,
+      "visual_review_this_task": false,
+      "dimensions_px": [
+        2171,
+        724
+      ],
+      "mode": "RGBA",
+      "has_alpha_channel_or_transparency": true,
+      "current_task_generation_authorized": false
+    },
+    {
+      "asset_id": "yeoni_guardian_design_sheet",
+      "label_ko": "연이의 흔적·도깨비 수호기와 설정집",
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\연이의 흔적과 도깨비 수호 문양 설정집.png",
+      "exists": true,
+      "source_status": "REFERENCE_ONLY_ROLE_PENDING",
+      "scope": "Existing named-folder design sheet. Preserve its depicted object identity when selecting later production references; not proof of selected S1 standalone props or native geometry.",
+      "sha256": "f1a9a0534ebf7aeb233adef91f2e9f04e89ce10c6f8d9c321b54aab56d028fe9",
+      "bytes": 2931914,
+      "visual_review_this_task": true,
+      "current_task_generation_authorized": false,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "limits": [
+        "Actual sheet contains six guardian-tile views/variants plus Yeoni letter, floral seed pouch and handmade wooden item.",
+        "Guardian tile teal/gold carved face and silhouette variants are existing design references, not the three-swirl badge or ordinary belongings.",
+        "The lower ordinary objects use flower/knot motifs; do not stamp guardian/badge seals on them.",
+        "Sheet labels/text are reference artwork, not exact manuscript text. Do not replace the first 집 note or final letter with the pictured letter.",
+        "No standalone transparent export, selected variant, native geometry, roof attachment or exact story-role provenance verified.",
+        "Do not crop the sheet into a new canonical sprite. Future standalone assets need explicit job scope and comparison to this source."
+      ]
+    }
+  ],
+  "hanok_style_contract": {
+    "direction_session_id": "01a12775-dac1-7942-88e0-6842577140b3",
+    "current_alias": "C:\\Users\\vjinn\\.codex\\generated_images\\한옥탭 확정",
+    "same_sha_direction_assets": [
+      "hanok_direction_N0019",
+      "hanok_direction_N0020",
+      "hanok_direction_N0021",
+      "hanok_direction_N0022",
+      "hanok_direction_N0024",
+      "hanok_direction_N0027"
+    ],
+    "folder_direction_not_blanket_approval": true,
+    "materials": [
+      "hanji",
+      "wood",
+      "silk",
+      "brass/gold",
+      "jade/teal"
+    ],
+    "visual_observation_from_N0020": "Jade textured background, cream paper layers, warm wood imagery, raised gold CTA, five image-icon tabs; generated image text/state is reference only.",
+    "material_authorities": [
+      "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\NAVIGATION_MOTION_DIRECTION.md",
+      "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\lib\\widgets\\sori\\c_gallery\\c_materials.dart"
+    ],
+    "depth_and_motion": [
+      "Keep paper/wood/silk/brass layered depth and contact shadows at composition level.",
+      "Pressed upper CTA face compresses 2pt and contact shadow shortens; 80/180/350ms tokens, reduced-motion state parity.",
+      "No idle movement competes with reading; actual text, focus and actions remain native.",
+      "No cropped UI fragments, duplicated borders or line-drawn replacements for canonical image-form icons."
+    ],
+    "furniture_family_F_A": {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\docs\\assets\\STYLE_LOCK.json",
+      "palette": {
+        "note": "실측(A2 가구 세트) — BIBLE §1.3 명목값(청 #3D9A7F·적 #C24A45)보다 어둡고 탁하다. 이 hex만 쓴다.",
+        "walnut": [
+          "#A2663A",
+          "#8F5130",
+          "#844A2D",
+          "#633720",
+          "#5A3623",
+          "#3B271B"
+        ],
+        "darkLacquer": [
+          "#2C221D",
+          "#211914"
+        ],
+        "agedHanjiIvory": [
+          "#DBBC8D",
+          "#C6AE8B"
+        ],
+        "dancheongGold": "#BD924C",
+        "deepMutedTeal": "#274A3F",
+        "darkBrickRed": "#6A2316",
+        "stoneGrey": "#8B8478"
+      },
+      "camera": {
+        "view": "single object, front + slightly-from-the-left, slightly above eye level (three-quarter view) — top surface AND front face both visible",
+        "light": "soft light from the upper left, gentle self-shading on facets only",
+        "shadow": "NO cast shadow, NO shadow on the ground, NO floor, NO wall, NO room, NO horizon line — free-placement room editor rotates items around their box center, a ground shadow breaks on rotation"
+      },
+      "note": "F-A object cutouts keep no baked ground shadow; composition-owned contact shadows do not authorize editing originals."
+    },
+    "material_reference_assets": [
+      "c_material_hanji_material",
+      "c_material_wood_material",
+      "c_material_gold_action"
+    ]
+  },
+  "navigation": {
+    "source_folder": "C:\\Users\\vjinn\\.codex\\generated_images\\Nevi_Bar5",
+    "visible_labels": false,
+    "required_tab_count": 5,
+    "located_standalone_asset_count": 4,
+    "located_asset_ids": [
+      "nevi_spiele",
+      "nevi_hanok",
+      "nevi_heute",
+      "nevi_gemeinsam"
+    ],
+    "missing_role": "Lernen/book",
+    "may_substitute_generic_book": false,
+    "accessible_names_required": true
+  },
+  "sotdaeulmun": {
+    "canonical_source_asset": "sotdaeulmun_approved_art03",
+    "byte_identical_complete_asset": "sotdaeulmun_complete12",
+    "older_superseded_asset": "sotdaeulmun_aug24_historical",
+    "separate_existing_world_sprite": "sotdaeulmun_existing_world_sprite",
+    "not_hyeopmun": true,
+    "canonical_scope": "Approved cumulative still-art source only. R16 11-building contract excludes gates; current side/shrine gate references are not Sotdaeulmun.",
+    "r16_gate_substitution_allowed": false,
+    "door_opening_or_3d_mesh_source_status": "SOURCE_PENDING",
+    "source_manifest_scope": {
+      "bundled": false,
+      "appProgressionIntegrated": false,
+      "background": "RGB near-black, no alpha",
+      "historical_text_transcription_verified": false
+    }
+  },
+  "story_prop_rules": {
+    "existing_assets_first": true,
+    "single_first_house_note_reference": true,
+    "no_new_note_at_finale": true,
+    "no_historic_text_invention": true,
+    "no_story_prop_reward_ownership_inference": true,
+    "no_generic_replacement_for_pending_role": true,
+    "no_crop_or_regeneration_without_separate_instruction": true
+  },
+  "reward_coin": {
+    "only_source_root": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비엽전",
+    "mapping_evidence": "C:\\dev\\hangulsori\\_codex_artifacts\\live-stability-20261028\\yeopjeon\\RUNTIME_SCENE_MAPPING_20261029.json",
+    "reference_asset_ids": [
+      "yeopjeon_transparentCoinPedestal",
+      "yeopjeon_firstCurrentLessonDe",
+      "yeopjeon_firstCurrentLessonEn",
+      "yeopjeon_walletDe",
+      "yeopjeon_walletEn"
+    ],
+    "appropriate_scope": "Existing confirmed Yeopjeon reward/wallet/construction UI only; do not turn coins into narrative badge/relic or reveal.",
+    "render_layer_may_grant_or_spend": false,
+    "live_amounts_required": true,
+    "source_mapping_native_completion_claim": false,
+    "rejected_parent_folder_media": [
+      "assets/video/rewards/making_money.mp4",
+      "assets/illustrations/reward/dokkaebi_mint_original.png"
+    ]
+  },
+  "pending_roles": [
+    {
+      "required_role": "s1_cloud_badge",
+      "status": "SOURCE_PENDING",
+      "identity_reference": "three_swirl_emblem",
+      "reason": "Three-swirl original found and locked, but no explicit record maps this exact file to the narrative badge. UI cloud cannot fill this role.",
+      "events": [
+        "S1-P01",
+        "S1-P02",
+        "S1-C09-01"
+      ],
+      "next_allowed_step": "Choose or verify exact existing story source before any state-specific derivation."
+    },
+    {
+      "required_role": "nevi_lernen_book",
+      "status": "SOURCE_PENDING",
+      "reason": "Four standalone files currently exist in exact Nevi_Bar5 directory; fifth Lernen/book original not located.",
+      "next_allowed_step": "Resolve the original fifth icon; preserve five image-only tabs and do not draw or substitute a generic book."
+    },
+    {
+      "required_role": "s1_sarangchae_interior",
+      "status": "SOURCE_PENDING",
+      "identity_references": [
+        "sarangbang_background_existing",
+        "seoan_existing"
+      ],
+      "reason": "Existing room/catalog/STYLE_LOCK sources are verified; exact approved S1 Sarangchae interior and its relation to R16 not established.",
+      "next_allowed_step": "Resolve existing approved room source and camera; no architectural redraw."
+    },
+    {
+      "required_role": "first_house_note",
+      "status": "SOURCE_PENDING",
+      "events": [
+        "S1-C01-02",
+        "S1-C10-03"
+      ],
+      "reason": "No exact story-note image source verified; excluded longevity stationery must not substitute.",
+      "next_allowed_step": "Resolve one original note reference and retain that same reference through return/finale; no replacement note."
+    },
+    {
+      "required_role": "final_letter",
+      "status": "SOURCE_PENDING",
+      "reason": "The design sheet depicts a bound letter, but no selected final-story-letter export or exact manuscript-text mapping is verified. Longevity stationery is excluded.",
+      "next_allowed_step": "Resolve approved original visual/text source and preserve spoiler gates.",
+      "identity_references": [
+        "yeoni_guardian_design_sheet"
+      ]
+    },
+    {
+      "required_role": "story_book",
+      "status": "SOURCE_PENDING",
+      "identity_references": [
+        "book_existing_tactile",
+        "book_existing_open_scene"
+      ],
+      "reason": "Generic existing book sources are known; exact story-book identity or text is not.",
+      "next_allowed_step": "Resolve exact existing book or retain a text-only production placeholder, without generation."
+    },
+    {
+      "required_role": "seed_pouch",
+      "status": "SOURCE_PENDING",
+      "reason": "An existing viewed design sheet labels a floral Yeoni seed pouch with loose seeds; exact selected standalone export and S1 role mapping remain unverified. The different letter pouch is not a substitute.",
+      "next_allowed_step": "Preserve the named design-sheet reference; resolve standalone/role selection before production. Do not crop or silently promote it.",
+      "identity_references": [
+        "yeoni_guardian_design_sheet"
+      ]
+    },
+    {
+      "required_role": "separate_wick",
+      "status": "SOURCE_PENDING",
+      "identity_reference": "deungjan_existing",
+      "reason": "Adopted whole lamp image exists; separate wick original/state not verified.",
+      "next_allowed_step": "Use source resolution before any separation, unlit state or new image."
+    },
+    {
+      "required_role": "plain_story_cloth",
+      "status": "SOURCE_PENDING",
+      "identity_references": [
+        "bojagi_open",
+        "bojagi_closed"
+      ],
+      "reason": "Exact open/closed Bojagi references exist, but no plain story-cloth source or role approval verified.",
+      "next_allowed_step": "Resolve the actual cloth identity; preserve Bojagi object and reward scopes."
+    },
+    {
+      "required_role": "guardian_tile_standalone",
+      "status": "SOURCE_PENDING",
+      "identity_references": [
+        "yeoni_guardian_design_sheet"
+      ],
+      "reason": "Six guardian-tile views/variants exist together on the design sheet. A selected standalone sprite/native and precise Sotdaeulmun attachment have not been verified.",
+      "next_allowed_step": "Keep sheet identity; resolve exact selected variant and roof attachment without inventing geometry or treating the badge as a tile."
+    }
+  ],
+  "evidence_sources": [
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-union-audit-20261010\\INDEX.md",
+      "exists": true,
+      "sha256": "31ae4f3a3c2fcb05ea63b6b094e54423871c357abef207858e9cb870ba146fdc"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-union-audit-20261010\\CANONICAL_SOURCES.json",
+      "exists": true,
+      "sha256": "14bcb54dff0ab2c42664b8260b18ebb795c04c81b7679008cdf469d7278740cc"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-review-20261012\\HANOK_DIRECTION_SELECTION.md",
+      "exists": true,
+      "sha256": "e2acb01dd82766e78763172311c5aeec621e0a8ce40f8d5cf9875877934a3cb9"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-review-20261012\\HANOK_DIRECTION_SELECTION.json",
+      "exists": true,
+      "sha256": "e925da7daf1a8e08eac31f3d51cdfc65ab32be06eedf0bafba2eccab7f36b4a8"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\NAVIGATION_MOTION_DIRECTION.md",
+      "exists": true,
+      "sha256": "b0245c6af9d02e58a0458774dfaac919e6d74319bd2cf770f4cb32fc9bc87961"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\docs\\assets\\STYLE_LOCK.json",
+      "exists": true,
+      "sha256": "7c9947ef8c76997cf661eec62c83c800094bb891fa20fa2b44fcee60e693d4f5"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\docs\\HANOK_ASSET_INVENTORY_2026-08-17.md",
+      "exists": true,
+      "sha256": "3e96bebf3740e0d0fdaacdf4d8cb543165f1730f2da3f3d9e7875ded39081f97"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\docs\\assets\\prompts\\A2_SARANGBANG_FURNISHING_2026-08-17.md",
+      "exists": true,
+      "sha256": "e66089342e82836e3a715b07bea310e366c162a6c0e12caaec0a851a2f7c29f6"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\lib\\data\\personal_room_catalog.dart",
+      "exists": true,
+      "sha256": "6efed221a36a670d042ebb3f53d40cdcb56e55f850b642195c5f15d0fbf8958a"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\lib\\widgets\\sori\\c_gallery\\c_materials.dart",
+      "exists": true,
+      "sha256": "a9f912b6c0af4c54b92154e41610b37971d96abb5058ff506bd9b205c176781f"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\sotdaeulmun-promotion-20260914\\approved-canonical\\docs\\assets\\ildu_sotdaeulmun_construction_20260914\\README.md",
+      "exists": true,
+      "sha256": "eba5e5f93721f1a7d8a4440dd892432e74154316a48c5b7a0b97069812e2b350"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\sotdaeulmun-promotion-20260914\\approved-canonical\\docs\\assets\\ildu_sotdaeulmun_construction_20260914\\MANIFEST.json",
+      "exists": true,
+      "sha256": "d667c4ef043331d770efb00bea8f9b9882ee2de045f5ff7ab226562ed37da992"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\sotdaeulmun-promotion-20260914\\preserved\\assets_unused\\pending_review\\personal_hanok_v3\\sotdaeulmun_jin_20260914\\source_manifest.json",
+      "exists": true,
+      "sha256": "119c428cbf2eddc4c23c5dca99a7572a028ffbe29d47139034fc34b486b53b93"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\live-stability-20261028\\yeopjeon\\RUNTIME_SCENE_MAPPING_20261029.json",
+      "exists": true,
+      "sha256": "f8670ac1de54ede8c41f1d80673ecd1400c88afba42b1022ba06635ad7fbe6ca"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\reference\\R16_APP_ASSET_CONTRACT.json",
+      "exists": true,
+      "sha256": "15541911a96ddc747bb2960102f3d983aabcc84541750c2bf1fb3439d6220a75"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\ARCHIVE.json",
+      "exists": true,
+      "sha256": "350f07d4db39b8094232ee14a73629eb34e8ec0e8e50c02fbdb909e1752991ae"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\production\\CHAPTER_EVENTS.json",
+      "exists": true,
+      "sha256": "2f76e8aed485474a7eca024690f5c8033bca72fa711d97224207ab201e96c398"
+    }
+  ],
+  "verification_boundaries": [
+    "Exact path/hash checks and explicitly listed image pixel inspection only.",
+    "No source deletion/restoration/copy, new generation, Figma promotion, Flutter implementation, native testing, device QA, CI, store or deployment claim.",
+    "No whole archive extraction, paid Graphify or external image API.",
+    "Source checkout HEAD and active-session ownership are handled by parent; this document records current file bytes."
+  ]
+}

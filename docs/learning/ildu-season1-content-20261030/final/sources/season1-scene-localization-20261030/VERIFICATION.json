@@ -1,0 +1,115 @@
+{
+  "status": "RASTER_TYPESET_AND_ART_ROI_PASS",
+  "fonts": [
+    {
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-type-review-20261030\\fonts\\lora500.ttf",
+      "sha256": "84f1a8995440f942ae9d82fb2bc7174fdb9487417dab0a8c8b0ac68ea65fe549",
+      "family": "Lora",
+      "weight": 500,
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/lora/Lora%5Bwght%5D.ttf"
+    },
+    {
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-type-review-20261030\\fonts\\source400.ttf",
+      "sha256": "e184c1b7f400a8a814a508341ad7630a4da7da114afd9737166f4c9e2806813c",
+      "family": "Source Sans 3",
+      "weight": 400,
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/sourcesans3/SourceSans3%5Bwght%5D.ttf"
+    },
+    {
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-type-review-20261030\\fonts\\source600.ttf",
+      "sha256": "99ec7bd86db938f268b99261f042d3651f77bd179ee574faaf33517a8d589b0b",
+      "family": "Source Sans 3",
+      "weight": 600,
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/sourcesans3/SourceSans3%5Bwght%5D.ttf"
+    }
+  ],
+  "outputs": [
+    {
+      "file": "book-en-lora.png",
+      "sha256": "5cad1c65d4f7b9200367fdc78216577a6becfb3e0b4ea1f31988bf7fdbe93cb4",
+      "base": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-mockups-20261030\\01_first_book.png",
+      "baseSha256": "d7fdb768e034b02d27cce6d8753521cb3ef7013b274356aa316448d5ebc9f076",
+      "scene": "book",
+      "language": "en",
+      "artRoi": [
+        53,
+        400,
+        832,
+        966
+      ],
+      "artRoiPixelsUnchanged": true,
+      "changedPixelsOutsideTextAreas": 0
+    },
+    {
+      "file": "book-de-lora.png",
+      "sha256": "d98fe8f324ff48a021f75f2a91e711523fbd8efb9cd4f9b393471e3d58b10ca4",
+      "base": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-mockups-20261030\\01_first_book.png",
+      "baseSha256": "d7fdb768e034b02d27cce6d8753521cb3ef7013b274356aa316448d5ebc9f076",
+      "scene": "book",
+      "language": "de",
+      "artRoi": [
+        53,
+        400,
+        832,
+        966
+      ],
+      "artRoiPixelsUnchanged": true,
+      "changedPixelsOutsideTextAreas": 0
+    },
+    {
+      "file": "gate-en-lora.png",
+      "sha256": "44e8c83c73a6a0d27abbbe393afa6a7fa83a5a9cd00bf48775baf52625b1dcd8",
+      "base": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-mockups-20261030\\02_middle_gatekeeper.png",
+      "baseSha256": "81e7e5a4dc8f6e386234829a6240df6e5036d4cb97bb0ef0ff6caabbbcc19c69",
+      "scene": "gate",
+      "language": "en",
+      "artRoi": [
+        53,
+        375,
+        826,
+        932
+      ],
+      "artRoiPixelsUnchanged": true,
+      "changedPixelsOutsideTextAreas": 0
+    },
+    {
+      "file": "gate-de-lora.png",
+      "sha256": "7bd72ef88e7f69c03aea7ca20af84f7e5e4a666258af8ce9912f884cf11b448d",
+      "base": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-mockups-20261030\\02_middle_gatekeeper.png",
+      "baseSha256": "81e7e5a4dc8f6e386234829a6240df6e5036d4cb97bb0ef0ff6caabbbcc19c69",
+      "scene": "gate",
+      "language": "de",
+      "artRoi": [
+        53,
+        375,
+        826,
+        932
+      ],
+      "artRoiPixelsUnchanged": true,
+      "changedPixelsOutsideTextAreas": 0
+    }
+  ],
+  "method": "Actual TTF via Pillow/FreeType; Imagegen removed old type on background plates; only bounded text areas copied onto unchanged original, then actual TTF via FreeType. No scene regeneration, HTML, Flutter or Figma.",
+  "logicalTypeScale": {
+    "title": "Lora500 24px / 1.3",
+    "body": "SourceSans3 400 17px / 1.45",
+    "button": "SourceSans3 600 17px",
+    "secondary": "SourceSans3 14-15px"
+  },
+  "limitations": [
+    "Static 887x1774 screens; not device accessibility or live app verification.",
+    "Art preservation is relative to the preceding generated mockups, not an assertion that those are pixel-identical to canonical character/native source assets.",
+    "Masked former lettering pixels are repaired; hidden background under old lettering is reconstructed locally."
+  ],
+  "textRemovalPlates": [
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-451c0b11-343f-4c03-b351-a12fb47ce3a6.png",
+      "sha256": "fbb3b4e24f1a754cd8edd7f0a8a1f6ab555dd432a3c6078b1e934598fb6c6c24"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-abd28a20-d1b4-454d-8def-91b78f694e83.png",
+      "sha256": "b9f33984ba3257abca128582f42d2eafc20443a1986813e32a2ef99800be0776"
+    }
+  ],
+  "renderedTextMissingGlyphs": []
+}

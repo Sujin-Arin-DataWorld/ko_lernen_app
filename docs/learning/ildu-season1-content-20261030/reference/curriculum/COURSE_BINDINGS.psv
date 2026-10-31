@@ -1,0 +1,49 @@
+course_id|unit_ids|review_focus
+a1_01_greetings_hangul|A1.1-01|기존 concept_hangul_batchim을 구어 인사의 필수 조건으로 이식하지 않기
+a1_02_self_intro_identity|A1.1-02|이름·출신의 요구 어휘와 받침 형태를 먼저 가르치기
+a1_03_topic_subject_particles|A1.1-03|은는/이가를 동시에 새 정답 후보로 내지 않기
+a1_04_order_request_object|A1.1-04,A1.2-04|물건 요청과 수량 단원을 분리
+a1_05_numbers_time|A1.2-01|시·분 수 체계를 차례로
+a1_06_transport_directions|A1.2-02|화자 위치와 이동 목적지 확인
+a1_07_contact_address|A1.2-06|실제 개인정보 입력 없이 연락 방법·약속 연습
+a1_08_clarify_repair|A1.1-01|단어를 몰라도 재요청 가능
+a1_09_home_daily_life|A1.1-03,A1.1-05|존재와 소유 기능을 각각 지도
+a1_10_health_safety|A2.2-06|ID 이름과 현재 사과 목표가 다름; 내용 기준으로 후보 배정
+a1_11_titles_relationships|A1.1-02,A1.2-05|호칭·취향을 현재 대사와 대조
+a1_12_daily_negation|A1.1-06,A1.2-03|존재 부정과 행동 부정을 구별
+a1_13_register_switching|A2.1-06,B1.1-04|초기에는 이해 도움, 친밀한 생산은 관계 합의 후
+a1_14_payment_delivery|A1.1-04,A1.2-04|요청에서 결제·가격 어휘는 별도 지도
+a1_15_first_class_work|A1.1-01,A1.1-02|학업·업무 전문 지식을 첫 인사 조건으로 삼지 않기
+a1_16_survival_capstone|A1.2-06|전이 문항에 새 계획 문법 먼저 지도
+a2_01_haeyo_transition|A2.2-03|취향·이유·감정의 실제 요구 확인
+a2_02_plans_proposals|A2.2-04|의향·약속·제안의 차이
+a2_03_chat_relationships|A2.2-04,A2.2-06|짧은 답장이라도 관계·선택권 유지
+a2_04_feelings_health|A2.1-04,A2.2-03|증상 설명과 감정 공감 구분; 진단 평가 없음
+a2_05_delivery_services|A2.1-02|문제 특징·교환 조건의 알려진 표현
+a2_06_study_work|A2.2-06|실수의 경위와 사과·정정
+a2_07_travel_repair|A2.1-03,A2.1-04|이동 정보와 도움 요청
+a2_08_home_money|A2.1-02,A2.2-06|문제 설명·제약·대안
+b1_01_experience_reasons|B1.1-01,B1.1-03|직접 경험과 원인 단정 구분
+b1_02_indirect_speech|B1.2-01,B1.2-02|전언·확정·추측 구분
+b1_03_work_softening|B1.1-05,B1.1-06|조언·권고를 권한 없는 지시로 바꾸지 않기
+b1_04_relationships|B1.1-04,B1.1-05|관계 합의와 감정 추측
+b1_05_complaint_resolution|B1.1-02,B1.1-06|경위·해결 요청·조건
+b1_06_life_capstone|B1.2-06|원본과 다른 자료의 종합 수행 필요
+b2_01_formal_opening|B2.1-04|공적 목적·말투와 지시 대상
+b2_02_professional_opinion|B2.1-06,B2.2-02|전문 지식이 아닌 근거·반론 수행
+b2_03_precise_requests|B2.2-01|요청 범위·조건·수용 확인
+b2_04_complaint_resolution|B2.1-02,B2.2-04|원인과 책임·믿음의 정정
+b2_05_interview|B2.1-06,B2.2-03|직접 경험과 성취의 한계
+b2_06_advanced_capstone|B2.2-06|조건부 합의와 남는 쟁점
+c1_01_evidence_public_reasoning|C1.1-01,C1.1-03|대표성·표본·주장 범위
+c1_02_inclusive_sustainable_systems|C1.1-04,C1.2-02|가치와 제약을 함께 설명
+c2_01_interpretation_institutions|C2.1-02,C2.1-04|논증·권리 충돌은 교육용 자료로; 법률 조언 아님
+c2_02_technology_public_ethics|C2.2-01,C2.2-04|기술 지식 설명을 먼저 제공하고 언어 중개 평가
+c1_03_media_evidence_literacy|C1.1-02,C1.2-04|출처·확정 수준 보존
+c2_03_automation_redress|C2.1-02,C2.2-03|절차·책임의 조건을 명확하게 전달
+c1_04_play_time_policy|C1.1-04,C1.2-02|정책 목적·예외·시행 조건
+c2_04_sanction_accountability|C2.1-02,C2.2-04|인과와 보상 책임 논증 분리
+c1_05_fan_labor_sustainability|C1.2-02,C1.2-06|참여 공로와 지속 가능 조건 중개
+c2_05_relationship_narratives|C2.1-03,C2.2-02|기억·관점·창작 경계
+c1_06_intimacy_safety_design|C1.2-03,C1.2-06|기대·관계 경계의 확인
+c2_06_fandom_discourse_power|C2.1-01,C2.2-01|프레이밍·관점·영향의 근거
