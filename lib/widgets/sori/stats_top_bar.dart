@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 import '../../l10n/generated/app_localizations.dart';
 import 'pressable.dart';
@@ -26,6 +27,11 @@ class SoriStatsTopBar extends StatelessWidget {
   final String? profileTooltip;
   final double bottomSpacing;
 
+  /// Today can place the shell-owned wallet in its existing action row.
+  /// Other consumers keep their original layout when this is absent.
+  final Widget? wallet;
+  final double walletWidth;
+
   const SoriStatsTopBar({
     super.key,
     required this.streak,
@@ -36,12 +42,17 @@ class SoriStatsTopBar extends StatelessWidget {
     this.onProfileTap,
     this.profileTooltip,
     this.bottomSpacing = Spacing.lg,
+    this.wallet,
+    this.walletWidth = 64,
   });
 
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
+    if (wallet != null) {
+      return _compactBar(context, s, t);
+    }
 
     // 헤더 크롬은 배율 1.4 에서 클램프 — 390dp + 200% 에서 칩·아이콘 행이
     // 폭을 넘친다(2026-08-14 실측 8px). 시트가 1.3 을 클램프하는 것과 같은
@@ -65,6 +76,155 @@ class SoriStatsTopBar extends StatelessWidget {
   /// 레벨 칩을 유지할 최소 행 폭 — 308dp 초협폭(분할 화면)에서는 스트릭
   /// 칩만 남긴다. 레벨/XP 상세는 어차피 /stats 가 정본.
   static const double _kLevelChipMinWidth = 240;
+
+  Widget _compactBar(BuildContext context, SoriSurfaces s, AppL10n t) {
+    final style = SoriTextTheme.of(
+      context,
+    ).label.copyWith(fontSize: 16, height: 1.2, color: s.text);
+    double labelWidth(String label, {double minimum = 48}) {
+      final painter = TextPainter(
+        text: TextSpan(text: label, style: style),
+        textScaler: MediaQuery.textScalerOf(context),
+        textDirection: Directionality.of(context),
+      )..layout();
+      // Include padding and both border edges; rounding a glyph-width-only
+      // measurement made short labels wrap despite an apparently fitting row.
+      final width = math.max(minimum, painter.width.ceilToDouble() + 12);
+      painter.dispose();
+      return width;
+    }
+
+    final weekLabel = t.streakDisplay(streak);
+    final weekWidth = labelWidth(weekLabel);
+    final levelLabel = 'Lv $level';
+    final levelWidth = labelWidth(levelLabel, minimum: 54);
+    final profileWidth = labelWidth(t.profileTitle, minimum: 80);
+    final confirmedWalletWidth = math.max(64.0, walletWidth);
+    Widget action({
+      required String id,
+      required String label,
+      required String semantics,
+      required double width,
+      required VoidCallback onTap,
+    }) => Tooltip(
+      message: semantics,
+      excludeFromSemantics: true,
+      child: Semantics(
+        button: true,
+        label: semantics,
+        child: SoriPressable(
+          onTap: onTap,
+          child: Container(
+            key: ValueKey('today-header-$id'),
+            width: width,
+            constraints: const BoxConstraints(minHeight: 48),
+            alignment: Alignment.center,
+            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+            decoration: BoxDecoration(
+              color: s.surface.withValues(alpha: .35),
+              borderRadius: BorderRadius.circular(6),
+              border: Border.all(color: s.textMuted.withValues(alpha: .65)),
+            ),
+            child: ExcludeSemantics(child: Text(label, style: style)),
+          ),
+        ),
+      ),
+    );
+    final week = action(
+      id: 'week',
+      label: weekLabel,
+      semantics: weekLabel,
+      width: weekWidth,
+      onTap: onStreakTap,
+    );
+    final statistics = action(
+      id: 'stats',
+      label: levelLabel,
+      semantics: '$levelLabel · $xp XP',
+      width: levelWidth,
+      onTap: onStatsTap,
+    );
+    final profile = onProfileTap == null
+        ? null
+        : action(
+            id: 'profile',
+            label: t.profileTitle,
+            semantics: profileTooltip ?? t.soriStageProfileTooltip,
+            width: profileWidth,
+            onTap: onProfileTap!,
+          );
+    const logo = ApprovedChromeImage(
+      asset: ApprovedChromeAssets.cloud,
+      size: 36,
+    );
+    const settings = SizedBox.square(
+      key: ValueKey('today-header-settings'),
+      dimension: 48,
+      child: SoriSettingsButton(),
+    );
+    return Padding(
+      padding: EdgeInsets.only(bottom: bottomSpacing),
+      child: LayoutBuilder(
+        builder: (context, bounds) {
+          final moneyWidth = confirmedWalletWidth.clamp(64.0, bounds.maxWidth);
+          final money = SizedBox(
+            key: const ValueKey('today-header-wallet'),
+            width: moneyWidth,
+            child: wallet,
+          );
+          final oneRowWidth =
+              36 +
+              weekWidth +
+              levelWidth +
+              moneyWidth +
+              48 +
+              (profile == null ? 0 : profileWidth) +
+              (profile == null ? 16 : 20);
+          if (oneRowWidth <= bounds.maxWidth) {
+            return Row(
+              key: const ValueKey('today-header-one-row'),
+              children: [
+                logo,
+                const SizedBox(width: 4),
+                week,
+                const SizedBox(width: 4),
+                statistics,
+                const SizedBox(width: 4),
+                money,
+                if (profile != null) ...[const SizedBox(width: 4), profile],
+                const Spacer(),
+                const SizedBox(width: 4),
+                settings,
+              ],
+            );
+          }
+          return Column(
+            key: const ValueKey('today-header-stacked'),
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                children: [
+                  logo,
+                  const SizedBox(width: 8),
+                  Expanded(child: Text('Hangul Sori', style: style)),
+                  if (profile != null) profile,
+                  settings,
+                ],
+              ),
+              const SizedBox(height: 4),
+              Wrap(
+                alignment: WrapAlignment.end,
+                spacing: 4,
+                runSpacing: 4,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [week, statistics, money],
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
 
   Widget _bar(BuildContext context, SoriSurfaces s, AppL10n t) {
     return Column(

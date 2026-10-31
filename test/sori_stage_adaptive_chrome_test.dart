@@ -197,6 +197,72 @@ void main() {
     semantics.dispose();
   });
 
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    for (final scale in const [1.0, 2.0]) {
+      testWidgets(
+        'compact wallet header keeps all five actions at ${locale.languageCode} ${scale}x',
+        (tester) async {
+          _setViewport(tester, const Size(320, 640));
+          var weekTaps = 0;
+          var statsTaps = 0;
+          var profileTaps = 0;
+          var walletTaps = 0;
+          await tester.pumpWidget(
+            _responsiveApp(
+              locale: locale,
+              textScale: scale,
+              home: Scaffold(
+                body: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: SoriStatsTopBar(
+                      streak: 365,
+                      level: 120,
+                      xp: 999999,
+                      onStreakTap: () => weekTaps++,
+                      onStatsTap: () => statsTaps++,
+                      onProfileTap: () => profileTaps++,
+                      walletWidth: 150,
+                      wallet: TextButton(
+                        onPressed: () => walletTaps++,
+                        child: const Text('123456789'),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+          await tester.pump();
+          for (final id in const [
+            'week',
+            'stats',
+            'wallet',
+            'profile',
+            'settings',
+          ]) {
+            final action = find.byKey(ValueKey('today-header-$id'));
+            expect(action, findsOneWidget);
+            final size = tester.getSize(action);
+            expect(size.width, greaterThanOrEqualTo(48), reason: id);
+            expect(size.height, greaterThanOrEqualTo(48), reason: id);
+            await tester.ensureVisible(action);
+            await tester.pump();
+            await tester.tap(action);
+            await tester.pump();
+          }
+          await tester.pumpAndSettle();
+          expect(weekTaps, 1);
+          expect(statsTaps, 1);
+          expect(profileTaps, 1);
+          expect(walletTaps, 1);
+          expect(find.text('/settings'), findsOneWidget);
+          expect(tester.takeException(), isNull);
+        },
+      );
+    }
+  }
+
   testWidgets('320dp 200% Bojagi copy and action are not truncated', (
     tester,
   ) async {

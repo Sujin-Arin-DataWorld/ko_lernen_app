@@ -5861,5 +5861,23 @@
   "accountRecoveryBackupWaiting": "Verbunden; Sicherung wartet auf Prüfung",
   "accountRecoveryResumeTitle": "Bestätigte Auswahl fortsetzen?",
   "accountRecoveryResumeBody": "Deine Auswahl wurde bereits gespeichert. Du kannst denselben Vorgang fortsetzen. Der Startpunkt wird dabei nicht neu gewählt.",
-  "accountRecoveryResumeConfirm": "Bestätigte Auswahl fortsetzen"
+  "accountRecoveryResumeConfirm": "Bestätigte Auswahl fortsetzen",
+  "todayNextStep": "DEIN NÄCHSTER SCHRITT",
+  "todayFirstSyllable": "Deine erste Silbe",
+  "todayFirstSyllableBody": "Höre und verbinde zwei Zeichen.",
+  "todayReviewTitle": "Zeit zum Wiederholen",
+  "todayStartHangul": "Hangul starten",
+  "todayStartReview": "Jetzt wiederholen",
+  "todayContinue": "Weiterlernen",
+  "todayFinds": "Deine Funde",
+  "todayViewFinds": "Ansehen",
+  "todayYourHanok": "Dein Hanok",
+  "todayQuickPlay": "Kurz spielen",
+  "todayDetails": "Dein Tag im Überblick",
+  "todayProgress": "Lernfortschritt"
+,
+  "todayFindCount": "{count} zum Auspacken",
+  "@todayFindCount": {"placeholders": {"count": {"type": "int"}}}
+,
+  "todayHanokPreview": "Vorschau"
 }

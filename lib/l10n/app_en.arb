@@ -5679,5 +5679,23 @@
   "accountRecoveryBackupWaiting": "Connected; backup awaiting review",
   "accountRecoveryResumeTitle": "Continue your confirmed choice?",
   "accountRecoveryResumeBody": "Your choice is already saved. You can continue the same operation without choosing a new starting point.",
-  "accountRecoveryResumeConfirm": "Continue confirmed choice"
+  "accountRecoveryResumeConfirm": "Continue confirmed choice",
+  "todayNextStep": "YOUR NEXT STEP",
+  "todayFirstSyllable": "Your first syllable",
+  "todayFirstSyllableBody": "Listen and combine two letters.",
+  "todayReviewTitle": "Time to review",
+  "todayStartHangul": "Start Hangul",
+  "todayStartReview": "Start review",
+  "todayContinue": "Continue learning",
+  "todayFinds": "Your finds",
+  "todayViewFinds": "View finds",
+  "todayYourHanok": "Your Hanok",
+  "todayQuickPlay": "Quick play",
+  "todayDetails": "Your day at a glance",
+  "todayProgress": "Learning progress"
+,
+  "todayFindCount": "{count} ready to open",
+  "@todayFindCount": {"placeholders": {"count": {"type": "int"}}}
+,
+  "todayHanokPreview": "Preview"
 }

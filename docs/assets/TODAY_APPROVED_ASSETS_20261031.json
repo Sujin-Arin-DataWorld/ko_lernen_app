@@ -1,0 +1,183 @@
+{
+  "date": "2026-10-31",
+  "authority": "User approved Today three-state composition, canonical companions/cloud, and exact topic pack art use",
+  "assets": [
+    {
+      "asset": "assets/illustrations/concept_c/today/today-props.png",
+      "sha256": "0ed4e8bc047ad3b81b428cf82fb3bdcaeec770deaa8aa9563c3baf680b0cbd64",
+      "copiedByteIdentical": true,
+      "bytes": 1516746,
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "classification": "standalone_prop_atlas",
+      "visualFamily": "user_authorized_concept_c_today",
+      "sourceFile": "exec-77c8471c-8e0b-4eba-acc8-3b5c8be402cb.png"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/today/sorry-thanks.png",
+      "sha256": "1370c4712853be701f7996abda97a08b496bd1d0055b41064849d4d04999ce59",
+      "copiedByteIdentical": true,
+      "bytes": 1487909,
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "classification": "standalone_still_life_prop_group",
+      "visualFamily": "user_authorized_concept_c_today",
+      "semanticPackId": "a1_sorry_thanks_1",
+      "originalListeningTopicIds": [
+        "a1_body"
+      ],
+      "semanticReason": "Accidental mishaps and apologies, not anatomy.",
+      "sourceFile": "exec-301c934d-2f58-4c1a-bbdd-43c4da2f9416.png"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/today/repair-language.png",
+      "sha256": "ab9de1314ed8e00ac204a978b260efccda32b5cf95e3c64fc51cd418fcd5b6db",
+      "copiedByteIdentical": true,
+      "bytes": 1490823,
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "classification": "standalone_still_life_prop_group",
+      "visualFamily": "user_authorized_concept_c_today",
+      "semanticPackId": "a1_repair_language_1",
+      "originalListeningTopicIds": [
+        "a1_repeat"
+      ],
+      "semanticReason": "Asking someone to repeat or speak slowly.",
+      "sourceFile": "exec-b379bf91-516c-46b6-b2a4-90524c902f5d.png"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/today/transport.png",
+      "sha256": "b9e42c64f23e941db2ae0b22ff412b8e88d093c18169e309541a33985239f88c",
+      "copiedByteIdentical": true,
+      "bytes": 1774021,
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "classification": "standalone_still_life_prop_group",
+      "visualFamily": "user_authorized_concept_c_today",
+      "semanticPackId": "a1_transport",
+      "originalListeningTopicIds": [
+        "a1_transit"
+      ],
+      "semanticReason": "Airports, exits and getting out of taxis: transport context.",
+      "sourceFile": "exec-036a1305-ac27-4a1b-aa25-cf95a31e7660.png"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/today/restaurant.png",
+      "sha256": "a1ddfba82c4499d802ae35ea9c2e649035affdf1d331733f71129c09974884f6",
+      "copiedByteIdentical": true,
+      "bytes": 1484685,
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "classification": "standalone_still_life_prop_group",
+      "visualFamily": "user_authorized_concept_c_today",
+      "semanticPackId": "a2_restaurant_1",
+      "originalListeningTopicIds": [
+        "a2_booking"
+      ],
+      "semanticReason": "Actual lesson is restaurant reservation, not hotel booking.",
+      "sourceFile": "exec-2c452359-c492-41d1-befb-1f5856db8232.png"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/today/chuseok.png",
+      "sha256": "49db6a790d82f97f301be26226bee50572f0c3fe205f5171bdc1b88f0634b651",
+      "copiedByteIdentical": true,
+      "bytes": 1647444,
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "classification": "standalone_still_life_prop_group",
+      "visualFamily": "user_authorized_concept_c_today",
+      "semanticPackId": "a2_partner_chuseok_basic_1",
+      "originalListeningTopicIds": [
+        "a2_partner"
+      ],
+      "semanticReason": "Chuseok family greeting.",
+      "sourceFile": "exec-f353378c-2add-4c4d-885e-236d71da92b6.png"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/today/today-environments.png",
+      "sourceFile": "exec-3b60705b-cf80-4e1c-bb42-9d51c40d8915.png",
+      "sha256": "c0dad653803902693de8e3ecc2dd027d0821e84d3fdf0dcbe4c835902d28b673",
+      "classification": "standalone_environment_atlas",
+      "bytes": 2411876,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "regions": {
+        "greetings": [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        "review": [
+          0.5,
+          0,
+          1,
+          0.5
+        ],
+        "hangul": [
+          0,
+          0.5,
+          0.5,
+          1
+        ],
+        "jadeHeader": [
+          0.5,
+          0.5,
+          1,
+          1
+        ]
+      },
+      "text": "Korean learning content only; no localized UI embedded"
+    }
+  ],
+  "atlasRegions": {},
+  "cloud": {
+    "asset": "assets/icons/chrome/cloud.png",
+    "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5"
+  },
+  "classification": "user_authorized_concept_c_today"
+}

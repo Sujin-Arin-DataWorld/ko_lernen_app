@@ -40,7 +40,10 @@ class CObjectArt extends StatelessWidget {
     filterQuality: FilterQuality.high,
     cacheWidth: size == null
         ? null
-        : (size! * MediaQuery.devicePixelRatioOf(context)).ceil(),
+        : (size! *
+                  MediaQuery.devicePixelRatioOf(context) *
+                  (object == CObject.arrow ? 4 : 1))
+              .ceil(),
   );
 }
 

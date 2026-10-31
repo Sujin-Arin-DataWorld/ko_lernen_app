@@ -20825,6 +20825,96 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Bestätigte Auswahl fortsetzen'**
   String get accountRecoveryResumeConfirm;
+
+  /// No description provided for @todayNextStep.
+  ///
+  /// In de, this message translates to:
+  /// **'DEIN NÄCHSTER SCHRITT'**
+  String get todayNextStep;
+
+  /// No description provided for @todayFirstSyllable.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine erste Silbe'**
+  String get todayFirstSyllable;
+
+  /// No description provided for @todayFirstSyllableBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Höre und verbinde zwei Zeichen.'**
+  String get todayFirstSyllableBody;
+
+  /// No description provided for @todayReviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeit zum Wiederholen'**
+  String get todayReviewTitle;
+
+  /// No description provided for @todayStartHangul.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul starten'**
+  String get todayStartHangul;
+
+  /// No description provided for @todayStartReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt wiederholen'**
+  String get todayStartReview;
+
+  /// No description provided for @todayContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiterlernen'**
+  String get todayContinue;
+
+  /// No description provided for @todayFinds.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Funde'**
+  String get todayFinds;
+
+  /// No description provided for @todayViewFinds.
+  ///
+  /// In de, this message translates to:
+  /// **'Ansehen'**
+  String get todayViewFinds;
+
+  /// No description provided for @todayYourHanok.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hanok'**
+  String get todayYourHanok;
+
+  /// No description provided for @todayQuickPlay.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurz spielen'**
+  String get todayQuickPlay;
+
+  /// No description provided for @todayDetails.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Tag im Überblick'**
+  String get todayDetails;
+
+  /// No description provided for @todayProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernfortschritt'**
+  String get todayProgress;
+
+  /// No description provided for @todayFindCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} zum Auspacken'**
+  String todayFindCount(int count);
+
+  /// No description provided for @todayHanokPreview.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschau'**
+  String get todayHanokPreview;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

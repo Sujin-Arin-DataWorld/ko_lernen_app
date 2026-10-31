@@ -1,0 +1,70 @@
+{
+  "file": "sori-shell-hanok-390-en-saved-owned-8.png",
+  "captured_at_utc": "2026-10-31T16:01:33.945692Z",
+  "source_revision": "83f95f8c3474ad70d97482895b93708530bd07eb+today-native-20261031-WIP",
+  "scope": "actual SoriStageShell; isolated widget-test account",
+  "language": "en",
+  "tab": "hanok",
+  "viewport": [
+    390,
+    844
+  ],
+  "device_pixel_ratio": 1,
+  "text_scale": 1,
+  "safe_insets": {
+    "top": 24,
+    "bottom": 24
+  },
+  "greeting_text": null,
+  "header_actions": {},
+  "native_context": null,
+  "disable_animations": true,
+  "fixture": "saved-owned-8",
+  "course_unit_id": "a1_01_greetings_hangul",
+  "course_title": "First greetings and asking again",
+  "destination_route": "/vocab/pack",
+  "due_count": 0,
+  "wallet_balance": 0,
+  "sarangchae_owned_stage": 8,
+  "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+  "capture_view": "initial fold",
+  "r16_decoded_layers": [
+    {
+      "process_id": "ildu.sarangchae-rafters",
+      "foreground_decoded": [
+        1800,
+        1200
+      ],
+      "shadow_decoded": [
+        1800,
+        1200
+      ],
+      "opacity": 1.0
+    }
+  ],
+  "primary_action": {
+    "key": "hanok-construction-entry",
+    "measurement_view": "initial fold before opening details or scrolling",
+    "rect": {
+      "left": 25.0,
+      "top": 521.5,
+      "width": 340.0,
+      "height": 48.0
+    },
+    "fully_visible_above_navigation": true,
+    "hit_testable": true
+  },
+  "gye": "unauthenticated empty memberships; no Firebase account",
+  "nav_assets": [
+    "assets/icons/navigation/today.png",
+    "assets/icons/navigation/learn.png",
+    "assets/icons/navigation/games.png",
+    "assets/icons/navigation/hanok.png",
+    "assets/icons/navigation/gye.png"
+  ],
+  "limitations": [
+    "Widget evidence, not physical-device or release-account QA.",
+    "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+    "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+  ]
+}

@@ -160,7 +160,11 @@ void main() {
                 find.byType(RichText),
               )) {
                 if (paragraph.text.toPlainText() == names[index]) {
-                  expect(paragraph.didExceedMaxLines, isFalse);
+                  expect(
+                    paragraph.didExceedMaxLines,
+                    isFalse,
+                    reason: names[index],
+                  );
                 }
               }
               expect(tester.takeException(), isNull);

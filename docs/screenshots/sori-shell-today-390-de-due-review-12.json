@@ -1,0 +1,83 @@
+{
+  "file": "sori-shell-today-390-de-due-review-12.png",
+  "captured_at_utc": "2026-10-31T16:01:11.929901Z",
+  "source_revision": "83f95f8c3474ad70d97482895b93708530bd07eb+today-native-20261031-WIP",
+  "scope": "actual SoriStageShell; isolated widget-test account",
+  "language": "de",
+  "tab": "today",
+  "viewport": [
+    390,
+    844
+  ],
+  "device_pixel_ratio": 1,
+  "text_scale": 1,
+  "safe_insets": {
+    "top": 24,
+    "bottom": 24
+  },
+  "greeting_text": "Hallo!",
+  "header_actions": {
+    "profile": {
+      "left": 12.0,
+      "top": 28.0,
+      "width": 157.0,
+      "height": 48.0
+    },
+    "wallet": {
+      "left": 169.0,
+      "top": 28.0,
+      "width": 61.76300048828125,
+      "height": 48.0
+    },
+    "settings": {
+      "left": 234.76300048828125,
+      "top": 28.0,
+      "width": 48.0,
+      "height": 48.0
+    },
+    "details": {
+      "left": 12.0,
+      "top": 76.0,
+      "width": 366.0,
+      "height": 146.0
+    }
+  },
+  "header_actions_measurement_view": "initial compact dashboard",
+  "native_context": "12 Wörter fällig",
+  "disable_animations": true,
+  "fixture": "due-review-12",
+  "course_unit_id": null,
+  "course_title": null,
+  "destination_route": "/review",
+  "due_count": 12,
+  "wallet_balance": 0,
+  "sarangchae_owned_stage": 0,
+  "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+  "capture_view": "initial fold",
+  "r16_decoded_layers": [],
+  "primary_action": {
+    "key": "learning-focus-start",
+    "measurement_view": "initial fold before opening details or scrolling",
+    "rect": {
+      "left": 25.0,
+      "top": 455.0,
+      "width": 340.0,
+      "height": 48.0
+    },
+    "fully_visible_above_navigation": true,
+    "hit_testable": true
+  },
+  "gye": "unauthenticated empty memberships; no Firebase account",
+  "nav_assets": [
+    "assets/icons/navigation/today.png",
+    "assets/icons/navigation/learn.png",
+    "assets/icons/navigation/games.png",
+    "assets/icons/navigation/hanok.png",
+    "assets/icons/navigation/gye.png"
+  ],
+  "limitations": [
+    "Widget evidence, not physical-device or release-account QA.",
+    "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+    "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+  ]
+}

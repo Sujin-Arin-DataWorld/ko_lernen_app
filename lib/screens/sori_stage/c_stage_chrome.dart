@@ -21,9 +21,15 @@ TextStyle cStageBody(BuildContext context) => SoriTextTheme.of(
 
 /// The approved jade surface extends behind the real OS status bar.
 class CStageBackground extends StatelessWidget {
-  const CStageBackground({super.key, required this.child, this.shelf = false});
+  const CStageBackground({
+    super.key,
+    required this.child,
+    this.shelf = false,
+    this.backdrop,
+  });
   final Widget child;
   final bool shelf;
+  final Widget? backdrop;
 
   @override
   Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(
@@ -47,6 +53,7 @@ class CStageBackground extends StatelessWidget {
             ),
           ),
         ),
+        if (backdrop != null) backdrop!,
         child,
       ],
     ),

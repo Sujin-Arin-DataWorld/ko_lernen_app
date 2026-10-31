@@ -7,6 +7,7 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../models/yeopjeon_wallet.dart';
 import '../../services/yeopjeon_wallet_notifier.dart';
 import 'approved_chrome_assets.dart';
+import 'c_gallery/c_palette.dart';
 import 'collapsing_header.dart';
 import 'pressable.dart';
 import 'settings_button.dart';
@@ -33,8 +34,10 @@ class SoriWalletBadge extends StatelessWidget {
     this.fallback,
     this.onReturned,
     this.foreground,
+    this.jadeSurface = false,
   });
   final bool compact;
+  final bool jadeSurface;
   final Color? foreground;
   final YeopjeonWallet? fallback;
   final VoidCallback? onReturned;
@@ -47,6 +50,7 @@ class SoriWalletBadge extends StatelessWidget {
       return YeopjeonWalletBadge(
         wallet: wallet,
         compact: compact,
+        jadeSurface: jadeSurface,
         onReturned: () {
           if (owner != null) unawaited(owner.refresh());
           onReturned?.call();
@@ -66,8 +70,11 @@ class SoriWalletBadge extends StatelessWidget {
           constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
           padding: const EdgeInsets.symmetric(horizontal: 8),
           decoration: BoxDecoration(
-            color: SoriActivityColors.actionGold,
+            color: jadeSurface
+                ? CPalette.deepJade
+                : SoriActivityColors.actionGold,
             borderRadius: SoriRadius.brLg,
+            border: jadeSurface ? Border.all(color: SoriColors.gold) : null,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -79,9 +86,9 @@ class SoriWalletBadge extends StatelessWidget {
               const SizedBox(width: 4),
               Text(
                 '—',
-                style: SoriTextTheme.of(
-                  context,
-                ).label.copyWith(color: foreground),
+                style: SoriTextTheme.of(context).label.copyWith(
+                  color: jadeSurface ? Colors.white : foreground,
+                ),
               ),
             ],
           ),

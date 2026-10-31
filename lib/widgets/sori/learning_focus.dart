@@ -11,7 +11,6 @@ import 'tokens.dart';
 import 'window_class.dart';
 import 'activity_illustration.dart';
 import 'c_gallery/c_materials.dart';
-import 'c_gallery/c_objects.dart';
 
 class LearningFocusScope extends InheritedNotifier<LearningFocusController> {
   const LearningFocusScope({
@@ -74,10 +73,13 @@ class SoriLearningFocus extends StatelessWidget {
     final entry = activityForRoute(focus?.destination?.route);
     final focal = entry != null && focus!.ready && !controller.loading;
     final subject = title.toLowerCase();
-    final focalArt =
+    final isCafe =
         subject.contains('coffee') ||
-            subject.contains('kaffee') ||
-            subject.contains('카페')
+        subject.contains('kaffee') ||
+        subject.contains('café') ||
+        subject.contains('cafe') ||
+        subject.contains('카페');
+    final focalArt = isCafe
         ? SoriArtwork.coffee
         : SoriArtwork.action(entry?.id ?? 'course');
     if (conceptC) {
@@ -90,22 +92,30 @@ class SoriLearningFocus extends StatelessWidget {
           MediaQuery.sizeOf(context).height < 750 &&
           MediaQuery.textScalerOf(context).scale(16) <= 16;
       final nominalArtHeight = conceptCompactSummary
-          ? (compact ? 48.0 : 96.0)
+          ? 160.0
           : (compact ? 88.0 : 146.0);
-      final trimReviewCanvas =
-          conceptCompactSummary && focus?.today.pick is ReviewPick;
-      final artHeight = trimReviewCanvas
-          ? nominalArtHeight * 720 / 1254
-          : nominalArtHeight;
-      final subjectArt =
+      final artHeight = nominalArtHeight;
+      // The approved book source has 16dp of transparent top canvas at this
+      // size. Reclaim 12dp while retaining the full 160dp image and shadow;
+      // actual material still begins below the preceding native text.
+      final trimBookCanvas =
+          conceptCompactSummary &&
+          conceptArt == null &&
+          !isCafe &&
+          focus?.today.pick is CoursePick;
+      final contextText = focus?.ready != true
+          ? null
+          : switch (focus!.today.pick) {
+              ReviewPick() => t.homeReviewDue(focus.today.dueCount),
+              CoursePick() => focus.brief?.unit.canDo.pick(language),
+              _ => null,
+            };
+      final rawSubjectArt =
           conceptArt ??
           SizedBox(
             key: const ValueKey('learning-focus-art'),
             height: artHeight,
-            child:
-                subject.contains('coffee') ||
-                    subject.contains('kaffee') ||
-                    subject.contains('카페')
+            child: isCafe
                 ? CSceneArt(CScene.coffee, height: artHeight)
                 : switch (focus?.today.pick) {
                     HangulIntroPick() => const CReferenceArt(
@@ -113,11 +123,22 @@ class SoriLearningFocus extends StatelessWidget {
                     ),
                     ReviewPick() => CReferenceArt(
                       CReferencePart.review,
-                      opticalFit: trimReviewCanvas,
+                      opticalFit: true,
                     ),
-                    _ => const CObjectArt(CObject.book),
+                    _ => const CReferenceArt(CReferencePart.book),
                   },
           );
+      final subjectArt = trimBookCanvas
+          ? SizedBox(
+              height: artHeight - 12,
+              child: OverflowBox(
+                alignment: Alignment.bottomCenter,
+                minHeight: artHeight,
+                maxHeight: artHeight,
+                child: rawSubjectArt,
+              ),
+            )
+          : rawSubjectArt;
       VoidCallback? start =
           controller.loading || controller.launching || focus?.ready != true
           ? null
@@ -138,7 +159,12 @@ class SoriLearningFocus extends StatelessWidget {
               runSpacing: 4,
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [
-                Text(t.soriStageTodayMissionEyebrow, style: body),
+                Text(
+                  t.soriStageTodayMissionEyebrow,
+                  style: body.copyWith(
+                    height: conceptCompactSummary ? 1.1 : 1.3,
+                  ),
+                ),
                 if (focus?.minutes case final minutes?)
                   Text(
                     [
@@ -146,7 +172,9 @@ class SoriLearningFocus extends StatelessWidget {
                         level.toUpperCase(),
                       t.learningFocusMinutes(minutes),
                     ].join(' · '),
-                    style: body,
+                    style: body.copyWith(
+                      height: conceptCompactSummary ? 1.1 : 1.3,
+                    ),
                   ),
               ],
             ),
@@ -163,9 +191,24 @@ class SoriLearningFocus extends StatelessWidget {
                 ),
               ),
             ),
+            if (conceptCompactSummary &&
+                contextText?.trim().isNotEmpty == true) ...[
+              const SizedBox(height: 4),
+              Text(
+                contextText!,
+                key: const ValueKey('learning-focus-context'),
+                style: body,
+              ),
+            ],
           ],
           if (focus?.ready == true) ...[
-            const SizedBox(height: 8),
+            SizedBox(
+              height:
+                  conceptCompactSummary &&
+                      contextText?.trim().isNotEmpty == true
+                  ? 0
+                  : 8,
+            ),
             if (conceptArtOnlyAction)
               CImageTap(
                 key: const ValueKey('learning-focus-start'),
@@ -218,7 +261,38 @@ class SoriLearningFocus extends StatelessWidget {
               focus.failure == null &&
               !focus.ready)
             Text(t.soriStageTodayEmpty, style: body),
-          if (conceptCourseOverview)
+          if (conceptCourseOverview && conceptCompactSummary)
+            Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
+                if (focus?.brief?.unit case final unit?)
+                  Text(
+                    t.learningFocusCoursePosition(
+                      unit.level.toUpperCase(),
+                      switch (focus?.today.pick) {
+                        CoursePick(:final missionNumber) => missionNumber,
+                        _ => unit.order,
+                      },
+                    ),
+                    style: body,
+                  ),
+                SoriTextAction(
+                  key: const ValueKey('learning-focus-course-overview'),
+                  style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+                  onPressed: controller.launching
+                      ? null
+                      : () => scope.open(
+                          context,
+                          const TodayLearningDestination(route: '/path'),
+                          activityId: 'course',
+                        ),
+                  label: t.learningFocusViewCourse,
+                  textStyle: body,
+                ),
+              ],
+            ),
+          if (conceptCourseOverview && !conceptCompactSummary)
             if (focus?.brief?.unit case final unit?) ...[
               const SizedBox(height: 4),
               Text(
@@ -232,7 +306,7 @@ class SoriLearningFocus extends StatelessWidget {
                 style: body,
               ),
             ],
-          if (conceptCourseOverview)
+          if (conceptCourseOverview && !conceptCompactSummary)
             TextButton(
               key: const ValueKey('learning-focus-course-overview'),
               style: TextButton.styleFrom(minimumSize: const Size(48, 48)),

@@ -57,7 +57,7 @@ class _SoriImageNavigationBarState extends State<SoriImageNavigationBar>
     enabled: _resumed,
     child: NavigationBar(
       key: const ValueKey('sori-image-navigation-bar'),
-      height: 76,
+      height: 60,
       backgroundColor: SoriSurfaces.of(context).surface,
       indicatorColor: Colors.transparent,
       labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
@@ -181,21 +181,32 @@ class SoriNavigationImage extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Positioned(
-            bottom: 4,
-            child: AnimatedOpacity(
-              opacity: selected ? 1 : .4,
+          Positioned.fill(
+            child: AnimatedContainer(
               duration: duration,
-              curve: Curves.linear,
-              child: Container(
-                width: selected ? 26 : 22,
-                height: 3,
-                decoration: BoxDecoration(
+              curve: SoriMotion.gentle,
+              decoration: BoxDecoration(
+                color: selected ? const Color(0xff084a3e) : Colors.transparent,
+                borderRadius: BorderRadius.circular(SoriRadius.sm),
+                border: Border.all(
                   color: selected
-                      ? SoriSurfaces.of(context).text
-                      : SoriSurfaces.of(context).text.withValues(alpha: .2),
-                  borderRadius: SoriRadius.brPill,
+                      ? const Color(0xffd4bc80)
+                      : Colors.transparent,
+                  width: 1.2,
                 ),
+                boxShadow: selected
+                    ? const [
+                        BoxShadow(
+                          color: Color(0xff082d27),
+                          offset: Offset(0, 2),
+                        ),
+                        BoxShadow(
+                          color: Color(0x300c281b),
+                          offset: Offset(0, 3),
+                          blurRadius: 4,
+                        ),
+                      ]
+                    : const [],
               ),
             ),
           ),

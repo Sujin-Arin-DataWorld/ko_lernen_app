@@ -12234,4 +12234,51 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get accountRecoveryResumeConfirm => 'Continue confirmed choice';
+
+  @override
+  String get todayNextStep => 'YOUR NEXT STEP';
+
+  @override
+  String get todayFirstSyllable => 'Your first syllable';
+
+  @override
+  String get todayFirstSyllableBody => 'Listen and combine two letters.';
+
+  @override
+  String get todayReviewTitle => 'Time to review';
+
+  @override
+  String get todayStartHangul => 'Start Hangul';
+
+  @override
+  String get todayStartReview => 'Start review';
+
+  @override
+  String get todayContinue => 'Continue learning';
+
+  @override
+  String get todayFinds => 'Your finds';
+
+  @override
+  String get todayViewFinds => 'View finds';
+
+  @override
+  String get todayYourHanok => 'Your Hanok';
+
+  @override
+  String get todayQuickPlay => 'Quick play';
+
+  @override
+  String get todayDetails => 'Your day at a glance';
+
+  @override
+  String get todayProgress => 'Learning progress';
+
+  @override
+  String todayFindCount(int count) {
+    return '$count ready to open';
+  }
+
+  @override
+  String get todayHanokPreview => 'Preview';
 }

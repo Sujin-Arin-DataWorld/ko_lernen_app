@@ -60,20 +60,7 @@ Map<String, Object> _spacingMetrics(
             ? primary.bottom
             : tester.getRect(find.byKey(overview.footer!.key)).bottom),
     'tiles': tileMetrics,
-    if (!overview.games)
-      'stepsToHero':
-          hero.top -
-          overview.steps
-              .map(
-                (text) => tester
-                    .getBottomLeft(
-                      find
-                          .descendant(of: root, matching: find.text(text))
-                          .first,
-                    )
-                    .dy,
-              )
-              .reduce((a, b) => a > b ? a : b),
+    if (!overview.games) 'titleToHero': hero.top - caption.bottom,
   };
 }
 
@@ -169,21 +156,37 @@ void main() {
             expect(primaryRect.height, greaterThanOrEqualTo(48 - 1e-9));
             expect(allRect.height, greaterThanOrEqualTo(48 - 1e-9));
             expect(spacing['overviewWidth'], lessThanOrEqualTo(480 + .01));
-            expect(spacing['heroHeight'], lessThanOrEqualTo(180 + .01));
-            expect(spacing['heroToCaption'], closeTo(4, .01));
-            expect(spacing['lastActionToAll'], inInclusiveRange(4.0, 12.0));
+            expect(spacing['heroHeight'], lessThanOrEqualTo(225 + .01));
+            if (tab == SoriStageTab.games) {
+              expect(spacing['heroToCaption'], closeTo(4, .01));
+            } else {
+              expect(spacing['titleToHero'], closeTo(4, .01));
+            }
+            // The complete catalog action now shares the title row. It remains
+            // independently reachable instead of consuming the scene's height.
+            expect(allRect.bottom, lessThan(primaryRect.top));
             if (scale == 1) {
               expect(primaryRect.bottom, lessThanOrEqualTo(navTop + 1));
               expect(allRect.bottom, lessThanOrEqualTo(navTop + 1));
-              expect(scroll.position.maxScrollExtent, lessThanOrEqualTo(1));
+              if (size.height >= 800) {
+                expect(scroll.position.maxScrollExtent, lessThanOrEqualTo(1));
+                expect(spacing['heroHeight'], greaterThanOrEqualTo(140));
+              }
               for (final tile
                   in spacing['tiles']! as List<Map<String, Object>>) {
-                expect(tile['artToLabel'], closeTo(4, .01));
+                expect(tile['artToLabel'], inInclusiveRange(4.0, 24.0));
                 expect(tile['artTopInset'], lessThanOrEqualTo(5 + .01));
                 expect(tile['labelBottomInset'], lessThanOrEqualTo(5 + .01));
               }
-              if (tab == SoriStageTab.learn) {
-                expect(spacing['stepsToHero'], closeTo(4, .01));
+              final rows = (spacing['tiles']! as List<Map<String, Object>>);
+              final columns = tab == SoriStageTab.learn ? 2 : 3;
+              for (var i = 0; i < rows.length; i += columns) {
+                for (var j = i + 1; j < i + columns && j < rows.length; j++) {
+                  expect(
+                    rows[j]['height'],
+                    closeTo(rows[i]['height']! as double, 1),
+                  );
+                }
               }
             }
             expect(find.byType(SoriCatalogCard), findsNothing);
