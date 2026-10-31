@@ -1,0 +1,107 @@
+{
+  "file": "sori-shell-today-390-de-saved-owned-16-summary.png",
+  "captured_at_utc": "2026-10-31T00:07:14.159903Z",
+  "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+  "scope": "actual SoriStageShell; isolated widget-test account",
+  "language": "de",
+  "tab": "today",
+  "viewport": [
+    390,
+    844
+  ],
+  "device_pixel_ratio": 1,
+  "text_scale": 1,
+  "safe_insets": {
+    "top": 24,
+    "bottom": 24
+  },
+  "greeting_text": "Guten Morgen!",
+  "header_actions": {
+    "week": {
+      "left": 52.0,
+      "top": 36.0,
+      "width": 55.0,
+      "height": 48.0
+    },
+    "stats": {
+      "left": 111.0,
+      "top": 36.0,
+      "width": 54.0,
+      "height": 48.0
+    },
+    "wallet": {
+      "left": 169.0,
+      "top": 36.0,
+      "width": 64.0,
+      "height": 48.0
+    },
+    "profile": {
+      "left": 237.0,
+      "top": 36.0,
+      "width": 80.0,
+      "height": 48.0
+    },
+    "settings": {
+      "left": 330.0,
+      "top": 36.0,
+      "width": 48.0,
+      "height": 48.0
+    }
+  },
+  "native_context": "Ich kann eine neue Person begrüßen und eine kurze Frage klären.",
+  "disable_animations": true,
+  "fixture": "saved-owned-16-summary",
+  "course_unit_id": "a1_01_greetings_hangul",
+  "course_title": "Erste Begrüßung und Nachfragen",
+  "destination_route": "/vocab/pack",
+  "due_count": 0,
+  "wallet_balance": 0,
+  "sarangchae_owned_stage": 16,
+  "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+  "capture_view": "scrolled to actual owned Today summary",
+  "r16_decoded_layers": [
+    {
+      "process_id": "ildu.sarangchae-complete",
+      "foreground_decoded": [
+        1800,
+        1200
+      ],
+      "shadow_decoded": [
+        1800,
+        1200
+      ],
+      "opacity": 1.0
+    }
+  ],
+  "summary_action_rect": {
+    "left": 25.0,
+    "top": 400.0,
+    "width": 340.0,
+    "height": 149.0
+  },
+  "primary_action": {
+    "key": "learning-focus-start",
+    "measurement_view": "initial fold before any summary scroll",
+    "rect": {
+      "left": 25.0,
+      "top": 454.0,
+      "width": 340.0,
+      "height": 54.0
+    },
+    "fully_visible_above_navigation": true,
+    "hit_testable": true
+  },
+  "gye": "unauthenticated empty memberships; no Firebase account",
+  "nav_assets": [
+    "assets/icons/navigation/today.png",
+    "assets/icons/navigation/learn.png",
+    "assets/icons/navigation/games.png",
+    "assets/icons/navigation/hanok.png",
+    "assets/icons/navigation/gye.png"
+  ],
+  "limitations": [
+    "Widget evidence, not physical-device or release-account QA.",
+    "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+    "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+  ]
+}

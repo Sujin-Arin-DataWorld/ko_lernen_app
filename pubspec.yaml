@@ -138,6 +138,8 @@ flutter:
     - assets/data/
     # Approved R16 renders, losslessly packaged with exact process identities.
     - assets/illustrations/ildu_r16/
+    # Same approved standalone geometry, foreground + separate contact shadow.
+    - assets/illustrations/ildu_r16_layers/
     - assets/tts/v3/female/
     - assets/tts/v3/male/
     - assets/tts/recorded_jamo/
@@ -159,6 +161,7 @@ flutter:
     - assets/illustrations/dancheong_studio/v1/
     - assets/illustrations/concept_c/spiele_preview/
     - assets/illustrations/concept_c/
+    - assets/illustrations/concept_c/c5_scenes/
     - assets/illustrations/concept_c/approved_20261018/
     - assets/illustrations/concept_c/pronunciation/
     # C-learning and Atelier share the original material_atlas.png and jade.png.

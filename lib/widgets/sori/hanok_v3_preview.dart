@@ -7,7 +7,7 @@ import 'chip.dart';
 import 'progress.dart';
 import 'tokens.dart';
 import 'updating_scene.dart';
-import 'ildu_r16_process_image.dart';
+import 'ildu_r16_layer_artwork.dart';
 
 /// Future-state artwork used only by the no-progression onboarding preview.
 const String kIlDuV3PreviewAsset =
@@ -74,20 +74,13 @@ class SarangchaeStageArtwork extends StatelessWidget {
         .toInt();
     final stage = construction.stage(shown);
     final unlocked = shown <= earned;
-    final image = unlocked
-        ? IlDuR16ProcessImage(
-            key: ValueKey('sarangchae-stage-artwork-$shown'),
-            processId: 'ildu.${stage.stageId}',
-            fallbackAsset: stage.assetPath,
-            fit: BoxFit.contain,
-            excludeFromSemantics: true,
-          )
-        : Image.asset(
-            stage.assetPath,
-            key: ValueKey('sarangchae-stage-artwork-$shown'),
-            fit: BoxFit.contain,
-            excludeFromSemantics: true,
-          );
+    final image = IlDuR16LayerArtwork(
+      key: ValueKey('sarangchae-stage-artwork-$shown'),
+      processId: 'ildu.${stage.stageId}',
+      opacity: unlocked ? 1 : .24,
+      fit: BoxFit.contain,
+      excludeFromSemantics: true,
+    );
     return Semantics(
       image: true,
       label: unlocked
@@ -95,33 +88,27 @@ class SarangchaeStageArtwork extends StatelessWidget {
           : t.sarangchaeStageLocked(shown),
       child: ClipRRect(
         borderRadius: SoriRadius.brLg,
-        child: ColoredBox(
-          color: surfaces.surfaceAlt,
-          child: AnimatedSwitcher(
-            duration: SoriMotion.reduceMotion(context)
-                ? Duration.zero
-                : SoriMotion.medium,
-            child: Stack(
-              key: ValueKey('sarangchae-stage-layer-$shown-$unlocked'),
-              fit: StackFit.expand,
-              children: [
-                if (unlocked) image else Opacity(opacity: .24, child: image),
-                if (!unlocked)
-                  Center(
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: surfaces.surface.withValues(alpha: .92),
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.all(Spacing.md),
-                        child: Icon(Icons.lock_rounded, size: 30),
-                      ),
-                    ),
+        // No white backing or isolated opacity/fade layer: the shadow pass
+        // multiplies the real scene material, including during locked previews.
+        child: Stack(
+          key: ValueKey('sarangchae-stage-layer-$shown-$unlocked'),
+          fit: StackFit.expand,
+          children: [
+            image,
+            if (!unlocked)
+              Center(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: surfaces.surface.withValues(alpha: .92),
+                    shape: BoxShape.circle,
                   ),
-              ],
-            ),
-          ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(Spacing.md),
+                    child: Icon(Icons.lock_rounded, size: 30),
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
     );

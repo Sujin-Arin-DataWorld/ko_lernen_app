@@ -69,11 +69,8 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
 
-    expect(find.byType(SarangchaeStageArtwork), findsOneWidget);
-    expect(
-      find.byKey(const ValueKey('sarangchae-stage-artwork-1')),
-      findsOneWidget,
-    );
+    expect(find.byType(SarangchaeStageArtwork), findsNothing);
+    expect(find.byKey(const ValueKey('hanok-empty-site')), findsOneWidget);
     expect(find.byKey(const ValueKey('hanok-map-tap-hint')), findsNothing);
 
     expect(loads, 1);

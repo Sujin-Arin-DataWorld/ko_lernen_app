@@ -16,6 +16,7 @@ import '../../features/guide/today_guide_section.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/feedback_completion.dart';
 import '../../models/quest.dart';
+import '../../models/sarangchae_construction.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/decoration_reward_service.dart';
 import '../../services/sori_stage_progression_service.dart';
@@ -28,7 +29,6 @@ import '../../widgets/sori/activity_illustration.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/cultural_help.dart';
-import '../../widgets/sori/hanok_stage_names.dart';
 import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/home_hero.dart';
 import '../../widgets/sori/c_gallery/c_materials.dart';
@@ -370,36 +370,39 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
 
   /// The greeting belongs to the learning card; this is only the app toolbar.
   Widget _header(BuildContext context, AppL10n t) {
-    final topBar = SoriStatsTopBar(
-      streak: Storage.streakDays,
-      level: Storage.xpLevel,
-      xp: Storage.xp,
-      onStreakTap: () {
-        // ignore: discarded_futures
-        _showWeekSheet();
-      },
-      onStatsTap: () => Navigator.pushNamed(context, '/stats'),
-      onProfileTap: () => Navigator.pushNamed(context, '/profile'),
-      profileTooltip: t.soriStageProfileTooltip,
-      bottomSpacing: Spacing.sm,
-    );
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Theme(
-          data: Theme.of(context).copyWith(brightness: Brightness.dark),
-          child: topBar,
+    return LayoutBuilder(
+      builder: (context, bounds) => Theme(
+        data: Theme.of(context).copyWith(brightness: Brightness.dark),
+        child: SoriStatsTopBar(
+          streak: Storage.streakDays,
+          level: Storage.xpLevel,
+          xp: Storage.xp,
+          onStreakTap: () {
+            // ignore: discarded_futures
+            _showWeekSheet();
+          },
+          onStatsTap: () => Navigator.pushNamed(context, '/stats'),
+          onProfileTap: () => Navigator.pushNamed(context, '/profile'),
+          profileTooltip: t.soriStageProfileTooltip,
+          bottomSpacing: MediaQuery.sizeOf(context).height < 750 ? 6 : 8,
+          wallet: SoriWalletScope.maybeOf(context) == null
+              ? null
+              : Theme(
+                  data: Theme.of(
+                    context,
+                  ).copyWith(brightness: Brightness.light),
+                  child: SoriWalletBadge(
+                    compact: true,
+                    onReturned: _reload,
+                    foreground: CPalette.ink,
+                  ),
+                ),
+          walletWidth: SoriTopChrome.metrics(
+            context,
+            bounds.maxWidth,
+          ).walletWidth,
         ),
-        if (SoriWalletScope.maybeOf(context) != null)
-          Align(
-            alignment: Alignment.centerRight,
-            child: SoriWalletBadge(
-              onReturned: _reload,
-              foreground: CPalette.paper,
-            ),
-          ),
-      ],
+      ),
     );
   }
 
@@ -408,7 +411,6 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
       valueListenable: MascotPreference.preference,
       builder: (context, preference, _) {
         final kind = MascotPreference.mascotKindFor(preference);
-        final compact = MediaQuery.sizeOf(context).height < 750;
         final type = SoriTextTheme.of(context);
         final words = Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -427,7 +429,7 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
           key: kind == null
               ? const ValueKey('sori-today-companion-hidden')
               : null,
-          padding: const EdgeInsets.only(bottom: 8),
+          padding: const EdgeInsets.only(bottom: 2),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -436,14 +438,17 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
                 const SizedBox(width: 8),
                 SizedBox(
                   key: const ValueKey('learning-companion-ground'),
-                  width: compact ? 104 : 128,
-                  height: compact ? 104 : 128,
-                  child: Image.asset(
-                    kind.name == 'tiger'
-                        ? CanonicalCompanionArt.baekhoPortrait
-                        : CanonicalCompanionArt.magpiePortrait,
-                    fit: BoxFit.contain,
-                    excludeFromSemantics: true,
+                  width: 96,
+                  height: 96,
+                  child: Transform.translate(
+                    offset: const Offset(0, 6),
+                    child: Image.asset(
+                      kind.name == 'tiger'
+                          ? CanonicalCompanionArt.baekhoPortrait
+                          : CanonicalCompanionArt.magpiePortrait,
+                      fit: BoxFit.contain,
+                      excludeFromSemantics: true,
+                    ),
                   ),
                 ),
               ],
@@ -560,7 +565,12 @@ class _TodayContent extends StatelessWidget {
 
     return SoriContentClamp(
       maxWidth: SoriMaxWidth.hub,
-      base: const EdgeInsets.fromLTRB(12, 12, 12, 24),
+      base: EdgeInsets.fromLTRB(
+        12,
+        MediaQuery.sizeOf(context).height < 750 ? 8 : 12,
+        12,
+        24,
+      ),
       builder: (context, padding) => RefreshIndicator(
         onRefresh: () async => onRefresh(),
         child: ListView(
@@ -1074,65 +1084,138 @@ class _PendingBojagi extends StatelessWidget {
   }
 }
 
-class _HanokProgress extends StatelessWidget {
+class _HanokProgress extends StatefulWidget {
   const _HanokProgress({required this.snapshot});
   final SoriStageProgressionSnapshot snapshot;
+
+  @override
+  State<_HanokProgress> createState() => _HanokProgressState();
+}
+
+class _HanokProgressState extends State<_HanokProgress> {
+  late final Future<SarangchaeConstruction> _construction =
+      SarangchaeConstruction.load();
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
+    final snapshot = widget.snapshot;
+    final owned = snapshot.ownedSarangchaeStage;
+    final unavailable = snapshot.walletUnavailable;
+    final details = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          t.soriStageHanokNow,
+          style: text.cardTitle.copyWith(color: CPalette.paper),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          unavailable
+              ? t.soriStageHanokProgressUnavailable
+              : t.sarangchaeConstructionProgress(
+                  owned,
+                  SarangchaeConstruction.stageCount,
+                ),
+          key: const ValueKey('today-hanok-owned-stages'),
+          style: text.bodySmall.copyWith(color: CPalette.paper),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          snapshot.hanokCompetence.totalUnitCount == 0
+              ? t.soriStageHanokNoUnits
+              : t.soriStageConfirmedUnits(
+                  snapshot.hanokCompetence.completedUnitCount,
+                  snapshot.hanokCompetence.totalUnitCount,
+                ),
+          key: const ValueKey('today-hanok-confirmed-units'),
+          style: text.bodySmall.copyWith(color: CPalette.paper),
+        ),
+        const SizedBox(height: 8),
+        Row(
+          children: [
+            if (!unavailable && owned == 0) ...[
+              const Icon(
+                Icons.lock_outline_rounded,
+                size: 18,
+                color: CPalette.paper,
+              ),
+              const SizedBox(width: 4),
+            ],
+            Expanded(
+              child: Text(
+                t.soriStageOpenHanok,
+                style: text.label.copyWith(color: CPalette.paper),
+              ),
+            ),
+            const Icon(
+              Icons.chevron_right_rounded,
+              size: 20,
+              color: CPalette.paper,
+            ),
+          ],
+        ),
+      ],
+    );
     return SoriCard(
       key: const ValueKey('today-hanok-summary'),
       variant: SoriCardVariant.compact,
+      backgroundColor: CPalette.deepJade,
       onTap: () => Navigator.of(context).pushNamed('/hanok'),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 88,
-            height: 158,
-            child: HanokV3Preview(
-              message: t.soriStageHanokUpdating,
-              showOverlay: false,
+      child: LayoutBuilder(
+        builder: (context, bounds) {
+          if (unavailable || owned <= 1) return details;
+          final stacked =
+              bounds.maxWidth < 280 ||
+              MediaQuery.textScalerOf(context).scale(1) >= 1.6;
+          final art = SizedBox(
+            key: const ValueKey('today-owned-sarangchae-artwork'),
+            width: stacked ? double.infinity : 128,
+            height: stacked ? 160 : 112,
+            child: FutureBuilder<SarangchaeConstruction>(
+              future: _construction,
+              builder: (context, catalog) {
+                if (catalog.hasError) {
+                  return Center(
+                    child: Text(
+                      t.loadErrorTryAgain,
+                      style: text.bodySmall.copyWith(color: CPalette.paper),
+                    ),
+                  );
+                }
+                if (!catalog.hasData) {
+                  return Semantics(
+                    label: t.speechIndicatorResolving,
+                    child: const Center(
+                      child: Icon(
+                        Icons.hourglass_empty_rounded,
+                        color: CPalette.paper,
+                      ),
+                    ),
+                  );
+                }
+                return SarangchaeStageArtwork(
+                  construction: catalog.data!,
+                  earnedStageCount: owned,
+                );
+              },
             ),
-          ),
-          const SizedBox(width: Spacing.md),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(t.soriStageHanokNow, style: text.cardTitle),
-                const SizedBox(height: Spacing.sm),
-                Text(
-                  snapshot.hanokCompetence.totalUnitCount == 0
-                      ? t.soriStageHanokNoUnits
-                      : t.soriStageConfirmedUnits(
-                          snapshot.hanokCompetence.completedUnitCount,
-                          snapshot.hanokCompetence.totalUnitCount,
-                        ),
-                  style: text.bodySmall,
-                ),
-                const SizedBox(height: Spacing.sm),
-                Text(t.soriStageHanokUpdating, style: text.caption),
-                if (hanokStageGlossaryTermId(snapshot.hanokCompetence.stage)
-                    case final termId?)
-                  SoriTerm(
-                    termId: termId,
-                    text: hanokStageTerm(t, snapshot.hanokCompetence.stage),
-                    style: text.caption,
-                    surface: 'today_hanok_progress',
-                  ),
-                const SizedBox(height: Spacing.sm),
-                Text(
-                  t.soriStageOpenHanok,
-                  style: text.label.copyWith(color: SoriColors.primary),
-                ),
-              ],
-            ),
-          ),
-          const Icon(Icons.chevron_right_rounded, size: 20),
-        ],
+          );
+          return stacked
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [art, const SizedBox(height: 8), details],
+                )
+              : Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    art,
+                    const SizedBox(width: 12),
+                    Expanded(child: details),
+                  ],
+                );
+        },
       ),
     );
   }

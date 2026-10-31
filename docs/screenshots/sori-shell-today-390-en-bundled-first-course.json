@@ -1,0 +1,88 @@
+{
+  "file": "sori-shell-today-390-en-bundled-first-course.png",
+  "captured_at_utc": "2026-10-31T00:07:14.555648Z",
+  "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+  "scope": "actual SoriStageShell; isolated widget-test account",
+  "language": "en",
+  "tab": "today",
+  "viewport": [
+    390,
+    844
+  ],
+  "device_pixel_ratio": 1,
+  "text_scale": 1,
+  "safe_insets": {
+    "top": 24,
+    "bottom": 24
+  },
+  "greeting_text": "Good morning!",
+  "header_actions": {
+    "week": {
+      "left": 52.0,
+      "top": 36.0,
+      "width": 60.0,
+      "height": 48.0
+    },
+    "stats": {
+      "left": 116.0,
+      "top": 36.0,
+      "width": 54.0,
+      "height": 48.0
+    },
+    "wallet": {
+      "left": 174.0,
+      "top": 36.0,
+      "width": 64.0,
+      "height": 48.0
+    },
+    "profile": {
+      "left": 242.0,
+      "top": 36.0,
+      "width": 80.0,
+      "height": 48.0
+    },
+    "settings": {
+      "left": 330.0,
+      "top": 36.0,
+      "width": 48.0,
+      "height": 48.0
+    }
+  },
+  "native_context": "I can greet someone new and clarify a short question.",
+  "disable_animations": true,
+  "fixture": "bundled-first-course",
+  "course_unit_id": "a1_01_greetings_hangul",
+  "course_title": "First greetings and asking again",
+  "destination_route": "/vocab/pack",
+  "due_count": 0,
+  "wallet_balance": 0,
+  "sarangchae_owned_stage": 0,
+  "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+  "capture_view": "initial fold",
+  "r16_decoded_layers": [],
+  "primary_action": {
+    "key": "learning-focus-start",
+    "measurement_view": "initial fold before any summary scroll",
+    "rect": {
+      "left": 25.0,
+      "top": 454.0,
+      "width": 340.0,
+      "height": 54.0
+    },
+    "fully_visible_above_navigation": true,
+    "hit_testable": true
+  },
+  "gye": "unauthenticated empty memberships; no Firebase account",
+  "nav_assets": [
+    "assets/icons/navigation/today.png",
+    "assets/icons/navigation/learn.png",
+    "assets/icons/navigation/games.png",
+    "assets/icons/navigation/hanok.png",
+    "assets/icons/navigation/gye.png"
+  ],
+  "limitations": [
+    "Widget evidence, not physical-device or release-account QA.",
+    "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+    "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+  ]
+}

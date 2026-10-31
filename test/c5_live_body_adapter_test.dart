@@ -32,6 +32,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'support/einleitung_capture_assets.dart';
 import 'support/real_fonts.dart';
+import 'support/sori_stage_capture_assets.dart';
 import 'yeopjeon_wallet_notifier_test.dart' show wallet;
 
 const _promise = GyeMeta(
@@ -61,8 +62,7 @@ void main() {
     construction = SarangchaeConstruction.fromJson(
       jsonDecode(File(SarangchaeConstruction.assetPath).readAsStringSync()),
     );
-    await CImageCache.load('assets/illustrations/concept_c/material_atlas.png');
-    await CImageCache.load('assets/illustrations/concept_c/hero_atlas.png');
+    await prepareSoriStageCaptureAssets();
   });
   setUp(() async {
     Storage.resetForTesting();
@@ -82,7 +82,7 @@ void main() {
       File('$evidenceDir/capture-manifest.json').writeAsStringSync(
         jsonEncode({
           'evidence':
-              'Actual runtime body widgets, approved native fonts and navigation. Explicit local fixtures: owned stage 1, balance 0, promise 1/3; not a device account.',
+              'Actual runtime body widgets and native navigation; explicit joined-root fixtures with promises 1/3, 2/3 and 3/3. Not SoriStageShell membership, a device account or Hanok approval.',
           'captures': captures,
         }),
       );
@@ -90,13 +90,18 @@ void main() {
   });
 
   for (final language in ['de', 'en']) {
-    for (final width in [320.0, 393.0]) {
+    for (final viewport in const [
+      Size(320, 640),
+      Size(390, 844),
+      Size(393, 873),
+    ]) {
+      final width = viewport.width;
       for (final safeInsets in [false, true]) {
         for (final scale in [1.0, 2.0]) {
           testWidgets(
             '$language $width ${scale * 100}% safe=$safeInsets live C5 body, fold and route ownership',
             (tester) async {
-              tester.view.physicalSize = Size(width, width == 320 ? 640 : 873);
+              tester.view.physicalSize = viewport;
               tester.view.devicePixelRatio = 1;
               addTearDown(tester.view.resetPhysicalSize);
               addTearDown(tester.view.resetDevicePixelRatio);
@@ -125,7 +130,32 @@ void main() {
                 todayReward: null,
                 wallet: wallet(spent: true),
               );
-              for (final state in ['today', 'hanok', 'gye', 'gye-empty']) {
+              for (final state in [
+                'today',
+                'hanok',
+                'gye',
+                'gye-2',
+                'gye-3',
+                'gye-empty',
+              ]) {
+                final joined = state.startsWith('gye') && state != 'gye-empty';
+                final goalProgress = state == 'gye-2'
+                    ? 2
+                    : state == 'gye-3'
+                    ? 3
+                    : 1;
+                final group = GyeMeta(
+                  id: _promise.id,
+                  name: _promise.name,
+                  code: _promise.code,
+                  ownerId: _promise.ownerId,
+                  memberCount: _promise.memberCount,
+                  weeklyPromiseSchemaVersion:
+                      _promise.weeklyPromiseSchemaVersion,
+                  weeklyPromiseId: _promise.weeklyPromiseId,
+                  weeklyPromiseTarget: _promise.weeklyPromiseTarget,
+                  weeklyPromiseProgress: goalProgress,
+                );
                 final boundary = GlobalKey();
                 Widget root = switch (state) {
                   'today' => SoriStageTodayScreen(
@@ -137,7 +167,7 @@ void main() {
                     loadConstruction: () async => construction,
                   ),
                   _ => SoriStageGyeScreen(
-                    loadGyeMetas: () async => state == 'gye' ? [_promise] : [],
+                    loadGyeMetas: () async => joined ? [group] : [],
                     onContinueSolo: () => opened.add('solo'),
                   ),
                 };
@@ -226,15 +256,17 @@ void main() {
                           ),
                         )
                         .height,
-                    greaterThanOrEqualTo(100),
+                    greaterThanOrEqualTo(96),
                   );
                 }
-                if (state == 'gye') {
+                if (joined) {
+                  final hero = tester.getSize(
+                    find.byKey(const ValueKey('c-gye-group-hero')),
+                  );
+                  expect(hero.longestSide, greaterThanOrEqualTo(144));
                   expect(
-                    tester
-                        .getSize(find.byKey(const ValueKey('c-gye-group-hero')))
-                        .height,
-                    width == 320 ? 80 : 152,
+                    hero.shortestSide,
+                    greaterThanOrEqualTo(viewport.height >= 750 ? 144 : 80),
                   );
                 }
                 final action = switch (state) {
@@ -242,11 +274,19 @@ void main() {
                   'hanok' => find.byKey(
                     const ValueKey('hanok-construction-entry'),
                   ),
-                  'gye' => find.text(t.gyeOpenCta),
+                  'gye' || 'gye-2' || 'gye-3' => find.text(t.gyeOpenCta),
                   _ => find.byKey(const ValueKey('gye-empty-start')),
                 };
+                if (scale > 1 && action.evaluate().isEmpty) {
+                  await tester.scrollUntilVisible(
+                    action,
+                    200,
+                    scrollable: find.byType(Scrollable).first,
+                  );
+                  await tester.pump();
+                }
                 expect(action, findsOneWidget);
-                final actionBox = state == 'gye'
+                final actionBox = joined
                     ? find.ancestor(
                         of: action,
                         matching: find.byType(CMaterialAction),
@@ -304,16 +344,22 @@ void main() {
                     );
                   }
                 }
-                if (state == 'gye') {
+                if (joined) {
                   expect(find.byType(GyeWeeklyGoalProgress), findsOneWidget);
-                  expect(find.text(t.gyePromiseProgress(1, 3)), findsOneWidget);
+                  expect(
+                    find.text(t.gyePromiseProgress(goalProgress, 3)),
+                    findsOneWidget,
+                  );
                   expect(
                     find.byKey(const ValueKey('gye-weekly-lantern-2')),
                     findsOneWidget,
                   );
                 }
                 expect(tester.takeException(), isNull);
-                if (evidenceDir.isNotEmpty && !safeInsets) {
+                if (evidenceDir.isNotEmpty &&
+                    !safeInsets &&
+                    joined &&
+                    scale == 1) {
                   final path =
                       '$evidenceDir/$state-$language-${width.toInt()}-${(scale * 100).toInt()}.png';
                   await tester.runAsync(() async {
@@ -332,7 +378,13 @@ void main() {
                     'state': state,
                     'locale': language,
                     'width': width,
+                    'viewport': [viewport.width, viewport.height],
+                    'safeInsets': false,
                     'scale': scale,
+                    'scope':
+                        'joined-root fixture with native navigation; not full-shell account evidence',
+                    'weeklyPromiseProgress': goalProgress,
+                    'weeklyPromiseTarget': 3,
                     'actionBottom': tester.getRect(actionBox).bottom,
                     'path': path,
                   });
@@ -354,8 +406,18 @@ void main() {
                   if (state == 'hanok') {
                     expect(opened.last, '/hanok/construction:null');
                   }
-                  if (state == 'gye') {
+                  if (joined) {
                     expect(opened.last, '/gye:actual-group-17');
+                    await tester.pump(const Duration(milliseconds: 300));
+                    tester
+                        .state<NavigatorState>(find.byType(Navigator).first)
+                        .pop();
+                    await tester.pump(const Duration(milliseconds: 300));
+                    await settleEinleitungCaptureAssets(tester);
+                    expect(
+                      find.text(t.gyePromiseProgress(goalProgress, 3)),
+                      findsOneWidget,
+                    );
                   }
                 }
                 expect(

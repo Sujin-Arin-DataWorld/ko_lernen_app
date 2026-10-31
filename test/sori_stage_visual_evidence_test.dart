@@ -24,6 +24,9 @@ import 'package:ko_lernen_app/services/decoration_reward_service.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_gye_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_hanok_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_shell.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
 import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
@@ -34,6 +37,8 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
+import 'package:ko_lernen_app/widgets/sori/approved_chrome_assets.dart';
+import 'package:ko_lernen_app/widgets/sori/ildu_r16_layer_artwork.dart';
 
 import 'support/catalog_test_support.dart' as catalog;
 import 'support/real_fonts.dart';
@@ -41,14 +46,20 @@ import 'support/sori_stage_pump.dart';
 import 'support/sori_stage_capture_assets.dart';
 
 const _captureEvidence = bool.fromEnvironment('CAPTURE_SORI_STAGE_EVIDENCE');
+const _fullShellOutput = String.fromEnvironment('SORI_STAGE_FULL_SHELL_OUTPUT');
+const _captureRevision = String.fromEnvironment(
+  'SORI_STAGE_CAPTURE_REVISION',
+  defaultValue: 'unrecorded',
+);
 late LearningFocusController _focusController;
 late YeopjeonWalletNotifier _walletNotifier;
 late LearningFocus _bookCardFocus;
+late HanokCompetenceProjection _emptyCourseEvidence;
 
 /// §LAYOUT-4 — five roots and DE/EN state evidence share one
 /// pipeline. Flag OFF (default `flutter test`): every `skip:
 /// !_captureEvidence` case is skipped, 0 failures. Flag ON *and*
-/// `--update-goldens`: 22 PNGs regenerate under `docs/screenshots/`. Flag ON
+/// `--update-goldens`: root PNGs regenerate under `docs/screenshots/`. Flag ON
 /// *without* `--update-goldens` is a comparison run against whatever is
 /// already on disk — not the capture command; see AGENTS.md's UI 루트 증거
 /// bullet for the exact regeneration command.
@@ -173,6 +184,10 @@ void main() {
   setUpAll(() async {
     await prepareSoriStageCaptureAssets();
     _bookCardFocus = await catalog.loadFirstCatalogFocus();
+    _emptyCourseEvidence = HanokCompetenceProjection.fromSnapshot(
+      snapshot: const CourseMasterySnapshot.empty(),
+      courseUnits: (await CurriculumCatalog.load()).courseUnits,
+    );
     // Wallet art uses the real bundle; warm it outside widget fake async.
     await SarangchaeConstruction.load();
     glossary = CulturalGlossary.fromJsonString(
@@ -184,6 +199,7 @@ void main() {
   });
 
   setUp(() async {
+    CourseProgressService.shared.resetForTesting();
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(<String, Object>{
       'kl_user_level': 'a1',
@@ -223,6 +239,66 @@ void main() {
   tearDown(CulturalGlossaryRepository.resetForTesting);
   tearDown(() => _focusController.dispose());
   tearDown(() => _walletNotifier.dispose());
+
+  // Root-only evidence above/below remains available. These captures use the
+  // actual shell, so the shell owns focus, confirmed wallet and five-tab nav.
+  // Capture externally with --plain-name "capture whole shell" and
+  // --dart-define=SORI_STAGE_FULL_SHELL_OUTPUT=<absolute-directory>.
+  for (final language in ['de', 'en']) {
+    for (final tab in SoriStageTab.values) {
+      testWidgets(
+        'capture whole shell ${tab.name} course $language',
+        skip: !_captureEvidence,
+        (tester) => _captureWholeShell(
+          tester,
+          language: language,
+          tab: tab,
+          focus: _bookCardFocus,
+          fixture: 'bundled-first-course',
+        ),
+      );
+    }
+    testWidgets(
+      'capture whole shell today review $language',
+      skip: !_captureEvidence,
+      (tester) => _captureWholeShell(
+        tester,
+        language: language,
+        tab: SoriStageTab.today,
+        focus: _focusController.value!,
+        fixture: 'due-review-12',
+      ),
+    );
+    for (final owned in [1, 8, 16]) {
+      testWidgets(
+        'capture whole shell hanok owned$owned $language',
+        skip: !_captureEvidence,
+        (tester) => _captureWholeShell(
+          tester,
+          language: language,
+          tab: SoriStageTab.hanok,
+          focus: _bookCardFocus,
+          fixture: 'saved-owned-$owned',
+          ownedStages: owned,
+        ),
+      );
+      if (owned > 1) {
+        testWidgets(
+          'capture whole shell today owned$owned summary $language',
+          skip: !_captureEvidence,
+          (tester) => _captureWholeShell(
+            tester,
+            language: language,
+            tab: SoriStageTab.today,
+            focus: _bookCardFocus,
+            fixture: 'saved-owned-$owned-summary',
+            ownedStages: owned,
+            focusHanokSummary: true,
+          ),
+        );
+      }
+    }
+  }
 
   for (final largeText in [false, true]) {
     testWidgets(
@@ -496,6 +572,282 @@ void main() {
   }
 }
 
+Future<void> _captureWholeShell(
+  WidgetTester tester, {
+  required String language,
+  required SoriStageTab tab,
+  required LearningFocus focus,
+  required String fixture,
+  int ownedStages = 0,
+  bool focusHanokSummary = false,
+}) async {
+  _setViewport(tester, const Size(390, 844));
+  // Isolated saved-ledger fixture, never a live-account ownership claim.
+  final savedWallet = YeopjeonWallet.grandfather(
+    sarangchaeStage: ownedStages,
+    b2Stage: 0,
+  );
+  await Storage.writeYeopjeonRawJsonStrict(savedWallet.encode());
+  final replay = ValueNotifier(0);
+  addTearDown(replay.dispose);
+  final boundary = ValueKey('whole-shell-${tab.name}-$fixture-$language');
+  final snapshot = SoriStageProgressionSnapshot(
+    today: focus.today,
+    wallet: savedWallet,
+    hanokCompetence: _emptyCourseEvidence,
+    quests: const [],
+    pendingBojagiCount: 0,
+    stampCount: 0,
+    xp: 0,
+    streakDays: 0,
+    todayReward: null,
+  );
+  await tester.pumpWidget(
+    RepaintBoundary(
+      key: boundary,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.lightFor(
+          PaletteVariant.dancheong,
+          locale: Locale(language),
+        ),
+        locale: Locale(language),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            textScaler: TextScaler.noScaling,
+            disableAnimations: true,
+            padding: const EdgeInsets.only(top: 24, bottom: 24),
+            viewPadding: const EdgeInsets.only(top: 24, bottom: 24),
+          ),
+          child: child!,
+        ),
+        home: SoriStageShell(
+          replayHomeTour: replay,
+          loadTodaySnapshot: () async => snapshot,
+          loadLearningFocus: () async => focus,
+        ),
+      ),
+    ),
+  );
+  await pumpSoriStage(tester);
+  await settleSoriStageCaptureAssets(tester);
+  if (tab.index != 0) {
+    await tester.tap(find.byType(NavigationDestination).at(tab.index));
+    await pumpSoriStage(tester);
+    await settleSoriStageCaptureAssets(tester);
+  }
+  if (tab == SoriStageTab.hanok) {
+    // The real shell intentionally does not inject the Hanok aggregate. Let
+    // its isolated-storage readers finish before calling this ready evidence.
+    final ownedStages = find.byKey(const ValueKey('hanok-owned-stages'));
+    await pumpUntilFound(tester, ownedStages);
+    expect(ownedStages, findsOneWidget);
+    await settleSoriStageCaptureAssets(tester);
+  }
+  final navigation = find.byKey(const ValueKey('sori-image-navigation-bar'));
+  expect(navigation, findsOneWidget);
+  expect(tester.widget<NavigationBar>(navigation).selectedIndex, tab.index);
+  expect(find.byType(NavigationDestination), findsNWidgets(5));
+  for (final destination in find.byType(NavigationDestination).evaluate()) {
+    final size = tester.getSize(find.byWidget(destination.widget));
+    expect(size.width, greaterThanOrEqualTo(48));
+    expect(size.height, greaterThanOrEqualTo(48));
+  }
+  final ownedWallet = tester
+      .widget<SoriWalletScope>(find.byType(SoriWalletScope))
+      .notifier!;
+  expect(ownedWallet.value.wallet?.balance, 0);
+  expect(ownedWallet.value.wallet?.sarangchaeOwnedStage, ownedStages);
+  expect(ownedWallet.value.failed, isFalse);
+  final ownedFocus = tester
+      .widget<LearningFocusScope>(find.byType(LearningFocusScope))
+      .notifier!;
+  expect(ownedFocus.value?.destination?.route, focus.destination?.route);
+  final primaryKey = switch (tab) {
+    SoriStageTab.today => 'learning-focus-start',
+    SoriStageTab.learn => 'c5-course-start',
+    SoriStageTab.games => 'c5-game-start',
+    SoriStageTab.hanok => 'hanok-construction-entry',
+    SoriStageTab.gye => 'gye-empty-start',
+  };
+  final primary = find.byKey(ValueKey(primaryKey));
+  expect(primary, findsOneWidget);
+  final primaryRect = tester.getRect(primary);
+  final navigationRect = tester.getRect(navigation);
+  expect(primaryRect.width, greaterThanOrEqualTo(48));
+  expect(primaryRect.height, greaterThanOrEqualTo(48));
+  expect(primaryRect.top, greaterThanOrEqualTo(24));
+  expect(primaryRect.bottom, lessThanOrEqualTo(navigationRect.top));
+  expect(primary.hitTestable(), findsOneWidget);
+  final greeting = find.byKey(const ValueKey('today-companion-greeting'));
+  final greetingText = greeting.evaluate().isEmpty
+      ? null
+      : tester.widget<Text>(greeting).data;
+  final headerActions = <String, Map<String, double>>{};
+  if (tab == SoriStageTab.today) {
+    for (final id in const ['week', 'stats', 'wallet', 'profile', 'settings']) {
+      final action = find.byKey(ValueKey('today-header-$id'));
+      expect(action, findsOneWidget);
+      final rect = tester.getRect(action);
+      expect(rect.width, greaterThanOrEqualTo(48), reason: id);
+      expect(rect.height, greaterThanOrEqualTo(48), reason: id);
+      expect(action.hitTestable(), findsOneWidget);
+      headerActions[id] = {
+        'left': rect.left,
+        'top': rect.top,
+        'width': rect.width,
+        'height': rect.height,
+      };
+    }
+  }
+  final contextLine = find.byKey(const ValueKey('learning-focus-context'));
+  final nativeContext = contextLine.evaluate().isEmpty
+      ? null
+      : tester.widget<Text>(contextLine).data;
+  Rect? summaryRect;
+  if (focusHanokSummary) {
+    final summary = find.byKey(const ValueKey('today-hanok-summary'));
+    await tester.scrollUntilVisible(
+      summary,
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await Scrollable.ensureVisible(tester.element(summary), alignment: .45);
+    await pumpSoriStage(tester);
+    await settleSoriStageCaptureAssets(tester);
+    summaryRect = tester.getRect(summary);
+    expect(summaryRect.top, greaterThanOrEqualTo(24));
+    expect(summaryRect.bottom, lessThanOrEqualTo(navigationRect.top));
+    expect(summary.hitTestable(), findsOneWidget);
+    expect(
+      find.byKey(const ValueKey('today-owned-sarangchae-artwork')),
+      findsOneWidget,
+    );
+  }
+  final layerEvidence = <Map<String, Object?>>[];
+  if (tab == SoriStageTab.hanok || focusHanokSummary) {
+    if (ownedStages <= 1) {
+      expect(find.byKey(const ValueKey('hanok-empty-site')), findsOneWidget);
+      expect(find.byType(IlDuR16LayerArtwork), findsNothing);
+    } else {
+      final construction = await tester.runAsync(SarangchaeConstruction.load);
+      final expectedId = 'ildu.${construction!.stage(ownedStages).stageId}';
+      final layers = tester.widgetList<IlDuR16LayerArtwork>(
+        find.byType(IlDuR16LayerArtwork),
+      );
+      expect(layers.map((art) => art.processId), contains(expectedId));
+      final paints = tester
+          .widgetList<CustomPaint>(find.byType(CustomPaint))
+          .where((paint) => paint.painter is IlDuR16LayerPainter)
+          .toList();
+      expect(
+        paints,
+        isNotEmpty,
+        reason: 'Both actual R16 layers must be decoded before capture.',
+      );
+      for (final paint in paints) {
+        final painter = paint.painter! as IlDuR16LayerPainter;
+        expect(
+          [painter.foreground.width, painter.foreground.height],
+          [1800, 1200],
+        );
+        expect([painter.shadow.width, painter.shadow.height], [1800, 1200]);
+        layerEvidence.add({
+          'process_id': expectedId,
+          'foreground_decoded': [
+            painter.foreground.width,
+            painter.foreground.height,
+          ],
+          'shadow_decoded': [painter.shadow.width, painter.shadow.height],
+          'opacity': painter.opacity,
+        });
+      }
+    }
+  }
+  expect(tester.takeException(), isNull);
+
+  final stem = 'sori-shell-${tab.name}-390-$language-$fixture';
+  final uri = _fullShellOutput.isEmpty
+      ? Uri.parse('../docs/screenshots/$stem.png')
+      : File('$_fullShellOutput/$stem.png').absolute.uri;
+  await expectLater(find.byKey(boundary), matchesGoldenFile(uri));
+  if (autoUpdateGoldenFiles) {
+    final directory = _fullShellOutput.isEmpty
+        ? Directory('docs/screenshots')
+        : Directory(_fullShellOutput);
+    await tester.runAsync(() async {
+      await directory.create(recursive: true);
+      await File('${directory.path}/$stem.json').writeAsString(
+        const JsonEncoder.withIndent('  ').convert({
+          'file': '$stem.png',
+          'captured_at_utc': DateTime.now().toUtc().toIso8601String(),
+          'source_revision': _captureRevision,
+          'scope': 'actual SoriStageShell; isolated widget-test account',
+          'language': language,
+          'tab': tab.name,
+          'viewport': [390, 844],
+          'device_pixel_ratio': 1,
+          'text_scale': 1,
+          'safe_insets': {'top': 24, 'bottom': 24},
+          'greeting_text': greetingText,
+          'header_actions': headerActions,
+          'native_context': nativeContext,
+          'disable_animations': true,
+          'fixture': fixture,
+          'course_unit_id': focus.brief?.unit.id,
+          'course_title': focus.brief?.unit.title.pick(language),
+          'destination_route': focus.destination?.route,
+          'due_count': focus.today.dueCount,
+          'wallet_balance': ownedWallet.value.wallet?.balance,
+          'sarangchae_owned_stage': ownedStages,
+          'ownership_source':
+              'isolated Storage saved-ledger fixture; grandfathered ownership',
+          'capture_view': focusHanokSummary
+              ? 'scrolled to actual owned Today summary'
+              : 'initial fold',
+          'r16_decoded_layers': layerEvidence,
+          if (summaryRect != null)
+            'summary_action_rect': {
+              'left': summaryRect.left,
+              'top': summaryRect.top,
+              'width': summaryRect.width,
+              'height': summaryRect.height,
+            },
+          'primary_action': {
+            'key': primaryKey,
+            'measurement_view': 'initial fold before any summary scroll',
+            'rect': {
+              'left': primaryRect.left,
+              'top': primaryRect.top,
+              'width': primaryRect.width,
+              'height': primaryRect.height,
+            },
+            'fully_visible_above_navigation': true,
+            'hit_testable': true,
+          },
+          'gye': 'unauthenticated empty memberships; no Firebase account',
+          'nav_assets': [
+            ApprovedChromeAssets.today,
+            ApprovedChromeAssets.learn,
+            ApprovedChromeAssets.games,
+            ApprovedChromeAssets.hanok,
+            ApprovedChromeAssets.gye,
+          ],
+          'limitations': [
+            'Widget evidence, not physical-device or release-account QA.',
+            'The shell has no fixed greeting-time seam; wall-clock phase remains real.',
+            'Navigation and primary-action target dimensions are asserted; all-control tap audit is separate.',
+          ],
+        }),
+      );
+    });
+  }
+  await tester.pumpWidget(const SizedBox.shrink());
+  await tester.pump();
+}
+
 /// Refresh from the saved fixture ledger, then await all native image layers.
 Future<void> _awaitImageDecode(WidgetTester tester) async {
   await _walletNotifier.refresh();
@@ -568,7 +920,7 @@ SoriStageProgressionSnapshot _snapshot({bool hanok = false}) =>
                   ),
               ],
             )
-          : const HanokCompetenceProjection.empty(),
+          : _emptyCourseEvidence,
       quests: const [],
       pendingBojagiCount: 1,
       stampCount: 4,

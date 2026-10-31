@@ -47,6 +47,79 @@ const today = TodayLearningSnapshot(
 void main() {
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
 
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    for (final scale in const [1.0, 2.0]) {
+      testWidgets(
+        'compact review keeps due context and exact route ${locale.languageCode} ${scale}x',
+        (tester) async {
+          tester.view.devicePixelRatio = 1;
+          tester.view.physicalSize = const Size(390, 844);
+          addTearDown(tester.view.resetDevicePixelRatio);
+          addTearDown(tester.view.resetPhysicalSize);
+          const destination = TodayLearningDestination(route: '/review');
+          const focus = LearningFocus(
+            today: TodayLearningSnapshot(
+              pick: ReviewPick(dueCount: 12),
+              dueCount: 12,
+              destination: destination,
+            ),
+            destination: destination,
+          );
+          final controller = LearningFocusController()..value = focus;
+          addTearDown(controller.dispose);
+          TodayLearningDestination? opened;
+          LearningFocus? openedFocus;
+          String? activity;
+          await tester.pumpWidget(
+            MaterialApp(
+              theme: AppTheme.light,
+              locale: locale,
+              supportedLocales: AppL10n.supportedLocales,
+              localizationsDelegates: AppL10n.localizationsDelegates,
+              builder: (context, child) => MediaQuery(
+                data: MediaQuery.of(context).copyWith(
+                  textScaler: TextScaler.linear(scale),
+                  disableAnimations: true,
+                ),
+                child: child!,
+              ),
+              home: LearningFocusScope(
+                controller: controller,
+                open: (_, destination, {focus, activityId}) async {
+                  opened = destination;
+                  openedFocus = focus;
+                  activity = activityId;
+                },
+                child: const Scaffold(
+                  body: SingleChildScrollView(
+                    padding: EdgeInsets.all(12),
+                    child: SoriLearningFocus(
+                      conceptC: true,
+                      conceptCompactSummary: true,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+          await tester.pump();
+          final t = await AppL10n.delegate.load(locale);
+          expect(find.text(t.homeReviewDue(12)), findsOneWidget);
+          expect(find.text(unit.canDo.pick(locale.languageCode)), findsNothing);
+          final start = find.byKey(const ValueKey('learning-focus-start'));
+          await tester.ensureVisible(start);
+          await tester.pumpAndSettle();
+          expect(tester.getSize(start).height, greaterThanOrEqualTo(48));
+          await tester.tap(start);
+          expect(identical(opened, destination), isTrue);
+          expect(identical(openedFocus, focus), isTrue);
+          expect(activity, 'srs');
+          expect(tester.takeException(), isNull);
+        },
+      );
+    }
+  }
+
   testWidgets('Today start action follows content width and text scale', (
     tester,
   ) async {
@@ -117,7 +190,13 @@ void main() {
     }
   });
 
-  for (final conceptC in [false, true]) {
+  for (final layout in const [
+    (conceptC: false, compact: false, scale: 1.0),
+    (conceptC: true, compact: false, scale: 1.0),
+    (conceptC: true, compact: true, scale: 1.0),
+    (conceptC: true, compact: true, scale: 2.0),
+  ]) {
+    final conceptC = layout.conceptC;
     for (final state in [
       'loading',
       'error',
@@ -127,8 +206,14 @@ void main() {
       'destination unavailable',
     ]) {
       testWidgets(
-        'course overview stays independent when focus is $state (C5: $conceptC)',
+        'course overview stays independent when focus is $state (C5: $conceptC, compact: ${layout.compact}, scale: ${layout.scale})',
         (tester) async {
+          if (layout.compact) {
+            tester.view.devicePixelRatio = 1;
+            tester.view.physicalSize = const Size(390, 844);
+            addTearDown(tester.view.resetDevicePixelRatio);
+            addTearDown(tester.view.resetPhysicalSize);
+          }
           Storage.resetForTesting();
           SharedPreferences.setMockInitialValues({
             'kl_preferred_mascot': 'none',
@@ -201,6 +286,13 @@ void main() {
             MaterialApp(
               theme: AppTheme.light,
               locale: const Locale('en'),
+              builder: (context, child) => MediaQuery(
+                data: MediaQuery.of(context).copyWith(
+                  textScaler: TextScaler.linear(layout.scale),
+                  disableAnimations: true,
+                ),
+                child: child!,
+              ),
               supportedLocales: AppL10n.supportedLocales,
               localizationsDelegates: AppL10n.localizationsDelegates,
               home: LearningFocusScope(
@@ -216,6 +308,7 @@ void main() {
                   body: SingleChildScrollView(
                     child: SoriLearningFocus(
                       conceptC: conceptC,
+                      conceptCompactSummary: layout.compact,
                       introduction: const Text('Shared introduction'),
                     ),
                   ),
@@ -229,6 +322,12 @@ void main() {
             const ValueKey('learning-focus-course-overview'),
           );
           expect(find.text('Shared introduction'), findsOneWidget);
+          if (layout.compact) {
+            expect(
+              find.text(unit.canDo.en),
+              state == 'ready' ? findsOneWidget : findsNothing,
+            );
+          }
           expect(overview, findsOneWidget);
           expect(find.text(t.learningFocusViewCourse), findsOneWidget);
           expect(

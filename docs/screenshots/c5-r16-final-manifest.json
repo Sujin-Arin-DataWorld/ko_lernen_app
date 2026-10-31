@@ -1,0 +1,2567 @@
+{
+  "scope": "Actual SoriStageShell native widget evidence; isolated saved-ledger fixtures",
+  "base_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+  "branch_reported_by_root": "codex/c5-scene-quality-20261030",
+  "source_state": "Base plus shared uncommitted WIP; runtime source and asset hashes below",
+  "capture_count": 22,
+  "normal_full_fold_count": 12,
+  "saved_ownership_hanok_fixture_count": 6,
+  "scrolled_today_summary_fixture_count": 4,
+  "fonts": {
+    "de": [
+      "Belgrano",
+      "EncodeSansCondensed"
+    ],
+    "en": [
+      "Chubbo",
+      "Supreme"
+    ]
+  },
+  "source_sha256": {
+    "lib/config/tester_feedback_feature.dart": "df417267e1c409b31e6c27011c749d09a375cd0eaf80d17b980c1d445c63bb11",
+    "lib/config/ux_preview_feature.dart": "e22cb9cb07037baa92693d4a41b3960da8a31c4ba0554e861e1d976580341a44",
+    "lib/controllers/listening_playback_controller.dart": "5913e721b9fcc5f6990174a225aeff27bebef50297a79a66a1de1693d418730c",
+    "lib/data/beta_mission_catalog.dart": "c7ac0166363cb0eb21f8ee547f22aae453226c214ffa88d337bf0e891662ee67",
+    "lib/data/canonical_companion_art.dart": "d6073fae3fdbe5d4580a7ed38c16e33b339ca632d2575053eea4c69ad4f25e10",
+    "lib/data/chaekgado_shelf.dart": "f146ce50b46f5c76a04946309cdd788007d3c5604c9819bb9bfdeefd4139cb9e",
+    "lib/data/cloze_topic_groups.dart": "3799a4fadc93c767ded0eb3b0c3ee2cacb9c030eb1ba6237705e79f1b0e37781",
+    "lib/data/curriculum_alignment_registry.dart": "51e9352c3f0c81e04d1b443978942f24d642912ad22d3564116ff25fff5085a4",
+    "lib/data/dure_title.dart": "159f77c03d2ca3b7f79edfbc682dac74f0ee6254f2398768496923ec85843b33",
+    "lib/data/feed_physics_candidates.dart": "a87bb45ebb46187f0794e75afc053457e5438927eef5a705608cfe8ad6c55768",
+    "lib/data/gye_dedication_catalog.dart": "7c611dfb3b3af03446b3359dcc5a0ac76d066547870bad4d574636492ed3a96c",
+    "lib/data/hangul_data.dart": "59258bba3b9ffb21d07a0c1d01a53aaa4336aedf5afc655ab0b5cc48409237fc",
+    "lib/data/hangul_strokes.dart": "b81c08324d3a2a8a909493a8cd482418477acce61bf00ea89a27c7550fa87113",
+    "lib/data/hanja_lexicon.dart": "080b78510818571a1fc72f206a4f255e7de440d802b436cde39e4e175636457e",
+    "lib/data/ildu_turntable_catalog.dart": "8275da60a711c13be8bc529bb8ddb2b490fca90f3e9659842c73b74b15cd2f8c",
+    "lib/data/learner_motivation.dart": "47becb69f899350c1b987dc091b7350a41228ae29b68a25678061a411d0c22ee",
+    "lib/data/milestone.dart": "1d6e8ce0c1915f8254e83c4a7262b4975f2d6f71c9f6af716d40825e84673deb",
+    "lib/data/pack_artwork_catalog.dart": "48106a2946876a2df63b52e78d47ffd461d79b7c05c32077ccb180627c4cbd27",
+    "lib/data/pack_progress_aliases.dart": "2d216d0a66da583c635851712456855ff2b944ba66ff03255caed4048cefb977",
+    "lib/data/personal_room_catalog.dart": "6efed221a36a670d042ebb3f53d40cdcb56e55f850b642195c5f15d0fbf8958a",
+    "lib/data/profanity_denylist.dart": "aaa9cbdb381594aad8eabdd0b2403b3d94efa223a6e0208b6d937642944725b4",
+    "lib/data/quest_catalog.dart": "3151bcfa3f3553dc32c76185b27cc682439e95f89de140a43e9fd8d2cf119892",
+    "lib/data/sori_activity_catalog.dart": "6f1e8c6bbdd142df782139a0c109c952026ebee1f7918d3a7122f7e5d85b79d7",
+    "lib/data/sticker_catalog.dart": "ccdb95ec3df0455dade28ef31197f4fc224cd1b2cb92d9950f47a32cf974c53f",
+    "lib/features/content_learning/content_learning_catalog.dart": "1954df0b5ecde363db7c5027950d6962b7ed5d61d60c43f207d5ec899e97d8bf",
+    "lib/features/content_learning/content_learning_day_refresh.dart": "2289f6e6b31eacadc20c118dbd29e3afbdfd45e93a572fbe8e4aa1b2a18d242e",
+    "lib/features/content_learning/content_learning_hub.dart": "cc591b4b835ec7ff156ed3ea73f8acae96c06107b1e3d0a41706e5010b2c78d0",
+    "lib/features/content_learning/content_learning_layout.dart": "cbbf84791cf3fdcc5ee0ab9c81614e40ba7fce2233d16767b5358b5945b54303",
+    "lib/features/content_learning/content_learning_models.dart": "3ef014ebf7cf5e721f6073a2796b5576c7bfb61f0bb92f233ea91b59fbcb3fe8",
+    "lib/features/content_learning/content_learning_service.dart": "1d49315efab8ce96823a1a81bafca3b78072169a828cd6b25ec02540a06ba43c",
+    "lib/features/content_learning/content_learning_state.dart": "395fd07c114c978bc624a72dfbd093d8101e9e443dd31083629f02c981b1d10d",
+    "lib/features/content_learning/content_learning_widgets.dart": "0e8c5a6920c9ad614a193e3cee653fc6c2efc9442885390e8d9badff651de783",
+    "lib/features/content_learning/content_lesson_screen.dart": "4e7efb890979d0ccb9fd3dc9bff6babf7ddecfad55753fc35536e5815036d010",
+    "lib/features/dancheong/dancheong_catalog.dart": "2779ebc3a979e6af8a4f3da2a77110bda650e04b89e05aa91e1118a48bfc2374",
+    "lib/features/dancheong/dancheong_connections.dart": "168c7bcd1ad2654a8a1523353375d8f5a8afeb6a27c3675b990a4c579bb13d5f",
+    "lib/features/dancheong/dancheong_controller.dart": "841afcbca91698d56ec1e7fe9a127adc6412bce6e93e165df5b94525150129e7",
+    "lib/features/dancheong/dancheong_models.dart": "ac05373f6626c23f22bacb67541d85ccd3abd66dacd2510d846162e4b895b8b6",
+    "lib/features/dancheong/dancheong_publication_service.dart": "98ebe0c6b8ca07297adcc68f21d7621e919ed9f758e145c98dc98d219b10953c",
+    "lib/features/dancheong/dancheong_renderer.dart": "511c1cc604eae89a47fa5c2066a675dc47e2d6cf5c2729469bffb9531e122d04",
+    "lib/features/dancheong/dancheong_screens.dart": "79eaeec79aa1f2a93c459bb6c5984676cc9f8fc4f76e9bdb7768d392d463b042",
+    "lib/features/dancheong/dancheong_share_service.dart": "e1128fb79a0f6238beda519529f0f147685756a576790b878df018d1d7ca1b8d",
+    "lib/features/dancheong/dancheong_store.dart": "56b229baf0d5d4c4e8f236c38e1e27cd8203989c338c95fb199d8bea0600c77b",
+    "lib/features/dancheong/dancheong_visitor_entry.dart": "4e1d3f6ec51849f61785b9a1703305abf699917c7055736eee9a6f574f534373",
+    "lib/features/guide/guide_hub_screen.dart": "3a5c8ef07731a2eb97d30e44f240c6281528f6997d629ce1b61b424907ef8536",
+    "lib/features/guide/guide_presentation.dart": "1efe914046a764e6df4018ee0d7065fc38c0265e43b5a2a7f6df61d479bd9ed3",
+    "lib/features/guide/guide_progress_service.dart": "e22072f7561fafc9769c200d394a33dc4ac748d98132937f3ad26960aea80a29",
+    "lib/features/guide/guide_runtime.dart": "b3e0bf3f4bece7f04a43ac338055f83ffe99a26cb8ee8ee1b4ead856936acbb6",
+    "lib/features/guide/guide_scenario_category_stock.dart": "a8a9518ecef7c82bcd466260ade3010eb3ecc934b8fa5b6000616ef6653d6d93",
+    "lib/features/guide/guide_topic_detail_screen.dart": "90b2398f470f8020cc543259a5d98444251d49d79128680abf281edb5a001764",
+    "lib/features/guide/today_guide_checklist_card.dart": "e4a25e37f9a32edd180f3dc3661619b16d6c7abdddf0acec49debca16203e892",
+    "lib/features/guide/today_guide_section.dart": "f2129ca77c84e775b0f68ee3510cdaa2aa06c20f16da2b7d30116e14d34a21e7",
+    "lib/features/onboarding_v2/curriculum_evidence_projector.dart": "ec46183684481facde640a8fcaed3b2a61c317a975d98e11334afe91b84da69e",
+    "lib/features/onboarding_v2/first_run_coordinator.dart": "8682dfc1862feb06563aef76b032bb05b35c0c43b0385b5c1da63d9faaf27a22",
+    "lib/features/onboarding_v2/first_run_runtime.dart": "58860f4202c350809a9001d130364482d21fb2af3ce43569d8618c7b910518eb",
+    "lib/features/onboarding_v2/onboarding_app_adapters.dart": "37ec8281b840f782bf7c483fbe0e2e6df0d2b0d411276459205afa031fa1c752",
+    "lib/features/onboarding_v2/onboarding_journey_repository.dart": "3af1ae6820fc6a0f01cc6fc435a0df76e28014f9a729f4ac94e0c18d6acce22a",
+    "lib/features/onboarding_v2/onboarding_journey_state.dart": "7644795bf6a18acad7f2a9889b4b9d6e7a5cec56254d2cc9e7708220612c3ffd",
+    "lib/features/onboarding_v2/onboarding_learning_start.dart": "55d847602fe2abdb543483e6be4d24ccfd6a6f97c231d799f3065f5b7715369b",
+    "lib/features/onboarding_v2/onboarding_rollout_service.dart": "9fe31484beba34205a3fc47c8e3b875ae1391289fa117d984d9d02debc854cbd",
+    "lib/features/onboarding_v2/onboarding_story_catalog_projector.dart": "a10e09c4cc2e4ba436aa336bcd360eba60c6ea7f040ab056218cff46c53f32b8",
+    "lib/features/personas/persona_dialogue_index.dart": "93cd28d4577b925be4dfe6c9d540e11be6b7bf778960a2ed12b05ce2cb0699a9",
+    "lib/features/personas/persona_people_screen.dart": "96bc3791bdab7b6ad1b7b83865ecd17b490675191a83716f5c84f47689c7089b",
+    "lib/features/personas/persona_profile_sheet.dart": "33da8b75d217011969ed901107e97e1a0b39fbfb504fc1deb3a8b69d1201a71b",
+    "lib/features/scenarios/scenario_browse_query.dart": "09751993034f7125d0469f42984b91afd2ef537a1dc4a5f6bfb1614032cf1930",
+    "lib/features/scenarios/scenario_quest_stock.dart": "16ecb0f138528a073de852e1df64100b87565d73017c34c2fe7a07bffc7a280f",
+    "lib/features/study_library/study_library.dart": "2274f60ba8386c3b0b74796ee90d2885dcc79f4d0e8efc339e55d0f05758c3ae",
+    "lib/features/study_library/study_library_models.dart": "5a3ec160354bf8502cfb9258d4e4c079939927ea243822d507a35a8181f9acd2",
+    "lib/features/study_library/study_library_production_adapters.dart": "42dddd86994ed7636d8c2d4cc5297bccd0e4e5c7c4cf1e4d0326be73c18450d8",
+    "lib/features/study_library/study_library_repository.dart": "4af8a9dcf4dc5fb1a52fd669d40d2e1108843927a33bd28cca47d682ac0c0cec",
+    "lib/features/study_library/typed_study_bookmark_store.dart": "4c1dd53346783b88f49ed6ebafa56ff882ddde9a2a4a536f7b7310187be45c6d",
+    "lib/firebase_options.dart": "e7bf6afae6784a01aae4745cde33bf308e36da9d90e5a06b41d10454a702f22f",
+    "lib/l10n/cloze_topic_group_localizations.dart": "46824f1f683ae218e2a9be710a09ed96d206583d19e338200dc8858c5df917ea",
+    "lib/l10n/generated/app_localizations.dart": "4dd8fca769a2f95eb537fce5034ba34bacfaaf8ce5b80ad7f62975f941c39f5a",
+    "lib/l10n/generated/app_localizations_de.dart": "d3353d5dbfe055157f2f1d5cfb60d126a0ac108cff0502250dce6a7c400ff966",
+    "lib/l10n/generated/app_localizations_en.dart": "c1ad3bf04a9b6777eebe34b7449f3e2cc8385a928647b480c891ace8bf1d1e77",
+    "lib/l10n/gye_error_text.dart": "0f60a668181daac0142edb57cd1c4e4103a7341574d634e2ffcfaf336ff42e09",
+    "lib/l10n/sticker_localizations.dart": "5795c58fc2d36fec9f778a64d6f457e56fcbc900c81910bfb1fcf4aafa4f9dd2",
+    "lib/main.dart": "823a5203d6e3b3dc586f55704c40d39ee7f43a9ee6e75ecb801f22460917afcd",
+    "lib/models/access_snapshot.dart": "4786ffe72c1aabebda68afb1d110683cde135d9927c234a5d3f27df6bbcba644",
+    "lib/models/book_page.dart": "04c6a58f02bdc8e815a4fa9ebc4bb33290b34a0843fd3c131c11ad7596e149db",
+    "lib/models/can_do_segment.dart": "d4be4b62334518444c6eb63a931d7b35a5dc2489c31542431ca4402a395819b0",
+    "lib/models/content_feedback.dart": "78fde1088b591c03f2a11e7e13229d15969ef352720dbb999d20ed6afcbdd524",
+    "lib/models/content_id.dart": "81db97f33a9c54fe1deffd5046f3f2cc9a4bc5d494340e963d20a3599fc005a0",
+    "lib/models/course_mastery.dart": "c0c23b79f2b9b1ad629dfc80ecb175b4fe9ce2462e9edee09f16a1e23418579d",
+    "lib/models/course_mission_brief.dart": "5c41eb917440c69fbec598609df0dd5a671105ad6661d93fec2abdadfc4a371b",
+    "lib/models/course_mission_step_plan.dart": "024e6c9b1d9d51f3303733f6285d99b76ea03c26aa37cbeef28210c732e12d40",
+    "lib/models/course_practice_context.dart": "7e1d89b33388b77fc76aed6b2d93a881c84f735ddb2ecde6144b6d69ba648071",
+    "lib/models/cultural_glossary.dart": "b258c7a2dfc56b27a1d9cdbb40b6a52a4230b4f98a73504f01184f713f6422f9",
+    "lib/models/curriculum.dart": "10c4a91ea8addd50fecf82c7c62126b59e461bd154a891a06c80caeb5f23609a",
+    "lib/models/curriculum_alignment_contract.dart": "9f738c5e629bf04190b673bfb119583725ce2375680d4a6f540f9e58c2c5f27c",
+    "lib/models/custom_pack.dart": "15a1959a78a2d46d6a439cbef7828f057e3557fd04f2a881b5875bcdd5436385",
+    "lib/models/discover_catalog.dart": "184f53d1bb02c8690811cfe6e98dd13ca5b7e7f53a9a02d54baffc4b03ccc936",
+    "lib/models/feedback_completion.dart": "ab5d19df233c075d39232a807b9d301661493412df578552575ecf287b92db63",
+    "lib/models/grammar.dart": "0a51da3ba4ad85321adec0951068dd3244131865393b6025cf458262d5422332",
+    "lib/models/grammar_study_copy.dart": "d5a03441746edc628605214950ead10605aafefa4536e0a085ec0424061653da",
+    "lib/models/grammar_study_plan.dart": "f6655fc2ecc9eba3a164fcb991e2ef8ab6e7b422124bc46601e0a8f3c296a2d7",
+    "lib/models/guide_contract.dart": "6aefc12de12989d4ef2547a1229c53267a5c5035037da0fa39f05005cc76b29d",
+    "lib/models/gye.dart": "e7a627c604fa0383d1a716ec41f7c2a0d19c2e546ecadb2139e2e7c0132aae94",
+    "lib/models/gye_dedication.dart": "30c83410dc004a7401e9cfad7a1322a75b45d06a5310c91cff20bb7516006b8e",
+    "lib/models/gye_lantern_progress.dart": "6112e4f721d19404229f2c8b6ea4401f5485cc3189c87f7f698f7c2932db4ed7",
+    "lib/models/gye_weekly_promise.dart": "8c371ead7444735f28ab950260c47fdf8b91780ad7d9a9e4f7e6517b6b6cf6dc",
+    "lib/models/hanok_competence.dart": "aa90721ddfcd08d8cc92f5eb171ee8c1c9639cc314f520933f0332e63df95276",
+    "lib/models/hanok_growth.dart": "8696f27f8d2fe51fe7200cd77cac1ca3304214030de22435db5cd6a426d4491e",
+    "lib/models/hanok_learning_receipt.dart": "56baf4f8b789fc7cea0b7ecf0863d421e7fb3b5103c97f3beafa37def8fb3598",
+    "lib/models/hanok_stage.dart": "9ffe7f58a83ffbe0712f4a84d4fe31802ed6e92f45da5500bb845a041f86f4dd",
+    "lib/models/heritage_journey_contract.dart": "00c5e3b63f98528d26daaf6fb7a27b3bf5059ec37a11b2126573a88b7452910f",
+    "lib/models/ildu_construction_art.dart": "8c6ccc5f38ef29710f91a0c4ce14217bde830e8fe4c8d216fdf95b637f8d0c1c",
+    "lib/models/ildu_construction_plan.dart": "7eecf5d319bdda36988c651f89a862634838b04ec132ff96e5a9b9de4f7be808",
+    "lib/models/ildu_r16_art.dart": "7c706d2e8fc01d23f5d96d95281add454fc0a337f5a042f184fbcc8c2160245e",
+    "lib/models/ildu_r16_layers.dart": "11c51378c0c95470663205aeed14a9f8ce8e72e31b5ae4e7f82311926e5bdc25",
+    "lib/models/ildu_world_manifest.dart": "8979079a68b9f041b2f291405cc0d19f62f67fff299b5a5ae4a75a82457a67b5",
+    "lib/models/ildu_world_state.dart": "3d298e8c3f822e17669428f7a5cb48a1f2b432e384c6e92d4ce559299150a76c",
+    "lib/models/learner_level.dart": "c0a9e25c961b7a877fce47828f5ee750bfac24586d21d0d50d9f183eaa8a4ba8",
+    "lib/models/learning_semantic_contract.dart": "35fb6b920ae4c6926e89a5b2a87a07e8f8c4b39c5679f92c6c1bbd8d781f8b1b",
+    "lib/models/liked_content.dart": "5f9279f78c51b9fe9b48024137da858be0d391f609a69b3a29bab4bcc75f64b9",
+    "lib/models/media_phrase.dart": "71ebc7f90d6bfa4e605a7f1dbf4fff2d9fd1724410cb91305c067b8ed1f89b31",
+    "lib/models/onboarding_contract_validation.dart": "a9023963977d64d86841852547300129c629a1d8e20269bd93c2ad885abac22d",
+    "lib/models/onboarding_first_scene.dart": "d70e4019b8c43885127efd166037abf1856ddbdc5b3db40161df0135a15a706c",
+    "lib/models/pack_progress.dart": "89dad9d0ec670e7f1eff444fc48897c7d111a04ecc7f3ecdc1fc8de983c4d564",
+    "lib/models/persona_presentation.dart": "3f050693df2f49ea395acf9fe6227b2e8c17b6fad46921920125266da924cf55",
+    "lib/models/personal_room.dart": "bbbac9540a28acc4bbefffed7ef94da8cdf51c56429a187ff7055f5cef5d85d7",
+    "lib/models/phase_objective_binding.dart": "f3f838cad3740b62a55d0c083bb93ea0e17f5ee2b0faeaff82bcb7f413da508a",
+    "lib/models/phase_task.dart": "eb53449b8d7e437f53ef8c212c0dc618e84460842678d244c759ad9613becc67",
+    "lib/models/practice_history.dart": "71e12fc75aeee80c0ec99bf99f07388536f71de9835224d996bf90597b4cd5a4",
+    "lib/models/productive_mastery.dart": "21e8b0928ada5e8b2970db33a58280ae01129c0f7a9789a40a88f55b0e42dc86",
+    "lib/models/pronunciation_phrase.dart": "b894a3ccefc08fa18a6b63f75634d857e0295dbad771e315fb67a021c6e44f76",
+    "lib/models/quest.dart": "c114adc4eb3fa4f84f6f405482890f2962026b1acb1c6cccb68953eb235461d4",
+    "lib/models/room_layout.dart": "a0b5bafd0a11a6ad0426f219c398b2fc9a00f5846fee5770ced2cdca5ff36318",
+    "lib/models/sarangchae_construction.dart": "33617ac46f59a71759caf5cf395f455aa26431bf43385497c53daf75f9914247",
+    "lib/models/scenario.dart": "591746629b378e967e7284c125377696233d94cce7069ff88d51adab076c9aff",
+    "lib/models/scenario_can_do_result.dart": "2a9a8281ec5e06c691aafc15a125779b4d729f5b8fe36ee60a1b61172e56a9c2",
+    "lib/models/scenario_character.dart": "55561840dc8b283d6ce8f29b93380558e73ccf697683f73c97a911254b519b64",
+    "lib/models/scenario_corpus_generation.dart": "044b754bea83f51002014d804cb56af0a335ea5de1d484a19b46fc0b280d6101",
+    "lib/models/silben_practice.dart": "d83d377ce5a71db4288bd8f059725741aecd1a1ae38d08c7809276c71005005e",
+    "lib/models/silben_puzzle.dart": "b22ad22b9ebe19545aab55abf78cb944719acb0113a432b22cb7d8ebc06a1208",
+    "lib/models/smalltalk.dart": "dd9bb2b496e719e3b761b59d9eb046b106d3a68803f090109dda5121f363b70c",
+    "lib/models/smalltalk_context_case.dart": "18a657cdbec50903b155fb7fa73b029f0f01e1ed7f034d07717b48712808844f",
+    "lib/models/sori_stage_progression.dart": "4c43c3555679d628fd33e7aac2d82cec45cd96762d0acd9ae0f7f505d7210cb0",
+    "lib/models/usage_note.dart": "1ad81825e65652bf3a5b8a0ff6acbeb3364719eca0273b0a6e14ed15b3fb3a3a",
+    "lib/models/ux_preview_catalog.dart": "4abd8c0e1bace03e30513a55caa2bf9a55b748d16bc8c830e94362fe6811f064",
+    "lib/models/vocab.dart": "c3f7bc14bea06890cb4df916a499008780aa008f2296287c407ff0119282608e",
+    "lib/models/vocab_pack.dart": "6b65a5c80879fec2d09ed9e97138efda71369e8fc66660b54b578a54ea958602",
+    "lib/models/word_relation.dart": "e4747ba57227352a45522cc860bc83b64dcba779e0b82e908299df83e75eea80",
+    "lib/models/yeopjeon_wallet.dart": "c8a9bbc237ba8bec532e6b2f2d27442e362ae3d43370436fc5b123487458d828",
+    "lib/motion/transitions.dart": "909d4c0000a1c45b2f194d753d878ea619767890328b0c47df16adbd6b020623",
+    "lib/screens/app_review_demo_screen.dart": "a80fe9c0ec3517a800eb8c6f1f10541cd56c65ef57d3df5d2485cbf85a127504",
+    "lib/screens/app_shell.dart": "6da02f8b6fa7fe89757f75b493dfc3eb20bcbc1cc4cc97d3f43f872d9a30a9fa",
+    "lib/screens/bojagi_screen.dart": "75a7dc874fc9293c76e6bc86fd620127d04557cab0e03b21f01eca48614c47ba",
+    "lib/screens/book_capture_screen.dart": "6bed41531a3a439b1e972f3ab6deec370f4cbfbb53850974af55ef18fcf4bb1f",
+    "lib/screens/book_preview_screen.dart": "5f755665dc6fee2cfa5870974587f65aae3c491d6e464663d819d1848bde4dc5",
+    "lib/screens/book_result_screen.dart": "a4be40c6e1d8d6cab33c544ddebd23e238ff04990fba04a139402f5a956978c5",
+    "lib/screens/bookshelf_page_screen.dart": "dc3168bc91b5675b509aa2b1ab0d995f5f451fff0b1710d30a8574cbffe8622c",
+    "lib/screens/bookshelf_screen.dart": "725c22da75a358c7e875f5c70ec3535f9b2d9db45b83ba5c47c4815f59f5068c",
+    "lib/screens/character_selection_screen.dart": "dfd9bd079e280848201e569543d6c22a3d02c71fd8b66ea5e9abea69c9768c4d",
+    "lib/screens/chosung_quiz_screen.dart": "9b91f2f54ec9c28eaa62b7a85a8705f8ca775ed7b82d00a6428d91c86fe543eb",
+    "lib/screens/cloze_game_screen.dart": "9f8c545d1f14a217f3c4d079b8336ef492f25318f54a215a5f05349b4b7045cd",
+    "lib/screens/consent_screen.dart": "956d5c907ba6d9847b904994d0276389347bdb76adc3e6ee4a47388316080f88",
+    "lib/screens/course_mission_path_overview.dart": "7f49b9d33777cb8d9ad73e9fad83f0586cd9d0f798cad734207eaa4909725739",
+    "lib/screens/course_mission_screen.dart": "660bea81d2b9f3a675fc9577a7804966a4087e92a8aee84f65a30864d76b4be1",
+    "lib/screens/course_reassessment_screen.dart": "12b88ce31b5de3195684f71025abfd332669724b9729597733b4b87e447d919f",
+    "lib/screens/custom_pack_edit_screen.dart": "37515478d2a9ad1d5f3f843034c6662f5eb2ebdb54d1aefbdbfeeace7e3ae4f4",
+    "lib/screens/custom_pack_matching_screen.dart": "1ef97259338d31159951841cca04f9d808f1169d54b8053ca94e4556fb8f146d",
+    "lib/screens/custom_pack_play_screen.dart": "8595bc2f7a276b186c4b7e4afd1adc3d8c5cb3c98b63605ef705adf0cfcf7f4c",
+    "lib/screens/custom_pack_quiz_screen.dart": "a2af6a04568df4bad1cb42f9ec550469624c0350510898bedc9daac4b64ec4d3",
+    "lib/screens/custom_pack_typing_screen.dart": "43a2532a7db2d38797134d5c68c62de45fbb7ed1316e21260580873c2468d71d",
+    "lib/screens/daily_challenge_screen.dart": "7dfae541a469c12e0caa9c0edf3ce38e473338479d34ec887308fbd380cb5787",
+    "lib/screens/daily_char_sheet.dart": "9d31686f204e39919188929e9be447d3e0e2527462ec44851d22e1113f7b8519",
+    "lib/screens/discover_screen.dart": "770f1918a7b22f304b9e1afda91a2e0b72a96047d4a70aedf24de4be2200c113",
+    "lib/screens/dojangcheop_screen.dart": "600bf74ba357e33a93e01df2ab294cb85ae92f4d996b452be0a14e1612178ee6",
+    "lib/screens/first_voice_success_screen.dart": "7b9f523b4a30e691620dcf4ca46be8fe7edb979a7dfd1c3f23296614146244ff",
+    "lib/screens/grammar_choice_quiz_screen.dart": "3f15644c30e33b25b324f4f4eb1663164a8259b7f1653a6f308c1ec714b80c35",
+    "lib/screens/grammar_screen.dart": "27203560c3ed41a0782d8eb51d7806d4f2c0f5e39dad80d0cc7648e0e037af83",
+    "lib/screens/gye_create_screen.dart": "acb7c48ae4535292fb0d1758758c2a2881c764a139278696055ce0f835021e6d",
+    "lib/screens/gye_join_screen.dart": "f7dc1c9bbf9a159005c02322ea011f99b7bc1c3055649e72418c84fe55067ee5",
+    "lib/screens/gye_members_screen.dart": "3a0f9ca2428668c6f184ea4f9b9df32b51ff647918529c1adbefd3b77894f40c",
+    "lib/screens/gye_screen.dart": "d8a324d87afe11c898e122ace3dd44301416ae2dbb2cbb155690a2f1a7151f76",
+    "lib/screens/gye_tab_screen.dart": "64ac5b06c9fd0840f1a58829711dcc18a7520f793e885600695bc4e28bed12b6",
+    "lib/screens/hangul_atelier.dart": "57307e35e72435cbefc8ba2af734b7f151ac467770481ee807640a5f73b49039",
+    "lib/screens/hangul_screen.dart": "7e261ee559e5e75ada5b4bd5b791821f5570307445fe393260ddc286d1e3335f",
+    "lib/screens/hanok_downloads_screen.dart": "741e486c7b82fbe450c500ec288d247cd2042b12b648345ddf6739e75cc791ee",
+    "lib/screens/hanok_practice_screen.dart": "4075536451d710863cb608e27f3471ebfdd43f7471feea728cd992c8be2e9cef",
+    "lib/screens/hanok_preview_screen.dart": "06ebfcca973c2fc8bd277783a9a0696aefdce382f5e5291c1661078b2504cef6",
+    "lib/screens/hard_choice_quiz_screen.dart": "84b766a206a173ed733e1de08549c60206b64f86cd906c1fea03451c6435a7ca",
+    "lib/screens/hard_words_screen.dart": "798d0ce002745f46588fa01bfea29d9c17f4f8bc3c7b142785addd40d51aee03",
+    "lib/screens/ildu_construction_screen.dart": "f7adbfc63fa7194d5b42683c3ff46457b046fcc8dca9485b1ebd3586cc968379",
+    "lib/screens/ildu_estate_screen.dart": "f5ed3b096187449240b0092787e14b9c5fc6ce9c653d23e595919de3f98bc824",
+    "lib/screens/ildu_world_screen.dart": "b191da960013a42b215fc8426ae9abbb2648aaf7d556610f6288fac31645a192",
+    "lib/screens/intro_gate_screen.dart": "f24d1da823d754a8f155deb2c0630b0173f0d48a3af92c7d7b34b63cee6ddc1f",
+    "lib/screens/kkeunmari_screen.dart": "e8e777ac2da66b7a70f2a4d4b3be19f5734afbf276cb4b4f2617537829b18515",
+    "lib/screens/learning_path_screen.dart": "167a7c61a69faee8123a467586e4640e3ad06ff50438e2f0323f1e09df126e3a",
+    "lib/screens/learning_phases_screen.dart": "1c37c2a06c70d9e50bde451e5d7ad19a57f3becbfad9cdc1c41631860e56d756",
+    "lib/screens/legacy_vocab_screen.dart": "e0ab74229f90eafefdcd951fb57b95d3354cbf70cdf1a0b5f4ec8a4af51ef66b",
+    "lib/screens/listening_play_screen.dart": "045cef0a54874608b999d90178a61b2d00245beac2bb205b46dc099d427a29b9",
+    "lib/screens/listening_screen.dart": "7aadea0052ea98f8273849fec51e054c21d9b8d7b7ef8c6ad932a83a5f341efe",
+    "lib/screens/listening_shelf_screen.dart": "d87f576e96ac60cf5fb375beed63f44e1516621637687ea5a6fbabe0afe28911",
+    "lib/screens/media_phrase_screen.dart": "d6af42429f4c37d3001eca7fd463a1098c099f01f628a9b6d581a98fce1611b7",
+    "lib/screens/my_words_screen.dart": "b2bcc8328e5d85c857ac63b12d7f74b4ef28cb41b3172b26b2eeaecb444fcf09",
+    "lib/screens/onboarding_preview_screen.dart": "8d4a4f45008c10d08a3e57854bdccee1289ee9fd6b35b6b2874052071829234f",
+    "lib/screens/onboarding_v2/approved_games_preview_art.dart": "78ec64b08233e681c025421516672c6a72e39f89535d24219193160dead4bfbf",
+    "lib/screens/onboarding_v2/approved_games_preview_data.dart": "2dd4946b35f0ad142478361a7344f90427832ee071aac6e77538caca9b9d8246",
+    "lib/screens/onboarding_v2/approved_onboarding_games_demo.dart": "0cd4bd7bc16b5be585befbdc8f7f44894800bd0c3ae4412f29fe327a2661632e",
+    "lib/screens/onboarding_v2/c_intro_art.dart": "72e8f3666f330f22380468ed9e41b2590a676a8eb16569cab7aa4fa7c3d564a6",
+    "lib/screens/onboarding_v2/c_intro_reference_companion.dart": "41ef6025e5ef6203e586f12bb9ccff166b81334c8a0da9d16590590fa5211853",
+    "lib/screens/onboarding_v2/c_intro_reference_setup.dart": "6a188f9b15b0c3722ee01c84c21778e7e07a89b69326791dcf201695940d9571",
+    "lib/screens/onboarding_v2/c_intro_reference_story.dart": "933f7878fa188ff73021e5819c5414702a08505c4e8728b40b5929ce9431ce81",
+    "lib/screens/onboarding_v2/c_intro_welcome_reference.dart": "bc06873526b3096212516f92b018fb383d967d796854f0ee0b4d58af06386c34",
+    "lib/screens/onboarding_v2/c_onboarding.dart": "8e0737b8f6e246cbce75831cb0715ad48fd10fa03febcf9e4b650d8716d66bd0",
+    "lib/screens/onboarding_v2/onboarding_character_media.dart": "65b16b8792489617df28281edb4e4630d9471cc3ba73a006ae3cd6d6a3ee9901",
+    "lib/screens/onboarding_v2/onboarding_companion_screen.dart": "b0fe704b9646513692b4541deb43f602fd238d87e105cd3ac662d7bd0cb10096",
+    "lib/screens/onboarding_v2/onboarding_games_demo.dart": "d6f25763decc184c1308e9281f593bda5d96070a7f5e166a1fa91d2db895a4bd",
+    "lib/screens/onboarding_v2/onboarding_hanok_growth_preview.dart": "c65140241d419a11d936227072754313f52a27687fe94cd705211e8032af6570",
+    "lib/screens/onboarding_v2/onboarding_journey_scenes.dart": "1f0373e733dc87904c39a7fd2952126b5dcb74a28143fa5ad70e8635163841c7",
+    "lib/screens/onboarding_v2/onboarding_learning_demo.dart": "424f05eb6f9bdab1c87d86792a858b1b6da35240425324a3169de3481a3ac579",
+    "lib/screens/onboarding_v2/onboarding_setup_screen.dart": "58d8cdd3af2b1a28e83465ded000441efeee1d4b02a587a3ffa210191af360a8",
+    "lib/screens/onboarding_v2/onboarding_story_practice.dart": "627302f8f6e572d5cf4cd563c29d25faacc5e7835a37396577adca9e266456e8",
+    "lib/screens/onboarding_v2/onboarding_story_screen.dart": "3e8f950409713e9d7fca5a18267d8c585eb7fd9bb1b56c4275c8304bb51f9738",
+    "lib/screens/onboarding_v2/onboarding_v2_copy.dart": "8953e1fa55ab195609953f5178d1e2369c1a39fbc22445b3cef6edf402569887",
+    "lib/screens/onboarding_v2/onboarding_v2_copy_builder.dart": "1a07331627c7c042879f1efac140874c8a413b81e8f716891562ea0b05a5ff77",
+    "lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart": "b05f6c4a22f75736c405abaa5cf4a025bb8f1f54c4363dae1bac876f51673735",
+    "lib/screens/onboarding_v2/onboarding_v2_presentation.dart": "2a9c38f1c9f503e694b618f0414a8e032e2bf4a411a6dc814c9d36e1c6b06650",
+    "lib/screens/onboarding_v2/onboarding_v2_shell.dart": "dc408795a3ef539922719aec196f4dddca5979974a28ebcebf5bfb3b4b9f65fc",
+    "lib/screens/onboarding_v2/onboarding_v2_stage.dart": "15a5f7f4ab4a15a5ed6bcaf744919985441f2a9af314f31eabe34b1f6fb34915",
+    "lib/screens/onboarding_v2/onboarding_v3_demo_support.dart": "6383413317f87315e7efd86715eab8084cd7a53293ebe4e421b06bf21a85b929",
+    "lib/screens/onboarding_v2/welcome_screen.dart": "c8feafb5209800488844cb6b4ba51d974f89ec6659a0d833d29dc6095e88f4ca",
+    "lib/screens/personal_room_furnish_screen.dart": "ed10662cedd0f601cc16728925a9138c3e3743910958b9cb7ade338ffa648348",
+    "lib/screens/phase_task_screen.dart": "ceffcc6c96c69ae9c372fe372026e8960c9fe2d159879a24d8179f01ee7a1770",
+    "lib/screens/placement_diagnostic_screen.dart": "dff1f3c390ad9c4e84dff325fd613ebaec0399425e46975beba51f733979fe88",
+    "lib/screens/practice_hub_screen.dart": "1ec98c27748afcd42eed510e58a9812c03038d0de99a0de3c0bf4b3210ede098",
+    "lib/screens/profile_screen.dart": "944e56cca7e99b64196661a489e943418b6794bee6bc38e1180d76047165fc33",
+    "lib/screens/pronunciation_studio_screen.dart": "4ff8cd3167bbc367aa86c8823bd2de6f2c97a2f37654c671ff8389808df0e0f4",
+    "lib/screens/quest_engines/batchim_drop_quest.dart": "eb59f726c022ab445ed74e23ab92ac40e3854b93aaf45fff477df3c77fe1a1cc",
+    "lib/screens/quest_engines/diktat_quest.dart": "315afa3f6df80fb8b230f9679d466c4bf1a37d8f05c8b69c2403473264dcb855",
+    "lib/screens/quest_engines/hoerverstehen_quest.dart": "0d0e1022651e27a3daa9272b93500f969c58c5f4d2fad401adf5d7fc7dd54595",
+    "lib/screens/quest_engines/luecken_quest.dart": "d39575362a07dfbdada90298987398a4a42929b825cc818e78a3e3791a78071d",
+    "lib/screens/quest_engines/particle_pop_quest.dart": "edc3c539448f82b3847b974bbd813c24d937dc388517aea3fd6898bf744b772c",
+    "lib/screens/quest_engines/quest_content.dart": "ad9c317761c62407243a463d91b41e12ad6b81078580172608dc91f34555a04b",
+    "lib/screens/quest_engines/quest_flow.dart": "6102365d30669567565338bbf126784c930815319b7db217e0215df5bbd79b9c",
+    "lib/screens/quest_engines/quest_layout.dart": "cf730410bdb98a72893d2cfcddc02eb3af34431389b617edd2fc46d35a0a7b5a",
+    "lib/screens/quest_engines/quest_models.dart": "3fa10d726d396926e7d307071056b7d35c8078001a1e037b1b2c6a0eb1f91328",
+    "lib/screens/quest_engines/quest_text.dart": "12fe259d48e8d76e68c18cc5a2412b245926de715532139c00aa94a18ffd1d0d",
+    "lib/screens/quest_engines/satz_bauen_quest.dart": "c7cf862003ddbbe365962124543a4a1e216777fe86be71cf0bbf592f9c1356b4",
+    "lib/screens/quest_engines/uebersetzen_quest.dart": "e275f0c27075093ce1f06e6f994880cef695be7294279dc84df1fe6937dd2f8a",
+    "lib/screens/quests_screen.dart": "7d181ae0b2245dcb9f8ce4adc65c9687e97853837baa2dbbda1069439916addc",
+    "lib/screens/review_hub_screen.dart": "859aa92119fb5cad7278a792f22740f1a1abd5ea449802fd4b280cbb3b848040",
+    "lib/screens/review_session_screen.dart": "523edc54c4eecee54cc491e4f7059bb1f7dcaaee2d46b417622bb721e26742f7",
+    "lib/screens/sarangbang_furnish_screen.dart": "8aa78586bf5e3e1dffa2967554725b0c6818c804c1dab388c238538eee4fdb1e",
+    "lib/screens/sarangbang_screen.dart": "e7082c609488ac08abba7e706972199f018cabc7756f1eeff40f65c239c5daf2",
+    "lib/screens/satz_arcade_screen.dart": "25d5d9aaa145e710d3e544b94803d9d9ef1692d76e3b1b4d5d8744a2138e7320",
+    "lib/screens/scenario_player_screen.dart": "9c1daca6984d5f0577af68c80d34cd4319a3f70b8917e9629168792c690124e5",
+    "lib/screens/scenarios_list_screen.dart": "f63288b8cd73ab6949614feecf75cb331829c45d765c98d7def05f845d3eabf5",
+    "lib/screens/settings_screen.dart": "2623c9042cbf3f791550320ec1ae3466607150f18ed23a6fae7412de50806b8e",
+    "lib/screens/silben_kreuz_screen.dart": "3ccd84998f0e94bf38ca0e6efb9a218f15728f35d609baa4021f040ed37d8e5e",
+    "lib/screens/smalltalk_context_screen.dart": "cf15debe2cfd58440acd78f01a0eb99a717bb6e937e6356ae5d262708999b335",
+    "lib/screens/smalltalk_screen.dart": "12624e2c4320d91657feea78e624c1d2a6de6f97f30f817d58b9ac2339250525",
+    "lib/screens/sori_stage/c5_catalog_overview.dart": "bd9fc383b4c73da589a1864c1be326f80a71ac2bd31673d1bb1f1910b9322a4d",
+    "lib/screens/sori_stage/c_stage_chrome.dart": "e07db765eaf99d58f20474a874179b1a0727cee0fc3980a0663962cd49a5e3ce",
+    "lib/screens/sori_stage/sori_stage_catalog_screen.dart": "08e946e115dd7ac518b6b8cce6dc583083726d16fc8e88fc0cd74126e2b8475b",
+    "lib/screens/sori_stage/sori_stage_common.dart": "96bcbc7cfb3797ab679cb50549e510272846f5f4f54d335a42590fcf5333e509",
+    "lib/screens/sori_stage/sori_stage_gye_screen.dart": "375b2862a83c4b9d03dfd3ef12a82f100b5edd251c244c96be2484eee50cca51",
+    "lib/screens/sori_stage/sori_stage_hanok_screen.dart": "eb619f54da8b491008b56d151cf0bf5d32bd9b9c401c76cba2a628e2bddcf0f5",
+    "lib/screens/sori_stage/sori_stage_preview_screens.dart": "b9b80853ff8fc1e402a811dbe8501cf23a89040d64349a1420841321ab1dd9b8",
+    "lib/screens/sori_stage/sori_stage_reward_receipt_sheet.dart": "aaef204f9058307fac38458b4e8975f927ec4e8fed820247fd1bf03f07f7d3a2",
+    "lib/screens/sori_stage/sori_stage_shell.dart": "276bccfd445848abf79ad1fe569b4f6f157ee07b157a5ad0d0825216e00d0ffe",
+    "lib/screens/sori_stage/sori_stage_today_screen.dart": "274f4506f6b0e871c77e416a5bea816e198731c3da32d5e59a3b35278392259a",
+    "lib/screens/speed_match_screen.dart": "6e057153de7b8662058e35aae7bb4a7d184d9d48c16ee788c9c049b476485c3e",
+    "lib/screens/splash_screen.dart": "45d56194fc22174abcd40eb8db6fb6a6dd4e0afdf2a2ea628bb1f11f0b232c6e",
+    "lib/screens/stats_screen.dart": "8480f08d0deb103fa9143cae5cc80d27090930d11f7be3213d07f3ad70a6dad7",
+    "lib/screens/study_library_screen.dart": "442a59453c72f70f7d2179f139dbe8b64b0b65ecd7e4795eb0f312a518bf191f",
+    "lib/screens/ux_preview_app.dart": "fd9f763db9e1ca245d165491a615b87c3832c7a9650ca4f318de975b6740fa09",
+    "lib/screens/ux_preview_gallery_screen.dart": "b41635afc1a1a8996638ffdda8c0a0a0efe16ffc92c920dd2e0bffdc748016dc",
+    "lib/screens/vocab_notebook_practice_screen.dart": "963be122189f7be1983d802780901d8c3bf0dfe044c83645e98f35b0d3b2d7a2",
+    "lib/screens/vocab_notebook_result_screen.dart": "9d689d28489bae41c4256664b3b62fa212c026c6fc9610c9788036cf32049617",
+    "lib/screens/vocab_notebook_studio_screen.dart": "ea1db5cb5f77bfc55febf01d59e5583db635ea2784d34c60dc498fc058fc9a76",
+    "lib/screens/vocab_nuance_screen.dart": "d592fdccb0b4ca0fca3484c1d2bf88ff54333af7a83cafbae745108c41661777",
+    "lib/screens/vocab_pack_recall_screen.dart": "42b05443c8c9810d1db54617b8e9e40b49d2b2650906dc9b92eb413659c8f349",
+    "lib/screens/vocab_pack_result_screen.dart": "bcf814c90bf9ecc912fd12e88f775289be3ca24174e447110ea83e53e99a198f",
+    "lib/screens/vocab_pack_screen.dart": "dfc54ded45cfb1eb5a62cf87037c0bb2a67a44ec430aa3880eba622136d9583a",
+    "lib/screens/vocab_packs_screen.dart": "200458dbacd8f748837c88ae0ceca9af3678aaeb973c6790c1b7a99261aea4c4",
+    "lib/screens/word_web_quiz_screen.dart": "4ccee32bef2769c5189c64b0aef41227c878a0d43e6bcea0f47c63bde15df889",
+    "lib/screens/word_web_screen.dart": "b1bcb5eab4e521b9c97aed5b48386fad73ac0ea1e67cb2634c91507271e1a69f",
+    "lib/screens/word_web_study_screen.dart": "484ccf236d67d0a06d4d064c9691249673190914a00377f7e55d7bdfcb2d21c2",
+    "lib/screens/wordbook_search_screen.dart": "74f293295eda04df35d33d86c99acd6d4375faaa3ef6711a8f2e393c79f04c6c",
+    "lib/services/access_snapshot_controller.dart": "cf6d4349d7c57e62bd19f0f5bf8bd7bdd411e9603e5162fec2bce78f27769930",
+    "lib/services/access_snapshot_service.dart": "135dc86940ebf0ff9987d6e5c8102f2ab598e802c9e24fb7877f5d7e286ceb9b",
+    "lib/services/account/account_deletion_status_receipt.dart": "4706f224f805a8c738e52ac4b04c3014cbf357b7cbb4b3d7994d9ac87dfb8bc2",
+    "lib/services/account/account_failure_diagnostics.dart": "fa38fbc36f5f586670760118505fab82ac2605d55b87bc4b09b85e4caffd7507",
+    "lib/services/account/account_failure_reason.dart": "697fbafa49d5750a414e3779b5c720fdcd7b04c72840aad716c2bb0f5a876355",
+    "lib/services/account/account_operation_client.dart": "ff54fa8c4ecd93e5c363d1c89541103fac686fa71bf79330044e99659593c3c2",
+    "lib/services/account/account_reconciliation.dart": "fbcf289b078d20cb8ee8b841825d1d3d9422d82b9992e9fcb5fa3d96e3e232bf",
+    "lib/services/account/account_reconciliation_field_policy.dart": "e846b5e5f13c233bd6631d1b7af19da6a761ccc672f86a2a70a9da184d9cc072",
+    "lib/services/account/account_switch_coordinator.dart": "973390cf1d7af9d4e6dbe56b9252078e361f572d6c39d19589fcc262185d2d0d",
+    "lib/services/account/account_switch_resolution.dart": "a9fdd4bb48de54179663d27a909db2b138d7064b4ccf0b3d7102f397179c6d29",
+    "lib/services/account/account_transition_coordinator.dart": "d2ba3a729dd98a18d420f425e0653785bc417552e53e7a58f91aa689da7429f2",
+    "lib/services/account/account_transition_journal.dart": "bb882ecf3332d7d598f845a10fcd646e794692a66a23afb349951c1500ee4bf2",
+    "lib/services/account/account_ui_operations.dart": "95d356cd2bb5f809a67a67bdce81b3d989ad9eba07ddf6648ad93f0c04502d38",
+    "lib/services/account/apple_oauth_configuration.dart": "d2aa9c28f9eeab4c01990a3889e921c35524a8ae3e64476de666ea1bcfe28a22",
+    "lib/services/account/apple_oauth_request.dart": "8db6c9b9bbc05f1c39401b2e954253cb5bbf27c94764cdac83911f5188423027",
+    "lib/services/account/bookshelf_generation_manifest.dart": "be148dd53f516e22d5d858b672740c6a069ecd17630bfe9ffe8d929a68cee916",
+    "lib/services/account/bookshelf_sync_outbox.dart": "376833c12a0941885520e768e5f56991d8c4247a88faae30e73ad9940df9d7ad",
+    "lib/services/account/cloud_backup_deletion.dart": "cdb693224d71d95219fd0a72abc5b2434df5ffc93cfbf3a79b1583970609aa92",
+    "lib/services/account/cloud_read_result.dart": "59fb2e910ab5f6dc54bb0f63b676fae35233bb08650e2307d93aac69ad198c57",
+    "lib/services/account/cloud_restore_result.dart": "085207d3aafbfdfcc19ee1e2400b69a5f87fcf0d7b53c83caee3cbce50a74a94",
+    "lib/services/account/cloud_write_session.dart": "44fb4fd8749bec34f014bed47ca41eb67d49b137f1379b2babcdb9f76b6fc803",
+    "lib/services/account/durable_provider_link.dart": "a998b042931867120cf568ae99bcd98dc057fb7da93c303a08b195bd26a9486b",
+    "lib/services/account/firebase_app_check_initializer.dart": "78e28926de72d14bdbea8e5a96d5f2bb94c961201701e258dab8a6bf7eb0392e",
+    "lib/services/account/first_link_backfill.dart": "7b950707a76e9fb3f46483f8ebd0e6f6130ca46d8f2d2bd0c5f7cc739af36edb",
+    "lib/services/account/first_link_backfill_journal.dart": "1e27f3d334755be1e2b3a20683c14fe631371ef010a3c913fd2613894543a786",
+    "lib/services/account/google_oauth_client.dart": "989e1513675bbb0da1b038c3b379839eba65db7fe151662a4683b40ed94d8f06",
+    "lib/services/account/media_cleanup_gate.dart": "6b8a553ba551dd5763f7dc8d2b1bb948678523ebc59497584e6fa7bea028b8a8",
+    "lib/services/account/reconciliation_errors.dart": "58890d38ca2cb85d28cbcb2b2420fe6d12bccfc4931a85e5eda7cbb9773b19ba",
+    "lib/services/ad_service.dart": "ac4b4c31d0091f2df78aad2c05ba9ac37637049fe49ece8b971e11fa490b7403",
+    "lib/services/age_gate_service.dart": "0cefef583e44f65e588e4f20aa357cc9eb89b4dc3f6d47af77b94033f0ce2be0",
+    "lib/services/analytics_service.dart": "d26ed53bd643b8a014f056450b0d78c1cc12c9219643e364af93394eb85f385f",
+    "lib/services/app_startup_coordinator.dart": "65689c1d280d5f7350db9b10fb11682acf8162b36666c18abb7a83e79fe52f9e",
+    "lib/services/app_update_service.dart": "699184a005b831b0042f6c908beac359f877cf53d8c757e3404874156267d676",
+    "lib/services/app_version_service.dart": "42c9af843b66bc0d7f0b13f6ee8f659d231ae6308b11e91bcab4457dede39189",
+    "lib/services/audio_policy.dart": "50b93f8196800177f3bbeafa0ca70c35e5b2fd71e8b14041f6ac50f15ee5d0c8",
+    "lib/services/auth_service.dart": "97fc71ad0b45516b4270a0d4556ec91c4ba8b19032d11c4b8d1774adc7d916e9",
+    "lib/services/book_analysis_service.dart": "e357a51efa2541d62a02a85e00ac4e33e8c4f3f49051b08644782761bcc0c626",
+    "lib/services/book_analysis_text.dart": "1da553944e7ff33ccc1bdb977d18448582710b9c7d869307112d66ce9a76c2fe",
+    "lib/services/book_capture_image_quality.dart": "7ab4226cb60f8a6795ec135ad714fc34281175b7c95345495ad92de70157b7d3",
+    "lib/services/book_grammar_links.dart": "3cfdc68e30308eb1a32596c5fe12f08bf48f6b901c6441c49f2623ef8786ce2d",
+    "lib/services/book_image_service.dart": "fed65bf60736ef3505032ce2a6ffa3028e0dd433c774e4d42d9351b69539f312",
+    "lib/services/book_ocr_document.dart": "32b3ae5d75d084f997c6c142f6733e18b882f45c36dfd9da376e036f429479ea",
+    "lib/services/book_word_gloss_resolver.dart": "5cd9b143a65b96a33bd50ff3caaca5fcf5bac1c3b1b83450d39b3c25d1a5693b",
+    "lib/services/bookshelf_service.dart": "86a7be4f5aecc86a27c003912c7c18631839f6bea1b9fea0b2f45ddb3b23f946",
+    "lib/services/canonical_course_segment_loader.dart": "7b6f6fd70244e43faaadde5228093c21a41068d7c161d92eb22234e71e40e1d0",
+    "lib/services/catalog_history_lease.dart": "0b0732ddafd1ed61a18fc90194a441d385aae38341e5c27e5dc37d8174a2b5b5",
+    "lib/services/catalog_recommendations.dart": "cd4d760354095f252f5fa677ba24de1b564e7ca128e8c019012b47d0ae6b34f5",
+    "lib/services/cloud_auto_sync.dart": "0b6c0e8b67292e92113fa3e15f86fded6ba0c2e83d1225aa2edeac7e2bef12df",
+    "lib/services/cloud_sync.dart": "f927c19565de8a829588cf01a5806de24180c23d61ceac005f3a493c4d0a3ce5",
+    "lib/services/cloud_sync_service.dart": "f0d87221767dd3c7d8d841d52250835bc71b01660e82dd7f546e167387c46289",
+    "lib/services/cloze_loader.dart": "f566d1fcc562f385224edb999c38411751df2d2748533d29417e4febb17467c4",
+    "lib/services/content_feedback_client.dart": "620d95c89e1c9bb04ed9b423671a1586c466509cfeef3e6be24094f0a7025bd7",
+    "lib/services/content_feedback_lifecycle.dart": "5e0dc0c6ab0e1cd274ee2a5d0a5d104887ffb0174139c171688cb0aa39172e68",
+    "lib/services/content_feedback_outbox.dart": "d263c416a1861efec526fac33c437e2a0d47c8edac18ff8a41b8f42068a32bb9",
+    "lib/services/content_feedback_service.dart": "5c6e29dd75d255a99068edbd79e01b6f27eeb3b1d80329e7c6129fbb1cfd7d39",
+    "lib/services/content_feedback_version_provider.dart": "7a7db0c42541533f497338e7dcdfcb4a6d45edf1ca28dd6ee8ef6963194038bc",
+    "lib/services/content_share_service.dart": "555197f88c9e16ecfa5338019ac11e66028aa8926c3c329ba823bb4fc563e174",
+    "lib/services/course_activity_reporter.dart": "3f23ccb318730e93b81beb98b356f086cab17c47efa849d0a8287fd326c98dc9",
+    "lib/services/course_attempt_companion.dart": "7b8f7ede52232fd028d4c9e52b9a5dc6d4d146f0e1ee1124b79e0cb258375f04",
+    "lib/services/course_checkpoint_questions.dart": "f951cad769ca970392321e09dee1620a6eafb0fb6d42e2752b692e671688962d",
+    "lib/services/course_mastery_service.dart": "7eb775d8f044a365ff2750f994c700160684f464feb3d40a23c46c3bf27d441a",
+    "lib/services/course_mission_navigation.dart": "dc77502d6de392aa857834f7a0bf07dd1d77c72d520e6751f4e5cb2b742a0b63",
+    "lib/services/course_progress_service.dart": "f4f3544460e9eccddc14703a85547d5ca1a03c1db1e8d7ad1cae3a646da28d2f",
+    "lib/services/course_segment_catalog.dart": "c25412d3ad88bd08f9bf584ba003aacfa8729bb09a09bc4c5852b979a1b81c80",
+    "lib/services/crop_recovery_service.dart": "ff17b7d13ffd84d08e410da6303a20f05baea746d0d0b3757ec86f51c37a2c63",
+    "lib/services/cultural_glossary_repository.dart": "28e34527c38f3017adc1eab2ac46d439f0e190898e086fb99130914d8ecfe23a",
+    "lib/services/culture_notes_service.dart": "88f63798619b1afbe950b931d7ed46eb88ef02644359227ebc8851462575bff8",
+    "lib/services/curriculum_catalog.dart": "44c9271a75170ea8218ab826826b6052e4dc939fabf0d90fde2d5353b8aa1200",
+    "lib/services/custom_pack_corpus_resolver.dart": "3256fcae12e18f9844089f9b9e31a6b4db06a42eed7aff240111bb6528805353",
+    "lib/services/custom_pack_import_service.dart": "cb83560b3fb58af2add99bd6e8445c79a9d438e04fd199d7111dd236f1c00e02",
+    "lib/services/custom_pack_service.dart": "c9fc1b0470863bea2405e1731a3694a872d57e90d9003579f014604cb7e45e65",
+    "lib/services/daily_char_service.dart": "0ad202bad0a2ce97aa088a47aea113b1eac53dfdb95d82e52297e05192ae5f02",
+    "lib/services/data_loader.dart": "1eeecc4b2f15dbc99408522f08d0750ab57455f28b17c02503f4b7fb1e3c7bc0",
+    "lib/services/data_migration_service.dart": "31331b0afdcbc3889d724cf0be92d10127fccc0bd85e8e190e1712ff6bbad0e2",
+    "lib/services/decoration_reward_service.dart": "507e45b3dccdf9525843c600edd97e6ea487c1c2de80ec1ea1d60e86d9597b87",
+    "lib/services/diagnostics_service.dart": "7edec7ec9e6d16b85b4a1c988b7acb4154eb818d75bc38d9c4f3836e5eef80d6",
+    "lib/services/firestore_progress_service.dart": "1ade34b602ec5a49b108a7089b4ec6db759c0e4ac419c0d8ebfb630e0697b0d1",
+    "lib/services/grammar_choice_quiz.dart": "de407531a7a3ce745b9af1fb54623198fa3e6b726bc29726e51edc63840d3f89",
+    "lib/services/grammar_plan_service.dart": "3652b44e13d0843a86bac0019018d3017424605038ace4f8423e01240d84ae0d",
+    "lib/services/grounded_book_study_service.dart": "fb8437192ed546e4b25e6e3c5b697a4be6986ac996ea5bd26b9ff8eec3914ee6",
+    "lib/services/gye_dedication_service.dart": "9dbfdd35f3dbb29d211e373ec468e5261ffaf82981f718c9c2cf0dbc824500ec",
+    "lib/services/gye_member_quest_service.dart": "79d77f5771ea9cf1f7497b986ddee61529911a25b332cc90d2f3933231d4a2e3",
+    "lib/services/gye_service.dart": "d5d77a92cb52c6427e80ed227203647aa403e6d815468dffe00d51d22813bc01",
+    "lib/services/gye_weekly_promise_navigation.dart": "80c6ab902b4cd389cf10e8254a0ddeb1691e578806580dcf0b2da0338324a08d",
+    "lib/services/hangul_composer.dart": "a331bb13397b22c097d2afe0668b70a6d1cd4c437ec3addac52d12e392407e65",
+    "lib/services/hangul_perturbation.dart": "3b0843004d005997431b13e14209ecd5eb9bb546031f4de8ee4c5aef3b314062",
+    "lib/services/hangul_util.dart": "682ed464f14b20397bc2dadc48544b59d92b297b4bea1460402c10a77158eee0",
+    "lib/services/hanok_assets/hanok_asset_delivery.dart": "81040eaef7e152de706f82eb4a099908cc9ee9b42fb14c7eb84ad3900eaebbe5",
+    "lib/services/hanok_assets/hanok_asset_failure.dart": "e819b6d049c3ba7744ae116bc832327d17b7644449a46ad66d3f0055a446fd42",
+    "lib/services/hanok_assets/hanok_asset_manifest.dart": "0ace5408d79d3791d959bc29a7d73fa6433bb40f234d092815bd515650c6cfb9",
+    "lib/services/hanok_assets/hanok_asset_store.dart": "904602ab81eee1520290dde29d67bc78f915317394c0121422399740c3e7c9f1",
+    "lib/services/hanok_assets/hanok_asset_store_native.dart": "8188e8212d3e20c543e67fb4da8d27b8960a3fd2a6f587d7fcda5aa42f5bf92a",
+    "lib/services/hanok_assets/hanok_asset_store_web.dart": "0959faf33dd65c4daf7e8931041eb9d0f83fe75c3ab04e7c41895b488d93eeac",
+    "lib/services/hanok_assets/hanok_asset_transport.dart": "5567b2d05e35e8a4e3dfc19e3d675eb00a40299302d0fe175fcfefe10074edd5",
+    "lib/services/hanok_competence_projection_service.dart": "1a9aba65320614dd32a6b4393b9a3b21df9e10ab7a2d2389008258802e032d1e",
+    "lib/services/hanok_experience_projector.dart": "5535c523fa552279e1ac2e70180f9afb719ce7fb26d1a3e3af444d7a192cdf0a",
+    "lib/services/hanok_grant_catalog.dart": "6daabf8b32b0969c43175ad5c5b339c30e5a6f09c79065d2521ecc1dc548241e",
+    "lib/services/hanok_learning_receipt_service.dart": "5b27ac65df4577b29d0bcae9c1758a668518164ca90c4f3ad91d4c6bc0253ec6",
+    "lib/services/haptic_service.dart": "4fb4f291913d6ff6dffa92da2718fd4aa5b5edf5d9e974be29b27ca3c7e1d230",
+    "lib/services/ildu_anchor_placement_service.dart": "c837bf567b9254ce7e00415271b8cbdf7a7f8b00ce6c5c03e29d4e2de8b24361",
+    "lib/services/ildu_decoration_placement_service.dart": "b33fd111597d23feadcf11e043f38f5e197d606628c162f2eb0f3c79208184da",
+    "lib/services/ildu_world_projection_adapter.dart": "b7a97503f3c498a3727c8c37dc1a5d1522beb2343107eb46eaeeb0cf4a9947cc",
+    "lib/services/ildu_world_state_service.dart": "7fe57c6c14ed560f4e07c0325c1f1869d819ce150f052785d6513b5a9d38f2f5",
+    "lib/services/kkeunmari_dictionary_service.dart": "61c0421908625d7aa7cc7abd00108d0a55d6cb086dbabf6612bb7a9e77648232",
+    "lib/services/kkeunmari_engine.dart": "e04d2eac3e0d89e1c2df83ebac089941388c887ce06bf44039c24ceb92b1d9d5",
+    "lib/services/korean_noun_lexicon.dart": "209cb7fd66b4592afb0d870636ace1f75d47b8cbe763b1cd3579e6e65a46152c",
+    "lib/services/korean_proofreading_service.dart": "815b8f9746aa621d7e09d2b30689e2967279680be4d6e7b1fb138164a5fdf6ba",
+    "lib/services/korean_romanization.dart": "c28375e3ae0c9ead2c7beaf59862f467f637a4c9939114e78adf2df1f9515dbc",
+    "lib/services/learn_session_queue.dart": "1c5d9ef2aca576c2d615b6be8e11340639294e6a95c9e5bf1d85c183a3d32523",
+    "lib/services/learner_level_selection.dart": "82c3ba37180004d7615d63f2312830c11ec36acbe5b6ca22f4cc70076d16fca2",
+    "lib/services/learning_data_export_service.dart": "d6a61f2fbddfa220ff6bedf0b8ce13a9179c0a24074cf726b094fadfcbe36d98",
+    "lib/services/learning_focus.dart": "70e7d02cec16063f9a843285d3ad82f7da941edfc1030d0cc2a731a2f8f9793b",
+    "lib/services/learning_journey.dart": "b1ac18d0aec8fb50db6e7d7673ab7d3ae80c1b0ae81b131cfd5f66d686a8a35e",
+    "lib/services/learning_phase_catalog.dart": "d0cc4ebd5dcbddd8cb6d050a60857d6b859be0736438b786daad574e449f3f39",
+    "lib/services/legacy_hanok_v1_importer.dart": "44645db18239a9fb05dc0d7f12a59556fdcb58dc010c14cc42aad0c279503e46",
+    "lib/services/legacy_preferences_native_snapshot.dart": "9ba53be40871d64dd9f204e3e40c930acebdc60271db0edb562e3154c46c4203",
+    "lib/services/lesson_recommender_service.dart": "0ef59cf173057abbb473dd211ff74762894c84d8d01a6f6f08edbf048c04f2bf",
+    "lib/services/liked_content_service.dart": "5a730aa3bb06d95d59bb8976d2c65d0057c9556e63bc2d513f55e77262cf93d8",
+    "lib/services/local_data_lifetime.dart": "25fccf1fad76368b5f583da0dd3e67675f630e77b4129e19fa681217c7cae5f4",
+    "lib/services/locale_service.dart": "04a2e3444396e5dbd5cfc86279e23ad0556c9a9eab0587ce1173d72588f2e668",
+    "lib/services/media_mutation_lock.dart": "8bb3047eb5b93c03da41744e044e5f8cfbf66f9df0dd4f565ce6664320fa10e9",
+    "lib/services/media_workflow.dart": "3f1cc7c6a27341a4f4731304d36221b17f7d5df8a3942e3d0f01ba7a56a2ef4a",
+    "lib/services/mission_recommender.dart": "694f74957d947c3db5efec2c30e32e3cdc9033fd8c5bb2dece910a27f9258fae",
+    "lib/services/net/sori_net.dart": "60253da524a5bad83a7a57394163f77bc6d9bf16185f7c048ab94c2fdc5db85b",
+    "lib/services/notification_service.dart": "4775dac52361303f100a2423d79912ced4b26e9ce383b70532b4a3bf2717c110",
+    "lib/services/onboarding_companion_service.dart": "a87bca8a6cac59fa047b0909e37d27ecc37b69c977aa24bd1ef3238872f32841",
+    "lib/services/onboarding_flow_service.dart": "f021270832839d16e48fc5460ace56e2f2b4e47a75f1527758d9dfaf927f3388",
+    "lib/services/onboarding_journey.dart": "373c17fe6e6ca983ed8c10c114b5005fced5a9b52aa15693be11d4591e6cfe09",
+    "lib/services/pack_completion_owner.dart": "eb525a94ef529e4a0f03340e9d2838a45469329b0ae7fe650918ceba0250ac35",
+    "lib/services/pack_completion_record.dart": "bec37549702b14f18ca742f2c0b8b6d3f62080391918d17840e3ceefc62143c3",
+    "lib/services/pack_completion_storage.dart": "19a13ee9683fccf18ba6e63367d173c2e7dd88bf1b87a18371f075f3c3ead335",
+    "lib/services/pack_progress_service.dart": "440436692051fdbec74379d44230729c362f6c2721469b57f58f932772d63d4b",
+    "lib/services/pack_session_srs_ledger.dart": "d9c7a815e2401b4333a84d8b3a911d1d883ec41495443812977727f63a9c1fae",
+    "lib/services/pack_sync_queue.dart": "660040b12d8d9a91c64b1c0882d6f98c7cb622ad15e19f73582e04c8e1a6d17c",
+    "lib/services/palette_service.dart": "8d800d8bfbe99495718641febbc75f0b675abccc84dd0bcc72752024045a62fc",
+    "lib/services/pcm16_stream_normalizer.dart": "a9f13707457f6117cd7196957e286b5dd460a26db7f95bfeae3f041779a13242",
+    "lib/services/personalized_lesson_service.dart": "267e5e34d1d1211becdf2b81508410e9af4c3509acadc5208892c6ae5bb04858",
+    "lib/services/phase_task_catalog.dart": "433319dcdee94018cd9242e7a53d2524073782a5c46a2cdb5fc106c2d614e5c8",
+    "lib/services/phase_task_drafts.dart": "3045013db7d11b9e701404f596e46ebf715a1988661120166802dc4653576d3c",
+    "lib/services/picker_recovery_service.dart": "cf7a376f572c73b78301b65a6dd9a45d3e2c840898222f4405f5f991e215873a",
+    "lib/services/placement_diagnostic.dart": "b3515930386cdbb11f74ca6811c877138939d06e9c7fdb22f06f4d7418788a14",
+    "lib/services/practice_history_store.dart": "f211541d3bfb1d4a58538ce3bae0381e95a9d6e4d167357e5f2f2f380a093903",
+    "lib/services/privacy_choice_storage.dart": "84a91f82925e6b7e8602655f68ed57ceb0e829d180d66cb554e253985b087ab9",
+    "lib/services/privacy_consent_service.dart": "4a6dd2a547ff153fc21a4483375422f92e73055b6de4c0eb1e8e59eb4e41e477",
+    "lib/services/productive_assessment_service.dart": "7fdf621405fb4f08844383cea29b41623a6f68ec19b099b2b8d3b95f5ad66628",
+    "lib/services/pronunciation_assessment_client.dart": "fe10ba42814e604abbe29fbdb7152b19d7d99d28eb344b7aeaa835a982c3c7fc",
+    "lib/services/pronunciation_phrase_loader.dart": "5022189e3d69bc4fc1a0d9588465e95c70c6c4635516041ef56be4c6dd484ff5",
+    "lib/services/pronunciation_playback.dart": "960dfa3f959147329394ecb5a0e2e1daa7bf01f62c7c725cfe355aad38a17dc6",
+    "lib/services/pronunciation_progress_service.dart": "58dbd9b7a36aa1cc9e2ad85f27f939dba8bbd78aee4683db63d2ebb9fecba7ef",
+    "lib/services/pronunciation_recorder.dart": "eb08b00038e9bc4b97da815d97c3cad681b61414d99f308b0f298d30418afa9e",
+    "lib/services/push_service.dart": "52f4c590ada376a11de39f3a4f9bce5d66639aa2b9940744f6aa4b342195ed1f",
+    "lib/services/quest_abandon_tracker.dart": "efa6b42ba8aebf9ab625e3ea150eec910a296b951a86cafc7d1a13f42a6d77e6",
+    "lib/services/quest_action_resolver.dart": "34e5508fdbb7b4e882d858f04b8ff2e89a388ce4e107701558b698808ecb5ba0",
+    "lib/services/quest_tracker.dart": "4dd6369db1c74089040fc37190d82f5452fcb60d48b0ef3d37341b67be8c932b",
+    "lib/services/quiz_distractor_service.dart": "2d468142d0328c0e7e472bf5cd891ea6311adc199bd7fe869d3d1d50256896b7",
+    "lib/services/review_deck_service.dart": "8674360132eee6abcb9923a79e3535e9d5b6790781caa6bf43923a9f8df4e88f",
+    "lib/services/review_session_queue.dart": "f3f62d98f205e5f9df7744df7733dc304e0797e8e268d73608e6eb7f75b62546",
+    "lib/services/room_layout_service.dart": "2aa436ad74d20081c70b786a51ade3829efe16ec3fc9d84476d3f80547705bd1",
+    "lib/services/room_placement_service.dart": "2f320f2f1bf3e519246559e25d593a81cbc7d9f729459a9ec2a772d6b250e153",
+    "lib/services/sarangbang_study_recommendation.dart": "183a910c61fc0d5550cfc82af123a72ecfff0ab5027a6b90c4e52a9f4c31e92b",
+    "lib/services/satz_loader.dart": "e91fd6ba365ccb9e2570cf686f5cb4791a2cf9bd4e2c208db0d4f8cb733ff770",
+    "lib/services/saved_word_localization.dart": "4e71858c8c61d8101b355896e02b3db85080bea128a686d1e18a871f6e816ea3",
+    "lib/services/scenario_loader.dart": "1f12d2c37fd7f5b4daa2c0f14d1ef90f93a0951bcd3dbd54a9d42f316f3c581a",
+    "lib/services/scenario_result_preparation.dart": "e451be5cf4b660dfeff0e63d6f31f6bcef45073f29f6e10eeee2ad5b82690aa4",
+    "lib/services/scenario_writing_check_service.dart": "11c98a716c212ffe6fe0d546281e4f9b7295aab1c94d641cd57853aaf6877881",
+    "lib/services/scene_asset_resolver.dart": "32adbb70e6c0395b411d3b65526b9c0ecba04b2e4e974f11de6ca6699f649f66",
+    "lib/services/shared_pack_service.dart": "998b815a232a722e3de59e9789536e8b5ee7b8cfd4e29e3cd180537bff81bcea",
+    "lib/services/silben_puzzle_loader.dart": "ce91994b01549a267bad506a22dd8b4fc79adbd13c4a1885fa90c679fa0b0eb8",
+    "lib/services/smalltalk_context_catalog.dart": "06769ccc7a7e2ecc87c0f78d01c74a795dde5f8f9d75809961a6d3a67a92b5f4",
+    "lib/services/smalltalk_loader.dart": "c1fccd2dc2bc506b49617f4434f0548bcd91038b494073ec9b48a68905af073a",
+    "lib/services/snap_ocr_service.dart": "771374c643da19bb12d35ff898aa5981da5c43609c2a1d34f6d931edd7e7ac80",
+    "lib/services/sori_stage_progression_service.dart": "fae0c81de0742a008331cf58e992a3f6e916df3901848c54ff7c75672db1ef74",
+    "lib/services/sori_stage_reward_receipt_service.dart": "7696261a97e3611dec9e25cd8f8a1a99ba6fb69ee579026b06f38333dd386cb5",
+    "lib/services/sound_service.dart": "7896ce3b8252dc2d58647a2254a6cf8f80fd6ee9a394a79ed3813bbceb3c951f",
+    "lib/services/splash_gate.dart": "88a21a5610f4318d927f78172b9ca5f12d98e08cdc8df25b2559873d4a023fb3",
+    "lib/services/srs_commit_journal.dart": "bf67e88d17df8a2ab5e29f6fda5e7da4415ff8f9db7726c873e9a33a8a37fff9",
+    "lib/services/stamp_entitlement_reconciler.dart": "0b40a61719b2bf3eebffd5bec5bc2c98a6b36f350c9e69623fb8456211dfa471",
+    "lib/services/storage_service.dart": "2a57ba0a8d3694247cb92f629b0f7db09a177876ada7c8506d53e35069ce21a6",
+    "lib/services/stroke_matcher.dart": "ae2a0267c1607256021e79157021afb293fde56c29b5cd43ef4bea0f51dab056",
+    "lib/services/today_learning_navigation.dart": "07c0c9cd373338c018d63fb9d3f614c5787695f9477521ff6a72ee816366dfe1",
+    "lib/services/today_learning_snapshot.dart": "0781c0bbb5dd997ee13209b0ef77329e71b1e92a58fbc0b8e7f42cdf8cf7bdd7",
+    "lib/services/tts_bundled_introduction.dart": "34974f7c18a1dfa72ec570a6dbbe091ffaf17942bd0725a088657ac1d2196d48",
+    "lib/services/tts_bundled_manifest.dart": "c1dc2954b890ae0ebb88f9d6923daa5783a16a3eacf72266c25547fd8bef9c5c",
+    "lib/services/tts_cache_key.dart": "b921aeb07ed6bbafc001021b9a44e319a8d65c23f5d74eeff16c41eaeb58b87b",
+    "lib/services/tts_canonical_manifest.dart": "ee9933856bb933c0c4a72c04ec2f70314e0f28a5655998a997de4b9178d046f4",
+    "lib/services/tts_installation_id.dart": "5b05da33cd132d9653a021f864748aa6921d66f89bb77156dd9b212288fec789",
+    "lib/services/tts_private_cache.dart": "a9ef991d74c41223c804b3553043d2868aea78c480fa3eace328b6ab7489139a",
+    "lib/services/tts_private_playback.dart": "4fb7c4fe91ed9395754eca684197f2f3052e3fd5fb7b6426c24207f5ce44f344",
+    "lib/services/tts_public_web_audio.dart": "0501d2d80dc4e09103252c4a07a9d86924135e9033b6ceb8a4a6808f1d5b24ff",
+    "lib/services/tts_recorded_jamo.dart": "0ad49b86cfc7e927f22dcee981a488241df8cf3b8cd17e2e3b96b980e363c83c",
+    "lib/services/tts_service.dart": "ad168e78034f97cdf10cb66bfb1c1e72e968bffca86c3334202b3fec4d8fa69f",
+    "lib/services/vocab_deck_source.dart": "1dc48eb88badb80dc2c1c827d95befd4d3fc3cb1e41050ffa76897c6070369b6",
+    "lib/services/vocab_notebook_parser.dart": "71cf380ed90139275fcea0e7c797cc64d3ac92a888c92d437c8be39314c4c20f",
+    "lib/services/vocab_nuance_service.dart": "d0a8c16914974e243c598bc7b68ef8f1621b1566dcc2b1eba54f1a78fc3324d5",
+    "lib/services/vocab_pack_finish_coordinator.dart": "1ffa2a6e49fb1c23145de689695d512cb16920b4edf7c40e4651e9d81e7b80c3",
+    "lib/services/vocab_pack_service.dart": "56105dc2be6d8ae9ed0e336c558700aae920fb23d55981667fefc6927b9d8948",
+    "lib/services/vocab_recall_evidence.dart": "64f5c2124f66bafe9a899dcc4c072f34bde960336dbd69f6475619749138d4ff",
+    "lib/services/word_image_service.dart": "10afb735f75ac82f4dd431ba191b70f2c69c3cab0e29116f01fd4553e63e7778",
+    "lib/services/word_relation_service.dart": "d8c4a8e5b6af84301a1f171c0d8f58d857a29e8845054070a056a67953c690df",
+    "lib/services/yeopjeon_learning_checkpoint.dart": "ab41139e49e83c385ebce61c8ba5a9e32634433364277a5e6df1033525fd6ec0",
+    "lib/services/yeopjeon_service.dart": "8f827063ab636a25d9844bd320b94a24d7ade8ebf07a8d36a4298def132f9161",
+    "lib/services/yeopjeon_wallet_notifier.dart": "4fb7b7e9bef6da0f3a2ca2ac6849366c35703f2d5d429b214829e395ce3a2457",
+    "lib/theme.dart": "03971fc9485d048d260b6ecc6bd4b5c2fefac7c5ca798662297a55d07d92238b",
+    "lib/widgets/app_error.dart": "629cf65a4303fff266a7e8e6dc34d061e08046f8136dd8e8b2d7f78de6bc55fe",
+    "lib/widgets/app_loading.dart": "f35a913453efea6048ff3e0ee6a31622003d9a4aa53b50c7919367e7609fc404",
+    "lib/widgets/display_sized_file_image.dart": "6823c5a4b488b4d96dfdda10d4c54313a14f50c696b53975c17de7f32cc05060",
+    "lib/widgets/flashcard_romanization_action.dart": "9087be02b8e115b15f33e51248399dca2db5319913b0e786f61266b498572aa9",
+    "lib/widgets/flip_card.dart": "8bd2df2fc2266b9e401bdabbb58ce5cc558b98995b1199a2dd1697c3c5ef4ba7",
+    "lib/widgets/grounded_book_study_card.dart": "864b7b7d609aab7a37e1c4a44c44d6dfea9338b0a6e9d8598d66d74175a852ef",
+    "lib/widgets/hangul_syllable_table.dart": "6abd6440500e3929cf91fcf4cace0f36fcd07e0a7127bf7efa7fa210b456722c",
+    "lib/widgets/hanok_asset_image.dart": "61aba7d426afbe9ede8ae6fd84fe979339bba1dfcddc347fe8b8d330814c394c",
+    "lib/widgets/hanok_practice_entry.dart": "c373824d60ae326955ea757181ff3042dee0c6587b55ea8c2796a57f4accbc2c",
+    "lib/widgets/managed_media_image.dart": "eafc3bc8290176bd19101440734234771b8b15fe1eaf88f9f279af4f687db91b",
+    "lib/widgets/phase_task_panel.dart": "e3e2c1f74a183398bfdc83647c165ef733da6880a5129a0e811e9dacad2f4e96",
+    "lib/widgets/practice_character_clip.dart": "9dc3eb7cef69db8d3d7f88490a2fb1bdb9454a1704eb519f7c84a218a8b26a06",
+    "lib/widgets/practice_dokkaebi_art.dart": "e07a110b6fc4f5484119bcb8f0d4f1c5093f4f65c0f94342267717a786521efd",
+    "lib/widgets/practice_dokkaebi_canvas.dart": "a857b9b3504ced1e9afe5ad9f6c37dbaad86cada580d721e709f55cd6d9f40a3",
+    "lib/widgets/practice_dokkaebi_clip.dart": "216ea6cd1f474f96b8774912ef4c6b7c72e1b27687d0e2623d243ff5cb3173ad",
+    "lib/widgets/practice_dokkaebi_help.dart": "046506278ae68ea12f9b1d689826a399691aa57f3eac117631b8ba4f55deb1d6",
+    "lib/widgets/practice_dokkaebi_introduction.dart": "73978cf377df85ef686d78743907d04a21a399ede68047bd563722597761567a",
+    "lib/widgets/practice_guide.dart": "ab2890b101f5faeb768ea9c73b19b304865dc53059da9d313d79d3fd5f89cd26",
+    "lib/widgets/practice_impact_frame.dart": "95eb8fc828242b8ab943c21bd7137b01ec911a75c93288634687fd3b81beaa61",
+    "lib/widgets/practice_layout.dart": "198128bf82e7a1ea8a2c41e15d1285a9ec7e66fd04b2041ad334b3ccdb79eb4b",
+    "lib/widgets/practice_magic.dart": "ecf538e2daf33d0be2227d1e01f464fb015767231463a289b07985fd0fefcbb0",
+    "lib/widgets/practice_motion.dart": "6819e39d6d02d8951bd304ab0407b1607f624160d067335d313d9f388d698ee3",
+    "lib/widgets/practice_scholar_art.dart": "f555e9528fb14f09dfe9924ce579d5f7c3ae6dbcfc16ccfa2272a3ea3d54c543",
+    "lib/widgets/practice_scholar_clip.dart": "4b1478e7daae129e807eef6c54b563d3eea2ee2c63249099feacae7ee67e55d8",
+    "lib/widgets/practice_scholar_explanation.dart": "d1c0f72bec455f10c8dbf342fc1cebb6e1352df24937c0f3e4980d0224af84f2",
+    "lib/widgets/smalltalk_practice_entry.dart": "7cd0cd635aa62f930b3c1a729f789f4c58e42bb711b0f674a7c017018543b012",
+    "lib/widgets/sori/account_nudge.dart": "aaa64ec4062dc70ca3e41f8842e87756e83aeb9a09515ebbadc92bf0ac00869b",
+    "lib/widgets/sori/account_operation_ui.dart": "f7f322029a452bff260e1d93622afe4b545a147a21690108e47671f0e47bc425",
+    "lib/widgets/sori/account_progress_recovery_sheet.dart": "5a73e75d98744cd5e691a538d65534647f0988562df17bd9d1e1e7d5cd66b697",
+    "lib/widgets/sori/activity_illustration.dart": "53e0264cc642e229fb7f4a85233a1fa22ee1c22ba804e69cac2efaeb12b5c591",
+    "lib/widgets/sori/activity_sheet.dart": "cff3ad550a91810baa5e6c87f43d6760bb179be5888ef2af2c9b85f4753fdc9e",
+    "lib/widgets/sori/adaptive_navigation.dart": "3423288dae6a89fc43a2a484ab833fef339435972300d2689815c25a4ba0994e",
+    "lib/widgets/sori/age_gate_prompt.dart": "03ae8bc6e964b7e8027c4ec3cac67e6a01688fc32f908ea50e1e20ad74b13dbb",
+    "lib/widgets/sori/ai_voice_notice_host.dart": "7c733ada885cc4bd8b7140743100fa858a6f1d662d7a917e4e29bf9475d8cd8b",
+    "lib/widgets/sori/ambient_particles.dart": "2f41cd824623809271684f539dc0dfa9b39960e4dc1c7f5f776e8495fe7fa9ce",
+    "lib/widgets/sori/app_bar.dart": "4d8beb28e4f9c07cd78210da4f44a1c8d468b146849ada1cb458c526f6aade11",
+    "lib/widgets/sori/approved_chrome_assets.dart": "5307d16fd2973bac748b7d2a2b7801f8759e5f39c888b8cc907feef43ecd1af4",
+    "lib/widgets/sori/approved_figma_scene.dart": "f96c3d978cde636fe170ec04138b47619d45ae3b2f72e60b2a38ad257a0feb7b",
+    "lib/widgets/sori/avatar.dart": "38759a574b87bc57f80b33ab5210ddc15d814d25271d2afc8f34c229a51c73a8",
+    "lib/widgets/sori/badge.dart": "d13dcdff65ccc5ac91ab5364fb751c78f91848ec23f19e4313894759f2de4843",
+    "lib/widgets/sori/bojagi_reveal.dart": "ef24287af952437000184c068ba500ca1c86c747d95843f00be7b13b031c6379",
+    "lib/widgets/sori/book_capture_choice.dart": "f093dddf48fe55dd2fcf6b243e7bb6a1a24bec1a75ce23cfd8d51dac12c1eab2",
+    "lib/widgets/sori/button.dart": "92de2f0c486ba6e6e7c1737e7ec9f96f9d0d4121381bd661692e5aaa7d65043c",
+    "lib/widgets/sori/c_gallery/c5_scene_assets.dart": "7490c85b5271d5ddb86ec1ba3dc5e51e6cd80929ab0cb489f9b0c4b473e4aded",
+    "lib/widgets/sori/c_gallery/c_atelier_materials.dart": "6338ad47bb317427e6f9746cfdac786f6fc2cfd819d8d841d4259c3eddf4bd80",
+    "lib/widgets/sori/c_gallery/c_calligraphy_canvas.dart": "b23509d2bb507c690387c1ba10935c9f4285504e03e68c2a595a0c0d04a7e441",
+    "lib/widgets/sori/c_gallery/c_calligraphy_ink.dart": "942d19d192d6aba470ab5780476408fbaaf2503e2e7a5e8cde521637d5620d5a",
+    "lib/widgets/sori/c_gallery/c_materials.dart": "058e6913fa778b2b3a1b35130b3b0f8426e0fb95b820d5c7e64326910e89828e",
+    "lib/widgets/sori/c_gallery/c_objects.dart": "b4d4c8bb80eb02dc6bafbf0760800dfb5a97301207959979bfa867f94b53fcb6",
+    "lib/widgets/sori/c_gallery/c_palette.dart": "20a6468f57a60b8383ab738fd5d77e4dd319da2d9f041de89ac18a12220d0447",
+    "lib/widgets/sori/c_learning_header.dart": "62a1b6daa43a950a996dca69c74a7ef944e2ea21d500aca8957975a440bebe41",
+    "lib/widgets/sori/c_learning_surface.dart": "80dfe06047048d049e2ffd46db7c806c32c90dd446bf1b29d1e5d78b08d1ddb3",
+    "lib/widgets/sori/c_material_assets.dart": "884a483857be7b1363e4a814e4add0b568835ba438280376a8b5c6077db0da11",
+    "lib/widgets/sori/can_do_result_card.dart": "5275303ed2b89993e5cdee0ac725e5130c648b344a926d54893a6f48682a05a5",
+    "lib/widgets/sori/card.dart": "ad263fc12ce1844a0422601f521d08301917c0f2ea1bac9e1228c145fb48e1be",
+    "lib/widgets/sori/catalog_card.dart": "31d0e946aa0dc5c075f7abe523e3d8f11f39c8d637e1d092f177c7014132ba35",
+    "lib/widgets/sori/celebration.dart": "d9f4136c90f73ac680c77356d31cf74b7a2960ac98b1e5a0c957b47f62482952",
+    "lib/widgets/sori/chaekgado/chaekgado_assets.dart": "25d9fffa8b2db0e4ed1fe92fbc7e24858eb363568d09175e9c91d639785e1da7",
+    "lib/widgets/sori/chaekgado/scroll_palette.dart": "a700aea34cf0c967009b35ee69d0c1c147ec22be00965e66686af367788b5e82",
+    "lib/widgets/sori/character_clip.dart": "3ef9ba91c5968c3027a052b9eb40fc8e1473d7184a50dacce6d25271612812fd",
+    "lib/widgets/sori/chip.dart": "f1742785aedb62c5f9ab2ac58c3144432b9a8a2fbe3121872895debd5661621e",
+    "lib/widgets/sori/chosung_hint.dart": "a64885c6e5ced16d5a52c2a31cfe7d5e1fe86c3ff215a9ac3872362239e76706",
+    "lib/widgets/sori/chrome_row.dart": "305a375e1f0bfcceb1099393252809aa356df5e23dc37fafb187ce37a95684a6",
+    "lib/widgets/sori/cloze_prompt.dart": "5e48c5af90f4a60573eeccd27983750c84509a9a004ae54ba4d6c1fb29691c94",
+    "lib/widgets/sori/collapsing_header.dart": "bb7d10d79818c4a64477b99c12b99c081abbab412e58de86d22c8d1b0e58dfe8",
+    "lib/widgets/sori/confirmed_choice_action.dart": "f33d5232728651b8e5663cce590114dc2a3514bc575b3e8980cfae149960eda6",
+    "lib/widgets/sori/consent_invite_sheet.dart": "d7d1984e0ee5823d44e6a80dff4ff3e4b0270a3afc178cbf8e314c926fc829cd",
+    "lib/widgets/sori/content_feed.dart": "d87aa2bf1612c8dd8af472becdccc994ef1a3870a5208c4547e1d28eb62eae45",
+    "lib/widgets/sori/content_feedback_card.dart": "3515c826c14e6daf1a072327e2c83b91c3066ef0b4e5bf3edc5bff30e5dd4ea0",
+    "lib/widgets/sori/content_feedback_sheet.dart": "aee5ad357be5046e83b2b41f96212c4eacb426c911bf438c737c795185a45684",
+    "lib/widgets/sori/content_share_recovery.dart": "ce211229fb2ee5a1affa534ca2a252d3d546f31e3057a4655dbf8848ec394eed",
+    "lib/widgets/sori/course_mission_brief.dart": "02436b5ece40f098f31d27c5cf02f81ef973c58ef4a3a3727c00800d630ecd4d",
+    "lib/widgets/sori/course_progress_evidence_note.dart": "acd2639b4f7e4fe93f42d5d214096e5e5899ee961e4f1319eab8ad61296eb810",
+    "lib/widgets/sori/cultural_help.dart": "45e5538ac9a17d09d149f034d79b85f80aff8a9e6a7ff8a2630548f89fcce5a8",
+    "lib/widgets/sori/culture_note_card.dart": "495a3f55e5f9f62754b831becfb81df9162d77fab7b95cd97cce9349a4e3bbb7",
+    "lib/widgets/sori/dancheong_burst.dart": "a4391869fc355ecb06a51756fed9f4d05722733f6831ca3dc2d87a0d7947cdb2",
+    "lib/widgets/sori/dancheong_stamp.dart": "4a497137d65740d2058113af687488929bd8653646a03b47fc40a266b22ed676",
+    "lib/widgets/sori/deck_action_bar.dart": "3408215592e9959d9deacaa2c5c8a3cb844d2fb7051a4d63d267b2af9f33cc46",
+    "lib/widgets/sori/deck_coach.dart": "8c606fdd380c7d67ec53ced89968889509ccc4e19fc8f13dceecf1c83f61e0fe",
+    "lib/widgets/sori/decoration_layer.dart": "98e9eff016c4e4244851225c5d5c85b8507fcf369e36a9c8117aa5b41bf375b9",
+    "lib/widgets/sori/diagnostics_route_observer.dart": "4553cd5307f06a85d279c22ea8abc5eefe85491f604bae94601591b166e6420f",
+    "lib/widgets/sori/dialog.dart": "cbee4d71a149544a24453d0dfae1e8068cf7c108767258dda373373f5bb19766",
+    "lib/widgets/sori/dure_board.dart": "b9b4273747f90f6c4f46b73dbcfa5f42dfe0c3d01cde4db35417de45a11367f1",
+    "lib/widgets/sori/dure_weekly_heading.dart": "8405f6ead18a828b84a302570bb41fa9ee9ccfea0494f4593c435f134aad110c",
+    "lib/widgets/sori/empty_state.dart": "20ab1e6b32b65d78790054a8186c9a7506015d3568a504f2255314319628e612",
+    "lib/widgets/sori/external_link.dart": "2548b3a9d0a0d1dfafc44205f498074c887a04e32aef1856b25c78cb54b54773",
+    "lib/widgets/sori/feature_coach.dart": "e5ccab3e83baa4795476a16d1335b1bea92a4694c86127e77e115748967a5729",
+    "lib/widgets/sori/free_room_layer.dart": "eb79b717d99c59c491c777cdea509176e4932ce0a21455280b064d8994bef37f",
+    "lib/widgets/sori/game_layout.dart": "00082791c79bd3cdf27a091b0e96bf1bfbc58444a929a9e38e66407e61ed3ba0",
+    "lib/widgets/sori/game_result_recovery.dart": "0b6899cc91a40a4c1fa93c9b08c73ebbf144de7ec339438c2b669ca70345175e",
+    "lib/widgets/sori/game_reward.dart": "458b095e5a052c4489cae374f35b3f890ee7f20b58184d1807a36efa2995b631",
+    "lib/widgets/sori/gye_dedication_action.dart": "d5a94c93ae1948987bc345132326183211268abc7a224e21d06d96a5311256ce",
+    "lib/widgets/sori/gye_dedication_layer.dart": "e374d89ace986e2e943b5b27b6e412dce26934ffe5e0c5626271b3344d017695",
+    "lib/widgets/sori/gye_dedication_picker.dart": "44ae8497c4189ee937618a19e040d598fac7ca7a85878de136febf92ded63747",
+    "lib/widgets/sori/gye_feed.dart": "7e0f39626dc58d0c170931c98ad101974822d8d2ad407f54b8f6a6a704d50875",
+    "lib/widgets/sori/gye_hanok.dart": "1d36f51d9ca160515d991d345da7a9bcdf71930d27165d12ea449eb29abb6ba8",
+    "lib/widgets/sori/gye_weekly_lanterns.dart": "f679646aa91c87b7ee76b613aa72b2da6c90a35ca280a794e133a8fb40a7b9a5",
+    "lib/widgets/sori/hanok/eaves_corner.dart": "1411df477ff5299bf2971bf3b637bd9bf2c655a6a829f5e612122485b9ebb3a5",
+    "lib/widgets/sori/hanok/gate_art.dart": "9494b8072b21ad876f4dfbbe9cd1bb7f7557b33e7e00dd93bbb27722c20678bf",
+    "lib/widgets/sori/hanok/giwa_pattern.dart": "a247790ce0d55af1387ce6164da9b2462a310a6bf0a5c194f84d3902c68336f8",
+    "lib/widgets/sori/hanok/hanji_texture.dart": "b3442731fe7b04206695ba5d1a0cfa14aa86465203380061261628791cb6c297",
+    "lib/widgets/sori/hanok_header.dart": "bdb8853477d6c776075cb19b3e809089e63ab68e0053c1c97dcf4738de36b68d",
+    "lib/widgets/sori/hanok_stage_names.dart": "cbcbe1f6ac9684a491412a165af6c1b7a87e6d220c2e53bce0d563e991d70ed4",
+    "lib/widgets/sori/hanok_tokens.dart": "dc8cded619d4f415968c57e631ac7e8d005a8187afeffea2761d4a9bfe67c597",
+    "lib/widgets/sori/hanok_turntable_2d.dart": "0a13937674184cac0d5fba41561f0aae8318ed8782c1aeed290961982f17c137",
+    "lib/widgets/sori/hanok_v3_preview.dart": "36777770a33d5ed61e2f7f47088b912e64d8200e1b6e9be9f989f650c18ab778",
+    "lib/widgets/sori/home_action.dart": "570fcdb6cc1cdd779a0696d0edebef3c89934135dc8cbb118549d7db08713360",
+    "lib/widgets/sori/home_hero.dart": "d8d8579ae2fbd6ace55fe937b45f81d4cfae10aef3fa19249c0b70dac854fb83",
+    "lib/widgets/sori/hub_progress_header.dart": "dadd036b4097910d2c9e5b52b0b48e40acf360c629fd1d42f03e7a9355178171",
+    "lib/widgets/sori/ildu_r16_estate_artwork.dart": "8012d7351c3dda8f100f3c7529931ed182f1fb3e0ffd2c6e5d463da8048898a0",
+    "lib/widgets/sori/ildu_r16_layer_artwork.dart": "6797b232d607daff856f8d4e8f16aa37bcd7ad500ffe5775bde22f0b3c71f4aa",
+    "lib/widgets/sori/ildu_r16_process_image.dart": "ea2066f435cec1002936b89a99e0b3e3656658eafb235fdd1252082df2a71eca",
+    "lib/widgets/sori/illustrated_card.dart": "f023e5ca0ffb3d57567b6e6952a30b5ddb15115a183ef65f9d20082d463fa8db",
+    "lib/widgets/sori/illustrated_card_grid.dart": "23364e332d53d1b15f9548611c2b3b06f77309e9cb7e73948afea56e50db42fb",
+    "lib/widgets/sori/image_navigation_bar.dart": "88815dfb7502a2f0426c9b0adf396b15bd64538b779a7997c7a94deae11860ef",
+    "lib/widgets/sori/intro_motion.dart": "f7b584b817702f257b4a1e361ee130d338ac4a0d456adef118dbf9598c0e577d",
+    "lib/widgets/sori/intro_tokens.dart": "d98c9c1c08568ba5e7e1c462d90240d462ca16d7eec3dd5846b4cd58e1e62265",
+    "lib/widgets/sori/ko_wrap.dart": "7a2643e9d4c7fcc9fd6032f5dd840eee4e944462f2e7850518ab65a8f476cef5",
+    "lib/widgets/sori/lazy_scroll_reveal.dart": "6489985ddddca723b27d0ab9e9c6a0dad9ccb5a092213817518dda8efcd90fe0",
+    "lib/widgets/sori/learning_companion.dart": "971feceda7bbd410616f38982bd184f4197fc39ec9b7a25e8281dd8ba3490c2f",
+    "lib/widgets/sori/learning_focus.dart": "92936c613daa7be7422be06482e8d8b6f4023d8636fa1459c8c046298d1c92a4",
+    "lib/widgets/sori/level_chip.dart": "e980ec76da2d9b7242950b7d08a16fe6e1566a20db52ae3a6dd4477d7a9e80af",
+    "lib/widgets/sori/level_filter_bar.dart": "d039cb022dd5fed589ec27b31f642a498e3c3c1c59795d3283c3c3b8281a5b5d",
+    "lib/widgets/sori/like_burst.dart": "287ee143b66a80d27fb1b266ff149f12b803db3723e4b2ea761c05924e1b81bb",
+    "lib/widgets/sori/localized_copy.dart": "0ca946a8bab671205f39d53f7848b3a3092098a1a3f91582da958f6fda2600a1",
+    "lib/widgets/sori/madang_background.dart": "20802f6f201f171c5d81b3ac6e19780bb2b1ee42e3ca152e848625f35cfe5e8a",
+    "lib/widgets/sori/mascot.dart": "7f736bfa62664b15b81d0e4543669231481a1865b0c9287e653156834baa6406",
+    "lib/widgets/sori/mascot_pop.dart": "dfeba5eba0e68a19f5f80c62ee233d73b91b6c2ef1786ab58b1461c0e8715b3c",
+    "lib/widgets/sori/mascot_preference.dart": "594637cbf9d90b816acd7ad72019363fc60684bf605c101cf78160d218e9c9b1",
+    "lib/widgets/sori/media_phrase_link.dart": "487f2563fc22ffaa90586b5876296f4767d6352aa16f79c5e1b70cea4d862397",
+    "lib/widgets/sori/milestone_celebration.dart": "c72c528a9e96a69866330bc5b21487c6f13a878fa564bb67661f2748f0b1ef0c",
+    "lib/widgets/sori/mission_context_bar.dart": "15d444099673f8e9f7e5c2345ded5a17704c8a85c08839505f1538447b009d6c",
+    "lib/widgets/sori/mission_hero_card.dart": "3fe277ecaaedbce9520149991a5be1007884fc87f605c191d4e08cfae2e5db65",
+    "lib/widgets/sori/module_card.dart": "688a13ac992c1b145a6679b63571143cf2a40a6401d2ac4c137153d5e06cf4b3",
+    "lib/widgets/sori/motion.dart": "e4a227d2c7f30ce9b4b3110d3c95deb5b1faa1d130be8fb7a6699729f3195ca3",
+    "lib/widgets/sori/motivation_sheet.dart": "5e8a0b833b88078d4346e6ae64c8dc1af31b4a31eca50e124c661b859a7a7ea4",
+    "lib/widgets/sori/pack_card.dart": "f960930ee093ad80ead7c5fed628ac46179532eeb600124b222960923f1be764",
+    "lib/widgets/sori/pack_completion_recovery_banner.dart": "ccbe77f68a408a62190931323d545e33ea453b2792daf656ead1074e8dce7648",
+    "lib/widgets/sori/page_header.dart": "b1a1ca03a0b72685b0accd2b03d944b1be93989a773bff08825f7da0046285ad",
+    "lib/widgets/sori/path_preview_row.dart": "497900836f9f612b83e89415794c13ba813c35a3ebca9e05c0fd2bff39290686",
+    "lib/widgets/sori/path_trail.dart": "cb76a2979f4b9bfb8fd29691b98127099d7775e867bc621008c5d15c7460d013",
+    "lib/widgets/sori/pending_reward_card.dart": "8b85284f0b93014eb126d5ccd53c5c54f863a1961d910a86331aa34788f09ac3",
+    "lib/widgets/sori/persona_card_motion.dart": "bea87536ce58a20fe9754245cbe06683b16934dcadd953af79df3998485fb77a",
+    "lib/widgets/sori/persona_portrait.dart": "78c333e373faa574d200b32afb86389a13a163d6e086a926e5dda4c92d2af817",
+    "lib/widgets/sori/persona_scene_intro.dart": "e188c5b4eeb288e96bcbea2ac643912721abcd4621c4778527afc16e5b012baf",
+    "lib/widgets/sori/personal_room_scene.dart": "a0f724666e0e642c9a206a3ca76bd1da21978305964b1f51fa8b474a6d7f8b34",
+    "lib/widgets/sori/placed_decoration.dart": "2f57229c7a151f88c2b2cd4dac1896a6bde1127ab8e12f7063cf3693ce402821",
+    "lib/widgets/sori/pressable.dart": "9c4af76801357cb8ab4d47461738ac97eb3cdc0022fad43357a1bf5a1df5b8c1",
+    "lib/widgets/sori/privacy_choice_feedback.dart": "b88b0bdf68e6adca94c5bead2a09e6ee9dae60025c315e030cdba149bbcf087e",
+    "lib/widgets/sori/progress.dart": "7e33d1b2f5b35cb1dfda5c94a69a314e6a7ebbb68601746a8911f09801787690",
+    "lib/widgets/sori/progress_meter.dart": "7c184ddeb10972d1a4a36b8e997443b8c4e3c22ed3c42f5eed8b474df0aa4d05",
+    "lib/widgets/sori/quiz_choice.dart": "e44bf14f1dd1e367899b8f806184eec9bcf14cbcd8e089944a1280a27c620b05",
+    "lib/widgets/sori/responsive.dart": "0ad325f85a58cf6aa34f58ef897c8cba27da28a41bbd4b4f31371de446d9979e",
+    "lib/widgets/sori/reward_icon.dart": "142aafcf57c91df931b8a91698ba4b5594d4d01315589afd81c0f2598d460a25",
+    "lib/widgets/sori/reward_thumb.dart": "554938ef4fc3252fb6b501cbbba6ce6ff7567fb1d71ddcb2d045f477e59e8c5e",
+    "lib/widgets/sori/room_layer.dart": "8bcd70f764a820223ec2d1155894ca3d905c7b466779532ed6455bbf2b1d5cd6",
+    "lib/widgets/sori/room_slot_picker.dart": "fb8ccd5144a2a2bf9834d4ed30ab145fec4d7e2b6abe75cf1e9862af1f110687",
+    "lib/widgets/sori/route_observer.dart": "1eb3742554e9540fea9f3e0f40b52896e1b0e977cc013b8cd516e2e02880bd35",
+    "lib/widgets/sori/scenario_write_after_roleplay_card.dart": "e1034fbc564b5ae6035ae6e35716e4a8749a949c0c217c8b736631a6a7655c2b",
+    "lib/widgets/sori/score_pop.dart": "765f1785e82e4393353cadb36c50e86e5836b1aad322597b6be8739178f6e8a0",
+    "lib/widgets/sori/screen_background.dart": "c954211009d8effbd9e8d9eafe8ac2f5583bb0b1ca7dbe55482fe27934ca89e7",
+    "lib/widgets/sori/screen_coach.dart": "20d433f0485f30bcdb55da22fb2e6250111f4608bd28a022f4873671af6cdaa5",
+    "lib/widgets/sori/scroll_if_needed.dart": "6f9412c1e748a5d29edb239c7c7f0858fe430cd35db8c8524e1579acd911a8c9",
+    "lib/widgets/sori/section_header.dart": "8c5743863bc8c9b2a675cb53f6ea452bc2b37262b5b4220a6910235e228f3522",
+    "lib/widgets/sori/settings_button.dart": "03f6681da643dfe9fd614bf094a26d97df0928faa4168db2d4cf9c24f3afdf7b",
+    "lib/widgets/sori/share_slip.dart": "d17c5f0244aa8a9674d917bad89014aa70ec87ff07e58fa193638af93be5dcad",
+    "lib/widgets/sori/sheet.dart": "6e5793cf924cacd31ab547386011a448578ce82fa68fa49401bfc2a19370669f",
+    "lib/widgets/sori/sori_icon.dart": "1bf6fbaa571a2c141fb1f476a77523cc7c14c6701cd0af04c42db43fe6f16283",
+    "lib/widgets/sori/sori_term.dart": "3ff241dd40bc330dd1a47aecd77518c3522e865e248fdcefa892d86b89bfebbb",
+    "lib/widgets/sori/speakable.dart": "98bcb15050a36bf43c18b3811fd3e9f0a5ac68dc802b24e8bf84006faa39992e",
+    "lib/widgets/sori/spotlight_coach.dart": "8b35428fc386af33527733b7cb5868fd93cc8ebcdd1914aa188204eabb5cb969",
+    "lib/widgets/sori/srs_recovery_banner.dart": "58a017e36478d9f34b4c0d06c7e9b086f28bca42ea7ee9979f5945aacf04efeb",
+    "lib/widgets/sori/standard_page.dart": "5572f37f918790af0cf53daea7151f81e5ad13ac3f74aa13c26482f8b145a639",
+    "lib/widgets/sori/stats_top_bar.dart": "a257e1f04bc0426e4a85ff8610d882a04236665845e5151178e9daf363907478",
+    "lib/widgets/sori/stepper.dart": "fe18cefd8a2e5ec76b9bb85d42d0c752894769bd07625c487e09995bf12868b4",
+    "lib/widgets/sori/sticker_image.dart": "2df8edac51170dc0dabf213cb8cca66e352cbec284f8fb684637d92d33685088",
+    "lib/widgets/sori/sticker_picker.dart": "ded93703a73814cf7cf2ff43c5609e02a6fc0579a3051dfdaba3b41e439a9d2c",
+    "lib/widgets/sori/study_action_bar.dart": "d2022ce5deed167a2ccfdda7ba8040009827bf87876cc1608716a1e70b6336b3",
+    "lib/widgets/sori/study_card_face.dart": "e62ef72e849f865c14248495bd8d0b37cb64c6ceec715459156c2803b9bf20b3",
+    "lib/widgets/sori/study_evidence_recovery.dart": "2ccb18b379b8aef648dcd3d92aa6bcd265f7b200bbc267509fba8db019ae8657",
+    "lib/widgets/sori/study_frame.dart": "f3c3e0119f25accd4c586b8ce7d1a65873c79d48ea3950de692d2992273497bb",
+    "lib/widgets/sori/study_library_button.dart": "421268dd4515fd0c419d60583550795c9328e9839a31586b236f0a7c85199dd1",
+    "lib/widgets/sori/swipe_card.dart": "b6d2714a473b2132675aab56e6726f116bd8817d8c623e92ca9aac149b63bf8c",
+    "lib/widgets/sori/swipe_rails.dart": "263e3f8f0222e43843cd559032825e7f074d465158371b92c172511d51f4a3b9",
+    "lib/widgets/sori/tab_reselect.dart": "298bcb0fc46bb7bf8657adf8acb91645707787b4af7468987ca05c53cd884a20",
+    "lib/widgets/sori/text_field.dart": "c0cb49b0faaa3fd10b30af3045c60e198cbe449b50a859751062ecf21792ae4e",
+    "lib/widgets/sori/tiger_video.dart": "921e21a8aadf158d914a7e4800d7e22539f96b930fd6ee4052318e74e09d8177",
+    "lib/widgets/sori/toast.dart": "a79e3fa69cd7265e4bbcc868fbac5fc5060126104c2b044e9930f5cf84304371",
+    "lib/widgets/sori/tokens.dart": "1015132442fd977b86708c38cf08eece99cfffd4808239d06fccdd3e3636177e",
+    "lib/widgets/sori/top_chrome.dart": "98bfb9fe8fad6f1b84ed659fc4658725899540aba587c25fa3e75f2408036343",
+    "lib/widgets/sori/tts_speed_control.dart": "b86b2cc2dd8dc140ff7baabb227cbe52e21e87e2c0d2e3b7fe12ba513230a0cb",
+    "lib/widgets/sori/tts_unavailable_banner.dart": "fbd6fdc6a9b8c9998bc6bab5438566b1aea264623b4736559da6bca17fda3068",
+    "lib/widgets/sori/type_scale.dart": "6424c5f4c726036f72210c4030f74c673ec9a04aa40de9330ca5aa724b19d1d7",
+    "lib/widgets/sori/updating_scene.dart": "2e93230d4d4b6737e988a652650c93295f3e5ed3f3395cd08e379d2e63ca514a",
+    "lib/widgets/sori/video_lease.dart": "494862f4e5afb40b7b4ee4a7eeced11477d867cf47497fff10eb5654fa1476a5",
+    "lib/widgets/sori/week_progress.dart": "3e272b7f6ccef305dbbbcc5722425754e178ff143ded1bc45314396495775a3f",
+    "lib/widgets/sori/week_sheet.dart": "1fd63199e9138f7930072d3fb20ab52eb545060624d9d74862099e985bdc388c",
+    "lib/widgets/sori/window_class.dart": "af49bb179bbea32a9d6b583bef815ce4304c87673b4dc8567a773601e50839fa",
+    "lib/widgets/sori/wordbook_add.dart": "76cb5ff1e4ba4bb86dc6b7b1a22cbc74c5c74435f0b9e7c6e6a18784a05bb28c",
+    "lib/widgets/sori/yeopjeon_wallet_card.dart": "fc091492cf974ee33db0069a0737950f92df7209248e84e89961cb716ea27288",
+    "lib/widgets/stroke_canvas.dart": "f6d1810f6c93cbdc89147cf73120ec2bfacd6f0b801c1b9f700c330d013ae3d8",
+    "lib/widgets/trace_canvas.dart": "9599cd08d708a384e404c927cab5d53bab456cd7f1ceff0895925fe266a580b9",
+    "test/sori_stage_visual_evidence_test.dart": "635bd1770fe9b18d3562bea2e607da9f42297c1cd781fe6ef3cc3c40758761a1",
+    "test/support/sori_stage_capture_assets.dart": "0ea4e33936a54ad8b54ae26a5513bad1546b28354cea7e35144a56d4cd98ddfd",
+    "pubspec.yaml": "f5f8fac54455bc144c2988c79a8330ca1139199c794a5f8a76b130cd11704544",
+    "assets/data/ildu_r16_art_v1.json": "f0dfbb6fd210e32fe4b5771f58c2dbeebfb3d0e27aa5c85158cc531f98152859",
+    "assets/data/ildu_r16_sarang_layers_v1.json": "9461915fb5bc6c09db500e2ad7a6fb2fdc0f033c60bc00d0d502cb84f9bc554c",
+    "assets/data/sarangchae_construction_v3.json": "c0cd9a453fb3e7cbb787d67e3bf5cda53dd35bb606ee5cef78f45af8485bb65e",
+    "assets/data/curriculum_manifest.json": "2222d49c02dce92dc092be06c958dd6b2b535d13fb0c0d7184ec91037018541b",
+    "assets/icons/navigation/games.png": "11c9d9004f23cb9a4c63eb53fe546b3c745e7b5c10047996b94b724f9eabe5b1",
+    "assets/icons/navigation/gye.png": "42c2618b59241ff79f5413471b7b4f2bd61ce6d8c18b6acbdee9fff4f51a19b5",
+    "assets/icons/navigation/hanok.png": "4c42fda8e624093c8ba39699492bbc5bf27efc1f3a04d9669b1d7d8720df61bf",
+    "assets/icons/navigation/learn.png": "c4db0fd39d3b16c79db99ce75b1fccbea1eaf9acda64c52ed40bb6c4c8fc0b42",
+    "assets/icons/navigation/today.png": "a8ef18b79cc93d75600f2fccb35d8830c2277e9d42151176c0e22d34eb6bf22a",
+    "assets/illustrations/concept_c/c5_scenes/book-scene.png": "32e9ab63def5b6518976bc4ae0ae8589865d26d4aef7827c1b41269b0cef6274",
+    "assets/illustrations/concept_c/c5_scenes/bronze-speaker.png": "1c69510813a6a13c6c1de4c243be7ae13c877798dabff11941466e12b0d895d2",
+    "assets/illustrations/concept_c/c5_scenes/gold-action.png": "9e004889eb9db48d7e021985a54f5a5b602df302866c27ad2e1214f372c0d008",
+    "assets/illustrations/concept_c/c5_scenes/hangul-tiles.png": "d861f156a0eab95d7a42e401b6db368a1a3f348d1e01376ea74177d56ef40816",
+    "assets/illustrations/concept_c/c5_scenes/review-cards.png": "dbeb5d77f612fdae79d91a2e190d13d1380a38285b319935bf368df648b3c383",
+    "assets/illustrations/concept_c/c5_scenes/syllable-scene.png": "96f6009e545f43a3ee3770f40cdd871adec890c35ad9b05df628ea6c32076037"
+  },
+  "r16_runtime_layers": {
+    "assets/illustrations/ildu_r16_layers/8dc5b45405e82d65ffc88fe755d16079deb42d5adc02ae35d1c2fb9c216d147b.png": {
+      "sha256": "8dc5b45405e82d65ffc88fe755d16079deb42d5adc02ae35d1c2fb9c216d147b",
+      "bytes": 462605
+    },
+    "assets/illustrations/ildu_r16_layers/75bb8d389bf9d377c198435c6e8984c5a6f23bee3931839b8317addb5b52fa4a.webp": {
+      "sha256": "75bb8d389bf9d377c198435c6e8984c5a6f23bee3931839b8317addb5b52fa4a",
+      "bytes": 1098
+    },
+    "assets/illustrations/ildu_r16_layers/f7a3bcedf472109c33504b56e4eebb37108b634bde0d0317fff5ceee77bf6a12.png": {
+      "sha256": "f7a3bcedf472109c33504b56e4eebb37108b634bde0d0317fff5ceee77bf6a12",
+      "bytes": 1138434
+    },
+    "assets/illustrations/ildu_r16_layers/af6131c47e31c6f8a55b364e7df90258dc90375560f5377c6d78075ccf69ef17.webp": {
+      "sha256": "af6131c47e31c6f8a55b364e7df90258dc90375560f5377c6d78075ccf69ef17",
+      "bytes": 297308
+    },
+    "assets/illustrations/ildu_r16_layers/62376b33e9ce1cdfa59323460aa755820ed15c561c58a8c47ed88035927626ab.png": {
+      "sha256": "62376b33e9ce1cdfa59323460aa755820ed15c561c58a8c47ed88035927626ab",
+      "bytes": 1160836
+    },
+    "assets/illustrations/ildu_r16_layers/2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607.webp": {
+      "sha256": "2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607",
+      "bytes": 300736
+    },
+    "assets/illustrations/ildu_r16_layers/840225967e9911537f79e9f1e9275e23abf7b5fc554e3ae30f99e05d7fb765e3.png": {
+      "sha256": "840225967e9911537f79e9f1e9275e23abf7b5fc554e3ae30f99e05d7fb765e3",
+      "bytes": 1160836
+    },
+    "assets/illustrations/ildu_r16_layers/bfdf7418975f907c3ff1686d4ab051ae9f5e978420228685698ba20647a474b1.png": {
+      "sha256": "bfdf7418975f907c3ff1686d4ab051ae9f5e978420228685698ba20647a474b1",
+      "bytes": 1384675
+    },
+    "assets/illustrations/ildu_r16_layers/f8fb31432ef30f35622154f9f9a5cf31caf88e457ae68fbe39cf1196f33900f0.webp": {
+      "sha256": "f8fb31432ef30f35622154f9f9a5cf31caf88e457ae68fbe39cf1196f33900f0",
+      "bytes": 466240
+    },
+    "assets/illustrations/ildu_r16_layers/21da05dede8f88538e6d14a8db1eeaa24e478adb6ca97e9053af093187ad1148.png": {
+      "sha256": "21da05dede8f88538e6d14a8db1eeaa24e478adb6ca97e9053af093187ad1148",
+      "bytes": 1710677
+    },
+    "assets/illustrations/ildu_r16_layers/2eb151473608a5fdab232bdc4e62674fbe1cb247a6ba0e2c80b8674954c8a278.webp": {
+      "sha256": "2eb151473608a5fdab232bdc4e62674fbe1cb247a6ba0e2c80b8674954c8a278",
+      "bytes": 611528
+    },
+    "assets/illustrations/ildu_r16_layers/9051a7f1c277f5b017edc5a57d99a2629cecf76ba34a37d207a79eb3ea3f0271.png": {
+      "sha256": "9051a7f1c277f5b017edc5a57d99a2629cecf76ba34a37d207a79eb3ea3f0271",
+      "bytes": 1749655
+    },
+    "assets/illustrations/ildu_r16_layers/fbd0d881f9353bebc4db172bc3c5685515923d4ee6a3a12699035388bef621cc.webp": {
+      "sha256": "fbd0d881f9353bebc4db172bc3c5685515923d4ee6a3a12699035388bef621cc",
+      "bytes": 614478
+    },
+    "assets/illustrations/ildu_r16_layers/7a710b233c9786647b9ec8d1b34c2113b5bbfc9cba3cbf31b298088f02d9b4d0.png": {
+      "sha256": "7a710b233c9786647b9ec8d1b34c2113b5bbfc9cba3cbf31b298088f02d9b4d0",
+      "bytes": 2002718
+    },
+    "assets/illustrations/ildu_r16_layers/f395d3dfef32907bd9538122b9cf68d3fefa35aee66f3db8f4b2d6047d605acf.webp": {
+      "sha256": "f395d3dfef32907bd9538122b9cf68d3fefa35aee66f3db8f4b2d6047d605acf",
+      "bytes": 633568
+    },
+    "assets/illustrations/ildu_r16_layers/02c949261de229fb82f3a14a53bf234583757bcbc44175e009f29e53be583a25.png": {
+      "sha256": "02c949261de229fb82f3a14a53bf234583757bcbc44175e009f29e53be583a25",
+      "bytes": 1947927
+    },
+    "assets/illustrations/ildu_r16_layers/a18d38c8100e575b1dc794226e4ce22ea2c9af90f0f41244d723ab6ed58b4eb8.webp": {
+      "sha256": "a18d38c8100e575b1dc794226e4ce22ea2c9af90f0f41244d723ab6ed58b4eb8",
+      "bytes": 505754
+    },
+    "assets/illustrations/ildu_r16_layers/f349146bab2da2887a6ae6d94297668d2df142335bc3876c0f80e2a110f2177f.png": {
+      "sha256": "f349146bab2da2887a6ae6d94297668d2df142335bc3876c0f80e2a110f2177f",
+      "bytes": 1947870
+    },
+    "assets/illustrations/ildu_r16_layers/6e953047edc5609623359349d13d8bf8fa8db5f944e2a24367a89848b765eb4b.webp": {
+      "sha256": "6e953047edc5609623359349d13d8bf8fa8db5f944e2a24367a89848b765eb4b",
+      "bytes": 505786
+    },
+    "assets/illustrations/ildu_r16_layers/56d4df2634c5c0f6e1b459b25f0984be99598cdac5a5c994e36a95835256cc32.png": {
+      "sha256": "56d4df2634c5c0f6e1b459b25f0984be99598cdac5a5c994e36a95835256cc32",
+      "bytes": 2146743
+    },
+    "assets/illustrations/ildu_r16_layers/a2467fb72e89865445f3387c741d3724279368b2fe5452dd375592786dfaca9d.webp": {
+      "sha256": "a2467fb72e89865445f3387c741d3724279368b2fe5452dd375592786dfaca9d",
+      "bytes": 528002
+    },
+    "assets/illustrations/ildu_r16_layers/a9391f799e2815338300e7317aacff28e3c2506b6377a3f8f0877c296a0252d2.png": {
+      "sha256": "a9391f799e2815338300e7317aacff28e3c2506b6377a3f8f0877c296a0252d2",
+      "bytes": 2158712
+    },
+    "assets/illustrations/ildu_r16_layers/43ea508d510296d7ea6f37be3b1ec1a1950dd17d1feba5f446a15c139060aa04.webp": {
+      "sha256": "43ea508d510296d7ea6f37be3b1ec1a1950dd17d1feba5f446a15c139060aa04",
+      "bytes": 514648
+    },
+    "assets/illustrations/ildu_r16_layers/f680ff2f191431fe1f6ecd542761a734945bc9032e6dba9f09e821064d50a2a3.png": {
+      "sha256": "f680ff2f191431fe1f6ecd542761a734945bc9032e6dba9f09e821064d50a2a3",
+      "bytes": 2167800
+    },
+    "assets/illustrations/ildu_r16_layers/4606c369b5708765a60cd05638950bb8541b7248ec6f879119c89d0729e53b73.webp": {
+      "sha256": "4606c369b5708765a60cd05638950bb8541b7248ec6f879119c89d0729e53b73",
+      "bytes": 512856
+    },
+    "assets/illustrations/ildu_r16_layers/01b432d7420aad48da38e1222f269d916ab54c1b2484e3899676b2784d825db1.png": {
+      "sha256": "01b432d7420aad48da38e1222f269d916ab54c1b2484e3899676b2784d825db1",
+      "bytes": 2197164
+    },
+    "assets/illustrations/ildu_r16_layers/7d291b54cf2be4f02798b89800cc229c818cec5fe06d0cf839e812c5862133a6.webp": {
+      "sha256": "7d291b54cf2be4f02798b89800cc229c818cec5fe06d0cf839e812c5862133a6",
+      "bytes": 522574
+    },
+    "assets/illustrations/ildu_r16_layers/bac6d3b46fb01b2eb521c9fb9bfbcb0431e84ecc64d200e7697d84e0d0becaea.png": {
+      "sha256": "bac6d3b46fb01b2eb521c9fb9bfbcb0431e84ecc64d200e7697d84e0d0becaea",
+      "bytes": 2215213
+    },
+    "assets/illustrations/ildu_r16_layers/be78c771be2b39c6359b1e208920629e56a6560e83485c8c26027dde8ad6d39d.webp": {
+      "sha256": "be78c771be2b39c6359b1e208920629e56a6560e83485c8c26027dde8ad6d39d",
+      "bytes": 555026
+    },
+    "assets/illustrations/ildu_r16_layers/1fbc7e9cb972395493d6d1c62b195ecef2042eb84196e0d5b32361dab2afcacf.png": {
+      "sha256": "1fbc7e9cb972395493d6d1c62b195ecef2042eb84196e0d5b32361dab2afcacf",
+      "bytes": 2219814
+    },
+    "assets/illustrations/ildu_r16_layers/0da7f78eb52ffef358b309a2da966bc3a461669a552ceb3dfab3b92f55ce2056.webp": {
+      "sha256": "0da7f78eb52ffef358b309a2da966bc3a461669a552ceb3dfab3b92f55ce2056",
+      "bytes": 555554
+    }
+  },
+  "r16_layer_provenance": {
+    "catalog_sha256": "9461915fb5bc6c09db500e2ad7a6fb2fdc0f033c60bc00d0d502cb84f9bc554c",
+    "source_catalog_sha256": "f0dfbb6fd210e32fe4b5771f58c2dbeebfb3d0e27aa5c85158cc531f98152859",
+    "canonical_promotion_sha256": "384b07d14464a86dc02bc274d6a50336f356ad7b4b7ecc7027e8825021480865",
+    "operation": "multiply-then-foreground-source-over",
+    "progress_or_ownership_migration": false
+  },
+  "captures": [
+    {
+      "file": "sori-shell-games-390-de-bundled-first-course.png",
+      "captured_at_utc": "2026-10-31T00:07:08.299360Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "de",
+      "tab": "games",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": null,
+      "header_actions": {},
+      "native_context": null,
+      "disable_animations": true,
+      "fixture": "bundled-first-course",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "Erste Begrüßung und Nachfragen",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 0,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [],
+      "primary_action": {
+        "key": "c5-game-start",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 13.0,
+          "top": 411.0,
+          "width": 364.0,
+          "height": 54.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "0f78120d3f11a07f4a77677199de162c227ae2bb30cde57c07c01991c03ca950"
+    },
+    {
+      "file": "sori-shell-games-390-en-bundled-first-course.png",
+      "captured_at_utc": "2026-10-31T00:07:15.534632Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "en",
+      "tab": "games",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": null,
+      "header_actions": {},
+      "native_context": null,
+      "disable_animations": true,
+      "fixture": "bundled-first-course",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "First greetings and asking again",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 0,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [],
+      "primary_action": {
+        "key": "c5-game-start",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 13.0,
+          "top": 375.0,
+          "width": 364.0,
+          "height": 54.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "9bb855aafc11bd9d0b00ade39c977017ffc2a9a65f8341e75cfc6a8370650d8b"
+    },
+    {
+      "file": "sori-shell-gye-390-de-bundled-first-course.png",
+      "captured_at_utc": "2026-10-31T00:07:09.982428Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "de",
+      "tab": "gye",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": null,
+      "header_actions": {},
+      "native_context": null,
+      "disable_animations": true,
+      "fixture": "bundled-first-course",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "Erste Begrüßung und Nachfragen",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 0,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [],
+      "primary_action": {
+        "key": "gye-empty-start",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 457.66666666666663,
+          "width": 340.0,
+          "height": 54.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "1fdaf0e5ed2ca08987014bbc57c2b6ce96f0367e8e83bdc6ab86ef472ef69d14"
+    },
+    {
+      "file": "sori-shell-gye-390-en-bundled-first-course.png",
+      "captured_at_utc": "2026-10-31T00:07:16.662223Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "en",
+      "tab": "gye",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": null,
+      "header_actions": {},
+      "native_context": null,
+      "disable_animations": true,
+      "fixture": "bundled-first-course",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "First greetings and asking again",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 0,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [],
+      "primary_action": {
+        "key": "gye-empty-start",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 457.66666666666663,
+          "width": 340.0,
+          "height": 54.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "06d0725ccf27fe6ecd3ee16c9ba2f035d590fd9bf5c71d5063d0b4787cac6fc2"
+    },
+    {
+      "file": "sori-shell-hanok-390-de-bundled-first-course.png",
+      "captured_at_utc": "2026-10-31T00:07:09.329531Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "de",
+      "tab": "hanok",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": null,
+      "header_actions": {},
+      "native_context": null,
+      "disable_animations": true,
+      "fixture": "bundled-first-course",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "Erste Begrüßung und Nachfragen",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 0,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [],
+      "primary_action": {
+        "key": "hanok-construction-entry",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 339.0,
+          "width": 340.0,
+          "height": 48.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "f2a8c10fd309224174a151fa1fc32053361dda31070178aaa94d9c14d1cd8f85"
+    },
+    {
+      "file": "sori-shell-hanok-390-de-saved-owned-1.png",
+      "captured_at_utc": "2026-10-31T00:07:11.321181Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "de",
+      "tab": "hanok",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": null,
+      "header_actions": {},
+      "native_context": null,
+      "disable_animations": true,
+      "fixture": "saved-owned-1",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "Erste Begrüßung und Nachfragen",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 1,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [],
+      "primary_action": {
+        "key": "hanok-construction-entry",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 339.0,
+          "width": 340.0,
+          "height": 48.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "f0f40d8d61d117891ba4327c525a99f2beac7a6ad70255c52afe3375abde6d29"
+    },
+    {
+      "file": "sori-shell-hanok-390-de-saved-owned-16.png",
+      "captured_at_utc": "2026-10-31T00:07:13.750180Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "de",
+      "tab": "hanok",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": null,
+      "header_actions": {},
+      "native_context": null,
+      "disable_animations": true,
+      "fixture": "saved-owned-16",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "Erste Begrüßung und Nachfragen",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 16,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [
+        {
+          "process_id": "ildu.sarangchae-complete",
+          "foreground_decoded": [
+            1800,
+            1200
+          ],
+          "shadow_decoded": [
+            1800,
+            1200
+          ],
+          "opacity": 1.0
+        }
+      ],
+      "primary_action": {
+        "key": "hanok-construction-entry",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 521.5,
+          "width": 340.0,
+          "height": 48.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "1065caffad3a4525d76fae1be5862fc6950622dfdb0e60b9539d925c865acf57"
+    },
+    {
+      "file": "sori-shell-hanok-390-de-saved-owned-8.png",
+      "captured_at_utc": "2026-10-31T00:07:12.360816Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "de",
+      "tab": "hanok",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": null,
+      "header_actions": {},
+      "native_context": null,
+      "disable_animations": true,
+      "fixture": "saved-owned-8",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "Erste Begrüßung und Nachfragen",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 8,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [
+        {
+          "process_id": "ildu.sarangchae-rafters",
+          "foreground_decoded": [
+            1800,
+            1200
+          ],
+          "shadow_decoded": [
+            1800,
+            1200
+          ],
+          "opacity": 1.0
+        }
+      ],
+      "primary_action": {
+        "key": "hanok-construction-entry",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 521.5,
+          "width": 340.0,
+          "height": 48.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "466b886c1afde430b8b6ae9269e533bc7e71b6a69b46206e03afe910e3753b34"
+    },
+    {
+      "file": "sori-shell-hanok-390-en-bundled-first-course.png",
+      "captured_at_utc": "2026-10-31T00:07:16.252382Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "en",
+      "tab": "hanok",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": null,
+      "header_actions": {},
+      "native_context": null,
+      "disable_animations": true,
+      "fixture": "bundled-first-course",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "First greetings and asking again",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 0,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [],
+      "primary_action": {
+        "key": "hanok-construction-entry",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 339.0,
+          "width": 340.0,
+          "height": 48.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "7ac9fac42419b2611bd2923c991bd53782f5d352fdf38b6a23c9c21f668820c3"
+    },
+    {
+      "file": "sori-shell-hanok-390-en-saved-owned-1.png",
+      "captured_at_utc": "2026-10-31T00:07:17.671619Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "en",
+      "tab": "hanok",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": null,
+      "header_actions": {},
+      "native_context": null,
+      "disable_animations": true,
+      "fixture": "saved-owned-1",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "First greetings and asking again",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 1,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [],
+      "primary_action": {
+        "key": "hanok-construction-entry",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 339.0,
+          "width": 340.0,
+          "height": 48.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "f37cab7b7a799e96fd5b7ff18179f1b62425ef6d3e73d74d20b1091de1e64bb7"
+    },
+    {
+      "file": "sori-shell-hanok-390-en-saved-owned-16.png",
+      "captured_at_utc": "2026-10-31T00:07:19.503648Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "en",
+      "tab": "hanok",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": null,
+      "header_actions": {},
+      "native_context": null,
+      "disable_animations": true,
+      "fixture": "saved-owned-16",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "First greetings and asking again",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 16,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [
+        {
+          "process_id": "ildu.sarangchae-complete",
+          "foreground_decoded": [
+            1800,
+            1200
+          ],
+          "shadow_decoded": [
+            1800,
+            1200
+          ],
+          "opacity": 1.0
+        }
+      ],
+      "primary_action": {
+        "key": "hanok-construction-entry",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 521.5,
+          "width": 340.0,
+          "height": 48.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "3894922319cfce4b603c06743534e42f19918efc8ecde83b4da2bc7137823e02"
+    },
+    {
+      "file": "sori-shell-hanok-390-en-saved-owned-8.png",
+      "captured_at_utc": "2026-10-31T00:07:18.406057Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "en",
+      "tab": "hanok",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": null,
+      "header_actions": {},
+      "native_context": null,
+      "disable_animations": true,
+      "fixture": "saved-owned-8",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "First greetings and asking again",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 8,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [
+        {
+          "process_id": "ildu.sarangchae-rafters",
+          "foreground_decoded": [
+            1800,
+            1200
+          ],
+          "shadow_decoded": [
+            1800,
+            1200
+          ],
+          "opacity": 1.0
+        }
+      ],
+      "primary_action": {
+        "key": "hanok-construction-entry",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 521.5,
+          "width": 340.0,
+          "height": 48.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "90b1006504103009a97d47a306403fc66e2f38490556e83b1db0367d231eb052"
+    },
+    {
+      "file": "sori-shell-learn-390-de-bundled-first-course.png",
+      "captured_at_utc": "2026-10-31T00:07:07.477309Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "de",
+      "tab": "learn",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": null,
+      "header_actions": {},
+      "native_context": null,
+      "disable_animations": true,
+      "fixture": "bundled-first-course",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "Erste Begrüßung und Nachfragen",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 0,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [],
+      "primary_action": {
+        "key": "c5-course-start",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 13.0,
+          "top": 643.0,
+          "width": 364.0,
+          "height": 54.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "37bb201ede8c736f58b1422cd9f14267b8fa17f94cb1f723ea1f6d660886b46e"
+    },
+    {
+      "file": "sori-shell-learn-390-en-bundled-first-course.png",
+      "captured_at_utc": "2026-10-31T00:07:15.020435Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "en",
+      "tab": "learn",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": null,
+      "header_actions": {},
+      "native_context": null,
+      "disable_animations": true,
+      "fixture": "bundled-first-course",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "First greetings and asking again",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 0,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [],
+      "primary_action": {
+        "key": "c5-course-start",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 13.0,
+          "top": 643.0,
+          "width": 364.0,
+          "height": 54.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "d3eab060810c5aecf0153b5f734595e09950e4d5b273fb3a610018fe921feef3"
+    },
+    {
+      "file": "sori-shell-today-390-de-bundled-first-course.png",
+      "captured_at_utc": "2026-10-31T00:07:06.532175Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "de",
+      "tab": "today",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": "Guten Morgen!",
+      "header_actions": {
+        "week": {
+          "left": 52.0,
+          "top": 36.0,
+          "width": 55.0,
+          "height": 48.0
+        },
+        "stats": {
+          "left": 111.0,
+          "top": 36.0,
+          "width": 54.0,
+          "height": 48.0
+        },
+        "wallet": {
+          "left": 169.0,
+          "top": 36.0,
+          "width": 64.0,
+          "height": 48.0
+        },
+        "profile": {
+          "left": 237.0,
+          "top": 36.0,
+          "width": 80.0,
+          "height": 48.0
+        },
+        "settings": {
+          "left": 330.0,
+          "top": 36.0,
+          "width": 48.0,
+          "height": 48.0
+        }
+      },
+      "native_context": "Ich kann eine neue Person begrüßen und eine kurze Frage klären.",
+      "disable_animations": true,
+      "fixture": "bundled-first-course",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "Erste Begrüßung und Nachfragen",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 0,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [],
+      "primary_action": {
+        "key": "learning-focus-start",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 454.0,
+          "width": 340.0,
+          "height": 54.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "b614ec451a073668266c29cf2a67b215f49813a782abe8766dc7301cd5fa91eb"
+    },
+    {
+      "file": "sori-shell-today-390-de-due-review-12.png",
+      "captured_at_utc": "2026-10-31T00:07:10.500643Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "de",
+      "tab": "today",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": "Guten Morgen!",
+      "header_actions": {
+        "week": {
+          "left": 52.0,
+          "top": 36.0,
+          "width": 55.0,
+          "height": 48.0
+        },
+        "stats": {
+          "left": 111.0,
+          "top": 36.0,
+          "width": 54.0,
+          "height": 48.0
+        },
+        "wallet": {
+          "left": 169.0,
+          "top": 36.0,
+          "width": 64.0,
+          "height": 48.0
+        },
+        "profile": {
+          "left": 237.0,
+          "top": 36.0,
+          "width": 80.0,
+          "height": 48.0
+        },
+        "settings": {
+          "left": 330.0,
+          "top": 36.0,
+          "width": 48.0,
+          "height": 48.0
+        }
+      },
+      "native_context": "12 Wörter fällig",
+      "disable_animations": true,
+      "fixture": "due-review-12",
+      "course_unit_id": null,
+      "course_title": null,
+      "destination_route": "/review",
+      "due_count": 12,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 0,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [],
+      "primary_action": {
+        "key": "learning-focus-start",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 445.0,
+          "width": 340.0,
+          "height": 54.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "9a81e28e6269e91d7c5003484bbfb4255a343f0f79f1f19b3d5b1597098805fc"
+    },
+    {
+      "file": "sori-shell-today-390-de-saved-owned-16-summary.png",
+      "captured_at_utc": "2026-10-31T00:07:14.159903Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "de",
+      "tab": "today",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": "Guten Morgen!",
+      "header_actions": {
+        "week": {
+          "left": 52.0,
+          "top": 36.0,
+          "width": 55.0,
+          "height": 48.0
+        },
+        "stats": {
+          "left": 111.0,
+          "top": 36.0,
+          "width": 54.0,
+          "height": 48.0
+        },
+        "wallet": {
+          "left": 169.0,
+          "top": 36.0,
+          "width": 64.0,
+          "height": 48.0
+        },
+        "profile": {
+          "left": 237.0,
+          "top": 36.0,
+          "width": 80.0,
+          "height": 48.0
+        },
+        "settings": {
+          "left": 330.0,
+          "top": 36.0,
+          "width": 48.0,
+          "height": 48.0
+        }
+      },
+      "native_context": "Ich kann eine neue Person begrüßen und eine kurze Frage klären.",
+      "disable_animations": true,
+      "fixture": "saved-owned-16-summary",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "Erste Begrüßung und Nachfragen",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 16,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "scrolled to actual owned Today summary",
+      "r16_decoded_layers": [
+        {
+          "process_id": "ildu.sarangchae-complete",
+          "foreground_decoded": [
+            1800,
+            1200
+          ],
+          "shadow_decoded": [
+            1800,
+            1200
+          ],
+          "opacity": 1.0
+        }
+      ],
+      "summary_action_rect": {
+        "left": 25.0,
+        "top": 400.0,
+        "width": 340.0,
+        "height": 149.0
+      },
+      "primary_action": {
+        "key": "learning-focus-start",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 454.0,
+          "width": 340.0,
+          "height": 54.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "729b4c295d7e9f084f44f988dcecf8804f74796df3812a68852de92c908c3941"
+    },
+    {
+      "file": "sori-shell-today-390-de-saved-owned-8-summary.png",
+      "captured_at_utc": "2026-10-31T00:07:12.833841Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "de",
+      "tab": "today",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": "Guten Morgen!",
+      "header_actions": {
+        "week": {
+          "left": 52.0,
+          "top": 36.0,
+          "width": 55.0,
+          "height": 48.0
+        },
+        "stats": {
+          "left": 111.0,
+          "top": 36.0,
+          "width": 54.0,
+          "height": 48.0
+        },
+        "wallet": {
+          "left": 169.0,
+          "top": 36.0,
+          "width": 64.0,
+          "height": 48.0
+        },
+        "profile": {
+          "left": 237.0,
+          "top": 36.0,
+          "width": 80.0,
+          "height": 48.0
+        },
+        "settings": {
+          "left": 330.0,
+          "top": 36.0,
+          "width": 48.0,
+          "height": 48.0
+        }
+      },
+      "native_context": "Ich kann eine neue Person begrüßen und eine kurze Frage klären.",
+      "disable_animations": true,
+      "fixture": "saved-owned-8-summary",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "Erste Begrüßung und Nachfragen",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 8,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "scrolled to actual owned Today summary",
+      "r16_decoded_layers": [
+        {
+          "process_id": "ildu.sarangchae-rafters",
+          "foreground_decoded": [
+            1800,
+            1200
+          ],
+          "shadow_decoded": [
+            1800,
+            1200
+          ],
+          "opacity": 1.0
+        }
+      ],
+      "summary_action_rect": {
+        "left": 25.0,
+        "top": 400.0,
+        "width": 340.0,
+        "height": 149.0
+      },
+      "primary_action": {
+        "key": "learning-focus-start",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 454.0,
+          "width": 340.0,
+          "height": 54.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "e97cdf38e77a0430641233eca24d538005cf8863b9eef3bc2e2e15da90048b25"
+    },
+    {
+      "file": "sori-shell-today-390-en-bundled-first-course.png",
+      "captured_at_utc": "2026-10-31T00:07:14.555648Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "en",
+      "tab": "today",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": "Good morning!",
+      "header_actions": {
+        "week": {
+          "left": 52.0,
+          "top": 36.0,
+          "width": 60.0,
+          "height": 48.0
+        },
+        "stats": {
+          "left": 116.0,
+          "top": 36.0,
+          "width": 54.0,
+          "height": 48.0
+        },
+        "wallet": {
+          "left": 174.0,
+          "top": 36.0,
+          "width": 64.0,
+          "height": 48.0
+        },
+        "profile": {
+          "left": 242.0,
+          "top": 36.0,
+          "width": 80.0,
+          "height": 48.0
+        },
+        "settings": {
+          "left": 330.0,
+          "top": 36.0,
+          "width": 48.0,
+          "height": 48.0
+        }
+      },
+      "native_context": "I can greet someone new and clarify a short question.",
+      "disable_animations": true,
+      "fixture": "bundled-first-course",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "First greetings and asking again",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 0,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [],
+      "primary_action": {
+        "key": "learning-focus-start",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 454.0,
+          "width": 340.0,
+          "height": 54.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "382b31296bcfdd1e365d269a1b4eea066145a79ecc97f7ccb4bbff97ee5bfefc"
+    },
+    {
+      "file": "sori-shell-today-390-en-due-review-12.png",
+      "captured_at_utc": "2026-10-31T00:07:16.986829Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "en",
+      "tab": "today",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": "Good morning!",
+      "header_actions": {
+        "week": {
+          "left": 52.0,
+          "top": 36.0,
+          "width": 60.0,
+          "height": 48.0
+        },
+        "stats": {
+          "left": 116.0,
+          "top": 36.0,
+          "width": 54.0,
+          "height": 48.0
+        },
+        "wallet": {
+          "left": 174.0,
+          "top": 36.0,
+          "width": 64.0,
+          "height": 48.0
+        },
+        "profile": {
+          "left": 242.0,
+          "top": 36.0,
+          "width": 80.0,
+          "height": 48.0
+        },
+        "settings": {
+          "left": 330.0,
+          "top": 36.0,
+          "width": 48.0,
+          "height": 48.0
+        }
+      },
+      "native_context": "12 words due",
+      "disable_animations": true,
+      "fixture": "due-review-12",
+      "course_unit_id": null,
+      "course_title": null,
+      "destination_route": "/review",
+      "due_count": 12,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 0,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "initial fold",
+      "r16_decoded_layers": [],
+      "primary_action": {
+        "key": "learning-focus-start",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 445.0,
+          "width": 340.0,
+          "height": 54.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "9dbbb2a68ededf270ebc2d7a65553e69f8aca98417cd85826613f083af8ef5c3"
+    },
+    {
+      "file": "sori-shell-today-390-en-saved-owned-16-summary.png",
+      "captured_at_utc": "2026-10-31T00:07:19.887544Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "en",
+      "tab": "today",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": "Good morning!",
+      "header_actions": {
+        "week": {
+          "left": 52.0,
+          "top": 36.0,
+          "width": 60.0,
+          "height": 48.0
+        },
+        "stats": {
+          "left": 116.0,
+          "top": 36.0,
+          "width": 54.0,
+          "height": 48.0
+        },
+        "wallet": {
+          "left": 174.0,
+          "top": 36.0,
+          "width": 64.0,
+          "height": 48.0
+        },
+        "profile": {
+          "left": 242.0,
+          "top": 36.0,
+          "width": 80.0,
+          "height": 48.0
+        },
+        "settings": {
+          "left": 330.0,
+          "top": 36.0,
+          "width": 48.0,
+          "height": 48.0
+        }
+      },
+      "native_context": "I can greet someone new and clarify a short question.",
+      "disable_animations": true,
+      "fixture": "saved-owned-16-summary",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "First greetings and asking again",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 16,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "scrolled to actual owned Today summary",
+      "r16_decoded_layers": [
+        {
+          "process_id": "ildu.sarangchae-complete",
+          "foreground_decoded": [
+            1800,
+            1200
+          ],
+          "shadow_decoded": [
+            1800,
+            1200
+          ],
+          "opacity": 1.0
+        }
+      ],
+      "summary_action_rect": {
+        "left": 25.0,
+        "top": 379.0,
+        "width": 340.0,
+        "height": 170.0
+      },
+      "primary_action": {
+        "key": "learning-focus-start",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 454.0,
+          "width": 340.0,
+          "height": 54.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "ee701727858805d18e6cd9bd9bbd02c267dd538046aea310d32558d7b8ae7a30"
+    },
+    {
+      "file": "sori-shell-today-390-en-saved-owned-8-summary.png",
+      "captured_at_utc": "2026-10-31T00:07:18.762942Z",
+      "source_revision": "eb64f24f37fb6a04dd7bf66de75f7876c87472f5",
+      "scope": "actual SoriStageShell; isolated widget-test account",
+      "language": "en",
+      "tab": "today",
+      "viewport": [
+        390,
+        844
+      ],
+      "device_pixel_ratio": 1,
+      "text_scale": 1,
+      "safe_insets": {
+        "top": 24,
+        "bottom": 24
+      },
+      "greeting_text": "Good morning!",
+      "header_actions": {
+        "week": {
+          "left": 52.0,
+          "top": 36.0,
+          "width": 60.0,
+          "height": 48.0
+        },
+        "stats": {
+          "left": 116.0,
+          "top": 36.0,
+          "width": 54.0,
+          "height": 48.0
+        },
+        "wallet": {
+          "left": 174.0,
+          "top": 36.0,
+          "width": 64.0,
+          "height": 48.0
+        },
+        "profile": {
+          "left": 242.0,
+          "top": 36.0,
+          "width": 80.0,
+          "height": 48.0
+        },
+        "settings": {
+          "left": 330.0,
+          "top": 36.0,
+          "width": 48.0,
+          "height": 48.0
+        }
+      },
+      "native_context": "I can greet someone new and clarify a short question.",
+      "disable_animations": true,
+      "fixture": "saved-owned-8-summary",
+      "course_unit_id": "a1_01_greetings_hangul",
+      "course_title": "First greetings and asking again",
+      "destination_route": "/vocab/pack",
+      "due_count": 0,
+      "wallet_balance": 0,
+      "sarangchae_owned_stage": 8,
+      "ownership_source": "isolated Storage saved-ledger fixture; grandfathered ownership",
+      "capture_view": "scrolled to actual owned Today summary",
+      "r16_decoded_layers": [
+        {
+          "process_id": "ildu.sarangchae-rafters",
+          "foreground_decoded": [
+            1800,
+            1200
+          ],
+          "shadow_decoded": [
+            1800,
+            1200
+          ],
+          "opacity": 1.0
+        }
+      ],
+      "summary_action_rect": {
+        "left": 25.0,
+        "top": 400.0,
+        "width": 340.0,
+        "height": 149.0
+      },
+      "primary_action": {
+        "key": "learning-focus-start",
+        "measurement_view": "initial fold before any summary scroll",
+        "rect": {
+          "left": 25.0,
+          "top": 454.0,
+          "width": 340.0,
+          "height": 54.0
+        },
+        "fully_visible_above_navigation": true,
+        "hit_testable": true
+      },
+      "gye": "unauthenticated empty memberships; no Firebase account",
+      "nav_assets": [
+        "assets/icons/navigation/today.png",
+        "assets/icons/navigation/learn.png",
+        "assets/icons/navigation/games.png",
+        "assets/icons/navigation/hanok.png",
+        "assets/icons/navigation/gye.png"
+      ],
+      "limitations": [
+        "Widget evidence, not physical-device or release-account QA.",
+        "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
+        "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
+      ],
+      "sha256": "505612378fd6377344f5f1b134d56d8c33d1c6db7d9c780d104c88216a1e4f45"
+    }
+  ],
+  "root_only_captures": [
+    {
+      "file": "sori-stage-today-390-de.png",
+      "sha256": "a48be8bd518b1bdd04fa66f71daca90c26b0426d84d45712650413c6f5ce469b",
+      "scope": "Existing root-only capture fixture; no shell navigation",
+      "fixture": "Review12 Today or saved-owned8/history construction Hanok; not live account data",
+      "scrolled": false
+    },
+    {
+      "file": "sori-stage-today-390.png",
+      "sha256": "290b29448793a4c94248d2c436fe9730c77d9864b97a6e634dca8ef3ba9501ee",
+      "scope": "Existing root-only capture fixture; no shell navigation",
+      "fixture": "Review12 Today or saved-owned8/history construction Hanok; not live account data",
+      "scrolled": false
+    },
+    {
+      "file": "sori-stage-hanok-390.png",
+      "sha256": "398ffb5cd5c7d696ba5ae78afe3ade1d48418ce3f0c7e38a7dce23c9c6ee9264",
+      "scope": "Existing root-only capture fixture; no shell navigation",
+      "fixture": "Review12 Today or saved-owned8/history construction Hanok; not live account data",
+      "scrolled": false
+    },
+    {
+      "file": "sori-stage-hanok-390-en.png",
+      "sha256": "f43b85473967e159ff6dbcea17a1225707d03f01411c35da8427ab03dbca7087",
+      "scope": "Existing root-only capture fixture; no shell navigation",
+      "fixture": "Review12 Today or saved-owned8/history construction Hanok; not live account data",
+      "scrolled": false
+    },
+    {
+      "file": "sori-stage-hanok-390-collapsed.png",
+      "sha256": "f6c0cc4011eab768cfd74078c2517eecf53b18b70fc8bcdaaf82876ae96bd223",
+      "scope": "Existing root-only capture fixture; no shell navigation",
+      "fixture": "Review12 Today or saved-owned8/history construction Hanok; not live account data",
+      "scrolled": true
+    },
+    {
+      "file": "sori-stage-hanok-390-collapsed-en.png",
+      "sha256": "a865e1d22a871f1ab35eaf34c2fc2ab3ec5f933377a03062a4131c08caecf896",
+      "scope": "Existing root-only capture fixture; no shell navigation",
+      "fixture": "Review12 Today or saved-owned8/history construction Hanok; not live account data",
+      "scrolled": true
+    }
+  ],
+  "limitations": [
+    "Widget-test native render; no physical-device, live account, release or user approval claim.",
+    "Saved ownership 1/8/16 is explicit isolated Storage grandfathered test data, not a user account.",
+    "Four Today summary images are scrolled views, not initial-fold proof. Their primary CTA rectangles were measured before scrolling.",
+    "R16 stage1 contains zero meshes and deliberately paints neither layer; ownership0/1 therefore uses native empty-site copy.",
+    "All screenshots use100percent text;200percent functional and layout tests are separate.",
+    "Firebase is intentionally uninitialized; Gye is the actual unauthenticated empty membership state.",
+    "The greeting uses wall-clock time; no fixed-time shell seam was introduced."
+  ]
+}

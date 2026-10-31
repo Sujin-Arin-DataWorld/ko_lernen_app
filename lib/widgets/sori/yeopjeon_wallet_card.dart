@@ -192,7 +192,8 @@ class _YeopjeonWalletCardState extends State<YeopjeonWalletCard> {
                         : t.yeopjeonB2,
                     style: type.h3,
                   ),
-                  if (wallet.ownedStage(building) > 0)
+                  if (wallet.ownedStage(building) >
+                      (building == YeopjeonBuilding.sarangchae ? 1 : 0))
                     SizedBox(
                       height: 160,
                       child: building == YeopjeonBuilding.sarangchae

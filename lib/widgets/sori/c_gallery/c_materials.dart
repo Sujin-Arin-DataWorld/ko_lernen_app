@@ -7,8 +7,10 @@ import '../pressable.dart';
 import '../tokens.dart';
 import 'c_objects.dart';
 import 'c_palette.dart';
+import 'c5_scene_assets.dart';
 
 export 'c_palette.dart';
+export 'c5_scene_assets.dart';
 
 /// Concept C material vocabulary. No legacy card, eaves, accent rail or nav skin.
 
@@ -48,17 +50,23 @@ class CReferenceArt extends StatelessWidget {
   final bool opticalFit;
   @override
   Widget build(BuildContext context) {
-    if (opticalFit && part == CReferencePart.review) {
-      // Keep the original pixels and contact shadow; the square authoring
-      // canvas otherwise adds blank space above and below the wide object.
+    if (opticalFit &&
+        const {
+          CReferencePart.listening,
+          CReferencePart.hangul,
+          CReferencePart.review,
+        }.contains(part)) {
       return CAtlasArt(
-        path: 'assets/illustrations/tactile/grammar.png',
-        region: const Rect.fromLTRB(
-          24 / 1254,
-          280 / 1254,
-          1234 / 1254,
-          1000 / 1254,
-        ),
+        path: switch (part) {
+          CReferencePart.listening => C5SceneAssets.speaker,
+          CReferencePart.hangul => C5SceneAssets.hangul,
+          _ => C5SceneAssets.review,
+        },
+        region: switch (part) {
+          CReferencePart.listening => C5SceneAssets.speakerRegion,
+          CReferencePart.hangul => C5SceneAssets.hangulRegion,
+          _ => C5SceneAssets.reviewRegion,
+        },
         fit: fit,
       );
     }
@@ -78,7 +86,6 @@ class CReferenceArt extends StatelessWidget {
     }
     final scene = switch (part) {
       CReferencePart.coffee => CScene.coffee,
-      CReferencePart.book => CScene.book,
       CReferencePart.studyTogether => CScene.studyTogether,
       _ => null,
     };
@@ -88,9 +95,10 @@ class CReferenceArt extends StatelessWidget {
     final path = switch (part) {
       CReferencePart.headerLeaves =>
         'assets/illustrations/concept_c/games/silben_plant.png',
-      CReferencePart.listening => 'assets/illustrations/tactile/speaker.png',
-      CReferencePart.hangul => 'assets/illustrations/tactile/hangul.png',
-      CReferencePart.review => 'assets/illustrations/tactile/grammar.png',
+      CReferencePart.book => C5SceneAssets.book,
+      CReferencePart.listening => C5SceneAssets.speaker,
+      CReferencePart.hangul => C5SceneAssets.hangul,
+      CReferencePart.review => C5SceneAssets.review,
       CReferencePart.hanokHero =>
         'assets/illustrations/personal_hanok_v3/world/sarangchae.png',
       _ => throw StateError('No independent artwork for $part'),
@@ -309,7 +317,12 @@ class CGameReferenceArt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (part == CGameReferencePart.hero) {
-      return const _CSceneImage(CScene.syllables);
+      return Image.asset(
+        C5SceneAssets.syllables,
+        fit: BoxFit.contain,
+        excludeFromSemantics: true,
+        filterQuality: FilterQuality.high,
+      );
     }
     if (part == CGameReferencePart.yourWords) {
       return Image.asset(
@@ -509,10 +522,13 @@ class _CMaterialActionState extends State<CMaterialAction> {
                 Positioned.fill(
                   child:
                       widget.surfaceTexture ??
-                      CTexture(
-                        widget.gold ? CMaterial.brass : CMaterial.jade,
-                        opacity: widget.gold ? .85 : .82,
-                      ),
+                      (widget.gold
+                          ? const CAtlasArt(
+                              path: C5SceneAssets.goldAction,
+                              region: C5SceneAssets.goldRegion,
+                              fit: BoxFit.fill,
+                            )
+                          : const CTexture(CMaterial.jade, opacity: .82)),
                 ),
                 Positioned.fill(
                   child: DecoratedBox(

@@ -218,10 +218,10 @@ void main() {
           expect(action.hitTestable(), findsOneWidget);
         } else if (tab == 'hanok') {
           expect(
-            find.byKey(const ValueKey('sarangchae-stage-artwork-1')),
+            find.byKey(const ValueKey('hanok-empty-site')),
             findsOneWidget,
             reason:
-                'Capture the confirmed first-stage preview, not its loader.',
+                'R16 stage1 has zero meshes; show the honest empty site, not a substitute house.',
           );
           expect(
             find.byKey(const ValueKey('hanok-map-header')),
