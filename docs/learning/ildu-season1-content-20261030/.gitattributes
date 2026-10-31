@@ -4,3 +4,6 @@
 manuscripts/** -text -whitespace
 reference/** -text -whitespace
 production/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Later authoring/review sources are also frozen byte snapshots. Final editorial
+# guides remain normal text; only their source attachments bypass normalization.
+final/sources/** -text -whitespace
