@@ -3,13 +3,64 @@ import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/ildu_r16_art.dart';
 import 'package:ko_lernen_app/models/ildu_r16_layers.dart';
 import 'package:ko_lernen_app/widgets/sori/ildu_r16_layer_artwork.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+
+  testWidgets('decorative art failure keeps a reachable accessible retry', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+    try {
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: const Locale('en'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          home: DefaultAssetBundle(
+            bundle: _UnavailableCatalog(),
+            child: const Scaffold(
+              body: SizedBox(
+                height: 240,
+                child: IlDuR16LayerArtwork(
+                  processId: 'ildu.sarangchae-complete',
+                  excludeFromSemantics: true,
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      final button = find.byType(IconButton);
+      expect(button, findsOneWidget);
+      expect(button.hitTestable(), findsOneWidget);
+      expect(tester.getSize(button).width, greaterThanOrEqualTo(48));
+      expect(tester.getSize(button).height, greaterThanOrEqualTo(48));
+      expect(
+        tester
+            .getSemantics(button)
+            .getSemanticsData()
+            .hasAction(ui.SemanticsAction.tap),
+        true,
+      );
+      await tester.tap(button);
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      expect(find.byType(IlDuR16LayerArtwork), findsOneWidget);
+      expect(find.byType(Image), findsNothing);
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pumpAndSettle();
+    } finally {
+      semantics.dispose();
+    }
+  });
 
   final original = IlDuR16ArtCatalog.fromJson(
     jsonDecode(File(IlDuR16ArtCatalog.assetPath).readAsStringSync()),
@@ -58,7 +109,7 @@ void main() {
             final shadow = await _image((canvas) {
               canvas.drawColor(Colors.white, BlendMode.src);
               canvas.drawRect(
-              const Rect.fromLTWH(16, 16, 32, 32),
+                const Rect.fromLTWH(16, 16, 32, 32),
                 Paint()..color = const Color(0xff808080),
               );
             });
@@ -151,6 +202,12 @@ void main() {
       });
     },
   );
+}
+
+class _UnavailableCatalog extends CachingAssetBundle {
+  @override
+  Future<ByteData> load(String key) async =>
+      throw const FormatException('Offline catalog');
 }
 
 Future<ui.Image> _image(void Function(Canvas) draw) async {

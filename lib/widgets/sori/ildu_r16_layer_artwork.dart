@@ -45,11 +45,10 @@ class _IlDuR16LayerArtworkState extends State<IlDuR16LayerArtwork> {
 
   @override
   Widget build(BuildContext context) => Semantics(
-    image: true,
+    image: !widget.excludeFromSemantics,
     label: widget.excludeFromSemantics ? null : widget.semanticLabel,
-    excludeSemantics: widget.excludeFromSemantics,
     child: FutureBuilder<IlDuR16LayerCatalog>(
-      future: _catalog,
+      future: _catalog ??= IlDuR16LayerCatalog.load(bundle: _bundle),
       builder: (context, snapshot) {
         // The approved site stage contains zero architecture. Its studio GI
         // pass is noise, not an earned building or a ground shadow to display.
@@ -74,11 +73,14 @@ class _IlDuR16LayerArtworkState extends State<IlDuR16LayerArtwork> {
 
   Widget _error() => Center(
     child: IconButton(
+      constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
       tooltip: AppL10n.of(context).loadErrorTryAgain,
       icon: const Icon(Icons.refresh_rounded),
       onPressed: () => setState(() {
         _generation++;
-        _catalog = IlDuR16LayerCatalog.load(bundle: _bundle);
+        // Create the retry future in the next build, where FutureBuilder can
+        // subscribe before a cached/offline failure completes immediately.
+        _catalog = null;
       }),
     ),
   );
