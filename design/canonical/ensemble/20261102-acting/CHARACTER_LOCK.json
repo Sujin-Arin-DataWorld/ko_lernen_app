@@ -458,6 +458,12 @@
         "individual_sprite_exported": false,
         "identity_pixel_exactness_verified": false,
         "metric_compliance_verified": false
+      },
+      "original_relaxed_reference": {
+        "path": "assets/dokkaebi/source-relaxed-standing.png",
+        "sha256": "087daa0348ffceb92209cda7aae2f2ba907c86ed799d63500ba9299085a211c3",
+        "role": "exact user-attached relaxed standing original; RGB design source, not transparent runtime sprite",
+        "status": "USER_REQUESTED_ORIGINAL_REFERENCE"
       }
     },
     "yeoni_age08": {
@@ -1158,7 +1164,7 @@
   },
   "reference_authority_rules": {
     "sujin": "Selected B2 controls identity, face, hair, costume and material. Other Sujin candidates are excluded.",
-    "dokkaebi": "Existing canonical front and newly requested original relaxed standing reference control identity/costume. New approved acting/model sheets preserve exactly two temple horns, two arms and two legs. No center third horn. Separate original club remains prop authority.",
+    "dokkaebi": "Existing canonical front and original_relaxed_reference (exact user attachment pinned by path/SHA) control identity/costume. New approved acting/model sheets preserve exactly two temple horns, two arms and two legs. No center third horn. Separate original club remains prop authority. Conflicting generated details never override either pinned original silently.",
     "talsunbi": "Original Hahoe mask and costume sheet controls identity; do not replace the wooden mask to invent expressions.",
     "yeoni": "Use the explicit source-labelled age variant. Do not mix age8/12/15 proportions within one shot.",
     "joy": "Original controls mature face/gat/palette; existing long-wing reference and approved numeric targets control wings/tail. New sheets control acting and show exactly two wings, two legs, one tail; no duplicate folded panels when spread. Emblem has three curls on torso. New model is not measured geometry.",

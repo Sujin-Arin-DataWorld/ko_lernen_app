@@ -215,6 +215,21 @@
       ],
       "source_label": "exec-d9e47a8d-6278-485e-a4f3-effc288da9a4.png",
       "runtime_registered": false
+    },
+    {
+      "path": "assets/dokkaebi/source-relaxed-standing.png",
+      "sha256": "087daa0348ffceb92209cda7aae2f2ba907c86ed799d63500ba9299085a211c3",
+      "bytes": 1430724,
+      "role": "exact user-attached relaxed standing original; RGB design source, not transparent runtime sprite",
+      "status": "USER_REQUESTED_ORIGINAL_REFERENCE",
+      "size_px": [
+        1195,
+        1316
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "source_label": "전통 의상의 도깨비 전사-3.png",
+      "runtime_registered": false
     }
   ],
   "source_identity_reference": {

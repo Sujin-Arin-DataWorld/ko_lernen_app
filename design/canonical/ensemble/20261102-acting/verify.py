@@ -33,19 +33,26 @@ def verify_references(node):
 profile = read('CHARACTER_LOCK.json')
 approval = read('CANONICAL_APPROVAL.json')
 assert digest(ROOT / 'CHARACTER_LOCK.json') == approval['profile_sha256']
-assert approval['acting_model_sheets'] == 9 and approval['selected_images'] == 12
+assert approval['acting_model_sheets'] == 9 and approval['selected_images'] == 13
 assert not approval['runtime_integrated'] and not approval['metric_compliance_verified']
 references = verify_references(profile)
 images = read('ASSET_MANIFEST.json')['images']
-assert len(images) == 12
+assert len(images) == 13
+assert {item['path'] for item in images} == {path.relative_to(ROOT).as_posix() for path in (ROOT/'assets').rglob('*.png')}
 for item in images:
     path = ROOT / item['path']
     assert digest(path) == item['sha256'] and path.stat().st_size == item['bytes']
     data = path.read_bytes()
     assert data[:8] == b'\x89PNG\r\n\x1a\n'
     width, height, depth, color = struct.unpack('>IIBB', data[16:26])
-    assert [width, height] == item['size_px'] and depth == 8 and color == 6
-    assert item['alpha_extrema'][0] == 0 and item['alpha_extrema'][1] >= 254
+    assert [width, height] == item['size_px'] and depth == 8
+    if item['mode'] == 'RGBA':
+        assert color == 6
+        assert item['alpha_extrema'][0] == 0 and item['alpha_extrema'][1] >= 254
+    else:
+        assert item['path'] == 'assets/dokkaebi/source-relaxed-standing.png'
+        assert item['mode'] == 'RGB' and color == 2 and item['alpha_extrema'] is None
+        assert not item['runtime_registered']
 for name, actor in read('ACTING_CANON.json')['characters'].items():
     assert len(actor['expressions']) == 8 and len(actor['poses']) == 6, name
     assert len({v['id'] for v in actor['expressions'] + actor['poses']}) == 14
