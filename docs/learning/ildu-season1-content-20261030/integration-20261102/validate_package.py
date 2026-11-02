@@ -132,6 +132,21 @@ def validate():
             check(not ({'vocab_a1_0628','vocab_a1_0680'} & {r['id'] for r in link['references']}),'Counter task linked to dog/illness homograph')
         check((OUT/'review'/f'{uid}.md').is_file(),uid+' missing portable review manuscript')
     check(inherited==34 and new==18,'Expected 34 inherited + 18 newly detailed packets')
+    cards=read(OUT/'GRAMMAR_CARD_LINKS.json')
+    grammar_path='assets/data/grammar.csv'
+    grammar_by={r['id']:r for r in csv.DictReader(io.StringIO(raw(grammar_path).decode('utf-8-sig')))}
+    check(cards['base_sha']==BASE and cards['source_path']==grammar_path,'Grammar card source mismatch')
+    check(cards['source_sha256']==hashlib.sha256(raw(grammar_path)).hexdigest(),'Grammar card source hash mismatch')
+    check(len(cards['units'])==52 and {r['unit_id'] for r in cards['units']}=={r['unit_id'] for r in units},'Grammar card unit coverage mismatch')
+    card_refs=0
+    for row in cards['units']:
+        if row['unit_id'].startswith('F0.'):
+            check(not row['cards'],row['unit_id']+' foundation must not force grammar cards')
+        for card in row['cards']:
+            card_refs+=1
+            check(card['id'] in grammar_by,row['unit_id']+' unknown grammar card '+card['id'])
+            if card['id'] in grammar_by:check(card['pattern']==grammar_by[card['id']]['pattern'],row['unit_id']+' changed grammar card pattern')
+            check(bool(card['reason_ko']) and bool(card['reuse_scope']),row['unit_id']+' missing grammar reuse scope')
     contexts=read(OUT/'HANOK_CONTEXT_LINKS.json')['contexts']
     check(len(contexts)==128 and len({x['process_id'] for x in contexts})==128,'Expected 128 unique R16 context refs')
     catalog=json.loads(raw('assets/data/ildu_r16_art_v1.json'))
@@ -152,7 +167,7 @@ def validate():
     check(all(x.startswith(OUT.relative_to(REPO).as_posix()+'/') for x in changed),'Tracked changes outside approved content directory')
     report={'status':'PASS' if not ERRORS else 'FAIL','base_sha':BASE,'scope':'authoring and source-reference checks, not learner/device/native approval',
       'units':len(units),'bands':dict(Counter(x['band'] for x in units)),'inherited_detailed':inherited,'newly_detailed':new,'new_items':items,'new_dialogue_turns':dialogue,'existing_source_references':refs,
-      'hanok_contexts':len(contexts),'new_units_with_exact_hash_in_peer_review':peer_reviewed,'original_snapshot_files_unchanged':len(frozen),'errors':ERRORS,'warnings':WARNINGS}
+      'grammar_card_references':card_refs,'hanok_contexts':len(contexts),'new_units_with_exact_hash_in_peer_review':peer_reviewed,'original_snapshot_files_unchanged':len(frozen),'errors':ERRORS,'warnings':WARNINGS}
     (OUT/'VALIDATION.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps(report,ensure_ascii=False,indent=2))
     return 0 if not ERRORS else 1

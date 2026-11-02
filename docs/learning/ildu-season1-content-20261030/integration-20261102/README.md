@@ -25,6 +25,7 @@
 - `units/`: 52단원 기계 판독용 집필 패킷. 기존 34개는 원문 경로·해시·문항 결합을 상속하고, 새 18개는 상세 본문을 담는다.
 - `review/`: 같은 52단원의 읽기용 Markdown. 기존 원고 전문을 포함하므로 원문을 따로 찾지 않아도 검토할 수 있다. 정답·도움까지 보이는 **편집자용 원고**다.
 - [UNIT_CONTENT_LINKS.json](UNIT_CONTENT_LINKS.json): 단원→본편 사건→실제 Lernen 콘텐츠 ID·출처 해시·재사용 범위. 후보 대응 관계는 자동 실행이나 해금 규칙이 아니다.
+- [GRAMMAR_CARD_LINKS.json](GRAMMAR_CARD_LINKS.json): Lernen 문법 카드의 실제 ID·형태·기능·선정 이유. 단계 문항 참조와 구분하며 기존 카드 설명·예문을 읽는 참고 연결이다.
 - [HANOK_CONTEXT_LINKS.json](HANOK_CONTEXT_LINKS.json): R16의 실제 11동·128공정 ID와 기존 공정 서사의 맥락 참조. 학습 52단원과 공정 128개를 일대일로 매핑하지 않는다.
 - [EVIDENCE_AND_FLOW.md](EVIDENCE_AND_FLOW.md): 이야기 경로·자유학습·번역·도움·평가·복귀의 공통 제시 계약.
 - [REFERENCE_DECISIONS.md](REFERENCE_DECISIONS.md): 실제 ID 재사용 판단, 동형어 제외, 누락 대신 새 원고로 연결한 항목.

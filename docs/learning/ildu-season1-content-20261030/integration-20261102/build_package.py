@@ -242,6 +242,8 @@ def build():
     print(json.dumps({'packets':len(links),'missing':missing,'references':sum(len(r['references']) for r in links),'hanok_contexts':len(contexts),'lexical_matches':len(audit)},ensure_ascii=False))
 
 def render(links):
+    grammar_file=OUT/'GRAMMAR_CARD_LINKS.json'
+    grammar_by={r['unit_id']:r for r in json.loads(grammar_file.read_text(encoding='utf-8'))['units']} if grammar_file.exists() else {}
     index=['# 입문~A2.2 · 52단원 통합 검토본','','상세 원문은 보존하고, 다음 링크에서 구간별 원고·추가 집필·실제 참조를 함께 읽는다. 앱 실행/평가/소유권 변경이 아니다.','','| 구간 | 단원 | 목표 |','|---|---|---|']
     for link in links:
         uid=link['unit_id']; packet=json.loads((OUT/link['packet']).read_text(encoding='utf-8'))
@@ -265,6 +267,10 @@ def render(links):
         lines += ['','## 기존 콘텐츠 연결','해당 자료는 명시된 재사용 범위로만 쓴다. 참고 자료 존재가 단원의 독립 수행 증거가 되는 것은 아니다.','','| 종류 | 실제 ID | 재사용 범위 |','|---|---|---|']
         for r in link['references']: lines.append(f'| {r["kind"]} | {r["id"]} | {r["reuse_scope"]} |')
         if not link['references']: lines.append('| 집필 원고 | 이 단원 원문의 문항 ID | 준비된 글자·목표의 활동. 맞지 않는 기존 풀은 강제 연결하지 않음 |')
+        if grammar_by.get(uid,{}).get('cards'):
+            lines += ['','### Lernen 문법 카드 참고','기존 설명·예문을 그대로 읽는 참고 연결이다. 원래 퀴즈의 선수 어휘·보기는 별도로 확인하며 이 표로 자동 실행하지 않는다.','','| 실제 카드 ID | 원래 형태 | 선정 이유 |','|---|---|---|']
+            for card in grammar_by[uid]['cards']:
+                lines.append('| '+' | '.join(str(card[k]).replace('|','／') for k in ['id','pattern','reason_ko'])+' |')
         (OUT/'review').mkdir(exist_ok=True)
         (OUT/'review'/f'{uid}.md').write_text('\n'.join(lines)+'\n',encoding='utf-8',newline='\n')
     (OUT/'INDEX.md').write_text('\n'.join(index)+'\n',encoding='utf-8',newline='\n')
