@@ -19,6 +19,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 import 'package:ko_lernen_app/widgets/sori/bojagi_reveal.dart';
 import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 
 import 'support/real_fonts.dart';
@@ -362,9 +363,22 @@ void main() {
   ) async {
     await Storage.setPendingBoxes(['q_punggyeong']);
     await _pump(tester);
+    final t = lookupAppL10n(const Locale('de'));
+    expect(
+      find.byTooltip(t.culturalHelpSemantics(t.najeonChestHelpTitle)),
+      findsOneWidget,
+    );
     await tester.tap(find.byKey(const ValueKey('najeon-chest-help')));
     await tester.pumpAndSettle();
     expect(find.text('Najeon · 나전'), findsOneWidget);
+    expect(
+      find.widgetWithText(SoriButton, t.practiceDokkaebiMuseumSource),
+      findsOneWidget,
+    );
+    expect(
+      tester.getSize(find.widgetWithText(SoriButton, t.btnClose)).height,
+      greaterThanOrEqualTo(48),
+    );
     expect(Storage.pendingBoxes, ['q_punggyeong']);
     expect(Storage.ownedDecor, isEmpty);
     await tester.tap(find.text('Schließen'));

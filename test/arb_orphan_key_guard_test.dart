@@ -67,7 +67,9 @@ void main() {
     // 같은 스코프·방법으로 재실측 — 317개(2026-09-01 값 319에서 하향).
     // Native Hangul/preview controls replaced 16 unused legacy strings;
     // two formerly orphaned keys now have actual native actions.
-    const ceiling = 315;
+    // Approved Najeon copy replaces the 11 unused bundle-specific keys;
+    // unused draft Today labels are retired and homeReviewDue is now used.
+    const ceiling = 314;
     expect(
       orphaned.length,
       lessThanOrEqualTo(ceiling),

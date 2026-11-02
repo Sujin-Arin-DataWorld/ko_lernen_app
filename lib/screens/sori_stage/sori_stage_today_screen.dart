@@ -467,11 +467,15 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
       builder: (context, preference, _) => LayoutBuilder(
         builder: (context, bounds) {
           final kind = MascotPreference.mascotKindFor(preference);
-          final small = bounds.maxWidth < 336;
+          final small = bounds.maxWidth < _todaySmallHeroWidth;
           final large = MediaQuery.textScalerOf(context).scale(16) >= 20.8;
           final heroHeight = bounds.hasBoundedHeight
               ? bounds.maxHeight
-              : (small ? 76.0 : 106.0);
+              : _todayCompanionHeroHeight(
+                  context,
+                  bounds.maxWidth,
+                  small ? 76 : 106,
+                );
           final tight = heroHeight <= 66;
           final type = SoriTextTheme.of(context);
           final words = Column(
@@ -687,6 +691,53 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
   }
 }
 
+const _todaySmallHeroWidth = 336.0;
+
+// Loading and loaded headers must reserve the same measured text height.
+double _todayCompanionHeroHeight(
+  BuildContext context,
+  double contentWidth,
+  double preferredHeight,
+) {
+  final t = AppL10n.of(context);
+  final tight = preferredHeight <= 66;
+  final smallHero = contentWidth < _todaySmallHeroWidth;
+  double wordsHeight(bool compact) {
+    double measure(String value, TextStyle style) {
+      final painter = TextPainter(
+        text: TextSpan(text: value, style: style),
+        textDirection: Directionality.of(context),
+        textScaler: MediaQuery.textScalerOf(context),
+      )..layout(maxWidth: contentWidth * .62);
+      final height = painter.height;
+      painter.dispose();
+      return height;
+    }
+
+    return measure(
+          t.soriStageNavToday,
+          cStageTitle(context).copyWith(
+            fontSize: compact ? 28 : (smallHero ? 31 : 38),
+            height: 46 / 38,
+          ),
+        ) +
+        (compact ? 2 : 4) +
+        measure(
+          t.todayCompanionSubtitle,
+          SoriTextTheme.of(
+            context,
+          ).body.copyWith(fontSize: compact ? 14 : 15, height: 20 / 15),
+        ) +
+        (compact ? 4 : (smallHero ? 8 : 20));
+  }
+
+  if (wordsHeight(tight) <= preferredHeight) {
+    return preferredHeight;
+  }
+  final natural = wordsHeight(false);
+  return natural > 76 ? natural : 76;
+}
+
 /// Native, state-backed reconstruction of the approved three Today mockups.
 class _TodayContent extends StatelessWidget {
   const _TodayContent({
@@ -725,45 +776,11 @@ class _TodayContent extends StatelessWidget {
               ? 76.0
               : 106.0;
           if (!large) {
-            // Real bundled fonts normally fit the compact budget. A fallback
-            // font can wrap differently; give its words actual measured space
-            // instead of clipping them to the artwork's preferred height.
-            final contentWidth = bounds.maxWidth - insets.horizontal;
-            final smallHero = contentWidth < 336;
-            double wordsHeight(bool compact) {
-              double measure(String value, TextStyle style) {
-                final painter = TextPainter(
-                  text: TextSpan(text: value, style: style),
-                  textDirection: Directionality.of(context),
-                  textScaler: MediaQuery.textScalerOf(context),
-                )..layout(maxWidth: contentWidth * .62);
-                final height = painter.height;
-                painter.dispose();
-                return height;
-              }
-
-              return measure(
-                    t.soriStageNavToday,
-                    cStageTitle(context).copyWith(
-                      fontSize: compact ? 28 : (smallHero ? 31 : 38),
-                      height: 46 / 38,
-                    ),
-                  ) +
-                  (compact ? 2 : 4) +
-                  measure(
-                    t.todayCompanionSubtitle,
-                    SoriTextTheme.of(context).body.copyWith(
-                      fontSize: compact ? 14 : 15,
-                      height: 20 / 15,
-                    ),
-                  ) +
-                  (compact ? 4 : (smallHero ? 8 : 20));
-            }
-
-            if (wordsHeight(tight) > heroHeight) {
-              final natural = wordsHeight(false);
-              heroHeight = natural > 76 ? natural : 76;
-            }
+            heroHeight = _todayCompanionHeroHeight(
+              context,
+              bounds.maxWidth - insets.horizontal,
+              heroHeight,
+            );
           }
           final rewardHeight = large
               ? 110 * scale
@@ -929,7 +946,7 @@ class _TodayTreasureCard extends StatelessWidget {
         child: Container(
           constraints: BoxConstraints(minHeight: height),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: BorderRadius.circular(SoriRadius.todayTreasure),
             boxShadow: const [
               BoxShadow(
                 color: Color(0x52071f18),
@@ -939,7 +956,7 @@ class _TodayTreasureCard extends StatelessWidget {
             ],
           ),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: BorderRadius.circular(SoriRadius.todayTreasure),
             child: Stack(
               children: [
                 const Positioned.fill(child: CTexture(CMaterial.oak)),
@@ -947,11 +964,15 @@ class _TodayTreasureCard extends StatelessWidget {
                   padding: const EdgeInsets.all(5),
                   child: Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(
+                        SoriRadius.todayTreasureInset,
+                      ),
                       border: Border.all(color: CPalette.brass, width: 1.4),
                     ),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(13),
+                      borderRadius: BorderRadius.circular(
+                        SoriRadius.todayTreasureClip,
+                      ),
                       child: Stack(
                         children: [
                           const Positioned.fill(
@@ -997,7 +1018,7 @@ class _TodayTreasureCard extends StatelessWidget {
                                           color: CPalette.paper,
                                         ),
                                       ),
-                                      const SizedBox(height: 2),
+                                      const SizedBox(height: Spacing.xs),
                                       if (!compact)
                                         Container(
                                           constraints: const BoxConstraints(
@@ -1016,7 +1037,7 @@ class _TodayTreasureCard extends StatelessWidget {
                                               width: 1.5,
                                             ),
                                             borderRadius: BorderRadius.circular(
-                                              22,
+                                              SoriRadius.todayTreasureAction,
                                             ),
                                           ),
                                           child: Text(

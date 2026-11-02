@@ -110,7 +110,7 @@ void main() {
         .widget<Text>(find.byKey(const ValueKey('today-companion-greeting')))
         .data;
 
-    expect(travelGreeting, t.homeHeroGreetingMorning);
+    expect(travelGreeting, t.todayCompanionSubtitle);
     expect(contentGreeting, travelGreeting);
   });
 

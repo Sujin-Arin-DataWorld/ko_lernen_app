@@ -7511,17 +7511,7 @@ class AppL10nEn extends AppL10n {
   String get bojagiTitle => 'Bojagi bundle';
 
   @override
-  String get bojagiLoading => 'Preparing your bundle…';
-
-  @override
-  String get bojagiOpenHint => 'Tap the knot to open the bundle.';
-
-  @override
   String get bojagiPickTitle => 'Pick one';
-
-  @override
-  String get bojagiPickBody =>
-      'Whatever you leave stays in the pool and can turn up in a later bundle.';
 
   @override
   String bojagiChooseDecoration(String name) {
@@ -7529,24 +7519,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get bojagiEmptyTitle => 'No bundle waiting';
-
-  @override
-  String get bojagiEmptyBody => 'Finish a quest and you get a bundle for it.';
-
-  @override
   String get bojagiAllOwnedTitle => 'Nothing new inside';
-
-  @override
-  String get bojagiAllOwnedBody =>
-      'You already own all three pieces from this bundle.';
-
-  @override
-  String get bojagiProblemTitle => 'This bundle will not open right now';
-
-  @override
-  String get bojagiProblemBody =>
-      'Try again in a moment. Your bundle is not lost.';
 
   @override
   String get bojagiRetry => 'Try again';
@@ -7563,17 +7536,7 @@ class AppL10nEn extends AppL10n {
   String get bojagiGoToRoom => 'Place it in the room';
 
   @override
-  String get bojagiNext => 'Open the next bundle';
-
-  @override
   String get bojagiCollectionCompleteTitle => 'Collection complete';
-
-  @override
-  String get bojagiCollectionCompleteBody =>
-      'You already own every room piece. Archive this bundle to continue.';
-
-  @override
-  String get bojagiArchiveComplete => 'Archive bundle';
 
   @override
   String get hanokWorldTitle => 'My Hanok world';
@@ -12236,16 +12199,10 @@ class AppL10nEn extends AppL10n {
   String get accountRecoveryResumeConfirm => 'Continue confirmed choice';
 
   @override
-  String get todayNextStep => 'Your next step';
-
-  @override
   String get todayFirstSyllable => 'Your first syllable';
 
   @override
   String get todayFirstSyllableBody => 'Listen and combine two letters.';
-
-  @override
-  String get todayReviewTitle => 'Time to review';
 
   @override
   String get todayStartHangul => 'Start Hangul';
@@ -12254,33 +12211,13 @@ class AppL10nEn extends AppL10n {
   String get todayStartReview => 'Start review';
 
   @override
-  String get todayContinue => 'Continue learning';
-
-  @override
-  String get todayFinds => 'Your finds';
-
-  @override
-  String get todayViewFinds => 'View finds';
-
-  @override
   String get todayYourHanok => 'Your Hanok';
-
-  @override
-  String get todayQuickPlay => 'Quick play';
 
   @override
   String get todayDetails => 'Your day at a glance';
 
   @override
   String get todayProgress => 'Learning progress';
-
-  @override
-  String todayFindCount(int count) {
-    return '$count ready to open';
-  }
-
-  @override
-  String get todayHanokPreview => 'Preview';
 
   @override
   String get najeonChestTitle => 'Treasure chest';
@@ -12353,9 +12290,6 @@ class AppL10nEn extends AppL10n {
     );
     return '$_temp0';
   }
-
-  @override
-  String get todayTreasureCollected => 'All rewards collected';
 
   @override
   String get todayTreasureCollection => 'My collection';

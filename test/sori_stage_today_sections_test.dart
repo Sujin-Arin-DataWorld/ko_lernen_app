@@ -18,9 +18,8 @@ import 'support/real_fonts.dart';
 
 /// **§W-D D3/D7** — Today 퀘스트 행이 fraction 으로 "Fast geschafft"(≥60%)와
 /// "Als Nächstes"(<60%) 두 섹션으로 갈리는지, 빈 섹션은 헤더까지 숨는지.
-/// **§W-D D2/D7** — 한옥 카드가 더 이상 맨 `'$built / $total'` 을 쓰지 않고
-/// [AppL10n.soriStageConfirmedUnits] 문구를 쓰며, 그 total 이 모델의
-/// [HanokCompetenceProjection.totalUnitCount] 와 일치하는지.
+/// 승인된 압축 한옥 카드의 fraction 이 실제 확인된 부재 수와 모델의
+/// [HanokCompetenceProjection.totalUnitCount] 에 일치하는지.
 void main() {
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
   setUp(() async {
@@ -183,22 +182,15 @@ void main() {
     expect(find.text(t.soriStageNextQuests), findsOneWidget);
   });
 
-  testWidgets(
-    '한옥 카드는 맨 fraction 대신 soriStageConfirmedUnits 문구를 쓰고 total 은 모델과 일치한다',
-    (tester) async {
-      final t = await AppL10n.delegate.load(const Locale('de'));
-      final hanok = hanokCompetenceFixture();
-      expect(hanok.completedUnitCount, 0);
+  testWidgets('한옥 카드의 압축 fraction 은 실제 확인된 부재 수와 모델 total 을 표시한다', (
+    tester,
+  ) async {
+    final hanok = hanokCompetenceFixture();
+    expect(hanok.completedUnitCount, 0);
 
-      final snapshot = buildSnapshot(quests: const [], hanokCompetence: hanok);
-      await pumpToday(tester, snapshot: snapshot, locale: const Locale('de'));
+    final snapshot = buildSnapshot(quests: const [], hanokCompetence: hanok);
+    await pumpToday(tester, snapshot: snapshot, locale: const Locale('de'));
 
-      // 맨 '0 / 7' 텍스트(부재 단위 없는 옛 오버레이 문구)는 어디에도 없다.
-      expect(find.text('0 / ${hanok.totalUnitCount}'), findsNothing);
-      expect(
-        find.text(t.soriStageConfirmedUnits(0, hanok.totalUnitCount)),
-        findsOneWidget,
-      );
-    },
-  );
+    expect(find.text('0 / ${hanok.totalUnitCount}'), findsOneWidget);
+  });
 }

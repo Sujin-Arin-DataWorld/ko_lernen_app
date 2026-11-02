@@ -13014,29 +13014,11 @@ abstract class AppL10n {
   /// **'Bojagi-Bündel'**
   String get bojagiTitle;
 
-  /// No description provided for @bojagiLoading.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Bündel wird vorbereitet …'**
-  String get bojagiLoading;
-
-  /// No description provided for @bojagiOpenHint.
-  ///
-  /// In de, this message translates to:
-  /// **'Tippe auf den Knoten, um das Bündel zu öffnen.'**
-  String get bojagiOpenHint;
-
   /// No description provided for @bojagiPickTitle.
   ///
   /// In de, this message translates to:
   /// **'Such dir eins aus'**
   String get bojagiPickTitle;
-
-  /// No description provided for @bojagiPickBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Was du liegen lässt, bleibt im Beutel und kann in einem späteren Bündel wiederkommen.'**
-  String get bojagiPickBody;
 
   /// No description provided for @bojagiChooseDecoration.
   ///
@@ -13044,41 +13026,11 @@ abstract class AppL10n {
   /// **'{name} auswählen'**
   String bojagiChooseDecoration(String name);
 
-  /// No description provided for @bojagiEmptyTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Kein Bündel wartet'**
-  String get bojagiEmptyTitle;
-
-  /// No description provided for @bojagiEmptyBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Schließe eine Quest ab. Dafür bekommst du ein Bündel.'**
-  String get bojagiEmptyBody;
-
   /// No description provided for @bojagiAllOwnedTitle.
   ///
   /// In de, this message translates to:
   /// **'Nichts Neues drin'**
   String get bojagiAllOwnedTitle;
-
-  /// No description provided for @bojagiAllOwnedBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Alle drei Stücke aus diesem Bündel hast du schon.'**
-  String get bojagiAllOwnedBody;
-
-  /// No description provided for @bojagiProblemTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Das Bündel lässt sich gerade nicht öffnen'**
-  String get bojagiProblemTitle;
-
-  /// No description provided for @bojagiProblemBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Versuch es gleich noch einmal. Dein Bündel geht dabei nicht verloren.'**
-  String get bojagiProblemBody;
 
   /// No description provided for @bojagiRetry.
   ///
@@ -13104,29 +13056,11 @@ abstract class AppL10n {
   /// **'In der Stube aufstellen'**
   String get bojagiGoToRoom;
 
-  /// No description provided for @bojagiNext.
-  ///
-  /// In de, this message translates to:
-  /// **'Nächstes Bündel öffnen'**
-  String get bojagiNext;
-
   /// No description provided for @bojagiCollectionCompleteTitle.
   ///
   /// In de, this message translates to:
   /// **'Sammlung vollständig'**
   String get bojagiCollectionCompleteTitle;
-
-  /// No description provided for @bojagiCollectionCompleteBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Du besitzt bereits alle Einrichtungsstücke. Lege dieses Bündel ab, um weiterzumachen.'**
-  String get bojagiCollectionCompleteBody;
-
-  /// No description provided for @bojagiArchiveComplete.
-  ///
-  /// In de, this message translates to:
-  /// **'Bündel ablegen'**
-  String get bojagiArchiveComplete;
 
   /// No description provided for @hanokWorldTitle.
   ///
@@ -20826,12 +20760,6 @@ abstract class AppL10n {
   /// **'Bestätigte Auswahl fortsetzen'**
   String get accountRecoveryResumeConfirm;
 
-  /// No description provided for @todayNextStep.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein nächster Schritt'**
-  String get todayNextStep;
-
   /// No description provided for @todayFirstSyllable.
   ///
   /// In de, this message translates to:
@@ -20843,12 +20771,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Höre und verbinde zwei Zeichen.'**
   String get todayFirstSyllableBody;
-
-  /// No description provided for @todayReviewTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Zeit zum Wiederholen'**
-  String get todayReviewTitle;
 
   /// No description provided for @todayStartHangul.
   ///
@@ -20862,35 +20784,11 @@ abstract class AppL10n {
   /// **'Jetzt wiederholen'**
   String get todayStartReview;
 
-  /// No description provided for @todayContinue.
-  ///
-  /// In de, this message translates to:
-  /// **'Weiterlernen'**
-  String get todayContinue;
-
-  /// No description provided for @todayFinds.
-  ///
-  /// In de, this message translates to:
-  /// **'Deine Funde'**
-  String get todayFinds;
-
-  /// No description provided for @todayViewFinds.
-  ///
-  /// In de, this message translates to:
-  /// **'Ansehen'**
-  String get todayViewFinds;
-
   /// No description provided for @todayYourHanok.
   ///
   /// In de, this message translates to:
   /// **'Dein Hanok'**
   String get todayYourHanok;
-
-  /// No description provided for @todayQuickPlay.
-  ///
-  /// In de, this message translates to:
-  /// **'Kurz spielen'**
-  String get todayQuickPlay;
 
   /// No description provided for @todayDetails.
   ///
@@ -20903,18 +20801,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Lernfortschritt'**
   String get todayProgress;
-
-  /// No description provided for @todayFindCount.
-  ///
-  /// In de, this message translates to:
-  /// **'{count} zum Auspacken'**
-  String todayFindCount(int count);
-
-  /// No description provided for @todayHanokPreview.
-  ///
-  /// In de, this message translates to:
-  /// **'Vorschau'**
-  String get todayHanokPreview;
 
   /// No description provided for @najeonChestTitle.
   ///
@@ -21029,12 +20915,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{count, plural, one{1 wartet auf dich} other{{count} warten auf dich}}'**
   String todayTreasureReady(int count);
-
-  /// No description provided for @todayTreasureCollected.
-  ///
-  /// In de, this message translates to:
-  /// **'Alles abgeholt'**
-  String get todayTreasureCollected;
 
   /// No description provided for @todayTreasureCollection.
   ///

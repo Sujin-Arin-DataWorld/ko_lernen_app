@@ -194,7 +194,7 @@ class _BojagiScreenState extends State<BojagiScreen> {
       actions: [
         IconButton(
           key: const ValueKey('najeon-chest-help'),
-          tooltip: t.culturalHelpSemantics('나전'),
+          tooltip: t.culturalHelpSemantics(t.najeonChestHelpTitle),
           onPressed: _showNajeonHelp,
           icon: const Icon(Icons.help_outline_rounded),
         ),
@@ -337,18 +337,17 @@ class _BojagiScreenState extends State<BojagiScreen> {
                   'M0502000000.do?relicId=1334&schM=view&searchId=search',
                 ),
                 target: LinkTarget.blank,
-                builder: (context, followLink) => TextButton.icon(
-                  onPressed: followLink,
-                  icon: const Icon(Icons.open_in_new_rounded),
-                  label: Text(t.practiceDokkaebiMuseumSource),
+                builder: (context, followLink) => SoriButton.ghost(
+                  onTap: followLink,
+                  label: t.practiceDokkaebiMuseumSource,
                 ),
               ),
             ],
           ),
           actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: Text(t.btnClose),
+            SoriButton.ghost(
+              onTap: () => Navigator.of(context).pop(),
+              label: t.btnClose,
             ),
           ],
         );

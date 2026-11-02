@@ -198,6 +198,11 @@ double soriComfortScale(double width) {
 // RADIUS — round corners scale
 // ─────────────────────────────────────────────────────────────────────────
 class SoriRadius {
+  // Approved Today treasure tray: frame, inset, clipping and action surface.
+  static const double todayTreasure = 18;
+  static const double todayTreasureInset = 14;
+  static const double todayTreasureClip = 13;
+  static const double todayTreasureAction = 22;
   static const double c5Tile = 9;
   static const double c5DetailAction = 10;
   static const double xs = 8;

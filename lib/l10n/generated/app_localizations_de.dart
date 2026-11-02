@@ -7550,17 +7550,7 @@ class AppL10nDe extends AppL10n {
   String get bojagiTitle => 'Bojagi-Bündel';
 
   @override
-  String get bojagiLoading => 'Dein Bündel wird vorbereitet …';
-
-  @override
-  String get bojagiOpenHint => 'Tippe auf den Knoten, um das Bündel zu öffnen.';
-
-  @override
   String get bojagiPickTitle => 'Such dir eins aus';
-
-  @override
-  String get bojagiPickBody =>
-      'Was du liegen lässt, bleibt im Beutel und kann in einem späteren Bündel wiederkommen.';
 
   @override
   String bojagiChooseDecoration(String name) {
@@ -7568,25 +7558,7 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get bojagiEmptyTitle => 'Kein Bündel wartet';
-
-  @override
-  String get bojagiEmptyBody =>
-      'Schließe eine Quest ab. Dafür bekommst du ein Bündel.';
-
-  @override
   String get bojagiAllOwnedTitle => 'Nichts Neues drin';
-
-  @override
-  String get bojagiAllOwnedBody =>
-      'Alle drei Stücke aus diesem Bündel hast du schon.';
-
-  @override
-  String get bojagiProblemTitle => 'Das Bündel lässt sich gerade nicht öffnen';
-
-  @override
-  String get bojagiProblemBody =>
-      'Versuch es gleich noch einmal. Dein Bündel geht dabei nicht verloren.';
 
   @override
   String get bojagiRetry => 'Nochmal versuchen';
@@ -7603,17 +7575,7 @@ class AppL10nDe extends AppL10n {
   String get bojagiGoToRoom => 'In der Stube aufstellen';
 
   @override
-  String get bojagiNext => 'Nächstes Bündel öffnen';
-
-  @override
   String get bojagiCollectionCompleteTitle => 'Sammlung vollständig';
-
-  @override
-  String get bojagiCollectionCompleteBody =>
-      'Du besitzt bereits alle Einrichtungsstücke. Lege dieses Bündel ab, um weiterzumachen.';
-
-  @override
-  String get bojagiArchiveComplete => 'Bündel ablegen';
 
   @override
   String get hanokWorldTitle => 'Meine Hanok-Welt';
@@ -12296,16 +12258,10 @@ class AppL10nDe extends AppL10n {
   String get accountRecoveryResumeConfirm => 'Bestätigte Auswahl fortsetzen';
 
   @override
-  String get todayNextStep => 'Dein nächster Schritt';
-
-  @override
   String get todayFirstSyllable => 'Deine erste Silbe';
 
   @override
   String get todayFirstSyllableBody => 'Höre und verbinde zwei Zeichen.';
-
-  @override
-  String get todayReviewTitle => 'Zeit zum Wiederholen';
 
   @override
   String get todayStartHangul => 'Hangul starten';
@@ -12314,33 +12270,13 @@ class AppL10nDe extends AppL10n {
   String get todayStartReview => 'Jetzt wiederholen';
 
   @override
-  String get todayContinue => 'Weiterlernen';
-
-  @override
-  String get todayFinds => 'Deine Funde';
-
-  @override
-  String get todayViewFinds => 'Ansehen';
-
-  @override
   String get todayYourHanok => 'Dein Hanok';
-
-  @override
-  String get todayQuickPlay => 'Kurz spielen';
 
   @override
   String get todayDetails => 'Dein Tag im Überblick';
 
   @override
   String get todayProgress => 'Lernfortschritt';
-
-  @override
-  String todayFindCount(int count) {
-    return '$count zum Auspacken';
-  }
-
-  @override
-  String get todayHanokPreview => 'Vorschau';
 
   @override
   String get najeonChestTitle => 'Schatztruhe';
@@ -12413,9 +12349,6 @@ class AppL10nDe extends AppL10n {
     );
     return '$_temp0';
   }
-
-  @override
-  String get todayTreasureCollected => 'Alles abgeholt';
 
   @override
   String get todayTreasureCollection => 'Sammlung';

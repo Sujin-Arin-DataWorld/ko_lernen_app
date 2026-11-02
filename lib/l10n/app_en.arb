@@ -3597,10 +3597,7 @@
   },
   "sarangbangHubDesc": "Continue learning in the Sarangbang.",
   "bojagiTitle": "Bojagi bundle",
-  "bojagiLoading": "Preparing your bundle…",
-  "bojagiOpenHint": "Tap the knot to open the bundle.",
   "bojagiPickTitle": "Pick one",
-  "bojagiPickBody": "Whatever you leave stays in the pool and can turn up in a later bundle.",
   "bojagiChooseDecoration": "Choose {name}",
   "@bojagiChooseDecoration": {
     "placeholders": {
@@ -3609,12 +3606,7 @@
       }
     }
   },
-  "bojagiEmptyTitle": "No bundle waiting",
-  "bojagiEmptyBody": "Finish a quest and you get a bundle for it.",
   "bojagiAllOwnedTitle": "Nothing new inside",
-  "bojagiAllOwnedBody": "You already own all three pieces from this bundle.",
-  "bojagiProblemTitle": "This bundle will not open right now",
-  "bojagiProblemBody": "Try again in a moment. Your bundle is not lost.",
   "bojagiRetry": "Try again",
   "bojagiClaimedTitle": "Got it!",
   "bojagiClaimedAnnouncement": "Got it: {name}",
@@ -3626,10 +3618,7 @@
     }
   },
   "bojagiGoToRoom": "Place it in the room",
-  "bojagiNext": "Open the next bundle",
   "bojagiCollectionCompleteTitle": "Collection complete",
-  "bojagiCollectionCompleteBody": "You already own every room piece. Archive this bundle to continue.",
-  "bojagiArchiveComplete": "Archive bundle",
   "@_hanok_world": {
     "description": "Personal Hanok world — map and place navigation."
   },
@@ -5680,24 +5669,13 @@
   "accountRecoveryResumeTitle": "Continue your confirmed choice?",
   "accountRecoveryResumeBody": "Your choice is already saved. You can continue the same operation without choosing a new starting point.",
   "accountRecoveryResumeConfirm": "Continue confirmed choice",
-  "todayNextStep": "Your next step",
   "todayFirstSyllable": "Your first syllable",
   "todayFirstSyllableBody": "Listen and combine two letters.",
-  "todayReviewTitle": "Time to review",
   "todayStartHangul": "Start Hangul",
   "todayStartReview": "Start review",
-  "todayContinue": "Continue learning",
-  "todayFinds": "Your finds",
-  "todayViewFinds": "View finds",
   "todayYourHanok": "Your Hanok",
-  "todayQuickPlay": "Quick play",
   "todayDetails": "Your day at a glance",
-  "todayProgress": "Learning progress"
-,
-  "todayFindCount": "{count} ready to open",
-  "@todayFindCount": {"placeholders": {"count": {"type": "int"}}}
-,
-  "todayHanokPreview": "Preview",
+  "todayProgress": "Learning progress",
   "najeonChestTitle": "Treasure chest",
   "najeonChestLoading": "Preparing your treasure chest…",
   "najeonChestOpenHint": "Tap the chest to open it.",
@@ -5717,7 +5695,6 @@
   "todayNextStage": "Your next step",
   "todayTreasureTitle": "Your treasure chest",
   "todayTreasureReady": "{count, plural, one{1 ready to open} other{{count} ready to open}}",
-  "todayTreasureCollected": "All rewards collected",
   "todayTreasureCollection": "My collection",
   "todayExploreGames": "Explore games",
   "todayMissionGreetingTitle": "Your first hello",

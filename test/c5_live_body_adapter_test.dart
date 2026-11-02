@@ -258,7 +258,10 @@ void main() {
                           ),
                         )
                         .height,
-                    greaterThanOrEqualTo(96),
+                    greaterThanOrEqualTo(72),
+                    reason:
+                        'The approved compact Today portrait remains readable '
+                        'above its 72dp minimum.',
                   );
                 }
                 if (joined) {
