@@ -1,0 +1,243 @@
+{
+  "images": [
+    {
+      "path": "assets/joy/model.png",
+      "sha256": "4fa1685ca2c8b1c780d59786723fae12ba6d3117a81cbd93825da4881d653777",
+      "bytes": 1133218,
+      "role": "secondary model/style reference; identity and numeric targets retain authority",
+      "status": "USER_APPROVED_MODEL_STYLE_REFERENCE",
+      "size_px": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_label": "joy-model.png",
+      "runtime_registered": false
+    },
+    {
+      "path": "assets/joy/expressions.png",
+      "sha256": "5b978e09cacc01c3f8563a918711d215ee74418e4d80371a5b55cd5e0b382f9e",
+      "bytes": 1466793,
+      "role": "approved acting reference sheet; not independent runtime sprites",
+      "status": "USER_APPROVED_ACTING_REFERENCE",
+      "size_px": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_label": "joy-expressions.png",
+      "runtime_registered": false
+    },
+    {
+      "path": "assets/joy/poses.png",
+      "sha256": "43f8f5db45f061d617b747f87458c2ae5b73ef3eef94670ea75a60bb17671a56",
+      "bytes": 1675055,
+      "role": "approved acting reference sheet; not independent runtime sprites",
+      "status": "USER_APPROVED_ACTING_REFERENCE",
+      "size_px": [
+        1599,
+        984
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_label": "joy-poses.png",
+      "runtime_registered": false
+    },
+    {
+      "path": "assets/taego/model.png",
+      "sha256": "974dd07573e46a805b34689afbb8c65b18da1402ea46785d2108d9b5073b25ab",
+      "bytes": 1766800,
+      "role": "secondary model/style reference; identity and numeric targets retain authority",
+      "status": "USER_APPROVED_MODEL_STYLE_REFERENCE",
+      "size_px": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_label": "taego-model.png",
+      "runtime_registered": false
+    },
+    {
+      "path": "assets/taego/expressions.png",
+      "sha256": "5fd44f94d862553ec12f27590bbe0412dc33b7aabfbcf462a184e72219fcad06",
+      "bytes": 2437919,
+      "role": "approved acting reference sheet; not independent runtime sprites",
+      "status": "USER_APPROVED_ACTING_REFERENCE",
+      "size_px": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_label": "taego-expressions.png",
+      "runtime_registered": false
+    },
+    {
+      "path": "assets/taego/poses.png",
+      "sha256": "404cafd263e4d369c7d26148e192502deb55aa250004abe228271fbd400e2a28",
+      "bytes": 2276702,
+      "role": "approved acting reference sheet; not independent runtime sprites",
+      "status": "USER_APPROVED_ACTING_REFERENCE",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_label": "taego-poses.png",
+      "runtime_registered": false
+    },
+    {
+      "path": "assets/dokkaebi/model.png",
+      "sha256": "b03e289e8f95842c2adee1795400dcc05dd1e08b8ec9e90a41c2e8d7cc053592",
+      "bytes": 1831412,
+      "role": "secondary model/style reference; identity and numeric targets retain authority",
+      "status": "USER_APPROVED_MODEL_STYLE_REFERENCE",
+      "size_px": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_label": "dokkaebi-model.png",
+      "runtime_registered": false
+    },
+    {
+      "path": "assets/dokkaebi/expressions.png",
+      "sha256": "5d620366eed0500298e7a94012f458bd5b9191f1ee97fdb87901c4ad0fd9ba74",
+      "bytes": 1903032,
+      "role": "approved acting reference sheet; not independent runtime sprites",
+      "status": "USER_APPROVED_ACTING_REFERENCE",
+      "size_px": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_label": "dokkaebi-expressions.png",
+      "runtime_registered": false
+    },
+    {
+      "path": "assets/dokkaebi/poses.png",
+      "sha256": "223f050b9af92f8fec056870c864df5bc0b2fae38e52f6067697949d0aa2887c",
+      "bytes": 2208347,
+      "role": "approved acting reference sheet; not independent runtime sprites",
+      "status": "USER_APPROVED_ACTING_REFERENCE",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_label": "dokkaebi-poses.png",
+      "runtime_registered": false
+    },
+    {
+      "path": "assets/taego/source-support/portrait-front.png",
+      "sha256": "8d7137edfe97df4c63b5048962c6660e189c9ad37b6031799b152abf38065479",
+      "bytes": 2055808,
+      "role": "adult face close-up support; primary original remains identity authority",
+      "status": "EDITOR_SELECTED_USER_AUTHORIZED_SUPPORT_REFERENCE",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_label": "exec-59fe7aff-0d16-40cf-8904-8f433de124e4.png",
+      "runtime_registered": false
+    },
+    {
+      "path": "assets/taego/source-support/seated.png",
+      "sha256": "c773821852d1be537a7e714af0f9e90dee8a20e1c87ae6a755f9458d7357a6f2",
+      "bytes": 1491239,
+      "role": "seated adult posture support",
+      "status": "EDITOR_SELECTED_USER_AUTHORIZED_SUPPORT_REFERENCE",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_label": "exec-1446c7b6-0530-4cd8-9d11-8b4d74a3aed6.png",
+      "runtime_registered": false
+    },
+    {
+      "path": "assets/taego/source-support/standing.png",
+      "sha256": "9dd03e4c62fb4513b5c97f788d48189bce939e510d39a1b34a2bd9b0415bfbe2",
+      "bytes": 1360856,
+      "role": "transparent standing posture support",
+      "status": "EDITOR_SELECTED_USER_AUTHORIZED_SUPPORT_REFERENCE",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_label": "exec-d9e47a8d-6278-485e-a4f3-effc288da9a4.png",
+      "runtime_registered": false
+    },
+    {
+      "path": "assets/dokkaebi/source-relaxed-standing.png",
+      "sha256": "087daa0348ffceb92209cda7aae2f2ba907c86ed799d63500ba9299085a211c3",
+      "bytes": 1430724,
+      "role": "exact user-attached relaxed standing original; RGB design source, not transparent runtime sprite",
+      "status": "USER_REQUESTED_ORIGINAL_REFERENCE",
+      "size_px": [
+        1195,
+        1316
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "source_label": "전통 의상의 도깨비 전사-3.png",
+      "runtime_registered": false
+    }
+  ],
+  "source_identity_reference": {
+    "path": "../20261102/assets/taego/00-original.png",
+    "sha256": "1a8d0bb2e3e11a39c6b055ac2736cc43222006d266ac35a80685f00d45a23e34",
+    "role": "original adult face, fur and stripe reference",
+    "status": "USER_APPROVED_DESIGN_REFERENCE"
+  },
+  "all_selected_bytes_verified": true,
+  "runtime_integrated": false
+}
