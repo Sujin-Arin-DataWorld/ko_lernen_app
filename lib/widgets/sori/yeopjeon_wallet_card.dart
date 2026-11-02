@@ -347,11 +347,13 @@ class YeopjeonWalletBadge extends StatelessWidget {
     this.onReturned,
     this.compact = false,
     this.jadeSurface = false,
+    this.quiet = false,
   });
   final YeopjeonWallet wallet;
   final VoidCallback? onReturned;
   final bool compact;
   final bool jadeSurface;
+  final bool quiet;
 
   @override
   Widget build(BuildContext context) {
@@ -382,27 +384,39 @@ class YeopjeonWalletBadge extends StatelessWidget {
               vertical: compact ? 4 : 0,
             ),
             decoration: BoxDecoration(
-              color: jadeSurface
+              color: quiet
+                  ? Colors.transparent
+                  : jadeSurface
                   ? CPalette.deepJade
                   : SoriActivityColors.actionGold,
               borderRadius: SoriRadius.brLg,
-              border: jadeSurface ? Border.all(color: SoriColors.gold) : null,
+              border: jadeSurface && !quiet
+                  ? Border.all(color: SoriColors.gold)
+                  : null,
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 ApprovedChromeImage(
                   asset: ApprovedChromeAssets.coinFront,
-                  size: compact ? 32 : 38,
+                  size: quiet
+                      ? 28
+                      : compact
+                      ? 32
+                      : 38,
                 ),
                 SizedBox(width: compact ? 4 : Spacing.sm),
                 if (compact)
                   Flexible(
                     child: Text(
                       '${wallet.balance}',
-                      style: SoriTextTheme.of(context).label.copyWith(
-                        color: jadeSurface ? CPalette.paper : null,
-                      ),
+                      style:
+                          (quiet
+                                  ? SoriTextTheme.of(context).taskLabel
+                                  : SoriTextTheme.of(context).label)
+                              .copyWith(
+                                color: jadeSurface ? CPalette.paper : null,
+                              ),
                     ),
                   )
                 else

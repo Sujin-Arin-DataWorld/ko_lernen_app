@@ -12,9 +12,17 @@ import 'package:flutter_test/flutter_test.dart';
 /// Follow the approved dashboard's details entrance before checking the
 /// existing guide, owned construction, quests or pending-reward details.
 Future<void> openTodayDetails(WidgetTester tester) async {
+  final dashboard = find
+      .descendant(
+        of: find.byKey(const ValueKey('today-dashboard-scroll')),
+        matching: find.byType(Scrollable),
+      )
+      .first;
+  tester.state<ScrollableState>(dashboard).position.jumpTo(0);
+  await tester.pump();
   final entrance = find.byKey(const ValueKey('today-details'));
   expect(entrance, findsOneWidget);
-  await tester.ensureVisible(entrance);
+  expect(entrance.hitTestable(), findsOneWidget);
   await tester.tap(entrance);
   await pumpSoriStage(tester);
   expect(find.byKey(const ValueKey('c-today-board')), findsOneWidget);

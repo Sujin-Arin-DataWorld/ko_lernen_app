@@ -813,6 +813,28 @@ class SoriTextTheme {
     color: _s.textMuted,
   );
 
+  /// Functional task copy stays proportional in both interface languages.
+  /// Editorial headings retain the selected locale face; Korean keeps its
+  /// bundled fallback. Use actual Supreme Regular/Medium/Bold weights.
+  TextStyle get taskBody => body.copyWith(
+    fontFamily: SoriLocaleFonts.english.body,
+    fontWeight: FontWeight.w400,
+    height: 1.35,
+  );
+  TextStyle get taskTitle => taskBody.copyWith(
+    fontSize: 22,
+    fontWeight: FontWeight.w700,
+    letterSpacing: -.2,
+    height: 1.18,
+  );
+  TextStyle get taskLabel => taskBody.copyWith(
+    fontSize: 15,
+    fontWeight: FontWeight.w700,
+    height: 1.25,
+  );
+  TextStyle get taskCaption =>
+      taskBody.copyWith(fontSize: 13, height: 1.3, color: _s.textMuted);
+
   // ── Caption / Label ──────────────────────────────────────────────────
   TextStyle get caption => _base(
     fontSize: 13.5,

@@ -12296,7 +12296,7 @@ class AppL10nDe extends AppL10n {
   String get accountRecoveryResumeConfirm => 'Bestätigte Auswahl fortsetzen';
 
   @override
-  String get todayNextStep => 'DEIN NÄCHSTER SCHRITT';
+  String get todayNextStep => 'Dein nächster Schritt';
 
   @override
   String get todayFirstSyllable => 'Deine erste Silbe';

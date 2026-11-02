@@ -111,6 +111,21 @@ void main() {
             );
             await tester.pump();
             await tester.pump(const Duration(milliseconds: 300));
+            await tester.scrollUntilVisible(
+              find.byKey(const ValueKey('today-hanok-entrance-progress')),
+              240,
+              scrollable: find.byType(Scrollable).first,
+            );
+            expect(
+              tester
+                  .widget<Text>(
+                    find.byKey(const ValueKey('today-hanok-entrance-progress')),
+                  )
+                  .data,
+              '$owned / 16',
+              reason:
+                  'The entrance badge must use this saved owned-stage count.',
+            );
             await openTodayDetails(tester);
             final summary = find.byKey(const ValueKey('today-hanok-summary'));
             await tester.scrollUntilVisible(

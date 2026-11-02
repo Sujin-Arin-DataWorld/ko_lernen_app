@@ -35,6 +35,8 @@ import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/today_subject_art.dart';
 import 'package:ko_lernen_app/widgets/sori/ildu_r16_layer_artwork.dart';
 import 'package:ko_lernen_app/widgets/sori/top_chrome.dart';
+import 'package:ko_lernen_app/widgets/sori/settings_button.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
 import 'package:ko_lernen_app/widgets/sori/week_progress.dart';
 
 import 'support/catalog_test_support.dart' as catalog;
@@ -230,7 +232,11 @@ void main() {
                       padding: const EdgeInsets.only(top: 24),
                       viewPadding: const EdgeInsets.only(top: 24),
                       textScaler: TextScaler.linear(scale),
-                      disableAnimations: true,
+                      disableAnimations:
+                          !(size.width == 390 &&
+                              scale == 1 &&
+                              state == 'course' &&
+                              lang == 'de'),
                     ),
                     child: child!,
                   ),
@@ -312,6 +318,48 @@ void main() {
               final position = tester.state<ScrollableState>(scroll).position;
               final cta = find.byKey(const ValueKey('learning-focus-start'));
               final card = find.byKey(const ValueKey('today-learning-card'));
+              final contactPortrait = find.descendant(
+                of: find.byKey(const ValueKey('learning-companion-ground')),
+                matching: find.byType(Image),
+              );
+              expect(contactPortrait, findsOneWidget);
+              final header = tester.getRect(
+                find.byKey(const ValueKey('today-top-chrome')),
+              );
+              final settings = tester.getRect(find.byType(SoriSettingsButton));
+              expect(settings.right, closeTo(header.right, .1));
+              expect(settings.height, greaterThanOrEqualTo(48));
+              final titleText = tester.widget<Text>(
+                find.byKey(const ValueKey('learning-focus-title')),
+              );
+              expect(titleText.style!.fontFamily, 'Supreme');
+              final meta = find.byKey(const ValueKey('learning-focus-meta'));
+              if (meta.evaluate().isNotEmpty) {
+                expect(
+                  tester.getRect(meta).right,
+                  closeTo(tester.getRect(card).right - 17, .1),
+                  reason: 'Metadata aligns with the right content edge.',
+                );
+              }
+              final reward = find.byKey(const ValueKey('today-finds'));
+              expect(
+                find.descendant(
+                  of: reward,
+                  matching: find.byType(CMaterialAction),
+                ),
+                findsNothing,
+                reason: 'One reward card is one secondary action.',
+              );
+              final contactDepth =
+                  tester.getRect(contactPortrait).bottom -
+                  tester.getRect(card).top;
+              expect(
+                contactDepth,
+                inInclusiveRange(6, 14),
+                reason:
+                    'The original portrait cut edge stays behind the card '
+                    'for both companions, locales and text scales.',
+              );
               final hanokLayers = find.byWidgetPredicate(
                 (widget) =>
                     widget is CustomPaint &&
@@ -320,9 +368,9 @@ void main() {
               if (size.width == 390 && scale == 1) {
                 expect(
                   hanokLayers,
-                  findsOneWidget,
+                  findsNothing,
                   reason:
-                      'The explicit R16 preview must paint architecture, not a blank loading surface.',
+                      'Today offers the gate entrance, not completed architecture.',
                 );
               }
               final metrics = {
@@ -404,6 +452,36 @@ void main() {
 
               await reveal(cta);
               await tester.pumpAndSettle();
+              if (size.width == 390 &&
+                  scale == 1 &&
+                  state == 'course' &&
+                  lang == 'de') {
+                final rewardPanel = find.descendant(
+                  of: reward,
+                  matching: find.byType(CPaperPanel),
+                );
+                final resting = tester.getTopLeft(rewardPanel);
+                final gesture = await tester.startGesture(
+                  tester.getCenter(reward),
+                );
+                await tester.pump();
+                await tester.pump(const Duration(milliseconds: 180));
+                expect(
+                  tester.getTopLeft(rewardPanel).dy,
+                  greaterThan(resting.dy),
+                );
+                await gesture.cancel();
+                await tester.pumpAndSettle();
+                expect(
+                  tester.getTopLeft(rewardPanel).dy,
+                  closeTo(resting.dy, .1),
+                );
+                expect(
+                  routes,
+                  isEmpty,
+                  reason: 'Cancelled contact must not navigate.',
+                );
+              }
               await tester.tap(cta);
               await tester.pump();
               expect(opened, same(focus.destination));
@@ -411,6 +489,19 @@ void main() {
               expect(openedActivity, focus.activityId);
               await reveal(find.text(t.todayQuickPlay));
               await tester.pumpAndSettle();
+              final entranceRect = tester.getRect(
+                find.byKey(const ValueKey('today-hanok-entrance')),
+              );
+              final playRect = tester.getRect(
+                find.byKey(const ValueKey('today-quick-play')),
+              );
+              expect(
+                entranceRect.size,
+                playRect.size,
+                reason: 'Hanok and Quick play share identical physical cards.',
+              );
+              expect(entranceRect.top, playRect.top);
+              expect(entranceRect.bottom, playRect.bottom);
               await tester.tap(find.text(t.todayQuickPlay));
               await tester.pump();
               expect(games, 1);

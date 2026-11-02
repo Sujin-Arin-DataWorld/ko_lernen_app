@@ -157,7 +157,7 @@ void main() {
       final ground = tester.getSize(
         find.byKey(const ValueKey('learning-companion-ground')),
       );
-        expect(ground, const Size(152, 144));
+      expect(ground, const Size(128, 118));
       expect(tester.widget<Image>(portrait).fit, BoxFit.contain);
     },
   );

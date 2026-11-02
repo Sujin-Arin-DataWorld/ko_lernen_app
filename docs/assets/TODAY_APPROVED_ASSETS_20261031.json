@@ -172,6 +172,26 @@
         ]
       },
       "text": "Korean learning content only; no localized UI embedded"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/today/hanok-entrance.png",
+      "sha256": "7a3cf420c19b12d754c3fab0fe0d0e7e587f217644d569d7fba4e9b8579fc627",
+      "copiedByteIdentical": true,
+      "bytes": 2589831,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "classification": "standalone_generated_hanok_entrance_illustration",
+      "visualFamily": "user_requested_concept_c_today_20261102",
+      "sourceFile": "exec-e326cf5f-af84-4379-9113-ad58bd1b26b9.png",
+      "generation": "built-in image_gen; open jade gate, tiled roof, timber threshold, small plum and hanji map; no UI text or completed estate",
+      "authority": "2026-11-02 user requested regenerated Hanok asset and exact equal card geometry with Quick play"
     }
   ],
   "atlasRegions": {},
@@ -179,5 +199,28 @@
     "asset": "assets/icons/chrome/cloud.png",
     "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5"
   },
-  "classification": "user_authorized_concept_c_today"
+  "classification": "user_authorized_concept_c_today",
+  "supersededCandidates": [
+    {
+      "asset": "assets/illustrations/concept_c/today/hanok-entrance-frame.png",
+      "sha256": "864912c3febaec639afe4bed2257c642b710d7a222e60bd9bd2b5210ed41ba73",
+      "copiedByteIdentical": true,
+      "bytes": 2610079,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "classification": "standalone_generated_craft_button_frame",
+      "visualFamily": "user_requested_concept_c_today_20261102",
+      "sourceFile": "exec-f877c49c-cc1b-4ccd-9774-ea72ae92e429.png",
+      "generation": "built-in image_gen; blank walnut, jade and gold frame; canonical gate and localized text composited at runtime",
+      "authority": "2026-11-02 user requested asset Hanok entrance replacing finished-house preview",
+      "reason": "User rejected separate frame scale; original preserved, excluded from runtime bundle"
+    }
+  ]
 }

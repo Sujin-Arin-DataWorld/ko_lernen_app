@@ -35,9 +35,11 @@ class SoriWalletBadge extends StatelessWidget {
     this.onReturned,
     this.foreground,
     this.jadeSurface = false,
+    this.quiet = false,
   });
   final bool compact;
   final bool jadeSurface;
+  final bool quiet;
   final Color? foreground;
   final YeopjeonWallet? fallback;
   final VoidCallback? onReturned;
@@ -51,6 +53,7 @@ class SoriWalletBadge extends StatelessWidget {
         wallet: wallet,
         compact: compact,
         jadeSurface: jadeSurface,
+        quiet: quiet,
         onReturned: () {
           if (owner != null) unawaited(owner.refresh());
           onReturned?.call();
@@ -70,25 +73,33 @@ class SoriWalletBadge extends StatelessWidget {
           constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
           padding: const EdgeInsets.symmetric(horizontal: 8),
           decoration: BoxDecoration(
-            color: jadeSurface
+            color: quiet
+                ? Colors.transparent
+                : jadeSurface
                 ? CPalette.deepJade
                 : SoriActivityColors.actionGold,
             borderRadius: SoriRadius.brLg,
-            border: jadeSurface ? Border.all(color: SoriColors.gold) : null,
+            border: jadeSurface && !quiet
+                ? Border.all(color: SoriColors.gold)
+                : null,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const ApprovedChromeImage(
+              ApprovedChromeImage(
                 asset: ApprovedChromeAssets.coinFront,
-                size: 32,
+                size: quiet ? 28 : 32,
               ),
               const SizedBox(width: 4),
               Text(
                 '—',
-                style: SoriTextTheme.of(context).label.copyWith(
-                  color: jadeSurface ? Colors.white : foreground,
-                ),
+                style:
+                    (quiet
+                            ? SoriTextTheme.of(context).taskLabel
+                            : SoriTextTheme.of(context).label)
+                        .copyWith(
+                          color: jadeSurface ? Colors.white : foreground,
+                        ),
               ),
             ],
           ),

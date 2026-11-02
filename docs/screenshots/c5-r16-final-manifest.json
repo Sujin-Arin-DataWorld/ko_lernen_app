@@ -1,8 +1,8 @@
 {
   "scope": "Actual SoriStageShell native widget evidence; isolated saved-ledger fixtures",
-  "base_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd",
+  "base_revision": "940a0110cc761afce71e32f477323f4256dd1f4d",
   "branch_reported_by_root": "codex/c5-scene-quality-20261030",
-  "source_state": "9465a8c base plus CI recovery WIP, captured 2026-11-02; exact source hashes below",
+  "source_state": "User-authorized Today hierarchy WIP, 2026-11-02; exact source hashes below. Not a device or store release.",
   "capture_count": 22,
   "normal_full_fold_count": 12,
   "saved_ownership_hanok_fixture_count": 6,
@@ -18,6 +18,29 @@
     ]
   },
   "source_sha256": {
+    "assets/data/curriculum_manifest.json": "2222d49c02dce92dc092be06c958dd6b2b535d13fb0c0d7184ec91037018541b",
+    "assets/data/ildu_r16_art_v1.json": "f0dfbb6fd210e32fe4b5771f58c2dbeebfb3d0e27aa5c85158cc531f98152859",
+    "assets/data/ildu_r16_sarang_layers_v1.json": "9461915fb5bc6c09db500e2ad7a6fb2fdc0f033c60bc00d0d502cb84f9bc554c",
+    "assets/data/sarangchae_construction_v3.json": "c0cd9a453fb3e7cbb787d67e3bf5cda53dd35bb606ee5cef78f45af8485bb65e",
+    "assets/icons/navigation/games.png": "11c9d9004f23cb9a4c63eb53fe546b3c745e7b5c10047996b94b724f9eabe5b1",
+    "assets/icons/navigation/gye.png": "42c2618b59241ff79f5413471b7b4f2bd61ce6d8c18b6acbdee9fff4f51a19b5",
+    "assets/icons/navigation/hanok.png": "4c42fda8e624093c8ba39699492bbc5bf27efc1f3a04d9669b1d7d8720df61bf",
+    "assets/icons/navigation/learn.png": "c4db0fd39d3b16c79db99ce75b1fccbea1eaf9acda64c52ed40bb6c4c8fc0b42",
+    "assets/icons/navigation/today.png": "a8ef18b79cc93d75600f2fccb35d8830c2277e9d42151176c0e22d34eb6bf22a",
+    "assets/illustrations/concept_c/c5_scenes/book-scene.png": "32e9ab63def5b6518976bc4ae0ae8589865d26d4aef7827c1b41269b0cef6274",
+    "assets/illustrations/concept_c/c5_scenes/bronze-speaker.png": "1c69510813a6a13c6c1de4c243be7ae13c877798dabff11941466e12b0d895d2",
+    "assets/illustrations/concept_c/c5_scenes/gold-action.png": "9e004889eb9db48d7e021985a54f5a5b602df302866c27ad2e1214f372c0d008",
+    "assets/illustrations/concept_c/c5_scenes/hangul-tiles.png": "d861f156a0eab95d7a42e401b6db368a1a3f348d1e01376ea74177d56ef40816",
+    "assets/illustrations/concept_c/c5_scenes/review-cards.png": "dbeb5d77f612fdae79d91a2e190d13d1380a38285b319935bf368df648b3c383",
+    "assets/illustrations/concept_c/c5_scenes/syllable-scene.png": "96f6009e545f43a3ee3770f40cdd871adec890c35ad9b05df628ea6c32076037",
+    "assets/illustrations/concept_c/today/chuseok.png": "49db6a790d82f97f301be26226bee50572f0c3fe205f5171bdc1b88f0634b651",
+    "assets/illustrations/concept_c/today/hanok-entrance.png": "7a3cf420c19b12d754c3fab0fe0d0e7e587f217644d569d7fba4e9b8579fc627",
+    "assets/illustrations/concept_c/today/repair-language.png": "ab9de1314ed8e00ac204a978b260efccda32b5cf95e3c64fc51cd418fcd5b6db",
+    "assets/illustrations/concept_c/today/restaurant.png": "a1ddfba82c4499d802ae35ea9c2e649035affdf1d331733f71129c09974884f6",
+    "assets/illustrations/concept_c/today/sorry-thanks.png": "1370c4712853be701f7996abda97a08b496bd1d0055b41064849d4d04999ce59",
+    "assets/illustrations/concept_c/today/today-environments.png": "c0dad653803902693de8e3ecc2dd027d0821e84d3fdf0dcbe4c835902d28b673",
+    "assets/illustrations/concept_c/today/today-props.png": "0ed4e8bc047ad3b81b428cf82fb3bdcaeec770deaa8aa9563c3baf680b0cbd64",
+    "assets/illustrations/concept_c/today/transport.png": "b9e42c64f23e941db2ae0b22ff412b8e88d093c18169e309541a33985239f88c",
     "lib/config/tester_feedback_feature.dart": "df417267e1c409b31e6c27011c749d09a375cd0eaf80d17b980c1d445c63bb11",
     "lib/config/ux_preview_feature.dart": "e22cb9cb07037baa92693d4a41b3960da8a31c4ba0554e861e1d976580341a44",
     "lib/controllers/listening_playback_controller.dart": "5913e721b9fcc5f6990174a225aeff27bebef50297a79a66a1de1693d418730c",
@@ -89,10 +112,12 @@
     "lib/features/study_library/study_library_repository.dart": "4af8a9dcf4dc5fb1a52fd669d40d2e1108843927a33bd28cca47d682ac0c0cec",
     "lib/features/study_library/typed_study_bookmark_store.dart": "4c1dd53346783b88f49ed6ebafa56ff882ddde9a2a4a536f7b7310187be45c6d",
     "lib/firebase_options.dart": "e7bf6afae6784a01aae4745cde33bf308e36da9d90e5a06b41d10454a702f22f",
+    "lib/l10n/app_de.arb": "6aa8cc6713a45889b8e6a24cf29572bfe57ac9644046e292fdd5e7005230fb92",
+    "lib/l10n/app_en.arb": "bd8555daec79edf188700ca970beb29af2991b5fc7cb980c6512ae374645748f",
     "lib/l10n/cloze_topic_group_localizations.dart": "46824f1f683ae218e2a9be710a09ed96d206583d19e338200dc8858c5df917ea",
-    "lib/l10n/generated/app_localizations.dart": "c6bf030d61db4c8db5c17603028b43d57294b678500bf2693cd0e57c084650ea",
-    "lib/l10n/generated/app_localizations_de.dart": "054a25f1598c086f0970935c70f7af3e1407ecc2fa2b93e64c1afc4876e1a4d5",
-    "lib/l10n/generated/app_localizations_en.dart": "254276f7411c85175fec1a315937a95395177e534f89c2469dc3201551a38722",
+    "lib/l10n/generated/app_localizations.dart": "1212325b47bab8af6ea467167b7ee9536f3e0e124b534077f4ff53cdde9d0837",
+    "lib/l10n/generated/app_localizations_de.dart": "2a8f96e95e22c5030c82ef6c8849bd44782351c5ae6589ce0b0022bc1e87b8d0",
+    "lib/l10n/generated/app_localizations_en.dart": "3aee524a44f6daf1b5856f53962d303f47e3815d38d2d9c9a2f9ad538f9e337f",
     "lib/l10n/gye_error_text.dart": "0f60a668181daac0142edb57cd1c4e4103a7341574d634e2ffcfaf336ff42e09",
     "lib/l10n/sticker_localizations.dart": "5795c58fc2d36fec9f778a64d6f457e56fcbc900c81910bfb1fcf4aafa4f9dd2",
     "lib/main.dart": "823a5203d6e3b3dc586f55704c40d39ee7f43a9ee6e75ecb801f22460917afcd",
@@ -281,7 +306,7 @@
     "lib/screens/sori_stage/sori_stage_preview_screens.dart": "b9b80853ff8fc1e402a811dbe8501cf23a89040d64349a1420841321ab1dd9b8",
     "lib/screens/sori_stage/sori_stage_reward_receipt_sheet.dart": "aaef204f9058307fac38458b4e8975f927ec4e8fed820247fd1bf03f07f7d3a2",
     "lib/screens/sori_stage/sori_stage_shell.dart": "c14587049aa375b82233fd37ee2231be2b87ffc7b34742865de8a89cca599a6c",
-    "lib/screens/sori_stage/sori_stage_today_screen.dart": "64759d84067c015292070eaa4d5071423c9290134a7e9bf3e9548bad1318dc4a",
+    "lib/screens/sori_stage/sori_stage_today_screen.dart": "5cd1a8a7d078ee62414d63b8b4b8ceff94ba843af5c9ff5ca5b124683b547454",
     "lib/screens/speed_match_screen.dart": "6e057153de7b8662058e35aae7bb4a7d184d9d48c16ee788c9c049b476485c3e",
     "lib/screens/splash_screen.dart": "45d56194fc22174abcd40eb8db6fb6a6dd4e0afdf2a2ea628bb1f11f0b232c6e",
     "lib/screens/stats_screen.dart": "8480f08d0deb103fa9143cae5cc80d27090930d11f7be3213d07f3ad70a6dad7",
@@ -667,7 +692,7 @@
     "lib/widgets/sori/screen_coach.dart": "20d433f0485f30bcdb55da22fb2e6250111f4608bd28a022f4873671af6cdaa5",
     "lib/widgets/sori/scroll_if_needed.dart": "6f9412c1e748a5d29edb239c7c7f0858fe430cd35db8c8524e1579acd911a8c9",
     "lib/widgets/sori/section_header.dart": "8c5743863bc8c9b2a675cb53f6ea452bc2b37262b5b4220a6910235e228f3522",
-    "lib/widgets/sori/settings_button.dart": "03f6681da643dfe9fd614bf094a26d97df0928faa4168db2d4cf9c24f3afdf7b",
+    "lib/widgets/sori/settings_button.dart": "7dc844cd97f38f5c8adf54e102778620ff1bfebe2c0c531e18379857e674b86a",
     "lib/widgets/sori/share_slip.dart": "d17c5f0244aa8a9674d917bad89014aa70ec87ff07e58fa193638af93be5dcad",
     "lib/widgets/sori/sheet.dart": "6e5793cf924cacd31ab547386011a448578ce82fa68fa49401bfc2a19370669f",
     "lib/widgets/sori/sori_icon.dart": "1bf6fbaa571a2c141fb1f476a77523cc7c14c6701cd0af04c42db43fe6f16283",
@@ -691,8 +716,10 @@
     "lib/widgets/sori/text_field.dart": "c0cb49b0faaa3fd10b30af3045c60e198cbe449b50a859751062ecf21792ae4e",
     "lib/widgets/sori/tiger_video.dart": "921e21a8aadf158d914a7e4800d7e22539f96b930fd6ee4052318e74e09d8177",
     "lib/widgets/sori/toast.dart": "a79e3fa69cd7265e4bbcc868fbac5fc5060126104c2b044e9930f5cf84304371",
-    "lib/widgets/sori/tokens.dart": "7baef16d4c6f6a1b83bfb4dbe48baf109b89475e921975332eeba57241b84348",
-    "lib/widgets/sori/top_chrome.dart": "7735c6a6a3d32b931f6017fe87d70879d645e3c12b6ea2bde00d34eea61c54a7",
+    "lib/widgets/sori/today_learning_card.dart": "e396bba141841678705f8f8aeb4481b5917a83338cb925f4d889d727562b5e18",
+    "lib/widgets/sori/today_subject_art.dart": "b1cec8eeaeb05a530e0fb3d137e4a0f9121fdbda049ced21f814ef44d2c37c11",
+    "lib/widgets/sori/tokens.dart": "b508d33cee8a7a7a41f6092543fde9ecc5d030573174378405b4dcbf9324c3ed",
+    "lib/widgets/sori/top_chrome.dart": "6dc37302550c9331e2cda92f5b8fa3d72bde371b15cf1106bd24922dba5d8b96",
     "lib/widgets/sori/tts_speed_control.dart": "b86b2cc2dd8dc140ff7baabb227cbe52e21e87e2c0d2e3b7fe12ba513230a0cb",
     "lib/widgets/sori/tts_unavailable_banner.dart": "fbd6fdc6a9b8c9998bc6bab5438566b1aea264623b4736559da6bca17fda3068",
     "lib/widgets/sori/type_scale.dart": "6424c5f4c726036f72210c4030f74c673ec9a04aa40de9330ca5aa724b19d1d7",
@@ -702,36 +729,12 @@
     "lib/widgets/sori/week_sheet.dart": "1fd63199e9138f7930072d3fb20ab52eb545060624d9d74862099e985bdc388c",
     "lib/widgets/sori/window_class.dart": "af49bb179bbea32a9d6b583bef815ce4304c87673b4dc8567a773601e50839fa",
     "lib/widgets/sori/wordbook_add.dart": "76cb5ff1e4ba4bb86dc6b7b1a22cbc74c5c74435f0b9e7c6e6a18784a05bb28c",
-    "lib/widgets/sori/yeopjeon_wallet_card.dart": "510ce44c84df6e9d768cec52f7fa7d483234fa0e0bfb2ac75675ed59151f2fe0",
+    "lib/widgets/sori/yeopjeon_wallet_card.dart": "7d7875704dd7d5c64bfa7e2dd9fe05981dfa258e9af2155b0eb84d230b1fe7a1",
     "lib/widgets/stroke_canvas.dart": "f6d1810f6c93cbdc89147cf73120ec2bfacd6f0b801c1b9f700c330d013ae3d8",
     "lib/widgets/trace_canvas.dart": "9599cd08d708a384e404c927cab5d53bab456cd7f1ceff0895925fe266a580b9",
-    "test/sori_stage_visual_evidence_test.dart": "0a90e06b476115201c2a9e02806db37a2c9efcd5394e4f0abca799af3a61588d",
-    "test/support/sori_stage_capture_assets.dart": "0ea4e33936a54ad8b54ae26a5513bad1546b28354cea7e35144a56d4cd98ddfd",
     "pubspec.yaml": "ab5c8d177849c4338b569fb2da7b7af289802bb6be679b2ca0b557f5cb4a95e5",
-    "assets/data/ildu_r16_art_v1.json": "f0dfbb6fd210e32fe4b5771f58c2dbeebfb3d0e27aa5c85158cc531f98152859",
-    "assets/data/ildu_r16_sarang_layers_v1.json": "9461915fb5bc6c09db500e2ad7a6fb2fdc0f033c60bc00d0d502cb84f9bc554c",
-    "assets/data/sarangchae_construction_v3.json": "c0cd9a453fb3e7cbb787d67e3bf5cda53dd35bb606ee5cef78f45af8485bb65e",
-    "assets/data/curriculum_manifest.json": "2222d49c02dce92dc092be06c958dd6b2b535d13fb0c0d7184ec91037018541b",
-    "assets/icons/navigation/games.png": "11c9d9004f23cb9a4c63eb53fe546b3c745e7b5c10047996b94b724f9eabe5b1",
-    "assets/icons/navigation/gye.png": "42c2618b59241ff79f5413471b7b4f2bd61ce6d8c18b6acbdee9fff4f51a19b5",
-    "assets/icons/navigation/hanok.png": "4c42fda8e624093c8ba39699492bbc5bf27efc1f3a04d9669b1d7d8720df61bf",
-    "assets/icons/navigation/learn.png": "c4db0fd39d3b16c79db99ce75b1fccbea1eaf9acda64c52ed40bb6c4c8fc0b42",
-    "assets/icons/navigation/today.png": "a8ef18b79cc93d75600f2fccb35d8830c2277e9d42151176c0e22d34eb6bf22a",
-    "assets/illustrations/concept_c/c5_scenes/book-scene.png": "32e9ab63def5b6518976bc4ae0ae8589865d26d4aef7827c1b41269b0cef6274",
-    "assets/illustrations/concept_c/c5_scenes/bronze-speaker.png": "1c69510813a6a13c6c1de4c243be7ae13c877798dabff11941466e12b0d895d2",
-    "assets/illustrations/concept_c/c5_scenes/gold-action.png": "9e004889eb9db48d7e021985a54f5a5b602df302866c27ad2e1214f372c0d008",
-    "assets/illustrations/concept_c/c5_scenes/hangul-tiles.png": "d861f156a0eab95d7a42e401b6db368a1a3f348d1e01376ea74177d56ef40816",
-    "assets/illustrations/concept_c/c5_scenes/review-cards.png": "dbeb5d77f612fdae79d91a2e190d13d1380a38285b319935bf368df648b3c383",
-    "assets/illustrations/concept_c/c5_scenes/syllable-scene.png": "96f6009e545f43a3ee3770f40cdd871adec890c35ad9b05df628ea6c32076037",
-    "lib/widgets/sori/today_learning_card.dart": "c1cf064d8f870ac65f32d36ec9c5944255457f181a5533d9bd61a100c0074f2d",
-    "lib/widgets/sori/today_subject_art.dart": "b1cec8eeaeb05a530e0fb3d137e4a0f9121fdbda049ced21f814ef44d2c37c11",
-    "assets/illustrations/concept_c/today/chuseok.png": "49db6a790d82f97f301be26226bee50572f0c3fe205f5171bdc1b88f0634b651",
-    "assets/illustrations/concept_c/today/repair-language.png": "ab9de1314ed8e00ac204a978b260efccda32b5cf95e3c64fc51cd418fcd5b6db",
-    "assets/illustrations/concept_c/today/restaurant.png": "a1ddfba82c4499d802ae35ea9c2e649035affdf1d331733f71129c09974884f6",
-    "assets/illustrations/concept_c/today/sorry-thanks.png": "1370c4712853be701f7996abda97a08b496bd1d0055b41064849d4d04999ce59",
-    "assets/illustrations/concept_c/today/today-environments.png": "c0dad653803902693de8e3ecc2dd027d0821e84d3fdf0dcbe4c835902d28b673",
-    "assets/illustrations/concept_c/today/today-props.png": "0ed4e8bc047ad3b81b428cf82fb3bdcaeec770deaa8aa9563c3baf680b0cbd64",
-    "assets/illustrations/concept_c/today/transport.png": "b9e42c64f23e941db2ae0b22ff412b8e88d093c18169e309541a33985239f88c"
+    "test/sori_stage_visual_evidence_test.dart": "0a90e06b476115201c2a9e02806db37a2c9efcd5394e4f0abca799af3a61588d",
+    "test/support/sori_stage_capture_assets.dart": "0ea4e33936a54ad8b54ae26a5513bad1546b28354cea7e35144a56d4cd98ddfd"
   },
   "r16_runtime_layers": {
     "assets/illustrations/ildu_r16_layers/8dc5b45405e82d65ffc88fe755d16079deb42d5adc02ae35d1c2fb9c216d147b.png": {
@@ -869,8 +872,8 @@
   "captures": [
     {
       "file": "sori-shell-games-390-de-bundled-first-course.png",
-      "captured_at_utc": "2026-11-02T00:00:18.318781Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:23.090998Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "de",
       "tab": "games",
@@ -927,8 +930,8 @@
     },
     {
       "file": "sori-shell-games-390-en-bundled-first-course.png",
-      "captured_at_utc": "2026-11-02T00:00:25.777778Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:30.690394Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "en",
       "tab": "games",
@@ -985,8 +988,8 @@
     },
     {
       "file": "sori-shell-gye-390-de-bundled-first-course.png",
-      "captured_at_utc": "2026-11-02T00:00:19.837067Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:24.624086Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "de",
       "tab": "gye",
@@ -1043,8 +1046,8 @@
     },
     {
       "file": "sori-shell-gye-390-en-bundled-first-course.png",
-      "captured_at_utc": "2026-11-02T00:00:27.018146Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:31.810829Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "en",
       "tab": "gye",
@@ -1101,8 +1104,8 @@
     },
     {
       "file": "sori-shell-hanok-390-de-bundled-first-course.png",
-      "captured_at_utc": "2026-11-02T00:00:19.322350Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:24.058555Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "de",
       "tab": "hanok",
@@ -1159,8 +1162,8 @@
     },
     {
       "file": "sori-shell-hanok-390-de-saved-owned-1.png",
-      "captured_at_utc": "2026-11-02T00:00:21.210421Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:26.183967Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "de",
       "tab": "hanok",
@@ -1217,8 +1220,8 @@
     },
     {
       "file": "sori-shell-hanok-390-de-saved-owned-16.png",
-      "captured_at_utc": "2026-11-02T00:00:23.725469Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:28.784025Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "de",
       "tab": "hanok",
@@ -1288,8 +1291,8 @@
     },
     {
       "file": "sori-shell-hanok-390-de-saved-owned-8.png",
-      "captured_at_utc": "2026-11-02T00:00:22.170528Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:27.119882Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "de",
       "tab": "hanok",
@@ -1359,8 +1362,8 @@
     },
     {
       "file": "sori-shell-hanok-390-en-bundled-first-course.png",
-      "captured_at_utc": "2026-11-02T00:00:26.556771Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:31.378941Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "en",
       "tab": "hanok",
@@ -1417,8 +1420,8 @@
     },
     {
       "file": "sori-shell-hanok-390-en-saved-owned-1.png",
-      "captured_at_utc": "2026-11-02T00:00:28.016209Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:32.927153Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "en",
       "tab": "hanok",
@@ -1475,8 +1478,8 @@
     },
     {
       "file": "sori-shell-hanok-390-en-saved-owned-16.png",
-      "captured_at_utc": "2026-11-02T00:00:30.093190Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:34.714646Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "en",
       "tab": "hanok",
@@ -1546,8 +1549,8 @@
     },
     {
       "file": "sori-shell-hanok-390-en-saved-owned-8.png",
-      "captured_at_utc": "2026-11-02T00:00:28.777769Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:33.640380Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "en",
       "tab": "hanok",
@@ -1617,8 +1620,8 @@
     },
     {
       "file": "sori-shell-learn-390-de-bundled-first-course.png",
-      "captured_at_utc": "2026-11-02T00:00:17.522418Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:22.365503Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "de",
       "tab": "learn",
@@ -1675,8 +1678,8 @@
     },
     {
       "file": "sori-shell-learn-390-en-bundled-first-course.png",
-      "captured_at_utc": "2026-11-02T00:00:25.237624Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:30.226475Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "en",
       "tab": "learn",
@@ -1733,8 +1736,8 @@
     },
     {
       "file": "sori-shell-today-390-de-bundled-first-course.png",
-      "captured_at_utc": "2026-11-02T00:00:16.532272Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:21.404611Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "de",
       "tab": "today",
@@ -1753,17 +1756,17 @@
         "profile": {
           "left": 12.0,
           "top": 28.0,
-          "width": 157.0,
+          "width": 256.5350036621094,
           "height": 48.0
         },
         "wallet": {
-          "left": 169.0,
+          "left": 268.5350036621094,
           "top": 28.0,
-          "width": 61.76300048828125,
+          "width": 57.464996337890625,
           "height": 48.0
         },
         "settings": {
-          "left": 234.76300048828125,
+          "left": 330.0,
           "top": 28.0,
           "width": 48.0,
           "height": 48.0
@@ -1772,7 +1775,7 @@
           "left": 12.0,
           "top": 76.0,
           "width": 366.0,
-          "height": 146.0
+          "height": 120.0
         }
       },
       "header_actions_measurement_view": "initial compact dashboard",
@@ -1792,9 +1795,9 @@
         "key": "learning-focus-start",
         "measurement_view": "initial fold before opening details or scrolling",
         "rect": {
-          "left": 25.0,
-          "top": 455.0,
-          "width": 340.0,
+          "left": 29.0,
+          "top": 463.0,
+          "width": 332.0,
           "height": 48.0
         },
         "fully_visible_above_navigation": true,
@@ -1813,12 +1816,12 @@
         "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
         "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
       ],
-      "sha256": "5ef48db76caaaaf1ba0ad46b17e3ee2f005631063b98d29a2210b2006ea912b6"
+      "sha256": "16fa891d1d567a55e64eca942aef79a9d4d2e71c6860e4113a14b9388b8375c4"
     },
     {
       "file": "sori-shell-today-390-de-due-review-12.png",
-      "captured_at_utc": "2026-11-02T00:00:20.311486Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:25.236842Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "de",
       "tab": "today",
@@ -1837,17 +1840,17 @@
         "profile": {
           "left": 12.0,
           "top": 28.0,
-          "width": 157.0,
+          "width": 256.5350036621094,
           "height": 48.0
         },
         "wallet": {
-          "left": 169.0,
+          "left": 268.5350036621094,
           "top": 28.0,
-          "width": 61.76300048828125,
+          "width": 57.464996337890625,
           "height": 48.0
         },
         "settings": {
-          "left": 234.76300048828125,
+          "left": 330.0,
           "top": 28.0,
           "width": 48.0,
           "height": 48.0
@@ -1856,7 +1859,7 @@
           "left": 12.0,
           "top": 76.0,
           "width": 366.0,
-          "height": 146.0
+          "height": 120.0
         }
       },
       "header_actions_measurement_view": "initial compact dashboard",
@@ -1876,9 +1879,9 @@
         "key": "learning-focus-start",
         "measurement_view": "initial fold before opening details or scrolling",
         "rect": {
-          "left": 25.0,
-          "top": 455.0,
-          "width": 340.0,
+          "left": 29.0,
+          "top": 463.0,
+          "width": 332.0,
           "height": 48.0
         },
         "fully_visible_above_navigation": true,
@@ -1897,12 +1900,12 @@
         "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
         "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
       ],
-      "sha256": "422d841b2f4f9bfbc462e5bc61af043e7e4c654eb8f87818bf82d0f910191da7"
+      "sha256": "1db45ae747522d5ed683a2733277249a878bf51ab24f67f819a7ab927552d692"
     },
     {
       "file": "sori-shell-today-390-de-saved-owned-16-summary.png",
-      "captured_at_utc": "2026-11-02T00:00:24.286364Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:29.338578Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "de",
       "tab": "today",
@@ -1921,17 +1924,17 @@
         "profile": {
           "left": 12.0,
           "top": 28.0,
-          "width": 157.0,
+          "width": 256.5350036621094,
           "height": 48.0
         },
         "wallet": {
-          "left": 169.0,
+          "left": 268.5350036621094,
           "top": 28.0,
-          "width": 61.76300048828125,
+          "width": 57.464996337890625,
           "height": 48.0
         },
         "settings": {
-          "left": 234.76300048828125,
+          "left": 330.0,
           "top": 28.0,
           "width": 48.0,
           "height": 48.0
@@ -1940,7 +1943,7 @@
           "left": 12.0,
           "top": 76.0,
           "width": 366.0,
-          "height": 146.0
+          "height": 120.0
         }
       },
       "header_actions_measurement_view": "initial compact dashboard",
@@ -1993,9 +1996,9 @@
         "key": "learning-focus-start",
         "measurement_view": "initial fold before opening details or scrolling",
         "rect": {
-          "left": 25.0,
-          "top": 455.0,
-          "width": 340.0,
+          "left": 29.0,
+          "top": 463.0,
+          "width": 332.0,
           "height": 48.0
         },
         "fully_visible_above_navigation": true,
@@ -2014,12 +2017,12 @@
         "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
         "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
       ],
-      "sha256": "9c194276e2146db2e65463d3d4200ce2aafc430ff625271d6965c1f1038643da"
+      "sha256": "ff6dc77605759276de982e8a97be1454a1f84530f2409b3fa9ef073d4b05df28"
     },
     {
       "file": "sori-shell-today-390-de-saved-owned-8-summary.png",
-      "captured_at_utc": "2026-11-02T00:00:22.861986Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:27.830372Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "de",
       "tab": "today",
@@ -2038,17 +2041,17 @@
         "profile": {
           "left": 12.0,
           "top": 28.0,
-          "width": 157.0,
+          "width": 256.5350036621094,
           "height": 48.0
         },
         "wallet": {
-          "left": 169.0,
+          "left": 268.5350036621094,
           "top": 28.0,
-          "width": 61.76300048828125,
+          "width": 57.464996337890625,
           "height": 48.0
         },
         "settings": {
-          "left": 234.76300048828125,
+          "left": 330.0,
           "top": 28.0,
           "width": 48.0,
           "height": 48.0
@@ -2057,7 +2060,7 @@
           "left": 12.0,
           "top": 76.0,
           "width": 366.0,
-          "height": 146.0
+          "height": 120.0
         }
       },
       "header_actions_measurement_view": "initial compact dashboard",
@@ -2110,9 +2113,9 @@
         "key": "learning-focus-start",
         "measurement_view": "initial fold before opening details or scrolling",
         "rect": {
-          "left": 25.0,
-          "top": 455.0,
-          "width": 340.0,
+          "left": 29.0,
+          "top": 463.0,
+          "width": 332.0,
           "height": 48.0
         },
         "fully_visible_above_navigation": true,
@@ -2131,12 +2134,12 @@
         "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
         "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
       ],
-      "sha256": "ab8220de9e6d711705f51175947d1618376bf0c8792db0784cf90bd47d73f92d"
+      "sha256": "34bd75e9b36374a7c4b064e207fbf56d44e4231da19609c609aa37ee44191d8e"
     },
     {
       "file": "sori-shell-today-390-en-bundled-first-course.png",
-      "captured_at_utc": "2026-11-02T00:00:24.683389Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:29.727475Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "en",
       "tab": "today",
@@ -2155,17 +2158,17 @@
         "profile": {
           "left": 12.0,
           "top": 28.0,
-          "width": 157.0,
+          "width": 256.5350036621094,
           "height": 48.0
         },
         "wallet": {
-          "left": 169.0,
+          "left": 268.5350036621094,
           "top": 28.0,
-          "width": 62.66600036621094,
+          "width": 57.464996337890625,
           "height": 48.0
         },
         "settings": {
-          "left": 235.66600036621094,
+          "left": 330.0,
           "top": 28.0,
           "width": 48.0,
           "height": 48.0
@@ -2174,7 +2177,7 @@
           "left": 12.0,
           "top": 76.0,
           "width": 366.0,
-          "height": 146.0
+          "height": 120.0
         }
       },
       "header_actions_measurement_view": "initial compact dashboard",
@@ -2194,9 +2197,9 @@
         "key": "learning-focus-start",
         "measurement_view": "initial fold before opening details or scrolling",
         "rect": {
-          "left": 25.0,
-          "top": 455.0,
-          "width": 340.0,
+          "left": 29.0,
+          "top": 463.0,
+          "width": 332.0,
           "height": 48.0
         },
         "fully_visible_above_navigation": true,
@@ -2215,12 +2218,12 @@
         "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
         "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
       ],
-      "sha256": "16b5fb3f772dfeddd6053f7c80a1bd4b5731adc61a7d03080ac475e11ce111b0"
+      "sha256": "048763d19830458c0038b150d80107008dddf94aecbcce46e746eb6128425e74"
     },
     {
       "file": "sori-shell-today-390-en-due-review-12.png",
-      "captured_at_utc": "2026-11-02T00:00:27.365901Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:32.156460Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "en",
       "tab": "today",
@@ -2239,17 +2242,17 @@
         "profile": {
           "left": 12.0,
           "top": 28.0,
-          "width": 157.0,
+          "width": 256.5350036621094,
           "height": 48.0
         },
         "wallet": {
-          "left": 169.0,
+          "left": 268.5350036621094,
           "top": 28.0,
-          "width": 62.66600036621094,
+          "width": 57.464996337890625,
           "height": 48.0
         },
         "settings": {
-          "left": 235.66600036621094,
+          "left": 330.0,
           "top": 28.0,
           "width": 48.0,
           "height": 48.0
@@ -2258,7 +2261,7 @@
           "left": 12.0,
           "top": 76.0,
           "width": 366.0,
-          "height": 146.0
+          "height": 120.0
         }
       },
       "header_actions_measurement_view": "initial compact dashboard",
@@ -2278,9 +2281,9 @@
         "key": "learning-focus-start",
         "measurement_view": "initial fold before opening details or scrolling",
         "rect": {
-          "left": 25.0,
-          "top": 455.0,
-          "width": 340.0,
+          "left": 29.0,
+          "top": 463.0,
+          "width": 332.0,
           "height": 48.0
         },
         "fully_visible_above_navigation": true,
@@ -2299,12 +2302,12 @@
         "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
         "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
       ],
-      "sha256": "28d89b734b1c158f526d518212e3b68d7b1ca391be44bfd7a476dce058976e3d"
+      "sha256": "b576d8b61463e9a507e9afd2aed13aa233a8d2ac086004dcbce7eb76ea3f41cb"
     },
     {
       "file": "sori-shell-today-390-en-saved-owned-16-summary.png",
-      "captured_at_utc": "2026-11-02T00:00:30.584346Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:35.120992Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "en",
       "tab": "today",
@@ -2323,17 +2326,17 @@
         "profile": {
           "left": 12.0,
           "top": 28.0,
-          "width": 157.0,
+          "width": 256.5350036621094,
           "height": 48.0
         },
         "wallet": {
-          "left": 169.0,
+          "left": 268.5350036621094,
           "top": 28.0,
-          "width": 62.66600036621094,
+          "width": 57.464996337890625,
           "height": 48.0
         },
         "settings": {
-          "left": 235.66600036621094,
+          "left": 330.0,
           "top": 28.0,
           "width": 48.0,
           "height": 48.0
@@ -2342,7 +2345,7 @@
           "left": 12.0,
           "top": 76.0,
           "width": 366.0,
-          "height": 146.0
+          "height": 120.0
         }
       },
       "header_actions_measurement_view": "initial compact dashboard",
@@ -2395,9 +2398,9 @@
         "key": "learning-focus-start",
         "measurement_view": "initial fold before opening details or scrolling",
         "rect": {
-          "left": 25.0,
-          "top": 455.0,
-          "width": 340.0,
+          "left": 29.0,
+          "top": 463.0,
+          "width": 332.0,
           "height": 48.0
         },
         "fully_visible_above_navigation": true,
@@ -2416,12 +2419,12 @@
         "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
         "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
       ],
-      "sha256": "9d1fa8a7929072b190e1af16f754d9ae9bb4c9f3f6e78ab39383f471eba4dd1a"
+      "sha256": "48ff0cd4b38441c83a2499dd20f7b85ae318849e2ebbe32825c490884b18eef2"
     },
     {
       "file": "sori-shell-today-390-en-saved-owned-8-summary.png",
-      "captured_at_utc": "2026-11-02T00:00:29.331530Z",
-      "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+      "captured_at_utc": "2026-11-02T02:00:34.067956Z",
+      "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
       "scope": "actual SoriStageShell; isolated widget-test account",
       "language": "en",
       "tab": "today",
@@ -2440,17 +2443,17 @@
         "profile": {
           "left": 12.0,
           "top": 28.0,
-          "width": 157.0,
+          "width": 256.5350036621094,
           "height": 48.0
         },
         "wallet": {
-          "left": 169.0,
+          "left": 268.5350036621094,
           "top": 28.0,
-          "width": 62.66600036621094,
+          "width": 57.464996337890625,
           "height": 48.0
         },
         "settings": {
-          "left": 235.66600036621094,
+          "left": 330.0,
           "top": 28.0,
           "width": 48.0,
           "height": 48.0
@@ -2459,7 +2462,7 @@
           "left": 12.0,
           "top": 76.0,
           "width": 366.0,
-          "height": 146.0
+          "height": 120.0
         }
       },
       "header_actions_measurement_view": "initial compact dashboard",
@@ -2512,9 +2515,9 @@
         "key": "learning-focus-start",
         "measurement_view": "initial fold before opening details or scrolling",
         "rect": {
-          "left": 25.0,
-          "top": 455.0,
-          "width": 340.0,
+          "left": 29.0,
+          "top": 463.0,
+          "width": 332.0,
           "height": 48.0
         },
         "fully_visible_above_navigation": true,
@@ -2533,20 +2536,20 @@
         "The shell has no fixed greeting-time seam; wall-clock phase remains real.",
         "Navigation and primary-action target dimensions are asserted; all-control tap audit is separate."
       ],
-      "sha256": "22c413192125f122b1b475a77de912aa1362ba43398c4a68cf86a45ccccab9c9"
+      "sha256": "0304ca6a9da5be9ec9ca9f9f6f8a4c4a87e2b67622951fc194b08dd1d05665b1"
     }
   ],
   "root_only_captures": [
     {
       "file": "sori-stage-today-390-de.png",
-      "sha256": "9e50e44bee177ff11790c7100574667a7a272a4bea52deddb5f8554ab6ebf92a",
+      "sha256": "90104e16b639f2b0a3a7aff06f494fa7100e6168903c5f0432d5d6264252ffb4",
       "scope": "Existing root-only capture fixture; no shell navigation",
       "fixture": "Review12 Today or saved-owned8/history construction Hanok; not live account data",
       "scrolled": false
     },
     {
       "file": "sori-stage-today-390.png",
-      "sha256": "14bfd07137ba01b6063efa937254e6e6762f1067e96e7fc13748ea10359c0efc",
+      "sha256": "10e63517fcdeb291b805663314f881f46c2b29d6ebbf8a8b56166b88edf96c45",
       "scope": "Existing root-only capture fixture; no shell navigation",
       "fixture": "Review12 Today or saved-owned8/history construction Hanok; not live account data",
       "scrolled": false
@@ -2584,8 +2587,8 @@
     "Native widget renders with seeded saved accounts; no physical-device/live account/store deployment claim.",
     "Original source assets remain hash-preserved. Static mockup typography is not pixel-parity evidence.",
     "Four Today ownership-summary captures now show the real day-details modal, not the initial fold.",
-    "Unbuilt Today discovery artwork is explicitly Preview. Confirmed earned-stage counts remain separate.",
     "All22 shell captures use100percent text; separate Today matrix covers DE/EN100/200percent at5 logical viewports.",
-    "Firebase is intentionally uninitialized; Gye remains its actual unauthenticated state."
+    "Firebase is intentionally uninitialized; Gye remains its actual unauthenticated state.",
+    "Today now uses a newly generated gate entrance illustration, not completed R16 architecture. Owned-stage art remains in day details and the Hanok destination."
   ]
 }

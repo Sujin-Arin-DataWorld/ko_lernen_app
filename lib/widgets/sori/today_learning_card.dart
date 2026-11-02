@@ -61,16 +61,8 @@ class TodayLearningCard extends StatelessWidget {
       CoursePick(started: true) => t.todayContinue,
       _ => t.learningFocusStart,
     };
-    final bodyStyle = type.body.copyWith(
-      fontSize: 16,
-      height: 1.2,
-      color: CPalette.ink,
-    );
-    final titleStyle = type.h2.copyWith(
-      fontSize: 24,
-      height: 1.12,
-      color: CPalette.ink,
-    );
+    final bodyStyle = type.taskBody.copyWith(fontSize: 16, color: CPalette.ink);
+    final titleStyle = type.taskTitle.copyWith(color: CPalette.ink);
     return LayoutBuilder(
       builder: (context, bounds) {
         double height(String text, TextStyle style, double width) {
@@ -84,32 +76,31 @@ class TodayLearningCard extends StatelessWidget {
           return result;
         }
 
-        final width = bounds.maxWidth - 24;
+        // CPaperPanel contributes its 1dp border on each edge as well as the
+        // explicit 16dp inset. Measure against that exact text column.
+        final width = bounds.maxWidth - 34;
         final meta = [
           if (focus.brief?.unit.level case final level?) level.toUpperCase(),
           if (focus.minutes case final minutes?)
             t.learningFocusMinutes(minutes),
         ].join(' · ');
-        final metaStyle = bodyStyle.copyWith(fontSize: 13);
-        final metaHeight = height(t.todayNextStep, metaStyle, width * .50);
+        final metaStyle = type.taskCaption.copyWith(color: CPalette.mutedInk);
+        final eyebrow = pick is ReviewPick ? t.reviewHubTitle : t.todayNextStep;
+        final metaWidth = meta.isEmpty ? 0.0 : width * .46;
+        final metaHeight = height(eyebrow, metaStyle, width - metaWidth - 8);
         final badgeHeight = meta.isEmpty
             ? 0.0
-            : height(meta, metaStyle, width * .45);
+            : height(meta, metaStyle, metaWidth);
         final headingHeight = height(title, titleStyle, width);
         final contextHeight = description == null
             ? 0.0
             : height(description, bodyStyle, width) + 4;
         final actionHeight = math.max(
           48.0,
-          height(
-                label,
-                bodyStyle.copyWith(fontWeight: FontWeight.w700),
-                width - 56,
-              ) +
-              20,
+          height(label, type.taskLabel, width - 56) + 20,
         );
         final fixed =
-            24 +
+            34 +
             math.max(metaHeight, badgeHeight) +
             8 +
             headingHeight +
@@ -121,25 +112,21 @@ class TodayLearningCard extends StatelessWidget {
           key: const ValueKey('today-learning-card'),
           height: cardHeight,
           child: CPaperPanel(
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(
-                      child: Text(
-                        pick is ReviewPick
-                            ? t.reviewHubTitle.toUpperCase()
-                            : t.todayNextStep,
-                        style: metaStyle,
-                      ),
-                    ),
+                    Expanded(child: Text(eyebrow, style: metaStyle)),
                     if (meta.isNotEmpty) ...[
                       const SizedBox(width: 8),
-                      Flexible(
+                      SizedBox(
+                        width: metaWidth,
                         child: Text(
                           meta,
+                          key: const ValueKey('learning-focus-meta'),
                           textAlign: TextAlign.end,
                           style: metaStyle,
                         ),
@@ -168,7 +155,12 @@ class TodayLearningCard extends StatelessWidget {
                   child: Padding(
                     key: const ValueKey('learning-focus-art'),
                     padding: const EdgeInsets.symmetric(vertical: 4),
-                    child: TodaySubjectArt.forPick(pick),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(
+                        SoriRadius.c5DetailAction,
+                      ),
+                      child: TodaySubjectArt.forPick(pick),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -190,13 +182,11 @@ class TodayLearningCard extends StatelessWidget {
                         child: Text(
                           label,
                           textAlign: TextAlign.center,
-                          style: bodyStyle.copyWith(
-                            fontWeight: FontWeight.w700,
-                          ),
+                          style: type.taskLabel.copyWith(color: CPalette.ink),
                         ),
                       ),
                       const SizedBox(width: 8),
-                      const CArrow(dark: true),
+                      const CArrow(dark: true, size: 18),
                     ],
                   ),
                 ),

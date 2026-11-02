@@ -12236,7 +12236,7 @@ class AppL10nEn extends AppL10n {
   String get accountRecoveryResumeConfirm => 'Continue confirmed choice';
 
   @override
-  String get todayNextStep => 'YOUR NEXT STEP';
+  String get todayNextStep => 'Your next step';
 
   @override
   String get todayFirstSyllable => 'Your first syllable';

@@ -1,7 +1,7 @@
 {
   "file": "sori-shell-today-390-de-saved-owned-8-summary.png",
-  "captured_at_utc": "2026-11-02T00:00:22.861986Z",
-  "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
+  "captured_at_utc": "2026-11-02T02:00:27.830372Z",
+  "source_revision": "940a0110c+today-hierarchy-20261102-WIP",
   "scope": "actual SoriStageShell; isolated widget-test account",
   "language": "de",
   "tab": "today",
@@ -20,17 +20,17 @@
     "profile": {
       "left": 12.0,
       "top": 28.0,
-      "width": 157.0,
+      "width": 256.5350036621094,
       "height": 48.0
     },
     "wallet": {
-      "left": 169.0,
+      "left": 268.5350036621094,
       "top": 28.0,
-      "width": 61.76300048828125,
+      "width": 57.464996337890625,
       "height": 48.0
     },
     "settings": {
-      "left": 234.76300048828125,
+      "left": 330.0,
       "top": 28.0,
       "width": 48.0,
       "height": 48.0
@@ -39,7 +39,7 @@
       "left": 12.0,
       "top": 76.0,
       "width": 366.0,
-      "height": 146.0
+      "height": 120.0
     }
   },
   "header_actions_measurement_view": "initial compact dashboard",
@@ -92,9 +92,9 @@
     "key": "learning-focus-start",
     "measurement_view": "initial fold before opening details or scrolling",
     "rect": {
-      "left": 25.0,
-      "top": 455.0,
-      "width": 340.0,
+      "left": 29.0,
+      "top": 463.0,
+      "width": 332.0,
       "height": 48.0
     },
     "fully_visible_above_navigation": true,

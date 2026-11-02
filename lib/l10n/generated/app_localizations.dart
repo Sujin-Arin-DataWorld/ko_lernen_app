@@ -20829,7 +20829,7 @@ abstract class AppL10n {
   /// No description provided for @todayNextStep.
   ///
   /// In de, this message translates to:
-  /// **'DEIN NÄCHSTER SCHRITT'**
+  /// **'Dein nächster Schritt'**
   String get todayNextStep;
 
   /// No description provided for @todayFirstSyllable.

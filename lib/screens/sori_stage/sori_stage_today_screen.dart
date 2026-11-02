@@ -31,7 +31,6 @@ import '../../widgets/sori/app_bar.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/cultural_help.dart';
 import '../../widgets/sori/hanok_v3_preview.dart';
-import '../../widgets/sori/ildu_r16_layer_artwork.dart';
 import '../../widgets/sori/home_hero.dart';
 import '../../widgets/sori/c_gallery/c_materials.dart';
 import '../../widgets/sori/mascot_preference.dart';
@@ -380,48 +379,54 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
   SoriDayPhase get _phase =>
       soriDayPhaseFor(widget.now?.call() ?? DateTime.now());
 
-  Widget _header(BuildContext context, AppL10n t) => Row(
-    children: [
-      Expanded(
-        child: Tooltip(
-          message: t.soriStageProfileTooltip,
-          child: SoriPressable(
-            onTap: () => Navigator.pushNamed(context, '/profile'),
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(minHeight: 48),
-              child: Row(
-                children: [
-                  const ApprovedChromeImage(
-                    asset: ApprovedChromeAssets.cloud,
-                    size: 36,
-                  ),
-                  const SizedBox(width: 6),
-                  Flexible(
-                    child: Text(
-                      'HANGUL SORI',
-                      style: SoriTextTheme.of(context).label.copyWith(
-                        fontSize: 13,
-                        letterSpacing: 1.5,
-                        color: CPalette.paper,
+  Widget _header(BuildContext context, AppL10n t) => LayoutBuilder(
+    builder: (context, bounds) => Row(
+      key: const ValueKey('today-top-chrome'),
+      children: [
+        Expanded(
+          child: Tooltip(
+            message: t.soriStageProfileTooltip,
+            child: SoriPressable(
+              onTap: () => Navigator.pushNamed(context, '/profile'),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(minHeight: 48),
+                child: Row(
+                  children: [
+                    const ApprovedChromeImage(
+                      asset: ApprovedChromeAssets.cloud,
+                      size: 28,
+                    ),
+                    const SizedBox(width: 6),
+                    Flexible(
+                      child: Text(
+                        'HANGUL SORI',
+                        style: SoriTextTheme.of(context).taskLabel.copyWith(
+                          fontSize: 13,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w500,
+                          color: CPalette.paper,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
         ),
-      ),
-      Flexible(
-        child: SoriWalletBadge(
-          compact: true,
-          jadeSurface: true,
-          onReturned: _reload,
+        ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: bounds.maxWidth * .34),
+          child: SoriWalletBadge(
+            compact: true,
+            jadeSurface: true,
+            quiet: true,
+            onReturned: _reload,
+          ),
         ),
-      ),
-      const SizedBox(width: 4),
-      const SoriSettingsButton(),
-    ],
+        const SizedBox(width: 4),
+        const SoriSettingsButton(iconSize: 28),
+      ],
+    ),
   );
 
   Future<void> _showDetails(SoriStageProgressionSnapshot snapshot) =>
@@ -465,13 +470,13 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
       builder: (context, preference, _) => LayoutBuilder(
         builder: (context, bounds) {
           final kind = MascotPreference.mascotKindFor(preference);
-          final portraitWidth = bounds.maxWidth < 336 ? 112.0 : 152.0;
+          final portraitWidth = bounds.maxWidth < 336 ? 112.0 : 128.0;
           final type = SoriTextTheme.of(context);
-          final greetingStyle = type.body.copyWith(
-            fontSize: 16,
+          final greetingStyle = type.taskBody.copyWith(
+            fontSize: 15,
             color: CPalette.paper,
           );
-          final titleStyle = cStageTitle(context).copyWith(fontSize: 40);
+          final titleStyle = cStageTitle(context).copyWith(fontSize: 32);
           final wordWidth =
               (bounds.maxWidth - (kind == null ? 0 : portraitWidth + 8)).clamp(
                 1.0,
@@ -505,32 +510,22 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
               Text(t.soriStageNavToday, style: titleStyle),
             ],
           );
-          if (wordsHeight <= 138 &&
+          if (wordsHeight <= 112 &&
               MediaQuery.textScalerOf(context).scale(16) <= 20.8) {
             return SizedBox(
               key: kind == null
                   ? const ValueKey('sori-today-companion-hidden')
                   : null,
-              height: 146,
+              height: 120,
               child: Stack(
+                clipBehavior: Clip.none,
                 children: [
-                  Positioned(
-                    left: 0,
-                    bottom: 0,
-                    width: 190,
-                    height: 68,
-                    child: Image.asset(
-                      'assets/illustrations/einleitung_generated/intro-plum-branch.png',
-                      fit: BoxFit.contain,
-                      excludeFromSemantics: true,
-                    ),
-                  ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 8),
+                          padding: const EdgeInsets.only(top: 18),
                           child: words,
                         ),
                       ),
@@ -539,18 +534,60 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
                         SizedBox(
                           key: const ValueKey('learning-companion-ground'),
                           width: portraitWidth,
-                          height: 144,
-                          child: Image.asset(
-                            kind.name == 'tiger'
-                                ? CanonicalCompanionArt.baekhoPortrait
-                                : CanonicalCompanionArt.magpiePortrait,
-                            fit: BoxFit.contain,
-                            excludeFromSemantics: true,
+                          height: 118,
+                          child: Transform.translate(
+                            // The following card paints over the portrait's
+                            // cut edge, grounding the original art behind it.
+                            offset: const Offset(0, 14),
+                            child: Image.asset(
+                              kind.name == 'tiger'
+                                  ? CanonicalCompanionArt.baekhoPortrait
+                                  : CanonicalCompanionArt.magpiePortrait,
+                              fit: BoxFit.contain,
+                              alignment: Alignment.bottomCenter,
+                              excludeFromSemantics: true,
+                            ),
                           ),
                         ),
                       ],
                     ],
                   ),
+                ],
+              ),
+            );
+          }
+          if (MediaQuery.textScalerOf(context).scale(16) > 20.8) {
+            // Large headings get the full width instead of breaking a short
+            // word such as Today around a fixed-width portrait.
+            return Padding(
+              key: kind == null
+                  ? const ValueKey('sori-today-companion-hidden')
+                  : null,
+              padding: const EdgeInsets.only(bottom: 2),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  words,
+                  if (kind != null)
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: SizedBox(
+                        key: const ValueKey('learning-companion-ground'),
+                        width: 112,
+                        height: 96,
+                        child: Transform.translate(
+                          offset: const Offset(0, 14),
+                          child: Image.asset(
+                            kind.name == 'tiger'
+                                ? CanonicalCompanionArt.baekhoPortrait
+                                : CanonicalCompanionArt.magpiePortrait,
+                            fit: BoxFit.contain,
+                            alignment: Alignment.bottomCenter,
+                            excludeFromSemantics: true,
+                          ),
+                        ),
+                      ),
+                    ),
                 ],
               ),
             );
@@ -571,12 +608,13 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
                     width: portraitWidth,
                     height: 144,
                     child: Transform.translate(
-                      offset: const Offset(0, 6),
+                      offset: const Offset(0, 14),
                       child: Image.asset(
                         kind.name == 'tiger'
                             ? CanonicalCompanionArt.baekhoPortrait
                             : CanonicalCompanionArt.magpiePortrait,
                         fit: BoxFit.contain,
+                        alignment: Alignment.bottomCenter,
                         excludeFromSemantics: true,
                       ),
                     ),
@@ -606,8 +644,16 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
               shaderCallback: (rect) => const LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [Colors.white, Colors.white, Colors.transparent],
-                stops: [0, .8, 1],
+                // Keep navigation quiet; the floral scene belongs beside the
+                // companion rather than behind the wallet and settings.
+                colors: [
+                  Colors.transparent,
+                  Colors.transparent,
+                  Colors.white,
+                  Colors.white,
+                  Colors.transparent,
+                ],
+                stops: [0, .32, .52, .8, 1],
               ).createShader(rect),
               child: ShaderMask(
                 blendMode: BlendMode.dstIn,
@@ -717,14 +763,10 @@ class _TodayContent extends StatelessWidget {
       builder: (context, padding) => LayoutBuilder(
         builder: (context, bounds) {
           final large = scale > 1.3;
-          final rewardHeight = large
-              ? 116 * scale
-              : snapshot.pendingBojagiCount > 0
-              ? 124.0
-              : 100.0;
+          final rewardHeight = large ? 88 * scale : 88.0;
           final discoveryHeight = large ? 100 * scale : 112.0;
           final reserved =
-              padding.vertical + 48 + 146 + 24 + rewardHeight + discoveryHeight;
+              padding.vertical + 48 + 120 + 24 + rewardHeight + discoveryHeight;
           final missionHeight = (bounds.maxHeight - reserved).clamp(
             220.0,
             440.0,
@@ -769,25 +811,29 @@ class _TodayContent extends StatelessWidget {
                   const SizedBox(height: 8),
                   SoriPressable(
                     key: const ValueKey('today-finds'),
+                    pressScale: .99,
+                    pressOffsetY: 1,
+                    releaseCurve: SoriMotion.gentle,
                     onTap: () => open(
                       snapshot.pendingBojagiCount > 0
                           ? '/bojagi'
                           : '/sarangbang/furnish',
                     ),
                     child: CPaperPanel(
+                      raised: false,
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 6,
+                        horizontal: 12,
+                        vertical: 8,
                       ),
                       child: ConstrainedBox(
                         constraints: BoxConstraints(
-                          minHeight: rewardHeight - 12,
+                          minHeight: rewardHeight - 16,
                         ),
                         child: Row(
                           children: [
                             SizedBox(
-                              width: 104,
-                              height: 88,
+                              width: 80,
+                              height: 68,
                               child: CAtlasArt(
                                 path: TodaySubjectArt.atlas,
                                 region: TodaySubjectArt.chest,
@@ -803,56 +849,28 @@ class _TodayContent extends StatelessWidget {
                                 children: [
                                   Text(
                                     t.todayFinds,
-                                    style: type.h2.copyWith(
-                                      fontSize: 21,
+                                    style: type.taskLabel.copyWith(
+                                      fontSize: 17,
                                       color: CPalette.ink,
                                     ),
                                   ),
-                                  if (snapshot.pendingBojagiCount > 0)
-                                    Text(
-                                      t.todayFindCount(
-                                        snapshot.pendingBojagiCount,
-                                      ),
-                                      style: type.bodySmall,
-                                    ),
                                   const SizedBox(height: 4),
-                                  Container(
-                                    constraints: const BoxConstraints(
-                                      minHeight: 48,
-                                    ),
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 10,
-                                      vertical: 6,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: CPalette.jade,
-                                      borderRadius: SoriRadius.brSm,
-                                      border: Border.all(color: CPalette.brass),
-                                      boxShadow: const [
-                                        BoxShadow(
-                                          color: Color(0x440b241d),
-                                          offset: Offset(0, 2),
-                                          blurRadius: 3,
-                                        ),
-                                      ],
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            t.todayViewFinds,
-                                            style: type.label.copyWith(
-                                              color: CPalette.paper,
-                                            ),
-                                          ),
-                                        ),
-                                        const CArrow(),
-                                      ],
+                                  Text(
+                                    snapshot.pendingBojagiCount > 0
+                                        ? t.todayFindCount(
+                                            snapshot.pendingBojagiCount,
+                                          )
+                                        : t.todayViewFinds,
+                                    style: type.taskCaption.copyWith(
+                                      fontSize: 14,
+                                      color: CPalette.mutedInk,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
+                            const SizedBox(width: 8),
+                            const CArrow(dark: true, size: 16),
                           ],
                         ),
                       ),
@@ -863,19 +881,9 @@ class _TodayContent extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
-                        child: _TodayDiscovery(
-                          title: t.todayYourHanok,
-                          subtitle: snapshot.walletUnavailable
-                              ? t.soriStageHanokProgressUnavailable
-                              : t.sarangchaeConstructionProgress(
-                                  snapshot.ownedSarangchaeStage,
-                                  SarangchaeConstruction.stageCount,
-                                ),
-                          asset: ApprovedChromeAssets.hanok,
-                          scene: _TodayHanokThumbnail(
-                            owned: snapshot.ownedSarangchaeStage,
-                            unavailable: snapshot.walletUnavailable,
-                          ),
+                        child: _TodayHanokEntrance(
+                          owned: snapshot.ownedSarangchaeStage,
+                          unavailable: snapshot.walletUnavailable,
                           height: discoveryHeight,
                           onTap: () => open('/hanok'),
                         ),
@@ -883,6 +891,7 @@ class _TodayContent extends StatelessWidget {
                       const SizedBox(width: 8),
                       Expanded(
                         child: _TodayDiscovery(
+                          key: const ValueKey('today-quick-play'),
                           title: t.todayQuickPlay,
                           asset: ApprovedChromeAssets.games,
                           scene: const CSceneArt(CScene.syllables, height: 220),
@@ -902,99 +911,74 @@ class _TodayContent extends StatelessWidget {
   }
 }
 
-/// The thumbnail identifies the canonical R16 destination. An unbuilt estate
-/// is explicitly a preview; completed architecture is never awarded here.
-class _TodayHanokThumbnail extends StatefulWidget {
-  const _TodayHanokThumbnail({required this.owned, required this.unavailable});
+/// Uses the same physical card as Quick play, with an entrance illustration
+/// rather than unearned finished architecture. The owned count stays native.
+class _TodayHanokEntrance extends StatelessWidget {
+  const _TodayHanokEntrance({
+    required this.owned,
+    required this.unavailable,
+    required this.height,
+    required this.onTap,
+  });
+  static const illustration =
+      'assets/illustrations/concept_c/today/hanok-entrance.png';
   final int owned;
   final bool unavailable;
-  @override
-  State<_TodayHanokThumbnail> createState() => _TodayHanokThumbnailState();
-}
+  final double height;
+  final VoidCallback onTap;
 
-class _TodayHanokThumbnailState extends State<_TodayHanokThumbnail> {
-  late final _construction = SarangchaeConstruction.load();
   @override
-  Widget build(BuildContext context) => FutureBuilder<SarangchaeConstruction>(
-    future: _construction,
-    builder: (context, snapshot) {
-      if (!snapshot.hasData || widget.unavailable) {
-        return const ApprovedChromeImage(
-          asset: ApprovedChromeAssets.hanok,
-          size: 64,
-        );
-      }
-      final catalog = snapshot.requireData;
-      if (widget.owned > 1) {
-        return Stack(
-          fit: StackFit.expand,
-          children: [
-            const ColoredBox(
-              color: CPalette.jade,
-              child: CTexture(CMaterial.jade, opacity: .4),
-            ),
-            SarangchaeStageArtwork(
-              construction: catalog,
-              earnedStageCount: widget.owned,
-            ),
-          ],
-        );
-      }
-      return Stack(
-        fit: StackFit.expand,
-        children: [
-          const ColoredBox(
-            color: CPalette.jade,
-            child: CTexture(CMaterial.jade, opacity: .4),
-          ),
-          IlDuR16LayerArtwork(
-            processId:
-                'ildu.${catalog.stage(SarangchaeConstruction.stageCount).stageId}',
-            excludeFromSemantics: true,
-          ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: CPalette.deepJade,
-                borderRadius: SoriRadius.brSm,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                child: Text(
-                  AppL10n.of(context).todayHanokPreview,
-                  style: SoriTextTheme.of(
-                    context,
-                  ).bodySmall.copyWith(fontSize: 13, color: CPalette.paper),
-                ),
-              ),
-            ),
-          ),
-        ],
-      );
-    },
-  );
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final progress = unavailable
+        ? t.soriStageHanokProgressUnavailable
+        : t.sarangchaeConstructionProgress(
+            owned,
+            SarangchaeConstruction.stageCount,
+          );
+    return Semantics(
+      key: const ValueKey('today-hanok-entrance'),
+      button: true,
+      label: '${t.todayYourHanok}. $progress',
+      onTap: onTap,
+      excludeSemantics: true,
+      child: _TodayDiscovery(
+        title: t.todayYourHanok,
+        asset: illustration,
+        height: height,
+        progress: unavailable
+            ? '—'
+            : '$owned / ${SarangchaeConstruction.stageCount}',
+        onTap: onTap,
+      ),
+    );
+  }
 }
 
 class _TodayDiscovery extends StatelessWidget {
   const _TodayDiscovery({
+    super.key,
     required this.title,
     required this.asset,
     required this.height,
     required this.onTap,
-    this.subtitle,
+    this.progress,
     this.scene,
   });
   final String title;
-  final String? subtitle;
+  final String? progress;
   final Widget? scene;
   final String asset;
   final double height;
   final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) => SoriPressable(
+    pressScale: .99,
+    pressOffsetY: 1,
+    releaseCurve: SoriMotion.gentle,
     onTap: onTap,
     child: CPaperPanel(
+      raised: false,
       padding: const EdgeInsets.all(8),
       child: SizedBox(
         height: height - 16,
@@ -1013,25 +997,52 @@ class _TodayDiscovery extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 4),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    title,
-                    style: SoriTextTheme.of(
-                      context,
-                    ).label.copyWith(color: CPalette.ink),
-                  ),
-                ),
-                const CArrow(dark: true, size: 14),
-              ],
-            ),
-            if (subtitle != null)
+            if (progress != null &&
+                MediaQuery.textScalerOf(context).scale(16) > 20.8) ...[
               Text(
-                subtitle!,
+                title,
                 style: SoriTextTheme.of(
                   context,
-                ).bodySmall.copyWith(fontSize: 13),
+                ).taskLabel.copyWith(color: CPalette.ink),
+              ),
+              const SizedBox(height: 2),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      progress!,
+                      key: const ValueKey('today-hanok-entrance-progress'),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).taskCaption.copyWith(color: CPalette.mutedInk),
+                    ),
+                  ),
+                  const CArrow(dark: true, size: 14),
+                ],
+              ),
+            ] else
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      title,
+                      style: SoriTextTheme.of(
+                        context,
+                      ).taskLabel.copyWith(color: CPalette.ink),
+                    ),
+                  ),
+                  if (progress != null) ...[
+                    Text(
+                      progress!,
+                      key: const ValueKey('today-hanok-entrance-progress'),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).taskCaption.copyWith(color: CPalette.mutedInk),
+                    ),
+                    const SizedBox(width: 4),
+                  ],
+                  const CArrow(dark: true, size: 14),
+                ],
               ),
           ],
         ),
