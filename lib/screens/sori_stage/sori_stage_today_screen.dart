@@ -719,11 +719,52 @@ class _TodayContent extends StatelessWidget {
           final small = bounds.maxWidth - padding.horizontal < 336;
           final tight = !large && bounds.maxHeight < 650;
           final insets = tight ? padding.copyWith(top: 8, bottom: 6) : padding;
-          final heroHeight = tight
+          var heroHeight = tight
               ? 64.0
               : small
               ? 76.0
               : 106.0;
+          if (!large) {
+            // Real bundled fonts normally fit the compact budget. A fallback
+            // font can wrap differently; give its words actual measured space
+            // instead of clipping them to the artwork's preferred height.
+            final contentWidth = bounds.maxWidth - insets.horizontal;
+            final smallHero = contentWidth < 336;
+            double wordsHeight(bool compact) {
+              double measure(String value, TextStyle style) {
+                final painter = TextPainter(
+                  text: TextSpan(text: value, style: style),
+                  textDirection: Directionality.of(context),
+                  textScaler: MediaQuery.textScalerOf(context),
+                )..layout(maxWidth: contentWidth * .62);
+                final height = painter.height;
+                painter.dispose();
+                return height;
+              }
+
+              return measure(
+                    t.soriStageNavToday,
+                    cStageTitle(context).copyWith(
+                      fontSize: compact ? 28 : (smallHero ? 31 : 38),
+                      height: 46 / 38,
+                    ),
+                  ) +
+                  (compact ? 2 : 4) +
+                  measure(
+                    t.todayCompanionSubtitle,
+                    SoriTextTheme.of(context).body.copyWith(
+                      fontSize: compact ? 14 : 15,
+                      height: 20 / 15,
+                    ),
+                  ) +
+                  (compact ? 4 : (smallHero ? 8 : 20));
+            }
+
+            if (wordsHeight(tight) > heroHeight) {
+              final natural = wordsHeight(false);
+              heroHeight = natural > 76 ? natural : 76;
+            }
+          }
           final rewardHeight = large
               ? 110 * scale
               : tight
