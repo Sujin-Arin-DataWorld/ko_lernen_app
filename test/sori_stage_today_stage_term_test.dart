@@ -13,6 +13,7 @@ import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 
 import 'support/hanok_competence_fixture.dart';
 import 'support/real_fonts.dart';
+import 'support/sori_stage_pump.dart';
 
 /// Today's compact Hanok summary reports confirmed learning-path units and
 /// opens the full Hanok tab. Detailed construction terms belong to that tab.
@@ -51,7 +52,13 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 300));
 
+      await openTodayDetails(tester);
       final summary = find.byKey(const ValueKey('today-hanok-summary'));
+      await tester.scrollUntilVisible(
+        summary,
+        240,
+        scrollable: todayDetailsScrollable(),
+      );
       expect(summary, findsOneWidget);
       expect(
         find.textContaining('Lernpfad-Einheiten bestätigt'),
@@ -104,24 +111,30 @@ void main() {
             );
             await tester.pump();
             await tester.pump(const Duration(milliseconds: 300));
+            await openTodayDetails(tester);
             final summary = find.byKey(const ValueKey('today-hanok-summary'));
             await tester.scrollUntilVisible(
               summary,
               240,
-              scrollable: find.byType(Scrollable).first,
+              scrollable: todayDetailsScrollable(),
             );
             await Scrollable.ensureVisible(
               tester.element(summary),
               alignment: .5,
             );
             await tester.pump();
-              if (owned > 0) {
-                await tester.runAsync(() => SarangchaeConstruction.load());
-                await tester.pump();
-              }
+            if (owned > 0) {
+              await tester.runAsync(() => SarangchaeConstruction.load());
+              await tester.pump();
+            }
             final t = AppL10n.of(tester.element(summary));
             expect(
-              find.text(t.sarangchaeConstructionProgress(owned, 16)),
+              find.descendant(
+                of: summary,
+                matching: find.text(
+                  t.sarangchaeConstructionProgress(owned, 16),
+                ),
+              ),
               findsOneWidget,
             );
             expect(
@@ -135,11 +148,20 @@ void main() {
             );
             expect(find.byType(HanokV3Preview), findsNothing);
             expect(find.text(t.soriStageHanokUpdating), findsNothing);
-              if (owned <= 1) {
-              expect(find.byType(SarangchaeStageArtwork), findsNothing);
+            if (owned <= 1) {
+              expect(
+                find.descendant(
+                  of: summary,
+                  matching: find.byType(SarangchaeStageArtwork),
+                ),
+                findsNothing,
+              );
             } else {
               final artwork = tester.widget<SarangchaeStageArtwork>(
-                find.byType(SarangchaeStageArtwork),
+                find.descendant(
+                  of: summary,
+                  matching: find.byType(SarangchaeStageArtwork),
+                ),
               );
               expect(artwork.earnedStageCount, owned);
             }

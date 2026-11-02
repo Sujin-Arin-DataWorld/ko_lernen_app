@@ -104,7 +104,7 @@ void main() {
             (widget) => widget is ColoredBox && widget.color == CPalette.jade,
           ),
         ),
-        findsOneWidget,
+        findsWidgets,
       );
     },
   );

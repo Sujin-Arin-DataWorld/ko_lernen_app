@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'support/real_fonts.dart';
+import 'support/sori_stage_pump.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
@@ -283,11 +284,12 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
+    await openTodayDetails(tester);
     final action = find.byKey(const ValueKey('pending-bojagi-action'));
     await tester.scrollUntilVisible(
       action,
       260,
-      scrollable: find.byType(Scrollable).first,
+      scrollable: todayDetailsScrollable(),
     );
 
     for (final key in const <ValueKey<String>>[
@@ -336,6 +338,7 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 300));
 
+      await openTodayDetails(tester);
       final label = [
         t.soriStageBojagiTitle,
         '1',
@@ -346,7 +349,7 @@ void main() {
       await tester.scrollUntilVisible(
         finder,
         260,
-        scrollable: find.byType(Scrollable).first,
+        scrollable: todayDetailsScrollable(),
       );
 
       final data = tester.getSemantics(finder).getSemanticsData();

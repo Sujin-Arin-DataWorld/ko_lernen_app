@@ -45,3 +45,27 @@ and confirmed wallet ownership. They are native widget renders, not physical
 Android/iPhone QA. Their scope, image hashes and logs are in
 `validation-summary.json`. Store deployment and physical-device installation
 remain separate release gates.
+
+## CI recovery, 2026-11-02
+
+The first integrated Linux run at `9465a8c7b` passed 9,317 tests but failed 33.
+The failures included stale Today layout/entry assertions and three outdated
+Linux golden images, plus real defects: narrow-header overflow, insufficient
+brand contrast, two labels below the 13dp floor, a raw modal entry and two
+unregistered Sori component files. They were not treated as a successful release.
+
+The header now measures its actual local width and both localized text heights
+before using the fixed composition. Narrow or enlarged text can grow naturally;
+the canonical portrait yields width first. Brand text uses the existing light
+paper ink on jade, both small labels use 13dp, and day details use `showSoriSheet`
+with an owned presentation that retains the user's text scaler. Existing guide,
+construction ownership, reward semantics, launch/return and no-duplicate-companion
+tests follow the details entrance or the new native learning card; their state
+and navigation assertions remain intact. The component inventory includes both
+Today card and semantic subject-art mapping.
+
+Flutter's adaptive measurement guidance was checked again on 2026-11-02:
+https://docs.flutter.dev/ui/adaptive-responsive/general . The concrete decision
+is to measure the parent's constraints and laid-out text, rather than infer the
+layout from a phone model. Linux comparison baselines must come from the pinned
+CI renderer; Windows captures remain separate review evidence.

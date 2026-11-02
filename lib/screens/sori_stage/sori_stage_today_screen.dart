@@ -43,6 +43,7 @@ import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/reward_icon.dart';
 import '../../widgets/sori/reward_thumb.dart';
 import '../../widgets/sori/section_header.dart';
+import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/sori_term.dart';
 import '../../widgets/sori/spotlight_coach.dart';
 import '../../widgets/sori/approved_chrome_assets.dart';
@@ -401,7 +402,7 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
                       style: SoriTextTheme.of(context).label.copyWith(
                         fontSize: 13,
                         letterSpacing: 1.5,
-                        color: CPalette.brass,
+                        color: CPalette.paper,
                       ),
                     ),
                   ),
@@ -424,37 +425,36 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
   );
 
   Future<void> _showDetails(SoriStageProgressionSnapshot snapshot) =>
-      showModalBottomSheet<void>(
+      showSoriSheet<void>(
         context: context,
-        isScrollControlled: true,
-        useSafeArea: true,
-        builder: (context) => FractionallySizedBox(
-          heightFactor: .9,
-          child: Scaffold(
-            appBar: SoriAppBar(
-              title: AppL10n.of(context).todayDetails,
-              textScale: MediaQuery.textScalerOf(context).scale(1),
-              viewportWidth: MediaQuery.sizeOf(context).width,
-              locale: Localizations.localeOf(context),
+        maxHeightFactor: .9,
+        presentation: const SoriSheetPresentation(
+          backgroundColor: Colors.transparent,
+        ),
+        builder: (context) => Scaffold(
+          appBar: SoriAppBar(
+            title: AppL10n.of(context).todayDetails,
+            textScale: MediaQuery.textScalerOf(context).scale(1),
+            viewportWidth: MediaQuery.sizeOf(context).width,
+            locale: Localizations.localeOf(context),
+          ),
+          body: _TodayDetailsContent(
+            snapshot: snapshot,
+            onRefresh: _reload,
+            missionTourKey: GlobalKey(),
+            header: Wrap(
+              children: [
+                SoriTextAction(
+                  onPressed: _showWeekSheet,
+                  label: AppL10n.of(context).statsThisWeek,
+                ),
+                SoriTextAction(
+                  onPressed: () => Navigator.pushNamed(context, '/stats'),
+                  label: AppL10n.of(context).todayProgress,
+                ),
+              ],
             ),
-            body: _TodayDetailsContent(
-              snapshot: snapshot,
-              onRefresh: _reload,
-              missionTourKey: GlobalKey(),
-              header: Wrap(
-                children: [
-                  SoriTextAction(
-                    onPressed: _showWeekSheet,
-                    label: AppL10n.of(context).statsThisWeek,
-                  ),
-                  SoriTextAction(
-                    onPressed: () => Navigator.pushNamed(context, '/stats'),
-                    label: AppL10n.of(context).todayProgress,
-                  ),
-                ],
-              ),
-              companion: const SizedBox.shrink(),
-            ),
+            companion: const SizedBox.shrink(),
           ),
         ),
       );
@@ -462,105 +462,131 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
   Widget _companion(BuildContext context, AppL10n t) {
     return ValueListenableBuilder<CompanionPreference>(
       valueListenable: MascotPreference.preference,
-      builder: (context, preference, _) {
-        final kind = MascotPreference.mascotKindFor(preference);
-        final type = SoriTextTheme.of(context);
-        final words = Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              soriHeroGreeting(t, _phase),
-              key: const ValueKey('today-companion-greeting'),
-              style: type.body.copyWith(fontSize: 16, color: CPalette.paper),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              t.soriStageNavToday,
-              style: cStageTitle(context).copyWith(fontSize: 40),
-            ),
-          ],
-        );
-        if (MediaQuery.textScalerOf(context).scale(16) <= 20.8) {
-          return SizedBox(
-            key: kind == null
-                ? const ValueKey('sori-today-companion-hidden')
-                : null,
-            height: 146,
-            child: Stack(
-              children: [
-                Positioned(
-                  left: 0,
-                  bottom: 0,
-                  width: 190,
-                  height: 68,
-                  child: Image.asset(
-                    'assets/illustrations/einleitung_generated/intro-plum-branch.png',
-                    fit: BoxFit.contain,
-                    excludeFromSemantics: true,
-                  ),
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 8),
-                        child: words,
-                      ),
-                    ),
-                    if (kind != null) ...[
-                      const SizedBox(width: 8),
-                      SizedBox(
-                        key: const ValueKey('learning-companion-ground'),
-                        width: 152,
-                        height: 144,
-                        child: Image.asset(
-                          kind.name == 'tiger'
-                              ? CanonicalCompanionArt.baekhoPortrait
-                              : CanonicalCompanionArt.magpiePortrait,
-                          fit: BoxFit.contain,
-                          excludeFromSemantics: true,
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
-              ],
-            ),
+      builder: (context, preference, _) => LayoutBuilder(
+        builder: (context, bounds) {
+          final kind = MascotPreference.mascotKindFor(preference);
+          final portraitWidth = bounds.maxWidth < 336 ? 112.0 : 152.0;
+          final type = SoriTextTheme.of(context);
+          final greetingStyle = type.body.copyWith(
+            fontSize: 16,
+            color: CPalette.paper,
           );
-        }
-        return Padding(
-          key: kind == null
-              ? const ValueKey('sori-today-companion-hidden')
-              : null,
-          padding: const EdgeInsets.only(bottom: 2),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
+          final titleStyle = cStageTitle(context).copyWith(fontSize: 40);
+          final wordWidth =
+              (bounds.maxWidth - (kind == null ? 0 : portraitWidth + 8)).clamp(
+                1.0,
+                double.infinity,
+              );
+          double textHeight(String text, TextStyle style) {
+            final painter = TextPainter(
+              text: TextSpan(text: text, style: style),
+              textDirection: Directionality.of(context),
+              textScaler: MediaQuery.textScalerOf(context),
+            )..layout(maxWidth: wordWidth);
+            final height = painter.height;
+            painter.dispose();
+            return height;
+          }
+
+          final wordsHeight =
+              textHeight(soriHeroGreeting(t, _phase), greetingStyle) +
+              4 +
+              textHeight(t.soriStageNavToday, titleStyle);
+          final words = Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Expanded(child: words),
-              if (kind != null) ...[
-                const SizedBox(width: 8),
-                SizedBox(
-                  key: const ValueKey('learning-companion-ground'),
-                  width: 152,
-                  height: 144,
-                  child: Transform.translate(
-                    offset: const Offset(0, 6),
+              Text(
+                soriHeroGreeting(t, _phase),
+                key: const ValueKey('today-companion-greeting'),
+                style: greetingStyle,
+              ),
+              const SizedBox(height: 4),
+              Text(t.soriStageNavToday, style: titleStyle),
+            ],
+          );
+          if (wordsHeight <= 138 &&
+              MediaQuery.textScalerOf(context).scale(16) <= 20.8) {
+            return SizedBox(
+              key: kind == null
+                  ? const ValueKey('sori-today-companion-hidden')
+                  : null,
+              height: 146,
+              child: Stack(
+                children: [
+                  Positioned(
+                    left: 0,
+                    bottom: 0,
+                    width: 190,
+                    height: 68,
                     child: Image.asset(
-                      kind.name == 'tiger'
-                          ? CanonicalCompanionArt.baekhoPortrait
-                          : CanonicalCompanionArt.magpiePortrait,
+                      'assets/illustrations/einleitung_generated/intro-plum-branch.png',
                       fit: BoxFit.contain,
                       excludeFromSemantics: true,
                     ),
                   ),
-                ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 8),
+                          child: words,
+                        ),
+                      ),
+                      if (kind != null) ...[
+                        const SizedBox(width: 8),
+                        SizedBox(
+                          key: const ValueKey('learning-companion-ground'),
+                          width: portraitWidth,
+                          height: 144,
+                          child: Image.asset(
+                            kind.name == 'tiger'
+                                ? CanonicalCompanionArt.baekhoPortrait
+                                : CanonicalCompanionArt.magpiePortrait,
+                            fit: BoxFit.contain,
+                            excludeFromSemantics: true,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ],
+              ),
+            );
+          }
+          return Padding(
+            key: kind == null
+                ? const ValueKey('sori-today-companion-hidden')
+                : null,
+            padding: const EdgeInsets.only(bottom: 2),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Expanded(child: words),
+                if (kind != null) ...[
+                  const SizedBox(width: 8),
+                  SizedBox(
+                    key: const ValueKey('learning-companion-ground'),
+                    width: portraitWidth,
+                    height: 144,
+                    child: Transform.translate(
+                      offset: const Offset(0, 6),
+                      child: Image.asset(
+                        kind.name == 'tiger'
+                            ? CanonicalCompanionArt.baekhoPortrait
+                            : CanonicalCompanionArt.magpiePortrait,
+                        fit: BoxFit.contain,
+                        excludeFromSemantics: true,
+                      ),
+                    ),
+                  ),
+                ],
               ],
-            ],
-          ),
-        );
-      },
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -939,7 +965,7 @@ class _TodayHanokThumbnailState extends State<_TodayHanokThumbnail> {
                   AppL10n.of(context).todayHanokPreview,
                   style: SoriTextTheme.of(
                     context,
-                  ).bodySmall.copyWith(fontSize: 11, color: CPalette.paper),
+                  ).bodySmall.copyWith(fontSize: 13, color: CPalette.paper),
                 ),
               ),
             ),
@@ -1005,7 +1031,7 @@ class _TodayDiscovery extends StatelessWidget {
                 subtitle!,
                 style: SoriTextTheme.of(
                   context,
-                ).bodySmall.copyWith(fontSize: 12),
+                ).bodySmall.copyWith(fontSize: 13),
               ),
           ],
         ),

@@ -1,7 +1,7 @@
 {
   "file": "sori-shell-today-390-en-saved-owned-8-summary.png",
-  "captured_at_utc": "2026-10-31T16:01:35.444147Z",
-  "source_revision": "83f95f8c3474ad70d97482895b93708530bd07eb+today-native-20261031-WIP",
+  "captured_at_utc": "2026-11-02T00:00:29.331530Z",
+  "source_revision": "9465a8c7b0348cacff0b48fb68d9f96b1eb8aadd+ci-recovery-20261102-WIP",
   "scope": "actual SoriStageShell; isolated widget-test account",
   "language": "en",
   "tab": "today",
@@ -15,7 +15,7 @@
     "top": 24,
     "bottom": 24
   },
-  "greeting_text": "Hi there!",
+  "greeting_text": "Good morning!",
   "header_actions": {
     "profile": {
       "left": 12.0,
@@ -46,13 +46,13 @@
   "details_actions": {
     "week": {
       "left": 12.0,
-      "top": 174.0,
+      "top": 152.39999999999998,
       "width": 86.72259303501674,
       "height": 48.0
     },
     "stats": {
       "left": 98.72259303501674,
-      "top": 174.0,
+      "top": 152.39999999999998,
       "width": 137.02456447056358,
       "height": 48.0
     }
@@ -84,7 +84,7 @@
   ],
   "summary_action_rect": {
     "left": 25.0,
-    "top": 464.0,
+    "top": 442.4,
     "width": 340.0,
     "height": 149.0
   },

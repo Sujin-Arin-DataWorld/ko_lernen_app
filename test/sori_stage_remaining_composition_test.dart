@@ -209,13 +209,18 @@ void main() {
         );
         expect(tester.takeException(), isNull);
         if (tab == 'today') {
-          await pumpUntilFound(tester, find.byType(TodayGuideChecklistCard));
-          await tester.pump();
-          expect(find.byType(TodayGuideChecklistCard), findsOneWidget);
+          expect(find.byType(TodayGuideChecklistCard), findsNothing);
           final action = find.text(
             lookupAppL10n(Locale(locale)).learningFocusStart,
           );
           expect(action.hitTestable(), findsOneWidget);
+          await openTodayDetails(tester);
+          await pumpUntilFound(tester, find.byType(TodayGuideChecklistCard));
+          expect(find.byType(TodayGuideChecklistCard), findsOneWidget);
+          Navigator.of(
+            tester.element(find.byType(TodayGuideChecklistCard)),
+          ).pop();
+          await pumpSoriStage(tester);
         } else if (tab == 'hanok') {
           expect(
             find.byKey(const ValueKey('hanok-empty-site')),

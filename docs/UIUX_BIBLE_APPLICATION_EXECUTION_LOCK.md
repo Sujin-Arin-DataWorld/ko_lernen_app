@@ -210,7 +210,7 @@ current ratchet:
 |---|---:|---|
 | Registered route cases | 87 | Every case is inventoried below |
 | `lib/screens` Dart files | 137 | 2026-10-18 inventory: includes route, embedded, preview, and quest surfaces; 129 public screen-like owners are named below |
-| `lib/widgets/sori` Dart files | 174 | Existing system plus bounded approved C5 originals, R16 foreground/shadow presentation, Einleitung reference roles and interaction motion; no parallel general-purpose system permitted |
+| `lib/widgets/sori` Dart files | 176 | Existing system plus bounded approved C5 originals, R16 foreground/shadow presentation, live Today card and subject art, Einleitung reference roles and interaction motion; no parallel general-purpose system permitted |
 | Test files | 470 | Includes the permanent full-closeout inventory guard |
 | Raw screen `TextStyle` | 131 lexical; clean-code guard ≤217 | Must not increase; migrate by touched surface |
 | Raw screen `fontSize` | 159; `FontWeight.w800` 28 and `w900` 10 | Reduce through tokens, never raise ratchets |
@@ -378,7 +378,7 @@ use it rather than reproduce it locally.
 
 | Family | Files | Audit decision |
 | Catalog practice cards | `catalog_card` | Original 4:3 art, natural height, independent launch and Details targets. |
-| Shared learning focus | `learning_focus` | Shell-owned read-only goal and exact activity start, shared by Today and Learn. |
+| Shared learning focus | `learning_focus`, `today_learning_card`, `today_subject_art` | Shell-owned read-only goal and exact activity start, shared by Today and Learn. The approved Today card reuses that owner and resolves subject artwork from explicit content IDs. |
 | Learning auxiliary entrances | `book_capture_choice`, `study_library_button`, `media_phrase_link` | Existing capture/notebook chooser, saved library, and media-expression routes; opening or cancelling makes no learning write. |
 | Confirmed cloth reveal | `bojagi_reveal` | One finite cloth-opening animation; actual decoration appears only after a successful service receipt. Reduced motion shows its final state immediately. |
 | Learning companion | `learning_companion` | Compact sitting2 or Joy video grounded to the next activity card, with hidden and large-text layouts. |

@@ -158,9 +158,10 @@ void main() {
     // 2026-10-30: +16 — documented approved C chrome/material/ink/Gye owners.
     // 2026-10-30: +1 — byte-identical shared material asset aliases.
     // 2026-10-31: +2 — independent C5 scenes and matte-free R16 layer painter.
-    expect(actual, hasLength(174));
+    // 2026-10-31: +2 — live Today card and semantic subject-art mapping.
+    expect(actual, hasLength(176));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(174));
+    expect(listed, hasLength(176));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

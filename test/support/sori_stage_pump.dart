@@ -6,7 +6,26 @@
 // on a screen that can host SoriStageCatalogScreen or SoriStageShell with an
 // active continue-hero — use the two helpers below instead.
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+/// Follow the approved dashboard's details entrance before checking the
+/// existing guide, owned construction, quests or pending-reward details.
+Future<void> openTodayDetails(WidgetTester tester) async {
+  final entrance = find.byKey(const ValueKey('today-details'));
+  expect(entrance, findsOneWidget);
+  await tester.ensureVisible(entrance);
+  await tester.tap(entrance);
+  await pumpSoriStage(tester);
+  expect(find.byKey(const ValueKey('c-today-board')), findsOneWidget);
+}
+
+Finder todayDetailsScrollable() => find
+    .ancestor(
+      of: find.byKey(const ValueKey('c-today-board')),
+      matching: find.byType(Scrollable),
+    )
+    .first;
 
 /// Bounded settle for screens that may host an idle `SoriPulse`: pumps once,
 /// then pumps [settle] a total of [frames] times. Drop-in replacement for
