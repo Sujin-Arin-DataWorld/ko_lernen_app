@@ -1,0 +1,717 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "unit_id": "A1.2-04",
+  "band": "A1.2",
+  "title": {
+    "ko": "얼마나, 누구에게",
+    "en": "How many, and for whom?",
+    "de": "Wie viel, und für wen?"
+  },
+  "goal": {
+    "ko": "수량·가격을 확인하고 전달 대상을 말한다.",
+    "en": "Check quantities and prices and name the recipient.",
+    "de": "Mengen und Preise klären und die empfangende Person nennen."
+  },
+  "prerequisites": [
+    "A1.1-04",
+    "A1.1-05"
+  ],
+  "teach_targets": {
+    "vocab": [
+      {
+        "ko": "개",
+        "en": "counter for items",
+        "de": "Zählwort für Dinge"
+      },
+      {
+        "ko": "명",
+        "en": "counter for people",
+        "de": "Zählwort für Personen"
+      },
+      {
+        "ko": "병",
+        "en": "bottle / counter for bottles",
+        "de": "Flasche / Zählwort für Flaschen"
+      },
+      {
+        "ko": "원",
+        "en": "won",
+        "de": "Won"
+      },
+      {
+        "ko": "주다",
+        "en": "give",
+        "de": "geben"
+      },
+      {
+        "ko": "받다",
+        "en": "receive",
+        "de": "bekommen"
+      }
+    ],
+    "grammar": [
+      "한·두·세·네 + 개/명/병",
+      "한자어 수 + 원",
+      "에게",
+      "한테"
+    ]
+  },
+  "non_assessed": [
+    "제공된 원 가격은 현대 생활 연습의 가상 값이다. 실제 시세·엽전 가격·지급·구매·공정 소유를 선언하지 않는다. 받다는 대화 이해용이며 수여자 조사 에게서/한테서는 이번 필수 평가가 아니다."
+  ],
+  "source": {
+    "contract_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/UNITS.psv",
+    "contract_sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+    "story_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+    "story_sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332",
+    "base_sha": "646c4658e70f594ab234a172679e29122d0f0e66"
+  },
+  "story": {
+    "lq_id": "LQ-06",
+    "building_id": "araechae",
+    "anchor": "아랫채 착공 / 도깨비 공사 시간표. 학습 연결이며 실제 공정 시작·소유·해금을 판정하지 않는다.",
+    "spoiler_guard": "기존 이야기 공개 상태를 따른다. 새 단서·지워진 이름·떠난 이유·미래 진실을 공개하지 않는다. 미공개 시 고택 대사를 건너뛰고 정본 인물의 현대 생활 모의 과제로 같은 목표를 연습한다. R/T는 이야기 잠금 없이 이용하는 별도 연습이다."
+  },
+  "dialogue": [
+    {
+      "id": "A1.2-04-D01",
+      "speaker": "joy",
+      "phase": "entry",
+      "ko": "두 병 다 나한테 주는 거야?",
+      "en": "Are both bottles for me?",
+      "de": "Sind beide Flaschen für mich?"
+    },
+    {
+      "id": "A1.2-04-D02",
+      "speaker": "player",
+      "phase": "request",
+      "ko": "물 두 병 맞아요?",
+      "en": "Is it two bottles of water?",
+      "de": "Sind es zwei Flaschen Wasser?"
+    },
+    {
+      "id": "A1.2-04-D03",
+      "speaker": "sujin",
+      "phase": "model",
+      "ko": "네, 두 병이에요. 한 병, 두 병처럼 세어요.",
+      "en": "Yes, two bottles. We count them 한 병, 두 병.",
+      "de": "Ja, zwei Flaschen. Man zählt 한 병, 두 병."
+    },
+    {
+      "id": "A1.2-04-D04",
+      "speaker": "player",
+      "phase": "practice",
+      "ko": "물 두 병 주세요. 수진 씨한테 주세요.",
+      "en": "Two bottles of water, please. Please give them to Sujin.",
+      "de": "Bitte zwei Flaschen Wasser. Bitte gib sie Sujin."
+    },
+    {
+      "id": "A1.2-04-D05",
+      "speaker": "sujin",
+      "phase": "model",
+      "ko": "수진 씨에게 주세요도 같은 받는 사람을 말해요. 가격 연습표의 2,000원은 이천 원이에요.",
+      "en": "수진 씨에게 주세요 names the same recipient. On the practice price list, 2,000원 is 이천 원.",
+      "de": "수진 씨에게 주세요 nennt dieselbe empfangende Person. Auf der Übungspreisliste heißt 2.000원 이천 원."
+    },
+    {
+      "id": "A1.2-04-D06",
+      "speaker": "joy",
+      "phase": "result",
+      "ko": "아, 수진한테 두 병이구나. 내 것은 다시 물어봐야겠네.",
+      "en": "Oh, two bottles for Sujin. I’ll need to ask about mine.",
+      "de": "Ach, zwei Flaschen für Sujin. Dann frage ich nach meinen."
+    },
+    {
+      "id": "A1.2-04-D07",
+      "speaker": "sujin",
+      "phase": "return",
+      "ko": "이번 전달 연습은 물건 수와 사람 수를 나눠 적었어요.",
+      "en": "We kept object counts and people counts separate in this delivery practice.",
+      "de": "In dieser Übergabeübung haben wir Gegenstände und Personen getrennt gezählt."
+    },
+    {
+      "id": "A1.2-04-D08",
+      "speaker": "sujin",
+      "phase": "next",
+      "ko": "이제 쉬는 동안 하고 싶은 일을 말해 볼까요?",
+      "en": "Shall we talk about what we want to do during the break?",
+      "de": "Sprechen wir darüber, was wir in der Pause machen möchten?"
+    }
+  ],
+  "items": [
+    {
+      "id": "A1.2-04-P01",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "한·두·세·네 및 개·명·병 구분",
+      "prompt": {
+        "ko": "물 수량 카드를 말한 문장을 골라요.",
+        "en": "Choose the sentence for the water quantity card.",
+        "de": "Wähle den Satz zur Wasserkarte."
+      },
+      "material": {
+        "situation": {
+          "ko": "시범: 병 1→한 병, 2→두 병, 3→세 병, 4→네 병. 사과는 개, 사람은 명, 물병은 병. 물 카드: 병 2개 그림.",
+          "en": "Example: 1 bottle→한 병; 2→두 병; 3→세 병; 4→네 병. Apples use 개, people 명, bottled water 병. Water card: two bottles.",
+          "de": "Beispiel: 1 Flasche→한 병, 2→두 병, 3→세 병, 4→네 병. Äpfel zählt man mit 개, Menschen mit 명, Wasserflaschen mit 병. Wasserkarte: zwei Flaschen."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "물 둘 병 주세요.",
+          "en": "Two bottles of water, please.",
+          "de": "Bitte zwei Flaschen Wasser."
+        },
+        {
+          "id": "2",
+          "ko": "물 두 명 주세요.",
+          "en": "Two people of water, please.",
+          "de": "Bitte zwei Personen Wasser."
+        },
+        {
+          "id": "3",
+          "ko": "물 두 병 주세요.",
+          "en": "Two bottles of water, please.",
+          "de": "Bitte zwei Flaschen Wasser."
+        }
+      ],
+      "accepted_answers": [
+        "3"
+      ],
+      "feedback_correct": {
+        "ko": "둘은 병 앞에서 두가 되고, 물병은 병으로 세요.",
+        "en": "둘 becomes 두 before 병; bottles use 병.",
+        "de": "Vor 병 wird 둘 zu 두. Flaschen zählt man mit 병."
+      },
+      "feedback_wrong": {
+        "ko": "병 앞에서는 둘이 아니라 두예요. 명은 사람 수를 셀 때 써요.",
+        "en": "Before 병 use 두, not 둘. 명 counts people.",
+        "de": "Vor 병 steht 두 statt 둘. 명 zählt Menschen."
+      },
+      "help": {
+        "ko": "한 병·두 병·세 병·네 병을 한 묶음씩 읽어요.",
+        "en": "Read 한 병, 두 병, 세 병, 네 병 one group at a time.",
+        "de": "Lies die Gruppen 한 병, 두 병, 세 병 und 네 병 einzeln."
+      },
+      "scoring": "structured",
+      "evidence_limit": "수량 모형 뒤 한정 선택."
+    },
+    {
+      "id": "A1.2-04-P02",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "가격 한자어 수와 원",
+      "prompt": {
+        "ko": "연습 가격표 2,000원을 읽은 말을 골라요.",
+        "en": "Choose the reading of 2,000 won on the practice price list.",
+        "de": "Wähle die Lesung von 2.000 Won auf der Übungspreisliste."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 역할 카드의 가상 가격표: 물 한 병 2,000원. 시범: 1,000원→천 원, 2,000원→이천 원. 수량 두 병과 가격 이천 원은 수 체계가 달라요. 실제 엽전 가격 아님.",
+          "en": "Fictional modern role-card price: one bottle of water, 2,000 won. Example: 1,000원→천 원; 2,000원→이천 원. 두 병 and 이천 원 use different number systems. These are not coin-economy prices.",
+          "de": "Fiktiver Preis auf einer heutigen Rollenkarte: eine Flasche Wasser 2.000 Won. Beispiel: 1.000원→천 원, 2.000원→이천 원. 두 병 und 이천 원 verwenden verschiedene Zahlensysteme. Keine Preise der Spielwährung."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "이백 원이에요.",
+          "en": "It’s two hundred won.",
+          "de": "Das kostet zweihundert Won."
+        },
+        {
+          "id": "2",
+          "ko": "이천 원이에요.",
+          "en": "It’s two thousand won.",
+          "de": "Das kostet zweitausend Won."
+        },
+        {
+          "id": "3",
+          "ko": "두 원이에요.",
+          "en": "It’s two won.",
+          "de": "Das sind zwei Won."
+        }
+      ],
+      "accepted_answers": [
+        "2"
+      ],
+      "feedback_correct": {
+        "ko": "2,000은 이천, 가격 단위는 원이에요.",
+        "en": "2,000 is 이천; the price unit is 원.",
+        "de": "2.000 heißt 이천. Die Preiseinheit lautet 원."
+      },
+      "feedback_wrong": {
+        "ko": "이백은 200이에요. 이천은 2,000이에요. 병 수와 가격을 따로 읽어요.",
+        "en": "이백 is 200; 이천 is 2,000. Read bottle count and price separately.",
+        "de": "이백 ist 200, 이천 ist 2.000. Lies Flaschenzahl und Preis getrennt."
+      },
+      "help": {
+        "ko": "천 원을 기준으로 이천 원을 읽어요.",
+        "en": "Use 천 원 as the base for reading 이천 원.",
+        "de": "Gehe von 천 원 aus und lies dann 이천 원."
+      },
+      "scoring": "structured",
+      "evidence_limit": "제공된 가상 가격표 읽기. 실거래·앱 경제 판정 없음."
+    },
+    {
+      "id": "A1.2-04-P03",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "에게·한테의 받는 사람",
+      "prompt": {
+        "ko": "카드의 받는 사람에게 전달을 부탁하는 문장을 골라요.",
+        "en": "Choose the request to give the items to the recipient on the card.",
+        "de": "Wähle die Bitte, die Gegenstände der Person auf der Karte zu geben."
+      },
+      "material": {
+        "situation": {
+          "ko": "전달 연습 카드: 물 두 병 → 수진. 시범: 수진 씨에게 주세요 = 수진 씨한테 주세요. 이 장면에서 둘 다 받는 사람을 표시해요.",
+          "en": "Delivery practice card: two water bottles → Sujin. Example: 수진 씨에게 주세요 = 수진 씨한테 주세요. Both mark the recipient here.",
+          "de": "Übungskarte: zwei Wasserflaschen → Sujin. Beispiel: 수진 씨에게 주세요 = 수진 씨한테 주세요. Beide Formen markieren hier die empfangende Person."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "수진 씨한테 주세요.",
+          "en": "Please give them to Sujin.",
+          "de": "Bitte geben Sie sie Sujin."
+        },
+        {
+          "id": "2",
+          "ko": "조이한테 주세요.",
+          "en": "Please give them to Joy.",
+          "de": "Bitte geben Sie sie Joy."
+        },
+        {
+          "id": "3",
+          "ko": "수진 씨가 받아요?",
+          "en": "Is Sujin receiving them?",
+          "de": "Bekommt Sujin sie?"
+        }
+      ],
+      "accepted_answers": [
+        "1"
+      ],
+      "feedback_correct": {
+        "ko": "주는 요청에 수진 씨를 받는 사람으로 표시했어요.",
+        "en": "You marked Sujin as the recipient in the request.",
+        "de": "Du hast Sujin in der Bitte als empfangende Person genannt."
+      },
+      "feedback_wrong": {
+        "ko": "받는 사람은 수진이고 과제는 전달을 부탁하는 말이에요.",
+        "en": "The recipient is Sujin, and the task asks for a delivery request.",
+        "de": "Sujin soll sie bekommen. Gefragt ist eine Bitte zur Übergabe."
+      },
+      "help": {
+        "ko": "누구에게/누구한테 주세요?에 카드의 이름을 넣어요.",
+        "en": "Insert the card’s name into 누구에게/누구한테 주세요?",
+        "de": "Setze den Namen aus der Karte in 누구에게/누구한테 주세요? ein."
+      },
+      "scoring": "structured",
+      "evidence_limit": "받는 사람과 요청 화행의 제한 선택."
+    },
+    {
+      "id": "A1.2-04-I01",
+      "mode": "I",
+      "kind": "short",
+      "objective": "새 수량 주문",
+      "prompt": {
+        "ko": "주문 카드대로 물을 부탁해요. 수량은 한글로 써요.",
+        "en": "Request the water on the order card. Spell out the quantity in Korean.",
+        "de": "Bitte nach der Bestellkarte um Wasser. Schreibe die Menge auf Koreanisch aus."
+      },
+      "material": {
+        "situation": {
+          "ko": "주문 연습 카드: 물 / 4병. 사람 수=2명은 별도예요.",
+          "en": "Order practice card: water / 4 bottles. Number of people=2, a separate field.",
+          "de": "Bestellübung: Wasser / 4 Flaschen. Personenanzahl=2, ein getrenntes Feld."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Form mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "물 네 병 주세요.",
+        "물 네 병 주세요"
+      ],
+      "feedback_correct": {
+        "ko": "물의 양 네 병을 말했어요.",
+        "en": "You requested four bottles of water.",
+        "de": "Du hast vier Flaschen Wasser erbeten."
+      },
+      "feedback_wrong": {
+        "ko": "물 수량은 4병이므로 네 병이에요. 두 명은 사람 수예요.",
+        "en": "The water quantity is 4 bottles, 네 병. 두 명 is the number of people.",
+        "de": "Die Wassermenge ist 4 Flaschen, 네 병. 두 명 ist die Personenanzahl."
+      },
+      "help": {
+        "ko": "수량 카드의 물과 병을 연결하고 주세요로 부탁해요.",
+        "en": "Combine 물 and the bottle count, then request with 주세요.",
+        "de": "Verbinde 물 mit der Flaschenzahl und bitte mit 주세요 darum."
+      },
+      "scoring": "structured",
+      "evidence_limit": "제한 요청 문장 표면형 입력."
+    },
+    {
+      "id": "A1.2-04-I02",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 가상 총액 읽기",
+      "prompt": {
+        "ko": "두 병의 합계 가격에 맞는 답을 골라요.",
+        "en": "Choose the total price for two bottles.",
+        "de": "Wähle den Gesamtpreis für zwei Flaschen."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 주문 연습표: 한 병 1,500원. 두 병 합계 3,000원. 계산은 제공됐어요. 가격 읽기를 확인해요.",
+          "en": "Modern order practice sheet: one bottle 1,500 won; total for two 3,000 won. The calculation is supplied; check the reading.",
+          "de": "Heutiger Bestellbogen: eine Flasche 1.500 Won, zwei zusammen 3.000 Won. Die Rechnung ist vorgegeben; gefragt ist die Lesung."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "천오백 원이에요.",
+          "en": "It’s one thousand five hundred won.",
+          "de": "Das sind eintausendfünfhundert Won."
+        },
+        {
+          "id": "2",
+          "ko": "삼천 원이에요.",
+          "en": "It’s three thousand won.",
+          "de": "Das sind dreitausend Won."
+        },
+        {
+          "id": "3",
+          "ko": "삼백 원이에요.",
+          "en": "It’s three hundred won.",
+          "de": "Das sind dreihundert Won."
+        }
+      ],
+      "accepted_answers": [
+        "2"
+      ],
+      "feedback_correct": {
+        "ko": "합계 칸의 3,000원을 삼천 원으로 읽었어요.",
+        "en": "You read the total 3,000원 as 삼천 원.",
+        "de": "Du hast den Gesamtbetrag 3.000원 als 삼천 원 gelesen."
+      },
+      "feedback_wrong": {
+        "ko": "한 병 가격이 아니라 합계를 물었어요. 합계 3,000은 삼천이에요.",
+        "en": "The question asks for the total, not one bottle. 3,000 is 삼천.",
+        "de": "Gefragt ist die Summe, nicht der Einzelpreis. 3.000 heißt 삼천."
+      },
+      "help": {
+        "ko": "합계 칸을 먼저 보고 천 단위를 확인해요.",
+        "en": "Find the total column, then check the thousands.",
+        "de": "Suche zuerst die Summe und prüfe dann die Tausender."
+      },
+      "scoring": "structured",
+      "evidence_limit": "제공된 총액 읽기. 산수·실거래 성과가 아님."
+    },
+    {
+      "id": "A1.2-04-I03",
+      "mode": "I",
+      "kind": "short",
+      "objective": "받는 사람을 에게·한테로 지정",
+      "prompt": {
+        "ko": "물을 수진에게 전달해 달라고 한 문장으로 부탁해요.",
+        "en": "Ask in one sentence for the water to be given to Sujin.",
+        "de": "Bitte in einem Satz darum, das Wasser Sujin zu geben."
+      },
+      "material": {
+        "situation": {
+          "ko": "전달 카드: 주는 물건=물. 받는 사람=수진 씨. 옆에 있는 사람=조이.",
+          "en": "Delivery card: object=water; recipient=Sujin; person standing nearby=Joy.",
+          "de": "Übergabekarte: Gegenstand=Wasser, empfangende Person=Sujin, daneben=Joy."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 문장 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form sentence practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Satzform mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "수진 씨한테 주세요.",
+        "수진 씨한테 주세요",
+        "수진 씨에게 주세요.",
+        "수진 씨에게 주세요",
+        "물을 수진 씨한테 주세요.",
+        "물을 수진 씨한테 주세요",
+        "물을 수진 씨에게 주세요.",
+        "물을 수진 씨에게 주세요"
+      ],
+      "feedback_correct": {
+        "ko": "받는 사람 수진을 에게 또는 한테로 표시했어요.",
+        "en": "You marked Sujin as recipient with 에게 or 한테.",
+        "de": "Du hast Sujin mit 에게 oder 한테 als empfangende Person markiert."
+      },
+      "feedback_wrong": {
+        "ko": "옆 사람 조이가 아니라 카드의 받는 사람 수진 씨를 말해요.",
+        "en": "Name Sujin, the card’s recipient, rather than Joy standing nearby.",
+        "de": "Nenne Sujin als empfangende Person, nicht Joy, die danebensteht."
+      },
+      "help": {
+        "ko": "수진 씨 뒤에 에게나 한테를 붙이고 주세요로 마쳐요.",
+        "en": "Add 에게 or 한테 after 수진 씨 and finish with 주세요.",
+        "de": "Hänge 에게 oder 한테 an 수진 씨 an und schließe mit 주세요."
+      },
+      "scoring": "structured",
+      "evidence_limit": "명시된 동등한 표면형만 비교. 에게·한테의 수신 기능만 점검."
+    },
+    {
+      "id": "A1.2-04-R01",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "다른 날 수량·수신자 정정",
+      "prompt": {
+        "ko": "다음 날 새 주문 메모를 바로잡는 답을 골라요.",
+        "en": "Next day, choose the correction to this new order note.",
+        "de": "Wähle am nächsten Tag die Korrektur der neuen Bestellnotiz."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 연습: 요청=사과 세 개, 현아 씨에게. 잘못 적힌 메모=사과 두 개, 수진 씨에게.",
+          "en": "Modern practice: requested=three apples for Hyuna. Incorrect note=two apples for Sujin.",
+          "de": "Alltagsübung: gewünscht=drei Äpfel für Hyuna. Falsche Notiz=zwei Äpfel für Sujin."
+        },
+        "model_visible": false,
+        "context_type": "next_day_new_modern_practice"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "사과 두 개예요. 현아 씨에게 주세요.",
+          "en": "It’s two apples. Please give them to Hyuna.",
+          "de": "Es sind zwei Äpfel. Bitte geben Sie sie Hyuna."
+        },
+        {
+          "id": "2",
+          "ko": "사과 세 개예요. 수진 씨에게 주세요.",
+          "en": "It’s three apples. Please give them to Sujin.",
+          "de": "Es sind drei Äpfel. Bitte geben Sie sie Sujin."
+        },
+        {
+          "id": "3",
+          "ko": "사과 세 개예요. 현아 씨에게 주세요.",
+          "en": "It’s three apples. Please give them to Hyuna.",
+          "de": "Es sind drei Äpfel. Bitte geben Sie sie Hyuna."
+        }
+      ],
+      "accepted_answers": [
+        "3"
+      ],
+      "feedback_correct": {
+        "ko": "수량과 받는 사람 두 부분을 모두 고쳤어요.",
+        "en": "You corrected both quantity and recipient.",
+        "de": "Du hast Menge und empfangende Person berichtigt."
+      },
+      "feedback_wrong": {
+        "ko": "고쳐야 할 부분은 두 곳이에요: 두 개→세 개, 수진→현아.",
+        "en": "Two parts need correction: two→three apples, Sujin→Hyuna.",
+        "de": "Zwei Angaben sind zu ändern: zwei→drei Äpfel und Sujin→Hyuna."
+      },
+      "help": {
+        "ko": "물품·수량·받는 사람을 각각 짚어 봐요.",
+        "en": "Check the object, quantity, and recipient separately.",
+        "de": "Prüfe Gegenstand, Menge und empfangende Person einzeln."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 물품·수신자 선택 회상."
+    },
+    {
+      "id": "A1.2-04-R02",
+      "mode": "R",
+      "kind": "short",
+      "objective": "새 가격 한자어 수 회상",
+      "prompt": {
+        "ko": "새 가상 가격표를 읽고 가격만 한글로 써요.",
+        "en": "Read the new fictional price list. Write only the price in Korean words.",
+        "de": "Lies den neuen fiktiven Preis. Schreibe nur den Betrag in koreanischen Zahlwörtern."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 연습 가격표: 사과 묶음 4,000원. 이 값은 연습용이며 실제 시세나 앱 가격이 아니에요.",
+          "en": "Modern practice price list: apple pack 4,000 won. This is a practice value, not a real market or app price.",
+          "de": "Übungspreis: Apfelpackung 4.000 Won. Der Betrag ist fiktiv, kein Markt- oder App-Preis."
+        },
+        "model_visible": false,
+        "context_type": "next_day_new_modern_practice",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Form mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "사천 원",
+        "사천원"
+      ],
+      "feedback_correct": {
+        "ko": "4,000원을 사천 원으로 읽었어요.",
+        "en": "You read 4,000원 as 사천 원.",
+        "de": "Du hast 4.000원 als 사천 원 gelesen."
+      },
+      "feedback_wrong": {
+        "ko": "네 개는 수량이고 사천 원은 가격이에요. 4,000은 사천이에요.",
+        "en": "네 개 is a quantity; 사천 원 is a price. 4,000 is 사천.",
+        "de": "네 개 nennt eine Menge, 사천 원 einen Preis. 4.000 heißt 사천."
+      },
+      "help": {
+        "ko": "천·이천·삼천 다음은 사천이에요.",
+        "en": "After 천, 이천, 삼천 comes 사천.",
+        "de": "Nach 천, 이천 und 삼천 folgt 사천."
+      },
+      "scoring": "structured",
+      "evidence_limit": "제공된 새 가상 가격의 제한 회상."
+    },
+    {
+      "id": "A1.2-04-R03",
+      "mode": "R",
+      "kind": "short",
+      "objective": "사람 명과 물품 개 구분",
+      "prompt": {
+        "ko": "사람 수를 말해요. 빈칸만 써요: 세 __ 이에요.",
+        "en": "State the number of people. Fill only the gap: 세 __ 이에요.",
+        "de": "Nenne die Personenanzahl. Ergänze nur die Lücke: 세 __ 이에요."
+      },
+      "material": {
+        "situation": {
+          "ko": "새 현대 모임 카드: 참석자 3명, 사과 4개, 물 2병. 사람 수만 확인해요.",
+          "en": "New modern meeting card: 3 people, 4 apples, 2 bottles of water. Check only people.",
+          "de": "Neue Terminkarte: 3 Personen, 4 Äpfel, 2 Flaschen Wasser. Gefragt sind nur die Personen."
+        },
+        "model_visible": false,
+        "context_type": "next_day_new_modern_practice",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Form mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "명"
+      ],
+      "feedback_correct": {
+        "ko": "사람 수에는 명을 썼어요.",
+        "en": "You used 명 to count people.",
+        "de": "Du hast Personen mit 명 gezählt."
+      },
+      "feedback_wrong": {
+        "ko": "사람은 명, 사과는 개, 물병은 병이에요. 지금은 사람을 세요.",
+        "en": "People use 명, apples 개, water bottles 병. Here you count people.",
+        "de": "Menschen zählt man mit 명, Äpfel mit 개 und Wasserflaschen mit 병. Hier sind Menschen gefragt."
+      },
+      "help": {
+        "ko": "누구 몇 명인가를 확인해요.",
+        "en": "Focus on how many people.",
+        "de": "Achte darauf, wie viele Personen es sind."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다른 날 수 분류사 한 단어 회상."
+    },
+    {
+      "id": "A1.2-04-T01",
+      "mode": "T",
+      "kind": "roleplay",
+      "objective": "새 주문에서 수량·가격·수신자 확인",
+      "prompt": {
+        "ko": "물품과 수량을 부탁하고 가격을 확인한 뒤 누구에게 줄지 말해요.",
+        "en": "Request the objects and quantities, check the price, then say who should receive them.",
+        "de": "Bitte um Gegenstände und Mengen, frage nach dem Preis und nenne dann die empfangende Person."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 역할 카드: 물 세 병→현아 씨, 사과 한 개→수진 씨. 가상 가격: 물 세 병 합계 3,000원, 사과 한 개 1,000원. 너는 전달을 부탁하는 사람이고 새 상대 인물은 만들지 않아요. 주문 연습이며 실제 구매·보상 없음.",
+          "en": "Modern role card: three water bottles→Hyuna; one apple→Sujin. Fictional prices: all three bottles 3,000 won; one apple 1,000 won. You make the delivery request; no new character is introduced. Practice only, with no actual purchase or reward.",
+          "de": "Heutige Rollenkarte: drei Wasserflaschen→Hyuna, ein Apfel→Sujin. Fiktive Preise: drei Flaschen zusammen 3.000 Won, ein Apfel 1.000 Won. Du bittest um die Übergabe; es kommt keine neue Figur hinzu. Reine Bestellübung ohne Kauf oder Belohnung."
+        },
+        "model_visible": false,
+        "context_type": "modern_transfer"
+      },
+      "options": [],
+      "accepted_answers": [],
+      "feedback_correct": {
+        "ko": "자유 답을 확인해요. 물품·수량·가격·받는 사람이 각각 전달됐나요?",
+        "en": "Review your reply: are object, quantity, price, and recipient clear?",
+        "de": "Prüfe deine Antwort: Sind Gegenstand, Menge, Preis und empfangende Person klar?"
+      },
+      "feedback_wrong": {
+        "ko": "자동 채점은 없어요. 헷갈린 항목 하나를 골라 수량과 사람을 따로 다시 말해 봐요.",
+        "en": "There is no automatic score. Pick one unclear item and restate its quantity and recipient separately.",
+        "de": "Es gibt keine automatische Wertung. Wähle eine unklare Position und nenne Menge und empfangende Person getrennt."
+      },
+      "help": {
+        "ko": "먼저 물 세 병 같은 주문, 다음 가격 질문, 마지막 누구에게 주세요 순서로 연습해요.",
+        "en": "Try the order first, then the price question, then 누구에게 주세요.",
+        "de": "Übe zuerst die Bestellung, dann die Preisfrage und zuletzt 누구에게 주세요."
+      },
+      "scoring": "unscored",
+      "evidence_limit": "자유 주문 무채점. 실제 거래·앱 지급·재고 변동 없음."
+    }
+  ],
+  "responses": {
+    "assisted": {
+      "ko": "도움을 보고 이어 갔어요. 이 시도는 도움을 받은 연습으로 구분해요.",
+      "en": "You continued with help. Keep this attempt separate from independent work.",
+      "de": "Du hast mit Hilfe weitergemacht. Dieser Versuch zählt als Übung mit Hilfe."
+    },
+    "independent": {
+      "ko": "이 문항은 모형이나 도움 없이 풀었어요. 자유 대화 능력 전체를 뜻하지는 않아요.",
+      "en": "You answered this item without a model or help. This does not establish your overall conversation ability.",
+      "de": "Du hast diese Aufgabe ohne Muster oder Hilfe gelöst. Das sagt noch nichts über deine gesamte Gesprächsfähigkeit aus."
+    },
+    "audio_unavailable": {
+      "ko": "소리를 사용할 수 없어요. 글로 이어 갈 수 있어요. 듣기·말하기 확인은 나중에 해요.",
+      "en": "Audio is unavailable. You can continue with the text; listening and speaking remain unchecked.",
+      "de": "Ton ist gerade nicht verfügbar. Du kannst mit dem Text weitermachen; Hören und Sprechen bleiben ungeprüft."
+    },
+    "pause": {
+      "ko": "여기에서 쉬어도 괜찮아요. 다시 시작할 때 현재 문항을 확인해요.",
+      "en": "You can pause here. Check the current item when you return.",
+      "de": "Du kannst hier pausieren. Schau dir beim Fortsetzen die aktuelle Aufgabe an."
+    },
+    "resume": {
+      "ko": "현재 문항부터 이어 가요. 도움을 봤다면 도움 연습으로 이어 가요.",
+      "en": "Continue from the current item. If you used help, continue as assisted practice.",
+      "de": "Mach mit der aktuellen Aufgabe weiter. Wenn du Hilfe genutzt hast, bleibt es eine Übung mit Hilfe."
+    },
+    "save_failed": {
+      "ko": "저장이 확인되지 않았어요. 답을 확인하고 다시 시도해요.",
+      "en": "Saving has not been confirmed. Check your answer and try saving again.",
+      "de": "Das Speichern wurde nicht bestätigt. Prüfe deine Antwort und versuche es erneut."
+    },
+    "revisit": {
+      "ko": "다른 날 새 상황으로 다시 해 봐요. 이야기 장면을 열지 않아도 연습할 수 있어요.",
+      "en": "Try a new situation on another day. You can practise without opening the story scene.",
+      "de": "Übe an einem anderen Tag mit einer neuen Situation. Dafür musst du die Geschichtenszene nicht öffnen."
+    }
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true
+  }
+}

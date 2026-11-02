@@ -1,0 +1,789 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "unit_id": "A1.2-05",
+  "band": "A1.2",
+  "title": {
+    "ko": "하고 싶은 일과 가능한 일",
+    "en": "What I want to do and what I can do",
+    "de": "Was ich möchte und was möglich ist"
+  },
+  "goal": {
+    "ko": "원하는 활동과 가능 여부를 말하고 목적을 설명한다.",
+    "en": "State desired activities and possibilities and explain a purpose.",
+    "de": "Wünsche und Möglichkeiten nennen und einen Zweck erklären."
+  },
+  "prerequisites": [
+    "A1.2-02",
+    "A1.2-03"
+  ],
+  "teach_targets": {
+    "vocab": [
+      {
+        "ko": "사진",
+        "en": "photo",
+        "de": "Foto"
+      },
+      {
+        "ko": "찍다",
+        "en": "take a photo",
+        "de": "fotografieren"
+      },
+      {
+        "ko": "배우다",
+        "en": "learn",
+        "de": "lernen"
+      },
+      {
+        "ko": "싶다",
+        "en": "want to",
+        "de": "möchten"
+      },
+      {
+        "ko": "할 수 있다",
+        "en": "be able to / be possible",
+        "de": "können / möglich sein"
+      }
+    ],
+    "grammar": [
+      "-고 싶다",
+      "-(으)ㄹ 수 있다/없다",
+      "-(으)러",
+      "-(으)려고"
+    ]
+  },
+  "non_assessed": [
+    "능력·상황적 가능과 허가는 동일하지 않다. 아랫채 출입 상태는 본편의 실제 상태를 따르며 연습 문항이 출입 권한을 부여하지 않는다. 쓰는 동사 이외의 불규칙 활용은 평가하지 않는다."
+  ],
+  "source": {
+    "contract_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/UNITS.psv",
+    "contract_sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+    "story_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+    "story_sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332",
+    "base_sha": "646c4658e70f594ab234a172679e29122d0f0e66"
+  },
+  "story": {
+    "lq_id": "LQ-06",
+    "building_id": "araechae",
+    "anchor": "아랫채 착공 / 도깨비 공사 시간표. 학습 연결이며 실제 공정 시작·소유·해금을 판정하지 않는다.",
+    "spoiler_guard": "기존 이야기 공개 상태를 따른다. 새 단서·지워진 이름·떠난 이유·미래 진실을 공개하지 않는다. 미공개 시 고택 대사를 건너뛰고 정본 인물의 현대 생활 모의 과제로 같은 목표를 연습한다. R/T는 이야기 잠금 없이 이용하는 별도 연습이다."
+  },
+  "dialogue": [
+    {
+      "id": "A1.2-05-D01",
+      "speaker": "joy",
+      "phase": "entry",
+      "ko": "아랫채 안쪽 사진을 찍고 싶어.",
+      "en": "I want to take photos inside the lower house.",
+      "de": "Ich möchte innen im unteren Haus Fotos machen."
+    },
+    {
+      "id": "A1.2-05-D02",
+      "speaker": "sujin",
+      "phase": "request",
+      "ko": "하고 싶은 일과 지금 할 수 있는 일을 나눠 볼까요?",
+      "en": "Shall we separate what you want to do from what is possible now?",
+      "de": "Lass uns trennen, was du möchtest und was jetzt möglich ist."
+    },
+    {
+      "id": "A1.2-05-D03",
+      "speaker": "player",
+      "phase": "model",
+      "ko": "사진을 찍고 싶어요.",
+      "en": "I want to take photos.",
+      "de": "Ich möchte Fotos machen."
+    },
+    {
+      "id": "A1.2-05-D04",
+      "speaker": "sujin",
+      "phase": "model",
+      "ko": "이 장면 카드에서는 안쪽에 들어갈 수 없고 마당 사진은 찍을 수 있어요. 실제 출입 상태는 따로 확인해요.",
+      "en": "On this scene card, going inside is not possible, but taking courtyard photos is. Actual access is checked separately.",
+      "de": "Auf dieser Szenenkarte ist Hineingehen nicht möglich, Fotos im Hof aber schon. Der tatsächliche Zugang wird gesondert geprüft."
+    },
+    {
+      "id": "A1.2-05-D05",
+      "speaker": "player",
+      "phase": "practice",
+      "ko": "그럼 사진을 찍으러 마당에 가요.",
+      "en": "Then I’m going to the courtyard to take photos.",
+      "de": "Dann gehe ich in den Hof, um Fotos zu machen."
+    },
+    {
+      "id": "A1.2-05-D06",
+      "speaker": "sujin",
+      "phase": "model",
+      "ko": "사진을 찍으려고 카메라를 준비해요라고 목적도 말할 수 있어요.",
+      "en": "You can also express purpose with 사진을 찍으려고 카메라를 준비해요.",
+      "de": "Den Zweck kannst du auch mit 사진을 찍으려고 카메라를 준비해요 ausdrücken."
+    },
+    {
+      "id": "A1.2-05-D07",
+      "speaker": "joy",
+      "phase": "result",
+      "ko": "원하는 건 사진이고, 지금 가능한 건 마당 사진이네.",
+      "en": "So I want photos, and courtyard photos are what’s possible now.",
+      "de": "Ich möchte also Fotos machen, und möglich sind jetzt Fotos im Hof."
+    },
+    {
+      "id": "A1.2-05-D08",
+      "speaker": "sujin",
+      "phase": "next",
+      "ko": "다음에는 시간이 바뀌면 가능한 약속을 다시 정해 봐요.",
+      "en": "Next, if the time changes, let’s agree on a meeting that works.",
+      "de": "Als Nächstes vereinbaren wir bei einer Zeitänderung einen passenden neuen Termin."
+    }
+  ],
+  "items": [
+    {
+      "id": "A1.2-05-P01",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "자신의 희망 -고 싶다",
+      "prompt": {
+        "ko": "희망 카드와 맞는 말을 골라요.",
+        "en": "Choose the sentence for the wish card.",
+        "de": "Wähle den Satz zur Wunschkarte."
+      },
+      "material": {
+        "situation": {
+          "ko": "희망 카드: 사진 찍기. 시범: 배우다→배우고 싶어요, 찍다→찍고 싶어요. 이 카드에는 가능 여부 정보가 없어요.",
+          "en": "Wish card: take photos. Example: 배우다→배우고 싶어요; 찍다→찍고 싶어요. The card says nothing about whether it is possible.",
+          "de": "Wunschkarte: fotografieren. Beispiel: 배우다→배우고 싶어요, 찍다→찍고 싶어요. Ob es möglich ist, steht nicht auf der Karte."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "사진을 찍을 수 있어요.",
+          "en": "I can take photos.",
+          "de": "Ich kann Fotos machen."
+        },
+        {
+          "id": "2",
+          "ko": "사진을 찍었어요.",
+          "en": "I took photos.",
+          "de": "Ich habe Fotos gemacht."
+        },
+        {
+          "id": "3",
+          "ko": "사진을 찍고 싶어요.",
+          "en": "I want to take photos.",
+          "de": "Ich möchte Fotos machen."
+        }
+      ],
+      "accepted_answers": [
+        "3"
+      ],
+      "feedback_correct": {
+        "ko": "희망만 찍고 싶어요로 말했어요. 가능 여부는 덧붙이지 않았어요.",
+        "en": "You expressed the wish with 찍고 싶어요 without claiming ability.",
+        "de": "Mit 찍고 싶어요 hast du den Wunsch ausgedrückt, ohne eine Möglichkeit zu behaupten."
+      },
+      "feedback_wrong": {
+        "ko": "원하는 일과 할 수 있는 일은 달라요. 이 카드는 원하는 일만 묻고 있어요.",
+        "en": "Wanting and being able are different. This card asks only about the wish.",
+        "de": "Wunsch und Möglichkeit sind verschieden. Diese Karte fragt nur nach dem Wunsch."
+      },
+      "help": {
+        "ko": "동사 줄기 + 고 싶어요로 자기 희망을 말해요.",
+        "en": "Use the verb stem + 고 싶어요 for your own wish.",
+        "de": "Deinen Wunsch drückst du mit Verbstamm + 고 싶어요 aus."
+      },
+      "scoring": "structured",
+      "evidence_limit": "희망과 가능의 모형 뒤 인식."
+    },
+    {
+      "id": "A1.2-05-P02",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "할 수 있다·없다 가능 여부",
+      "prompt": {
+        "ko": "연습 카드에 가능한 활동을 말한 답을 골라요.",
+        "en": "Choose the statement of what is possible on the practice card.",
+        "de": "Wähle die Aussage zur möglichen Tätigkeit auf der Übungskarte."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 연습 카드: 휴대전화 카메라 작동, 종이 없음. 가능=사진 찍기. 불가능=종이에 쓰기. 시범: 찍다→찍을 수 있어요 / 찍을 수 없어요. 시설 허가 규정 아님.",
+          "en": "Modern practice card: phone camera works; no paper. Possible=take photos; not possible=write on paper. Example: 찍다→찍을 수 있어요 / 찍을 수 없어요. This is not a venue-permission rule.",
+          "de": "Heutige Übungskarte: Handykamera funktioniert, kein Papier da. Möglich=fotografieren, nicht möglich=auf Papier schreiben. Beispiel: 찍다→찍을 수 있어요 / 찍을 수 없어요. Keine Hausordnung."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "종이에 쓸 수 있어요.",
+          "en": "I can write on paper.",
+          "de": "Ich kann auf Papier schreiben."
+        },
+        {
+          "id": "2",
+          "ko": "사진을 찍을 수 있어요.",
+          "en": "I can take photos.",
+          "de": "Ich kann Fotos machen."
+        },
+        {
+          "id": "3",
+          "ko": "사진을 찍을 수 없어요.",
+          "en": "I can’t take photos.",
+          "de": "Ich kann keine Fotos machen."
+        }
+      ],
+      "accepted_answers": [
+        "2"
+      ],
+      "feedback_correct": {
+        "ko": "작동하는 카메라로 지금 가능한 활동을 말했어요.",
+        "en": "You named the activity currently possible with a working camera.",
+        "de": "Du hast die Tätigkeit genannt, die mit der funktionierenden Kamera möglich ist."
+      },
+      "feedback_wrong": {
+        "ko": "카메라는 작동하고 종이가 없어요. 조건과 활동을 한 쌍씩 확인해요.",
+        "en": "The camera works, but there is no paper. Match each condition to an activity.",
+        "de": "Die Kamera funktioniert, Papier fehlt. Ordne jede Bedingung ihrer Tätigkeit zu."
+      },
+      "help": {
+        "ko": "할 수 있어요는 가능, 할 수 없어요는 불가능이에요.",
+        "en": "할 수 있어요 expresses possibility; 할 수 없어요 impossibility.",
+        "de": "할 수 있어요 drückt Möglichkeit aus, 할 수 없어요 Unmöglichkeit."
+      },
+      "scoring": "structured",
+      "evidence_limit": "제공된 조건 안의 가능 인식. 허가나 실제 기기 능력 판정 아님."
+    },
+    {
+      "id": "A1.2-05-P03",
+      "mode": "P",
+      "kind": "short",
+      "objective": "이동 목적 -(으)러",
+      "prompt": {
+        "ko": "빈칸을 채워요: 사진을 __ 마당에 가요.",
+        "en": "Fill the gap: 사진을 __ 마당에 가요.",
+        "de": "Ergänze: 사진을 __ 마당에 가요."
+      },
+      "material": {
+        "situation": {
+          "ko": "시범: 책을 읽다 + 도서관에 가다 → 책을 읽으러 도서관에 가요. 사진 찍기의 목적을 가요와 이어요.",
+          "en": "Example: read a book + go to the library → 책을 읽으러 도서관에 가요. Link the purpose of taking photos to 가요.",
+          "de": "Beispiel: ein Buch lesen + in die Bibliothek gehen → 책을 읽으러 도서관에 가요. Verbinde Fotografieren als Zweck mit 가요."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Form mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "찍으러"
+      ],
+      "feedback_correct": {
+        "ko": "찍다에는 으러를 붙여 찍으러 가요가 돼요.",
+        "en": "찍다 takes 으러, giving 찍으러 가요.",
+        "de": "An 찍다 kommt 으러: 찍으러 가요."
+      },
+      "feedback_wrong": {
+        "ko": "이동 목적을 이어요. 찍다는 받침이 있어서 찍으러예요.",
+        "en": "Link the purpose of travel. 찍다 has a final consonant, so use 찍으러.",
+        "de": "Verbinde den Bewegungszweck. 찍다 hat einen Endkonsonanten, daher 찍으러."
+      },
+      "help": {
+        "ko": "찍다 → 찍 + 으러 → 찍으러. 배우다 → 배우러.",
+        "en": "찍다 → 찍 + 으러 → 찍으러; 배우다 → 배우러.",
+        "de": "찍다 → 찍 + 으러 → 찍으러; 배우다 → 배우러."
+      },
+      "scoring": "structured",
+      "evidence_limit": "이동 목적 모형 뒤 한정 형태 입력."
+    },
+    {
+      "id": "A1.2-05-P04",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "행동 의도 -(으)려고",
+      "prompt": {
+        "ko": "카드를 보고 준비 행동의 목적을 말해요.",
+        "en": "Choose the purpose of the preparation on the card.",
+        "de": "Wähle den Zweck der Vorbereitung auf der Karte."
+      },
+      "material": {
+        "situation": {
+          "ko": "카드: 사진을 찍는 것이 목적. 그래서 카메라를 준비해요. 시범: 사진을 찍으려고 카메라를 준비해요. 이동하지 않아도 목적·의도를 말할 수 있어요.",
+          "en": "Card: the aim is to take photos, so you prepare a camera. Example: 사진을 찍으려고 카메라를 준비해요. This purpose form does not require movement.",
+          "de": "Karte: Ziel ist das Fotografieren, deshalb wird die Kamera vorbereitet. Beispiel: 사진을 찍으려고 카메라를 준비해요. Diese Zweckform verlangt keine Bewegung."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "카메라를 준비하려고 사진을 찍어요.",
+          "en": "I take photos in order to prepare a camera.",
+          "de": "Ich mache Fotos, um eine Kamera vorzubereiten."
+        },
+        {
+          "id": "2",
+          "ko": "사진을 찍을 수 없어서 카메라를 안 봐요.",
+          "en": "I can’t take photos, so I don’t look at the camera.",
+          "de": "Ich kann keine Fotos machen und sehe deshalb nicht auf die Kamera."
+        },
+        {
+          "id": "3",
+          "ko": "사진을 찍으려고 카메라를 준비해요.",
+          "en": "I’m preparing a camera to take photos.",
+          "de": "Ich bereite eine Kamera vor, um Fotos zu machen."
+        }
+      ],
+      "accepted_answers": [
+        "3"
+      ],
+      "feedback_correct": {
+        "ko": "찍으려고가 준비하는 목적을 말해요.",
+        "en": "찍으려고 gives the purpose of preparing the camera.",
+        "de": "찍으려고 nennt den Zweck der Kameravorbereitung."
+      },
+      "feedback_wrong": {
+        "ko": "목적은 사진 찍기이고 그 목적을 위해 하는 행동은 카메라 준비예요.",
+        "en": "The aim is taking photos; preparing the camera serves that aim.",
+        "de": "Das Ziel ist Fotografieren. Die Kamera wird dafür vorbereitet."
+      },
+      "help": {
+        "ko": "목적 행동 + 으려고/려고 + 준비 행동으로 나눠 봐요.",
+        "en": "Separate aim + 으려고/려고 from the preparation action.",
+        "de": "Trenne Zielhandlung + 으려고/려고 und vorbereitende Handlung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "공개 모형 뒤 목적·행동 방향 인식."
+    },
+    {
+      "id": "A1.2-05-I01",
+      "mode": "I",
+      "kind": "short",
+      "objective": "새 활동 희망 제한 산출",
+      "prompt": {
+        "ko": "네 희망 카드를 한 문장으로 말해요.",
+        "en": "State the wish on your card in one sentence.",
+        "de": "Nenne den Wunsch auf deiner Karte in einem Satz."
+      },
+      "material": {
+        "situation": {
+          "ko": "내 희망 카드: 한국어 배우기. 현재 능력은 이 카드에 없어요.",
+          "en": "My wish card: learn Korean. Current ability is not stated.",
+          "de": "Meine Wunschkarte: Koreanisch lernen. Die jetzigen Fähigkeiten sind nicht angegeben."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 문장 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form sentence practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Satzform mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "한국어를 배우고 싶어요.",
+        "한국어를 배우고 싶어요"
+      ],
+      "feedback_correct": {
+        "ko": "배우고 싶어요로 원하는 활동을 말했어요.",
+        "en": "You used 배우고 싶어요 to express the desired activity.",
+        "de": "Mit 배우고 싶어요 hast du die gewünschte Tätigkeit genannt."
+      },
+      "feedback_wrong": {
+        "ko": "가능 여부를 말하는 게 아니에요. 배우다에 고 싶어요를 붙여요.",
+        "en": "This is not about ability. Add 고 싶어요 to 배우다.",
+        "de": "Hier geht es nicht um Können. Verbinde 배우다 mit 고 싶어요."
+      },
+      "help": {
+        "ko": "무엇을 + 동사 줄기 + 고 싶어요를 떠올려요.",
+        "en": "Recall object + verb stem + 고 싶어요.",
+        "de": "Denk an Objekt + Verbstamm + 고 싶어요."
+      },
+      "scoring": "structured",
+      "evidence_limit": "모형 없는 제한 희망 문장."
+    },
+    {
+      "id": "A1.2-05-I02",
+      "mode": "I",
+      "kind": "short",
+      "objective": "조건 때문에 불가능한 활동",
+      "prompt": {
+        "ko": "지금 불가능한 일을 한 문장으로 써요.",
+        "en": "Write one sentence naming what is not possible now.",
+        "de": "Nenne in einem Satz, was jetzt nicht möglich ist."
+      },
+      "material": {
+        "situation": {
+          "ko": "사진 찍기 카드: 카메라 없음. 휴대전화도 없음. 목표 활동=사진 찍다. 수 있다/없다 표현을 사용해요.",
+          "en": "Photo card: no camera and no phone. Target activity=take photos. Use a 수 있다/없다 expression.",
+          "de": "Fotokarte: keine Kamera und kein Handy. Zieltätigkeit=fotografieren. Verwende eine Form mit 수 있다/없다."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 문장 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form sentence practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Satzform mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "사진을 찍을 수 없어요.",
+        "사진을 찍을 수 없어요"
+      ],
+      "feedback_correct": {
+        "ko": "조건에 맞게 찍을 수 없어요로 불가능을 말했어요.",
+        "en": "You expressed the constraint with 찍을 수 없어요.",
+        "de": "Mit 찍을 수 없어요 hast du die Einschränkung ausgedrückt."
+      },
+      "feedback_wrong": {
+        "ko": "찍고 싶어요는 희망이고 여기서는 장비가 없어 불가능한 상태를 말해요.",
+        "en": "찍고 싶어요 is a wish. Here the lack of equipment makes the activity impossible.",
+        "de": "찍고 싶어요 ist ein Wunsch. Hier macht die fehlende Ausrüstung das Fotografieren unmöglich."
+      },
+      "help": {
+        "ko": "찍다 → 찍을 수 + 없어요.",
+        "en": "찍다 → 찍을 수 + 없어요.",
+        "de": "찍다 → 찍을 수 + 없어요."
+      },
+      "scoring": "structured",
+      "evidence_limit": "조건이 명시된 제한 산출. 실제 능력·허가 판정 아님."
+    },
+    {
+      "id": "A1.2-05-I03",
+      "mode": "I",
+      "kind": "short",
+      "objective": "새 이동 목적 -(으)러 산출",
+      "prompt": {
+        "ko": "도서관에 가는 목적을 한 문장으로 써요.",
+        "en": "Write one sentence giving your purpose for going to the library.",
+        "de": "Nenne in einem Satz deinen Zweck für den Bibliotheksbesuch."
+      },
+      "material": {
+        "situation": {
+          "ko": "활동=책 읽다. 이동 목적지=도서관. 가다와 -(으)러로 이어요.",
+          "en": "Activity=read a book; destination=library. Link them with -(으)러 and 가다.",
+          "de": "Tätigkeit=ein Buch lesen, Ziel=Bibliothek. Verbinde beides mit -(으)러 und 가다."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 문장 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form sentence practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Satzform mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "책을 읽으러 도서관에 가요.",
+        "책을 읽으러 도서관에 가요"
+      ],
+      "feedback_correct": {
+        "ko": "읽으러로 이동 목적을 말했어요.",
+        "en": "You used 읽으러 for the purpose of travel.",
+        "de": "Mit 읽으러 hast du den Bewegungszweck genannt."
+      },
+      "feedback_wrong": {
+        "ko": "도서관에서 할 일은 책 읽기예요. 읽으러 뒤에 목적지와 가요를 이어요.",
+        "en": "The activity at the library is reading. Follow 읽으러 with the destination and 가요.",
+        "de": "In der Bibliothek wird gelesen. Nach 읽으러 folgen Ziel und 가요."
+      },
+      "help": {
+        "ko": "책을 / 읽으러 / 도서관에 / 가요로 묶어요.",
+        "en": "Group it as 책을 / 읽으러 / 도서관에 / 가요.",
+        "de": "Bilde die Gruppen 책을 / 읽으러 / 도서관에 / 가요."
+      },
+      "scoring": "structured",
+      "evidence_limit": "새 목적지·활동의 제한 목적 문장."
+    },
+    {
+      "id": "A1.2-05-I04",
+      "mode": "I",
+      "kind": "short",
+      "objective": "새 준비 행동의 의도 -(으)려고",
+      "prompt": {
+        "ko": "한국어를 배우는 목적 때문에 책을 준비한다는 문장을 써요.",
+        "en": "Write that you are getting a book ready in order to learn Korean.",
+        "de": "Schreibe, dass du ein Buch bereitlegst, um Koreanisch zu lernen."
+      },
+      "material": {
+        "situation": {
+          "ko": "목적=한국어 배우다. 준비 행동=책을 준비하다. -(으)려고를 사용해요. 이동은 없어요.",
+          "en": "Aim=learn Korean; preparation=get a book ready. Use -(으)려고. There is no movement.",
+          "de": "Ziel=Koreanisch lernen, Vorbereitung=ein Buch bereitlegen. Verwende -(으)려고. Es gibt keine Ortsbewegung."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 문장 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form sentence practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Satzform mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "한국어를 배우려고 책을 준비해요.",
+        "한국어를 배우려고 책을 준비해요"
+      ],
+      "feedback_correct": {
+        "ko": "배우려고가 준비 행동의 목적을 말해요.",
+        "en": "배우려고 gives the aim of preparing the book.",
+        "de": "배우려고 nennt den Zweck des Bereitlegens."
+      },
+      "feedback_wrong": {
+        "ko": "이동 목적의 러 대신 의도를 잇는 려고를 사용해요. 배우다는 배우려고예요.",
+        "en": "Use 려고 for this intention rather than the movement-purpose 러. 배우다 becomes 배우려고.",
+        "de": "Für diese Absicht steht 려고 statt der Bewegungszweckform 러. Aus 배우다 wird 배우려고."
+      },
+      "help": {
+        "ko": "목적을 먼저 말하고 려고 뒤에 준비 행동을 이어요.",
+        "en": "State the aim first, then follow 려고 with the preparation.",
+        "de": "Nenne zuerst das Ziel und nach 려고 die Vorbereitung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "목적·의도 형태 제한 입력."
+    },
+    {
+      "id": "A1.2-05-R01",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "다른 날 희망과 제약 분리",
+      "prompt": {
+        "ko": "다음 날 새 현대 카드에 맞는 답을 골라요.",
+        "en": "Next day, choose the reply matching the new modern card.",
+        "de": "Wähle am nächsten Tag die Antwort zur neuen Alltagskarte."
+      },
+      "material": {
+        "situation": {
+          "ko": "새 카드: 사진 찍고 싶음. 휴대전화 카메라가 작동하지 않음. 지금 가능한 대안=책 읽기. 이는 연습 조건이며 시설 출입 규정이 아니에요.",
+          "en": "New card: want to take photos; phone camera does not work; possible alternative now=read a book. These are practice conditions, not access rules.",
+          "de": "Neue Karte: Wunsch=fotografieren; Handykamera funktioniert nicht; mögliche Alternative=ein Buch lesen. Das sind Übungsbedingungen, keine Zutrittsregeln."
+        },
+        "model_visible": false,
+        "context_type": "next_day_new_modern_practice"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "사진을 찍을 수 있어요. 책을 읽을 수 없어요.",
+          "en": "I can take photos. I can’t read a book.",
+          "de": "Ich kann Fotos machen. Ich kann kein Buch lesen."
+        },
+        {
+          "id": "2",
+          "ko": "사진을 찍고 싶지 않아요. 책도 없어요.",
+          "en": "I don’t want to take photos. There is no book either.",
+          "de": "Ich möchte keine Fotos machen. Ein Buch ist auch nicht da."
+        },
+        {
+          "id": "3",
+          "ko": "사진을 찍고 싶어요. 지금은 찍을 수 없어요. 책을 읽을 수 있어요.",
+          "en": "I want to take photos. I can’t right now. I can read a book.",
+          "de": "Ich möchte Fotos machen. Das geht gerade nicht. Ich kann ein Buch lesen."
+        }
+      ],
+      "accepted_answers": [
+        "3"
+      ],
+      "feedback_correct": {
+        "ko": "희망, 현재 불가능, 가능한 대안을 각각 밝혔어요.",
+        "en": "You separated the wish, current constraint, and possible alternative.",
+        "de": "Du hast Wunsch, momentane Einschränkung und mögliche Alternative getrennt."
+      },
+      "feedback_wrong": {
+        "ko": "카메라 고장은 희망을 바꾸지 않아요. 가능한 대안은 책 읽기예요.",
+        "en": "A broken camera does not erase the wish. Reading is the available alternative.",
+        "de": "Die kaputte Kamera ändert den Wunsch nicht. Lesen ist die mögliche Alternative."
+      },
+      "help": {
+        "ko": "하고 싶은 일 / 못 하는 일 / 할 수 있는 일을 세 칸으로 봐요.",
+        "en": "Use three boxes: want to / cannot / can.",
+        "de": "Trenne drei Felder: wollen / nicht können / können."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 제약에서 다중 기능 선택 회상."
+    },
+    {
+      "id": "A1.2-05-R02",
+      "mode": "R",
+      "kind": "short",
+      "objective": "새 목적 의도 회상",
+      "prompt": {
+        "ko": "사진을 보려는 목적으로 휴대전화를 준비한다는 문장을 써요.",
+        "en": "Write that you are preparing your phone to look at photos.",
+        "de": "Schreibe, dass du dein Handy bereitlegst, um Fotos anzusehen."
+      },
+      "material": {
+        "situation": {
+          "ko": "새 현대 연습: 목적=사진 보다. 행동=휴대전화를 준비하다. -(으)려고를 사용해요.",
+          "en": "New modern practice: aim=look at photos; action=prepare a phone. Use -(으)려고.",
+          "de": "Neue Alltagsübung: Ziel=Fotos ansehen, Handlung=Handy bereitlegen. Verwende -(으)려고."
+        },
+        "model_visible": false,
+        "context_type": "next_day_new_modern_practice",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 문장 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form sentence practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Satzform mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "사진을 보려고 휴대전화를 준비해요.",
+        "사진을 보려고 휴대전화를 준비해요"
+      ],
+      "feedback_correct": {
+        "ko": "보려고로 새 목적을 연결했어요.",
+        "en": "You linked the new aim with 보려고.",
+        "de": "Mit 보려고 hast du den neuen Zweck verbunden."
+      },
+      "feedback_wrong": {
+        "ko": "보다의 줄기 보에 려고를 붙여 보려고예요.",
+        "en": "Add 려고 to the stem 보 of 보다 to make 보려고.",
+        "de": "Hänge 려고 an den Stamm 보 von 보다 an: 보려고."
+      },
+      "help": {
+        "ko": "이동이 없는 준비에도 려고로 목적을 말할 수 있어요.",
+        "en": "려고 can express a preparation aim without movement.",
+        "de": "려고 kann auch einen Vorbereitungszweck ohne Ortsbewegung ausdrücken."
+      },
+      "scoring": "structured",
+      "evidence_limit": "새 동사의 제한 의도 회상."
+    },
+    {
+      "id": "A1.2-05-R03",
+      "mode": "R",
+      "kind": "short",
+      "objective": "새 이동 목적 회상",
+      "prompt": {
+        "ko": "한국어를 배우러 도서관으로 이동하는 말을 한 문장으로 써요.",
+        "en": "Write one sentence saying you are going to the library to learn Korean.",
+        "de": "Schreibe in einem Satz, dass du zum Koreanischlernen in die Bibliothek gehst."
+      },
+      "material": {
+        "situation": {
+          "ko": "다른 날 새 카드: 활동=한국어 배우다. 목적지=도서관. 이동=가다. -(으)러를 사용해요.",
+          "en": "New card on another day: activity=learn Korean; destination=library; movement=go. Use -(으)러.",
+          "de": "Neue Karte an einem anderen Tag: Tätigkeit=Koreanisch lernen, Ziel=Bibliothek, Bewegung=gehen. Verwende -(으)러."
+        },
+        "model_visible": false,
+        "context_type": "next_day_new_modern_practice",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 문장 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form sentence practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Satzform mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "한국어를 배우러 도서관에 가요.",
+        "한국어를 배우러 도서관에 가요",
+        "한국어를 배우러 도서관으로 가요.",
+        "한국어를 배우러 도서관으로 가요"
+      ],
+      "feedback_correct": {
+        "ko": "배우러가 이동의 목적을 말해요.",
+        "en": "배우러 gives the purpose of the trip.",
+        "de": "배우러 nennt den Zweck des Weges."
+      },
+      "feedback_wrong": {
+        "ko": "배우다는 받침이 없어 배우러예요. 장소 뒤에는 에나 으로로 이동점을 표시할 수 있어요.",
+        "en": "배우다 has no final consonant, so use 배우러. 에 or 으로 can mark the destination in the accepted sentences.",
+        "de": "배우다 hat keinen Endkonsonanten, daher 배우러. In den zugelassenen Sätzen markieren 에 oder 으로 das Ziel."
+      },
+      "help": {
+        "ko": "배우다 → 배우러 + 목적지 + 가요.",
+        "en": "배우다 → 배우러 + destination + 가요.",
+        "de": "배우다 → 배우러 + Ziel + 가요."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다른 날 새 이동 목적 제한 회상."
+    },
+    {
+      "id": "A1.2-05-T01",
+      "mode": "T",
+      "kind": "roleplay",
+      "objective": "새 장소에서 희망·가능·목적의 활동 결정",
+      "prompt": {
+        "ko": "수진에게 원하는 활동과 지금 가능한 활동을 나눠 말하고, 선택한 활동을 하러 어디에 갈지 설명해요.",
+        "en": "Tell Sujin what you want to do and what is possible now. Explain where you will go for the chosen activity.",
+        "de": "Sage Sujin getrennt, was du möchtest und was jetzt möglich ist. Erkläre dann, wohin du für die gewählte Tätigkeit gehst."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 생활 모의 카드: 사진을 찍고 싶음. 카메라 배터리 없음. 책은 있음. 지금 가능한 활동=책 읽기. 장소=도서관. 이 조건만 사용하며 새 시설 정책이나 이야기 출입 권한을 만들지 않아요.",
+          "en": "Modern-life role card: you want photos, but the camera battery is empty; a book is available. Possible now=read. Place=library. Use only these conditions; invent no venue policy or story access right.",
+          "de": "Heutige Rollenkarte: Du möchtest fotografieren, aber der Kamera-Akku ist leer. Ein Buch ist da. Jetzt möglich=lesen. Ort=Bibliothek. Nutze nur diese Bedingungen; erfinde keine Hausordnung oder Zutrittsrechte."
+        },
+        "model_visible": false,
+        "context_type": "modern_transfer"
+      },
+      "options": [],
+      "accepted_answers": [],
+      "feedback_correct": {
+        "ko": "자유 답을 확인해요. 희망과 가능을 나누고 선택의 목적이 들리나요?",
+        "en": "Review the reply: are wish and possibility distinct, and is the chosen purpose clear?",
+        "de": "Prüfe deine Antwort: Sind Wunsch und Möglichkeit getrennt und ist der gewählte Zweck klar?"
+      },
+      "feedback_wrong": {
+        "ko": "자동 채점은 없어요. 하고 싶다는 말만 있다면 지금 가능한 일과 이동 목적을 보충해요.",
+        "en": "There is no automatic score. If you stated only a wish, add what is possible and the trip’s purpose.",
+        "de": "Es gibt keine automatische Wertung. Wenn du nur den Wunsch genannt hast, ergänze Möglichkeit und Bewegungszweck."
+      },
+      "help": {
+        "ko": "고 싶어요 / 수 있어요·없어요 / 러 가요를 세 짧은 문장으로 나눠도 돼요.",
+        "en": "You can use three short sentences: 고 싶어요 / 수 있어요·없어요 / 러 가요.",
+        "de": "Du kannst drei kurze Sätze bilden: 고 싶어요 / 수 있어요·없어요 / 러 가요."
+      },
+      "scoring": "unscored",
+      "evidence_limit": "자유 언어 무채점. 실제 구역 개방·기기 권한·능력 판정 없음."
+    }
+  ],
+  "responses": {
+    "assisted": {
+      "ko": "도움을 보고 이어 갔어요. 이 시도는 도움을 받은 연습으로 구분해요.",
+      "en": "You continued with help. Keep this attempt separate from independent work.",
+      "de": "Du hast mit Hilfe weitergemacht. Dieser Versuch zählt als Übung mit Hilfe."
+    },
+    "independent": {
+      "ko": "이 문항은 모형이나 도움 없이 풀었어요. 자유 대화 능력 전체를 뜻하지는 않아요.",
+      "en": "You answered this item without a model or help. This does not establish your overall conversation ability.",
+      "de": "Du hast diese Aufgabe ohne Muster oder Hilfe gelöst. Das sagt noch nichts über deine gesamte Gesprächsfähigkeit aus."
+    },
+    "audio_unavailable": {
+      "ko": "소리를 사용할 수 없어요. 글로 이어 갈 수 있어요. 듣기·말하기 확인은 나중에 해요.",
+      "en": "Audio is unavailable. You can continue with the text; listening and speaking remain unchecked.",
+      "de": "Ton ist gerade nicht verfügbar. Du kannst mit dem Text weitermachen; Hören und Sprechen bleiben ungeprüft."
+    },
+    "pause": {
+      "ko": "여기에서 쉬어도 괜찮아요. 다시 시작할 때 현재 문항을 확인해요.",
+      "en": "You can pause here. Check the current item when you return.",
+      "de": "Du kannst hier pausieren. Schau dir beim Fortsetzen die aktuelle Aufgabe an."
+    },
+    "resume": {
+      "ko": "현재 문항부터 이어 가요. 도움을 봤다면 도움 연습으로 이어 가요.",
+      "en": "Continue from the current item. If you used help, continue as assisted practice.",
+      "de": "Mach mit der aktuellen Aufgabe weiter. Wenn du Hilfe genutzt hast, bleibt es eine Übung mit Hilfe."
+    },
+    "save_failed": {
+      "ko": "저장이 확인되지 않았어요. 답을 확인하고 다시 시도해요.",
+      "en": "Saving has not been confirmed. Check your answer and try saving again.",
+      "de": "Das Speichern wurde nicht bestätigt. Prüfe deine Antwort und versuche es erneut."
+    },
+    "revisit": {
+      "ko": "다른 날 새 상황으로 다시 해 봐요. 이야기 장면을 열지 않아도 연습할 수 있어요.",
+      "en": "Try a new situation on another day. You can practise without opening the story scene.",
+      "de": "Übe an einem anderen Tag mit einer neuen Situation. Dafür musst du die Geschichtenszene nicht öffnen."
+    }
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true
+  }
+}
