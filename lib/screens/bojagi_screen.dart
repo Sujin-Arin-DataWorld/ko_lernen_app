@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../widgets/sori/dialog.dart';
+import 'package:url_launcher/link.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/cultural_glossary.dart';
@@ -9,6 +11,7 @@ import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/bojagi_reveal.dart';
+import '../widgets/sori/c_gallery/c_materials.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/motion.dart';
@@ -19,9 +22,10 @@ import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
-export '../widgets/sori/bojagi_reveal.dart' show kBojagiClosed, kBojagiOpen;
+export '../widgets/sori/bojagi_reveal.dart'
+    show kBojagiClosed, kBojagiOpen, kNajeonChestClosed, kNajeonChestOpen;
 
-/// 보자기 꾸러미 개봉 — 퀘스트 보상으로 받은 꾸러미를 열어 장식 하나를 고른다.
+/// 자개함 개봉 — 기존 보상 큐에서 함을 열어 장식 하나를 고른다.
 ///
 /// **이 화면은 저장소를 직접 건드리지 않는다.** 소유권·큐 소비·journal 복구는
 /// 전부 [DecorationRewardService] 가 한다. 화면이 `Storage.addOwnedDecor` 를
@@ -41,8 +45,7 @@ class _BojagiScreenState extends State<BojagiScreen> {
   bool _loadFailed = false;
   DecorationRewardOffer? _offer;
 
-  /// 매듭을 풀었는가. 후보를 바로 보여주지 않는 이유는 ADR-002 개정 그대로 —
-  /// 싸여 있다는 것 자체가 물음표라 여는 동작이 보상의 일부다.
+  /// 함을 열었는가. 개봉은 후보를 보여주며 소유권은 선택 후 서비스가 확정한다.
   bool _untied = false;
 
   /// 방금 수령한 장식. 있으면 축하 화면.
@@ -182,13 +185,20 @@ class _BojagiScreenState extends State<BojagiScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     return SoriStandardFrame(
-      appBarTitle: t.bojagiTitle,
+      appBarTitle: t.najeonChestTitle,
       maxWidth: SoriMaxWidth.prose,
       padding: const EdgeInsets.symmetric(
         horizontal: Spacing.lg,
         vertical: Spacing.md,
       ),
-      actions: const [CulturalHelpButton(termId: 'bojagi')],
+      actions: [
+        IconButton(
+          key: const ValueKey('najeon-chest-help'),
+          tooltip: t.culturalHelpSemantics('나전'),
+          onPressed: _showNajeonHelp,
+          icon: const Icon(Icons.help_outline_rounded),
+        ),
+      ],
       builder: (context, resolvedPadding) => LayoutBuilder(
         builder: (context, constraints) {
           final contentHeight =
@@ -200,13 +210,31 @@ class _BojagiScreenState extends State<BojagiScreen> {
             padding: resolvedPadding,
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: contentHeight),
-              child: Container(
+              child: CPaperPanel(
                 padding: const EdgeInsets.all(Spacing.lg),
-                decoration: BoxDecoration(
-                  color: SoriActivityColors.giftSurface,
-                  borderRadius: SoriRadius.brLg,
+                radius: SoriRadius.lg,
+                surfaceTexture: const CTexture(CMaterial.paper),
+                child: Theme(
+                  // The hanji surface stays light even in the dark app shell.
+                  // Keep the inherited font metrics and use readable C ink.
+                  data: Theme.of(context).copyWith(
+                    brightness: Brightness.light,
+                    colorScheme: Theme.of(context).colorScheme.copyWith(
+                      brightness: Brightness.light,
+                      surface: CPalette.paper,
+                      onSurface: CPalette.ink,
+                      primary: CPalette.jade,
+                    ),
+                  ),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: (contentHeight - Spacing.lg * 2 - 2)
+                          .clamp(0.0, double.infinity)
+                          .toDouble(),
+                    ),
+                    child: Center(child: _body(t)),
+                  ),
                 ),
-                child: Center(child: _body(t)),
               ),
             ),
           );
@@ -219,9 +247,9 @@ class _BojagiScreenState extends State<BojagiScreen> {
     if (_loading) {
       return Semantics(
         liveRegion: true,
-        label: t.bojagiLoading,
+        label: t.najeonChestLoading,
         excludeSemantics: true,
-        child: AppLoading(message: t.bojagiLoading),
+        child: AppLoading(message: t.najeonChestLoading),
       );
     }
     final claimed = _claimed;
@@ -238,7 +266,7 @@ class _BojagiScreenState extends State<BojagiScreen> {
     final offer = _offer;
     if (_loadFailed || offer == null) {
       return AppError(
-        message: t.bojagiProblemBody,
+        message: t.najeonChestProblemBody,
         messageLiveRegion: true,
         retryLabel: t.bojagiRetry,
         onRetry: _load,
@@ -251,30 +279,30 @@ class _BojagiScreenState extends State<BojagiScreen> {
             ? _PickView(candidates: offer.candidates, onPick: _claim)
             : _KnotView(onUntie: () => setState(() => _untied = true)),
       DecorationRewardOfferState.noPendingBox => SoriEmptyState(
-        asset: kBojagiClosed,
+        asset: kNajeonChestClosed,
         icon: Icons.card_giftcard_rounded,
-        title: t.bojagiEmptyTitle,
-        body: t.bojagiEmptyBody,
+        title: t.najeonChestEmptyTitle,
+        body: t.najeonChestEmptyBody,
       ),
       DecorationRewardOfferState.noEligibleCandidates => SoriEmptyState(
-        asset: kBojagiOpen,
+        asset: kNajeonChestOpen,
         icon: Icons.inventory_2_outlined,
         title: t.bojagiAllOwnedTitle,
-        body: t.bojagiAllOwnedBody,
+        body: t.najeonChestAllOwnedBody,
       ),
       DecorationRewardOfferState.collectionComplete => SoriEmptyState(
-        asset: kBojagiOpen,
+        asset: kNajeonChestOpen,
         icon: Icons.collections_bookmark_outlined,
         title: t.bojagiCollectionCompleteTitle,
-        body: t.bojagiCollectionCompleteBody,
-        ctaLabel: t.bojagiArchiveComplete,
+        body: t.najeonChestCollectionCompleteBody,
+        ctaLabel: t.najeonChestArchive,
         onCta: _archiveCompleteCollection,
       ),
       DecorationRewardOfferState.unknownQuest ||
       DecorationRewardOfferState.recoveryConflict => SoriEmptyState(
         icon: Icons.refresh_rounded,
-        title: t.bojagiProblemTitle,
-        body: t.bojagiProblemBody,
+        title: t.najeonChestProblemTitle,
+        body: t.najeonChestProblemBody,
         ctaLabel: t.bojagiRetry,
         onCta: _load,
       ),
@@ -290,6 +318,44 @@ class _BojagiScreenState extends State<BojagiScreen> {
     }
   }
 
+  void _showNajeonHelp() {
+    showSoriDialog<void>(
+      context: context,
+      builder: (context) {
+        final t = AppL10n.of(context);
+        return SoriDialog(
+          title: Text(t.najeonChestHelpTitle),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(t.najeonChestHelpBody),
+              const SizedBox(height: Spacing.sm),
+              Link(
+                uri: Uri.parse(
+                  'https://www.museum.go.kr/MUSEUM/contents/'
+                  'M0502000000.do?relicId=1334&schM=view&searchId=search',
+                ),
+                target: LinkTarget.blank,
+                builder: (context, followLink) => TextButton.icon(
+                  onPressed: followLink,
+                  icon: const Icon(Icons.open_in_new_rounded),
+                  label: Text(t.practiceDokkaebiMuseumSource),
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text(t.btnClose),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   void _goHome() {
     if (LearningJourneyObserver.forContext(context)?.returnHome(context) ==
         true) {
@@ -302,8 +368,7 @@ class _BojagiScreenState extends State<BojagiScreen> {
   }
 }
 
-/// 매듭이 묶인 상태 — 탭 하나로 연다. 물음표를 그릴 필요가 없다,
-/// 싸여 있다는 것 자체가 물음표다 (ADR-002 개정).
+/// 닫힌 함 — 개봉은 보상 소유권을 변경하지 않는다.
 class _KnotView extends StatefulWidget {
   final VoidCallback onUntie;
 
@@ -317,7 +382,9 @@ class _KnotViewState extends State<_KnotView> {
   bool _opening = false;
 
   void _open() {
-    if (_opening) return;
+    if (_opening) {
+      return;
+    }
     setState(() => _opening = true);
   }
 
@@ -332,7 +399,7 @@ class _KnotViewState extends State<_KnotView> {
             container: true,
             button: true,
             enabled: !_opening,
-            label: _opening ? t.bojagiLoading : t.bojagiOpenHint,
+            label: _opening ? t.najeonChestLoading : t.najeonChestOpenHint,
             onTap: _opening ? null : _open,
             excludeSemantics: true,
             child: SoriPressable(
@@ -340,16 +407,21 @@ class _KnotViewState extends State<_KnotView> {
               key: const Key('bojagi_knot'),
               onTap: _opening ? null : _open,
               haptic: SoriHaptic.selection,
+              pressScale: .985,
+              pressOffsetY: 2,
+              releaseCurve: Curves.easeOutCubic,
               child: SoriBojagiReveal(
                 opening: _opening,
+                najeonChest: true,
                 onOpened: widget.onUntie,
               ),
             ),
           ),
-          const SizedBox(height: Spacing.xl),
+          const SizedBox(height: Spacing.md),
           SoriButton.filled(
-            label: t.soriStageOpenBojagi,
-            illustrationAsset: kBojagiClosed,
+            label: t.najeonChestOpen,
+            accent: CPalette.jade,
+            illustrationAsset: kNajeonChestClosed,
             trailingIcon: Icons.arrow_forward_rounded,
             onTap: _opening ? null : _open,
             fullWidth: true,
@@ -360,7 +432,7 @@ class _KnotViewState extends State<_KnotView> {
   }
 }
 
-/// 매듭이 풀린 뒤 — 후보 카드. 안 고른 것은 사라지지 않는다는 안내가
+/// 함을 연 뒤 — 후보 카드. 안 고른 것은 사라지지 않는다는 안내가
 /// 본문에 있어야 한다. 선택이 벌처럼 느껴지면 수집 동기가 꺾인다.
 class _PickView extends StatelessWidget {
   final List<String> candidates;
@@ -379,7 +451,7 @@ class _PickView extends StatelessWidget {
         SizedBox(
           height: 92,
           child: Image.asset(
-            kBojagiOpen,
+            kNajeonChestOpen,
             fit: BoxFit.contain,
             errorBuilder: (_, __, ___) => const SizedBox.shrink(),
           ),
@@ -395,11 +467,11 @@ class _PickView extends StatelessWidget {
         ),
         const SizedBox(height: Spacing.sm),
         Text(
-          t.bojagiPickBody,
+          t.najeonChestPickBody,
           textAlign: TextAlign.center,
           style: text.bodySmall,
         ),
-        const SizedBox(height: Spacing.xl),
+        const SizedBox(height: Spacing.md),
         CulturalGlossaryBuilder(
           builder: (context, glossary) {
             final shownTermIds = <String>{};
@@ -492,10 +564,10 @@ class _CandidateCard extends StatelessWidget {
                     haptic: SoriHaptic.selection,
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
-                        Spacing.lg,
-                        Spacing.lg,
-                        showCulturalHelp ? Spacing.sm : Spacing.lg,
-                        showTerm ? Spacing.xs : Spacing.lg,
+                        Spacing.md,
+                        Spacing.md,
+                        showCulturalHelp ? Spacing.sm : Spacing.md,
+                        showTerm ? Spacing.xs : Spacing.md,
                       ),
                       child: Row(
                         children: [
@@ -508,7 +580,7 @@ class _CandidateCard extends StatelessWidget {
                               child: SoriDecorationImage(slug: slug, size: 58),
                             ),
                           ),
-                          const SizedBox(width: Spacing.lg),
+                          const SizedBox(width: Spacing.sm),
                           Expanded(child: Text(name, style: text.cardTitle)),
                           Icon(Icons.chevron_right_rounded, color: s.textDim),
                         ],
@@ -527,8 +599,8 @@ class _CandidateCard extends StatelessWidget {
           if (showTerm)
             Padding(
               padding: const EdgeInsetsDirectional.only(
-                start: 64 + Spacing.lg + Spacing.lg,
-                end: Spacing.lg,
+                start: 64 + Spacing.md + Spacing.sm,
+                end: Spacing.md,
                 bottom: Spacing.sm,
               ),
               child: SoriTerm(
@@ -582,6 +654,7 @@ class _ClaimedView extends StatelessWidget {
             SoriBojagiReveal(
               key: ValueKey('bojagi-reveal-$slug'),
               rewardSlug: slug,
+              najeonChest: true,
               onRewardRevealed: HapticService.lightImpact,
             ),
             const SizedBox(height: Spacing.lg),
@@ -613,7 +686,11 @@ class _ClaimedView extends StatelessWidget {
               ],
             ),
             const SizedBox(height: Spacing.xl),
-            SoriButton(label: t.bojagiGoToRoom, onTap: onRoom),
+            SoriButton(
+              label: t.bojagiGoToRoom,
+              accent: CPalette.jade,
+              onTap: onRoom,
+            ),
             const SizedBox(height: Spacing.sm),
             SoriButton(
               label: t.homeActionLabel,
@@ -623,7 +700,7 @@ class _ClaimedView extends StatelessWidget {
             if (hasNext) ...[
               const SizedBox(height: Spacing.sm),
               SoriButton(
-                label: t.bojagiNext,
+                label: t.najeonChestNext,
                 variant: SoriButtonVariant.outlined,
                 onTap: onNext,
               ),

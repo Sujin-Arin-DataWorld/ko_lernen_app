@@ -14,8 +14,13 @@ import 'tokens.dart';
 /// The approved Today composition, backed by the shared learning owner.
 /// Only the illustration yields space; native text and its tap target do not.
 class TodayLearningCard extends StatelessWidget {
-  const TodayLearningCard({super.key, required this.availableHeight});
+  const TodayLearningCard({
+    super.key,
+    required this.availableHeight,
+    this.compactArt = false,
+  });
   final double availableHeight;
+  final bool compactArt;
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +40,36 @@ class TodayLearningCard extends StatelessWidget {
     final lang = Localizations.localeOf(context).languageCode;
     final pick = focus!.today.pick;
     final type = SoriTextTheme.of(context);
+    final unitId = focus.brief?.unit.id;
+    final editorial = switch (unitId) {
+      'a1_01_greetings_hangul' => (
+        t.todayMissionGreetingTitle,
+        t.todayMissionGreetingBody,
+      ),
+      'a2_02_plans_proposals' => (
+        t.todayMissionPlansTitle,
+        t.todayMissionPlansBody,
+      ),
+      'b2_03_precise_requests' => (
+        t.todayMissionRequestsTitle,
+        t.todayMissionRequestsBody,
+      ),
+      'c1_04_play_time_policy' => (
+        t.todayMissionPolicyTitle,
+        t.todayMissionPolicyBody,
+      ),
+      'c2_01_interpretation_institutions' => (
+        t.todayMissionAuthorityTitle,
+        t.todayMissionAuthorityBody,
+      ),
+      _ => null,
+    };
     final title =
+        editorial?.$1 ??
         focus.brief?.unit.title.pick(lang) ??
         switch (pick) {
           HangulIntroPick() => t.todayFirstSyllable,
-          ReviewPick() => t.todayReviewTitle,
+          ReviewPick() => t.todayMissionReviewTitle,
           PackPick(:final pack) => VocabPackService.displayLabel(
             pack.id,
             lang: lang,
@@ -52,17 +82,31 @@ class TodayLearningCard extends StatelessWidget {
     final description = switch (pick) {
       HangulIntroPick() => t.todayFirstSyllableBody,
       ReviewPick(:final dueCount) => t.homeReviewDue(dueCount),
-      CoursePick() => focus.brief?.unit.canDo.pick(lang),
+      CoursePick() => editorial?.$2 ?? focus.brief?.unit.canDo.pick(lang),
       _ => null,
     };
     final label = switch (pick) {
       HangulIntroPick() => t.todayStartHangul,
       ReviewPick() => t.todayStartReview,
-      CoursePick(started: true) => t.todayContinue,
-      _ => t.learningFocusStart,
+      CoursePick() when focus.brief?.hasStarted == true => t.todayResumeStage,
+      _ => t.todayBeginStage,
     };
-    final bodyStyle = type.taskBody.copyWith(fontSize: 16, color: CPalette.ink);
-    final titleStyle = type.taskTitle.copyWith(color: CPalette.ink);
+    final bodyStyle = type.body.copyWith(
+      fontSize: 16,
+      height: 1.3125,
+      color: CPalette.ink,
+    );
+    final titleStyle = type.h2.copyWith(
+      fontSize: 23,
+      height: 29 / 23,
+      color: CPalette.ink,
+    );
+    final actionStyle = type.label.copyWith(
+      fontSize: 19,
+      height: 24 / 19,
+      fontWeight: SoriLocaleFonts.of(context).bodyWeight(FontWeight.w600),
+      color: CPalette.ink,
+    );
     return LayoutBuilder(
       builder: (context, bounds) {
         double height(String text, TextStyle style, double width) {
@@ -78,15 +122,25 @@ class TodayLearningCard extends StatelessWidget {
 
         // CPaperPanel contributes its 1dp border on each edge as well as the
         // explicit 16dp inset. Measure against that exact text column.
-        final width = bounds.maxWidth - 34;
+        final width = bounds.maxWidth - 38;
         final meta = [
-          if (focus.brief?.unit.level case final level?) level.toUpperCase(),
-          if (focus.minutes case final minutes?)
-            t.learningFocusMinutes(minutes),
+          if (pick is! ReviewPick) ...[
+            if (focus.brief?.unit.level case final level?) level.toUpperCase(),
+            if (focus.minutes case final minutes?)
+              t.learningFocusMinutes(minutes),
+          ],
         ].join(' · ');
-        final metaStyle = type.taskCaption.copyWith(color: CPalette.mutedInk);
-        final eyebrow = pick is ReviewPick ? t.reviewHubTitle : t.todayNextStep;
-        final metaWidth = meta.isEmpty ? 0.0 : width * .46;
+        final metaStyle = type.caption.copyWith(
+          fontSize: 13,
+          height: 18 / 13,
+          color: CPalette.mutedInk,
+        );
+        final eyebrow = pick is ReviewPick
+            ? t.reviewHubTitle
+            : focus.brief?.hasStarted == true
+            ? t.todayResumeStage
+            : t.todayNextStage;
+        final metaWidth = meta.isEmpty ? 0.0 : math.min(108.0, width * .46);
         final metaHeight = height(eyebrow, metaStyle, width - metaWidth - 8);
         final badgeHeight = meta.isEmpty
             ? 0.0
@@ -97,22 +151,27 @@ class TodayLearningCard extends StatelessWidget {
             : height(description, bodyStyle, width) + 4;
         final actionHeight = math.max(
           48.0,
-          height(label, type.taskLabel, width - 56) + 20,
+          height(label, actionStyle, width - 68) + 16,
         );
         final fixed =
-            34 +
+            28 +
             math.max(metaHeight, badgeHeight) +
-            8 +
+            6 +
             headingHeight +
             contextHeight +
-            8 +
+            6 +
             actionHeight;
-        final cardHeight = math.max(availableHeight, fixed + 82);
+        final cardHeight = math.max(
+          availableHeight,
+          fixed + (compactArt ? 32 : 64),
+        );
         return SizedBox(
           key: const ValueKey('today-learning-card'),
           height: cardHeight,
           child: CPaperPanel(
-            padding: const EdgeInsets.all(16),
+            radius: 18,
+            padding: const EdgeInsets.fromLTRB(18, 14, 18, 12),
+            surfaceTexture: const CTexture(CMaterial.paper),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -134,7 +193,7 @@ class TodayLearningCard extends StatelessWidget {
                     ],
                   ],
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 6),
                 Semantics(
                   header: true,
                   child: Text(
@@ -159,15 +218,19 @@ class TodayLearningCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(
                         SoriRadius.c5DetailAction,
                       ),
-                      child: TodaySubjectArt.forPick(pick),
+                      child: TodaySubjectArt.forPick(
+                        pick,
+                        link: focus.brief?.firstLink,
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 6),
                 CMaterialAction(
                   key: const ValueKey('learning-focus-start'),
                   label: label,
                   compact: true,
+                  exactSurface: true,
                   onTap: controller.launching
                       ? null
                       : () => scope.open(
@@ -178,15 +241,16 @@ class TodayLearningCard extends StatelessWidget {
                         ),
                   child: Row(
                     children: [
+                      const SizedBox(width: 34),
                       Expanded(
                         child: Text(
                           label,
                           textAlign: TextAlign.center,
-                          style: type.taskLabel.copyWith(color: CPalette.ink),
+                          style: actionStyle,
                         ),
                       ),
-                      const SizedBox(width: 8),
-                      const CArrow(dark: true, size: 18),
+                      const SizedBox(width: 4),
+                      const SizedBox(width: 34, child: CArrow(size: 18)),
                     ],
                   ),
                 ),

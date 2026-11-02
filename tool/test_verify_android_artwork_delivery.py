@@ -93,6 +93,8 @@ class ArtworkDeliveryTest(unittest.TestCase):
             'assets/illustrations/ildu_r16/one.webp': b'r16',
             'assets/illustrations/concept_c/c5_scenes/two.png': b'c5',
             'assets/illustrations/future-reviewed/three.png': b'future',
+            'assets/illustrations/concept_c/today/plans-proposals.png': b'today',
+            'assets/illustrations/rewards/najeon/najeon_chest_open.png': b'najeon',
         }
         expected = {key: Artwork(hashlib.sha256(value).hexdigest(), len(value), 'test')
                     for key, value in payloads.items()}
@@ -108,6 +110,10 @@ class ArtworkDeliveryTest(unittest.TestCase):
                 warnings.simplefilter('ignore', UserWarning)  # Deliberate duplicate ZIP fixture.
                 with zipfile.ZipFile(data, 'w') as bundle:
                     bundle.writestr('base/assets/flutter_assets/AssetManifest.bin', b'index')
+                    bundle.writestr(
+                        'base/assets/flutter_assets/assets/illustrations/companions/baekho/expressions.png',
+                        b'companion intentionally retained in base',
+                    )
                     bundle.writestr(prefix + 'directory/', b'')
                     for key, value in payloads.items():
                         bundle.writestr(prefix + key, value)

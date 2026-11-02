@@ -106,10 +106,63 @@ class ArtworkManifestTest(unittest.TestCase):
             with self.subTest(text=bad[:50]), self.assertRaises(ValueError):
                 parse_manifest(bad)
 
-    def test_current_reviewed_lock_preserves_originals_and_reviewed_layers(self):
+    def test_current_reviewed_lock_preserves_each_exact_reviewed_family(self):
         rows = check_manifest(ROOT / MANIFEST)
         self.assertEqual({family.group: sum(row.group == family.group for row in rows.values())
-                          for family in FAMILIES}, {'r16-originals': 135, 'c5-originals': 6, 'r16-layers': 31})
+                          for family in FAMILIES}, {
+                              'r16-originals': 135, 'c5-originals': 6, 'r16-layers': 31,
+                              'today-originals': 24, 'najeon-originals': 2,
+                          })
+
+    def test_today_delivery_authority_keeps_exact_existing_selection_records(self):
+        authority = json.loads((ROOT / 'docs/assets/TODAY_ANDROID_ARTWORK_20261102.json')
+                               .read_text(encoding='utf-8'))
+        for entry in authority['assets']:
+            with self.subTest(asset=entry['asset']):
+                reviewed = json.loads((ROOT / entry['sourceReviewDocument'])
+                                      .read_text(encoding='utf-8'))
+                original = next(row for row in reviewed[entry['sourceReviewSection']]
+                                if row['asset'] == entry['asset'])
+                canonical = json.dumps(original, ensure_ascii=False, sort_keys=True,
+                                       separators=(',', ':')).encode('utf-8')
+                self.assertEqual(hashlib.sha256(canonical).hexdigest(),
+                                 entry['sourceReviewRecordSha256'])
+                self.assertEqual((entry['sha256'], entry['bytes']),
+                                 (original['sha256'], original['bytes']))
+                self.assertEqual(entry['sourceSha256'], entry['sha256'])
+                self.assertTrue(entry['copiedByteIdentical'])
+                source_name = entry['source'].replace('\\', '/').split('/')[-1]
+                reviewed_name = original.get('sourceFile') or original['source'].replace('\\', '/').split('/')[-1]
+                self.assertEqual(source_name, reviewed_name)
+        rows = check_manifest(ROOT / MANIFEST)
+        self.assertNotIn('assets/illustrations/concept_c/today/hanok-entrance-frame.png', rows)
+        for companion in ['baekho', 'magpie']:
+            key = f'assets/illustrations/companions/{companion}/expressions.png'
+            self.assertTrue((ROOT / key).is_file())
+            self.assertNotIn(key, rows, 'Companion expression sheets remain in the base bundle.')
+
+    def test_najeon_delivery_preserves_the_selected_closed_open_originals(self):
+        authority = json.loads((ROOT / 'docs/assets/NAJEON_ANDROID_ARTWORK_20261102.json')
+                               .read_text(encoding='utf-8'))
+        reviewed = {
+            'closed': ('najeon_chest_closed.png',
+                       'exec-47c09768-89b5-4510-b783-36af01b83b6b.png',
+                       '1eabfc6400d3fea373027eb2c6b3183c5aa90e2c7f9e12b44a81cf50b0ea0dcd'),
+            'open': ('najeon_chest_open.png',
+                     'exec-a26c2094-9d42-4bfb-acf6-0c80058f978a.png',
+                     'b5c2e2ce3f2603a38b982934853e9029839e0d30026206e98c0d25d22e46da38'),
+        }
+        self.assertEqual({entry['state'] for entry in authority['assets']}, set(reviewed))
+        self.assertEqual(len(authority['assets']), 2)
+        for entry in authority['assets']:
+            filename, source, digest = reviewed[entry['state']]
+            self.assertEqual(entry['asset'], 'assets/illustrations/rewards/najeon/' + filename)
+            self.assertEqual(entry['source'].replace('\\', '/').split('/')[-1], source)
+            self.assertEqual(entry['sha256'], digest)
+            self.assertEqual(entry['sourceSha256'], digest)
+            self.assertTrue(entry['copiedByteIdentical'])
+        self.assertFalse(authority['differentPr447ArtworkSubstituted'])
+        self.assertFalse(authority['rewardProgressOrOwnershipChanges'])
 
     def test_r16_layers_keep_original_stage_ids_and_source_identity(self):
         original = json.loads((ROOT / 'assets/data/ildu_r16_art_v1.json').read_text(encoding='utf-8'))

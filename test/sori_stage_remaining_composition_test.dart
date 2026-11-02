@@ -210,9 +210,7 @@ void main() {
         expect(tester.takeException(), isNull);
         if (tab == 'today') {
           expect(find.byType(TodayGuideChecklistCard), findsNothing);
-          final action = find.text(
-            lookupAppL10n(Locale(locale)).learningFocusStart,
-          );
+          final action = find.byKey(const ValueKey('learning-focus-start'));
           expect(action.hitTestable(), findsOneWidget);
           await openTodayDetails(tester);
           await pumpUntilFound(tester, find.byType(TodayGuideChecklistCard));
@@ -321,9 +319,7 @@ void main() {
                   : tab == 'hanok'
                   ? 'hanok-shortcut-bojagi'
                   : 'gye-continue-solo';
-              final action = tab == 'today'
-                  ? find.text(lookupAppL10n(Locale(locale)).learningFocusStart)
-                  : find.byKey(ValueKey(key));
+              final action = find.byKey(ValueKey(key));
               if (action.evaluate().isEmpty) {
                 await tester.scrollUntilVisible(
                   action,

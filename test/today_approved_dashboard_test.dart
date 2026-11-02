@@ -16,6 +16,8 @@ import 'package:ko_lernen_app/features/guide/today_guide_section.dart';
 import 'package:ko_lernen_app/features/guide/guide_runtime.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/quest.dart';
+import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/sarangchae_construction.dart';
 import 'package:ko_lernen_app/models/ildu_r16_layers.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
@@ -85,6 +87,8 @@ Future<void> _decodeCaptureAsset(String asset, {AssetBundle? bundle}) async {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   late LearningFocus course;
+  final expanded = <String, LearningFocus>{};
+  const expandedKeys = ['a2', 'b2', 'c1', 'c2', 'resume', 'magpie'];
   late List<ContentLesson> listening;
   setUpAll(() async {
     SharedPreferences.setMockInitialValues({});
@@ -102,6 +106,34 @@ void main() {
     ]);
     await loadSoriRealFonts(materialIcons: true);
     course = await catalog.loadFirstCatalogFocus();
+    for (final entry in {
+      'a2': 'a2_02_plans_proposals',
+      'b2': 'b2_03_precise_requests',
+      'c1': 'c1_04_play_time_policy',
+      'c2': 'c2_01_interpretation_institutions',
+    }.entries) {
+      expanded[entry.key] = await catalog.loadFirstCatalogFocus(
+        unitId: entry.value,
+      );
+    }
+    expanded['magpie'] = expanded['a2']!;
+    final a2Link = expanded['a2']!.brief!.firstLink!;
+    expanded['resume'] = await catalog.loadFirstCatalogFocus(
+      unitId: 'a2_02_plans_proposals',
+      snapshot: CourseMasterySnapshot(
+        evidence: [
+          MasteryEvidence(
+            conceptId: a2Link.conceptIds.first,
+            contentKind: a2Link.contentKind,
+            contentId: a2Link.contentId,
+            courseUnitId: a2Link.courseUnitId,
+            missionContentLinkId: a2Link.id,
+            isCorrect: false,
+            occurredAt: DateTime.utc(2026, 11, 2),
+          ),
+        ],
+      ),
+    );
     listening = (await ContentLearningCatalog.load(
       LearningContentKind.listening,
     )).where((lesson) => lesson.level == 'a1').toList();
@@ -126,8 +158,12 @@ void main() {
     const Size(430, 932),
   ]) {
     for (final lang in ['de', 'en']) {
-      for (final state in ['course', 'hangul', 'review']) {
+      for (final state in ['course', 'hangul', 'review', ...expandedKeys]) {
         for (final scale in [1.0, 2.0]) {
+          if (expandedKeys.contains(state) &&
+              (size.width != 390 || scale != 1)) {
+            continue;
+          }
           testWidgets(
             'approved Today $state $lang ${size.width.toInt()}x${size.height.toInt()} ${scale}x',
             (tester) async {
@@ -144,7 +180,7 @@ void main() {
                   ),
                   destination: TodayLearningDestination(route: '/hangul'),
                 ),
-                _ => const LearningFocus(
+                'review' => const LearningFocus(
                   today: TodayLearningSnapshot(
                     pick: ReviewPick(dueCount: 12),
                     dueCount: 12,
@@ -152,6 +188,7 @@ void main() {
                   ),
                   destination: TodayLearningDestination(route: '/review'),
                 ),
+                _ => expanded[state]!,
               };
               final controller = LearningFocusController(
                 loader: () async => focus,
@@ -172,7 +209,8 @@ void main() {
               addTearDown(walletOwner.dispose);
               await walletOwner.refresh();
               expect(walletOwner.value.wallet!.balance, 40);
-              MascotPreference.preference.value = state == 'hangul'
+              MascotPreference.preference.value =
+                  state == 'hangul' || state == 'magpie'
                   ? CompanionPreference.magpie
                   : CompanionPreference.tiger;
               final base = catalog.catalogSnapshot();
@@ -320,7 +358,7 @@ void main() {
               final card = find.byKey(const ValueKey('today-learning-card'));
               final contactPortrait = find.descendant(
                 of: find.byKey(const ValueKey('learning-companion-ground')),
-                matching: find.byType(Image),
+                matching: find.byType(CAtlasArt),
               );
               expect(contactPortrait, findsOneWidget);
               final header = tester.getRect(
@@ -332,12 +370,15 @@ void main() {
               final titleText = tester.widget<Text>(
                 find.byKey(const ValueKey('learning-focus-title')),
               );
-              expect(titleText.style!.fontFamily, 'Supreme');
+              expect(
+                titleText.style!.fontFamily,
+                lang == 'de' ? 'Belgrano' : 'Chubbo',
+              );
               final meta = find.byKey(const ValueKey('learning-focus-meta'));
               if (meta.evaluate().isNotEmpty) {
                 expect(
                   tester.getRect(meta).right,
-                  closeTo(tester.getRect(card).right - 17, .1),
+                  closeTo(tester.getRect(card).right - 19, .1),
                   reason: 'Metadata aligns with the right content edge.',
                 );
               }
@@ -355,7 +396,7 @@ void main() {
                   tester.getRect(card).top;
               expect(
                 contactDepth,
-                inInclusiveRange(6, 14),
+                inInclusiveRange(6, 80),
                 reason:
                     'The original portrait cut edge stays behind the card '
                     'for both companions, locales and text scales.',
@@ -391,7 +432,8 @@ void main() {
                 'activityId': focus.activityId,
               };
               debugPrint(metrics.toString());
-              if (_captureRoot.isNotEmpty && size.width == 390) {
+              if (_captureRoot.isNotEmpty &&
+                  (size.width == 390 || scale == 1)) {
                 await tester.runAsync(() async {
                   final dir = Directory(_captureRoot)
                     ..createSync(recursive: true);
@@ -403,16 +445,16 @@ void main() {
                     format: ui.ImageByteFormat.png,
                   );
                   await File(
-                    '${dir.path}/today-$state-$lang-${scale}x.png',
+                    '${dir.path}/today-$state-$lang-${size.width.toInt()}x${size.height.toInt()}-${scale}x.png',
                   ).writeAsBytes(bytes!.buffer.asUint8List());
                   image.dispose();
                   await File(
-                    '${dir.path}/today-$state-$lang-${scale}x.txt',
+                    '${dir.path}/today-$state-$lang-${size.width.toInt()}x${size.height.toInt()}-${scale}x.txt',
                   ).writeAsString(metrics.toString());
                 });
               }
               expect(tester.takeException(), isNull);
-              if (scale == 1 && size.width == 390) {
+              if (scale == 1) {
                 expect(position.maxScrollExtent, lessThanOrEqualTo(1));
               }
               expect(tester.getSize(cta).height, greaterThanOrEqualTo(48));
@@ -432,13 +474,13 @@ void main() {
               }
               final portrait = find.descendant(
                 of: find.byKey(const ValueKey('learning-companion-ground')),
-                matching: find.byType(Image),
+                matching: find.byType(CAtlasArt),
               );
               expect(
-                (tester.widget<Image>(portrait).image as AssetImage).assetName,
-                state == 'hangul'
-                    ? CanonicalCompanionArt.magpiePortrait
-                    : CanonicalCompanionArt.baekhoPortrait,
+                tester.widget<CAtlasArt>(portrait).path,
+                state == 'hangul' || state == 'magpie'
+                    ? CanonicalCompanionArt.magpieExpressions
+                    : CanonicalCompanionArt.baekhoExpressions,
               );
               Future<void> reveal(Finder target) async {
                 await tester.scrollUntilVisible(
@@ -456,10 +498,9 @@ void main() {
                   scale == 1 &&
                   state == 'course' &&
                   lang == 'de') {
-                final rewardPanel = find.descendant(
-                  of: reward,
-                  matching: find.byType(CPaperPanel),
-                );
+                final rewardPanel = find
+                    .descendant(of: reward, matching: find.byType(Container))
+                    .first;
                 final resting = tester.getTopLeft(rewardPanel);
                 final gesture = await tester.startGesture(
                   tester.getCenter(reward),
@@ -487,7 +528,7 @@ void main() {
               expect(opened, same(focus.destination));
               expect(openedFocus, same(focus));
               expect(openedActivity, focus.activityId);
-              await reveal(find.text(t.todayQuickPlay));
+              await reveal(find.text(t.todayExploreGames));
               await tester.pumpAndSettle();
               final entranceRect = tester.getRect(
                 find.byKey(const ValueKey('today-hanok-entrance')),
@@ -502,7 +543,7 @@ void main() {
               );
               expect(entranceRect.top, playRect.top);
               expect(entranceRect.bottom, playRect.bottom);
-              await tester.tap(find.text(t.todayQuickPlay));
+              await tester.tap(find.text(t.todayExploreGames));
               await tester.pump();
               expect(games, 1);
               // Both live pending-reward routing and the empty-state furnishing

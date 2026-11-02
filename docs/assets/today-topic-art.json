@@ -1,0 +1,1673 @@
+{
+  "date": "2026-11-02",
+  "status": "source_bytes_semantic_graph_and_representative_native_widget_renders_verified_ci_device_release_pending",
+  "authorization": "User requested exact existing Figma Today design and original topic art integration across A1-C2.",
+  "worktree": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023",
+  "baseHead": "bba1164f21cceb3882d0297d08daa6345f680341",
+  "sourceMapping": "C:\\dev\\hangulsori\\_codex_artifacts\\today-hanok-image-mockups-20261031\\today-source-topic-mappings.json",
+  "sourceMappingSha256": "eb0c7fe8d21d8758e05739f392594ce08582182cb6f05c8a2195460b3706e26f",
+  "curriculumManifest": "assets\\data\\curriculum_manifest.json",
+  "curriculumManifestSha256": "2222d49c02dce92dc092be06c958dd6b2b535d13fb0c0d7184ec91037018541b",
+  "vocabularySource": "assets\\data\\korean_vocab.csv",
+  "vocabularySha256": "bb7ee0386813011757bd49f31479aa9eab2603d6cc304e189b7e719c378a6cd2",
+  "figmaFile": "rVlcMLvngw07BYJ7nRT87C",
+  "figmaPage": "338:2",
+  "assets": [
+    {
+      "subject": "a1_body",
+      "asset": "assets/illustrations/concept_c/today/sorry-thanks.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-301c934d-2f58-4c1a-bbdd-43c4da2f9416.png",
+      "sha256": "1370c4712853be701f7996abda97a08b496bd1d0055b41064849d4d04999ce59",
+      "bytes": 1487909,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": true,
+      "sourceTopicIds": [
+        "a1_body"
+      ],
+      "sourceSemanticReason": "Accidental mishaps and apologies, not anatomy.",
+      "sourceSubject": "Two small ceramic cups, one intact and one with one clearly separated broken piece, and a neatly folded linen cloth. A small sincere-apology still life; no medical props.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\a1_sorry_thanks_1.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        16,
+        28,
+        1238,
+        1254
+      ],
+      "renderRegionPixels": [
+        16,
+        28,
+        1238,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "a1_sorry_thanks_1"
+      ]
+    },
+    {
+      "subject": "a1_counter",
+      "asset": "assets/illustrations/concept_c/today/shop-counter.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-830b09fd-be21-450f-bc87-89b06b76f643.png",
+      "sha256": "c9311c66b750b930f5c25b8f01760eedba44844785a358b79f3b18a42822d976",
+      "bytes": 2000039,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "a1_counter"
+      ],
+      "sourceSemanticReason": "Ordering and asking at shop counters.",
+      "sourceSubject": "A kraft shopping bag, a small brass balance and three coins; compact shop-counter still life.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\listening\\A1Counter.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        19,
+        1236,
+        1254
+      ],
+      "renderRegionPixels": [
+        0,
+        19,
+        1236,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "a1_payment_delivery_1"
+      ]
+    },
+    {
+      "subject": "a1_home",
+      "asset": "assets/illustrations/concept_c/today/home-key.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-c5abbd78-629b-46ec-b3b9-0b2a94603840.png",
+      "sha256": "ad92a32607b35137d849b4761f5d797fdcf97d0c4906dac5e70f8b15a80a9678",
+      "bytes": 1623517,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "a1_home"
+      ],
+      "sourceSemanticReason": "Everyday domestic coordination.",
+      "sourceSubject": "A miniature walnut apartment door with brass key and a folded jade umbrella leaning beside it.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\listening\\A1Home.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        27,
+        1198,
+        1240
+      ],
+      "renderRegionPixels": [
+        0,
+        27,
+        1198,
+        1240
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "a1_home_daily_1",
+        "a2_home_1"
+      ]
+    },
+    {
+      "subject": "a1_repeat",
+      "asset": "assets/illustrations/concept_c/today/repair-language.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-b379bf91-516c-46b6-b2a4-90524c902f5d.png",
+      "sha256": "ab9de1314ed8e00ac204a978b260efccda32b5cf95e3c64fc51cd418fcd5b6db",
+      "bytes": 1490823,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": true,
+      "sourceTopicIds": [
+        "a1_repeat"
+      ],
+      "sourceSemanticReason": "Asking someone to repeat or speak slowly.",
+      "sourceSubject": "An open ivory notebook with blank pages, a jade pencil and small brass speaker with two discreet sculpted sound arcs.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\a1_repair_language_1.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        36,
+        1244,
+        1254
+      ],
+      "renderRegionPixels": [
+        0,
+        36,
+        1244,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "a1_repair_language_1"
+      ]
+    },
+    {
+      "subject": "a1_transit",
+      "asset": "assets/illustrations/concept_c/today/transport.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-036a1305-ac27-4a1b-aa25-cf95a31e7660.png",
+      "sha256": "b9e42c64f23e941db2ae0b22ff412b8e88d093c18169e309541a33985239f88c",
+      "bytes": 1774021,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": true,
+      "sourceTopicIds": [
+        "a1_transit"
+      ],
+      "sourceSemanticReason": "Airports, exits and getting out of taxis: transport context.",
+      "sourceSubject": "A recognizable jade Korean city bus model, an ivory transit card and a brass overhead hand strap.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\a1_transport.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        39,
+        1240,
+        1254
+      ],
+      "renderRegionPixels": [
+        0,
+        39,
+        1240,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "a1_transport"
+      ]
+    },
+    {
+      "subject": "a2_apt",
+      "asset": "assets/illustrations/concept_c/today/recycling-rules.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-4f04f840-a3da-4440-836f-ca4948e2846e.png",
+      "sha256": "3448d8c07d4f64ffe76e9de919f5f720054cf4505d28464426e538be53e65dae",
+      "bytes": 1723399,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "a2_apt"
+      ],
+      "sourceSemanticReason": "Apartment recycling rules.",
+      "sourceSubject": "Two small jade and ivory waste-sorting bins, one folded paper carton and a miniature apartment entrance.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\b1_apt_rules_1.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        49,
+        1225,
+        1254
+      ],
+      "renderRegionPixels": [
+        0,
+        49,
+        1225,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "b1_apt_rules_1"
+      ]
+    },
+    {
+      "subject": "a2_booking",
+      "asset": "assets/illustrations/concept_c/today/restaurant.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-2c452359-c492-41d1-befb-1f5856db8232.png",
+      "sha256": "a1ddfba82c4499d802ae35ea9c2e649035affdf1d331733f71129c09974884f6",
+      "bytes": 1484685,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": true,
+      "sourceTopicIds": [
+        "a2_booking"
+      ],
+      "sourceSemanticReason": "Actual lesson is restaurant reservation, not hotel booking.",
+      "sourceSubject": "A miniature restaurant table for two, two ivory plates and a small blank tent reservation card held in brass.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\listening\\A2Booking.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        31,
+        1238,
+        1254
+      ],
+      "renderRegionPixels": [
+        0,
+        31,
+        1238,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "a2_restaurant_1"
+      ]
+    },
+    {
+      "subject": "a2_move",
+      "asset": "assets/illustrations/concept_c/today/travel-adjustment.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-c8deeaab-7602-4f23-8851-2749ee875cdd.png",
+      "sha256": "3ab265b771fdc4ec61cfbac78cd98e0b24c6d8188435cb26ed7c05b19803d167",
+      "bytes": 1330688,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "a2_move"
+      ],
+      "sourceSemanticReason": "Travel and transport adjustments.",
+      "sourceSubject": "A small ivory and jade express train, a transit card and miniature walnut bus-stop sign.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\a2_transport.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        67,
+        1222,
+        1254
+      ],
+      "renderRegionPixels": [
+        0,
+        67,
+        1222,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "a2_transport"
+      ]
+    },
+    {
+      "subject": "a2_partner",
+      "asset": "assets/illustrations/concept_c/today/chuseok.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-f353378c-2add-4c4d-885e-236d71da92b6.png",
+      "sha256": "49db6a790d82f97f301be26226bee50572f0c3fe205f5171bdc1b88f0634b651",
+      "bytes": 1647444,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": true,
+      "sourceTopicIds": [
+        "a2_partner"
+      ],
+      "sourceSemanticReason": "Chuseok family greeting.",
+      "sourceSubject": "A shallow celadon plate of three songpyeon rice cakes, a ripe golden Korean pear and folded jade wrapping cloth.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\a2_partner_chuseok_basic_1.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        21,
+        1232,
+        1254
+      ],
+      "renderRegionPixels": [
+        0,
+        21,
+        1232,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "a2_partner_chuseok_basic_1"
+      ]
+    },
+    {
+      "subject": "a2_plan",
+      "asset": "assets/illustrations/concept_c/today/plans-proposals.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-19ee9241-c89f-4a04-bc9f-82aa463f558a.png",
+      "sha256": "1eed99296e696de7fc0e9f4766f8d1ae3383a563080ae66e666bce187271ae0a",
+      "bytes": 1557710,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "a2_plan"
+      ],
+      "sourceSemanticReason": "Making and changing plans.",
+      "sourceSubject": "A small ivory standing desk calendar with simple blank grid, jade pencil and one celadon coffee cup.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\a2_plans_proposals_1.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        31,
+        1242,
+        1254
+      ],
+      "renderRegionPixels": [
+        22,
+        231,
+        1238,
+        1158
+      ],
+      "renderRegionSource": "exact_figma_optical_bounds",
+      "semanticPackIds": [
+        "a2_plans_proposals_1"
+      ]
+    },
+    {
+      "subject": "b1_delay",
+      "asset": "assets/illustrations/concept_c/today/travel-change.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-11b2f63e-1fbe-4392-ae6f-f372056cd48b.png",
+      "sha256": "93c0fa67d3f17e656664abef7ce54f1be344b22ac64f4cb0410bde4e898c7b2b",
+      "bytes": 1471346,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "b1_delay"
+      ],
+      "sourceSemanticReason": "Travel plan changes and delays.",
+      "sourceSubject": "A small jade suitcase, a brass travel clock and two overlapping ivory travel tickets without text.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\b1_travel_change_1.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        40,
+        84,
+        1220,
+        1254
+      ],
+      "renderRegionPixels": [
+        40,
+        84,
+        1220,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "b1_travel_change_1"
+      ]
+    },
+    {
+      "subject": "b1_feel",
+      "asset": "assets/illustrations/concept_c/today/relationship-feelings.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-c093c6f3-a147-49b4-915b-5db070465609.png",
+      "sha256": "448045bb55b488936845ccc3e06f0cd4948f9aed38d1f48b5ef3dcdd215c6f22",
+      "bytes": 1138919,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "b1_feel"
+      ],
+      "sourceSemanticReason": "Different feelings and relationship expectations.",
+      "sourceSubject": "Two contrasting celadon and ivory cups facing one another, a small folded ivory note between them, a single loose red thread.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\b1_emotions_relations_1.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        64,
+        1234,
+        1254
+      ],
+      "renderRegionPixels": [
+        0,
+        64,
+        1234,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "b1_emotions_relations_1"
+      ]
+    },
+    {
+      "subject": "b1_refund",
+      "asset": "assets/illustrations/concept_c/today/refund-remedy.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-f67867ba-6dc7-4718-a515-29091195754b.png",
+      "sha256": "b45e30847abad4e859e2fc52474dbef5b57b02595f74e004fbf8f6d94f13d9f8",
+      "bytes": 1671912,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "b1_refund"
+      ],
+      "sourceSemanticReason": "Requesting remedy for wrong orders, defects or charges.",
+      "sourceSubject": "An open takeaway box, a curled ivory receipt, a solid curved brass return arrow pointing back toward the receipt.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\listening\\B1Refund.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        7,
+        1220,
+        1254
+      ],
+      "renderRegionPixels": [
+        0,
+        7,
+        1220,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": []
+    },
+    {
+      "subject": "b1_team",
+      "asset": "assets/illustrations/concept_c/today/work-coordination.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-1f927870-0124-4e0c-a4ad-0b154ca029bf.png",
+      "sha256": "cad772d37ca6294b2e2674b9380eb9b22a138a2e4625eb3dc65881b24825b6d2",
+      "bytes": 1509201,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "b1_team"
+      ],
+      "sourceSemanticReason": "Team communication and document coordination.",
+      "sourceSubject": "A jade laptop showing blank document panes, a small walnut task board with three ivory cards and a brass clock.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\b1_work_coordination_1.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        24,
+        26,
+        1253,
+        1254
+      ],
+      "renderRegionPixels": [
+        24,
+        26,
+        1253,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "b1_work_coordination_1"
+      ]
+    },
+    {
+      "subject": "b2_evidence",
+      "asset": "assets/illustrations/concept_c/today/media-evidence.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-d4ef2ac1-ca6e-477e-a344-a0f58f40ff3f.png",
+      "sha256": "08b0fbd10f2073813a525b6686aa05042892d7199700ab8905fd3ffc9c124777",
+      "bytes": 1399555,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "b2_evidence"
+      ],
+      "sourceSemanticReason": "Image evidence, publication context and consent.",
+      "sourceSubject": "A small jade smartphone with an ivory image placeholder, a brass magnifying glass and a separate blank provenance card.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\b2_digital_judgment_1.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        80,
+        1218,
+        1254
+      ],
+      "renderRegionPixels": [
+        0,
+        80,
+        1218,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "b2_digital_judgment_1",
+        "c1_media_evidence_1"
+      ]
+    },
+    {
+      "subject": "b2_hiring",
+      "asset": "assets/illustrations/concept_c/today/job-interview.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-de58d191-7f16-4bd3-82db-3cf852c915e6.png",
+      "sha256": "c1a803cbafe18958006c99d7e756bf5dd1c67a2f6ce9b9f83c80542eb5a075b4",
+      "bytes": 1605572,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "b2_hiring"
+      ],
+      "sourceSemanticReason": "Job interviews and employment conditions.",
+      "sourceSubject": "Two miniature jade upholstered chairs on opposite sides of a low walnut interview desk with one ivory portfolio.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\listening\\B2Hiring.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        0,
+        1236,
+        1254
+      ],
+      "renderRegionPixels": [
+        0,
+        0,
+        1236,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": []
+    },
+    {
+      "subject": "b2_negotiate",
+      "asset": "assets/illustrations/concept_c/today/request-negotiation.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-18890770-6cc1-4891-9a2f-9273de00f4ca.png",
+      "sha256": "c81450c30f060470a07816e45cc862cc1f825b2e4fddc8045b692770528ee0a5",
+      "bytes": 1326225,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "b2_negotiate"
+      ],
+      "sourceSemanticReason": "Negotiating shooting conditions and responsibilities.",
+      "sourceSubject": "Two opposing open jade and walnut document folders, an ivory sheet bridging them, a brass microphone lying to one side.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\b2_team_negotiation_1.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        19,
+        1240,
+        1254
+      ],
+      "renderRegionPixels": [
+        31,
+        373,
+        1224,
+        1155
+      ],
+      "renderRegionSource": "exact_figma_optical_bounds",
+      "semanticPackIds": [
+        "b2_team_negotiation_1"
+      ]
+    },
+    {
+      "subject": "b2_public",
+      "asset": "assets/illustrations/concept_c/today/shared-public-space.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-2ec09b3b-1b03-4151-9176-84520a3531fe.png",
+      "sha256": "0e7e88900841fe3d7da47024c12122b58da33c73affc3a689508b38793310d67",
+      "bytes": 1934228,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "b2_public"
+      ],
+      "sourceSemanticReason": "Shared public space, accessibility and coordination.",
+      "sourceSubject": "A miniature jade public noticeboard with ivory route diagram, a small brass wheelchair access symbol and two walnut boundary posts leaving a clear path.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\b2_shared_space_coordination_1.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        17,
+        1234,
+        1254
+      ],
+      "renderRegionPixels": [
+        0,
+        17,
+        1234,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "b2_shared_space_coordination_1"
+      ]
+    },
+    {
+      "subject": "c1_policy",
+      "asset": "assets/illustrations/concept_c/today/participation-policy.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-91bc1f00-9ab0-4fb9-9417-0eeadcbed9f3.png",
+      "sha256": "de33441403076f8d27d90f7a91c9f9d37e17fa4fa9e3c179294485c6cc691ef3",
+      "bytes": 1601066,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "c1_policy"
+      ],
+      "sourceSemanticReason": "Practical participation and policy design.",
+      "sourceSubject": "Three small jade, ivory and walnut ballot boxes at different heights with blank slips, plus a tiny community notice stand.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\c1_participation_design_1.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        37,
+        1230,
+        1254
+      ],
+      "renderRegionPixels": [
+        47,
+        220,
+        1210,
+        1216
+      ],
+      "renderRegionSource": "exact_figma_optical_bounds",
+      "semanticPackIds": [
+        "c1_participation_design_1",
+        "c1_play_time_policy_1"
+      ]
+    },
+    {
+      "subject": "c2_mandate",
+      "asset": "assets/illustrations/concept_c/today/institutional-mandate.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-0a998a3d-a167-4af0-83d0-7d78eaa44db8.png",
+      "sha256": "35bc44832894319933cae0c62fa1e9d9ca3fb45470c1e2a0997bcc8e182ef66e",
+      "bytes": 1321550,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "c2_mandate"
+      ],
+      "sourceSemanticReason": "Limits of an authorization or mandate.",
+      "sourceSubject": "Two partly unfurled ivory authorization scrolls secured with jade bands, a walnut stamp and a small brass boundary marker.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\listening\\C2Authority.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        0,
+        0,
+        1244,
+        1254
+      ],
+      "renderRegionPixels": [
+        29,
+        296,
+        1230,
+        1113
+      ],
+      "renderRegionSource": "exact_figma_optical_bounds",
+      "semanticPackIds": [
+        "c2_institutional_mediation_1"
+      ]
+    },
+    {
+      "subject": "c1_fandom",
+      "asset": "assets/illustrations/concept_c/today/fan-participation.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a13352-6e70-7a83-8e3a-1895f8ae358b\\exec-fe229973-a8cb-4d30-b121-d0e64b16cf5f.png",
+      "sha256": "22a4b3f3dd3b19808f2ff0069aae6a8b370b4d222db6f9b708233b9d95c3c23e",
+      "bytes": 1840831,
+      "copiedByteIdentical": true,
+      "alreadyInstalledBeforeThisChange": false,
+      "sourceTopicIds": [
+        "a1_fandom",
+        "a2_fandom",
+        "b1_fandom",
+        "b2_fandom",
+        "c1_fandom",
+        "c2_fandom"
+      ],
+      "sourceSemanticReason": "Fandom, participation and fan-created work across levels.",
+      "sourceSubject": "A jade concert lightstick, a pair of headphones and a small ivory fan-made print portfolio with blank cards.",
+      "sourceReferenceAsset": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023\\assets\\illustrations\\packs\\c1_fan_labor_1.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaBoundsPixels": [
+        40,
+        25,
+        1234,
+        1254
+      ],
+      "renderRegionPixels": [
+        40,
+        25,
+        1234,
+        1254
+      ],
+      "renderRegionSource": "original_alpha_bounds",
+      "semanticPackIds": [
+        "c1_fan_labor_1"
+      ]
+    }
+  ],
+  "courseSubjects": [
+    {
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "level": "a1",
+      "subject": "a1_counter",
+      "title": {
+        "ko": "가게에서 물건 찾기",
+        "de": "Im Laden etwas finden",
+        "en": "Finding something in a shop"
+      },
+      "canDo": {
+        "ko": "찾는 물건의 이름을 말하고 어디 있는지 물을 수 있어요.",
+        "de": "Ich kann sagen, was ich suche, und fragen, wo es ist.",
+        "en": "I can say what I am looking for and ask where it is."
+      },
+      "checkpointContentIds": [
+        "scenario:mart_grocery"
+      ],
+      "semanticReason": "Shopping bag, scales and coins match finding an item at the current grocery-shop checkpoint."
+    },
+    {
+      "courseUnitId": "a1_06_transport_directions",
+      "level": "a1",
+      "subject": "a1_transit",
+      "title": {
+        "ko": "교통에서 내릴 곳 말하기",
+        "de": "Unterwegs sagen, wo man aussteigen möchte",
+        "en": "Saying where you want to get off"
+      },
+      "canDo": {
+        "ko": "택시나 대중교통에서 내릴 곳을 짧게 말할 수 있어요.",
+        "de": "Ich kann im Taxi oder in öffentlichen Verkehrsmitteln kurz sagen, wo ich aussteigen möchte.",
+        "en": "I can briefly say where I want to get off in a taxi or on public transport."
+      },
+      "checkpointContentIds": [
+        "scenario:taxi_kakao"
+      ],
+      "semanticReason": "Transit model matches saying where to get off in the taxi/public-transport checkpoint."
+    },
+    {
+      "courseUnitId": "a1_08_clarify_repair",
+      "level": "a1",
+      "subject": "a1_repeat",
+      "title": {
+        "ko": "못 들었을 때 다시 묻기",
+        "de": "Nachfragen, wenn man etwas nicht verstanden hat",
+        "en": "Asking again when you did not catch something"
+      },
+      "canDo": {
+        "ko": "못 들은 말이나 숫자를 다시 말해 달라고 할 수 있어요.",
+        "de": "Ich kann darum bitten, ein Wort oder eine Zahl zu wiederholen.",
+        "en": "I can ask someone to repeat a word or number I did not catch."
+      },
+      "checkpointContentIds": [
+        "scenario:clarify_repeat"
+      ],
+      "semanticReason": "Notebook and speaker match asking for a word or number to be repeated."
+    },
+    {
+      "courseUnitId": "a1_09_home_daily_life",
+      "level": "a1",
+      "subject": "a1_home",
+      "title": {
+        "ko": "집에서 물건 찾기",
+        "de": "Zu Hause etwas suchen",
+        "en": "Looking for something at home"
+      },
+      "canDo": {
+        "ko": "집에서 필요한 물건이 어디 있는지 묻고 답할 수 있어요.",
+        "de": "Ich kann zu Hause fragen und sagen, wo etwas liegt.",
+        "en": "I can ask and say where something is at home."
+      },
+      "checkpointContentIds": [
+        "scenario:home_morning_routine"
+      ],
+      "semanticReason": "Domestic door and key match looking for belongings at home."
+    },
+    {
+      "courseUnitId": "a1_10_health_safety",
+      "level": "a1",
+      "subject": "a1_body",
+      "title": {
+        "ko": "작은 실수에 사과하기",
+        "de": "Sich für ein kleines Missgeschick entschuldigen",
+        "en": "Apologizing for a small accident"
+      },
+      "canDo": {
+        "ko": "작은 실수에 바로 사과하고 상대가 괜찮은지 물을 수 있어요.",
+        "de": "Ich kann mich sofort für ein kleines Missgeschick entschuldigen und fragen, ob alles in Ordnung ist.",
+        "en": "I can apologize right away for a small accident and ask if the other person is okay."
+      },
+      "checkpointContentIds": [
+        "scenario:break_glass_apology"
+      ],
+      "semanticReason": "The current checkpoint is a broken-glass apology; this original depicts a broken cup, not anatomy."
+    },
+    {
+      "courseUnitId": "a1_14_payment_delivery",
+      "level": "a1",
+      "subject": "a1_counter",
+      "title": {
+        "ko": "가게에서 필요한 것 말하기",
+        "de": "Im Laden sagen, was man braucht",
+        "en": "Saying what you need in a shop"
+      },
+      "canDo": {
+        "ko": "봉투처럼 필요한 것과 필요 없는 것을 짧게 말할 수 있어요.",
+        "de": "Ich kann kurz sagen, ob ich etwas wie eine Tüte brauche oder nicht.",
+        "en": "I can briefly say whether I need something such as a bag."
+      },
+      "checkpointContentIds": [
+        "scenario:bakery_payment_bag"
+      ],
+      "semanticReason": "The current bakery checkpoint asks whether a shopping bag is needed."
+    },
+    {
+      "courseUnitId": "a1_16_survival_capstone",
+      "level": "a1",
+      "subject": "a2_plan",
+      "title": {
+        "ko": "첫 주말 계획 세우기",
+        "de": "Das erste Wochenende planen",
+        "en": "Planning your first weekend"
+      },
+      "canDo": {
+        "ko": "익숙한 하루 계획에서 시간과 필요한 물건을 확인할 수 있어요.",
+        "de": "Ich kann bei einem einfachen Tagesplan Zeit und benötigte Dinge klären.",
+        "en": "I can confirm the time and what is needed for a simple day plan."
+      },
+      "checkpointContentIds": [
+        "scenario:survival_day_capstone"
+      ],
+      "semanticReason": "The current first-weekend checkpoint confirms a simple day plan and meeting time."
+    },
+    {
+      "courseUnitId": "a2_02_plans_proposals",
+      "level": "a2",
+      "subject": "a2_plan",
+      "title": {
+        "ko": "약속을 제안하고 바꾸기",
+        "de": "Treffen vorschlagen und verlegen",
+        "en": "Suggesting and changing plans"
+      },
+      "canDo": {
+        "ko": "약속을 제안하고 한 가지 이유를 들은 뒤 다른 날로 바꿀 수 있어요.",
+        "de": "Ich kann ein Treffen vorschlagen und es nach einer kurzen Begründung verlegen.",
+        "en": "I can suggest a plan and change it after hearing one reason."
+      },
+      "checkpointContentIds": [
+        "scenario:plans_with_friend"
+      ],
+      "semanticReason": "Exact Figma subject: calendar, pen and cup for proposing and changing plans."
+    },
+    {
+      "courseUnitId": "a2_07_travel_repair",
+      "level": "a2",
+      "subject": "a2_move",
+      "title": {
+        "ko": "이동 중 불편을 요청으로 바꾸기",
+        "de": "Unterwegs um eine konkrete Änderung bitten",
+        "en": "Turning travel discomfort into a clear request"
+      },
+      "canDo": {
+        "ko": "이동 중 불편하거나 불안할 때 공손하게 변화를 요청할 수 있어요.",
+        "de": "Ich kann unterwegs höflich um eine Änderung bitten, wenn ich mich unwohl oder unsicher fühle.",
+        "en": "I can politely ask for a change when I feel uncomfortable or unsafe while traveling."
+      },
+      "checkpointContentIds": [
+        "scenario:taxi_slow_down"
+      ],
+      "semanticReason": "Train, transit card and bus-stop props preserve the unit's transport-request context."
+    },
+    {
+      "courseUnitId": "a2_08_home_money",
+      "level": "a2",
+      "subject": "a1_home",
+      "title": {
+        "ko": "집에서 생긴 작은 문제 해결하기",
+        "de": "Ein kleines Alltagsproblem zu Hause lösen",
+        "en": "Solving a small problem at home"
+      },
+      "canDo": {
+        "ko": "깜빡한 물건이나 집 문제를 설명하고 가능한 도움을 요청할 수 있어요.",
+        "de": "Ich kann erklären, was ich vergessen habe oder welches Problem es zu Hause gibt, und um Hilfe bitten.",
+        "en": "I can explain something I forgot or a problem at home and ask for help."
+      },
+      "checkpointContentIds": [
+        "scenario:forgot_house_key"
+      ],
+      "semanticReason": "Door and key match the current forgotten-house-key checkpoint."
+    },
+    {
+      "courseUnitId": "b1_01_experience_reasons",
+      "level": "b1",
+      "subject": "b1_delay",
+      "title": {
+        "ko": "경험의 원인과 결과 설명하기",
+        "de": "Ursachen und Folgen einer Erfahrung erklären",
+        "en": "Explaining the causes and effects of an experience"
+      },
+      "canDo": {
+        "ko": "경험이 어떻게 달라졌는지 원인과 결과를 연결해 설명할 수 있어요.",
+        "de": "Ich kann erklären, wie sich eine Erfahrung verändert hat, und Ursachen mit Folgen verbinden.",
+        "en": "I can explain how an experience changed by linking causes and effects."
+      },
+      "checkpointContentIds": [
+        "scenario:jeju_rain_plan_change"
+      ],
+      "semanticReason": "Suitcase, clock and tickets match changing a travel plan because of rain."
+    },
+    {
+      "courseUnitId": "b1_03_work_softening",
+      "level": "b1",
+      "subject": "b1_team",
+      "title": {
+        "ko": "업무 실수를 설명하고 수습하기",
+        "de": "Einen Fehler bei der Arbeit erklären und beheben",
+        "en": "Explaining and repairing a workplace mistake"
+      },
+      "canDo": {
+        "ko": "업무 실수의 경위와 영향을 설명하고 현실적인 수습 순서를 제안할 수 있어요.",
+        "de": "Ich kann den Ablauf und die Auswirkungen eines Arbeitsfehlers erklären und sinnvolle nächste Schritte vorschlagen.",
+        "en": "I can explain how a workplace mistake happened, its impact, and practical next steps."
+      },
+      "checkpointContentIds": [
+        "scenario:company_instagram_wrong_account"
+      ],
+      "semanticReason": "Laptop, shared task board and clock match repairing a workplace mistake and coordinating next steps."
+    },
+    {
+      "courseUnitId": "b1_04_relationships",
+      "level": "b1",
+      "subject": "b1_feel",
+      "title": {
+        "ko": "관계와 감정을 조심스럽게 확인하기",
+        "de": "Beziehung und Gefühle behutsam klären",
+        "en": "Clarifying relationships and feelings with care"
+      },
+      "canDo": {
+        "ko": "상대에게 부담을 주지 않으면서 관계와 감정에 대한 생각을 확인할 수 있어요.",
+        "de": "Ich kann Gedanken zu einer Beziehung und zu Gefühlen klären, ohne mein Gegenüber unter Druck zu setzen.",
+        "en": "I can clarify thoughts about a relationship and feelings without putting pressure on the other person."
+      },
+      "checkpointContentIds": [
+        "scenario:date_or_friendly_coffee"
+      ],
+      "semanticReason": "Contrasting cups and a note match clarifying relationship expectations without pressure."
+    },
+    {
+      "courseUnitId": "b1_05_complaint_resolution",
+      "level": "b1",
+      "subject": "b1_refund",
+      "title": {
+        "ko": "문제의 경위와 원하는 해결 말하기",
+        "de": "Problemverlauf und gewünschte Lösung schildern",
+        "en": "Explaining a problem and the solution you want"
+      },
+      "canDo": {
+        "ko": "소비·주거 문제의 경위를 설명하고 적절한 해결을 요청할 수 있어요.",
+        "de": "Ich kann den Verlauf eines Verbraucher- oder Wohnproblems schildern und eine angemessene Lösung verlangen.",
+        "en": "I can explain a consumer or housing problem and request an appropriate solution."
+      },
+      "checkpointContentIds": [
+        "scenario:food_delivery_wrong_order"
+      ],
+      "semanticReason": "Takeaway box, receipt and return arrow match the current wrong-food-delivery checkpoint."
+    },
+    {
+      "courseUnitId": "b1_06_life_capstone",
+      "level": "b1",
+      "subject": "a2_apt",
+      "title": {
+        "ko": "한국 생활의 작은 갈등 수습하기",
+        "de": "Kleine Konflikte im Alltag in Korea lösen",
+        "en": "Repairing everyday conflicts in Korea"
+      },
+      "canDo": {
+        "ko": "익숙한 공동체 규칙에서 실수를 인정하고 이유를 물으며 해결할 수 있어요.",
+        "de": "Ich kann bei vertrauten Gemeinschaftsregeln einen Fehler eingestehen, nach dem Grund fragen und das Problem lösen.",
+        "en": "I can acknowledge a mistake involving a familiar community rule, ask why, and resolve it."
+      },
+      "checkpointContentIds": [
+        "scenario:apartment_recycling_mixup"
+      ],
+      "semanticReason": "Sorting bins and paper carton match the current apartment-recycling checkpoint."
+    },
+    {
+      "courseUnitId": "b2_03_precise_requests",
+      "level": "b2",
+      "subject": "b2_negotiate",
+      "title": {
+        "ko": "요청의 범위와 조건 협의하기",
+        "de": "Umfang und Bedingungen einer Anfrage verhandeln",
+        "en": "Negotiating the scope and conditions of a request"
+      },
+      "canDo": {
+        "ko": "요청의 범위·일정·조건을 구체화해 실행 가능한 합의를 만들 수 있어요.",
+        "de": "Ich kann Umfang, Zeitplan und Bedingungen einer Anfrage konkretisieren und eine umsetzbare Vereinbarung treffen.",
+        "en": "I can clarify the scope, schedule, and conditions of a request and reach a workable agreement."
+      },
+      "checkpointContentIds": [
+        "scenario:freelance_scope_change"
+      ],
+      "semanticReason": "Exact Figma subject: opposing folders, shared sheet and microphone for negotiating request conditions."
+    },
+    {
+      "courseUnitId": "b2_05_interview",
+      "level": "b2",
+      "subject": "b2_hiring",
+      "title": {
+        "ko": "경력과 한계를 정확하게 설명하기",
+        "de": "Erfahrung und Grenzen präzise darstellen",
+        "en": "Describing experience and its limits accurately"
+      },
+      "canDo": {
+        "ko": "면접에서 경험을 과장하지 않고 업무와 연결해 구체적으로 설명할 수 있어요.",
+        "de": "Ich kann meine Erfahrung im Vorstellungsgespräch konkret mit der Stelle verbinden, ohne sie zu übertreiben.",
+        "en": "I can connect my experience to a role in an interview without exaggerating it."
+      },
+      "checkpointContentIds": [
+        "scenario:portfolio_interview_gap"
+      ],
+      "semanticReason": "Opposing interview chairs and portfolio match the current portfolio interview checkpoint."
+    },
+    {
+      "courseUnitId": "b2_06_advanced_capstone",
+      "level": "b2",
+      "subject": "b2_public",
+      "title": {
+        "ko": "공동체 갈등에서 조건부 절충 만들기",
+        "de": "Bei Gemeinschaftskonflikten bedingte Kompromisse finden",
+        "en": "Building conditional compromises in community conflicts"
+      },
+      "canDo": {
+        "ko": "서로 다른 이해관계와 현실 제약을 비교해 시험 가능한 절충안을 만들 수 있어요.",
+        "de": "Ich kann unterschiedliche Interessen und praktische Grenzen vergleichen und einen erprobbaren Kompromiss entwickeln.",
+        "en": "I can compare competing interests and practical constraints to create a testable compromise."
+      },
+      "checkpointContentIds": [
+        "scenario:community_event_compromise"
+      ],
+      "semanticReason": "Accessible shared space and a noticeboard match the current community-event compromise."
+    },
+    {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "level": "c1",
+      "subject": "c1_policy",
+      "title": {
+        "ko": "포용성과 자원 제약 함께 다루기",
+        "de": "Inklusion und Ressourcenbegrenzungen gemeinsam berücksichtigen",
+        "en": "Balancing inclusion with resource constraints"
+      },
+      "canDo": {
+        "ko": "제도의 존재와 실제 접근 가능성을 구분하고 우선순위를 협의할 수 있어요.",
+        "de": "Ich kann zwischen dem bloßen Vorhandensein eines Angebots und tatsächlichem Zugang unterscheiden und Prioritäten aushandeln.",
+        "en": "I can distinguish between a service existing and people actually being able to access it, and negotiate priorities."
+      },
+      "checkpointContentIds": [
+        "scenario:heatwave_shelter_access"
+      ],
+      "semanticReason": "Different-height participation boxes and notice stand match the linked participation-design pack and access priorities."
+    },
+    {
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "level": "c1",
+      "subject": "b2_evidence",
+      "title": {
+        "ko": "미디어 자료의 출처와 확정 수준 판단하기",
+        "de": "Quelle und Bestätigungsgrad von Medienmaterial beurteilen",
+        "en": "Assessing the source and confirmation level of media evidence"
+      },
+      "canDo": {
+        "ko": "미디어 자료의 출처·확정 수준·보도 가치를 구분해 신중한 표현을 선택할 수 있어요.",
+        "de": "Ich kann Quelle, Bestätigungsgrad und Nachrichtenwert von Medienmaterial unterscheiden und angemessene Formulierungen wählen.",
+        "en": "I can distinguish the source, confirmation level, and news value of media evidence and choose careful wording."
+      },
+      "checkpointContentIds": [
+        "scenario:deepfake_verification"
+      ],
+      "semanticReason": "Image, magnifier and provenance card match the current deepfake source-verification checkpoint."
+    },
+    {
+      "courseUnitId": "c1_04_play_time_policy",
+      "level": "c1",
+      "subject": "c1_policy",
+      "title": {
+        "ko": "규제의 목적·예외·집행 설계하기",
+        "de": "Zweck, Ausnahmen und Umsetzung einer Regelung gestalten",
+        "en": "Designing a rule's purpose, exceptions, and enforcement"
+      },
+      "canDo": {
+        "ko": "규제 목적과 예외, 집행 부담을 연결해 조건부 정책을 설명할 수 있어요.",
+        "de": "Ich kann Ziel, Ausnahmen und Umsetzungsaufwand einer Regelung verbinden und eine bedingte Lösung erläutern.",
+        "en": "I can connect a regulation's purpose, exceptions, and enforcement burden to explain a conditional policy."
+      },
+      "checkpointContentIds": [
+        "scenario:school_phone_rule"
+      ],
+      "semanticReason": "Exact Figma subject: policy participation boxes and notice stand for designing a school rule."
+    },
+    {
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "level": "c1",
+      "subject": "c1_fandom",
+      "title": {
+        "ko": "문화 참여의 공로와 지속 가능성 협의하기",
+        "de": "Anerkennung und Nachhaltigkeit kultureller Beteiligung aushandeln",
+        "en": "Negotiating credit and sustainability in cultural participation"
+      },
+      "canDo": {
+        "ko": "자발적 문화 참여의 공로·권리·지속 가능성을 이해관계별로 협의할 수 있어요.",
+        "de": "Ich kann Anerkennung, Rechte und Nachhaltigkeit freiwilliger kultureller Beteiligung aushandeln.",
+        "en": "I can negotiate credit, rights, and sustainability in voluntary cultural participation."
+      },
+      "checkpointContentIds": [
+        "scenario:fan_translation_credit"
+      ],
+      "semanticReason": "Lightstick, headphones and fan-made portfolio match fan translation credit; the customer-service headset original is intentionally excluded."
+    },
+    {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "level": "c2",
+      "subject": "c2_mandate",
+      "title": {
+        "ko": "제도와 권리 충돌을 원칙으로 논증하기",
+        "de": "Konflikte zwischen Institutionen und Rechten prinzipiengeleitet erörtern",
+        "en": "Arguing institutional and rights conflicts from principles"
+      },
+      "canDo": {
+        "ko": "권리 충돌을 필요성·비례성·대안의 구조로 분석하고 설득할 수 있어요.",
+        "de": "Ich kann Grundrechtskonflikte anhand von Erforderlichkeit, Verhältnismäßigkeit und Alternativen analysieren und überzeugend darstellen.",
+        "en": "I can analyze and argue rights conflicts through necessity, proportionality, and alternatives."
+      },
+      "checkpointContentIds": [
+        "scenario:protest_order_and_rights"
+      ],
+      "semanticReason": "Exact Figma subject: authorization scrolls, seal and boundary marker for institutional authority and rights limits."
+    }
+  ],
+  "linkedVocabularySubjects": [
+    {
+      "courseUnitId": "a1_13_register_switching",
+      "subject": "a1_body",
+      "packId": "a1_sorry_thanks_1",
+      "vocabularyIds": [
+        "vocab_a1_0392",
+        "vocab_a1_0393",
+        "vocab_a1_0394",
+        "vocab_a1_0395",
+        "vocab_a1_0396",
+        "vocab_a1_0397",
+        "vocab_a1_0398",
+        "vocab_a1_0399",
+        "vocab_a1_0400",
+        "vocab_a1_0401",
+        "vocab_a1_0402",
+        "vocab_a1_0403"
+      ]
+    },
+    {
+      "courseUnitId": "a1_14_payment_delivery",
+      "subject": "a1_counter",
+      "packId": "a1_payment_delivery_1",
+      "vocabularyIds": [
+        "vocab_a1_0412",
+        "vocab_a1_0413",
+        "vocab_a1_0414",
+        "vocab_a1_0415",
+        "vocab_a1_0452",
+        "vocab_a1_0453",
+        "vocab_a1_0454",
+        "vocab_a1_0455",
+        "vocab_a1_0487",
+        "vocab_a1_0488",
+        "vocab_a1_0489",
+        "vocab_a1_0490"
+      ]
+    },
+    {
+      "courseUnitId": "a1_09_home_daily_life",
+      "subject": "a1_home",
+      "packId": "a1_home_daily_1",
+      "vocabularyIds": [
+        "vocab_b2_0201",
+        "vocab_a1_0655",
+        "vocab_a1_0656",
+        "vocab_a1_0657",
+        "vocab_a1_0658",
+        "vocab_a1_0659",
+        "vocab_a1_0660",
+        "vocab_a1_0661",
+        "vocab_a1_0662",
+        "vocab_a1_0663",
+        "vocab_a1_0664",
+        "vocab_a1_0665",
+        "vocab_a1_0666"
+      ]
+    },
+    {
+      "courseUnitId": "a2_08_home_money",
+      "subject": "a1_home",
+      "packId": "a2_home_1",
+      "vocabularyIds": [
+        "vocab_a2_0141",
+        "vocab_a2_0142",
+        "vocab_a2_0143",
+        "vocab_a2_0144",
+        "vocab_a2_0145",
+        "vocab_a2_0146",
+        "vocab_a2_0147",
+        "vocab_a2_0148",
+        "vocab_a2_0150",
+        "vocab_a2_0530",
+        "vocab_a2_0531",
+        "vocab_a2_0532"
+      ]
+    },
+    {
+      "courseUnitId": "a1_08_clarify_repair",
+      "subject": "a1_repeat",
+      "packId": "a1_repair_language_1",
+      "vocabularyIds": [
+        "vocab_b1_0188",
+        "vocab_b1_0190",
+        "vocab_b1_0196",
+        "vocab_b2_0121",
+        "vocab_a1_0408",
+        "vocab_a1_0409",
+        "vocab_a1_0410",
+        "vocab_a1_0411",
+        "vocab_a1_0456",
+        "vocab_a1_0457",
+        "vocab_a1_0458",
+        "vocab_a1_0653",
+        "vocab_a1_0654"
+      ]
+    },
+    {
+      "courseUnitId": "a1_06_transport_directions",
+      "subject": "a1_transit",
+      "packId": "a1_transport",
+      "vocabularyIds": [
+        "vocab_a1_0027",
+        "vocab_a1_0028",
+        "vocab_a1_0087",
+        "vocab_a1_0088",
+        "vocab_a1_0445",
+        "vocab_a1_0446",
+        "vocab_a1_0447",
+        "vocab_a1_0448",
+        "vocab_a1_0449",
+        "vocab_a1_0450",
+        "vocab_a1_0451",
+        "vocab_a1_0527"
+      ]
+    },
+    {
+      "courseUnitId": "b1_06_life_capstone",
+      "subject": "a2_apt",
+      "packId": "b1_apt_rules_1",
+      "vocabularyIds": [
+        "vocab_a2_0413",
+        "vocab_a2_0414",
+        "vocab_a2_0415",
+        "vocab_a2_0416",
+        "vocab_a2_0417",
+        "vocab_a2_0418",
+        "vocab_a2_0419",
+        "vocab_a2_0420",
+        "vocab_a2_0421",
+        "vocab_a2_0422",
+        "vocab_a2_0423",
+        "vocab_a2_0424"
+      ]
+    },
+    {
+      "courseUnitId": "a2_05_delivery_services",
+      "subject": "a2_booking",
+      "packId": "a2_restaurant_1",
+      "vocabularyIds": [
+        "vocab_a2_0185",
+        "vocab_a2_0186",
+        "vocab_a2_0187",
+        "vocab_a2_0188",
+        "vocab_a2_0189",
+        "vocab_a2_0190",
+        "vocab_a2_0191",
+        "vocab_a2_0192",
+        "vocab_a2_0193",
+        "vocab_a2_0194",
+        "vocab_a2_0195",
+        "vocab_a2_0196"
+      ]
+    },
+    {
+      "courseUnitId": "a2_07_travel_repair",
+      "subject": "a2_move",
+      "packId": "a2_transport",
+      "vocabularyIds": [
+        "vocab_a2_0016",
+        "vocab_a2_0025",
+        "vocab_a2_0026",
+        "vocab_a2_0027",
+        "vocab_a2_0044",
+        "vocab_a2_0056",
+        "vocab_a2_0105",
+        "vocab_a2_0106",
+        "vocab_a2_0107",
+        "vocab_a2_0108",
+        "vocab_a2_0110",
+        "vocab_a2_0558"
+      ]
+    },
+    {
+      "courseUnitId": "a2_03_chat_relationships",
+      "subject": "a2_partner",
+      "packId": "a2_partner_chuseok_basic_1",
+      "vocabularyIds": [
+        "vocab_a1_0272",
+        "vocab_a1_0273",
+        "vocab_a1_0274",
+        "vocab_a1_0275",
+        "vocab_a1_0276",
+        "vocab_a1_0277",
+        "vocab_a1_0278",
+        "vocab_a1_0279",
+        "vocab_a1_0280",
+        "vocab_a1_0281",
+        "vocab_a1_0283",
+        "vocab_a2_0553"
+      ]
+    },
+    {
+      "courseUnitId": "a2_02_plans_proposals",
+      "subject": "a2_plan",
+      "packId": "a2_plans_proposals_1",
+      "vocabularyIds": [
+        "vocab_a2_0461",
+        "vocab_a2_0462",
+        "vocab_a2_0463",
+        "vocab_a2_0464",
+        "vocab_a2_0495",
+        "vocab_a2_0496",
+        "vocab_a2_0497",
+        "vocab_a2_0498",
+        "vocab_a2_0499",
+        "vocab_a2_0500",
+        "vocab_a2_0555",
+        "vocab_a2_0556"
+      ]
+    },
+    {
+      "courseUnitId": "b1_01_experience_reasons",
+      "subject": "b1_delay",
+      "packId": "b1_travel_change_1",
+      "vocabularyIds": [
+        "vocab_a2_0344",
+        "vocab_b1_0452",
+        "vocab_b1_0453",
+        "vocab_b1_0454",
+        "vocab_b1_0455",
+        "vocab_b1_0456",
+        "vocab_b1_0457",
+        "vocab_b1_0458",
+        "vocab_b1_0459",
+        "vocab_b1_0460",
+        "vocab_b1_0461",
+        "vocab_b1_0462",
+        "vocab_b1_0463"
+      ]
+    },
+    {
+      "courseUnitId": "b1_04_relationships",
+      "subject": "b1_feel",
+      "packId": "b1_emotions_relations_1",
+      "vocabularyIds": [
+        "vocab_b1_0005",
+        "vocab_b1_0006",
+        "vocab_b1_0017",
+        "vocab_b1_0022",
+        "vocab_b1_0023",
+        "vocab_b1_0027",
+        "vocab_b1_0029",
+        "vocab_b1_0032",
+        "vocab_b2_0145",
+        "vocab_b2_0146"
+      ]
+    },
+    {
+      "courseUnitId": "b1_03_work_softening",
+      "subject": "b1_team",
+      "packId": "b1_work_coordination_1",
+      "vocabularyIds": [
+        "vocab_b1_0260",
+        "vocab_b1_0261",
+        "vocab_b1_0262",
+        "vocab_b1_0263",
+        "vocab_b1_0264",
+        "vocab_b1_0265",
+        "vocab_b1_0266",
+        "vocab_b1_0267",
+        "vocab_b1_0268",
+        "vocab_b1_0269",
+        "vocab_b1_0270",
+        "vocab_b1_0271"
+      ]
+    },
+    {
+      "courseUnitId": "b2_02_professional_opinion",
+      "subject": "b2_evidence",
+      "packId": "b2_digital_judgment_1",
+      "vocabularyIds": [
+        "vocab_b2_0277",
+        "vocab_b2_0278",
+        "vocab_b2_0279",
+        "vocab_b2_0280",
+        "vocab_b2_0281",
+        "vocab_b2_0282",
+        "vocab_b2_0283",
+        "vocab_b2_0284",
+        "vocab_b2_0285",
+        "vocab_b2_0286",
+        "vocab_b2_0287",
+        "vocab_b2_0288"
+      ]
+    },
+    {
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "subject": "b2_evidence",
+      "packId": "c1_media_evidence_1",
+      "vocabularyIds": [
+        "vocab_c1_0169",
+        "vocab_c1_0170",
+        "vocab_c1_0171",
+        "vocab_c1_0172",
+        "vocab_c1_0173",
+        "vocab_c1_0174",
+        "vocab_c1_0175",
+        "vocab_c1_0176",
+        "vocab_c1_0177",
+        "vocab_c1_0178",
+        "vocab_c1_0179",
+        "vocab_c1_0180"
+      ]
+    },
+    {
+      "courseUnitId": "b2_03_precise_requests",
+      "subject": "b2_negotiate",
+      "packId": "b2_team_negotiation_1",
+      "vocabularyIds": [
+        "vocab_b2_0575",
+        "vocab_b2_0576",
+        "vocab_b2_0577",
+        "vocab_b2_0578",
+        "vocab_b2_0579",
+        "vocab_b2_0580",
+        "vocab_b2_0581",
+        "vocab_b2_0582",
+        "vocab_b2_0583",
+        "vocab_b2_0584",
+        "vocab_b2_0585",
+        "vocab_b2_0586"
+      ]
+    },
+    {
+      "courseUnitId": "b2_04_complaint_resolution",
+      "subject": "b2_public",
+      "packId": "b2_shared_space_coordination_1",
+      "vocabularyIds": [
+        "vocab_b2_0289",
+        "vocab_b2_0290",
+        "vocab_b2_0291",
+        "vocab_b2_0292",
+        "vocab_b2_0293",
+        "vocab_b2_0294",
+        "vocab_b2_0295",
+        "vocab_b2_0296",
+        "vocab_b2_0297",
+        "vocab_b2_0298",
+        "vocab_b2_0299",
+        "vocab_b2_0300"
+      ]
+    },
+    {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "subject": "c1_policy",
+      "packId": "c1_participation_design_1",
+      "vocabularyIds": [
+        "vocab_c1_0133",
+        "vocab_c1_0134",
+        "vocab_c1_0135",
+        "vocab_c1_0136",
+        "vocab_c1_0137",
+        "vocab_c1_0138",
+        "vocab_c1_0139",
+        "vocab_c1_0140",
+        "vocab_c1_0141",
+        "vocab_c1_0142",
+        "vocab_c1_0143",
+        "vocab_c1_0144"
+      ]
+    },
+    {
+      "courseUnitId": "c1_04_play_time_policy",
+      "subject": "c1_policy",
+      "packId": "c1_play_time_policy_1",
+      "vocabularyIds": [
+        "vocab_c1_0181",
+        "vocab_c1_0182",
+        "vocab_c1_0183",
+        "vocab_c1_0184",
+        "vocab_c1_0185",
+        "vocab_c1_0186",
+        "vocab_c1_0187",
+        "vocab_c1_0188",
+        "vocab_c1_0189",
+        "vocab_c1_0190",
+        "vocab_c1_0191",
+        "vocab_c1_0192"
+      ]
+    },
+    {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "subject": "c2_mandate",
+      "packId": "c2_institutional_mediation_1",
+      "vocabularyIds": [
+        "vocab_c2_0001",
+        "vocab_c2_0002",
+        "vocab_c2_0003",
+        "vocab_c2_0004",
+        "vocab_c2_0005",
+        "vocab_c2_0006",
+        "vocab_c2_0007",
+        "vocab_c2_0008",
+        "vocab_c2_0009",
+        "vocab_c2_0010",
+        "vocab_c2_0011",
+        "vocab_c2_0012"
+      ]
+    },
+    {
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "subject": "c1_fandom",
+      "packId": "c1_fan_labor_1",
+      "vocabularyIds": [
+        "vocab_c1_0193",
+        "vocab_c1_0194",
+        "vocab_c1_0195",
+        "vocab_c1_0196",
+        "vocab_c1_0197",
+        "vocab_c1_0198",
+        "vocab_c1_0199",
+        "vocab_c1_0200",
+        "vocab_c1_0201",
+        "vocab_c1_0202",
+        "vocab_c1_0203",
+        "vocab_c1_0204"
+      ]
+    }
+  ],
+  "coverage": {
+    "totalCourseUnits": 48,
+    "reviewedStandaloneSubjectUnitCount": 23,
+    "preservedEnvironmentUnitIds": [
+      "a1_01_greetings_hangul"
+    ],
+    "reviewedVocabularyPackCount": 22,
+    "unmappedUnitIds": [
+      "a1_02_self_intro_identity",
+      "a1_04_order_request_object",
+      "a1_05_numbers_time",
+      "a1_07_contact_address",
+      "a1_11_titles_relationships",
+      "a1_12_daily_negation",
+      "a1_13_register_switching",
+      "a1_15_first_class_work",
+      "a2_01_haeyo_transition",
+      "a2_03_chat_relationships",
+      "a2_04_feelings_health",
+      "a2_05_delivery_services",
+      "a2_06_study_work",
+      "b1_02_indirect_speech",
+      "b2_01_formal_opening",
+      "b2_02_professional_opinion",
+      "b2_04_complaint_resolution",
+      "c1_01_evidence_public_reasoning",
+      "c2_02_technology_public_ethics",
+      "c2_03_automation_redress",
+      "c2_04_sanction_accountability",
+      "c2_05_relationship_narratives",
+      "c1_06_intimacy_safety_design",
+      "c2_06_fandom_discourse_power"
+    ],
+    "unmappedPolicy": "Neutral existing book. A reviewed active vocabulary edge can still select exact semantic pack art; no claim that all course units have approved topic art.",
+    "unusedOriginalCount": 33
+  },
+  "preserved": [
+    "original PNG bytes",
+    "A1 greeting environment",
+    "Hangul introduction environment",
+    "review environment",
+    "all course IDs and links",
+    "progress, TTS, assessment and rewards"
+  ],
+  "rendering": "CAtlasArt native source region with BoxFit.contain; no source image edits, redraw, compositing or new art generation.",
+  "verification": {
+    "sourceAndDestinationSha256": "all 21 selected original/destination pairs match",
+    "courseCheckpointAnchors": "all 23 match current manifest",
+    "testCommand": "rtk proxy flutter test test/today_subject_art_test.dart",
+    "testResult": "6 passed",
+    "analysisCommand": "rtk proxy flutter analyze --no-pub lib/widgets/sori/today_subject_art.dart test/today_subject_art_test.dart",
+    "analysisResult": "No issues found",
+    "fullTodayFigmaRender": "pending parent integration verification",
+    "deviceQA": "not performed",
+    "deployment": "not performed"
+  },
+  "renderEvidence": "docs/assets/TODAY_FIGMA_NATIVE_20261102.md"
+}

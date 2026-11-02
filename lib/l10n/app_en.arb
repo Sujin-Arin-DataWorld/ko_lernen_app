@@ -5697,5 +5697,48 @@
   "todayFindCount": "{count} ready to open",
   "@todayFindCount": {"placeholders": {"count": {"type": "int"}}}
 ,
-  "todayHanokPreview": "Preview"
+  "todayHanokPreview": "Preview",
+  "najeonChestTitle": "Treasure chest",
+  "najeonChestLoading": "Preparing your treasure chest…",
+  "najeonChestOpenHint": "Tap the chest to open it.",
+  "najeonChestOpen": "Open chest",
+  "najeonChestPickBody": "Choose one piece for your room. The other pieces can appear in a later treasure chest.",
+  "najeonChestEmptyTitle": "No treasure chest waiting",
+  "najeonChestEmptyBody": "Finish a quest to receive a treasure chest.",
+  "najeonChestAllOwnedBody": "You already own all three pieces from this treasure chest.",
+  "najeonChestProblemTitle": "This treasure chest will not open right now",
+  "najeonChestProblemBody": "Try again in a moment. Your treasure chest is not lost.",
+  "najeonChestNext": "Open the next chest",
+  "najeonChestCollectionCompleteBody": "You already own every room piece. Archive this treasure chest to continue.",
+  "najeonChestArchive": "Archive chest",
+  "najeonChestHelpTitle": "Najeon · 나전",
+  "najeonChestHelpBody": "Najeon uses thin pieces of shell cut into patterns and inlaid into a lacquered surface. The shimmering shell material is called mother-of-pearl.",
+  "todayCompanionSubtitle": "Your Korean is growing.",
+  "todayNextStage": "Your next step",
+  "todayTreasureTitle": "Your treasure chest",
+  "todayTreasureReady": "{count, plural, one{1 ready to open} other{{count} ready to open}}",
+  "todayTreasureCollected": "All rewards collected",
+  "todayTreasureCollection": "My collection",
+  "todayExploreGames": "Explore games",
+  "todayMissionGreetingTitle": "Your first hello",
+  "todayMissionGreetingBody": "Greet someone and ask a short question.",
+  "todayMissionPlansTitle": "Make a plan together",
+  "todayMissionPlansBody": "Suggest a meeting and change the time.",
+  "todayMissionRequestsTitle": "Make the terms clear",
+  "todayMissionRequestsBody": "Make a request and negotiate a solution.",
+  "todayMissionPolicyTitle": "Shape the rules together",
+  "todayMissionPolicyBody": "Weigh different views and support a proposal.",
+  "todayMissionAuthorityTitle": "Where authority ends",
+  "todayMissionAuthorityBody": "Examine mandates and distinguish their limits.",
+  "todayMissionReviewTitle": "Keep it with you",
+  "todayResumeStage": "Continue",
+  "@todayTreasureReady": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "todayTreasureOpen": "Open",
+  "todayBeginStage": "Let’s begin"
 }

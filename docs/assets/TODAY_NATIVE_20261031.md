@@ -1,5 +1,9 @@
 # Approved Today composition in Flutter
 
+The current Figma, expanded topic-art, typography and Najeon contract is
+[TODAY_FIGMA_NATIVE_20261102.md](TODAY_FIGMA_NATIVE_20261102.md).
+The paragraphs below describe the earlier 2026-10-31 implementation.
+
 The 2026-10-31 revision implements the approved course, Hangul-introduction and
 review compositions in the existing C5 shell. Native labels, targets and
 destinations remain owned by `LearningFocusScope`; no translated-title matching

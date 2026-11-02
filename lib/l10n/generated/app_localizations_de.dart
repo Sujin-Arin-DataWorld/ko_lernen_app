@@ -12341,4 +12341,132 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get todayHanokPreview => 'Vorschau';
+
+  @override
+  String get najeonChestTitle => 'Schatztruhe';
+
+  @override
+  String get najeonChestLoading => 'Deine Schatztruhe wird vorbereitet …';
+
+  @override
+  String get najeonChestOpenHint => 'Tippe auf die Truhe, um sie zu öffnen.';
+
+  @override
+  String get najeonChestOpen => 'Truhe öffnen';
+
+  @override
+  String get najeonChestPickBody =>
+      'Wähle ein Stück für dein Zimmer. Die anderen Stücke können in einer späteren Schatztruhe wiederkommen.';
+
+  @override
+  String get najeonChestEmptyTitle => 'Keine Schatztruhe wartet';
+
+  @override
+  String get najeonChestEmptyBody =>
+      'Schließe eine Quest ab. Dafür bekommst du eine Schatztruhe.';
+
+  @override
+  String get najeonChestAllOwnedBody =>
+      'Du besitzt bereits alle drei Stücke aus dieser Schatztruhe.';
+
+  @override
+  String get najeonChestProblemTitle =>
+      'Die Schatztruhe lässt sich gerade nicht öffnen';
+
+  @override
+  String get najeonChestProblemBody =>
+      'Versuch es gleich noch einmal. Deine Schatztruhe geht dabei nicht verloren.';
+
+  @override
+  String get najeonChestNext => 'Nächste Truhe öffnen';
+
+  @override
+  String get najeonChestCollectionCompleteBody =>
+      'Du besitzt bereits alle Einrichtungsstücke. Lege diese Schatztruhe ab, um weiterzumachen.';
+
+  @override
+  String get najeonChestArchive => 'Truhe ablegen';
+
+  @override
+  String get najeonChestHelpTitle => 'Najeon · 나전';
+
+  @override
+  String get najeonChestHelpBody =>
+      'Bei Najeon werden dünne Stücke aus Muschelschalen zu Mustern geschnitten und in eine Lackoberfläche eingelegt. Die schimmernden Einlagen nennt man Perlmutt.';
+
+  @override
+  String get todayCompanionSubtitle => 'Dein Koreanisch wächst.';
+
+  @override
+  String get todayNextStage => 'Deine nächste Etappe';
+
+  @override
+  String get todayTreasureTitle => 'Deine Schatztruhe';
+
+  @override
+  String todayTreasureReady(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count warten auf dich',
+      one: '1 wartet auf dich',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get todayTreasureCollected => 'Alles abgeholt';
+
+  @override
+  String get todayTreasureCollection => 'Sammlung';
+
+  @override
+  String get todayExploreGames => 'Spiele entdecken';
+
+  @override
+  String get todayMissionGreetingTitle => 'Heute sagst du Hallo';
+
+  @override
+  String get todayMissionGreetingBody =>
+      'Begrüße jemanden und stelle eine kurze Frage.';
+
+  @override
+  String get todayMissionPlansTitle => 'Ein Plan mit Freunden';
+
+  @override
+  String get todayMissionPlansBody =>
+      'Schlage ein Treffen vor und ändere den Termin.';
+
+  @override
+  String get todayMissionRequestsTitle => 'Klar miteinander planen';
+
+  @override
+  String get todayMissionRequestsBody =>
+      'Formuliere eine Bitte und handle eine Lösung aus.';
+
+  @override
+  String get todayMissionPolicyTitle => 'Regeln gemeinsam gestalten';
+
+  @override
+  String get todayMissionPolicyBody =>
+      'Wäge Positionen ab und begründe einen Vorschlag.';
+
+  @override
+  String get todayMissionAuthorityTitle => 'Wo Zuständigkeit endet';
+
+  @override
+  String get todayMissionAuthorityBody =>
+      'Prüfe Mandate und unterscheide ihre Grenzen.';
+
+  @override
+  String get todayMissionReviewTitle => 'Was bleibt, wächst';
+
+  @override
+  String get todayResumeStage => 'Fortsetzen';
+
+  @override
+  String get todayTreasureOpen => 'Öffnen';
+
+  @override
+  String get todayBeginStage => 'Los geht’s';
 }

@@ -148,17 +148,25 @@ void main() {
       final companion = find.byKey(const ValueKey('learning-companion-ground'));
       final portrait = find.descendant(
         of: companion,
-        matching: find.byType(Image),
+        matching: find.byType(CAtlasArt),
       );
       expect(
-        (tester.widget<Image>(portrait).image as AssetImage).assetName,
-        CanonicalCompanionArt.baekhoPortrait,
+        tester.widget<CAtlasArt>(portrait).path,
+        CanonicalCompanionArt.baekhoExpressions,
       );
       final ground = tester.getSize(
         find.byKey(const ValueKey('learning-companion-ground')),
       );
-      expect(ground, const Size(128, 118));
-      expect(tester.widget<Image>(portrait).fit, BoxFit.contain);
+      expect([
+        const Size(104, 72),
+        const Size(132, 132),
+        const Size(152, 152),
+      ], contains(ground));
+      expect(tester.widget<CAtlasArt>(portrait).fit, BoxFit.contain);
+      expect(
+        tester.widget<CAtlasArt>(portrait).region,
+        const Rect.fromLTWH(0, 0, .25, .5),
+      );
     },
   );
 
@@ -188,11 +196,13 @@ void main() {
     expect(find.byKey(const ValueKey('home_hero_magpie_scale')), findsNothing);
   });
 
-  testWidgets('아침 9시 인사말이 헤더를 대신한다', (tester) async {
+  testWidgets('Today has the approved learning subtitle below its title', (
+    tester,
+  ) async {
     await pumpToday(tester);
 
     final l10n = await AppL10n.delegate.load(const Locale('en'));
-    expect(find.text(l10n.homeHeroGreetingMorning), findsOneWidget);
+    expect(find.text(l10n.todayCompanionSubtitle), findsOneWidget);
   });
 
   // W-C2: q_jangdokdae's QuestDefinition.name.en changed from

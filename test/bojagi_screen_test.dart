@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -9,11 +11,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/bojagi_screen.dart';
 import 'package:ko_lernen_app/services/decoration_reward_service.dart';
+import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
 import 'package:ko_lernen_app/services/haptic_service.dart';
+import 'package:ko_lernen_app/services/palette_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 import 'package:ko_lernen_app/widgets/sori/bojagi_reveal.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
+
+import 'support/real_fonts.dart';
 
 /// `q_punggyeong` 의 고정 후보 3종 — 서비스의 stable index 계약 그대로.
 /// §W-C H6: decorName 은 이제 독일어 이름만 반환한다(괄호 속 한글 로마자/한글은
@@ -21,17 +29,53 @@ import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 const _guk = 'Chrysanthemen-Bild';
 const _juk = 'Bambus-Bild';
 const _chaekgado = 'Bücherwand-Wandschirm';
+const _captureNajeonReward = bool.fromEnvironment('CAPTURE_NAJEON_REWARD');
+const _najeonOutput = String.fromEnvironment(
+  'NAJEON_REWARD_OUTPUT',
+  defaultValue:
+      'C:/dev/hangulsori/_codex_artifacts/today-game-ui-mockup-20261102/native-reward',
+);
+const _najeonCaptureKey = ValueKey('najeon-native-evidence');
+
+Future<void> _captureNajeon(WidgetTester tester, String filename) async {
+  for (var pass = 0; pass < 2; pass++) {
+    final context = tester.element(find.byKey(_najeonCaptureKey));
+    final providers = tester
+        .widgetList<Image>(find.byType(Image))
+        .map((image) => image.image)
+        .toSet();
+    await tester.runAsync(() async {
+      for (final provider in providers) {
+        await precacheImage(provider, context);
+      }
+    });
+    await tester.pump();
+  }
+  expect(tester.takeException(), isNull);
+  final boundary = tester.renderObject<RenderRepaintBoundary>(
+    find.byKey(_najeonCaptureKey),
+  );
+  await tester.runAsync(() async {
+    final image = await boundary.toImage(pixelRatio: 1);
+    final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
+    final file = File('$_najeonOutput/$filename.png');
+    await file.parent.create(recursive: true);
+    await file.writeAsBytes(bytes!.buffer.asUint8List());
+    image.dispose();
+  });
+}
 
 Future<void> _pump(
   WidgetTester tester, {
   bool reduceMotion = true,
+  Locale locale = const Locale('de'),
   Future<DecorationRewardOffer> Function()? offerLoader,
 }) async {
   await tester.pumpWidget(
     MaterialApp(
       localizationsDelegates: AppL10n.localizationsDelegates,
       supportedLocales: AppL10n.supportedLocales,
-      locale: const Locale('de'),
+      locale: locale,
       home: MediaQuery(
         data: MediaQueryData(disableAnimations: reduceMotion),
         child: BojagiScreen(offerLoader: offerLoader),
@@ -87,6 +131,16 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   final haptics = <String>[];
 
+  setUpAll(() async {
+    await loadSoriRealFonts(materialIcons: _captureNajeonReward);
+    if (_captureNajeonReward) {
+      await CulturalGlossaryRepository.load();
+      await CImageCache.load(
+        'assets/illustrations/concept_c/material_atlas.png',
+      );
+    }
+  });
+
   setUp(() async {
     Storage.resetForTesting();
     DecorationRewardService.resetForTesting();
@@ -108,10 +162,102 @@ void main() {
         .setMockMethodCallHandler(SystemChannels.platform, null);
   });
 
+  for (final language in ['de', 'en']) {
+    testWidgets(
+      'capture native Najeon reward flow $language',
+      skip: !_captureNajeonReward,
+      (tester) async {
+        tester.view.physicalSize = const Size(390, 844);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+
+        // Start with a known pending quest source through the production queue.
+        // Ownership is never seeded; only the visible candidate tap can claim it.
+        await DecorationRewardService.ensurePendingBoxForQuest('q_punggyeong');
+        final locale = Locale(language);
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: AppTheme.lightFor(PaletteVariant.dancheong, locale: locale),
+            locale: locale,
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            supportedLocales: AppL10n.supportedLocales,
+            builder: (context, child) => MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                padding: const EdgeInsets.only(top: 44, bottom: 34),
+                viewPadding: const EdgeInsets.only(top: 44, bottom: 34),
+                textScaler: const TextScaler.linear(1),
+              ),
+              child: child!,
+            ),
+            home: const RepaintBoundary(
+              key: _najeonCaptureKey,
+              child: BojagiScreen(),
+            ),
+          ),
+        );
+        await _pumpBojagiMotion(tester);
+        expect(Storage.ownedDecor, isEmpty);
+        expect(Storage.pendingBoxes, ['q_punggyeong']);
+        await _captureNajeon(tester, 'najeon-$language-390x844-01-closed');
+
+        await tester.tap(find.byKey(const Key('bojagi_knot')));
+        await _pumpBojagiMotion(tester);
+        await _pumpBojagiMotion(tester);
+        // Advance real frame intervals so delayed card entrances also finish.
+        for (var frame = 0; frame < 12; frame++) {
+          await tester.pump(const Duration(milliseconds: 100));
+        }
+        expect(Storage.ownedDecor, isEmpty);
+        expect(Storage.pendingBoxes, ['q_punggyeong']);
+        for (final slug in const [
+          'decoration_sagunja_guk',
+          'decoration_sagunja_juk',
+          'decoration_chaekgado',
+        ]) {
+          expect(
+            find.byKey(ValueKey('bojagi-candidate-$slug')),
+            findsOneWidget,
+          );
+        }
+        expect(
+          tester
+              .getRect(
+                find.byKey(
+                  const ValueKey('bojagi-candidate-decoration_chaekgado'),
+                ),
+              )
+              .bottom,
+          lessThanOrEqualTo(810),
+        );
+        await _captureNajeon(tester, 'najeon-$language-390x844-02-unclaimed');
+
+        final candidate = find.descendant(
+          of: find.byKey(
+            const ValueKey('bojagi-candidate-decoration_sagunja_guk'),
+          ),
+          matching: find.byType(SoriPressable),
+        );
+        await tester.ensureVisible(candidate.first);
+        await tester.tap(candidate.first);
+        await _pumpBojagiMotion(tester);
+        await tester.pump(const Duration(milliseconds: 1200));
+        expect(Storage.pendingBoxes, isEmpty);
+        expect(Storage.ownedDecor, ['decoration_sagunja_guk']);
+        final preferences = await SharedPreferences.getInstance();
+        expect(preferences.getStringList('kl_owned_decor'), [
+          'decoration_sagunja_guk',
+        ]);
+        expect(preferences.getStringList('kl_reward_boxes'), isEmpty);
+        await _captureNajeon(tester, 'najeon-$language-390x844-03-claimed');
+      },
+    );
+  }
+
   testWidgets('빈 큐에서는 후보를 보여주지 않는다', (tester) async {
     await _pump(tester);
 
-    expect(find.text('Kein Bündel wartet'), findsOneWidget);
+    expect(find.text('Keine Schatztruhe wartet'), findsOneWidget);
     expect(find.text(_guk), findsNothing);
   });
 
@@ -120,7 +266,7 @@ void main() {
     await _pump(tester);
 
     // 싸여 있다는 것 자체가 물음표다 — 미리 보여주면 개봉이 보상이 아니게 된다.
-    expect(find.text('Bojagi öffnen'), findsOneWidget);
+    expect(find.text('Truhe öffnen'), findsOneWidget);
     expect(find.text(_guk), findsNothing);
     expect(find.text(_juk), findsNothing);
     expect(find.text(_chaekgado), findsNothing);
@@ -133,6 +279,10 @@ void main() {
     await tester.tap(find.byKey(const Key('bojagi_knot')));
     await _pumpBojagiMotion(tester);
 
+    // Opening only reveals candidates; the queue and ownership are unchanged.
+    expect(Storage.pendingBoxes, ['q_punggyeong', 'q_kite']);
+    expect(Storage.ownedDecor, isEmpty);
+    expect(find.image(const AssetImage(kNajeonChestOpen)), findsOneWidget);
     expect(find.text('Such dir eins aus'), findsOneWidget);
     for (final name in [_guk, _juk, _chaekgado]) {
       expect(find.text(name), findsOneWidget);
@@ -150,7 +300,7 @@ void main() {
     expect(find.text('Bekommen!'), findsOneWidget);
     expect(find.text('In der Stube aufstellen'), findsOneWidget);
     // 다음 꾸러미가 남아 있으니 이어서 열 수 있어야 한다.
-    expect(find.text('Nächstes Bündel öffnen'), findsOneWidget);
+    expect(find.text('Nächste Truhe öffnen'), findsOneWidget);
   });
 
   testWidgets('마지막 꾸러미면 "다음 꾸러미"를 띄우지 않는다', (tester) async {
@@ -162,11 +312,65 @@ void main() {
     // 후보 3장이면 마지막 장이 화면 밖일 수 있다 — 스크롤해서 누른다.
     await tester.ensureVisible(find.text(_chaekgado));
     await _pumpBojagiMotion(tester);
+    // Optional cultural-help layout can finish after the first scroll.
+    await tester.ensureVisible(find.text(_chaekgado));
+    await tester.pump();
     await tester.tap(find.text(_chaekgado));
     await _pumpBojagiMotion(tester);
 
     expect(find.text('Bekommen!'), findsOneWidget);
-    expect(find.text('Nächstes Bündel öffnen'), findsNothing);
+    expect(find.text('Nächste Truhe öffnen'), findsNothing);
+  });
+
+  testWidgets('next pending chest starts closed and preserves the next offer', (
+    tester,
+  ) async {
+    await Storage.setPendingBoxes(['q_punggyeong', 'q_kite']);
+    await _pump(tester);
+    await tester.tap(find.byKey(const Key('bojagi_knot')));
+    await _pumpBojagiMotion(tester);
+    await tester.tap(find.text(_guk));
+    await _pumpBojagiMotion(tester);
+    final next = find.text('Nächste Truhe öffnen');
+    await tester.ensureVisible(next);
+    await tester.tap(next);
+    await _pumpBojagiMotion(tester);
+    expect(find.text('Truhe öffnen'), findsOneWidget);
+    expect(find.byKey(const Key('bojagi_knot')), findsOneWidget);
+    expect(find.image(const AssetImage(kNajeonChestOpen)), findsNothing);
+    expect(Storage.pendingBoxes, ['q_kite']);
+    expect(Storage.ownedDecor, ['decoration_sagunja_guk']);
+  });
+
+  testWidgets('English chest entry has chest labels and never grants on open', (
+    tester,
+  ) async {
+    await Storage.setPendingBoxes(['q_punggyeong']);
+    await _pump(tester, locale: const Locale('en'));
+    expect(find.text('Treasure chest'), findsOneWidget);
+    expect(find.text('Open chest'), findsOneWidget);
+    expect(find.textContaining('Bojagi'), findsNothing);
+    await tester.tap(find.byKey(const Key('bojagi_knot')));
+    await _pumpBojagiMotion(tester);
+    expect(find.text('Pick one'), findsOneWidget);
+    expect(Storage.ownedDecor, isEmpty);
+    expect(Storage.pendingBoxes, ['q_punggyeong']);
+  });
+
+  testWidgets('Najeon help returns to the unopened chest without claiming', (
+    tester,
+  ) async {
+    await Storage.setPendingBoxes(['q_punggyeong']);
+    await _pump(tester);
+    await tester.tap(find.byKey(const ValueKey('najeon-chest-help')));
+    await tester.pumpAndSettle();
+    expect(find.text('Najeon · 나전'), findsOneWidget);
+    expect(Storage.pendingBoxes, ['q_punggyeong']);
+    expect(Storage.ownedDecor, isEmpty);
+    await tester.tap(find.text('Schließen'));
+    await tester.pumpAndSettle();
+    expect(find.text('Truhe öffnen'), findsOneWidget);
+    expect(find.text('Such dir eins aus'), findsNothing);
   });
 
   testWidgets(
@@ -211,7 +415,7 @@ void main() {
       HapticService.resetForTesting();
       pendingNext.complete(await DecorationRewardService.loadNextOffer());
       await _pumpBojagiMotion(tester);
-      expect(find.text('Nächstes Bündel öffnen'), findsOneWidget);
+      expect(find.text('Nächste Truhe öffnen'), findsOneWidget);
       await tester.pump(const Duration(seconds: 2));
       expect(
         haptics.where((type) => type == 'HapticFeedbackType.lightImpact'),
@@ -234,7 +438,8 @@ void main() {
 
     expect(Storage.ownedDecor, ['decoration_sagunja_guk']);
     expect(find.text('Bekommen!'), findsOneWidget);
-    expect(find.image(const AssetImage(kBojagiUnfolded)), findsOneWidget);
+    expect(find.image(const AssetImage(kBojagiUnfolded)), findsNothing);
+    expect(find.image(const AssetImage(kNajeonChestClosed)), findsNothing);
     expect(haptics, isEmpty);
   });
 
@@ -328,7 +533,7 @@ void main() {
               .rewardSlug,
           'decoration_sagunja_guk',
         );
-        expect(find.text('Nächstes Bündel öffnen'), findsNothing);
+        expect(find.text('Nächste Truhe öffnen'), findsNothing);
         if (nextReadFails) {
           pendingNext.completeError(StateError('next offer unavailable'));
         } else {
@@ -337,7 +542,7 @@ void main() {
         await _pumpBojagiMotion(tester);
         expect(find.text('Bekommen!'), findsOneWidget);
         expect(
-          find.text('Nächstes Bündel öffnen'),
+          find.text('Nächste Truhe öffnen'),
           nextReadFails ? findsNothing : findsOneWidget,
         );
         expect(Storage.pendingBoxes, ['q_kite']);
@@ -456,13 +661,13 @@ void main() {
     await _pump(tester);
 
     expect(find.text('Sammlung vollständig'), findsOneWidget);
-    expect(find.text('Bündel ablegen'), findsOneWidget);
+    expect(find.text('Truhe ablegen'), findsOneWidget);
 
-    await tester.tap(find.text('Bündel ablegen'));
+    await tester.tap(find.text('Truhe ablegen'));
     await _pumpBojagiMotion(tester);
 
     expect(Storage.pendingBoxes, isEmpty);
-    expect(find.text('Kein Bündel wartet'), findsOneWidget);
+    expect(find.text('Keine Schatztruhe wartet'), findsOneWidget);
   });
 
   testWidgets('마지막 장식을 받고도 다음 완주 꾸러미를 이어서 열 수 있다', (tester) async {
@@ -480,7 +685,7 @@ void main() {
     await _pumpBojagiMotion(tester);
 
     expect(find.text('Bekommen!'), findsOneWidget);
-    expect(find.text('Nächstes Bündel öffnen'), findsOneWidget);
+    expect(find.text('Nächste Truhe öffnen'), findsOneWidget);
   });
 
   testWidgets('320dp 200%에서 보자기 후보 이름을 자르지 않고 도달한다', (tester) async {

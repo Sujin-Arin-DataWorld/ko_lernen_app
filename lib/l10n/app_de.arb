@@ -5879,5 +5879,48 @@
   "todayFindCount": "{count} zum Auspacken",
   "@todayFindCount": {"placeholders": {"count": {"type": "int"}}}
 ,
-  "todayHanokPreview": "Vorschau"
+  "todayHanokPreview": "Vorschau",
+  "najeonChestTitle": "Schatztruhe",
+  "najeonChestLoading": "Deine Schatztruhe wird vorbereitet …",
+  "najeonChestOpenHint": "Tippe auf die Truhe, um sie zu öffnen.",
+  "najeonChestOpen": "Truhe öffnen",
+  "najeonChestPickBody": "Wähle ein Stück für dein Zimmer. Die anderen Stücke können in einer späteren Schatztruhe wiederkommen.",
+  "najeonChestEmptyTitle": "Keine Schatztruhe wartet",
+  "najeonChestEmptyBody": "Schließe eine Quest ab. Dafür bekommst du eine Schatztruhe.",
+  "najeonChestAllOwnedBody": "Du besitzt bereits alle drei Stücke aus dieser Schatztruhe.",
+  "najeonChestProblemTitle": "Die Schatztruhe lässt sich gerade nicht öffnen",
+  "najeonChestProblemBody": "Versuch es gleich noch einmal. Deine Schatztruhe geht dabei nicht verloren.",
+  "najeonChestNext": "Nächste Truhe öffnen",
+  "najeonChestCollectionCompleteBody": "Du besitzt bereits alle Einrichtungsstücke. Lege diese Schatztruhe ab, um weiterzumachen.",
+  "najeonChestArchive": "Truhe ablegen",
+  "najeonChestHelpTitle": "Najeon · 나전",
+  "najeonChestHelpBody": "Bei Najeon werden dünne Stücke aus Muschelschalen zu Mustern geschnitten und in eine Lackoberfläche eingelegt. Die schimmernden Einlagen nennt man Perlmutt.",
+  "todayCompanionSubtitle": "Dein Koreanisch wächst.",
+  "todayNextStage": "Deine nächste Etappe",
+  "todayTreasureTitle": "Deine Schatztruhe",
+  "todayTreasureReady": "{count, plural, one{1 wartet auf dich} other{{count} warten auf dich}}",
+  "todayTreasureCollected": "Alles abgeholt",
+  "todayTreasureCollection": "Sammlung",
+  "todayExploreGames": "Spiele entdecken",
+  "todayMissionGreetingTitle": "Heute sagst du Hallo",
+  "todayMissionGreetingBody": "Begrüße jemanden und stelle eine kurze Frage.",
+  "todayMissionPlansTitle": "Ein Plan mit Freunden",
+  "todayMissionPlansBody": "Schlage ein Treffen vor und ändere den Termin.",
+  "todayMissionRequestsTitle": "Klar miteinander planen",
+  "todayMissionRequestsBody": "Formuliere eine Bitte und handle eine Lösung aus.",
+  "todayMissionPolicyTitle": "Regeln gemeinsam gestalten",
+  "todayMissionPolicyBody": "Wäge Positionen ab und begründe einen Vorschlag.",
+  "todayMissionAuthorityTitle": "Wo Zuständigkeit endet",
+  "todayMissionAuthorityBody": "Prüfe Mandate und unterscheide ihre Grenzen.",
+  "todayMissionReviewTitle": "Was bleibt, wächst",
+  "todayResumeStage": "Fortsetzen",
+  "@todayTreasureReady": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "todayTreasureOpen": "Öffnen",
+  "todayBeginStage": "Los geht’s"
 }

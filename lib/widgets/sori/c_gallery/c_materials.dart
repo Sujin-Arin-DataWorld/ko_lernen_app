@@ -423,6 +423,7 @@ class CMaterialAction extends StatefulWidget {
     this.gold = true,
     this.compact = false,
     this.selected = false,
+    this.exactSurface = false,
     this.child,
     this.surfaceTexture,
     this.contentPadding = const EdgeInsets.symmetric(
@@ -435,6 +436,9 @@ class CMaterialAction extends StatefulWidget {
   final bool gold;
   final bool compact;
   final bool selected;
+
+  /// The standalone material already includes its bevel and border.
+  final bool exactSurface;
   final Widget? child;
   final Widget? surfaceTexture;
   final EdgeInsets contentPadding;
@@ -515,7 +519,7 @@ class _CMaterialActionState extends State<CMaterialAction>
       child: SoriPressable(
         haptic: null,
         pressScale: .99,
-        surfaceDepth: 4,
+        surfaceDepth: widget.exactSurface ? 0 : 4,
         surfaceRadius: 9,
         surfaceEdgeColor: widget.gold
             ? const Color(0xff875620)
@@ -531,24 +535,30 @@ class _CMaterialActionState extends State<CMaterialAction>
             minHeight: widget.compact ? 48 : 54,
           ),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(9),
-            color: widget.gold ? CPalette.brass : CPalette.jade,
-            border: Border.all(
-              color: widget.gold
-                  ? const Color(0xfff2d79c)
-                  : const Color(0xffd4bc80),
-              width: 1.3,
-            ),
+            borderRadius: BorderRadius.circular(widget.exactSurface ? 14 : 9),
+            color: widget.exactSurface
+                ? Colors.transparent
+                : widget.gold
+                ? CPalette.brass
+                : CPalette.jade,
+            border: widget.exactSurface
+                ? null
+                : Border.all(
+                    color: widget.gold
+                        ? const Color(0xfff2d79c)
+                        : const Color(0xffd4bc80),
+                    width: 1.3,
+                  ),
             boxShadow: [
               BoxShadow(
                 color: const Color(0x490e251d),
-                offset: Offset(0, pressed ? 1 : 5),
-                blurRadius: pressed ? 1 : 5,
+                offset: Offset(0, pressed ? 1 : widget.exactSurface ? 3 : 5),
+                blurRadius: widget.exactSurface ? 1 : pressed ? 1 : 5,
               ),
             ],
           ),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(widget.exactSurface ? 14 : 8),
             child: Stack(
               alignment: Alignment.center,
               children: [
@@ -572,9 +582,21 @@ class _CMaterialActionState extends State<CMaterialAction>
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          Colors.white.withValues(alpha: pressed ? .14 : .30),
+                          Colors.white.withValues(
+                            alpha: widget.exactSurface
+                                ? 0
+                                : pressed
+                                ? .14
+                                : .30,
+                          ),
                           Colors.transparent,
-                          Colors.black.withValues(alpha: pressed ? .24 : .18),
+                          Colors.black.withValues(
+                            alpha: widget.exactSurface
+                                ? (pressed ? .12 : 0)
+                                : pressed
+                                ? .24
+                                : .18,
+                          ),
                         ],
                       ),
                     ),
