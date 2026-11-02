@@ -1,0 +1,2885 @@
+{
+  "schemaVersion": 1,
+  "lockId": "hangulsori-character-lock-20261030",
+  "verifiedAtUtc": "2026-10-30T00:12:41.484833+00:00",
+  "purpose": "Existing identity and source-file retention for later asset production, without generation or runtime changes.",
+  "registry": {
+    "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-union-audit-20261010\\CANONICAL_SOURCES.json",
+    "sha256": "14bcb54dff0ab2c42664b8260b18ebb795c04c81b7679008cdf469d7278740cc",
+    "bytes": 51459,
+    "verification": "current_file_sha256",
+    "actualFormat": "unidentified_header",
+    "registryHashMatches": []
+  },
+  "profileAuthority": {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\tools\\content_factory\\canonical_scenarios\\character_profiles.json",
+    "sha256": "5187c47dc211cbff25249a5b5d0705c9fe5fc7b502375845b5e26139387cf264",
+    "bytes": 65304,
+    "verification": "current_file_sha256",
+    "actualFormat": "unidentified_header",
+    "registryHashMatches": []
+  },
+  "coreCharacters": [
+    {
+      "assetId": "character.sujin",
+      "displayNameKo": "수진",
+      "identitySource": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin1.png",
+        "sha256": "60b0f18338a6efc940377d725ab41ecac9ebb1365b094e9f63fa58d71459015c",
+        "bytes": 1936749,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin1.png",
+            "imageId": "I1250"
+          }
+        ]
+      },
+      "authority": "user_named_source_directory; selected existing identity reference from production ledger",
+      "storyStateMapping": "identity_locked; specific action/pose not automatically approved",
+      "byteIdenticalRuntimeAliases": [
+        {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\sujin.png",
+          "sha256": "60b0f18338a6efc940377d725ab41ecac9ebb1365b094e9f63fa58d71459015c",
+          "bytes": 1936749,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin1.png",
+              "imageId": "I1250"
+            }
+          ]
+        }
+      ],
+      "observedImmutableDetailsKo": [
+        "첨부 원본의 둥근 얼굴·검은 타원 눈·짧은 갈색 단발·귀걸이·머리/몸 비례를 보존한다.",
+        "청록 재킷·흰 상의·회색 바지·갈색 로퍼·갈색 책의 색/재질/형태를 보존한다.",
+        "볼에 손을 댄 기존 포즈는 해당 원본의 포즈이다. 새 동작의 확정 에셋으로 간주하지 않는다."
+      ],
+      "allowedOnlyIfJobExplicitlyRequests": [
+        "placement",
+        "uniform_scale",
+        "separate_light/shadow_composition",
+        "bounded_expression_or_pose_candidate"
+      ],
+      "originalUnchanged": true
+    },
+    {
+      "assetId": "character.talsunbi",
+      "displayNameKo": "탈선비",
+      "identitySource": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\TalSunbi.png",
+        "sha256": "3ca5cf78d7eaa1f9b50e2aa767aa0399653dbfbf2f0be01a84448f57dbf16fb1",
+        "bytes": 1310537,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1086,
+          1448
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\TalSunbi\\TalSunbi.png",
+            "imageId": "I1380"
+          }
+        ]
+      },
+      "authority": "user_named_source_directory; selected existing identity reference from production ledger",
+      "storyStateMapping": "identity_locked; specific action/pose not automatically approved",
+      "byteIdenticalRuntimeAliases": [
+        {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\tactile\\scholar\\scholar_welcome.png",
+          "sha256": "3ca5cf78d7eaa1f9b50e2aa767aa0399653dbfbf2f0be01a84448f57dbf16fb1",
+          "bytes": 1310537,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\TalSunbi\\TalSunbi.png",
+              "imageId": "I1380"
+            }
+          ]
+        }
+      ],
+      "observedImmutableDetailsKo": [
+        "하회탈의 나무결·이마/볼/코/웃음/눈구멍의 조각 형태를 보존한다. 사람 얼굴이나 다른 탈로 바꾸지 않는다.",
+        "검은 갓의 형태·질감·끈, 아이보리 도포·청회색 안깃·소매 안감·녹회색 허리띠·신발을 보존한다.",
+        "접힌 부채와 펼친 손의 소품/손 역할을 원본에서 유지한다. 부채 글자·새 문양을 임의로 넣지 않는다."
+      ],
+      "allowedOnlyIfJobExplicitlyRequests": [
+        "placement",
+        "uniform_scale",
+        "separate_light/shadow_composition",
+        "bounded_expression_or_pose_candidate"
+      ],
+      "originalUnchanged": true
+    },
+    {
+      "assetId": "character.dokkaebi",
+      "displayNameKo": "도깨비",
+      "identitySource": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\1.도깨비다른포즈.png",
+        "sha256": "2e1c3fd6f47b0930233c70a7b9e2f93dd2d374d404136e28480dd4ddc74b8202",
+        "bytes": 1555994,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1086,
+          1448
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\1.도깨비다른포즈.png",
+            "imageId": "I1386"
+          }
+        ]
+      },
+      "authority": "user_named_source_directory; selected existing identity reference from production ledger",
+      "storyStateMapping": "identity_locked; specific action/pose not automatically approved",
+      "byteIdenticalRuntimeAliases": [],
+      "observedImmutableDetailsKo": [
+        "짧은 뿔 두 개, 짙은 풍성한 머리, 눈썹·검은 타원 눈·얼굴 비례·금빛 고리 귀걸이를 보존한다.",
+        "청록/붉은 무늬의 머리띠와 늘어진 끝, 아이보리 저고리·붉은 겉옷·녹색 바지·파란 허리띠·짚신을 보존한다.",
+        "나무 방망이의 실루엣·돌기·끈·천·청록/금빛 문양과 표면을 보존한다. 몬스터 갑옷·새 무기·화염 전사로 바꾸지 않는다.",
+        "턱에 손을 댄 원본은 생각 포즈이다. 문 비켜서기/빗장 고치기의 검증된 접촉 포즈가 아니다."
+      ],
+      "allowedOnlyIfJobExplicitlyRequests": [
+        "placement",
+        "uniform_scale",
+        "separate_light/shadow_composition",
+        "bounded_expression_or_pose_candidate"
+      ],
+      "originalUnchanged": true
+    },
+    {
+      "assetId": "character.taego",
+      "displayNameKo": "태고 · 백호",
+      "identitySource": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho.png",
+        "sha256": "1a8d0bb2e3e11a39c6b055ac2736cc43222006d266ac35a80685f00d45a23e34",
+        "bytes": 1420799,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1254,
+          1254
+        ],
+        "pngColorType": 2,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho.png",
+            "imageId": "I1375"
+          }
+        ]
+      },
+      "authority": "user_named_source_directory; selected existing identity reference from production ledger",
+      "storyStateMapping": "identity_locked; specific action/pose not automatically approved",
+      "byteIdenticalRuntimeAliases": [],
+      "observedImmutableDetailsKo": [
+        "흰 털·검은 줄무늬의 개별 배치, 푸른 눈·분홍빛 코·귀·수염·발·꼬리의 비례와 위치를 보존한다.",
+        "가슴의 금빛 테두리 청록 세 소용돌이 문양과 원래 배치를 보존한다. 무늬 수를 줄이거나 새 문양을 덧붙이지 않는다.",
+        "차분하고 보호하는 신수의 표정과 부드러운 입체 재료감을 유지한다. 포식자 표정·드러낸 송곳니·불/레이저를 추가하지 않는다."
+      ],
+      "allowedOnlyIfJobExplicitlyRequests": [
+        "placement",
+        "uniform_scale",
+        "separate_light/shadow_composition",
+        "bounded_expression_or_pose_candidate"
+      ],
+      "originalUnchanged": true
+    },
+    {
+      "assetId": "character.joy",
+      "displayNameKo": "조이 · 까치",
+      "identitySource": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-257d9975-6169-40f6-9211-ae5befad4040.png",
+        "sha256": "15c3c966c0ae190c11777977587943cdef1975d7e186349b4dc7408987749d29",
+        "bytes": 1761640,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1254,
+          1254
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-257d9975-6169-40f6-9211-ae5befad4040.png",
+            "imageId": "I1329"
+          }
+        ]
+      },
+      "authority": "user_named_source_directory; selected existing identity reference from production ledger",
+      "storyStateMapping": "identity_locked; specific action/pose not automatically approved",
+      "byteIdenticalRuntimeAliases": [],
+      "observedImmutableDetailsKo": [
+        "까만 머리/목·흰 가슴 깃의 층, 둥근 주황빛 눈·부리의 형태·색·크기와 귀여운 비례를 보존한다.",
+        "짙은 갓의 원통/챙/정교한 표면 무늬와 턱끈·매듭·늘어진 끝, 가슴 문양의 위치와 형태를 보존한다.",
+        "날개는 정확히 두 개이다. 현재 흉상에 보이지 않는 날개/발/꼬리의 정밀 형태는 추정하지 않고 검토된 전신 포즈 원본을 별도로 선택한다."
+      ],
+      "allowedOnlyIfJobExplicitlyRequests": [
+        "placement",
+        "uniform_scale",
+        "separate_light/shadow_composition",
+        "bounded_expression_or_pose_candidate"
+      ],
+      "originalUnchanged": true
+    }
+  ],
+  "modernPersonas": [
+    {
+      "assetId": "persona.andrea",
+      "runtimeAssetStem": "andrea",
+      "profileId": "andrea",
+      "displayNames": {
+        "ko": "안드레아",
+        "de": "Andrea",
+        "en": "Andrea"
+      },
+      "source": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-644210e4-dff8-4ca2-9745-c27574357de5.png",
+        "sha256": "4b2456144f4228a9a3ecd9c76b2f878303b698b484df86db9de89931376b3e5f",
+        "bytes": 2018243,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-644210e4-dff8-4ca2-9745-c27574357de5.png",
+            "imageId": "I1253"
+          }
+        ]
+      },
+      "runtime": {
+        "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\andrea.png",
+        "sha256": "4b2456144f4228a9a3ecd9c76b2f878303b698b484df86db9de89931376b3e5f",
+        "bytes": 2018243,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-644210e4-dff8-4ca2-9745-c27574357de5.png",
+            "imageId": "I1253"
+          }
+        ]
+      },
+      "verification": "source_runtime_sha256_equal",
+      "immutableDetailsKo": "각 파일의 얼굴·피부·헤어·의상·소품·비례·질감을 그대로 유지한다. 이름만으로 다른 얼굴을 새로 생성하지 않는다.",
+      "storyUse": "기존 현대 페르소나. 실제 시나리오에 등장할 때만 선택; 전체 인물을 시즌1 장면에 강제 추가하지 않는다."
+    },
+    {
+      "assetId": "persona.byeongcheol",
+      "runtimeAssetStem": "byeongcheol",
+      "profileId": "byeongcheol",
+      "displayNames": {
+        "ko": "병철",
+        "de": "Byeongcheol",
+        "en": "Byeongcheol"
+      },
+      "source": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-edf6336b-f6b0-4874-b4cf-c2e12c796a44.png",
+        "sha256": "c4c6b2d184291e4e1291d7975dce7f30190bcecdc4040031bbefed1cbfc5ca13",
+        "bytes": 2041351,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-edf6336b-f6b0-4874-b4cf-c2e12c796a44.png",
+            "imageId": "I1260"
+          }
+        ]
+      },
+      "runtime": {
+        "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\byeongcheol.png",
+        "sha256": "c4c6b2d184291e4e1291d7975dce7f30190bcecdc4040031bbefed1cbfc5ca13",
+        "bytes": 2041351,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-edf6336b-f6b0-4874-b4cf-c2e12c796a44.png",
+            "imageId": "I1260"
+          }
+        ]
+      },
+      "verification": "source_runtime_sha256_equal",
+      "immutableDetailsKo": "각 파일의 얼굴·피부·헤어·의상·소품·비례·질감을 그대로 유지한다. 이름만으로 다른 얼굴을 새로 생성하지 않는다.",
+      "storyUse": "기존 현대 페르소나. 실제 시나리오에 등장할 때만 선택; 전체 인물을 시즌1 장면에 강제 추가하지 않는다."
+    },
+    {
+      "assetId": "persona.christian",
+      "runtimeAssetStem": "christian",
+      "profileId": "christian",
+      "displayNames": {
+        "ko": "크리스티안",
+        "de": "Christian",
+        "en": "Christian"
+      },
+      "source": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1dd0dec1-48ac-42af-ae84-ff3f2f438e8c.png",
+        "sha256": "c19b6505130593fdad3f4506114e213a38529f8efe17eb9e58a224a0497c5272",
+        "bytes": 2048373,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1dd0dec1-48ac-42af-ae84-ff3f2f438e8c.png",
+            "imageId": "I1262"
+          }
+        ]
+      },
+      "runtime": {
+        "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\christian.png",
+        "sha256": "c19b6505130593fdad3f4506114e213a38529f8efe17eb9e58a224a0497c5272",
+        "bytes": 2048373,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1dd0dec1-48ac-42af-ae84-ff3f2f438e8c.png",
+            "imageId": "I1262"
+          }
+        ]
+      },
+      "verification": "source_runtime_sha256_equal",
+      "immutableDetailsKo": "각 파일의 얼굴·피부·헤어·의상·소품·비례·질감을 그대로 유지한다. 이름만으로 다른 얼굴을 새로 생성하지 않는다.",
+      "storyUse": "기존 현대 페르소나. 실제 시나리오에 등장할 때만 선택; 전체 인물을 시즌1 장면에 강제 추가하지 않는다."
+    },
+    {
+      "assetId": "persona.daniel",
+      "runtimeAssetStem": "daniel",
+      "profileId": "daniel",
+      "displayNames": {
+        "ko": "다니엘",
+        "de": "Daniel",
+        "en": "Daniel"
+      },
+      "source": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-e3135ef3-00f7-4dc1-8d29-b9676f3527c1.png",
+        "sha256": "dce49e967e3024696b41aef91153152d5b3e751128d3257422ab76fd88abe4f1",
+        "bytes": 2002309,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-e3135ef3-00f7-4dc1-8d29-b9676f3527c1.png",
+            "imageId": "I1256"
+          }
+        ]
+      },
+      "runtime": {
+        "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\daniel.png",
+        "sha256": "dce49e967e3024696b41aef91153152d5b3e751128d3257422ab76fd88abe4f1",
+        "bytes": 2002309,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-e3135ef3-00f7-4dc1-8d29-b9676f3527c1.png",
+            "imageId": "I1256"
+          }
+        ]
+      },
+      "verification": "source_runtime_sha256_equal",
+      "immutableDetailsKo": "각 파일의 얼굴·피부·헤어·의상·소품·비례·질감을 그대로 유지한다. 이름만으로 다른 얼굴을 새로 생성하지 않는다.",
+      "storyUse": "기존 현대 페르소나. 실제 시나리오에 등장할 때만 선택; 전체 인물을 시즌1 장면에 강제 추가하지 않는다."
+    },
+    {
+      "assetId": "persona.dongsun",
+      "runtimeAssetStem": "dongsun",
+      "profileId": "dongsun",
+      "displayNames": {
+        "ko": "동선",
+        "de": "Dongsun",
+        "en": "Dongsun"
+      },
+      "source": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-3cfc6420-4e48-4f47-936b-ededc09a4842.png",
+        "sha256": "54f59e190f5dc1d85bcf015f97c5ff410c26ee21add2586398dd20d1ff6a10d5",
+        "bytes": 2071293,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-3cfc6420-4e48-4f47-936b-ededc09a4842.png",
+            "imageId": "I1259"
+          }
+        ]
+      },
+      "runtime": {
+        "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\dongsun.png",
+        "sha256": "54f59e190f5dc1d85bcf015f97c5ff410c26ee21add2586398dd20d1ff6a10d5",
+        "bytes": 2071293,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-3cfc6420-4e48-4f47-936b-ededc09a4842.png",
+            "imageId": "I1259"
+          }
+        ]
+      },
+      "verification": "source_runtime_sha256_equal",
+      "immutableDetailsKo": "각 파일의 얼굴·피부·헤어·의상·소품·비례·질감을 그대로 유지한다. 이름만으로 다른 얼굴을 새로 생성하지 않는다.",
+      "storyUse": "기존 현대 페르소나. 실제 시나리오에 등장할 때만 선택; 전체 인물을 시즌1 장면에 강제 추가하지 않는다."
+    },
+    {
+      "assetId": "persona.hyuna",
+      "runtimeAssetStem": "hyuna",
+      "profileId": "hyuna",
+      "displayNames": {
+        "ko": "현아",
+        "de": "Hyuna",
+        "en": "Hyuna"
+      },
+      "source": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1e1c3e35-df8a-4302-ae05-528cf4e56b83.png",
+        "sha256": "6de9257ddd6a49069ace126fb06c3ce44091c2f66f48118d7c45540ea438aa33",
+        "bytes": 1944111,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1e1c3e35-df8a-4302-ae05-528cf4e56b83.png",
+            "imageId": "I1252"
+          }
+        ]
+      },
+      "runtime": {
+        "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\hyuna.png",
+        "sha256": "6de9257ddd6a49069ace126fb06c3ce44091c2f66f48118d7c45540ea438aa33",
+        "bytes": 1944111,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1e1c3e35-df8a-4302-ae05-528cf4e56b83.png",
+            "imageId": "I1252"
+          }
+        ]
+      },
+      "verification": "source_runtime_sha256_equal",
+      "immutableDetailsKo": "각 파일의 얼굴·피부·헤어·의상·소품·비례·질감을 그대로 유지한다. 이름만으로 다른 얼굴을 새로 생성하지 않는다.",
+      "storyUse": "기존 현대 페르소나. 실제 시나리오에 등장할 때만 선택; 전체 인물을 시즌1 장면에 강제 추가하지 않는다."
+    },
+    {
+      "assetId": "persona.jun",
+      "runtimeAssetStem": "jun-16",
+      "profileId": "jun",
+      "displayNames": {
+        "ko": "준",
+        "de": "Jun",
+        "en": "Jun"
+      },
+      "source": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-aa6286fa-a67c-4a65-a4e3-8a67ef7b0ee4.png",
+        "sha256": "164cd0422d4d27082b5feb5d04775277d1cbc4ae8eab61c83d0d09825f00887f",
+        "bytes": 1863780,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-aa6286fa-a67c-4a65-a4e3-8a67ef7b0ee4.png",
+            "imageId": "I1258"
+          }
+        ]
+      },
+      "runtime": {
+        "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\jun-16.png",
+        "sha256": "164cd0422d4d27082b5feb5d04775277d1cbc4ae8eab61c83d0d09825f00887f",
+        "bytes": 1863780,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-aa6286fa-a67c-4a65-a4e3-8a67ef7b0ee4.png",
+            "imageId": "I1258"
+          }
+        ]
+      },
+      "verification": "source_runtime_sha256_equal",
+      "immutableDetailsKo": "각 파일의 얼굴·피부·헤어·의상·소품·비례·질감을 그대로 유지한다. 이름만으로 다른 얼굴을 새로 생성하지 않는다.",
+      "storyUse": "기존 현대 페르소나. 실제 시나리오에 등장할 때만 선택; 전체 인물을 시즌1 장면에 강제 추가하지 않는다."
+    },
+    {
+      "assetId": "persona.lena",
+      "runtimeAssetStem": "lena",
+      "profileId": "lena",
+      "displayNames": {
+        "ko": "레나",
+        "de": "Lena",
+        "en": "Lena"
+      },
+      "source": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-690470b8-e77e-403e-a400-e1df67d5257d.png",
+        "sha256": "00744ab82f07314f9091f6f8d5a3f0683ba3f289ddae5684c492a6e172e209cf",
+        "bytes": 2065540,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-690470b8-e77e-403e-a400-e1df67d5257d.png",
+            "imageId": "I1255"
+          }
+        ]
+      },
+      "runtime": {
+        "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\lena.png",
+        "sha256": "00744ab82f07314f9091f6f8d5a3f0683ba3f289ddae5684c492a6e172e209cf",
+        "bytes": 2065540,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-690470b8-e77e-403e-a400-e1df67d5257d.png",
+            "imageId": "I1255"
+          }
+        ]
+      },
+      "verification": "source_runtime_sha256_equal",
+      "immutableDetailsKo": "각 파일의 얼굴·피부·헤어·의상·소품·비례·질감을 그대로 유지한다. 이름만으로 다른 얼굴을 새로 생성하지 않는다.",
+      "storyUse": "기존 현대 페르소나. 실제 시나리오에 등장할 때만 선택; 전체 인물을 시즌1 장면에 강제 추가하지 않는다."
+    },
+    {
+      "assetId": "persona.maya",
+      "runtimeAssetStem": "maya",
+      "profileId": "maya",
+      "displayNames": {
+        "ko": "마야",
+        "de": "Maya",
+        "en": "Maya"
+      },
+      "source": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-39c49342-d7be-4513-a050-15229da81608.png",
+        "sha256": "7c229f106e750ddedf58f05f0626ca2defb30fd17aa8491f967756856d59e053",
+        "bytes": 1966271,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-39c49342-d7be-4513-a050-15229da81608.png",
+            "imageId": "I1251"
+          }
+        ]
+      },
+      "runtime": {
+        "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\maya.png",
+        "sha256": "7c229f106e750ddedf58f05f0626ca2defb30fd17aa8491f967756856d59e053",
+        "bytes": 1966271,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-39c49342-d7be-4513-a050-15229da81608.png",
+            "imageId": "I1251"
+          }
+        ]
+      },
+      "verification": "source_runtime_sha256_equal",
+      "immutableDetailsKo": "각 파일의 얼굴·피부·헤어·의상·소품·비례·질감을 그대로 유지한다. 이름만으로 다른 얼굴을 새로 생성하지 않는다.",
+      "storyUse": "기존 현대 페르소나. 실제 시나리오에 등장할 때만 선택; 전체 인물을 시즌1 장면에 강제 추가하지 않는다."
+    },
+    {
+      "assetId": "persona.minho",
+      "runtimeAssetStem": "minho",
+      "profileId": "minho",
+      "displayNames": {
+        "ko": "민호",
+        "de": "Minho",
+        "en": "Minho"
+      },
+      "source": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-cf6d364d-8ee4-4bed-886a-7415be8dc1d3.png",
+        "sha256": "fe8828ceb25306d80928d5e89afa3cd0ae9dc4dd849d0366ed1493f996a7aa49",
+        "bytes": 1928989,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-cf6d364d-8ee4-4bed-886a-7415be8dc1d3.png",
+            "imageId": "I1254"
+          }
+        ]
+      },
+      "runtime": {
+        "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\minho.png",
+        "sha256": "fe8828ceb25306d80928d5e89afa3cd0ae9dc4dd849d0366ed1493f996a7aa49",
+        "bytes": 1928989,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-cf6d364d-8ee4-4bed-886a-7415be8dc1d3.png",
+            "imageId": "I1254"
+          }
+        ]
+      },
+      "verification": "source_runtime_sha256_equal",
+      "immutableDetailsKo": "각 파일의 얼굴·피부·헤어·의상·소품·비례·질감을 그대로 유지한다. 이름만으로 다른 얼굴을 새로 생성하지 않는다.",
+      "storyUse": "기존 현대 페르소나. 실제 시나리오에 등장할 때만 선택; 전체 인물을 시즌1 장면에 강제 추가하지 않는다."
+    },
+    {
+      "assetId": "persona.sujin",
+      "runtimeAssetStem": "sujin",
+      "profileId": "sujin",
+      "displayNames": {
+        "ko": "수진",
+        "de": "Sujin",
+        "en": "Sujin"
+      },
+      "source": {
+        "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin1.png",
+        "sha256": "60b0f18338a6efc940377d725ab41ecac9ebb1365b094e9f63fa58d71459015c",
+        "bytes": 1936749,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin1.png",
+            "imageId": "I1250"
+          }
+        ]
+      },
+      "runtime": {
+        "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\sujin.png",
+        "sha256": "60b0f18338a6efc940377d725ab41ecac9ebb1365b094e9f63fa58d71459015c",
+        "bytes": 1936749,
+        "verification": "current_file_sha256",
+        "actualFormat": "PNG",
+        "pixelSize": [
+          1024,
+          1536
+        ],
+        "pngColorType": 6,
+        "registryHashMatches": [
+          {
+            "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin1.png",
+            "imageId": "I1250"
+          }
+        ]
+      },
+      "verification": "source_runtime_sha256_equal",
+      "immutableDetailsKo": "각 파일의 얼굴·피부·헤어·의상·소품·비례·질감을 그대로 유지한다. 이름만으로 다른 얼굴을 새로 생성하지 않는다.",
+      "storyUse": "기존 현대 페르소나. 실제 시나리오에 등장할 때만 선택; 전체 인물을 시즌1 장면에 강제 추가하지 않는다."
+    }
+  ],
+  "sourceDirectoryInventory": [
+    {
+      "currentDirectory": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona",
+      "files": [
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1dd0dec1-48ac-42af-ae84-ff3f2f438e8c.png",
+          "sha256": "c19b6505130593fdad3f4506114e213a38529f8efe17eb9e58a224a0497c5272",
+          "bytes": 2048373,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1dd0dec1-48ac-42af-ae84-ff3f2f438e8c.png",
+              "imageId": "I1262"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1e1c3e35-df8a-4302-ae05-528cf4e56b83.png",
+          "sha256": "6de9257ddd6a49069ace126fb06c3ce44091c2f66f48118d7c45540ea438aa33",
+          "bytes": 1944111,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1e1c3e35-df8a-4302-ae05-528cf4e56b83.png",
+              "imageId": "I1252"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-39c49342-d7be-4513-a050-15229da81608.png",
+          "sha256": "7c229f106e750ddedf58f05f0626ca2defb30fd17aa8491f967756856d59e053",
+          "bytes": 1966271,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-39c49342-d7be-4513-a050-15229da81608.png",
+              "imageId": "I1251"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-3cfc6420-4e48-4f47-936b-ededc09a4842.png",
+          "sha256": "54f59e190f5dc1d85bcf015f97c5ff410c26ee21add2586398dd20d1ff6a10d5",
+          "bytes": 2071293,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-3cfc6420-4e48-4f47-936b-ededc09a4842.png",
+              "imageId": "I1259"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-5ec1bad6-c41d-4c90-b75b-6a84a7369f2a.png",
+          "sha256": "81f327c49bb35e34c5558feb77bfb7aa9c05d3328f0b301eb52fae7d4fc5414e",
+          "bytes": 1894653,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-5ec1bad6-c41d-4c90-b75b-6a84a7369f2a.png",
+              "imageId": "I1257"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-644210e4-dff8-4ca2-9745-c27574357de5.png",
+          "sha256": "4b2456144f4228a9a3ecd9c76b2f878303b698b484df86db9de89931376b3e5f",
+          "bytes": 2018243,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-644210e4-dff8-4ca2-9745-c27574357de5.png",
+              "imageId": "I1253"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-690470b8-e77e-403e-a400-e1df67d5257d.png",
+          "sha256": "00744ab82f07314f9091f6f8d5a3f0683ba3f289ddae5684c492a6e172e209cf",
+          "bytes": 2065540,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-690470b8-e77e-403e-a400-e1df67d5257d.png",
+              "imageId": "I1255"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-aa6286fa-a67c-4a65-a4e3-8a67ef7b0ee4.png",
+          "sha256": "164cd0422d4d27082b5feb5d04775277d1cbc4ae8eab61c83d0d09825f00887f",
+          "bytes": 1863780,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-aa6286fa-a67c-4a65-a4e3-8a67ef7b0ee4.png",
+              "imageId": "I1258"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-cf6d364d-8ee4-4bed-886a-7415be8dc1d3.png",
+          "sha256": "fe8828ceb25306d80928d5e89afa3cd0ae9dc4dd849d0366ed1493f996a7aa49",
+          "bytes": 1928989,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-cf6d364d-8ee4-4bed-886a-7415be8dc1d3.png",
+              "imageId": "I1254"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-e3135ef3-00f7-4dc1-8d29-b9676f3527c1.png",
+          "sha256": "dce49e967e3024696b41aef91153152d5b3e751128d3257422ab76fd88abe4f1",
+          "bytes": 2002309,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-e3135ef3-00f7-4dc1-8d29-b9676f3527c1.png",
+              "imageId": "I1256"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-edf6336b-f6b0-4874-b4cf-c2e12c796a44.png",
+          "sha256": "c4c6b2d184291e4e1291d7975dce7f30190bcecdc4040031bbefed1cbfc5ca13",
+          "bytes": 2041351,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-edf6336b-f6b0-4874-b4cf-c2e12c796a44.png",
+              "imageId": "I1260"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin1.png",
+          "sha256": "60b0f18338a6efc940377d725ab41ecac9ebb1365b094e9f63fa58d71459015c",
+          "bytes": 1936749,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin1.png",
+              "imageId": "I1250"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin2.png",
+          "sha256": "82d8471bf36d34890160265666ead04a3dfe94ab83ff03acd1c78fbdd6bc07c2",
+          "bytes": 1969000,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin2.png",
+              "imageId": "I1249"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        }
+      ],
+      "authorityLimit": "Existing directory inventory; folder authority does not make every file a canonical character state or approved shot. Symbol/prop files remain separately typed."
+    },
+    {
+      "currentDirectory": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정",
+      "files": [
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\exec-7f2c932c-33dc-4a78-87b5-ed0269a1a178.png",
+          "sha256": "8c6f9e58f455ebff5403ac177603ac528e1bbb72ab2645e7d4a2fe3997c1db39",
+          "bytes": 2502742,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            2172,
+            724
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\exec-a7b4f9da-0269-436d-8eb5-a9850eb2dbf3.png",
+          "sha256": "718847a59a43c49851549f3a51b0782bbe85e8634e564d7ebe98975c01f0378c",
+          "bytes": 2491748,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1122,
+            1402
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\exec-acf30879-ec10-4101-8727-c2cdffcdf5db.png",
+          "sha256": "8312ca67a7467e8e99666c8187e7e632a8ec0680cf937d1fff1c08e52d0a729a",
+          "bytes": 2391236,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1536,
+            1024
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\exec-bcef6f71-8810-48a7-9afb-f1b3b12d33c1.png",
+          "sha256": "2bdbc0b719d4c211b214eab0c0076fe0216b741f46ff1dce2ac3fd4b1e81a34f",
+          "bytes": 2415750,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1122,
+            1402
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\exec-d43d54a9-8979-455b-9fbf-e49491e66172.png",
+          "sha256": "744cacb8d63357a37ffc7a602373765d81f0af6968aacd295a6daa66d516225e",
+          "bytes": 2532818,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1536,
+            1024
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\exec-d825ec38-c67e-4c08-bdb8-4015b4261060.png",
+          "sha256": "d17ab2a139e3479b6ff9009c8a2bf7a3de5909cc962fd0ffcd3f4a4560ae194b",
+          "bytes": 2422427,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1536,
+            1024
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\TalSunbi.png",
+          "sha256": "3ca5cf78d7eaa1f9b50e2aa767aa0399653dbfbf2f0be01a84448f57dbf16fb1",
+          "bytes": 1310537,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\TalSunbi\\TalSunbi.png",
+              "imageId": "I1380"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\TalSunbi2.png",
+          "sha256": "61d31b27887a2ab27f0b424c032b8a08257e3aea889a41b852c22bd4fc79738c",
+          "bytes": 1237624,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\TalSunbi\\TalSunbi2.png",
+              "imageId": "I1381"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\TalSunbi3.png",
+          "sha256": "40cdfa5e9647e37eaa2cfe82c6c14640d5ab6fb74ff13fc9fc35db2a206389ef",
+          "bytes": 1103287,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\TalSunbi\\TalSunbi3.png",
+              "imageId": "I1382"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\TalSunbi4.png",
+          "sha256": "15a2f3f68a2f2240fd51d841f00819ba148ead13f3652d9d24ab5f39decd2552",
+          "bytes": 1102226,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\TalSunbi\\TalSunbi4.png",
+              "imageId": "I1383"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\TalSunbi5.png",
+          "sha256": "93ec76ca7f57441845cad83391991964e727da9405aefccaadd1e4672203c927",
+          "bytes": 1122678,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\TalSunbi\\TalSunbi5.png",
+              "imageId": "I1384"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\TalSunbi6.png",
+          "sha256": "d33bdf6f64187f0787201628317a92c67da8723232793fef89b18164347498e0",
+          "bytes": 1132465,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\TalSunbi\\TalSunbi6.png",
+              "imageId": "I1385"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        }
+      ],
+      "authorityLimit": "Existing directory inventory; folder authority does not make every file a canonical character state or approved shot. Symbol/prop files remain separately typed."
+    },
+    {
+      "currentDirectory": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정",
+      "files": [
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\1.도깨비다른포즈.png",
+          "sha256": "2e1c3fd6f47b0930233c70a7b9e2f93dd2d374d404136e28480dd4ddc74b8202",
+          "bytes": 1555994,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\1.도깨비다른포즈.png",
+              "imageId": "I1386"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\10푸른 불꽃의 도깨비 전사.png",
+          "sha256": "2910db8e6c0a9870a572633026e5405b970d71a21bceb4f5802911a4b16fa301",
+          "bytes": 1978065,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1195,
+            1316
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\10푸른 불꽃의 도깨비 전사.png",
+              "imageId": "I1398"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\2.도깨비다른포즈2.png",
+          "sha256": "facaa51a5a420fd57fa07a805607d083592e801cbc6e39ff049a32818f3f04ba",
+          "bytes": 1645436,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\2.도깨비다른포즈2.png",
+              "imageId": "I1387"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\3도깨비불-도깨비.png",
+          "sha256": "fd2ff0fc837dbba6a06679970f2bf938811b3a319e6838a8c8fbc9364e71b2c8",
+          "bytes": 1623276,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\3도깨비불-도깨비.png",
+              "imageId": "I1388"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\4도깨비불-도깨비2.png",
+          "sha256": "217c2f319f6fd8a563cb6bcb588fce1af073f768a7b965d4f2668bb2651b0412",
+          "bytes": 1568433,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\4도깨비불-도깨비2.png",
+              "imageId": "I1389"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\5-1.png",
+          "sha256": "277ceddf849d7434cdd1b8c67de3eb011387b87d79e71d37ac7845ac0eebb6b6",
+          "bytes": 1593971,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\5-1.png",
+              "imageId": "I1411"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\5도깨비불-도깨비3.png",
+          "sha256": "8161885cd8ce197176763385a503a3a5d89de1de471dd657ee8bc4ca6ad21665",
+          "bytes": 1741281,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\5도깨비불-도깨비3.png",
+              "imageId": "I1390"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\6-1.png",
+          "sha256": "d6cb01762da48d4aa25e088cfe0cbc2fd70e2b2dce538c74e690940e6833769a",
+          "bytes": 1477511,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\6-1.png",
+              "imageId": "I1412"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\6도깨비불-도깨비4.png",
+          "sha256": "690d6640d37c1147cd25d104458b8854c3356fc8001ab352ecb3fdd70c4b8819",
+          "bytes": 1511005,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\6도깨비불-도깨비4.png",
+              "imageId": "I1391"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\7마법도깨비.png",
+          "sha256": "7ff0d796117d1928ae819e30be6f497e338c191e95eeba695b36b4035f61f5ed",
+          "bytes": 2363492,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\7마법도깨비.png",
+              "imageId": "I1399"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\8마법도깨비2.png",
+          "sha256": "d06a7b3537b369f76f011d58ef9c3c167a292203fc7c8ca8e2976fda471c4c97",
+          "bytes": 2156247,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\8마법도깨비2.png",
+              "imageId": "I1400"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\9마법도깨비3.png",
+          "sha256": "eae43a7054b800e42796f03ea319704b27a636f3b122bd771e57b65b724ab34c",
+          "bytes": 2236848,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\9마법도깨비3.png",
+              "imageId": "I1401"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\decoration_dokkaebi_fire.png",
+          "sha256": "9848a7c6fa2cb93b305ea3180043c1fc96321179c54e3d1731706891646001e5",
+          "bytes": 766647,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\decoration_dokkaebi_fire.png",
+              "imageId": "I0060"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\doccabi6.mp4",
+          "sha256": "48e0709b87fb10b8df595444a6b0ce8cc73c95a2ca573ca233a8dd41ba9235b9",
+          "bytes": 846685,
+          "verification": "current_file_sha256",
+          "actualFormat": "MP4_not_playback_validated",
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\doggabi.mp4",
+          "sha256": "d948bd61971814ca8941eed43e6561912e6e7d3596be4041c4768c2dfc1baf6d",
+          "bytes": 882021,
+          "verification": "current_file_sha256",
+          "actualFormat": "MP4_not_playback_validated",
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\doggabi5.mp4",
+          "sha256": "cd5df882ef472695ad63b4fcb1280e422ca41e5833a527992c6c444d71ebba3e",
+          "bytes": 4904803,
+          "verification": "current_file_sha256",
+          "actualFormat": "MP4_not_playback_validated",
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\dokkabi.mp4",
+          "sha256": "9f153772937adf29ccd63817daa998698e2513975980cfd76219f56d410ed280",
+          "bytes": 1060731,
+          "verification": "current_file_sha256",
+          "actualFormat": "MP4_not_playback_validated",
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\dokkabi_front.mp4",
+          "sha256": "2cecd97e2750efcf3b26a6eb4db499bddda32950cf37150158e2cf4de4b345c3",
+          "bytes": 898019,
+          "verification": "current_file_sha256",
+          "actualFormat": "MP4_not_playback_validated",
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-019f1146-56dc-4d4c-b172-1d476d843d35.png",
+          "sha256": "c984261b9ff9e6e2aecb344167aae36492ad721b2b3b0aa561e312006783b8a0",
+          "bytes": 1509760,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-019f1146-56dc-4d4c-b172-1d476d843d35.png",
+              "imageId": "I1342"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-0319e802-c7f0-4d45-8438-0a3e808f2316.png",
+          "sha256": "5db52880efe74dfe870f1a8cd83b18b7053e3ce2b1d1c5760b63bdfbf8edb634",
+          "bytes": 1375114,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-0319e802-c7f0-4d45-8438-0a3e808f2316.png",
+              "imageId": "I1310"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-097ea4be-0e3e-478a-a773-a8c2dfee9c56.png",
+          "sha256": "6fc39d13ca61b8fe796d6d4c40583b4850299e2cedb46ca7d8f30e05ad2c22eb",
+          "bytes": 1317794,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-097ea4be-0e3e-478a-a773-a8c2dfee9c56.png",
+              "imageId": "I1323"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-1356613d-7ba7-4597-83c4-d944937cfd19.png",
+          "sha256": "0801bdbba752d460060a9bd209bbfe04fecdcbdb1c3edb554cdf2dd871ba3a20",
+          "bytes": 1182960,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-1356613d-7ba7-4597-83c4-d944937cfd19.png",
+              "imageId": "I1466"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-13a40ebf-9f06-4af6-a59e-3bdd51148b84.png",
+          "sha256": "381d6de590a6c8236ccad0168d49a28b01463b18f5c91d12ff6e1595823c5bbc",
+          "bytes": 1442238,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-13a40ebf-9f06-4af6-a59e-3bdd51148b84.png",
+              "imageId": "I1322"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-1b002a71-470a-49df-a389-95bdfcd1a5d5.png",
+          "sha256": "0034af3c7b6f58b2e2f96afeb8820de976fe0d2240c131cf5181899a2edc0f22",
+          "bytes": 1362355,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-1b002a71-470a-49df-a389-95bdfcd1a5d5.png",
+              "imageId": "I1345"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-1b7ba70e-b67f-42a9-bc78-100a4007279c.png",
+          "sha256": "874dcdaecc8094f989c6c132f6513d138f014560cec0d7efe1d1b868bc45ef25",
+          "bytes": 1225948,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-1b7ba70e-b67f-42a9-bc78-100a4007279c.png",
+              "imageId": "I1460"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-2b9411ef-cf80-4893-98a8-57eec1053896.png",
+          "sha256": "badf40200faa0f03214318b779a357346c651c0ea35820b0a9ebf01e383de156",
+          "bytes": 1863955,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-2e63d0d3-b999-4901-92ff-51141cfcaf47.png",
+          "sha256": "6c15c359a1b82002f832b98ba8500270e3cdb839581fdb7a0312f2dbbe1f8091",
+          "bytes": 1317084,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-2e63d0d3-b999-4901-92ff-51141cfcaf47.png",
+              "imageId": "I1341"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-36c091d4-a11a-47ca-b206-bfd432627c9a.png",
+          "sha256": "8d607dfe7d6539d31735a860a5333c9df5bbf66ba4d12217903abef01a30b950",
+          "bytes": 1180027,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-36c091d4-a11a-47ca-b206-bfd432627c9a.png",
+              "imageId": "I1470"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-53de2d3f-06a2-4844-8ad8-79730feb490f.png",
+          "sha256": "e329487b7384dcb4d56935b83ae108a3113beb2516fdf7a31a925eafd5f3b640",
+          "bytes": 1652076,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-53de2d3f-06a2-4844-8ad8-79730feb490f.png",
+              "imageId": "I1336"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-555c1c76-6917-4a38-9000-c0301926f3da.png",
+          "sha256": "8f40bcf5c47279ee43a9f8700c68378d2df12cb953e69bc7d13b8a846b940100",
+          "bytes": 1525570,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-555c1c76-6917-4a38-9000-c0301926f3da.png",
+              "imageId": "I1241"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-56668781-3a17-4ba8-bdbc-edf70f513f85.png",
+          "sha256": "966b93f97c0971e0dee15f8634659d7d5bb3529173d501e4a02a6d97ad3940ac",
+          "bytes": 1146130,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-56668781-3a17-4ba8-bdbc-edf70f513f85.png",
+              "imageId": "I1474"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-5c87a51a-f4fd-4919-94fc-7764a7e7c217.png",
+          "sha256": "0d943d2bd9a4cc0d6ecedae54c42b04797aca4b015f36b1610f89b121b284147",
+          "bytes": 1184059,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-5c87a51a-f4fd-4919-94fc-7764a7e7c217.png",
+              "imageId": "I1476"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-5f73b718-8312-48a8-96a8-c75b72a4bed7.png",
+          "sha256": "f926350da5f55113b5b0731e4c7c7e0d527a80d2431f03cff8139d3c4ec518c0",
+          "bytes": 1154061,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-5f73b718-8312-48a8-96a8-c75b72a4bed7.png",
+              "imageId": "I1462"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-6c60fa24-5e0e-4e63-8e50-832f8f3e896e.png",
+          "sha256": "f1244d947a0837ccc9fe798d239ddeedcdbe8ae9e4493649b363fb6c042ff109",
+          "bytes": 1340646,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-6c60fa24-5e0e-4e63-8e50-832f8f3e896e.png",
+              "imageId": "I1340"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-6f0e4c98-f120-4b62-947a-112b68c4cc6a.png",
+          "sha256": "81628856fa9edd797ab7b7ad4f12a3fca82d297492f0bf84b84f5553622f81cd",
+          "bytes": 1784623,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-7cf7e920-158a-43a9-8e5f-ee32bcba0527.png",
+          "sha256": "813a1c01ba475017bc74d38b807dba8d330990b723926cc66a06545a13587443",
+          "bytes": 2391032,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1024,
+            1536
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-7cf7e920-158a-43a9-8e5f-ee32bcba0527.png",
+              "imageId": "I1269"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-8972ab73-0e68-4449-840a-95c6f1ed0efa.png",
+          "sha256": "62f59455fc29e72d2c08440edf69510adc1f616aaab74e22e133a458c3469796",
+          "bytes": 1365228,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-8972ab73-0e68-4449-840a-95c6f1ed0efa.png",
+              "imageId": "I1327"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-8aedc4f0-0101-4b9c-8ef0-a28156dcc1f6.png",
+          "sha256": "b19949686c0ea77f32ebaeb54122e94e9004bdd8825b1abdbf16d0823f527cd3",
+          "bytes": 1128496,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-8aedc4f0-0101-4b9c-8ef0-a28156dcc1f6.png",
+              "imageId": "I1478"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-94bd7f4a-2dc0-481b-b4c2-14d15f061545.png",
+          "sha256": "371358c47a67ce4928f2a90872f86ec6307519140e629f660fe517947b13bb0b",
+          "bytes": 3179020,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1100,
+            1430
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-a60c9a8f-6ebb-4c95-84e5-beaa66fd2b9b.png",
+          "sha256": "149327eb410efd24d9cf717bfc15682f95a8e9a0dba45de997f3a3870164a42c",
+          "bytes": 1953738,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            853,
+            1844
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-ad6f4ccd-1e38-40cf-9cec-39bfe22e835b.png",
+          "sha256": "3da752955511546de2781e341b2714878218b5a7d83f81b276a4c227152b35d6",
+          "bytes": 1461552,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-ad6f4ccd-1e38-40cf-9cec-39bfe22e835b.png",
+              "imageId": "I1321"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-afc0c2d1-c7ef-42b0-9b5c-9577e18fb028.png",
+          "sha256": "9e89b2f074385f428c131bd3e68db8691b53c3e0844f7aa90427c35d1216f4d8",
+          "bytes": 1171597,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-afc0c2d1-c7ef-42b0-9b5c-9577e18fb028.png",
+              "imageId": "I1472"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-b442dfe7-b022-48f6-bd16-07947c87f727.png",
+          "sha256": "f00560dc0f9ad708abc1cdde89e9e96c3443a54e3fbe553cec95f4a32162f6be",
+          "bytes": 1326231,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-b442dfe7-b022-48f6-bd16-07947c87f727.png",
+              "imageId": "I1337"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-b8f11b19-b2a6-4863-bd9a-63f05d62e133.png",
+          "sha256": "cbfd2e911ec3327ce4963c8744bac04ed0d34b03149d101ef578fd819ec81860",
+          "bytes": 1392174,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-b8f11b19-b2a6-4863-bd9a-63f05d62e133.png",
+              "imageId": "I1343"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-c46f2aeb-c59f-4531-9842-ee65da472c18.png",
+          "sha256": "740dec4ab7fd24c019a1c555e78828f826dae2472fa8bd5aaf4ee79ab1702813",
+          "bytes": 1214308,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-c46f2aeb-c59f-4531-9842-ee65da472c18.png",
+              "imageId": "I1308"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-c6453a26-af82-4747-850d-f21d423a6d26.png",
+          "sha256": "9ddf630f23610a28ad583b708609bf2ee9a58b6812f28e0ea7df84ff851f70e9",
+          "bytes": 1408941,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-c6453a26-af82-4747-850d-f21d423a6d26.png",
+              "imageId": "I1339"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-cd45b068-59f3-4086-915c-6c83c23a54db.png",
+          "sha256": "158ae3788ab9e7ba7becd164c05157d9d2ac7139182a6ea614b22f8ea9d5f4b6",
+          "bytes": 1364263,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-cd45b068-59f3-4086-915c-6c83c23a54db.png",
+              "imageId": "I1326"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-d4e8086f-ce0f-400d-a5cc-a0ca16bcd2c7.png",
+          "sha256": "a762fdbbcf5a55a29d6033feb9ed03e655c254cb1ee516169e677b66652d16af",
+          "bytes": 1167987,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-d4e8086f-ce0f-400d-a5cc-a0ca16bcd2c7.png",
+              "imageId": "I1480"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-d8c20eeb-4f60-412f-a009-7952242db2d6.png",
+          "sha256": "0f858d4d4c750c24586b87130ac648e769406adaa95dc53068713ab48572b3d9",
+          "bytes": 1447988,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-d8c20eeb-4f60-412f-a009-7952242db2d6.png",
+              "imageId": "I1307"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-e2c40c49-b827-4920-ae49-66986c8054ef.png",
+          "sha256": "9b16b3e7e05e2239ce3aab2b4044d5b642545f05b18f422d9b72546929e8766b",
+          "bytes": 1451285,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-f1ef439a-90d3-48ba-846d-343d89c46905.png",
+          "sha256": "4695e7c88b7f1cc7c5b848ed9a440375f4f6923770160f5bd90c4a6a6e6c32a6",
+          "bytes": 1520643,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-f1ef439a-90d3-48ba-846d-343d89c46905.png",
+              "imageId": "I1414"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-f7c30602-de9d-401f-ba7b-e93dd511b0e3.png",
+          "sha256": "6b547d9dd0ab5088a3be21c5e9e96cdf8f616c52c954187eba927c54731d18d9",
+          "bytes": 1399133,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\exec-f7c30602-de9d-401f-ba7b-e93dd511b0e3.png",
+              "imageId": "I1324"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\Gemini_Generated_Image_4j8z8c4j8z8c4j8z.jpg",
+          "sha256": "0257cc496f14fd78d77fc4b3c3bb7b91b43db9317789a2167121b9c17f3ec175",
+          "bytes": 936253,
+          "verification": "current_file_sha256",
+          "actualFormat": "JPEG",
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\Gemini_Generated_Image_i1mitki1mitki1mi.jpg",
+          "sha256": "a0a5c10dc4a147200c4341fb594da906699e1f1c627e561d1ae6807dd863e74f",
+          "bytes": 744366,
+          "verification": "current_file_sha256",
+          "actualFormat": "JPEG",
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\gemini_generated_video_5dc2f044.mp4",
+          "sha256": "cfbe5ff0317f743d7a9266097c21de79d774a42514b323db15d4a37ce5ac7cf7",
+          "bytes": 6874360,
+          "verification": "current_file_sha256",
+          "actualFormat": "MP4_not_playback_validated",
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\gemini_generated_video_7312599d.mp4",
+          "sha256": "9c0f69b1edd89e8f573c2df8008407277a52119022ed26f64661a96afd2a061c",
+          "bytes": 4547845,
+          "verification": "current_file_sha256",
+          "actualFormat": "MP4_not_playback_validated",
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\HangulSori_Dokkaebi_Club_Transparent_1024px.png",
+          "sha256": "fabeb8f287f41376bc92f27ecf884aba307dbd7f56200eea842707467d900421",
+          "bytes": 558124,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            768,
+            1024
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\HangulSori_Dokkaebi_Club_Transparent_2048px.png",
+          "sha256": "15330f905e697b1976ce75bfd2d5be9f8a8b713806ad0ccb9350d36eff87a6cc",
+          "bytes": 1886705,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1536,
+            2048
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\HangulSori_Dokkaebi_Club_Transparent_512px.png",
+          "sha256": "7f1c5c8fff9561d90760762b655d2ffdbce8a52410ce84510027325c5fdfad9e",
+          "bytes": 149675,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            384,
+            512
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\HangulSori_Dokkaebi_Club_Transparent_HD.png",
+          "sha256": "8e96666e50c46727e927ad71ecc202ac07ba289ae8bdcf96dfb4ef64f5b4bf6c",
+          "bytes": 1051401,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\making_money.mp4",
+          "sha256": "6e850b717ec285fd1d9be057da361fed629c178e750a15c77b592cbda6f91ff5",
+          "bytes": 4501874,
+          "verification": "current_file_sha256",
+          "actualFormat": "MP4_not_playback_validated",
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\금빛 테두리의 청록 구름 소용돌이 엠블럼.png",
+          "sha256": "e341e9ede04c27594c1142d611371c904238b7ecd6082dd088841488fbeeb48f",
+          "bytes": 1189238,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\달빛 아래 마법의 호랑이 질주.png",
+          "sha256": "e84503eb90c128aac0c6b8ed922668ae6e34fc9d3546d3716ccb5e11fc469c0d",
+          "bytes": 2662960,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1672,
+            941
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비 돈만들기.png",
+          "sha256": "8490405dbaf3781a728fe335341df1606738f61b4955bfaf06a59ec3c4a10971",
+          "bytes": 324638,
+          "verification": "current_file_sha256",
+          "actualFormat": "JPEG",
+          "formatNote": "Filename extension differs from file header; preserve original bytes, inspect before tool import.",
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\도깨비 돈만들기.png",
+              "imageId": "I1402"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비.mp4",
+          "sha256": "48e0709b87fb10b8df595444a6b0ce8cc73c95a2ca573ca233a8dd41ba9235b9",
+          "bytes": 846685,
+          "verification": "current_file_sha256",
+          "actualFormat": "MP4_not_playback_validated",
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\돈만들기.png",
+          "sha256": "335dd69f0a2a18d65434d3ef0aee0358c66a6e3241b77f9ec04434a27ab5b18c",
+          "bytes": 314648,
+          "verification": "current_file_sha256",
+          "actualFormat": "JPEG",
+          "formatNote": "Filename extension differs from file header; preserve original bytes, inspect before tool import.",
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\돈만들기.png",
+              "imageId": "I1403"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\양옆잘린 변신동영상.mp4",
+          "sha256": "b75f64c320accb50b66413c0300d9be449cbdc36cc0204d304fc77d78214933f",
+          "bytes": 15743186,
+          "verification": "current_file_sha256",
+          "actualFormat": "MP4_not_playback_validated",
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\연이의 흔적과 도깨비 수호 문양 설정집.png",
+          "sha256": "f1a9a0534ebf7aeb233adef91f2e9f04e89ce10c6f8d9c321b54aab56d028fe9",
+          "bytes": 2931914,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1536,
+            1024
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\전통 문양의 나무 도깨비 방망이.png",
+          "sha256": "7f16130e742c247824aeed37b9d8d87a73176be2ad0957e83c34fd89b6664e4c",
+          "bytes": 1106295,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\청록빛 꽃무늬 편지 보관 주머니.png",
+          "sha256": "3baa7f3f26235b11b9235c814013a89c86c1a187312a78a1b6d97c5c6b0d8612",
+          "bytes": 2299587,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        }
+      ],
+      "authorityLimit": "Existing directory inventory; folder authority does not make every file a canonical character state or approved shot. Symbol/prop files remain separately typed."
+    },
+    {
+      "currentDirectory": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택",
+      "files": [
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\backho.mp4",
+          "sha256": "56df30ebec7ee7555aa7ae2dc04eee5470d5fc7d1cb8cec04dc00984451e2939",
+          "bytes": 10231724,
+          "verification": "current_file_sha256",
+          "actualFormat": "MP4_not_playback_validated",
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho-divine-blue-v2.png",
+          "sha256": "5e29f67b90fb42912aaff6ae2c9de40758c123350a1a30dc907735e168087bb9",
+          "bytes": 2313232,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1086,
+            1448
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho.png",
+          "sha256": "1a8d0bb2e3e11a39c6b055ac2736cc43222006d266ac35a80685f00d45a23e34",
+          "bytes": 1420799,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho.png",
+              "imageId": "I1375"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho2.png",
+          "sha256": "bca6fcfc39454a3a9f5345a245171414f0ffa3faeb14ada103aa42ddbac5a40b",
+          "bytes": 1246572,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho2.png",
+              "imageId": "I1376"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho3.png",
+          "sha256": "1440bac2026699fb4b6ed93bd1a0e7639031f5c1530114ff0ba6dc1c480b4a5d",
+          "bytes": 1176849,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1448,
+            1086
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho3.png",
+              "imageId": "I1377"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho4.png",
+          "sha256": "ff1604f3ef3e28002c71cd30d9ae9bbf38cdc235abfb2e4f375756b4f226c507",
+          "bytes": 1186899,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1448,
+            1086
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho4.png",
+              "imageId": "I1378"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-01f6b364-e18f-4aca-a25f-dca0ad526a85.png",
+          "sha256": "be49e615c8c071baa91cdc1cde5569b25e929562b984d981cff2b87c3c1638a9",
+          "bytes": 2157153,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1536,
+            1024
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-01f6b364-e18f-4aca-a25f-dca0ad526a85.png",
+              "imageId": "I1360"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-1446c7b6-0530-4cd8-9d11-8b4d74a3aed6.png",
+          "sha256": "c773821852d1be537a7e714af0f9e90dee8a20e1c87ae6a755f9458d7357a6f2",
+          "bytes": 1491239,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-1446c7b6-0530-4cd8-9d11-8b4d74a3aed6.png",
+              "imageId": "I1359"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-2283fd5e-881e-4887-b4e5-528dd38f289c.png",
+          "sha256": "444eed7e6e7188432b5fe0c6e125dc5790d84a71c93255e9149396b12ee20a2f",
+          "bytes": 1204432,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-2283fd5e-881e-4887-b4e5-528dd38f289c.png",
+              "imageId": "I1362"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-30d21a2c-448c-4b93-bc3b-d0b78de87417.png",
+          "sha256": "a2328c8584e3c850c283fb13b63be2a9ea2100f1d70a6d38a6c9f27d98e26815",
+          "bytes": 1359291,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-30d21a2c-448c-4b93-bc3b-d0b78de87417.png",
+              "imageId": "I1368"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-59fe7aff-0d16-40cf-8904-8f433de124e4.png",
+          "sha256": "8d7137edfe97df4c63b5048962c6660e189c9ad37b6031799b152abf38065479",
+          "bytes": 2055808,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-59fe7aff-0d16-40cf-8904-8f433de124e4.png",
+              "imageId": "I1370"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-bcc22cf1-dc2e-410b-9e03-a4d8ef1f36ac.png",
+          "sha256": "7b093f824f33088fda12baccdd6798fafe806eb47e53a584ad6bff4e54f40ef3",
+          "bytes": 1909008,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1536,
+            1024
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-bcc22cf1-dc2e-410b-9e03-a4d8ef1f36ac.png",
+              "imageId": "I1346"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-c6c5a017-21a5-4a45-b756-84554126b0f9.png",
+          "sha256": "ea15d486f232e67344ffa2f7c9f15ef05148e616578a8bcdf6bdec6265bca34a",
+          "bytes": 2331382,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1536,
+            1024
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-c6c5a017-21a5-4a45-b756-84554126b0f9.png",
+              "imageId": "I1344"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-d9e47a8d-6278-485e-a4f3-effc288da9a4.png",
+          "sha256": "9dd03e4c62fb4513b5c97f788d48189bce939e510d39a1b34a2bd9b0415bfbe2",
+          "bytes": 1360856,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-d9e47a8d-6278-485e-a4f3-effc288da9a4.png",
+              "imageId": "I1369"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-da0092d4-29ab-4c7d-99ac-3d6628855a4e.png",
+          "sha256": "8eace5ec15342a2d816f095bd1953aa73c22cdf4c9c1b8fe06a235b458ac4f98",
+          "bytes": 1307614,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-da0092d4-29ab-4c7d-99ac-3d6628855a4e.png",
+              "imageId": "I1365"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        }
+      ],
+      "authorityLimit": "Existing directory inventory; folder authority does not make every file a canonical character state or approved shot. Symbol/prop files remain separately typed."
+    },
+    {
+      "currentDirectory": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본",
+      "files": [
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-257d9975-6169-40f6-9211-ae5befad4040.png",
+          "sha256": "15c3c966c0ae190c11777977587943cdef1975d7e186349b4dc7408987749d29",
+          "bytes": 1761640,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-257d9975-6169-40f6-9211-ae5befad4040.png",
+              "imageId": "I1329"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-5561ef5d-bb97-4c8a-90ce-d4116dbc6308.png",
+          "sha256": "bdad3e0399a759910c2c37b4fc19d260bccd80a780f5151cab472e44d631e2dd",
+          "bytes": 1797351,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-5561ef5d-bb97-4c8a-90ce-d4116dbc6308.png",
+              "imageId": "I1293"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-650591bb-9572-4933-8bfe-7b40158e8d0b.png",
+          "sha256": "d115cbe75e764067839af9ed8a3d5c4bcbf8e3ed46b24316b784555fc2d01e46",
+          "bytes": 1741766,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 2,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-650591bb-9572-4933-8bfe-7b40158e8d0b.png",
+              "imageId": "I1298"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-75fbc678-9c71-4a8f-af27-8920e62b9896.png",
+          "sha256": "c1d79c59ea954d2bacee01abe48d4283d6e8ee7dc3fd47a9a30d80b58742a588",
+          "bytes": 1204646,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-75fbc678-9c71-4a8f-af27-8920e62b9896.png",
+              "imageId": "I1313"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-8137b153-99b0-4479-bcd5-5a2c51b09523.png",
+          "sha256": "8eecf53fb59c514b220c8ed333aa6329550b81a15fecda33792f37442e5b8895",
+          "bytes": 1043646,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-8137b153-99b0-4479-bcd5-5a2c51b09523.png",
+              "imageId": "I1325"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-dbbba68f-00b2-451c-8dc1-d24169650b4f.png",
+          "sha256": "f70f5fcee6770a0953071afb4cd526ec88dce3fef17ec1cf313ac4328e7a4db5",
+          "bytes": 1402533,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-dbbba68f-00b2-451c-8dc1-d24169650b4f.png",
+              "imageId": "I1297"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-eb5d3bc0-92dd-4576-8dbb-f06adb1ab9c4.png",
+          "sha256": "ff2b5d56516f066c5c254c57bede99c52105bbd3f390a3b410c0546d02d42ebe",
+          "bytes": 1183302,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-eb5d3bc0-92dd-4576-8dbb-f06adb1ab9c4.png",
+              "imageId": "I1295"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-fb0af650-849a-4385-8c42-520916394aea.png",
+          "sha256": "0d793e51b645df67603b90b6fcedb3a358f03f1d714838f8d9ccf1ab8b3228cc",
+          "bytes": 1074419,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1222,
+            1287
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-fb0af650-849a-4385-8c42-520916394aea.png",
+              "imageId": "I1347"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        },
+        {
+          "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-fc1aa3c7-a499-47d7-a30f-959de1616753.png",
+          "sha256": "3c71c31741eceec5ec482a4efb51b9d3e9c346e443858eec32d0117637c467b9",
+          "bytes": 1153512,
+          "verification": "current_file_sha256",
+          "actualFormat": "PNG",
+          "pixelSize": [
+            1254,
+            1254
+          ],
+          "pngColorType": 6,
+          "registryHashMatches": [
+            {
+              "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-fc1aa3c7-a499-47d7-a30f-959de1616753.png",
+              "imageId": "I1328"
+            }
+          ],
+          "eventAssignment": "not_selected_by_folder_or_filename"
+        }
+      ],
+      "authorityLimit": "Existing directory inventory; folder authority does not make every file a canonical character state or approved shot. Symbol/prop files remain separately typed."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "character.player",
+      "status": "NO_FIXED_FACE_REQUIRED",
+      "reasonKo": "플레이어를 크리스티안이나 새 고정 얼굴로 대체하지 않는다. 사용자 설정/현행 표현을 따른다."
+    },
+    {
+      "id": "character.yeoni",
+      "status": "SOURCE_PENDING",
+      "reasonKo": "연이의 확정 인물 원화/턴어라운드 미확인. 쪽지·편지·자취 중심의 기존 연출을 유지하고 새 얼굴을 고정하지 않는다."
+    },
+    {
+      "id": "character.jeong_yeochang",
+      "status": "SOURCE_PENDING",
+      "reasonKo": "정여창의 확정 캐릭터 원화 미확인. 사실적 초상이나 판타지 캐릭터를 임의로 추가하지 않는다."
+    },
+    {
+      "id": "character.old_man",
+      "status": "SOURCE_PENDING",
+      "reasonKo": "장면의 노인 확정 원화 미확인. 탈선비/도깨비와 합치거나 새 외모를 정본으로 삼지 않는다."
+    },
+    {
+      "id": "pose.dokkaebi_step_aside_and_bolt_repair",
+      "status": "ACTION_REFERENCE_PENDING",
+      "reasonKo": "확정 얼굴/의상과 별개로 양팔/비켜섬/빗장 수리의 정확한 손 접촉 및 시작·끝 프레임은 아직 선택·검수되지 않았다."
+    },
+    {
+      "id": "pose.joy_full_body",
+      "status": "POSE_SELECTION_PENDING",
+      "reasonKo": "원본 폴더의 실제 전신 파일을 장면별로 검토·선택해야 하며 흉상만으로 숨은 디테일을 만들지 않는다."
+    }
+  ],
+  "identityCounts": {
+    "coreStory": 5,
+    "modernPersonas": 11,
+    "sharedSujin": 1,
+    "uniqueAcrossBoth": 15
+  },
+  "inventoryScope": "Direct PNG/JPG/MP4 files in five named current folders. Reward coins/transformation subfolders are not recursively reclassified as story poses.",
+  "globalRulesKo": [
+    "이 파일의 SHA는 원본 선택/동일 바이트 확인용이다. 생성 결과의 동일 인물/구조 보증 수단이 아니다.",
+    "불투명 배경·투명도·손/발 크롭을 원본대로 보존한다. 모든 원본을 투명 전신 PNG라고 가정하지 않는다.",
+    "가로 반전으로 문양·손잡이·머리띠/부채 방향을 바꾸지 않는다. 필요한 반대 방향 포즈는 기존 검토 원본을 선택하거나 별도 후보로 검수한다.",
+    "고정한 원본은 덮어쓰지 않는다. 새 동작이 요청되면 별도 파생 후보로 기록하며 장면별 검수 전 정본이나 앱 통합으로 간주하지 않는다.",
+    "S1 인간/신수/도깨비 역할과 현대 인물 역할을 섞지 않는다. 파일의 의상/소품을 다른 인물에게 옮기지 않는다."
+  ]
+}

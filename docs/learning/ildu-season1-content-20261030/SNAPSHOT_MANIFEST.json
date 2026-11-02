@@ -1,0 +1,966 @@
+{
+  "kind": "byte_preserved_content_manuscript_snapshot",
+  "date_utc": "2026-10-29T23:32:58.187034+00:00",
+  "base_head": "8841f12cbbfc9f82dc26efea860d62038ad6eeed",
+  "files": [
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\01_A1.1-01.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/01_A1.1-01.md",
+      "source_sha256": "d1ed5c13abab0d968f7c9287f9a1ceb3d3dca5ed2f2d5d3fe64b99bde7ff0136",
+      "copied_sha256": "d1ed5c13abab0d968f7c9287f9a1ceb3d3dca5ed2f2d5d3fe64b99bde7ff0136",
+      "bytes": 25066,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\02_A1.1-02.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/02_A1.1-02.md",
+      "source_sha256": "f3e1df8dc582599021f05e7bb05b63635a48441575ad66f708d15ad7963c1304",
+      "copied_sha256": "f3e1df8dc582599021f05e7bb05b63635a48441575ad66f708d15ad7963c1304",
+      "bytes": 34154,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\03_A1.1-03.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/03_A1.1-03.md",
+      "source_sha256": "af389178144dd09945baec14e4bdb1c708f1d0389394b7b1a98669391010a5eb",
+      "copied_sha256": "af389178144dd09945baec14e4bdb1c708f1d0389394b7b1a98669391010a5eb",
+      "bytes": 35989,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\04_A1.1-04.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/04_A1.1-04.md",
+      "source_sha256": "a6c49bf04be73be594a4cf7c146e62e7734c19b6afad69dd1639102b8ad25e73",
+      "copied_sha256": "a6c49bf04be73be594a4cf7c146e62e7734c19b6afad69dd1639102b8ad25e73",
+      "bytes": 26821,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\05_A1.1-05.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/05_A1.1-05.md",
+      "source_sha256": "6c9e565eaf98d8b9005a2abb5243a969765168a114b65f8d7bfa1d9d75306410",
+      "copied_sha256": "6c9e565eaf98d8b9005a2abb5243a969765168a114b65f8d7bfa1d9d75306410",
+      "bytes": 41646,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\06_A1.1-06.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/06_A1.1-06.md",
+      "source_sha256": "4203b6d69c7bcb7de044cc3a8143022101a2c9fe192a2328a1f833d963c838f5",
+      "copied_sha256": "4203b6d69c7bcb7de044cc3a8143022101a2c9fe192a2328a1f833d963c838f5",
+      "bytes": 38205,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\A11_INDEPENDENT_REVIEW.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/A11_INDEPENDENT_REVIEW.md",
+      "source_sha256": "0836d59b094ae3958d48d09c6825e7cdf5dadebc758440bf59fdd5ce2d388839",
+      "copied_sha256": "0836d59b094ae3958d48d09c6825e7cdf5dadebc758440bf59fdd5ce2d388839",
+      "bytes": 15724,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\AUTHORING_ITEMS.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/AUTHORING_ITEMS.json",
+      "source_sha256": "9eeff3980ae4381354ce44b94f89e5f804428d9f827892a56fa7ea4941554b7f",
+      "copied_sha256": "9eeff3980ae4381354ce44b94f89e5f804428d9f827892a56fa7ea4941554b7f",
+      "bytes": 334593,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\COMMON_COPY.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/COMMON_COPY.md",
+      "source_sha256": "0168ff661e9e1ff7e2f5b3e1c26ee9fb9c49513c91d419ee2733a1a65c3ca73f",
+      "copied_sha256": "0168ff661e9e1ff7e2f5b3e1c26ee9fb9c49513c91d419ee2733a1a65c3ca73f",
+      "bytes": 9768,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\CONTENT_SOURCE.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/CONTENT_SOURCE.json",
+      "source_sha256": "b29968cff262a7cd40c418cd71bb08a6f03a1b9d76d256e7e6628394a431890c",
+      "copied_sha256": "b29968cff262a7cd40c418cd71bb08a6f03a1b9d76d256e7e6628394a431890c",
+      "bytes": 409658,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\GRAMMAR_AND_RECALL.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/GRAMMAR_AND_RECALL.md",
+      "source_sha256": "e36d60690e8fc9336629a6f909ee0f24671e91deba4e1aa820bacb510d9b9c57",
+      "copied_sha256": "e36d60690e8fc9336629a6f909ee0f24671e91deba4e1aa820bacb510d9b9c57",
+      "bytes": 5114,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\GRAMMAR_COVERAGE.csv",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/GRAMMAR_COVERAGE.csv",
+      "source_sha256": "f9beb69bae969e4a66d50a72131e4ffeb043628c7d089a7cd6ed328d1ff83f61",
+      "copied_sha256": "f9beb69bae969e4a66d50a72131e4ffeb043628c7d089a7cd6ed328d1ff83f61",
+      "bytes": 7752,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\ITEM_BANK.csv",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/ITEM_BANK.csv",
+      "source_sha256": "e09709ee1f7c89d2e4f2e1f56de517a39112a25f48ffce2950659d7d674d84ed",
+      "copied_sha256": "e09709ee1f7c89d2e4f2e1f56de517a39112a25f48ffce2950659d7d674d84ed",
+      "bytes": 258058,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\LQ05_GATEKEEPER.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/LQ05_GATEKEEPER.md",
+      "source_sha256": "c4aa900747ff925f54643496f16fb94046b40bd1bddee480b32eb3111df5b104",
+      "copied_sha256": "c4aa900747ff925f54643496f16fb94046b40bd1bddee480b32eb3111df5b104",
+      "bytes": 5385,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\MEDIA_AND_CRITERIA.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/MEDIA_AND_CRITERIA.md",
+      "source_sha256": "7d635eaa537b18913462e26d523d2224edec86edd2023d456f08c5739fc14a7e",
+      "copied_sha256": "7d635eaa537b18913462e26d523d2224edec86edd2023d456f08c5739fc14a7e",
+      "bytes": 7942,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\QA_REVIEW.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/QA_REVIEW.md",
+      "source_sha256": "f8e54be145072932fa4480899ffe29ba2a710fefcd0061fdbf547f0355304193",
+      "copied_sha256": "f8e54be145072932fa4480899ffe29ba2a710fefcd0061fdbf547f0355304193",
+      "bytes": 3286,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\README.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/README.md",
+      "source_sha256": "0ecec65d6aa0117d1094a7a0ab5159ac4f9326f2d46e3dacf5431d5048abf599",
+      "copied_sha256": "0ecec65d6aa0117d1094a7a0ab5159ac4f9326f2d46e3dacf5431d5048abf599",
+      "bytes": 4274,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\SOURCE_AND_QA.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/SOURCE_AND_QA.json",
+      "source_sha256": "e07e7374f9ec0cd6c2c967f405943a88d9c3e4fc03db933cb9c888dc333b19b1",
+      "copied_sha256": "e07e7374f9ec0cd6c2c967f405943a88d9c3e4fc03db933cb9c888dc333b19b1",
+      "bytes": 18350,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\SOURCE_UNIT_CONTRACTS.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/SOURCE_UNIT_CONTRACTS.json",
+      "source_sha256": "170de931279b9af54c2650c13262c7c6943c575fbe3442e9c7183c5f6609f887",
+      "copied_sha256": "170de931279b9af54c2650c13262c7c6943c575fbe3442e9c7183c5f6609f887",
+      "bytes": 21098,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\STRUCTURAL_QA.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/STRUCTURAL_QA.json",
+      "source_sha256": "9eb682c3c45bc37a26b63d0b146b42cf351d33d5ed33c0c09ce9f60dc62cb50c",
+      "copied_sha256": "9eb682c3c45bc37a26b63d0b146b42cf351d33d5ed33c0c09ce9f60dc62cb50c",
+      "bytes": 22126,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\build_a11_manuscript.py",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/build_a11_manuscript.py.txt",
+      "source_sha256": "3e877293974c1665fc86f1628e1e61655e3493d4e6fc7fa9211e7ce7acd69d54",
+      "copied_sha256": "3e877293974c1665fc86f1628e1e61655e3493d4e6fc7fa9211e7ce7acd69d54",
+      "bytes": 80978,
+      "archived_script": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\build_foundation2_manuscript.py",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/build_foundation2_manuscript.py.txt",
+      "source_sha256": "8d61c6b2421eb733bf128d30310538c9b5b54ead74a0d7bc9ae7fa5e549feeac",
+      "copied_sha256": "8d61c6b2421eb733bf128d30310538c9b5b54ead74a0d7bc9ae7fa5e549feeac",
+      "bytes": 25918,
+      "archived_script": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\build_foundation3_manuscript.py",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/build_foundation3_manuscript.py.txt",
+      "source_sha256": "45ab055b08098feab8d6fc26279c4b633dde4d042d7088ea53f206d7493e0508",
+      "copied_sha256": "45ab055b08098feab8d6fc26279c4b633dde4d042d7088ea53f206d7493e0508",
+      "bytes": 38929,
+      "archived_script": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\build_foundation4_manuscript.py",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/build_foundation4_manuscript.py.txt",
+      "source_sha256": "de203fdc60d1157d5a6a79f5fff39ea093035120ca1775db2ca743f4e90053d5",
+      "copied_sha256": "de203fdc60d1157d5a6a79f5fff39ea093035120ca1775db2ca743f4e90053d5",
+      "bytes": 53188,
+      "archived_script": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\CONTENT_PLAN.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/CONTENT_PLAN.md",
+      "source_sha256": "e405b522f880237b55cb90682bc9eafb4788f1803b71e017c72979d8e24e33db",
+      "copied_sha256": "e405b522f880237b55cb90682bc9eafb4788f1803b71e017c72979d8e24e33db",
+      "bytes": 23695,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\finalize_content_delivery.py",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/finalize_content_delivery.py.txt",
+      "source_sha256": "5d8bbf9f34d7db39d907066f56ce755c0022a4b737ee75d5ed9529639e2dc826",
+      "copied_sha256": "5d8bbf9f34d7db39d907066f56ce755c0022a4b737ee75d5ed9529639e2dc826",
+      "bytes": 4321,
+      "archived_script": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\FIRST_EPISODES.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/FIRST_EPISODES.md",
+      "source_sha256": "e9923b03192ea9f48a80c375f0344c52d9b3ff88deba1cef1ba71c4c98be4165",
+      "copied_sha256": "e9923b03192ea9f48a80c375f0344c52d9b3ff88deba1cef1ba71c4c98be4165",
+      "bytes": 11182,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-1-v35\\01_FIRST_SOUND.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/01_FIRST_SOUND.md",
+      "source_sha256": "961bc75ab7241e89792f6ed260d7a7c55e17b07d5f6b56ce1502fddf32fe5f02",
+      "copied_sha256": "961bc75ab7241e89792f6ed260d7a7c55e17b07d5f6b56ce1502fddf32fe5f02",
+      "bytes": 18694,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-1-v35\\02_TWO_MORE_SOUNDS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/02_TWO_MORE_SOUNDS.md",
+      "source_sha256": "39929134c15e440ce0aa3b79561b70e282b457725e52c20937225a6bec5ae09b",
+      "copied_sha256": "39929134c15e440ce0aa3b79561b70e282b457725e52c20937225a6bec5ae09b",
+      "bytes": 16083,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-1-v35\\03_TWO_LINES.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/03_TWO_LINES.md",
+      "source_sha256": "eded881ed0affe2e4eaeab6e27eb31dd7a45f59acb77b1122013ea85d5f67bdf",
+      "copied_sha256": "eded881ed0affe2e4eaeab6e27eb31dd7a45f59acb77b1122013ea85d5f67bdf",
+      "bytes": 21086,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-1-v35\\ITEM_BANK.csv",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/ITEM_BANK.csv",
+      "source_sha256": "24d95b64171177c8c7f70820eadf84c8522836a68255cc0f57674e188a7f4cd2",
+      "copied_sha256": "24d95b64171177c8c7f70820eadf84c8522836a68255cc0f57674e188a7f4cd2",
+      "bytes": 12396,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-1-v35\\README.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/README.md",
+      "source_sha256": "f39cf6e56e0115e8095e1057a2485ddecade03e384f9ad0119316cbf0bd1aa74",
+      "copied_sha256": "f39cf6e56e0115e8095e1057a2485ddecade03e384f9ad0119316cbf0bd1aa74",
+      "bytes": 15627,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-1-v35\\SOURCE_AND_QA.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/SOURCE_AND_QA.json",
+      "source_sha256": "2b4d852c16999bdb60ba94fbf1a80f0b513abe3fc181127765eb839804b5976c",
+      "copied_sha256": "2b4d852c16999bdb60ba94fbf1a80f0b513abe3fc181127765eb839804b5976c",
+      "bytes": 5422,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\01_FIRST_CONSONANTS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/01_FIRST_CONSONANTS.md",
+      "source_sha256": "c8dd758d455da77543e02459411e50ece62cf7e941d85092dd9a50a79d27ae42",
+      "copied_sha256": "c8dd758d455da77543e02459411e50ece62cf7e941d85092dd9a50a79d27ae42",
+      "bytes": 18015,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\02_TOOL_LABEL.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/02_TOOL_LABEL.md",
+      "source_sha256": "947630693b47471331001c24504766f15b89c6b63f7bdb1ca50b3837fcd0f1dc",
+      "copied_sha256": "947630693b47471331001c24504766f15b89c6b63f7bdb1ca50b3837fcd0f1dc",
+      "bytes": 21513,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\03_FLOOR_REFERENCE.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/03_FLOOR_REFERENCE.md",
+      "source_sha256": "25eb043268285623f92a7224e02e5d3812a14e07a59ab5b845d3ff28c09e01d2",
+      "copied_sha256": "25eb043268285623f92a7224e02e5d3812a14e07a59ab5b845d3ff28c09e01d2",
+      "bytes": 21635,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\04_TWO_INITIALS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/04_TWO_INITIALS.md",
+      "source_sha256": "10bbba1b853787ff6b7335bb0b8ef6548053d76cafbc4b2f009d0ea362c4b12f",
+      "copied_sha256": "10bbba1b853787ff6b7335bb0b8ef6548053d76cafbc4b2f009d0ea362c4b12f",
+      "bytes": 16850,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\05_BREATH_AND_REPEAT.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/05_BREATH_AND_REPEAT.md",
+      "source_sha256": "4501285d13c17cd05e4626d8a332251cf0102f8a0aedd80b72f51964663745c8",
+      "copied_sha256": "4501285d13c17cd05e4626d8a332251cf0102f8a0aedd80b72f51964663745c8",
+      "bytes": 17080,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\06_TREE_HAT_TIMBER.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/06_TREE_HAT_TIMBER.md",
+      "source_sha256": "ac27b3c1963e666d0132eb58ae758d5cf0e5a7282bf2944c482f218fdff13dfa",
+      "copied_sha256": "ac27b3c1963e666d0132eb58ae758d5cf0e5a7282bf2944c482f218fdff13dfa",
+      "bytes": 19654,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\07_PHOTO_CARDS_AND_LABELS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/07_PHOTO_CARDS_AND_LABELS.md",
+      "source_sha256": "3c880d1dfed9372866ef4a9768f7a00c0a4c6a5bbf94ef9b738b1af1512923d7",
+      "copied_sha256": "3c880d1dfed9372866ef4a9768f7a00c0a4c6a5bbf94ef9b738b1af1512923d7",
+      "bytes": 22682,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\AUTHORING_ITEMS.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/AUTHORING_ITEMS.json",
+      "source_sha256": "56a417c5cb40f621dca4bd336e5eb648bf6bc846d4bba97b3788bc743f183533",
+      "copied_sha256": "56a417c5cb40f621dca4bd336e5eb648bf6bc846d4bba97b3788bc743f183533",
+      "bytes": 91440,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\COMMON_COPY.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/COMMON_COPY.md",
+      "source_sha256": "079c400eebc545df0c47af09e56ac2d3c64d36c1885cb65e02b15b05da3d10eb",
+      "copied_sha256": "079c400eebc545df0c47af09e56ac2d3c64d36c1885cb65e02b15b05da3d10eb",
+      "bytes": 2764,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\CONTENT_SOURCE.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/CONTENT_SOURCE.json",
+      "source_sha256": "6ec95c32f6b1fc60abeec2614986d28da559bb8b7970cb8ee5c0b2a958c871f5",
+      "copied_sha256": "6ec95c32f6b1fc60abeec2614986d28da559bb8b7970cb8ee5c0b2a958c871f5",
+      "bytes": 27613,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\ITEM_BANK.csv",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/ITEM_BANK.csv",
+      "source_sha256": "f2d9ec04f9f510d04a8ba4caf4daaddb5532a615a59fb3bb86838b8551efe266",
+      "copied_sha256": "f2d9ec04f9f510d04a8ba4caf4daaddb5532a615a59fb3bb86838b8551efe266",
+      "bytes": 53304,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\MEDIA_BRIEFS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/MEDIA_BRIEFS.md",
+      "source_sha256": "86ed0e6d722bacb817c4c9e3075db176888801a6d043746563d416953c9547d3",
+      "copied_sha256": "86ed0e6d722bacb817c4c9e3075db176888801a6d043746563d416953c9547d3",
+      "bytes": 5842,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\QA_REVIEW.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/QA_REVIEW.md",
+      "source_sha256": "0b59e5f72f0b1ff3969e1fdcc8f955ed1880905a659e92db7ec6d8df27f5ad9e",
+      "copied_sha256": "0b59e5f72f0b1ff3969e1fdcc8f955ed1880905a659e92db7ec6d8df27f5ad9e",
+      "bytes": 3723,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\README.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/README.md",
+      "source_sha256": "e891b83567da7b36efb3ae86f9218d5a11be27223da78a7f0813f27ddee86782",
+      "copied_sha256": "e891b83567da7b36efb3ae86f9218d5a11be27223da78a7f0813f27ddee86782",
+      "bytes": 13361,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\SOURCE_AND_QA.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/SOURCE_AND_QA.json",
+      "source_sha256": "9633aa98380a5597f9902267987c0d8251792043d8d583ce798e967becd7ed18",
+      "copied_sha256": "9633aa98380a5597f9902267987c0d8251792043d8d583ce798e967becd7ed18",
+      "bytes": 6426,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\WORD_CONTENT.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/WORD_CONTENT.json",
+      "source_sha256": "5ebcd1283fbab721b9388dceeb43f0a3e9220ff3f7998a4e2acd0acea0b066ba",
+      "copied_sha256": "5ebcd1283fbab721b9388dceeb43f0a3e9220ff3f7998a4e2acd0acea0b066ba",
+      "bytes": 18828,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\01_VERTICAL_BRANCHES.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/01_VERTICAL_BRANCHES.md",
+      "source_sha256": "5e1619f062d9d56ad83b3ad985904e16fc886dc6c65de03745a567960159c79f",
+      "copied_sha256": "5e1619f062d9d56ad83b3ad985904e16fc886dc6c65de03745a567960159c79f",
+      "bytes": 22017,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\02_HORIZONTAL_BRANCHES.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/02_HORIZONTAL_BRANCHES.md",
+      "source_sha256": "cf3ad0d50442a4027d8076f2de6bf8d040b2a4f44fc2429fd5a98e35a078bd1c",
+      "copied_sha256": "cf3ad0d50442a4027d8076f2de6bf8d040b2a4f44fc2429fd5a98e35a078bd1c",
+      "bytes": 24795,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\03_K_T_PAIRS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/03_K_T_PAIRS.md",
+      "source_sha256": "968255c9c3be63abbca278978be9e6bfea83fa707d1d7487d0337e2e35a08eec",
+      "copied_sha256": "968255c9c3be63abbca278978be9e6bfea83fa707d1d7487d0337e2e35a08eec",
+      "bytes": 22093,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\04_P_CH_PAIRS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/04_P_CH_PAIRS.md",
+      "source_sha256": "9824ed5ed3b839ed560d4c3db28d1dce4662b46114f777e7a911fbd4d000e07d",
+      "copied_sha256": "9824ed5ed3b839ed560d4c3db28d1dce4662b46114f777e7a911fbd4d000e07d",
+      "bytes": 27856,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\05_KK_TT_PAIRS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/05_KK_TT_PAIRS.md",
+      "source_sha256": "668d7dd004d11a2a04e3a99517d6db89b0729a745b8d1e671b69241c3802e73a",
+      "copied_sha256": "668d7dd004d11a2a04e3a99517d6db89b0729a745b8d1e671b69241c3802e73a",
+      "bytes": 22047,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\06_PP_SS_JJ.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/06_PP_SS_JJ.md",
+      "source_sha256": "29b6c7e6fcb7e357d0f758617a9a4caa3c0ce836f024d184439b15018e240d42",
+      "copied_sha256": "29b6c7e6fcb7e357d0f758617a9a4caa3c0ce836f024d184439b15018e240d42",
+      "bytes": 40505,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\07_AE_E_FORMS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/07_AE_E_FORMS.md",
+      "source_sha256": "8207662a4ee98baae4606d792b84d23415a43bd9f45ebd2d7dede26897e40f25",
+      "copied_sha256": "8207662a4ee98baae4606d792b84d23415a43bd9f45ebd2d7dede26897e40f25",
+      "bytes": 23234,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\08_WA_WO.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/08_WA_WO.md",
+      "source_sha256": "612fc6a881847fd280dd7b4710e48d993c63e36d57e0e2fd9a5d9e8477bd2759",
+      "copied_sha256": "612fc6a881847fd280dd7b4710e48d993c63e36d57e0e2fd9a5d9e8477bd2759",
+      "bytes": 22310,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\09_WI_OE.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/09_WI_OE.md",
+      "source_sha256": "a850a5ccf571f9c2c5c327471736221bfd35022c821a2dc075184941b9ffbe2e",
+      "copied_sha256": "a850a5ccf571f9c2c5c327471736221bfd35022c821a2dc075184941b9ffbe2e",
+      "bytes": 26845,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\10_FIRST_FINAL_LABELS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/10_FIRST_FINAL_LABELS.md",
+      "source_sha256": "57ba41ad970b879be04d8c799ce2f2886e8d87fdb9eeac07c0e896d8a1633655",
+      "copied_sha256": "57ba41ad970b879be04d8c799ce2f2886e8d87fdb9eeac07c0e896d8a1633655",
+      "bytes": 43215,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\11_INITIAL_FINAL_NG_MAP.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/11_INITIAL_FINAL_NG_MAP.md",
+      "source_sha256": "10f9d1cf6bd490f6e31d467d4191200e7bfc084e936c9ee4a0e1c701379959c8",
+      "copied_sha256": "10f9d1cf6bd490f6e31d467d4191200e7bfc084e936c9ee4a0e1c701379959c8",
+      "bytes": 47151,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\AUTHORING_ITEMS.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/AUTHORING_ITEMS.json",
+      "source_sha256": "4fc07322162b0054eeb974c223a0209235812fa164763e7091473c3e1246a917",
+      "copied_sha256": "4fc07322162b0054eeb974c223a0209235812fa164763e7091473c3e1246a917",
+      "bytes": 189260,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\COMMON_COPY.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/COMMON_COPY.md",
+      "source_sha256": "352f5aa0f0423dae780f7da84c0007abfcaa409a6d1a5a24547242f2b77d1ab9",
+      "copied_sha256": "352f5aa0f0423dae780f7da84c0007abfcaa409a6d1a5a24547242f2b77d1ab9",
+      "bytes": 2649,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\CONTENT_SOURCE.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/CONTENT_SOURCE.json",
+      "source_sha256": "97c5d084343942141142a47a1f0fcc041437b44c1d78d50905ec2eb2926c95e5",
+      "copied_sha256": "97c5d084343942141142a47a1f0fcc041437b44c1d78d50905ec2eb2926c95e5",
+      "bytes": 49335,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\ITEM_BANK.csv",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/ITEM_BANK.csv",
+      "source_sha256": "95fc00d1bbf180ade653f48241467b85e9f6e843f4b2a8ad17b54525aae56a17",
+      "copied_sha256": "95fc00d1bbf180ade653f48241467b85e9f6e843f4b2a8ad17b54525aae56a17",
+      "bytes": 108118,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\MEANINGS_AND_MEDIA.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/MEANINGS_AND_MEDIA.json",
+      "source_sha256": "b16149dcb3ee0d75716e8ed386861577a3c2a0a272c9bd29247b350cb14fbb31",
+      "copied_sha256": "b16149dcb3ee0d75716e8ed386861577a3c2a0a272c9bd29247b350cb14fbb31",
+      "bytes": 14977,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\MEDIA_AND_SOURCES.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/MEDIA_AND_SOURCES.md",
+      "source_sha256": "b9b66c8d24c5d83ffebf9b7469bf6d7f8936af60832abee2c6b44f6e44562edb",
+      "copied_sha256": "b9b66c8d24c5d83ffebf9b7469bf6d7f8936af60832abee2c6b44f6e44562edb",
+      "bytes": 8713,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\QA_REVIEW.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/QA_REVIEW.md",
+      "source_sha256": "45c23d5b45ff10ea0cb3b23d16e019ebb6213d6165b923199f5d40618fa202b6",
+      "copied_sha256": "45c23d5b45ff10ea0cb3b23d16e019ebb6213d6165b923199f5d40618fa202b6",
+      "bytes": 4157,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\README.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/README.md",
+      "source_sha256": "fea1bd28b3c21a869016d015aacaae3b80c395d129a5c265bec7c5497ac7a22d",
+      "copied_sha256": "fea1bd28b3c21a869016d015aacaae3b80c395d129a5c265bec7c5497ac7a22d",
+      "bytes": 11852,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\SOURCE_AND_QA.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/SOURCE_AND_QA.json",
+      "source_sha256": "4cff782901bde5f487aacf143e04697841395ee57443bb2ae50c009b76109988",
+      "copied_sha256": "4cff782901bde5f487aacf143e04697841395ee57443bb2ae50c009b76109988",
+      "bytes": 13214,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\01_CLOSED_FINALS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/01_CLOSED_FINALS.md",
+      "source_sha256": "699c4c1a460b64f403bc1b2a693ff1fd272f9d8d97541bbc8102895de7e7d4a8",
+      "copied_sha256": "699c4c1a460b64f403bc1b2a693ff1fd272f9d8d97541bbc8102895de7e7d4a8",
+      "bytes": 30429,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\02_WAE_WE_FORMS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/02_WAE_WE_FORMS.md",
+      "source_sha256": "b5a492c2fde2a6ce2a2effa8f807545997d5a61932eba6bd014140a74eb57b06",
+      "copied_sha256": "b5a492c2fde2a6ce2a2effa8f807545997d5a61932eba6bd014140a74eb57b06",
+      "bytes": 16694,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\03_YAE_YE_AND_YES.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/03_YAE_YE_AND_YES.md",
+      "source_sha256": "1efc5967cef9ddcdff76c5066a9561e57fdee961d535726cf225a7ab98e3f293",
+      "copied_sha256": "1efc5967cef9ddcdff76c5066a9561e57fdee961d535726cf225a7ab98e3f293",
+      "bytes": 19471,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\04_UI_AND_CHOSEN_REVIEW.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/04_UI_AND_CHOSEN_REVIEW.md",
+      "source_sha256": "2f7806ac078163a7adbba807c1e1933b3874c8dff7d9b5e8614de85f5395eb8f",
+      "copied_sha256": "2f7806ac078163a7adbba807c1e1933b3874c8dff7d9b5e8614de85f5395eb8f",
+      "bytes": 22500,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\05_LINKED_SOUNDS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/05_LINKED_SOUNDS.md",
+      "source_sha256": "086443a624e5b1e36e04e9567ba55b019430dd15864e8348895d4bc98e3b4d51",
+      "copied_sha256": "086443a624e5b1e36e04e9567ba55b019430dd15864e8348895d4bc98e3b4d51",
+      "bytes": 26734,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\06_FIRST_NOTE_INPUT.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/06_FIRST_NOTE_INPUT.md",
+      "source_sha256": "59ec7e468ccc1af10efef3600c204b0b77072d33c1063cca521a77b3b29e720c",
+      "copied_sha256": "59ec7e468ccc1af10efef3600c204b0b77072d33c1063cca521a77b3b29e720c",
+      "bytes": 25027,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\07_THIS_HOUSE_AND_REQUESTS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/07_THIS_HOUSE_AND_REQUESTS.md",
+      "source_sha256": "1d4382717b428ea1eccdf2eb66a0421dd03d06283de8b14001e33de9e7cc8d7d",
+      "copied_sha256": "1d4382717b428ea1eccdf2eb66a0421dd03d06283de8b14001e33de9e7cc8d7d",
+      "bytes": 19540,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\AUTHORING_ITEMS.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/AUTHORING_ITEMS.json",
+      "source_sha256": "b72cd33926b1c32cb80f65412c75fcea6bf17af9f21334e2105ac0b3c9bef64f",
+      "copied_sha256": "b72cd33926b1c32cb80f65412c75fcea6bf17af9f21334e2105ac0b3c9bef64f",
+      "bytes": 112392,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\COMMON_COPY.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/COMMON_COPY.md",
+      "source_sha256": "ed608dad4e49ec90c6f61933c951edad3e03ee0e622812a553155002145903f0",
+      "copied_sha256": "ed608dad4e49ec90c6f61933c951edad3e03ee0e622812a553155002145903f0",
+      "bytes": 2662,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\CONTENT_SOURCE.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/CONTENT_SOURCE.json",
+      "source_sha256": "c69dce94e8ea29dd95deb0e1732f6927fff897d532487821377cc308c3a062f9",
+      "copied_sha256": "c69dce94e8ea29dd95deb0e1732f6927fff897d532487821377cc308c3a062f9",
+      "bytes": 32332,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\ITEM_BANK.csv",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/ITEM_BANK.csv",
+      "source_sha256": "6cb4c68032f770a0ff59eaabce3c7264423fc1fd3ceab4509c786414ce891167",
+      "copied_sha256": "6cb4c68032f770a0ff59eaabce3c7264423fc1fd3ceab4509c786414ce891167",
+      "bytes": 65602,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\MEANINGS_AND_NOTE.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/MEANINGS_AND_NOTE.json",
+      "source_sha256": "f90ebc4e6425128defb8630ea4859111439e76f7cc1b1d0868e33904d42b9704",
+      "copied_sha256": "f90ebc4e6425128defb8630ea4859111439e76f7cc1b1d0868e33904d42b9704",
+      "bytes": 8562,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\MEDIA_AND_CRITERIA.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/MEDIA_AND_CRITERIA.md",
+      "source_sha256": "7f4d433200346347f473c89b566a013d1f2fdaba1f59ff00122312d24911fdf2",
+      "copied_sha256": "7f4d433200346347f473c89b566a013d1f2fdaba1f59ff00122312d24911fdf2",
+      "bytes": 7970,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\QA_REVIEW.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/QA_REVIEW.md",
+      "source_sha256": "4cd9298bb2457d6afad980d9a16c743d3e483f7059d5cc9fe4b6a8227e47436a",
+      "copied_sha256": "4cd9298bb2457d6afad980d9a16c743d3e483f7059d5cc9fe4b6a8227e47436a",
+      "bytes": 3906,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\README.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/README.md",
+      "source_sha256": "d90d86a5e9e2830c66e62bbb91181926e7837d7048d3fca7ffc5ceb71dbd2f2d",
+      "copied_sha256": "d90d86a5e9e2830c66e62bbb91181926e7837d7048d3fca7ffc5ceb71dbd2f2d",
+      "bytes": 9746,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\SOURCE_AND_QA.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/SOURCE_AND_QA.json",
+      "source_sha256": "8133ba7eea7759b063b3df52e962311b7c96fbca0b5633fe2e7aa7cf321b412e",
+      "copied_sha256": "8133ba7eea7759b063b3df52e962311b7c96fbca0b5633fe2e7aa7cf321b412e",
+      "bytes": 16658,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\LESSON_CHANGE_MATRIX.csv",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/LESSON_CHANGE_MATRIX.csv",
+      "source_sha256": "bb5a5dfa29e885491d7ef3cb27f727312aa0b7e28ed06f93f674081a8cf9f0a8",
+      "copied_sha256": "bb5a5dfa29e885491d7ef3cb27f727312aa0b7e28ed06f93f674081a8cf9f0a8",
+      "bytes": 7372,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\build_level_story_100.py",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/build_level_story_100.py.txt",
+      "source_sha256": "9907e196c0aae9c2abe132296a5a1acaf9d9460a0af125cdc64e2c44661fdd8b",
+      "copied_sha256": "9907e196c0aae9c2abe132296a5a1acaf9d9460a0af125cdc64e2c44661fdd8b",
+      "bytes": 104113,
+      "archived_script": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\build_stage_story_128.py",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/build_stage_story_128.py.txt",
+      "source_sha256": "b9e21fbacfcdcb5d5433e19330902052fc22d7d774836bc5471be019d58c8290",
+      "copied_sha256": "b9e21fbacfcdcb5d5433e19330902052fc22d7d774836bc5471be019d58c8290",
+      "bytes": 94639,
+      "archived_script": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\DELIVERY_MANIFEST.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/DELIVERY_MANIFEST.json",
+      "source_sha256": "12331a59077a25068706a110bd15f1ecd8c469d48ff4f19f69234ed2b9de67b8",
+      "copied_sha256": "12331a59077a25068706a110bd15f1ecd8c469d48ff4f19f69234ed2b9de67b8",
+      "bytes": 10291,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\EPILOGUE_QA.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUE_QA.md",
+      "source_sha256": "7993ce99eaed42d4e8248111df3c9a8361df223a235c2046834508a6ee38e389",
+      "copied_sha256": "7993ce99eaed42d4e8248111df3c9a8361df223a235c2046834508a6ee38e389",
+      "bytes": 8191,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\EPILOGUE_TIMELINE.csv",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUE_TIMELINE.csv",
+      "source_sha256": "96da4330d2dcd4bbdb48b1fd73e7425650e20b1206fd70e020a358875eb2e07d",
+      "copied_sha256": "96da4330d2dcd4bbdb48b1fd73e7425650e20b1206fd70e020a358875eb2e07d",
+      "bytes": 5145,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\EPILOGUES_10S.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUES_10S.md",
+      "source_sha256": "47535f0efa70ffeba68a629e98df8d1e7fd64466788b9751d7d5b82773cc4a0e",
+      "copied_sha256": "47535f0efa70ffeba68a629e98df8d1e7fd64466788b9751d7d5b82773cc4a0e",
+      "bytes": 18080,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\LEVEL_STORY_100.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+      "source_sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332",
+      "copied_sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332",
+      "bytes": 410477,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\LEVEL_STORY_100.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.md",
+      "source_sha256": "c33682742af5e307fdfb430fddfe11818e3410e8d4c50d0321a6c57611aaeebe",
+      "copied_sha256": "c33682742af5e307fdfb430fddfe11818e3410e8d4c50d0321a6c57611aaeebe",
+      "bytes": 123621,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\QA_REVIEW.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/QA_REVIEW.md",
+      "source_sha256": "d8c4137488fe182ce04ec9ad49af0a49a1254d62c408d9628d2b2f2c6e7894ce",
+      "copied_sha256": "d8c4137488fe182ce04ec9ad49af0a49a1254d62c408d9628d2b2f2c6e7894ce",
+      "bytes": 4204,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\README.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/README.md",
+      "source_sha256": "923682d591bb296e2fc96664607949f42ac4bb571a02ee62c844f1e8f7fd1e72",
+      "copied_sha256": "923682d591bb296e2fc96664607949f42ac4bb571a02ee62c844f1e8f7fd1e72",
+      "bytes": 4584,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\SEASON1_INDEPENDENT_REVIEW.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/SEASON1_INDEPENDENT_REVIEW.md",
+      "source_sha256": "555bdf0d584a60860eaacf560b6c7513d127fbe014e334018d089fa61d10ba7f",
+      "copied_sha256": "555bdf0d584a60860eaacf560b6c7513d127fbe014e334018d089fa61d10ba7f",
+      "bytes": 11981,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\STAGE_STORY_128.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+      "source_sha256": "61929f8ce70f042520567ee7796c7c7cb8d9d16bd0300289f0174df9d72670d1",
+      "copied_sha256": "61929f8ce70f042520567ee7796c7c7cb8d9d16bd0300289f0174df9d72670d1",
+      "bytes": 578856,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\STAGE_STORY_128.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.md",
+      "source_sha256": "a19b449b3c76fa862b9af491aafe98420de063e5f2cbe1c6c032d257157a45b1",
+      "copied_sha256": "a19b449b3c76fa862b9af491aafe98420de063e5f2cbe1c6c032d257157a45b1",
+      "bytes": 196269,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\STORY_MANAGER_GUIDE.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STORY_MANAGER_GUIDE.md",
+      "source_sha256": "00bb2ae58ee9c36c9a12b546be7140067b2ac1744727220dff43a274117fd44f",
+      "copied_sha256": "00bb2ae58ee9c36c9a12b546be7140067b2ac1744727220dff43a274117fd44f",
+      "bytes": 11218,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\STRUCTURAL_QA.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STRUCTURAL_QA.json",
+      "source_sha256": "1a5042697eba7a81936206e24ac627ba9c3e224c853347609364484fe4afa9de",
+      "copied_sha256": "1a5042697eba7a81936206e24ac627ba9c3e224c853347609364484fe4afa9de",
+      "bytes": 3966,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\verify_season1_package.py",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/verify_season1_package.py.txt",
+      "source_sha256": "60c92617beebbd41a14374148420dd634aa8d2e0ed9e434b249939ad533cfcaa",
+      "copied_sha256": "60c92617beebbd41a14374148420dd634aa8d2e0ed9e434b249939ad533cfcaa",
+      "bytes": 5308,
+      "archived_script": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\SOURCE_SNAPSHOT.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/SOURCE_SNAPSHOT.json",
+      "source_sha256": "465fd0a125f4342a9180526a2a2205cb88741df8d4fc0dc78d4a13604d155d0c",
+      "copied_sha256": "465fd0a125f4342a9180526a2a2205cb88741df8d4fc0dc78d4a13604d155d0c",
+      "bytes": 2204,
+      "archived_script": false
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\verify_a11_manuscript.py",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/verify_a11_manuscript.py.txt",
+      "source_sha256": "d1d1c536dc1362a1790dbe5d6d8e0137dae6e5154e61113f729c0c0718d95be8",
+      "copied_sha256": "d1d1c536dc1362a1790dbe5d6d8e0137dae6e5154e61113f729c0c0718d95be8",
+      "bytes": 4603,
+      "archived_script": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\verify_foundation2_manuscript.py",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/verify_foundation2_manuscript.py.txt",
+      "source_sha256": "e92905d660c7356555db562a68028b087fcf122d2f432b3bfcb34a27c609dfa1",
+      "copied_sha256": "e92905d660c7356555db562a68028b087fcf122d2f432b3bfcb34a27c609dfa1",
+      "bytes": 6148,
+      "archived_script": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\verify_foundation3_manuscript.py",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/verify_foundation3_manuscript.py.txt",
+      "source_sha256": "591933167818aa00761651016665071b45ceeeea6559d14f65c8cf93ac00676b",
+      "copied_sha256": "591933167818aa00761651016665071b45ceeeea6559d14f65c8cf93ac00676b",
+      "bytes": 8471,
+      "archived_script": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\verify_foundation4_manuscript.py",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/manuscripts/verify_foundation4_manuscript.py.txt",
+      "source_sha256": "0d949ce709b4ae497a8eebab1ed8012d2b6ff2cc2c7e7fe186534ff487ad59a4",
+      "copied_sha256": "0d949ce709b4ae497a8eebab1ed8012d2b6ff2cc2c7e7fe186534ff487ad59a4",
+      "bytes": 8348,
+      "archived_script": true
+    },
+    {
+      "source": "C:\\Users\\vjinn\\ELibrary\\Downloads\\한글소리_게임스토리\\1_v3_5.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/reference/STORY_V3_5.md",
+      "source_sha256": "24ec73c1051da05702aac1d0257339cb10059d6cc4ea05cb5c7fb585deb64bcb",
+      "copied_sha256": "24ec73c1051da05702aac1d0257339cb10059d6cc4ea05cb5c7fb585deb64bcb",
+      "bytes": 95562,
+      "reference_only": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\APP_ASSET_CONTRACT.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/reference/R16_APP_ASSET_CONTRACT.json",
+      "source_sha256": "15541911a96ddc747bb2960102f3d983aabcc84541750c2bf1fb3439d6220a75",
+      "copied_sha256": "15541911a96ddc747bb2960102f3d983aabcc84541750c2bf1fb3439d6220a75",
+      "bytes": 195384,
+      "reference_only": true
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\attachments\\3488e0fc-387a-4308-a8b5-e0834fdbd406\\붙여넣은 텍스트.txt",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/reference/PROVIDED_BEGINNER_SPEC_A.txt",
+      "source_sha256": "ac34937bf42248a942cd703e0fe77f969ea854d1e71962d47b0a9d3d4344564e",
+      "copied_sha256": "ac34937bf42248a942cd703e0fe77f969ea854d1e71962d47b0a9d3d4344564e",
+      "bytes": 34319,
+      "reference_only": true
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\attachments\\3438d03c-29dc-43f6-ad53-af2009b24d08\\붙여넣은 텍스트.txt",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/reference/PROVIDED_BEGINNER_SPEC_B.txt",
+      "source_sha256": "e763d4199977383ae3dba8fa2d56f808d0a0ab420944687a8715d5045e612884",
+      "copied_sha256": "e763d4199977383ae3dba8fa2d56f808d0a0ab420944687a8715d5045e612884",
+      "bytes": 30677,
+      "reference_only": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\FOUNDATION.psv",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/FOUNDATION.psv",
+      "source_sha256": "0d8ec0c9ec89060fd58df92c0ce71cf7b4d63454fef506eafe180386a2796c45",
+      "copied_sha256": "0d8ec0c9ec89060fd58df92c0ce71cf7b4d63454fef506eafe180386a2796c45",
+      "bytes": 10885,
+      "reference_only": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\UNITS.psv",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/UNITS.psv",
+      "source_sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+      "copied_sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+      "bytes": 36854,
+      "reference_only": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\GRAMMAR_ALLOCATION.csv",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/GRAMMAR_ALLOCATION.csv",
+      "source_sha256": "85566f234a190abde20c4498d1b63df4680ef7947bf37d6e8be4c3bbbbe43c1a",
+      "copied_sha256": "85566f234a190abde20c4498d1b63df4680ef7947bf37d6e8be4c3bbbbe43c1a",
+      "bytes": 181991,
+      "reference_only": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\ASSESSMENT_CONTRACT.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/ASSESSMENT_CONTRACT.md",
+      "source_sha256": "0e0b6e9526191819e520381f2e9291e81e2c2809df3336cbaeff07521128f8f7",
+      "copied_sha256": "0e0b6e9526191819e520381f2e9291e81e2c2809df3336cbaeff07521128f8f7",
+      "bytes": 7363,
+      "reference_only": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\BAND_CONTRACTS.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/BAND_CONTRACTS.md",
+      "source_sha256": "d69cd9e3911dde0205dc6cbcb08b3a69c3089a5faf884d6ba11c51b97a407344",
+      "copied_sha256": "d69cd9e3911dde0205dc6cbcb08b3a69c3089a5faf884d6ba11c51b97a407344",
+      "bytes": 13348,
+      "reference_only": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\COURSE_BINDINGS.psv",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/COURSE_BINDINGS.psv",
+      "source_sha256": "9fc235f7287834932ee7f0c15dfde5f1036a26d0db6ba3be0cfb45a62640df7d",
+      "copied_sha256": "9fc235f7287834932ee7f0c15dfde5f1036a26d0db6ba3be0cfb45a62640df7d",
+      "bytes": 4017,
+      "reference_only": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\SUPPLEMENTS.psv",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/SUPPLEMENTS.psv",
+      "source_sha256": "54c46ec0897502b57f4578cb9dd59390f4ab447d583cca52b5f8b13d65b7bec3",
+      "copied_sha256": "54c46ec0897502b57f4578cb9dd59390f4ab447d583cca52b5f8b13d65b7bec3",
+      "bytes": 5265,
+      "reference_only": true
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\FIRST_PRODUCTION_PACK.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/FIRST_PRODUCTION_PACK.md",
+      "source_sha256": "91a2aac62ddab82e8092cf51a2f0b83305377f57ead1f3af4043f68b1761f17f",
+      "copied_sha256": "91a2aac62ddab82e8092cf51a2f0b83305377f57ead1f3af4043f68b1761f17f",
+      "bytes": 20485,
+      "reference_only": true
+    }
+  ],
+  "notes": [
+    "Original107 artifact files copied byte-for-byte; archived Python helpers use .py.txt to prevent accidental execution against their historic absolute paths.",
+    "All manuscript output and source references are authoring/review material, not runtime integration.",
+    "Absolute Windows paths inside historic QA and source receipts are provenance at authoring time; repository paths here resolve the committed copies."
+  ],
+  "baseline_main_index_sha256": "447cfaca5c6685e2c300229cecce67ad546d57c1258735f1156d7f0eea6b3597",
+  "prior_delivery_status": "MANUSCRIPT_DELIVERY_COMPLETE"
+}

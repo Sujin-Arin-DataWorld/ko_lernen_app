@@ -1,0 +1,244 @@
+"""Document-only authoring helper. Does not read or write app runtime files."""
+import csv
+import json
+from collections import Counter
+from pathlib import Path
+
+ROOT = Path(__file__).parent / "foundation-2-v35"
+base = json.loads((ROOT / "CONTENT_SOURCE.json").read_text(encoding="utf-8"))
+extra = json.loads((ROOT / "WORD_CONTENT.json").read_text(encoding="utf-8"))
+lessons = base["lessons"] + extra["lessons"]
+prompts = dict(base["prompts"])
+prompts.update({
+    "pair_model": ["그림과 낱말을 함께 보며 같은 푯말을 골라요.", "Look at the picture and its word together, then choose the matching label.", "Sieh dir das Bild und das Wort zusammen an und wähle das passende Schild."],
+    "supp_build": ["낱말 모형을 보며 음절 조각을 같은 순서로 놓아요.", "Use the word example to put the syllable pieces in the same order.", "Lege die Silbenteile nach dem Wortbeispiel in dieselbe Reihenfolge."],
+    "picture_build": ["그림에 맞게 음절 조각을 이어 낱말을 만들어요.", "Put the syllable pieces in order to make the word for the picture.", "Ordne die Silbenteile zu dem Wort, das zum Bild passt."],
+    "tools_label": ["물건을 만들고 고칠 때 쓰는 이 물건들의 이름은 무엇일까요? 맞는 푯말을 골라요.", "What are these objects used for making and repairing things called? Choose their label.", "Wie heißen diese Gegenstände zum Herstellen und Reparieren? Wähle das passende Schild."],
+    "timber_label": ["이 칸에 놓인 재료의 이름은 무엇일까요? 맞는 푯말을 골라요.", "What is the material in this area called? Choose its label.", "Wie heißt das Material in diesem Bereich? Wähle das passende Schild."],
+    "floor_label": ["참고 사진 속, 사람이 앉고 서는 바닥 공간의 이름은 무엇일까요? 맞는 푯말을 골라요.", "What is the floor space where people sit and stand in the reference photo called? Choose its label.", "Wie heißt der Bodenbereich auf dem Referenzfoto, auf dem man sitzt und steht? Wähle das passende Schild."],
+})
+
+def jdump(obj):
+    return json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+
+def cell(value):
+    if not isinstance(value, str):
+        value = jdump(value)
+    return value.replace("|", "\\|").replace("\n", "<br>")
+
+def table(headers, rows):
+    return "\n".join(["| " + " | ".join(headers) + " |", "|" + "---|" * len(headers)] + ["| " + " | ".join(cell(v) for v in row) + " |" for row in rows])
+
+def triad(rows):
+    return table(["구분 / 화자", "한국어", "English", "Deutsch (de-DE)"], rows)
+
+INITIAL = "ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ"
+VOWEL = "ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ"
+
+def pieces(s):
+    off = ord(s) - 0xAC00
+    assert 0 <= off < 11172 and off % 28 == 0, s
+    return [INITIAL[off // 588], VOWEL[(off % 588) // 28]]
+
+def shape(s):
+    ini, vow = pieces(s)
+    return f"{ini} 위 / {vow} 아래" if vow in "ㅗㅜㅡ" else f"{ini} 왼쪽 / {vow} 오른쪽"
+
+items = []
+audios = set()
+
+def add(l, stage, num, kind, stimulus, opts, answer, prompt, scope, feedback):
+    rec = {"unit_id": l["id"], "item_id": f"B{l['n']:02d}-{stage}{num:02d}", "stage": stage,
+           "kind": kind, "stimulus": stimulus, "options_author_only": opts,
+           "answer_author_only": answer, "prompt": prompts[prompt], "scope": scope,
+           "feedback": feedback}
+    items.append(rec)
+    for field in ("audio",):
+        if field in stimulus:
+            audios.add(stimulus[field])
+    if kind == "read_audio":
+        audios.update(opts)
+    return rec
+
+def audio_opts(target, initial_distractor, vowel_distractor, rotation):
+    choices = [target, initial_distractor, vowel_distractor]
+    return choices[rotation:] + choices[:rotation]
+
+for l in lessons:
+    if l["n"] <= 5:
+        for i, target in enumerate(l["taught"], 1):
+            audios.add(target)
+            add(l, "P", i, "syllable_build", {"shown_model": target, "pieces": pieces(target)[::-1]},
+                ["좌우 자리", "위아래 자리"], {"syllable": target, "placement": shape(target)}, "model",
+                "직접 시범과 정답 모형을 제공한 도움 연습. 독립 수행 아님.", ["H01", "F01", "F02"])
+        for i, (target, other) in enumerate(zip(l["transfer"], l["audio_distractors"]), 1):
+            opts = audio_opts(target, other, l["vowel_distractors"][i-1], (l["n"] + i) % 3)
+            add(l, "I", i, "read_audio", {"written": target, "audio_ui": "A/B/C, 전사와 정답 숨김"},
+                opts, {"audio_button": "ABC"[opts.index(target)], "transcript_author_only": target}, "read_audio",
+                "이 조합의 첫 확인. 선행 준비/도움/오답 피드백이 같은 짝을 공개했다면 재노출 후 확인으로 기록. 뜻·실제 발음은 평가하지 않음.", [f"F{2+i:02d}", "H01"])
+            add(l, "I", i+2, "syllable_build", {"pieces": pieces(target)[::-1], "no_model": True},
+                ["좌우 자리", "위아래 자리"], {"syllable": target, "placement": shape(target)}, "build",
+                "I01/I02에서 이미 본 조합의 구조 재확인. 새로운 첫 전이로 중복 집계하지 않음.", ["F01", "F02"])
+        order = [(l["transfer"][1], "read_audio", 1), (l["transfer"][0], "syllable_build", 0),
+                 (l["transfer"][0], "read_audio", 0), (l["transfer"][1], "syllable_build", 1)]
+        for i, (target, kind, index) in enumerate(order, 1):
+            if kind == "read_audio":
+                earlier = audio_opts(target, l["audio_distractors"][index], l["vowel_distractors"][index], (l["n"]+index+1) % 3)
+                opts = earlier[::-1]
+                stimulus = {"written": target, "audio_ui": "A/B/C, 전사와 정답 숨김"}
+                answer = {"audio_button": "ABC"[opts.index(target)], "transcript_author_only": target}
+                prompt = "read_audio"
+            else:
+                stimulus = {"pieces": pieces(target), "no_model": True}
+                opts = ["좌우 자리", "위아래 자리"]
+                answer = {"syllable": target, "placement": shape(target)}
+                prompt = "build"
+            scope = "목표별 첫 지연 응답 후보. 최소 24시간 및 이전 독립 근거 확인."
+            if i >= 3:
+                scope = "같은 R 세트에서 이미 본 목표의 재노출 후 연습. 별도의 사전 노출 없는 유지 성공으로 집계하지 않음."
+            if kind == "syllable_build":
+                scope += " 음성-표기 확인과 조립은 다른 근거이므로 동일 목표/방식의 이전 근거가 있을 때만 유지 후보."
+            add(l, "R", i, kind, stimulus, opts, answer, prompt, scope,
+                [f"F{3+index:02d}", "H01"] if kind == "read_audio" else ["F01", "F02"])
+    else:
+        w0, w1 = l["words"]
+        c0, c1 = l["concepts"]
+        audios.update(l["words"])
+        for i, (w,c) in enumerate(zip(l["words"], l["concepts"]), 1):
+            opts = l["words"][::-1] if i == 1 else l["words"]
+            add(l,"P",i,"picture_word",{"picture":c+"-T1","shown_word":w},opts,w,"pair_model",
+                "뜻 지도와 정답 모형을 제공한 도움 연습.",["H01",f"F{2+i:02d}"])
+            pics = [c0+"-T2",c1+"-T2"][::-1] if i == 1 else [c0+"-T2",c1+"-T2"]
+            add(l,"P",i+2,"audio_picture",{"audio":w,"no_transcript":True},pics,c+"-T2","audio_picture",
+                "뜻을 가르친 사진으로 소리-뜻을 연결하는 연습.",["H01",f"F{2+i:02d}"])
+        definitions = [
+            ("I",1,"picture_word",{"picture":c0+"-I1"},[w1,w0],w0,"picture_word","첫 낱말의 새 사진 인식 후보. 표기/뜻 범위만 확인.","F03"),
+            ("I",2,"audio_picture",{"audio":w1,"no_transcript":True},[c1+"-I1",c0+"-I1"],c1+"-I1","audio_picture","둘째 낱말의 소리-새 사진 연결 후보. 단어 읽기 점수와 분리.","F04"),
+            ("I",3,"text_picture",{"written":w0},[c0+"-T2",c1+"-T2"],c0+"-T2","text_picture","첫 낱말 재노출 뒤, 가르친 다른 사진으로 뜻 연결 확인.","F03"),
+            ("I",4,"picture_word",{"picture":c1+"-I1"},[w0,w1],w1,"picture_word","이미 I02에서 본 사진의 재노출 뒤 표기 연결. 새 사진 첫 인식 아님.","F04"),
+            ("R",1,"picture_word",{"picture":c1+"-R1"},[w1,w0],w1,"picture_word","둘째 목표의 첫 지연 응답 후보. 이전 같은 방식의 독립 근거와 최소 24시간을 확인.","F04"),
+            ("R",2,"audio_picture",{"audio":w0,"no_transcript":True},[c1+"-R1",c0+"-R1"],c0+"-R1","audio_picture","첫 목표의 첫 지연 응답 후보. 앞 문항의 피드백/노출이 뜻을 공개했다면 지원/재노출로 전환. 같은 방식의 이전 독립 근거가 없으면 늦은 첫 확인.","F03"),
+            ("R",3,"picture_word",{"picture":c0+"-R1"},[w0,w1],w0,"picture_word","같은 R 안에서 이미 본 목표의 재노출 후 연습.","F03"),
+            ("R",4,"audio_picture",{"audio":w1,"no_transcript":True},[c0+"-R1",c1+"-R1"],c1+"-R1","audio_picture","같은 R 안에서 이미 본 목표의 재노출 후 연습.","F04"),
+        ]
+        for stage,num,kind,stim,opts,ans,pr,scope,fb in definitions:
+            add(l,stage,num,kind,stim,opts,ans,pr,scope,[fb,"H01"])
+    if l.get("supplement"):
+        s = extra["supplements"][l["supplement"]]
+        w,c = s["word"],s["concept"]
+        audios.add(w)
+        add(l,"P",5,"picture_word",{"picture":c+"-T1","shown_word":w},[w,w[::-1]],w,"pair_model",
+            "본 단원의 I 뒤 별도로 뜻을 가르친 보충 도움 연습. 공식 새 단원/별도 보상 아님.",["S-H01"])
+        add(l,"P",6,"word_build",{"shown_word":w,"syllable_pieces":list(w)[::-1]},[],w,"supp_build",
+            "정답 낱말 모형을 보며 음절 순서를 익히는 도움 연습.",["S-H01","S-F01"])
+        add(l,"R",5,"word_build",{"picture":c+"-R1","syllable_pieces":list(w)[::-1],"no_model":True},[],w,"picture_build",
+            "보충 목표를 실제로 가르친 시각부터 최소 24시간 뒤 첫 지연 응답 후보. 이전에는 도움 연습뿐이므로 최초 독립 수행 후보이며 이미 확인된 유지라고 부르지 않음.",["S-H01","S-F01"])
+        add(l,"R",6,"audio_text",{"audio":w,"no_transcript":True},[w,w[::-1]] if l["n"]%2==0 else [w[::-1],w],w,"hear_text",
+            "R05 뒤 재노출된 목표의 소리-표기 연결 연습. 역순 보기의 뜻은 평가하지 않음.",["S-H01","S-F01"])
+    if l.get("final_labels"):
+        for k,(key,pr) in enumerate([("tools","tools_label"),("timber","timber_label"),("floor","floor_label")],5):
+            s = extra["supplements"][key]
+            opts = ["나무","도구","마루"]
+            opts = opts[k%3:] + opts[:k%3]
+            for stage,suffix in [("I","I1"),("R","R1")]:
+                add(l,stage,k,"label_choice",{"picture":s["concept"]+"-"+suffix},opts if stage=="I" else opts[::-1],s["word"],pr,
+                    "세 보충 뜻을 실제 배운 뒤의 상황 사용. 최초 독립/같은 목표 재노출/도움 노출을 목표별 기록. " +
+                    ("첫 지연 상황 사용 후보: 해당 보충을 배운 뒤 24시간 및 같은 의미·방식의 이전 독립 근거 확인. 다른 단원 R에서 이미 재학습했다면 재노출 후 연습." if stage=="R" else "정답 모형 없이 시작하되 준비가 없으면 먼저 지원 지도."),
+                    [f"L{k-4:02d}"])
+
+for rec in items:
+    if rec['stage'] == 'R':
+        rec['scope'] += ' 직전 관련 노출 뒤의 실제 간격도 별도 확인하며 24시간 미만이면 짧은 간격 연습으로 구분.'
+items.sort(key=lambda r: (next(l['n'] for l in lessons if l['id']==r['unit_id']), 'PIR'.index(r['stage']), int(r['item_id'][-2:])))
+
+def feedback(l):
+    rows = [["H01·도움",*l["help"]]]
+    if l["n"] <= 5:
+        rows += [
+            ["F01·배치", "첫소리와 모음을 한 덩어리로 모아요. ㅏ·ㅓ·ㅣ는 오른쪽, ㅗ·ㅜ·ㅡ는 아래에 놓아요. 지금 글자의 모형을 함께 다시 봐요.", "Put the initial and vowel into one block. ㅏ, ㅓ and ㅣ go on the right; ㅗ, ㅜ and ㅡ go below. Let's look at the example for this syllable again.", "Setze Anfangszeichen und Vokal zu einem Block zusammen. ㅏ, ㅓ und ㅣ stehen rechts; ㅗ, ㅜ und ㅡ darunter. Sehen wir uns das Beispiel für diese Silbe noch einmal an."],
+            ["F02·첫자리", "첫자리에는 첫소리 조각 하나만 놓아요. 새 첫소리가 있으면 ㅇ을 더 붙이지 않아요. 같은 글자로 다시 해 봐요.", "Use just one initial piece. When another initial is present, don't add ㅇ as well. Try the same syllable again.", "Am Anfang steht nur ein Anfangszeichen. Wenn ein anderes Anfangszeichen da ist, kommt kein zusätzliches ㅇ dazu. Versuch dieselbe Silbe noch einmal."],
+        ]
+        for i,target in enumerate(l["transfer"],3):
+            ini,vow=pieces(target)
+            rows.append([f"F{i:02d}·{target}",f"지금 글자는 {target}예요. 첫소리 {ini}과 모음 {vow}를 이어 들어요. 같은 글자의 소리를 다시 고를 수 있어요.",f"This written syllable is {target}. Listen to the initial {ini} with the vowel {vow}. You can choose the sound for the same syllable again.",f"Diese geschriebene Silbe ist {target}. Hör dir das Anfangszeichen {ini} zusammen mit dem Vokal {vow} an. Du kannst den Laut für dieselbe Silbe noch einmal wählen."])
+        rows.append(["OK", "이 글자의 조합과 맞는 답이에요. 다음 글자도 차근차근 해 봐요.", "That matches this syllable. Take your time with the next one too.", "Das passt zu dieser Silbe. Nimm dir auch für die nächste Silbe Zeit."])
+    else:
+        for i,(w,c) in enumerate(zip(l["words"],l["concepts"]),3):
+            meanings={"TREE":["살아 있는 나무","a living tree","einen lebenden Baum"],"HAT":["머리에 쓰는 모자","a hat worn on the head","einen Hut für den Kopf"],"SEA":["바다","the sea","das Meer"],"BRIDGE":["물을 건너는 다리","a bridge over water","eine Brücke über Wasser"]}
+            ko,en,de=meanings[c]
+            rows.append([f"F{i:02d}·{w}",f"여기서 {w}는 {ko}를 가리켜요. 같은 그림과 낱말, 소리를 함께 다시 봐요.",f"Here, {w} refers to {en}. Let's revisit the same picture with the word and its sound.",f"Hier bezeichnet {w} {de}. Sehen wir uns dasselbe Bild mit dem Wort und seinem Laut noch einmal an."])
+        rows.append(["OK", "이 낱말과 그림의 뜻이 맞아요. 다른 모습에서도 다시 찾아봐요.", "This word matches what the picture shows. Look for it in another example too.", "Das Wort passt zu dem, was das Bild zeigt. Erkenne es auch in einem anderen Beispiel wieder."])
+    if l.get("supplement"):
+        s=extra["supplements"][l["supplement"]]
+        rows.append(["S-H01·뜻 도움/오답",*s["help"]])
+        w=s["word"]
+        rows.append(["S-F01·음절 순서",f"이번 낱말은 {w}예요. {w[0]} 다음에 {w[1]}를 놓고 이어 들어요. 같은 낱말로 다시 해 봐요.",f"The word here is {w}. Put {w[0]} before {w[1]} and listen to them together. Try the same word again.",f"Das Wort hier ist {w}. Setze {w[0]} vor {w[1]} und hör dir beide zusammen an. Versuch dasselbe Wort noch einmal."])
+    if l.get("final_labels"):
+        for i,key in enumerate(["tools","timber","floor"],1):
+            rows.append([f"L{i:02d}·상황 도움/오답",*extra["supplements"][key]["help"]])
+    return rows
+
+def item_section(title, rows):
+    out=["## "+title,"",table(["문항", "자료·보기·정답 — 제작자 전용", "확인 범위 / 피드백"],[
+        [r["item_id"], "자료: "+jdump(r["stimulus"])+"<br>보기: "+jdump(r["options_author_only"])+"<br>정답: "+jdump(r["answer_author_only"]),r["scope"]+"<br>연결: "+", ".join(r["feedback"])] for r in rows]),"",
+        triad([[r["item_id"],*r["prompt"]] for r in rows]),""]
+    return out
+
+for l in lessons:
+    own=[r for r in items if r["unit_id"]==l["id"]]
+    out=[f"# 입문 2-{l['n']} · {l['title'][0]}","",f"{l['title'][1]} · {l['title'][2]}","",
+         f"기존 단원 `{l['id']}` · 2026-10-28 집필 후보 · 앱/디자인 미변경", "",
+         "## 목표와 진행 순서","",
+         (f"새 첫소리: **{' · '.join(l['new'])}**. 직접 시범: **{' · '.join(l['taught'])}**. 첫 조합 확인: **{' · '.join(l['transfer'])}**. 뜻·실제 발음 점수와 구분한다." if l['n']<=5 else f"배울 낱말: **{' · '.join(l['words'])}**. 표기·소리·뜻을 각각 연결한다. 같은 낱말의 다른 뜻을 자동으로 아는 것으로 취급하지 않는다."),"",
+         "첫 방문: 장면 → 뜻/소리/모형 지도 → P01–P04 → I01–I04 → 상황 참여" + (" → 뜻 보충과 P05–P06" if l.get("supplement") else "") + (" → 창고 푯말 I05–I07" if l.get("final_labels") else "") + " → 마무리. 다음 날에는 아래 R을 시범보다 먼저 제공한다.","",
+         "공통 원칙은 [전체 안내](README.md)의 도움·노출·독립·저장·지연 규칙을 함께 적용한다. 정답 노출 뒤에는 같은 문항과 입력을 유지하고 다시 시도할 수 있다. 빠르기·드래그·실제 발화를 통과 조건으로 만들지 않는다.","",
+         "## 도입 장면 — 새 집필 대사","",
+         "도깨비 대사의 청자: 첫 등장/정리 지시는 플레이어와 수진 두 사람(ihr), 개별 질문/재생 응답은 플레이어 한 사람(du). 그 밖의 안내·수진·탈선비는 플레이어 한 사람에게 말한다.","",triad(l["scenes"]),"",
+         "## 먼저 가르치기","",triad([["T"+str(i)+"·"+r[0],*r[1:]] for i,r in enumerate(l["teaching"],1)]),"",
+         ("각 시범 글자의 완성 모형과 해당 음성을 함께 제공한다. 아직 처음 확인할 조합은 이 단계에서 정답 짝으로 공개하지 않는다." if l["n"]<=5 else "각 개념의 T1/T2 그림을 설명·한국어 낱말·음성과 함께 보여 준다. 자료 참조는 미디어 명세를 따른다. 뜻을 먼저 가르친 뒤 문항으로 넘어간다."),""]
+    out+=item_section("P · 도움받는 연습",[r for r in own if r["stage"]=="P" and int(r["item_id"][-2:])<=4])
+    out+=item_section("I · 별도 확인",[r for r in own if r["stage"]=="I" and int(r["item_id"][-2:])<=4])
+    out += ["## 상황에서 함께 하기","",triad(l["oral"]),"",l["oral_note"],"",
+            "플레이어·시범은 아바타/표현 음성으로 듣거나 뜻을 보고 선택하는 참여도 허용한다. 실제로 발화하지 않았으면 발화 성공으로 기록하지 않는다. 듣기·그림 참여·자발 발화를 분리하고 녹음은 필수가 아니다.",""]
+    if l.get("supplement"):
+        s=extra["supplements"][l["supplement"]]
+        out += [f"## 창고 뜻 보충 · {s['word']}","",f"본 단원 첫 조합 확인 뒤 제공. `{s['concept']}-T1/T2`를 실제 설명과 함께 먼저 가르친다.","",
+                triad([["뜻 지도",*s["teaching"]],["함께 배치",*s["response"]]]),""]
+        out += item_section("보충 P05–P06 · 도움 연습",[r for r in own if r["stage"]=="P" and int(r["item_id"][-2:])>=5])
+    if l.get("final_labels"):
+        out += ["## LQ-02 · 창고 착공 푯말 사용","",
+                "준비: 도구(2단원), 마루(3단원), 나무=목재(6단원) 뜻을 실제로 학습했는지 확인한다. 빠진 목표는 해당 뜻을 도움으로 먼저 가르치고 그 수행을 독립으로 바꾸지 않는다. 사진·물건에 정답 자막이 없는 상태에서 시작한다.","",
+                "아래 첫 두 대사는 활동 앞, 책갈피 원문과 마지막 도깨비 대사는 활동 뒤에 사용한다. R 앞에는 답을 알려 주는 이 대사를 반복하지 않는다.","",
+                triad(extra["label_scene"]),""]
+        out += item_section("LQ 상황 문항 I05–I07",[r for r in own if r["stage"]=="I" and int(r["item_id"][-2:])>=5])
+        out += ["이 정리는 착공의 학습 행동이다. 창고 8공정·기억 20%·빈 씨앗 주머니·S1-E03 완공 사건·보상을 생성하지 않는다. 이야기 참여는 도움으로도 이어진다.",""]
+    out += ["## 도움·오답·정답의 실제 문구","",triad(feedback(l)),"",
+            "오답 연결: 표의 F/S/L 코드를 현재 목표에 맞춰 사용한다. 첫 응답과 선택을 보존하고 원래 자극/입력에서 재시도한다. 답을 공개한 뒤의 같은 목표, 의미 또는 공통 배치 규칙에 의존하는 후속 문항은 지원 노출을 이어받는다. 음성 재생 실패·그림 없음·미응답은 오답으로 기록하지 않는다. 다른 선택의 잘못된 이유를 미학습 뜻으로 설명하지 않는다.",""]
+    out += item_section("R · 다음 날 먼저 해 보기",[r for r in own if r["stage"]=="R"])
+    endings = [["보충까지 참여한 뒤" if l.get("supplement") else "중립 마무리",*l["ending"]]]
+    if l.get("ending_no_supplement"):
+        endings.append(["보충에 아직 참여하지 않은 경로",*l["ending_no_supplement"]])
+    out += ["R 시작은 [공통 문구](COMMON_COPY.md)의 C-REVIEW/C-REVIEWHELP를 쓴다. 해당 목표를 실제로 처음 배운 시각부터 최소 24시간 뒤, 정답 시범 없이 시작한다. 최초 지도시각과 R 직전 마지막 목표별 관련 노출시각(학습 활동에서 글자·소리·뜻을 다시 접하거나 정답/재학습을 본 시각)을 별도로 기록해 실제 간격을 남긴다. 최근 관련 노출 뒤 24시간 미만이면 재노출 후 연습/짧은 간격 확인이며 24시간 무재노출 유지로 부르지 않는다. 같은 세트 안의 재노출·앞 문항 피드백·다른 단원에서 먼저 한 복습까지 목표별 반영한다. 원래 독립 근거가 없다면 늦은 첫 독립 수행 후보로 남기며 유지 확정이라고 부르지 않는다.","",
+            "## 마무리와 후속 연결","",triad(endings),"",
+            "마무리는 실제로 학습/참여한 범위에서만 사용한다. 수행이 남았으면 C-SUPPORT/C-LATER로 선택을 주고, 저장 성공/미확인은 C-SAVED/C-UNCONFIRMED를 사실대로 사용한다.","",l["followup"],"",
+            "제작 참조: [공통 안내](README.md), [공통 문구](COMMON_COPY.md), [미디어 명세](MEDIA_BRIEFS.md), [문항 표](ITEM_BANK.csv). 내부 ID·미디어 참조·정답 전사는 학습자에게 노출하지 않는다.",""]
+    (ROOT/l["file"]).write_text("\n".join(out),encoding="utf-8")
+
+(ROOT/"AUTHORING_ITEMS.json").write_text(json.dumps({"version":"1.0-document-authoring-only","items":items},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+fields=["unit_id","author_item_id","stage","kind","stimulus_author_only","options_author_only","prompt_ko","prompt_en","prompt_de","answer_author_only","scope","feedback"]
+with (ROOT/"ITEM_BANK.csv").open("w",encoding="utf-8-sig",newline="") as f:
+    writer=csv.DictWriter(f,fieldnames=fields)
+    writer.writeheader()
+    for r in items:
+        writer.writerow(dict(zip(fields,[r["unit_id"],r["item_id"],r["stage"],r["kind"],jdump(r["stimulus"]),jdump(r["options_author_only"]),*r["prompt"],jdump(r["answer_author_only"]),r["scope"],", ".join(r["feedback"])])))
+
+media=["# 입문 2 미디어 제작 명세","","문서용 참조다. 실제 음성·그림·영상 파일을 제작하거나 앱에 연결하지 않았다. 기존 캐릭터/정본 에셋을 교체하지 않는다.","",
+       "## 그림 28종","",table(["제작 참조","대상과 사용 조건"],extra["media"].items()),"",
+       "사진 속 정답 표기는 제거한다. 그림의 색·위치·크기만으로 정답을 알게 하지 않는다. 현대 사진은 학습 소품이며 과거 사건의 증거가 아니다. 그림 대신 의미 설명으로 진행한 경우에는 시각 인식과 다른 근거로 남긴다.","",
+       "## 소리 읽기 대본","",table(["제작 참조","읽을 내용"],[[f"S-{i:02d}",a] for i,a in enumerate(sorted(audios),1)]),"",
+       "표의 전사는 제작자 전용이다. 음절은 중립적인 읽기로 녹음하고 하·호·후를 웃음/감탄/신음으로 구별하게 하지 않는다. A/B/C 선택지의 음량·속도·잡음은 동등하게 맞추고 순서를 고정 단서로 만들지 않는다. 읽기→소리에는 같은 모음·다른 첫소리와 같은 첫소리·다른 모음 보기를 각각 둔다. 단독 자음은 임의 모음을 덧붙여 알파벳 같은 고정값으로 외우게 하지 않으며 배운 음절에서 실제 소리를 비교한다.","",
+       "## 인물 대사·참여 청크","","각 단원 KO/EN/DE 열이 대본 원문이다. 선택한 설명 언어로 뜻을 제공하며 한국어 긴 대사를 독립 읽기 통과 조건으로 만들지 않는다. 한국어 표현 음성 네·아니요·주세요·모자 주세요·다시 말해 주세요, 실제 선택 이름 음성은 별도 제작/적절성 확인이 필요하다. 이름 음성이 없으면 해당 듣기를 미평가로 둔다.","",
+       "감수 음성과 필요한 그림이 준비되기 전에는 듣기/새 그림 검증을 완료했다고 보고하지 않는다. 모델 문구 검토와 교원·원어민·학습자 검토는 별도다.",""]
+(ROOT/"MEDIA_BRIEFS.md").write_text("\n".join(media),encoding="utf-8")
+(ROOT/"COMMON_COPY.md").write_text("# 입문 2 공통 안내 문구\n\n2026-10-28 집필 후보. 앱/디자인을 변경한 것이 아니다. 저장 문구는 실제 성공 확인 때만 사용한다. 소리 재생에 실패하면 해당 듣기는 미평가다. 아래 문구는 설명 언어를 선택해 제공한다.\n\n"+triad(base["common_copy"])+"\n",encoding="utf-8")
+print("Generated",len(lessons),"lesson manuscripts;",len(items),"items;",dict(Counter(r["stage"] for r in items)))

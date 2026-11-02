@@ -1,0 +1,334 @@
+"""Standalone manuscript authoring only; never writes to the app checkout."""
+import csv
+import json
+from collections import Counter
+from pathlib import Path
+
+ROOT=Path(__file__).parent/'foundation-3-v35'
+source=json.loads((ROOT/'CONTENT_SOURCE.json').read_text(encoding='utf-8'))
+media_source=json.loads((ROOT/'MEANINGS_AND_MEDIA.json').read_text(encoding='utf-8'))
+lessons=source['lessons']
+meanings=media_source['meanings']
+common=json.loads((Path(__file__).parent/'foundation-2-v35'/'CONTENT_SOURCE.json').read_text(encoding='utf-8'))['common_copy']
+prompts={
+ 'model':['모형을 보며 조각을 한 글자로 모아요.','Use the example to put the pieces into one syllable block.','Setze die Teile nach dem Beispiel zu einem Silbenblock zusammen.'],
+ 'build':['조각을 한 글자로 모아요. 완성 모형은 아직 보이지 않아요.','Put the pieces into one syllable block. The completed example is hidden.','Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist noch verborgen.'],
+ 'read_audio':['글자를 보고 맞는 소리를 골라요.','Look at the written syllable and choose its sound.','Sieh dir die geschriebene Silbe an und wähle den passenden Laut.'],
+ 'audio_text':['소리를 듣고 같은 글자를 골라요.','Listen and choose the matching written form.','Hör zu und wähle die passende Schriftform.'],
+ 'vowel':['적힌 글자에서 모음 조각을 찾아요. 소리만으로 고르는 문제는 아니에요.','Find the vowel piece in the written block. This is not a sound-only question.','Finde das Vokalzeichen im geschriebenen Block. Hier entscheidest du nicht nur nach dem Klang.'],
+ 'word_model':['그림과 뜻, 낱말 모형을 함께 보고 같은 낱말을 골라요.','Look at the picture, meaning and word example, then choose the matching word.','Sieh dir Bild, Bedeutung und Wortbeispiel zusammen an und wähle das passende Wort.'],
+ 'picture_word':['그림에 맞는 낱말을 골라요.','Choose the word that matches the picture.','Wähle das Wort, das zum Bild passt.'],
+ 'meaning_word':['뜻 설명을 보고 맞는 낱말을 골라요.','Choose the word that matches the supplied meaning.','Wähle das Wort, das zur angegebenen Bedeutung passt.'],
+ 'word_build':['모형을 보며 음절 조각을 같은 순서로 놓아요.','Use the example to put the syllable pieces in the same order.','Lege die Silbenteile nach dem Beispiel in dieselbe Reihenfolge.'],
+ 'audio_picture':['소리를 듣고 뜻에 맞는 그림을 골라요.','Listen and choose the picture that matches the meaning.','Hör zu und wähle das Bild, das zur Bedeutung passt.'],
+ 'above':['적힌 낱말에 맞는 위치를 골라요. 상자를 기준으로 봐요.','Choose the position that matches the written word, using the box as the reference.','Wähle den Platz, der zum geschriebenen Wort passt. Nimm die Kiste als Bezugspunkt.'],
+ 'above_audio':['소리를 듣고 상자를 기준으로 맞는 위치를 골라요.','Listen and choose the matching position relative to the box.','Hör zu und wähle den passenden Platz im Verhältnis zur Kiste.'],
+ 'role':['표시한 ㅇ은 이 자리에서 어떤 일을 하나요?','What does the marked ㅇ do in this position?','Welche Funktion hat das markierte ㅇ an dieser Stelle?'],
+ 'map':['표시한 곳에 맞는 이름표를 골라요.','Choose the label for the marked place.','Wähle das Schild für die markierte Stelle.'],
+ 'map_model':['장소와 이름표 모형을 함께 보고 같은 이름표를 놓아요.','Use the place and label example to place the matching label.','Ordne mit dem Ortsbild und dem Schildbeispiel das passende Schild zu.']
+}
+INITIAL='ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ'
+VOWEL='ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ'
+FINAL='\0ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ'
+
+def parts(s):
+ n=ord(s)-44032
+ assert 0<=n<11172,s
+ return [INITIAL[n//588],VOWEL[(n%588)//28]]+([FINAL[n%28]] if n%28 else [])
+
+def copula(s):
+ return '이에요' if (ord(s[-1])-44032)%28 else '예요'
+
+def shape(s):
+ p=parts(s)
+ if p[1] in 'ㅘㅝㅟㅚ': base=f'{p[0]} 왼쪽 위 / {p[1]} 오른쪽과 아래'
+ elif p[1] in 'ㅗㅛㅜㅠㅡ': base=f'{p[0]} 위 / {p[1]} 그 아래'
+ else: base=f'{p[0]} 왼쪽 / {p[1]} 오른쪽'
+ return base+(f' / 받침 {p[2]} 가장 아래' if len(p)==3 else '')
+
+def jd(o): return json.dumps(o,ensure_ascii=False,separators=(',',':'))
+def cell(o): return (o if isinstance(o,str) else jd(o)).replace('|','\\|').replace('\n','<br>')
+def table(headers,rows): return '\n'.join(['| '+' | '.join(headers)+' |','|'+'---|'*len(headers)]+['| '+' | '.join(cell(v) for v in row)+' |' for row in rows])
+def tri(rows): return table(['구분 / 화자','한국어','English','Deutsch (de-DE)'],rows)
+
+items=[]
+sounds=set()
+feedback_by_unit={}
+meaning_by_unit={}
+
+def add(l,stage,num,mini,kind,stim,opts,ans,pr,scope,fb):
+ r={'unit_id':l['id'],'item_id':f'C{l["n"]:02d}-{stage}{num:02d}','stage':stage,'subactivity':mini,
+    'kind':kind,'stimulus_author_only':stim,'options_author_only':opts,'answer_author_only':ans,
+    'prompt':prompts[pr],'scope':scope,'feedback':fb}
+ if stage=='R':
+  r['scope']+=' 최초 지도 뒤 24시간 및 직전 마지막 관련 노출 뒤 실제 간격을 따로 확인. 최근 노출24시간 미만은 짧은 간격 연습.'
+ items.append(r)
+ if 'audio' in stim: sounds.add(stim['audio'])
+ if kind=='read_audio': sounds.update(opts)
+ for key in ['if_any_required_final_not_learned','if_any_m_n_not_learned']:
+  if key in stim:sounds.update(stim[key]['audio_choices'])
+ return r
+
+def rotated(options,n):
+ n=n%len(options)
+ return options[n:]+options[:n]
+
+def audio_choices(l,t,review=False):
+ target=t['transfer']
+ if l['mode']=='final':
+  if review:
+   return [target,t['without_final'],*t['final_contrasts']]
+  return [target,t['without_final'],t['other_vowel']]
+ if l['mode']=='ng':
+  return [target,t['without_final'],*t['final_contrasts']]
+ return [target,t['other_initial'],t['other_vowel']]
+
+def detail(s):
+ p=parts(s)
+ ko=f'첫소리 {p[0]}, 모음 {p[1]}'+(f', 받침 {p[2]}' if len(p)==3 else '')
+ en=f'initial {p[0]}, vowel {p[1]}'+(f', final consonant {p[2]}' if len(p)==3 else '')
+ de=f'Anfangszeichen {p[0]}, Vokal {p[1]}'+(f', Endkonsonant {p[2]}' if len(p)==3 else '')
+ return ko,en,de
+
+for l in lessons:
+ fb=[]
+ meaning_by_unit[l['id']]=[]
+ m=len(l['targets'])
+ for index,t in enumerate(l['targets']):
+  i=index+1
+  taught,target=t['taught'],t['transfer']
+  sounds.update([taught,t['contrast']])
+  mini=f'M{i:02d}'
+  add(l,'P',2*i-1,mini,'syllable_build',{'shown_model':taught,'pieces':parts(taught)[::-1]},[],{'syllable':taught,'placement':shape(taught)},'model','이 작은 활동의 모형을 보고 하는 도움 연습. 첫 독립 확인 아님.',[f'H{i:02d}',f'B{i:02d}'])
+  if l['mode']=='visual':
+   opts=rotated(['ㅏ','ㅐ'] if index==0 else ['ㅐ','ㅔ'],i)
+   add(l,'P',2*i,mini,'vowel_in_block',{'written':taught},opts,parts(taught)[1],'vowel','가르친 표기의 모음 형태 확인 연습. 청각 변별 근거 아님.',[f'H{i:02d}',f'V{i:02d}'])
+   add(l,'I',2*i-1,mini,'vowel_in_block',{'written':target,'no_audio_required':True},opts[::-1],parts(target)[1],'vowel','새 조합에서 보이는 모음의 표기 구성 확인. 소리 차이/낱말 뜻/순수 해독 근거로 확대하지 않음.',[f'H{i:02d}',f'V{i:02d}'])
+  else:
+   opts=rotated([taught,t['contrast']],i+l['n'])
+   add(l,'P',2*i,mini,'audio_text',{'audio':taught,'no_transcript':True},opts,taught,'audio_text','시범 직후의 소리-표기 연결 도움 연습.',[f'H{i:02d}',f'A{i:02d}'])
+   opts=rotated(audio_choices(l,t),i+l['n'])
+   stim={'written':target,'audio_ui':'/'.join('ABCD'[:len(opts)])+', 전사 숨김'}
+   if l['mode']=='ng':
+    partial=rotated([target,t['without_final'],'궁' if target=='공' else '공'],i+l['n'])
+    stim.update({'required_prelearned_finals_for_main_choices':['ㅁ','ㄴ','ㅇ'],'if_any_m_n_not_learned':{'audio_choices':partial,'correct_button':'ABC'[partial.index(target)],'scope':'ㅁ·ㄴ 중 하나라도 미학습이면 이 보기 사용. 받침 ㅇ 유무와 모음만 확인; 다른 받침과의 대조 근거 아님'}})
+   add(l,'I',2*i-1,mini,'read_audio',stim,opts,{'button':'ABCD'[opts.index(target)],'transcript_author_only':target},'read_audio','직접 시범하지 않은 조합의 첫 읽기→소리 후보. 같은 짝/규칙을 이미 도움으로 공개했다면 지원/재노출로 전환. 낱말 뜻·실제 발음은 미평가.',[f'H{i:02d}',f'C{i:02d}',f'V{i:02d}'])
+  add(l,'I',2*i,mini,'syllable_build',{'pieces':parts(target)[::-1],'no_model':True},[],{'syllable':target,'placement':shape(target)},'build','앞 확인에서 이미 본 조합의 구조 확인. 새 첫 전이로 중복 집계하지 않음.',[f'H{i:02d}',f'B{i:02d}'])
+  if l['mode']=='visual':
+   add(l,'R',i,mini,'vowel_in_block',{'written':target,'no_audio_required':True},rotated(['ㅏ','ㅐ'] if index==0 else ['ㅐ','ㅔ'],index),parts(target)[1],'vowel','이 표기 목표의 첫 지연 응답 후보. 이전 같은 방식의 독립 근거가 있을 때만 표기 유지 후보.',[f'H{i:02d}',f'V{i:02d}'])
+  else:
+   old=rotated(audio_choices(l,t,review=True),i+l['n'])
+   opts=old[::-1]
+   stim={'written':target,'audio_ui':'/'.join('ABCD'[:len(opts)])+', 전사 숨김'}
+   if l['mode']=='final':
+    partial=rotated(audio_choices(l,t),i+l['n'])[::-1]
+    stim.update({'required_prelearned_finals_for_main_choices':['ㅁ','ㄴ','ㄹ'],'if_any_required_final_not_learned':{'audio_choices':partial,'correct_button':'ABC'[partial.index(target)],'scope':'ㅁ·ㄴ·ㄹ 중 하나라도 미학습이면 이 보기 사용. 이 받침 유무와 모음만 확인; 세 받침 소리 대조 근거 아님'}})
+   elif l['mode']=='ng':
+    partial=rotated([target,t['without_final'],'궁' if target=='공' else '공'],i+l['n'])[::-1]
+    stim.update({'required_prelearned_finals_for_main_choices':['ㅁ','ㄴ','ㅇ'],'if_any_m_n_not_learned':{'audio_choices':partial,'correct_button':'ABC'[partial.index(target)],'scope':'ㅁ·ㄴ 중 하나라도 미학습이면 이 보기 사용. 받침 ㅇ 유무와 모음만 확인; 다른 받침과의 대조 근거 아님'}})
+   add(l,'R',i,mini,'read_audio',stim,opts,{'button':'ABCD'[opts.index(target)],'transcript_author_only':target},'read_audio','이 조합의 첫 지연 응답 후보. 이전 같은 내용·방식의 독립 근거가 없으면 늦은 첫 독립 확인 후보.',[f'H{i:02d}',f'C{i:02d}',f'V{i:02d}'])
+  add(l,'R',m+i,mini,'syllable_build',{'pieces':parts(target),'no_model':True},[],{'syllable':target,'placement':shape(target)},'build','같은 R에서 이미 본 목표의 재노출 뒤 조립 연습. 별개의 무재노출 유지 성공으로 합산하지 않음.',[f'H{i:02d}',f'B{i:02d}'])
+  # Model-help and feedback for the current pair never disclose other future pairs.
+  fb.append([f'H{i:02d}·시범 도움',*t['note']])
+  if l['mode']!='visual':
+   fb.append([f'A{i:02d}·듣고 표기·{taught}',f'방금 소리는 {taught}{copula(taught)}. 같은 소리와 {taught}의 모형을 함께 다시 보고, 글자를 다시 골라요.',f'The sound was {taught}. Listen again with the written example {taught}, then choose the written form again.',f'Der Laut war {taught}. Hör ihn noch einmal mit dem Schriftbeispiel {taught} und wähle dann das Schriftzeichen erneut.'])
+  targets=[taught,target]
+  for code,area in [('B','배치'),('C','받침 소리' if l['mode'] in ['final','ng'] else '첫소리'),('V','모음')]:
+   if l['mode']=='visual' and code=='C': continue
+   # These are templates with concrete values in the final manuscript, not runtime strings.
+   for form in targets:
+    ko,en,de=detail(form)
+    label=f'{code}{i:02d}·{area}·{form}'
+    if code=='B':
+     copy=[f'지금 글자는 {form}{copula(form)}. 다음 조각을 한 글자로 모아요: {ko}. 같은 글자의 모형을 보고 다시 해 봐요.',f'The written form here is {form}: {en}. Put the pieces into one block and try again with the same example.',f'Hier steht {form}: {de}. Setze die Teile zu einem Block zusammen und versuch es mit demselben Beispiel noch einmal.']
+    elif l['mode']=='visual':
+     vowel=parts(form)[1]
+     copy=[f'{form}의 모음은 {vowel}예요. 모양을 다시 보고 같은 모음 조각을 골라요.',f'The vowel in {form} is {vowel}. Look at its shape again and choose that vowel piece.',f'Der Vokal in {form} ist {vowel}. Sieh dir die Form noch einmal an und wähle dieses Vokalzeichen.']
+    else:
+     copy=[f'지금 적힌 글자는 {form}{copula(form)}. 조각을 확인하고 전체 소리를 들어요: {ko}. 같은 글자의 소리를 다시 골라요.',f'The written syllable is {form}: {en}. Check its pieces, listen to the whole syllable and choose its sound again.',f'Geschrieben steht {form}: {de}. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut.']
+    fb.append([label,*copy])
+  if t.get('meaning'):
+   meaning_by_unit[l['id']].append((t['meaning'],'각 작은 활동의 시범 전에 뜻을 먼저 안내'))
+ # Extra oral-position role tasks, with fully localized response labels below.
+ if l['mode']=='ng':
+  for stage,num,form,pos,answer in [('I',5,'아','initial','A'),('I',6,'방','final','B'),('R',5,'아','initial','A'),('R',6,'공','final','B')]:
+   add(l,stage,num,'ROLE','ng_role',{'written':form,'marked_ㅇ':pos},['A','B'],answer,'role','ㅇ의 역할을 위치와 연결하는 확인. 같은 R에서 본 공은 재노출이며 새로운 첫 지연 성공 아님.',['NG-H','NG-'+form])
+  fb += [
+   ['NG-H·도움','첫자리 ㅇ은 이 음절에서 소리가 없고 받침 ㅇ은 소리가 나요. 표시한 ㅇ의 위치를 먼저 봐요.','Initial ㅇ is silent in these syllables; final ㅇ has a sound. First look at the marked position.','ㅇ am Anfang dieser Silben ist stumm; ㅇ am Ende hat einen Laut. Sieh dir zuerst die markierte Position an.'],
+   ['NG-F·오답','같은 모양이어도 자리가 달라요. 지금 표시한 ㅇ이 첫자리인지 받침인지 같은 글자에서 다시 짚어 봐요.','The shape is the same, but the position differs. In the same written block, check whether the marked ㅇ is initial or final.','Die Form ist gleich, doch der Platz ist anders. Prüfe im selben Schriftblock, ob das markierte ㅇ am Anfang oder Ende steht.']]
+  for form in ['아','방','공']:
+   if form=='아':
+    copy=['아의 ㅇ은 첫자리에 있어 소리가 없어요. 같은 글자에서 첫자리를 다시 짚어 봐요.','The ㅇ in 아 is silent in the initial position. Point to that initial position in the same block again.','Das ㅇ in 아 steht am Anfang und ist stumm. Zeig im selben Block noch einmal auf diese Anfangsposition.']
+   else:
+    copy=[f'{form}의 ㅇ은 아래의 받침이라 소리가 있어요. 같은 글자에서 받침 자리를 다시 짚어 봐요.',f'The ㅇ in {form} is a final consonant at the bottom and has a sound. Point to that final position in the same block again.',f'Das ㅇ in {form} steht unten als Endkonsonant und hat einen Laut. Zeig im selben Block noch einmal auf diese Endposition.']
+   fb.append(['NG-'+form+'·오답',*copy])
+ if l['n']==10:
+  meaning_by_unit[l['id']] += [(k,'해당 조합의 I 뒤, 뜻을 시험하지 않고 설명으로 제공') for k in ['SOUTH','MOUNTAIN','PATH']]
+ if l['n']==11:
+  meaning_by_unit[l['id']] += [(k,'해당 조합의 I 뒤에 뜻 설명으로 제공') for k in ['BALL','RIVER']]
+ # Meaning supplements occur after all main I tasks, before contextual oral participation.
+ supplement=l.get('supplement')
+ if supplement:
+  key={'tea':'TEA','seed':'SEED','dog':'DOG','above':'ABOVE'}[supplement]
+  word=meanings[key]['word']
+  meaning_by_unit[l['id']].append((key,'모든 작은 활동의 I 뒤에 별도로 뜻을 가르침'))
+  pn=2*m+1
+  rn=2*m+1
+  opts={'TEA':['차','타','파'],'SEED':['씨','시','싸'],'DOG':['개','가','너'],'ABOVE':['위','우','오']}[key]
+  add(l,'P',pn,'MEANING','picture_word',{'picture':key+'-T1','meaning_supplied':True,'shown_word':word},opts,word,'word_model','뜻·표기 정답 모형을 함께 제공하는 도움 연습.',['S-H'])
+  if key=='ABOVE':
+   add(l,'P',pn+1,'MEANING','position_choice',{'picture':'ABOVE-T2','written':'위','shown_position':'ABOVE'},['BELOW','ABOVE','SIDE'],'ABOVE','above','그림·모형과 함께 위치 뜻을 익히는 도움 연습.',['S-H'])
+   add(l,'R',rn,'MEANING','position_choice',{'picture':'ABOVE-R1','written':'위'},['SIDE','BELOW','ABOVE'],'ABOVE','above','위의 뜻을 새 구도에 적용. 이전에 도움뿐이므로 늦은 첫 독립 수행 후보이며 확정 유지 아님.',['S-H'])
+   add(l,'R',rn+1,'MEANING','position_choice',{'picture':'ABOVE-R1','audio':'위','no_transcript':True},['ABOVE','SIDE','BELOW'],'ABOVE','above_audio','방금 본 위치 목표의 재노출 뒤 소리-위치 연결 연습.',['S-H'])
+  else:
+   if key=='SEED':
+    add(l,'P',pn+1,'MEANING','syllable_build',{'shown_model':word,'pieces':parts(word)[::-1]},[],{'syllable':word,'placement':shape(word)},'model','씨=식물 씨라는 뜻과 표기를 도움으로 연결.',['S-H','S-B'])
+   pr='meaning_word' if key=='TEA' else 'picture_word'
+   add(l,'R',rn,'MEANING','picture_word',{'picture':key+'-R1','meaning_supplied':key=='TEA','meaning_if_supplied':{'ko':'마시는 차','en':'tea','de':'Tee'} if key=='TEA' else None},rotated(opts,l['n']),word,pr,'단어 뜻 연결의 늦은 첫 독립 후보. TEA는 번역 뜻 안내→표기 대응이며 새 사진 인식 근거로 부르지 않음. 도움 연습만 한 목표를 이미 입증된 유지로 바꾸지 않음.',['S-H'])
+   if key in ['DOG','SEED']:
+    add(l,'R',rn+1,'MEANING','syllable_build',{'pieces':parts(word),'no_model':True},[],{'syllable':word,'placement':shape(word)},'build','같은 R에서 단어를 이미 본 뒤의 조립 연습.',['S-H','S-B'])
+  fb.append(['S-H·뜻 도움/오답',*meanings[key]['help']])
+  if key in ['SEED','DOG']:
+   ini,vow=parts(word)
+   fb.append(['S-B·낱말 조립',f'{word}는 {ini}을 왼쪽에, {vow}를 오른쪽에 모아요. 같은 모형을 보고 다시 해 봐요.',f'In {word}, put {ini} on the left and {vow} on the right. Try again with the same example.',f'Bei {word} steht {ini} links und {vow} rechts. Versuch es mit demselben Beispiel noch einmal.'])
+ # Door/path preparation stays in the same official unit.
+ if l.get('place_labels'):
+  for offset,key in enumerate(['DOOR','PATH'],7):
+   word=meanings[key]['word']
+   add(l,'P',offset,'PLACE','picture_word',{'picture':key+'-T2','shown_word':word},['문','길'],word,'word_model','가르친 장소와 낱말을 함께 보는 도움 연습.',['PLACE-'+key])
+   add(l,'I',offset,'PLACE','picture_word',{'picture':key+'-I1'},['길','문'] if key=='DOOR' else ['문','길'],word,'picture_word','문/길의 뜻을 배운 뒤 새 사진과 표기를 연결. 순수 받침 읽기와 별도 근거.',['PLACE-'+key])
+  add(l,'R',7,'PLACE','picture_word',{'picture':'PATH-R1'},['길','문'],'길','picture_word','길은 앞 R 읽기에서 이미 본 표기. 뜻 연결 연습이며 무재노출 유지로 합산하지 않음.',['PLACE-PATH'])
+  add(l,'R',8,'PLACE','audio_picture',{'audio':'문','no_transcript':True},['PATH-R1','DOOR-R1'],'DOOR-R1','audio_picture','가르친 장소 뜻을 음성과 연결. 같은 방식의 이전 독립 근거가 없으면 늦은 첫 확인.',['PLACE-DOOR'])
+  for key in ['DOOR','PATH']: fb.append(['PLACE-'+key+'·도움/오답',*meanings[key]['help']])
+  for index,t in enumerate(l['targets'],1):
+   target=t['transfer']
+   opts=rotated([target,*t['final_contrasts']],index-1)
+   add(l,'I',8+index,'FINAL-COMPARE','read_audio',{'written':target,'audio_ui':'A/B/C, 전사 숨김'},opts,{'button':'ABC'[opts.index(target)],'transcript_author_only':target},'read_audio','ㅁ·ㄴ·ㄹ 받침을 모두 지도한 뒤 같은 첫소리·모음에서 받침 소리를 구별. 앞에서 본 조합의 재노출 뒤 확인이며 첫 새 전이 아님.',[f'H{index:02d}',f'C{index:02d}'])
+ if l.get('final_map'):
+  meaning_by_unit[l['id']].append(('COURTYARD','받침 ㅇ 조합 확인 뒤, 마당 전체 표기·소리·뜻을 먼저 가르침'))
+  add(l,'P',5,'COURTYARD','picture_word',{'picture':'COURTYARD-T1','shown_word':'마당','meaning_supplied':True},['방','마당'],'마당','word_model','마당 뜻과 낱말 모형을 제공하는 도움 연습.',['MAP-COURTYARD'])
+  add(l,'P',6,'COURTYARD','word_build',{'shown_word':'마당','syllable_pieces':['당','마']},[],'마당','word_build','마·당 순서 도움 연습.',['MAP-COURTYARD','COURTYARD-ORDER'])
+  add(l,'I',7,'COURTYARD','picture_word',{'picture':'COURTYARD-I1'},['마당','방'],'마당','picture_word','마당 뜻을 가르친 뒤 새 사진에서 표기 연결.',['MAP-COURTYARD'])
+  add(l,'I',8,'COURTYARD','audio_picture',{'audio':'마당','no_transcript':True},['ROOM-I1','COURTYARD-I1'],'COURTYARD-I1','audio_picture','이미 본 마당 사진의 재노출 뒤 소리-뜻 연결.',['MAP-COURTYARD'])
+  add(l,'R',7,'COURTYARD','picture_word',{'picture':'COURTYARD-R1'},['방','마당'],'마당','picture_word','마당 목표의 첫 지연 뜻 연결 후보. 같은 의미·방식의 이전 독립 근거와 최근 노출을 확인.',['MAP-COURTYARD'])
+  add(l,'R',8,'COURTYARD','audio_picture',{'audio':'마당','no_transcript':True},['COURTYARD-R1','ROOM-R1'],'COURTYARD-R1','audio_picture','방금 본 마당 목표의 재노출 뒤 연습.',['MAP-COURTYARD'])
+  keys=['DOOR','ROOM','PATH','COURTYARD']
+  fb.append(['COURTYARD-ORDER·오답','마당은 마 다음에 당이 와요. 두 음절을 이 순서로 놓고 이어 들어요.','In 마당, 마 comes before 당. Put the two syllables in this order and listen to them together.','In 마당 steht 마 vor 당. Ordne die beiden Silben so an und hör sie dir zusammen an.'])
+  for index,key in enumerate(keys):
+   word=meanings[key]['word']
+   opts=rotated(['문','방','길','마당'],1)
+   add(l,'P',7+index,'MAP','map_label',{'map':'MAP-T','marked_place':key,'shown_word':word},opts,word,'map_model','교사가 장소와 이름표 대응을 보여 준 뒤 함께 놓는 도움 연습.',['MAP-'+key])
+   for stage,num in [('I',9+index),('R',9+index)]:
+    add(l,stage,num,'MAP','map_label',{'map':'MAP-'+stage,'marked_place':key,'no_answer_labels':True},opts if stage=='I' else opts[::-1],word,'map','문·방·길·마당의 상황적 이름표 사용. 앞 문항/다른 단원에서 같은 대상 대응을 공개했다면 지원·재노출로 기록. LQ 상황 참여이며 건물 완공/전체 독립 숙달 아님.',['MAP-'+key])
+   fb.append(['MAP-'+key+'·도움/오답',*meanings[key]['help']])
+ reuse_specs={
+  2:[('AFTER-M01','냐',['뇨','냐']),('AFTER-M02','여',['여','유'])],
+  4:[('AFTER-M01','카',['파','카']),('AFTER-M02','타',['타','차'])],
+  6:[('RECALL-START','까',['까','가']),('RECALL-START','따',['다','따']),('AFTER-M01','빠',['파','빠','바']),('AFTER-M03','짜',['짜','자','차'])]
+ }.get(l['n'],[])
+ next_p=max(int(r['item_id'][-2:]) for r in items if r['unit_id']==l['id'] and r['stage']=='P')+1
+ for k,(timing,sound,opts) in enumerate(reuse_specs,1):
+  code=f'X{k:02d}'
+  add(l,'P',next_p+k-1,timing,'audio_text',{'audio':sound,'no_transcript':True,'comparison_forms':opts},opts,sound,'audio_text','이전 단원 회상/익힌 짝 대조를 위한 짧은 연습. 표기·소리 도움을 열 수 있고 새 조합의 첫 독립 전이로 집계하지 않음. 같은 목표의 후속 노출에 반영. 선택적 재시도이며 다음 활동의 필수 통과 관문 아님.',['REUSE-H',code])
+  fb.append([code+'·회상/대조 오답',f'방금 소리는 {sound}{copula(sound)}. 같은 글자와 소리를 함께 다시 보고, 원래 보기에서 다시 골라요.',f'The sound was {sound}. Revisit the same written form with its sound, then choose again from the original options.',f'Der Laut war {sound}. Sieh und hör dir dieselbe Schriftform noch einmal an und wähle erneut aus denselben Möglichkeiten.'])
+ if reuse_specs:
+  fb.append(['REUSE-H·회상 도움','먼저 익혔던 글자와 소리를 함께 다시 보고 이번 짝과 비교해요. 도움을 본 뒤에도 같은 보기로 계속해요.','Revisit the familiar written form with its sound and compare it with this pair. Continue with the same options after using help.','Sieh und hör dir das bekannte Schriftzeichen noch einmal an und vergleiche es mit diesem Paar. Nach der Hilfe bleiben die Möglichkeiten gleich.'])
+ fb.append(['OK·현재 목표만','이 글자와 지금 표시한 대상에 맞는 답이에요. 다음도 차근차근 해 봐요.','That matches this written form or the marked target. Take your time with the next one too.','Das passt zu dieser Schriftform oder zur markierten Stelle. Nimm dir auch für die nächste Aufgabe Zeit.'])
+ feedback_by_unit[l['id']]=fb
+
+items.sort(key=lambda r:(next(l['n'] for l in lessons if l['id']==r['unit_id']),'PIR'.index(r['stage']),int(r['item_id'][-2:])))
+
+def item_section(title,rows):
+ if not rows:return []
+ return ['### '+title,'',table(['문항','자료·보기·정답 — 제작자 전용','범위 / 연결'],[
+  [r['item_id'],'자료: '+jd(r['stimulus_author_only'])+'<br>보기: '+jd(r['options_author_only'])+'<br>정답: '+jd(r['answer_author_only']),r['scope']+'<br>연결: '+', '.join(r['feedback'])] for r in rows]),'',
+  tri([[r['item_id'],*r['prompt']] for r in rows]),'']
+
+for l in lessons:
+ own=[r for r in items if r['unit_id']==l['id']]
+ out=[f'# 입문 3-{l["n"]} · {l["title"][0]}','',l['title'][1]+' · '+l['title'][2],'',
+  f'기존 ID `{l["id"]}` · 2026-10-29 집필 후보 · 앱 디자인/코드 미변경','',
+  '## 목표와 순서','',
+  ' / '.join(f'{t["focus"]}: {t["taught"]} 시범 → {t["transfer"]} 확인' for t in l['targets']),
+  '', '한 작은 활동의 시범 → 해당 P 두 문항 → 해당 I 두 문항을 마친 뒤 다음 작은 활동으로 간다. 작은 활동 사이에 멈출 수 있다. 본문 뒤의 뜻 보충을 먼저 재생해 새 조합의 첫 확인 정답을 노출하지 않는다. R은 다음 날 재방문 시 다른 시범·대사보다 먼저 제공한다.','',
+  '미학습 자모/뜻은 읽기 점수에 넣지 않는다. 설명 언어로 뜻과 안내를 볼 수 있고 긴 한국어 대사 읽기나 실제 발화를 통과 조건으로 만들지 않는다. 도움·첫 독립 확인·재노출·유지 후보는 [공통 규칙](README.md)을 따른다.','',
+  '## 도입 장면 — 새 집필 대사','',tri(l['scenes']),'']
+ if any(r['subactivity']=='RECALL-START' for r in own):
+  out+=['## 앞 단원의 소리 먼저 회상하기','',tri([['수진→플레이어','까와 따도 기억나는지 짧게 들어 보자. 헷갈리면 같은 시범을 다시 볼 수 있어.','Let us briefly revisit 까 and 따. You can watch the same example again if you are unsure.','Hören wir kurz noch einmal 까 und 따. Wenn du unsicher bist, kannst du dasselbe Beispiel erneut ansehen.']]),'']
+  out+=item_section('단원 시작 회상',[r for r in own if r['subactivity']=='RECALL-START'])
+ out+=['## 작은 활동별 실제 수업','']
+ for idx,t in enumerate(l['targets'],1):
+  out += [f'### M{idx:02d} · {t["focus"]} 지도','',tri([[f'T{idx:02d}',*t['note']]]),'',
+   f'시범 자료: 완성 `{t["taught"]}`, 비교 `{t["contrast"]}`, 조각 `{jd(parts(t["taught"]))}`. 전체 음성을 각각 재생한다. `{t["transfer"]}`의 음성-표기 정답 짝은 이 시범에서 공개하지 않는다. 새 조합의 낱말 뜻을 요구하지 않는다.','']
+  if t.get('meaning'):
+   d=meanings[t['meaning']]
+   out += [tri([[f'뜻·{t["meaning"]}-T1',*d['teaching']]]),'']
+  out += item_section('이 작은 활동의 도움 연습',[r for r in own if r['stage']=='P' and r['subactivity']==f'M{idx:02d}'])
+  out += item_section('이 작은 활동의 별도 확인',[r for r in own if r['stage']=='I' and r['subactivity']==f'M{idx:02d}'])
+  out += item_section('앞 단원과 한 짝씩 다시 비교',[r for r in own if r['subactivity']==f'AFTER-M{idx:02d}'])
+  if l['n']==6 and idx<3:
+   out+=['### 작은 활동 사이의 선택','',tri(l['oral']),'',l['oral_note'],'',
+    '이 대화는 M01 뒤 M02로, M02 뒤 M03으로 가는 경계에만 제공한다. 멈추면 같은 경계의 실제 저장 상태를 안내한다. M03와 씨 보충을 모두 마친 뒤에는 다음 작은 연습이 남았다고 말하지 않는다.','']
+ if l['mode']=='ng':
+  out+=['## ㅇ의 역할 선택','',tri([
+   ['보기 A','첫자리에서 소리가 없어요.','Silent in the initial position.','Am Anfang stumm.'],
+   ['보기 B','받침에서 소리가 나요.','Has a sound as a final consonant.','Am Ende hörbar.']]),'']
+  out+=item_section('역할 확인',[r for r in own if r['stage']=='I' and r['subactivity']=='ROLE'])
+ if l.get('place_labels'):
+  out+=item_section('세 받침 지도 뒤의 소리 대조',[r for r in own if r['stage']=='I' and r['subactivity']=='FINAL-COMPARE'])
+ if meaning_by_unit[l['id']]:
+  out+=['## 뜻을 따로 연결하기','']
+  for key,timing in meaning_by_unit[l['id']]:
+   d=meanings[key]
+   if key in [t.get('meaning') for t in l['targets']]: continue
+   out += [f'### {d["word"]} · {key}','',timing+f'. `{key}-T1/T2`는 설명과 함께 사용한다.','',tri([['뜻 지도',*d['teaching']],['뜻 도움',*d['help']]]),'']
+  out+=item_section('뜻/장소 도움 연습',[r for r in own if r['stage']=='P' and r['subactivity'] in ['MEANING','PLACE','COURTYARD']])
+  out+=item_section('뜻/장소 별도 확인',[r for r in own if r['stage']=='I' and r['subactivity'] in ['PLACE','COURTYARD']])
+ if l['n']!=6:
+  out+=['## 상황에서 함께 하기','',tri(l['oral']),'',l['oral_note'],'',
+       '플레이어·표현 시범은 모델/아바타 음성을 듣거나 뜻을 보고 선택하는 참여도 허용한다. 실제로 말하지 않았으면 발화 성공으로 기록하지 않는다. 다시 듣기·멈춤·거절 선택은 불이익이 없고 원래 시도와 별도로 남긴다.','']
+ if l.get('final_map'):
+  out+=['## LQ-03 · 중문간채 착공의 이름표','',
+   '문/길(10단원), 방/마당(이 단원)의 뜻·그림·표기를 실제로 가르친 뒤 제공한다. 빠진 목표는 먼저 도움 지도하며 독립 수행으로 초기화하지 않는다. 미니맵 그림/실제 연결이 없으면 설명 그림에서 연습하고 이동 기능을 실행했다고 말하지 않는다.','',
+   '앞의 수진·도깨비 대사는 활동 전, 탈선비의 v3.5 원문 책갈피와 마지막 수진 대사는 활동 뒤에만 사용한다. 다음 날 R 앞에는 재생하지 않는다.','',tri(media_source['map_scene']),'']
+  out+=item_section('이름표 함께 놓기',[r for r in own if r['stage']=='P' and r['subactivity']=='MAP'])
+  out+=item_section('이름표 상황 사용',[r for r in own if r['stage']=='I' and r['subactivity']=='MAP'])
+  out+=['이름표 활동은 원문의 착공 앵커다. 중간의 A1.1 LQ-05 문지기 소동, 완공의 폭우/발소리/인영 E04, 기억30%, 중문간채12공정·소유·엽전 지급을 자동 완료하지 않는다.','']
+ out+=['## 도움·오답·정답 문구','',
+  'A=듣고 표기 선택, B=배치, C=첫소리(받침 단원에서는 받침 소리), V=모음, H=시범 도움. 각 코드 뒤의 **현재 제시 글자 행**을 선택한다. 시범 글자의 오답에 새 조합 행을 쓰거나 다른 작은 활동의 정답을 먼저 공개하지 않는다. 오답 종류는 제작자용 분류이며 실제로 그 오류가 관찰된 경우에만 해당 문구를 사용한다.','',tri(feedback_by_unit[l['id']]),'',
+  '원 자극·선택·입력과 첫 응답을 보존한다. 피드백/정답 모형을 본 뒤에는 같은 목표·자모 규칙·뜻을 쓰는 후속 문항도 지원 노출을 이어받는다. 문항 ID/그림이 달라졌다고 독립 상태를 초기화하지 않는다. 없는 매체·재생 실패·빈 응답은 오답이 아니다.','',
+  '## 다음 날 복습 R','',
+  'R 시작은 [공통 문구](COMMON_COPY.md)의 C-REVIEW/C-REVIEWHELP. 최초 지도시각과 마지막 관련 노출시각을 별도로 기록한다. 처음 배운 뒤24시간이 지났어도 바로 앞 수업에서 다시 봤다면 최근 간격을 남기고 짧은 간격 연습으로 구분한다. 기록 밖 노출이 없었다고 단정하지 않는다. 같은 R 안의 첫 응답과 재노출 뒤 연습을 구분한다.','',
+  '아직 배우지 않은 목표의 R은 제공하지 않는다. 다른 받침을 포함한 기본 보기는 그 받침을 실제로 배운 뒤에만 사용한다. 10·11단원 표의 조건부 세 음성 보기는 일부 받침만 배웠을 때의 실제 대안이며, 서로 다른 받침 소리 대조와 다른 범위로 기록한다. 대체 보기를 쓴 시도에서는 그에 적힌 정답 버튼을 사용한다.','']
+ out+=item_section('R 문항',[r for r in own if r['stage']=='R'])
+ out+=['## 마무리와 다음 연결','',tri([['참여 범위에 맞는 마무리',*l['ending']]]),'',
+  '마무리는 실제로 참여한 활동 범위에서만 사용한다. 특히 작은 활동이나 뜻 보충이 남았으면 그 부분을 완료형으로 말하지 않고 C-LATER/C-RESUME로 같은 위치를 안내한다. 저장 성공/미확인 문구는 실제 상태에 맞춰 사용한다.','',l['followup'],'',
+  '참조: [전체 안내](README.md), [미디어/출처](MEDIA_AND_SOURCES.md), [전체 문항표](ITEM_BANK.csv). 내부 ID·제작자 전사·정답은 학습자에게 노출하지 않는다.','']
+ (ROOT/l['file']).write_text('\n'.join(out),encoding='utf-8')
+
+(ROOT/'COMMON_COPY.md').write_text('# 입문 3 공통 문구\n\n설명 언어를 선택해 제공한다. 저장 성공·음성 재생 여부를 사실대로 확인한 경우에만 해당 문구를 쓴다.\n\n'+tri(common)+'\n',encoding='utf-8')
+(ROOT/'AUTHORING_ITEMS.json').write_text(json.dumps({'version':'1.0-document-only','items':items},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+fields=['unit_id','author_item_id','stage','subactivity','kind','stimulus_author_only','options_author_only','answer_author_only','prompt_ko','prompt_en','prompt_de','scope','feedback']
+with (ROOT/'ITEM_BANK.csv').open('w',encoding='utf-8-sig',newline='') as f:
+ w=csv.DictWriter(f,fieldnames=fields);w.writeheader()
+ for r in items:
+  w.writerow(dict(zip(fields,[r['unit_id'],r['item_id'],r['stage'],r['subactivity'],r['kind'],jd(r['stimulus_author_only']),jd(r['options_author_only']),jd(r['answer_author_only']),*r['prompt'],r['scope'],', '.join(r['feedback'])])))
+
+media=['# 입문 3 미디어와 출처','',
+ '문서용 제작 참조다. 그림·음성을 생성/녹음하거나 앱에 연결하지 않았다. 기존 캐릭터·한옥·R16 배치와 정본 에셋은 바꾸지 않는다.','',
+ '## 그림/뜻 자료','',table(['개념·낱말','시범/새 사례 조건'],[[k+' · '+d['word'],d['brief']] for k,d in meanings.items()]),'',
+ '각 개념의 T1은 첫 지도, T2는 설명을 동반한 다른 구도/사례, I1은 확인용, R1은 다음 날 새 구도/사례다. 개념의 속성을 바꾸지 않으며 미학습 다른 뜻을 오답으로 넣지 않는다. 그림 위의 정답 한글·로고·번호는 숨긴다. 설명 언어로 뜻을 함께 제공한 경우에는 설명→표기 연결이며 독립 시각 인식으로 주장하지 않는다.','',
+ 'MAP-T / MAP-I / MAP-R: '+media_source['map_brief'],'',
+ 'ABOVE의 위치 선택지 ABOVE/BELOW/SIDE는 제작 참조이며 학습자에게 내부 영문 코드를 표시하지 않는다. 상자 위/아래/옆의 그림 지점을 선택한다. ㅇ 역할 선택 A/B의 실제 삼언어 문구는 11단원에 있다.','',
+ '## 읽기 음성 목록','',table(['제작 참조','전체를 읽을 내용'],[[f'S-{i:03d}',s] for i,s in enumerate(sorted(sounds),1)]),'',
+ '미니 활동에서는 같은 화자의 비교 녹음으로 시작한다. 정답을 음량·길이·잡음·화자 성별로 추론하게 하지 않는다. 첫소리 소리를 자모 이름이나 영어/독일어 철자값과 동일하다고 가르치지 않는다. 비교는 실제 음절 전체 음성으로 한다.','',
+ '거센소리/된소리는 호흡량·목 조임·큰 소리만으로 정의/채점하지 않는다. 종성 ㄹ과 초성 ㄹ, 초성 ㅇ과 종성 ㅇ을 실제 음성에서 따로 확인한다. 일반 읽기→소리는 ABC의 정답+같은 모음/다른 초성+같은 초성/다른 모음으로 구성한다. 10단원 첫 확인은 새 받침의 유무+모음 대조, 세 받침을 모두 배운 뒤에는 같은 첫소리/모음에서 ㅁ·ㄴ·ㄹ 소리를 대조한다. 10단원 R과 11단원 I/R은 받침 없음/다른 배운 받침을 포함한 ABCD로 받침을 실제로 들어야 고를 수 있게 한다.','',
+ 'ㅐ·ㅔ는 본 원고에서 표기 확인을 채점한다. ㅚ·ㅟ는 표준 발음에서 허용되는 다른 실현을 검토한 뒤 음성별 허용 범위를 정한다. 단모음/이중모음 중 하나만 입 모양으로 강요하지 않는다. 발음 자동 합격/녹음 점수는 없다.','',
+ '## 출처와 적용 범위','',
+ '- 사용자 세계관: `C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md` 217–222줄, 551줄. 이전 Downloads 바로 아래 경로에서 이동했고 SHA-256은 같다. 중문간채 착공 LQ-03과 완공 E04를 구분했다.','',
+ '- 교육 목표: 현재 체크아웃 `docs/learning/lernpfad-v2/curriculum/FOUNDATION.psv`의 F0.3 11행. 말=동물 의미 선택, 학습 소품/문항/표현 확장은 작성자 판단이며 세계관 원문을 고친 것이 아니다.','',
+ '- 국립국어원 [표준어 규정·표준 발음법과 해설](https://korean.go.kr/kornorms/regltn/regltnView.do?regltn_code=0002), [공식 해설 PDF](https://www.korean.go.kr/common/download.do?c_file_name=0528a905-2eb3-4c5a-978c-f424dd6a6c47_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B8%80%EB%A7%9E%EC%B6%A4%EB%B2%95%20%ED%91%9C%EC%A4%80%EC%96%B4%EA%B7%9C%EC%A0%95%20%ED%95%B4%EC%84%A4.pdf). 2026-10-29 검색 결과의 공식 본문/해설 확인. 직접 HTML 열기는403이었다. 제4항과 해설의 ㅚ·ㅟ 발음 허용 및 ㅐ·ㅔ의 실제 발음 논의를 근거로, 고정 입 모양·필수 청각 구별 관문을 피했다. 이 근거가 음성 파일 청취 감수의 대체는 아니다.','',
+ '## 남은 제작','',
+ '교원·EN/de-DE 사람 검토, 음성 녹음/청취 감수, 실제 그림/권리 확인, 완전 입문자 관찰, 앱 저장/보상/기기 연결은 별도다. 모델 문서 검토와 인간 승인을 구분한다.','']
+(ROOT/'MEDIA_AND_SOURCES.md').write_text('\n'.join(media),encoding='utf-8')
+print('Generated',len(lessons),'manuscripts;',len(items),'items;',dict(Counter(r['stage'] for r in items)))

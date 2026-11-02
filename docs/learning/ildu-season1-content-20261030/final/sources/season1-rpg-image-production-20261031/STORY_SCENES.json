@@ -1,0 +1,2066 @@
+[
+  {
+    "id": "N00",
+    "episode": "onboarding",
+    "title": {
+      "en": "Your name in the story",
+      "de": "Dein Name in der Geschichte"
+    },
+    "speaker": "Sujin",
+    "dialogue": {
+      "en": "What name would you like me to call you?",
+      "de": "Wie soll ich dich nennen?"
+    },
+    "primary": {
+      "en": "Begin as Mira",
+      "de": "Als Mira beginnen"
+    },
+    "secondary": {
+      "en": "Use a default name",
+      "de": "Standardnamen nutzen"
+    },
+    "characters": [
+      "player_pov",
+      "sujin"
+    ],
+    "scene_kind": "name_entry",
+    "building_id": null,
+    "story_gate": {
+      "requires": [],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "source story chronology",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "Mira는 예시 이름이다. 외형을 생성하지 않고 다음 대화의 화자·호칭에 같은 이름을 연결한다. 실제 입력·저장을 검증한 이미지가 아니다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          51,
+          69
+        ]
+      },
+      "manuscript": [],
+      "render_reuse": "COPY.json:S01 / A01",
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": "Current user scope: name only. Do not render {name} placeholders to users."
+    }
+  },
+  {
+    "id": "P01",
+    "episode": "prologue",
+    "title": {
+      "en": "A hand on the mountain path",
+      "de": "Eine helfende Hand"
+    },
+    "speaker": "Sujin",
+    "dialogue": {
+      "en": "Mira, you helped him right away. I'll help with any words you need.",
+      "de": "Mira, du hast ihm sofort geholfen. Wenn dir Worte fehlen, helfe ich dir."
+    },
+    "primary": {
+      "en": "Take the badge",
+      "de": "Das Abzeichen annehmen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "elder_canonical_cameo"
+    ],
+    "scene_kind": "modern_prologue",
+    "building_id": null,
+    "story_gate": {
+      "requires": [],
+      "depicts": [
+        "S1-E01"
+      ],
+      "reveals": [
+        "S1-E01"
+      ],
+      "semantic_hook": "P-1: help first, badge handoff; no Korean test",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "가을 산길에서 먼저 부축한 손과 노인이 건네는 배지를 연결한다. 노인은 원안의 기존 카메오다. 잠긴 얼굴 소스가 없다면 손·소매만 보인다. 첫 소용돌이만 약하게 빛난다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          301,
+          311
+        ]
+      },
+      "manuscript": [],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "P02",
+    "episode": "prologue",
+    "title": {
+      "en": "A promise beside the badge",
+      "de": "Ein Versprechen am Abzeichen"
+    },
+    "speaker": "Sujin",
+    "dialogue": {
+      "en": "Let's learn together, Mira. I'll stay by your side.",
+      "de": "Wir lernen zusammen, Mira. Ich bleibe an deiner Seite."
+    },
+    "primary": {
+      "en": "Look at the badge",
+      "de": "Das Abzeichen ansehen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin"
+    ],
+    "scene_kind": "modern_prologue",
+    "building_id": null,
+    "story_gate": {
+      "requires": [
+        "S1-E01"
+      ],
+      "depicts": [
+        "S1-E01"
+      ],
+      "reveals": [],
+      "semantic_hook": "P-2: warm learning conversation, not pronunciation success",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "현대 숙소 테라스와 차 두 잔. 두 번째·세 번째 소용돌이가 공명한다. 태고·조이는 아직 배지 속 목소리이며 실체로 미리 배치하지 않는다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          315,
+          329
+        ]
+      },
+      "manuscript": [],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "P03",
+    "episode": "prologue",
+    "title": {
+      "en": "The cloud path opens",
+      "de": "Der Wolkenweg öffnet sich"
+    },
+    "speaker": "Joy",
+    "dialogue": {
+      "en": "You've woken us! Will you come and meet an old friend?",
+      "de": "Ihr habt uns geweckt! Kommt ihr mit zu einem alten Freund?"
+    },
+    "primary": {
+      "en": "Follow the cloud path",
+      "de": "Dem Wolkenweg folgen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "taego",
+      "joy"
+    ],
+    "scene_kind": "guardian_awakening",
+    "building_id": null,
+    "story_gate": {
+      "requires": [
+        "S1-E01"
+      ],
+      "depicts": [
+        "S1-E01"
+      ],
+      "reveals": [],
+      "semantic_hook": "source story chronology",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "고정 태고·조이가 배지에서 나타나는 첫 순간. 조이는 날개가 두 개다. 힘·기억은 불완전하고 탈선비·도깨비는 아직 없다. 정여창은 수평적인 옛 벗이다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          333,
+          342
+        ]
+      },
+      "manuscript": [],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "P04",
+    "episode": "prologue",
+    "title": {
+      "en": "An old friend at the gate",
+      "de": "Ein alter Freund am Tor"
+    },
+    "speaker": "Dokkaebi",
+    "dialogue": {
+      "en": "Taego? Joy? Where have you been for five hundred years?",
+      "de": "Taego? Joy? Wo habt ihr fünfhundert Jahre lang gesteckt?"
+    },
+    "primary": {
+      "en": "Step inside together",
+      "de": "Gemeinsam eintreten"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "taego",
+      "joy",
+      "dokkaebi"
+    ],
+    "scene_kind": "boundary_reunion",
+    "building_id": null,
+    "story_gate": {
+      "requires": [
+        "S1-E01"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "P-4 boundary arrival; W10 broken latch",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "솟을대문 경계의 기존 기하·수호기와·어긋난 빗장을 보존한다. 대문은 12번째 건물이 아니다. 도깨비는 잠에서 깬 것이 아니라 깨어 홀로 버텼다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          346,
+          353
+        ]
+      },
+      "manuscript": [],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "P05",
+    "episode": "prologue",
+    "title": {
+      "en": "The house beneath the mist",
+      "de": "Das Haus unter dem Nebel"
+    },
+    "speaker": "Dokkaebi",
+    "dialogue": {
+      "en": "The house forgot its words. My memories crumbled with it.",
+      "de": "Das Haus verlor seine Worte. Mit ihm zerfielen auch meine Erinnerungen."
+    },
+    "primary": {
+      "en": "Land in the courtyard",
+      "de": "Im Hof landen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "taego",
+      "joy",
+      "dokkaebi"
+    ],
+    "scene_kind": "estate_flyover",
+    "building_id": null,
+    "story_gate": {
+      "requires": [
+        "S1-E01"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "P-5: whole-estate narrative view, no construction ownership grant",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "R16 배치의 고택 경계 안 상공. 현재 0/36은 1막 표시이며 전체 0/128 서사 장부와 별개다. 공정 0·1의 건물·스튜디오 그림자는 없다. 완성 유령 건물이나 도깨비의 경계 밖 비행을 추가하지 않는다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          357,
+          364
+        ]
+      },
+      "manuscript": [],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "P06",
+    "episode": "prologue",
+    "title": {
+      "en": "Words to rebuild a home",
+      "de": "Worte für ein neues Zuhause"
+    },
+    "speaker": "Dokkaebi",
+    "dialogue": {
+      "en": "Learn this house's words. I'll pay you so we can rebuild it!",
+      "de": "Lernt die Worte dieses Hauses! Ich zahle euch, damit wir es wieder aufbauen!"
+    },
+    "primary": {
+      "en": "Go to the reading desk",
+      "de": "Zum Lesetisch gehen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "dokkaebi",
+      "taego",
+      "joy"
+    ],
+    "scene_kind": "restoration_commission",
+    "building_id": "sarangchae",
+    "story_gate": {
+      "requires": [
+        "S1-E01"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "P-6 before first restoration",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "넓고 빈 사랑마당에 착륙한다. 태고·조이는 마스코트 상태로 작아진다. 품삯은 이야기 속 약속이며 지급·학습 완료·공정 소유 표시를 생성하지 않는다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          368,
+          375
+        ]
+      },
+      "manuscript": [],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "P07A",
+    "episode": "prologue",
+    "title": {
+      "en": "The book Joy found",
+      "de": "Das Buch, das Joy fand"
+    },
+    "speaker": "Joy",
+    "dialogue": {
+      "en": "Look! There's an old book in here.",
+      "de": "Schau! Hier liegt ein altes Buch."
+    },
+    "primary": {
+      "en": "Open the first page",
+      "de": "Die erste Seite aufschlagen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "joy",
+      "dokkaebi"
+    ],
+    "scene_kind": "first_book_discovery",
+    "building_id": "sarangchae",
+    "story_gate": {
+      "requires": [
+        "S1-E01"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "P-7 before LQ-01",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "주춧돌 자리의 낡은 서안·상자·공부책 한 권. 서양 양장 책 더미와 탈선비는 없다. 공정 0·1의 건물·건물 그림자는 없다. 기존 재질 품질과 실제 마당의 깊이를 연결한다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          379,
+          383
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/prologueOutside128"
+        }
+      ],
+      "render_reuse": "COPY.json:S02 / S03 / S04",
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "P07B",
+    "episode": "prologue",
+    "title": {
+      "en": "The first sound on the page",
+      "de": "Der erste Laut auf der Seite"
+    },
+    "speaker": "Sujin",
+    "dialogue": {
+      "en": "Place ㅏ to the right of ㅇ. Together they make 아.",
+      "de": "Lege ㅏ rechts neben ㅇ. Zusammen bilden sie 아."
+    },
+    "primary": {
+      "en": "Place ㅏ",
+      "de": "ㅏ einsetzen"
+    },
+    "secondary": {
+      "en": "Show me",
+      "de": "Zeig es mir"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "joy"
+    ],
+    "scene_kind": "supported_first_sound",
+    "building_id": "sarangchae",
+    "story_gate": {
+      "requires": [
+        "S1-E01"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "P-7 supported assembly and story reading; not independent mastery",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "최신 첫 단원에 따라 ㅇ·ㅏ만 조립한다. 미학습 ㅗ·ㅓ 오답은 없다. 책 페이지가 조작면이다. 도움·직접/함께 읽기·조용히 읽기는 같은 본편으로 이어지며 독립 발화 성공·마이크 점수를 표시하지 않는다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          379,
+          386
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/../foundation-1-v35/01_FIRST_SOUND.md",
+          "locator": "first 아 teaching sequence"
+        }
+      ],
+      "render_reuse": "COPY.json:S05–S09 / A02–A04 / A06",
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "P07C",
+    "episode": "prologue",
+    "title": {
+      "en": "The friend who waited",
+      "de": "Der Freund, der gewartet hat"
+    },
+    "speaker": "TalSunbi",
+    "dialogue": {
+      "en": "You stayed here alone… while I slept? You must have been so lonely.",
+      "de": "Du warst hier allein … während ich geschlafen habe? Du musst sehr einsam gewesen sein."
+    },
+    "primary": {
+      "en": "Stay with the reunion",
+      "de": "Beim Wiedersehen bleiben"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "talsunbi",
+      "dokkaebi"
+    ],
+    "scene_kind": "talsunbi_reunion",
+    "building_id": "sarangchae",
+    "story_gate": {
+      "requires": [
+        "S1-E01"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "P-7 after first-page story reading; talsunbi awake",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "아 복원과 극중 낭독 뒤에만 각성한다. 놀람→익숙한 농담→격한 반응→외로움 인정→새 제자 부탁의 연결 대화를 유지한다. 대표컷이 사이 대사를 삭제하는 명세가 아니다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          386,
+          394
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/0"
+        }
+      ],
+      "render_reuse": "COPY.json:S10 / S11 / S12 / A07 / A08",
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E01A",
+    "episode": "01",
+    "title": {
+      "en": "A light, and your first word",
+      "de": "Ein Licht und dein erstes Wort"
+    },
+    "speaker": "Dokkaebi",
+    "dialogue": {
+      "en": "There's a light in the house again!",
+      "de": "Endlich brennt hier wieder Licht!"
+    },
+    "primary": {
+      "en": "Leave the word 집",
+      "de": "Das Wort 집 hinterlassen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "dokkaebi",
+      "talsunbi"
+    ],
+    "scene_kind": "first_note_payoff",
+    "building_id": "sarangchae",
+    "story_gate": {
+      "requires": [
+        "S1-E02"
+      ],
+      "depicts": [
+        "S1-E02"
+      ],
+      "reveals": [],
+      "semantic_hook": "E02 first reveal at STRUCTURE_MILESTONE; depicted lamp/note after BUILD_FINISHED",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "완공 사랑채의 등불과 첫 집 쪽지 한 장. E02 심지는 중간 훅에서 먼저 발견된 생활 물건으로 재등장한다. 발신인·연이 이름·보호 이유는 미공개다. 집 쪽지를 후일 이 집 연습으로 덮어쓰지 않는다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          203,
+          208
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/1–2"
+        },
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+          "locator": "unit:F0.4.first-input"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E01B",
+    "episode": "01",
+    "title": {
+      "en": "The pouch he cannot throw away",
+      "de": "Der Beutel, der bleiben muss"
+    },
+    "speaker": "Dokkaebi",
+    "dialogue": {
+      "en": "Don't throw that away! I don't know why… but I can't bear to lose it.",
+      "de": "Nicht wegwerfen! Ich weiß nicht, warum … aber ich kann mich nicht davon trennen."
+    },
+    "primary": {
+      "en": "Keep the empty pouch",
+      "de": "Den leeren Beutel behalten"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "joy",
+      "dokkaebi"
+    ],
+    "scene_kind": "empty_pouch_clue",
+    "building_id": "changgo",
+    "story_gate": {
+      "requires": [
+        "S1-E02"
+      ],
+      "depicts": [
+        "S1-E03"
+      ],
+      "reveals": [
+        "S1-E03"
+      ],
+      "semantic_hook": "changgo BUILD_FINISHED",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "창고 푯말 정리 뒤 조이가 빈 씨앗 주머니를 발견한다. 도깨비는 소중히 붙잡지만 이유를 모른다. 연이 이름·꽃씨 발신인은 미공개다. 신규 전달자·소유권 UI를 추가하지 않는다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          210,
+          215
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/5"
+        },
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+          "locator": "band:F0.2"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E02A",
+    "episode": "02",
+    "title": {
+      "en": "The gatekeeper's game",
+      "de": "Das Spiel mit dem Torwächter"
+    },
+    "speaker": "Dokkaebi",
+    "dialogue": {
+      "en": "Ahem! Who goes there? Tell this gatekeeper your name.",
+      "de": "Ähem! Wer kommt da? Sag dem Torwächter deinen Namen!"
+    },
+    "primary": {
+      "en": "Introduce myself",
+      "de": "Mich vorstellen"
+    },
+    "secondary": {
+      "en": "Ask him to repeat",
+      "de": "Um Wiederholung bitten"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "dokkaebi"
+    ],
+    "scene_kind": "gatekeeper_roleplay",
+    "building_id": "jungmunganchae",
+    "story_gate": {
+      "requires": [
+        "S1-E03"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "STRUCTURE_MILESTONE; LQ-05 only; not E04",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "서로 아는 동료의 역할놀이이며 이름을 잊은 재소개가 아니다. 실제 선택 공정의 중문 정본을 사용한다. stage06은 그림 참고·숫자 바인딩 제안이며 트리거 확정이 아니다. 비·폭풍·30% 기억은 보이지 않는다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          217,
+          222
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/7"
+        },
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+          "locator": "band:A1.1"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": "This short roleplay line is a copy proposal; retain recognition of the existing player."
+    }
+  },
+  {
+    "id": "E02B",
+    "episode": "02",
+    "title": {
+      "en": "Footsteps in the rain",
+      "de": "Schritte im Regen"
+    },
+    "speaker": "Taego",
+    "dialogue": {
+      "en": "Footsteps… and rain. Someone was carrying a bundle of books.",
+      "de": "Schritte … und Regen. Jemand trug ein Bündel mit Büchern."
+    },
+    "primary": {
+      "en": "Follow the memory",
+      "de": "Der Erinnerung folgen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "taego",
+      "dokkaebi",
+      "unknown_memory_figure"
+    ],
+    "scene_kind": "limited_storm_memory",
+    "building_id": "jungmunganchae",
+    "story_gate": {
+      "requires": [
+        "S1-E03"
+      ],
+      "depicts": [
+        "S1-E04"
+      ],
+      "reveals": [
+        "S1-E04"
+      ],
+      "semantic_hook": "BUILD_FINISHED; separate from gatekeeper learning",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "중문 완공 뒤에만 비·발소리·보자기를 든 인영을 보여 준다. 제한된 기억이며 연이 이름·확정 동기·신수 구출은 없다. 새 배우 얼굴을 만들지 않고 현재의 실제 폭풍과 구분한다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          217,
+          222
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/8"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E03A",
+    "episode": "03",
+    "title": {
+      "en": "What we saw, and what we don't know",
+      "de": "Was wir sahen und was offenbleibt"
+    },
+    "speaker": "Mira",
+    "dialogue": {
+      "en": "She looked frightened. We saw her leave—but we don't yet know why.",
+      "de": "Wir haben ihre Angst gesehen. Warum sie ging, wissen wir noch nicht."
+    },
+    "primary": {
+      "en": "Give him a little space",
+      "de": "Ihm etwas Raum lassen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "dokkaebi",
+      "taego"
+    ],
+    "scene_kind": "misunderstanding_low_point",
+    "building_id": "araechae",
+    "story_gate": {
+      "requires": [
+        "S1-E04"
+      ],
+      "depicts": [
+        "S1-E05"
+      ],
+      "reveals": [
+        "S1-E05"
+      ],
+      "semantic_hook": "E05 at STRUCTURE_MILESTONE, W11 low point at BUILD_FINISHED",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "지운 이름과 책 보자기는 제한된 기억이다. 두려움의 관찰과 도둑이라는 추측을 구분한다. 도깨비는 대화를 피하지만 벌·이동 잠금·보상 차감은 없다. 연이 이름·가족 약속은 미공개다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          228,
+          233
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/10–11"
+        },
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+          "locator": "band:A1.2"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E04A",
+    "episode": "04",
+    "title": {
+      "en": "A little care between friends",
+      "de": "Ein wenig Fürsorge"
+    },
+    "speaker": "Sujin",
+    "dialogue": {
+      "en": "A little warm water may help. Let's stay with him for a moment.",
+      "de": "Etwas warmes Wasser könnte helfen. Bleiben wir einen Moment bei ihm."
+    },
+    "primary": {
+      "en": "Offer warm water",
+      "de": "Warmes Wasser anbieten"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "dokkaebi"
+    ],
+    "scene_kind": "everyday_comedy_bridge",
+    "building_id": "toilet-south",
+    "story_gate": {
+      "requires": [
+        "S1-E05"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "south toilet LQ-07 bridge; no clue",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "남측 측간 바깥의 생활 공간. 홍시 배탈은 품위 있는 생활 코미디이며 신체 노출·과장된 고통이 없다. 화해·사과를 강요하지 않고 함께 말할 틈을 만든다. 3화와 4화 사이 브리지를 4화 도입으로 묶은 편집 제안이다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          235,
+          245
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/12–14"
+        },
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+          "locator": "band:A2.1"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": "Placement under episode 04 is editorial grouping, not a new episode or locked trigger."
+    }
+  },
+  {
+    "id": "E04B",
+    "episode": "04",
+    "title": {
+      "en": "The name he remembers",
+      "de": "Der Name, der zurückkehrt"
+    },
+    "speaker": "Dokkaebi",
+    "dialogue": {
+      "en": "Yeoni… That was her name. She said she'd be my family.",
+      "de": "Yeoni … So hieß sie. Sie wollte meine Familie sein."
+    },
+    "primary": {
+      "en": "Stay with the memory",
+      "de": "Bei der Erinnerung bleiben"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "dokkaebi",
+      "yeoni_memory"
+    ],
+    "scene_kind": "family_promise_revelation",
+    "building_id": "anchae",
+    "story_gate": {
+      "requires": [
+        "S1-E05"
+      ],
+      "depicts": [
+        "S1-E06"
+      ],
+      "reveals": [
+        "S1-E06"
+      ],
+      "semantic_hook": "E06.middle fragments precede BUILD_FINISHED full name/family reveal",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "어린 연이의 가족 약속과 현재 도깨비를 구분한다. 연이는 기억 속 존재이며 현재 귀환하지 않는다. 고정 소스가 없는 얼굴을 새 정본처럼 생성하지 않는다. 허용된 기억 실루엣·손·웃음으로 표현할 수 있다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          240,
+          245
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/16–17"
+        },
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+          "locator": "band:A2.2"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E05A",
+    "episode": "05",
+    "title": {
+      "en": "Seeds that came every spring",
+      "de": "Samen, die jeden Frühling kamen"
+    },
+    "speaker": "Dokkaebi",
+    "dialogue": {
+      "en": "At first… I wondered if the seeds were from Yeoni.",
+      "de": "Am Anfang … dachte ich, die Samen könnten von Yeoni sein."
+    },
+    "primary": {
+      "en": "Look at the seed pouch",
+      "de": "Den Samenbeutel ansehen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "dokkaebi",
+      "joy"
+    ],
+    "scene_kind": "anonymous_seeds",
+    "building_id": "anchae-store",
+    "story_gate": {
+      "requires": [
+        "S1-E06"
+      ],
+      "depicts": [
+        "S1-E07"
+      ],
+      "reveals": [
+        "S1-E07"
+      ],
+      "semantic_hook": "E07 story sequence; BUILD_FINISHED confession",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "첫 빈 주머니와 같은 매듭, 꽃 한 구역. 초기 무사 안부→연락 단절→익명 꽃씨를 구분한다. 연이가 보냈다는 확정은 E11까지 금지한다. 일반 전달자와 도깨비의 직접 대화는 없다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          251,
+          256
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/18–20"
+        },
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+          "locator": "band:B1.1"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E06A",
+    "episode": "06",
+    "title": {
+      "en": "The teacher learns too",
+      "de": "Auch der Lehrer lernt dazu"
+    },
+    "speaker": "TalSunbi",
+    "dialogue": {
+      "en": "Ha ha! Then today the teacher learns a new expression too.",
+      "de": "Haha! Dann lernt heute auch der Lehrer etwas Neues."
+    },
+    "primary": {
+      "en": "Share the expression",
+      "de": "Den Ausdruck weitergeben"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "talsunbi"
+    ],
+    "scene_kind": "teacher_learns_everyday",
+    "building_id": "toilet-north",
+    "story_gate": {
+      "requires": [
+        "S1-E07"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "north toilet everyday bridge; no clue",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "북측 측간과 연결된 기억고택의 생활 장면. 수진이 현대 표현을 설명하고 탈선비가 책에 적는다. 도깨비·탈선비를 현대 카페의 실체 동료로 보내지 않는다. 새 핵심 단서는 없다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          258,
+          261
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/21–23"
+        },
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+          "locator": "modern event echoes; no new clue"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E07A",
+    "episode": "07",
+    "title": {
+      "en": "Entrusted, not stolen",
+      "de": "Anvertraut, nicht gestohlen"
+    },
+    "speaker": "Sujin",
+    "dialogue": {
+      "en": "She entrusted the books to different people. She wasn't stealing them.",
+      "de": "Sie hat die Bücher mehreren Menschen anvertraut. Sie hat sie nicht gestohlen."
+    },
+    "primary": {
+      "en": "Compare the records",
+      "de": "Die Aufzeichnungen vergleichen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "talsunbi",
+      "dokkaebi"
+    ],
+    "scene_kind": "records_partial_proof",
+    "building_id": "gokgan",
+    "story_gate": {
+      "requires": [
+        "S1-E07"
+      ],
+      "depicts": [
+        "S1-E08"
+      ],
+      "reveals": [
+        "S1-E08"
+      ],
+      "semantic_hook": "STRUCTURE_MILESTONE E08 partial proof",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "집 안 수령 장부와 외부 수탁 쪽지를 분리한다. 분산 보관은 증명되지만 이름 삭제 보호 이유·평생 발신인은 미확정이다. 수탁자·전달자·필사자는 문서 역할이며 새 NPC가 아니다. 내부 R-ID는 사용자에게 보이지 않는다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          263,
+          268
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/24–25"
+        },
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+          "locator": "band:B1.2"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E07B",
+    "episode": "07",
+    "title": {
+      "en": "Hope needs evidence",
+      "de": "Hoffnung braucht einen Beweis"
+    },
+    "speaker": "Dokkaebi",
+    "dialogue": {
+      "en": "Could she have sent it…? Don't give me hope without proof.",
+      "de": "Ob sie es geschickt hat …? Mach mir ohne Beweis keine Hoffnung."
+    },
+    "primary": {
+      "en": "Keep looking together",
+      "de": "Gemeinsam weitersuchen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "dokkaebi",
+      "talsunbi"
+    ],
+    "scene_kind": "uncertain_sender_hope",
+    "building_id": "gokgan",
+    "story_gate": {
+      "requires": [
+        "S1-E08"
+      ],
+      "depicts": [
+        "S1-E08"
+      ],
+      "reveals": [],
+      "semantic_hook": "BUILD_FINISHED after E08; sender still uncertain",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "수선한 무명천을 만지는 손과 심지·꽃씨·천의 전달 경로 유사성. E07A 배경을 재사용한다. 희망과 확신을 구분하며 현재의 연이 그림자·발신인 확정 자료를 미리 보이지 않는다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          263,
+          268
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/26"
+        },
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+          "locator": "band:C1.1"
+        }
+      ],
+      "render_reuse": "E07A background; new close framing and speaker only",
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E08A",
+    "episode": "08",
+    "title": {
+      "en": "The teacher a child imagined",
+      "de": "Der Lehrer aus einem Kinderspiel"
+    },
+    "speaker": "TalSunbi",
+    "dialogue": {
+      "en": "When she played teacher with that mask… you brought me to life.",
+      "de": "Als sie mit der Maske Lehrer spielte … hast du mir Leben eingehaucht."
+    },
+    "primary": {
+      "en": "Follow the memory",
+      "de": "Der Erinnerung folgen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "dokkaebi",
+      "talsunbi",
+      "yeoni_memory"
+    ],
+    "scene_kind": "talsunbi_origin_memory",
+    "building_id": "ansarang",
+    "story_gate": {
+      "requires": [
+        "S1-E08"
+      ],
+      "depicts": [
+        "S1-E09"
+      ],
+      "reveals": [
+        "S1-E09"
+      ],
+      "semantic_hook": "BUILD_STARTED through STRUCTURE_MILESTONE first subphase",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "어린 연이의 나무탈 놀이와 도깨비 마법에서 독립 책 정령이 태어난다. 새 탈 디자인·정본 얼굴 변경이 없다. 현재 동료와 과거 기억의 레이어를 구분한다. 폭풍 구출은 아직 보이지 않는다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          274,
+          277
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/27"
+        },
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+          "locator": "band:B2.1"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E08B",
+    "episode": "08",
+    "title": {
+      "en": "The day the book fell silent",
+      "de": "Der Tag, an dem das Buch verstummte"
+    },
+    "speaker": "Dokkaebi",
+    "dialogue": {
+      "en": "If word comes from Yeoni, you'll read it for me, won't you?",
+      "de": "Wenn Yeoni sich meldet, liest du mir ihre Nachricht vor, nicht wahr?"
+    },
+    "primary": {
+      "en": "Continue",
+      "de": "Weiter"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "dokkaebi_memory",
+      "talsunbi_memory"
+    ],
+    "scene_kind": "talsunbi_sleep_memory",
+    "building_id": "ansarang",
+    "story_gate": {
+      "requires": [
+        "S1-E09"
+      ],
+      "depicts": [
+        "S1-E09"
+      ],
+      "reveals": [],
+      "semantic_hook": "STRUCTURE_MILESTONE first subphase; before E10",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "1500년대 초의 관찰 기억. 책 정령은 잠들고 도깨비는 깨어 남는다. 탈선비는 잠든 후 연이의 행적을 몰랐으며 숨기지 않았다. 과거를 수정하거나 구출하는 입력은 없다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          415,
+          423
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/28"
+        },
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+          "locator": "unit:B2.1-03"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E09A",
+    "episode": "09",
+    "title": {
+      "en": "The night they protected her",
+      "de": "Als sie Yeoni retteten"
+    },
+    "speaker": "Taego",
+    "dialogue": {
+      "en": "We used the last of our strength to get Yeoni beyond the mountain.",
+      "de": "Mit letzter Kraft brachten wir Yeoni über den Berg in Sicherheit."
+    },
+    "primary": {
+      "en": "See the memory through",
+      "de": "Die Erinnerung zu Ende ansehen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "taego_memory",
+      "joy_memory",
+      "yeoni_memory"
+    ],
+    "scene_kind": "guardian_rescue_memory",
+    "building_id": "ansarang",
+    "story_gate": {
+      "requires": [
+        "S1-E04",
+        "S1-E05",
+        "S1-E09"
+      ],
+      "depicts": [
+        "S1-E10"
+      ],
+      "reveals": [
+        "S1-E10"
+      ],
+      "semantic_hook": "STRUCTURE_MILESTONE second subphase; before BUILD_FINISHED gratitude",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "1498년 폭풍에서 태고는 바위와 청록 구름 결계, 조이는 두 날개로 불티·비를 막으며 연이를 돕는다. 화염 레이저·전투 괴물화는 없다. 추격대는 먼 불빛·기척만 보인다. 구조 뒤 자발적인 배지 동면이며 죽음·부활이 아니다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          274,
+          279
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalSubphases/0"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E09B",
+    "episode": "09",
+    "title": {
+      "en": "They had not left him behind",
+      "de": "Sie hatten ihn nicht verlassen"
+    },
+    "speaker": "Dokkaebi",
+    "dialogue": {
+      "en": "You hadn't abandoned me. You were protecting her.",
+      "de": "Ihr habt mich nicht verlassen. Ihr habt sie beschützt."
+    },
+    "primary": {
+      "en": "Thank them together",
+      "de": "Ihnen gemeinsam danken"
+    },
+    "secondary": {
+      "en": "Hear the words again",
+      "de": "Die Worte noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "dokkaebi",
+      "taego",
+      "joy"
+    ],
+    "scene_kind": "guardian_gratitude",
+    "building_id": "ansarang",
+    "story_gate": {
+      "requires": [
+        "S1-E10"
+      ],
+      "depicts": [
+        "S1-E10"
+      ],
+      "reveals": [],
+      "semantic_hook": "BUILD_FINISHED emotional payoff",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "현재 기억고택으로 돌아와 도깨비가 두 신수를 마주 본다. 함께 지켜 왔음을 이해하는 감정 전환이다. 조이의 두 날개와 태고 정체성을 고정한다. E11·편지의 진실은 아직 미공개다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          474,
+          481
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/29"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E10A",
+    "episode": "10",
+    "title": {
+      "en": "The names that kept people safe",
+      "de": "Die Namen, die Menschen schützten"
+    },
+    "speaker": "Mira",
+    "dialogue": {
+      "en": "She hid the names to protect people. Every gift came from Yeoni.",
+      "de": "Sie strich die Namen zum Schutz der Menschen. Alle Gaben kamen von Yeoni."
+    },
+    "primary": {
+      "en": "Return to the reading desk",
+      "de": "Zum Lesetisch zurück"
+    },
+    "secondary": {
+      "en": "Compare the sources",
+      "de": "Die Quellen vergleichen"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "talsunbi",
+      "dokkaebi",
+      "taego",
+      "joy"
+    ],
+    "scene_kind": "final_records_verification",
+    "building_id": "sadang",
+    "story_gate": {
+      "requires": [
+        "S1-E08",
+        "S1-E10"
+      ],
+      "depicts": [
+        "S1-E11"
+      ],
+      "reveals": [
+        "S1-E11"
+      ],
+      "semantic_hook": "STRUCTURE_MILESTONE E11; no shrine excavation",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "사당을 경건히 정돈한 뒤 기억고택에서 합동 자료를 대조한다. 현대 디지털 자료실은 외부 사본 출처이며 정령을 현대 실체로 보내지 않는다. 이름 별지·발송 메모·필사 경위·수령 장부를 구분한다. 사당 발굴·던전·새 중개인 얼굴은 없다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          281,
+          288
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/canonicalHooks/31"
+        },
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+          "locator": "E11 boundary; C1.2 activity remains separate"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E10B",
+    "episode": "10",
+    "title": {
+      "en": "A voice carried home",
+      "de": "Eine Stimme findet heim"
+    },
+    "speaker": "Mira",
+    "dialogue": {
+      "en": "I… never… forgot… this home.",
+      "de": "Ich habe … dieses Zuhause … nie vergessen."
+    },
+    "primary": {
+      "en": "Continue",
+      "de": "Weiter"
+    },
+    "secondary": {
+      "en": "Read with Sujin",
+      "de": "Mit Sujin lesen"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "dokkaebi",
+      "talsunbi"
+    ],
+    "scene_kind": "last_letter_reading",
+    "building_id": "sarangchae",
+    "story_gate": {
+      "requires": [
+        "S1-E11"
+      ],
+      "depicts": [
+        "S1-E12"
+      ],
+      "reveals": [
+        "S1-E12"
+      ],
+      "semantic_hook": "finale reading after E11; AP-1 no 128/128 or C2 gate",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "첫 집 쪽지 옆 마지막 편지. 플레이어가 연이의 말을 전하며 연이 본인의 귀환·부활은 없다. 수진은 곁에서 기다리되 요청하면 즉시 돕는다. 물건 도착을 끝내 몰랐다는 편지 맥락을 유지하고 독립 읽기·말하기 점수를 붙이지 않는다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          502,
+          520
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/endingOutside128/sequence/0"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "E10C",
+    "episode": "10",
+    "title": {
+      "en": "The first answer",
+      "de": "Die erste Antwort"
+    },
+    "speaker": "Dokkaebi",
+    "dialogue": {
+      "en": "It all arrived, Yeoni. I received everything.",
+      "de": "Alles ist angekommen, Yeoni. Ich habe alles bekommen."
+    },
+    "primary": {
+      "en": "Continue",
+      "de": "Weiter"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "dokkaebi",
+      "talsunbi",
+      "taego",
+      "joy"
+    ],
+    "scene_kind": "first_answer",
+    "building_id": "sarangchae",
+    "story_gate": {
+      "requires": [
+        "S1-E12"
+      ],
+      "depicts": [
+        "S1-E12"
+      ],
+      "reveals": [],
+      "semantic_hook": "first answer before freedom and epilogue A",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "편지 위로 낮고 떨리는 첫 대답. 물건을 써 온 손과 멀리서 돌본 마음이 이어진다. 이후 자유 회복과 태고·조이의 정본 완문을 보존하고 A로 진입한다. 첫 대답을 문 수리 대사로 대체하지 않는다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          522,
+          530
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+          "locator": "/endingOutside128/sequence/0"
+        },
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUES_10S.md",
+          "locator": "replay order before A"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "Keeps existing STAGE_STORY_128.json first-answer EN/DE",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "EA1",
+    "episode": "epilogue-a",
+    "title": {
+      "en": "Spring returns",
+      "de": "Der Frühling kehrt zurück"
+    },
+    "speaker": "",
+    "dialogue": {
+      "en": "",
+      "de": ""
+    },
+    "primary": {
+      "en": "Continue",
+      "de": "Weiter"
+    },
+    "secondary": {
+      "en": "Pause here",
+      "de": "Hier pausieren"
+    },
+    "characters": [],
+    "scene_kind": "silent_epilogue_insert",
+    "building_id": "sarangchae",
+    "story_gate": {
+      "requires": [
+        "S1-E12"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "after first answer and Taego/Joy full lines",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "A1/0–3초 편집 설계. 안정된 등잔·봄꽃·세 소용돌이 배지 인서트이며 대사가 없다. 실제 영상 길이를 검증한 것이 아니다. 모션 감소 정지판을 제공하고 서사 기억 100%를 공정 128 완료 UI로 바꾸지 않는다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          527,
+          530
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUES_10S.md",
+          "locator": "A1 0–3s"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "Silent insert; no invented narration",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "EA2",
+    "episode": "epilogue-a",
+    "title": {
+      "en": "The second answer",
+      "de": "Die zweite Antwort"
+    },
+    "speaker": "Dokkaebi",
+    "dialogue": {
+      "en": "Yeoni. I've fixed the door now.",
+      "de": "Yeoni. Die Tür ist jetzt repariert."
+    },
+    "primary": {
+      "en": "Look inside",
+      "de": "Nach innen sehen"
+    },
+    "secondary": {
+      "en": "Hear again",
+      "de": "Noch einmal hören"
+    },
+    "characters": [
+      "player_pov",
+      "dokkaebi"
+    ],
+    "scene_kind": "second_answer_open_gate",
+    "building_id": null,
+    "story_gate": {
+      "requires": [
+        "S1-E12"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "after freedom restored; chosen staying, not continued binding",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "A2/3–7초 설계. 완전한 떠날 자유를 회복한 도깨비가 스스로 남아 빗장을 고친다. 첫날과 같은 경계 대문이다. 바깥 문턱에서 집 안을 보는 귀가 카메라다. 추가 가격·학습·12번째 건물은 없다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          532,
+          534
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUES_10S.md",
+          "locator": "A2 3–7s"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "Keeps EPILOGUES_10S.md A2 EN/DE",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "EA3",
+    "episode": "epilogue-a",
+    "title": {
+      "en": "Home, with your friends",
+      "de": "Wieder da, bei deinen Freunden"
+    },
+    "speaker": "Mira",
+    "dialogue": {
+      "en": "I'm home.",
+      "de": "Ich bin wieder da."
+    },
+    "primary": {
+      "en": "Continue",
+      "de": "Weiter"
+    },
+    "secondary": {
+      "en": "Stay on this scene",
+      "de": "Bei dieser Szene bleiben"
+    },
+    "characters": [
+      "player_pov",
+      "sujin",
+      "dokkaebi",
+      "talsunbi",
+      "taego",
+      "joy"
+    ],
+    "scene_kind": "season_completion_homecoming",
+    "building_id": null,
+    "story_gate": {
+      "requires": [
+        "S1-E12"
+      ],
+      "depicts": [
+        "S1-END"
+      ],
+      "reveals": [
+        "S1-END"
+      ],
+      "semantic_hook": "season emotional completion; no C2/recording/writing/128 gate",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "A3/7–10초 설계. 바깥 문턱의 플레이어 시점에서 집 안 다섯 동료를 바라보는 상징적 귀가다. 밖으로 떠나는 숏·새 현대 왕복·귀환 실패 사건은 없다. 시즌 완결과 공정 소유 완료를 구분한다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          532,
+          537
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUES_10S.md",
+          "locator": "A3 7–10s"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "Keeps EPILOGUES_10S.md A3 EN/DE",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "EC1",
+    "episode": "cookie-canon",
+    "title": {
+      "en": "A message about the badge",
+      "de": "Eine Nachricht über das Abzeichen"
+    },
+    "speaker": "Sujin",
+    "dialogue": {
+      "en": "Mira, a message about the badge's earlier journey. Shall we read it together?",
+      "de": "Mira, eine Nachricht über den früheren Weg des Abzeichens. Lesen wir sie zusammen?"
+    },
+    "primary": {
+      "en": "Read the message",
+      "de": "Die Nachricht lesen"
+    },
+    "secondary": {
+      "en": "Return to Season 1",
+      "de": "Zurück zu Staffel 1"
+    },
+    "characters": [
+      "player_pov",
+      "sujin"
+    ],
+    "scene_kind": "canonical_modern_contact",
+    "building_id": null,
+    "story_gate": {
+      "requires": [
+        "S1-END"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "after season completion; canonical cookie contact",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "v3.5 정본 537행의 현대 연락 한 컷. 수첩 역할 기록과 배지 이전 전승·다음 고택에 대한 질문만 남긴다. 발신인·연락처·목적지 이름·답을 발명하지 않는다. 정령의 현대 실체는 없다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          537,
+          537
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUES_10S.md",
+          "locator": "v3.5 canonical modern contact preservation"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "EN/DE image-copy candidate; semantic excerpt; no original rewritten",
+      "editorial_note": "Sujin's short line is a proposed bridge; the source does not provide this exact dialogue."
+    }
+  },
+  {
+    "id": "EB1",
+    "episode": "cookie-b",
+    "title": {
+      "en": "A page for someone after you",
+      "de": "Eine Seite für die Nächsten"
+    },
+    "speaker": "TalSunbi",
+    "dialogue": {
+      "en": "Will you pass this learning on?",
+      "de": "Möchtest du das Gelernte weitergeben?"
+    },
+    "primary": {
+      "en": "Continue",
+      "de": "Weiter"
+    },
+    "secondary": {
+      "en": "Skip the bonus scene",
+      "de": "Bonusszene überspringen"
+    },
+    "characters": [
+      "player_pov",
+      "talsunbi"
+    ],
+    "scene_kind": "requested_cookie_variant",
+    "building_id": "sarangchae",
+    "story_gate": {
+      "requires": [
+        "S1-END"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "optional requested B variant after A; no answer required",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "B1/0–4초 설계. 같은 서안의 첫 집 쪽지·마지막 편지·빈 새 쪽. 신규 과제·입력창·미완결 필수 조각은 없다. 선택 후일담 변주이며 정본 537행 연락 그 자체가 아니다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          498,
+          498
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUES_10S.md",
+          "locator": "B1 0–4s"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "Keeps EPILOGUES_10S.md B1 proposed EN/DE; not canonical quotation",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "EB2",
+    "episode": "cookie-b",
+    "title": {
+      "en": "The badge calls again",
+      "de": "Das Abzeichen ruft wieder"
+    },
+    "speaker": "Joy",
+    "dialogue": {
+      "en": "Taego! The badge is calling again!",
+      "de": "Taego! Das Abzeichen ruft wieder!"
+    },
+    "primary": {
+      "en": "Look toward the mountains",
+      "de": "Zu den Bergen schauen"
+    },
+    "secondary": {
+      "en": "Skip the bonus scene",
+      "de": "Bonusszene überspringen"
+    },
+    "characters": [
+      "player_pov",
+      "joy",
+      "taego"
+    ],
+    "scene_kind": "requested_cookie_variant",
+    "building_id": null,
+    "story_gate": {
+      "requires": [
+        "S1-END"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "optional B2 possibility, not new clue reveal",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "B2/4–7초 설계. 배지의 두 번 은은한 빛과 이름 없는 먼 지붕 한 컷. 목적지 정체·지도 핀·인물 실루엣·새 단서는 없다. 모션 감소에서는 정적인 밝음으로 같은 뜻을 전한다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          537,
+          537
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUES_10S.md",
+          "locator": "B2 4–7s"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "Keeps EPILOGUES_10S.md B2 proposed EN/DE; not canonical quotation",
+      "editorial_note": null
+    }
+  },
+  {
+    "id": "EB3",
+    "episode": "cookie-b",
+    "title": {
+      "en": "The door stays open",
+      "de": "Die Tür bleibt offen"
+    },
+    "speaker": "Dokkaebi",
+    "dialogue": {
+      "en": "Go on. I'll leave the door open.",
+      "de": "Geh nur. Ich lasse die Tür offen."
+    },
+    "primary": {
+      "en": "Return to Season 1",
+      "de": "Zurück zu Staffel 1"
+    },
+    "secondary": {
+      "en": "Revisit the ending",
+      "de": "Das Ende erneut ansehen"
+    },
+    "characters": [
+      "player_pov",
+      "dokkaebi"
+    ],
+    "scene_kind": "requested_cookie_variant",
+    "building_id": null,
+    "story_gate": {
+      "requires": [
+        "S1-END"
+      ],
+      "depicts": [],
+      "reveals": [],
+      "semantic_hook": "optional B3 farewell after completed homecoming",
+      "binding_status": "editorial image state; use existing story owner; no new runtime gate"
+    },
+    "focus": "B3/7–10초 설계. 대문 안 편안히 남아 미래 여정을 배웅한다. A의 귀가 인사를 출발 인사로 재사용하지 않는다. 선택 언어의 EN/DE 완결 타이틀을 따로 조판하고 대사와 충돌하지 않게 한다. 시즌2 결제·참여 없이 시즌1은 완결된다.",
+    "source": {
+      "canon": {
+        "path": "C:/Users/vjinn/ELibrary/Downloads/한글소리_게임스토리/1_v3_5.md",
+        "lines": [
+          532,
+          537
+        ]
+      },
+      "manuscript": [
+        {
+          "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-docs-20261030/docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUES_10S.md",
+          "locator": "B3 7–10s"
+        }
+      ],
+      "render_reuse": null,
+      "copy_status": "Keeps EPILOGUES_10S.md B3 proposed EN/DE; not canonical quotation",
+      "editorial_note": null
+    }
+  }
+]
+

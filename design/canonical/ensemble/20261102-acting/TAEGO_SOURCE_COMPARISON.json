@@ -1,0 +1,196 @@
+{
+  "reviewed_pngs": 14,
+  "video_metadata_only": {
+    "seconds": 10.041667,
+    "video_codec": "h264",
+    "size_px": [
+      1920,
+      1080
+    ],
+    "pixel_format": "yuv420p",
+    "audio_codec": "aac",
+    "alpha_video": false
+  },
+  "sources": [
+    {
+      "source_label": "백호정본채택/backho.mp4",
+      "sha256": "56df30ebec7ee7555aa7ae2dc04eee5470d5fc7d1cb8cec04dc00984451e2939",
+      "bytes": 10231724,
+      "mode": null,
+      "size_px": null,
+      "review": "ffprobe metadata only, not playback",
+      "decision": "EXISTING_VIDEO_PRESERVED_NOT_NEWLY_PROMOTED; metadata-only review"
+    },
+    {
+      "source_label": "백호정본채택/baekho-divine-blue-v2.png",
+      "sha256": "5e29f67b90fb42912aaff6ae2c9de40758c123350a1a30dc907735e168087bb9",
+      "bytes": 2313232,
+      "mode": "RGB",
+      "size_px": [
+        1086,
+        1448
+      ],
+      "review": "visual PNG comparison",
+      "decision": "DIVINE_LIGHTING_INSPIRATION_ONLY; RGB floor/aura; not base identity or new runtime asset"
+    },
+    {
+      "source_label": "백호정본채택/baekho.png",
+      "sha256": "1a8d0bb2e3e11a39c6b055ac2736cc43222006d266ac35a80685f00d45a23e34",
+      "bytes": 1420799,
+      "mode": "RGB",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "review": "visual PNG comparison",
+      "decision": "PRIMARY_IDENTITY_RETAINED_EXISTING_CANON"
+    },
+    {
+      "source_label": "백호정본채택/baekho2.png",
+      "sha256": "bca6fcfc39454a3a9f5345a245171414f0ffa3faeb14ada103aa42ddbac5a40b",
+      "bytes": 1246572,
+      "mode": "RGB",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "review": "visual PNG comparison",
+      "decision": "PRESERVED_SOURCE_COMPARISON_NOT_PROMOTED; see comparison judgement"
+    },
+    {
+      "source_label": "백호정본채택/baekho3.png",
+      "sha256": "1440bac2026699fb4b6ed93bd1a0e7639031f5c1530114ff0ba6dc1c480b4a5d",
+      "bytes": 1176849,
+      "mode": "RGB",
+      "size_px": [
+        1448,
+        1086
+      ],
+      "review": "visual PNG comparison",
+      "decision": "PRESERVED_SOURCE_COMPARISON_NOT_PROMOTED; see comparison judgement"
+    },
+    {
+      "source_label": "백호정본채택/baekho4.png",
+      "sha256": "ff1604f3ef3e28002c71cd30d9ae9bbf38cdc235abfb2e4f375756b4f226c507",
+      "bytes": 1186899,
+      "mode": "RGB",
+      "size_px": [
+        1448,
+        1086
+      ],
+      "review": "visual PNG comparison",
+      "decision": "PRESERVED_SOURCE_COMPARISON_NOT_PROMOTED; see comparison judgement"
+    },
+    {
+      "source_label": "백호정본채택/exec-01f6b364-e18f-4aca-a25f-dca0ad526a85.png",
+      "sha256": "be49e615c8c071baa91cdc1cde5569b25e929562b984d981cff2b87c3c1638a9",
+      "bytes": 2157153,
+      "mode": "RGBA",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "review": "visual PNG comparison",
+      "decision": "PRESERVED_SOURCE_COMPARISON_NOT_PROMOTED; see comparison judgement"
+    },
+    {
+      "source_label": "백호정본채택/exec-1446c7b6-0530-4cd8-9d11-8b4d74a3aed6.png",
+      "sha256": "c773821852d1be537a7e714af0f9e90dee8a20e1c87ae6a755f9458d7357a6f2",
+      "bytes": 1491239,
+      "mode": "RGBA",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "review": "visual PNG comparison",
+      "decision": "SELECTED_SUPPORT_REFERENCE_COPIED"
+    },
+    {
+      "source_label": "백호정본채택/exec-2283fd5e-881e-4887-b4e5-528dd38f289c.png",
+      "sha256": "444eed7e6e7188432b5fe0c6e125dc5790d84a71c93255e9149396b12ee20a2f",
+      "bytes": 1204432,
+      "mode": "RGBA",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "review": "visual PNG comparison",
+      "decision": "PRESERVED_SOURCE_COMPARISON_NOT_PROMOTED; see comparison judgement"
+    },
+    {
+      "source_label": "백호정본채택/exec-30d21a2c-448c-4b93-bc3b-d0b78de87417.png",
+      "sha256": "a2328c8584e3c850c283fb13b63be2a9ea2100f1d70a6d38a6c9f27d98e26815",
+      "bytes": 1359291,
+      "mode": "RGBA",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "review": "visual PNG comparison",
+      "decision": "PRESERVED_SOURCE_COMPARISON_NOT_PROMOTED; see comparison judgement"
+    },
+    {
+      "source_label": "백호정본채택/exec-59fe7aff-0d16-40cf-8904-8f433de124e4.png",
+      "sha256": "8d7137edfe97df4c63b5048962c6660e189c9ad37b6031799b152abf38065479",
+      "bytes": 2055808,
+      "mode": "RGBA",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "review": "visual PNG comparison",
+      "decision": "SELECTED_SUPPORT_REFERENCE_COPIED"
+    },
+    {
+      "source_label": "백호정본채택/exec-bcc22cf1-dc2e-410b-9e03-a4d8ef1f36ac.png",
+      "sha256": "7b093f824f33088fda12baccdd6798fafe806eb47e53a584ad6bff4e54f40ef3",
+      "bytes": 1909008,
+      "mode": "RGBA",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "review": "visual PNG comparison",
+      "decision": "PRESERVED_SOURCE_COMPARISON_NOT_PROMOTED; see comparison judgement"
+    },
+    {
+      "source_label": "백호정본채택/exec-c6c5a017-21a5-4a45-b756-84554126b0f9.png",
+      "sha256": "ea15d486f232e67344ffa2f7c9f15ef05148e616578a8bcdf6bdec6265bca34a",
+      "bytes": 2331382,
+      "mode": "RGBA",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "review": "visual PNG comparison",
+      "decision": "PRESERVED_SOURCE_COMPARISON_NOT_PROMOTED; see comparison judgement"
+    },
+    {
+      "source_label": "백호정본채택/exec-d9e47a8d-6278-485e-a4f3-effc288da9a4.png",
+      "sha256": "9dd03e4c62fb4513b5c97f788d48189bce939e510d39a1b34a2bd9b0415bfbe2",
+      "bytes": 1360856,
+      "mode": "RGBA",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "review": "visual PNG comparison",
+      "decision": "SELECTED_SUPPORT_REFERENCE_COPIED"
+    },
+    {
+      "source_label": "백호정본채택/exec-da0092d4-29ab-4c7d-99ac-3d6628855a4e.png",
+      "sha256": "8eace5ec15342a2d816f095bd1953aa73c22cdf4c9c1b8fe06a235b458ac4f98",
+      "bytes": 1307614,
+      "mode": "RGBA",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "review": "visual PNG comparison",
+      "decision": "PRESERVED_SOURCE_COMPARISON_NOT_PROMOTED; see comparison judgement"
+    }
+  ],
+  "new_acting_original_profile": "../20261102/CHARACTER_LOCK.json",
+  "new_acting_generated_count": 13,
+  "new_acting_selected_count": 9
+}

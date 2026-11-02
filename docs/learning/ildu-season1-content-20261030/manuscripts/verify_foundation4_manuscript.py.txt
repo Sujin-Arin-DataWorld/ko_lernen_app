@@ -1,0 +1,141 @@
+"""Check standalone manuscript structure and source preservation; no app writes."""
+import csv
+import hashlib
+import json
+import re
+import sys
+from collections import Counter
+from pathlib import Path
+
+ROOT=Path(__file__).parent/'foundation-4-v35'
+source=json.loads((ROOT/'CONTENT_SOURCE.json').read_text(encoding='utf-8'))
+extra=json.loads((ROOT/'MEANINGS_AND_NOTE.json').read_text(encoding='utf-8'))
+items=json.loads((ROOT/'AUTHORING_ITEMS.json').read_text(encoding='utf-8'))['items']
+rows=list(csv.DictReader((ROOT/'ITEM_BANK.csv').open(encoding='utf-8-sig',newline='')))
+receipt=json.loads((ROOT/'SOURCE_AND_QA.json').read_text(encoding='utf-8'))
+INI='ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ'
+VOW='ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ'
+FIN='\0ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ'
+def parts(s):
+ n=ord(s)-44032
+ return INI[n//588],VOW[(n%588)//28],FIN[n%28] if n%28 else ''
+def check_text(value,known,ctx):
+ if isinstance(value,list):
+  for v in value:check_text(v,known,ctx)
+ elif isinstance(value,str):
+  for ch in value:
+   if 44032<=ord(ch)<55204:
+    i,v,f=parts(ch)
+    assert i in known['i'] and v in known['v'] and (not f or f in known['f']),(ctx,value,ch,known)
+   elif ch in VOW:assert ch in known['v'],(ctx,ch)
+   elif ch in INI:assert ch in known['i'] or ch in known['f'],(ctx,ch)
+
+assert len(items)==len(rows)==117 and len({r['item_id'] for r in items})==117
+psv=Path(next(x['path'] for x in receipt['protected_files'] if x['path'].endswith('FOUNDATION.psv')))
+ids=[line.split('|')[0] for line in psv.read_text(encoding='utf-8').splitlines() if line.startswith('F0.4.')]
+assert ids==[l['id'] for l in source['lessons']]
+known={'i':set(INI),'v':set('ㅏㅓㅗㅜㅡㅣㅑㅕㅛㅠㅐㅔㅘㅝㅟㅚ'),'f':set('ㅁㄴㄹㅇ')}
+audio_needed=set();positions=Counter();by_id={r['item_id']:r for r in items}
+linked={'문이':'무니','옷이':'오시','밥이':'바비','집에':'지베','밤이':'바미','짐에':'지메'}
+def phon_key(text):
+ text=linked.get(text,text)
+ key=[]
+ for ch in text:
+  if 44032<=ord(ch)<55204:
+   i,v,f=parts(ch)
+   if f and f in 'ㅅㅆㅈㅊㅌ':f='ㄷ'
+   if f and f in 'ㄲㅋ':f='ㄱ'
+   if f=='ㅍ':f='ㅂ'
+   key.append((i,v,f))
+  else:key.append(ch)
+ return repr(key)
+
+for l in source['lessons']:
+ own=[r for r in items if r['unit_id']==l['id']]
+ md=(ROOT/l['file']).read_text(encoding='utf-8')
+ states={}
+ if l['n']==1:
+  for j,t in enumerate(l['targets'],1):
+   known['f'].update(t['new_finals']);states[f'M{j:02d}']={k:set(v) for k,v in known.items()}
+ elif l['n'] in [2,3]:
+  for j,t in enumerate(l['targets'],1):
+   known['v'].add(t['new_vowel']);states[f'M{j:02d}']={k:set(v) for k,v in known.items()}
+ elif l['n']==4:known['v'].add('ㅢ')
+ for stage in 'PIR':
+  nums=[int(r['item_id'][-2:]) for r in own if r['stage']==stage]
+  assert nums==list(range(1,len(nums)+1)),(l['id'],stage)
+ for r in own:
+  assert r['item_id'] in md and len(r['prompt'])==3 and all(r['prompt'])
+  for code in r['feedback']:assert '| '+code+'·' in md,(r['item_id'],code)
+  st=r['stimulus_author_only'];opts=r['options_author_only'];ans=r['answer_author_only']
+  state=states.get(r['section'],known) if r['stage']!='R' else known
+  for k in ['written','shown_model','shown_word','audio','pieces','syllable_pieces','word_pieces','prepared_draft','supplied_draft','unspaced','reference_pair','chosen_form']:
+   if st.get(k) is not None:check_text(st[k],state,r['item_id'])
+  check_text(opts,state,r['item_id'])
+  if st.get('audio'):audio_needed.add(st['audio'])
+  audio_needed.update(st.get('reference_pair',[]))
+  if r['kind']=='read_audio':
+   audio_needed.update(opts)
+   assert opts['ABC'.index(ans['button'])]==ans['transcript_author_only']
+   assert len({phon_key(x) for x in opts})==len(opts),(r['item_id'],'homophonous choices',opts)
+   positions[ans['button']]+=1
+  elif r['kind'] in ['audio_text','vowel_in_block','picture_word','referent_choice','link_position','space_choice','request_choice']:
+   assert ans in opts,(r['item_id'],ans,opts)
+   if r['kind']=='audio_text':
+    assert st['audio']==ans
+    assert len({phon_key(x) for x in opts})==len(opts),(r['item_id'],opts)
+  elif r['kind']=='syllable_build':
+   p=[x for x in parts(ans['word']) if x]
+   assert sorted(st['pieces'])==sorted(p)
+   if len([x for x in p if x in INI])>1:
+    assert any(st.get(k) for k in ['shown_model','audio','picture','meaning_supplied']),('ambiguous build',r['item_id'])
+  elif r['kind'] in ['word_build','phrase_build']:
+   assert any(st.get(k) for k in ['shown_word','shown_model','audio','picture','meaning_supplied']),('missing target cue',r['item_id'])
+  elif r['kind'].startswith('input_'):
+   assert st['allowed_methods']==['DUBEOLSIK','JAMO_SELECTION'] and st['score_only_after_composition_commit']
+   if r['kind']=='input_recall':assert st['no_model'] and not st.get('shown_word')
+  if st.get('picture'):
+   match=re.fullmatch(r'([A-Z]+)-[TIR][12]',st['picture'])
+   assert match and match.group(1) in extra['meanings'],(r['item_id'],st['picture'])
+  if r['stage']=='R':assert '直' not in r['scope'] and '직전 마지막 관련 노출' in r['scope'] and '최근 노출24시간 미만' in r['scope']
+
+for row,r in zip(rows,items):
+ assert row['unit_id']==r['unit_id'] and row['author_item_id']==r['item_id']
+ for key in ['stage','section','kind','scope']:assert row[key]==r[key]
+ for key in ['stimulus_author_only','options_author_only','answer_author_only']:assert json.loads(row[key])==r[key]
+ assert [row['prompt_ko'],row['prompt_en'],row['prompt_de']]==r['prompt']
+ assert row['feedback']==', '.join(r['feedback'])
+for f in ROOT.glob('*.md'):
+ text=f.read_text(encoding='utf-8');width=None
+ for link in re.findall(r'\]\(([^)]+)\)',text):
+  if not link.startswith(('http:','https:','#')):assert (ROOT/link).exists(),(f.name,link)
+ for line in text.splitlines():
+  if line.startswith('|'):
+   count=len(re.findall(r'(?<!\\)\|',line))
+   if width is None:width=count
+   assert count==width,(f.name,line)
+  else:width=None
+ assert not re.search(r'(국|옷|밥|목|낮|집|책)예요',text),f.name
+ assert not re.search(r'[ㄱ-ㅎ]를',text),f.name
+audio_script=(ROOT/'MEDIA_AND_CRITERIA.md').read_text(encoding='utf-8')
+for sound in audio_needed:
+ assert re.search(r'\| S-\d+ \| '+re.escape(sound)+r' \|',audio_script),('audio script missing',sound)
+assert '재노출' in by_id['D04-R02']['scope'] and '첫 지연 확인 후보' not in by_id['D04-R02']['scope']
+assert '재노출' not in by_id['D07-R04']['scope'] or '무노출' in by_id['D07-R04']['scope']
+assert '이미 본 뒤' in by_id['D07-R04']['scope']
+assert all(by_id[f'D01-{stage}{num:02d}']['stimulus_author_only'].get('audio') for stage,nums in [('I',[2,4,6]),('R',[4,5,6])] for num in nums)
+assert all(word in [r['answer_author_only'] for r in items if r['unit_id'].endswith('first-input')] for word in ['집','나무','모자','바다','다리'])
+for x in receipt['protected_files']:
+ assert hashlib.sha256(Path(x['path']).read_bytes()).hexdigest()==x['sha256'],x['path']
+result={'canonical_units':7,'items':117,'stages':dict(Counter(r['stage'] for r in items)),'optional_chosen_branches':5,
+ 'csv_json_manuscript_alignment':'PASS','introduced_symbols_and_target_cues':'PASS',
+ 'written_pronunciation_distinct_choices':'PASS - script comparison, not listening QA','audio_answer_positions':dict(positions),
+ 'all_required_reading_audio_scripts':'PASS','goal_specific_feedback_references':'PASS',
+ 'shared_goal_R_reexposure_scopes':'PASS','relative_links_and_table_structure':'PASS','protected_files_unchanged':len(receipt['protected_files'])}
+if '--receipt' in sys.argv:
+ receipt.update({'status':'document_authored_structurally_checked','checks':result,
+  'not_done':['human_teacher_review','human_EN_DE_review','audio_recording_and_listening_QA','image_production_and_rights_check','zero_beginner_input_and_retention_observation','app_note_storage_rewards_device_integration'],
+  'output_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(ROOT.iterdir()) if p.is_file() and p.name!='SOURCE_AND_QA.json'},
+  'authoring_helper':'../build_foundation4_manuscript.py'})
+ (ROOT/'SOURCE_AND_QA.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps(result,ensure_ascii=False,indent=2))

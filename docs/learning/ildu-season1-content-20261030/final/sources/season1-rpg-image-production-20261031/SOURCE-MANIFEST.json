@@ -1,0 +1,156 @@
+[
+  {
+    "file": "sources/courtyard-generated.png",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-ccfa563c-df04-4e8a-95fc-71246d401ce6.png",
+    "sha256": "f19d9cffabbd2681538b37f5ff183ba1f7bee26be6b7d7268abb4f32c1983d0c",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGB",
+    "copy": "byte-identical"
+  },
+  {
+    "file": "sources/book-prop-generated-candidate.png",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-301dd088-a77e-4771-a87d-cb672ff6f2c9.png",
+    "sha256": "6193a5117324ad7c9b55a21a95fa0c176fe7610af1b39b434d752b9953cb64c4",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "copy": "byte-identical"
+  },
+  {
+    "file": "sources/rpg-chassis-generated.png",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-1b1c3193-1bfd-4ead-a4b1-702977259d87.png",
+    "sha256": "91a23c2e3c8191cc4248e0825300a82f24a61840868219c6154acfd08c449978",
+    "size": [
+      853,
+      1844
+    ],
+    "mode": "RGB",
+    "copy": "byte-identical"
+  },
+  {
+    "file": "sources/book-user-provided.png",
+    "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-912f9b2f-451d-4e76-94fb-2707c90bf226.png",
+    "sha256": "bba995dc84e4281448da0da23c5f6c00a728c9643ab2138ffd00d69b71d2e712",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGB",
+    "copy": "byte-identical"
+  },
+  {
+    "file": "sources/map-user-provided.png",
+    "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-c60bd751-7504-468f-b801-36f0796b2122.png",
+    "sha256": "9f2106f54eaa8e4c45f4f9bb8b9039959d7e2f8319b0a97d84242a6f59cb2bb1",
+    "size": [
+      853,
+      1843
+    ],
+    "mode": "RGB",
+    "copy": "byte-identical"
+  },
+  {
+    "file": "sources/sujin.png",
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\01_core\\character_sujin.png",
+    "sha256": "60b0f18338a6efc940377d725ab41ecac9ebb1365b094e9f63fa58d71459015c",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "copy": "byte-identical"
+  },
+  {
+    "file": "sources/dokkaebi.png",
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\01_core\\character_dokkaebi.png",
+    "sha256": "2e1c3fd6f47b0930233c70a7b9e2f93dd2d374d404136e28480dd4ddc74b8202",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGBA",
+    "copy": "byte-identical"
+  },
+  {
+    "file": "sources/talsunbi.png",
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\01_core\\character_talsunbi.png",
+    "sha256": "3ca5cf78d7eaa1f9b50e2aa767aa0399653dbfbf2f0be01a84448f57dbf16fb1",
+    "size": [
+      1086,
+      1448
+    ],
+    "mode": "RGBA",
+    "copy": "byte-identical"
+  },
+  {
+    "file": "sources/joy.png",
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\01_core\\character_joy.png",
+    "sha256": "15c3c966c0ae190c11777977587943cdef1975d7e186349b4dc7408987749d29",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "copy": "byte-identical"
+  },
+  {
+    "file": "sources/gate.png",
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\04_gate\\sotdaeulmun_approved_art03.png",
+    "sha256": "85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44",
+    "size": [
+      1448,
+      1086
+    ],
+    "mode": "RGB",
+    "copy": "byte-identical"
+  },
+  {
+    "file": "sources/desk.png",
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\07_role_pending\\seoan_existing.png",
+    "sha256": "59e488f8cf212911439f7d73818d809a0667ad9c06361ddc08571a331b96f4e7",
+    "size": [
+      1330,
+      490
+    ],
+    "mode": "RGBA",
+    "copy": "byte-identical"
+  },
+  {
+    "file": "sources/paper.png",
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\05_style\\c_material_hanji_material.png",
+    "sha256": "6d9fcb2e702e515634911a83ece52b73ee441f86a74e41d19a1e1b903f043602",
+    "size": [
+      941,
+      1672
+    ],
+    "mode": "RGB",
+    "copy": "byte-identical"
+  },
+  {
+    "file": "sources/wood.png",
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\05_style\\c_material_wood_material.png",
+    "sha256": "102da3a4483477b33112e41957a515b09a2b4ef11fb91738a798801208119df0",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGB",
+    "copy": "byte-identical"
+  },
+  {
+    "file": "sources/cloud.png",
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\06_ui_only\\approved_ui_cloud.png",
+    "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "copy": "byte-identical"
+  }
+]

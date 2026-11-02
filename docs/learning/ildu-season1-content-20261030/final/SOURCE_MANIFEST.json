@@ -1,0 +1,284 @@
+{
+  "schema": "hangulsori/season1-session-final-document-sources/1",
+  "recorded_at_utc": "2026-10-31T14:01:24.228781+00:00",
+  "thread_id": "01a18406-245e-7570-9379-62120de745d6",
+  "scope": "Authored story/curriculum/art direction documents from this chat; not raw private conversation, runtime data, or approved app implementation",
+  "base_main_sha": "03adb4e27ccfa915c87a0f50abaa076cba99b834",
+  "editorial_precedence": "Latest user instruction > current verified source/contract > v3.5 story > authoring proposals > historical rejected explorations",
+  "prior_snapshot": "../SNAPSHOT_MANIFEST.json",
+  "prior_snapshot_file_count": 119,
+  "later_source_file_count": 30,
+  "later_markdown_count": 16,
+  "source_files": [
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-direction-20261031\\PRODUCT-BRIEF.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-direction-20261031/PRODUCT-BRIEF.md",
+      "source_sha256": "233e5e67683f8290cd4af8b0b58bff92110ec389f6f275bd4c74b8769ddcac5b",
+      "copied_sha256": "233e5e67683f8290cd4af8b0b58bff92110ec389f6f275bd4c74b8769ddcac5b",
+      "bytes": 12818,
+      "status": "DIRECTION_PROPOSAL_WITH_USER_INTENT",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-direction-20261031\\SOURCE-REVIEW.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-direction-20261031/SOURCE-REVIEW.md",
+      "source_sha256": "0c28256cf7f059ca7818c29eb27cf1108d77c859ceccf0537694b3d8ad2a7628",
+      "copied_sha256": "0c28256cf7f059ca7818c29eb27cf1108d77c859ceccf0537694b3d8ad2a7628",
+      "bytes": 13889,
+      "status": "DIRECTION_PROPOSAL_WITH_USER_INTENT",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-image-plan-20261031\\experience-review.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/experience-review.md",
+      "source_sha256": "3f2e36a53069059854007761b358121b5bb1d759756dc36a11d8a080d5267322",
+      "copied_sha256": "3f2e36a53069059854007761b358121b5bb1d759756dc36a11d8a080d5267322",
+      "bytes": 7729,
+      "status": "HISTORICAL_PLAN_PARTLY_SUPERSEDED",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-image-plan-20261031\\pipeline-review.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/pipeline-review.md",
+      "source_sha256": "6e063254b4d323b559f7de724488fc2c35a3861bf485c67b8e10c02cc572dd4d",
+      "copied_sha256": "6e063254b4d323b559f7de724488fc2c35a3861bf485c67b8e10c02cc572dd4d",
+      "bytes": 7267,
+      "status": "HISTORICAL_PLAN_PARTLY_SUPERSEDED",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-image-plan-20261031\\PLAN.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/PLAN.md",
+      "source_sha256": "863247a410d4e41c914c6c07570547fb16fcb73bbb5818f228879b4ac08cffd3",
+      "copied_sha256": "863247a410d4e41c914c6c07570547fb16fcb73bbb5818f228879b4ac08cffd3",
+      "bytes": 17937,
+      "status": "HISTORICAL_PLAN_PARTLY_SUPERSEDED",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-image-plan-20261031\\REVIEW.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/REVIEW.md",
+      "source_sha256": "408b92b438651d273da9bd350aef8405dcee4a38106994a6fdd00e7ee90c71b7",
+      "copied_sha256": "408b92b438651d273da9bd350aef8405dcee4a38106994a6fdd00e7ee90c71b7",
+      "bytes": 2478,
+      "status": "HISTORICAL_PLAN_PARTLY_SUPERSEDED",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-image-plan-20261031\\visual-review.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/visual-review.md",
+      "source_sha256": "bd8d848092b788b2b428b9bf0a8cfa407396c7675ef7a900d16aa3d5dc219e25",
+      "copied_sha256": "bd8d848092b788b2b428b9bf0a8cfa407396c7675ef7a900d16aa3d5dc219e25",
+      "bytes": 7974,
+      "status": "HISTORICAL_PLAN_PARTLY_SUPERSEDED",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-image-production-20261031\\COPY-REVIEW.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/COPY-REVIEW.md",
+      "source_sha256": "26adfbafce9818fd929805e3be15d28ba5ef78f288948a4ddc5290d6d09e5366",
+      "copied_sha256": "26adfbafce9818fd929805e3be15d28ba5ef78f288948a4ddc5290d6d09e5366",
+      "bytes": 8387,
+      "status": "AUTHORING_BINDINGS_NOT_RENDERED_APP",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-image-production-20261031\\HANOK-SOURCE-REVIEW.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/HANOK-SOURCE-REVIEW.md",
+      "source_sha256": "5b72000e5fc59e504f033fa53dbb684a93f7abf699a5eed9b1106d59eace8e2d",
+      "copied_sha256": "5b72000e5fc59e504f033fa53dbb684a93f7abf699a5eed9b1106d59eace8e2d",
+      "bytes": 7522,
+      "status": "AUTHORING_BINDINGS_NOT_RENDERED_APP",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-image-production-20261031\\INTRO-COVERAGE.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/INTRO-COVERAGE.md",
+      "source_sha256": "b2ee2594f1cb2884a4d2fcbf013373470b2fe89db40b07f41a1ae16d68c85000",
+      "copied_sha256": "b2ee2594f1cb2884a4d2fcbf013373470b2fe89db40b07f41a1ae16d68c85000",
+      "bytes": 11607,
+      "status": "AUTHORING_BINDINGS_NOT_RENDERED_APP",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-image-production-20261031\\STORY-COVERAGE.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/STORY-COVERAGE.md",
+      "source_sha256": "97850a463d841575edbb5b4c53d975e52b2da9c2487abbeb003302dbc12e6be1",
+      "copied_sha256": "97850a463d841575edbb5b4c53d975e52b2da9c2487abbeb003302dbc12e6be1",
+      "bytes": 16590,
+      "status": "AUTHORING_BINDINGS_NOT_RENDERED_APP",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-image-production-20261031\\COPY.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/COPY.json",
+      "source_sha256": "39d54c03230450c10999faf1e49012c4f0b4fe1b06a5b738df901d3e77dd5a75",
+      "copied_sha256": "39d54c03230450c10999faf1e49012c4f0b4fe1b06a5b738df901d3e77dd5a75",
+      "bytes": 9900,
+      "status": "AUTHORING_BINDINGS_NOT_RENDERED_APP",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-image-production-20261031\\INTRO_UNITS.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/INTRO_UNITS.json",
+      "source_sha256": "8723357e0de5e915e3728354355d2e9c6409113437c60778075dbe95826cad0a",
+      "copied_sha256": "8723357e0de5e915e3728354355d2e9c6409113437c60778075dbe95826cad0a",
+      "bytes": 510792,
+      "status": "AUTHORING_BINDINGS_NOT_RENDERED_APP",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-image-production-20261031\\HANOK_STATES.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/HANOK_STATES.json",
+      "source_sha256": "70de510e4058e2d8b63b0b7dcc838b0bb4e3fe92c0fabf55a9c9bd1f071ced78",
+      "copied_sha256": "70de510e4058e2d8b63b0b7dcc838b0bb4e3fe92c0fabf55a9c9bd1f071ced78",
+      "bytes": 590946,
+      "status": "AUTHORING_BINDINGS_NOT_RENDERED_APP",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-image-production-20261031\\STORY_SCENES.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/STORY_SCENES.json",
+      "source_sha256": "b72dd7d4ad96423a755a7d9243a3d740f6d91511a08a582d0f9e4dda9a6b8c32",
+      "copied_sha256": "b72dd7d4ad96423a755a7d9243a3d740f6d91511a08a582d0f9e4dda9a6b8c32",
+      "bytes": 67754,
+      "status": "AUTHORING_BINDINGS_NOT_RENDERED_APP",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-image-production-20261031\\SOURCE-MANIFEST.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/SOURCE-MANIFEST.json",
+      "source_sha256": "a2db8ead4bb7a039250e750971e9e4910022d313ddcb568522ae3befa4921402",
+      "copied_sha256": "a2db8ead4bb7a039250e750971e9e4910022d313ddcb568522ae3befa4921402",
+      "bytes": 5208,
+      "status": "AUTHORING_BINDINGS_NOT_RENDERED_APP",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-r16-source-update-20261031\\README.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-r16-source-update-20261031/README.md",
+      "source_sha256": "9286c70cdd365ce6f761646226d0eea29294b45be977dfdc7a498781bbffcbb4",
+      "copied_sha256": "9286c70cdd365ce6f761646226d0eea29294b45be977dfdc7a498781bbffcbb4",
+      "bytes": 3303,
+      "status": "SOURCE_OBSERVATION_AT_RECORDED_SHA",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-r16-source-update-20261031\\R16_PRESENTATION_SOURCE_LOCK.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-r16-source-update-20261031/R16_PRESENTATION_SOURCE_LOCK.json",
+      "source_sha256": "6cee65fef347c6e24cbd781702fc063df5100d37e7eff4ec244771ef797dd137",
+      "copied_sha256": "6cee65fef347c6e24cbd781702fc063df5100d37e7eff4ec244771ef797dd137",
+      "bytes": 24016,
+      "status": "SOURCE_OBSERVATION_AT_RECORDED_SHA",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-r16-source-update-20261031\\ildu_r16_sarang_layers_v1.snapshot.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-r16-source-update-20261031/ildu_r16_sarang_layers_v1.snapshot.json",
+      "source_sha256": "9461915fb5bc6c09db500e2ad7a6fb2fdc0f033c60bc00d0d502cb84f9bc554c",
+      "copied_sha256": "9461915fb5bc6c09db500e2ad7a6fb2fdc0f033c60bc00d0d502cb84f9bc554c",
+      "bytes": 14751,
+      "status": "SOURCE_OBSERVATION_AT_RECORDED_SHA",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-final-20261031\\README.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/README.md",
+      "source_sha256": "d026a715a2c96fde7d38bd4ab565b6d3514973a290b647dc1fc747c0969b682d",
+      "copied_sha256": "d026a715a2c96fde7d38bd4ab565b6d3514973a290b647dc1fc747c0969b682d",
+      "bytes": 5201,
+      "status": "EARLIER_STATIC_CANDIDATE_NOT_CURRENT_VISUAL_APPROVAL",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-final-20261031\\COPY.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/COPY.json",
+      "source_sha256": "75359872154517ebfadbad440da7b041d1444b4e0055cdefc5013e2afec65979",
+      "copied_sha256": "75359872154517ebfadbad440da7b041d1444b4e0055cdefc5013e2afec65979",
+      "bytes": 1492,
+      "status": "EARLIER_STATIC_CANDIDATE_NOT_CURRENT_VISUAL_APPROVAL",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-final-20261031\\QA.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/QA.json",
+      "source_sha256": "db07d3c9e2fed09b2a374956d8a1f9bc2cf332bb956545641775c4b9f9bec031",
+      "copied_sha256": "db07d3c9e2fed09b2a374956d8a1f9bc2cf332bb956545641775c4b9f9bec031",
+      "bytes": 6065,
+      "status": "EARLIER_STATIC_CANDIDATE_NOT_CURRENT_VISUAL_APPROVAL",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-final-20261031\\SOURCE_FILES.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/SOURCE_FILES.json",
+      "source_sha256": "f046ebba1e803180a8fd352dccdd3c9f56956e2709ab06f9cbd6e5048867c0ea",
+      "copied_sha256": "f046ebba1e803180a8fd352dccdd3c9f56956e2709ab06f9cbd6e5048867c0ea",
+      "bytes": 1105,
+      "status": "EARLIER_STATIC_CANDIDATE_NOT_CURRENT_VISUAL_APPROVAL",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-final-20261031\\DELIVERY_MANIFEST.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/DELIVERY_MANIFEST.json",
+      "source_sha256": "50c418a7acbbb5453a785583eeac3a1e0dd898fb98bfd8760f7c620b54d03044",
+      "copied_sha256": "50c418a7acbbb5453a785583eeac3a1e0dd898fb98bfd8760f7c620b54d03044",
+      "bytes": 2235,
+      "status": "EARLIER_STATIC_CANDIDATE_NOT_CURRENT_VISUAL_APPROVAL",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-localization-20261030\\README.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-localization-20261030/README.md",
+      "source_sha256": "08ad35f330a181764f009727ff53e2fa41d7997fcefb07d67b4044f578094eaa",
+      "copied_sha256": "08ad35f330a181764f009727ff53e2fa41d7997fcefb07d67b4044f578094eaa",
+      "bytes": 3083,
+      "status": "EARLIER_TTF_STATIC_VERIFICATION_ONLY",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-localization-20261030\\VERIFICATION.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-localization-20261030/VERIFICATION.json",
+      "source_sha256": "c94b25c6e3f9d27b0f3733dacbb21ff5a4c88be23ecb8f0c03aebb34ab6fc1f3",
+      "copied_sha256": "c94b25c6e3f9d27b0f3733dacbb21ff5a4c88be23ecb8f0c03aebb34ab6fc1f3",
+      "bytes": 4742,
+      "status": "EARLIER_TTF_STATIC_VERIFICATION_ONLY",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-mockups-20261030\\REVIEW.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-mockups-20261030/REVIEW.md",
+      "source_sha256": "1f706c90685934f62b3359c7df45d37114e801571cf622c9ea8758505e980bb1",
+      "copied_sha256": "1f706c90685934f62b3359c7df45d37114e801571cf622c9ea8758505e980bb1",
+      "bytes": 2747,
+      "status": "EARLIER_GENERATED_REVIEW_CANDIDATE",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-mockups-20261030\\PROMPTS.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-mockups-20261030/PROMPTS.json",
+      "source_sha256": "6f92590f442b5222998d89504d6e1eb278a69e8822d8c3b9eea56774261c43f6",
+      "copied_sha256": "6f92590f442b5222998d89504d6e1eb278a69e8822d8c3b9eea56774261c43f6",
+      "bytes": 8236,
+      "status": "EARLIER_GENERATED_REVIEW_CANDIDATE",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-mockups-20261030\\MANIFEST.json",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-mockups-20261030/MANIFEST.json",
+      "source_sha256": "7c0f6e1b40b730f3fba5d7aeedafab5e9f51ebfe3122a5de007bfa636978feb1",
+      "copied_sha256": "7c0f6e1b40b730f3fba5d7aeedafab5e9f51ebfe3122a5de007bfa636978feb1",
+      "bytes": 2180,
+      "status": "EARLIER_GENERATED_REVIEW_CANDIDATE",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-rpg-prototype-20261031\\REJECTED.md",
+      "repository_path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-prototype-20261031/REJECTED.md",
+      "source_sha256": "fd62fc3846dfa382dfd97ce0fef2e9752807f0a40d084654742efea5c9ae1787",
+      "copied_sha256": "fd62fc3846dfa382dfd97ce0fef2e9752807f0a40d084654742efea5c9ae1787",
+      "bytes": 364,
+      "status": "REJECTED_NOT_IMPLEMENTATION_BASELINE",
+      "portable_navigation": "final/DETAIL_INDEX.md; historical absolute references retained verbatim"
+    }
+  ]
+}

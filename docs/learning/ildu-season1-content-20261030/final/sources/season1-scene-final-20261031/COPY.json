@@ -1,0 +1,46 @@
+{
+  "book": {
+    "en": {
+      "stage": "Introduction 1",
+      "title": "The first sound\nin the book",
+      "name": "Sujin",
+      "dialogue": "Shall we open the first page together?",
+      "note": "No need to read yet.",
+      "helper": "Listen first. Then we’ll practise together.",
+      "cta": "Start",
+      "help": "Help"
+    },
+    "de": {
+      "stage": "Einstieg 1",
+      "title": "Der erste Laut\nim Buch",
+      "name": "Sujin",
+      "dialogue": "Wollen wir gemeinsam die erste Seite aufschlagen?",
+      "note": "Du musst noch nicht lesen können.",
+      "helper": "Hör zuerst zu. Dann üben wir gemeinsam.",
+      "cta": "Starten",
+      "help": "Hilfe ansehen"
+    }
+  },
+  "gate": {
+    "en": {
+      "stage": "A1.1",
+      "title": "The gatekeeper\nat the middle gate",
+      "name": "Dokkaebi",
+      "dialogue": "Today I’m the gatekeeper.\nLet’s hear who’s here.",
+      "note": "A practice name is fine.",
+      "helper": "Use the name on your practice card.",
+      "cta": "Use a practice card",
+      "help": "Help"
+    },
+    "de": {
+      "stage": "A1.1",
+      "title": "Der Torwächter\nam Mitteltor",
+      "name": "Dokkaebi",
+      "dialogue": "Heute bin ich der Torwächter.\nMal hören, wer da ist.",
+      "note": "Ein Übungsname genügt.",
+      "helper": "Begrüße mich mit dem Namen\nauf deiner Übungskarte.",
+      "cta": "Mit Übungskarte starten",
+      "help": "Hilfe ansehen"
+    }
+  }
+}

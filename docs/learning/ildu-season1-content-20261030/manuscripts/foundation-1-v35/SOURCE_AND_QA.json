@@ -1,0 +1,157 @@
+{
+  "date": "2026-10-28",
+  "status": "authoring_documents_only",
+  "workspace": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023",
+  "head": "6fadd838e2a8ad378b92b38d06d86541782a7db8",
+  "preserved_files": [
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\assets\\data\\lernpfad_foundation.json",
+      "sha256": "e24f08fb79a1518afb8d83088ad527f6e11cc00e199eba4effd4896c02fa6ce0"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\assets\\data\\lernpfad_v2.json",
+      "sha256": "0f6090fdfd392e67bfd9e82152538f8b02e944887333b23fc7f7969050b20398"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\lib\\models\\lernpfad.dart",
+      "sha256": "07946dc62b59bca6688632acaeadc3f0ef89bbbe4dcbedf25f8e76aa3dff2c12"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\lib\\screens\\foundation_lesson_screen.dart",
+      "sha256": "297d725d67ab88b5709786a941c421dda97b6d110405ff662558913bd69290ab"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\lib\\screens\\lernpfad_screen.dart",
+      "sha256": "a04d2d960308949a5792d9174f4268d2da24408016b16bc591a9b82b57bb36ea"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\lib\\services\\lernpfad_catalog.dart",
+      "sha256": "d18e0e3a758631ed42294a116def9b931ca1d03f722868c999cede916d5f16db"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\lib\\widgets\\sori\\foundation_assembly.dart",
+      "sha256": "acc6cd979a4e33cb11426d9c1489beaea6b9149a81ab19f7faed804566d50cb2"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\lib\\l10n\\app_de.arb",
+      "sha256": "2a94dd02f429423da2f3ee7039200fa6d3200a614ef7b2b684730e7e01e75be3"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\lib\\l10n\\app_en.arb",
+      "sha256": "d8e938e89150ae0e1c3dfce4e17683640a6c3ce134997250083c763c435d4fb7"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\tool\\lernpfad_foundation_content.py",
+      "sha256": "008eeb342721e130d6d3efc1daa201d73ab3ca89a423f733af6d96434dbacbba"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\tool\\build_lernpfad_v2.py",
+      "sha256": "4c863d6aad9b39e8ba6ff35a375cf67929861b18feb6f3d8659e2c19f16cc9d6"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\FOUNDATION.psv",
+      "sha256": "0d8ec0c9ec89060fd58df92c0ce71cf7b4d63454fef506eafe180386a2796c45"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\FIRST_PRODUCTION_PACK.md",
+      "sha256": "91a2aac62ddab82e8092cf51a2f0b83305377f57ead1f3af4043f68b1761f17f"
+    }
+  ],
+  "world_source": {
+    "path": "C:\\Users\\vjinn\\ELibrary\\Downloads\\1_v3_5.md",
+    "sha256": "24ec73c1051da05702aac1d0257339cb10059d6cc4ea05cb5c7fb585deb64bcb"
+  },
+  "validation": {
+    "items": 49,
+    "stage_counts": {
+      "P": 12,
+      "I": 19,
+      "R": 18
+    },
+    "unique_item_ids": true,
+    "learner_prompt_languages_complete": true,
+    "choices_within_taught_scope": true,
+    "audio_keys_match_choices": true,
+    "audio_answer_positions_by_set": {
+      "U1-P": [
+        1,
+        2
+      ],
+      "U1-I": [
+        1,
+        2
+      ],
+      "U1-R": [
+        2,
+        1
+      ],
+      "U2-P": [
+        2,
+        1
+      ],
+      "U2-I": [
+        2,
+        1
+      ],
+      "U2-R": [
+        2,
+        1,
+        2,
+        1
+      ],
+      "U3-P": [
+        1,
+        2
+      ],
+      "U3-I": [
+        1,
+        2,
+        1
+      ],
+      "U3-R": [
+        2,
+        2,
+        1,
+        2,
+        1,
+        1
+      ]
+    },
+    "preserved_source_files_unchanged": 13,
+    "world_source_unchanged": true,
+    "education_model_review": "no_remaining_actionable_defects_after_two_repair_rounds",
+    "triad_model_review": "MODEL_QA_PASS_after_repairs",
+    "pending": [
+      "Korean_educator_review",
+      "EN_DE_human_review",
+      "audio_recording_and_pronunciation_review",
+      "learner_observation",
+      "runtime_integration"
+    ],
+    "no_app_design_or_code_changes": true,
+    "audio_items_checked": 25,
+    "dialogue_placeholders_match_across_languages": true
+  },
+  "deliverables": [
+    {
+      "name": "01_FIRST_SOUND.md",
+      "sha256": "961bc75ab7241e89792f6ed260d7a7c55e17b07d5f6b56ce1502fddf32fe5f02"
+    },
+    {
+      "name": "02_TWO_MORE_SOUNDS.md",
+      "sha256": "39929134c15e440ce0aa3b79561b70e282b457725e52c20937225a6bec5ae09b"
+    },
+    {
+      "name": "03_TWO_LINES.md",
+      "sha256": "eded881ed0affe2e4eaeab6e27eb31dd7a45f59acb77b1122013ea85d5f67bdf"
+    },
+    {
+      "name": "ITEM_BANK.csv",
+      "sha256": "24d95b64171177c8c7f70820eadf84c8522836a68255cc0f57674e188a7f4cd2"
+    },
+    {
+      "name": "README.md",
+      "sha256": "f39cf6e56e0115e8095e1057a2485ddecade03e384f9ad0119316cbf0bd1aa74"
+    }
+  ]
+}

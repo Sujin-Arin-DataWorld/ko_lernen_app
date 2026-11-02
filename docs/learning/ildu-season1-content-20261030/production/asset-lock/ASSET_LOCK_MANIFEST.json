@@ -1,0 +1,4875 @@
+{
+  "schemaVersion": 1,
+  "lockId": "hangulsori-season1-asset-retention-20261030",
+  "createdAtUtc": "2026-10-30T00:16:30.713519+00:00",
+  "baseManuscriptCommit": "37f6196265fbb44d501a7f78d76a083d65527795",
+  "purpose": "Exact current existing-source retention and AI handoff; identity does not imply story-role/action/runtime approval.",
+  "sectionDocuments": {
+    "CHARACTER_LOCK.json": {
+      "path": "CHARACTER_LOCK.json",
+      "sha256": "06a52b170fc4b7fb9805a8acf3c5438c9ce30adc3310ab5238ddfffbdf8353e1"
+    },
+    "BUILDING_LOCK.json": {
+      "path": "BUILDING_LOCK.json",
+      "sha256": "a2b926b1d6869e09e7d6d1e0c89d808a0a4c5b249d3760afaa0e3ccc5fbaa532"
+    },
+    "SYMBOL_STYLE_LOCK.json": {
+      "path": "SYMBOL_STYLE_LOCK.json",
+      "sha256": "bc90bc69890de2c314bfc5ad9d2be241a01d2a9d64d3317559c8c2c7d0a526e1"
+    },
+    "DANCHEONG_SOURCE_INVENTORY.json": {
+      "path": "DANCHEONG_SOURCE_INVENTORY.json",
+      "sha256": "8bcce8de1f5495b4c94fb29b85fcc9c145df58c279b02ac43bafc42ca6988569"
+    }
+  },
+  "counts": {
+    "coreCharacters": 5,
+    "modernPersonas": 11,
+    "uniqueCharacterIdentities": 15,
+    "buildingConnectedFullPng": 11,
+    "buildingConnectedStagePng": 128,
+    "connectedPackedBlend": 22,
+    "standaloneRoofBlend": 4,
+    "separateGateBlend": 6,
+    "dancheongDirectoryPng": 24,
+    "sourceFilePaths": 378,
+    "portableReferenceCopies": 59
+  },
+  "portablePack": {
+    "folder": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack",
+    "gallery": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\index.html",
+    "zip": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\hangulsori-asset-lock-reference-pack-20261030.zip",
+    "zipSha256": "7402e431b89acd42b5b022628c71e0b75f1b5a1e96717bdc74d87cec73ea2195",
+    "zipBytes": 104018717,
+    "fileManifest": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\REFERENCE_FILES.json"
+  },
+  "files": [
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Nevi_Bar5\\exec-0341b149-61b9-4a48-acb3-74fa59314392.png",
+      "sha256": "11c9d9004f23cb9a4c63eb53fe546b3c745e7b5c10047996b94b724f9eabe5b1",
+      "bytes": 2417100,
+      "roles": [
+        {
+          "role": "nevi_spiele",
+          "status": "SOURCE_LOCKED",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Nevi_Bar5\\exec-801c0e2c-d79d-466c-b2ea-915356b4fe29.png",
+      "sha256": "4c42fda8e624093c8ba39699492bbc5bf27efc1f3a04d9669b1d7d8720df61bf",
+      "bytes": 1817279,
+      "roles": [
+        {
+          "role": "nevi_hanok",
+          "status": "SOURCE_LOCKED",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Nevi_Bar5\\exec-d0abcd6e-3c27-46de-8c6b-85caa1ac23e3.png",
+      "sha256": "a8ef18b79cc93d75600f2fccb35d8830c2277e9d42151176c0e22d34eb6bf22a",
+      "bytes": 2283006,
+      "roles": [
+        {
+          "role": "nevi_heute",
+          "status": "SOURCE_LOCKED",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Nevi_Bar5\\exec-effff9d2-a719-420a-9eb2-54f9b5d4a076.png",
+      "sha256": "42c2618b59241ff79f5413471b7b4f2bd61ce6d8c18b6acbdee9fff4f51a19b5",
+      "bytes": 2028175,
+      "roles": [
+        {
+          "role": "nevi_gemeinsam",
+          "status": "SOURCE_LOCKED",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1dd0dec1-48ac-42af-ae84-ff3f2f438e8c.png",
+      "sha256": "c19b6505130593fdad3f4506114e213a38529f8efe17eb9e58a224a0497c5272",
+      "bytes": 2048373,
+      "roles": [
+        {
+          "role": "persona.christian",
+          "status": "PROFILE_SOURCE_RUNTIME_HASH_MATCH",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.Persona",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1e1c3e35-df8a-4302-ae05-528cf4e56b83.png",
+      "sha256": "6de9257ddd6a49069ace126fb06c3ce44091c2f66f48118d7c45540ea438aa33",
+      "bytes": 1944111,
+      "roles": [
+        {
+          "role": "persona.hyuna",
+          "status": "PROFILE_SOURCE_RUNTIME_HASH_MATCH",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.Persona",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-39c49342-d7be-4513-a050-15229da81608.png",
+      "sha256": "7c229f106e750ddedf58f05f0626ca2defb30fd17aa8491f967756856d59e053",
+      "bytes": 1966271,
+      "roles": [
+        {
+          "role": "persona.maya",
+          "status": "PROFILE_SOURCE_RUNTIME_HASH_MATCH",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.Persona",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-3cfc6420-4e48-4f47-936b-ededc09a4842.png",
+      "sha256": "54f59e190f5dc1d85bcf015f97c5ff410c26ee21add2586398dd20d1ff6a10d5",
+      "bytes": 2071293,
+      "roles": [
+        {
+          "role": "persona.dongsun",
+          "status": "PROFILE_SOURCE_RUNTIME_HASH_MATCH",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.Persona",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-5ec1bad6-c41d-4c90-b75b-6a84a7369f2a.png",
+      "sha256": "81f327c49bb35e34c5558feb77bfb7aa9c05d3328f0b301eb52fae7d4fc5414e",
+      "bytes": 1894653,
+      "roles": [
+        {
+          "role": "directory_inventory.Persona",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-644210e4-dff8-4ca2-9745-c27574357de5.png",
+      "sha256": "4b2456144f4228a9a3ecd9c76b2f878303b698b484df86db9de89931376b3e5f",
+      "bytes": 2018243,
+      "roles": [
+        {
+          "role": "persona.andrea",
+          "status": "PROFILE_SOURCE_RUNTIME_HASH_MATCH",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.Persona",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-690470b8-e77e-403e-a400-e1df67d5257d.png",
+      "sha256": "00744ab82f07314f9091f6f8d5a3f0683ba3f289ddae5684c492a6e172e209cf",
+      "bytes": 2065540,
+      "roles": [
+        {
+          "role": "persona.lena",
+          "status": "PROFILE_SOURCE_RUNTIME_HASH_MATCH",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.Persona",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-aa6286fa-a67c-4a65-a4e3-8a67ef7b0ee4.png",
+      "sha256": "164cd0422d4d27082b5feb5d04775277d1cbc4ae8eab61c83d0d09825f00887f",
+      "bytes": 1863780,
+      "roles": [
+        {
+          "role": "persona.jun",
+          "status": "PROFILE_SOURCE_RUNTIME_HASH_MATCH",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.Persona",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-cf6d364d-8ee4-4bed-886a-7415be8dc1d3.png",
+      "sha256": "fe8828ceb25306d80928d5e89afa3cd0ae9dc4dd849d0366ed1493f996a7aa49",
+      "bytes": 1928989,
+      "roles": [
+        {
+          "role": "persona.minho",
+          "status": "PROFILE_SOURCE_RUNTIME_HASH_MATCH",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.Persona",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-e3135ef3-00f7-4dc1-8d29-b9676f3527c1.png",
+      "sha256": "dce49e967e3024696b41aef91153152d5b3e751128d3257422ab76fd88abe4f1",
+      "bytes": 2002309,
+      "roles": [
+        {
+          "role": "persona.daniel",
+          "status": "PROFILE_SOURCE_RUNTIME_HASH_MATCH",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.Persona",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-edf6336b-f6b0-4874-b4cf-c2e12c796a44.png",
+      "sha256": "c4c6b2d184291e4e1291d7975dce7f30190bcecdc4040031bbefed1cbfc5ca13",
+      "bytes": 2041351,
+      "roles": [
+        {
+          "role": "persona.byeongcheol",
+          "status": "PROFILE_SOURCE_RUNTIME_HASH_MATCH",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.Persona",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin1.png",
+      "sha256": "60b0f18338a6efc940377d725ab41ecac9ebb1365b094e9f63fa58d71459015c",
+      "bytes": 1936749,
+      "roles": [
+        {
+          "role": "character.sujin",
+          "status": "IDENTITY_LOCKED_ACTION_MAPPING_SEPARATE",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "persona.sujin",
+          "status": "PROFILE_SOURCE_RUNTIME_HASH_MATCH",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.Persona",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin2.png",
+      "sha256": "82d8471bf36d34890160265666ead04a3dfe94ab83ff03acd1c78fbdd6bc07c2",
+      "bytes": 1969000,
+      "roles": [
+        {
+          "role": "directory_inventory.Persona",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-257d9975-6169-40f6-9211-ae5befad4040.png",
+      "sha256": "15c3c966c0ae190c11777977587943cdef1975d7e186349b4dc7408987749d29",
+      "bytes": 1761640,
+      "roles": [
+        {
+          "role": "character.joy",
+          "status": "IDENTITY_LOCKED_ACTION_MAPPING_SEPARATE",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.까치정본",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-5561ef5d-bb97-4c8a-90ce-d4116dbc6308.png",
+      "sha256": "bdad3e0399a759910c2c37b4fc19d260bccd80a780f5151cab472e44d631e2dd",
+      "bytes": 1797351,
+      "roles": [
+        {
+          "role": "directory_inventory.까치정본",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-650591bb-9572-4933-8bfe-7b40158e8d0b.png",
+      "sha256": "d115cbe75e764067839af9ed8a3d5c4bcbf8e3ed46b24316b784555fc2d01e46",
+      "bytes": 1741766,
+      "roles": [
+        {
+          "role": "directory_inventory.까치정본",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-75fbc678-9c71-4a8f-af27-8920e62b9896.png",
+      "sha256": "c1d79c59ea954d2bacee01abe48d4283d6e8ee7dc3fd47a9a30d80b58742a588",
+      "bytes": 1204646,
+      "roles": [
+        {
+          "role": "directory_inventory.까치정본",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-8137b153-99b0-4479-bcd5-5a2c51b09523.png",
+      "sha256": "8eecf53fb59c514b220c8ed333aa6329550b81a15fecda33792f37442e5b8895",
+      "bytes": 1043646,
+      "roles": [
+        {
+          "role": "directory_inventory.까치정본",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-dbbba68f-00b2-451c-8dc1-d24169650b4f.png",
+      "sha256": "f70f5fcee6770a0953071afb4cd526ec88dce3fef17ec1cf313ac4328e7a4db5",
+      "bytes": 1402533,
+      "roles": [
+        {
+          "role": "directory_inventory.까치정본",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-eb5d3bc0-92dd-4576-8dbb-f06adb1ab9c4.png",
+      "sha256": "ff2b5d56516f066c5c254c57bede99c52105bbd3f390a3b410c0546d02d42ebe",
+      "bytes": 1183302,
+      "roles": [
+        {
+          "role": "directory_inventory.까치정본",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-fb0af650-849a-4385-8c42-520916394aea.png",
+      "sha256": "0d793e51b645df67603b90b6fcedb3a358f03f1d714838f8d9ccf1ab8b3228cc",
+      "bytes": 1074419,
+      "roles": [
+        {
+          "role": "directory_inventory.까치정본",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-fc1aa3c7-a499-47d7-a30f-959de1616753.png",
+      "sha256": "3c71c31741eceec5ec482a4efb51b9d3e9c346e443858eec32d0117637c467b9",
+      "bytes": 1153512,
+      "roles": [
+        {
+          "role": "directory_inventory.까치정본",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-0144981b-002b-49ea-8314-cbf746ae0577.png",
+      "sha256": "528eb84909e8fb53029de5e46bc2264153535449ac72bd30d67aca7c01d0fbb8",
+      "bytes": 2633709,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-02f2b2d1-f338-43fa-9770-cb89e027c8c5.png",
+      "sha256": "ab25d925843b33e8fc8cc728d24193fed7ffdea838aed7d01bd0a84411b8e3df",
+      "bytes": 1215928,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-0431c631-1c0e-4db6-acb3-7a762cddab1b.png",
+      "sha256": "97918a2d2285b99400d7ab5143136e346853e4c3d469fd26bc2144283607f11b",
+      "bytes": 2522073,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-0c0e2973-e5ae-47fa-b84e-0b6438a65135.png",
+      "sha256": "0c54b46bb641428e6de7cdffbdecacad0056b891d0d0a17beaa3099f8206ad9e",
+      "bytes": 1441814,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-365785c5-dc5c-4205-9148-13540d0f30e9.png",
+      "sha256": "a8bde89563fbf6145be8f5d6456c852d77b7d3ba2eea0baddb5dc8c70a703e89",
+      "bytes": 1367816,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-385184aa-77ab-4bbc-837b-3be328e8fa38.png",
+      "sha256": "bb91a35d18f28672ff04534e4e0592472cd360008ee72cf2d5a730f221558f14",
+      "bytes": 2741165,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-3d886c4e-8323-4970-af73-e3ac0f97fdc1.png",
+      "sha256": "591f49d5864beb60805dcf6fcdb2a574a0b129be5a51a5ffd3e41bed29fa70b4",
+      "bytes": 1371380,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-496d32e9-ae35-40c0-8a9d-3fb696f4d9d6.png",
+      "sha256": "fde5b562cb1766275d31172d4b07a8c9232e177a0c7f094c79b8375c1f8199c3",
+      "bytes": 1251898,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-50aa473d-d1c7-4eff-9dd5-101f97c0ddd9.png",
+      "sha256": "e41f805d755af3d764898807f1e1d6eef8f4f3ede4da12ffa79a0a04c66df702",
+      "bytes": 1487110,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-5b0d125c-6606-46ec-9ddc-65f56e864c80.png",
+      "sha256": "4917bbd6a1469bb6783f1873b0f4540559dc4521465e94b2ec77ed14ee214a66",
+      "bytes": 2680871,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-5e4301fa-5654-4044-88ce-151ff7b18ebf.png",
+      "sha256": "20221978afa2327299a3834aaddb3ae825ff94347b2cc376db36b2f3ad59b72b",
+      "bytes": 1163350,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-74ba0c12-06b8-4771-8a0e-23221d51df40.png",
+      "sha256": "9a78241a1e9912f3d31cc7d77012b4c102b5ed9a349ce1bcf66abf3cd8802a59",
+      "bytes": 1443243,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-7ef43f1e-296f-4624-84d7-bf3340db474d.png",
+      "sha256": "26e56733b6413503e3f5de6ba726dbf8fd019ce1fda81d1cae265484a0223e93",
+      "bytes": 112428,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-893d3be0-eb31-46af-b427-b70657c514df.png",
+      "sha256": "f816844ccfd9e2ba19c36ab0014669fae168f2dc9b318799a78aa3d39b0368da",
+      "bytes": 1176637,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-8f6a9fe2-6034-4d34-9ef9-a4285a9c2fea.png",
+      "sha256": "f5391a4144a0c4dd8dc1ccf6867184d20eed14cf13fcff2fbb2bdc28d71be2c9",
+      "bytes": 1237435,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-9cc75a1d-1259-475b-9086-7cbb13255888.png",
+      "sha256": "f3962b607ae44ac6b41adcf19c0edc3a4aad5e5c57787f04b7e578c67a5ceccc",
+      "bytes": 1183783,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-a23e8238-1638-430a-be76-d449628ba58b.png",
+      "sha256": "81da721f0fbaafeb3330dffb12aa50f886ec7e1806dd5adff8bdc8bc0185c238",
+      "bytes": 2752730,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-a4f053cb-2c25-48b1-9679-f11de04c29a3.png",
+      "sha256": "41081bb189c9230fa80adf13fe5dfcf1d26f72555548cd3a8ca71388a37c3ab1",
+      "bytes": 267440,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-a63a7e86-f67c-48db-961e-73f0145e2500.png",
+      "sha256": "aba65c61c1bb64fcbec2ca6555a914561d598e63ed87affed8cb4ac3b281b589",
+      "bytes": 226552,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-a92af2e6-e336-4a35-b963-1f0a488c3a61.png",
+      "sha256": "9f2001e3a558c672af5be432aefc4710cdb6f443b8d2a516d157c92724c3c8e8",
+      "bytes": 960564,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-ac331683-aefa-4c5c-808d-e5d07b3305b5.png",
+      "sha256": "d0b277f697aef6ef0433b854cb39bc058da759d0847c22e6533124d3e6a7af55",
+      "bytes": 1305337,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-b20905c3-f303-49c6-aec7-7fde7cfb5a8d.png",
+      "sha256": "ac687ff219772b1b9822dbc87887736890f2902f8d1cc269ac653137d2798420",
+      "bytes": 323699,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-d7b33eaf-fcd3-4466-802a-5ab77cabd3dd.png",
+      "sha256": "b1c43ec4ce91580c780ffda64d5627948ca37671c9089d1f9be60a20ac9f0d2a",
+      "bytes": 1922888,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-f50190cf-82e2-44ca-aca3-b14053dcdc18.png",
+      "sha256": "4c120d31ea18f6ced8f7507089a98a59d143df74bbfcc58f52af6adff35b032c",
+      "bytes": 2633983,
+      "roles": [
+        {
+          "role": "style.dancheong_directory",
+          "status": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION",
+          "authority": "CANONICAL_SOURCES.json named directory"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\1.도깨비다른포즈.png",
+      "sha256": "2e1c3fd6f47b0930233c70a7b9e2f93dd2d374d404136e28480dd4ddc74b8202",
+      "bytes": 1555994,
+      "roles": [
+        {
+          "role": "character.dokkaebi",
+          "status": "IDENTITY_LOCKED_ACTION_MAPPING_SEPARATE",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\10푸른 불꽃의 도깨비 전사.png",
+      "sha256": "2910db8e6c0a9870a572633026e5405b970d71a21bceb4f5802911a4b16fa301",
+      "bytes": 1978065,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\2.도깨비다른포즈2.png",
+      "sha256": "facaa51a5a420fd57fa07a805607d083592e801cbc6e39ff049a32818f3f04ba",
+      "bytes": 1645436,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\3도깨비불-도깨비.png",
+      "sha256": "fd2ff0fc837dbba6a06679970f2bf938811b3a319e6838a8c8fbc9364e71b2c8",
+      "bytes": 1623276,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\4도깨비불-도깨비2.png",
+      "sha256": "217c2f319f6fd8a563cb6bcb588fce1af073f768a7b965d4f2668bb2651b0412",
+      "bytes": 1568433,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\5-1.png",
+      "sha256": "277ceddf849d7434cdd1b8c67de3eb011387b87d79e71d37ac7845ac0eebb6b6",
+      "bytes": 1593971,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\5도깨비불-도깨비3.png",
+      "sha256": "8161885cd8ce197176763385a503a3a5d89de1de471dd657ee8bc4ca6ad21665",
+      "bytes": 1741281,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\6-1.png",
+      "sha256": "d6cb01762da48d4aa25e088cfe0cbc2fd70e2b2dce538c74e690940e6833769a",
+      "bytes": 1477511,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\6도깨비불-도깨비4.png",
+      "sha256": "690d6640d37c1147cd25d104458b8854c3356fc8001ab352ecb3fdd70c4b8819",
+      "bytes": 1511005,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\7마법도깨비.png",
+      "sha256": "7ff0d796117d1928ae819e30be6f497e338c191e95eeba695b36b4035f61f5ed",
+      "bytes": 2363492,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\8마법도깨비2.png",
+      "sha256": "d06a7b3537b369f76f011d58ef9c3c167a292203fc7c8ca8e2976fda471c4c97",
+      "bytes": 2156247,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\9마법도깨비3.png",
+      "sha256": "eae43a7054b800e42796f03ea319704b27a636f3b122bd771e57b65b724ab34c",
+      "bytes": 2236848,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\Gemini_Generated_Image_4j8z8c4j8z8c4j8z.jpg",
+      "sha256": "0257cc496f14fd78d77fc4b3c3bb7b91b43db9317789a2167121b9c17f3ec175",
+      "bytes": 936253,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\Gemini_Generated_Image_i1mitki1mitki1mi.jpg",
+      "sha256": "a0a5c10dc4a147200c4341fb594da906699e1f1c627e561d1ae6807dd863e74f",
+      "bytes": 744366,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\HangulSori_Dokkaebi_Club_Transparent_1024px.png",
+      "sha256": "fabeb8f287f41376bc92f27ecf884aba307dbd7f56200eea842707467d900421",
+      "bytes": 558124,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\HangulSori_Dokkaebi_Club_Transparent_2048px.png",
+      "sha256": "15330f905e697b1976ce75bfd2d5be9f8a8b713806ad0ccb9350d36eff87a6cc",
+      "bytes": 1886705,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\HangulSori_Dokkaebi_Club_Transparent_512px.png",
+      "sha256": "7f1c5c8fff9561d90760762b655d2ffdbce8a52410ce84510027325c5fdfad9e",
+      "bytes": 149675,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\HangulSori_Dokkaebi_Club_Transparent_HD.png",
+      "sha256": "8e96666e50c46727e927ad71ecc202ac07ba289ae8bdcf96dfb4ef64f5b4bf6c",
+      "bytes": 1051401,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\decoration_dokkaebi_fire.png",
+      "sha256": "9848a7c6fa2cb93b305ea3180043c1fc96321179c54e3d1731706891646001e5",
+      "bytes": 766647,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\doccabi6.mp4",
+      "sha256": "48e0709b87fb10b8df595444a6b0ce8cc73c95a2ca573ca233a8dd41ba9235b9",
+      "bytes": 846685,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\doggabi.mp4",
+      "sha256": "d948bd61971814ca8941eed43e6561912e6e7d3596be4041c4768c2dfc1baf6d",
+      "bytes": 882021,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\doggabi5.mp4",
+      "sha256": "cd5df882ef472695ad63b4fcb1280e422ca41e5833a527992c6c444d71ebba3e",
+      "bytes": 4904803,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\dokkabi.mp4",
+      "sha256": "9f153772937adf29ccd63817daa998698e2513975980cfd76219f56d410ed280",
+      "bytes": 1060731,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\dokkabi_front.mp4",
+      "sha256": "2cecd97e2750efcf3b26a6eb4db499bddda32950cf37150158e2cf4de4b345c3",
+      "bytes": 898019,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-019f1146-56dc-4d4c-b172-1d476d843d35.png",
+      "sha256": "c984261b9ff9e6e2aecb344167aae36492ad721b2b3b0aa561e312006783b8a0",
+      "bytes": 1509760,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-0319e802-c7f0-4d45-8438-0a3e808f2316.png",
+      "sha256": "5db52880efe74dfe870f1a8cd83b18b7053e3ce2b1d1c5760b63bdfbf8edb634",
+      "bytes": 1375114,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-097ea4be-0e3e-478a-a773-a8c2dfee9c56.png",
+      "sha256": "6fc39d13ca61b8fe796d6d4c40583b4850299e2cedb46ca7d8f30e05ad2c22eb",
+      "bytes": 1317794,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-1356613d-7ba7-4597-83c4-d944937cfd19.png",
+      "sha256": "0801bdbba752d460060a9bd209bbfe04fecdcbdb1c3edb554cdf2dd871ba3a20",
+      "bytes": 1182960,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-13a40ebf-9f06-4af6-a59e-3bdd51148b84.png",
+      "sha256": "381d6de590a6c8236ccad0168d49a28b01463b18f5c91d12ff6e1595823c5bbc",
+      "bytes": 1442238,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-1b002a71-470a-49df-a389-95bdfcd1a5d5.png",
+      "sha256": "0034af3c7b6f58b2e2f96afeb8820de976fe0d2240c131cf5181899a2edc0f22",
+      "bytes": 1362355,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-1b7ba70e-b67f-42a9-bc78-100a4007279c.png",
+      "sha256": "874dcdaecc8094f989c6c132f6513d138f014560cec0d7efe1d1b868bc45ef25",
+      "bytes": 1225948,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-2b9411ef-cf80-4893-98a8-57eec1053896.png",
+      "sha256": "badf40200faa0f03214318b779a357346c651c0ea35820b0a9ebf01e383de156",
+      "bytes": 1863955,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-2e63d0d3-b999-4901-92ff-51141cfcaf47.png",
+      "sha256": "6c15c359a1b82002f832b98ba8500270e3cdb839581fdb7a0312f2dbbe1f8091",
+      "bytes": 1317084,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-36c091d4-a11a-47ca-b206-bfd432627c9a.png",
+      "sha256": "8d607dfe7d6539d31735a860a5333c9df5bbf66ba4d12217903abef01a30b950",
+      "bytes": 1180027,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-53de2d3f-06a2-4844-8ad8-79730feb490f.png",
+      "sha256": "e329487b7384dcb4d56935b83ae108a3113beb2516fdf7a31a925eafd5f3b640",
+      "bytes": 1652076,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-555c1c76-6917-4a38-9000-c0301926f3da.png",
+      "sha256": "8f40bcf5c47279ee43a9f8700c68378d2df12cb953e69bc7d13b8a846b940100",
+      "bytes": 1525570,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-56668781-3a17-4ba8-bdbc-edf70f513f85.png",
+      "sha256": "966b93f97c0971e0dee15f8634659d7d5bb3529173d501e4a02a6d97ad3940ac",
+      "bytes": 1146130,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-5c87a51a-f4fd-4919-94fc-7764a7e7c217.png",
+      "sha256": "0d943d2bd9a4cc0d6ecedae54c42b04797aca4b015f36b1610f89b121b284147",
+      "bytes": 1184059,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-5f73b718-8312-48a8-96a8-c75b72a4bed7.png",
+      "sha256": "f926350da5f55113b5b0731e4c7c7e0d527a80d2431f03cff8139d3c4ec518c0",
+      "bytes": 1154061,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-6c60fa24-5e0e-4e63-8e50-832f8f3e896e.png",
+      "sha256": "f1244d947a0837ccc9fe798d239ddeedcdbe8ae9e4493649b363fb6c042ff109",
+      "bytes": 1340646,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-6f0e4c98-f120-4b62-947a-112b68c4cc6a.png",
+      "sha256": "81628856fa9edd797ab7b7ad4f12a3fca82d297492f0bf84b84f5553622f81cd",
+      "bytes": 1784623,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-7cf7e920-158a-43a9-8e5f-ee32bcba0527.png",
+      "sha256": "813a1c01ba475017bc74d38b807dba8d330990b723926cc66a06545a13587443",
+      "bytes": 2391032,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-8972ab73-0e68-4449-840a-95c6f1ed0efa.png",
+      "sha256": "62f59455fc29e72d2c08440edf69510adc1f616aaab74e22e133a458c3469796",
+      "bytes": 1365228,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-8aedc4f0-0101-4b9c-8ef0-a28156dcc1f6.png",
+      "sha256": "b19949686c0ea77f32ebaeb54122e94e9004bdd8825b1abdbf16d0823f527cd3",
+      "bytes": 1128496,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-94bd7f4a-2dc0-481b-b4c2-14d15f061545.png",
+      "sha256": "371358c47a67ce4928f2a90872f86ec6307519140e629f660fe517947b13bb0b",
+      "bytes": 3179020,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-a60c9a8f-6ebb-4c95-84e5-beaa66fd2b9b.png",
+      "sha256": "149327eb410efd24d9cf717bfc15682f95a8e9a0dba45de997f3a3870164a42c",
+      "bytes": 1953738,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-ad6f4ccd-1e38-40cf-9cec-39bfe22e835b.png",
+      "sha256": "3da752955511546de2781e341b2714878218b5a7d83f81b276a4c227152b35d6",
+      "bytes": 1461552,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-afc0c2d1-c7ef-42b0-9b5c-9577e18fb028.png",
+      "sha256": "9e89b2f074385f428c131bd3e68db8691b53c3e0844f7aa90427c35d1216f4d8",
+      "bytes": 1171597,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-b442dfe7-b022-48f6-bd16-07947c87f727.png",
+      "sha256": "f00560dc0f9ad708abc1cdde89e9e96c3443a54e3fbe553cec95f4a32162f6be",
+      "bytes": 1326231,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-b8f11b19-b2a6-4863-bd9a-63f05d62e133.png",
+      "sha256": "cbfd2e911ec3327ce4963c8744bac04ed0d34b03149d101ef578fd819ec81860",
+      "bytes": 1392174,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-c46f2aeb-c59f-4531-9842-ee65da472c18.png",
+      "sha256": "740dec4ab7fd24c019a1c555e78828f826dae2472fa8bd5aaf4ee79ab1702813",
+      "bytes": 1214308,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-c6453a26-af82-4747-850d-f21d423a6d26.png",
+      "sha256": "9ddf630f23610a28ad583b708609bf2ee9a58b6812f28e0ea7df84ff851f70e9",
+      "bytes": 1408941,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-cd45b068-59f3-4086-915c-6c83c23a54db.png",
+      "sha256": "158ae3788ab9e7ba7becd164c05157d9d2ac7139182a6ea614b22f8ea9d5f4b6",
+      "bytes": 1364263,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-d4e8086f-ce0f-400d-a5cc-a0ca16bcd2c7.png",
+      "sha256": "a762fdbbcf5a55a29d6033feb9ed03e655c254cb1ee516169e677b66652d16af",
+      "bytes": 1167987,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-d8c20eeb-4f60-412f-a009-7952242db2d6.png",
+      "sha256": "0f858d4d4c750c24586b87130ac648e769406adaa95dc53068713ab48572b3d9",
+      "bytes": 1447988,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-e2c40c49-b827-4920-ae49-66986c8054ef.png",
+      "sha256": "9b16b3e7e05e2239ce3aab2b4044d5b642545f05b18f422d9b72546929e8766b",
+      "bytes": 1451285,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-f1ef439a-90d3-48ba-846d-343d89c46905.png",
+      "sha256": "4695e7c88b7f1cc7c5b848ed9a440375f4f6923770160f5bd90c4a6a6e6c32a6",
+      "bytes": 1520643,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-f7c30602-de9d-401f-ba7b-e93dd511b0e3.png",
+      "sha256": "6b547d9dd0ab5088a3be21c5e9e96cdf8f616c52c954187eba927c54731d18d9",
+      "bytes": 1399133,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\gemini_generated_video_5dc2f044.mp4",
+      "sha256": "cfbe5ff0317f743d7a9266097c21de79d774a42514b323db15d4a37ce5ac7cf7",
+      "bytes": 6874360,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\gemini_generated_video_7312599d.mp4",
+      "sha256": "9c0f69b1edd89e8f573c2df8008407277a52119022ed26f64661a96afd2a061c",
+      "bytes": 4547845,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\making_money.mp4",
+      "sha256": "6e850b717ec285fd1d9be057da361fed629c178e750a15c77b592cbda6f91ff5",
+      "bytes": 4501874,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\금빛 테두리의 청록 구름 소용돌이 엠블럼.png",
+      "sha256": "e341e9ede04c27594c1142d611371c904238b7ecd6082dd088841488fbeeb48f",
+      "bytes": 1189238,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        },
+        {
+          "role": "three_swirl_emblem",
+          "status": "SOURCE_LOCKED_ROLE_PENDING",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\달빛 아래 마법의 호랑이 질주.png",
+      "sha256": "e84503eb90c128aac0c6b8ed922668ae6e34fc9d3546d3716ccb5e11fc469c0d",
+      "bytes": 2662960,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비 돈만들기.png",
+      "sha256": "8490405dbaf3781a728fe335341df1606738f61b4955bfaf06a59ec3c4a10971",
+      "bytes": 324638,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비.mp4",
+      "sha256": "48e0709b87fb10b8df595444a6b0ce8cc73c95a2ca573ca233a8dd41ba9235b9",
+      "bytes": 846685,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비엽전\\exec-184e0b70-ed75-4277-a33c-8260ac2985f5.png",
+      "sha256": "0319f9d857dff49581575159c271086dd4d94240fa5c42a62ab6f10dabed6694",
+      "bytes": 2228448,
+      "roles": [
+        {
+          "role": "yeopjeon_walletDe",
+          "status": "SOURCE_LOCKED_REWARD_REFERENCE",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비엽전\\exec-72c4950e-c703-4c70-88d1-2b7243c203d3.png",
+      "sha256": "ae45919f6cc9978c08cd68e8d4329972a5011f1dde5c4d4ed6a2e65fbe221f44",
+      "bytes": 2207368,
+      "roles": [
+        {
+          "role": "yeopjeon_firstCurrentLessonEn",
+          "status": "SOURCE_LOCKED_REWARD_REFERENCE",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비엽전\\exec-b2462324-03e3-48fa-8bc0-15c152ebd61b.png",
+      "sha256": "4f0efff3ebfd56863e6306d761afa09080d335fa8b7d16ce57c1d077ac2de572",
+      "bytes": 2171097,
+      "roles": [
+        {
+          "role": "yeopjeon_walletEn",
+          "status": "SOURCE_LOCKED_REWARD_REFERENCE",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비엽전\\exec-cb532a61-4202-43d1-884d-1a73e819a1fd.png",
+      "sha256": "949e94106d4ddbc0e930ccf9e8fdb33dab5273c9774cfc18b92a8a4eba97bca5",
+      "bytes": 2267478,
+      "roles": [
+        {
+          "role": "yeopjeon_firstCurrentLessonDe",
+          "status": "SOURCE_LOCKED_REWARD_REFERENCE",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비엽전\\exec-d8f32401-4538-4c4f-a3d5-bdc5b48d6a4d.png",
+      "sha256": "cb8484dbe7019de7e5a0f0714283136173aaa07708e949546598108c9d7c10a4",
+      "bytes": 2457113,
+      "roles": [
+        {
+          "role": "yeopjeon_transparentCoinPedestal",
+          "status": "SOURCE_LOCKED_REWARD_REFERENCE",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\돈만들기.png",
+      "sha256": "335dd69f0a2a18d65434d3ef0aee0358c66a6e3241b77f9ec04434a27ab5b18c",
+      "bytes": 314648,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\양옆잘린 변신동영상.mp4",
+      "sha256": "b75f64c320accb50b66413c0300d9be449cbdc36cc0204d304fc77d78214933f",
+      "bytes": 15743186,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\연이의 흔적과 도깨비 수호 문양 설정집.png",
+      "sha256": "f1a9a0534ebf7aeb233adef91f2e9f04e89ce10c6f8d9c321b54aab56d028fe9",
+      "bytes": 2931914,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        },
+        {
+          "role": "yeoni_guardian_design_sheet",
+          "status": "REFERENCE_ONLY_ROLE_PENDING",
+          "authority": "SYMBOL_STYLE_LOCK.json; existing named-folder design sheet, no standalone/story-role promotion"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\전통 문양의 나무 도깨비 방망이.png",
+      "sha256": "7f16130e742c247824aeed37b9d8d87a73176be2ad0957e83c34fd89b6664e4c",
+      "bytes": 1106295,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\청록빛 꽃무늬 편지 보관 주머니.png",
+      "sha256": "3baa7f3f26235b11b9235c814013a89c86c1a187312a78a1b6d97c5c6b0d8612",
+      "bytes": 2299587,
+      "roles": [
+        {
+          "role": "directory_inventory.도깨비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        },
+        {
+          "role": "letter_pouch_existing",
+          "status": "SOURCE_LOCKED_ROLE_PENDING",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\backho.mp4",
+      "sha256": "56df30ebec7ee7555aa7ae2dc04eee5470d5fc7d1cb8cec04dc00984451e2939",
+      "bytes": 10231724,
+      "roles": [
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho-divine-blue-v2.png",
+      "sha256": "5e29f67b90fb42912aaff6ae2c9de40758c123350a1a30dc907735e168087bb9",
+      "bytes": 2313232,
+      "roles": [
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho.png",
+      "sha256": "1a8d0bb2e3e11a39c6b055ac2736cc43222006d266ac35a80685f00d45a23e34",
+      "bytes": 1420799,
+      "roles": [
+        {
+          "role": "character.taego",
+          "status": "IDENTITY_LOCKED_ACTION_MAPPING_SEPARATE",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho2.png",
+      "sha256": "bca6fcfc39454a3a9f5345a245171414f0ffa3faeb14ada103aa42ddbac5a40b",
+      "bytes": 1246572,
+      "roles": [
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho3.png",
+      "sha256": "1440bac2026699fb4b6ed93bd1a0e7639031f5c1530114ff0ba6dc1c480b4a5d",
+      "bytes": 1176849,
+      "roles": [
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho4.png",
+      "sha256": "ff1604f3ef3e28002c71cd30d9ae9bbf38cdc235abfb2e4f375756b4f226c507",
+      "bytes": 1186899,
+      "roles": [
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-01f6b364-e18f-4aca-a25f-dca0ad526a85.png",
+      "sha256": "be49e615c8c071baa91cdc1cde5569b25e929562b984d981cff2b87c3c1638a9",
+      "bytes": 2157153,
+      "roles": [
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-1446c7b6-0530-4cd8-9d11-8b4d74a3aed6.png",
+      "sha256": "c773821852d1be537a7e714af0f9e90dee8a20e1c87ae6a755f9458d7357a6f2",
+      "bytes": 1491239,
+      "roles": [
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-2283fd5e-881e-4887-b4e5-528dd38f289c.png",
+      "sha256": "444eed7e6e7188432b5fe0c6e125dc5790d84a71c93255e9149396b12ee20a2f",
+      "bytes": 1204432,
+      "roles": [
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-30d21a2c-448c-4b93-bc3b-d0b78de87417.png",
+      "sha256": "a2328c8584e3c850c283fb13b63be2a9ea2100f1d70a6d38a6c9f27d98e26815",
+      "bytes": 1359291,
+      "roles": [
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-59fe7aff-0d16-40cf-8904-8f433de124e4.png",
+      "sha256": "8d7137edfe97df4c63b5048962c6660e189c9ad37b6031799b152abf38065479",
+      "bytes": 2055808,
+      "roles": [
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-bcc22cf1-dc2e-410b-9e03-a4d8ef1f36ac.png",
+      "sha256": "7b093f824f33088fda12baccdd6798fafe806eb47e53a584ad6bff4e54f40ef3",
+      "bytes": 1909008,
+      "roles": [
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-c6c5a017-21a5-4a45-b756-84554126b0f9.png",
+      "sha256": "ea15d486f232e67344ffa2f7c9f15ef05148e616578a8bcdf6bdec6265bca34a",
+      "bytes": 2331382,
+      "roles": [
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-d9e47a8d-6278-485e-a4f3-effc288da9a4.png",
+      "sha256": "9dd03e4c62fb4513b5c97f788d48189bce939e510d39a1b34a2bd9b0415bfbe2",
+      "bytes": 1360856,
+      "roles": [
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-da0092d4-29ab-4c7d-99ac-3d6628855a4e.png",
+      "sha256": "8eace5ec15342a2d816f095bd1953aa73c22cdf4c9c1b8fe06a235b458ac4f98",
+      "bytes": 1307614,
+      "roles": [
+        {
+          "role": "directory_inventory.백호정본채택",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\보자기후보\\exec-47c09768-89b5-4510-b783-36af01b83b6b.png",
+      "sha256": "1eabfc6400d3fea373027eb2c6b3183c5aa90e2c7f9e12b44a81cf50b0ea0dcd",
+      "bytes": 2674205,
+      "roles": [
+        {
+          "role": "bojagi_closed",
+          "status": "SOURCE_LOCKED_REFERENCE",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\보자기후보\\exec-a26c2094-9d42-4bfb-acf6-0c80058f978a.png",
+      "sha256": "b5c2e2ce3f2603a38b982934853e9029839e0d30026206e98c0d25d22e46da38",
+      "bytes": 2410008,
+      "roles": [
+        {
+          "role": "bojagi_open",
+          "status": "SOURCE_LOCKED_REFERENCE",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\TalSunbi.png",
+      "sha256": "3ca5cf78d7eaa1f9b50e2aa767aa0399653dbfbf2f0be01a84448f57dbf16fb1",
+      "bytes": 1310537,
+      "roles": [
+        {
+          "role": "character.talsunbi",
+          "status": "IDENTITY_LOCKED_ACTION_MAPPING_SEPARATE",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "directory_inventory.탈선비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\TalSunbi2.png",
+      "sha256": "61d31b27887a2ab27f0b424c032b8a08257e3aea889a41b852c22bd4fc79738c",
+      "bytes": 1237624,
+      "roles": [
+        {
+          "role": "directory_inventory.탈선비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\TalSunbi3.png",
+      "sha256": "40cdfa5e9647e37eaa2cfe82c6c14640d5ab6fb74ff13fc9fc35db2a206389ef",
+      "bytes": 1103287,
+      "roles": [
+        {
+          "role": "directory_inventory.탈선비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\TalSunbi4.png",
+      "sha256": "15a2f3f68a2f2240fd51d841f00819ba148ead13f3652d9d24ab5f39decd2552",
+      "bytes": 1102226,
+      "roles": [
+        {
+          "role": "directory_inventory.탈선비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\TalSunbi5.png",
+      "sha256": "93ec76ca7f57441845cad83391991964e727da9405aefccaadd1e4672203c927",
+      "bytes": 1122678,
+      "roles": [
+        {
+          "role": "directory_inventory.탈선비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\TalSunbi6.png",
+      "sha256": "d33bdf6f64187f0787201628317a92c67da8723232793fef89b18164347498e0",
+      "bytes": 1132465,
+      "roles": [
+        {
+          "role": "directory_inventory.탈선비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\exec-7f2c932c-33dc-4a78-87b5-ed0269a1a178.png",
+      "sha256": "8c6f9e58f455ebff5403ac177603ac528e1bbb72ab2645e7d4a2fe3997c1db39",
+      "bytes": 2502742,
+      "roles": [
+        {
+          "role": "directory_inventory.탈선비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\exec-a7b4f9da-0269-436d-8eb5-a9850eb2dbf3.png",
+      "sha256": "718847a59a43c49851549f3a51b0782bbe85e8634e564d7ebe98975c01f0378c",
+      "bytes": 2491748,
+      "roles": [
+        {
+          "role": "directory_inventory.탈선비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\exec-acf30879-ec10-4101-8727-c2cdffcdf5db.png",
+      "sha256": "8312ca67a7467e8e99666c8187e7e632a8ec0680cf937d1fff1c08e52d0a729a",
+      "bytes": 2391236,
+      "roles": [
+        {
+          "role": "directory_inventory.탈선비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\exec-bcef6f71-8810-48a7-9afb-f1b3b12d33c1.png",
+      "sha256": "2bdbc0b719d4c211b214eab0c0076fe0216b741f46ff1dce2ac3fd4b1e81a34f",
+      "bytes": 2415750,
+      "roles": [
+        {
+          "role": "directory_inventory.탈선비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\exec-d43d54a9-8979-455b-9fbf-e49491e66172.png",
+      "sha256": "744cacb8d63357a37ffc7a602373765d81f0af6968aacd295a6daa66d516225e",
+      "bytes": 2532818,
+      "roles": [
+        {
+          "role": "directory_inventory.탈선비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\exec-d825ec38-c67e-4c08-bdb8-4015b4261060.png",
+      "sha256": "d17ab2a139e3479b6ff9009c8a2bf7a3de5909cc962fd0ffcd3f4a4560ae194b",
+      "bytes": 2422427,
+      "roles": [
+        {
+          "role": "directory_inventory.탈선비확정",
+          "status": "NO_AUTOMATIC_STATE_ASSIGNMENT",
+          "authority": "Named source directory; per-file/event selection still required"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\한옥탭 확정\\exec-2dcf8ee9-e4f3-4d4c-87c1-11b99f646589.png",
+      "sha256": "1dd21a47793ae5c3ebb908d4f312e2a17e2a4439ec0ea777c048c231a1ff2585",
+      "bytes": 2056266,
+      "roles": [
+        {
+          "role": "hanok_direction_N0019",
+          "status": "SOURCE_LOCKED_DIRECTION",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\한옥탭 확정\\exec-39862329-33d9-4677-a576-64e951f9c3ab.png",
+      "sha256": "6c92da83a99236ec9d99ca06dd01c06f2da92846da045f7a1561c0d3f9d0e7c7",
+      "bytes": 2189367,
+      "roles": [
+        {
+          "role": "hanok_direction_N0020",
+          "status": "SOURCE_LOCKED_DIRECTION",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\한옥탭 확정\\exec-6a637622-a46c-4e05-8566-5a354fcf05d5.png",
+      "sha256": "2fe31c7a0a989c2a83d3d4e6060795d7a938f7710874a82b0e62dd07af1bff7a",
+      "bytes": 2321735,
+      "roles": [
+        {
+          "role": "hanok_direction_N0021",
+          "status": "SOURCE_LOCKED_DIRECTION",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\한옥탭 확정\\exec-7cac6dba-792c-4cc2-8acc-3871d137f42f.png",
+      "sha256": "ee342cd32f94efb2948164f17682396c18bcda5a43e1c5c419cbb43d14c5e049",
+      "bytes": 1948472,
+      "roles": [
+        {
+          "role": "hanok_direction_N0022",
+          "status": "SOURCE_LOCKED_DIRECTION",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\한옥탭 확정\\exec-a268cf39-5fb1-4b01-a47c-bea20892d934.png",
+      "sha256": "e8f814fc45eb10de63f7f7fe12ee7e7eee9f1315cbcd5c4581b21dd81effe025",
+      "bytes": 2048625,
+      "roles": [
+        {
+          "role": "hanok_direction_N0024",
+          "status": "SOURCE_LOCKED_DIRECTION",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\한옥탭 확정\\exec-f1272b05-b5e5-43a2-aaab-7002ad3b987b.png",
+      "sha256": "f94dc36f57a547214224e072238b3679a0b548b3a56a0733e0cbe11ecc6fa929",
+      "bytes": 1969959,
+      "roles": [
+        {
+          "role": "hanok_direction_N0027",
+          "status": "SOURCE_LOCKED_DIRECTION",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\complete.png",
+      "sha256": "11a77f254f74242862f2a176f447cbb4a3a677dd2345f868c5b05041f5720f59",
+      "bytes": 2953022,
+      "roles": [
+        {
+          "role": "building.estate.completeRender",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\jung\\full.png",
+      "sha256": "4c79a08bf3271b4c71ad36cfb10ca76c504fd7e8e3b94d304a7cff6534881a35",
+      "bytes": 1128590,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.completeImage",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\jung\\stages\\05.png",
+      "sha256": "0bdc822aa66aecf6b121095cfc4d771b4c06a408b61b59bc5730f8816eb3eaf1",
+      "bytes": 1131904,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.stages.4.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\jung\\stages\\06.png",
+      "sha256": "7932f49676d8f932d55871828b4557cef780e0ca91199930a1ff383a618543b6",
+      "bytes": 1133888,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.stages.5.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\jung\\stages\\07.png",
+      "sha256": "3f9cc14f3578dee7dbd1c4d6acb566d99f29a709cea63e2c53cb66ae85b79220",
+      "bytes": 1110777,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.stages.6.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\jung\\stages\\08.png",
+      "sha256": "98775e441aaf66b44f02a1450747165c43a48cb2e4e5f594e8292e144b4645a2",
+      "bytes": 1106177,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.stages.7.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\jung\\stages\\09.png",
+      "sha256": "e57aa04e4154a699607fb722d3a1a36742a2976d5dd2ff86c4f36dd492e4acc9",
+      "bytes": 1108878,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.stages.8.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\jung\\stages\\10.png",
+      "sha256": "b9f02a5b343c9f34356cc3e2e1a3a13adffc5487302346f54a10ef5016fd5bf6",
+      "bytes": 1112957,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.stages.9.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\jung\\stages\\11.png",
+      "sha256": "03e554ff23925eef68f1a71d8bae6ece0b9548f65daeb0d18554dcae1ba14cff",
+      "bytes": 1125778,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.stages.10.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\jung\\stages\\12.png",
+      "sha256": "31d0418c4c8d7a330116643b2e12b02fc3f762be0e98008e9bddc8e15527e9d7",
+      "bytes": 1128722,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.stages.11.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\sarang\\full.png",
+      "sha256": "296f318ae87a227a5f4bca6ddad78ffef69873ac26dc0af942349af82613101a",
+      "bytes": 2656338,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.completeImage",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\sarang\\stages\\08.png",
+      "sha256": "474d1422b0ea96b11ce0df20e556b8a108807f9fd19c527f8dc5d682817a9281",
+      "bytes": 2481806,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.7.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\sarang\\stages\\09.png",
+      "sha256": "c36c4686f011d15e6538479a1af5ea0ed118f7531ec09a3d2f28fde00a335f72",
+      "bytes": 2452522,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.8.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\sarang\\stages\\10.png",
+      "sha256": "8142e74ecc970987caa938118955dcd2a791619abaa95acb8614d6765a69cf74",
+      "bytes": 2452344,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.9.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\sarang\\stages\\11.png",
+      "sha256": "9d7cd52351ed578b106ea104a39fa214374694f343c136f496760baade012ef5",
+      "bytes": 2590915,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.10.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\sarang\\stages\\12.png",
+      "sha256": "c390cc4a73138728e3be121c3146d7d3a04ccce6dfe86ff29390cf28b0c8d2cd",
+      "bytes": 2600287,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.11.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\sarang\\stages\\13.png",
+      "sha256": "c94d475177e456763e6c8b49566147310b2ce86cf26b1d81f34ad0767c714f64",
+      "bytes": 2608756,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.12.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\sarang\\stages\\14.png",
+      "sha256": "88869dbb98e940f2b64f735db1f7af7390aab4435c7268372370582e861289e2",
+      "bytes": 2634222,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.13.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\sarang\\stages\\15.png",
+      "sha256": "17a807835e489a625bb86950586a8e832240248a3689c23706bf8c52d924ec20",
+      "bytes": 2651835,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.14.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\estate\\standalone\\sarang\\stages\\16.png",
+      "sha256": "3e3b6fb9c2a948154836654f53886f12b3d6cb663bd29fd9bcdb0a2fa6a7a4c7",
+      "bytes": 2656552,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.15.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\full.png",
+      "sha256": "acac274c9646aace4ceca35ce935d6524a0fe6149df178f825f2ebef1955c9f8",
+      "bytes": 1160074,
+      "roles": [
+        {
+          "role": "building.buildings.2.completeImage",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\stages\\01.png",
+      "sha256": "e38678e83716d8bb83d2f1349a0006f470b4d31bd99f5cc525a82679ad1dffd7",
+      "bytes": 328751,
+      "roles": [
+        {
+          "role": "building.buildings.2.stages.0.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\stages\\02.png",
+      "sha256": "f0384dd6e4613f63b0bed73fb0b34b1a2f2672da51bd375e049dce6180f93dbc",
+      "bytes": 401857,
+      "roles": [
+        {
+          "role": "building.buildings.2.stages.1.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\stages\\03.png",
+      "sha256": "3414b96e9fd4c097008d30347dd7cf90ddb607e48efe545c1f2f2788065ed924",
+      "bytes": 438786,
+      "roles": [
+        {
+          "role": "building.buildings.2.stages.2.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\stages\\04.png",
+      "sha256": "b84f457a2a7a58874733359a51540deb0456db5158b8d5e127a9ad02b0ac5d4e",
+      "bytes": 507062,
+      "roles": [
+        {
+          "role": "building.buildings.2.stages.3.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\stages\\05.png",
+      "sha256": "b84f457a2a7a58874733359a51540deb0456db5158b8d5e127a9ad02b0ac5d4e",
+      "bytes": 507062,
+      "roles": [
+        {
+          "role": "building.buildings.2.stages.4.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\stages\\06.png",
+      "sha256": "f7ea0b40d4f61eabdfe326aca6a40032c4f627243b9816ce65fa048dff5d761b",
+      "bytes": 560688,
+      "roles": [
+        {
+          "role": "building.buildings.2.stages.5.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\stages\\07.png",
+      "sha256": "56ed342769e017bf625124f4ccf4186afc6ec3ff20e8b4df65e26b78a196eb5a",
+      "bytes": 456265,
+      "roles": [
+        {
+          "role": "building.buildings.2.stages.6.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\stages\\08.png",
+      "sha256": "90714c9ae59f5b25b99b3732d77e22ab49573af3e0ffe744d35544c9df394176",
+      "bytes": 533727,
+      "roles": [
+        {
+          "role": "building.buildings.2.stages.7.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\stages\\09.png",
+      "sha256": "8611887fc0b0bdb9dc41e188abe454470a5961bdc3285a9bf6b879fba2545491",
+      "bytes": 538412,
+      "roles": [
+        {
+          "role": "building.buildings.2.stages.8.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\stages\\10.png",
+      "sha256": "8611887fc0b0bdb9dc41e188abe454470a5961bdc3285a9bf6b879fba2545491",
+      "bytes": 538412,
+      "roles": [
+        {
+          "role": "building.buildings.2.stages.9.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\stages\\11.png",
+      "sha256": "807e0c13b86c755845c47f1a3e4830bcea60af177b91405866a06eca2a7abea0",
+      "bytes": 538588,
+      "roles": [
+        {
+          "role": "building.buildings.2.stages.10.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\stages\\12.png",
+      "sha256": "2541a1b57ed370da27ae39684e53065a3e5e392dadf5280df01cf9c9ba729c66",
+      "bytes": 538626,
+      "roles": [
+        {
+          "role": "building.buildings.2.stages.11.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\stages\\13.png",
+      "sha256": "72d174f8eed0177d4d109effe1324de7b30c553cd91ba32bcb1e018c09f3afc6",
+      "bytes": 540661,
+      "roles": [
+        {
+          "role": "building.buildings.2.stages.12.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\anchae\\stages\\14.png",
+      "sha256": "52e3e4c06f742c05dd948d93a5f77589fe07509008e96abac6956594384470f6",
+      "bytes": 542682,
+      "roles": [
+        {
+          "role": "building.buildings.2.stages.13.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\angotgan\\full.png",
+      "sha256": "0aab4bba93b24fc04f2c65996c8d300b070594a09b851a80eea695a1815d12e4",
+      "bytes": 1096892,
+      "roles": [
+        {
+          "role": "building.buildings.7.completeImage",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\angotgan\\stages\\01.png",
+      "sha256": "8a00f7f1a5b7b57d0f7c4975e684d6ced5e73070f4bf7338668f55e6c7ba53fe",
+      "bytes": 329649,
+      "roles": [
+        {
+          "role": "building.buildings.7.stages.0.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\angotgan\\stages\\02.png",
+      "sha256": "a39dac8b92691903948bd82275580d238af147293c29fd516a59c39e6077dbf3",
+      "bytes": 375430,
+      "roles": [
+        {
+          "role": "building.buildings.7.stages.1.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\angotgan\\stages\\03.png",
+      "sha256": "c25e95d2911f7c5617e2ebbc9e3b111fb9dad9f510c77f6a192564587fdd7651",
+      "bytes": 399230,
+      "roles": [
+        {
+          "role": "building.buildings.7.stages.2.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\angotgan\\stages\\04.png",
+      "sha256": "21b6eeb13e3015f54bccc5882c5e69d8aaeaeec2cc46358596051f6ec6ccc3f2",
+      "bytes": 450431,
+      "roles": [
+        {
+          "role": "building.buildings.7.stages.3.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\angotgan\\stages\\05.png",
+      "sha256": "7d21bfcaeabea2c40fdcb3b301c59ebbd59b81e53a10bbf955d95b040f23ed4b",
+      "bytes": 529365,
+      "roles": [
+        {
+          "role": "building.buildings.7.stages.4.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\angotgan\\stages\\06.png",
+      "sha256": "a0a1b1b14a238e538921f947660f77f4e57a2a04e40c774a0b9dc25a1d27c9ab",
+      "bytes": 496630,
+      "roles": [
+        {
+          "role": "building.buildings.7.stages.5.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\angotgan\\stages\\07.png",
+      "sha256": "9be970ce05b02d74e565bb858f9d16cce236f8cee8cec971769d3cb22d5b7025",
+      "bytes": 496444,
+      "roles": [
+        {
+          "role": "building.buildings.7.stages.6.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\angotgan\\stages\\08.png",
+      "sha256": "9be970ce05b02d74e565bb858f9d16cce236f8cee8cec971769d3cb22d5b7025",
+      "bytes": 496444,
+      "roles": [
+        {
+          "role": "building.buildings.7.stages.7.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\angotgan\\stages\\09.png",
+      "sha256": "b2b455bdad6ffe4560fdcfc0c9b94dd4f493220cda865ab71659914368f5f6a7",
+      "bytes": 502018,
+      "roles": [
+        {
+          "role": "building.buildings.7.stages.8.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\angotgan\\stages\\10.png",
+      "sha256": "2012eb631df7cdc817c5733e5db59518530680e03221291de7486b283a010014",
+      "bytes": 503744,
+      "roles": [
+        {
+          "role": "building.buildings.7.stages.9.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\angotgan\\stages\\11.png",
+      "sha256": "70832fb3b85c7af369ef0a5f6ba68330843b0f8e3f44fdea85207ee33c98ab3c",
+      "bytes": 507492,
+      "roles": [
+        {
+          "role": "building.buildings.7.stages.10.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\full.png",
+      "sha256": "bb37fc8f3edef54629a6c615a5c6816377b369dfa451b59d03ce8724ea243093",
+      "bytes": 1202488,
+      "roles": [
+        {
+          "role": "building.buildings.1.completeImage",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\stages\\01.png",
+      "sha256": "772b84a12fb0ee86034ac964af74f6a451cef744606e4f9c8a3c5a52e72fc476",
+      "bytes": 329715,
+      "roles": [
+        {
+          "role": "building.buildings.1.stages.0.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\stages\\02.png",
+      "sha256": "136a267cbf18a588fbc1811224fcf74fc2e442d858e5fe18d59cdd589f081953",
+      "bytes": 403983,
+      "roles": [
+        {
+          "role": "building.buildings.1.stages.1.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\stages\\03.png",
+      "sha256": "c0d1d7ae112f1188ac7b1485b12a081b3ceb74fc72e2a3adb92db0bd62ce901c",
+      "bytes": 405290,
+      "roles": [
+        {
+          "role": "building.buildings.1.stages.2.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\stages\\04.png",
+      "sha256": "d9d7790dee0a3b063fcdf7553ae2096262118614f1e647ac3ce856f3edf2f5c0",
+      "bytes": 429309,
+      "roles": [
+        {
+          "role": "building.buildings.1.stages.3.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\stages\\05.png",
+      "sha256": "266ca27fc2dcfd283732892ba421bacd7ff08695cf83a1cd953f558eaac494bd",
+      "bytes": 489507,
+      "roles": [
+        {
+          "role": "building.buildings.1.stages.4.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\stages\\06.png",
+      "sha256": "42d3273fc786719c4cd056eced0667c4414e3846130a90cc1a1b1cc855914fe4",
+      "bytes": 577525,
+      "roles": [
+        {
+          "role": "building.buildings.1.stages.5.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\stages\\07.png",
+      "sha256": "60e3849af17f3f2e98f4d87a3f36e34204636b868133015e17b8b8c72cd18101",
+      "bytes": 572470,
+      "roles": [
+        {
+          "role": "building.buildings.1.stages.6.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\stages\\08.png",
+      "sha256": "815a0235011b3f506d0abdd0463aa9154522cc5bfd6e0fc94905ea123ba0f1ca",
+      "bytes": 534552,
+      "roles": [
+        {
+          "role": "building.buildings.1.stages.7.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\stages\\09.png",
+      "sha256": "73bc7f4138c453f972f986dee1f68aea03cd964302e20c6e974825d0ffd22228",
+      "bytes": 539615,
+      "roles": [
+        {
+          "role": "building.buildings.1.stages.8.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\stages\\10.png",
+      "sha256": "797a04393c37800f2d174103ca86932300216e5adc6222f59de4b494bad0f61e",
+      "bytes": 542074,
+      "roles": [
+        {
+          "role": "building.buildings.1.stages.9.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\stages\\11.png",
+      "sha256": "ff36edcbabea6f1e643368e886449e13edcbee58f65832a18b0547f2df8bf0dd",
+      "bytes": 543986,
+      "roles": [
+        {
+          "role": "building.buildings.1.stages.10.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\stages\\12.png",
+      "sha256": "12f4009e46c9dcb7a9a99d5e85b1f8326bd46f0501fecdda23e85dadb25c7f65",
+      "bytes": 545675,
+      "roles": [
+        {
+          "role": "building.buildings.1.stages.11.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\stages\\13.png",
+      "sha256": "74457b27497f4db72562b6a23bff8edd41aceabc0f9e11540ad16fecb8d1857f",
+      "bytes": 555194,
+      "roles": [
+        {
+          "role": "building.buildings.1.stages.12.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\ansarang\\stages\\14.png",
+      "sha256": "274886bcc4fe2fada2aad61c5fd23bc0e3ca641a57d736607d162a36e8702ebf",
+      "bytes": 554946,
+      "roles": [
+        {
+          "role": "building.buildings.1.stages.13.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\arae\\full.png",
+      "sha256": "508735ae4f7fe53f9fb75a8520cd4685c135a4a02042cb65a52fadd0f774d1a8",
+      "bytes": 1221805,
+      "roles": [
+        {
+          "role": "building.buildings.5.completeImage",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\arae\\stages\\01.png",
+      "sha256": "d3b4d84d08db99934a9cf5856ac81d1d48171fab74b0ede356d9732cf6c7f2b3",
+      "bytes": 328985,
+      "roles": [
+        {
+          "role": "building.buildings.5.stages.0.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\arae\\stages\\02.png",
+      "sha256": "badbc0a8d9b6750cf8366802917cd5fcac54b8315dfc2a0d736556b7e2a7f6c0",
+      "bytes": 374643,
+      "roles": [
+        {
+          "role": "building.buildings.5.stages.1.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\arae\\stages\\03.png",
+      "sha256": "eabbb9100f3b295ae25040f0c4f7071f906454408d3bf578a433aa38605ffb84",
+      "bytes": 407637,
+      "roles": [
+        {
+          "role": "building.buildings.5.stages.2.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\arae\\stages\\04.png",
+      "sha256": "1f8dab3f59d9b48452cce582bfca708a3e6dc47124bf43d7af8405995d71eedf",
+      "bytes": 478679,
+      "roles": [
+        {
+          "role": "building.buildings.5.stages.3.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\arae\\stages\\05.png",
+      "sha256": "ef78ee87a4714cd09fff9129fc68a3c32e310aff4dd6d927cde4b2b38a2dd826",
+      "bytes": 534370,
+      "roles": [
+        {
+          "role": "building.buildings.5.stages.4.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\arae\\stages\\06.png",
+      "sha256": "162ea28c07bb32a15d1e7c440c8a40ace939f1f890547c69d7bf68b49ae77a5c",
+      "bytes": 442285,
+      "roles": [
+        {
+          "role": "building.buildings.5.stages.5.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\arae\\stages\\07.png",
+      "sha256": "11948814d617ec01b471e98f87550581f6040c2721d924ef7bc0826b186c362a",
+      "bytes": 544042,
+      "roles": [
+        {
+          "role": "building.buildings.5.stages.6.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\arae\\stages\\08.png",
+      "sha256": "25a3b41b1a8a6a462231f2dd8cc3476969b217b419d5f62749c25f8746e77d28",
+      "bytes": 559756,
+      "roles": [
+        {
+          "role": "building.buildings.5.stages.7.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\arae\\stages\\09.png",
+      "sha256": "df39200d08f0cf8647409db432f91f5dc43cd492e2549bcfdec9a2dac835b322",
+      "bytes": 556813,
+      "roles": [
+        {
+          "role": "building.buildings.5.stages.8.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\arae\\stages\\10.png",
+      "sha256": "bfaab464b19e2a87e58df0cd6754b8ad61412dfa4b553bc41100dc5411c79147",
+      "bytes": 566804,
+      "roles": [
+        {
+          "role": "building.buildings.5.stages.9.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\arae\\stages\\11.png",
+      "sha256": "46cfc2793dfc8cf3177b1487e03f2bd53886ed2a95aaef0ddcd8d6a96bba51a1",
+      "bytes": 569778,
+      "roles": [
+        {
+          "role": "building.buildings.5.stages.10.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\arae\\stages\\12.png",
+      "sha256": "c778ca635fd42b35d8ad7a899cd499a4f1b80d0908a9f01ceab083683e80c1a4",
+      "bytes": 571154,
+      "roles": [
+        {
+          "role": "building.buildings.5.stages.11.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\changgo\\full.png",
+      "sha256": "bc43737a06a606da2940ff920b63aee7d06ca0e25370c155473d893d514b08ad",
+      "bytes": 1118877,
+      "roles": [
+        {
+          "role": "building.buildings.8.completeImage",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\changgo\\stages\\01.png",
+      "sha256": "f9e38020547f80bd7d48acdf267c9db6fdce8440b2c3268dc8b4dc4c743ebbc4",
+      "bytes": 357621,
+      "roles": [
+        {
+          "role": "building.buildings.8.stages.0.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\changgo\\stages\\02.png",
+      "sha256": "75c1261630e0a60f55331d1dd1f5fc92526b3729448d93249092aed5fae45044",
+      "bytes": 392002,
+      "roles": [
+        {
+          "role": "building.buildings.8.stages.1.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\changgo\\stages\\03.png",
+      "sha256": "6d7e08e0049fa4dfd54ab94dafafd2eaf9c4f0e55a7721cd71a1d6aa2a22aa02",
+      "bytes": 456916,
+      "roles": [
+        {
+          "role": "building.buildings.8.stages.2.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\changgo\\stages\\04.png",
+      "sha256": "2725c7c8486c9fe68322b9dc8bd711f7450663758c073676f3357453fcfaf0c2",
+      "bytes": 493751,
+      "roles": [
+        {
+          "role": "building.buildings.8.stages.3.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\changgo\\stages\\05.png",
+      "sha256": "1feef33e460ab3e5d9ee827e2faae215e227bf0b3c62dfdf466354d8ef7934d9",
+      "bytes": 489962,
+      "roles": [
+        {
+          "role": "building.buildings.8.stages.4.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\changgo\\stages\\06.png",
+      "sha256": "e073b3f22dd7f28e27537e47c53faddcb44b6c728c713768d08c2673e3fd03f7",
+      "bytes": 494841,
+      "roles": [
+        {
+          "role": "building.buildings.8.stages.5.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\changgo\\stages\\07.png",
+      "sha256": "c70bf704c2b8e217143a4a24f306aeb6513f3cc2258745301dd064674d896dd6",
+      "bytes": 494861,
+      "roles": [
+        {
+          "role": "building.buildings.8.stages.6.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\changgo\\stages\\08.png",
+      "sha256": "fb07f3a3453b81214f71c9790cd429e17454ac736749d158b8aae540de5fec46",
+      "bytes": 510628,
+      "roles": [
+        {
+          "role": "building.buildings.8.stages.7.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\gokgan\\full.png",
+      "sha256": "553cd9d3bffb9d2c4ebcdde363c36fb2d719367475a0ccb8f81489ebea98e7ca",
+      "bytes": 1226269,
+      "roles": [
+        {
+          "role": "building.buildings.6.completeImage",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\gokgan\\stages\\01.png",
+      "sha256": "db5a5b4df307315f49fba5dff5187f69da012f3e7ae53392bfcab25fd390594e",
+      "bytes": 328796,
+      "roles": [
+        {
+          "role": "building.buildings.6.stages.0.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\gokgan\\stages\\02.png",
+      "sha256": "bab905a7e7bba96ec56a85c47910d47f626f2c0aa38f03d9b6187d04da0a7be6",
+      "bytes": 422130,
+      "roles": [
+        {
+          "role": "building.buildings.6.stages.1.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\gokgan\\stages\\03.png",
+      "sha256": "47cdacd47996520aa910ede0fed1acb075ac006eba6cb168890fe80c15f8de5c",
+      "bytes": 447695,
+      "roles": [
+        {
+          "role": "building.buildings.6.stages.2.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\gokgan\\stages\\04.png",
+      "sha256": "860d8fcfa68eb20469ed3e5d3a96964f580f05f0a5ed33990f42181091ad7d26",
+      "bytes": 491186,
+      "roles": [
+        {
+          "role": "building.buildings.6.stages.3.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\gokgan\\stages\\05.png",
+      "sha256": "af35fee19d258fd3ef27bfaa3454a8f498fbf525a7be495c72dd8455712f9e8c",
+      "bytes": 561182,
+      "roles": [
+        {
+          "role": "building.buildings.6.stages.4.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\gokgan\\stages\\06.png",
+      "sha256": "93811cec03067648cacd32cfc0942d52bda4743124d020228f0a9a5efa5adc1b",
+      "bytes": 475058,
+      "roles": [
+        {
+          "role": "building.buildings.6.stages.5.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\gokgan\\stages\\07.png",
+      "sha256": "4d171859c056bc191db8fedbfd37e03d191a62db1ab3f2e4f2a247006db0addf",
+      "bytes": 564778,
+      "roles": [
+        {
+          "role": "building.buildings.6.stages.6.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\gokgan\\stages\\08.png",
+      "sha256": "a32bf417a7a13c6769fb0308aaaf5782299c3ede22ac7a41491309c55c759e42",
+      "bytes": 565031,
+      "roles": [
+        {
+          "role": "building.buildings.6.stages.7.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\gokgan\\stages\\09.png",
+      "sha256": "c0ecb413966602112bb2470e2588ea4d02b94148ce17464221d3ea55bc3eec3a",
+      "bytes": 564934,
+      "roles": [
+        {
+          "role": "building.buildings.6.stages.8.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\gokgan\\stages\\10.png",
+      "sha256": "3d4473f9b2a28f13052a878697bfb5675fe7bc4c813835fe3436f19d00fb992b",
+      "bytes": 566473,
+      "roles": [
+        {
+          "role": "building.buildings.6.stages.9.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\gokgan\\stages\\11.png",
+      "sha256": "3d4473f9b2a28f13052a878697bfb5675fe7bc4c813835fe3436f19d00fb992b",
+      "bytes": 566473,
+      "roles": [
+        {
+          "role": "building.buildings.6.stages.10.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\jung\\full.png",
+      "sha256": "7f0934bfa5aaadf719aa127c53316c98b1d53c941935a1622d2442b5f7016af5",
+      "bytes": 1120708,
+      "roles": [
+        {
+          "role": "building.buildings.4.completeImage",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\jung\\stages\\01.png",
+      "sha256": "9e75806e73de809cd3bfbdc6f3a31d18e7bdc1ffe9414520e87e1ac90d6a1fad",
+      "bytes": 329232,
+      "roles": [
+        {
+          "role": "building.buildings.4.stages.0.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        },
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.stages.0.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\jung\\stages\\02.png",
+      "sha256": "3b490e88006f708128ea7a3c517e6a4c09be6e7f317b0a173e0f19d4437626ff",
+      "bytes": 419952,
+      "roles": [
+        {
+          "role": "building.buildings.4.stages.1.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        },
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.stages.1.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\jung\\stages\\03.png",
+      "sha256": "3b9b976908ef72094172cfb00ec026cde7d060093333a4d58a2673d2452c1eb7",
+      "bytes": 441060,
+      "roles": [
+        {
+          "role": "building.buildings.4.stages.2.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        },
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.stages.2.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\jung\\stages\\04.png",
+      "sha256": "7da52cb2cea59a8076d898d8cf410b78cbf233c9ac0a029fc7ae4eb75ba8e180",
+      "bytes": 481087,
+      "roles": [
+        {
+          "role": "building.buildings.4.stages.3.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        },
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.stages.3.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\jung\\stages\\05.png",
+      "sha256": "018419b2b6d0f6655763979ab5e93338a7443c7520ddf7a7850bd26e8db0caae",
+      "bytes": 517635,
+      "roles": [
+        {
+          "role": "building.buildings.4.stages.4.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\jung\\stages\\06.png",
+      "sha256": "c9219cefe65eb6c0e8a1fc5225d7d4c13121888f11977d22055fd1312cf7323e",
+      "bytes": 518154,
+      "roles": [
+        {
+          "role": "building.buildings.4.stages.5.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\jung\\stages\\07.png",
+      "sha256": "2d75acbad4f514249c148964da35968be9192624b71026de3e300b70dd97f99b",
+      "bytes": 515793,
+      "roles": [
+        {
+          "role": "building.buildings.4.stages.6.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\jung\\stages\\08.png",
+      "sha256": "ff5126960623b8fd6b0f35e694b3230a527de3556c1d3c01d50777f06ff2c323",
+      "bytes": 514042,
+      "roles": [
+        {
+          "role": "building.buildings.4.stages.7.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\jung\\stages\\09.png",
+      "sha256": "be8cfdbca48ed40f0f61842dddb2e4b40469c19ac0cf31ed5ec0eb9f2ee62f1f",
+      "bytes": 515181,
+      "roles": [
+        {
+          "role": "building.buildings.4.stages.8.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\jung\\stages\\10.png",
+      "sha256": "190d35e197da9f2ac7eee6cdb3af3df12ceeedea6fe68357b075f9b5cd88b704",
+      "bytes": 517636,
+      "roles": [
+        {
+          "role": "building.buildings.4.stages.9.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\jung\\stages\\11.png",
+      "sha256": "ed7e2de708d67658f7d32a5f1e03ee1235a3177bcc45d48596487479d277f066",
+      "bytes": 520098,
+      "roles": [
+        {
+          "role": "building.buildings.4.stages.10.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\jung\\stages\\12.png",
+      "sha256": "296952d1340d7ff2718a148e2383042ac2b60cdb97b5be976b4c3805ea995cf0",
+      "bytes": 520943,
+      "roles": [
+        {
+          "role": "building.buildings.4.stages.11.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sadang\\full.png",
+      "sha256": "be2341bf8c3d04fc192862dd03d0a05294af6de36f6ccbd5a83151e18b5ba63b",
+      "bytes": 1199360,
+      "roles": [
+        {
+          "role": "building.buildings.3.completeImage",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sadang\\stages\\01.png",
+      "sha256": "17a4517932dd0964dd5091b62179319e17ae50e1c7cdbf5840df3d476e9d2332",
+      "bytes": 328291,
+      "roles": [
+        {
+          "role": "building.buildings.3.stages.0.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sadang\\stages\\02.png",
+      "sha256": "c7b9c0755cc714ade24ca01364292be1521a3309a4b329b782c5dcea998e1ed0",
+      "bytes": 358654,
+      "roles": [
+        {
+          "role": "building.buildings.3.stages.1.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sadang\\stages\\03.png",
+      "sha256": "52d3b67b7c76124695e93f7b22322c865e2df88e132c4a586606ee3f336f37f6",
+      "bytes": 367323,
+      "roles": [
+        {
+          "role": "building.buildings.3.stages.2.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sadang\\stages\\04.png",
+      "sha256": "18d89ecb92df8c7ee8b77c9997512217a5b7511115a2e1e7b69735a82bb83167",
+      "bytes": 405588,
+      "roles": [
+        {
+          "role": "building.buildings.3.stages.3.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sadang\\stages\\05.png",
+      "sha256": "6919166ad9ce28b745192d3ba5903d0ce757bb577550cbdec1dab63e34d216bc",
+      "bytes": 459764,
+      "roles": [
+        {
+          "role": "building.buildings.3.stages.4.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sadang\\stages\\06.png",
+      "sha256": "977429b4803399eed422f1dd228d68b293accfa4a45c72e121357388a297007c",
+      "bytes": 509182,
+      "roles": [
+        {
+          "role": "building.buildings.3.stages.5.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sadang\\stages\\07.png",
+      "sha256": "7a656b2d8e7a637f2c58ad2d65776cff782479b1da98216be198279d8969d7e4",
+      "bytes": 481196,
+      "roles": [
+        {
+          "role": "building.buildings.3.stages.6.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sadang\\stages\\08.png",
+      "sha256": "328cf237806150342415c2999c1c0c6185d9c3aa3fccf8fa76ebf242c9d2abc3",
+      "bytes": 519043,
+      "roles": [
+        {
+          "role": "building.buildings.3.stages.7.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sadang\\stages\\09.png",
+      "sha256": "1220cc8573f6e54a56c9bf2e8544dea9a604d2a34f5d1eee26585feae98b7fbb",
+      "bytes": 541731,
+      "roles": [
+        {
+          "role": "building.buildings.3.stages.8.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sadang\\stages\\10.png",
+      "sha256": "b9d8a5d3c36d4000855453d389b9ad427fe237d0474e9f09b0e3f165dc2a5131",
+      "bytes": 547258,
+      "roles": [
+        {
+          "role": "building.buildings.3.stages.9.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sadang\\stages\\11.png",
+      "sha256": "cde231f0fc9125634eda1e178054c2484ba3fcdbd8c7aa07283d6f8137cae4a2",
+      "bytes": 553489,
+      "roles": [
+        {
+          "role": "building.buildings.3.stages.10.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sadang\\stages\\12.png",
+      "sha256": "cae376a305c05617938ae9aad1afbe7826d118c6d14b5ee8768fe7ef3bf83967",
+      "bytes": 558663,
+      "roles": [
+        {
+          "role": "building.buildings.3.stages.11.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\full.png",
+      "sha256": "d59c1c82c83ecbd710eacee53a686b23c93f111a8c3c99b6a14c6eb5e265203b",
+      "bytes": 2660542,
+      "roles": [
+        {
+          "role": "building.buildings.0.completeImage",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\01.png",
+      "sha256": "69973914307c443d0eb1a62dc7d267e7e568fd677ad2b0c0cccf0aef57db35ec",
+      "bytes": 339067,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.0.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        },
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.0.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\02.png",
+      "sha256": "9df47a54b76b573629b07ef51f55cd98f0193b5a9ead77b2b4d6239d7901207b",
+      "bytes": 400967,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.1.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        },
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.1.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\03.png",
+      "sha256": "56fd11b72d4cffe0431366c3a5f549d9e41ca1f30c8727cfd0978a1b1f25aadc",
+      "bytes": 405064,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.2.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        },
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.2.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\04.png",
+      "sha256": "56fd11b72d4cffe0431366c3a5f549d9e41ca1f30c8727cfd0978a1b1f25aadc",
+      "bytes": 405064,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.3.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        },
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.3.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\05.png",
+      "sha256": "fc0bc5e720c9091caa2e9b37c7d89d546c9ab78e4b5ff80539535a844bdb6433",
+      "bytes": 432570,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.4.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        },
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.4.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\06.png",
+      "sha256": "c3afa8762ff6a76ed21c86367786a3770091eebfdc85082752ad7c380d3b1769",
+      "bytes": 493770,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.5.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        },
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.5.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\07.png",
+      "sha256": "56b947721f5a2641f8f307138be9f33497fe71b00cf89d815241f597cfc954f4",
+      "bytes": 497888,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.6.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        },
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.stages.6.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\08.png",
+      "sha256": "7ed2c0e8cff97e6016f836043cd02d86950460db2080eaf76b041a63699bd626",
+      "bytes": 536954,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.7.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\09.png",
+      "sha256": "37139a7d6e5177944e34e8e982dc8f37375df217bcb3d2f5144ac0132e1fedfe",
+      "bytes": 521511,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.8.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\10.png",
+      "sha256": "37139a7d6e5177944e34e8e982dc8f37375df217bcb3d2f5144ac0132e1fedfe",
+      "bytes": 521511,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.9.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\11.png",
+      "sha256": "78df1e1d2a576491f16c0589a4dd8d6c80554c6226806f100ad4fc37c33b8800",
+      "bytes": 564469,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.10.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\12.png",
+      "sha256": "b73d60973e548f262a076dc120231851b529182fb4032001f8997dd2981d90f0",
+      "bytes": 564684,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.11.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\13.png",
+      "sha256": "7dd2760a0a99335d9f76aaeabe8213cddba843f22fcf97f33af501323123b20b",
+      "bytes": 566078,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.12.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\14.png",
+      "sha256": "9a0382c4bc1c36242804d75d719aa71b9df190da0b5f6c4527e18426f691cf41",
+      "bytes": 575324,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.13.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\15.png",
+      "sha256": "de8196b48b0352c63558eebee6a9ad5e69e1e162e7bcf6e0d1473cd6b408871d",
+      "bytes": 575546,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.14.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\stages\\16.png",
+      "sha256": "64a73d96293a4d96ff1cef811042f00b660eea4791bd3cebb02efbd8224ef1c7",
+      "bytes": 576065,
+      "roles": [
+        {
+          "role": "building.buildings.0.stages.15.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet1\\full.png",
+      "sha256": "636234a38495152ae563b3eec51e9f9c5f1a4f72eedc7416c068eaf418846a30",
+      "bytes": 1110755,
+      "roles": [
+        {
+          "role": "building.buildings.10.completeImage",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet1\\stages\\01.png",
+      "sha256": "8455b33011937205d785066c254cb71899166741ee1fa738db0b78858dd2ad48",
+      "bytes": 358918,
+      "roles": [
+        {
+          "role": "building.buildings.10.stages.0.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet1\\stages\\02.png",
+      "sha256": "ee946738fe23db6508d9bf01d074a151bcd0ebadfcd2dbbf248b4d1b9cd1c318",
+      "bytes": 382549,
+      "roles": [
+        {
+          "role": "building.buildings.10.stages.1.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet1\\stages\\03.png",
+      "sha256": "c068a027ac72a5f7f554266d223eaec9373d72880dc8f0834011f5990bfb664d",
+      "bytes": 431136,
+      "roles": [
+        {
+          "role": "building.buildings.10.stages.2.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet1\\stages\\04.png",
+      "sha256": "0f070bdf042170c2aca664aa92b7e657fc25f4cb3323e0d460823467082e4ac3",
+      "bytes": 473518,
+      "roles": [
+        {
+          "role": "building.buildings.10.stages.3.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet1\\stages\\05.png",
+      "sha256": "c8dcb43ade650cd9eb9dbfb949edc52131bf6b446b3adea3971669bf280d22b5",
+      "bytes": 472633,
+      "roles": [
+        {
+          "role": "building.buildings.10.stages.4.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet1\\stages\\06.png",
+      "sha256": "977d519c56c6b2295afe190b1fe0dc34a8c5926c9c817259cfc3c5b0b3938c8a",
+      "bytes": 489908,
+      "roles": [
+        {
+          "role": "building.buildings.10.stages.5.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet1\\stages\\07.png",
+      "sha256": "1a1b579942ad238ce8d38472cd0006f1bc5d39e490c6987830633f66c664c937",
+      "bytes": 507049,
+      "roles": [
+        {
+          "role": "building.buildings.10.stages.6.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet1\\stages\\08.png",
+      "sha256": "b72bd23f0776ee298074a88e5daee06162211d37dcc55e1f079aa13d31cc0ac5",
+      "bytes": 511395,
+      "roles": [
+        {
+          "role": "building.buildings.10.stages.7.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet1\\stages\\09.png",
+      "sha256": "5e90f9db529345ccf02595caf2270284b78ddaa855739a57fb8a26a7550a2e8d",
+      "bytes": 513000,
+      "roles": [
+        {
+          "role": "building.buildings.10.stages.8.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet\\full.png",
+      "sha256": "501855821563c63df62c6a368548428789277278097ac2da077e6ad03f8e7432",
+      "bytes": 1108199,
+      "roles": [
+        {
+          "role": "building.buildings.9.completeImage",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet\\stages\\01.png",
+      "sha256": "f09c3d85eaeff6927974a3db4fc81a7221654b911b81dc80fe74258ea9a9e425",
+      "bytes": 357518,
+      "roles": [
+        {
+          "role": "building.buildings.9.stages.0.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet\\stages\\02.png",
+      "sha256": "82c24dcecfb82721eedb9544bf90e33060434da9f6a0c064949c22916ee632a1",
+      "bytes": 381329,
+      "roles": [
+        {
+          "role": "building.buildings.9.stages.1.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet\\stages\\03.png",
+      "sha256": "891cbd961b9959d16047403001bf2ea18850e6d544ab90c8a3543e8408082dcb",
+      "bytes": 431410,
+      "roles": [
+        {
+          "role": "building.buildings.9.stages.2.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet\\stages\\04.png",
+      "sha256": "28d5fe9bdc5fb8dcc7e33a8ea7367d66ff825874f19cc39e3adb5489eabe5fc4",
+      "bytes": 479861,
+      "roles": [
+        {
+          "role": "building.buildings.9.stages.3.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet\\stages\\05.png",
+      "sha256": "b5c02820e7ef16717438052d3bdeb297e9e7844f514c040facf106e35c5cb796",
+      "bytes": 480843,
+      "roles": [
+        {
+          "role": "building.buildings.9.stages.4.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet\\stages\\06.png",
+      "sha256": "95336e95fb63e9f690fe0945ef3868e8c7aaace54c0030c2f37f2eefb9591490",
+      "bytes": 495925,
+      "roles": [
+        {
+          "role": "building.buildings.9.stages.5.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet\\stages\\07.png",
+      "sha256": "976c299cba126445025e569010f024069887530d7e57b5c9d6e374fc890f81b7",
+      "bytes": 508977,
+      "roles": [
+        {
+          "role": "building.buildings.9.stages.6.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet\\stages\\08.png",
+      "sha256": "613967665099f8dd9f7aa2c5efa29e3fc0bf57c70d7a9b9af7c575e0cb8288f1",
+      "bytes": 512855,
+      "roles": [
+        {
+          "role": "building.buildings.9.stages.7.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\toilet\\stages\\09.png",
+      "sha256": "f091db80437cea7a1e37a98e6d57270bc1350ae5b4f09ed5361a0212b37dcc25",
+      "bytes": 513713,
+      "roles": [
+        {
+          "role": "building.buildings.9.stages.8.image",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\left-material.blend",
+      "sha256": "a44ba08bbdad79ac3fc0e746a2a1d8cc5ac062c4448e21150794f2225060afb7",
+      "bytes": 18405987,
+      "roles": [
+        {
+          "role": "building.separateCurrentGates.0.nativeFiles.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\left-structural.blend",
+      "sha256": "36b4c3f4699ef154d3192a449eea52cdbb1507ccab690944a79e80da8196a35c",
+      "bytes": 13106351,
+      "roles": [
+        {
+          "role": "building.separateCurrentGates.0.nativeFiles.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\right-material.blend",
+      "sha256": "55f5c6c7a5b0a32f6f7ac79c6dbf9d11878b979b208ddcf66d64eeed1dc91699",
+      "bytes": 18123005,
+      "roles": [
+        {
+          "role": "building.separateCurrentGates.1.nativeFiles.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\right-structural.blend",
+      "sha256": "b27cae98f2424522f3b0b9988748fcab1b32476dbd6b741270feee571c4ad720",
+      "bytes": 12832357,
+      "roles": [
+        {
+          "role": "building.separateCurrentGates.1.nativeFiles.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\shrine-material.blend",
+      "sha256": "a13ee80980f0445e1cd2bf79e028ec12c63517b9d54d40edba837f984210ce6e",
+      "bytes": 15696397,
+      "roles": [
+        {
+          "role": "building.separateCurrentGates.2.nativeFiles.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\shrine-structural.blend",
+      "sha256": "faebecf9cba14f7278ef611d002362f503fbfcd5705811d1ab19922a0d913686",
+      "bytes": 12908249,
+      "roles": [
+        {
+          "role": "building.separateCurrentGates.2.nativeFiles.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\inputs\\r12\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\ildu-estate-r5-three-gates-canonical.blend",
+      "sha256": "3195809855213946a330048b3b86cd3f75ccddac045dbaf640909cee4de36d48",
+      "bytes": 662437002,
+      "roles": [
+        {
+          "role": "building.estate.layoutSource",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\anchae\\full.blend",
+      "sha256": "3602b84f788337f1037b104daf525a95067e0def74e261a267b765064e818613",
+      "bytes": 210509709,
+      "roles": [
+        {
+          "role": "building.buildings.2.packedConnectedNatives.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\anchae\\stage.blend",
+      "sha256": "c1f6c07756ab2fe9636d1a25305746a7bb6179a291d4f6ed11e584af42542c47",
+      "bytes": 210671204,
+      "roles": [
+        {
+          "role": "building.buildings.2.packedConnectedNatives.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\angotgan\\full.blend",
+      "sha256": "e8f600ba76db069d1c70517ee29be321df5817e8441160e52ac98413e426b4ae",
+      "bytes": 76069063,
+      "roles": [
+        {
+          "role": "building.buildings.7.packedConnectedNatives.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\angotgan\\stage.blend",
+      "sha256": "6370e61ab337a4dbf451dd9e02eaf4f65794fd94b11870bdf79f2a58769caa10",
+      "bytes": 76091193,
+      "roles": [
+        {
+          "role": "building.buildings.7.packedConnectedNatives.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\ansarang\\full.blend",
+      "sha256": "06d3925b6ebd508967bb6b2c46d509e58e32c6d4c52b0df280a1d52a741e88f9",
+      "bytes": 169872330,
+      "roles": [
+        {
+          "role": "building.buildings.1.packedConnectedNatives.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\ansarang\\stage.blend",
+      "sha256": "48f51680ee187f41c90fa9e8e9efc14a54601702d5725eb1fd83fc02ba520a25",
+      "bytes": 169930805,
+      "roles": [
+        {
+          "role": "building.buildings.1.packedConnectedNatives.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\arae\\full.blend",
+      "sha256": "b97426e3ed7e673a484bb4ca822289a4fc42fe7da2bfd6899daa08ffc69e035c",
+      "bytes": 113586199,
+      "roles": [
+        {
+          "role": "building.buildings.5.packedConnectedNatives.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\arae\\stage.blend",
+      "sha256": "fff63830a310bf060378c6b90b69caa8b5d256043086739286a49676498a377b",
+      "bytes": 113629256,
+      "roles": [
+        {
+          "role": "building.buildings.5.packedConnectedNatives.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\changgo\\full.blend",
+      "sha256": "cbab7c5857cbb8d5d278629b6da6058f603a4a9aaa9d90f6d3f3cf4f1bd32a85",
+      "bytes": 91359181,
+      "roles": [
+        {
+          "role": "building.buildings.8.packedConnectedNatives.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\changgo\\stage.blend",
+      "sha256": "af708cfac5c6d21004f6a894cbef8cdc40c60ebec41974380475a631bc5ccdd9",
+      "bytes": 91390720,
+      "roles": [
+        {
+          "role": "building.buildings.8.packedConnectedNatives.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\gokgan\\full.blend",
+      "sha256": "302449fce492fe60e949757b44157cba0fd7849bd75022193b9a028ff5f0e8d8",
+      "bytes": 86719834,
+      "roles": [
+        {
+          "role": "building.buildings.6.packedConnectedNatives.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\gokgan\\stage.blend",
+      "sha256": "41bad121ab6bd6f8131451437f22f2c8377c59d5e66c397dd1baf5efeb3fdd8a",
+      "bytes": 86737149,
+      "roles": [
+        {
+          "role": "building.buildings.6.packedConnectedNatives.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\jung\\full.blend",
+      "sha256": "5257728066bd62b8a38fbf897890b093ab98523316665927f00e7049fb8ac1ab",
+      "bytes": 121456708,
+      "roles": [
+        {
+          "role": "building.buildings.4.packedConnectedNatives.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\jung\\stage.blend",
+      "sha256": "1f2290ce6c4ed7fb4992d83accb8881ea8018a415eb94845cfc434df04565f11",
+      "bytes": 121488610,
+      "roles": [
+        {
+          "role": "building.buildings.4.packedConnectedNatives.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\sadang\\full.blend",
+      "sha256": "cccb2806bf97555eae3429faeec42752fb94e19d00ba456a97064efff964f8b6",
+      "bytes": 124717531,
+      "roles": [
+        {
+          "role": "building.buildings.3.packedConnectedNatives.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\sadang\\stage.blend",
+      "sha256": "117ca49764b59b5ac8ccc6edd9ca5174fcf5fc1010ad6153ed740eb2dc4b3012",
+      "bytes": 124735197,
+      "roles": [
+        {
+          "role": "building.buildings.3.packedConnectedNatives.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\sarang\\full.blend",
+      "sha256": "b001666cef8bf9d0a23157c2aebb220d1df22f3b00698482e8277e9680049d12",
+      "bytes": 210589215,
+      "roles": [
+        {
+          "role": "building.buildings.0.packedConnectedNatives.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\sarang\\stage.blend",
+      "sha256": "e472d6d44973a541bc871254a0c949f3439351401cf6956df41698e4f3c5f578",
+      "bytes": 210803614,
+      "roles": [
+        {
+          "role": "building.buildings.0.packedConnectedNatives.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\toilet1\\full.blend",
+      "sha256": "d4877d10cf9cedc0a38804cd16e5ed4616d254cc9a8588e1a881b864bab5e8ef",
+      "bytes": 43689661,
+      "roles": [
+        {
+          "role": "building.buildings.10.packedConnectedNatives.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\toilet1\\stage.blend",
+      "sha256": "5365313cfbac869dd13d7f331c80f3fcd81f73d632fbac647dfd379e205c668d",
+      "bytes": 43710702,
+      "roles": [
+        {
+          "role": "building.buildings.10.packedConnectedNatives.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\toilet\\full.blend",
+      "sha256": "001c38ecb9fdd10aeef7595b734796889b3661076efcc84823332651f3317b4f",
+      "bytes": 73935414,
+      "roles": [
+        {
+          "role": "building.buildings.9.packedConnectedNatives.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\toilet\\stage.blend",
+      "sha256": "d015775d7e15178f14ce617366daadc8bd291f9044bae5e2c906f362739b91f5",
+      "bytes": 73958210,
+      "roles": [
+        {
+          "role": "building.buildings.9.packedConnectedNatives.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\roof-variants\\native\\jung\\full.blend",
+      "sha256": "41f3920ee311406fe087a40c346101979547daf5706034ef01a1a57560328a54",
+      "bytes": 153264993,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.natives.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\roof-variants\\native\\jung\\stage.blend",
+      "sha256": "d756c5d780537bd1d73d00300499c9b6d81976d7f8467506603ed0e28c8e4aeb",
+      "bytes": 153380200,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.1.natives.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\roof-variants\\native\\sarang\\full.blend",
+      "sha256": "ef7b1ac264d26c56f121aa25e0af05a21ffb92fc1071b3eabe508ee93392b200",
+      "bytes": 225553575,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.natives.0",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\roof-variants\\native\\sarang\\stage.blend",
+      "sha256": "943b172dc8d1cc68d6cd0010c2a090a819a82b58b244a98649dafe1209112bb4",
+      "bytes": 225760470,
+      "roles": [
+        {
+          "role": "building.standaloneRoofPolicy.variants.0.natives.1",
+          "status": "EXISTING_SOURCE_IDENTITY",
+          "authority": "BUILDING_LOCK.json; respect per-section approval/variant limits"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\sotdaeulmun-promotion-20260914\\approved-canonical\\assets\\illustrations\\personal_hanok_v3\\construction\\sotdaeulmun\\12_complete.png",
+      "sha256": "85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44",
+      "bytes": 1594929,
+      "roles": [
+        {
+          "role": "sotdaeulmun_complete12",
+          "status": "SOURCE_LOCKED_APPROVED_ART",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\sotdaeulmun-promotion-20260914\\preserved\\assets_unused\\pending_review\\personal_hanok_v3\\sotdaeulmun_jin_20260914\\sources\\art_03.png",
+      "sha256": "85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44",
+      "bytes": 1594929,
+      "roles": [
+        {
+          "role": "sotdaeulmun_approved_art03",
+          "status": "SOURCE_LOCKED_APPROVED_ART",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\einleitung\\05-open-book-scene.png",
+      "sha256": "721ebff509468bdc8d1a0c4e68b461f01d72913fc045403fe0854bc40e0ae743",
+      "bytes": 581188,
+      "roles": [
+        {
+          "role": "book_existing_open_scene",
+          "status": "REFERENCE_ONLY",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\games\\gold_action.png",
+      "sha256": "5d3ce82ad26b5bbf00ab5457fbef0cfaf0fb7c3e65d774f5846e1893fe98312f",
+      "bytes": 1177273,
+      "roles": [
+        {
+          "role": "c_material_gold_action",
+          "status": "REFERENCE_ONLY",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\games\\hanji_material.png",
+      "sha256": "6d9fcb2e702e515634911a83ece52b73ee441f86a74e41d19a1e1b903f043602",
+      "bytes": 1727506,
+      "roles": [
+        {
+          "role": "c_material_hanji_material",
+          "status": "REFERENCE_ONLY",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\concept_c\\games\\wood_material.png",
+      "sha256": "102da3a4483477b33112e41957a515b09a2b4ef11fb91738a798801208119df0",
+      "bytes": 2642437,
+      "roles": [
+        {
+          "role": "c_material_wood_material",
+          "status": "REFERENCE_ONLY",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\dancheong_studio\\v1\\letter.png",
+      "sha256": "616793932d2b2635bb7b1d6d56daf13b54cd52a4b1cfd306ea03f709a8f22f62",
+      "bytes": 3247684,
+      "roles": [
+        {
+          "role": "letter_longevity_excluded",
+          "status": "EXCLUDED_FOR_STORY_LETTER",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\decorations\\decoration_deungjan.png",
+      "sha256": "1393b9490fb94fc954e0464eeee3036b54ae320275e088e280863870ba412f8f",
+      "bytes": 107922,
+      "roles": [
+        {
+          "role": "deungjan_existing",
+          "status": "SOURCE_LOCKED_ADOPTED",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\decorations\\decoration_seoan.png",
+      "sha256": "59e488f8cf212911439f7d73818d809a0667ad9c06361ddc08571a331b96f4e7",
+      "bytes": 496455,
+      "roles": [
+        {
+          "role": "seoan_existing",
+          "status": "SOURCE_LOCKED_EXISTING",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\hanok\\sarangbang_empty.png",
+      "sha256": "e9eb5e8de810c96d4f80b45fb83c05422e45d1a86ed8755f345c52de8e83227d",
+      "bytes": 2555888,
+      "roles": [
+        {
+          "role": "sarangbang_background_existing",
+          "status": "SOURCE_LOCKED_EXISTING",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personal_hanok_v3\\world\\main-gate.png",
+      "sha256": "849cfcb120efc874ff53278a9815581854d9ef34ded61a61008749c767567fe4",
+      "bytes": 1199906,
+      "roles": [
+        {
+          "role": "sotdaeulmun_existing_world_sprite",
+          "status": "REFERENCE_ONLY",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\andrea.png",
+      "sha256": "4b2456144f4228a9a3ecd9c76b2f878303b698b484df86db9de89931376b3e5f",
+      "bytes": 2018243,
+      "roles": [
+        {
+          "role": "persona.andrea.runtime_alias",
+          "status": "IDENTICAL_BYTES",
+          "authority": "CHARACTER_LOCK.json"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\byeongcheol.png",
+      "sha256": "c4c6b2d184291e4e1291d7975dce7f30190bcecdc4040031bbefed1cbfc5ca13",
+      "bytes": 2041351,
+      "roles": [
+        {
+          "role": "persona.byeongcheol.runtime_alias",
+          "status": "IDENTICAL_BYTES",
+          "authority": "CHARACTER_LOCK.json"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\christian.png",
+      "sha256": "c19b6505130593fdad3f4506114e213a38529f8efe17eb9e58a224a0497c5272",
+      "bytes": 2048373,
+      "roles": [
+        {
+          "role": "persona.christian.runtime_alias",
+          "status": "IDENTICAL_BYTES",
+          "authority": "CHARACTER_LOCK.json"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\daniel.png",
+      "sha256": "dce49e967e3024696b41aef91153152d5b3e751128d3257422ab76fd88abe4f1",
+      "bytes": 2002309,
+      "roles": [
+        {
+          "role": "persona.daniel.runtime_alias",
+          "status": "IDENTICAL_BYTES",
+          "authority": "CHARACTER_LOCK.json"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\dongsun.png",
+      "sha256": "54f59e190f5dc1d85bcf015f97c5ff410c26ee21add2586398dd20d1ff6a10d5",
+      "bytes": 2071293,
+      "roles": [
+        {
+          "role": "persona.dongsun.runtime_alias",
+          "status": "IDENTICAL_BYTES",
+          "authority": "CHARACTER_LOCK.json"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\hyuna.png",
+      "sha256": "6de9257ddd6a49069ace126fb06c3ce44091c2f66f48118d7c45540ea438aa33",
+      "bytes": 1944111,
+      "roles": [
+        {
+          "role": "persona.hyuna.runtime_alias",
+          "status": "IDENTICAL_BYTES",
+          "authority": "CHARACTER_LOCK.json"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\jun-16.png",
+      "sha256": "164cd0422d4d27082b5feb5d04775277d1cbc4ae8eab61c83d0d09825f00887f",
+      "bytes": 1863780,
+      "roles": [
+        {
+          "role": "persona.jun.runtime_alias",
+          "status": "IDENTICAL_BYTES",
+          "authority": "CHARACTER_LOCK.json"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\lena.png",
+      "sha256": "00744ab82f07314f9091f6f8d5a3f0683ba3f289ddae5684c492a6e172e209cf",
+      "bytes": 2065540,
+      "roles": [
+        {
+          "role": "persona.lena.runtime_alias",
+          "status": "IDENTICAL_BYTES",
+          "authority": "CHARACTER_LOCK.json"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\maya.png",
+      "sha256": "7c229f106e750ddedf58f05f0626ca2defb30fd17aa8491f967756856d59e053",
+      "bytes": 1966271,
+      "roles": [
+        {
+          "role": "persona.maya.runtime_alias",
+          "status": "IDENTICAL_BYTES",
+          "authority": "CHARACTER_LOCK.json"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\minho.png",
+      "sha256": "fe8828ceb25306d80928d5e89afa3cd0ae9dc4dd849d0366ed1493f996a7aa49",
+      "bytes": 1928989,
+      "roles": [
+        {
+          "role": "persona.minho.runtime_alias",
+          "status": "IDENTICAL_BYTES",
+          "authority": "CHARACTER_LOCK.json"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\personas\\v3\\sujin.png",
+      "sha256": "60b0f18338a6efc940377d725ab41ecac9ebb1365b094e9f63fa58d71459015c",
+      "bytes": 1936749,
+      "roles": [
+        {
+          "role": "character.sujin.runtime_alias",
+          "status": "IDENTICAL_BYTES",
+          "authority": "CHARACTER_LOCK.json"
+        },
+        {
+          "role": "persona.sujin.runtime_alias",
+          "status": "IDENTICAL_BYTES",
+          "authority": "CHARACTER_LOCK.json"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\tactile\\book.png",
+      "sha256": "58b15aa67c40c541124425d3b750fc59990664b4ee4e2f16f5d82b17966d6696",
+      "bytes": 1512411,
+      "roles": [
+        {
+          "role": "book_existing_tactile",
+          "status": "REFERENCE_ONLY",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets\\illustrations\\tactile\\scholar\\scholar_welcome.png",
+      "sha256": "3ca5cf78d7eaa1f9b50e2aa767aa0399653dbfbf2f0be01a84448f57dbf16fb1",
+      "bytes": 1310537,
+      "roles": [
+        {
+          "role": "character.talsunbi.runtime_alias",
+          "status": "IDENTICAL_BYTES",
+          "authority": "CHARACTER_LOCK.json"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-hanok-design-audit-20261010\\assets_unused\\pending_review\\personal_hanok_v3\\turnaround_2d\\ildu_sotdaeulmun_v02\\references\\canonical_source\\sotdaeulmun_approved_jin_20260824.png",
+      "sha256": "161d23a981e8c0533f902933ef79c646a95f8d86c210cba48fbd954af7d4d687",
+      "bytes": 5712433,
+      "roles": [
+        {
+          "role": "sotdaeulmun_aug24_historical",
+          "status": "SUPERSEDED_REFERENCE",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\spiele-figma-first-20261018\\assets\\illustrations\\concept_c\\games\\approved_cloud_spiral.png",
+      "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+      "bytes": 512974,
+      "roles": [
+        {
+          "role": "approved_ui_cloud",
+          "status": "SOURCE_LOCKED_UI_ONLY",
+          "authority": "SYMBOL_STYLE_LOCK.json; stated scope only"
+        }
+      ]
+    }
+  ],
+  "pendingRoles": {
+    "charactersAndActions": [
+      {
+        "id": "character.player",
+        "status": "NO_FIXED_FACE_REQUIRED",
+        "reasonKo": "플레이어를 크리스티안이나 새 고정 얼굴로 대체하지 않는다. 사용자 설정/현행 표현을 따른다."
+      },
+      {
+        "id": "character.yeoni",
+        "status": "SOURCE_PENDING",
+        "reasonKo": "연이의 확정 인물 원화/턴어라운드 미확인. 쪽지·편지·자취 중심의 기존 연출을 유지하고 새 얼굴을 고정하지 않는다."
+      },
+      {
+        "id": "character.jeong_yeochang",
+        "status": "SOURCE_PENDING",
+        "reasonKo": "정여창의 확정 캐릭터 원화 미확인. 사실적 초상이나 판타지 캐릭터를 임의로 추가하지 않는다."
+      },
+      {
+        "id": "character.old_man",
+        "status": "SOURCE_PENDING",
+        "reasonKo": "장면의 노인 확정 원화 미확인. 탈선비/도깨비와 합치거나 새 외모를 정본으로 삼지 않는다."
+      },
+      {
+        "id": "pose.dokkaebi_step_aside_and_bolt_repair",
+        "status": "ACTION_REFERENCE_PENDING",
+        "reasonKo": "확정 얼굴/의상과 별개로 양팔/비켜섬/빗장 수리의 정확한 손 접촉 및 시작·끝 프레임은 아직 선택·검수되지 않았다."
+      },
+      {
+        "id": "pose.joy_full_body",
+        "status": "POSE_SELECTION_PENDING",
+        "reasonKo": "원본 폴더의 실제 전신 파일을 장면별로 검토·선택해야 하며 흉상만으로 숨은 디테일을 만들지 않는다."
+      }
+    ],
+    "symbolsAndProps": [
+      {
+        "required_role": "s1_cloud_badge",
+        "status": "SOURCE_PENDING",
+        "identity_reference": "three_swirl_emblem",
+        "reason": "Three-swirl original found and locked, but no explicit record maps this exact file to the narrative badge. UI cloud cannot fill this role.",
+        "events": [
+          "S1-P01",
+          "S1-P02",
+          "S1-C09-01"
+        ],
+        "next_allowed_step": "Choose or verify exact existing story source before any state-specific derivation."
+      },
+      {
+        "required_role": "nevi_lernen_book",
+        "status": "SOURCE_PENDING",
+        "reason": "Four standalone files currently exist in exact Nevi_Bar5 directory; fifth Lernen/book original not located.",
+        "next_allowed_step": "Resolve the original fifth icon; preserve five image-only tabs and do not draw or substitute a generic book."
+      },
+      {
+        "required_role": "s1_sarangchae_interior",
+        "status": "SOURCE_PENDING",
+        "identity_references": [
+          "sarangbang_background_existing",
+          "seoan_existing"
+        ],
+        "reason": "Existing room/catalog/STYLE_LOCK sources are verified; exact approved S1 Sarangchae interior and its relation to R16 not established.",
+        "next_allowed_step": "Resolve existing approved room source and camera; no architectural redraw."
+      },
+      {
+        "required_role": "first_house_note",
+        "status": "SOURCE_PENDING",
+        "events": [
+          "S1-C01-02",
+          "S1-C10-03"
+        ],
+        "reason": "No exact story-note image source verified; excluded longevity stationery must not substitute.",
+        "next_allowed_step": "Resolve one original note reference and retain that same reference through return/finale; no replacement note."
+      },
+      {
+        "required_role": "final_letter",
+        "status": "SOURCE_PENDING",
+        "reason": "The design sheet depicts a bound letter, but no selected final-story-letter export or exact manuscript-text mapping is verified. Longevity stationery is excluded.",
+        "next_allowed_step": "Resolve approved original visual/text source and preserve spoiler gates.",
+        "identity_references": [
+          "yeoni_guardian_design_sheet"
+        ]
+      },
+      {
+        "required_role": "story_book",
+        "status": "SOURCE_PENDING",
+        "identity_references": [
+          "book_existing_tactile",
+          "book_existing_open_scene"
+        ],
+        "reason": "Generic existing book sources are known; exact story-book identity or text is not.",
+        "next_allowed_step": "Resolve exact existing book or retain a text-only production placeholder, without generation."
+      },
+      {
+        "required_role": "seed_pouch",
+        "status": "SOURCE_PENDING",
+        "reason": "An existing viewed design sheet labels a floral Yeoni seed pouch with loose seeds; exact selected standalone export and S1 role mapping remain unverified. The different letter pouch is not a substitute.",
+        "next_allowed_step": "Preserve the named design-sheet reference; resolve standalone/role selection before production. Do not crop or silently promote it.",
+        "identity_references": [
+          "yeoni_guardian_design_sheet"
+        ]
+      },
+      {
+        "required_role": "separate_wick",
+        "status": "SOURCE_PENDING",
+        "identity_reference": "deungjan_existing",
+        "reason": "Adopted whole lamp image exists; separate wick original/state not verified.",
+        "next_allowed_step": "Use source resolution before any separation, unlit state or new image."
+      },
+      {
+        "required_role": "plain_story_cloth",
+        "status": "SOURCE_PENDING",
+        "identity_references": [
+          "bojagi_open",
+          "bojagi_closed"
+        ],
+        "reason": "Exact open/closed Bojagi references exist, but no plain story-cloth source or role approval verified.",
+        "next_allowed_step": "Resolve the actual cloth identity; preserve Bojagi object and reward scopes."
+      },
+      {
+        "required_role": "guardian_tile_standalone",
+        "status": "SOURCE_PENDING",
+        "identity_references": [
+          "yeoni_guardian_design_sheet"
+        ],
+        "reason": "Six guardian-tile views/variants exist together on the design sheet. A selected standalone sprite/native and precise Sotdaeulmun attachment have not been verified.",
+        "next_allowed_step": "Keep sheet identity; resolve exact selected variant and roof attachment without inventing geometry or treating the badge as a tile."
+      }
+    ],
+    "mainGateAction": "SOURCE_PENDING: verified opening native, bolt, hinge and hand contact references"
+  },
+  "boundaries": {
+    "generationExecuted": false,
+    "sourceImagesEdited": false,
+    "uploaded": false,
+    "runtimeIntegratedByThisWork": false,
+    "canonicalDerivativesAutomaticallyApproved": false
+  }
+}
