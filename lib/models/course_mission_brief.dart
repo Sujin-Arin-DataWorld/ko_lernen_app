@@ -17,6 +17,7 @@ class CourseMissionBrief {
     required this.isCompleted,
     required this.estimatedMinutesToScene,
     required this.firstLink,
+    required this.hasStarted,
   });
 
   factory CourseMissionBrief.from({
@@ -96,6 +97,22 @@ class CourseMissionBrief {
       isCompleted: snapshot.completedUnitIds.contains(unit.id),
       estimatedMinutesToScene: minutesToScene,
       firstLink: phases.isEmpty ? null : phases.first.representativeLink,
+      // A previous unit's completion does not mean this mission was started.
+      hasStarted:
+          snapshot.evidence.any(
+            (e) =>
+                e.courseUnitId == unit.id &&
+                plan.steps.any((s) => s.link.id == e.missionContentLinkId),
+          ) ||
+          snapshot.scenarioCheckpoints.any(
+            (e) =>
+                e.courseUnitId == unit.id &&
+                plan.steps.any((s) => s.link.id == e.missionContentLinkId),
+          ) ||
+          snapshot.productiveEvidence.any((e) => e.courseUnitId == unit.id) ||
+          snapshot.productiveProjectStepEvidence.any(
+            (e) => e.courseUnitId == unit.id,
+          ),
     );
   }
 
@@ -107,6 +124,7 @@ class CourseMissionBrief {
   final bool isCompleted;
   final int estimatedMinutesToScene;
   final ContentLink? firstLink;
+  final bool hasStarted;
 
   int get remainingStepCount => totalStepCount - visibleSteps.length;
 }

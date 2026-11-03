@@ -38,6 +38,7 @@ SCAN_ROOTS = (
 # family and be generated against that family's anchor file — mixing them is
 # what produced the rejected 2026-08-17 A2 attempt.
 FAMILIES: tuple[tuple[str, str, str], str] = (
+    ("assets/illustrations/concept_c/today/", "F-C5-Today", "승인 Today 정물·장면 (앵커: docs/assets/TODAY_APPROVED_ASSETS_20261031.json)"),
     ("assets/illustrations/decorations/", "F-A/F-B", "사랑방 실내 컷아웃 6 + 마당 장식 18 (앵커: seoan·soban·munbangsau·jagae_mungap)"),
     ("assets/illustrations/personal_hanok_v3/", "F-C", "일두고택 V3 월드 자산"),
     ("assets/illustrations/hanok/", "F-D", "방 배경·배너·게이트 (sarangbang_empty 1086×1448)"),

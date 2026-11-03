@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/features/scenarios/scenario_quest_stock.dart';
@@ -21,12 +22,12 @@ void main() {
       final scenes = corpus
           .where((s) => s.dialog.any((d) => d.speaker == id))
           .toList();
-      print(
+      debugPrint(
         '$id: ${scenes.where(stock.allowsScenario).length}/${scenes.length}',
       );
       if (id == 'christian') {
         for (final s in scenes) {
-          print(
+          debugPrint(
             '${s.id}: ${s.quests.map((q) => "${q.type.name}:${hasPlayableQuestContent(q.type, q.data)}:${stock.count(s.level, q.type)}").join(",")}',
           );
         }

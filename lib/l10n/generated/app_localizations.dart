@@ -13014,29 +13014,11 @@ abstract class AppL10n {
   /// **'Bojagi-Bündel'**
   String get bojagiTitle;
 
-  /// No description provided for @bojagiLoading.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Bündel wird vorbereitet …'**
-  String get bojagiLoading;
-
-  /// No description provided for @bojagiOpenHint.
-  ///
-  /// In de, this message translates to:
-  /// **'Tippe auf den Knoten, um das Bündel zu öffnen.'**
-  String get bojagiOpenHint;
-
   /// No description provided for @bojagiPickTitle.
   ///
   /// In de, this message translates to:
   /// **'Such dir eins aus'**
   String get bojagiPickTitle;
-
-  /// No description provided for @bojagiPickBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Was du liegen lässt, bleibt im Beutel und kann in einem späteren Bündel wiederkommen.'**
-  String get bojagiPickBody;
 
   /// No description provided for @bojagiChooseDecoration.
   ///
@@ -13044,41 +13026,11 @@ abstract class AppL10n {
   /// **'{name} auswählen'**
   String bojagiChooseDecoration(String name);
 
-  /// No description provided for @bojagiEmptyTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Kein Bündel wartet'**
-  String get bojagiEmptyTitle;
-
-  /// No description provided for @bojagiEmptyBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Schließe eine Quest ab. Dafür bekommst du ein Bündel.'**
-  String get bojagiEmptyBody;
-
   /// No description provided for @bojagiAllOwnedTitle.
   ///
   /// In de, this message translates to:
   /// **'Nichts Neues drin'**
   String get bojagiAllOwnedTitle;
-
-  /// No description provided for @bojagiAllOwnedBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Alle drei Stücke aus diesem Bündel hast du schon.'**
-  String get bojagiAllOwnedBody;
-
-  /// No description provided for @bojagiProblemTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Das Bündel lässt sich gerade nicht öffnen'**
-  String get bojagiProblemTitle;
-
-  /// No description provided for @bojagiProblemBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Versuch es gleich noch einmal. Dein Bündel geht dabei nicht verloren.'**
-  String get bojagiProblemBody;
 
   /// No description provided for @bojagiRetry.
   ///
@@ -13104,29 +13056,11 @@ abstract class AppL10n {
   /// **'In der Stube aufstellen'**
   String get bojagiGoToRoom;
 
-  /// No description provided for @bojagiNext.
-  ///
-  /// In de, this message translates to:
-  /// **'Nächstes Bündel öffnen'**
-  String get bojagiNext;
-
   /// No description provided for @bojagiCollectionCompleteTitle.
   ///
   /// In de, this message translates to:
   /// **'Sammlung vollständig'**
   String get bojagiCollectionCompleteTitle;
-
-  /// No description provided for @bojagiCollectionCompleteBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Du besitzt bereits alle Einrichtungsstücke. Lege dieses Bündel ab, um weiterzumachen.'**
-  String get bojagiCollectionCompleteBody;
-
-  /// No description provided for @bojagiArchiveComplete.
-  ///
-  /// In de, this message translates to:
-  /// **'Bündel ablegen'**
-  String get bojagiArchiveComplete;
 
   /// No description provided for @hanokWorldTitle.
   ///
@@ -20825,6 +20759,258 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Bestätigte Auswahl fortsetzen'**
   String get accountRecoveryResumeConfirm;
+
+  /// No description provided for @todayFirstSyllable.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine erste Silbe'**
+  String get todayFirstSyllable;
+
+  /// No description provided for @todayFirstSyllableBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Höre und verbinde zwei Zeichen.'**
+  String get todayFirstSyllableBody;
+
+  /// No description provided for @todayStartHangul.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul starten'**
+  String get todayStartHangul;
+
+  /// No description provided for @todayStartReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt wiederholen'**
+  String get todayStartReview;
+
+  /// No description provided for @todayYourHanok.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hanok'**
+  String get todayYourHanok;
+
+  /// No description provided for @todayDetails.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Tag im Überblick'**
+  String get todayDetails;
+
+  /// No description provided for @todayProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernfortschritt'**
+  String get todayProgress;
+
+  /// No description provided for @najeonChestTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Schatztruhe'**
+  String get najeonChestTitle;
+
+  /// No description provided for @najeonChestLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Schatztruhe wird vorbereitet …'**
+  String get najeonChestLoading;
+
+  /// No description provided for @najeonChestOpenHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf die Truhe, um sie zu öffnen.'**
+  String get najeonChestOpenHint;
+
+  /// No description provided for @najeonChestOpen.
+  ///
+  /// In de, this message translates to:
+  /// **'Truhe öffnen'**
+  String get najeonChestOpen;
+
+  /// No description provided for @najeonChestPickBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle ein Stück für dein Zimmer. Die anderen Stücke können in einer späteren Schatztruhe wiederkommen.'**
+  String get najeonChestPickBody;
+
+  /// No description provided for @najeonChestEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Schatztruhe wartet'**
+  String get najeonChestEmptyTitle;
+
+  /// No description provided for @najeonChestEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließe eine Quest ab. Dafür bekommst du eine Schatztruhe.'**
+  String get najeonChestEmptyBody;
+
+  /// No description provided for @najeonChestAllOwnedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Du besitzt bereits alle drei Stücke aus dieser Schatztruhe.'**
+  String get najeonChestAllOwnedBody;
+
+  /// No description provided for @najeonChestProblemTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Schatztruhe lässt sich gerade nicht öffnen'**
+  String get najeonChestProblemTitle;
+
+  /// No description provided for @najeonChestProblemBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Versuch es gleich noch einmal. Deine Schatztruhe geht dabei nicht verloren.'**
+  String get najeonChestProblemBody;
+
+  /// No description provided for @najeonChestNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächste Truhe öffnen'**
+  String get najeonChestNext;
+
+  /// No description provided for @najeonChestCollectionCompleteBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Du besitzt bereits alle Einrichtungsstücke. Lege diese Schatztruhe ab, um weiterzumachen.'**
+  String get najeonChestCollectionCompleteBody;
+
+  /// No description provided for @najeonChestArchive.
+  ///
+  /// In de, this message translates to:
+  /// **'Truhe ablegen'**
+  String get najeonChestArchive;
+
+  /// No description provided for @najeonChestHelpTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Najeon · 나전'**
+  String get najeonChestHelpTitle;
+
+  /// No description provided for @najeonChestHelpBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Bei Najeon werden dünne Stücke aus Muschelschalen zu Mustern geschnitten und in eine Lackoberfläche eingelegt. Die schimmernden Einlagen nennt man Perlmutt.'**
+  String get najeonChestHelpBody;
+
+  /// No description provided for @todayCompanionSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Koreanisch wächst.'**
+  String get todayCompanionSubtitle;
+
+  /// No description provided for @todayNextStage.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine nächste Etappe'**
+  String get todayNextStage;
+
+  /// No description provided for @todayTreasureTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Schatztruhe'**
+  String get todayTreasureTitle;
+
+  /// No description provided for @todayTreasureReady.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{1 wartet auf dich} other{{count} warten auf dich}}'**
+  String todayTreasureReady(int count);
+
+  /// No description provided for @todayTreasureCollection.
+  ///
+  /// In de, this message translates to:
+  /// **'Sammlung'**
+  String get todayTreasureCollection;
+
+  /// No description provided for @todayExploreGames.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiele entdecken'**
+  String get todayExploreGames;
+
+  /// No description provided for @todayMissionGreetingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute sagst du Hallo'**
+  String get todayMissionGreetingTitle;
+
+  /// No description provided for @todayMissionGreetingBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Begrüße jemanden und stelle eine kurze Frage.'**
+  String get todayMissionGreetingBody;
+
+  /// No description provided for @todayMissionPlansTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Plan mit Freunden'**
+  String get todayMissionPlansTitle;
+
+  /// No description provided for @todayMissionPlansBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Schlage ein Treffen vor und ändere den Termin.'**
+  String get todayMissionPlansBody;
+
+  /// No description provided for @todayMissionRequestsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Klar miteinander planen'**
+  String get todayMissionRequestsTitle;
+
+  /// No description provided for @todayMissionRequestsBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Formuliere eine Bitte und handle eine Lösung aus.'**
+  String get todayMissionRequestsBody;
+
+  /// No description provided for @todayMissionPolicyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Regeln gemeinsam gestalten'**
+  String get todayMissionPolicyTitle;
+
+  /// No description provided for @todayMissionPolicyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wäge Positionen ab und begründe einen Vorschlag.'**
+  String get todayMissionPolicyBody;
+
+  /// No description provided for @todayMissionAuthorityTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wo Zuständigkeit endet'**
+  String get todayMissionAuthorityTitle;
+
+  /// No description provided for @todayMissionAuthorityBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Prüfe Mandate und unterscheide ihre Grenzen.'**
+  String get todayMissionAuthorityBody;
+
+  /// No description provided for @todayMissionReviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Was bleibt, wächst'**
+  String get todayMissionReviewTitle;
+
+  /// No description provided for @todayResumeStage.
+  ///
+  /// In de, this message translates to:
+  /// **'Fortsetzen'**
+  String get todayResumeStage;
+
+  /// No description provided for @todayTreasureOpen.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffnen'**
+  String get todayTreasureOpen;
+
+  /// No description provided for @todayBeginStage.
+  ///
+  /// In de, this message translates to:
+  /// **'Los geht’s'**
+  String get todayBeginStage;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

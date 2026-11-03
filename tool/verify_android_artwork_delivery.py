@@ -8,33 +8,14 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 import zipfile
 
+if __package__:
+    from .android_artwork_manifest import check_manifest, file_digest
+else:
+    from android_artwork_manifest import check_manifest, file_digest
 
-ROOT = Path(__file__).resolve().parents[1]
-ART_ROOT = 'assets/illustrations/ildu_r16/'
 DIST = '{http://schemas.android.com/apk/distribution}'
 ANDROID = '{http://schemas.android.com/apk/res/android}'
 MAX_BASE_BYTES = 490_000_000  # Leave room below Play's 500 MB calculation.
-
-
-def artwork_records(value):
-    """Collect the catalog's unique content-addressed payloads."""
-    rows = {}
-    if isinstance(value, dict):
-        asset = value.get('asset', '')
-        if isinstance(asset, str) and asset.startswith(ART_ROOT):
-            rows[asset] = value['sha256']
-        for child in value.values():
-            for path, digest in artwork_records(child).items():
-                if path in rows and rows[path] != digest:
-                    raise ValueError(f'Conflicting artwork identity: {path}')
-                rows[path] = digest
-    elif isinstance(value, list):
-        for child in value:
-            for path, digest in artwork_records(child).items():
-                if path in rows and rows[path] != digest:
-                    raise ValueError(f'Conflicting artwork identity: {path}')
-                rows[path] = digest
-    return rows
 
 
 def check_delivery(xml):
@@ -63,29 +44,26 @@ def check_payloads(aab, expected):
         raise ValueError('Empty artwork catalog')
     with zipfile.ZipFile(aab) as bundle:
         prefix = 'c_artwork/assets/flutter_assets/'
-        names = bundle.namelist()
-        actual = {name[len(prefix):] for name in names if name.startswith(prefix + ART_ROOT)}
+        names = [entry.filename for entry in bundle.infolist() if not entry.is_dir()]
+        actual = {name[len(prefix):] for name in names if name.startswith(prefix)}
         if actual != set(expected):
             raise ValueError('Artwork split differs from the complete catalog')
-        for path, digest in expected.items():
+        for path, record in expected.items():
             copies = [name for name in names if name.endswith('/assets/flutter_assets/' + path)]
             if copies != [prefix + path]:
                 raise ValueError(f'Missing or duplicated artwork: {path}')
-            if hashlib.sha256(bundle.read(prefix + path)).hexdigest() != digest:
+            if (bundle.getinfo(prefix + path).file_size != record.bytes
+                    or hashlib.sha256(bundle.read(prefix + path)).hexdigest() != record.sha256):
                 raise ValueError(f'Artwork bytes changed: {path}')
         if 'base/assets/flutter_assets/AssetManifest.bin' not in names:
             raise ValueError('Flutter asset index missing from base')
         return sum(bundle.getinfo(prefix + path).file_size for path in expected)
 
 
-def file_digest(path):
-    with path.open('rb') as handle:
-        return hashlib.file_digest(handle, 'sha256').hexdigest()
-
-
-def artwork_apk_minimum(report, aab_digest, apks_digest, asset_count):
+def artwork_apk_minimum(report, aab_digest, apks_digest, asset_count, manifest_digest):
     """Bind the exact vendor/TOC verifier's report to this AAB and APK set."""
     if (report.get('aabSha256') != aab_digest or report.get('apksSha256') != apks_digest
+            or report.get('artworkManifestSha256') != manifest_digest
             or report.get('module') != 'c_artwork' or report.get('assetCount') != asset_count
             or report.get('baseMinSdk') != 24 or report.get('artworkMinSdk') != 24
             or report.get('noPackagedApplicationCode') is not True):
@@ -97,6 +75,7 @@ def artwork_apk_minimum(report, aab_digest, apks_digest, asset_count):
     if len(by_path) != len(masters) or {row['master'] for row in variants} != set(by_path):
         raise ValueError('APK master evidence differs from its variants')
     if any(row['assetCount'] != asset_count
+           or row.get('codeEntries') not in ([], ['classes.dex'])
            or not 0 < row['vendorDownloadBytes'] <= row['rawApkBytes'] for row in masters):
         raise ValueError('Invalid vendor module-size evidence')
     minimum = min(row['vendorDownloadBytes'] for row in masters)
@@ -122,21 +101,25 @@ def main():
     parser.add_argument('--apks', type=Path, required=True)
     parser.add_argument('--apk-sizes', type=Path, required=True)
     parser.add_argument('--manifest', type=Path, required=True)
+    parser.add_argument('--artwork-manifest', type=Path, required=True)
     parser.add_argument('--initial-size', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
-    catalog = json.loads((ROOT / 'assets/data/ildu_r16_art_v1.json').read_text(encoding='utf-8'))
-    expected = artwork_records(catalog)
+    expected = check_manifest(args.artwork_manifest)
+    manifest_digest = file_digest(args.artwork_manifest)
     check_delivery(args.manifest.read_text(encoding='utf-8'))
     byte_count = check_payloads(args.aab, expected)
     aab_digest = file_digest(args.aab)
     apks_digest = file_digest(args.apks)
     module_sizes = json.loads(args.apk_sizes.read_text(encoding='utf-8'))
-    artwork_minimum = artwork_apk_minimum(module_sizes, aab_digest, apks_digest, len(expected))
+    artwork_minimum = artwork_apk_minimum(module_sizes, aab_digest, apks_digest, len(expected), manifest_digest)
     size = check_size(args.initial_size.read_text(encoding='utf-8'), artwork_minimum)
     report = {
         'aabSha256': aab_digest,
         'apksSha256': apks_digest,
+        'artworkManifestSha256': manifest_digest,
+        'groups': {group: sum(row.group == group for row in expected.values())
+                   for group in sorted({row.group for row in expected.values()})},
         'module': 'c_artwork', 'delivery': 'unconditional install-time',
         'fusing': True, 'sourceBytesUnchanged': True,
         'assetCount': len(expected), 'assetBytes': byte_count,

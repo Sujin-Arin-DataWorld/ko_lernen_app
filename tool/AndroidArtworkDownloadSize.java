@@ -21,15 +21,13 @@ import java.util.zip.ZipInputStream;
 /** Read-only verification and the exact pinned bundletool per-APK size API. */
 public final class AndroidArtworkDownloadSize {
   private static final String MODULE = "c_artwork";
-  private static final String ART = "assets/illustrations/ildu_r16/";
   private static final String APK_PREFIX = "assets/flutter_assets/";
   private static final String AAB_PREFIX = MODULE + "/assets/flutter_assets/";
-  private static final int EXPECTED_ASSETS = 135;
-  // AGP 9.0.1 emits this 748-byte resource marker even without feature code.
-  // Reviewed: exact R class, no fields/interfaces, private ()V constructor
-  // invokes Object.<init> once and returns. Never auto-update this identity.
-  private static final String REVIEWED_RESOURCE_DEX =
-      "89093ecf4efd0f3f3ef56065147c3c911d11a2b9a62488c60e237d3c6f14fdbb";
+  // Baseline and CI8066 have the same empty R class and compiler metadata.
+  // Only the 64-lower-hex R8 pg-map-id and its dependent DEX headers may vary.
+  // Validate headers first; pin every remaining byte. Never auto-update this identity.
+  private static final String REVIEWED_RESOURCE_DEX_CANONICAL_SHA256 =
+      "3263949d258208c751773f89d25801463dba621517c8c3ce2a130b91c9df3f6b";
 
   private static void require(boolean test, String message) {
     if (!test) { throw new IllegalStateException(message); }
@@ -65,62 +63,138 @@ public final class AndroidArtworkDownloadSize {
       return AndroidManifest.create(Resources.XmlNode.parseFrom(input));
     }
   }
-  private static Map<String, String> aabArtwork(ZipFile bundle) throws Exception {
-    Map<String, String> expected = new TreeMap<>();
+  private record ArtworkManifest(Map<String, EntryDigest> assets, Map<String, Integer> groups) {}
+  private static boolean safePath(String value) {
+    return !value.isEmpty() && value.chars().noneMatch(c -> "\\:*?[]<>\"|".indexOf(c) >= 0 || c < 32 || c == 127)
+        && java.util.Arrays.stream(value.split("/", -1)).noneMatch(p -> p.isEmpty() || p.equals(".") || p.equals(".."));
+  }
+  private static ArtworkManifest artworkManifest(Path path) throws Exception {
+    List<String> lines = Files.readAllLines(path);
+    require(!lines.isEmpty() && lines.get(0).equals("# c-artwork-manifest-v1"), "Unsupported artwork manifest");
+    Map<String, String> roots = new TreeMap<>();
+    Map<String, Integer> groups = new TreeMap<>();
+    int row = 1;
+    while (row < lines.size() && lines.get(row).startsWith("# authority\t")) {
+      String[] f = lines.get(row++).split("\t", -1);
+      require(f.length == 6, "Invalid artwork authority");
+      require(f[1].matches("[a-z0-9-]+") && safePath(f[2]) && f[3].matches("[0-9a-f]{64}")
+          && f[4].startsWith("assets/") && f[4].endsWith("/")
+          && safePath(f[4].substring(0, f[4].length() - 1)), "Unsafe artwork authority");
+      require(roots.put(f[1], f[4]) == null && Integer.parseInt(f[5]) > 0, "Duplicate/empty artwork authority");
+      groups.put(f[1], Integer.parseInt(f[5]));
+    }
+    require(!groups.isEmpty() && row < lines.size() && lines.get(row++).equals("asset\tsha256\tbytes\tgroup"),
+        "Missing artwork manifest columns");
+    Map<String, EntryDigest> assets = new TreeMap<>();
+    Map<String, Integer> actualGroups = new TreeMap<>();
+    String previous = "";
+    for (; row < lines.size(); row++) {
+      String[] f = lines.get(row).split("\t", -1);
+      require(f.length == 4, "Invalid artwork manifest row");
+      require(safePath(f[0]) && f[1].matches("[0-9a-f]{64}") && Long.parseLong(f[2]) > 0
+          && roots.containsKey(f[3]) && f[0].startsWith(roots.get(f[3]))
+          && f[0].compareTo(previous) > 0, "Unsafe/unsorted artwork identity");
+      require(assets.put(f[0], new EntryDigest(f[1], Long.parseLong(f[2]))) == null, "Duplicate artwork identity");
+      actualGroups.merge(f[3], 1, Integer::sum);
+      previous = f[0];
+    }
+    require(actualGroups.equals(groups), "Artwork manifest group count differs");
+    return new ArtworkManifest(assets, groups);
+  }
+  private static void aabArtwork(ZipFile bundle, Map<String, EntryDigest> expected) throws Exception {
+    Map<String, EntryDigest> actual = new TreeMap<>();
     Enumeration<? extends ZipEntry> entries = bundle.entries();
     while (entries.hasMoreElements()) {
       ZipEntry entry = entries.nextElement();
       if (entry.isDirectory()) { continue; }
       String name = entry.getName();
-      if (name.contains("/assets/flutter_assets/" + ART)) {
-        require(name.startsWith(AAB_PREFIX + ART), "Artwork outside its module: " + name);
+      int flutter = name.indexOf("/assets/flutter_assets/");
+      if (flutter >= 0 && expected.containsKey(name.substring(flutter + "/assets/flutter_assets/".length()))) {
+        require(name.startsWith(AAB_PREFIX), "Artwork outside its module: " + name);
+      }
+      if (name.startsWith(AAB_PREFIX)) {
         String key = name.substring(AAB_PREFIX.length());
-        require(key.endsWith(".webp"), "Unexpected artwork payload: " + name);
         try (InputStream input = bundle.getInputStream(entry)) {
-          require(expected.put(key, digest(input)) == null, "Duplicate AAB artwork: " + key);
+          require(actual.put(key, digestEntry(input)) == null, "Duplicate AAB artwork: " + key);
         }
       }
     }
-    require(expected.size() == EXPECTED_ASSETS, "AAB must have exactly135 artwork payloads");
+    require(actual.equals(expected), "AAB artwork differs from the exact manifest payloads");
     ZipEntry index = bundle.getEntry("base/assets/flutter_assets/AssetManifest.bin");
     require(index != null && index.getSize() > 0, "Base Flutter AssetManifest is missing/empty");
-    return expected;
   }
+  private static boolean isReviewedResourceMarker(byte[] marker) throws Exception {
+    if (marker.length != 748) { return false; }
+    java.util.zip.Adler32 checksum = new java.util.zip.Adler32();
+    checksum.update(marker, 12, marker.length - 12);
+    long declaredChecksum = 0;
+    for (int i = 0; i < 4; i++) { declaredChecksum |= (marker[8 + i] & 255L) << (8 * i); }
+    if (checksum.getValue() != declaredChecksum) { return false; }
+    byte[] signature = MessageDigest.getInstance("SHA-1").digest(
+        java.util.Arrays.copyOfRange(marker, 32, marker.length));
+    if (!MessageDigest.isEqual(signature, java.util.Arrays.copyOfRange(marker, 12, 32))) {
+      return false;
+    }
+    String bytesAsText = new String(marker, java.nio.charset.StandardCharsets.ISO_8859_1);
+    String field = "\"pg-map-id\":\"";
+    if (bytesAsText.indexOf(field) != 496 || bytesAsText.lastIndexOf(field) != 496
+        || marker[573] != '"') { return false; }
+    for (int i = 509; i < 573; i++) {
+      int value = marker[i] & 255;
+      if (!((value >= '0' && value <= '9') || (value >= 'a' && value <= 'f'))) { return false; }
+    }
+    byte[] canonical = marker.clone();
+    java.util.Arrays.fill(canonical, 8, 32, (byte) 0);
+    java.util.Arrays.fill(canonical, 509, 573, (byte) '0');
+    return digest(new java.io.ByteArrayInputStream(canonical))
+        .equals(REVIEWED_RESOURCE_DEX_CANONICAL_SHA256);
+  }
+
   private static List<String> verifyMaster(ZipFile apks, String path,
-      Map<String, String> expected) throws Exception {
+      Map<String, EntryDigest> expected) throws Exception {
     ZipEntry entry = apks.getEntry(path);
     require(entry != null, "Missing APK selected by TOC: " + path);
-    Map<String, String> actual = new TreeMap<>();
+    Map<String, EntryDigest> actual = new TreeMap<>();
     List<String> codeEntries = new ArrayList<>();
     try (ZipInputStream apk = new ZipInputStream(apks.getInputStream(entry))) {
       ZipEntry payload;
       while ((payload = apk.getNextEntry()) != null) {
         String name = payload.getName();
         if (name.endsWith(".dex") || name.startsWith("lib/")) {
+          require(!codeEntries.contains(name), "Duplicate artwork code entry: " + name);
           codeEntries.add(name);
           require(name.equals("classes.dex"), "Artwork contains unexpected application code: " + name);
-          EntryDigest marker = digestEntry(apk);
-          require(marker.sha256().equals(REVIEWED_RESOURCE_DEX) && marker.bytes() == 748
+          // Bound retained bytes while still counting an oversized entry to EOF.
+          byte[] markerBytes = apk.readNBytes(749);
+          if (markerBytes.length != 748) {
+            long actualBytes = markerBytes.length + digestEntry(apk).bytes();
+            throw new IllegalStateException("Artwork resource marker has unexpected size: " + name
+                + " actualBytes=" + actualBytes + " zipBytes=" + payload.getSize());
+          }
+          EntryDigest marker = digestEntry(new java.io.ByteArrayInputStream(markerBytes));
+          require(isReviewedResourceMarker(markerBytes) && marker.bytes() == 748
               && payload.getSize() == 748,
-              "Artwork resource marker differs from reviewed pin: " + name
+              "Artwork resource marker differs from reviewed canonical bytes: " + name
                   + " actualBytes=" + marker.bytes() + " zipBytes=" + payload.getSize()
                   + " sha256=" + marker.sha256());
         }
-        if (name.startsWith(APK_PREFIX + ART) && !payload.isDirectory()) {
+        if (name.startsWith(APK_PREFIX) && !payload.isDirectory()) {
           String key = name.substring(APK_PREFIX.length());
-          require(actual.put(key, digest(apk)) == null, "Duplicate APK artwork: " + key);
+          require(actual.put(key, digestEntry(apk)) == null, "Duplicate APK artwork: " + key);
         }
       }
     }
-    require(actual.equals(expected), "APK master does not contain the exact135 AAB payloads: " + path);
+    require(actual.equals(expected), "APK master differs from the exact manifest payloads: " + path);
     return codeEntries;
   }
 
   public static void main(String[] args) throws Exception {
-    require(args.length == 2, "Usage: AndroidArtworkDownloadSize.java <AAB> <APKS>");
+    require(args.length == 3, "Usage: AndroidArtworkDownloadSize.java <AAB> <APKS> <ARTWORK_MANIFEST>");
     Path aab = Path.of(args[0]);
     Path apksPath = Path.of(args[1]);
-    Map<String, String> expected;
+    Path artworkManifestPath = Path.of(args[2]);
+    ArtworkManifest lock = artworkManifest(artworkManifestPath);
+    Map<String, EntryDigest> expected = lock.assets();
     int baseSdk;
     int moduleSdk;
     try (ZipFile bundle = new ZipFile(aab.toFile())) {
@@ -134,7 +208,7 @@ public final class AndroidArtworkDownloadSize {
       require(module.getIsModuleIncludedInFusing().orElse(false), "Artwork fusing must remain true");
       require(module.getModuleDeliveryType() == ModuleDeliveryType.ALWAYS_INITIAL_INSTALL,
           "Artwork must be unconditionally install-time");
-      expected = aabArtwork(bundle);
+      aabArtwork(bundle, expected);
     }
 
     Commands.BuildApksResult toc = ResultUtils.readTableOfContents(apksPath);
@@ -178,7 +252,7 @@ public final class AndroidArtworkDownloadSize {
         require(masterMinSdk <= Math.max(baseSdk, variantMinSdk),
             "Artwork master omits compatible SDKs in its variant");
         master = apk.getPath();
-        masters.put(master, EXPECTED_ASSETS);
+        masters.put(master, expected.size());
       }
       require(baseSets == 1 && moduleSets == 1, "Every variant must have one base and one artwork module");
       variants.add("{\"variant\":" + variant.getVariantNumber()
@@ -199,7 +273,7 @@ public final class AndroidArtworkDownloadSize {
         long size = vendor.get(master);
         require(size > 0 && size <= raw, "Invalid vendor compressed size: " + master);
         lowerBound = Math.min(lowerBound, size);
-        masterRows.add("{\"path\":" + q(master) + ",\"assetCount\":" + EXPECTED_ASSETS
+        masterRows.add("{\"path\":" + q(master) + ",\"assetCount\":" + expected.size()
             + ",\"rawApkBytes\":" + raw + ",\"vendorDownloadBytes\":" + size
             + ",\"codeEntries\":[" + codeEntries.stream().map(AndroidArtworkDownloadSize::q)
                 .collect(java.util.stream.Collectors.joining(",")) + "]}");
@@ -208,9 +282,12 @@ public final class AndroidArtworkDownloadSize {
     System.out.println("{\"schemaVersion\":1,\"measurementMethod\":"
         + q("bundletool ApkSizeUtils.getCompressedSizeByApkPaths; min(raw APK bytes, vendor GZIP bytes)")
         + ",\"aabSha256\":" + q(fileDigest(aab)) + ",\"apksSha256\":" + q(fileDigest(apksPath))
+        + ",\"artworkManifestSha256\":" + q(fileDigest(artworkManifestPath))
+        + ",\"groups\":{" + lock.groups().entrySet().stream().map(e -> q(e.getKey()) + ":" + e.getValue())
+            .collect(java.util.stream.Collectors.joining(",")) + "}"
         + ",\"module\":" + q(MODULE) + ",\"baseMinSdk\":" + baseSdk
         + ",\"artworkMinSdk\":" + moduleSdk + ",\"variantCount\":" + toc.getVariantCount()
-        + ",\"assetCount\":" + EXPECTED_ASSETS + ",\"noPackagedDexOrNativeCode\":" + noPackagedCode
+        + ",\"assetCount\":" + expected.size() + ",\"noPackagedDexOrNativeCode\":" + noPackagedCode
         + ",\"noPackagedApplicationCode\":true"
         + ",\"moduleLowerBoundBytes\":" + lowerBound
         + ",\"variants\":[" + String.join(",", variants) + "]"

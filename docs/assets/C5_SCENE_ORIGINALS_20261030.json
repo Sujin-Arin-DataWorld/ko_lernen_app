@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "referenceSha256": "28c9640156a8e8757e4817cd2a5a9afd748406cdcfd9b23ccafde4bd70cd63cb",
+  "scope": "Standalone artwork selected against the user-confirmed C5 board; no phone-board crops or baked live UI.",
+  "selectionReview": "Visual and flow designers reviewed DE/EN normal-size Figma composition on 2026-10-30. Hanok is separately held for Plan R16.",
+  "figma": "https://www.figma.com/design/UIo8goMJ4TU1VrC6uJ3iVO?node-id=136-304",
+  "nativeOrDeviceApproval": false,
+  "assets": [
+    {
+      "asset": "assets/illustrations/concept_c/c5_scenes/book-scene.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\한글_5탭 확정\\exec-df5422a8-50c0-406f-8be1-3d5368edfef5.png",
+      "sha256": "32e9ab63def5b6518976bc4ae0ae8589865d26d4aef7827c1b41269b0cef6274",
+      "bytes": 1930562
+    },
+    {
+      "asset": "assets/illustrations/concept_c/c5_scenes/bronze-speaker.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\한글_5탭 확정\\exec-d002fe15-fb61-495e-aced-3f51c7e9e5f0.png",
+      "sha256": "1c69510813a6a13c6c1de4c243be7ae13c877798dabff11941466e12b0d895d2",
+      "bytes": 1537864
+    },
+    {
+      "asset": "assets/illustrations/concept_c/c5_scenes/hangul-tiles.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\한글_5탭 확정\\exec-48cfe2f6-6d40-460d-b348-1e5110464ac4.png",
+      "sha256": "d861f156a0eab95d7a42e401b6db368a1a3f348d1e01376ea74177d56ef40816",
+      "bytes": 2013895
+    },
+    {
+      "asset": "assets/illustrations/concept_c/c5_scenes/review-cards.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\한글_5탭 확정\\exec-3712cda6-c102-4ef6-a598-f17c9249c438.png",
+      "sha256": "dbeb5d77f612fdae79d91a2e190d13d1380a38285b319935bf368df648b3c383",
+      "bytes": 2156163
+    },
+    {
+      "asset": "assets/illustrations/concept_c/c5_scenes/syllable-scene.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\한글_5탭 확정\\exec-85352f39-f11b-4480-bf93-cb5b8e2c43f6.png",
+      "sha256": "96f6009e545f43a3ee3770f40cdd871adec890c35ad9b05df628ea6c32076037",
+      "bytes": 2199020
+    },
+    {
+      "asset": "assets/illustrations/concept_c/c5_scenes/gold-action.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\한글_5탭 확정\\exec-493a9d7b-6408-47ae-a037-ba1d67850f92.png",
+      "sha256": "9e004889eb9db48d7e021985a54f5a5b602df302866c27ad2e1214f372c0d008",
+      "bytes": 1463437
+    }
+  ]
+}

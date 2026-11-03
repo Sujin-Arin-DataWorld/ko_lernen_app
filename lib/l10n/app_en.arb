@@ -3597,10 +3597,7 @@
   },
   "sarangbangHubDesc": "Continue learning in the Sarangbang.",
   "bojagiTitle": "Bojagi bundle",
-  "bojagiLoading": "Preparing your bundle…",
-  "bojagiOpenHint": "Tap the knot to open the bundle.",
   "bojagiPickTitle": "Pick one",
-  "bojagiPickBody": "Whatever you leave stays in the pool and can turn up in a later bundle.",
   "bojagiChooseDecoration": "Choose {name}",
   "@bojagiChooseDecoration": {
     "placeholders": {
@@ -3609,12 +3606,7 @@
       }
     }
   },
-  "bojagiEmptyTitle": "No bundle waiting",
-  "bojagiEmptyBody": "Finish a quest and you get a bundle for it.",
   "bojagiAllOwnedTitle": "Nothing new inside",
-  "bojagiAllOwnedBody": "You already own all three pieces from this bundle.",
-  "bojagiProblemTitle": "This bundle will not open right now",
-  "bojagiProblemBody": "Try again in a moment. Your bundle is not lost.",
   "bojagiRetry": "Try again",
   "bojagiClaimedTitle": "Got it!",
   "bojagiClaimedAnnouncement": "Got it: {name}",
@@ -3626,10 +3618,7 @@
     }
   },
   "bojagiGoToRoom": "Place it in the room",
-  "bojagiNext": "Open the next bundle",
   "bojagiCollectionCompleteTitle": "Collection complete",
-  "bojagiCollectionCompleteBody": "You already own every room piece. Archive this bundle to continue.",
-  "bojagiArchiveComplete": "Archive bundle",
   "@_hanok_world": {
     "description": "Personal Hanok world — map and place navigation."
   },
@@ -5679,5 +5668,54 @@
   "accountRecoveryBackupWaiting": "Connected; backup awaiting review",
   "accountRecoveryResumeTitle": "Continue your confirmed choice?",
   "accountRecoveryResumeBody": "Your choice is already saved. You can continue the same operation without choosing a new starting point.",
-  "accountRecoveryResumeConfirm": "Continue confirmed choice"
+  "accountRecoveryResumeConfirm": "Continue confirmed choice",
+  "todayFirstSyllable": "Your first syllable",
+  "todayFirstSyllableBody": "Listen and combine two letters.",
+  "todayStartHangul": "Start Hangul",
+  "todayStartReview": "Start review",
+  "todayYourHanok": "Your Hanok",
+  "todayDetails": "Your day at a glance",
+  "todayProgress": "Learning progress",
+  "najeonChestTitle": "Treasure chest",
+  "najeonChestLoading": "Preparing your treasure chest…",
+  "najeonChestOpenHint": "Tap the chest to open it.",
+  "najeonChestOpen": "Open chest",
+  "najeonChestPickBody": "Choose one piece for your room. The other pieces can appear in a later treasure chest.",
+  "najeonChestEmptyTitle": "No treasure chest waiting",
+  "najeonChestEmptyBody": "Finish a quest to receive a treasure chest.",
+  "najeonChestAllOwnedBody": "You already own all three pieces from this treasure chest.",
+  "najeonChestProblemTitle": "This treasure chest will not open right now",
+  "najeonChestProblemBody": "Try again in a moment. Your treasure chest is not lost.",
+  "najeonChestNext": "Open the next chest",
+  "najeonChestCollectionCompleteBody": "You already own every room piece. Archive this treasure chest to continue.",
+  "najeonChestArchive": "Archive chest",
+  "najeonChestHelpTitle": "Najeon · 나전",
+  "najeonChestHelpBody": "Najeon uses thin pieces of shell cut into patterns and inlaid into a lacquered surface. The shimmering shell material is called mother-of-pearl.",
+  "todayCompanionSubtitle": "Your Korean is growing.",
+  "todayNextStage": "Your next step",
+  "todayTreasureTitle": "Your treasure chest",
+  "todayTreasureReady": "{count, plural, one{1 ready to open} other{{count} ready to open}}",
+  "todayTreasureCollection": "My collection",
+  "todayExploreGames": "Explore games",
+  "todayMissionGreetingTitle": "Your first hello",
+  "todayMissionGreetingBody": "Greet someone and ask a short question.",
+  "todayMissionPlansTitle": "Make a plan together",
+  "todayMissionPlansBody": "Suggest a meeting and change the time.",
+  "todayMissionRequestsTitle": "Make the terms clear",
+  "todayMissionRequestsBody": "Make a request and negotiate a solution.",
+  "todayMissionPolicyTitle": "Shape the rules together",
+  "todayMissionPolicyBody": "Weigh different views and support a proposal.",
+  "todayMissionAuthorityTitle": "Where authority ends",
+  "todayMissionAuthorityBody": "Examine mandates and distinguish their limits.",
+  "todayMissionReviewTitle": "Keep it with you",
+  "todayResumeStage": "Continue",
+  "@todayTreasureReady": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "todayTreasureOpen": "Open",
+  "todayBeginStage": "Let’s begin"
 }

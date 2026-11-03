@@ -44,9 +44,9 @@ class SoriStageGyeScreen extends StatelessWidget {
         child: SafeArea(
           child: SoriContentClamp(
             maxWidth: SoriMaxWidth.hub,
-            // top=20/left=20/right=20/bottom=48 — 같은 클램프 상수를 쓰는
-            // Hanok 탭(`sori_stage_hanok_screen.dart`)과 동일 리듬.
-            base: const EdgeInsets.fromLTRB(20, 20, 20, 48),
+            // Match the C scene inset without retaining the former nested
+            // 20dp card padding and 48dp supporting-entry gap.
+            base: const EdgeInsets.fromLTRB(12, 8, 12, 24),
             builder: (context, padding) => CustomScrollView(
               slivers: [
                 SliverToBoxAdapter(child: SizedBox(height: padding.top)),
@@ -72,7 +72,6 @@ class SoriStageGyeScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                const SliverToBoxAdapter(child: SizedBox(height: Spacing.lg)),
                 GyeTabScreen(
                   embedded: true,
                   conceptC: true,

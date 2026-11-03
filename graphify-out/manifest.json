@@ -60,9 +60,9 @@
     "semantic_hash": "90f7a1bd392990ef8919264bbfb71773"
   },
   "android/app/build.gradle.kts": {
-    "mtime": 1793376201.3841677,
-    "seen": 1793380187.0558922,
-    "ast_hash": "1ecca99475642dd135302e91057c5428",
+    "mtime": 1793407003.5854373,
+    "seen": 1793407063.1102164,
+    "ast_hash": "1874876576a2ade879781d07c21a486d",
     "semantic_hash": ""
   },
   "android/app/google-services.json": {
@@ -936,21 +936,21 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1793379789.1732812,
-    "seen": 1793380187.0571485,
-    "ast_hash": "5c062ca5ea97e133d4559eeabffdc151",
+    "mtime": 1793662135.4051332,
+    "seen": 1793662684.2509813,
+    "ast_hash": "5b4f3383250bc6f03f55e17319e69149",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1793379789.1763206,
-    "seen": 1793380187.05715,
-    "ast_hash": "d6e0f40b9ef9ed2a99eccdf35e05dd03",
+    "mtime": 1793662135.1870682,
+    "seen": 1793662684.2509854,
+    "ast_hash": "9b2bdf164bc033d8c93abe1e2d511874",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1793379789.179871,
-    "seen": 1793380187.0571513,
-    "ast_hash": "a464059818439e8448f93902951ff7f1",
+    "mtime": 1793662135.3067212,
+    "seen": 1793662684.2509885,
+    "ast_hash": "987464fcf4e0421508b99774567f1c4d",
     "semantic_hash": ""
   },
   "lib/l10n/gye_error_text.dart": {
@@ -1002,9 +1002,9 @@
     "semantic_hash": ""
   },
   "lib/models/course_mission_brief.dart": {
-    "mtime": 1793312631.452591,
-    "seen": 1793380187.057169,
-    "ast_hash": "cdc8d69a72d581548fae40250316fe13",
+    "mtime": 1793641641.6584487,
+    "seen": 1793647439.781185,
+    "ast_hash": "17ba8ffed75441e1900fcc110240ccad",
     "semantic_hash": ""
   },
   "lib/models/course_mission_step_plan.dart": {
@@ -1230,9 +1230,9 @@
     "semantic_hash": ""
   },
   "lib/screens/bojagi_screen.dart": {
-    "mtime": 1793312631.4999843,
-    "seen": 1793380187.0572937,
-    "ast_hash": "ca73d712f830d72df79556cafe50e799",
+    "mtime": 1793663254.173019,
+    "seen": 1793664459.0974615,
+    "ast_hash": "98388a66b49eabb48ad505d99f6a11ae",
     "semantic_hash": ""
   },
   "lib/screens/book_capture_screen.dart": {
@@ -1404,9 +1404,9 @@
     "semantic_hash": ""
   },
   "lib/screens/gye_tab_screen.dart": {
-    "mtime": 1793372592.3436694,
-    "seen": 1793380187.0573323,
-    "ast_hash": "3571df767884eed48db29cef551df79e",
+    "mtime": 1793400286.6055765,
+    "seen": 1793407063.2592285,
+    "ast_hash": "ec73a86588e1b4c18ddbd4278c6ff0f4",
     "semantic_hash": ""
   },
   "lib/screens/hangul_screen.dart": {
@@ -1626,9 +1626,9 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_catalog_screen.dart": {
-    "mtime": 1793351501.7263649,
-    "seen": 1793380187.0574896,
-    "ast_hash": "1492201ecdde9428b5c452713bc74ad7",
+    "mtime": 1793411534.4144657,
+    "seen": 1793459669.4370995,
+    "ast_hash": "4585af592defe36383e90af61a342a94",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_common.dart": {
@@ -1638,15 +1638,15 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_gye_screen.dart": {
-    "mtime": 1793372592.3472075,
-    "seen": 1793380187.0574934,
-    "ast_hash": "66a60f1eeb137f5621272a241903af63",
+    "mtime": 1793399460.6917505,
+    "seen": 1793407063.2842002,
+    "ast_hash": "de1657952d35c057fd758281b723d02e",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_hanok_screen.dart": {
-    "mtime": 1793372592.3497446,
-    "seen": 1793380187.057495,
-    "ast_hash": "9f82d7cfc426b74ad428855d85985795",
+    "mtime": 1793405143.95091,
+    "seen": 1793407063.284203,
+    "ast_hash": "7a465eb75cbd027d91a6ee23d48f6b26",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_preview_screens.dart": {
@@ -1662,15 +1662,15 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_shell.dart": {
-    "mtime": 1793336682.5856946,
-    "seen": 1793380187.0575,
-    "ast_hash": "195597c85d971c3c0a646c8df7e35c36",
+    "mtime": 1793456299.7438786,
+    "seen": 1793459669.4392235,
+    "ast_hash": "4d6ce734bcc9bc347e5727a9d304ded2",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_today_screen.dart": {
-    "mtime": 1793358123.7331698,
-    "seen": 1793380187.0575023,
-    "ast_hash": "847c40b82f8cdf5cd8fa08266642d40b",
+    "mtime": 1793663656.9608252,
+    "seen": 1793664459.1218307,
+    "ast_hash": "888122a040e4ed55f2af659ae71a3927",
     "semantic_hash": ""
   },
   "lib/screens/speed_match_screen.dart": {
@@ -3192,9 +3192,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/stats_top_bar.dart": {
-    "mtime": 1793357778.3250327,
-    "seen": 1793380187.0585084,
-    "ast_hash": "c871bc0ea34308f8079e147487bddf7b",
+    "mtime": 1793399168.1806097,
+    "seen": 1793407063.412479,
+    "ast_hash": "b7af179511c7f01f887a2c1dbe9201d7",
     "semantic_hash": ""
   },
   "lib/widgets/sori/sticker_image.dart": {
@@ -3264,9 +3264,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/tokens.dart": {
-    "mtime": 1793313240.159917,
-    "seen": 1793380187.0585563,
-    "ast_hash": "475e14c01165e1defe194b9a3c52e513",
+    "mtime": 1793663197.1591105,
+    "seen": 1793664459.2053003,
+    "ast_hash": "d7eeece894a80686d9ed406c11ce8252",
     "semantic_hash": ""
   },
   "lib/widgets/sori/tts_speed_control.dart": {
@@ -3522,9 +3522,9 @@
     "semantic_hash": ""
   },
   "test/asset_orphan_guard_test.dart": {
-    "mtime": 1793372592.3663769,
-    "seen": 1793380187.058732,
-    "ast_hash": "db15fef032f82122369abe43a3a473d7",
+    "mtime": 1793403357.8804753,
+    "seen": 1793407063.4367971,
+    "ast_hash": "717a6bd307d6d13c41ee1e88d22da72b",
     "semantic_hash": ""
   },
   "test/audio_policy_guard_test.dart": {
@@ -3540,9 +3540,9 @@
     "semantic_hash": ""
   },
   "test/bojagi_screen_test.dart": {
-    "mtime": 1793312631.9917274,
-    "seen": 1793380187.0587578,
-    "ast_hash": "3b6f3321230a7dc38c4559f262002666",
+    "mtime": 1793661999.4708693,
+    "seen": 1793662684.4071953,
+    "ast_hash": "9452fc594cfbfd5941eadee9b153336f",
     "semantic_hash": ""
   },
   "test/book_analysis_language_test.dart": {
@@ -3846,9 +3846,9 @@
     "semantic_hash": ""
   },
   "test/course_mission_brief_test.dart": {
-    "mtime": 1793312632.0609815,
-    "seen": 1793380187.0591135,
-    "ast_hash": "489bbd20af777cba3a4fc0306ba9e4a6",
+    "mtime": 1793641865.246554,
+    "seen": 1793647440.3239715,
+    "ast_hash": "3b2b1278ed7a9d8899a46b1c7e35f2e3",
     "semantic_hash": ""
   },
   "test/course_mission_build_activity_test.dart": {
@@ -4320,9 +4320,9 @@
     "semantic_hash": ""
   },
   "test/gye_embedded_fit_test.dart": {
-    "mtime": 1793312632.21332,
-    "seen": 1793380187.059555,
-    "ast_hash": "69dc85d340d281119d7581c5fa1cb4cc",
+    "mtime": 1793399809.4838548,
+    "seen": 1793407063.5137205,
+    "ast_hash": "ac122b6cf8de656e4e1bba8b416403c6",
     "semantic_hash": ""
   },
   "test/gye_entry_uiux_test.dart": {
@@ -5028,9 +5028,9 @@
     "semantic_hash": ""
   },
   "test/reward_tools_uiux_test.dart": {
-    "mtime": 1793312632.4069598,
-    "seen": 1793380187.0604424,
-    "ast_hash": "c435c0787112fe15f0e25709f5c29057",
+    "mtime": 1793661999.4698668,
+    "seen": 1793662684.5188544,
+    "ast_hash": "4b6eee7bfdf4ebf5962fa1e3c8fa9664",
     "semantic_hash": ""
   },
   "test/reward_unused_buckets_test.dart": {
@@ -5532,9 +5532,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_adaptive_chrome_test.dart": {
-    "mtime": 1793357778.3499043,
-    "seen": 1793380187.0610294,
-    "ast_hash": "4d538faba53fbeb5cdbb80b1956bc438",
+    "mtime": 1793576996.3986666,
+    "seen": 1793577881.222917,
+    "ast_hash": "4d005535c8be5d992cf280f375503fad",
     "semantic_hash": ""
   },
   "test/sori_stage_catalog_reward_flow_test.dart": {
@@ -5544,9 +5544,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_hanok_shortcuts_test.dart": {
-    "mtime": 1793372592.3772223,
-    "seen": 1793380187.0610628,
-    "ast_hash": "df6de8f2000d4ed61c1fede4a274b998",
+    "mtime": 1793402474.2869642,
+    "seen": 1793407063.642634,
+    "ast_hash": "992f0243fb2ae8842dff14641fcc3aa2",
     "semantic_hash": ""
   },
   "test/sori_stage_progression_rules_test.dart": {
@@ -5574,27 +5574,27 @@
     "semantic_hash": ""
   },
   "test/sori_stage_shell_test.dart": {
-    "mtime": 1793340846.8796887,
-    "seen": 1793380187.061082,
-    "ast_hash": "eab215e0eafed0cb6b60b61e650b7fdf",
+    "mtime": 1793577293.076295,
+    "seen": 1793577881.2275517,
+    "ast_hash": "055363116f532bd86b7064ef9047d38f",
     "semantic_hash": ""
   },
   "test/sori_stage_today_availability_test.dart": {
-    "mtime": 1793333974.594808,
-    "seen": 1793380187.0610838,
-    "ast_hash": "700e4245aac574df2ec51d9435aab365",
+    "mtime": 1793662052.6894114,
+    "seen": 1793662684.558884,
+    "ast_hash": "1bb0b0450a60b8ab3bbeba2a1cce778c",
     "semantic_hash": ""
   },
   "test/sori_stage_today_matte_test.dart": {
-    "mtime": 1793362670.0975664,
-    "seen": 1793380187.0610857,
-    "ast_hash": "da4cfeb9f476648476060453c99f3b6c",
+    "mtime": 1793648129.7020078,
+    "seen": 1793648947.0621371,
+    "ast_hash": "881146fb936b0c5a3601aad66df114e2",
     "semantic_hash": ""
   },
   "test/sori_stage_visual_evidence_test.dart": {
-    "mtime": 1793353860.5141156,
-    "seen": 1793380187.0610943,
-    "ast_hash": "8e619bc498bf59323ca5dbdc1575a710",
+    "mtime": 1793462380.8095663,
+    "seen": 1793462805.4547126,
+    "ast_hash": "f6b36582a02a497cbb746c21047823a3",
     "semantic_hash": ""
   },
   "test/sori_standard_page_test.dart": {
@@ -5838,9 +5838,9 @@
     "semantic_hash": ""
   },
   "test/uiux_bible_closeout_inventory_test.dart": {
-    "mtime": 1793379789.228222,
-    "seen": 1793380187.0614452,
-    "ast_hash": "7df738352b05d0d77c2e6557f90a4f6e",
+    "mtime": 1793576996.3996663,
+    "seen": 1793577881.2500541,
+    "ast_hash": "6b0f47de9f7e85d6ed97a41df372dc9a",
     "semantic_hash": ""
   },
   "test/ux_gallery_no_write_test.dart": {
@@ -6102,9 +6102,9 @@
     "semantic_hash": ""
   },
   "tool/asset_inventory.py": {
-    "mtime": 1793312632.6871538,
-    "seen": 1793380187.0616586,
-    "ast_hash": "d55f89099cf476a5b7a0b11dfa8c63d9",
+    "mtime": 1793460938.1534133,
+    "seen": 1793462805.6312711,
+    "ast_hash": "30972870bf8bc9a2ce4a697332f855c6",
     "semantic_hash": ""
   },
   "tool/audit_vocab_levels.py": {
@@ -6498,9 +6498,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/audit_content_text.py": {
-    "mtime": 1793372592.3843267,
-    "seen": 1793380187.0634387,
-    "ast_hash": "d4de5dc598970be91c546f506b06bacd",
+    "mtime": 1793408391.85937,
+    "seen": 1793459670.2977293,
+    "ast_hash": "91b41f5105b077149efd0f0c9cc7e143",
     "semantic_hash": ""
   },
   "tools/content_factory/audit_game_loader_coverage.py": {
@@ -8832,9 +8832,9 @@
     "semantic_hash": ""
   },
   "docs/UIUX_BIBLE_APPLICATION_EXECUTION_LOCK.md": {
-    "mtime": 1793379789.152526,
-    "seen": 1793380187.065409,
-    "ast_hash": "2ffe166d57f2e254f4f8225cdf84b269",
+    "mtime": 1793576996.4010198,
+    "seen": 1793577881.5400157,
+    "ast_hash": "d6dba4eef28067cbe8a213d1fe78f08d",
     "semantic_hash": ""
   },
   "docs/UIUX_DUOLINGO_GAP_AND_PLAN.md": {
@@ -9300,9 +9300,9 @@
     "semantic_hash": ""
   },
   "pubspec.yaml": {
-    "mtime": 1793372857.283033,
-    "seen": 1793380187.0663395,
-    "ast_hash": "3f5a139c517ef34cc35cd23f65d7c9b6",
+    "mtime": 1793639525.655542,
+    "seen": 1793647441.920394,
+    "ast_hash": "12d35b93bdab1156610211b962e7a5b5",
     "semantic_hash": ""
   },
   "scripts/cache/README.md": {
@@ -9624,15 +9624,15 @@
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-learn-1280.png": {
-    "mtime": 1793355153.1835136,
-    "seen": 1793380187.067361,
-    "ast_hash": "9dd57781e1ad1c844e632bc250b9300b",
+    "mtime": 1793584836.6055436,
+    "seen": 1793647442.2402217,
+    "ast_hash": "2001c09f476275315106bc16363ca56f",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-today-390.png": {
-    "mtime": 1793358174.1483312,
-    "seen": 1793380187.0673764,
-    "ast_hash": "102fa0297cebc02beb16642ebe20b363",
+    "mtime": 1793584838.2958715,
+    "seen": 1793647442.2403095,
+    "ast_hash": "e99c545d6aa9ffb41b0116eeefe89acf",
     "semantic_hash": ""
   },
   "docs/social/bbanana/hangul-sori-one-sound-one-space-background-v2.png": {
@@ -10044,21 +10044,21 @@
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_compact.png": {
-    "mtime": 1793358174.1690228,
-    "seen": 1793380187.0676172,
-    "ast_hash": "d4fedc82099f1243cffd2dfcebf73450",
+    "mtime": 1793664152.831454,
+    "seen": 1793664459.975872,
+    "ast_hash": "ce5e6a9e84e7508d7440659f48d7a817",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_expanded.png": {
-    "mtime": 1793358174.1752398,
-    "seen": 1793380187.0676188,
-    "ast_hash": "964374473bca6944654c3674d2b71818",
+    "mtime": 1793664152.8357134,
+    "seen": 1793664459.9758751,
+    "ast_hash": "bdcc26b15912daa67049d991119be3b5",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_medium.png": {
-    "mtime": 1793358174.1805642,
-    "seen": 1793380187.06762,
-    "ast_hash": "3e05b4a5529c2c4f6857d781554d3baa",
+    "mtime": 1793664152.8446426,
+    "seen": 1793664459.9758797,
+    "ast_hash": "937db436adccfd3be1a161a5b43a0e09",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_vocab_packs_compact.png": {
@@ -11172,15 +11172,15 @@
     "semantic_hash": ""
   },
   ".github/scripts/test_play_closed_workflow.py": {
-    "mtime": 1793312607.4898498,
-    "seen": 1793380187.0558562,
-    "ast_hash": "5e5434f2b7cc37ce3063e6dbc9c991ab",
+    "mtime": 1793380940.1519094,
+    "seen": 1793392634.9204006,
+    "ast_hash": "5eb3ecb4b1fdc375ed11afd85349e5d0",
     "semantic_hash": ""
   },
   ".github/workflows/play_closed.yml": {
-    "mtime": 1793377372.0369592,
-    "seen": 1793380187.0649152,
-    "ast_hash": "75cf3140dc13ac67ba07edf2311a1553",
+    "mtime": 1793405282.0834684,
+    "seen": 1793407064.0227013,
+    "ast_hash": "68c418c17f3c212d87e1d14f2a752c61",
     "semantic_hash": ""
   },
   "docs/HANDOFF-2026-08-27-waves.md": {
@@ -13146,9 +13146,9 @@
     "semantic_hash": ""
   },
   "test/arb_orphan_key_guard_test.dart": {
-    "mtime": 1793341848.010503,
-    "seen": 1793380187.058728,
-    "ast_hash": "3540702b80318869139ddeb9119bcca1",
+    "mtime": 1793662155.7238877,
+    "seen": 1793662684.405093,
+    "ast_hash": "23b38e49e5526f98921bc2b57729ff57",
     "semantic_hash": ""
   },
   "test/asset_catalog_bidirectional_test.dart": {
@@ -13902,9 +13902,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_evidence_manifest_test.dart": {
-    "mtime": 1793340956.1451411,
-    "seen": 1793380187.0610566,
-    "ast_hash": "6dfdb2c4414e76f7d6e0089d17b3e816",
+    "mtime": 1793411534.418465,
+    "seen": 1793459670.0039546,
+    "ast_hash": "051c4fb7f1f7ba4c58532da9b72b587b",
     "semantic_hash": ""
   },
   "test/sori_stage_gye_fold_test.dart": {
@@ -13914,9 +13914,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_hanok_fold_test.dart": {
-    "mtime": 1793328435.6734233,
-    "seen": 1793380187.0610611,
-    "ast_hash": "0904fde893eba47f756eafdb0d87cce2",
+    "mtime": 1793404635.1057634,
+    "seen": 1793407063.6426308,
+    "ast_hash": "0d33aac6c0fe6cef0b7846f49b0a5250",
     "semantic_hash": ""
   },
   "test/sori_stage_pump_guard_test.dart": {
@@ -13932,15 +13932,15 @@
     "semantic_hash": ""
   },
   "test/sori_stage_today_sections_test.dart": {
-    "mtime": 1793312632.5454178,
-    "seen": 1793380187.0610886,
-    "ast_hash": "47669cc9a6dcc11b0834d98f852ab501",
+    "mtime": 1793662293.6593726,
+    "seen": 1793662684.5590935,
+    "ast_hash": "ddac26e62d5ef39b9857afda354f1a1e",
     "semantic_hash": ""
   },
   "test/sori_stage_today_stage_term_test.dart": {
-    "mtime": 1793312632.5454178,
-    "seen": 1793380187.0610917,
-    "ast_hash": "9675bb0f75c634962fe575edfe2f8288",
+    "mtime": 1793580792.7325895,
+    "seen": 1793581159.5578732,
+    "ast_hash": "1ea448b46151add3e6ab16b625908b50",
     "semantic_hash": ""
   },
   "test/sori_stepper_test.dart": {
@@ -13968,9 +13968,9 @@
     "semantic_hash": ""
   },
   "test/support/sori_stage_pump.dart": {
-    "mtime": 1793312632.6011164,
-    "seen": 1793380187.0613139,
-    "ast_hash": "60205c58532d46d9e7f8300807b1a9ee",
+    "mtime": 1793580794.412224,
+    "seen": 1793581159.574118,
+    "ast_hash": "ca51f10c4544c87e1298c69425d3b2cd",
     "semantic_hash": ""
   },
   "test/typography_floor_guard_test.dart": {
@@ -14058,33 +14058,33 @@
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-gye-390-empty.png": {
-    "mtime": 1793355154.9003725,
-    "seen": 1793380187.067338,
-    "ast_hash": "c96a1ef4528c6b459d6f4bbd7d0d6c4a",
+    "mtime": 1793584837.8939154,
+    "seen": 1793647442.237946,
+    "ast_hash": "293dd958618532f46d2fd869774212a6",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-gye-390.png": {
-    "mtime": 1793355155.1571252,
-    "seen": 1793380187.067342,
-    "ast_hash": "18faee2fe600c5f164a9f0a587b4ce20",
+    "mtime": 1793584838.095928,
+    "seen": 1793647442.2379618,
+    "ast_hash": "bd0af9b4a46c2abf7a537e3730a2a26e",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-hanok-390-collapsed.png": {
-    "mtime": 1793355154.6685574,
-    "seen": 1793380187.06735,
-    "ast_hash": "b152335e4e9956f3ee45fa48bc23f666",
+    "mtime": 1793584837.7150226,
+    "seen": 1793647442.240171,
+    "ast_hash": "f73fff2ddba052845af1fad8a11996b3",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-hanok-390.png": {
-    "mtime": 1793355154.0307403,
-    "seen": 1793380187.0673578,
-    "ast_hash": "122041c0384eeb274f6cbf0ce68fe583",
+    "mtime": 1793584837.1892085,
+    "seen": 1793647442.2402024,
+    "ast_hash": "0565ce6e005fb194abfd4c1cfd08514a",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-learn-390.png": {
-    "mtime": 1793355153.488446,
-    "seen": 1793380187.0673678,
-    "ast_hash": "1551dddb96afa9024045a13c676f96cd",
+    "mtime": 1793584836.848701,
+    "seen": 1793647442.240257,
+    "ast_hash": "5f369d06d48142c9fbc4f20a4b6fb732",
     "semantic_hash": ""
   },
   "lib/widgets/sori/updating_scene.dart": {
@@ -15912,9 +15912,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/hanok_v3_preview.dart": {
-    "mtime": 1793372592.3554513,
-    "seen": 1793380187.058332,
-    "ast_hash": "0726d5201cadfd7f5918140518916410",
+    "mtime": 1793402682.7659147,
+    "seen": 1793407063.3922489,
+    "ast_hash": "85ba4090cb8dac6442a0df5701f0a7a6",
     "semantic_hash": ""
   },
   "test/hanok_migration_concurrency_test.dart": {
@@ -15936,9 +15936,9 @@
     "semantic_hash": ""
   },
   "test/hanok_v3_preview_test.dart": {
-    "mtime": 1793372592.3688867,
-    "seen": 1793380187.0596652,
-    "ast_hash": "8316e0dafd831a5cc55d0f7cee8b3da1",
+    "mtime": 1793403155.8712068,
+    "seen": 1793407063.5257683,
+    "ast_hash": "b96e4eac4b9c09197fc2a3ec012b96fa",
     "semantic_hash": ""
   },
   "test/ildu_projection_source_guard_test.dart": {
@@ -17172,9 +17172,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/learning_focus.dart": {
-    "mtime": 1793351691.7337875,
-    "seen": 1793380187.058371,
-    "ast_hash": "19303c8a0cc06a4ba9f0f0e3ec5f4cf6",
+    "mtime": 1793411534.413048,
+    "seen": 1793459669.6116276,
+    "ast_hash": "a3d362b240f05770498efc014e8acd52",
     "semantic_hash": ""
   },
   "test/catalog_history_test.dart": {
@@ -17196,9 +17196,9 @@
     "semantic_hash": ""
   },
   "test/learning_focus_test.dart": {
-    "mtime": 1793333696.2282302,
-    "seen": 1793380187.0597951,
-    "ast_hash": "e13ac8b3c3c00a129707f0c5064e499e",
+    "mtime": 1793458804.199843,
+    "seen": 1793459669.839852,
+    "ast_hash": "e394202b80557a04dd695591cee1a854",
     "semantic_hash": ""
   },
   "test/learning_journey_test.dart": {
@@ -17226,15 +17226,15 @@
     "semantic_hash": ""
   },
   "test/sori_stage_remaining_composition_test.dart": {
-    "mtime": 1793342329.9574454,
-    "seen": 1793380187.0610704,
-    "ast_hash": "7d4b2642d8f0518cacafc8fcdde24376",
+    "mtime": 1793647559.164081,
+    "seen": 1793648947.0599594,
+    "ast_hash": "6923b0739dc8ceab2e5559eb34fc5ab1",
     "semantic_hash": ""
   },
   "test/support/catalog_test_support.dart": {
-    "mtime": 1793333212.1835952,
-    "seen": 1793380187.0612326,
-    "ast_hash": "abb5977e6f18521e47d549039eb84206",
+    "mtime": 1793643038.91063,
+    "seen": 1793647440.7497618,
+    "ast_hash": "dce1206864b8b02e52a551ff33631e4f",
     "semantic_hash": ""
   },
   "test/support/five_tabs_preview/first_activity.json": {
@@ -17280,9 +17280,9 @@
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-games-390.png": {
-    "mtime": 1793355154.2726743,
-    "seen": 1793380187.067332,
-    "ast_hash": "88e58714769c8a5df4a310b032dca330",
+    "mtime": 1793584837.396348,
+    "seen": 1793647442.2379303,
+    "ast_hash": "15ed1cd696973b7e2d607ee005678d6d",
     "semantic_hash": ""
   },
   "test/support/five_tabs_preview/video_poster.png": {
@@ -17700,9 +17700,9 @@
     "semantic_hash": ""
   },
   "test/onboarding_learning_start_test.dart": {
-    "mtime": 1793312632.307416,
-    "seen": 1793380187.0599535,
-    "ast_hash": "de7f03f969ce964561d48e290cb6b0d6",
+    "mtime": 1793576950.5117521,
+    "seen": 1793577881.1686673,
+    "ast_hash": "352b2131da7ff5ebfd4a3f85a986c733",
     "semantic_hash": ""
   },
   "test/onboarding_v3_book_hanok_layout_test.dart": {
@@ -19464,15 +19464,15 @@
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-learn-390-book.png": {
-    "mtime": 1793355151.560294,
-    "seen": 1793380187.0673625,
-    "ast_hash": "5074d19eed5d784e57b111a1c8e7ed53",
+    "mtime": 1793584835.5191712,
+    "seen": 1793647442.24023,
+    "ast_hash": "70327fe48e0e65e4218ec553bfc1a874",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-learn-390-booklarge.png": {
-    "mtime": 1793355151.9846318,
-    "seen": 1793380187.0673645,
-    "ast_hash": "bdf8059e7576cd25494b50521dd0f546",
+    "mtime": 1793584835.772128,
+    "seen": 1793647442.2402387,
+    "ast_hash": "4200a8432f1ee50d7ef3bea1da736a37",
     "semantic_hash": ""
   },
   "tool/play_internal_status.cjs": {
@@ -20112,9 +20112,9 @@
     "semantic_hash": ""
   },
   "tool/test_internal_symbol_workflow.py": {
-    "mtime": 1793375569.4008064,
-    "seen": 1793380187.0632792,
-    "ast_hash": "61d6ca3edea1c898e5cfcdf2d777e215",
+    "mtime": 1793405282.0844688,
+    "seen": 1793407063.7683246,
+    "ast_hash": "bc285c8e554971bb91a1c1f877d7ff88",
     "semantic_hash": ""
   },
   "tool/collect_android_coldstart.py": {
@@ -20724,9 +20724,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/yeopjeon_wallet_card.dart": {
-    "mtime": 1793372592.3617501,
-    "seen": 1793380187.0585873,
-    "ast_hash": "5e09fc742acc8cdc493ea3b6fa73bf07",
+    "mtime": 1793583022.1274266,
+    "seen": 1793584763.013983,
+    "ast_hash": "7ffcc49e645a08240a2008b1adf072bd",
     "semantic_hash": ""
   },
   "test/services/haptic_service_test.dart": {
@@ -20778,14 +20778,14 @@
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-hanok-390-walletde.png": {
-    "mtime": 1793355150.6071434,
-    "seen": 1793380187.0673544,
+    "mtime": 1793584820.1111548,
+    "seen": 1793647442.240188,
     "ast_hash": "45d9da185e890a1edffbdbf470f9bde6",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-hanok-390-walleten.png": {
-    "mtime": 1793355150.7253659,
-    "seen": 1793380187.067356,
+    "mtime": 1793584820.2280693,
+    "seen": 1793647442.240196,
     "ast_hash": "208e1f7b2d13abdea32a48ece06fd8a2",
     "semantic_hash": ""
   },
@@ -21306,9 +21306,9 @@
     "semantic_hash": ""
   },
   "test/persona_stock_diagnostic_test.dart": {
-    "mtime": 1793312632.3393586,
-    "seen": 1793380187.0601296,
-    "ast_hash": "69660466ed4938ec321d6342ecb4e170",
+    "mtime": 1793463161.2437122,
+    "seen": 1793577881.1766732,
+    "ast_hash": "03d8f597aea747ab6250712a1e39f850",
     "semantic_hash": ""
   },
   "tool/check_dancheong_studio_assets.py": {
@@ -21798,9 +21798,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/bojagi_reveal.dart": {
-    "mtime": 1793312631.8048403,
-    "seen": 1793380187.05817,
-    "ast_hash": "03cee4a2e5dd2f8da6162f40e9109b87",
+    "mtime": 1793640598.6503031,
+    "seen": 1793647440.161815,
+    "ast_hash": "6dae8646578e7b5409102fa8580796ca",
     "semantic_hash": ""
   },
   "lib/widgets/sori/book_capture_choice.dart": {
@@ -21816,9 +21816,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/settings_button.dart": {
-    "mtime": 1793315101.5960257,
-    "seen": 1793380187.0584848,
-    "ast_hash": "841718598428b2170c296455f8a4c07e",
+    "mtime": 1793582846.4502375,
+    "seen": 1793584763.0034602,
+    "ast_hash": "15ab9fcc9f45e86e7e5890107cde7ee5",
     "semantic_hash": ""
   },
   "lib/widgets/sori/study_library_button.dart": {
@@ -21828,9 +21828,9 @@
     "semantic_hash": ""
   },
   "test/bojagi_reveal_test.dart": {
-    "mtime": 1793312631.9917274,
-    "seen": 1793380187.0587552,
-    "ast_hash": "9c1231e92778a81cbd8bf64cbb337880",
+    "mtime": 1793639806.8805134,
+    "seen": 1793647440.27089,
+    "ast_hash": "70548b7523841cf3facfdf7bab90ce9c",
     "semantic_hash": ""
   },
   "test/settings_groups_tactile_test.dart": {
@@ -22020,9 +22020,9 @@
     "semantic_hash": ""
   },
   "lib/screens/onboarding_v2/c_intro_art.dart": {
-    "mtime": 1793372857.2790244,
-    "seen": 1793380187.0573678,
-    "ast_hash": "e55229d0e1805850b786319d6c2745b5",
+    "mtime": 1793413386.7124941,
+    "seen": 1793459669.4132802,
+    "ast_hash": "48bcdbec09bda865384c4465a8a2b680",
     "semantic_hash": ""
   },
   "lib/screens/onboarding_v2/c_intro_reference_companion.dart": {
@@ -23046,9 +23046,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/intro_motion.dart": {
-    "mtime": 1793312631.8501723,
-    "seen": 1793380187.0583568,
-    "ast_hash": "9947a227640b1ef76dc0667c660b5201",
+    "mtime": 1793413386.702091,
+    "seen": 1793459669.6095881,
+    "ast_hash": "6fa22dc052afd44b3a901764c1e3d682",
     "semantic_hash": ""
   },
   "test/intro_motion_test.dart": {
@@ -25716,15 +25716,15 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/c5_catalog_overview.dart": {
-    "mtime": 1793351501.6838045,
-    "seen": 1793380187.0574827,
-    "ast_hash": "4e9f4850b2545f1960f914d5809686d6",
+    "mtime": 1793411534.40804,
+    "seen": 1793459669.4366312,
+    "ast_hash": "f0ce67a1f2b98043b9c32eb8ebbaa90b",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/c_stage_chrome.dart": {
-    "mtime": 1793334974.7069142,
-    "seen": 1793380187.0574877,
-    "ast_hash": "12b293ecff75e4000ee38454d4362fce",
+    "mtime": 1793460067.9472606,
+    "seen": 1793462804.303201,
+    "ast_hash": "83ba5eff8cf65a0dfd72ff55ede9a465",
     "semantic_hash": ""
   },
   "lib/services/tts_bundled_introduction.dart": {
@@ -25770,15 +25770,15 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/c_gallery/c_materials.dart": {
-    "mtime": 1793351568.8569279,
-    "seen": 1793380187.0581825,
-    "ast_hash": "daa3664245e974d9ff8a8abd98d4219f",
+    "mtime": 1793644102.6934712,
+    "seen": 1793647440.1665833,
+    "ast_hash": "5291df4ad54a3166002bc7fafd813cff",
     "semantic_hash": ""
   },
   "lib/widgets/sori/c_gallery/c_objects.dart": {
-    "mtime": 1793341108.6702387,
-    "seen": 1793380187.0581841,
-    "ast_hash": "3aed120d5c6a4f88a846dca4a12f6ffa",
+    "mtime": 1793459394.931815,
+    "seen": 1793459669.576526,
+    "ast_hash": "0e672d92175ed10c0b971dd3fab576bb",
     "semantic_hash": ""
   },
   "lib/widgets/sori/c_gallery/c_palette.dart": {
@@ -25812,15 +25812,15 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/image_navigation_bar.dart": {
-    "mtime": 1793315303.287849,
-    "seen": 1793380187.0583541,
-    "ast_hash": "040d82c56f25497e644996fb7aed1a67",
+    "mtime": 1793641722.9928415,
+    "seen": 1793647440.207634,
+    "ast_hash": "01e02f33c2de0a35970e4b1e83525b72",
     "semantic_hash": ""
   },
   "lib/widgets/sori/top_chrome.dart": {
-    "mtime": 1793334890.9809904,
-    "seen": 1793380187.0585585,
-    "ast_hash": "63215dc1f934a1fd4dd0a4ceb81d6e6c",
+    "mtime": 1793583022.1074142,
+    "seen": 1793584763.0108404,
+    "ast_hash": "f2241f9e31fe1c27536c855c28a2bd5d",
     "semantic_hash": ""
   },
   "test/approved_games_preview_test.dart": {
@@ -25848,9 +25848,9 @@
     "semantic_hash": ""
   },
   "test/c5_catalog_capture_test.dart": {
-    "mtime": 1793351830.739242,
-    "seen": 1793380187.0588255,
-    "ast_hash": "5b45dd499503be1c8756b42f18fcda34",
+    "mtime": 1793399974.1414058,
+    "seen": 1793407063.4456966,
+    "ast_hash": "0efea6ed6ec36c2d32f12337fbbac9a2",
     "semantic_hash": ""
   },
   "test/c5_kernel_test.dart": {
@@ -25860,9 +25860,9 @@
     "semantic_hash": ""
   },
   "test/c5_live_body_adapter_test.dart": {
-    "mtime": 1793335750.8343325,
-    "seen": 1793380187.058829,
-    "ast_hash": "db8832d4e96e61d177d5bab7f2ff40e5",
+    "mtime": 1793662052.6914203,
+    "seen": 1793662684.4131196,
+    "ast_hash": "0471c0caf24801ebf7fdf89c47d7340c",
     "semantic_hash": ""
   },
   "test/c_calligraphy_test.dart": {
@@ -25920,15 +25920,15 @@
     "semantic_hash": ""
   },
   "test/sori_top_chrome_test.dart": {
-    "mtime": 1793328435.6749196,
-    "seen": 1793380187.0611143,
-    "ast_hash": "36f79097322cd2baeaa87b21483e3da9",
+    "mtime": 1793411534.4164677,
+    "seen": 1793459670.0143797,
+    "ast_hash": "2d21959e536e2de1f47054b1d644c680",
     "semantic_hash": ""
   },
   "test/support/sori_stage_capture_assets.dart": {
-    "mtime": 1793335832.729917,
-    "seen": 1793380187.0613117,
-    "ast_hash": "80393706131dda528731237b3662904d",
+    "mtime": 1793404141.3646607,
+    "seen": 1793407063.6648786,
+    "ast_hash": "8a64683e8ecb295fd8d9ef92bf86d333",
     "semantic_hash": ""
   },
   "test/tts_bundled_introduction_test.dart": {
@@ -25962,69 +25962,69 @@
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-games-390-en.png": {
-    "mtime": 1793355156.8193953,
-    "seen": 1793380187.0673306,
-    "ast_hash": "b80a38f7a63a89ec0f478de3266cb3ce",
+    "mtime": 1793584839.538457,
+    "seen": 1793647442.2379217,
+    "ast_hash": "445edb82dbe9cfff5f022170a5b3beb7",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-gye-390-empty-en.png": {
-    "mtime": 1793355157.302864,
-    "seen": 1793380187.067335,
-    "ast_hash": "26a546cacaf94e4976a9d7ee9381269b",
+    "mtime": 1793584839.960049,
+    "seen": 1793647442.2379377,
+    "ast_hash": "3d86953ef4ac50070d59622971f1bb99",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-gye-390-en.png": {
-    "mtime": 1793355157.5013638,
-    "seen": 1793380187.0673404,
-    "ast_hash": "f73974440d36c592c2e2b0d50d4a1bfe",
+    "mtime": 1793584840.1372125,
+    "seen": 1793647442.2379541,
+    "ast_hash": "610ef6890f0e25f172e08f070edbb91d",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-hanok-390-collapsed-en.png": {
-    "mtime": 1793355157.0916257,
-    "seen": 1793380187.0673475,
-    "ast_hash": "1b4b2cf2fd38235425d57233b34b3914",
+    "mtime": 1793584839.7897913,
+    "seen": 1793647442.2401583,
+    "ast_hash": "8f12870e8b79830acfa739e703ff3e15",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-hanok-390-en.png": {
-    "mtime": 1793355156.627748,
-    "seen": 1793380187.0673516,
-    "ast_hash": "2535a2cb96cbe0a60354eb73318b46af",
+    "mtime": 1793584839.3670318,
+    "seen": 1793647442.2401795,
+    "ast_hash": "ac352aa2d107e6db36a72e7476394cee",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-learn-1280-en.png": {
-    "mtime": 1793355156.0741603,
-    "seen": 1793380187.0673594,
-    "ast_hash": "2c94143df766b73722253889a795259a",
+    "mtime": 1793584838.871163,
+    "seen": 1793647442.2402108,
+    "ast_hash": "c83aeaba2221c3466ef82c352cfc0f9c",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-learn-390-en.png": {
-    "mtime": 1793355156.3709939,
-    "seen": 1793380187.067366,
-    "ast_hash": "23dc5f615b69787d8f4c1de288e7c24b",
+    "mtime": 1793584839.1191869,
+    "seen": 1793647442.240247,
+    "ast_hash": "a6780ee41ae2a2d5628db1a196ba3888",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-today-390-de.png": {
-    "mtime": 1793355152.3921845,
-    "seen": 1793380187.0673723,
-    "ast_hash": "c5c6f186db636390f93b794239f65763",
+    "mtime": 1793584835.9835193,
+    "seen": 1793647442.240287,
+    "ast_hash": "8f5c922d5d63765a35d12ca712e9d91b",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-today-390-de-bojagi-receipt.png": {
-    "mtime": 1793355150.0729048,
-    "seen": 1793380187.0673704,
+    "mtime": 1793584819.5427384,
+    "seen": 1793647442.240281,
     "ast_hash": "62ead988b1a6260f90c8827c6d9f6cb0",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-today-390-en-bojagi-receipt.png": {
-    "mtime": 1793355150.3794246,
-    "seen": 1793380187.067375,
+    "mtime": 1793584819.874307,
+    "seen": 1793647442.2403016,
     "ast_hash": "36378d6e757ba2c0541a53abf29c0108",
     "semantic_hash": ""
   },
   "test/c_today_spacing_test.dart": {
-    "mtime": 1793355927.5995276,
-    "seen": 1793380187.0588505,
-    "ast_hash": "a5b3e892999bf427c2604b24d39500b8",
+    "mtime": 1793411534.419465,
+    "seen": 1793459669.6903853,
+    "ast_hash": "db560fd9b54185b7f48464c10c6c0ebe",
     "semantic_hash": ""
   },
   "test/onboarding_native_spacing_test.dart": {
@@ -26052,9 +26052,9 @@
     "semantic_hash": ""
   },
   "lib/data/canonical_companion_art.dart": {
-    "mtime": 1793357778.2623296,
-    "seen": 1793380187.0570228,
-    "ast_hash": "e4ef45c05e2151fb5ec78b44579bf2c7",
+    "mtime": 1793641641.6337292,
+    "seen": 1793647439.7117944,
+    "ast_hash": "8b5e07c9aed566fce382581ac304b8c7",
     "semantic_hash": ""
   },
   "test/canonical_companion_assets_test.dart": {
@@ -26124,9 +26124,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/ildu_r16_process_image.dart": {
-    "mtime": 1793372592.3574812,
-    "seen": 1793380187.0583456,
-    "ast_hash": "af3396f411854ba2d999c0fe76bbbd6c",
+    "mtime": 1793405054.7667685,
+    "seen": 1793407063.3935826,
+    "ast_hash": "4a26c009beb8341c2ef3eeb38ec3efc3",
     "semantic_hash": ""
   },
   "test/ildu_estate_screen_test.dart": {
@@ -26280,9 +26280,9 @@
     "semantic_hash": ""
   },
   "android/c_artwork/build.gradle.kts": {
-    "mtime": 1793376201.3851924,
-    "seen": 1793380187.0559103,
-    "ast_hash": "37e496d8b777b12ba0561dcd4b0ee378",
+    "mtime": 1793407003.5999448,
+    "seen": 1793407063.1111736,
+    "ast_hash": "429aff34fc0ca2db364106cb6e822537",
     "semantic_hash": ""
   },
   "lib/widgets/sori/c_material_assets.dart": {
@@ -26292,33 +26292,1605 @@
     "semantic_hash": ""
   },
   "test/public_bundle_size_assets_test.dart": {
-    "mtime": 1793378666.473034,
-    "seen": 1793380187.0603397,
-    "ast_hash": "d24c4f1e085739c6bb1e4bcb2146edc5",
+    "mtime": 1793383809.1894524,
+    "seen": 1793392635.315035,
+    "ast_hash": "8727e9f13901d5519d25ee7b22980b79",
     "semantic_hash": ""
   },
   "tool/AndroidArtworkDownloadSize.java": {
-    "mtime": 1793378894.8096607,
-    "seen": 1793380187.0616448,
-    "ast_hash": "faa14e859641451b7a9951c6b130912c",
+    "mtime": 1793405950.6481104,
+    "seen": 1793407063.6904135,
+    "ast_hash": "e99779348bbcf54c167c721a9a530fdb",
     "semantic_hash": ""
   },
   "tool/test_verify_android_artwork_delivery.py": {
-    "mtime": 1793378431.1736188,
-    "seen": 1793380187.0633357,
-    "ast_hash": "e26166fc8b7506be20985f7f09f7550b",
+    "mtime": 1793644753.535473,
+    "seen": 1793647441.119185,
+    "ast_hash": "1055c345fe291d4880a558541954c9dc",
     "semantic_hash": ""
   },
   "tool/verify_android_artwork_delivery.py": {
-    "mtime": 1793378431.172567,
-    "seen": 1793380187.0633552,
-    "ast_hash": "4ded8be8d1ac44b707dcd0c608bfa672",
+    "mtime": 1793405950.6513853,
+    "seen": 1793407063.7746892,
+    "ast_hash": "ec2b24e75e74dd163ae6b161f0cf74bc",
     "semantic_hash": ""
   },
   "docs/runbooks/android-artwork-delivery.md": {
     "mtime": 1793378431.1736188,
     "seen": 1793380187.0659606,
     "ast_hash": "cdb58d47bc73b93d817d92209cd45a2c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/presentation/SARANGCHAE_TRANSPARENT_V1.json": {
+    "mtime": 1793406613.9798703,
+    "seen": 1793407063.130111,
+    "ast_hash": "7cfc9e34f3eeecb0de099400d44a4af7",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/c5-r16-final-manifest.json": {
+    "mtime": 1793584952.715341,
+    "seen": 1793647439.5157566,
+    "ast_hash": "8bb57a129e3c3c46db1326d8aab53c0f",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-games-390-de-bundled-first-course.json": {
+    "mtime": 1793584823.0919967,
+    "seen": 1793647439.515776,
+    "ast_hash": "7430cf4a0bfbd7f971bb4847576e26a3",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-games-390-en-bundled-first-course.json": {
+    "mtime": 1793584830.6914196,
+    "seen": 1793647439.5157921,
+    "ast_hash": "f65591ba703deab93ac8e5715edd783c",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-gye-390-de-bundled-first-course.json": {
+    "mtime": 1793584824.6240864,
+    "seen": 1793647439.5158029,
+    "ast_hash": "0894e09a4e3c9acb3381b5a160f1e857",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-gye-390-en-bundled-first-course.json": {
+    "mtime": 1793584831.8108296,
+    "seen": 1793647439.5158122,
+    "ast_hash": "8bd6743aeb91d7e52db1cac78a43fc89",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-bundled-first-course.json": {
+    "mtime": 1793584824.05982,
+    "seen": 1793647439.5158236,
+    "ast_hash": "7e1dc899cbd702b0bc5828d604fdb893",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-saved-owned-1.json": {
+    "mtime": 1793584826.1853523,
+    "seen": 1793647439.5158353,
+    "ast_hash": "7b6b8e6919bceef7d404d19abd0fcd6c",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-saved-owned-16.json": {
+    "mtime": 1793584828.785054,
+    "seen": 1793647439.5158453,
+    "ast_hash": "881055f889cd99792a24a49682a698b2",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-saved-owned-8.json": {
+    "mtime": 1793584827.12125,
+    "seen": 1793647439.5158534,
+    "ast_hash": "19b80588ae8f19c1b68695244259830f",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-bundled-first-course.json": {
+    "mtime": 1793584831.3799853,
+    "seen": 1793647439.5158617,
+    "ast_hash": "fd5423df1161ef8fd1fa24d33fc79198",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-saved-owned-1.json": {
+    "mtime": 1793584832.9281485,
+    "seen": 1793647439.5158691,
+    "ast_hash": "394876ecda9f1c99c8a0ed3397b4ff32",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-saved-owned-16.json": {
+    "mtime": 1793584834.7146463,
+    "seen": 1793647439.5158756,
+    "ast_hash": "1ebbffde035156b827eb67568a744c9a",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-saved-owned-8.json": {
+    "mtime": 1793584833.6414063,
+    "seen": 1793647439.5158808,
+    "ast_hash": "885d80062b81e4e53decf1722b666228",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-learn-390-de-bundled-first-course.json": {
+    "mtime": 1793584822.3672872,
+    "seen": 1793647439.5158901,
+    "ast_hash": "7758fbe364995a0cbda8c4f7614e45cc",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-learn-390-en-bundled-first-course.json": {
+    "mtime": 1793584830.227592,
+    "seen": 1793647439.515897,
+    "ast_hash": "90072fa54ddf52ac0f5aa64623468314",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-bundled-first-course.json": {
+    "mtime": 1793584821.410398,
+    "seen": 1793647439.515903,
+    "ast_hash": "dfe311519ee066b7d57a10deee86253d",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-due-review-12.json": {
+    "mtime": 1793584825.2382207,
+    "seen": 1793647439.5159092,
+    "ast_hash": "f7e93fee01c655d0ccca3cfa9d05dc90",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-saved-owned-16-summary.json": {
+    "mtime": 1793584829.3396595,
+    "seen": 1793647439.515918,
+    "ast_hash": "06113bfe1793f10a56357b14c9c4c458",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-saved-owned-8-summary.json": {
+    "mtime": 1793584827.8314102,
+    "seen": 1793647439.5159254,
+    "ast_hash": "a2c963928894025f195f3ee7c8932b59",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-bundled-first-course.json": {
+    "mtime": 1793584829.727476,
+    "seen": 1793647439.5159335,
+    "ast_hash": "b60a9722e634721da144bedf3fdcbf33",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-due-review-12.json": {
+    "mtime": 1793584832.1564603,
+    "seen": 1793647439.515941,
+    "ast_hash": "269e14e4a0e5390b125658e35776058c",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-saved-owned-16-summary.json": {
+    "mtime": 1793584835.1209927,
+    "seen": 1793647439.5159478,
+    "ast_hash": "99ce14596393507aa3376d880c609699",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-saved-owned-8-summary.json": {
+    "mtime": 1793584834.0690188,
+    "seen": 1793647439.5159545,
+    "ast_hash": "7525cea3d97a400e659d38ec61affc10",
+    "semantic_hash": ""
+  },
+  "lib/models/ildu_r16_layers.dart": {
+    "mtime": 1793403153.6696944,
+    "seen": 1793407063.2428963,
+    "ast_hash": "54e53fd33cb5c6915a495aacff1619b1",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/c_gallery/c5_scene_assets.dart": {
+    "mtime": 1793398875.15491,
+    "seen": 1793407063.372229,
+    "ast_hash": "6ce71201d12bafa548f3f006a3023a7f",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/ildu_r16_layer_artwork.dart": {
+    "mtime": 1793408795.0265596,
+    "seen": 1793459669.6080205,
+    "ast_hash": "67611878015e97ef1a81a4e96a03f3ee",
+    "semantic_hash": ""
+  },
+  "test/ildu_r16_layer_artwork_test.dart": {
+    "mtime": 1793408855.5409513,
+    "seen": 1793459669.8271165,
+    "ast_hash": "e9968a841037336648a59728c4cfac10",
+    "semantic_hash": ""
+  },
+  "test/ildu_r16_layer_sources_test.dart": {
+    "mtime": 1793404007.4258602,
+    "seen": 1793407063.5321012,
+    "ast_hash": "100aaec26e797a199e282a2cdca2908d",
+    "semantic_hash": ""
+  },
+  "tool/AndroidArtworkMarkerTest.java": {
+    "mtime": 1793405282.8183148,
+    "seen": 1793407063.690416,
+    "ast_hash": "830a8da4732b763f8eb29e42cb35fc29",
+    "semantic_hash": ""
+  },
+  "tool/android_artwork_manifest.py": {
+    "mtime": 1793644708.6727746,
+    "seen": 1793647440.8505497,
+    "ast_hash": "c03f856a302cfe817adceb3d4a248c45",
+    "semantic_hash": ""
+  },
+  "tool/capture_android_artwork_diagnostics.py": {
+    "mtime": 1793401553.7660618,
+    "seen": 1793407063.6994233,
+    "ast_hash": "dddf1ec74dcf3e6e19b452afc82033b7",
+    "semantic_hash": ""
+  },
+  "tool/test_android_artwork_manifest.py": {
+    "mtime": 1793644753.5301113,
+    "seen": 1793647441.0889134,
+    "ast_hash": "67104e19fe4c9bd4f50dda729425cf28",
+    "semantic_hash": ""
+  },
+  "tool/test_capture_android_artwork_diagnostics.py": {
+    "mtime": 1793401553.7675507,
+    "seen": 1793407063.7642806,
+    "ast_hash": "c0d16eae8f3ff084a2cd302b5538994c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/presentation/README.md": {
+    "mtime": 1793406613.9786627,
+    "seen": 1793407064.11337,
+    "ast_hash": "773e9f275109e1ce1a6c086a0807a9e2",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/c5-r16-final-index.html": {
+    "mtime": 1793412248.0188625,
+    "seen": 1793459670.7955387,
+    "ast_hash": "e44ec7cd0e8fe43f65fd67f80ef9ea38",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-games-390-de-bundled-first-course.png": {
+    "mtime": 1793584823.0858672,
+    "seen": 1793647442.2377343,
+    "ast_hash": "c76c30ff2b91aa5d3de65ddaccd09eb6",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-games-390-en-bundled-first-course.png": {
+    "mtime": 1793584830.6852577,
+    "seen": 1793647442.237749,
+    "ast_hash": "d388fca094605d15c56db15b595ca2f3",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-gye-390-de-bundled-first-course.png": {
+    "mtime": 1793584824.6208243,
+    "seen": 1793647442.23776,
+    "ast_hash": "ecd4ff241c21621f03965a79da3de0e6",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-gye-390-en-bundled-first-course.png": {
+    "mtime": 1793584831.8067546,
+    "seen": 1793647442.2377706,
+    "ast_hash": "fadbe94acdcfb4a7326a74343a91da74",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-bundled-first-course.png": {
+    "mtime": 1793584824.054574,
+    "seen": 1793647442.2377782,
+    "ast_hash": "b815b6967d8867865a3daa0d9b7a98b8",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-saved-owned-1.png": {
+    "mtime": 1793584826.1786914,
+    "seen": 1793647442.237791,
+    "ast_hash": "5648d2b9cb38a9bb27c4d6fcf2ac370b",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-saved-owned-16.png": {
+    "mtime": 1793584828.7807393,
+    "seen": 1793647442.2378,
+    "ast_hash": "e385b5aa9837ed5d703882b21eb3c726",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-de-saved-owned-8.png": {
+    "mtime": 1793584827.1177776,
+    "seen": 1793647442.2378073,
+    "ast_hash": "9deb66f435ce24da446f2d8464f49e38",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-bundled-first-course.png": {
+    "mtime": 1793584831.3745553,
+    "seen": 1793647442.237814,
+    "ast_hash": "12e0b37c1c7f04ccd8c5c6d7f317a638",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-saved-owned-1.png": {
+    "mtime": 1793584832.9219825,
+    "seen": 1793647442.2378204,
+    "ast_hash": "1e0b486bc03a8e9114071a6b3b708adb",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-saved-owned-16.png": {
+    "mtime": 1793584834.7115283,
+    "seen": 1793647442.237827,
+    "ast_hash": "8bf6286764f68788d477931295b7bf17",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-hanok-390-en-saved-owned-8.png": {
+    "mtime": 1793584833.6356158,
+    "seen": 1793647442.2378335,
+    "ast_hash": "b178d5d5ed1461afb7f6400086737f4e",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-learn-390-de-bundled-first-course.png": {
+    "mtime": 1793584822.3545723,
+    "seen": 1793647442.2378397,
+    "ast_hash": "4862105bca57d7f94ee9ea620306965a",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-learn-390-en-bundled-first-course.png": {
+    "mtime": 1793584830.2152884,
+    "seen": 1793647442.2378469,
+    "ast_hash": "f052702e909d90bf7ad6d14da1ae131b",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-bundled-first-course.png": {
+    "mtime": 1793584821.3956199,
+    "seen": 1793647442.237854,
+    "ast_hash": "8c3b37d92f0ff233892f9e204f476078",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-due-review-12.png": {
+    "mtime": 1793584825.2337441,
+    "seen": 1793647442.2378616,
+    "ast_hash": "1349057cd81636fa8f6b3785ffa40bb0",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-saved-owned-16-summary.png": {
+    "mtime": 1793584829.3354566,
+    "seen": 1793647442.2378705,
+    "ast_hash": "7809b8d35e9e44f55f3f85acfd2c6c3a",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-de-saved-owned-8-summary.png": {
+    "mtime": 1793584827.8261476,
+    "seen": 1793647442.23788,
+    "ast_hash": "c0884f509bce4d97e7f1237055372966",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-bundled-first-course.png": {
+    "mtime": 1793584829.722475,
+    "seen": 1793647442.2378874,
+    "ast_hash": "62e8b88ea45ca335e25c340c7b5cc340",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-due-review-12.png": {
+    "mtime": 1793584832.1502726,
+    "seen": 1793647442.2378955,
+    "ast_hash": "e3e79dffe131125ec62db4284525dee1",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-saved-owned-16-summary.png": {
+    "mtime": 1793584835.116831,
+    "seen": 1793647442.2379038,
+    "ast_hash": "102d98ba1c784fd60cfe9925f4eca726",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-shell-today-390-en-saved-owned-8-summary.png": {
+    "mtime": 1793584834.0648508,
+    "seen": 1793647442.2379112,
+    "ast_hash": "b375a6a754cc1b242920ca3d03a7694d",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/today_learning_card.dart": {
+    "mtime": 1793642531.273848,
+    "seen": 1793647440.2408154,
+    "ast_hash": "dc5ddf348789a4d569aa82dffad734a5",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/today_subject_art.dart": {
+    "mtime": 1793644102.6903803,
+    "seen": 1793647440.2408216,
+    "ast_hash": "a5d3727309de64bfccf32af73a1f5655",
+    "semantic_hash": ""
+  },
+  "test/c_material_feedback_test.dart": {
+    "mtime": 1793414566.0878005,
+    "seen": 1793459669.688218,
+    "ast_hash": "860f1ad6fb308aff3ca74d90e37f341d",
+    "semantic_hash": ""
+  },
+  "test/today_approved_dashboard_test.dart": {
+    "mtime": 1793643398.945353,
+    "seen": 1793647440.7744823,
+    "ast_hash": "53391f136fef04990bd3cb13261c01c7",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-stage-today-390-de-approved-course.png": {
+    "mtime": 1793584952.7173412,
+    "seen": 1793647442.2402675,
+    "ast_hash": "07099fcee52c0fcb39878440bada8674",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-stage-today-390-de-approved-review.png": {
+    "mtime": 1793584952.7183385,
+    "seen": 1793647442.2402742,
+    "ast_hash": "ab86e437d1e4d749501d0cec1fdc316b",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-stage-today-390-en-approved-hangul.png": {
+    "mtime": 1793584952.7212849,
+    "seen": 1793647442.2402933,
+    "ast_hash": "9f8f701989336518d22299ce5ed48267",
+    "semantic_hash": ""
+  },
+  "test/today_subject_art_test.dart": {
+    "mtime": 1793640671.277865,
+    "seen": 1793647440.7775178,
+    "ast_hash": "99a420aeb884ce251c51a776a469fbbd",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/ACTING_CANON.json": {
+    "mtime": 1793649430.0223641,
+    "seen": 1793662684.1376882,
+    "ast_hash": "344c104c5ace50b4fc5e3102c0231966",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/ASSET_MANIFEST.json": {
+    "mtime": 1793649430.0277834,
+    "seen": 1793662684.1376925,
+    "ast_hash": "6c05e93b6a660198e8b1137f83a2f1e9",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/CANONICAL_APPROVAL.json": {
+    "mtime": 1793649430.0287862,
+    "seen": 1793662684.137695,
+    "ast_hash": "efcf9787e4dd24782c70c7010f4eed46",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/CHARACTER_LOCK.json": {
+    "mtime": 1793649430.031149,
+    "seen": 1793662684.1376967,
+    "ast_hash": "e79a7bca699344fbd91d6953ab4c13d5",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/GENERATION_PROVENANCE.json": {
+    "mtime": 1793649430.0336733,
+    "seen": 1793662684.137699,
+    "ast_hash": "aa88ea065a6f3a673d0675cca076edde",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/TAEGO_SOURCE_COMPARISON.json": {
+    "mtime": 1793649430.0392134,
+    "seen": 1793662684.1377006,
+    "ast_hash": "d147c3852eda7e2fa403224ccc1538ef",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/verify.py": {
+    "mtime": 1793649430.471748,
+    "seen": 1793662684.1377022,
+    "ast_hash": "41ac19828b7811212d8466a184db4699",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/ASSET_MANIFEST.json": {
+    "mtime": 1793649430.4810472,
+    "seen": 1793662684.137704,
+    "ast_hash": "5e3aae5dd2dd9e714d0ec70cc8364d2e",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/CANONICAL_APPROVAL.json": {
+    "mtime": 1793649430.4844975,
+    "seen": 1793662684.1377058,
+    "ast_hash": "0549cb7d332a72315be2f0516687ec12",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/CHARACTER_LOCK.json": {
+    "mtime": 1793649430.4871523,
+    "seen": 1793662684.1377077,
+    "ast_hash": "b423b615c1e4ac70e06c1ddbd1871a1a",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/REFERENCE_FOLDER_INVENTORY.json": {
+    "mtime": 1793649430.4955523,
+    "seen": 1793662684.1377099,
+    "ast_hash": "97247dbd35b0bc6020f9667394bf9864",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/VERIFICATION.json": {
+    "mtime": 1793649430.499786,
+    "seen": 1793662684.1377115,
+    "ast_hash": "2de2969bdce2da43ed81f3031a28c18a",
+    "semantic_hash": ""
+  },
+  "design/canonical/sujin/20261031/CANONICAL_APPROVAL.json": {
+    "mtime": 1793649431.4599774,
+    "seen": 1793662684.137713,
+    "ast_hash": "34657a2d8d6ca95d3804541f3765c1f3",
+    "semantic_hash": ""
+  },
+  "design/canonical/sujin/20261031/PROMPTS.json": {
+    "mtime": 1793649431.4628167,
+    "seen": 1793662684.1377146,
+    "ast_hash": "9e008682ff554bd5f1bccefd93752871",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/PRODUCTION_EVIDENCE.json": {
+    "mtime": 1793649431.4745061,
+    "seen": 1793662684.1774764,
+    "ast_hash": "db4583255ff325269aae51b80d3de551",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/SNAPSHOT_MANIFEST.json": {
+    "mtime": 1793649431.4793935,
+    "seen": 1793662684.1774793,
+    "ast_hash": "ceda930e811cd732bbc1ce3d7bd83228",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/SOURCE_MANIFEST.json": {
+    "mtime": 1793649431.493636,
+    "seen": 1793662684.1774812,
+    "ast_hash": "841454e3d8c2225ca4648111b397d838",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/VERIFICATION.json": {
+    "mtime": 1793649431.4950984,
+    "seen": 1793662684.1774828,
+    "ast_hash": "798f74d7fa0e54da50b788a65daba40d",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-r16-source-update-20261031/R16_PRESENTATION_SOURCE_LOCK.json": {
+    "mtime": 1793649431.5005553,
+    "seen": 1793662684.1774848,
+    "ast_hash": "275a754fd0a917411d988a1b591becd5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-r16-source-update-20261031/ildu_r16_sarang_layers_v1.snapshot.json": {
+    "mtime": 1793649431.5080113,
+    "seen": 1793662684.1774867,
+    "ast_hash": "071bd57304266d3e0695f32b8bf0e696",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/COPY.json": {
+    "mtime": 1793649431.5327492,
+    "seen": 1793662684.1774883,
+    "ast_hash": "5504ae97590dbe0cbcf0d4d1cf7818e4",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/HANOK_STATES.json": {
+    "mtime": 1793649431.5423963,
+    "seen": 1793662684.1774898,
+    "ast_hash": "1438f11a2dc566e11b0e1faa0aa328c1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/INTRO_UNITS.json": {
+    "mtime": 1793649431.5522902,
+    "seen": 1793662684.1774912,
+    "ast_hash": "3da34d9354677692e531e1140eb166f5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/SOURCE-MANIFEST.json": {
+    "mtime": 1793649431.555035,
+    "seen": 1793662684.1774926,
+    "ast_hash": "9ae63218b915fc17a1f509994c3eab6a",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/STORY_SCENES.json": {
+    "mtime": 1793649431.5613902,
+    "seen": 1793662684.1774943,
+    "ast_hash": "85dc9a2439fb9899d93924ea049c3655",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/COPY.json": {
+    "mtime": 1793649431.567428,
+    "seen": 1793662684.1774967,
+    "ast_hash": "c5128d23b39df362400c0dcc3bb883da",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/DELIVERY_MANIFEST.json": {
+    "mtime": 1793649431.5699115,
+    "seen": 1793662684.1774986,
+    "ast_hash": "a9d6e61dc05384faa1863e436db91e6f",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/QA.json": {
+    "mtime": 1793649431.5726292,
+    "seen": 1793662684.1775005,
+    "ast_hash": "cae36fe34951924b2d113627952525b1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/SOURCE_FILES.json": {
+    "mtime": 1793649431.578683,
+    "seen": 1793662684.1775026,
+    "ast_hash": "df23e448edd95ef5f72833421d03f32b",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-localization-20261030/VERIFICATION.json": {
+    "mtime": 1793649431.586201,
+    "seen": 1793662684.1775045,
+    "ast_hash": "dd8ecd1042ac8ad4387ddf0ac9c24155",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-mockups-20261030/MANIFEST.json": {
+    "mtime": 1793649431.5896285,
+    "seen": 1793662684.177506,
+    "ast_hash": "ffeb112c85ffdcc4397af52ee12d5788",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-mockups-20261030/PROMPTS.json": {
+    "mtime": 1793649431.5920837,
+    "seen": 1793662684.1775079,
+    "ast_hash": "8bdf474a7cf1283181d40b0da39d5532",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/SOURCE_SNAPSHOT.json": {
+    "mtime": 1793649431.6083279,
+    "seen": 1793662684.1775093,
+    "ast_hash": "7b13d8852627d4743ca24a21c70d7494",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/AUTHORING_ITEMS.json": {
+    "mtime": 1793649431.6343386,
+    "seen": 1793662684.1775107,
+    "ast_hash": "8cac2a7caf1712e4e1f532e0dcbd9b1a",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/CONTENT_SOURCE.json": {
+    "mtime": 1793649431.6424773,
+    "seen": 1793662684.1775124,
+    "ast_hash": "299e6f8b4cdf803bdc94b33c44116791",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/SOURCE_AND_QA.json": {
+    "mtime": 1793649431.6660285,
+    "seen": 1793662684.1775146,
+    "ast_hash": "03bf1abc0e903916d1c3130b1a15cee5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/SOURCE_UNIT_CONTRACTS.json": {
+    "mtime": 1793649431.669117,
+    "seen": 1793662684.1775157,
+    "ast_hash": "5aa9a987cb19e3857906a430edfd4f06",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/STRUCTURAL_QA.json": {
+    "mtime": 1793649431.671625,
+    "seen": 1793662684.1775174,
+    "ast_hash": "02040b11a0c90938b3bde56234ec7e66",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/SOURCE_AND_QA.json": {
+    "mtime": 1793649431.7072296,
+    "seen": 1793662684.1775188,
+    "ast_hash": "69b53253c3e0e0ad38565a37c89158ab",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/AUTHORING_ITEMS.json": {
+    "mtime": 1793649431.7278352,
+    "seen": 1793662684.1775203,
+    "ast_hash": "95e17cd8be2222e21133771e3cbdfa24",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/CONTENT_SOURCE.json": {
+    "mtime": 1793649431.7319012,
+    "seen": 1793662684.1775215,
+    "ast_hash": "cbebcc94a18bacb3808ac97ec708d3a6",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/SOURCE_AND_QA.json": {
+    "mtime": 1793649431.744057,
+    "seen": 1793662684.1775227,
+    "ast_hash": "5f0884f84271786e8f30857e956f43ff",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/WORD_CONTENT.json": {
+    "mtime": 1793649431.7460558,
+    "seen": 1793662684.1775246,
+    "ast_hash": "847f8bbb4d731155df5058c0daa6c277",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/AUTHORING_ITEMS.json": {
+    "mtime": 1793649431.7775526,
+    "seen": 1793662684.1775262,
+    "ast_hash": "465aa18a78cc93d4dcdfb95ad51cda0f",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/CONTENT_SOURCE.json": {
+    "mtime": 1793649431.7820861,
+    "seen": 1793662684.177528,
+    "ast_hash": "7bc1c162a48c3752f3ba76478f526dad",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/MEANINGS_AND_MEDIA.json": {
+    "mtime": 1793649431.7870889,
+    "seen": 1793662684.1775296,
+    "ast_hash": "16f0c978eb87b5f216f02ffae9cadbd3",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/SOURCE_AND_QA.json": {
+    "mtime": 1793649431.797263,
+    "seen": 1793662684.1775312,
+    "ast_hash": "fcb443583665d62b796c074cb11bf1fe",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/AUTHORING_ITEMS.json": {
+    "mtime": 1793649431.8218458,
+    "seen": 1793662684.1775324,
+    "ast_hash": "7673dc98879106840c120ed05b9efa34",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/CONTENT_SOURCE.json": {
+    "mtime": 1793649431.8292172,
+    "seen": 1793662684.1775336,
+    "ast_hash": "e84b2a61cf88263f9cae8e82fc525d72",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/MEANINGS_AND_NOTE.json": {
+    "mtime": 1793649431.8421283,
+    "seen": 1793662684.177536,
+    "ast_hash": "7c26d30d98faf15cc55bf7fc85feb6b9",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/SOURCE_AND_QA.json": {
+    "mtime": 1793649431.8505676,
+    "seen": 1793662684.1775374,
+    "ast_hash": "01afe987e8c758e6af23374913fbe9c6",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/DELIVERY_MANIFEST.json": {
+    "mtime": 1793649431.8559585,
+    "seen": 1793662684.1775393,
+    "ast_hash": "b4ecec76e6bfb19dbb57448c228f1055",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json": {
+    "mtime": 1793649431.8708882,
+    "seen": 1793662684.1775408,
+    "ast_hash": "db7555849e09c2711c451cf731695aaa",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json": {
+    "mtime": 1793649431.8919797,
+    "seen": 1793662684.1775427,
+    "ast_hash": "a266a26687c9b7a9dd1e6cf502045a87",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STRUCTURAL_QA.json": {
+    "mtime": 1793649431.9039643,
+    "seen": 1793662684.1775439,
+    "ast_hash": "5121963a470599055e95110cd8d66691",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/ASSET_REUSE_LEDGER.json": {
+    "mtime": 1793649431.9303415,
+    "seen": 1793662684.1775455,
+    "ast_hash": "3683b17498467c290e468cba9b556fb5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/CHAPTER_EVENTS.json": {
+    "mtime": 1793649431.9349744,
+    "seen": 1793662684.1775467,
+    "ast_hash": "6b4fff5c033d64e1b1feebc46e6dbe0c",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/VALIDATION.json": {
+    "mtime": 1793649431.9571202,
+    "seen": 1793662684.1775482,
+    "ast_hash": "a05bf481b35004ae4e4240516065a4f9",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/ASSET_LOCK_MANIFEST.json": {
+    "mtime": 1793649431.981663,
+    "seen": 1793662684.1775494,
+    "ast_hash": "19ebc9f86b74e55940c1982b4317272a",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/BUILDING_LOCK.json": {
+    "mtime": 1793649431.9866302,
+    "seen": 1793662684.1775508,
+    "ast_hash": "66b3bde231b02b7c40d7701ed2560520",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/CHARACTER_LOCK.json": {
+    "mtime": 1793649431.9943292,
+    "seen": 1793662684.177552,
+    "ast_hash": "c1a71fff3be9167aa9613a18631d92c5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/DANCHEONG_SOURCE_INVENTORY.json": {
+    "mtime": 1793649431.99908,
+    "seen": 1793662684.177553,
+    "ast_hash": "1bb89675cac18ac5dfff45eb8e89cdc8",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/SYMBOL_STYLE_LOCK.json": {
+    "mtime": 1793649432.0065336,
+    "seen": 1793662684.1775541,
+    "ast_hash": "08e655fdaa54e6e8ebbeb8bfab506236",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/VALIDATION.json": {
+    "mtime": 1793649432.0112407,
+    "seen": 1793662684.1775556,
+    "ast_hash": "9db4dad82a0b92882ecfd71c2872d54d",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/CANONICAL_PROMOTION_R16.json": {
+    "mtime": 1793649432.0156107,
+    "seen": 1793662684.177557,
+    "ast_hash": "7bf47d9a398f2433e88a6397e4954c47",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/R16_APP_ASSET_CONTRACT.json": {
+    "mtime": 1793649432.0254085,
+    "seen": 1793662684.1775584,
+    "ast_hash": "f226eb69350a0472c4b74d92c84185d1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/WORLD_CONTRACT_V3_2.json": {
+    "mtime": 1793649432.0311706,
+    "seen": 1793662684.1775599,
+    "ast_hash": "0ecb55b9db6177bc7b1457ba4a174c48",
+    "semantic_hash": ""
+  },
+  "design/canonical/README.md": {
+    "mtime": 1793649430.0147223,
+    "seen": 1793662684.8961892,
+    "ast_hash": "1c038b8cdec3fc7c52f0baf66fbea184",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/APP_ACTING_USE.md": {
+    "mtime": 1793649430.0253737,
+    "seen": 1793662684.896192,
+    "ast_hash": "888b652c24cf29e5206146ffdd8179d0",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/README.md": {
+    "mtime": 1793649430.0358045,
+    "seen": 1793662684.8961937,
+    "ast_hash": "cd03881fdb3e109cbc440d4b13e665b8",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/TAEGO_COMPARISON.md": {
+    "mtime": 1793649430.0382133,
+    "seen": 1793662684.8961952,
+    "ast_hash": "983d0ea0da16b447e4a180687f2a9c02",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/ACTING_DIRECTION.md": {
+    "mtime": 1793649430.4766886,
+    "seen": 1793662684.8961966,
+    "ast_hash": "bbd0ca67c2e3fcf6fc2132ce71f80387",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/CHARACTER_STANDARD.md": {
+    "mtime": 1793649430.489371,
+    "seen": 1793662684.8961987,
+    "ast_hash": "006e43bfbc1caeb918f703cd870550be",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/README.md": {
+    "mtime": 1793649430.4919043,
+    "seen": 1793662684.8962,
+    "ast_hash": "b134330bd454a0967ef62ef0758e7ab9",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/RPG_SCREEN_DIRECTION.md": {
+    "mtime": 1793649430.4980674,
+    "seen": 1793662684.8962014,
+    "ast_hash": "4afb5d36a6c92c52027db363581c3f79",
+    "semantic_hash": ""
+  },
+  "design/canonical/sujin/20261031/README.md": {
+    "mtime": 1793649431.4660513,
+    "seen": 1793662684.8962035,
+    "ast_hash": "5f14b2b2bd96d0b516db763d67797945",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/README.md": {
+    "mtime": 1793649431.4774246,
+    "seen": 1793662684.9602108,
+    "ast_hash": "cfc1035776eec7b5beb65dd1a6f0c207",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/ART_AND_MEDIA_DIRECTIVE.md": {
+    "mtime": 1793649431.4831805,
+    "seen": 1793662684.960214,
+    "ast_hash": "2c999bcaaf898ff0dab4eab80e4ab159",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/CURRICULUM_AND_NPC_FLOW.md": {
+    "mtime": 1793649431.4851801,
+    "seen": 1793662684.9602158,
+    "ast_hash": "0014bcea7d314d3044bc86e615e05a60",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/DETAIL_INDEX.md": {
+    "mtime": 1793649431.48718,
+    "seen": 1793662684.960218,
+    "ast_hash": "f21816dec0d21f53c8cc27d1098ca88e",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/FINAL_DECISIONS.md": {
+    "mtime": 1793649431.4884086,
+    "seen": 1793662684.9602196,
+    "ast_hash": "96725c93c564bddaff4f815f236c4f87",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/README.md": {
+    "mtime": 1793649431.4916275,
+    "seen": 1793662684.9602215,
+    "ast_hash": "b6d73f2498b3a107434ae24262766ea6",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/WORLD_AND_STORY_BIBLE.md": {
+    "mtime": 1793649431.4971032,
+    "seen": 1793662684.960223,
+    "ast_hash": "5487f5bf89a695c4f22bdcbefb3c2655",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-r16-source-update-20261031/README.md": {
+    "mtime": 1793649431.5046992,
+    "seen": 1793662684.9602246,
+    "ast_hash": "190ab9d3bcd6b25b239c550dbc3ce825",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-direction-20261031/PRODUCT-BRIEF.md": {
+    "mtime": 1793649431.510602,
+    "seen": 1793662684.9602263,
+    "ast_hash": "030bb72eb7887235111b7be9cd6e2a65",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-direction-20261031/SOURCE-REVIEW.md": {
+    "mtime": 1793649431.5141182,
+    "seen": 1793662684.9602282,
+    "ast_hash": "0184e5c588dbf7d98ffb47056d537ec3",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/PLAN.md": {
+    "mtime": 1793649431.5173452,
+    "seen": 1793662684.9602299,
+    "ast_hash": "f64654d5455a61c8bc8eb3e965b69ff8",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/REVIEW.md": {
+    "mtime": 1793649431.5193565,
+    "seen": 1793662684.9602315,
+    "ast_hash": "91720d08e12229d7ac76e11e2adeafc3",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/experience-review.md": {
+    "mtime": 1793649431.5218644,
+    "seen": 1793662684.9602332,
+    "ast_hash": "37dd48726de9ed88da0c87073fcc0b37",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/pipeline-review.md": {
+    "mtime": 1793649431.5260024,
+    "seen": 1793662684.9602354,
+    "ast_hash": "e294795e2efaa49d6dd6f35d790383d5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/visual-review.md": {
+    "mtime": 1793649431.5280054,
+    "seen": 1793662684.9602373,
+    "ast_hash": "9a2fba18df28331fe16b9519f0357ce4",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/COPY-REVIEW.md": {
+    "mtime": 1793649431.530749,
+    "seen": 1793662684.9602392,
+    "ast_hash": "fb75599c50f24f0ac9d0dc255d27c410",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/HANOK-SOURCE-REVIEW.md": {
+    "mtime": 1793649431.5352733,
+    "seen": 1793662684.9602406,
+    "ast_hash": "e5c6aaab99e6f81ccf1fe639a84f5002",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/INTRO-COVERAGE.md": {
+    "mtime": 1793649431.5460064,
+    "seen": 1793662684.9602427,
+    "ast_hash": "06ca08d187d5089f9efa465352d806f9",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/STORY-COVERAGE.md": {
+    "mtime": 1793649431.558266,
+    "seen": 1793662684.9602444,
+    "ast_hash": "cc86eea354d8aebd0f0bdec1decf5a23",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-prototype-20261031/REJECTED.md": {
+    "mtime": 1793649431.563446,
+    "seen": 1793662684.9602463,
+    "ast_hash": "b6277da7ff2b2ab8f41dd20c55f15f1c",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/README.md": {
+    "mtime": 1793649431.5751584,
+    "seen": 1793662684.960248,
+    "ast_hash": "258dc7f1f10cbc692fa438023b3a0e93",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-localization-20261030/README.md": {
+    "mtime": 1793649431.5832024,
+    "seen": 1793662684.9602494,
+    "ast_hash": "ee81407fa52c57ec54c6d16c6bc5d9a8",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-mockups-20261030/REVIEW.md": {
+    "mtime": 1793649431.5952797,
+    "seen": 1793662684.9602509,
+    "ast_hash": "d22e534b26a1681dca3ced63484869d0",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/CONTENT_PLAN.md": {
+    "mtime": 1793649431.5998516,
+    "seen": 1793662684.960252,
+    "ast_hash": "83ac6c254c1698d0ff26d8574a75938a",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/FIRST_EPISODES.md": {
+    "mtime": 1793649431.602438,
+    "seen": 1793662684.960254,
+    "ast_hash": "d2fc98a6e3c17d994017680f9c1aa719",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/01_A1.1-01.md": {
+    "mtime": 1793649431.6125226,
+    "seen": 1793662684.9602559,
+    "ast_hash": "64809e02a1a3247718ba51717e69715c",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/02_A1.1-02.md": {
+    "mtime": 1793649431.6159105,
+    "seen": 1793662684.9602578,
+    "ast_hash": "d0f5dd6c9f90b0e7141404aa31b9234d",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/03_A1.1-03.md": {
+    "mtime": 1793649431.619178,
+    "seen": 1793662684.960259,
+    "ast_hash": "263df76f6b24262b6e74b6e0313f41cc",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/04_A1.1-04.md": {
+    "mtime": 1793649431.6218686,
+    "seen": 1793662684.960261,
+    "ast_hash": "326d99af45a8fddae35ba16cb5d07cf3",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/05_A1.1-05.md": {
+    "mtime": 1793649431.6249952,
+    "seen": 1793662684.9602635,
+    "ast_hash": "e623af054d527c4527ebd2d8ffdb2dc0",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/06_A1.1-06.md": {
+    "mtime": 1793649431.6275725,
+    "seen": 1793662684.9602652,
+    "ast_hash": "436442fdda6885c7971f0d9985504777",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/A11_INDEPENDENT_REVIEW.md": {
+    "mtime": 1793649431.629675,
+    "seen": 1793662684.960267,
+    "ast_hash": "e77e6536d0d55a64479b93ebd3e88fef",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/COMMON_COPY.md": {
+    "mtime": 1793649431.6374571,
+    "seen": 1793662684.9602683,
+    "ast_hash": "5406c36971b78cc3a2206d41c666647b",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/GRAMMAR_AND_RECALL.md": {
+    "mtime": 1793649431.6460137,
+    "seen": 1793662684.9602695,
+    "ast_hash": "e5c5cb82df361196a032c434a0645a43",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/LQ05_GATEKEEPER.md": {
+    "mtime": 1793649431.655749,
+    "seen": 1793662684.9602714,
+    "ast_hash": "87c1d91e686db168117b315151839922",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/MEDIA_AND_CRITERIA.md": {
+    "mtime": 1793649431.6587486,
+    "seen": 1793662684.9602735,
+    "ast_hash": "c58d138db3a2a9becd8d6f73ac16675a",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/QA_REVIEW.md": {
+    "mtime": 1793649431.6612556,
+    "seen": 1793662684.9602752,
+    "ast_hash": "fd8efc633c79e969fc18437c093cf94e",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/README.md": {
+    "mtime": 1793649431.663776,
+    "seen": 1793662684.960277,
+    "ast_hash": "434c6e46b5900c2a78bc1b24ecfaa423",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/build_a11_manuscript.py.txt": {
+    "mtime": 1793649431.6761873,
+    "seen": 1793662684.9602787,
+    "ast_hash": "e1ee89526e339fc51014ad771a3becd8",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/build_foundation2_manuscript.py.txt": {
+    "mtime": 1793649431.6800196,
+    "seen": 1793662684.9602802,
+    "ast_hash": "3fed0faa7d5f8b937d67022cc26e8e57",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/build_foundation3_manuscript.py.txt": {
+    "mtime": 1793649431.683133,
+    "seen": 1793662684.9602818,
+    "ast_hash": "054a6d46ee42bbff11c5ad60816ac628",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/build_foundation4_manuscript.py.txt": {
+    "mtime": 1793649431.6863823,
+    "seen": 1793662684.9602833,
+    "ast_hash": "3a77f55873521c8f8a481a0e28fe67a3",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/finalize_content_delivery.py.txt": {
+    "mtime": 1793649431.6886466,
+    "seen": 1793662684.9602847,
+    "ast_hash": "c91f0d1df95cd14ced5be5787ba1d533",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/01_FIRST_SOUND.md": {
+    "mtime": 1793649431.6927273,
+    "seen": 1793662684.9602861,
+    "ast_hash": "579cc745b16796d2fc73e9223ac706eb",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/02_TWO_MORE_SOUNDS.md": {
+    "mtime": 1793649431.695814,
+    "seen": 1793662684.960288,
+    "ast_hash": "14339fcf2ff51bbe877b4c51490ee09d",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/03_TWO_LINES.md": {
+    "mtime": 1793649431.6994908,
+    "seen": 1793662684.9602895,
+    "ast_hash": "ac7ccfcb91e52da620cc0ebb675ad70e",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/README.md": {
+    "mtime": 1793649431.704182,
+    "seen": 1793662684.9602911,
+    "ast_hash": "e25cf7ef963391458f868299d881c360",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/01_FIRST_CONSONANTS.md": {
+    "mtime": 1793649431.7107513,
+    "seen": 1793662684.9602928,
+    "ast_hash": "9ab2b81df86ae3e28e95abfa61f74c4e",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/02_TOOL_LABEL.md": {
+    "mtime": 1793649431.7127504,
+    "seen": 1793662684.9602942,
+    "ast_hash": "89877a136cf15c3b67199f3ce838749d",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/03_FLOOR_REFERENCE.md": {
+    "mtime": 1793649431.7153897,
+    "seen": 1793662684.9602957,
+    "ast_hash": "32e90272d0785c8ac918974e57c6582e",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/04_TWO_INITIALS.md": {
+    "mtime": 1793649431.7179666,
+    "seen": 1793662684.960297,
+    "ast_hash": "d1f6c572f0003de5f0409f0af96f6002",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/05_BREATH_AND_REPEAT.md": {
+    "mtime": 1793649431.7203307,
+    "seen": 1793662684.9602985,
+    "ast_hash": "4a95c543b412081d396e9f60186606b1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/06_TREE_HAT_TIMBER.md": {
+    "mtime": 1793649431.7223809,
+    "seen": 1793662684.9602997,
+    "ast_hash": "7003757118f5287b02974a13d6c125ef",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/07_PHOTO_CARDS_AND_LABELS.md": {
+    "mtime": 1793649431.7247558,
+    "seen": 1793662684.9603012,
+    "ast_hash": "3599f0c115f20a8b51349dea456d3004",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/COMMON_COPY.md": {
+    "mtime": 1793649431.7291381,
+    "seen": 1793662684.9603024,
+    "ast_hash": "cdfa846e77005047434d797b3ef418b8",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/MEDIA_BRIEFS.md": {
+    "mtime": 1793649431.736928,
+    "seen": 1793662684.9603035,
+    "ast_hash": "c8319a5c239c86b0318266cdab93b2e8",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/QA_REVIEW.md": {
+    "mtime": 1793649431.739292,
+    "seen": 1793662684.960305,
+    "ast_hash": "2a4da57897c38ae1b59c51fba813a059",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/README.md": {
+    "mtime": 1793649431.7416675,
+    "seen": 1793662684.9603064,
+    "ast_hash": "684ab6c693a37233bd4950f71ac94d8c",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/01_VERTICAL_BRANCHES.md": {
+    "mtime": 1793649431.7501912,
+    "seen": 1793662684.9603076,
+    "ast_hash": "a4f3e59cdedb188c0cb950155d4b66a7",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/02_HORIZONTAL_BRANCHES.md": {
+    "mtime": 1793649431.752385,
+    "seen": 1793662684.9603093,
+    "ast_hash": "8602288c3f0486248aeb399ed06f8ae6",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/03_K_T_PAIRS.md": {
+    "mtime": 1793649431.7547617,
+    "seen": 1793662684.9603102,
+    "ast_hash": "04c0e781467adb93fadd33bdbdace05f",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/04_P_CH_PAIRS.md": {
+    "mtime": 1793649431.756811,
+    "seen": 1793662684.960312,
+    "ast_hash": "a830dc8270c552af907d77466f0ae3d1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/05_KK_TT_PAIRS.md": {
+    "mtime": 1793649431.7592907,
+    "seen": 1793662684.9603133,
+    "ast_hash": "559795b23f40813e0b7e2d1e0a7581a5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/06_PP_SS_JJ.md": {
+    "mtime": 1793649431.7612915,
+    "seen": 1793662684.9603145,
+    "ast_hash": "b7fc047802e793f8f8f9d8fb1b99c1d1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/07_AE_E_FORMS.md": {
+    "mtime": 1793649431.7636702,
+    "seen": 1793662684.960316,
+    "ast_hash": "d11348c29db9c71a692117d08124592c",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/08_WA_WO.md": {
+    "mtime": 1793649431.7658632,
+    "seen": 1793662684.9603176,
+    "ast_hash": "3095decdbd4fc9a4ace20daee323c1e8",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/09_WI_OE.md": {
+    "mtime": 1793649431.76871,
+    "seen": 1793662684.9603193,
+    "ast_hash": "2ed702477a9f8e614acbd6331e32b370",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/10_FIRST_FINAL_LABELS.md": {
+    "mtime": 1793649431.7714336,
+    "seen": 1793662684.9603205,
+    "ast_hash": "e71fdc54c9a0f49937d1440d6b3f9e3b",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/11_INITIAL_FINAL_NG_MAP.md": {
+    "mtime": 1793649431.773957,
+    "seen": 1793662684.960322,
+    "ast_hash": "ca8284092b5cd9e5b2962aaebd3c28e5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/COMMON_COPY.md": {
+    "mtime": 1793649431.7800775,
+    "seen": 1793662684.9603233,
+    "ast_hash": "e755a26135730eebf61de46b46e11ce7",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/MEDIA_AND_SOURCES.md": {
+    "mtime": 1793649431.789732,
+    "seen": 1793662684.9603255,
+    "ast_hash": "424f327b67ccc041d27d84a9998ffa5f",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/QA_REVIEW.md": {
+    "mtime": 1793649431.792492,
+    "seen": 1793662684.9603274,
+    "ast_hash": "ad78f5b54ca03d9cdb4f2afe38990f55",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/README.md": {
+    "mtime": 1793649431.7946835,
+    "seen": 1793662684.960329,
+    "ast_hash": "66407cfe1dd02a9a769fb4a183fa5f30",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/01_CLOSED_FINALS.md": {
+    "mtime": 1793649431.8010762,
+    "seen": 1793662684.9603307,
+    "ast_hash": "71cf5cf88c7fd5e8ed09b00bd822df87",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/02_WAE_WE_FORMS.md": {
+    "mtime": 1793649431.8035777,
+    "seen": 1793662684.9603324,
+    "ast_hash": "52336211285f7799ec3fa47ad4b8bbc6",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/03_YAE_YE_AND_YES.md": {
+    "mtime": 1793649431.807509,
+    "seen": 1793662684.9603338,
+    "ast_hash": "ad361f9990ccdfb9d2f8a4d30132a219",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/04_UI_AND_CHOSEN_REVIEW.md": {
+    "mtime": 1793649431.8087006,
+    "seen": 1793662684.9603357,
+    "ast_hash": "4fb2d19d3317f11a494573c2af28a6d0",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/05_LINKED_SOUNDS.md": {
+    "mtime": 1793649431.813176,
+    "seen": 1793662684.9603372,
+    "ast_hash": "d2923812effccddddae88e54a13ed789",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/06_FIRST_NOTE_INPUT.md": {
+    "mtime": 1793649431.8178213,
+    "seen": 1793662684.9603384,
+    "ast_hash": "c74171307831ad221f637e0614a8ea7e",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/07_THIS_HOUSE_AND_REQUESTS.md": {
+    "mtime": 1793649431.819128,
+    "seen": 1793662684.96034,
+    "ast_hash": "45bb37832cb4416ebfb637a6fc157852",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/COMMON_COPY.md": {
+    "mtime": 1793649431.826982,
+    "seen": 1793662684.9603412,
+    "ast_hash": "9a675832cf05a28390957416443ec561",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/MEDIA_AND_CRITERIA.md": {
+    "mtime": 1793649431.8442547,
+    "seen": 1793662684.9603426,
+    "ast_hash": "65903aaff8ffdf73376a1dd26ee4f27c",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/QA_REVIEW.md": {
+    "mtime": 1793649431.8463383,
+    "seen": 1793662684.9603443,
+    "ast_hash": "c284fb01572765cbe738b6ac076d8a0a",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/README.md": {
+    "mtime": 1793649431.8485658,
+    "seen": 1793662684.9603455,
+    "ast_hash": "152b03fb93e0f364f539639e829f0a38",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUES_10S.md": {
+    "mtime": 1793649431.8583663,
+    "seen": 1793662684.9603467,
+    "ast_hash": "5a77d255da3808e405d182e0255ebb38",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUE_QA.md": {
+    "mtime": 1793649431.8614252,
+    "seen": 1793662684.960348,
+    "ast_hash": "a7127776933b53f9ac96606115dbc91a",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.md": {
+    "mtime": 1793649431.8760486,
+    "seen": 1793662684.9603498,
+    "ast_hash": "92cd2f0c76e0d5a5faf4e314636b5ea1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/QA_REVIEW.md": {
+    "mtime": 1793649431.880186,
+    "seen": 1793662684.9603517,
+    "ast_hash": "b6079a3fd258ecbd9d32ff5ea472b97b",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/README.md": {
+    "mtime": 1793649431.8816662,
+    "seen": 1793662684.9603531,
+    "ast_hash": "f99b205cb0a73d54b1c7da61e7105c85",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/SEASON1_INDEPENDENT_REVIEW.md": {
+    "mtime": 1793649431.8833187,
+    "seen": 1793662684.9603543,
+    "ast_hash": "fbeedf9ab9524dad5926fa1b31b1f17f",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.md": {
+    "mtime": 1793649431.8994548,
+    "seen": 1793662684.9603558,
+    "ast_hash": "2bfb90bcaa61c9e779f4582a76e56fac",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STORY_MANAGER_GUIDE.md": {
+    "mtime": 1793649431.9018092,
+    "seen": 1793662684.9603574,
+    "ast_hash": "7f14e6f6c5798804a1c5c77147fce868",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/build_level_story_100.py.txt": {
+    "mtime": 1793649431.909269,
+    "seen": 1793662684.9603586,
+    "ast_hash": "c32e26049b49f1e8ce6f4f5f7401043b",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/build_stage_story_128.py.txt": {
+    "mtime": 1793649431.9132643,
+    "seen": 1793662684.96036,
+    "ast_hash": "9053b78a3ff4ba05aba76655f32382f3",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/verify_season1_package.py.txt": {
+    "mtime": 1793649431.915265,
+    "seen": 1793662684.9603617,
+    "ast_hash": "7ff333ccfac540f79a64e03fcb67d6c1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/verify_a11_manuscript.py.txt": {
+    "mtime": 1793649431.9167728,
+    "seen": 1793662684.9603636,
+    "ast_hash": "64c7ee7f3cb58bd18a71ac91d766c6a3",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/verify_foundation2_manuscript.py.txt": {
+    "mtime": 1793649431.9185767,
+    "seen": 1793662684.9603646,
+    "ast_hash": "e85b0c393470c6c9fe9873b9d864f526",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/verify_foundation3_manuscript.py.txt": {
+    "mtime": 1793649431.9229007,
+    "seen": 1793662684.9603658,
+    "ast_hash": "beaf1259cdf4992c93b3f0cf6d97da07",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/verify_foundation4_manuscript.py.txt": {
+    "mtime": 1793649431.9255023,
+    "seen": 1793662684.9603672,
+    "ast_hash": "7d74a573bf10080d7da97992f2d047dc",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/CHAPTER_EVENT_DESIGN.md": {
+    "mtime": 1793649431.9404695,
+    "seen": 1793662684.9603682,
+    "ast_hash": "5c60f806e3bcf23a8f5f6e20ff9d2c0d",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/INDEPENDENT_REVIEW.md": {
+    "mtime": 1793649431.9463022,
+    "seen": 1793662684.9603698,
+    "ast_hash": "82ea16c5af28becb276f1d7906cd1c0c",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/MOCKUP_IMAGE_BRIEF.md": {
+    "mtime": 1793649431.949783,
+    "seen": 1793662684.9603715,
+    "ast_hash": "a75d5100d4898b0263f7f8adfb0bcc4f",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/README.md": {
+    "mtime": 1793649431.9539218,
+    "seen": 1793662684.960373,
+    "ast_hash": "e4549640b06f9b29fb9f21d6558b8a13",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/VIDEO_PRODUCTION_PLAN.md": {
+    "mtime": 1793649431.9615824,
+    "seen": 1793662684.9603746,
+    "ast_hash": "6011bcb843e3c1d27a6faf22206e7203",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/AI_ASSET_LOCK_PROMPT_EN.md": {
+    "mtime": 1793649431.9674592,
+    "seen": 1793662684.9603755,
+    "ast_hash": "415ff2402e2eae03fd84fc52854f64f4",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/AI_ASSET_LOCK_PROMPT_KO.md": {
+    "mtime": 1793649431.9702368,
+    "seen": 1793662684.9603767,
+    "ast_hash": "09005fd8859faf80505d93a0e3413dd5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/ASSET_LOCK_LIST.md": {
+    "mtime": 1793649431.9766896,
+    "seen": 1793662684.9603784,
+    "ast_hash": "117e48c93844abce6d95b1eb668f15fd",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/BUILDING_LOCK.md": {
+    "mtime": 1793649431.9897065,
+    "seen": 1793662684.9603796,
+    "ast_hash": "64558ea143e3c1f8dcb754a2a1256071",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/CHARACTER_LOCK.md": {
+    "mtime": 1793649431.9969292,
+    "seen": 1793662684.9603806,
+    "ast_hash": "b5525687ff6f82c330880b857c7f90b7",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/INDEPENDENT_REVIEW.md": {
+    "mtime": 1793649432.0018923,
+    "seen": 1793662684.9603827,
+    "ast_hash": "07fcb9c6b992866ffc2246abc42b2836",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/SYMBOL_STYLE_LOCK.md": {
+    "mtime": 1793649432.0086377,
+    "seen": 1793662684.9603837,
+    "ast_hash": "8ce8070c733dcd1342967a16cfd8d25b",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/PROVIDED_BEGINNER_SPEC_A.txt": {
+    "mtime": 1793649432.0186093,
+    "seen": 1793662684.9603856,
+    "ast_hash": "83dd007e7db519317d33abed993cf4aa",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/PROVIDED_BEGINNER_SPEC_B.txt": {
+    "mtime": 1793649432.0209699,
+    "seen": 1793662684.960387,
+    "ast_hash": "318d9b8bd9a4ae6de0983a4a4ac2e8d9",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/STORY_V3_5.md": {
+    "mtime": 1793649432.0298471,
+    "seen": 1793662684.9603884,
+    "ast_hash": "7eadaeb590732c70dd3d6d3cc304e296",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/curriculum/ASSESSMENT_CONTRACT.md": {
+    "mtime": 1793649432.0346882,
+    "seen": 1793662684.9603903,
+    "ast_hash": "b6f51c9b249e21dd491388f4d017d606",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/curriculum/BAND_CONTRACTS.md": {
+    "mtime": 1793649432.0377145,
+    "seen": 1793662684.960392,
+    "ast_hash": "2b1f4b7aa0b40a3c14380ea46d2cfb1f",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/curriculum/FIRST_PRODUCTION_PACK.md": {
+    "mtime": 1793649432.0422049,
+    "seen": 1793662684.9603932,
+    "ast_hash": "94fe4e754af010c32171e162543cf0cb",
+    "semantic_hash": ""
+  },
+  "design/canonical/sujin/20261031/01-front.png": {
+    "mtime": 1793649431.3713627,
+    "seen": 1793662685.0139415,
+    "ast_hash": "4a2475b3bc51e44928bf4b643a8afb13",
+    "semantic_hash": ""
+  },
+  "design/canonical/sujin/20261031/02-expressions-six.png": {
+    "mtime": 1793649431.4135096,
+    "seen": 1793662685.013945,
+    "ast_hash": "2c14c8e712b08fb66bb1e3e0c7dd232f",
+    "semantic_hash": ""
+  },
+  "design/canonical/sujin/20261031/03-poses-six.png": {
+    "mtime": 1793649431.456453,
+    "seen": 1793662685.0139475,
+    "ast_hash": "4e8e17beef4fa5657ba92f025856b982",
     "semantic_hash": ""
   }
 }

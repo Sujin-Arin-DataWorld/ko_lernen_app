@@ -75,6 +75,35 @@ class IntroSelectionMotion extends StatelessWidget {
   );
 }
 
+/// The selection border follows the same finite state transition as the check.
+/// Decoration is painted around the unchanged child and never adds border padding.
+class IntroSelectionSurface extends StatelessWidget {
+  const IntroSelectionSurface({
+    super.key,
+    required this.selected,
+    required this.idle,
+    required this.active,
+    required this.child,
+  });
+
+  final bool selected;
+  final Decoration idle, active;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => _IntroReveal(
+    trigger: selected,
+    visible: selected,
+    duration: IntroMotion.selection,
+    distance: 0,
+    transitionBuilder: (_, value, child) => DecoratedBox(
+      decoration: Decoration.lerp(idle, active, value)!,
+      child: child,
+    ),
+    child: child,
+  );
+}
+
 /// A single live scene: outgoing media is disposed immediately. Draft updates
 /// keep the scene id, subtree identity, focus and scroll position unchanged.
 class IntroSceneTransition extends StatelessWidget {
@@ -106,6 +135,7 @@ class _IntroReveal extends StatefulWidget {
     required this.distance,
     required this.child,
     this.restartOnChange = false,
+    this.transitionBuilder,
   });
 
   final Object trigger;
@@ -114,6 +144,7 @@ class _IntroReveal extends StatefulWidget {
   final double distance;
   final bool restartOnChange;
   final Widget child;
+  final Widget Function(BuildContext, double, Widget?)? transitionBuilder;
 
   @override
   State<_IntroReveal> createState() => _IntroRevealState();
@@ -187,16 +218,18 @@ class _IntroRevealState extends State<_IntroReveal>
   Widget build(BuildContext context) => AnimatedBuilder(
     animation: _controller,
     child: widget.child,
-    builder: (context, child) => Opacity(
-      opacity: _controller.value,
-      alwaysIncludeSemantics: true,
-      child: Transform.translate(
-        offset: Offset(
-          0,
-          _motionEnabled ? (1 - _controller.value) * widget.distance : 0,
+    builder: (context, child) =>
+        widget.transitionBuilder?.call(context, _controller.value, child) ??
+        Opacity(
+          opacity: _controller.value,
+          alwaysIncludeSemantics: true,
+          child: Transform.translate(
+            offset: Offset(
+              0,
+              _motionEnabled ? (1 - _controller.value) * widget.distance : 0,
+            ),
+            child: child,
+          ),
         ),
-        child: child,
-      ),
-    ),
   );
 }

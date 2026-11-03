@@ -7511,17 +7511,7 @@ class AppL10nEn extends AppL10n {
   String get bojagiTitle => 'Bojagi bundle';
 
   @override
-  String get bojagiLoading => 'Preparing your bundle…';
-
-  @override
-  String get bojagiOpenHint => 'Tap the knot to open the bundle.';
-
-  @override
   String get bojagiPickTitle => 'Pick one';
-
-  @override
-  String get bojagiPickBody =>
-      'Whatever you leave stays in the pool and can turn up in a later bundle.';
 
   @override
   String bojagiChooseDecoration(String name) {
@@ -7529,24 +7519,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get bojagiEmptyTitle => 'No bundle waiting';
-
-  @override
-  String get bojagiEmptyBody => 'Finish a quest and you get a bundle for it.';
-
-  @override
   String get bojagiAllOwnedTitle => 'Nothing new inside';
-
-  @override
-  String get bojagiAllOwnedBody =>
-      'You already own all three pieces from this bundle.';
-
-  @override
-  String get bojagiProblemTitle => 'This bundle will not open right now';
-
-  @override
-  String get bojagiProblemBody =>
-      'Try again in a moment. Your bundle is not lost.';
 
   @override
   String get bojagiRetry => 'Try again';
@@ -7563,17 +7536,7 @@ class AppL10nEn extends AppL10n {
   String get bojagiGoToRoom => 'Place it in the room';
 
   @override
-  String get bojagiNext => 'Open the next bundle';
-
-  @override
   String get bojagiCollectionCompleteTitle => 'Collection complete';
-
-  @override
-  String get bojagiCollectionCompleteBody =>
-      'You already own every room piece. Archive this bundle to continue.';
-
-  @override
-  String get bojagiArchiveComplete => 'Archive bundle';
 
   @override
   String get hanokWorldTitle => 'My Hanok world';
@@ -12234,4 +12197,149 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get accountRecoveryResumeConfirm => 'Continue confirmed choice';
+
+  @override
+  String get todayFirstSyllable => 'Your first syllable';
+
+  @override
+  String get todayFirstSyllableBody => 'Listen and combine two letters.';
+
+  @override
+  String get todayStartHangul => 'Start Hangul';
+
+  @override
+  String get todayStartReview => 'Start review';
+
+  @override
+  String get todayYourHanok => 'Your Hanok';
+
+  @override
+  String get todayDetails => 'Your day at a glance';
+
+  @override
+  String get todayProgress => 'Learning progress';
+
+  @override
+  String get najeonChestTitle => 'Treasure chest';
+
+  @override
+  String get najeonChestLoading => 'Preparing your treasure chest…';
+
+  @override
+  String get najeonChestOpenHint => 'Tap the chest to open it.';
+
+  @override
+  String get najeonChestOpen => 'Open chest';
+
+  @override
+  String get najeonChestPickBody =>
+      'Choose one piece for your room. The other pieces can appear in a later treasure chest.';
+
+  @override
+  String get najeonChestEmptyTitle => 'No treasure chest waiting';
+
+  @override
+  String get najeonChestEmptyBody =>
+      'Finish a quest to receive a treasure chest.';
+
+  @override
+  String get najeonChestAllOwnedBody =>
+      'You already own all three pieces from this treasure chest.';
+
+  @override
+  String get najeonChestProblemTitle =>
+      'This treasure chest will not open right now';
+
+  @override
+  String get najeonChestProblemBody =>
+      'Try again in a moment. Your treasure chest is not lost.';
+
+  @override
+  String get najeonChestNext => 'Open the next chest';
+
+  @override
+  String get najeonChestCollectionCompleteBody =>
+      'You already own every room piece. Archive this treasure chest to continue.';
+
+  @override
+  String get najeonChestArchive => 'Archive chest';
+
+  @override
+  String get najeonChestHelpTitle => 'Najeon · 나전';
+
+  @override
+  String get najeonChestHelpBody =>
+      'Najeon uses thin pieces of shell cut into patterns and inlaid into a lacquered surface. The shimmering shell material is called mother-of-pearl.';
+
+  @override
+  String get todayCompanionSubtitle => 'Your Korean is growing.';
+
+  @override
+  String get todayNextStage => 'Your next step';
+
+  @override
+  String get todayTreasureTitle => 'Your treasure chest';
+
+  @override
+  String todayTreasureReady(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ready to open',
+      one: '1 ready to open',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get todayTreasureCollection => 'My collection';
+
+  @override
+  String get todayExploreGames => 'Explore games';
+
+  @override
+  String get todayMissionGreetingTitle => 'Your first hello';
+
+  @override
+  String get todayMissionGreetingBody =>
+      'Greet someone and ask a short question.';
+
+  @override
+  String get todayMissionPlansTitle => 'Make a plan together';
+
+  @override
+  String get todayMissionPlansBody => 'Suggest a meeting and change the time.';
+
+  @override
+  String get todayMissionRequestsTitle => 'Make the terms clear';
+
+  @override
+  String get todayMissionRequestsBody =>
+      'Make a request and negotiate a solution.';
+
+  @override
+  String get todayMissionPolicyTitle => 'Shape the rules together';
+
+  @override
+  String get todayMissionPolicyBody =>
+      'Weigh different views and support a proposal.';
+
+  @override
+  String get todayMissionAuthorityTitle => 'Where authority ends';
+
+  @override
+  String get todayMissionAuthorityBody =>
+      'Examine mandates and distinguish their limits.';
+
+  @override
+  String get todayMissionReviewTitle => 'Keep it with you';
+
+  @override
+  String get todayResumeStage => 'Continue';
+
+  @override
+  String get todayTreasureOpen => 'Open';
+
+  @override
+  String get todayBeginStage => 'Let’s begin';
 }

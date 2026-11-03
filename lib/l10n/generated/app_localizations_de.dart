@@ -7550,17 +7550,7 @@ class AppL10nDe extends AppL10n {
   String get bojagiTitle => 'Bojagi-Bündel';
 
   @override
-  String get bojagiLoading => 'Dein Bündel wird vorbereitet …';
-
-  @override
-  String get bojagiOpenHint => 'Tippe auf den Knoten, um das Bündel zu öffnen.';
-
-  @override
   String get bojagiPickTitle => 'Such dir eins aus';
-
-  @override
-  String get bojagiPickBody =>
-      'Was du liegen lässt, bleibt im Beutel und kann in einem späteren Bündel wiederkommen.';
 
   @override
   String bojagiChooseDecoration(String name) {
@@ -7568,25 +7558,7 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get bojagiEmptyTitle => 'Kein Bündel wartet';
-
-  @override
-  String get bojagiEmptyBody =>
-      'Schließe eine Quest ab. Dafür bekommst du ein Bündel.';
-
-  @override
   String get bojagiAllOwnedTitle => 'Nichts Neues drin';
-
-  @override
-  String get bojagiAllOwnedBody =>
-      'Alle drei Stücke aus diesem Bündel hast du schon.';
-
-  @override
-  String get bojagiProblemTitle => 'Das Bündel lässt sich gerade nicht öffnen';
-
-  @override
-  String get bojagiProblemBody =>
-      'Versuch es gleich noch einmal. Dein Bündel geht dabei nicht verloren.';
 
   @override
   String get bojagiRetry => 'Nochmal versuchen';
@@ -7603,17 +7575,7 @@ class AppL10nDe extends AppL10n {
   String get bojagiGoToRoom => 'In der Stube aufstellen';
 
   @override
-  String get bojagiNext => 'Nächstes Bündel öffnen';
-
-  @override
   String get bojagiCollectionCompleteTitle => 'Sammlung vollständig';
-
-  @override
-  String get bojagiCollectionCompleteBody =>
-      'Du besitzt bereits alle Einrichtungsstücke. Lege dieses Bündel ab, um weiterzumachen.';
-
-  @override
-  String get bojagiArchiveComplete => 'Bündel ablegen';
 
   @override
   String get hanokWorldTitle => 'Meine Hanok-Welt';
@@ -12294,4 +12256,150 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get accountRecoveryResumeConfirm => 'Bestätigte Auswahl fortsetzen';
+
+  @override
+  String get todayFirstSyllable => 'Deine erste Silbe';
+
+  @override
+  String get todayFirstSyllableBody => 'Höre und verbinde zwei Zeichen.';
+
+  @override
+  String get todayStartHangul => 'Hangul starten';
+
+  @override
+  String get todayStartReview => 'Jetzt wiederholen';
+
+  @override
+  String get todayYourHanok => 'Dein Hanok';
+
+  @override
+  String get todayDetails => 'Dein Tag im Überblick';
+
+  @override
+  String get todayProgress => 'Lernfortschritt';
+
+  @override
+  String get najeonChestTitle => 'Schatztruhe';
+
+  @override
+  String get najeonChestLoading => 'Deine Schatztruhe wird vorbereitet …';
+
+  @override
+  String get najeonChestOpenHint => 'Tippe auf die Truhe, um sie zu öffnen.';
+
+  @override
+  String get najeonChestOpen => 'Truhe öffnen';
+
+  @override
+  String get najeonChestPickBody =>
+      'Wähle ein Stück für dein Zimmer. Die anderen Stücke können in einer späteren Schatztruhe wiederkommen.';
+
+  @override
+  String get najeonChestEmptyTitle => 'Keine Schatztruhe wartet';
+
+  @override
+  String get najeonChestEmptyBody =>
+      'Schließe eine Quest ab. Dafür bekommst du eine Schatztruhe.';
+
+  @override
+  String get najeonChestAllOwnedBody =>
+      'Du besitzt bereits alle drei Stücke aus dieser Schatztruhe.';
+
+  @override
+  String get najeonChestProblemTitle =>
+      'Die Schatztruhe lässt sich gerade nicht öffnen';
+
+  @override
+  String get najeonChestProblemBody =>
+      'Versuch es gleich noch einmal. Deine Schatztruhe geht dabei nicht verloren.';
+
+  @override
+  String get najeonChestNext => 'Nächste Truhe öffnen';
+
+  @override
+  String get najeonChestCollectionCompleteBody =>
+      'Du besitzt bereits alle Einrichtungsstücke. Lege diese Schatztruhe ab, um weiterzumachen.';
+
+  @override
+  String get najeonChestArchive => 'Truhe ablegen';
+
+  @override
+  String get najeonChestHelpTitle => 'Najeon · 나전';
+
+  @override
+  String get najeonChestHelpBody =>
+      'Bei Najeon werden dünne Stücke aus Muschelschalen zu Mustern geschnitten und in eine Lackoberfläche eingelegt. Die schimmernden Einlagen nennt man Perlmutt.';
+
+  @override
+  String get todayCompanionSubtitle => 'Dein Koreanisch wächst.';
+
+  @override
+  String get todayNextStage => 'Deine nächste Etappe';
+
+  @override
+  String get todayTreasureTitle => 'Deine Schatztruhe';
+
+  @override
+  String todayTreasureReady(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count warten auf dich',
+      one: '1 wartet auf dich',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get todayTreasureCollection => 'Sammlung';
+
+  @override
+  String get todayExploreGames => 'Spiele entdecken';
+
+  @override
+  String get todayMissionGreetingTitle => 'Heute sagst du Hallo';
+
+  @override
+  String get todayMissionGreetingBody =>
+      'Begrüße jemanden und stelle eine kurze Frage.';
+
+  @override
+  String get todayMissionPlansTitle => 'Ein Plan mit Freunden';
+
+  @override
+  String get todayMissionPlansBody =>
+      'Schlage ein Treffen vor und ändere den Termin.';
+
+  @override
+  String get todayMissionRequestsTitle => 'Klar miteinander planen';
+
+  @override
+  String get todayMissionRequestsBody =>
+      'Formuliere eine Bitte und handle eine Lösung aus.';
+
+  @override
+  String get todayMissionPolicyTitle => 'Regeln gemeinsam gestalten';
+
+  @override
+  String get todayMissionPolicyBody =>
+      'Wäge Positionen ab und begründe einen Vorschlag.';
+
+  @override
+  String get todayMissionAuthorityTitle => 'Wo Zuständigkeit endet';
+
+  @override
+  String get todayMissionAuthorityBody =>
+      'Prüfe Mandate und unterscheide ihre Grenzen.';
+
+  @override
+  String get todayMissionReviewTitle => 'Was bleibt, wächst';
+
+  @override
+  String get todayResumeStage => 'Fortsetzen';
+
+  @override
+  String get todayTreasureOpen => 'Öffnen';
+
+  @override
+  String get todayBeginStage => 'Los geht’s';
 }

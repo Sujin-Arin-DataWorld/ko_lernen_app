@@ -1,0 +1,1130 @@
+{
+  "schemaVersion": 1,
+  "presentationOnly": true,
+  "sourceAuthority": {
+    "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\DELIVERY.json",
+    "sha256": "8d9ac12234f6e294422e8e9e35056ae58a707c3022ad1e20bd62ce851e35ee01"
+  },
+  "sourceCatalog": {
+    "path": "assets/data/ildu_r16_art_v1.json",
+    "sha256": "f0dfbb6fd210e32fe4b5771f58c2dbeebfb3d0e27aa5c85158cc531f98152859"
+  },
+  "canonicalPromotionSha256": "384b07d14464a86dc02bc274d6a50336f356ad7b4b7ecc7027e8825021480865",
+  "runtimeCatalog": {
+    "path": "assets/data/ildu_r16_sarang_layers_v1.json",
+    "sha256": "9461915fb5bc6c09db500e2ad7a6fb2fdc0f033c60bc00d0d502cb84f9bc554c"
+  },
+  "runtimeStageCount": 16,
+  "unusedFull17thPairIncluded": false,
+  "foregroundPolicy": "Original delivered PNG bytes copied exactly; no rewrite or color/image edit",
+  "shadowPolicy": "RGB16 Raw source PNG decoded by Flutter dart:ui, exported as PNG8, losslessly encoded with Pillow WebP, then re-decoded by the same Flutter engine and byte-compared over all rawRgba pixels",
+  "decoder": {
+    "frameworkVersion": "3.44.8",
+    "channel": "stable",
+    "repositoryUrl": "https://github.com/flutter/flutter.git",
+    "frameworkRevision": "058e0af2c2b57e369d905a03ac9748b0ebf543c6",
+    "frameworkCommitDate": "2026-07-23 10:56:21 -0700",
+    "engineRevision": "0cd610717bde95fd88343c64f81c11ba4e5c0010",
+    "engineCommitDate": "2026-07-23 16:11:34.000Z",
+    "engineContentHash": "13ffd72b2f9a5ca4db2a74ea52d5353ec2e8f939",
+    "engineBuildDate": "2026-07-23 18:36:29.809",
+    "dartSdkVersion": "3.12.2",
+    "devToolsVersion": "2.57.0",
+    "flutterVersion": "3.44.8"
+  },
+  "decoderPlatform": "Local Windows flutter_tester dart:ui engine; not an Android/iOS device claim",
+  "allPixelProof": {
+    "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\c5-quality-rebuild-20261030\\r16-runtime-encoding\\flutter-equality-proof.json",
+    "sha256": "7833911edd1b0e00567414b9cd59129a4f97043215df344e57d23d2a2d81dd6d",
+    "stages": 16,
+    "comparedPixels": 34560000,
+    "differingBytes": 0,
+    "formatsCompared": [
+      "source RGB16 PNG",
+      "Flutter PNG8",
+      "lossless WebP"
+    ],
+    "pixelFormat": "dart:ui ImageByteFormat.rawRgba (8-bit premultiplied RGBA)"
+  },
+  "encoderReceipt": {
+    "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\c5-quality-rebuild-20261030\\r16-runtime-encoding\\pillow-encoding-receipt.json",
+    "sha256": "b6de8863052fcd332f8de7467dc326cbbf1e8ffcd58d0b55228c87c1d1af08a3"
+  },
+  "resizeCropFilterColorConversion": false,
+  "sourceOriginalPngAndFloat32ExrRetainedExternally": true,
+  "limitations": [
+    "Equality is to the Flutter-decoded 8-bit source PNG. The original 16-bit PNG and exact scene-linear float32 EXR remain external unchanged.",
+    "Raw RGB16 source PNG already clips scene-linear values outside 0..1. WebP equality does not restore clipped values or establish HDR/EXR equivalence.",
+    "Canvas sRGB multiply is a display approximation, not scene-linear HDR composition.",
+    "Native source approval is not automatic visual approval of this derivative presentation. Flutter layout/blending, physical device, release and user approval remain separate."
+  ],
+  "runtimeUniqueAssetCount": 31,
+  "runtimeUniqueAssetBytes": 34896835,
+  "sourceForegroundBytes": 27771679,
+  "sourceShadowPngBytesBeforeDedup": 130495270,
+  "runtimeShadowBytesBeforeDedup": 7425892,
+  "deduplicatedRuntimeReferences": {
+    "assets/illustrations/ildu_r16_layers/2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607.webp": [
+      "ildu.sarangchae-choseok:shadow",
+      "ildu.sarangchae-fitting:shadow"
+    ]
+  },
+  "stages": [
+    {
+      "processId": "ildu.sarangchae-site",
+      "sequence": 1,
+      "sourceImageSha256": "807955c2c5609e638c834314b3dd8e27b392355e57db61f09345a720e7e13676",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/8dc5b45405e82d65ffc88fe755d16079deb42d5adc02ae35d1c2fb9c216d147b.png",
+        "sha256": "8dc5b45405e82d65ffc88fe755d16079deb42d5adc02ae35d1c2fb9c216d147b",
+        "bytes": 462605,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/75bb8d389bf9d377c198435c6e8984c5a6f23bee3931839b8317addb5b52fa4a.webp",
+        "sha256": "75bb8d389bf9d377c198435c6e8984c5a6f23bee3931839b8317addb5b52fa4a",
+        "bytes": 1098,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 0,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-01.png",
+        "path": "delivery/stage-01.png",
+        "sha256": "8dc5b45405e82d65ffc88fe755d16079deb42d5adc02ae35d1c2fb9c216d147b",
+        "bytes": 462605
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-01-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-01-shadow-multiply.png",
+        "sha256": "acab498bd95c6e71a5f43a9be1d6979401f53cc6c874cb6b6720026f0bb2aac8",
+        "bytes": 113752,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-01-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-01-shadow.exr",
+        "sha256": "77065693f7d101d48ce1d6e7abbd79a1a44e891892cc3dee564ef3deeb4568a1",
+        "bytes": 929218
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-01.json",
+        "sha256": "16d8a8424d03b53bc75c8f48ec91f54a5b70963586ae29bfc0cbda36a225bd19",
+        "bytes": 2803
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-01.json",
+        "sha256": "63356df63b42df3de45ef9bda79eaea0bd2bf4508d2e76315e45cb499894b615",
+        "bytes": 2388
+      },
+      "sourceRawPngClippedPixelCount": 2153383,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-site",
+        "sequence": 1,
+        "sourcePngSha256": "acab498bd95c6e71a5f43a9be1d6979401f53cc6c874cb6b6720026f0bb2aac8",
+        "sourceRawRgbaSha256": "aff09f327c74764fa00e0fb57826ba1a1f506e3a4dbd21017e2643f52ed52ffb",
+        "png8RawRgbaSha256": "aff09f327c74764fa00e0fb57826ba1a1f506e3a4dbd21017e2643f52ed52ffb",
+        "webpRawRgbaSha256": "aff09f327c74764fa00e0fb57826ba1a1f506e3a4dbd21017e2643f52ed52ffb",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-foundation",
+      "sequence": 2,
+      "sourceImageSha256": "dd4da94f78d1d89a96b7c1d5c501359e51f438e491306cc2aee94d201b85bf0d",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/f7a3bcedf472109c33504b56e4eebb37108b634bde0d0317fff5ceee77bf6a12.png",
+        "sha256": "f7a3bcedf472109c33504b56e4eebb37108b634bde0d0317fff5ceee77bf6a12",
+        "bytes": 1138434,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/af6131c47e31c6f8a55b364e7df90258dc90375560f5377c6d78075ccf69ef17.webp",
+        "sha256": "af6131c47e31c6f8a55b364e7df90258dc90375560f5377c6d78075ccf69ef17",
+        "bytes": 297308,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 239,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-02.png",
+        "path": "delivery/stage-02.png",
+        "sha256": "f7a3bcedf472109c33504b56e4eebb37108b634bde0d0317fff5ceee77bf6a12",
+        "bytes": 1138434
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-02-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-02-shadow-multiply.png",
+        "sha256": "41414001a5855cbd2043e2f68da7fbafc360af647644788131462ce46c94e75d",
+        "bytes": 7079476,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-02-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-02-shadow.exr",
+        "sha256": "a24ce534f170604e9e8dfb319cd033105e4a66ae82f25926f8d2f058a97c0dfd",
+        "bytes": 20470678
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-02.json",
+        "sha256": "287deb875f968c1e9443e34c7f3f06d6780a4d9e303deec0231d4beba7de3062",
+        "bytes": 2851
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-02.json",
+        "sha256": "435fd5f4bccb26b1b4bf30c0499e03dc3a32c2b57c67e2e0f9436813acd00837",
+        "bytes": 2406
+      },
+      "sourceRawPngClippedPixelCount": 1494397,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-foundation",
+        "sequence": 2,
+        "sourcePngSha256": "41414001a5855cbd2043e2f68da7fbafc360af647644788131462ce46c94e75d",
+        "sourceRawRgbaSha256": "accb6756a306a57daec0775f60f62080fa83cc2b724ddc063f218b7cee95603d",
+        "png8RawRgbaSha256": "accb6756a306a57daec0775f60f62080fa83cc2b724ddc063f218b7cee95603d",
+        "webpRawRgbaSha256": "accb6756a306a57daec0775f60f62080fa83cc2b724ddc063f218b7cee95603d",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-choseok",
+      "sequence": 3,
+      "sourceImageSha256": "007a0dfeb2a9cad423901727e3a842eb8d120b391590f7d7009531f44fea10f5",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/62376b33e9ce1cdfa59323460aa755820ed15c561c58a8c47ed88035927626ab.png",
+        "sha256": "62376b33e9ce1cdfa59323460aa755820ed15c561c58a8c47ed88035927626ab",
+        "bytes": 1160836,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607.webp",
+        "sha256": "2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607",
+        "bytes": 300736,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 249,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-03.png",
+        "path": "delivery/stage-03.png",
+        "sha256": "62376b33e9ce1cdfa59323460aa755820ed15c561c58a8c47ed88035927626ab",
+        "bytes": 1160836
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-03-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-03-shadow-multiply.png",
+        "sha256": "e4d5e0d85c5fa161c55e93dc836932ecf2b87d2c2e7b783867fd66eac7cf1fd0",
+        "bytes": 7110972,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-03-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-03-shadow.exr",
+        "sha256": "e86a17ba7ea8ddebdba299814672b0e0f0c286e9c6314896d8be138df3d5afc1",
+        "bytes": 20512448
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-03.json",
+        "sha256": "394c16eb31444bf560ed8e9f692d8c7e4500467156572d3c1b375e0a02d29ab1",
+        "bytes": 2848
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-03.json",
+        "sha256": "0d52487f260d7a3f2705443ac681fe677f50ff30dff4815c8f24cf6f84e29eb8",
+        "bytes": 2408
+      },
+      "sourceRawPngClippedPixelCount": 1483968,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-choseok",
+        "sequence": 3,
+        "sourcePngSha256": "e4d5e0d85c5fa161c55e93dc836932ecf2b87d2c2e7b783867fd66eac7cf1fd0",
+        "sourceRawRgbaSha256": "77553445bdb2564d1b6a6e59b04d2a9265bcb68cd16d4788f0cfb8c1f1084e47",
+        "png8RawRgbaSha256": "77553445bdb2564d1b6a6e59b04d2a9265bcb68cd16d4788f0cfb8c1f1084e47",
+        "webpRawRgbaSha256": "77553445bdb2564d1b6a6e59b04d2a9265bcb68cd16d4788f0cfb8c1f1084e47",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-fitting",
+      "sequence": 4,
+      "sourceImageSha256": "007a0dfeb2a9cad423901727e3a842eb8d120b391590f7d7009531f44fea10f5",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/840225967e9911537f79e9f1e9275e23abf7b5fc554e3ae30f99e05d7fb765e3.png",
+        "sha256": "840225967e9911537f79e9f1e9275e23abf7b5fc554e3ae30f99e05d7fb765e3",
+        "bytes": 1160836,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607.webp",
+        "sha256": "2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607",
+        "bytes": 300736,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 249,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-04.png",
+        "path": "delivery/stage-04.png",
+        "sha256": "840225967e9911537f79e9f1e9275e23abf7b5fc554e3ae30f99e05d7fb765e3",
+        "bytes": 1160836
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-04-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-04-shadow-multiply.png",
+        "sha256": "e4d5e0d85c5fa161c55e93dc836932ecf2b87d2c2e7b783867fd66eac7cf1fd0",
+        "bytes": 7110972,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-04-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-04-shadow.exr",
+        "sha256": "e86a17ba7ea8ddebdba299814672b0e0f0c286e9c6314896d8be138df3d5afc1",
+        "bytes": 20512448
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-04.json",
+        "sha256": "9d412c9daea9ef740346a40b8c42ad985a365682359d1d9776ef136f3f61b9e3",
+        "bytes": 2855
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-04.json",
+        "sha256": "db46cfbafa40aa8723f69f73cdb5b156b9b6d2f0856d7c3239f91792bb81b630",
+        "bytes": 2408
+      },
+      "sourceRawPngClippedPixelCount": 1483968,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-fitting",
+        "sequence": 4,
+        "sourcePngSha256": "e4d5e0d85c5fa161c55e93dc836932ecf2b87d2c2e7b783867fd66eac7cf1fd0",
+        "sourceRawRgbaSha256": "77553445bdb2564d1b6a6e59b04d2a9265bcb68cd16d4788f0cfb8c1f1084e47",
+        "png8RawRgbaSha256": "77553445bdb2564d1b6a6e59b04d2a9265bcb68cd16d4788f0cfb8c1f1084e47",
+        "webpRawRgbaSha256": "77553445bdb2564d1b6a6e59b04d2a9265bcb68cd16d4788f0cfb8c1f1084e47",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-columns",
+      "sequence": 5,
+      "sourceImageSha256": "f9b402f19eadf88db8e2f3ae3333bb91e8060a7f699f309ea43efd33ca8890ad",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/bfdf7418975f907c3ff1686d4ab051ae9f5e978420228685698ba20647a474b1.png",
+        "sha256": "bfdf7418975f907c3ff1686d4ab051ae9f5e978420228685698ba20647a474b1",
+        "bytes": 1384675,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/f8fb31432ef30f35622154f9f9a5cf31caf88e457ae68fbe39cf1196f33900f0.webp",
+        "sha256": "f8fb31432ef30f35622154f9f9a5cf31caf88e457ae68fbe39cf1196f33900f0",
+        "bytes": 466240,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 267,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-05.png",
+        "path": "delivery/stage-05.png",
+        "sha256": "bfdf7418975f907c3ff1686d4ab051ae9f5e978420228685698ba20647a474b1",
+        "bytes": 1384675
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-05-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-05-shadow-multiply.png",
+        "sha256": "e70a2f7e3ab340fb98a117587c39bb584fc83de53c8794b9044a261a6cb53a67",
+        "bytes": 8559886,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-05-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-05-shadow.exr",
+        "sha256": "eba2aa342db26575895aa84c4560e4a1aae82e323b8426f4759ec59ea48d813e",
+        "bytes": 21736619
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-05.json",
+        "sha256": "018aebc2b96be8e12b5eb08d834180f4b8b9e33ae8e252beed1f36d33ea438e7",
+        "bytes": 2848
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-05.json",
+        "sha256": "2e5415403660c1559eb19bdcbedf5cd8a477fe9324b9647d88368fb7446665c0",
+        "bytes": 2402
+      },
+      "sourceRawPngClippedPixelCount": 854118,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-columns",
+        "sequence": 5,
+        "sourcePngSha256": "e70a2f7e3ab340fb98a117587c39bb584fc83de53c8794b9044a261a6cb53a67",
+        "sourceRawRgbaSha256": "b6c2e52e2f787e8c63b5f93b880b6fca69e88f10b347f24164ec4f9f20ea65c6",
+        "png8RawRgbaSha256": "b6c2e52e2f787e8c63b5f93b880b6fca69e88f10b347f24164ec4f9f20ea65c6",
+        "webpRawRgbaSha256": "b6c2e52e2f787e8c63b5f93b880b6fca69e88f10b347f24164ec4f9f20ea65c6",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-beams",
+      "sequence": 6,
+      "sourceImageSha256": "bf45488f40dfc74daabf7446ae4124025e79957756e91cfed290cf81f81e11a9",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/21da05dede8f88538e6d14a8db1eeaa24e478adb6ca97e9053af093187ad1148.png",
+        "sha256": "21da05dede8f88538e6d14a8db1eeaa24e478adb6ca97e9053af093187ad1148",
+        "bytes": 1710677,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/2eb151473608a5fdab232bdc4e62674fbe1cb247a6ba0e2c80b8674954c8a278.webp",
+        "sha256": "2eb151473608a5fdab232bdc4e62674fbe1cb247a6ba0e2c80b8674954c8a278",
+        "bytes": 611528,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 296,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-06.png",
+        "path": "delivery/stage-06.png",
+        "sha256": "21da05dede8f88538e6d14a8db1eeaa24e478adb6ca97e9053af093187ad1148",
+        "bytes": 1710677
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-06-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-06-shadow-multiply.png",
+        "sha256": "91df6018968c72aa39a165470e0384e5300973dc72d4f5bc88d844ffbeed59d4",
+        "bytes": 9118016,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-06-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-06-shadow.exr",
+        "sha256": "20e9350919d915af8b57bafb26a50d560534088ba50500ec5a1c69033c8f061e",
+        "bytes": 22314520
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-06.json",
+        "sha256": "5c62572dcc64ef6f7915606e600ea13782c19365a9546ee33c1853f63bf81007",
+        "bytes": 2843
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-06.json",
+        "sha256": "705c53460a95640c7443a710d694d8198509ed6ee849505b0dcc311d03640c8e",
+        "bytes": 2406
+      },
+      "sourceRawPngClippedPixelCount": 549451,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-beams",
+        "sequence": 6,
+        "sourcePngSha256": "91df6018968c72aa39a165470e0384e5300973dc72d4f5bc88d844ffbeed59d4",
+        "sourceRawRgbaSha256": "b2fe9d8307d01e4a07277b4c38eb9e37a437d963bab36ddac303bcfdcc184301",
+        "png8RawRgbaSha256": "b2fe9d8307d01e4a07277b4c38eb9e37a437d963bab36ddac303bcfdcc184301",
+        "webpRawRgbaSha256": "b2fe9d8307d01e4a07277b4c38eb9e37a437d963bab36ddac303bcfdcc184301",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-purlins",
+      "sequence": 7,
+      "sourceImageSha256": "3299f9c428d8a44546908b022d665d2f37a93e572402e683d3ae489cc9ab2ea2",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/9051a7f1c277f5b017edc5a57d99a2629cecf76ba34a37d207a79eb3ea3f0271.png",
+        "sha256": "9051a7f1c277f5b017edc5a57d99a2629cecf76ba34a37d207a79eb3ea3f0271",
+        "bytes": 1749655,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/fbd0d881f9353bebc4db172bc3c5685515923d4ee6a3a12699035388bef621cc.webp",
+        "sha256": "fbd0d881f9353bebc4db172bc3c5685515923d4ee6a3a12699035388bef621cc",
+        "bytes": 614478,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 297,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-07.png",
+        "path": "delivery/stage-07.png",
+        "sha256": "9051a7f1c277f5b017edc5a57d99a2629cecf76ba34a37d207a79eb3ea3f0271",
+        "bytes": 1749655
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-07-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-07-shadow-multiply.png",
+        "sha256": "c53cd1b5a92399f6c40087b169736b8f42420a2d5950e85f75c0e6159e7a6de6",
+        "bytes": 9131696,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-07-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-07-shadow.exr",
+        "sha256": "ea3dbe6ff9e30fa33c584b2c7a21f8c0e2a0186523e3a4ae0ef338cbe149cc7c",
+        "bytes": 22344427
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-07.json",
+        "sha256": "13ba2e39d971d68133217741e7cab2c0c35171f3867ee1087f825e1eb9ea8dc0",
+        "bytes": 2848
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-07.json",
+        "sha256": "0c6c5da11e648583f5d3a0cae6786cd03d3a0277d0190a7925730fb7da9ec407",
+        "bytes": 2404
+      },
+      "sourceRawPngClippedPixelCount": 544496,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-purlins",
+        "sequence": 7,
+        "sourcePngSha256": "c53cd1b5a92399f6c40087b169736b8f42420a2d5950e85f75c0e6159e7a6de6",
+        "sourceRawRgbaSha256": "2edc6065dc40ac7a1147f71c76d8714868be69a3cde9fa34f587fe0ca4fe1b4f",
+        "png8RawRgbaSha256": "2edc6065dc40ac7a1147f71c76d8714868be69a3cde9fa34f587fe0ca4fe1b4f",
+        "webpRawRgbaSha256": "2edc6065dc40ac7a1147f71c76d8714868be69a3cde9fa34f587fe0ca4fe1b4f",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-rafters",
+      "sequence": 8,
+      "sourceImageSha256": "d6bb3deb613c9b2160be57c5a0d2f5e1740b0493e8c92896b260f54a12517fb8",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/7a710b233c9786647b9ec8d1b34c2113b5bbfc9cba3cbf31b298088f02d9b4d0.png",
+        "sha256": "7a710b233c9786647b9ec8d1b34c2113b5bbfc9cba3cbf31b298088f02d9b4d0",
+        "bytes": 2002718,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/f395d3dfef32907bd9538122b9cf68d3fefa35aee66f3db8f4b2d6047d605acf.webp",
+        "sha256": "f395d3dfef32907bd9538122b9cf68d3fefa35aee66f3db8f4b2d6047d605acf",
+        "bytes": 633568,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 417,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-08.png",
+        "path": "delivery/stage-08.png",
+        "sha256": "7a710b233c9786647b9ec8d1b34c2113b5bbfc9cba3cbf31b298088f02d9b4d0",
+        "bytes": 2002718
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-08-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-08-shadow-multiply.png",
+        "sha256": "f28271d1dd47fb4937b7e2949292bdab816017a96976bdc3c9bbe31a7816fbb5",
+        "bytes": 9262118,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-08-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-08-shadow.exr",
+        "sha256": "de25643e95525624b32294fc0f8cb17a1c83af87ecb081fd6d3d214a1623e68a",
+        "bytes": 22572179
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-08.json",
+        "sha256": "429cc740e01006e6def3252870a03a5fc7b21e65ce095f37d4f583bbc063a3fb",
+        "bytes": 2812
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-08.json",
+        "sha256": "55a5c4409c823bc2ccf47d5a1ef7cf2a44acef364cae8ed058da64e080648057",
+        "bytes": 2400
+      },
+      "sourceRawPngClippedPixelCount": 572076,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-rafters",
+        "sequence": 8,
+        "sourcePngSha256": "f28271d1dd47fb4937b7e2949292bdab816017a96976bdc3c9bbe31a7816fbb5",
+        "sourceRawRgbaSha256": "f0bdc735f4de33530a3a2e08e7dfd604edcf9760451c5d8164676a0d238b303a",
+        "png8RawRgbaSha256": "f0bdc735f4de33530a3a2e08e7dfd604edcf9760451c5d8164676a0d238b303a",
+        "webpRawRgbaSha256": "f0bdc735f4de33530a3a2e08e7dfd604edcf9760451c5d8164676a0d238b303a",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-decking",
+      "sequence": 9,
+      "sourceImageSha256": "54dc7fb3e3dd5b6ec26c55bdd2f3501ac2427fa235d9967a0b363b2618aa08ff",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/02c949261de229fb82f3a14a53bf234583757bcbc44175e009f29e53be583a25.png",
+        "sha256": "02c949261de229fb82f3a14a53bf234583757bcbc44175e009f29e53be583a25",
+        "bytes": 1947927,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/a18d38c8100e575b1dc794226e4ce22ea2c9af90f0f41244d723ab6ed58b4eb8.webp",
+        "sha256": "a18d38c8100e575b1dc794226e4ce22ea2c9af90f0f41244d723ab6ed58b4eb8",
+        "bytes": 505754,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 422,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-09.png",
+        "path": "delivery/stage-09.png",
+        "sha256": "02c949261de229fb82f3a14a53bf234583757bcbc44175e009f29e53be583a25",
+        "bytes": 1947927
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-09-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-09-shadow-multiply.png",
+        "sha256": "0d06eb607af1c834fd8ae8dde76a0dd736c812ee47e9abb0bf9c2fa70c725bb7",
+        "bytes": 9040093,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-09-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-09-shadow.exr",
+        "sha256": "d8eb4dd5255efb591b5cd2e8a682b4c78025f6fe8ac00226b47c91aa2df3b8b8",
+        "bytes": 21879852
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-09.json",
+        "sha256": "65df546d582a5d58e093164c72f554721d3b76fb3a1dcda2afe315d8484a61df",
+        "bytes": 2853
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-09.json",
+        "sha256": "f99aaa6e875d99026b2f4ff072914e598486e7c7db64b62ffc1c138f91d51456",
+        "bytes": 2407
+      },
+      "sourceRawPngClippedPixelCount": 702919,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-decking",
+        "sequence": 9,
+        "sourcePngSha256": "0d06eb607af1c834fd8ae8dde76a0dd736c812ee47e9abb0bf9c2fa70c725bb7",
+        "sourceRawRgbaSha256": "d728753e36efbf27bfb516cf313f27b93fe21fc6ac5ffedc311375687d72dcd0",
+        "png8RawRgbaSha256": "d728753e36efbf27bfb516cf313f27b93fe21fc6ac5ffedc311375687d72dcd0",
+        "webpRawRgbaSha256": "d728753e36efbf27bfb516cf313f27b93fe21fc6ac5ffedc311375687d72dcd0",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-earth-roof",
+      "sequence": 10,
+      "sourceImageSha256": "b182d0922c645ea4c8ad6afe5be6778d707e4d2d74c879da8a06f6e6beff9d17",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/f349146bab2da2887a6ae6d94297668d2df142335bc3876c0f80e2a110f2177f.png",
+        "sha256": "f349146bab2da2887a6ae6d94297668d2df142335bc3876c0f80e2a110f2177f",
+        "bytes": 1947870,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/6e953047edc5609623359349d13d8bf8fa8db5f944e2a24367a89848b765eb4b.webp",
+        "sha256": "6e953047edc5609623359349d13d8bf8fa8db5f944e2a24367a89848b765eb4b",
+        "bytes": 505786,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 422,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-10.png",
+        "path": "delivery/stage-10.png",
+        "sha256": "f349146bab2da2887a6ae6d94297668d2df142335bc3876c0f80e2a110f2177f",
+        "bytes": 1947870
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-10-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-10-shadow-multiply.png",
+        "sha256": "0f34c63b8c221d59fa3a0ba262f7318519ae4cc2a161dc65679e2f3d48582ba2",
+        "bytes": 9039930,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-10-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-10-shadow.exr",
+        "sha256": "44adabfabdd1668e1e250d3e59e684cad535289933932b7245fb6203ad128dba",
+        "bytes": 21877983
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-10.json",
+        "sha256": "135f26bc22ed8aac6202a9ff9f0ba770f3dcf6be1ee5ec8c444dad1bb4445ced",
+        "bytes": 2859
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-10.json",
+        "sha256": "bee7c4e9aa75999f41417a7615ebbfd2ebe33ce1ce2d6b1e38485f465864b6f1",
+        "bytes": 2409
+      },
+      "sourceRawPngClippedPixelCount": 702921,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-earth-roof",
+        "sequence": 10,
+        "sourcePngSha256": "0f34c63b8c221d59fa3a0ba262f7318519ae4cc2a161dc65679e2f3d48582ba2",
+        "sourceRawRgbaSha256": "8f3f91342f87a72e59d15119ee4bd89dc85a92d634ca7b59f68856bd1ac02b2d",
+        "png8RawRgbaSha256": "8f3f91342f87a72e59d15119ee4bd89dc85a92d634ca7b59f68856bd1ac02b2d",
+        "webpRawRgbaSha256": "8f3f91342f87a72e59d15119ee4bd89dc85a92d634ca7b59f68856bd1ac02b2d",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-tiles",
+      "sequence": 11,
+      "sourceImageSha256": "0cadfde292f15eec3022eb513c47e72f7c88dd9d5df2f146be52005cc5eba80c",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/56d4df2634c5c0f6e1b459b25f0984be99598cdac5a5c994e36a95835256cc32.png",
+        "sha256": "56d4df2634c5c0f6e1b459b25f0984be99598cdac5a5c994e36a95835256cc32",
+        "bytes": 2146743,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/a2467fb72e89865445f3387c741d3724279368b2fe5452dd375592786dfaca9d.webp",
+        "sha256": "a2467fb72e89865445f3387c741d3724279368b2fe5452dd375592786dfaca9d",
+        "bytes": 528002,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 476,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-11.png",
+        "path": "delivery/stage-11.png",
+        "sha256": "56d4df2634c5c0f6e1b459b25f0984be99598cdac5a5c994e36a95835256cc32",
+        "bytes": 2146743
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-11-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-11-shadow-multiply.png",
+        "sha256": "70530e49e4dd587d9f5afeac1499594e3b922a20c225435fde0caf7377f18db6",
+        "bytes": 9116287,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-11-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-11-shadow.exr",
+        "sha256": "0bdd5939da57aacb857b0daa4c1fc7aeaccb308b28cd6deff7e4b233342f4536",
+        "bytes": 22396441
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-11.json",
+        "sha256": "8c03da69fd53af7ea12e36fe9d13a0bc9a524ba48ebc5148f7c0f3b56e9e8c8a",
+        "bytes": 2850
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-11.json",
+        "sha256": "195f4932806de54b569d6094b55173e425d5f08f3be7332e531464ebdac52e97",
+        "bytes": 2402
+      },
+      "sourceRawPngClippedPixelCount": 688536,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-tiles",
+        "sequence": 11,
+        "sourcePngSha256": "70530e49e4dd587d9f5afeac1499594e3b922a20c225435fde0caf7377f18db6",
+        "sourceRawRgbaSha256": "3c6afd1206069b1c3571d4246d3c53362d7ff7bac2d2621361b0e6660a11542c",
+        "png8RawRgbaSha256": "3c6afd1206069b1c3571d4246d3c53362d7ff7bac2d2621361b0e6660a11542c",
+        "webpRawRgbaSha256": "3c6afd1206069b1c3571d4246d3c53362d7ff7bac2d2621361b0e6660a11542c",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-walls",
+      "sequence": 12,
+      "sourceImageSha256": "dbbb41af4a2498741efa9b36747065cd745a189bf0ee8e0b32e33543d682a2f5",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/a9391f799e2815338300e7317aacff28e3c2506b6377a3f8f0877c296a0252d2.png",
+        "sha256": "a9391f799e2815338300e7317aacff28e3c2506b6377a3f8f0877c296a0252d2",
+        "bytes": 2158712,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/43ea508d510296d7ea6f37be3b1ec1a1950dd17d1feba5f446a15c139060aa04.webp",
+        "sha256": "43ea508d510296d7ea6f37be3b1ec1a1950dd17d1feba5f446a15c139060aa04",
+        "bytes": 514648,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 536,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-12.png",
+        "path": "delivery/stage-12.png",
+        "sha256": "a9391f799e2815338300e7317aacff28e3c2506b6377a3f8f0877c296a0252d2",
+        "bytes": 2158712
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-12-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-12-shadow-multiply.png",
+        "sha256": "f06b7b2453405088b220e54ee219f030c60066e8e4eb1542399fc7dc426f5da7",
+        "bytes": 9097621,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-12-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-12-shadow.exr",
+        "sha256": "b4dae2d79ae13d1ffb72f683e903abf5de2830889f76ff938948e8ba4a72dbcc",
+        "bytes": 22363156
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-12.json",
+        "sha256": "88097669cd61708ea36ed2532f66f5f3a85d7ea2e25f4b824d5fbfbca040fae0",
+        "bytes": 2850
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-12.json",
+        "sha256": "2a191c7e948692a7be62f7af1c617530f4452212d3d7f9c167e095ef59a4e79e",
+        "bytes": 2404
+      },
+      "sourceRawPngClippedPixelCount": 697938,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-walls",
+        "sequence": 12,
+        "sourcePngSha256": "f06b7b2453405088b220e54ee219f030c60066e8e4eb1542399fc7dc426f5da7",
+        "sourceRawRgbaSha256": "dd022d3e5374df2479a65fffcf9eb208c83c668af48e2ae16818eafa19ff15d9",
+        "png8RawRgbaSha256": "dd022d3e5374df2479a65fffcf9eb208c83c668af48e2ae16818eafa19ff15d9",
+        "webpRawRgbaSha256": "dd022d3e5374df2479a65fffcf9eb208c83c668af48e2ae16818eafa19ff15d9",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-ondol",
+      "sequence": 13,
+      "sourceImageSha256": "310a1541083908ffb8722a2f1d4e213cbb959303bcfb8c4d773f95ebc817b734",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/f680ff2f191431fe1f6ecd542761a734945bc9032e6dba9f09e821064d50a2a3.png",
+        "sha256": "f680ff2f191431fe1f6ecd542761a734945bc9032e6dba9f09e821064d50a2a3",
+        "bytes": 2167800,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/4606c369b5708765a60cd05638950bb8541b7248ec6f879119c89d0729e53b73.webp",
+        "sha256": "4606c369b5708765a60cd05638950bb8541b7248ec6f879119c89d0729e53b73",
+        "bytes": 512856,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 546,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-13.png",
+        "path": "delivery/stage-13.png",
+        "sha256": "f680ff2f191431fe1f6ecd542761a734945bc9032e6dba9f09e821064d50a2a3",
+        "bytes": 2167800
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-13-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-13-shadow-multiply.png",
+        "sha256": "69a500c297262a9e50d4744502f8f5f5b76f084cd0a953cb55235f30b6b7186a",
+        "bytes": 9112625,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-13-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-13-shadow.exr",
+        "sha256": "2a9c8f206655451dd148c0df7bac207a3596dd1350c3ecea8012f4efa2c08eef",
+        "bytes": 22362891
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-13.json",
+        "sha256": "2a473544447990746458ac4a17e2cc2bb5d12615af18db2e2be6b3cb08f656d9",
+        "bytes": 2849
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-13.json",
+        "sha256": "604ec59385642baa65538361502701bec0cf7dbf071d00ce5fdbcc7897c34275",
+        "bytes": 2405
+      },
+      "sourceRawPngClippedPixelCount": 697344,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-ondol",
+        "sequence": 13,
+        "sourcePngSha256": "69a500c297262a9e50d4744502f8f5f5b76f084cd0a953cb55235f30b6b7186a",
+        "sourceRawRgbaSha256": "7ae45b64163a0de2922f686aad9389efcce8d6c43b2ba97311ba5506dae2b3e2",
+        "png8RawRgbaSha256": "7ae45b64163a0de2922f686aad9389efcce8d6c43b2ba97311ba5506dae2b3e2",
+        "webpRawRgbaSha256": "7ae45b64163a0de2922f686aad9389efcce8d6c43b2ba97311ba5506dae2b3e2",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-maru",
+      "sequence": 14,
+      "sourceImageSha256": "bc94a188d33003d0a0e738b634104958b84c24d3a1c083a2e16e4e1ccfdd61af",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/01b432d7420aad48da38e1222f269d916ab54c1b2484e3899676b2784d825db1.png",
+        "sha256": "01b432d7420aad48da38e1222f269d916ab54c1b2484e3899676b2784d825db1",
+        "bytes": 2197164,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/7d291b54cf2be4f02798b89800cc229c818cec5fe06d0cf839e812c5862133a6.webp",
+        "sha256": "7d291b54cf2be4f02798b89800cc229c818cec5fe06d0cf839e812c5862133a6",
+        "bytes": 522574,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 681,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-14.png",
+        "path": "delivery/stage-14.png",
+        "sha256": "01b432d7420aad48da38e1222f269d916ab54c1b2484e3899676b2784d825db1",
+        "bytes": 2197164
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-14-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-14-shadow-multiply.png",
+        "sha256": "ebf1740ac025b428810f69333fb2f0f4344345bbf341f898b1464aa3eeb8c6c6",
+        "bytes": 9175556,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-14-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-14-shadow.exr",
+        "sha256": "a6382d4eb682d835c1eb6adf09236e74253f488ca107c60736746a977e0a998f",
+        "bytes": 22584793
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-14.json",
+        "sha256": "71e650279871a69f475348d63a11e60a4886645cafc7a0c894ea705d03380221",
+        "bytes": 2849
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-14.json",
+        "sha256": "f6dec9b5d4a9f980adddbb31e45105cdefdc696bdb9957fb59819be51acb74c2",
+        "bytes": 2403
+      },
+      "sourceRawPngClippedPixelCount": 666671,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-maru",
+        "sequence": 14,
+        "sourcePngSha256": "ebf1740ac025b428810f69333fb2f0f4344345bbf341f898b1464aa3eeb8c6c6",
+        "sourceRawRgbaSha256": "c7b9c3d79fc2b4c639095ab39597e5f6c1e96d2c4dd7c5fa5ffb56be42f98f39",
+        "png8RawRgbaSha256": "c7b9c3d79fc2b4c639095ab39597e5f6c1e96d2c4dd7c5fa5ffb56be42f98f39",
+        "webpRawRgbaSha256": "c7b9c3d79fc2b4c639095ab39597e5f6c1e96d2c4dd7c5fa5ffb56be42f98f39",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-changho",
+      "sequence": 15,
+      "sourceImageSha256": "d6c87211bb4fe11c451bfec2607857299d5214d440e169c078dcee97b6d1877b",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/bac6d3b46fb01b2eb521c9fb9bfbcb0431e84ecc64d200e7697d84e0d0becaea.png",
+        "sha256": "bac6d3b46fb01b2eb521c9fb9bfbcb0431e84ecc64d200e7697d84e0d0becaea",
+        "bytes": 2215213,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/be78c771be2b39c6359b1e208920629e56a6560e83485c8c26027dde8ad6d39d.webp",
+        "sha256": "be78c771be2b39c6359b1e208920629e56a6560e83485c8c26027dde8ad6d39d",
+        "bytes": 555026,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 983,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-15.png",
+        "path": "delivery/stage-15.png",
+        "sha256": "bac6d3b46fb01b2eb521c9fb9bfbcb0431e84ecc64d200e7697d84e0d0becaea",
+        "bytes": 2215213
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-15-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-15-shadow-multiply.png",
+        "sha256": "562fee047a461e4b0089538611095c83492ad3382880123bfdc60957c2e7dba4",
+        "bytes": 9212071,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-15-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-15-shadow.exr",
+        "sha256": "5b00d66c85506c502eb1ef823802807071aa11d2a45988ca76b3cef796baec6e",
+        "bytes": 22705005
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-15.json",
+        "sha256": "3949b4d841fe5aec9222a025d95c819cb2413431a0481cdcffd2aad12487f0e1",
+        "bytes": 2851
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-15.json",
+        "sha256": "ab3b242a037773410b7a5f7183334f7f68ac67e8ca6a43cb01a1a31fea611779",
+        "bytes": 2408
+      },
+      "sourceRawPngClippedPixelCount": 665678,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-changho",
+        "sequence": 15,
+        "sourcePngSha256": "562fee047a461e4b0089538611095c83492ad3382880123bfdc60957c2e7dba4",
+        "sourceRawRgbaSha256": "ac596f0b776b1dbe7f878f7bbaff92147dcf4955b38a3a2cddde07ae8811567e",
+        "png8RawRgbaSha256": "ac596f0b776b1dbe7f878f7bbaff92147dcf4955b38a3a2cddde07ae8811567e",
+        "webpRawRgbaSha256": "ac596f0b776b1dbe7f878f7bbaff92147dcf4955b38a3a2cddde07ae8811567e",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    },
+    {
+      "processId": "ildu.sarangchae-complete",
+      "sequence": 16,
+      "sourceImageSha256": "60a4efe311f40de1bfadb61c017021effffe4a13e3d2bd191ffb2de9f10cd901",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/1fbc7e9cb972395493d6d1c62b195ecef2042eb84196e0d5b32361dab2afcacf.png",
+        "sha256": "1fbc7e9cb972395493d6d1c62b195ecef2042eb84196e0d5b32361dab2afcacf",
+        "bytes": 2219814,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/0da7f78eb52ffef358b309a2da966bc3a461669a552ceb3dfab3b92f55ce2056.webp",
+        "sha256": "0da7f78eb52ffef358b309a2da966bc3a461669a552ceb3dfab3b92f55ce2056",
+        "bytes": 555554,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 998,
+      "renderShadowInEmptyArchitectureState": false,
+      "sourceForeground": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\stage-16.png",
+        "path": "delivery/stage-16.png",
+        "sha256": "1fbc7e9cb972395493d6d1c62b195ecef2042eb84196e0d5b32361dab2afcacf",
+        "bytes": 2219814
+      },
+      "sourceRawMultiplyPng": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-16-shadow-multiply.png",
+        "path": "delivery/runtime-shadows/stage-16-shadow-multiply.png",
+        "sha256": "81fc691866a6c16a19cca76021a84cdb33a6edc5a34137d8cac561be96b737b7",
+        "bytes": 9214199,
+        "bitDepth": 16,
+        "colorType": "RGB"
+      },
+      "exactFloat32ShadowExr": {
+        "localPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-transparent-sarang-20261030\\delivery\\runtime-shadows\\stage-16-shadow.exr",
+        "path": "delivery/runtime-shadows/stage-16-shadow.exr",
+        "sha256": "cf6e46804ecbe9d881b07c025cfdd55a48a8bc7e669ecfa4af86b910af0e057a",
+        "bytes": 22714833
+      },
+      "renderReceipt": {
+        "path": "delivery/stage-16.json",
+        "sha256": "50fbbb47f7ee5f62e4d6597e11bb42b00c0c75a1a7a3bdf1ea255b0a062c543e",
+        "bytes": 2811
+      },
+      "shadowReceipt": {
+        "path": "delivery/runtime-shadows/stage-16.json",
+        "sha256": "91c30d9c351601a4cdd1bffa3df5492f550758a5b2fe5e64a260f4a2c8a5e8bc",
+        "bytes": 2407
+      },
+      "sourceRawPngClippedPixelCount": 664339,
+      "decoderEquality": {
+        "processId": "ildu.sarangchae-complete",
+        "sequence": 16,
+        "sourcePngSha256": "81fc691866a6c16a19cca76021a84cdb33a6edc5a34137d8cac561be96b737b7",
+        "sourceRawRgbaSha256": "290146e5a065c2c3acd599ac81206fde1c14ccb5b1a9f5ea2915474e7a96b3ab",
+        "png8RawRgbaSha256": "290146e5a065c2c3acd599ac81206fde1c14ccb5b1a9f5ea2915474e7a96b3ab",
+        "webpRawRgbaSha256": "290146e5a065c2c3acd599ac81206fde1c14ccb5b1a9f5ea2915474e7a96b3ab",
+        "png8DifferingBytes": 0,
+        "webpDifferingBytes": 0,
+        "width": 1800,
+        "height": 1200,
+        "pixelCount": 2160000,
+        "rawRgbaBytes": 8640000
+      }
+    }
+  ]
+}

@@ -7,8 +7,10 @@ import '../pressable.dart';
 import '../tokens.dart';
 import 'c_objects.dart';
 import 'c_palette.dart';
+import 'c5_scene_assets.dart';
 
 export 'c_palette.dart';
+export 'c5_scene_assets.dart';
 
 /// Concept C material vocabulary. No legacy card, eaves, accent rail or nav skin.
 
@@ -48,17 +50,23 @@ class CReferenceArt extends StatelessWidget {
   final bool opticalFit;
   @override
   Widget build(BuildContext context) {
-    if (opticalFit && part == CReferencePart.review) {
-      // Keep the original pixels and contact shadow; the square authoring
-      // canvas otherwise adds blank space above and below the wide object.
+    if (opticalFit &&
+        const {
+          CReferencePart.listening,
+          CReferencePart.hangul,
+          CReferencePart.review,
+        }.contains(part)) {
       return CAtlasArt(
-        path: 'assets/illustrations/tactile/grammar.png',
-        region: const Rect.fromLTRB(
-          24 / 1254,
-          280 / 1254,
-          1234 / 1254,
-          1000 / 1254,
-        ),
+        path: switch (part) {
+          CReferencePart.listening => C5SceneAssets.speaker,
+          CReferencePart.hangul => C5SceneAssets.hangul,
+          _ => C5SceneAssets.review,
+        },
+        region: switch (part) {
+          CReferencePart.listening => C5SceneAssets.speakerRegion,
+          CReferencePart.hangul => C5SceneAssets.hangulRegion,
+          _ => C5SceneAssets.reviewRegion,
+        },
         fit: fit,
       );
     }
@@ -78,7 +86,6 @@ class CReferenceArt extends StatelessWidget {
     }
     final scene = switch (part) {
       CReferencePart.coffee => CScene.coffee,
-      CReferencePart.book => CScene.book,
       CReferencePart.studyTogether => CScene.studyTogether,
       _ => null,
     };
@@ -88,9 +95,10 @@ class CReferenceArt extends StatelessWidget {
     final path = switch (part) {
       CReferencePart.headerLeaves =>
         'assets/illustrations/concept_c/games/silben_plant.png',
-      CReferencePart.listening => 'assets/illustrations/tactile/speaker.png',
-      CReferencePart.hangul => 'assets/illustrations/tactile/hangul.png',
-      CReferencePart.review => 'assets/illustrations/tactile/grammar.png',
+      CReferencePart.book => C5SceneAssets.book,
+      CReferencePart.listening => C5SceneAssets.speaker,
+      CReferencePart.hangul => C5SceneAssets.hangul,
+      CReferencePart.review => C5SceneAssets.review,
       CReferencePart.hanokHero =>
         'assets/illustrations/personal_hanok_v3/world/sarangchae.png',
       _ => throw StateError('No independent artwork for $part'),
@@ -309,7 +317,12 @@ class CGameReferenceArt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (part == CGameReferencePart.hero) {
-      return const _CSceneImage(CScene.syllables);
+      return Image.asset(
+        C5SceneAssets.syllables,
+        fit: BoxFit.contain,
+        excludeFromSemantics: true,
+        filterQuality: FilterQuality.high,
+      );
     }
     if (part == CGameReferencePart.yourWords) {
       return Image.asset(
@@ -410,6 +423,7 @@ class CMaterialAction extends StatefulWidget {
     this.gold = true,
     this.compact = false,
     this.selected = false,
+    this.exactSurface = false,
     this.child,
     this.surfaceTexture,
     this.contentPadding = const EdgeInsets.symmetric(
@@ -422,6 +436,9 @@ class CMaterialAction extends StatefulWidget {
   final bool gold;
   final bool compact;
   final bool selected;
+
+  /// The standalone material already includes its bevel and border.
+  final bool exactSurface;
   final Widget? child;
   final Widget? surfaceTexture;
   final EdgeInsets contentPadding;
@@ -430,8 +447,42 @@ class CMaterialAction extends StatefulWidget {
   State<CMaterialAction> createState() => _CMaterialActionState();
 }
 
-class _CMaterialActionState extends State<CMaterialAction> {
+class _CMaterialActionState extends State<CMaterialAction>
+    with WidgetsBindingObserver {
   bool pressed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!TickerMode.valuesOf(context).enabled) pressed = false;
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state != AppLifecycleState.resumed) {
+      setState(() => pressed = false);
+    }
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  Duration get _feedbackDuration =>
+      TickerMode.valuesOf(context).enabled &&
+          (WidgetsBinding.instance.lifecycleState == null ||
+              WidgetsBinding.instance.lifecycleState ==
+                  AppLifecycleState.resumed)
+      ? SoriMotion.respect(context, SoriMotion.fast)
+      : Duration.zero;
 
   @override
   void didUpdateWidget(covariant CMaterialAction oldWidget) {
@@ -468,7 +519,7 @@ class _CMaterialActionState extends State<CMaterialAction> {
       child: SoriPressable(
         haptic: null,
         pressScale: .99,
-        surfaceDepth: 4,
+        surfaceDepth: widget.exactSurface ? 0 : 4,
         surfaceRadius: 9,
         surfaceEdgeColor: widget.gold
             ? const Color(0xff875620)
@@ -477,53 +528,75 @@ class _CMaterialActionState extends State<CMaterialAction> {
         onPressedChanged: (value) => setState(() => pressed = value),
         child: AnimatedContainer(
           width: widget.compact ? null : double.infinity,
-          duration: MediaQuery.disableAnimationsOf(context)
-              ? Duration.zero
-              : const Duration(milliseconds: 120),
+          duration: _feedbackDuration,
+          curve: SoriMotion.gentle,
           constraints: BoxConstraints(
             minWidth: 48,
             minHeight: widget.compact ? 48 : 54,
           ),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(9),
-            color: widget.gold ? CPalette.brass : CPalette.jade,
-            border: Border.all(
-              color: widget.gold
-                  ? const Color(0xfff2d79c)
-                  : const Color(0xffd4bc80),
-              width: 1.3,
-            ),
+            borderRadius: BorderRadius.circular(widget.exactSurface ? 14 : 9),
+            color: widget.exactSurface
+                ? Colors.transparent
+                : widget.gold
+                ? CPalette.brass
+                : CPalette.jade,
+            border: widget.exactSurface
+                ? null
+                : Border.all(
+                    color: widget.gold
+                        ? const Color(0xfff2d79c)
+                        : const Color(0xffd4bc80),
+                    width: 1.3,
+                  ),
             boxShadow: [
               BoxShadow(
                 color: const Color(0x490e251d),
-                offset: Offset(0, pressed ? 1 : 5),
-                blurRadius: pressed ? 1 : 5,
+                offset: Offset(0, pressed ? 1 : widget.exactSurface ? 3 : 5),
+                blurRadius: widget.exactSurface ? 1 : pressed ? 1 : 5,
               ),
             ],
           ),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(widget.exactSurface ? 14 : 8),
             child: Stack(
               alignment: Alignment.center,
               children: [
                 Positioned.fill(
                   child:
                       widget.surfaceTexture ??
-                      CTexture(
-                        widget.gold ? CMaterial.brass : CMaterial.jade,
-                        opacity: widget.gold ? .85 : .82,
-                      ),
+                      (widget.gold
+                          ? const CAtlasArt(
+                              path: C5SceneAssets.goldAction,
+                              region: C5SceneAssets.goldRegion,
+                              fit: BoxFit.fill,
+                            )
+                          : const CTexture(CMaterial.jade, opacity: .82)),
                 ),
                 Positioned.fill(
-                  child: DecoratedBox(
+                  child: AnimatedContainer(
+                    duration: _feedbackDuration,
+                    curve: SoriMotion.gentle,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          Colors.white.withValues(alpha: .30),
+                          Colors.white.withValues(
+                            alpha: widget.exactSurface
+                                ? 0
+                                : pressed
+                                ? .14
+                                : .30,
+                          ),
                           Colors.transparent,
-                          Colors.black.withValues(alpha: .18),
+                          Colors.black.withValues(
+                            alpha: widget.exactSurface
+                                ? (pressed ? .12 : 0)
+                                : pressed
+                                ? .24
+                                : .18,
+                          ),
                         ],
                       ),
                     ),
@@ -541,10 +614,32 @@ class _CMaterialActionState extends State<CMaterialAction> {
                                   Expanded(child: actionText()),
                                   if (!widget.compact) ...[
                                     const SizedBox(width: 8),
-                                    SizedBox(
-                                      width: 18,
-                                      height: 24,
-                                      child: CArrow(dark: widget.gold),
+                                    TweenAnimationBuilder<double>(
+                                      tween: Tween(
+                                        begin: 0,
+                                        end:
+                                            pressed &&
+                                                !SoriMotion.reduceMotion(
+                                                  context,
+                                                )
+                                            ? 2
+                                            : 0,
+                                      ),
+                                      duration: _feedbackDuration,
+                                      curve: SoriMotion.gentle,
+                                      builder: (_, value, child) =>
+                                          Transform.translate(
+                                            key: const ValueKey(
+                                              'c-material-cta-direction',
+                                            ),
+                                            offset: Offset(value, 0),
+                                            child: child,
+                                          ),
+                                      child: SizedBox(
+                                        width: 18,
+                                        height: 24,
+                                        child: CArrow(dark: widget.gold),
+                                      ),
                                     ),
                                   ],
                                 ],

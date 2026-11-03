@@ -3752,10 +3752,7 @@
   },
   "sarangbangHubDesc": "Lerne im Sarangbang weiter.",
   "bojagiTitle": "Bojagi-Bündel",
-  "bojagiLoading": "Dein Bündel wird vorbereitet …",
-  "bojagiOpenHint": "Tippe auf den Knoten, um das Bündel zu öffnen.",
   "bojagiPickTitle": "Such dir eins aus",
-  "bojagiPickBody": "Was du liegen lässt, bleibt im Beutel und kann in einem späteren Bündel wiederkommen.",
   "bojagiChooseDecoration": "{name} auswählen",
   "@bojagiChooseDecoration": {
     "placeholders": {
@@ -3764,12 +3761,7 @@
       }
     }
   },
-  "bojagiEmptyTitle": "Kein Bündel wartet",
-  "bojagiEmptyBody": "Schließe eine Quest ab. Dafür bekommst du ein Bündel.",
   "bojagiAllOwnedTitle": "Nichts Neues drin",
-  "bojagiAllOwnedBody": "Alle drei Stücke aus diesem Bündel hast du schon.",
-  "bojagiProblemTitle": "Das Bündel lässt sich gerade nicht öffnen",
-  "bojagiProblemBody": "Versuch es gleich noch einmal. Dein Bündel geht dabei nicht verloren.",
   "bojagiRetry": "Nochmal versuchen",
   "bojagiClaimedTitle": "Bekommen!",
   "bojagiClaimedAnnouncement": "Bekommen: {name}",
@@ -3781,10 +3773,7 @@
     }
   },
   "bojagiGoToRoom": "In der Stube aufstellen",
-  "bojagiNext": "Nächstes Bündel öffnen",
   "bojagiCollectionCompleteTitle": "Sammlung vollständig",
-  "bojagiCollectionCompleteBody": "Du besitzt bereits alle Einrichtungsstücke. Lege dieses Bündel ab, um weiterzumachen.",
-  "bojagiArchiveComplete": "Bündel ablegen",
   "@_hanok_world": {
     "description": "Persönliche Hanok-Welt — Karte und Ortsnavigation."
   },
@@ -5861,5 +5850,54 @@
   "accountRecoveryBackupWaiting": "Verbunden; Sicherung wartet auf Prüfung",
   "accountRecoveryResumeTitle": "Bestätigte Auswahl fortsetzen?",
   "accountRecoveryResumeBody": "Deine Auswahl wurde bereits gespeichert. Du kannst denselben Vorgang fortsetzen. Der Startpunkt wird dabei nicht neu gewählt.",
-  "accountRecoveryResumeConfirm": "Bestätigte Auswahl fortsetzen"
+  "accountRecoveryResumeConfirm": "Bestätigte Auswahl fortsetzen",
+  "todayFirstSyllable": "Deine erste Silbe",
+  "todayFirstSyllableBody": "Höre und verbinde zwei Zeichen.",
+  "todayStartHangul": "Hangul starten",
+  "todayStartReview": "Jetzt wiederholen",
+  "todayYourHanok": "Dein Hanok",
+  "todayDetails": "Dein Tag im Überblick",
+  "todayProgress": "Lernfortschritt",
+  "najeonChestTitle": "Schatztruhe",
+  "najeonChestLoading": "Deine Schatztruhe wird vorbereitet …",
+  "najeonChestOpenHint": "Tippe auf die Truhe, um sie zu öffnen.",
+  "najeonChestOpen": "Truhe öffnen",
+  "najeonChestPickBody": "Wähle ein Stück für dein Zimmer. Die anderen Stücke können in einer späteren Schatztruhe wiederkommen.",
+  "najeonChestEmptyTitle": "Keine Schatztruhe wartet",
+  "najeonChestEmptyBody": "Schließe eine Quest ab. Dafür bekommst du eine Schatztruhe.",
+  "najeonChestAllOwnedBody": "Du besitzt bereits alle drei Stücke aus dieser Schatztruhe.",
+  "najeonChestProblemTitle": "Die Schatztruhe lässt sich gerade nicht öffnen",
+  "najeonChestProblemBody": "Versuch es gleich noch einmal. Deine Schatztruhe geht dabei nicht verloren.",
+  "najeonChestNext": "Nächste Truhe öffnen",
+  "najeonChestCollectionCompleteBody": "Du besitzt bereits alle Einrichtungsstücke. Lege diese Schatztruhe ab, um weiterzumachen.",
+  "najeonChestArchive": "Truhe ablegen",
+  "najeonChestHelpTitle": "Najeon · 나전",
+  "najeonChestHelpBody": "Bei Najeon werden dünne Stücke aus Muschelschalen zu Mustern geschnitten und in eine Lackoberfläche eingelegt. Die schimmernden Einlagen nennt man Perlmutt.",
+  "todayCompanionSubtitle": "Dein Koreanisch wächst.",
+  "todayNextStage": "Deine nächste Etappe",
+  "todayTreasureTitle": "Deine Schatztruhe",
+  "todayTreasureReady": "{count, plural, one{1 wartet auf dich} other{{count} warten auf dich}}",
+  "todayTreasureCollection": "Sammlung",
+  "todayExploreGames": "Spiele entdecken",
+  "todayMissionGreetingTitle": "Heute sagst du Hallo",
+  "todayMissionGreetingBody": "Begrüße jemanden und stelle eine kurze Frage.",
+  "todayMissionPlansTitle": "Ein Plan mit Freunden",
+  "todayMissionPlansBody": "Schlage ein Treffen vor und ändere den Termin.",
+  "todayMissionRequestsTitle": "Klar miteinander planen",
+  "todayMissionRequestsBody": "Formuliere eine Bitte und handle eine Lösung aus.",
+  "todayMissionPolicyTitle": "Regeln gemeinsam gestalten",
+  "todayMissionPolicyBody": "Wäge Positionen ab und begründe einen Vorschlag.",
+  "todayMissionAuthorityTitle": "Wo Zuständigkeit endet",
+  "todayMissionAuthorityBody": "Prüfe Mandate und unterscheide ihre Grenzen.",
+  "todayMissionReviewTitle": "Was bleibt, wächst",
+  "todayResumeStage": "Fortsetzen",
+  "@todayTreasureReady": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "todayTreasureOpen": "Öffnen",
+  "todayBeginStage": "Los geht’s"
 }
