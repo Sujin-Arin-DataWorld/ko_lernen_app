@@ -111,8 +111,37 @@ class ArtworkManifestTest(unittest.TestCase):
         self.assertEqual({family.group: sum(row.group == family.group for row in rows.values())
                           for family in FAMILIES}, {
                               'r16-originals': 135, 'c5-originals': 6, 'r16-layers': 31,
-                              'today-originals': 24, 'najeon-originals': 2,
+                              'today-originals': 24, 'najeon-originals': 2, 'spiele-reviewed': 13,
                           })
+
+    def test_spiele_delivery_keeps_exact_reviewed_selection_and_existing_crops(self):
+        review_path = 'docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json'
+        reviewed = json.loads((ROOT / review_path).read_text(encoding='utf-8'))
+        authority = json.loads((ROOT / 'docs/assets/SPIELE_ANDROID_ARTWORK_20261103.json')
+                               .read_text(encoding='utf-8'))
+        originals = {entry['asset']: entry for entry in reviewed['assets']}
+        self.assertEqual({entry['asset'] for entry in authority['assets']}, set(originals))
+        self.assertEqual(len(authority['assets']), 13)
+        self.assertEqual(sum(entry['bytes'] for entry in authority['assets']), 13_751_390)
+        self.assertFalse(authority['newExtractionOrEncoding'])
+        self.assertFalse(authority['runtimeStateOrOwnershipChanges'])
+        self.assertFalse(authority['nativeOrDeviceApproval'])
+        rows = check_manifest(ROOT / MANIFEST)
+        for entry in authority['assets']:
+            with self.subTest(asset=entry['asset']):
+                original = originals[entry['asset']]
+                canonical = json.dumps(original, ensure_ascii=False, sort_keys=True,
+                                       separators=(',', ':')).encode('utf-8')
+                self.assertEqual(entry['sourceReviewDocument'], review_path)
+                self.assertEqual(entry['sourceReviewSection'], 'assets')
+                self.assertEqual(entry['sourceReviewRecordSha256'],
+                                 hashlib.sha256(canonical).hexdigest())
+                for key, value in original.items():
+                    self.assertEqual(entry[key], value)
+                self.assertTrue(entry['reviewedAssetBytesUnchanged'])
+                row = rows[entry['asset']]
+                self.assertEqual((row.group, row.sha256, row.bytes),
+                                 ('spiele-reviewed', original['sha256'], entry['bytes']))
 
     def test_today_delivery_authority_keeps_exact_existing_selection_records(self):
         authority = json.loads((ROOT / 'docs/assets/TODAY_ANDROID_ARTWORK_20261102.json')
