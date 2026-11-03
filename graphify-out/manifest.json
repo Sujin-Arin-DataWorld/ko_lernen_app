@@ -936,21 +936,21 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1793642149.6239111,
-    "seen": 1793647439.7732825,
-    "ast_hash": "822caf9e9aaadcc6fba6ef73256ef1ce",
+    "mtime": 1793662135.4051332,
+    "seen": 1793662684.2509813,
+    "ast_hash": "5b4f3383250bc6f03f55e17319e69149",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1793642149.4179058,
-    "seen": 1793647439.7732925,
-    "ast_hash": "a53ad09a2a228d9946517b8e0118fc84",
+    "mtime": 1793662135.1870682,
+    "seen": 1793662684.2509854,
+    "ast_hash": "9b2bdf164bc033d8c93abe1e2d511874",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1793642149.5300293,
-    "seen": 1793647439.7733004,
-    "ast_hash": "24fc21e1458c61a81d2b87b250b82358",
+    "mtime": 1793662135.3067212,
+    "seen": 1793662684.2509885,
+    "ast_hash": "987464fcf4e0421508b99774567f1c4d",
     "semantic_hash": ""
   },
   "lib/l10n/gye_error_text.dart": {
@@ -1230,9 +1230,9 @@
     "semantic_hash": ""
   },
   "lib/screens/bojagi_screen.dart": {
-    "mtime": 1793647559.0765197,
-    "seen": 1793648946.6138587,
-    "ast_hash": "a055f2b77a489cb746f46c18150937d2",
+    "mtime": 1793663254.173019,
+    "seen": 1793664459.0974615,
+    "ast_hash": "98388a66b49eabb48ad505d99f6a11ae",
     "semantic_hash": ""
   },
   "lib/screens/book_capture_screen.dart": {
@@ -1668,9 +1668,9 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_today_screen.dart": {
-    "mtime": 1793647559.0686789,
-    "seen": 1793648946.6519296,
-    "ast_hash": "9342974d8eaa8c82804464b26742f88a",
+    "mtime": 1793663656.9608252,
+    "seen": 1793664459.1218307,
+    "ast_hash": "888122a040e4ed55f2af659ae71a3927",
     "semantic_hash": ""
   },
   "lib/screens/speed_match_screen.dart": {
@@ -3264,9 +3264,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/tokens.dart": {
-    "mtime": 1793583022.09991,
-    "seen": 1793584763.0108323,
-    "ast_hash": "71408319769d5ea15a320cf47905cdc1",
+    "mtime": 1793663197.1591105,
+    "seen": 1793664459.2053003,
+    "ast_hash": "d7eeece894a80686d9ed406c11ce8252",
     "semantic_hash": ""
   },
   "lib/widgets/sori/tts_speed_control.dart": {
@@ -3540,9 +3540,9 @@
     "semantic_hash": ""
   },
   "test/bojagi_screen_test.dart": {
-    "mtime": 1793644546.0457516,
-    "seen": 1793647440.2708964,
-    "ast_hash": "b33608176582c1bfd76df10d7d88d6f9",
+    "mtime": 1793661999.4708693,
+    "seen": 1793662684.4071953,
+    "ast_hash": "9452fc594cfbfd5941eadee9b153336f",
     "semantic_hash": ""
   },
   "test/book_analysis_language_test.dart": {
@@ -5028,9 +5028,9 @@
     "semantic_hash": ""
   },
   "test/reward_tools_uiux_test.dart": {
-    "mtime": 1793312632.4069598,
-    "seen": 1793380187.0604424,
-    "ast_hash": "c435c0787112fe15f0e25709f5c29057",
+    "mtime": 1793661999.4698668,
+    "seen": 1793662684.5188544,
+    "ast_hash": "4b6eee7bfdf4ebf5962fa1e3c8fa9664",
     "semantic_hash": ""
   },
   "test/reward_unused_buckets_test.dart": {
@@ -5580,9 +5580,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_today_availability_test.dart": {
-    "mtime": 1793333974.594808,
-    "seen": 1793380187.0610838,
-    "ast_hash": "700e4245aac574df2ec51d9435aab365",
+    "mtime": 1793662052.6894114,
+    "seen": 1793662684.558884,
+    "ast_hash": "1bb0b0450a60b8ab3bbeba2a1cce778c",
     "semantic_hash": ""
   },
   "test/sori_stage_today_matte_test.dart": {
@@ -10044,21 +10044,21 @@
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_compact.png": {
-    "mtime": 1793414304.6572096,
-    "seen": 1793459671.111386,
-    "ast_hash": "66fc545c4cc43ee03ea73b6a6cb66bed",
+    "mtime": 1793664152.831454,
+    "seen": 1793664459.975872,
+    "ast_hash": "ce5e6a9e84e7508d7440659f48d7a817",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_expanded.png": {
-    "mtime": 1793414304.6679025,
-    "seen": 1793459671.111389,
-    "ast_hash": "b96055a5fff2708d39d8b80f6f909bc0",
+    "mtime": 1793664152.8357134,
+    "seen": 1793664459.9758751,
+    "ast_hash": "bdcc26b15912daa67049d991119be3b5",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_medium.png": {
-    "mtime": 1793414304.6628168,
-    "seen": 1793459671.1113913,
-    "ast_hash": "b5ec8979809096de48b2074a822ed3a2",
+    "mtime": 1793664152.8446426,
+    "seen": 1793664459.9758797,
+    "ast_hash": "937db436adccfd3be1a161a5b43a0e09",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_vocab_packs_compact.png": {
@@ -13146,9 +13146,9 @@
     "semantic_hash": ""
   },
   "test/arb_orphan_key_guard_test.dart": {
-    "mtime": 1793341848.010503,
-    "seen": 1793380187.058728,
-    "ast_hash": "3540702b80318869139ddeb9119bcca1",
+    "mtime": 1793662155.7238877,
+    "seen": 1793662684.405093,
+    "ast_hash": "23b38e49e5526f98921bc2b57729ff57",
     "semantic_hash": ""
   },
   "test/asset_catalog_bidirectional_test.dart": {
@@ -13932,9 +13932,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_today_sections_test.dart": {
-    "mtime": 1793458802.590725,
-    "seen": 1793459670.0097182,
-    "ast_hash": "69fcf9eace316d436fc48e59e2036e95",
+    "mtime": 1793662293.6593726,
+    "seen": 1793662684.5590935,
+    "ast_hash": "ddac26e62d5ef39b9857afda354f1a1e",
     "semantic_hash": ""
   },
   "test/sori_stage_today_stage_term_test.dart": {
@@ -25860,9 +25860,9 @@
     "semantic_hash": ""
   },
   "test/c5_live_body_adapter_test.dart": {
-    "mtime": 1793413680.0168045,
-    "seen": 1793459669.687813,
-    "ast_hash": "f421deae31e2f839027de9061cc28344",
+    "mtime": 1793662052.6914203,
+    "seen": 1793662684.4131196,
+    "ast_hash": "0471c0caf24801ebf7fdf89c47d7340c",
     "semantic_hash": ""
   },
   "test/c_calligraphy_test.dart": {
@@ -26715,6 +26715,1182 @@
     "mtime": 1793640671.277865,
     "seen": 1793647440.7775178,
     "ast_hash": "99a420aeb884ce251c51a776a469fbbd",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/ACTING_CANON.json": {
+    "mtime": 1793649430.0223641,
+    "seen": 1793662684.1376882,
+    "ast_hash": "344c104c5ace50b4fc5e3102c0231966",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/ASSET_MANIFEST.json": {
+    "mtime": 1793649430.0277834,
+    "seen": 1793662684.1376925,
+    "ast_hash": "6c05e93b6a660198e8b1137f83a2f1e9",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/CANONICAL_APPROVAL.json": {
+    "mtime": 1793649430.0287862,
+    "seen": 1793662684.137695,
+    "ast_hash": "efcf9787e4dd24782c70c7010f4eed46",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/CHARACTER_LOCK.json": {
+    "mtime": 1793649430.031149,
+    "seen": 1793662684.1376967,
+    "ast_hash": "e79a7bca699344fbd91d6953ab4c13d5",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/GENERATION_PROVENANCE.json": {
+    "mtime": 1793649430.0336733,
+    "seen": 1793662684.137699,
+    "ast_hash": "aa88ea065a6f3a673d0675cca076edde",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/TAEGO_SOURCE_COMPARISON.json": {
+    "mtime": 1793649430.0392134,
+    "seen": 1793662684.1377006,
+    "ast_hash": "d147c3852eda7e2fa403224ccc1538ef",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/verify.py": {
+    "mtime": 1793649430.471748,
+    "seen": 1793662684.1377022,
+    "ast_hash": "41ac19828b7811212d8466a184db4699",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/ASSET_MANIFEST.json": {
+    "mtime": 1793649430.4810472,
+    "seen": 1793662684.137704,
+    "ast_hash": "5e3aae5dd2dd9e714d0ec70cc8364d2e",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/CANONICAL_APPROVAL.json": {
+    "mtime": 1793649430.4844975,
+    "seen": 1793662684.1377058,
+    "ast_hash": "0549cb7d332a72315be2f0516687ec12",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/CHARACTER_LOCK.json": {
+    "mtime": 1793649430.4871523,
+    "seen": 1793662684.1377077,
+    "ast_hash": "b423b615c1e4ac70e06c1ddbd1871a1a",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/REFERENCE_FOLDER_INVENTORY.json": {
+    "mtime": 1793649430.4955523,
+    "seen": 1793662684.1377099,
+    "ast_hash": "97247dbd35b0bc6020f9667394bf9864",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/VERIFICATION.json": {
+    "mtime": 1793649430.499786,
+    "seen": 1793662684.1377115,
+    "ast_hash": "2de2969bdce2da43ed81f3031a28c18a",
+    "semantic_hash": ""
+  },
+  "design/canonical/sujin/20261031/CANONICAL_APPROVAL.json": {
+    "mtime": 1793649431.4599774,
+    "seen": 1793662684.137713,
+    "ast_hash": "34657a2d8d6ca95d3804541f3765c1f3",
+    "semantic_hash": ""
+  },
+  "design/canonical/sujin/20261031/PROMPTS.json": {
+    "mtime": 1793649431.4628167,
+    "seen": 1793662684.1377146,
+    "ast_hash": "9e008682ff554bd5f1bccefd93752871",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/PRODUCTION_EVIDENCE.json": {
+    "mtime": 1793649431.4745061,
+    "seen": 1793662684.1774764,
+    "ast_hash": "db4583255ff325269aae51b80d3de551",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/SNAPSHOT_MANIFEST.json": {
+    "mtime": 1793649431.4793935,
+    "seen": 1793662684.1774793,
+    "ast_hash": "ceda930e811cd732bbc1ce3d7bd83228",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/SOURCE_MANIFEST.json": {
+    "mtime": 1793649431.493636,
+    "seen": 1793662684.1774812,
+    "ast_hash": "841454e3d8c2225ca4648111b397d838",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/VERIFICATION.json": {
+    "mtime": 1793649431.4950984,
+    "seen": 1793662684.1774828,
+    "ast_hash": "798f74d7fa0e54da50b788a65daba40d",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-r16-source-update-20261031/R16_PRESENTATION_SOURCE_LOCK.json": {
+    "mtime": 1793649431.5005553,
+    "seen": 1793662684.1774848,
+    "ast_hash": "275a754fd0a917411d988a1b591becd5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-r16-source-update-20261031/ildu_r16_sarang_layers_v1.snapshot.json": {
+    "mtime": 1793649431.5080113,
+    "seen": 1793662684.1774867,
+    "ast_hash": "071bd57304266d3e0695f32b8bf0e696",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/COPY.json": {
+    "mtime": 1793649431.5327492,
+    "seen": 1793662684.1774883,
+    "ast_hash": "5504ae97590dbe0cbcf0d4d1cf7818e4",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/HANOK_STATES.json": {
+    "mtime": 1793649431.5423963,
+    "seen": 1793662684.1774898,
+    "ast_hash": "1438f11a2dc566e11b0e1faa0aa328c1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/INTRO_UNITS.json": {
+    "mtime": 1793649431.5522902,
+    "seen": 1793662684.1774912,
+    "ast_hash": "3da34d9354677692e531e1140eb166f5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/SOURCE-MANIFEST.json": {
+    "mtime": 1793649431.555035,
+    "seen": 1793662684.1774926,
+    "ast_hash": "9ae63218b915fc17a1f509994c3eab6a",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/STORY_SCENES.json": {
+    "mtime": 1793649431.5613902,
+    "seen": 1793662684.1774943,
+    "ast_hash": "85dc9a2439fb9899d93924ea049c3655",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/COPY.json": {
+    "mtime": 1793649431.567428,
+    "seen": 1793662684.1774967,
+    "ast_hash": "c5128d23b39df362400c0dcc3bb883da",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/DELIVERY_MANIFEST.json": {
+    "mtime": 1793649431.5699115,
+    "seen": 1793662684.1774986,
+    "ast_hash": "a9d6e61dc05384faa1863e436db91e6f",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/QA.json": {
+    "mtime": 1793649431.5726292,
+    "seen": 1793662684.1775005,
+    "ast_hash": "cae36fe34951924b2d113627952525b1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/SOURCE_FILES.json": {
+    "mtime": 1793649431.578683,
+    "seen": 1793662684.1775026,
+    "ast_hash": "df23e448edd95ef5f72833421d03f32b",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-localization-20261030/VERIFICATION.json": {
+    "mtime": 1793649431.586201,
+    "seen": 1793662684.1775045,
+    "ast_hash": "dd8ecd1042ac8ad4387ddf0ac9c24155",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-mockups-20261030/MANIFEST.json": {
+    "mtime": 1793649431.5896285,
+    "seen": 1793662684.177506,
+    "ast_hash": "ffeb112c85ffdcc4397af52ee12d5788",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-mockups-20261030/PROMPTS.json": {
+    "mtime": 1793649431.5920837,
+    "seen": 1793662684.1775079,
+    "ast_hash": "8bdf474a7cf1283181d40b0da39d5532",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/SOURCE_SNAPSHOT.json": {
+    "mtime": 1793649431.6083279,
+    "seen": 1793662684.1775093,
+    "ast_hash": "7b13d8852627d4743ca24a21c70d7494",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/AUTHORING_ITEMS.json": {
+    "mtime": 1793649431.6343386,
+    "seen": 1793662684.1775107,
+    "ast_hash": "8cac2a7caf1712e4e1f532e0dcbd9b1a",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/CONTENT_SOURCE.json": {
+    "mtime": 1793649431.6424773,
+    "seen": 1793662684.1775124,
+    "ast_hash": "299e6f8b4cdf803bdc94b33c44116791",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/SOURCE_AND_QA.json": {
+    "mtime": 1793649431.6660285,
+    "seen": 1793662684.1775146,
+    "ast_hash": "03bf1abc0e903916d1c3130b1a15cee5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/SOURCE_UNIT_CONTRACTS.json": {
+    "mtime": 1793649431.669117,
+    "seen": 1793662684.1775157,
+    "ast_hash": "5aa9a987cb19e3857906a430edfd4f06",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/STRUCTURAL_QA.json": {
+    "mtime": 1793649431.671625,
+    "seen": 1793662684.1775174,
+    "ast_hash": "02040b11a0c90938b3bde56234ec7e66",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/SOURCE_AND_QA.json": {
+    "mtime": 1793649431.7072296,
+    "seen": 1793662684.1775188,
+    "ast_hash": "69b53253c3e0e0ad38565a37c89158ab",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/AUTHORING_ITEMS.json": {
+    "mtime": 1793649431.7278352,
+    "seen": 1793662684.1775203,
+    "ast_hash": "95e17cd8be2222e21133771e3cbdfa24",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/CONTENT_SOURCE.json": {
+    "mtime": 1793649431.7319012,
+    "seen": 1793662684.1775215,
+    "ast_hash": "cbebcc94a18bacb3808ac97ec708d3a6",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/SOURCE_AND_QA.json": {
+    "mtime": 1793649431.744057,
+    "seen": 1793662684.1775227,
+    "ast_hash": "5f0884f84271786e8f30857e956f43ff",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/WORD_CONTENT.json": {
+    "mtime": 1793649431.7460558,
+    "seen": 1793662684.1775246,
+    "ast_hash": "847f8bbb4d731155df5058c0daa6c277",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/AUTHORING_ITEMS.json": {
+    "mtime": 1793649431.7775526,
+    "seen": 1793662684.1775262,
+    "ast_hash": "465aa18a78cc93d4dcdfb95ad51cda0f",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/CONTENT_SOURCE.json": {
+    "mtime": 1793649431.7820861,
+    "seen": 1793662684.177528,
+    "ast_hash": "7bc1c162a48c3752f3ba76478f526dad",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/MEANINGS_AND_MEDIA.json": {
+    "mtime": 1793649431.7870889,
+    "seen": 1793662684.1775296,
+    "ast_hash": "16f0c978eb87b5f216f02ffae9cadbd3",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/SOURCE_AND_QA.json": {
+    "mtime": 1793649431.797263,
+    "seen": 1793662684.1775312,
+    "ast_hash": "fcb443583665d62b796c074cb11bf1fe",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/AUTHORING_ITEMS.json": {
+    "mtime": 1793649431.8218458,
+    "seen": 1793662684.1775324,
+    "ast_hash": "7673dc98879106840c120ed05b9efa34",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/CONTENT_SOURCE.json": {
+    "mtime": 1793649431.8292172,
+    "seen": 1793662684.1775336,
+    "ast_hash": "e84b2a61cf88263f9cae8e82fc525d72",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/MEANINGS_AND_NOTE.json": {
+    "mtime": 1793649431.8421283,
+    "seen": 1793662684.177536,
+    "ast_hash": "7c26d30d98faf15cc55bf7fc85feb6b9",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/SOURCE_AND_QA.json": {
+    "mtime": 1793649431.8505676,
+    "seen": 1793662684.1775374,
+    "ast_hash": "01afe987e8c758e6af23374913fbe9c6",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/DELIVERY_MANIFEST.json": {
+    "mtime": 1793649431.8559585,
+    "seen": 1793662684.1775393,
+    "ast_hash": "b4ecec76e6bfb19dbb57448c228f1055",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json": {
+    "mtime": 1793649431.8708882,
+    "seen": 1793662684.1775408,
+    "ast_hash": "db7555849e09c2711c451cf731695aaa",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json": {
+    "mtime": 1793649431.8919797,
+    "seen": 1793662684.1775427,
+    "ast_hash": "a266a26687c9b7a9dd1e6cf502045a87",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STRUCTURAL_QA.json": {
+    "mtime": 1793649431.9039643,
+    "seen": 1793662684.1775439,
+    "ast_hash": "5121963a470599055e95110cd8d66691",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/ASSET_REUSE_LEDGER.json": {
+    "mtime": 1793649431.9303415,
+    "seen": 1793662684.1775455,
+    "ast_hash": "3683b17498467c290e468cba9b556fb5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/CHAPTER_EVENTS.json": {
+    "mtime": 1793649431.9349744,
+    "seen": 1793662684.1775467,
+    "ast_hash": "6b4fff5c033d64e1b1feebc46e6dbe0c",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/VALIDATION.json": {
+    "mtime": 1793649431.9571202,
+    "seen": 1793662684.1775482,
+    "ast_hash": "a05bf481b35004ae4e4240516065a4f9",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/ASSET_LOCK_MANIFEST.json": {
+    "mtime": 1793649431.981663,
+    "seen": 1793662684.1775494,
+    "ast_hash": "19ebc9f86b74e55940c1982b4317272a",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/BUILDING_LOCK.json": {
+    "mtime": 1793649431.9866302,
+    "seen": 1793662684.1775508,
+    "ast_hash": "66b3bde231b02b7c40d7701ed2560520",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/CHARACTER_LOCK.json": {
+    "mtime": 1793649431.9943292,
+    "seen": 1793662684.177552,
+    "ast_hash": "c1a71fff3be9167aa9613a18631d92c5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/DANCHEONG_SOURCE_INVENTORY.json": {
+    "mtime": 1793649431.99908,
+    "seen": 1793662684.177553,
+    "ast_hash": "1bb89675cac18ac5dfff45eb8e89cdc8",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/SYMBOL_STYLE_LOCK.json": {
+    "mtime": 1793649432.0065336,
+    "seen": 1793662684.1775541,
+    "ast_hash": "08e655fdaa54e6e8ebbeb8bfab506236",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/VALIDATION.json": {
+    "mtime": 1793649432.0112407,
+    "seen": 1793662684.1775556,
+    "ast_hash": "9db4dad82a0b92882ecfd71c2872d54d",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/CANONICAL_PROMOTION_R16.json": {
+    "mtime": 1793649432.0156107,
+    "seen": 1793662684.177557,
+    "ast_hash": "7bf47d9a398f2433e88a6397e4954c47",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/R16_APP_ASSET_CONTRACT.json": {
+    "mtime": 1793649432.0254085,
+    "seen": 1793662684.1775584,
+    "ast_hash": "f226eb69350a0472c4b74d92c84185d1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/WORLD_CONTRACT_V3_2.json": {
+    "mtime": 1793649432.0311706,
+    "seen": 1793662684.1775599,
+    "ast_hash": "0ecb55b9db6177bc7b1457ba4a174c48",
+    "semantic_hash": ""
+  },
+  "design/canonical/README.md": {
+    "mtime": 1793649430.0147223,
+    "seen": 1793662684.8961892,
+    "ast_hash": "1c038b8cdec3fc7c52f0baf66fbea184",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/APP_ACTING_USE.md": {
+    "mtime": 1793649430.0253737,
+    "seen": 1793662684.896192,
+    "ast_hash": "888b652c24cf29e5206146ffdd8179d0",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/README.md": {
+    "mtime": 1793649430.0358045,
+    "seen": 1793662684.8961937,
+    "ast_hash": "cd03881fdb3e109cbc440d4b13e665b8",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102-acting/TAEGO_COMPARISON.md": {
+    "mtime": 1793649430.0382133,
+    "seen": 1793662684.8961952,
+    "ast_hash": "983d0ea0da16b447e4a180687f2a9c02",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/ACTING_DIRECTION.md": {
+    "mtime": 1793649430.4766886,
+    "seen": 1793662684.8961966,
+    "ast_hash": "bbd0ca67c2e3fcf6fc2132ce71f80387",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/CHARACTER_STANDARD.md": {
+    "mtime": 1793649430.489371,
+    "seen": 1793662684.8961987,
+    "ast_hash": "006e43bfbc1caeb918f703cd870550be",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/README.md": {
+    "mtime": 1793649430.4919043,
+    "seen": 1793662684.8962,
+    "ast_hash": "b134330bd454a0967ef62ef0758e7ab9",
+    "semantic_hash": ""
+  },
+  "design/canonical/ensemble/20261102/RPG_SCREEN_DIRECTION.md": {
+    "mtime": 1793649430.4980674,
+    "seen": 1793662684.8962014,
+    "ast_hash": "4afb5d36a6c92c52027db363581c3f79",
+    "semantic_hash": ""
+  },
+  "design/canonical/sujin/20261031/README.md": {
+    "mtime": 1793649431.4660513,
+    "seen": 1793662684.8962035,
+    "ast_hash": "5f14b2b2bd96d0b516db763d67797945",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/README.md": {
+    "mtime": 1793649431.4774246,
+    "seen": 1793662684.9602108,
+    "ast_hash": "cfc1035776eec7b5beb65dd1a6f0c207",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/ART_AND_MEDIA_DIRECTIVE.md": {
+    "mtime": 1793649431.4831805,
+    "seen": 1793662684.960214,
+    "ast_hash": "2c999bcaaf898ff0dab4eab80e4ab159",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/CURRICULUM_AND_NPC_FLOW.md": {
+    "mtime": 1793649431.4851801,
+    "seen": 1793662684.9602158,
+    "ast_hash": "0014bcea7d314d3044bc86e615e05a60",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/DETAIL_INDEX.md": {
+    "mtime": 1793649431.48718,
+    "seen": 1793662684.960218,
+    "ast_hash": "f21816dec0d21f53c8cc27d1098ca88e",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/FINAL_DECISIONS.md": {
+    "mtime": 1793649431.4884086,
+    "seen": 1793662684.9602196,
+    "ast_hash": "96725c93c564bddaff4f815f236c4f87",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/README.md": {
+    "mtime": 1793649431.4916275,
+    "seen": 1793662684.9602215,
+    "ast_hash": "b6d73f2498b3a107434ae24262766ea6",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/WORLD_AND_STORY_BIBLE.md": {
+    "mtime": 1793649431.4971032,
+    "seen": 1793662684.960223,
+    "ast_hash": "5487f5bf89a695c4f22bdcbefb3c2655",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-r16-source-update-20261031/README.md": {
+    "mtime": 1793649431.5046992,
+    "seen": 1793662684.9602246,
+    "ast_hash": "190ab9d3bcd6b25b239c550dbc3ce825",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-direction-20261031/PRODUCT-BRIEF.md": {
+    "mtime": 1793649431.510602,
+    "seen": 1793662684.9602263,
+    "ast_hash": "030bb72eb7887235111b7be9cd6e2a65",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-direction-20261031/SOURCE-REVIEW.md": {
+    "mtime": 1793649431.5141182,
+    "seen": 1793662684.9602282,
+    "ast_hash": "0184e5c588dbf7d98ffb47056d537ec3",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/PLAN.md": {
+    "mtime": 1793649431.5173452,
+    "seen": 1793662684.9602299,
+    "ast_hash": "f64654d5455a61c8bc8eb3e965b69ff8",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/REVIEW.md": {
+    "mtime": 1793649431.5193565,
+    "seen": 1793662684.9602315,
+    "ast_hash": "91720d08e12229d7ac76e11e2adeafc3",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/experience-review.md": {
+    "mtime": 1793649431.5218644,
+    "seen": 1793662684.9602332,
+    "ast_hash": "37dd48726de9ed88da0c87073fcc0b37",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/pipeline-review.md": {
+    "mtime": 1793649431.5260024,
+    "seen": 1793662684.9602354,
+    "ast_hash": "e294795e2efaa49d6dd6f35d790383d5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-plan-20261031/visual-review.md": {
+    "mtime": 1793649431.5280054,
+    "seen": 1793662684.9602373,
+    "ast_hash": "9a2fba18df28331fe16b9519f0357ce4",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/COPY-REVIEW.md": {
+    "mtime": 1793649431.530749,
+    "seen": 1793662684.9602392,
+    "ast_hash": "fb75599c50f24f0ac9d0dc255d27c410",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/HANOK-SOURCE-REVIEW.md": {
+    "mtime": 1793649431.5352733,
+    "seen": 1793662684.9602406,
+    "ast_hash": "e5c6aaab99e6f81ccf1fe639a84f5002",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/INTRO-COVERAGE.md": {
+    "mtime": 1793649431.5460064,
+    "seen": 1793662684.9602427,
+    "ast_hash": "06ca08d187d5089f9efa465352d806f9",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/STORY-COVERAGE.md": {
+    "mtime": 1793649431.558266,
+    "seen": 1793662684.9602444,
+    "ast_hash": "cc86eea354d8aebd0f0bdec1decf5a23",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-prototype-20261031/REJECTED.md": {
+    "mtime": 1793649431.563446,
+    "seen": 1793662684.9602463,
+    "ast_hash": "b6277da7ff2b2ab8f41dd20c55f15f1c",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-final-20261031/README.md": {
+    "mtime": 1793649431.5751584,
+    "seen": 1793662684.960248,
+    "ast_hash": "258dc7f1f10cbc692fa438023b3a0e93",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-localization-20261030/README.md": {
+    "mtime": 1793649431.5832024,
+    "seen": 1793662684.9602494,
+    "ast_hash": "ee81407fa52c57ec54c6d16c6bc5d9a8",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/final/sources/season1-scene-mockups-20261030/REVIEW.md": {
+    "mtime": 1793649431.5952797,
+    "seen": 1793662684.9602509,
+    "ast_hash": "d22e534b26a1681dca3ced63484869d0",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/CONTENT_PLAN.md": {
+    "mtime": 1793649431.5998516,
+    "seen": 1793662684.960252,
+    "ast_hash": "83ac6c254c1698d0ff26d8574a75938a",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/FIRST_EPISODES.md": {
+    "mtime": 1793649431.602438,
+    "seen": 1793662684.960254,
+    "ast_hash": "d2fc98a6e3c17d994017680f9c1aa719",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/01_A1.1-01.md": {
+    "mtime": 1793649431.6125226,
+    "seen": 1793662684.9602559,
+    "ast_hash": "64809e02a1a3247718ba51717e69715c",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/02_A1.1-02.md": {
+    "mtime": 1793649431.6159105,
+    "seen": 1793662684.9602578,
+    "ast_hash": "d0f5dd6c9f90b0e7141404aa31b9234d",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/03_A1.1-03.md": {
+    "mtime": 1793649431.619178,
+    "seen": 1793662684.960259,
+    "ast_hash": "263df76f6b24262b6e74b6e0313f41cc",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/04_A1.1-04.md": {
+    "mtime": 1793649431.6218686,
+    "seen": 1793662684.960261,
+    "ast_hash": "326d99af45a8fddae35ba16cb5d07cf3",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/05_A1.1-05.md": {
+    "mtime": 1793649431.6249952,
+    "seen": 1793662684.9602635,
+    "ast_hash": "e623af054d527c4527ebd2d8ffdb2dc0",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/06_A1.1-06.md": {
+    "mtime": 1793649431.6275725,
+    "seen": 1793662684.9602652,
+    "ast_hash": "436442fdda6885c7971f0d9985504777",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/A11_INDEPENDENT_REVIEW.md": {
+    "mtime": 1793649431.629675,
+    "seen": 1793662684.960267,
+    "ast_hash": "e77e6536d0d55a64479b93ebd3e88fef",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/COMMON_COPY.md": {
+    "mtime": 1793649431.6374571,
+    "seen": 1793662684.9602683,
+    "ast_hash": "5406c36971b78cc3a2206d41c666647b",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/GRAMMAR_AND_RECALL.md": {
+    "mtime": 1793649431.6460137,
+    "seen": 1793662684.9602695,
+    "ast_hash": "e5c5cb82df361196a032c434a0645a43",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/LQ05_GATEKEEPER.md": {
+    "mtime": 1793649431.655749,
+    "seen": 1793662684.9602714,
+    "ast_hash": "87c1d91e686db168117b315151839922",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/MEDIA_AND_CRITERIA.md": {
+    "mtime": 1793649431.6587486,
+    "seen": 1793662684.9602735,
+    "ast_hash": "c58d138db3a2a9becd8d6f73ac16675a",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/QA_REVIEW.md": {
+    "mtime": 1793649431.6612556,
+    "seen": 1793662684.9602752,
+    "ast_hash": "fd8efc633c79e969fc18437c093cf94e",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/README.md": {
+    "mtime": 1793649431.663776,
+    "seen": 1793662684.960277,
+    "ast_hash": "434c6e46b5900c2a78bc1b24ecfaa423",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/build_a11_manuscript.py.txt": {
+    "mtime": 1793649431.6761873,
+    "seen": 1793662684.9602787,
+    "ast_hash": "e1ee89526e339fc51014ad771a3becd8",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/build_foundation2_manuscript.py.txt": {
+    "mtime": 1793649431.6800196,
+    "seen": 1793662684.9602802,
+    "ast_hash": "3fed0faa7d5f8b937d67022cc26e8e57",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/build_foundation3_manuscript.py.txt": {
+    "mtime": 1793649431.683133,
+    "seen": 1793662684.9602818,
+    "ast_hash": "054a6d46ee42bbff11c5ad60816ac628",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/build_foundation4_manuscript.py.txt": {
+    "mtime": 1793649431.6863823,
+    "seen": 1793662684.9602833,
+    "ast_hash": "3a77f55873521c8f8a481a0e28fe67a3",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/finalize_content_delivery.py.txt": {
+    "mtime": 1793649431.6886466,
+    "seen": 1793662684.9602847,
+    "ast_hash": "c91f0d1df95cd14ced5be5787ba1d533",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/01_FIRST_SOUND.md": {
+    "mtime": 1793649431.6927273,
+    "seen": 1793662684.9602861,
+    "ast_hash": "579cc745b16796d2fc73e9223ac706eb",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/02_TWO_MORE_SOUNDS.md": {
+    "mtime": 1793649431.695814,
+    "seen": 1793662684.960288,
+    "ast_hash": "14339fcf2ff51bbe877b4c51490ee09d",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/03_TWO_LINES.md": {
+    "mtime": 1793649431.6994908,
+    "seen": 1793662684.9602895,
+    "ast_hash": "ac7ccfcb91e52da620cc0ebb675ad70e",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/README.md": {
+    "mtime": 1793649431.704182,
+    "seen": 1793662684.9602911,
+    "ast_hash": "e25cf7ef963391458f868299d881c360",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/01_FIRST_CONSONANTS.md": {
+    "mtime": 1793649431.7107513,
+    "seen": 1793662684.9602928,
+    "ast_hash": "9ab2b81df86ae3e28e95abfa61f74c4e",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/02_TOOL_LABEL.md": {
+    "mtime": 1793649431.7127504,
+    "seen": 1793662684.9602942,
+    "ast_hash": "89877a136cf15c3b67199f3ce838749d",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/03_FLOOR_REFERENCE.md": {
+    "mtime": 1793649431.7153897,
+    "seen": 1793662684.9602957,
+    "ast_hash": "32e90272d0785c8ac918974e57c6582e",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/04_TWO_INITIALS.md": {
+    "mtime": 1793649431.7179666,
+    "seen": 1793662684.960297,
+    "ast_hash": "d1f6c572f0003de5f0409f0af96f6002",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/05_BREATH_AND_REPEAT.md": {
+    "mtime": 1793649431.7203307,
+    "seen": 1793662684.9602985,
+    "ast_hash": "4a95c543b412081d396e9f60186606b1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/06_TREE_HAT_TIMBER.md": {
+    "mtime": 1793649431.7223809,
+    "seen": 1793662684.9602997,
+    "ast_hash": "7003757118f5287b02974a13d6c125ef",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/07_PHOTO_CARDS_AND_LABELS.md": {
+    "mtime": 1793649431.7247558,
+    "seen": 1793662684.9603012,
+    "ast_hash": "3599f0c115f20a8b51349dea456d3004",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/COMMON_COPY.md": {
+    "mtime": 1793649431.7291381,
+    "seen": 1793662684.9603024,
+    "ast_hash": "cdfa846e77005047434d797b3ef418b8",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/MEDIA_BRIEFS.md": {
+    "mtime": 1793649431.736928,
+    "seen": 1793662684.9603035,
+    "ast_hash": "c8319a5c239c86b0318266cdab93b2e8",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/QA_REVIEW.md": {
+    "mtime": 1793649431.739292,
+    "seen": 1793662684.960305,
+    "ast_hash": "2a4da57897c38ae1b59c51fba813a059",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/README.md": {
+    "mtime": 1793649431.7416675,
+    "seen": 1793662684.9603064,
+    "ast_hash": "684ab6c693a37233bd4950f71ac94d8c",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/01_VERTICAL_BRANCHES.md": {
+    "mtime": 1793649431.7501912,
+    "seen": 1793662684.9603076,
+    "ast_hash": "a4f3e59cdedb188c0cb950155d4b66a7",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/02_HORIZONTAL_BRANCHES.md": {
+    "mtime": 1793649431.752385,
+    "seen": 1793662684.9603093,
+    "ast_hash": "8602288c3f0486248aeb399ed06f8ae6",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/03_K_T_PAIRS.md": {
+    "mtime": 1793649431.7547617,
+    "seen": 1793662684.9603102,
+    "ast_hash": "04c0e781467adb93fadd33bdbdace05f",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/04_P_CH_PAIRS.md": {
+    "mtime": 1793649431.756811,
+    "seen": 1793662684.960312,
+    "ast_hash": "a830dc8270c552af907d77466f0ae3d1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/05_KK_TT_PAIRS.md": {
+    "mtime": 1793649431.7592907,
+    "seen": 1793662684.9603133,
+    "ast_hash": "559795b23f40813e0b7e2d1e0a7581a5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/06_PP_SS_JJ.md": {
+    "mtime": 1793649431.7612915,
+    "seen": 1793662684.9603145,
+    "ast_hash": "b7fc047802e793f8f8f9d8fb1b99c1d1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/07_AE_E_FORMS.md": {
+    "mtime": 1793649431.7636702,
+    "seen": 1793662684.960316,
+    "ast_hash": "d11348c29db9c71a692117d08124592c",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/08_WA_WO.md": {
+    "mtime": 1793649431.7658632,
+    "seen": 1793662684.9603176,
+    "ast_hash": "3095decdbd4fc9a4ace20daee323c1e8",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/09_WI_OE.md": {
+    "mtime": 1793649431.76871,
+    "seen": 1793662684.9603193,
+    "ast_hash": "2ed702477a9f8e614acbd6331e32b370",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/10_FIRST_FINAL_LABELS.md": {
+    "mtime": 1793649431.7714336,
+    "seen": 1793662684.9603205,
+    "ast_hash": "e71fdc54c9a0f49937d1440d6b3f9e3b",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/11_INITIAL_FINAL_NG_MAP.md": {
+    "mtime": 1793649431.773957,
+    "seen": 1793662684.960322,
+    "ast_hash": "ca8284092b5cd9e5b2962aaebd3c28e5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/COMMON_COPY.md": {
+    "mtime": 1793649431.7800775,
+    "seen": 1793662684.9603233,
+    "ast_hash": "e755a26135730eebf61de46b46e11ce7",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/MEDIA_AND_SOURCES.md": {
+    "mtime": 1793649431.789732,
+    "seen": 1793662684.9603255,
+    "ast_hash": "424f327b67ccc041d27d84a9998ffa5f",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/QA_REVIEW.md": {
+    "mtime": 1793649431.792492,
+    "seen": 1793662684.9603274,
+    "ast_hash": "ad78f5b54ca03d9cdb4f2afe38990f55",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/README.md": {
+    "mtime": 1793649431.7946835,
+    "seen": 1793662684.960329,
+    "ast_hash": "66407cfe1dd02a9a769fb4a183fa5f30",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/01_CLOSED_FINALS.md": {
+    "mtime": 1793649431.8010762,
+    "seen": 1793662684.9603307,
+    "ast_hash": "71cf5cf88c7fd5e8ed09b00bd822df87",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/02_WAE_WE_FORMS.md": {
+    "mtime": 1793649431.8035777,
+    "seen": 1793662684.9603324,
+    "ast_hash": "52336211285f7799ec3fa47ad4b8bbc6",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/03_YAE_YE_AND_YES.md": {
+    "mtime": 1793649431.807509,
+    "seen": 1793662684.9603338,
+    "ast_hash": "ad361f9990ccdfb9d2f8a4d30132a219",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/04_UI_AND_CHOSEN_REVIEW.md": {
+    "mtime": 1793649431.8087006,
+    "seen": 1793662684.9603357,
+    "ast_hash": "4fb2d19d3317f11a494573c2af28a6d0",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/05_LINKED_SOUNDS.md": {
+    "mtime": 1793649431.813176,
+    "seen": 1793662684.9603372,
+    "ast_hash": "d2923812effccddddae88e54a13ed789",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/06_FIRST_NOTE_INPUT.md": {
+    "mtime": 1793649431.8178213,
+    "seen": 1793662684.9603384,
+    "ast_hash": "c74171307831ad221f637e0614a8ea7e",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/07_THIS_HOUSE_AND_REQUESTS.md": {
+    "mtime": 1793649431.819128,
+    "seen": 1793662684.96034,
+    "ast_hash": "45bb37832cb4416ebfb637a6fc157852",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/COMMON_COPY.md": {
+    "mtime": 1793649431.826982,
+    "seen": 1793662684.9603412,
+    "ast_hash": "9a675832cf05a28390957416443ec561",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/MEDIA_AND_CRITERIA.md": {
+    "mtime": 1793649431.8442547,
+    "seen": 1793662684.9603426,
+    "ast_hash": "65903aaff8ffdf73376a1dd26ee4f27c",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/QA_REVIEW.md": {
+    "mtime": 1793649431.8463383,
+    "seen": 1793662684.9603443,
+    "ast_hash": "c284fb01572765cbe738b6ac076d8a0a",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/README.md": {
+    "mtime": 1793649431.8485658,
+    "seen": 1793662684.9603455,
+    "ast_hash": "152b03fb93e0f364f539639e829f0a38",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUES_10S.md": {
+    "mtime": 1793649431.8583663,
+    "seen": 1793662684.9603467,
+    "ast_hash": "5a77d255da3808e405d182e0255ebb38",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/EPILOGUE_QA.md": {
+    "mtime": 1793649431.8614252,
+    "seen": 1793662684.960348,
+    "ast_hash": "a7127776933b53f9ac96606115dbc91a",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.md": {
+    "mtime": 1793649431.8760486,
+    "seen": 1793662684.9603498,
+    "ast_hash": "92cd2f0c76e0d5a5faf4e314636b5ea1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/QA_REVIEW.md": {
+    "mtime": 1793649431.880186,
+    "seen": 1793662684.9603517,
+    "ast_hash": "b6079a3fd258ecbd9d32ff5ea472b97b",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/README.md": {
+    "mtime": 1793649431.8816662,
+    "seen": 1793662684.9603531,
+    "ast_hash": "f99b205cb0a73d54b1c7da61e7105c85",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/SEASON1_INDEPENDENT_REVIEW.md": {
+    "mtime": 1793649431.8833187,
+    "seen": 1793662684.9603543,
+    "ast_hash": "fbeedf9ab9524dad5926fa1b31b1f17f",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.md": {
+    "mtime": 1793649431.8994548,
+    "seen": 1793662684.9603558,
+    "ast_hash": "2bfb90bcaa61c9e779f4582a76e56fac",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STORY_MANAGER_GUIDE.md": {
+    "mtime": 1793649431.9018092,
+    "seen": 1793662684.9603574,
+    "ast_hash": "7f14e6f6c5798804a1c5c77147fce868",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/build_level_story_100.py.txt": {
+    "mtime": 1793649431.909269,
+    "seen": 1793662684.9603586,
+    "ast_hash": "c32e26049b49f1e8ce6f4f5f7401043b",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/build_stage_story_128.py.txt": {
+    "mtime": 1793649431.9132643,
+    "seen": 1793662684.96036,
+    "ast_hash": "9053b78a3ff4ba05aba76655f32382f3",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/verify_season1_package.py.txt": {
+    "mtime": 1793649431.915265,
+    "seen": 1793662684.9603617,
+    "ast_hash": "7ff333ccfac540f79a64e03fcb67d6c1",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/verify_a11_manuscript.py.txt": {
+    "mtime": 1793649431.9167728,
+    "seen": 1793662684.9603636,
+    "ast_hash": "64c7ee7f3cb58bd18a71ac91d766c6a3",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/verify_foundation2_manuscript.py.txt": {
+    "mtime": 1793649431.9185767,
+    "seen": 1793662684.9603646,
+    "ast_hash": "e85b0c393470c6c9fe9873b9d864f526",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/verify_foundation3_manuscript.py.txt": {
+    "mtime": 1793649431.9229007,
+    "seen": 1793662684.9603658,
+    "ast_hash": "beaf1259cdf4992c93b3f0cf6d97da07",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/manuscripts/verify_foundation4_manuscript.py.txt": {
+    "mtime": 1793649431.9255023,
+    "seen": 1793662684.9603672,
+    "ast_hash": "7d74a573bf10080d7da97992f2d047dc",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/CHAPTER_EVENT_DESIGN.md": {
+    "mtime": 1793649431.9404695,
+    "seen": 1793662684.9603682,
+    "ast_hash": "5c60f806e3bcf23a8f5f6e20ff9d2c0d",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/INDEPENDENT_REVIEW.md": {
+    "mtime": 1793649431.9463022,
+    "seen": 1793662684.9603698,
+    "ast_hash": "82ea16c5af28becb276f1d7906cd1c0c",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/MOCKUP_IMAGE_BRIEF.md": {
+    "mtime": 1793649431.949783,
+    "seen": 1793662684.9603715,
+    "ast_hash": "a75d5100d4898b0263f7f8adfb0bcc4f",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/README.md": {
+    "mtime": 1793649431.9539218,
+    "seen": 1793662684.960373,
+    "ast_hash": "e4549640b06f9b29fb9f21d6558b8a13",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/VIDEO_PRODUCTION_PLAN.md": {
+    "mtime": 1793649431.9615824,
+    "seen": 1793662684.9603746,
+    "ast_hash": "6011bcb843e3c1d27a6faf22206e7203",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/AI_ASSET_LOCK_PROMPT_EN.md": {
+    "mtime": 1793649431.9674592,
+    "seen": 1793662684.9603755,
+    "ast_hash": "415ff2402e2eae03fd84fc52854f64f4",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/AI_ASSET_LOCK_PROMPT_KO.md": {
+    "mtime": 1793649431.9702368,
+    "seen": 1793662684.9603767,
+    "ast_hash": "09005fd8859faf80505d93a0e3413dd5",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/ASSET_LOCK_LIST.md": {
+    "mtime": 1793649431.9766896,
+    "seen": 1793662684.9603784,
+    "ast_hash": "117e48c93844abce6d95b1eb668f15fd",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/BUILDING_LOCK.md": {
+    "mtime": 1793649431.9897065,
+    "seen": 1793662684.9603796,
+    "ast_hash": "64558ea143e3c1f8dcb754a2a1256071",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/CHARACTER_LOCK.md": {
+    "mtime": 1793649431.9969292,
+    "seen": 1793662684.9603806,
+    "ast_hash": "b5525687ff6f82c330880b857c7f90b7",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/INDEPENDENT_REVIEW.md": {
+    "mtime": 1793649432.0018923,
+    "seen": 1793662684.9603827,
+    "ast_hash": "07fcb9c6b992866ffc2246abc42b2836",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/production/asset-lock/SYMBOL_STYLE_LOCK.md": {
+    "mtime": 1793649432.0086377,
+    "seen": 1793662684.9603837,
+    "ast_hash": "8ce8070c733dcd1342967a16cfd8d25b",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/PROVIDED_BEGINNER_SPEC_A.txt": {
+    "mtime": 1793649432.0186093,
+    "seen": 1793662684.9603856,
+    "ast_hash": "83dd007e7db519317d33abed993cf4aa",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/PROVIDED_BEGINNER_SPEC_B.txt": {
+    "mtime": 1793649432.0209699,
+    "seen": 1793662684.960387,
+    "ast_hash": "318d9b8bd9a4ae6de0983a4a4ac2e8d9",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/STORY_V3_5.md": {
+    "mtime": 1793649432.0298471,
+    "seen": 1793662684.9603884,
+    "ast_hash": "7eadaeb590732c70dd3d6d3cc304e296",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/curriculum/ASSESSMENT_CONTRACT.md": {
+    "mtime": 1793649432.0346882,
+    "seen": 1793662684.9603903,
+    "ast_hash": "b6f51c9b249e21dd491388f4d017d606",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/curriculum/BAND_CONTRACTS.md": {
+    "mtime": 1793649432.0377145,
+    "seen": 1793662684.960392,
+    "ast_hash": "2b1f4b7aa0b40a3c14380ea46d2cfb1f",
+    "semantic_hash": ""
+  },
+  "docs/learning/ildu-season1-content-20261030/reference/curriculum/FIRST_PRODUCTION_PACK.md": {
+    "mtime": 1793649432.0422049,
+    "seen": 1793662684.9603932,
+    "ast_hash": "94fe4e754af010c32171e162543cf0cb",
+    "semantic_hash": ""
+  },
+  "design/canonical/sujin/20261031/01-front.png": {
+    "mtime": 1793649431.3713627,
+    "seen": 1793662685.0139415,
+    "ast_hash": "4a2475b3bc51e44928bf4b643a8afb13",
+    "semantic_hash": ""
+  },
+  "design/canonical/sujin/20261031/02-expressions-six.png": {
+    "mtime": 1793649431.4135096,
+    "seen": 1793662685.013945,
+    "ast_hash": "2c14c8e712b08fb66bb1e3e0c7dd232f",
+    "semantic_hash": ""
+  },
+  "design/canonical/sujin/20261031/03-poses-six.png": {
+    "mtime": 1793649431.456453,
+    "seen": 1793662685.0139475,
+    "ast_hash": "4e8e17beef4fa5657ba92f025856b982",
     "semantic_hash": ""
   }
 }

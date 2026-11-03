@@ -81,3 +81,11 @@ files for managed delivery. Expression sheets remain in the base bundle.
 Local manifest/source checks do not prove an uploaded AAB, download size,
 physical-device behavior, TestFlight availability or a public release.
 Those remain separate exact-commit CI and store gates.
+
+Linux Flutter 3.44.0 golden regeneration run `41549202841` succeeded for
+source `530fd11c40085988e76ae90c9c8c51b8de1a9a5c`. Only the three Today
+viewport baselines changed; settings, vocabulary and component baselines
+were byte-identical. Loading and loaded headers share measured text sizing.
+The loading/short-height/onboarding regression run passed 286 tests; the
+final layout and source guards passed 133 tests. These are automated widget
+checks, separate from an installed store build or physical iPhone review.
