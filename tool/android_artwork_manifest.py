@@ -35,6 +35,8 @@ FAMILIES = (
            'assets/illustrations/concept_c/today/', 24),
     Family('najeon-originals', 'docs/assets/NAJEON_ANDROID_ARTWORK_20261102.json',
            'assets/illustrations/rewards/najeon/', 2),
+    Family('spiele-reviewed', 'docs/assets/SPIELE_ANDROID_ARTWORK_20261103.json',
+           'assets/illustrations/concept_c/spiele_preview/', 13),
 )
 
 
