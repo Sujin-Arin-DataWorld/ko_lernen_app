@@ -1,4 +1,4 @@
-name: Verify Play Internal Publication
+name: Verify Play Track Publication
 
 on:
   pull_request:
@@ -10,9 +10,18 @@ on:
   workflow_dispatch:
     inputs:
       expected_version_code:
-        description: 'Exact uploaded internal versionCode to verify (for example 7602)'
+        description: 'Exact uploaded versionCode to verify (for example 7602)'
         required: true
         type: string
+      target_track:
+        description: 'Play track whose publication lifecycle must match the exact versionCode'
+        required: true
+        type: choice
+        default: internal
+        options:
+          - internal
+          - alpha
+          - beta
 
 permissions:
   contents: read
@@ -65,9 +74,10 @@ jobs:
           node-version: '22'
       - name: Install the existing locked Google auth dependency
         run: npm ci --ignore-scripts --prefix functions/tts
-      - name: Read the exact internal release lifecycle without publishing
+      - name: Read the exact target track release lifecycle without publishing
         env:
           EXPECTED_VERSION_CODE: ${{ inputs.expected_version_code }}
+          TARGET_TRACK: ${{ inputs.target_track }}
           GOOGLE_PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
         run: node tool/play_internal_status.cjs
       - name: Preserve publication evidence
