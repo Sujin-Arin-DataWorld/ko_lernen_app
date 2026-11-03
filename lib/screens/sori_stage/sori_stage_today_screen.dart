@@ -1398,6 +1398,15 @@ class _TodayMissionStage extends StatelessWidget {
               ? t.soriStageMissionAction
               : localCopy(context, entry.title));
     final compact = MediaQuery.sizeOf(context).height < 750;
+    // The standalone fallback has no shared learning-focus card to size its
+    // artwork. Keep it legible on tablets instead of retaining a phone thumbnail.
+    final illustrationHeight =
+        MediaQuery.sizeOf(context).shortestSide >=
+            SoriBreakpoints.navigationRail
+        ? 144.0
+        : compact
+        ? 48.0
+        : 96.0;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -1410,7 +1419,7 @@ class _TodayMissionStage extends StatelessWidget {
               top: Radius.circular(SoriRadius.xl),
             ),
             child: SizedBox(
-              height: compact ? 48 : 96,
+              height: illustrationHeight,
               child: Image.asset(
                 activityIllustrationAsset(entry.id),
                 fit: BoxFit.contain,
