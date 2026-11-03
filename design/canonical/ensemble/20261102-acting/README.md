@@ -3,6 +3,7 @@
 사용자가 새 시트에 “응 다 좋아”라고 승인하고 기존 백호 폴더와 비교해 선별·정본 등록·커밋·푸시·main 병합을 요청했다. 이번 패키지는9장 시트·기존 태고 보조 이미지3장·사용자 첨부 도깨비 원본1장을 원본 바이트로 보존한다.
 
 ## 지금 사용할 기준
+- **추가 제작 전 필독:** [캐릭터별 머리~발끝·색상·재질·털/깃 상세명세](specifications/README.md) · [기존46개 치수 전수표](specifications/MEASUREMENTS.md) · [외형/알파/장면 검수](specifications/QA.md) · [이 세션 실패와 금지사항](specifications/SESSION_FINDINGS.md). 2026-11-03 사용자 요청으로 보강한 문서이며 기존 승인 수치·이미지·승인JSON을 교체하지 않는다.
 - [전체 캐릭터 기준](CHARACTER_LOCK.json): 수진B2·탈선비·연이8/12세·일반/신수형·제작치수·UI재료를 이전 정본에서 그대로 계승하며, 새 승인 연기를 추가한다. 경로는 이 파일 기준.
 - [표정·자세 ID와 시트 매핑](ACTING_CANON.json) · [선택 파일 해시](ASSET_MANIFEST.json) · [승인 범위](CANONICAL_APPROVAL.json).
 - [태고 원본15파일 비교](TAEGO_SOURCE_COMPARISON.json) · [선정 이유](TAEGO_COMPARISON.md) · [최종 생성 프롬프트](GENERATION_PROVENANCE.json).

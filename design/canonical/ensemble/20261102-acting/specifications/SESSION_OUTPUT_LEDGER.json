@@ -1,0 +1,442 @@
+{
+  "schema": "hangulsori/illustration-session-ledger/1",
+  "note": "Past scene/test provenance only. Does not replace approved PR471 sheets or imply completed independent reviews. Null hash means current output file unavailable.",
+  "rows": [
+    {
+      "kind": "scene_or_revision",
+      "name": "R02-badge-gift-de-v1.png",
+      "sha256": "8d4a20fe98a93970573ad3a6432612416c6762feda7ee4ae435f3ff0bbe0859e",
+      "recorded_status": "review_candidate",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-097e3559-3898-4ed0-9efa-e736222e330d.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R02-badge-gift-en-v1.png",
+      "sha256": "3345d82732ae14ec413b8f7f8c83ada893f5c6526bcf2cf6c68566dc496c58d2",
+      "recorded_status": "review_candidate",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-4481016a-2dba-4dc1-8204-bd8946071c8a.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R04-home-activation-de-v1.png",
+      "sha256": "aa17fcf1abb0866b3262c6d0f510fbaf7dfd12617ffaabb47037f8ef3dcde081",
+      "recorded_status": "review_candidate",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-4a08d180-db5b-4ecd-b8c3-ed51e35fcad2.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R04-home-activation-en-v1.png",
+      "sha256": "93d114f9f7a243a815e46cdd1f58f1f8f4df9860f0b7a345ca9ca28682ed9f84",
+      "recorded_status": "review_candidate",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-5072a91d-6c2e-4c94-95b8-b5f9a3b386ea.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R05-guardian-reveal-de-v1.png",
+      "sha256": "fc860957fbb640fac59a7d629ceafb5fdbdde3abda85984e72ecab7b92e9edb2",
+      "recorded_status": "superseded_gaze_review",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-1ff3929f-d4f9-410f-951c-f0a530512157.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R05-guardian-reveal-de-v2-attentive.png",
+      "sha256": "f543e595b290eb9012344fec52dbec080e45a70fe538655a8671e1d00b59d46f",
+      "recorded_status": "review_candidate",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-8d7b2215-91b0-4ca8-8a06-3b01efaa5f79.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R05-guardian-reveal-en-v1.png",
+      "sha256": "2b8c8ce1c67dd00679bf82723f8345f66c2071fbfd55ac8dd9629cbed5ab1ed2",
+      "recorded_status": "superseded_gaze_review",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-a4c40840-9fde-4aed-8cf3-1f5f744f9e87.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R05-guardian-reveal-en-v2-attentive.png",
+      "sha256": "5e469767503c8e659306b1cf43f7661b8af00bd1737608e6bf8ff19bb3b25ea3",
+      "recorded_status": "acting_correction_pending_review",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-8458c514-d82f-4eb0-a58d-7bc0b5d85052.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R07-gate-reunion-de-v2.png",
+      "sha256": "b6aca284f07f1cbc5be15808ec880359ddd61d0ddeca419a9794eb01ca90ab9c",
+      "recorded_status": "review_candidate",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-a66fa76e-c740-49b5-af89-d86cb79d0a98.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R07-gate-reunion-en-v1.png",
+      "sha256": "01d99c43c911642027ce938830fd1ab6bd8dedd226b9b1af69ae0b106b557fb4",
+      "recorded_status": "superseded_shell_and_scale",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-d738068b-59fa-4f7a-8095-8e0b5060158f.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R07-gate-reunion-en-v2.png",
+      "sha256": "69e581e97b8667ce831c88c8df13d9c90a68f7044e1cac8aadc2a4ba754def71",
+      "recorded_status": "review_candidate",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-ac502b29-2c3a-484b-b773-b084154031ac.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R08-cloud-flight-de-v2-grief.png",
+      "sha256": "8a05a2debeceffcfc626335f3d1d75b404bfb9bcab5040e5e7d6c6908234370c",
+      "recorded_status": "review_candidate",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-e585b115-8205-4259-bd6e-91c7ff1bb0a5.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R08-cloud-flight-en-v1.png",
+      "sha256": "5ec5de2255a77c2a2c79df419e96551a9d393e006c6b4135cd985c6db3604a2a",
+      "recorded_status": "superseded_gaze_review",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-72bbde25-7085-412f-8513-b56270285967.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R08-cloud-flight-en-v2-grief.png",
+      "sha256": "80d3a72b093a4ae3bce76ae38c15c5b6950337951b4c834ec23309021adf8bec",
+      "recorded_status": "acting_correction_pending_review",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-3f01ad4b-0adb-4559-b337-0b1ead68b30b.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R09-wide-ruins-de-v1.png",
+      "sha256": "ad1b7e1a0a0eb3e21311a47d5ddf51805368e2f659a6d662222458ee9f3e24c1",
+      "recorded_status": "review_candidate",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-37fe46fb-ecfd-4ece-9c52-3eb08ed31d07.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R09-wide-ruins-en-v1.png",
+      "sha256": "13e7eddf7137f2c67124d02415bde23f47c799f9e560c96d955b69c65efec864",
+      "recorded_status": "review_candidate",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-55c3b934-b899-4ef8-932d-14f5ea01e98f.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R12-courtyard-request-de-v4-listening.png",
+      "sha256": "955e9dfd2822ba0a7e7d10b15140956c9965757a86fa3499afe72f99ba31f23e",
+      "recorded_status": "acting_correction_pending_review",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-2186a1f8-a4b8-4cbf-9ac9-fe4a005db6fe.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R12-courtyard-request-en-v1.png",
+      "sha256": "6413fee79b64c29ccd356028bad9c529a4d40d78e7ce17f27669a729d3016ea1",
+      "recorded_status": "rejected_user_taego_smaller_than_sujin",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-8ee06cfd-7888-40e8-8de0-4f4a7a4f249f.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R12-courtyard-request-en-v2.png",
+      "sha256": "4fee9c5a6e6747b0c4081ef8203dabd500423c2911d293427c19cef8ef129c71",
+      "recorded_status": "rejected_user_taego_smaller_than_sujin",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-b408c5c6-776e-4e72-94a4-4a49cd3aae0b.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R12-courtyard-request-en-v3-large-taego.png",
+      "sha256": "3663cebb104de6245fe749801c85d98b9694ca9de8e308e454bc8a7637ae8d5c",
+      "recorded_status": "superseded_blank_gaze",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-4b267147-1cc2-483e-9a70-576d355bf886.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R12-courtyard-request-en-v4-listening.png",
+      "sha256": "e59c028aa35b41e53bc08a83e19ce476c9a52bc230c56cc3d7075d60b7230636",
+      "recorded_status": "acting_correction_pending_review",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-c90358d0-9819-4d63-b604-3ad3aaab04a7.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R13-first-book-de-v1.png",
+      "sha256": "6aa3147214ef839ee016b65941fe74598e85c347b08adead8b4e626a82f574e7",
+      "recorded_status": "hold_character_identity",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-9911cac8-4bc1-46ca-9c9f-d96ef82a9cf9.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R13-first-book-en-v1.png",
+      "sha256": "f6c4ac582c656562763c82e8093b5116a0fa591ae3bda008699ebf1ff9e5ea70",
+      "recorded_status": "hold_character_identity",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-19bbee24-16ae-42d5-890e-29ab953cee04.png",
+      "reference_list_recorded": false,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R16-guided-sound-de-v1.png",
+      "sha256": "eec62c41c4f6841a51ac8b6e36608f769d9aefd59a92e9110454097944434aad",
+      "recorded_status": "hold_character_identity",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-e2168bba-03d9-4ef0-9d3d-8a9eee425ee3.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R16-guided-sound-en-v1.png",
+      "sha256": "cd32276011651d316032bd001f83c5f850d3c45d14caa03cf6b0744b249fef39",
+      "recorded_status": "hold_character_identity",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-4df1d65e-3512-4231-a3f6-7425e391d336.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R17-player-first-sound-de-v1.png",
+      "sha256": "7cfaf2e6135e33e9c62103936d0caf177ba1efb36aebf3c956fc105af10dee24",
+      "recorded_status": "superseded_assembly_position_jump",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-3b2893bf-a114-41fc-a63f-3413422def1b.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R17-player-first-sound-de-v2-continuity.png",
+      "sha256": "50ca2cdd285584b6994c3cd7c1beb9dcf4c177eef506298467a419a757fe1bd4",
+      "recorded_status": "hold_character_identity",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-56565f25-e66d-4e83-8afa-9c12c9b6519f.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R17-player-first-sound-en-v1.png",
+      "sha256": "abced9813652f00197035543f5c70beae47872a64bb9caf4e12385fcb22198da",
+      "recorded_status": "superseded_assembly_position_jump",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-f56b41c5-7d9d-4661-a876-599255ccccc0.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R17-player-first-sound-en-v2-continuity.png",
+      "sha256": "e97a2ca860aa4ac9118d1a558ea804158b86b17826bd466f9e479640cfb8d074",
+      "recorded_status": "hold_character_identity",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-d1268542-1263-49bc-937a-2fe0106aa206.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R18-KF3-five-companions-art-v3.png",
+      "sha256": "590c3cb4569af2e96d9a5f540bd6c637445cf414647d6fe4560db7cc5075088d",
+      "recorded_status": "rejected_user_taego_identity_bearlike",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-c996146e-fc2d-474b-a9b2-816982cd6962.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R18-talsunbi-awakens-de-v2-continuity.png",
+      "sha256": "11d4ab7f5c7fce6943d65dced01bdb3c4c698fd4e17fcb707a49c7dd1b539fb4",
+      "recorded_status": "hold_character_identity",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-56ef9c95-1f6f-48db-bf97-6d9a1d9032bb.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R18-talsunbi-awakens-en-v1.png",
+      "sha256": "f5c9edf46639e9f56a42960291c1ed61af8ee7835cadee07aeaa81f03bdb2f69",
+      "recorded_status": "superseded_assembly_position_jump",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-ab63a7a3-52b6-4503-a8a6-c89993361b98.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R18-talsunbi-awakens-en-v2-continuity.png",
+      "sha256": "773aba69ecc3c89d11b7b9f065c2814679e3c96e3b9987ee948e99ee0c2a6ebe",
+      "recorded_status": "hold_character_identity",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-a4cd5fa6-bd4c-4c79-933f-2c8cb1d18af2.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R19-reunion-joke-de-v1.png",
+      "sha256": "c0e3ae9b159703df48606e66c05470062f671bd1c622c2843afe975c51f8f80f",
+      "recorded_status": "hold_character_identity",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-e12d7fe4-a1bc-40f4-882d-fa000dddefb1.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R19-reunion-joke-en-v1.png",
+      "sha256": "9737298c75ed89b3734d81f64b831454600c9eae63c909f50da7db8ecbf96efd",
+      "recorded_status": "hold_character_identity",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-b0a0e42b-f75c-4f22-8931-287b4a2941e8.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R20-reunion-loneliness-de-v1.png",
+      "sha256": "73e55296d45955ca96a4d1ca66dc7e04c625ac079cdde009d9eee933bf83d7c6",
+      "recorded_status": "hold_character_identity",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-2e4ce3c0-190d-4343-ba6e-4d9871b2cd14.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "scene_or_revision",
+      "name": "R20-reunion-loneliness-en-v1.png",
+      "sha256": "1ef3baf9c5ad7b387eb6f10d774dca6d4ed680c8ef0cd3384ae5868a07123650",
+      "recorded_status": "hold_character_identity",
+      "saved_copy_hash_verified_now": true,
+      "original_source_filename": "exec-2dc3e98b-67c6-48a8-9544-ed0316bd5c34.png",
+      "reference_list_recorded": true,
+      "reference_list_missing_does_not_prove_no_reference_used": true
+    },
+    {
+      "kind": "single_character_test",
+      "name": "taego-listening-v1",
+      "original_source_filename": "exec-168d58a4-ddf0-441f-bc14-f0997ad42fb7.png",
+      "sha256": "50dd3029d881164f9439943cb0bf75871493cb3d4b9f0d89afdd41c2861646fc",
+      "file_readable_now": true,
+      "recorded_status": "conditional_single_pose_designer_review_not_canon",
+      "local_independent_review_name": "TAEGO_SINGLE_TEST_REVIEW.md",
+      "review_file_present_now": true,
+      "canonical_approved": false
+    },
+    {
+      "kind": "single_character_test",
+      "name": "joy-attentive-v1",
+      "original_source_filename": "exec-ff0c8971-6bf8-48ba-bd4d-3bb28ef3834c.png",
+      "sha256": "cb44c41beb216e93a61f2eab307473899559662683a57679f5449e231f87b139",
+      "file_readable_now": true,
+      "recorded_status": "hold_face_drift",
+      "local_independent_review_name": "JOY_SINGLE_TEST_REVIEW.md",
+      "review_file_present_now": true,
+      "canonical_approved": false
+    },
+    {
+      "kind": "single_character_test",
+      "name": "talsunbi-return-stance-v1",
+      "original_source_filename": "exec-044440cd-00f2-4e4b-81ca-1ecce730fa7a.png",
+      "sha256": "a4176265390ec1bae298e17d1d6321abe4bad8e2f0381c1b8367f51d4c83d1e4",
+      "file_readable_now": true,
+      "recorded_status": "conditional_single_pose_design_review_not_final_sprite",
+      "local_independent_review_name": "TALSUNBI_SINGLE_TEST_REVIEW.md",
+      "review_file_present_now": true,
+      "canonical_approved": false
+    },
+    {
+      "kind": "single_character_test",
+      "name": "sujin-source-stance-v1",
+      "original_source_filename": "exec-4d98f68c-57ef-4913-9008-d04ed966a0de.png",
+      "sha256": "7587ddda6f8ba693a7e42f055738254d462960f62fe9612dcfe69e108bec0ea8",
+      "file_readable_now": true,
+      "recorded_status": "final_independent_review_not_complete",
+      "local_independent_review_name": null,
+      "review_file_present_now": false,
+      "canonical_approved": false
+    },
+    {
+      "kind": "single_character_test",
+      "name": "dokkaebi-listening-v1",
+      "original_source_filename": "exec-a4e981b3-3383-421c-a238-45aefff4d87c.png",
+      "sha256": "d42abb68121f42dd08757d4929db9304b8872936b23ef42968ed8e060fae606d",
+      "file_readable_now": true,
+      "recorded_status": "final_independent_review_not_complete",
+      "local_independent_review_name": null,
+      "review_file_present_now": false,
+      "canonical_approved": false
+    },
+    {
+      "kind": "single_character_test",
+      "name": "joy-attentive-v2-face-correction",
+      "original_source_filename": "exec-4aee44a5-fce8-4ab2-9a7f-165639bfe8ca.png",
+      "sha256": "83b102a4471db4c1783a9f63821771526e8576cfc8f0c74d33f206a6aaf4c8e2",
+      "file_readable_now": true,
+      "recorded_status": "final_independent_review_not_complete",
+      "local_independent_review_name": null,
+      "review_file_present_now": false,
+      "canonical_approved": false
+    }
+  ]
+}
