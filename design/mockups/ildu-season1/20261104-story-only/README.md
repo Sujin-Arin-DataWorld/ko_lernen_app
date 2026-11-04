@@ -24,3 +24,7 @@
 R21b의 **승인 정본으로 고정한 크기·방향·구도 사전 검수**부터 다시 시작한다. 같은 실패 장면을 참조하여 일괄 확대하지 않는다. 현재 전담 역할은 `/root/character_design_guard`; 다른 채팅에서는 역할을 새로 배정해야 한다. 서사 검토 역할은 `/root/story_contract_review`다.
 
 검수 기록에 사용 목적별 PASS/FAIL/UNVERIFIED와 관찰 근거가 모두 있어야 다음 단계로 넘긴다. 사람이 승인한 정본·독립 AI 시각 검수·앱 적용·배포는 구분한다. 이번 작업으로 앱 코드·HTML·Figma·재화/소유 정책·배포를 변경하지 않았다.
+
+## 2026-11-04 최종 목록 정리와 후속 상태 화면
+
+[현재 정본 4장 구분·100장 보존 이동·R22 제작 기록](final-selection/README.md). 이전 generated_images 원본 경로는 같은 기록의 RELOCATION_RECEIPT.json으로 새 위치를 조회한다. 실패 기록과 사용자 승인 상태는 바꾸지 않았다.
