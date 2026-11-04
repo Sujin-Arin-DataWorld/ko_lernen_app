@@ -435,13 +435,16 @@ class SoriLoadingIndicator extends StatelessWidget {
     super.key,
     required this.color,
     this.strokeWidth = 2,
+    this.value,
   });
 
   final Color color;
   final double strokeWidth;
+  final double? value;
 
   @override
   Widget build(BuildContext context) => CircularProgressIndicator(
+    value: value,
     strokeWidth: strokeWidth,
     valueColor: AlwaysStoppedAnimation<Color>(color),
   );
@@ -459,6 +462,7 @@ class SoriTextAction extends StatelessWidget {
     this.textStyle,
     this.maxLines,
     this.softWrap,
+    this.child,
   });
 
   final String label;
@@ -468,15 +472,16 @@ class SoriTextAction extends StatelessWidget {
   final int? maxLines;
   final bool? softWrap;
 
+  /// Approved artwork or compound copy. The shared Material action still owns
+  /// focus, keyboard activation and the minimum target; label is announced once.
+  final Widget? child;
+
   @override
   Widget build(BuildContext context) => TextButton(
     onPressed: onPressed,
     style: TextButton.styleFrom(minimumSize: const Size(48, 48)).merge(style),
-    child: Text(
-      label,
-      style: textStyle,
-      maxLines: maxLines,
-      softWrap: softWrap,
-    ),
+    child: child == null
+        ? Text(label, style: textStyle, maxLines: maxLines, softWrap: softWrap)
+        : Semantics(label: label, excludeSemantics: true, child: child),
   );
 }

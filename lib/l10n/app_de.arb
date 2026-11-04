@@ -1473,7 +1473,6 @@
   "moduleScenariosDesc": "Übe Alltagssituationen: Café, Flughafen, Vorstellung …",
   "scenarioIntroTitle": "Einleitung",
   "scenarioVocabTitle": "Wortschatz",
-  "scenarioDialogTitle": "Dialog",
   "scenarioGrammarTitle": "Grammatik",
   "scenarioQuestsTitle": "Mini-Spiele",
   "scenarioQuestProgress": "{current} von {total}",
@@ -2774,7 +2773,6 @@
   "grammarPlanLevelLabel": "Niveau",
   "grammarPlanEditTooltip": "Niveau oder Tempo ändern",
   "grammarPlanOnboardingTitle": "Wie viele Muster pro Tag?",
-  "grammarPlanOnboardingBody": "Wähle eine tägliche Empfehlung. Oben kannst du Tempo und Niveau ändern oder jederzeit alle Muster ansehen.",
   "grammarPlanItemsPerDayOption": "{n} pro Tag",
   "@grammarPlanItemsPerDayOption": {
     "placeholders": {

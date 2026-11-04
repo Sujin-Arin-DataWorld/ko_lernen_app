@@ -13,6 +13,7 @@ import 'route_observer.dart';
 import 'sheet.dart';
 import 'speakable.dart';
 import 'study_frame.dart';
+import 'tokens.dart';
 
 /// Presentation shared only by Nuancen's catalog, relationship study and quiz.
 abstract final class NuancenC {
@@ -25,23 +26,33 @@ abstract final class NuancenC {
   static const indigo = Color(0xff626d91);
   static const gold = SoriCLearningTokens.gold;
   static const actionClearance = 24.0; // 16dp clear + up to 6dp shadow.
+  static const choiceInset = Spacing.md;
+  static const choiceBorder = 2.0;
+  static const choiceCheckWidth = 18.0;
+  static const choiceCheckGap = Spacing.sm;
+  static const headerControlWidth = kMinInteractiveDimension + Spacing.sm;
+  static const answerOutlineWidth = 1.0;
+  // The inset paper follows the outer answer radius minus its outline.
+  static const answerRadius = 14.0;
+  static const feedbackRadius = 10.0;
+  static const disconnectedCordSeparation = 40.0;
   static const body = TextStyle(
-    fontFamily: 'Manrope',
-    fontFamilyFallback: ['NotoSansKR'],
+    fontFamily: SoriCLearningFonts.body,
+    fontFamilyFallback: SoriLocaleFonts.fallback,
     fontSize: 16,
     height: 1.4,
     color: ink,
   );
   static const heading = TextStyle(
-    fontFamily: 'Manrope',
-    fontFamilyFallback: ['NotoSansKR'],
+    fontFamily: SoriCLearningFonts.body,
+    fontFamilyFallback: SoriLocaleFonts.fallback,
     fontWeight: FontWeight.w800,
     fontSize: 24,
     height: 1.2,
     color: ink,
   );
   static const korean = TextStyle(
-    fontFamily: 'NotoSansKR',
+    fontFamily: SoriFonts.korean,
     fontWeight: FontWeight.w700,
     fontSize: 27,
     height: 1.35,
@@ -239,14 +250,17 @@ class _NuancenHeader extends StatelessWidget implements PreferredSizeWidget {
   bool get _showBrandRow => !compact || actions.length > 1;
 
   double get _titleHeight {
-    final painter = TextPainter(
-      text: TextSpan(
-        text: title,
-        style: NuancenC.heading.copyWith(fontSize: 21),
-      ),
-      textDirection: TextDirection.ltr,
-      textScaler: textScaler,
-    )..layout(maxWidth: (width - 112).clamp(80, 600));
+    final painter =
+        TextPainter(
+          text: TextSpan(
+            text: title,
+            style: NuancenC.heading.copyWith(fontSize: 21),
+          ),
+          textDirection: TextDirection.ltr,
+          textScaler: textScaler,
+        )..layout(
+          maxWidth: (width - 2 * NuancenC.headerControlWidth).clamp(80, 600),
+        );
     return painter.height < 48 ? 48 : painter.height;
   }
 
@@ -267,7 +281,7 @@ class _NuancenHeader extends StatelessWidget implements PreferredSizeWidget {
             height: _titleHeight,
             child: Row(
               children: [
-                SizedBox(width: 56, child: leading),
+                SizedBox(width: NuancenC.headerControlWidth, child: leading),
                 Expanded(
                   child: Text(
                     title,
@@ -278,7 +292,10 @@ class _NuancenHeader extends StatelessWidget implements PreferredSizeWidget {
                     ),
                   ),
                 ),
-                SizedBox(width: 56, child: actions.first),
+                SizedBox(
+                  width: NuancenC.headerControlWidth,
+                  child: actions.first,
+                ),
               ],
             ),
           ),
@@ -295,12 +312,12 @@ class _NuancenHeader extends StatelessWidget implements PreferredSizeWidget {
                           asset: ApprovedChromeAssets.cloud,
                           size: 30,
                         ),
-                        const SizedBox(width: 6),
+                        const SizedBox(width: Spacing.sm),
                         Text(
                           'HANGUL SORI',
                           textScaler: TextScaler.noScaling,
                           style: NuancenC.heading.copyWith(
-                            fontSize: 11,
+                            fontSize: 13,
                             letterSpacing: 2,
                             color: NuancenC.gold,
                           ),
@@ -565,26 +582,28 @@ class NuancenScopeChoice extends StatelessWidget {
         pressOffsetY: 2,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(SoriRadius.sm),
             border: Border.all(
               color: selected ? NuancenC.gold : const Color(0xffa6906e),
-              width: 2,
+              width: NuancenC.choiceBorder,
             ),
             boxShadow: const [
               BoxShadow(color: Color(0xffb49e7a), offset: Offset(0, 3)),
             ],
           ),
           child: Padding(
-            padding: const EdgeInsets.all(2),
+            padding: const EdgeInsets.all(NuancenC.choiceBorder),
             child: SoriCMaterialSurface(
               material: selected ? SoriCMaterial.jade : SoriCMaterial.paper,
               raised: false,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(
+                SoriRadius.sm - NuancenC.choiceBorder,
+              ),
               child: ConstrainedBox(
                 constraints: BoxConstraints(minHeight: 48, minWidth: minWidth),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 14,
+                    horizontal: NuancenC.choiceInset,
                     vertical: 10,
                   ),
                   child: Row(
@@ -594,10 +613,10 @@ class NuancenScopeChoice extends StatelessWidget {
                       if (selected) ...[
                         const Icon(
                           Icons.check_rounded,
-                          size: 18,
+                          size: NuancenC.choiceCheckWidth,
                           color: SoriCLearningTokens.paper,
                         ),
-                        const SizedBox(width: 6),
+                        const SizedBox(width: NuancenC.choiceCheckGap),
                       ],
                       Text(
                         label,
@@ -671,12 +690,36 @@ class NuancenSpeedAction extends StatelessWidget {
                   const SizedBox(height: 12),
                   LayoutBuilder(
                     builder: (context, bounds) {
-                      final scale = MediaQuery.textScalerOf(context).scale(1);
-                      final columns = bounds.maxWidth >= 300 && scale <= 1.3
-                          ? 3
-                          : 2;
+                      var labelWidth = 0.0;
+                      for (final preset in TtsService.speedPresets) {
+                        final label = TextPainter(
+                          text: TextSpan(
+                            text: AppL10n.of(
+                              context,
+                            ).ttsSpeedChip(_format(preset)),
+                            style: NuancenC.body.copyWith(
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          textDirection: Directionality.of(context),
+                          textScaler: MediaQuery.textScalerOf(context),
+                        )..layout();
+                        if (label.width > labelWidth) labelWidth = label.width;
+                        label.dispose();
+                      }
+                      final choiceWidth =
+                          labelWidth +
+                          2 * (NuancenC.choiceInset + NuancenC.choiceBorder) +
+                          NuancenC.choiceCheckWidth +
+                          NuancenC.choiceCheckGap;
+                      final columns =
+                          ((bounds.maxWidth + Spacing.sm) /
+                                  (choiceWidth + Spacing.sm))
+                              .floor()
+                              .clamp(1, 3);
                       final width =
-                          (bounds.maxWidth - 8 * (columns - 1)) / columns;
+                          (bounds.maxWidth - Spacing.sm * (columns - 1)) /
+                          columns;
                       return ValueListenableBuilder<double>(
                         valueListenable: TtsService.speedNotifier,
                         builder: (context, selected, _) => Wrap(
@@ -742,7 +785,7 @@ class NuancenStateBody extends StatelessWidget {
           Text(title, textAlign: TextAlign.center, style: NuancenC.heading),
           const SizedBox(height: 12),
           Text(body, textAlign: TextAlign.center, style: NuancenC.body),
-          const SizedBox(height: 20),
+          const SizedBox(height: Spacing.lg),
           action,
           if (secondary != null) ...[const SizedBox(height: 8), secondary!],
         ],
@@ -761,7 +804,8 @@ class NuancenDisconnectedArt extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           for (var side = 0; side < 2; side++) ...[
-            if (side == 1) const SizedBox(width: 40),
+            if (side == 1)
+              const SizedBox(width: NuancenC.disconnectedCordSeparation),
             RotatedBox(
               quarterTurns: 1,
               child: SizedBox(

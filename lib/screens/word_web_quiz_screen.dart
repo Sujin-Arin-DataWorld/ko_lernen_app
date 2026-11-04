@@ -323,7 +323,7 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   color: SoriCLearningTokens.paper,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(NuancenC.feedbackRadius),
                   border: Border(
                     left: BorderSide(
                       width: 4,
@@ -361,8 +361,9 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
         : null;
     return DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(NuancenC.answerRadius),
         border: Border.all(
+          width: NuancenC.answerOutlineWidth,
           color: !_locked
               ? NuancenC.jade
               : correct
@@ -381,11 +382,13 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.all(1),
+        padding: const EdgeInsets.all(NuancenC.answerOutlineWidth),
         child: SoriCMaterialSurface(
           raised: false,
           tint: tint,
-          borderRadius: BorderRadius.circular(13),
+          borderRadius: BorderRadius.circular(
+            NuancenC.answerRadius - NuancenC.answerOutlineWidth,
+          ),
           child: child,
         ),
       ),

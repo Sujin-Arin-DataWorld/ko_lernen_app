@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import '../../widgets/sori/button.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/c_gallery/c_materials.dart';
@@ -31,7 +32,7 @@ TextStyle _topicTitleStyle(ListeningTopicChoice choice, bool featured) =>
 
 const _focusStyle = TextStyle(
   fontFamily: ListeningFigma.font,
-  fontSize: 12,
+  fontSize: 13,
   height: 1.5,
   color: Color(0xff52634d),
   fontWeight: FontWeight.w500,
@@ -238,7 +239,9 @@ class ListeningTopicShelf extends StatelessWidget {
                   icon: const Icon(Icons.chevron_left),
                 ),
                 Expanded(
-                  child: TextButton(
+                  child: SoriTextAction(
+                    label:
+                        '$goalLabel. ${t.contentLearningPosition(current + 1, pages)} · ${t.contentLearningEditGoal}',
                     key: const ValueKey('listening-edit-goal'),
                     style: TextButton.styleFrom(
                       foregroundColor: CPalette.paper,
@@ -254,11 +257,11 @@ class ListeningTopicShelf extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: const TextStyle(fontSize: 13, height: 1.25),
                         ),
-                        const SizedBox(height: 2),
+                        const SizedBox(height: Spacing.xs),
                         Text(
                           '${t.contentLearningPosition(current + 1, pages)} · ${t.contentLearningEditGoal}',
                           textAlign: TextAlign.center,
-                          style: const TextStyle(fontSize: 12, height: 1.25),
+                          style: const TextStyle(fontSize: 13, height: 1.25),
                         ),
                       ],
                     ),
@@ -305,7 +308,8 @@ PreferredSizeWidget listeningShelfHeader(
     fontWeight: FontWeight.w700,
   );
   final title = Text(t.listeningTitle, style: titleStyle);
-  final selector = OutlinedButton(
+  final selector = SoriTextAction(
+    label: level.toUpperCase(),
     key: const ValueKey('listening-level-picker'),
     onPressed: onLevel,
     style: OutlinedButton.styleFrom(
@@ -319,7 +323,9 @@ PreferredSizeWidget listeningShelfHeader(
         fontSize: 14,
         fontWeight: FontWeight.w700,
       ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(SoriRadius.sm),
+      ),
     ),
     child: Row(
       mainAxisSize: MainAxisSize.min,
@@ -349,7 +355,7 @@ PreferredSizeWidget listeningShelfHeader(
         'HANGUL SORI',
         style: TextStyle(
           fontFamily: ListeningFigma.font,
-          fontSize: 11,
+          fontSize: 13,
           color: CPalette.brass,
         ),
       ),
@@ -403,9 +409,9 @@ class _TopicObjectCard extends StatelessWidget {
     );
     final action = Container(
       constraints: const BoxConstraints(minHeight: 48),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 9),
+      padding: const EdgeInsets.all(Spacing.sm),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(9),
+        borderRadius: BorderRadius.circular(ListeningFigma.bubbleActionRadius),
         border: Border.all(color: CPalette.brass),
         gradient: const LinearGradient(
           begin: Alignment.topCenter,
@@ -455,7 +461,7 @@ class _TopicObjectCard extends StatelessWidget {
             ? Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  SizedBox(height: 150, child: art),
+                  SizedBox(height: ListeningFigma.shelfArtHeight, child: art),
                   const SizedBox(height: 8),
                   copy,
                 ],
@@ -468,7 +474,11 @@ class _TopicObjectCard extends StatelessWidget {
                     children: [
                       Expanded(child: copy),
                       const SizedBox(width: 8),
-                      SizedBox(width: imageWidth, height: 148, child: art),
+                      SizedBox(
+                        width: imageWidth,
+                        height: ListeningFigma.shelfCompactArtHeight,
+                        child: art,
+                      ),
                     ],
                   );
                 },
@@ -477,7 +487,7 @@ class _TopicObjectCard extends StatelessWidget {
     } else {
       final paperLabel = CPaperPanel(
         radius: 8,
-        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+        padding: const EdgeInsets.all(Spacing.sm),
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 28),
           child: Center(child: label),
@@ -486,7 +496,7 @@ class _TopicObjectCard extends StatelessWidget {
       content = Container(
         padding: const EdgeInsets.fromLTRB(8, 4, 8, 8),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(17),
+          borderRadius: BorderRadius.circular(ListeningFigma.paperInsetRadius),
           border: Border.all(color: const Color(0xffc7b18f)),
           color: ListeningFigma.jade,
           boxShadow: const [
@@ -502,7 +512,7 @@ class _TopicObjectCard extends StatelessWidget {
             ? Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: 150, child: art),
+                  SizedBox(height: ListeningFigma.shelfArtHeight, child: art),
                   const SizedBox(height: 4),
                   paperLabel,
                 ],
@@ -544,7 +554,7 @@ class _TopicObjectCard extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(3),
+                      padding: const EdgeInsets.all(Spacing.xs),
                       child: Icon(Icons.check, color: CPalette.ink, size: 18),
                     ),
                   ),

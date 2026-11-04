@@ -51,6 +51,11 @@ void main() {
     'lib/screens/word_web_screen.dart',
     'lib/screens/word_web_study_screen.dart',
   };
+  // Embedded scenario exits are owned by onExit; this existing exception uses
+  // the approved header directly instead of a StudyFrame wrapper.
+  const bespokeStudyScreens = <String>{
+    'lib/screens/scenario_player_screen.dart',
+  };
   const duplicateAllowlist = <String>{};
   const activeConfirmContracts = <String, String>{
     'lib/features/content_learning/content_lesson_screen.dart':
@@ -125,8 +130,57 @@ void main() {
             .map(_relativeLibPath)
             .toSet();
 
-    expect(actual, expectedStudyFrameScreens);
+    expect(actual.intersection(bespokeStudyScreens), isEmpty);
+    expect({...actual, ...bespokeStudyScreens}, expectedStudyFrameScreens);
     expect(expectedStudyFrameScreens, hasLength(34));
+  });
+
+  test('embedded scenario keeps one header-owned home with cleanup', () {
+    final source = _blankStringsAndComments(
+      File(bespokeStudyScreens.single).readAsStringSync(),
+    );
+    final loadingFrames = _constructorInvocations(
+      source,
+      'ScenarioCFrame',
+    ).toList();
+    expect(loadingFrames, hasLength(1));
+    expect(loadingFrames.single, contains('onLeave: _onExitCleanup'));
+    expect(
+      loadingFrames.single,
+      contains('onLeaveOwnsNavigation: widget.onExit != null'),
+    );
+    final wrapper = _blankStringsAndComments(
+      File('lib/widgets/sori/scenario_c.dart').readAsStringSync(),
+    );
+    final ownedFrames = _constructorInvocations(
+      wrapper,
+      'SoriStudyFrame',
+    ).toList();
+    expect(ownedFrames, hasLength(1));
+    expect(ownedFrames.single, contains('onLeave: onLeave,'));
+    expect(
+      ownedFrames.single,
+      contains('onLeaveOwnsNavigation: onLeaveOwnsNavigation,'),
+    );
+    expect(wrapper, isNot(contains('SoriHomeAction(')));
+    expect(wrapper, isNot(contains('SoriCloseAction(')));
+    final headers = _constructorInvocations(source, 'ScenarioCHeader').toList();
+    expect(headers, hasLength(1));
+    final homes = _constructorInvocations(
+      headers.single,
+      'SoriHomeAction',
+    ).toList();
+    expect(homes, hasLength(1));
+    expect(homes.single, contains('onLeave: _onExitCleanup'));
+    expect(
+      homes.single,
+      contains('onLeaveOwnsNavigation: widget.onExit != null'),
+    );
+    expect(
+      homes.single,
+      contains('SoriHomeEscape(confirmWhen: _stage > 0 && !_isResultStage)'),
+    );
+    expect(_constructorInvocations(source, 'SoriHomeAction'), hasLength(1));
   });
 
   test('scoped presentation wrappers preserve the sole frame-owned escape', () {

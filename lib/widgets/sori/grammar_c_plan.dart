@@ -7,6 +7,7 @@ import 'c_learning_surface.dart';
 import 'grammar_c.dart';
 import 'pressable.dart';
 import 'sheet.dart';
+import 'tokens.dart';
 
 /// The approved plan image is composed from independent art and native text.
 /// Selection and persistence are owned by GrammarScreen.
@@ -51,12 +52,12 @@ Future<T?> showGrammarCPlanSheet<T>({
                             asset: ApprovedChromeAssets.cloud,
                             size: 32,
                           ),
-                          const SizedBox(width: 6),
+                          const SizedBox(width: Spacing.sm),
                           Text(
                             'HANGUL SORI',
                             textScaler: TextScaler.noScaling,
                             style: GrammarC.heading.copyWith(
-                              fontSize: 11,
+                              fontSize: 13,
                               color: GrammarC.gold,
                               letterSpacing: 2,
                             ),
@@ -273,7 +274,10 @@ class GrammarCLevelTray extends StatelessWidget {
           Positioned(
             top: 0,
             child: GrammarCPaper(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+              padding: const EdgeInsets.symmetric(
+                horizontal: Spacing.lg,
+                vertical: Spacing.xs,
+              ),
               child: Text(
                 t.grammarPlanLevelLabel,
                 style: GrammarC.heading.copyWith(fontSize: 22),

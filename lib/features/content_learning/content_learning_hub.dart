@@ -10,6 +10,7 @@ import '../../models/scenario.dart';
 import '../../services/smalltalk_loader.dart';
 import '../../services/storage_service.dart';
 import '../../widgets/sori/button.dart';
+import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/chaekgado/chaekgado_assets.dart';
 import '../../widgets/sori/level_filter_bar.dart';
@@ -219,14 +220,15 @@ class _ContentLearningHubState extends State<ContentLearningHub>
     if (_busy) {
       return;
     }
-    final selected = await showModalBottomSheet<String>(
+    final selected = await showSoriSheet<String>(
       context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
+      presentation: const SoriSheetPresentation(
+        backgroundColor: Colors.transparent,
+      ),
       builder: (sheetContext) => SafeArea(
         child: SingleChildScrollView(
           child: CPaperPanel(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(Spacing.lg + Spacing.xs),
             child: Wrap(
               spacing: 8,
               runSpacing: 8,

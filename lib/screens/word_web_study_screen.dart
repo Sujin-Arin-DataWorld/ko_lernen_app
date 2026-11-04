@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/word_relation.dart';
 import '../widgets/sori/nuancen_c.dart';
+import '../widgets/sori/tokens.dart';
 
 /// All authored relationships remain read-only; listening never marks a word learned.
 class WordWebStudyScreen extends StatelessWidget {
@@ -104,7 +105,7 @@ class _RelationLane extends StatelessWidget {
             DecoratedBox(
               decoration: BoxDecoration(color: color.withValues(alpha: .24)),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 3),
+                padding: const EdgeInsets.all(Spacing.xs),
                 child: Text(
                   title,
                   style: NuancenC.body.copyWith(

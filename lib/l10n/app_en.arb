@@ -1457,7 +1457,6 @@
   "moduleScenariosDesc": "Practice everyday situations: cafés, airports, introductions…",
   "scenarioIntroTitle": "Intro",
   "scenarioVocabTitle": "Vocabulary",
-  "scenarioDialogTitle": "Dialogue",
   "scenarioGrammarTitle": "Grammar",
   "scenarioQuestsTitle": "Mini-quests",
   "scenarioQuestProgress": "{current} of {total}",
@@ -2636,7 +2635,6 @@
   "grammarPlanLevelLabel": "Level",
   "grammarPlanEditTooltip": "Change level or pace",
   "grammarPlanOnboardingTitle": "How many patterns per day?",
-  "grammarPlanOnboardingBody": "Choose a daily recommendation. You can change the pace and level at the top or browse every pattern at any time.",
   "grammarPlanItemsPerDayOption": "{n} per day",
   "@grammarPlanItemsPerDayOption": {
     "placeholders": {

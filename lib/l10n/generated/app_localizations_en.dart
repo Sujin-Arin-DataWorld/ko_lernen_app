@@ -2909,9 +2909,6 @@ class AppL10nEn extends AppL10n {
   String get scenarioVocabTitle => 'Vocabulary';
 
   @override
-  String get scenarioDialogTitle => 'Dialogue';
-
-  @override
   String get scenarioGrammarTitle => 'Grammar';
 
   @override
@@ -5298,10 +5295,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get grammarPlanOnboardingTitle => 'How many patterns per day?';
-
-  @override
-  String get grammarPlanOnboardingBody =>
-      'Choose a daily recommendation. You can change the pace and level at the top or browse every pattern at any time.';
 
   @override
   String grammarPlanItemsPerDayOption(int n) {

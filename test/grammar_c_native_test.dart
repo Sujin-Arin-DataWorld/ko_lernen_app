@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:convert';
 import 'dart:async';
 import 'dart:ui' as ui;
 
@@ -87,10 +88,13 @@ void main() {
           final correct = tester
               .widgetList<QuizChoice>(find.byType(QuizChoice))
               .singleWhere((c) => c.isCorrect);
-          correct.onSelected!();
+          final correctChoice = find.byWidget(correct);
+          await _revealAction(tester, correctChoice);
+          await tester.tap(correctChoice);
           await tester.pump();
           await tester.pump(const Duration(milliseconds: 300));
           final action = find.widgetWithText(SoriButton, 'Ergebnis ansehen');
+          await _revealAction(tester, action);
           expect(action.hitTestable(), findsOneWidget);
           final actionRect = tester.getRect(action);
           final navRect = tester.getRect(
@@ -192,6 +196,7 @@ void main() {
         expect(find.byType(GrammarCLevelTray), findsOneWidget);
         expect(find.byType(GrammarCPlanChoice), findsNWidgets(10));
         final start = find.widgetWithText(SoriButton, 'Starten');
+        await _revealAction(tester, start);
         expect(start.hitTestable(), findsOneWidget);
         expect(tester.getSize(start).height, greaterThanOrEqualTo(48));
         if (config.$1.width == 402 && config.$2 == 1.0) {
@@ -226,6 +231,15 @@ void main() {
           );
           expect(tester.takeException(), isNull);
         }
+        await _revealAction(tester, start);
+        await tester.tap(start);
+        await _settle(tester);
+        expect(
+          find.byKey(const Key('grammar-plan-day-header')),
+          findsOneWidget,
+        );
+        expect(Storage.grammarPlanRawJson, isNotEmpty);
+        expect(tester.takeException(), isNull);
       },
     );
   }
@@ -468,6 +482,27 @@ Future<void> _pump(
   }
 }
 
+/// A flowing large-text action must be reachable in full before a real tap.
+Future<void> _revealAction(WidgetTester tester, Finder action) async {
+  expect(action, findsOneWidget);
+  await Scrollable.ensureVisible(tester.element(action), alignment: 1);
+  await tester.pump();
+  expect(action.hitTestable(), findsOneWidget);
+  final actionRect = tester.getRect(action);
+  expect(actionRect.height, greaterThanOrEqualTo(48));
+  final viewports = find.ancestor(
+    of: action,
+    matching: find.byType(Scrollable),
+  );
+  for (final viewport in tester.renderObjectList<RenderBox>(viewports)) {
+    final viewportRect = viewport.localToGlobal(Offset.zero) & viewport.size;
+    expect(actionRect.left, greaterThanOrEqualTo(viewportRect.left));
+    expect(actionRect.top, greaterThanOrEqualTo(viewportRect.top));
+    expect(actionRect.right, lessThanOrEqualTo(viewportRect.right));
+    expect(actionRect.bottom, lessThanOrEqualTo(viewportRect.bottom));
+  }
+}
+
 Future<void> _settle(WidgetTester tester) async {
   for (var i = 0; i < 8; i++) {
     await tester.pump(const Duration(milliseconds: 100));
@@ -513,6 +548,33 @@ Future<void> _save(WidgetTester tester, String name) async {
   final boundary = tester.renderObject<RenderRepaintBoundary>(
     find.byKey(_capture),
   );
+  final geometry = <Map<String, Object?>>[];
+  if (name == 'plan-402-1.0') {
+    for (final element
+        in find
+            .byWidgetPredicate(
+              (widget) =>
+                  widget is Text ||
+                  widget is Image ||
+                  widget is GrammarCLevelTray ||
+                  widget is GrammarCPlanChoice ||
+                  widget is GrammarCPlanPreview ||
+                  widget is SoriButton,
+            )
+            .evaluate()) {
+      final render = element.findRenderObject();
+      if (render is! RenderBox || !render.hasSize) continue;
+      final widget = element.widget;
+      final rect = render.localToGlobal(Offset.zero) & render.size;
+      geometry.add({
+        'type': widget.runtimeType.toString(),
+        'key': widget.key?.toString(),
+        'text': widget is Text ? widget.data : null,
+        'asset': widget is Image ? widget.image.toString() : null,
+        'rect': [rect.left, rect.top, rect.width, rect.height],
+      });
+    }
+  }
   await tester.runAsync(() async {
     final image = await boundary.toImage(pixelRatio: 1);
     final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
@@ -524,5 +586,10 @@ Future<void> _save(WidgetTester tester, String name) async {
     final file = File('$directory/$name.png');
     await file.parent.create(recursive: true);
     await file.writeAsBytes(bytes!.buffer.asUint8List());
+    if (geometry.isNotEmpty) {
+      await File(
+        '$directory/$name.geometry.json',
+      ).writeAsString(const JsonEncoder.withIndent('  ').convert(geometry));
+    }
   });
 }

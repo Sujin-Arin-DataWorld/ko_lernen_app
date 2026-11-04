@@ -233,17 +233,23 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
         if (widget.browseDestination == null && widget.scenarioIds == null) ...[
           LayoutBuilder(
             builder: (context, bounds) {
+              const columns = 3;
+              const gridGaps = (columns - 1) * Spacing.sm;
+              const minimumSideBySideWidth =
+                  ScenarioC.levelFilterLabelWidth + columns * 48 + gridGaps;
               final large =
                   MediaQuery.textScalerOf(context).scale(1) > 1.3 ||
-                  bounds.maxWidth < 138 + 3 * 48 + 12;
-              final gridWidth = large ? bounds.maxWidth : bounds.maxWidth - 138;
-              final tileWidth = (gridWidth - 12) / 3;
+                  bounds.maxWidth < minimumSideBySideWidth;
+              final gridWidth = large
+                  ? bounds.maxWidth
+                  : bounds.maxWidth - ScenarioC.levelFilterLabelWidth;
+              final tileWidth = (gridWidth - gridGaps) / columns;
               final choices = SizedBox(
                 width: gridWidth,
                 child: Wrap(
                   key: const ValueKey('scenario-level-grid'),
-                  spacing: 6,
-                  runSpacing: 6,
+                  spacing: Spacing.sm,
+                  runSpacing: Spacing.sm,
                   children: [
                     for (final level in LearnerLevel.values)
                       SizedBox(
@@ -334,7 +340,12 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
           ),
           const SizedBox(height: Spacing.xl),
         ],
-        const SoriMediaPhraseLink(),
+        TextButtonTheme(
+          data: TextButtonThemeData(
+            style: TextButton.styleFrom(foregroundColor: ScenarioC.jade),
+          ),
+          child: const SoriMediaPhraseLink(),
+        ),
         PersonaPeopleEntry(loadScenarios: widget.loadScenarios, compact: true),
         const SizedBox(height: Spacing.lg),
         if (widget.browseDestination == null) ...[
@@ -876,7 +887,10 @@ class _LevelProgressBadge extends StatelessWidget {
     return Semantics(
       label: label,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: const EdgeInsets.symmetric(
+          horizontal: Spacing.md,
+          vertical: Spacing.xs,
+        ),
         decoration: BoxDecoration(
           color: tint.withValues(alpha: 0.12),
           borderRadius: SoriRadius.brPill,

@@ -644,8 +644,25 @@ void main() {
         );
         await tester.pump();
         final action = find.byKey(const ValueKey('quest-submit'));
+        // Short enlarged layouts scroll input and submit together; expose the
+        // complete action as the learner would after entering their answer.
+        await Scrollable.ensureVisible(tester.element(action), alignment: .5);
+        await tester.pump();
         final actionRect = tester.getRect(action);
         expect(actionRect.height, greaterThanOrEqualTo(48));
+        final viewport = tester.getRect(
+          find.ancestor(of: action, matching: find.byType(Scrollable)).first,
+        );
+        expect(
+          actionRect.intersect(viewport).height,
+          closeTo(actionRect.height, .01),
+        );
+        expect(action.hitTestable(), findsOneWidget);
+        expect(
+          tester.getRect(find.byType(SoriLearningStageNavigation)).top -
+              actionRect.bottom,
+          greaterThanOrEqualTo(16),
+        );
         expect(
           actionRect.bottom,
           lessThanOrEqualTo((keyboard ? 844 : 640) - (keyboard ? 280 : 0)),

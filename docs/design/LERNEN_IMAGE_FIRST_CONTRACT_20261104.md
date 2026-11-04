@@ -20,11 +20,13 @@ Alltagsszenen includes entry, dialogue, vocabulary, grammar, roleplay, optional 
 
 - Baseline: 402×874, German, 100% text, no OS inset in comparison fixtures. Small-screen and enlarged text are separate QA cases, not alternate visual authority. Short/enlarged roleplay must use the actual available body constraints and keep a whole tile, answer tray and action scrollable into view.
 - Canonical cloud/settings/coin/home and five navigation icons are the original PNGs. The cloud drawn inside generated mockups is not a replacement asset. Five tabs have no visible labels and at least 48dp targets.
-- Shared navigation has a 68dp content-and-bottom-padding specification; the native paper border adds its decoration inset, plus device safe area. Footer keeps at least 16dp after the full CTA/shadow before navigation. Scroll content is clipped above the fixed footer; large text remains scrollable.
+- Shared navigation is70dp at the comparison baseline:62dp destination content,2dp paper border and6dp bottom padding, plus device safe area. Figma uses the same settled reduced-motion44dp original icons; motion-enabled selection rises2dp and scales1.05. Footer keeps at least 16dp after the full CTA/shadow before navigation. Scroll content is clipped above the fixed footer; large text remains scrollable.
 - Folded hanji uses the original 2206×713 material with a fixed nine-slice bevel: source cuts x=132/2076, y=102/564, scale8 (scale16 for small tiles). No stretched thick border or repeated nested card. Roleplay and sentence construction use independent gold-rim ivory word tiles and a muted jade answer tray; optional writing uses its independent oak-and-hanji board. Speaker names use the original jade/brass plaque. These materials come from the approved roleplay/writing image, not a reused generic paper card.
 - Original kitchen material is only used for a2_minho_weekend_cooking_plan. Minho and Andrea are original independent persona PNGs, layered behind the counter. Other scenes retain their actual persona/content mapping.
 - Topic cards use ListeningObjectArt with the real topic ID, Lora18, Manrope14 and 96dp object art. The filtered A2 first six counts are 4/1/1/3/2/1; raw source inventory counts must not be presented as playable counts.
 - Nuancen keeps original frames and knots; the central cord and coral/indigo branches express relation types. The source word, its four relations, examples, audio and speed remain native and editable.
+
+The daily Grammar plan is a full-screen modal, so its back/catalog actions dismiss the modal; the five-tab navigation belongs to the underlying study frame. Its Figma frame104:160 uses the measured native402px geometry in `lernen-20261104/native-grammar-plan.geometry.json`, with independent text, tray, selectable tiles and fan cards.
 
 ## Preserved source contracts
 

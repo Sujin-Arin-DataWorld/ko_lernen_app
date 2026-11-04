@@ -1,0 +1,1226 @@
+[
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"assets/illustrations/concept_c/material_atlas.png\")",
+    "rect": [
+      -402.0,
+      86.0,
+      804.0,
+      1436.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Alle · 264",
+    "asset": null,
+    "rect": [
+      177.28387451171875,
+      105.0,
+      47.4322509765625,
+      18.0
+    ]
+  },
+  {
+    "type": "SoriButton",
+    "key": "[<'grammar-choice-cta'>]",
+    "text": null,
+    "asset": null,
+    "rect": [
+      16.0,
+      142.0,
+      370.0,
+      48.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Mit Beispielen üben",
+    "asset": null,
+    "rect": [
+      128.42801666259766,
+      156.0,
+      145.1439666748047,
+      20.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "N은/는",
+    "asset": null,
+    "rect": [
+      16.0,
+      198.0,
+      370.0,
+      43.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Thema-Partikel",
+    "asset": null,
+    "rect": [
+      16.0,
+      249.0,
+      370.0,
+      23.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/type-rail.png\")",
+    "rect": [
+      16.0,
+      272.0,
+      370.0,
+      112.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "N은/는",
+    "asset": null,
+    "rect": [
+      160.8239974975586,
+      310.0,
+      80.35200500488281,
+      36.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Tippen für Erklärung",
+    "asset": null,
+    "rect": [
+      16.0,
+      384.0,
+      370.0,
+      23.0
+    ]
+  },
+  {
+    "type": "SoriButton",
+    "key": null,
+    "text": null,
+    "asset": null,
+    "rect": [
+      16.0,
+      638.0,
+      118.0,
+      48.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"assets/illustrations/concept_c/material_atlas.png\")",
+    "rect": [
+      -102.0,
+      638.0,
+      236.0,
+      96.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Anhören",
+    "asset": null,
+    "rect": [
+      43.13200759887695,
+      652.0,
+      63.735984802246094,
+      20.0
+    ]
+  },
+  {
+    "type": "SoriButton",
+    "key": null,
+    "text": null,
+    "asset": null,
+    "rect": [
+      142.0,
+      638.0,
+      118.0,
+      48.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"assets/illustrations/concept_c/material_atlas.png\")",
+    "rect": [
+      24.0,
+      638.0,
+      236.0,
+      96.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "1×",
+    "asset": null,
+    "rect": [
+      193.82000255584717,
+      652.0,
+      14.359994888305664,
+      20.0
+    ]
+  },
+  {
+    "type": "SoriButton",
+    "key": null,
+    "text": null,
+    "asset": null,
+    "rect": [
+      268.0,
+      638.0,
+      118.0,
+      48.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"assets/illustrations/concept_c/material_atlas.png\")",
+    "rect": [
+      150.0,
+      638.0,
+      236.0,
+      96.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Merken",
+    "asset": null,
+    "rect": [
+      299.2479953765869,
+      652.0,
+      55.50400924682617,
+      20.0
+    ]
+  },
+  {
+    "type": "SoriButton",
+    "key": null,
+    "text": null,
+    "asset": null,
+    "rect": [
+      16.0,
+      698.0,
+      157.0,
+      48.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"assets/illustrations/concept_c/material_atlas.png\")",
+    "rect": [
+      -141.0,
+      698.0,
+      314.0,
+      96.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Umdrehen",
+    "asset": null,
+    "rect": [
+      55.44133377075195,
+      712.0,
+      78.1173324584961,
+      20.0
+    ]
+  },
+  {
+    "type": "SoriButton",
+    "key": null,
+    "text": null,
+    "asset": null,
+    "rect": [
+      181.0,
+      698.0,
+      157.0,
+      48.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"assets/illustrations/concept_c/material_atlas.png\")",
+    "rect": [
+      24.0,
+      698.0,
+      314.0,
+      96.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Überspringen",
+    "asset": null,
+    "rect": [
+      208.70400619506836,
+      712.0,
+      101.59198760986328,
+      20.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "1 / 264",
+    "asset": null,
+    "rect": [
+      181.77623748779297,
+      754.0,
+      38.44752502441406,
+      19.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "ExactAssetImage(name: \"assets/illustrations/concept_c/hangul_atelier/jade.png\", scale: 3.0, bundle: null)",
+    "rect": [
+      0.0,
+      0.0,
+      402.0,
+      86.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Grammatik · A1",
+    "asset": null,
+    "rect": [
+      56.0,
+      9.5,
+      290.0,
+      29.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "ResizeImage()",
+    "rect": [
+      353.0,
+      3.0,
+      42.0,
+      42.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "ResizeImage()",
+    "rect": [
+      124.19449615478516,
+      50.0,
+      32.0,
+      32.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "HANGUL SORI",
+    "asset": null,
+    "rect": [
+      164.19449615478516,
+      58.0,
+      113.61100769042969,
+      16.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"assets/illustrations/concept_c/material_atlas.png\")",
+    "rect": [
+      -402.0,
+      804.0,
+      804.0,
+      140.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "ResizeImage()",
+    "rect": [
+      27.0,
+      814.0,
+      44.0,
+      44.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Heute",
+    "asset": null,
+    "rect": [
+      33.923240661621094,
+      867.0,
+      30.153518676757812,
+      20.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "ResizeImage()",
+    "rect": [
+      103.0,
+      814.0,
+      44.0,
+      44.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Lernen",
+    "asset": null,
+    "rect": [
+      107.02100372314453,
+      867.0,
+      35.95799255371094,
+      20.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "ResizeImage()",
+    "rect": [
+      179.0,
+      814.0,
+      44.0,
+      44.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Spiele",
+    "asset": null,
+    "rect": [
+      186.4952392578125,
+      867.0,
+      29.009521484375,
+      20.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "ResizeImage()",
+    "rect": [
+      255.0,
+      814.0,
+      44.0,
+      44.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Hanok",
+    "asset": null,
+    "rect": [
+      260.82799530029297,
+      867.0,
+      32.34400939941406,
+      20.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "ResizeImage()",
+    "rect": [
+      331.0,
+      814.0,
+      44.0,
+      44.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Gye",
+    "asset": null,
+    "rect": [
+      343.43199920654297,
+      867.0,
+      19.136001586914062,
+      20.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"assets/illustrations/concept_c/material_atlas.png\")",
+    "rect": [
+      -402.0,
+      0.0,
+      804.0,
+      1748.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "ExactAssetImage(name: \"assets/illustrations/concept_c/hangul_atelier/jade.png\", scale: 3.0, bundle: null)",
+    "rect": [
+      0.0,
+      0.0,
+      402.0,
+      77.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Grammatik",
+    "asset": null,
+    "rect": [
+      138.42849731445312,
+      8.0,
+      125.14300537109375,
+      29.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "ResizeImage()",
+    "rect": [
+      124.19449615478516,
+      37.0,
+      32.0,
+      32.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "HANGUL SORI",
+    "asset": null,
+    "rect": [
+      164.19449615478516,
+      45.0,
+      113.61100769042969,
+      16.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Dein\nGrammatik­plan",
+    "asset": null,
+    "rect": [
+      32.0,
+      95.0,
+      354.0,
+      76.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Wie viele Muster pro Tag?",
+    "asset": null,
+    "rect": [
+      16.0,
+      179.0,
+      370.0,
+      28.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Wähle dein Niveau und dein tägliches Pensum.",
+    "asset": null,
+    "rect": [
+      16.0,
+      211.0,
+      370.0,
+      20.0
+    ]
+  },
+  {
+    "type": "GrammarCLevelTray",
+    "key": "[<'grammar-plan-level-bar'>]",
+    "text": null,
+    "asset": null,
+    "rect": [
+      16.0,
+      243.0,
+      370.0,
+      243.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/level-tray.png\")",
+    "rect": [
+      16.0,
+      243.0,
+      370.0,
+      243.0
+    ]
+  },
+  {
+    "type": "GrammarCPlanChoice",
+    "key": "[<'grammar-plan-level-a1'>]",
+    "text": null,
+    "asset": null,
+    "rect": [
+      64.1,
+      281.0,
+      93.95000000000002,
+      69.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/amount-tile.png\")",
+    "rect": [
+      64.1,
+      281.0,
+      93.95000000000002,
+      69.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "ExactAssetImage(name: \"assets/illustrations/concept_c/hangul_atelier/jade.png\", scale: 3.0, bundle: null)",
+    "rect": [
+      68.1,
+      285.0,
+      85.95000000000002,
+      61.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "A1",
+    "asset": null,
+    "rect": [
+      94.9649917602539,
+      289.0,
+      32.22001647949219,
+      37.0
+    ]
+  },
+  {
+    "type": "GrammarCPlanChoice",
+    "key": "[<'grammar-plan-level-a2'>]",
+    "text": null,
+    "asset": null,
+    "rect": [
+      166.05,
+      281.0,
+      93.94999999999999,
+      69.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/amount-tile.png\")",
+    "rect": [
+      166.05,
+      281.0,
+      93.94999999999999,
+      69.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "A2",
+    "asset": null,
+    "rect": [
+      194.8749984741211,
+      289.0,
+      36.30000305175781,
+      37.0
+    ]
+  },
+  {
+    "type": "GrammarCPlanChoice",
+    "key": "[<'grammar-plan-level-b1'>]",
+    "text": null,
+    "asset": null,
+    "rect": [
+      268.0,
+      281.0,
+      93.94999999999999,
+      69.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/amount-tile.png\")",
+    "rect": [
+      268.0,
+      281.0,
+      93.94999999999999,
+      69.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "B1",
+    "asset": null,
+    "rect": [
+      298.9699951171875,
+      289.0,
+      32.010009765625,
+      37.0
+    ]
+  },
+  {
+    "type": "GrammarCPlanChoice",
+    "key": "[<'grammar-plan-level-b2'>]",
+    "text": null,
+    "asset": null,
+    "rect": [
+      64.1,
+      358.0,
+      93.95000000000002,
+      69.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/amount-tile.png\")",
+    "rect": [
+      64.1,
+      358.0,
+      93.95000000000002,
+      69.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "B2",
+    "asset": null,
+    "rect": [
+      93.16499633789061,
+      366.0,
+      35.82000732421875,
+      37.0
+    ]
+  },
+  {
+    "type": "GrammarCPlanChoice",
+    "key": "[<'grammar-plan-level-c1'>]",
+    "text": null,
+    "asset": null,
+    "rect": [
+      166.05,
+      358.0,
+      93.94999999999999,
+      69.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/amount-tile.png\")",
+    "rect": [
+      166.05,
+      358.0,
+      93.94999999999999,
+      69.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "C1",
+    "asset": null,
+    "rect": [
+      196.61499633789063,
+      366.0,
+      32.82000732421875,
+      37.0
+    ]
+  },
+  {
+    "type": "GrammarCPlanChoice",
+    "key": "[<'grammar-plan-level-c2'>]",
+    "text": null,
+    "asset": null,
+    "rect": [
+      268.0,
+      358.0,
+      93.94999999999999,
+      69.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/amount-tile.png\")",
+    "rect": [
+      268.0,
+      358.0,
+      93.94999999999999,
+      69.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "C2",
+    "asset": null,
+    "rect": [
+      296.6599975585938,
+      366.0,
+      36.6300048828125,
+      37.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "A1 · 55 Muster",
+    "asset": null,
+    "rect": [
+      163.13497772216797,
+      439.0,
+      99.78004455566403,
+      19.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"assets/illustrations/concept_c/material_atlas.png\")",
+    "rect": [
+      44.8260498046875,
+      243.0,
+      208.23193359375,
+      72.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Niveau",
+    "asset": null,
+    "rect": [
+      164.9420166015625,
+      247.0,
+      72.115966796875,
+      28.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Muster pro Tag",
+    "asset": null,
+    "rect": [
+      27.0,
+      498.0,
+      359.0,
+      19.0
+    ]
+  },
+  {
+    "type": "GrammarCPlanChoice",
+    "key": "[<'grammar-plan-items-3'>]",
+    "text": null,
+    "asset": null,
+    "rect": [
+      16.0,
+      525.0,
+      86.5,
+      69.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/amount-tile.png\")",
+    "rect": [
+      16.0,
+      525.0,
+      86.5,
+      69.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "3",
+    "asset": null,
+    "rect": [
+      50.849998474121094,
+      533.0,
+      16.800003051757812,
+      37.0
+    ]
+  },
+  {
+    "type": "GrammarCPlanChoice",
+    "key": "[<'grammar-plan-items-5'>]",
+    "text": null,
+    "asset": null,
+    "rect": [
+      110.5,
+      525.0,
+      86.5,
+      69.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/amount-tile.png\")",
+    "rect": [
+      110.5,
+      525.0,
+      86.5,
+      69.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "ExactAssetImage(name: \"assets/illustrations/concept_c/hangul_atelier/jade.png\", scale: 3.0, bundle: null)",
+    "rect": [
+      114.5,
+      529.0,
+      78.5,
+      61.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "5",
+    "asset": null,
+    "rect": [
+      145.6500015258789,
+      533.0,
+      16.199996948242188,
+      37.0
+    ]
+  },
+  {
+    "type": "GrammarCPlanChoice",
+    "key": "[<'grammar-plan-items-7'>]",
+    "text": null,
+    "asset": null,
+    "rect": [
+      205.0,
+      525.0,
+      86.5,
+      69.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/amount-tile.png\")",
+    "rect": [
+      205.0,
+      525.0,
+      86.5,
+      69.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "7",
+    "asset": null,
+    "rect": [
+      241.21499633789062,
+      533.0,
+      14.07000732421875,
+      37.0
+    ]
+  },
+  {
+    "type": "GrammarCPlanChoice",
+    "key": "[<'grammar-plan-items-10'>]",
+    "text": null,
+    "asset": null,
+    "rect": [
+      299.5,
+      525.0,
+      86.5,
+      69.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/amount-tile.png\")",
+    "rect": [
+      299.5,
+      525.0,
+      86.5,
+      69.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "10",
+    "asset": null,
+    "rect": [
+      327.1199951171875,
+      533.0,
+      31.260009765625,
+      37.0
+    ]
+  },
+  {
+    "type": "GrammarCPlanPreview",
+    "key": null,
+    "text": null,
+    "asset": null,
+    "rect": [
+      16.0,
+      606.0,
+      370.0,
+      110.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"assets/illustrations/concept_c/material_atlas.png\")",
+    "rect": [
+      -354.0,
+      606.0,
+      740.0,
+      220.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": "[<'grammar-daily-card-0'>]",
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/daily-card.png\")",
+    "rect": [
+      22.792634619771484,
+      626.7306108991688,
+      48.00000000000001,
+      78.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": "[<'grammar-daily-card-1'>]",
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/daily-card.png\")",
+    "rect": [
+      46.73100494775751,
+      623.7741393262229,
+      48.0,
+      78.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": "[<'grammar-daily-card-2'>]",
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/daily-card.png\")",
+    "rect": [
+      70.8,
+      621.0,
+      48.0,
+      78.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": "[<'grammar-daily-card-3'>]",
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/daily-card.png\")",
+    "rect": [
+      94.98654704008506,
+      620.4168826540213,
+      47.999999999999986,
+      78.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": "[<'grammar-daily-card-4'>]",
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"design_assets/grammar/daily-card.png\")",
+    "rect": [
+      119.27699756202193,
+      620.0325413962455,
+      48.0,
+      78.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "5 Muster pro Tag",
+    "asset": null,
+    "rect": [
+      173.6,
+      626.5,
+      162.99998474121097,
+      25.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Dein Tempo lässt sich jederzeit ändern.",
+    "asset": null,
+    "rect": [
+      173.6,
+      655.5,
+      200.4,
+      40.0
+    ]
+  },
+  {
+    "type": "SoriButton",
+    "key": null,
+    "text": null,
+    "asset": null,
+    "rect": [
+      16.0,
+      738.0,
+      370.0,
+      56.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"assets/illustrations/concept_c/material_atlas.png\")",
+    "rect": [
+      -354.0,
+      682.0,
+      740.0,
+      112.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Starten",
+    "asset": null,
+    "rect": [
+      156.73750686645508,
+      750.5,
+      88.52498626708984,
+      31.0
+    ]
+  },
+  {
+    "type": "SoriButton",
+    "key": null,
+    "text": null,
+    "asset": null,
+    "rect": [
+      16.0,
+      802.0,
+      370.0,
+      48.0
+    ]
+  },
+  {
+    "type": "Image",
+    "key": null,
+    "text": null,
+    "asset": "AssetImage(bundle: null, name: \"assets/illustrations/concept_c/material_atlas.png\")",
+    "rect": [
+      -354.0,
+      802.0,
+      740.0,
+      96.0
+    ]
+  },
+  {
+    "type": "Text",
+    "key": null,
+    "text": "Alle Grammatikmuster ansehen",
+    "asset": null,
+    "rect": [
+      74.36203002929688,
+      815.5,
+      253.27593994140625,
+      21.0
+    ]
+  }
+]

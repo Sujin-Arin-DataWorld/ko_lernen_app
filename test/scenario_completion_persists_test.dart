@@ -174,7 +174,13 @@ void main() {
     await _tapText(tester, "Los geht's!");
     await tester.pump(const Duration(milliseconds: 400));
 
-    await tester.tap(find.byIcon(Icons.close_rounded));
+    await tester.tap(
+      find.byTooltip(
+        AppL10n.of(
+          tester.element(find.byType(ScenarioPlayerScreen)),
+        ).closeActionLabel,
+      ),
+    );
     await tester.pumpAndSettle();
     final t = await AppL10n.delegate.load(const Locale('de'));
     expect(find.text(t.homeActionConfirmTitle), findsOneWidget);

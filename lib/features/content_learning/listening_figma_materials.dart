@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../widgets/sori/button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../widgets/sori/c_learning_surface.dart';
@@ -7,13 +8,24 @@ import '../../widgets/sori/pressable.dart';
 
 /// Figma zhJY0ZY4gl4VNg8vaaNIXw, 5:5/5:6. Text remains native and scalable.
 abstract final class ListeningFigma {
-  static const font = 'Manrope';
+  // Original object-art viewports from the approved Hören boards. These size
+  // illustration layers; surrounding layout gaps use the shared Spacing scale.
+  static const topicArtWidth = 96.0;
+  static const topicArtHeight = 92.0;
+  static const shelfArtHeight = 150.0;
+  static const shelfCompactArtHeight = 148.0;
+  // The approved paper silhouette and its1dp inset share these corner roles.
+  static const bubbleActionRadius = 9.0;
+  static const paperRadius = 18.0;
+  static const paperInsetRadius = paperRadius - 1;
+  static const plaqueInsetRadius = SoriRadius.lg - 1;
+  static const font = SoriCLearningFonts.body;
   static const ink = Color(0xff242c26);
   static const jade = Color(0xff174d43);
   static const paper = Color(0xfff6edde);
   static const name = TextStyle(
     fontFamily: font,
-    fontSize: 12,
+    fontSize: 13,
     height: 1.5,
     letterSpacing: .42,
     fontWeight: FontWeight.w500,
@@ -120,9 +132,12 @@ class ListeningBubbleAction extends StatelessWidget {
             ? 106
             : 146,
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 5),
+      padding: const EdgeInsets.symmetric(
+        horizontal: Spacing.sm,
+        vertical: Spacing.xs,
+      ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(9),
+        borderRadius: BorderRadius.circular(ListeningFigma.bubbleActionRadius),
         gradient: brass
             ? LinearGradient(
                 begin: Alignment.topLeft,
@@ -161,12 +176,13 @@ class ListeningBubbleAction extends StatelessWidget {
               height: 20,
               excludeFromSemantics: true,
             ),
-          const SizedBox(width: 6),
+          const SizedBox(width: Spacing.sm),
           Flexible(child: Text(label)),
         ],
       ),
     );
-    return TextButton(
+    return SoriTextAction(
+      label: label,
       onPressed: onPressed,
       style: TextButton.styleFrom(
         minimumSize: const Size(48, 48),
@@ -179,7 +195,11 @@ class ListeningBubbleAction extends StatelessWidget {
           height: 22 / 14,
           fontWeight: FontWeight.w600,
         ),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(
+            ListeningFigma.bubbleActionRadius,
+          ),
+        ),
       ),
       child: face,
     );
@@ -214,7 +234,7 @@ class ListeningFigmaPrimary extends StatelessWidget {
         width: double.infinity,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(SoriRadius.lg),
           border: Border.all(color: const Color(0xffac8243)),
           boxShadow: const [
             BoxShadow(
@@ -229,7 +249,9 @@ class ListeningFigmaPrimary extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(19),
+            borderRadius: BorderRadius.circular(
+              ListeningFigma.plaqueInsetRadius,
+            ),
             child: Stack(
               alignment: Alignment.center,
               children: [

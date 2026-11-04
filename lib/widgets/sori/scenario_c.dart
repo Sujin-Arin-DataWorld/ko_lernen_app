@@ -5,14 +5,25 @@ import '../../models/scenario.dart';
 import '../../services/scene_asset_resolver.dart';
 import 'approved_chrome_assets.dart';
 import 'c_gallery/c_materials.dart';
+import 'c_learning_surface.dart' show SoriCLearningFonts;
 import 'learning_stage_navigation.dart';
 import 'pressable.dart';
 import 'study_frame.dart';
+import 'tokens.dart';
 import 'tts_speed_control.dart';
 
 /// Presentation tokens for the approved Alltagsszenen folded-paper scenes.
 /// The original materials remain independent art; every word/action is native.
 abstract final class ScenarioC {
+  // The original 2172px paper slices need half-size edges below these
+  // component dimensions, so punctuation tiles retain an interior plane.
+  // These are material geometry, independent of the screen breakpoint.
+  static const foldCompactEdgeWidth = 40.0;
+  static const foldCompactEdgeHeight = 72.0;
+  static const tileCompactEdgeWidth = 60.0;
+  // Approved 402dp catalog: the level label occupies 138dp beside the grid.
+  // The row stacks whenever this leaves less than a 48dp target per column.
+  static const levelFilterLabelWidth = 138.0;
   static const kitchenScene = 'a2_minho_weekend_cooking_plan';
   static const kitchen = 'design_assets/scenarios/kitchen-stage.png';
   static const fold = 'design_assets/scenarios/fold-paper.png';
@@ -28,22 +39,22 @@ abstract final class ScenarioC {
   static const brass = Color(0xffd5aa5f);
   static const paper = Color(0xfff6edde);
   static const heading = TextStyle(
-    fontFamily: 'Lora',
-    fontFamilyFallback: ['NotoSansKR'],
+    fontFamily: SoriCLearningFonts.heading,
+    fontFamilyFallback: [SoriFonts.korean],
     fontSize: 25,
     height: 1.25,
     fontWeight: FontWeight.w700,
     color: ink,
   );
   static const body = TextStyle(
-    fontFamily: 'Manrope',
-    fontFamilyFallback: ['NotoSansKR'],
+    fontFamily: SoriCLearningFonts.body,
+    fontFamilyFallback: [SoriFonts.korean],
     fontSize: 16,
     height: 1.35,
     color: ink,
   );
   static const korean = TextStyle(
-    fontFamily: 'NotoSansKR',
+    fontFamily: SoriFonts.korean,
     fontSize: 22,
     height: 1.35,
     fontWeight: FontWeight.w700,
@@ -108,7 +119,9 @@ class ScenarioCFold extends StatelessWidget {
             child: LayoutBuilder(
               builder: (_, box) {
                 // Small punctuation tiles need narrower original edges too.
-                final scale = box.maxWidth < 40 || box.maxHeight < 72
+                final scale =
+                    box.maxWidth < ScenarioC.foldCompactEdgeWidth ||
+                        box.maxHeight < ScenarioC.foldCompactEdgeHeight
                     ? 16.0
                     : 8.0;
                 return Image.asset(
@@ -129,7 +142,7 @@ class ScenarioCFold extends StatelessWidget {
           if (accent != null)
             Positioned.fill(
               child: Padding(
-                padding: const EdgeInsets.all(7),
+                padding: const EdgeInsets.all(Spacing.sm),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     border: Border(
@@ -237,7 +250,9 @@ class _ScenarioCSlicedMaterial extends StatelessWidget {
         Positioned.fill(
           child: LayoutBuilder(
             builder: (_, box) {
-              final scale = box.maxWidth < 60 ? 16.0 : 8.0;
+              final scale = box.maxWidth < ScenarioC.tileCompactEdgeWidth
+                  ? 16.0
+                  : 8.0;
               return Image.asset(
                 asset,
                 scale: scale,
@@ -459,7 +474,7 @@ class ScenarioCHeader extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => Size.fromHeight(_plaqueHeight + 10 + _brandHeight);
   double get _brandHeight => progressLabel == null
       ? 24
-      : (textScaler.scale(11) * 1.35 + 4).clamp(24, double.infinity);
+      : (textScaler.scale(13) * 1.35 + 4).clamp(24, double.infinity);
   @override
   Widget build(BuildContext context) => ScenarioCBackground(
     child: SafeArea(
@@ -501,12 +516,12 @@ class ScenarioCHeader extends StatelessWidget implements PreferredSizeWidget {
                     asset: ApprovedChromeAssets.cloud,
                     size: 20,
                   ),
-                  const SizedBox(width: 6),
+                  const SizedBox(width: Spacing.sm),
                   Text(
                     'HANGUL SORI',
                     textScaler: TextScaler.noScaling,
                     style: ScenarioC.body.copyWith(
-                      fontSize: 9,
+                      fontSize: 13,
                       color: ScenarioC.jade,
                     ),
                   ),
@@ -515,7 +530,7 @@ class ScenarioCHeader extends StatelessWidget implements PreferredSizeWidget {
                     Text(
                       progressLabel!,
                       style: ScenarioC.body.copyWith(
-                        fontSize: 11,
+                        fontSize: 13,
                         color: ScenarioC.jade,
                       ),
                     ),

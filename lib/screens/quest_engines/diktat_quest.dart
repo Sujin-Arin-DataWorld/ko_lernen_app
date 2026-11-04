@@ -612,7 +612,10 @@ class _DiktatQuestState extends State<DiktatQuest> {
                     enabledBorder: InputBorder.none,
                     focusedBorder: InputBorder.none,
                     filled: false,
-                    contentPadding: const EdgeInsets.only(top: 14, bottom: 8),
+                    contentPadding: const EdgeInsets.only(
+                      top: Spacing.lg,
+                      bottom: Spacing.sm,
+                    ),
                   ),
                 ),
               ),

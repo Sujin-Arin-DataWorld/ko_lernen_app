@@ -873,257 +873,270 @@ class _GrammarScreenState extends State<GrammarScreen>
                   setSheetState(() {});
                 }
               };
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Expanded(
-                    child: SingleChildScrollView(
-                      key: ValueKey(_planStartSaveFailed),
-                      padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
+              final scrollWholePlan =
+                  MediaQuery.textScalerOf(sheetContext).scale(1) > 1.5;
+              return SoriMinHeightScroll(
+                minHeight: 0,
+                fillViewport: scrollWholePlan,
+                intrinsic: false,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    _GrammarFlexibleArea(
+                      scrolling: scrollWholePlan,
+                      child: SingleChildScrollView(
+                        key: ValueKey(_planStartSaveFailed),
+                        padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            if (_planStartSaveFailed) ...[
+                              const GrammarCPlanSaveNotice(
+                                key: Key('grammar-plan-save-error'),
+                              ),
+                              const SizedBox(height: 16),
+                            ],
+                            Container(
+                              padding: const EdgeInsets.only(left: 12),
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                  left: BorderSide(
+                                    color: GrammarC.gold,
+                                    width: 4,
+                                  ),
+                                ),
+                              ),
+                              child: Text(
+                                t.grammarPlanTitle,
+                                style: GrammarC.heading.copyWith(
+                                  fontSize: 36,
+                                  height: 1.05,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              t.grammarPlanOnboardingTitle,
+                              style: GrammarC.heading.copyWith(fontSize: 22),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              t.grammarPlanSetupHint,
+                              style: GrammarC.body.copyWith(fontSize: 14),
+                            ),
+                            const SizedBox(height: 12),
+                            GrammarCLevelTray(
+                              key: const Key('grammar-plan-level-bar'),
+                              selected: planLevel,
+                              enabled:
+                                  _pendingPlanStart == null &&
+                                  !_planStartSaving,
+                              countFor: (level) =>
+                                  GrammarPlanService.curatedRowsForLevel(
+                                    _all,
+                                    level,
+                                  ).length,
+                              onChanged: (level) {
+                                if (_pendingPlanStart != null ||
+                                    _planStartSaving ||
+                                    level == null ||
+                                    level == planLevel) {
+                                  return;
+                                }
+                                setSheetState(() {
+                                  planLevel = level;
+                                  itemsPerDay =
+                                      _plans[level]?.itemsPerDay ?? itemsPerDay;
+                                });
+                              },
+                            ),
+                            const SizedBox(height: 12),
+                            GrammarCSectionLabel(
+                              t.grammarPlanPatternsPerDayLabel,
+                            ),
+                            const SizedBox(height: 8),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                for (final n
+                                    in GrammarPlanService
+                                        .itemsPerDayOptions) ...[
+                                  if (n !=
+                                      GrammarPlanService
+                                          .itemsPerDayOptions
+                                          .first)
+                                    const SizedBox(width: 8),
+                                  Expanded(
+                                    child: GrammarCPlanChoice(
+                                      key: Key('grammar-plan-items-$n'),
+                                      label: '$n',
+                                      semanticLabel: t
+                                          .grammarPlanItemsPerDayOption(n),
+                                      selected: itemsPerDay == n,
+                                      onTap:
+                                          _pendingPlanStart != null ||
+                                              _planStartSaving
+                                          ? null
+                                          : () {
+                                              if (itemsPerDay == n) return;
+                                              setSheetState(
+                                                () => itemsPerDay = n,
+                                              );
+                                            },
+                                    ),
+                                  ),
+                                ],
+                              ],
+                            ),
+                            const SizedBox(height: 12),
+                            GrammarCPlanPreview(count: itemsPerDay),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          if (_planStartSaveFailed) ...[
-                            const GrammarCPlanSaveNotice(
-                              key: Key('grammar-plan-save-error'),
+                          if (_planStartSaving)
+                            Text(
+                              t.onboardingV2Saving,
+                              key: const Key('grammar-plan-save-pending'),
+                              style: GrammarC.body,
                             ),
-                            const SizedBox(height: 16),
-                          ],
-                          Container(
-                            padding: const EdgeInsets.only(left: 12),
-                            decoration: const BoxDecoration(
-                              border: Border(
-                                left: BorderSide(
-                                  color: GrammarC.gold,
-                                  width: 4,
-                                ),
-                              ),
-                            ),
-                            child: Text(
-                              t.grammarPlanTitle,
-                              style: GrammarC.heading.copyWith(
-                                fontSize: 36,
-                                height: 1.05,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            t.grammarPlanOnboardingTitle,
-                            style: GrammarC.heading.copyWith(fontSize: 22),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            t.grammarPlanSetupHint,
-                            style: GrammarC.body.copyWith(fontSize: 14),
-                          ),
-                          const SizedBox(height: 12),
-                          GrammarCLevelTray(
-                            key: const Key('grammar-plan-level-bar'),
-                            selected: planLevel,
-                            enabled:
-                                _pendingPlanStart == null && !_planStartSaving,
-                            countFor: (level) =>
-                                GrammarPlanService.curatedRowsForLevel(
-                                  _all,
-                                  level,
-                                ).length,
-                            onChanged: (level) {
-                              if (_pendingPlanStart != null ||
-                                  _planStartSaving ||
-                                  level == null ||
-                                  level == planLevel) {
-                                return;
-                              }
-                              setSheetState(() {
-                                planLevel = level;
-                                itemsPerDay =
-                                    _plans[level]?.itemsPerDay ?? itemsPerDay;
-                              });
-                            },
-                          ),
-                          const SizedBox(height: 12),
-                          GrammarCSectionLabel(
-                            t.grammarPlanPatternsPerDayLabel,
-                          ),
-                          const SizedBox(height: 8),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              for (final n
-                                  in GrammarPlanService.itemsPerDayOptions) ...[
-                                if (n !=
-                                    GrammarPlanService.itemsPerDayOptions.first)
-                                  const SizedBox(width: 8),
-                                Expanded(
-                                  child: GrammarCPlanChoice(
-                                    key: Key('grammar-plan-items-$n'),
-                                    label: '$n',
-                                    semanticLabel: t
-                                        .grammarPlanItemsPerDayOption(n),
-                                    selected: itemsPerDay == n,
-                                    onTap:
-                                        _pendingPlanStart != null ||
-                                            _planStartSaving
-                                        ? null
-                                        : () {
-                                            if (itemsPerDay == n) return;
-                                            setSheetState(
-                                              () => itemsPerDay = n,
+                          if (_planStartSaving) const SizedBox(height: 8),
+                          SoriButton.filled(
+                            cMaterial: true,
+                            textStyle: GrammarC.heading.copyWith(fontSize: 25),
+                            loading: _planStartSaving,
+                            key: _planStartSaveFailed
+                                ? const Key('grammar-plan-save-retry')
+                                : null,
+                            label: _planStartSaveFailed
+                                ? t.btnRetry
+                                : t.grammarPlanStartCta,
+                            fullWidth: true,
+                            onTap: _planStartSaving
+                                ? null
+                                : () async {
+                                    if (!_planOperationOwnerIsCurrent(
+                                      sourceRevision,
+                                    )) {
+                                      return;
+                                    }
+                                    var operation = _pendingPlanStart;
+                                    if (operation == null) {
+                                      if (!sheetContext.mounted ||
+                                          !identical(
+                                            _planStartSheetContext,
+                                            sheetContext,
+                                          )) {
+                                        return;
+                                      }
+                                      final chosenLevel = planLevel;
+                                      final existing = _plans[chosenLevel];
+                                      final existingFinished =
+                                          existing != null &&
+                                          GrammarPlanService.todaysSlice(
+                                            curatedRows:
+                                                GrammarPlanService.curatedRowsForLevel(
+                                                  _all,
+                                                  chosenLevel,
+                                                ),
+                                            plan: existing,
+                                          ).isEmpty;
+                                      final plan =
+                                          existing == null || existingFinished
+                                          ? GrammarStudyPlan(
+                                              level: chosenLevel,
+                                              itemsPerDay: itemsPerDay,
+                                              servedIdsByDate: const {},
+                                            )
+                                          : existing.copyWith(
+                                              itemsPerDay: itemsPerDay,
                                             );
-                                          },
-                                  ),
-                                ),
-                              ],
-                            ],
+                                      operation =
+                                          GrammarPlanWriteOperation.start(
+                                            plan: plan,
+                                            assertCurrentOwner: () =>
+                                                _assertPlanOperationOwnerCurrent(
+                                                  sourceRevision,
+                                                ),
+                                          );
+                                      _pendingPlanStart = operation;
+                                      _pendingPlanStartSourceRevision =
+                                          _planSourceRevision;
+                                    }
+                                    _planStartSaving = true;
+                                    _planStartSaveFailed = false;
+                                    _planStartSheetRefresh?.call();
+                                    try {
+                                      await operation.save();
+                                    } on Object catch (error) {
+                                      debugPrint(
+                                        'Grammar plan start persistence failed: $error',
+                                      );
+                                      _planStartSaving = false;
+                                      if (_planOperationOwnerIsCurrent(
+                                        _pendingPlanStartSourceRevision ?? -1,
+                                      )) {
+                                        _planStartSaveFailed = true;
+                                        _planStartSheetRefresh?.call();
+                                      }
+                                      return;
+                                    }
+                                    _planStartSaving = false;
+                                    if (!mounted ||
+                                        _pendingPlanStartSourceRevision !=
+                                            _planSourceRevision ||
+                                        !(ModalRoute.of(context)?.isActive ??
+                                            true)) {
+                                      return;
+                                    }
+                                    final confirmedPlans =
+                                        GrammarPlanService.decodePlans(
+                                          Storage.grammarPlanRawJson,
+                                        );
+                                    final confirmedPlan =
+                                        confirmedPlans[operation.plan.level] ??
+                                        operation.plan;
+                                    setState(() {
+                                      _plans = confirmedPlans;
+                                      _planLevel = operation!.plan.level;
+                                      _applyPlanSlice(confirmedPlan);
+                                      _pendingPlanStart = null;
+                                      _pendingPlanStartSourceRevision = null;
+                                      _planStartSaveFailed = false;
+                                    });
+                                    final activeSheet = _planStartSheetContext;
+                                    if (activeSheet != null &&
+                                        activeSheet.mounted) {
+                                      Navigator.of(activeSheet).pop(true);
+                                    }
+                                  },
                           ),
-                          const SizedBox(height: 12),
-                          GrammarCPlanPreview(count: itemsPerDay),
+                          const SizedBox(height: 8),
+                          SoriButton.outlined(
+                            cMaterial: true,
+                            textStyle: GrammarC.heading.copyWith(fontSize: 17),
+                            label: _planStartSaveFailed
+                                ? t.btnClose
+                                : t.grammarBrowseAllCta,
+                            onTap: _planStartSaveFailed
+                                ? () => Navigator.of(sheetContext).pop(false)
+                                : _planStartSaving || _pendingPlanStart != null
+                                ? null
+                                : () {
+                                    Navigator.of(sheetContext).pop(false);
+                                    _browseAllGrammar();
+                                  },
+                          ),
                         ],
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        if (_planStartSaving)
-                          Text(
-                            t.onboardingV2Saving,
-                            key: const Key('grammar-plan-save-pending'),
-                            style: GrammarC.body,
-                          ),
-                        if (_planStartSaving) const SizedBox(height: 8),
-                        SoriButton.filled(
-                          cMaterial: true,
-                          textStyle: GrammarC.heading.copyWith(fontSize: 25),
-                          loading: _planStartSaving,
-                          key: _planStartSaveFailed
-                              ? const Key('grammar-plan-save-retry')
-                              : null,
-                          label: _planStartSaveFailed
-                              ? t.btnRetry
-                              : t.grammarPlanStartCta,
-                          fullWidth: true,
-                          onTap: _planStartSaving
-                              ? null
-                              : () async {
-                                  if (!_planOperationOwnerIsCurrent(
-                                    sourceRevision,
-                                  )) {
-                                    return;
-                                  }
-                                  var operation = _pendingPlanStart;
-                                  if (operation == null) {
-                                    if (!sheetContext.mounted ||
-                                        !identical(
-                                          _planStartSheetContext,
-                                          sheetContext,
-                                        )) {
-                                      return;
-                                    }
-                                    final chosenLevel = planLevel;
-                                    final existing = _plans[chosenLevel];
-                                    final existingFinished =
-                                        existing != null &&
-                                        GrammarPlanService.todaysSlice(
-                                          curatedRows:
-                                              GrammarPlanService.curatedRowsForLevel(
-                                                _all,
-                                                chosenLevel,
-                                              ),
-                                          plan: existing,
-                                        ).isEmpty;
-                                    final plan =
-                                        existing == null || existingFinished
-                                        ? GrammarStudyPlan(
-                                            level: chosenLevel,
-                                            itemsPerDay: itemsPerDay,
-                                            servedIdsByDate: const {},
-                                          )
-                                        : existing.copyWith(
-                                            itemsPerDay: itemsPerDay,
-                                          );
-                                    operation = GrammarPlanWriteOperation.start(
-                                      plan: plan,
-                                      assertCurrentOwner: () =>
-                                          _assertPlanOperationOwnerCurrent(
-                                            sourceRevision,
-                                          ),
-                                    );
-                                    _pendingPlanStart = operation;
-                                    _pendingPlanStartSourceRevision =
-                                        _planSourceRevision;
-                                  }
-                                  _planStartSaving = true;
-                                  _planStartSaveFailed = false;
-                                  _planStartSheetRefresh?.call();
-                                  try {
-                                    await operation.save();
-                                  } on Object catch (error) {
-                                    debugPrint(
-                                      'Grammar plan start persistence failed: $error',
-                                    );
-                                    _planStartSaving = false;
-                                    if (_planOperationOwnerIsCurrent(
-                                      _pendingPlanStartSourceRevision ?? -1,
-                                    )) {
-                                      _planStartSaveFailed = true;
-                                      _planStartSheetRefresh?.call();
-                                    }
-                                    return;
-                                  }
-                                  _planStartSaving = false;
-                                  if (!mounted ||
-                                      _pendingPlanStartSourceRevision !=
-                                          _planSourceRevision ||
-                                      !(ModalRoute.of(context)?.isActive ??
-                                          true)) {
-                                    return;
-                                  }
-                                  final confirmedPlans =
-                                      GrammarPlanService.decodePlans(
-                                        Storage.grammarPlanRawJson,
-                                      );
-                                  final confirmedPlan =
-                                      confirmedPlans[operation.plan.level] ??
-                                      operation.plan;
-                                  setState(() {
-                                    _plans = confirmedPlans;
-                                    _planLevel = operation!.plan.level;
-                                    _applyPlanSlice(confirmedPlan);
-                                    _pendingPlanStart = null;
-                                    _pendingPlanStartSourceRevision = null;
-                                    _planStartSaveFailed = false;
-                                  });
-                                  final activeSheet = _planStartSheetContext;
-                                  if (activeSheet != null &&
-                                      activeSheet.mounted) {
-                                    Navigator.of(activeSheet).pop(true);
-                                  }
-                                },
-                        ),
-                        const SizedBox(height: 8),
-                        SoriButton.outlined(
-                          cMaterial: true,
-                          textStyle: GrammarC.heading.copyWith(fontSize: 17),
-                          label: _planStartSaveFailed
-                              ? t.btnClose
-                              : t.grammarBrowseAllCta,
-                          onTap: _planStartSaveFailed
-                              ? () => Navigator.of(sheetContext).pop(false)
-                              : _planStartSaving || _pendingPlanStart != null
-                              ? null
-                              : () {
-                                  Navigator.of(sheetContext).pop(false);
-                                  _browseAllGrammar();
-                                },
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               );
             },
           ),
@@ -2019,6 +2032,7 @@ class _GrammarScreenState extends State<GrammarScreen>
       }
     });
     final s = SoriSurfaces.of(context);
+    final scrollWholeStudy = MediaQuery.textScalerOf(context).scale(1) > 1.5;
     return GrammarCFrame(
       title: '${t.screenGrammarTitle} · ${g.level}',
       actions: [
@@ -2036,6 +2050,8 @@ class _GrammarScreenState extends State<GrammarScreen>
       // 460 이상에서는 지금까지와 같은 flex 레이아웃이라 시각 변화 0.
       child: SoriMinHeightScroll(
         minHeight: _studyBodyMinHeight + (_pendingJudgment == null ? 0 : 160),
+        fillViewport: scrollWholeStudy,
+        intrinsic: false,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 4, 16, 0),
           child: Column(
@@ -2194,7 +2210,9 @@ class _GrammarScreenState extends State<GrammarScreen>
               ],
 
               // Card + Difficulty Buttons
-              Expanded(
+              _GrammarFlexibleArea(
+                scrolling: scrollWholeStudy,
+                scrollingHeight: SoriAdaptiveHeight.grammarCard,
                 child: SoriEntrance(
                   child: Column(
                     children: [
@@ -2424,7 +2442,7 @@ class _GrammarScreenState extends State<GrammarScreen>
               const SizedBox(height: 8),
               Text(
                 '${_idx + 1} / ${_filtered.length}',
-                style: GrammarC.body.copyWith(fontSize: 12),
+                style: GrammarC.body.copyWith(fontSize: 13),
               ),
               const SizedBox(height: 4),
               SoriProgressBar(
@@ -2779,4 +2797,23 @@ class _Back extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Large text lets the complete study/control column grow naturally. The card
+/// keeps its existing design height while the enclosing viewport owns scrolling.
+class _GrammarFlexibleArea extends StatelessWidget {
+  const _GrammarFlexibleArea({
+    required this.scrolling,
+    required this.child,
+    this.scrollingHeight,
+  });
+  final bool scrolling;
+  final Widget child;
+  final double? scrollingHeight;
+  @override
+  Widget build(BuildContext context) => scrolling
+      ? scrollingHeight == null
+            ? child
+            : SizedBox(height: scrollingHeight, child: child)
+      : Expanded(child: child);
 }

@@ -5071,12 +5071,6 @@ abstract class AppL10n {
   /// **'Wortschatz'**
   String get scenarioVocabTitle;
 
-  /// No description provided for @scenarioDialogTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Dialog'**
-  String get scenarioDialogTitle;
-
   /// No description provided for @scenarioGrammarTitle.
   ///
   /// In de, this message translates to:
@@ -9203,12 +9197,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Wie viele Muster pro Tag?'**
   String get grammarPlanOnboardingTitle;
-
-  /// No description provided for @grammarPlanOnboardingBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Wähle eine tägliche Empfehlung. Oben kannst du Tempo und Niveau ändern oder jederzeit alle Muster ansehen.'**
-  String get grammarPlanOnboardingBody;
 
   /// No description provided for @grammarPlanItemsPerDayOption.
   ///

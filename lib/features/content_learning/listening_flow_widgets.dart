@@ -8,6 +8,7 @@ import '../../widgets/sori/tokens.dart';
 import 'content_learning_models.dart';
 import 'content_learning_service.dart';
 import 'listening_object_art.dart';
+import 'listening_figma_materials.dart';
 
 /// The lesson uses the same shell destinations and a separate, read-only step
 /// indicator. A step is never represented as a sixth main-navigation tab.
@@ -27,7 +28,7 @@ PreferredSizeWidget listeningFlowHeader(
   ];
   final scaler = MediaQuery.textScalerOf(context);
   final large = scaler.scale(1) > 1.25;
-  final stepHeight = scaler.scale(12) * 1.3 + 18;
+  final stepHeight = scaler.scale(13) * 1.3 + 18;
   return AppBar(
     leading: leading,
     actions: actions,
@@ -57,7 +58,7 @@ PreferredSizeWidget listeningFlowHeader(
                   ? Text(
                       '${t.contentLearningPosition(step + 1, 3)} · ${labels[step]}',
                       style: const TextStyle(
-                        fontSize: 12,
+                        fontSize: 13,
                         height: 1.3,
                         color: CPalette.paper,
                       ),
@@ -69,7 +70,9 @@ PreferredSizeWidget listeningFlowHeader(
                             child: Semantics(
                               selected: index == step,
                               child: Container(
-                                padding: const EdgeInsets.only(bottom: 6),
+                                padding: const EdgeInsets.only(
+                                  bottom: Spacing.sm,
+                                ),
                                 decoration: BoxDecoration(
                                   border: Border(
                                     bottom: BorderSide(
@@ -87,7 +90,7 @@ PreferredSizeWidget listeningFlowHeader(
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: figma ? 'Manrope' : null,
-                                    fontSize: 12,
+                                    fontSize: 13,
                                     height: 1.3,
                                     color: index == step
                                         ? CPalette.paper
@@ -163,7 +166,11 @@ class ListeningLessonPicker extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 8),
-            SizedBox(width: 96, height: 92, child: ListeningObjectArt(topic)),
+            SizedBox(
+              width: ListeningFigma.topicArtWidth,
+              height: ListeningFigma.topicArtHeight,
+              child: ListeningObjectArt(topic),
+            ),
           ],
         ),
         const SizedBox(height: 12),
@@ -191,7 +198,7 @@ class ListeningLessonPicker extends StatelessWidget {
                           '${index + 1}'.padLeft(2, '0'),
                           style: type.h3.copyWith(color: CPalette.jade),
                         ),
-                        const SizedBox(width: 10),
+                        const SizedBox(width: Spacing.sm),
                         Expanded(
                           child: Text(
                             lesson.title.pick(lang),

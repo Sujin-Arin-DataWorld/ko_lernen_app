@@ -21,6 +21,12 @@ abstract final class SoriCLearningTokens {
   static const minTouch = 48.0;
 }
 
+/// Exact Latin faces used by the approved C learning activity boards.
+abstract final class SoriCLearningFonts {
+  static const body = 'Manrope';
+  static const heading = 'Lora';
+}
+
 enum SoriCMaterial { paper, jade, gold }
 
 class SoriCLearningBackground extends StatelessWidget {

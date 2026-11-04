@@ -358,189 +358,203 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
           ),
         ),
     ];
+    final scrollWholeQuestion = MediaQuery.textScalerOf(context).scale(1) > 1.5;
+    final header = <Widget>[
+      Wrap(
+        spacing: 12,
+        children: [
+          Text(
+            t.grammarChoiceEyebrow.toUpperCase(),
+            style: GrammarC.body.copyWith(fontSize: 13, color: GrammarC.jade),
+          ),
+          Text(
+            widget.planDayLabel != null
+                ? '${widget.planDayLabel} · ${_index + 1} / ${_round.length}'
+                : '${_index + 1} / ${_round.length} · $_level',
+            style: GrammarC.body.copyWith(fontSize: 13, color: GrammarC.jade),
+          ),
+        ],
+      ),
+      const SizedBox(height: 16),
+    ];
+    final content = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (selected == null) ...[
+          Text(t.grammarChoiceInstruction, style: GrammarC.body),
+          const SizedBox(height: 16),
+          GrammarCPaper(
+            child: Semantics(
+              label: t.grammarChoicePromptSemantics(
+                question.target.exampleFor(languageCode),
+                question.target.exampleFocusFor(languageCode),
+              ),
+              child: ExcludeSemantics(
+                child: Text.rich(
+                  key: const Key('grammar-choice-prompt'),
+                  TextSpan(
+                    style: GrammarC.heading.copyWith(
+                      color: GrammarC.blueInk,
+                      fontSize: 21,
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.italic,
+                    ),
+                    children: [
+                      for (final segment in segments)
+                        TextSpan(
+                          text: segment.text,
+                          style: segment.isFocus
+                              ? const TextStyle(
+                                  color: GrammarC.ink,
+                                  fontWeight: FontWeight.w700,
+                                  backgroundColor: Color(0x4dc99a40),
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: GrammarC.gold,
+                                  decorationThickness: 2,
+                                )
+                              : null,
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
+          ...choices,
+        ],
+        if (selected != null) ...[
+          Semantics(
+            key: _feedbackKey,
+            container: true,
+            liveRegion: true,
+            label: feedbackSemantics,
+            child: ExcludeSemantics(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    feedbackTitle,
+                    style: GrammarC.heading.copyWith(
+                      color: isCorrect ? GrammarC.jade : SoriColors.accent,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    question.target.pattern,
+                    style: GrammarC.korean.copyWith(fontSize: 30),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    question.target.typeFor(languageCode),
+                    style: GrammarC.body.copyWith(color: GrammarC.blueInk),
+                  ),
+                  GrammarCRail(
+                    minHeight: 112,
+                    child: Text(
+                      question.target.pattern,
+                      textAlign: TextAlign.center,
+                      style: GrammarC.korean,
+                    ),
+                  ),
+                  GrammarCPaper(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(
+                          t.grammarChoiceKoreanExampleLabel,
+                          style: GrammarC.heading.copyWith(fontSize: 14),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          question.target.exampleKorean,
+                          style: GrammarC.korean.copyWith(fontSize: 24),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          question.target.exampleFor(languageCode),
+                          style: GrammarC.heading.copyWith(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.italic,
+                            color: GrammarC.blueInk,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  GrammarCSectionLabel(t.grammarChoiceExplanationLabel),
+                  const SizedBox(height: 8),
+                  Text(
+                    question.target.explanationFor(languageCode),
+                    style: GrammarC.body,
+                  ),
+                  if (hasUsage) ...[
+                    const SizedBox(height: 12),
+                    GrammarCSectionLabel(t.grammarChoiceNoteLabel),
+                    const SizedBox(height: 8),
+                    Text(usage, style: GrammarC.body),
+                  ],
+                ],
+              ),
+            ),
+          ),
+          if (_saveError != null) ...[
+            const SizedBox(height: 16),
+            Semantics(
+              liveRegion: true,
+              child: Text(
+                _saveError!,
+                key: const Key('grammar-choice-save-error'),
+                style: GrammarC.body.copyWith(color: SoriColors.danger),
+              ),
+            ),
+          ],
+          // Retain the revealed choices for review and accessibility.
+          const SizedBox(height: 24),
+          ...choices,
+        ],
+      ],
+    );
+    final footer = <Widget>[
+      if (selected != null) ...[
+        const SizedBox(height: 8),
+        SoriButton.filled(
+          cMaterial: true,
+          textStyle: GrammarC.action,
+          label: _index + 1 >= _round.length
+              ? t.grammarChoiceFinish
+              : t.btnNext,
+          fullWidth: true,
+          onTap: _savingHard ? null : _continue,
+        ),
+      ],
+    ];
+    if (scrollWholeQuestion) {
+      // Large text can make the progress and action taller than the body.
+      // Keep feedback, reviewed choices and the next action in one viewport.
+      return SingleChildScrollView(
+        controller: _questionScroll,
+        padding: const EdgeInsets.only(bottom: Spacing.xl),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [...header, content, ...footer],
+        ),
+      );
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Wrap(
-          spacing: 12,
-          children: [
-            Text(
-              t.grammarChoiceEyebrow.toUpperCase(),
-              style: GrammarC.body.copyWith(fontSize: 12, color: GrammarC.jade),
-            ),
-            Text(
-              widget.planDayLabel != null
-                  ? '${widget.planDayLabel} · ${_index + 1} / ${_round.length}'
-                  : '${_index + 1} / ${_round.length} · $_level',
-              style: GrammarC.body.copyWith(fontSize: 12, color: GrammarC.jade),
-            ),
-          ],
-        ),
-        const SizedBox(height: 16),
+        ...header,
         Expanded(
           child: SingleChildScrollView(
             controller: _questionScroll,
-            padding: const EdgeInsets.only(bottom: 24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                if (selected == null) ...[
-                  Text(t.grammarChoiceInstruction, style: GrammarC.body),
-                  const SizedBox(height: 16),
-                  GrammarCPaper(
-                    child: Semantics(
-                      label: t.grammarChoicePromptSemantics(
-                        question.target.exampleFor(languageCode),
-                        question.target.exampleFocusFor(languageCode),
-                      ),
-                      child: ExcludeSemantics(
-                        child: Text.rich(
-                          key: const Key('grammar-choice-prompt'),
-                          TextSpan(
-                            style: GrammarC.heading.copyWith(
-                              color: GrammarC.blueInk,
-                              fontSize: 21,
-                              fontWeight: FontWeight.w400,
-                              fontStyle: FontStyle.italic,
-                            ),
-                            children: [
-                              for (final segment in segments)
-                                TextSpan(
-                                  text: segment.text,
-                                  style: segment.isFocus
-                                      ? const TextStyle(
-                                          color: GrammarC.ink,
-                                          fontWeight: FontWeight.w700,
-                                          backgroundColor: Color(0x4dc99a40),
-                                          decoration: TextDecoration.underline,
-                                          decorationColor: GrammarC.gold,
-                                          decorationThickness: 2,
-                                        )
-                                      : null,
-                                ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  ...choices,
-                ],
-                if (selected != null) ...[
-                  Semantics(
-                    key: _feedbackKey,
-                    container: true,
-                    liveRegion: true,
-                    label: feedbackSemantics,
-                    child: ExcludeSemantics(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            feedbackTitle,
-                            style: GrammarC.heading.copyWith(
-                              color: isCorrect
-                                  ? GrammarC.jade
-                                  : SoriColors.accent,
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            question.target.pattern,
-                            style: GrammarC.korean.copyWith(fontSize: 30),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            question.target.typeFor(languageCode),
-                            style: GrammarC.body.copyWith(
-                              color: GrammarC.blueInk,
-                            ),
-                          ),
-                          GrammarCRail(
-                            minHeight: 112,
-                            child: Text(
-                              question.target.pattern,
-                              textAlign: TextAlign.center,
-                              style: GrammarC.korean,
-                            ),
-                          ),
-                          GrammarCPaper(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                Text(
-                                  t.grammarChoiceKoreanExampleLabel,
-                                  style: GrammarC.heading.copyWith(
-                                    fontSize: 14,
-                                  ),
-                                ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  question.target.exampleKorean,
-                                  style: GrammarC.korean.copyWith(fontSize: 24),
-                                ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  question.target.exampleFor(languageCode),
-                                  style: GrammarC.heading.copyWith(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w400,
-                                    fontStyle: FontStyle.italic,
-                                    color: GrammarC.blueInk,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 16),
-                          GrammarCSectionLabel(t.grammarChoiceExplanationLabel),
-                          const SizedBox(height: 8),
-                          Text(
-                            question.target.explanationFor(languageCode),
-                            style: GrammarC.body,
-                          ),
-                          if (hasUsage) ...[
-                            const SizedBox(height: 12),
-                            GrammarCSectionLabel(t.grammarChoiceNoteLabel),
-                            const SizedBox(height: 8),
-                            Text(usage, style: GrammarC.body),
-                          ],
-                        ],
-                      ),
-                    ),
-                  ),
-                  if (_saveError != null) ...[
-                    const SizedBox(height: 16),
-                    Semantics(
-                      liveRegion: true,
-                      child: Text(
-                        _saveError!,
-                        key: const Key('grammar-choice-save-error'),
-                        style: GrammarC.body.copyWith(color: SoriColors.danger),
-                      ),
-                    ),
-                  ],
-                  // Retain the revealed choices for review and accessibility.
-                  const SizedBox(height: 24),
-                  ...choices,
-                ],
-              ],
-            ),
+            padding: const EdgeInsets.only(bottom: Spacing.xl),
+            child: content,
           ),
         ),
-        if (selected != null) ...[
-          const SizedBox(height: 8),
-          SoriButton.filled(
-            cMaterial: true,
-            textStyle: GrammarC.action,
-            label: _index + 1 >= _round.length
-                ? t.grammarChoiceFinish
-                : t.btnNext,
-            fullWidth: true,
-            onTap: _savingHard ? null : _continue,
-          ),
-        ],
+        ...footer,
       ],
     );
   }

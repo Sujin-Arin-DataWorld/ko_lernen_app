@@ -1629,7 +1629,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }
 
   Widget _buildIntro(AppL10n t, String lang) {
-    if (MediaQuery.sizeOf(context).width >= 720) {
+    if (MediaQuery.sizeOf(context).width >= SoriBreakpoints.tablet) {
       return _buildWideIntro(t, lang);
     }
     final sc = _scenario!;
@@ -1667,8 +1667,25 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           ),
           const SizedBox(height: 16),
           const ScenarioCDivider(),
-          const SizedBox(height: 6),
-          ScenarioCHero(scenario: sc, height: 270, people: true),
+          const SizedBox(height: Spacing.sm),
+          if (sc.id == ScenarioC.kitchenScene)
+            ScenarioCHero(scenario: sc, height: 270, people: true)
+          else if (_backdropPoster != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
+              child: LayoutBuilder(
+                builder: (context, bounds) => _ScenarioIntroArt(
+                  posterAsset: _backdropPoster!,
+                  alignment: scenarioIntroAlignmentFor(sc),
+                  emoji: sc.emoji,
+                  sidekick: sc.sidekick,
+                  height:
+                      bounds.maxWidth < SoriAdaptiveWidth.scenarioIntroNarrowArt
+                      ? 160
+                      : 240,
+                ),
+              ),
+            ),
           Padding(
             padding: const EdgeInsets.fromLTRB(24, 16, 24, 12),
             child: Text(
@@ -1889,7 +1906,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                         : ScenarioC.jade,
                                   ),
                                 ),
-                                const SizedBox(height: 3),
+                                const SizedBox(height: Spacing.xs),
                                 Text(
                                   line.ko,
                                   style: ScenarioC.korean.copyWith(
@@ -2283,7 +2300,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                       t.scenarioSavedPhrase,
                       style: ScenarioC.body.copyWith(fontSize: 14),
                     ),
-                    const SizedBox(height: 6),
+                    const SizedBox(height: Spacing.sm),
                     Text(line.ko, style: ScenarioC.korean),
                   ],
                 ),
@@ -2341,7 +2358,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                           t.scenarioSavedPhrase,
                           style: ScenarioC.body.copyWith(fontSize: 14),
                         ),
-                        const SizedBox(height: 6),
+                        const SizedBox(height: Spacing.sm),
                         Text(phrase, style: ScenarioC.korean),
                       ],
                     ),
@@ -3097,7 +3114,10 @@ class _ScenarioGrammarDetails extends StatelessWidget {
       children: [
         ScenarioCPlaque(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            padding: const EdgeInsets.symmetric(
+              horizontal: Spacing.lg,
+              vertical: Spacing.lg,
+            ),
             child: Text(
               grammar.pattern,
               textAlign: TextAlign.center,
@@ -3140,7 +3160,7 @@ class _ScenarioGrammarDetails extends StatelessWidget {
           ),
         ],
         if (note.isNotEmpty) ...[
-          const SizedBox(height: 40),
+          const SizedBox(height: Spacing.xxl),
           Text(note, style: ScenarioC.body.copyWith(fontSize: 15)),
         ],
       ],
@@ -3191,7 +3211,10 @@ class _MiniChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+      padding: const EdgeInsets.symmetric(
+        horizontal: Spacing.sm,
+        vertical: Spacing.xs,
+      ),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.10),
         borderRadius: BorderRadius.circular(SoriRadius.xs),

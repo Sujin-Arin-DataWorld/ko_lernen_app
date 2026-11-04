@@ -12,6 +12,7 @@ import 'route_observer.dart';
 import 'sheet.dart';
 import 'speakable.dart';
 import 'study_frame.dart';
+import 'tokens.dart';
 import 'tts_speed_control.dart';
 
 /// Scoped type and material roles for the approved movable-type grammar book.
@@ -23,38 +24,49 @@ abstract final class GrammarC {
   static const gold = SoriCLearningTokens.gold;
   static const blueInk = Color(0xff163b68);
   static const clearBelowAction = 24.0;
+  static const headerControlWidth = kMinInteractiveDimension + Spacing.sm;
+  static const choiceOutlineWidth = 1.6;
+  // Shared by the approved paper surface, outline and contact shadow.
+  static const paperRadius = 10.0;
   static const heading = TextStyle(
-    fontFamily: 'Lora',
-    fontFamilyFallback: ['NotoSansKR'],
+    fontFamily: SoriCLearningFonts.heading,
+    fontFamilyFallback: SoriLocaleFonts.fallback,
     fontSize: 24,
     height: 1.25,
     fontWeight: FontWeight.w700,
     color: ink,
   );
   static const body = TextStyle(
-    fontFamily: 'Manrope',
-    fontFamilyFallback: ['NotoSansKR'],
+    fontFamily: SoriCLearningFonts.body,
+    fontFamilyFallback: SoriLocaleFonts.fallback,
     fontSize: 16,
     height: 1.45,
     color: ink,
   );
   static const korean = TextStyle(
-    fontFamily: 'NotoSansKR',
+    fontFamily: SoriFonts.korean,
     fontSize: 27,
     height: 1.35,
     fontWeight: FontWeight.w700,
     color: ink,
   );
   static const action = TextStyle(
-    fontFamily: 'Manrope',
-    fontFamilyFallback: ['NotoSansKR'],
+    fontFamily: SoriCLearningFonts.body,
+    fontFamilyFallback: SoriLocaleFonts.fallback,
     fontSize: 16,
     height: 1.25,
     fontWeight: FontWeight.w600,
   );
 
   static Widget choiceSurface(BuildContext context, Widget child) =>
-      GrammarCPaper(padding: EdgeInsets.zero, child: child);
+      DecoratedBox(
+        position: DecorationPosition.foreground,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(GrammarC.paperRadius),
+          border: Border.all(color: jade, width: choiceOutlineWidth),
+        ),
+        child: GrammarCPaper(padding: EdgeInsets.zero, child: child),
+      );
 }
 
 /// Uses the real study frame's exits and gives every route the same guards.
@@ -253,7 +265,7 @@ class _GrammarCHeader extends StatelessWidget implements PreferredSizeWidget {
               height: _titleHeight,
               child: Row(
                 children: [
-                  SizedBox(width: 56, child: leading),
+                  SizedBox(width: GrammarC.headerControlWidth, child: leading),
                   Expanded(
                     child: Text(
                       title,
@@ -264,7 +276,10 @@ class _GrammarCHeader extends StatelessWidget implements PreferredSizeWidget {
                       ),
                     ),
                   ),
-                  SizedBox(width: 56, child: actions.first),
+                  SizedBox(
+                    width: GrammarC.headerControlWidth,
+                    child: actions.first,
+                  ),
                 ],
               ),
             ),
@@ -280,12 +295,12 @@ class _GrammarCHeader extends StatelessWidget implements PreferredSizeWidget {
                         asset: ApprovedChromeAssets.cloud,
                         size: 32,
                       ),
-                      const SizedBox(width: 6),
+                      const SizedBox(width: Spacing.sm),
                       Text(
                         'HANGUL SORI',
                         textScaler: TextScaler.noScaling,
                         style: GrammarC.heading.copyWith(
-                          fontSize: 11,
+                          fontSize: 13,
                           letterSpacing: 2,
                           color: GrammarC.gold,
                         ),
@@ -361,7 +376,7 @@ class GrammarCPaper extends StatelessWidget {
   @override
   Widget build(BuildContext context) => DecoratedBox(
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(GrammarC.paperRadius),
       boxShadow: const [
         BoxShadow(color: Color(0xffd4bc93), offset: Offset(3, 5)),
         BoxShadow(
@@ -373,7 +388,7 @@ class GrammarCPaper extends StatelessWidget {
     ),
     child: SoriCMaterialSurface(
       raised: false,
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(GrammarC.paperRadius),
       padding: padding,
       tint: tint,
       child: child,

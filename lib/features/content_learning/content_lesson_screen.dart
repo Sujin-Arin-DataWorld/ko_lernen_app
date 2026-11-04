@@ -717,7 +717,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
     final inlineAvatar = largeText || _longListeningLine(scenario, index);
     final inset = inlineAvatar
         ? 0.0
-        : MediaQuery.sizeOf(context).width < 360
+        : MediaQuery.sizeOf(context).width < SoriBreakpoints.narrowPhone
         ? 8.0
         : 24.0;
     return Padding(
@@ -887,10 +887,10 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
                 active: active,
                 ownTurn: line.speaker == 'user',
               ),
-              const SizedBox(width: 6),
+              const SizedBox(width: Spacing.sm),
               if (inlineAvatar && hasPortrait) ...[
                 _listeningAvatar(scenario, index, inline: true),
-                const SizedBox(width: 6),
+                const SizedBox(width: Spacing.sm),
               ],
               Expanded(
                 child: Text(
@@ -909,7 +909,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
               ),
             ],
           ),
-          const SizedBox(height: 2),
+          const SizedBox(height: Spacing.xs),
           Text(line.ko, style: ListeningFigma.korean(longLine)),
           if (largeText)
             Column(
@@ -918,7 +918,10 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
             )
           else
             Wrap(
-              spacing: MediaQuery.sizeOf(context).width < 360 ? 4 : 8,
+              spacing:
+                  MediaQuery.sizeOf(context).width < SoriBreakpoints.narrowPhone
+                  ? 4
+                  : 8,
               runSpacing: 0,
               children: [replay, translate],
             ),
@@ -926,8 +929,8 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
             child: expanded
                 ? Container(
                     width: double.infinity,
-                    margin: const EdgeInsets.only(top: 2),
-                    padding: const EdgeInsets.only(top: 2),
+                    margin: const EdgeInsets.only(top: Spacing.xs),
+                    padding: const EdgeInsets.only(top: Spacing.xs),
                     decoration: const BoxDecoration(
                       border: Border(top: BorderSide(color: Color(0x38A98C58))),
                     ),

@@ -2922,9 +2922,6 @@ class AppL10nDe extends AppL10n {
   String get scenarioVocabTitle => 'Wortschatz';
 
   @override
-  String get scenarioDialogTitle => 'Dialog';
-
-  @override
   String get scenarioGrammarTitle => 'Grammatik';
 
   @override
@@ -5319,10 +5316,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get grammarPlanOnboardingTitle => 'Wie viele Muster pro Tag?';
-
-  @override
-  String get grammarPlanOnboardingBody =>
-      'Wähle eine tägliche Empfehlung. Oben kannst du Tempo und Niveau ändern oder jederzeit alle Muster ansehen.';
 
   @override
   String grammarPlanItemsPerDayOption(int n) {

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../widgets/sori/button.dart';
+import '../../widgets/sori/tokens.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/approved_chrome_assets.dart';
@@ -10,7 +12,7 @@ class ListeningPaperPanel extends StatelessWidget {
   const ListeningPaperPanel({
     super.key,
     required this.child,
-    this.padding = const EdgeInsets.all(20),
+    this.padding = const EdgeInsets.all(Spacing.lg + Spacing.xs),
   });
   final Widget child;
   final EdgeInsetsGeometry padding;
@@ -18,7 +20,7 @@ class ListeningPaperPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) => DecoratedBox(
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(18),
+      borderRadius: BorderRadius.circular(ListeningFigma.paperRadius),
       boxShadow: const [
         BoxShadow(color: Color(0xffb39a73), offset: Offset(0, 3)),
         BoxShadow(
@@ -29,7 +31,7 @@ class ListeningPaperPanel extends StatelessWidget {
       ],
     ),
     child: ClipRRect(
-      borderRadius: BorderRadius.circular(18),
+      borderRadius: BorderRadius.circular(ListeningFigma.paperRadius),
       child: Stack(
         children: [
           const Positioned.fill(child: ColoredBox(color: ListeningFigma.paper)),
@@ -58,7 +60,7 @@ class ListeningStateTitle extends StatelessWidget {
   final String? topicId;
   @override
   Widget build(BuildContext context) => ListeningPaperPanel(
-    padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 14),
+    padding: const EdgeInsets.all(Spacing.lg),
     child: SizedBox(
       width: double.infinity,
       child: Row(
@@ -126,7 +128,7 @@ class ListeningOutcomePanel extends StatelessWidget {
                           child: SizedBox(
                             width: 30,
                             height: 30,
-                            child: CircularProgressIndicator(
+                            child: SoriLoadingIndicator(
                               value: MediaQuery.disableAnimationsOf(context)
                                   ? .75
                                   : null,
@@ -220,7 +222,8 @@ class ListeningTextAction extends StatelessWidget {
   final VoidCallback? onTap;
   final bool onJade;
   @override
-  Widget build(BuildContext context) => TextButton(
+  Widget build(BuildContext context) => SoriTextAction(
+    label: label,
     onPressed: onTap,
     style: TextButton.styleFrom(
       minimumSize: const Size(48, 48),
@@ -308,7 +311,7 @@ class ListeningResultPanel extends StatelessWidget {
                 size: 18,
                 color: ListeningFigma.jade,
               ),
-              const SizedBox(width: 6),
+              const SizedBox(width: Spacing.sm),
               Expanded(child: Text(t.listeningRecoverySaved)),
             ],
           ),
@@ -364,7 +367,10 @@ class ListeningAudioRecovery extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         ListeningPaperPanel(
-          padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 8),
+          padding: const EdgeInsets.symmetric(
+            horizontal: Spacing.md,
+            vertical: Spacing.sm,
+          ),
           child: Semantics(
             liveRegion: true,
             child: Column(
@@ -386,7 +392,7 @@ class ListeningAudioRecovery extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: Spacing.md),
         ListeningFigmaPrimary(
           key: const ValueKey('listening-audio-retry'),
           label: t.listeningRecoveryAudioRetry,

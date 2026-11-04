@@ -190,7 +190,7 @@ class _QuizChoiceState extends State<QuizChoice>
                 ),
                 if (widget.subtitle != null &&
                     widget.subtitle!.trim().isNotEmpty) ...[
-                  const SizedBox(height: 2),
+                  const SizedBox(height: Spacing.xs),
                   Text(
                     widget.subtitle!,
                     style: TextStyle(fontSize: 13, color: s.textMuted),
