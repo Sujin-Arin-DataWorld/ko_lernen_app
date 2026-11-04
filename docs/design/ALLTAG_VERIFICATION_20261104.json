@@ -479,7 +479,8 @@
     "actualSourceUsed": true,
     "baselineNavigationHeight": 70,
     "grammarPlan": "Full-screen modal; independently measured editable geometry, no inactive navigation controls.",
-    "planGeometryFile": "docs/design/lernen-20261104/native-grammar-plan.geometry.json"
+    "planGeometryFile": "docs/design/lernen-20261104/native-grammar-plan.geometry.json",
+    "nuancenBrand": "Manrope ExtraBold13dp follows NuancenC.heading; Grammar remains Lora. Figma-only font-family correction after native source8095f6271 validation."
   },
   "committedCaptureHashes": [
     {
@@ -512,19 +513,19 @@
     },
     {
       "path": "docs/design/lernen-20261104/figma-nuancen-catalog.png",
-      "sha256": "6a665faa5bec0a87cfebb98d091a415ed771357ce977af8e10dd37d0279c8603"
+      "sha256": "f887bd69385b815c5cc8e3224882752fa4403f175a1f74b6734744bd537e4219"
     },
     {
       "path": "docs/design/lernen-20261104/figma-nuancen-question.png",
-      "sha256": "b8e6229289da0fb5bf8bcd5022c7a8bacf4a379f44187551f35a577070a4ae6b"
+      "sha256": "6b1f763070c80cffe2dd6890f6445190cb61bb6a1b5e00905d4eb6520302c386"
     },
     {
       "path": "docs/design/lernen-20261104/figma-nuancen-speed.png",
-      "sha256": "fea3f4a191a01b553d5e642e0923ce85a73450530479f20fbaece8bcf866d779"
+      "sha256": "609d0aea4af1b9c2c793a4c1ef62a825863e6c25197e5e7f81c8c927757fe57a"
     },
     {
       "path": "docs/design/lernen-20261104/figma-nuancen-study.png",
-      "sha256": "93d5e01e050cfbcb4e771ed4d66d90c31afe905231a5e14182e6c2447aff6b30"
+      "sha256": "7a00dc80386a19747cfb0ba845acefd41c673baf6c249e4452f382c9480a54c3"
     },
     {
       "path": "docs/design/lernen-20261104/native-alltag-dialog.png",
