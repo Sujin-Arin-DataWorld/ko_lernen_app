@@ -12739,4 +12739,43 @@ class AppL10nDe extends AppL10n {
     });
     return '$_temp0';
   }
+
+  @override
+  String get approvedQuizTitle => 'Wörter-Quiz';
+
+  @override
+  String approvedQuizCorrect(int count) {
+    return '$count richtig';
+  }
+
+  @override
+  String get approvedQuizChooseMeaning => 'Wähle die Bedeutung.';
+
+  @override
+  String get approvedGameListen => 'Anhören';
+
+  @override
+  String get approvedMatchingTitle => 'Paare finden';
+
+  @override
+  String get approvedMatchingInstruction =>
+      'Erst Koreanisch, dann die Bedeutung.';
+
+  @override
+  String approvedMatchingCounter(int count, int total) {
+    return '$count von $total Paaren';
+  }
+
+  @override
+  String get approvedMatchingPickKorean => 'Tippe auf ein koreanisches Wort.';
+
+  @override
+  String get approvedMatchingPickMeaning =>
+      'Wähle jetzt die passende Bedeutung.';
+
+  @override
+  String get approvedMatchingRetry => 'Tippe auf die passende Bedeutung.';
+
+  @override
+  String get approvedMatchingFound => 'Ein Paar gefunden.';
 }

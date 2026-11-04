@@ -141,6 +141,7 @@ flutter:
     - design_assets/scenarios/
     - design_assets/fonts/Manrope/OFL.txt
     - assets/illustrations/c_listening/
+    - assets/illustrations/approved_games/
     - assets/illustrations/einleitung_generated/
     - assets/data/
     # Approved R16 renders, losslessly packaged with exact process identities.
@@ -281,6 +282,14 @@ flutter:
     - family: Manrope
       fonts:
         - asset: design_assets/fonts/Manrope/Manrope-Variable.ttf
+    - family: MaruBuriOTF
+      fonts:
+        - asset: assets/fonts/MaruBuri/MaruBuri-Regular.otf
+          weight: 400
+        - asset: assets/fonts/MaruBuri/MaruBuri-SemiBold.otf
+          weight: 600
+        - asset: assets/fonts/MaruBuri/MaruBuri-Bold.otf
+          weight: 700
     - family: Chubbo
       fonts:
         - asset: assets/fonts/Chubbo/Chubbo-Bold.otf

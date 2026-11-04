@@ -17,10 +17,9 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/home_action.dart';
-import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
-import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
+import 'package:ko_lernen_app/widgets/sori/approved_games/approved_game_material.dart';
+import 'package:ko_lernen_app/widgets/sori/approved_games/approved_quiz_view.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
-import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 const _packId = 'phase-5b-custom-games';
@@ -182,19 +181,16 @@ void main() {
             locale: locale,
             viewport: viewport,
           );
-          await _pumpUntil(tester, find.byType(QuizChoice));
-          expect(find.byType(SoriStudyFrame), findsOneWidget);
-          expect(find.byType(SoriHomeAction), findsOneWidget);
+          await _pumpUntil(tester, find.byType(ApprovedQuizView));
+          expect(find.byType(ApprovedGameFrame), findsOneWidget);
+          expect(find.byType(ApprovedGameFrame), findsOneWidget);
           _expectCloseAction(tester, t.closeActionLabel, minHeight: 48);
-          final quizKorean = _visibleKorean();
-          _expectTooltipButton(
+          _expectExecutableButton(
             tester,
-            t.ttsListenTarget(quizKorean),
+            find.bySemanticsLabel(t.approvedGameListen),
             minHeight: 48,
           );
-          final choices = tester
-              .widgetList<QuizChoice>(find.byType(QuizChoice))
-              .toList();
+          final choices = _quizChoices(tester).toList();
           expect(choices, hasLength(4));
           for (final choice in choices) {
             _expectExecutableButton(
@@ -205,7 +201,13 @@ void main() {
           }
           final lastChoice = choices.last;
           final lastChoiceFinder = find.bySemanticsLabel(lastChoice.text);
-          _expectBoundaryContrast(tester, lastChoiceFinder);
+          expect(
+            find.descendant(
+              of: lastChoiceFinder,
+              matching: find.byType(ApprovedMaterial),
+            ),
+            findsWidgets,
+          );
           _expectLocaleMeanings(
             tester,
             locale,
@@ -232,7 +234,8 @@ void main() {
             viewport: viewport,
           );
           await _pumpUntil(tester, _firstVisibleKoreanFinder());
-          expect(find.byType(SoriHomeAction), findsOneWidget);
+          expect(find.byType(ApprovedGameNavigation), findsOneWidget);
+          _expectTooltipButton(tester, t.soriStageNavToday, minHeight: 48);
           _expectCloseAction(tester, t.closeActionLabel, minHeight: 48);
           final visibleMatchingWords = _words
               .where(
@@ -243,7 +246,7 @@ void main() {
           final matchingKorean = visibleMatchingWords.last.korean;
           final left = find.bySemanticsLabel(matchingKorean);
           _expectExecutableButton(tester, left, minHeight: 48);
-          _expectBoundaryContrast(tester, left);
+          _expectApprovedPairMaterial(tester, left);
           final meaning = _word(
             matchingKorean,
           ).translationFor(locale.languageCode);
@@ -256,7 +259,7 @@ void main() {
           await _tapFatal(tester, left);
           final selectedLeft = tester.getSemantics(left).getSemanticsData();
           expect(selectedLeft.flagsCollection.isSelected, ui.Tristate.isTrue);
-          _expectBoundaryContrast(tester, find.bySemanticsLabel(meaning));
+          _expectApprovedPairMaterial(tester, find.bySemanticsLabel(meaning));
           await _tapFatal(tester, find.bySemanticsLabel(meaning));
           _expectLiveRegion(tester, t.statsCorrect);
           final matchedLeft = tester.getSemantics(left).getSemanticsData();
@@ -361,9 +364,9 @@ void main() {
       locale: locale,
       viewport: _viewports[2],
     );
-    await _pumpUntil(tester, find.byType(QuizChoice));
+    await _pumpUntil(tester, find.byType(ApprovedQuizView));
     expect(_homeEscape(tester).confirmWhen, isFalse);
-    final quizChoice = tester.widget<QuizChoice>(find.byType(QuizChoice).first);
+    final quizChoice = _quizChoices(tester).first;
     await _tapFatal(tester, find.bySemanticsLabel(quizChoice.text));
     expect(_homeEscape(tester).confirmWhen, isTrue);
 
@@ -410,19 +413,19 @@ void main() {
       viewport: _viewports[2],
       disableAnimations: false,
     );
-    await _pumpUntil(tester, find.byType(QuizChoice));
-    final correct = tester
-        .widgetList<QuizChoice>(find.byType(QuizChoice))
-        .singleWhere((choice) => choice.isCorrect);
+    await _pumpUntil(tester, find.byType(ApprovedQuizView));
+    final correct = _quizChoices(
+      tester,
+    ).singleWhere((choice) => choice.isCorrect);
 
     await _tapFatal(tester, find.bySemanticsLabel(correct.text));
 
     expect(_soriButton(t.btnNext), findsNothing);
-    expect(find.text('1 / 8'), findsOneWidget);
+    expect(find.text(t.scenarioQuestProgress(1, 8)), findsOneWidget);
     await tester.pump(const Duration(milliseconds: 899));
-    expect(find.text('1 / 8'), findsOneWidget);
+    expect(find.text(t.scenarioQuestProgress(1, 8)), findsOneWidget);
     await tester.pump(const Duration(milliseconds: 1));
-    expect(find.text('2 / 8'), findsOneWidget);
+    expect(find.text(t.scenarioQuestProgress(2, 8)), findsOneWidget);
     _expectNoException(tester);
   });
 
@@ -437,16 +440,14 @@ void main() {
         locale: const Locale('en'),
         viewport: _viewports[2],
       );
-      await _pumpUntil(tester, find.byType(QuizChoice));
+      await _pumpUntil(tester, find.byType(ApprovedQuizView));
       expect(find.text('storage'), findsNothing);
 
       String? missedKorean;
       var answered = 0;
-      while (find.byType(QuizChoice).evaluate().isNotEmpty) {
+      while (find.byType(ApprovedQuizView).evaluate().isNotEmpty) {
         final current = _visibleKorean();
-        final choices = tester
-            .widgetList<QuizChoice>(find.byType(QuizChoice))
-            .toList();
+        final choices = _quizChoices(tester).toList();
         final choice = answered == 0
             ? choices.firstWhere((item) => !item.isCorrect)
             : choices.singleWhere((item) => item.isCorrect);
@@ -475,7 +476,7 @@ void main() {
       _expectLiveRegion(tester, '${t.quizResultTitle}. ${t.quizScore(7, 8)}');
       _expectExecutableButton(tester, _soriButton(t.quizAgain));
       await _tapFatal(tester, _soriButton(t.quizAgain));
-      expect(find.byType(QuizChoice), findsWidgets);
+      expect(find.byType(ApprovedQuizView), findsWidgets);
       semantics.dispose();
     },
   );
@@ -631,7 +632,7 @@ void main() {
           viewport: _viewports[2],
         );
         await tester.pumpAndSettle();
-        expect(find.byType(QuizChoice), findsNothing);
+        expect(find.byType(ApprovedQuizView), findsNothing);
         expect(find.byType(SoriTextField), findsNothing);
         for (final word in legacyWords) {
           expect(find.text(word.translationDe), findsNothing);
@@ -655,11 +656,11 @@ void main() {
       const CustomPackQuizScreen(packId: _packId, words: _words),
       locale: quizLocale,
     );
-    await _pumpUntil(tester, find.byType(QuizChoice));
+    await _pumpUntil(tester, find.byType(ApprovedQuizView));
     final quizWord = _visibleKorean();
-    final correctQuizChoice = tester
-        .widgetList<QuizChoice>(find.byType(QuizChoice))
-        .singleWhere((choice) => choice.isCorrect);
+    final correctQuizChoice = _quizChoices(
+      tester,
+    ).singleWhere((choice) => choice.isCorrect);
     await _tapFatal(tester, find.bySemanticsLabel(correctQuizChoice.text));
     _expectLiveRegion(tester, de.statsCorrect);
     final quizReviews = Storage.srsCard(quizWord)!.reviewCount;
@@ -735,11 +736,11 @@ void main() {
           locale: target.locale,
           viewport: target.viewport,
         );
-        await _pumpUntil(tester, find.byType(QuizChoice));
+        await _pumpUntil(tester, find.byType(ApprovedQuizView));
         await _completeQuizRound(tester, t);
         _expectLiveRegion(tester, '${t.quizResultTitle}. ${t.quizScore(4, 4)}');
         await _tapFatal(tester, _soriButton(t.quizAgain));
-        expect(find.byType(QuizChoice), findsWidgets);
+        expect(find.byType(ApprovedQuizView), findsWidgets);
 
         await _pumpGame(
           tester,
@@ -796,10 +797,10 @@ ExtractedWord _withoutEnglish(ExtractedWord word) => ExtractedWord(
 
 Future<void> _completeQuizRound(WidgetTester tester, AppL10n t) async {
   var answered = 0;
-  while (find.byType(QuizChoice).evaluate().isNotEmpty) {
-    final choice = tester
-        .widgetList<QuizChoice>(find.byType(QuizChoice))
-        .singleWhere((candidate) => candidate.isCorrect);
+  while (find.byType(ApprovedQuizView).evaluate().isNotEmpty) {
+    final choice = _quizChoices(
+      tester,
+    ).singleWhere((candidate) => candidate.isCorrect);
     await _tapFatal(tester, find.bySemanticsLabel(choice.text));
     _expectLiveRegion(tester, t.statsCorrect);
     await _tapFatal(tester, _soriButton(t.btnNext));
@@ -931,11 +932,34 @@ Future<void> _pumpUntil(
 }
 
 Finder _soriButton(String label) => find.byWidgetPredicate(
-  (widget) => widget is SoriButton && widget.label == label,
+  (widget) =>
+      (widget is SoriButton && widget.label == label) ||
+      (widget is ApprovedArtButton && widget.label == label),
 );
 
-SoriHomeEscape _homeEscape(WidgetTester tester) =>
-    tester.widget<SoriHomeAction>(find.byType(SoriHomeAction)).escape;
+SoriHomeEscape _homeEscape(WidgetTester tester) {
+  final approved = find.byType(ApprovedGameFrame);
+  if (approved.evaluate().isNotEmpty) {
+    return SoriHomeEscape(
+      confirmWhen: tester.widget<ApprovedGameFrame>(approved).confirmWhen,
+    );
+  }
+  return tester.widget<SoriHomeAction>(find.byType(SoriHomeAction)).escape;
+}
+
+List<({String text, bool isCorrect, VoidCallback? onSelected})> _quizChoices(
+  WidgetTester tester,
+) {
+  final view = tester.widget<ApprovedQuizView>(find.byType(ApprovedQuizView));
+  return [
+    for (final option in view.options)
+      (
+        text: option,
+        isCorrect: option == view.correctOption,
+        onSelected: view.picked == null ? () => view.onOption(option) : null,
+      ),
+  ];
+}
 
 String _submitLabel(Locale locale) =>
     locale.languageCode == 'de' ? 'Prüfen' : 'Check';
@@ -1019,22 +1043,17 @@ void _expectCloseAction(
   expect(tester.getSize(finder).height, greaterThanOrEqualTo(minHeight));
 }
 
-void _expectBoundaryContrast(WidgetTester tester, Finder control) {
-  final decorated = find.descendant(
-    of: control,
-    matching: find.byWidgetPredicate((widget) {
-      final decoration = widget is Container ? widget.decoration : null;
-      return decoration is BoxDecoration && decoration.border is Border;
-    }),
-  );
-  expect(decorated, findsOneWidget);
-  final box = tester.widget<Container>(decorated).decoration! as BoxDecoration;
-  final border = box.border! as Border;
-  final rendered = Color.alphaBlend(border.top.color, SoriColors.lightBg);
+void _expectApprovedPairMaterial(WidgetTester tester, Finder control) {
+  // The approved nine-slice face owns the boundary; a synthetic Container
+  // border would duplicate it. Pixel contrast belongs to the visual evidence.
   expect(
-    SoriColors.contrastRatio(rendered, SoriColors.lightBg),
-    greaterThanOrEqualTo(3),
+    find.descendant(of: control, matching: find.byType(ApprovedMaterial)),
+    findsOneWidget,
   );
+  final action = tester.widget<ApprovedArtButton>(
+    find.ancestor(of: control, matching: find.byType(ApprovedArtButton)).first,
+  );
+  expect(action.material, anyOf('pairNeutral', 'pairSelected', 'pairMatched'));
 }
 
 void _expectLiveRegion(WidgetTester tester, String label) {

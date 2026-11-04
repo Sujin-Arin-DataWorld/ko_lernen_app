@@ -5873,5 +5873,33 @@
         "type": "String"
       }
     }
-  }
+  },
+  "approvedQuizTitle": "Word Quiz",
+  "approvedQuizCorrect": "{count} correct",
+  "@approvedQuizCorrect": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "approvedQuizChooseMeaning": "Choose the meaning.",
+  "approvedGameListen": "Listen",
+  "approvedMatchingTitle": "Find pairs",
+  "approvedMatchingInstruction": "First Korean, then the meaning.",
+  "approvedMatchingCounter": "{count} of {total} pairs",
+  "@approvedMatchingCounter": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "approvedMatchingPickKorean": "Tap a Korean word.",
+  "approvedMatchingPickMeaning": "Now choose the matching meaning.",
+  "approvedMatchingRetry": "Tap the matching meaning.",
+  "approvedMatchingFound": "Pair found."
 }
