@@ -19,11 +19,18 @@ final class SoriHomeEscape {
     this.confirmWhen = false,
     this.confirmTitle,
     this.confirmBody,
+    this.closeConfirmBody,
+    this.closeConfirmLeaveLabel,
   });
 
   final bool confirmWhen;
   final String? confirmTitle;
   final String? confirmBody;
+
+  /// Optional destination-specific copy for X/system-back. Home copy and all
+  /// existing callers keep their defaults when these are absent.
+  final String? closeConfirmBody;
+  final String? closeConfirmLeaveLabel;
 }
 
 class SoriHomeAction extends StatelessWidget {
@@ -110,7 +117,7 @@ class SoriCloseAction extends StatelessWidget {
   final Widget? visual;
 
   Future<void> _close(BuildContext context) async {
-    if (!await showLeaveConfirmSheet(context, escape)) {
+    if (!await showLeaveConfirmSheet(context, escape, closingRoute: true)) {
       return;
     }
     onLeave?.call();
@@ -161,8 +168,9 @@ class SoriCloseAction extends StatelessWidget {
 /// 과 [SoriCloseAction]이 함께 쓰는 단일 확인 경로.
 Future<bool> showLeaveConfirmSheet(
   BuildContext context,
-  SoriHomeEscape escape,
-) async {
+  SoriHomeEscape escape, {
+  bool closingRoute = false,
+}) async {
   if (!escape.confirmWhen) {
     return true;
   }
@@ -170,17 +178,21 @@ Future<bool> showLeaveConfirmSheet(
     context: context,
     builder: (sheetContext) => _LeaveConfirmSheet(
       title: escape.confirmTitle,
-      body: escape.confirmBody,
+      body: closingRoute
+          ? escape.closeConfirmBody ?? escape.confirmBody
+          : escape.confirmBody,
+      leaveLabel: closingRoute ? escape.closeConfirmLeaveLabel : null,
     ),
   );
   return confirmed == true;
 }
 
 class _LeaveConfirmSheet extends StatelessWidget {
-  const _LeaveConfirmSheet({this.title, this.body});
+  const _LeaveConfirmSheet({this.title, this.body, this.leaveLabel});
 
   final String? title;
   final String? body;
+  final String? leaveLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -202,7 +214,7 @@ class _LeaveConfirmSheet extends StatelessWidget {
           ),
           const SizedBox(height: Spacing.lg),
           SoriButton.filled(
-            label: t.homeActionConfirmLeave,
+            label: leaveLabel ?? t.homeActionConfirmLeave,
             fullWidth: true,
             onTap: () => Navigator.of(context).pop(true),
           ),

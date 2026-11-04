@@ -45,8 +45,8 @@ import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/window_class.dart';
-import '../widgets/sori/sheet.dart';
-import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/grammar_c.dart';
+import '../widgets/sori/grammar_c_plan.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/confirmed_choice_action.dart';
 import '../widgets/sori/deck_coach.dart';
@@ -130,6 +130,17 @@ final class _RetainedGrammarCheckpoint {
 typedef GrammarCheckpointRecorder =
     Future<void> Function(GrammarCheckpointAttempt attempt);
 
+final class _PendingGrammarJudgment {
+  _PendingGrammarJudgment(this.grammar, this.understood, this.sourceGeneration)
+    : lifetime = LocalDataLifetime.capture();
+  final Grammar grammar;
+  final bool understood;
+  final int sourceGeneration;
+  final LocalDataLifetimeLease lifetime;
+  bool saving = false;
+  bool failed = false;
+}
+
 class GrammarScreen extends StatefulWidget {
   const GrammarScreen({
     super.key,
@@ -163,6 +174,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   List<Grammar> _filtered = [];
   int _idx = 0;
   bool _flipped = false;
+  _PendingGrammarJudgment? _pendingJudgment;
   String _level = 'Alle';
   String _type = 'Alle';
   String _difficulty = 'Alle'; // Alle / Leicht / Schwer
@@ -286,6 +298,7 @@ class _GrammarScreenState extends State<GrammarScreen>
       },
     );
     _idx = Storage.grammarLastIdx;
+    LocalDataLifetime.changes.addListener(_retireJudgmentAfterReset);
     _planLevel = Storage.grammarPlanLevel;
     _load();
     scheduleCoach();
@@ -298,6 +311,7 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   @override
   void dispose() {
+    LocalDataLifetime.changes.removeListener(_retireJudgmentAfterReset);
     _choiceOwner.dispose();
     _pendingPlanStart?.retire();
     _pendingPlanCompletion?.retire();
@@ -315,6 +329,7 @@ class _GrammarScreenState extends State<GrammarScreen>
     if (oldWidget.courseContext != widget.courseContext ||
         oldWidget.initialGrammarId != widget.initialGrammarId) {
       _likeSourceGeneration++;
+      _pendingJudgment = null;
       _choiceOwner.replaceSource();
       _retirePlanOperationsForSourceChange();
       if (oldWidget.initialGrammarId != widget.initialGrammarId) {
@@ -341,6 +356,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   void _retirePlanOperationsForSourceChange() {
+    _pendingJudgment = null;
     _planSourceRevision++;
     _pendingPlanStart?.retire();
     _pendingPlanCompletion?.retire();
@@ -518,6 +534,8 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   void _applyFilters() {
+    if (_pendingJudgment?.saving ?? false) return;
+    _pendingJudgment = null;
     final currentId = _filtered.isEmpty || _idx >= _filtered.length
         ? null
         : _filtered[_idx].id;
@@ -608,6 +626,8 @@ class _GrammarScreenState extends State<GrammarScreen>
   bool get _canNavigateDeck => _filtered.length > 1;
 
   void _next() {
+    if (_pendingJudgment?.saving ?? false) return;
+    _pendingJudgment = null;
     if (!_canNavigateDeck) return;
     HapticService.selectionClick();
     setState(() {
@@ -618,6 +638,8 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   void _prev() {
+    if (_pendingJudgment?.saving ?? false) return;
+    _pendingJudgment = null;
     if (!_canNavigateDeck) return;
     HapticService.selectionClick();
     setState(() {
@@ -633,6 +655,8 @@ class _GrammarScreenState extends State<GrammarScreen>
   /// 처음으로 안 돌아간다) — 두 호출부 모두 `_idx > 0` 일 때만 이 메서드를
   /// 넘긴다.
   void _goToPreviousCard() {
+    if (_pendingJudgment?.saving ?? false) return;
+    _pendingJudgment = null;
     setState(() {
       _idx--;
       _flipped = false;
@@ -645,17 +669,48 @@ class _GrammarScreenState extends State<GrammarScreen>
   Future<void> _judge({required bool understood}) async {
     final g = _current;
     if (g == null) return;
-    setState(() => _sessionSeen.add(g.pattern));
-    if (understood) {
-      await Storage.markGrammarEasy(g.pattern);
-    } else {
-      await Storage.markGrammarHard(g.pattern);
-      // 어렵다고 표시한 패턴은 자동으로 단어장에 넣는다(Jin 확정). 판정이
-      // 곧 "나중에 다시 볼 목록"이 되므로, 어렵다는 신호가 저장까지 가야
-      // 사용자가 한 번 더 손대지 않는다.
-      _saveCurrent();
+    final pending = _pendingJudgment ??= _PendingGrammarJudgment(
+      g,
+      understood,
+      _likeSourceGeneration,
+    );
+    bool isCurrent() =>
+        mounted &&
+        pending.lifetime.isCurrent &&
+        identical(_pendingJudgment, pending) &&
+        identical(_current, g) &&
+        identical(pending.grammar, g) &&
+        pending.sourceGeneration == _likeSourceGeneration &&
+        (ModalRoute.of(context)?.isActive ?? false);
+    if (pending.saving || !isCurrent()) return;
+    setState(() {
+      pending.saving = true;
+      pending.failed = false;
+    });
+    try {
+      if (pending.understood) {
+        await Storage.markGrammarEasy(g.pattern);
+      } else {
+        await Storage.markGrammarHard(g.pattern);
+      }
+    } on Object {
+      if (mounted && isCurrent()) {
+        setState(() {
+          pending.saving = false;
+          pending.failed = true;
+        });
+        soriToast(context, AppL10n.of(context).courseCheckpointSaveError);
+      }
+      return;
     }
-    if (!mounted) return;
+    if (!isCurrent()) return;
+    setState(() {
+      _pendingJudgment = null;
+      _sessionSeen.add(g.pattern);
+    });
+    if (!pending.understood) {
+      unawaited(_saveGrammar(g));
+    }
     // 마지막 카드의 판정은 곧 세션 종료다 — Hören 이 마지막 스텝에서 완료로
     // 넘어가는 것과 같은 흐름이라 별도 "Grammatikübung abschließen" 버튼이
     // 필요 없다. 한 장짜리 덱도 이 경로로 정상 종료된다.
@@ -670,6 +725,11 @@ class _GrammarScreenState extends State<GrammarScreen>
     _next();
   }
 
+  void _retireJudgmentAfterReset() {
+    if (_pendingJudgment == null || !mounted) return;
+    setState(() => _pendingJudgment = null);
+  }
+
   /// 평가 없이 넘기기(↓). 판정이 아니므로 플립 게이트와 무관하다.
   ///
   /// `_next()`(레거시 둘러보기 전용, 계속 순환)와 달리 플랜 모드에서는
@@ -679,6 +739,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   /// 가 마지막 카드에서 세션 종료로 넘어가는 것과 같은 계약을 스킵에도
   /// 준다(지시서 1.11/1.12, W10 T-G1).
   void _skipCurrent() {
+    if (_pendingJudgment?.saving ?? false) return;
     if (!_canNavigateDeck) return;
     if (_isFollowingPlan && _idx >= _filtered.length - 1) {
       if (_flipped) {
@@ -736,6 +797,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   /// checkpoints retain their scoped three-choice evidence contract; opening
   /// this four-choice recognition exercise must never unlock a mission.
   void _openChoicePractice() {
+    unawaited(SoriSpeech.stop());
     final initialLevel = _level == 'Alle' ? null : _level;
     Navigator.of(context).push(
       SoriTransitions.page(
@@ -755,6 +817,7 @@ class _GrammarScreenState extends State<GrammarScreen>
       ).isNotEmpty;
 
   void _openCurrentChoicePractice(Grammar grammar) {
+    unawaited(SoriSpeech.stop());
     Navigator.of(context).push(
       SoriTransitions.page(
         (_) => GrammarChoiceQuizScreen(
@@ -767,6 +830,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   Future<void> _openLevelChrome() async {
+    if (_pendingJudgment?.saving ?? false) return;
     if (_isCoursePractice || _legacyBrowseForVisit) {
       _showFilterSheet();
       return;
@@ -779,7 +843,8 @@ class _GrammarScreenState extends State<GrammarScreen>
   Future<void> _showPlanOnboardingSheet({
     bool allowLegacyBrowseOnDismissal = false,
   }) async {
-    if (!mounted ||
+    if ((_pendingJudgment?.saving ?? false) ||
+        !mounted ||
         !_planLifetime.isCurrent ||
         _planOnboardingInFlight ||
         _pendingPlanCompletion != null ||
@@ -796,7 +861,7 @@ class _GrammarScreenState extends State<GrammarScreen>
           _pendingPlanStart?.plan.itemsPerDay ??
           _plans[planLevel]?.itemsPerDay ??
           GrammarPlanService.defaultItemsPerDay;
-      final started = await showSoriSheet<bool>(
+      final started = await showGrammarCPlanSheet<bool>(
         context: context,
         builder: (sheetContext) => KeyedSubtree(
           key: const Key('grammar-plan-onboarding-sheet'),
@@ -809,186 +874,254 @@ class _GrammarScreenState extends State<GrammarScreen>
                 }
               };
               return Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    t.grammarPlanLevelLabel,
-                    style: SoriTextTheme.of(sheetContext).label,
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  SoriLevelFilterBar(
-                    key: const Key('grammar-plan-level-bar'),
-                    selected: planLevel,
-                    onChanged: (level) {
-                      if (_pendingPlanStart != null ||
-                          _planStartSaving ||
-                          level == null ||
-                          level == planLevel) {
-                        return;
-                      }
-                      setSheetState(() {
-                        planLevel = level;
-                        itemsPerDay = _plans[level]?.itemsPerDay ?? itemsPerDay;
-                      });
-                    },
-                  ),
-                  const SizedBox(height: Spacing.lg),
-                  Text(
-                    t.grammarPlanOnboardingTitle,
-                    style: SoriTextTheme.of(sheetContext).h3,
-                  ),
-                  const SizedBox(height: Spacing.xs),
-                  Text(
-                    t.grammarPlanOnboardingBody,
-                    style: SoriTextTheme.of(sheetContext).body,
-                  ),
-                  const SizedBox(height: Spacing.md),
-                  SizedBox(
-                    height: SoriLayout.chromeRowTouchHeight,
+                  Expanded(
                     child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
+                      key: ValueKey(_planStartSaveFailed),
+                      padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          for (final n
-                              in GrammarPlanService.itemsPerDayOptions) ...[
-                            if (n !=
-                                GrammarPlanService.itemsPerDayOptions.first)
-                              const SizedBox(width: Spacing.sm),
-                            SoriChip(
-                              key: Key('grammar-plan-items-$n'),
-                              label: t.grammarPlanItemsPerDayOption(n),
-                              accent: SoriColors.info,
-                              selected: itemsPerDay == n,
-                              variant: SoriChipVariant.soft,
-                              minInteractiveHeight:
-                                  SoriLayout.chromeRowTouchHeight,
-                              onTap:
-                                  _pendingPlanStart != null || _planStartSaving
-                                  ? null
-                                  : () {
-                                      if (itemsPerDay == n) {
-                                        return;
-                                      }
-                                      setSheetState(() => itemsPerDay = n);
-                                    },
+                          if (_planStartSaveFailed) ...[
+                            const GrammarCPlanSaveNotice(
+                              key: Key('grammar-plan-save-error'),
                             ),
+                            const SizedBox(height: 16),
                           ],
+                          Container(
+                            padding: const EdgeInsets.only(left: 12),
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                left: BorderSide(
+                                  color: GrammarC.gold,
+                                  width: 4,
+                                ),
+                              ),
+                            ),
+                            child: Text(
+                              t.grammarPlanTitle,
+                              style: GrammarC.heading.copyWith(
+                                fontSize: 36,
+                                height: 1.05,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            t.grammarPlanOnboardingTitle,
+                            style: GrammarC.heading.copyWith(fontSize: 22),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            t.grammarPlanSetupHint,
+                            style: GrammarC.body.copyWith(fontSize: 14),
+                          ),
+                          const SizedBox(height: 12),
+                          GrammarCLevelTray(
+                            key: const Key('grammar-plan-level-bar'),
+                            selected: planLevel,
+                            enabled:
+                                _pendingPlanStart == null && !_planStartSaving,
+                            countFor: (level) =>
+                                GrammarPlanService.curatedRowsForLevel(
+                                  _all,
+                                  level,
+                                ).length,
+                            onChanged: (level) {
+                              if (_pendingPlanStart != null ||
+                                  _planStartSaving ||
+                                  level == null ||
+                                  level == planLevel) {
+                                return;
+                              }
+                              setSheetState(() {
+                                planLevel = level;
+                                itemsPerDay =
+                                    _plans[level]?.itemsPerDay ?? itemsPerDay;
+                              });
+                            },
+                          ),
+                          const SizedBox(height: 12),
+                          GrammarCSectionLabel(
+                            t.grammarPlanPatternsPerDayLabel,
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              for (final n
+                                  in GrammarPlanService.itemsPerDayOptions) ...[
+                                if (n !=
+                                    GrammarPlanService.itemsPerDayOptions.first)
+                                  const SizedBox(width: 8),
+                                Expanded(
+                                  child: GrammarCPlanChoice(
+                                    key: Key('grammar-plan-items-$n'),
+                                    label: '$n',
+                                    semanticLabel: t
+                                        .grammarPlanItemsPerDayOption(n),
+                                    selected: itemsPerDay == n,
+                                    onTap:
+                                        _pendingPlanStart != null ||
+                                            _planStartSaving
+                                        ? null
+                                        : () {
+                                            if (itemsPerDay == n) return;
+                                            setSheetState(
+                                              () => itemsPerDay = n,
+                                            );
+                                          },
+                                  ),
+                                ),
+                              ],
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          GrammarCPlanPreview(count: itemsPerDay),
                         ],
                       ),
                     ),
                   ),
-                  const SizedBox(height: Spacing.lg),
-                  if (_planStartSaving)
-                    KeyedSubtree(
-                      key: const Key('grammar-plan-save-pending'),
-                      child: Text(t.onboardingV2Saving),
-                    ),
-                  if (_planStartSaveFailed)
-                    KeyedSubtree(
-                      key: const Key('grammar-plan-save-error'),
-                      child: Text(t.courseCheckpointSaveError),
-                    ),
-                  if (_planStartSaving || _planStartSaveFailed)
-                    const SizedBox(height: Spacing.md),
-                  SoriButton.filled(
-                    key: _planStartSaveFailed
-                        ? const Key('grammar-plan-save-retry')
-                        : null,
-                    label: _planStartSaveFailed
-                        ? t.btnRetry
-                        : t.grammarPlanStartCta,
-                    fullWidth: true,
-                    onTap: _planStartSaving
-                        ? null
-                        : () async {
-                            if (!_planOperationOwnerIsCurrent(sourceRevision)) {
-                              return;
-                            }
-                            var operation = _pendingPlanStart;
-                            if (operation == null) {
-                              if (!sheetContext.mounted ||
-                                  !identical(
-                                    _planStartSheetContext,
-                                    sheetContext,
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        if (_planStartSaving)
+                          Text(
+                            t.onboardingV2Saving,
+                            key: const Key('grammar-plan-save-pending'),
+                            style: GrammarC.body,
+                          ),
+                        if (_planStartSaving) const SizedBox(height: 8),
+                        SoriButton.filled(
+                          cMaterial: true,
+                          textStyle: GrammarC.heading.copyWith(fontSize: 25),
+                          loading: _planStartSaving,
+                          key: _planStartSaveFailed
+                              ? const Key('grammar-plan-save-retry')
+                              : null,
+                          label: _planStartSaveFailed
+                              ? t.btnRetry
+                              : t.grammarPlanStartCta,
+                          fullWidth: true,
+                          onTap: _planStartSaving
+                              ? null
+                              : () async {
+                                  if (!_planOperationOwnerIsCurrent(
+                                    sourceRevision,
                                   )) {
-                                return;
-                              }
-                              final chosenLevel = planLevel;
-                              final existing = _plans[chosenLevel];
-                              final existingFinished =
-                                  existing != null &&
-                                  GrammarPlanService.todaysSlice(
-                                    curatedRows:
-                                        GrammarPlanService.curatedRowsForLevel(
-                                          _all,
-                                          chosenLevel,
-                                        ),
-                                    plan: existing,
-                                  ).isEmpty;
-                              final plan = existing == null || existingFinished
-                                  ? GrammarStudyPlan(
-                                      level: chosenLevel,
-                                      itemsPerDay: itemsPerDay,
-                                      servedIdsByDate: const {},
-                                    )
-                                  : existing.copyWith(itemsPerDay: itemsPerDay);
-                              operation = GrammarPlanWriteOperation.start(
-                                plan: plan,
-                                assertCurrentOwner: () =>
-                                    _assertPlanOperationOwnerCurrent(
-                                      sourceRevision,
-                                    ),
-                              );
-                              _pendingPlanStart = operation;
-                              _pendingPlanStartSourceRevision =
-                                  _planSourceRevision;
-                            }
-                            _planStartSaving = true;
-                            _planStartSaveFailed = false;
-                            _planStartSheetRefresh?.call();
-                            try {
-                              await operation.save();
-                            } on Object catch (error) {
-                              debugPrint(
-                                'Grammar plan start persistence failed: $error',
-                              );
-                              _planStartSaving = false;
-                              if (_planOperationOwnerIsCurrent(
-                                _pendingPlanStartSourceRevision ?? -1,
-                              )) {
-                                _planStartSaveFailed = true;
-                                _planStartSheetRefresh?.call();
-                              }
-                              return;
-                            }
-                            _planStartSaving = false;
-                            if (!mounted ||
-                                _pendingPlanStartSourceRevision !=
-                                    _planSourceRevision ||
-                                !(ModalRoute.of(context)?.isActive ?? true)) {
-                              return;
-                            }
-                            final confirmedPlans =
-                                GrammarPlanService.decodePlans(
-                                  Storage.grammarPlanRawJson,
-                                );
-                            final confirmedPlan =
-                                confirmedPlans[operation.plan.level] ??
-                                operation.plan;
-                            setState(() {
-                              _plans = confirmedPlans;
-                              _planLevel = operation!.plan.level;
-                              _applyPlanSlice(confirmedPlan);
-                              _pendingPlanStart = null;
-                              _pendingPlanStartSourceRevision = null;
-                              _planStartSaveFailed = false;
-                            });
-                            final activeSheet = _planStartSheetContext;
-                            if (activeSheet != null && activeSheet.mounted) {
-                              Navigator.of(activeSheet).pop(true);
-                            }
-                          },
+                                    return;
+                                  }
+                                  var operation = _pendingPlanStart;
+                                  if (operation == null) {
+                                    if (!sheetContext.mounted ||
+                                        !identical(
+                                          _planStartSheetContext,
+                                          sheetContext,
+                                        )) {
+                                      return;
+                                    }
+                                    final chosenLevel = planLevel;
+                                    final existing = _plans[chosenLevel];
+                                    final existingFinished =
+                                        existing != null &&
+                                        GrammarPlanService.todaysSlice(
+                                          curatedRows:
+                                              GrammarPlanService.curatedRowsForLevel(
+                                                _all,
+                                                chosenLevel,
+                                              ),
+                                          plan: existing,
+                                        ).isEmpty;
+                                    final plan =
+                                        existing == null || existingFinished
+                                        ? GrammarStudyPlan(
+                                            level: chosenLevel,
+                                            itemsPerDay: itemsPerDay,
+                                            servedIdsByDate: const {},
+                                          )
+                                        : existing.copyWith(
+                                            itemsPerDay: itemsPerDay,
+                                          );
+                                    operation = GrammarPlanWriteOperation.start(
+                                      plan: plan,
+                                      assertCurrentOwner: () =>
+                                          _assertPlanOperationOwnerCurrent(
+                                            sourceRevision,
+                                          ),
+                                    );
+                                    _pendingPlanStart = operation;
+                                    _pendingPlanStartSourceRevision =
+                                        _planSourceRevision;
+                                  }
+                                  _planStartSaving = true;
+                                  _planStartSaveFailed = false;
+                                  _planStartSheetRefresh?.call();
+                                  try {
+                                    await operation.save();
+                                  } on Object catch (error) {
+                                    debugPrint(
+                                      'Grammar plan start persistence failed: $error',
+                                    );
+                                    _planStartSaving = false;
+                                    if (_planOperationOwnerIsCurrent(
+                                      _pendingPlanStartSourceRevision ?? -1,
+                                    )) {
+                                      _planStartSaveFailed = true;
+                                      _planStartSheetRefresh?.call();
+                                    }
+                                    return;
+                                  }
+                                  _planStartSaving = false;
+                                  if (!mounted ||
+                                      _pendingPlanStartSourceRevision !=
+                                          _planSourceRevision ||
+                                      !(ModalRoute.of(context)?.isActive ??
+                                          true)) {
+                                    return;
+                                  }
+                                  final confirmedPlans =
+                                      GrammarPlanService.decodePlans(
+                                        Storage.grammarPlanRawJson,
+                                      );
+                                  final confirmedPlan =
+                                      confirmedPlans[operation.plan.level] ??
+                                      operation.plan;
+                                  setState(() {
+                                    _plans = confirmedPlans;
+                                    _planLevel = operation!.plan.level;
+                                    _applyPlanSlice(confirmedPlan);
+                                    _pendingPlanStart = null;
+                                    _pendingPlanStartSourceRevision = null;
+                                    _planStartSaveFailed = false;
+                                  });
+                                  final activeSheet = _planStartSheetContext;
+                                  if (activeSheet != null &&
+                                      activeSheet.mounted) {
+                                    Navigator.of(activeSheet).pop(true);
+                                  }
+                                },
+                        ),
+                        const SizedBox(height: 8),
+                        SoriButton.outlined(
+                          cMaterial: true,
+                          textStyle: GrammarC.heading.copyWith(fontSize: 17),
+                          label: _planStartSaveFailed
+                              ? t.btnClose
+                              : t.grammarBrowseAllCta,
+                          onTap: _planStartSaveFailed
+                              ? () => Navigator.of(sheetContext).pop(false)
+                              : _planStartSaving || _pendingPlanStart != null
+                              ? null
+                              : () {
+                                  Navigator.of(sheetContext).pop(false);
+                                  _browseAllGrammar();
+                                },
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               );
@@ -1015,6 +1148,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   void _applyPlanSlice(GrammarStudyPlan plan) {
+    _pendingJudgment = null;
     _legacyBrowseForVisit = false;
     _filtered = GrammarPlanService.todaysSlice(
       curatedRows: _curatedRowsForPlan(plan),
@@ -1029,6 +1163,8 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   void _browseAllGrammar() {
+    if (_pendingJudgment?.saving ?? false) return;
+    _pendingJudgment = null;
     _retirePlanOperationsForSourceChange();
     setState(() {
       _legacyBrowseForVisit = true;
@@ -1068,7 +1204,7 @@ class _GrammarScreenState extends State<GrammarScreen>
     VoidCallback? activeSheetRefresh;
 
     try {
-      await showSoriSheet<void>(
+      await showGrammarCSheet<void>(
         context: context,
         builder: (sheetContext) {
           return StatefulBuilder(
@@ -1139,6 +1275,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                     Padding(
                       padding: const EdgeInsets.only(bottom: Spacing.sm),
                       child: SoriButton.outlined(
+                        cMaterial: true,
+                        textStyle: GrammarC.action,
                         label: grammarById[optionId]?.pattern ?? optionId,
                         textRole: SoriButtonTextRole.learning,
                         fullWidth: true,
@@ -1184,6 +1322,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                     ),
                     const SizedBox(height: Spacing.sm),
                     SoriButton.outlined(
+                      cMaterial: true,
+                      textStyle: GrammarC.action,
                       key: const Key('grammar-checkpoint-retry'),
                       label: pending?.expired == true ? t.btnClose : t.btnRetry,
                       fullWidth: true,
@@ -1385,7 +1525,7 @@ class _GrammarScreenState extends State<GrammarScreen>
       ),
     );
 
-    await showSoriSheet<void>(
+    await showGrammarCSheet<void>(
       context: context,
       builder: (sheetContext) {
         final feedbackScope = ContentFeedbackControllerScope.maybeOf(
@@ -1411,6 +1551,8 @@ class _GrammarScreenState extends State<GrammarScreen>
             ],
             const SizedBox(height: Spacing.lg),
             SoriButton.filled(
+              cMaterial: true,
+              textStyle: GrammarC.action,
               label: t.btnClose,
               fullWidth: true,
               onTap: () => Navigator.pop(sheetContext),
@@ -1468,7 +1610,7 @@ class _GrammarScreenState extends State<GrammarScreen>
     _planCompletionInFlight = true;
     try {
       final t = AppL10n.of(context);
-      final sheet = showSoriSheet<void>(
+      final sheet = showGrammarCSheet<void>(
         context: context,
         builder: (sheetContext) => StatefulBuilder(
           builder: (sheetContext, setSheetState) {
@@ -1486,6 +1628,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                     Text(t.onboardingV2Saving),
                     const SizedBox(height: Spacing.lg),
                     SoriButton.outlined(
+                      cMaterial: true,
+                      textStyle: GrammarC.action,
                       label: t.btnClose,
                       fullWidth: true,
                       onTap: () => Navigator.of(sheetContext).pop(),
@@ -1500,9 +1644,11 @@ class _GrammarScreenState extends State<GrammarScreen>
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(t.courseCheckpointSaveError),
+                    const GrammarCPlanSaveNotice(),
                     const SizedBox(height: Spacing.lg),
                     SoriButton.filled(
+                      cMaterial: true,
+                      textStyle: GrammarC.action,
                       key: const Key('grammar-plan-save-retry'),
                       label: t.btnRetry,
                       fullWidth: true,
@@ -1512,6 +1658,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                     ),
                     const SizedBox(height: Spacing.sm),
                     SoriButton.outlined(
+                      cMaterial: true,
+                      textStyle: GrammarC.action,
                       label: t.btnClose,
                       fullWidth: true,
                       onTap: () => Navigator.of(sheetContext).pop(),
@@ -1540,6 +1688,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                   ),
                   const SizedBox(height: Spacing.lg),
                   SoriButton.filled(
+                    cMaterial: true,
+                    textStyle: GrammarC.action,
                     label: t.grammarPlanCompletionCta,
                     fullWidth: true,
                     onTap: () {
@@ -1562,6 +1712,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                   ),
                   const SizedBox(height: Spacing.sm),
                   SoriButton.outlined(
+                    cMaterial: true,
+                    textStyle: GrammarC.action,
                     label: t.grammarPlanCompletionSkip,
                     fullWidth: true,
                     onTap: () => Navigator.of(sheetContext).pop(),
@@ -1692,6 +1844,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   Future<void> _showLevelFilter(AppL10n t) async {
+    if (_pendingJudgment?.saving ?? false) return;
     final next = await showSoriLevelFilterSheet(
       context: context,
       selected: _level,
@@ -1699,7 +1852,7 @@ class _GrammarScreenState extends State<GrammarScreen>
       allLabel: t.filterAll,
       countFor: _levelCount,
     );
-    if (!mounted || next == null) return;
+    if (!mounted || next == null || (_pendingJudgment?.saving ?? false)) return;
     _level = next;
     if (!_typesForLevel(next).contains(_type)) {
       _type = 'Alle';
@@ -1735,14 +1888,14 @@ class _GrammarScreenState extends State<GrammarScreen>
     final t = AppL10n.of(context);
     final activeDailyPlan = _isFollowingPlan ? _activePlan : null;
     if (_loading) {
-      return SoriStudyFrame(
+      return GrammarCFrame(
         title: t.screenGrammarTitle,
         padding: EdgeInsets.zero,
         child: AppLoading(message: t.loadingGrammar),
       );
     }
     if (_loadFailed) {
-      return SoriStudyFrame(
+      return GrammarCFrame(
         title: t.screenGrammarTitle,
         child: AppError(
           message: _loadError ?? DataLoader.lastError ?? t.errorUnknown,
@@ -1757,7 +1910,7 @@ class _GrammarScreenState extends State<GrammarScreen>
     final likeSourceGeneration = _likeSourceGeneration;
     if (g == null) {
       if (_planDayCompletedForVisit && _isFollowingPlan && !_planFinished) {
-        return SoriStudyFrame(
+        return GrammarCFrame(
           title: t.screenGrammarTitle,
           actions: const [TtsSpeedAction()],
           child: KeyedSubtree(
@@ -1772,6 +1925,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                 ),
                 const SizedBox(height: Spacing.lg),
                 SoriButton.outlined(
+                  cMaterial: true,
+                  textStyle: GrammarC.action,
                   key: const Key('grammar-browse-all-button'),
                   label: t.grammarBrowseAllCta,
                   onTap: _browseAllGrammar,
@@ -1782,7 +1937,7 @@ class _GrammarScreenState extends State<GrammarScreen>
         );
       }
       if (_isFollowingPlan && _planFinished) {
-        return SoriStudyFrame(
+        return GrammarCFrame(
           title: t.screenGrammarTitle,
           actions: const [TtsSpeedAction()],
           child: KeyedSubtree(
@@ -1797,11 +1952,15 @@ class _GrammarScreenState extends State<GrammarScreen>
                 ),
                 const SizedBox(height: Spacing.lg),
                 SoriButton.outlined(
+                  cMaterial: true,
+                  textStyle: GrammarC.action,
                   label: t.grammarPlanFinishedRestartCta,
                   onTap: _showPlanOnboardingSheet,
                 ),
                 const SizedBox(height: Spacing.sm),
                 SoriButton.outlined(
+                  cMaterial: true,
+                  textStyle: GrammarC.action,
                   key: const Key('grammar-browse-all-button'),
                   label: t.grammarBrowseAllCta,
                   onTap: _browseAllGrammar,
@@ -1818,7 +1977,7 @@ class _GrammarScreenState extends State<GrammarScreen>
             _clearFilters();
           }
         },
-        child: SoriStudyFrame(
+        child: GrammarCFrame(
           title: t.screenGrammarTitle,
           child: SoriEmptyState(
             asset: CanonicalCompanionArt.magpieGuide,
@@ -1860,8 +2019,8 @@ class _GrammarScreenState extends State<GrammarScreen>
       }
     });
     final s = SoriSurfaces.of(context);
-    return SoriStudyFrame(
-      title: t.screenGrammarTitle,
+    return GrammarCFrame(
+      title: '${t.screenGrammarTitle} · ${g.level}',
       actions: [
         if (_isCoursePractice)
           IconButton(
@@ -1869,7 +2028,6 @@ class _GrammarScreenState extends State<GrammarScreen>
             tooltip: t.filterTitle,
             onPressed: _showFilterSheet,
           ),
-        const TtsSpeedAction(),
       ],
       padding: EdgeInsets.zero,
       // 짧은 뷰포트에서 넘치는 대신 스크롤한다. 이 화면은 헤더·필터 2줄·
@@ -1877,9 +2035,9 @@ class _GrammarScreenState extends State<GrammarScreen>
       // 카드 아래 난이도 버튼이 그대로 넘쳤다(360×400 에서 25px).
       // 460 이상에서는 지금까지와 같은 flex 레이아웃이라 시각 변화 0.
       child: SoriMinHeightScroll(
-        minHeight: _studyBodyMinHeight,
+        minHeight: _studyBodyMinHeight + (_pendingJudgment == null ? 0 : 160),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
+          padding: const EdgeInsets.fromLTRB(16, 4, 16, 0),
           child: Column(
             children: [
               if (_missionStep case final step?) ...[
@@ -1946,6 +2104,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                       ),
                       const SizedBox(height: Spacing.xs),
                       SoriButton.outlined(
+                        cMaterial: true,
+                        textStyle: GrammarC.action,
                         key: const Key('grammar-browse-all-button'),
                         label: t.grammarBrowseAllCta,
                         size: SoriButtonSize.sm,
@@ -2014,16 +2174,19 @@ class _GrammarScreenState extends State<GrammarScreen>
                     children: [
                       _legacyFilterChrome(t),
                       const SizedBox(height: Spacing.xs),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: SoriButton.filled(
-                          key: const Key('grammar-choice-cta'),
-                          label: t.grammarChoiceCta,
-                          size: SoriButtonSize.sm,
-                          accent: SoriColors.primary,
-                          onTap: _openChoicePractice,
+                      if (!_flipped || !hasCurrentChoicePractice)
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: SoriButton.filled(
+                            cMaterial: true,
+                            textStyle: GrammarC.action,
+                            key: const Key('grammar-choice-cta'),
+                            label: t.grammarChoiceCta,
+                            size: SoriButtonSize.sm,
+                            accent: SoriColors.primary,
+                            onTap: _openChoicePractice,
+                          ),
                         ),
-                      ),
                     ],
                   ),
                 ),
@@ -2126,6 +2289,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                                         _likeGrammar(g, likeSourceGeneration),
                                     onBookmark: _saveCurrent,
                                     showShare: false,
+                                    showFlip: false,
+                                    showBookmark: false,
                                     onFlip: canRecordCheckpoint
                                         ? () => _showCheckpoint(
                                             g,
@@ -2141,29 +2306,6 @@ class _GrammarScreenState extends State<GrammarScreen>
                                           g.pattern,
                                         ),
                                     bookmarkLabel: t.deckActionSave,
-                                    // §A3 지시서 2.9: 듣기 아이콘은 카드박스
-                                    // 상단 왼쪽 구석 — 카드 하단 중앙의 자체
-                                    // 원형 _ListenButton 을 걷어내고
-                                    // SoriContentFeed 의 topAccessory 슬롯을
-                                    // 쓴다(review_session_screen.dart:672 와
-                                    // 같은 패턴). 체크포인트 카드는 원래도
-                                    // 듣기 버튼이 없었다(canRecordCheckpoint).
-                                    topAccessory: canRecordCheckpoint
-                                        ? null
-                                        : () {
-                                            final speakKorean =
-                                                GrammarStudyCopy.fromGrammar(
-                                                  g,
-                                                  Localizations.localeOf(
-                                                    context,
-                                                  ).languageCode,
-                                                ).speakKorean;
-                                            return speakKorean.isEmpty
-                                                ? null
-                                                : SoriSpeechIndicator(
-                                                    text: speakKorean,
-                                                  );
-                                          }(),
                                     child: FlipCard(
                                       key: _cardKey,
                                       flipped: _flipped,
@@ -2197,44 +2339,74 @@ class _GrammarScreenState extends State<GrammarScreen>
                   ),
                 ),
               ),
-              const SizedBox(height: Spacing.md),
-
-              if (_flipped && hasCurrentChoicePractice) ...[
-                SoriButton.outlined(
-                  key: const Key('grammar-card-practice'),
-                  label: t.grammarChoiceCta,
-                  size: SoriButtonSize.sm,
-                  onTap: () => _openCurrentChoicePractice(g),
+              if (!canRecordCheckpoint) ...[
+                const SizedBox(height: 8),
+                ValueListenableBuilder<int>(
+                  valueListenable: CustomPackService.revision,
+                  builder: (context, _, __) => GrammarCStudyControls(
+                    korean: GrammarStudyCopy.fromGrammar(
+                      g,
+                      Localizations.localeOf(context).languageCode,
+                    ).speakKorean,
+                    onBookmark: _saveCurrent,
+                    saved: CustomPackService.containsKorean(g.pattern),
+                  ),
+                ),
+                const SizedBox(height: 12),
+              ],
+              if (_pendingJudgment case final pending?) ...[
+                if (pending.failed)
+                  Text(
+                    t.courseCheckpointSaveError,
+                    key: const Key('grammar-judgment-error'),
+                    style: GrammarC.body,
+                  ),
+                SoriButton.filled(
+                  key: const Key('grammar-judgment-retry'),
+                  cMaterial: true,
+                  textStyle: GrammarC.action,
+                  label: pending.saving ? t.onboardingV2Saving : t.btnRetry,
+                  loading: pending.saving,
+                  fullWidth: true,
+                  onTap: pending.saving
+                      ? null
+                      : () => _judge(understood: pending.understood),
                 ),
                 const SizedBox(height: Spacing.sm),
               ],
-
-              // 진행바 → [듣기] 위치 [되돌리기]. Hören 과 같은 배치다.
-              // Zurück 은 전진 흐름을 막지 않도록 작은 실행취소 아이콘
-              // 하나로 줄였고(Tinder 의 Rewind 위계), 첫 카드에서는 되돌릴
-              // 것이 없으므로 꺼진다. 두 아이콘 모두 48×48 터치 영역이다.
-              SoriProgressBar(
-                value: _filtered.isEmpty ? 0 : (_idx + 1) / _filtered.length,
-                thickness: 6,
-                color: SoriColors.primary,
-                animated: true,
-              ),
-              const SizedBox(height: Spacing.xs),
+              if (_flipped && hasCurrentChoicePractice) ...[
+                SoriButton.filled(
+                  cMaterial: true,
+                  textStyle: GrammarC.action,
+                  key: const Key('grammar-card-practice'),
+                  label: t.grammarChoiceCta,
+                  size: SoriButtonSize.md,
+                  fullWidth: true,
+                  onTap: () => _openCurrentChoicePractice(g),
+                ),
+                const SizedBox(height: 8),
+              ],
               Row(
                 children: [
-                  // 듣기는 카드 안(읽어 주는 문장 옆)으로 옮겼다. 균형을
-                  // 위해 실행취소와 같은 폭만 비워 카운터를 가운데 둔다.
-                  const SizedBox(width: 48),
-                  Expanded(
-                    child: Center(
-                      child: Text(
-                        '${_idx + 1} / ${_filtered.length}',
-                        style: SoriTextTheme.of(
-                          context,
-                        ).meta.copyWith(fontWeight: FontWeight.w700),
+                  if (!canRecordCheckpoint) ...[
+                    Expanded(
+                      child: SoriButton.outlined(
+                        cMaterial: true,
+                        textStyle: GrammarC.action,
+                        label: t.contentActionFlip,
+                        onTap: _onFlip,
                       ),
                     ),
-                  ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: SoriButton.outlined(
+                        cMaterial: true,
+                        textStyle: GrammarC.action,
+                        label: t.btnSkip,
+                        onTap: _canNavigateDeck ? _skipCurrent : null,
+                      ),
+                    ),
+                  ],
                   SizedBox(
                     width: 48,
                     height: 48,
@@ -2249,8 +2421,18 @@ class _GrammarScreenState extends State<GrammarScreen>
                   ),
                 ],
               ),
-              const SizedBox(height: Spacing.sm),
-
+              const SizedBox(height: 8),
+              Text(
+                '${_idx + 1} / ${_filtered.length}',
+                style: GrammarC.body.copyWith(fontSize: 12),
+              ),
+              const SizedBox(height: 4),
+              SoriProgressBar(
+                value: _filtered.isEmpty ? 0 : (_idx + 1) / _filtered.length,
+                thickness: 3,
+                color: GrammarC.jade,
+                animated: true,
+              ),
               // 평가 대체 수단은 카드의 Semantics 액션이 맡는다.
               // 짧은 검수 퀴즈가 있는 카드에는 뒤집은 후 별도 버튼을 보인다.
               //
@@ -2260,6 +2442,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                 SoriEntrance(
                   delay: const Duration(milliseconds: 80),
                   child: SoriButton.filled(
+                    cMaterial: true,
+                    textStyle: GrammarC.action,
                     // 장식 아이콘 없이 라벨만 — 타이포 래칫의
                     // "라벨 CTA 에 장식 아이콘 금지" 규칙을 따른다.
                     label: t.courseCheckpointCheck,
@@ -2276,10 +2460,11 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   void _showFilterSheet() {
+    if (_pendingJudgment?.saving ?? false) return;
     final t = AppL10n.of(context);
     var stagedType = _type;
     var stagedDifficulty = _difficulty;
-    showSoriSheet<void>(
+    showGrammarCSheet<void>(
       context: context,
       builder: (ctx) {
         return StatefulBuilder(
@@ -2328,9 +2513,12 @@ class _GrammarScreenState extends State<GrammarScreen>
               ),
               const SizedBox(height: Spacing.lg),
               SoriButton.filled(
+                cMaterial: true,
+                textStyle: GrammarC.action,
                 label: t.btnApply,
                 fullWidth: true,
                 onTap: () {
+                  if (_pendingJudgment?.saving ?? false) return;
                   final next = _computeFiltered(
                     level: _level,
                     type: stagedType,
@@ -2470,226 +2658,125 @@ class _CourseCheckpointFront extends StatelessWidget {
 }
 
 class _Front extends StatelessWidget {
-  final Grammar g;
-
-  /// 카드가 놓인 바운드 영역의 유한 높이 — [soriFillSize] 기준.
-  final double cardHeight;
   const _Front({required this.g, required this.cardHeight});
-
+  final Grammar g;
+  final double cardHeight;
   @override
-  Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    final t = AppL10n.of(context);
-    final lang = Localizations.localeOf(context).languageCode;
-    final h = cardHeight;
-    return SoriCard(
-      variant: SoriCardVariant.hero,
-      accent: SoriColors.primary,
-      width: double.infinity,
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 44),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SoriChip(
-                  label: g.level,
-                  accent: SoriColors.info,
-                  variant: SoriChipVariant.filled,
-                ),
-                const SizedBox(height: 12),
-                FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    g.pattern,
-                    textAlign: TextAlign.center,
-                    style: SoriTextTheme.of(context).caption.copyWith(
-                      fontSize: soriFillSize(h, 0.16, 28, 72),
-                      fontWeight: FontWeight.w700,
-                      color: SoriColors.primary,
-                      height: 1.15,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriPhraseWrap(
-                  g.typeFor(lang),
-                  textAlign: TextAlign.center,
-                  style: SoriTextTheme.of(context).caption.copyWith(
-                    fontSize: soriFillSize(h, 0.048, 14, 22),
-                    color: s.textMuted,
-                    fontWeight: FontWeight.w600,
-                    height: 1.35,
-                  ),
-                ),
-              ],
-            ),
-            Text(
-              t.hintTapForExplanation,
-              textAlign: TextAlign.center,
-              style: SoriTextTheme.of(context).caption.copyWith(
-                fontSize: soriFillSize(h, 0.038, 12.5, 18),
-                color: s.textDim,
-              ),
-            ),
-          ],
+  Widget build(BuildContext context) => SingleChildScrollView(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(g.pattern, style: GrammarC.korean.copyWith(fontSize: 32)),
+        const SizedBox(height: 8),
+        SoriPhraseWrap(
+          g.typeFor(Localizations.localeOf(context).languageCode),
+          textAlign: TextAlign.start,
+          style: GrammarC.body.copyWith(color: GrammarC.blueInk),
         ),
-      ),
-    );
-  }
+        GrammarCRail(
+          minHeight: 112,
+          child: Text(
+            g.pattern,
+            textAlign: TextAlign.center,
+            style: GrammarC.korean,
+          ),
+        ),
+        Text(
+          AppL10n.of(context).hintTapForExplanation,
+          textAlign: TextAlign.center,
+          style: GrammarC.body,
+        ),
+      ],
+    ),
+  );
 }
 
 class _Back extends StatelessWidget {
-  final Grammar g;
-
-  /// 카드가 놓인 바운드 영역의 유한 높이 — [soriFillSize] 기준.
-  final double cardHeight;
   const _Back({required this.g, required this.cardHeight});
-
+  final Grammar g;
+  final double cardHeight;
   @override
   Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final copy = GrammarStudyCopy.fromGrammar(g, lang);
-    final h = cardHeight;
-    final pairCount = copy.rules.length > copy.examples.length
-        ? copy.rules.length
-        : copy.examples.length;
-    return SoriCard(
-      variant: SoriCardVariant.hero,
-      accent: SoriColors.info,
-      tinted: true,
-      width: double.infinity,
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 44),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              t.grammarChoiceExplanationLabel,
-              style: SoriTextTheme.of(context).label.copyWith(
-                color: SoriColors.info,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SoriChip(
-                  label: g.level,
-                  accent: SoriColors.info,
-                  variant: SoriChipVariant.filled,
-                ),
-                const SizedBox(height: 10),
-                FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    g.pattern,
-                    textAlign: TextAlign.center,
-                    style: SoriTextTheme.of(context).caption.copyWith(
-                      fontSize: soriFillSize(h, 0.09, 20, 40),
-                      fontWeight: FontWeight.w700,
-                      color: SoriColors.primary,
-                    ),
-                  ),
-                ),
-                if (copy.title.isNotEmpty) ...[
-                  const SizedBox(height: Spacing.xs),
-                  SoriPhraseWrap(
-                    copy.title,
-                    textAlign: TextAlign.center,
-                    style: SoriTextTheme.of(context).caption.copyWith(
-                      fontSize: soriFillSize(h, 0.042, 14, 20),
-                      fontWeight: FontWeight.w600,
-                      color: s.text,
-                      height: 1.35,
-                    ),
-                  ),
-                ],
-              ],
-            ),
-            for (var i = 0; i < pairCount; i++)
-              _RuleExampleRow(
-                rule: i < copy.rules.length ? copy.rules[i] : '',
-                example: i < copy.examples.length ? copy.examples[i] : null,
-                cardHeight: h,
-              ),
-            if (copy.note.isNotEmpty)
-              SoriPhraseWrap(
-                copy.note,
-                textAlign: TextAlign.center,
-                style: SoriTextTheme.of(context).caption.copyWith(
-                  fontSize: soriFillSize(h, 0.038, 12.5, 18),
-                  color: s.textMuted,
-                  height: 1.4,
-                ),
-              ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _RuleExampleRow extends StatelessWidget {
-  const _RuleExampleRow({
-    required this.rule,
-    required this.example,
-    required this.cardHeight,
-  });
-
-  final String rule;
-  final GrammarStudyExample? example;
-  final double cardHeight;
-
-  @override
-  Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    final h = cardHeight;
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        if (rule.isNotEmpty)
-          SoriPhraseWrap(
-            rule,
-            textAlign: TextAlign.center,
-            style: SoriTextTheme.of(context).caption.copyWith(
-              fontSize: soriFillSize(h, 0.042, 14, 20),
-              fontWeight: FontWeight.w700,
-              color: SoriColors.primary,
-              height: 1.35,
-            ),
-          ),
-        if (example != null) ...[
+    return SingleChildScrollView(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(g.pattern, style: GrammarC.korean.copyWith(fontSize: 32)),
           const SizedBox(height: 4),
           SoriPhraseWrap(
-            example!.korean,
-            style: SoriTextTheme.of(context).caption.copyWith(
-              fontSize: soriFillSize(h, 0.055, 16, 24),
-              fontWeight: FontWeight.w700,
-              color: s.text,
-              height: 1.35,
+            g.typeFor(lang),
+            textAlign: TextAlign.start,
+            style: GrammarC.body.copyWith(color: GrammarC.blueInk),
+          ),
+          GrammarCRail(
+            minHeight: 112,
+            child: Text(
+              g.pattern,
+              textAlign: TextAlign.center,
+              style: GrammarC.korean,
             ),
           ),
-          if (example!.gloss.isNotEmpty) ...[
-            const SizedBox(height: 2),
-            SoriPhraseWrap(
-              example!.gloss,
-              style: SoriTextTheme.of(context).caption.copyWith(
-                fontSize: soriFillSize(h, 0.04, 13, 18),
-                color: s.textMuted,
-                fontStyle: FontStyle.italic,
-                height: 1.35,
+          for (var i = 0; i < copy.examples.length; i++) ...[
+            GrammarCPaper(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SoriPhraseWrap(
+                    copy.examples[i].korean,
+                    textAlign: TextAlign.start,
+                    style: GrammarC.korean.copyWith(fontSize: 24),
+                  ),
+                  if (copy.examples[i].gloss.isNotEmpty) ...[
+                    const SizedBox(height: 4),
+                    SoriPhraseWrap(
+                      copy.examples[i].gloss,
+                      textAlign: TextAlign.start,
+                      style: GrammarC.heading.copyWith(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                        color: GrammarC.blueInk,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  ],
+                ],
               ),
+            ),
+            const SizedBox(height: 12),
+            if (i < copy.rules.length)
+              SoriPhraseWrap(
+                copy.rules[i],
+                textAlign: TextAlign.start,
+                style: GrammarC.body,
+              ),
+          ],
+          if (copy.title.isNotEmpty)
+            SoriPhraseWrap(
+              copy.title,
+              textAlign: TextAlign.start,
+              style: GrammarC.body,
+            ),
+          for (final rule in copy.rules.skip(copy.examples.length)) ...[
+            const SizedBox(height: 8),
+            SoriPhraseWrap(
+              rule,
+              textAlign: TextAlign.start,
+              style: GrammarC.body,
+            ),
+          ],
+          if (copy.note.isNotEmpty) ...[
+            const SizedBox(height: 8),
+            SoriPhraseWrap(
+              copy.note,
+              textAlign: TextAlign.start,
+              style: GrammarC.body,
             ),
           ],
         ],
-      ],
+      ),
     );
   }
 }

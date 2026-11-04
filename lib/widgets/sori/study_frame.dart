@@ -174,7 +174,11 @@ class SoriStudyFrame extends StatelessWidget {
         if (didPop || !homeEscape.confirmWhen) {
           return;
         }
-        if (!await showLeaveConfirmSheet(context, homeEscape)) {
+        if (!await showLeaveConfirmSheet(
+          context,
+          homeEscape,
+          closingRoute: true,
+        )) {
           return;
         }
         onLeave?.call();

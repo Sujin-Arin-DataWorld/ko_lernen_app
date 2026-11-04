@@ -4,12 +4,17 @@ import 'package:flutter_test/flutter_test.dart';
 
 /// §B2(2026-09-03) — [lib/widgets/sori/study_frame.dart]'s `SoriStudyFrame`
 /// owns the sole close (X, leading) and home (trailing) actions; it no
-/// longer accepts a custom `leading` widget. This guard pins the 33-screen
+/// longer accepts a custom `leading` widget. This guard pins the 34-screen
 /// inventory, the confirm-before-leaving contract each active screen wires
 /// through `SoriHomeEscape`, and that the pre-§B2 per-screen close-button
 /// builders (`leading: IconButton(...)`, `Icons.arrow_back_ios_new`,
 /// `_buildCloseButton`) are fully gone.
 void main() {
+  const scopedFrameWrappers = <String, String>{
+    'GrammarCFrame': 'lib/widgets/sori/grammar_c.dart',
+    'NuancenFrame': 'lib/widgets/sori/nuancen_c.dart',
+  };
+  final frameNames = ['SoriStudyFrame', ...scopedFrameWrappers.keys];
   const expectedStudyFrameScreens = <String>{
     'lib/features/content_learning/content_learning_hub.dart',
     'lib/features/content_learning/content_lesson_screen.dart',
@@ -43,6 +48,7 @@ void main() {
     'lib/screens/vocab_pack_result_screen.dart',
     'lib/screens/vocab_pack_screen.dart',
     'lib/screens/word_web_quiz_screen.dart',
+    'lib/screens/word_web_screen.dart',
     'lib/screens/word_web_study_screen.dart',
   };
   const duplicateAllowlist = <String>{};
@@ -95,6 +101,7 @@ void main() {
     'lib/screens/listening_play_screen.dart',
     'lib/screens/smalltalk_screen.dart',
     'lib/screens/vocab_pack_result_screen.dart',
+    'lib/screens/word_web_screen.dart',
     'lib/screens/word_web_study_screen.dart',
   };
 
@@ -109,25 +116,48 @@ void main() {
             .whereType<File>()
             .where((file) => file.path.endsWith('.dart'))
             .where(
-              (file) => _blankStringsAndComments(
-                file.readAsStringSync(),
-              ).contains('SoriStudyFrame('),
+              (file) => frameNames.any(
+                (name) => _blankStringsAndComments(
+                  file.readAsStringSync(),
+                ).contains('$name('),
+              ),
             )
             .map(_relativeLibPath)
             .toSet();
 
     expect(actual, expectedStudyFrameScreens);
-    expect(expectedStudyFrameScreens, hasLength(33));
+    expect(expectedStudyFrameScreens, hasLength(34));
+  });
+
+  test('scoped presentation wrappers preserve the sole frame-owned escape', () {
+    for (final path in scopedFrameWrappers.values) {
+      final source = _blankStringsAndComments(File(path).readAsStringSync());
+      final frames = _constructorInvocations(source, 'SoriStudyFrame').toList();
+      expect(frames, hasLength(1), reason: path);
+      expect(frames.single, matches(r'homeEscape:\s*(widget\.)?homeEscape,'));
+      expect(source, isNot(contains('SoriHomeAction(')), reason: path);
+      expect(source, isNot(contains('SoriCloseAction(')), reason: path);
+      expect(
+        _hasTopLevelNamedArgument(frames.single, 'leading'),
+        isFalse,
+        reason: path,
+      );
+    }
   });
 
   test('all StudyFrame screens rely on the frame-owned home action', () {
     final offenders = <String>[];
-    for (final path in expectedStudyFrameScreens) {
+    for (final path in {
+      ...expectedStudyFrameScreens,
+      ...scopedFrameWrappers.values,
+    }) {
       final source = _blankStringsAndComments(File(path).readAsStringSync());
-      final ownsHomeInsideFrame = _constructorInvocations(
-        source,
-        'SoriStudyFrame',
-      ).any((invocation) => invocation.contains('SoriHomeAction('));
+      final ownsHomeInsideFrame = frameNames.any(
+        (name) => _constructorInvocations(
+          source,
+          name,
+        ).any((invocation) => invocation.contains('SoriHomeAction(')),
+      );
       if (ownsHomeInsideFrame && !duplicateAllowlist.contains(path)) {
         offenders.add(path);
       }
@@ -144,7 +174,7 @@ void main() {
     );
   });
 
-  test('active and static home-escape decisions cover all 31 screens', () {
+  test('active and static home-escape decisions cover all 34 screens', () {
     expect(
       activeConfirmContracts.keys.toSet().intersection(
         staticImmediateEscapeScreens,
@@ -166,12 +196,16 @@ void main() {
     'no StudyFrame invocation passes a custom leading',
     () {
       final offenders = <String>[];
-      for (final path in expectedStudyFrameScreens) {
+      for (final path in {
+        ...expectedStudyFrameScreens,
+        ...scopedFrameWrappers.values,
+      }) {
         final source = _blankStringsAndComments(File(path).readAsStringSync());
-        final hasLeadingArg = _constructorInvocations(
-          source,
-          'SoriStudyFrame',
-        ).any((invocation) => RegExp(r'\bleading\s*:').hasMatch(invocation));
+        final hasLeadingArg = frameNames.any(
+          (name) => _constructorInvocations(source, name).any(
+            (invocation) => _hasTopLevelNamedArgument(invocation, 'leading'),
+          ),
+        );
         if (hasLeadingArg) {
           offenders.add(path);
         }
@@ -206,7 +240,10 @@ void main() {
     final buildCloseButtonOffenders = <String>[];
     for (final file in dartFiles) {
       final source = file.readAsStringSync();
-      if (source.contains('Icons.arrow_back_ios_new')) {
+      // Rounded artwork supplied as leadingVisual is decorative; the actual
+      // close action stays in SoriStudyFrame and is checked above. The plan
+      // onboarding sheet has its own modal dismissal, outside study routing.
+      if (RegExp(r'Icons\.arrow_back_ios_new\b').hasMatch(source)) {
         arrowBackOffenders.add(_relativeLibPath(file));
       }
       if (source.contains('_buildCloseButton')) {
@@ -327,6 +364,38 @@ void main() {
           '${offenders.join('\n')}',
     );
   });
+}
+
+/// Header builders may legitimately pass their frame-owned leading into a
+/// nested header. Only arguments on the frame constructor itself are banned.
+bool _hasTopLevelNamedArgument(String invocation, String name) {
+  final label = RegExp('\\b$name\\s*:');
+  var parentheses = 0;
+  var brackets = 0;
+  var braces = 0;
+  for (var i = 0; i < invocation.length; i++) {
+    if (parentheses == 1 &&
+        brackets == 0 &&
+        braces == 0 &&
+        label.matchAsPrefix(invocation, i) != null) {
+      return true;
+    }
+    switch (invocation[i]) {
+      case '(':
+        parentheses++;
+      case ')':
+        parentheses--;
+      case '[':
+        brackets++;
+      case ']':
+        brackets--;
+      case '{':
+        braces++;
+      case '}':
+        braces--;
+    }
+  }
+  return false;
 }
 
 Iterable<String> _constructorInvocations(String source, String name) sync* {

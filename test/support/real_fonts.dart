@@ -51,6 +51,7 @@ Future<void> loadSoriRealFonts({bool materialIcons = false}) async {
 
 Future<void> _loadTextFonts() async {
   const families = {
+    'Manrope': ['design_assets/fonts/Manrope/Manrope-Variable.ttf'],
     'NotoSansKR': ['assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf'],
     'Paperlogy': [
       'assets/fonts/Paperlogy/Paperlogy-Regular.ttf',

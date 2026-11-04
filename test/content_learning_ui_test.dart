@@ -476,7 +476,7 @@ void main() {
         tester.widget<SoriProgressMeter>(find.byType(SoriProgressMeter)).filled,
         2,
       );
-      await _tap(tester, find.byKey(const ValueKey('content-learn-sentence')));
+      await _tap(tester, find.byKey(const ValueKey('listening-replay-1')));
       expect(spoken, ['반가워요.']);
       expect(voices, [_scenario.voiceForSpeaker('minsu')]);
       expect(ContentLearningService.progress(_listening.id).completed, isFalse);
@@ -488,6 +488,10 @@ void main() {
       );
       await _tap(tester, find.byKey(const ValueKey('content-learn-next')));
       expect(find.text('Key expressions'), findsWidgets);
+      await _tap(
+        tester,
+        find.byKey(const ValueKey('content-listening-meaning')),
+      );
       expect(
         ContentLearningService.progress(_listening.id).seenIds,
         contains('scene'),
@@ -880,7 +884,7 @@ void main() {
     (size: Size(720, 1024), scale: 1.3, locale: 'de'),
   ]) {
     testWidgets(
-      'chat retains earlier turns and assigned portraits through pause and resume ${chatCase.size} ${chatCase.scale}',
+      'chat retains earlier turns, partner portrait and neutral learner through pause and resume ${chatCase.size} ${chatCase.scale}',
       (tester) async {
         final scene = Scenario.fromJson({
           'id': 'scene',
@@ -923,14 +927,20 @@ void main() {
         await tester.pumpAndSettle();
         expect(find.text(scene.dialog[0].ko), findsOneWidget);
         expect(find.text(scene.dialog[1].ko), findsOneWidget);
-        expect(find.text('Andrea'), findsOneWidget);
-        expect(find.text('You'), findsNothing);
-        expect(find.text('Du'), findsNothing);
+        expect(find.text('Andrea'), findsNothing);
+        expect(
+          find.text(chatCase.locale == 'en' ? 'You' : 'Du'),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const ValueKey('listening-learner-role-1')),
+          findsOneWidget,
+        );
         expect(
           tester
               .widgetList<SoriPersonaPortrait>(find.byType(SoriPersonaPortrait))
               .map((p) => p.characterId),
-          containsAll(['minho', 'andrea']),
+          allOf(contains('minho'), isNot(contains('andrea'))),
         );
         await tester.tap(
           find.byKey(const ValueKey('content-listening-autoplay')),
@@ -956,6 +966,10 @@ void main() {
         expect(
           ContentLearningService.progress(_listening.id).completed,
           isFalse,
+        );
+        await _tap(
+          tester,
+          find.byKey(const ValueKey('content-listening-meaning')),
         );
         expect(
           find.byKey(const ValueKey('content-start-practice')),
@@ -1235,7 +1249,8 @@ void _expectBalancedAction(WidgetTester tester, String key, Size size) {
     expect(
       scroll.position.maxScrollExtent,
       lessThanOrEqualTo(1),
-      reason: 'Short normal-size content should fit in one viewport.',
+      reason:
+          'Short normal-size content should fit in one viewport. ${scroll.position}',
     );
   }
 }
@@ -1268,7 +1283,13 @@ Future<void> _pump(
       ),
       home: RepaintBoundary(
         key: const ValueKey('evidence'),
-        child: Scaffold(body: child),
+        // Distinct lessons enter distinct routes in the app. Do not retain the
+        // previous lesson State when replacing this test route.
+        child: Scaffold(
+          body: child is ContentLessonScreen
+              ? KeyedSubtree(key: ValueKey(child.lesson.id), child: child)
+              : child,
+        ),
       ),
     ),
   );

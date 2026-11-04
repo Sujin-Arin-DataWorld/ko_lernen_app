@@ -109,7 +109,12 @@ void main() {
       }
       expect(arguments, {'grammarId': 'grammar_b2_indirect_speech'});
       expect(find.text('V-다고/냐고/라고/자고 하다'), findsWidgets);
-      expect(find.text('B2'), findsWidgets);
+      expect(
+        find.text(
+          '${lookupAppL10n(Locale(scenario.language)).screenGrammarTitle} · B2',
+        ),
+        findsOneWidget,
+      );
       expect(
         find.byKey(const Key('grammar-plan-onboarding-sheet')),
         findsNothing,

@@ -134,6 +134,11 @@ flutter:
   generate: true                   # für ARB Localisations
 
   assets:
+    - design_assets/hoeren/
+    - design_assets/nuancen/
+    - design_assets/grammar/
+    - design_assets/fonts/Manrope/OFL.txt
+    - assets/illustrations/c_listening/
     - assets/illustrations/einleitung_generated/
     - assets/data/
     # Approved R16 renders, losslessly packaged with exact process identities.
@@ -271,6 +276,9 @@ flutter:
   # OFL: Paperlogy for interface lettering; Noto Sans KR for learning copy.
   # Both families contain Korean, German and English glyphs (font bundle guard).
   fonts:
+    - family: Manrope
+      fonts:
+        - asset: design_assets/fonts/Manrope/Manrope-Variable.ttf
     - family: Chubbo
       fonts:
         - asset: assets/fonts/Chubbo/Chubbo-Bold.otf

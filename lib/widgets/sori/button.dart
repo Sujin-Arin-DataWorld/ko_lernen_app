@@ -56,6 +56,9 @@ class SoriButton extends StatelessWidget {
   final SoriButtonTextRole textRole;
   final bool cMaterial;
 
+  /// Scoped typography; state colors, sizing and action ownership remain here.
+  final TextStyle? textStyle;
+
   /// Optional text-free material art. The button retains all action semantics,
   /// disabled/loading behavior and pressure ownership.
   final Widget Function(BuildContext, Widget)? surfaceBuilder;
@@ -78,6 +81,7 @@ class SoriButton extends StatelessWidget {
     this.feedbackOnTap = true,
     this.textRole = SoriButtonTextRole.action,
     this.cMaterial = false,
+    this.textStyle,
     this.surfaceBuilder,
   }) : assert(maxLines == null || maxLines > 0);
 
@@ -98,6 +102,7 @@ class SoriButton extends StatelessWidget {
     this.feedbackOnTap = true,
     this.textRole = SoriButtonTextRole.action,
     this.cMaterial = false,
+    this.textStyle,
     this.surfaceBuilder,
   }) : variant = SoriButtonVariant.filled,
        assert(maxLines == null || maxLines > 0);
@@ -119,6 +124,7 @@ class SoriButton extends StatelessWidget {
     this.feedbackOnTap = true,
     this.textRole = SoriButtonTextRole.action,
     this.cMaterial = false,
+    this.textStyle,
     this.surfaceBuilder,
   }) : variant = SoriButtonVariant.outlined,
        assert(maxLines == null || maxLines > 0);
@@ -140,6 +146,7 @@ class SoriButton extends StatelessWidget {
     this.feedbackOnTap = true,
     this.textRole = SoriButtonTextRole.action,
     this.cMaterial = false,
+    this.textStyle,
     this.surfaceBuilder,
   }) : variant = SoriButtonVariant.ghost,
        assert(maxLines == null || maxLines > 0);
@@ -310,7 +317,7 @@ class SoriButton extends StatelessWidget {
                         fontSize: visualFontSize,
                         letterSpacing: -0.2,
                         height: 1.2,
-                      ),
+                      ).merge(textStyle).copyWith(color: fg),
                     ),
                   );
                   return effectiveMaxLines == 1

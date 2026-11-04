@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-04",
+  "checkout": "C:/dev/hangulsori/ko_lernen_app_worktrees/horen-c-states-20261103",
+  "approvalSource": "IMAGE_FIRST_DESIGN_APPROVAL_20261104.md",
+  "tests": {
+    "finalSharedAndNative": {
+      "passed": 174,
+      "failed": 0,
+      "log": "C:/dev/hangulsori/_codex_artifacts/lernen-approved-integration-20261104/shared-regression.log",
+      "includes": "Grammar14;Nuancen16;Hören/content-learning/shared-navigation"
+    },
+    "grammarBroad": {
+      "uniqueCovered": 232,
+      "primaryPassed": 229,
+      "priorStaticFailures": 3,
+      "resolvedByFocusedGuardPassed": 9,
+      "logs": [
+        "C:/dev/hangulsori/_codex_artifacts/grammatik-c-complete-20261104/grammar-all-final.log",
+        "C:/dev/hangulsori/_codex_artifacts/grammatik-c-complete-20261104/grammar-guard-final.log"
+      ]
+    },
+    "nuancenLegacy": {
+      "screen": 8,
+      "service": 10,
+      "ui": 14,
+      "uiIncludes": "DE/EN 320x640 at200%,360x400; visible live feedback and actual hit testing"
+    }
+  },
+  "analyzer": {
+    "grammar": "No issues found",
+    "nuancen": "No issues found",
+    "horen": "No issues found"
+  },
+  "assets": {
+    "existingHoren75ByteIdentical": true,
+    "canonicalCloudSettingsCoinHomeByteIdentical": true
+  },
+  "review": {
+    "blockingFindings": 0,
+    "nuancenNativePopSpeechFixVerified": true,
+    "finalOwnerSourceHashesMatch": true,
+    "reviewSnapshotNote": "Four earlier review hashes were superseded by owner-final layout/capture changes. All owner-final source/test hashes match; final shared174 and scoped analyzers cover these exact bytes. Final Nuancen review hashes also match."
+  },
+  "renderEvidence": {
+    "viewport": [
+      402,
+      874
+    ],
+    "language": "de",
+    "textScale": 1,
+    "smallAndLargeQa": "separate320px,160%-200%,short360x400 cases",
+    "pixelPerfectClaim": false,
+    "notes": [
+      "Figma catalog uses approved 크다 example; actual catalog retains authored ordering beginning 안녕하세요. Study compare uses the same 크다 record.",
+      "Blank material assets are image-generated; all text, controls, scoring and save ownership are native.",
+      "Large-text continuation moves into scroll above170% to preserve feedback viewport.",
+      "Static Figma prototypes do not substitute for runtime behavior tests."
+    ]
+  },
+  "pending": [],
+  "androidDebugBuild": {
+    "status": "passed",
+    "command": "flutter build apk --debug --no-pub",
+    "exitCode": 0,
+    "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/horen-c-states-20261103/build/app/outputs/flutter-apk/app-debug.apk",
+    "bytes": 1000109208,
+    "modifiedAt": "2026-11-04T02:29:22.699Z",
+    "sha256": "435d90ab7349c335bd9ac7e192053d51c7faf6d4f012249ba25b96ca9c8d03c8",
+    "log": "C:/dev/hangulsori/_codex_artifacts/lernen-approved-integration-20261104/android-debug-build.log",
+    "deviceInstalled": false,
+    "storePublished": false
+  },
+  "unverified": [
+    "physical-device verification",
+    "store release"
+  ],
+  "delivery": "Commit and remote SHA recorded separately in push-receipt.json after commit creation."
+}

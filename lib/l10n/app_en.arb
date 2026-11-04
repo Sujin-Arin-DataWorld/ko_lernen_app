@@ -5717,5 +5717,92 @@
     }
   },
   "todayTreasureOpen": "Open",
-  "todayBeginStage": "Let’s begin"
+  "todayBeginStage": "Let’s begin",
+  "listeningShelfPhone": "Calls",
+  "listeningFlowFollow": "Back to the current message",
+  "listeningShelfShopping": "Shopping",
+  "listeningFlowResult": "Result",
+  "listeningShelfFamily": "First visit",
+  "listeningShelfArrival": "Arrival",
+  "listeningShelfEthics": "Research ethics",
+  "listeningShelfExplore": "Explore",
+  "listeningShelfUncertainty": "Uncertainty",
+  "listeningShelfRestaurant": "Restaurant",
+  "listeningShelfPrompt": "Choose your next conversation.",
+  "listeningShelfDiscourse": "Assumptions",
+  "listeningShelfSources": "Quotes & sources",
+  "listeningShelfMemory": "Memory",
+  "listeningShelfFocus": "IN FOCUS",
+  "listeningShelfGreeting": "Greetings",
+  "listeningFlowChoose": "YOUR LESSON",
+  "listeningShelfHealth": "Health & sport",
+  "listeningShelfCritique": "Art criticism",
+  "listeningShelfRecord": "Missing records",
+  "listeningShelfWork": "At work",
+  "listeningShelfMethod": "Methods",
+  "listeningFlowUnderstand": "Understand",
+  "listeningRecoverySaving": "Saving …",
+  "listeningRecoverySaveFailed": "Not saved yet.",
+  "listeningServiceRole": "Staff",
+  "listeningRecoveryDone": "Lesson complete",
+  "listeningRecoverySavingBody": "Your answers stay unchanged. Please wait.",
+  "listeningRecoverySaveBody": "Your answers are still here. Please try again.",
+  "listeningRecoverySaved": "Answers saved.",
+  "listeningRecoveryAnswers": "Your answers",
+  "listeningRecoveryScore": "{correct} of {total} correct",
+  "listeningRecoverySaveRetry": "Save again",
+  "listeningRecoveryWait": "Please wait",
+  "listeningRecoveryStay": "Stay here",
+  "listeningRecoveryAudioFailed": "Audio is unavailable right now.",
+  "listeningRecoveryAudioBody": "Try again or keep reading.",
+  "listeningRecoveryAudioRetry": "Retry audio",
+  "listeningRecoveryRead": "Keep reading",
+  "listeningRecoveryPractice": "Practise again",
+  "listeningRecoveryTopics": "Back to topics",
+  "listeningRecoveryMore": "Explore further",
+  "@listeningRecoveryScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "listeningRecoveryRemaining": "{count, plural, one {One answer still needs practice.} other {{count} answers still need practice.}}",
+  "@listeningRecoveryRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanTitle": "Your\ngrammar plan",
+  "grammarPlanSetupHint": "Choose your level and daily pace.",
+  "grammarPlanPatternsPerDayLabel": "Patterns per day",
+  "grammarPlanDailyPreview": "{n} patterns per day",
+  "grammarPlanPaceChangeHint": "You can change your pace at any time.",
+  "grammarPlanLevelCount": "{level} · {count} patterns",
+  "@grammarPlanDailyPreview": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@grammarPlanLevelCount": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanSaveErrorTitle": "Progress not saved",
+  "grammarPlanSelectionRetained": "Your selection is kept.",
+  "wordWebCloseConfirmBody": "Your progress in this round will be lost if you return to the word list.",
+  "wordWebCloseConfirmLeave": "Back to word list"
 }

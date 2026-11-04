@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-/// Byte-identical user originals. Provenance: APPROVED_CHROME_20261030.json.
+/// Byte-identical user originals, reaffirmed in CANONICAL_UI_20261103.json.
+/// Never replace these with generated approximations in mockups or runtime.
 abstract final class ApprovedChromeAssets {
   static const cloud = 'assets/icons/chrome/cloud.png';
   static const settings = 'assets/icons/chrome/settings-gear.png';
