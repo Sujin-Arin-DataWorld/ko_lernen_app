@@ -754,19 +754,8 @@ class ApprovedGameFrame extends StatelessWidget {
                     Expanded(child: contentBuilder(context, close)),
                     ApprovedGameNavigation(
                       backgroundArt: navigationArt,
-                      onSelected: (index) {
-                        if (index == 2) {
-                          return;
-                        }
-                        unawaited(TtsService.stop());
-                        unawaited(
-                          Navigator.of(context).push(
-                            MaterialPageRoute<void>(
-                              builder: (_) => _GameTabVisit(index: index),
-                            ),
-                          ),
-                        );
-                      },
+                      onSelected: (index) =>
+                          openApprovedGameTab(context, index),
                     ),
                   ],
                 ),
@@ -777,6 +766,20 @@ class ApprovedGameFrame extends StatelessWidget {
       ),
     ),
     child: const SizedBox.shrink(),
+  );
+}
+
+/// Visits a root tab while retaining the current learning route. The existing
+/// visit returns to that same route when Games is selected again.
+void openApprovedGameTab(BuildContext context, int index) {
+  if (index == 2) {
+    return;
+  }
+  unawaited(TtsService.stop());
+  unawaited(
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(builder: (_) => _GameTabVisit(index: index)),
+    ),
   );
 }
 

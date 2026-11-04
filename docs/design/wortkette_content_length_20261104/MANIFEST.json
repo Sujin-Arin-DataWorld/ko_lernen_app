@@ -1,0 +1,22 @@
+{
+  "status": "image candidates only",
+  "date": "2026-11-04",
+  "fixtures": "A/B/C content lengths, not new CEFR filters",
+  "images": [
+    {
+      "id": "a",
+      "image": "images/wortkette-a.png",
+      "sha256": "cb6b67787c317d4442f2b908a2133d56f18177bdd86299ed0ab363a5c938b2fc"
+    },
+    {
+      "id": "b",
+      "image": "images/wortkette-b.png",
+      "sha256": "884b363ff5d692685d2e9ec0d3e5c95c6556a55245277fb31b8c1448c396393f"
+    },
+    {
+      "id": "c",
+      "image": "images/wortkette-c.png",
+      "sha256": "81760b8e467e326cdb25ed2381e7337bc07f9418852905736a5971d13e66d884"
+    }
+  ]
+}
