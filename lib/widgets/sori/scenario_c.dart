@@ -467,82 +467,122 @@ class ScenarioCHeader extends StatelessWidget implements PreferredSizeWidget {
       textDirection: TextDirection.ltr,
       textScaler: textScaler,
     )..layout(maxWidth: (width - 132).clamp(80, 800));
-    return (painter.height + 22).clamp(62, double.infinity);
+    final height = (painter.height + 22).clamp(62.0, double.infinity);
+    painter.dispose();
+    return height;
   }
 
   @override
   Size get preferredSize => Size.fromHeight(_plaqueHeight + 10 + _brandHeight);
-  double get _brandHeight => progressLabel == null
-      ? 24
-      : (textScaler.scale(13) * 1.35 + 4).clamp(24, double.infinity);
+  TextStyle get _brandStyle =>
+      ScenarioC.body.copyWith(fontSize: 13, color: ScenarioC.jade);
+
+  ({bool inline, double height}) get _brandLayout {
+    if (progressLabel == null) return (inline: true, height: 24);
+    final brand = TextPainter(
+      text: TextSpan(text: 'HANGUL SORI', style: _brandStyle),
+      textDirection: TextDirection.ltr,
+      textScaler: TextScaler.noScaling,
+    )..layout();
+    final progress = TextPainter(
+      text: TextSpan(text: progressLabel, style: _brandStyle),
+      textDirection: TextDirection.ltr,
+      textScaler: textScaler,
+    )..layout();
+    final available = (width - 24).clamp(1.0, double.infinity);
+    final inline =
+        20 + Spacing.sm + brand.width + 12 + progress.width <= available;
+    if (!inline) progress.layout(maxWidth: available);
+    final height = inline
+        ? (progress.height + 4).clamp(24.0, double.infinity)
+        : 24 + Spacing.xs + progress.height + 4;
+    brand.dispose();
+    progress.dispose();
+    return (inline: inline, height: height);
+  }
+
+  double get _brandHeight => _brandLayout.height;
   @override
-  Widget build(BuildContext context) => ScenarioCBackground(
-    child: SafeArea(
-      bottom: false,
-      child: SizedBox(
-        height: preferredSize.height,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(12, 10, 12, 0),
-              child: ScenarioCPlaque(
-                child: SizedBox(
-                  height: _plaqueHeight,
-                  child: Row(
-                    children: [
-                      SizedBox(width: 48, height: 48, child: leading),
-                      Expanded(
-                        child: Text(
-                          title,
-                          textAlign: TextAlign.center,
-                          style: ScenarioC.heading.copyWith(
-                            fontSize: 23,
-                            color: ScenarioC.paper,
+  Widget build(BuildContext context) {
+    final brandLayout = _brandLayout;
+    final plaqueHeight = _plaqueHeight;
+    return ScenarioCBackground(
+      child: SafeArea(
+        bottom: false,
+        child: SizedBox(
+          height: plaqueHeight + 10 + brandLayout.height,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 10, 12, 0),
+                child: ScenarioCPlaque(
+                  child: SizedBox(
+                    height: plaqueHeight,
+                    child: Row(
+                      children: [
+                        SizedBox(width: 48, height: 48, child: leading),
+                        Expanded(
+                          child: Text(
+                            title,
+                            textAlign: TextAlign.center,
+                            style: ScenarioC.heading.copyWith(
+                              fontSize: 23,
+                              color: ScenarioC.paper,
+                            ),
                           ),
                         ),
+                        SizedBox(width: 48, height: 48, child: home),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: brandLayout.height,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Flex(
+                    direction: brandLayout.inline
+                        ? Axis.horizontal
+                        : Axis.vertical,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const ApprovedChromeImage(
+                            asset: ApprovedChromeAssets.cloud,
+                            size: 20,
+                          ),
+                          const SizedBox(width: Spacing.sm),
+                          Text(
+                            'HANGUL SORI',
+                            textScaler: TextScaler.noScaling,
+                            style: _brandStyle,
+                          ),
+                        ],
                       ),
-                      SizedBox(width: 48, height: 48, child: home),
+                      if (progressLabel != null) ...[
+                        SizedBox(
+                          width: brandLayout.inline ? 12 : 0,
+                          height: brandLayout.inline ? 0 : Spacing.xs,
+                        ),
+                        Text(
+                          progressLabel!,
+                          textAlign: TextAlign.center,
+                          style: _brandStyle,
+                        ),
+                      ],
                     ],
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: _brandHeight,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const ApprovedChromeImage(
-                    asset: ApprovedChromeAssets.cloud,
-                    size: 20,
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  Text(
-                    'HANGUL SORI',
-                    textScaler: TextScaler.noScaling,
-                    style: ScenarioC.body.copyWith(
-                      fontSize: 13,
-                      color: ScenarioC.jade,
-                    ),
-                  ),
-                  if (progressLabel != null) ...[
-                    const SizedBox(width: 12),
-                    Text(
-                      progressLabel!,
-                      style: ScenarioC.body.copyWith(
-                        fontSize: 13,
-                        color: ScenarioC.jade,
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }
 
 /// The cooking scene owns this setting. Other scenes retain their real poster.

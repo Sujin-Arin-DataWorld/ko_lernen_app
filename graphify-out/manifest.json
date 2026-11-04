@@ -3468,8 +3468,8 @@
     "semantic_hash": ""
   },
   "test/airport_arrival_roleplay_layout_test.dart": {
-    "mtime": 1793777383.7770672,
-    "seen": 1793777778.2868683,
+    "mtime": 1793787070.1488905,
+    "seen": 1793787647.891216,
     "ast_hash": "6fa79d0e1f45d4871eb7a602376e0f19",
     "semantic_hash": ""
   },
@@ -28110,33 +28110,33 @@
     "semantic_hash": ""
   },
   "docs/design/lernen-20261104/figma-grammar-plan.png": {
-    "mtime": 1793783730.2705328,
-    "seen": 1793783900.8145175,
-    "ast_hash": "66985bd7f90391d0b20005a3c8f79faf",
+    "mtime": 1793784061.6812873,
+    "seen": 1793787648.6321492,
+    "ast_hash": "f5c1bd66a01b36a8674ab86073b27bc3",
     "semantic_hash": ""
   },
   "docs/design/lernen-20261104/figma-nuancen-catalog.png": {
-    "mtime": 1793783514.9861422,
-    "seen": 1793783900.814521,
-    "ast_hash": "d6319df6e39f128c36e596b16aa9e94c",
+    "mtime": 1793784966.701411,
+    "seen": 1793787648.6321518,
+    "ast_hash": "792c30f4a9f28b7a08110e88a11eb710",
     "semantic_hash": ""
   },
   "docs/design/lernen-20261104/figma-nuancen-question.png": {
-    "mtime": 1793783515.8693235,
-    "seen": 1793783900.8145254,
-    "ast_hash": "9876a826b2fa2dbd3db0bb4ff005db00",
+    "mtime": 1793784967.482777,
+    "seen": 1793787648.632155,
+    "ast_hash": "8fbbfeb1551ffff1eb2db34c34601148",
     "semantic_hash": ""
   },
   "docs/design/lernen-20261104/figma-nuancen-study.png": {
-    "mtime": 1793783515.4554987,
-    "seen": 1793783900.8145363,
-    "ast_hash": "5bfe0a24fc18c25e694054ece1e967f2",
+    "mtime": 1793784967.0851903,
+    "seen": 1793787648.63216,
+    "ast_hash": "1a50494c6ade110f4db33c7b7067ba03",
     "semantic_hash": ""
   },
   "docs/design/lernen-20261104/figma-nuancen-speed.png": {
-    "mtime": 1793783516.3094277,
-    "seen": 1793783900.8145306,
-    "ast_hash": "33822f4b215f65fbaa240434748f7731",
+    "mtime": 1793784967.8450212,
+    "seen": 1793787648.632158,
+    "ast_hash": "865df12b1c4c268825aa101fcf70ff91",
     "semantic_hash": ""
   },
   "docs/design/lernen-20261104/native-grammar-explanation.png": {
@@ -28182,9 +28182,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/scenario_c.dart": {
-    "mtime": 1793782370.9102662,
-    "seen": 1793783899.6968226,
-    "ast_hash": "6f87c60337f5495e793c5728cdac3c71",
+    "mtime": 1793787194.3025134,
+    "seen": 1793787647.8744018,
+    "ast_hash": "4744cd59722cf9b7f65a63e1d72dc2ad",
     "semantic_hash": ""
   },
   "test/scenario_c_native_test.dart": {
@@ -28314,15 +28314,15 @@
     "semantic_hash": ""
   },
   "docs/design/lernen-20261104/native-alltag-roleplay-large-qa.png": {
-    "mtime": 1793781958.172021,
-    "seen": 1793783900.81456,
-    "ast_hash": "2bc0f0f09b37345d743611cb319bd4a2",
+    "mtime": 1793787290.2283776,
+    "seen": 1793787648.6330104,
+    "ast_hash": "7ac8752d8abbd571dcca24ba816e7e76",
     "semantic_hash": ""
   },
   "docs/design/ALLTAG_VERIFICATION_20261104.json": {
-    "mtime": 1793783833.7149942,
-    "seen": 1793783899.0626144,
-    "ast_hash": "6b2f76fe0e5e30007c93e7534f8e202b",
+    "mtime": 1793787431.2626948,
+    "seen": 1793787647.559903,
+    "ast_hash": "d5aa22cbaf50629b762e33fc284a844c",
     "semantic_hash": ""
   },
   "test/scenario_quest_constrained_layout_test.dart": {
@@ -28341,6 +28341,12 @@
     "mtime": 1793781954.6641128,
     "seen": 1793783900.8145547,
     "ast_hash": "341fb22e3c1c873bdf4a5a7097a839f6",
+    "semantic_hash": ""
+  },
+  "docs/design/lernen-20261104/native-grammar-plan.geometry.json": {
+    "mtime": 1793783468.550514,
+    "seen": 1793787647.5608528,
+    "ast_hash": "65307f1c623203f37697131028539882",
     "semantic_hash": ""
   }
 }

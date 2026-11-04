@@ -1,6 +1,6 @@
 {
   "date": "2026-11-04",
-  "sourceParentHead": "51354fdf4f88442429294eeb386b4e227c76c4b1",
+  "sourceParentHead": "02cc44e7905107c134e82ec35f9a3c0662741291",
   "historicalEvidence": "The previous committed receipt at51354fdf4 records initial implementation tests. This receipt supersedes its source and capture hashes after full-suite CI findings.",
   "figma": {
     "file": "zhJY0ZY4gl4VNg8vaaNIXw",
@@ -174,7 +174,41 @@
       ]
     },
     "countsOverlap": true,
-    "remoteGate": "Fresh exact-head PR and merged-main Actions results remain separate from these local checks."
+    "remoteGate": "Fresh exact-head PR and merged-main Actions results remain separate from these local checks.",
+    "finalFullSuiteFinding": {
+      "run": 41808877598,
+      "head": "02cc44e7905107c134e82ec35f9a3c0662741291",
+      "passed": 9530,
+      "failed": 1,
+      "skipped": 77,
+      "issue": "308dp and200% business roleplay overflow in fixed-width header brand/progress row",
+      "fix": "Measure actual brand and scaled progress widths; retain single row when it fits, wrap progress onto a second row otherwise; measure full header height without clipping or suppressing text scaling.",
+      "verification": [
+        {
+          "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/airport-header-fixed.log",
+          "sha256": "b30a9e1a88d32d018ed35626d4af151ed3c9da8746961887adc27a7cbff3842c",
+          "passed": 3,
+          "failed": 0
+        },
+        {
+          "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/header-wrap-regression.log",
+          "sha256": "7adf5629a680093b8003a9379a77600f3fe6af92d58a8c94613b59b4f0d8c436",
+          "passed": 49,
+          "failed": 0
+        },
+        {
+          "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/header-wrap-analysis.log",
+          "sha256": "c8d42aaad15d9f72e5e6d61bae87c211c962f622b070846cd29fbf9a5df97d62",
+          "passed": null,
+          "failed": 0
+        }
+      ],
+      "baselineCaptureComparison": {
+        "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/header-wrap-baseline-comparison.json",
+        "sha256": "a5a29cee9ea9331a247a919de2e311d927364b930b91e2da62011336a58b0c2b",
+        "fiveNormalCapturesByteIdentical": true
+      }
+    }
   },
   "assets": {
     "horenOriginalsPreserved": 75,
@@ -389,7 +423,7 @@
     },
     {
       "path": "lib/widgets/sori/scenario_c.dart",
-      "sha256": "2080ce5714117b19097c2373cfd6b490a395349255fbb4c1a6983e61d59228de"
+      "sha256": "9d8f2ebc9a87b462befc31ea3297f2bdfc5f7fd9698d7b37bbd131295a9ff2e1"
     },
     {
       "path": "lib/widgets/sori/scenario_write_after_roleplay_card.dart",
@@ -545,7 +579,7 @@
     },
     {
       "path": "docs/design/lernen-20261104/native-alltag-roleplay-large-qa.png",
-      "sha256": "171918c0e77a5bf91746dc087a466ef99114fadc8889fbbe80378ddc70d3c44a"
+      "sha256": "b63cf88aff394d46a16c4f9184616b08102d70a15605f2c8db72860c8efb43db"
     },
     {
       "path": "docs/design/lernen-20261104/native-alltag-save-error.png",
@@ -590,19 +624,27 @@
     "store release"
   ],
   "previousApk": "The 722dac7 debug APK documented in LERNEN_VERIFICATION_20261104.json predates this delta; not used as proof of the current source.",
-  "verifiedAt": "2026-11-04T09:17:13.709Z",
+  "verifiedAt": "2026-11-04T10:17:11.154Z",
   "review": {
     "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/final-current-review.json",
     "sha256": "50e676eabf0aa68f7b0b3d92b679e53f61eeb315476a93a625d5c54fe2104117",
     "openFindings": 0,
-    "remoteCI": "pending exact-head checks"
+    "remoteCI": "pending exact-head checks",
+    "headerWrapAddendum": {
+      "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/header-wrap-review.json",
+      "sha256": "92a93ca8bc9afd6ce6823df374c2b557d045d2f5d5a24d9d639aa8de88ab6109",
+      "status": "no_actionable_findings"
+    }
   },
   "graph": {
-    "nodes": 64807,
-    "edges": 93071,
-    "communities": 1820,
+    "nodes": 64808,
+    "edges": 93073,
+    "communities": 1816,
     "astOnly": true,
     "sourceMtimeDrift": 0,
-    "pruneRemovedBytes": 0
+    "pruneRemovedBytes": 0,
+    "updateLog": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/header-wrap-graphify.log",
+    "updateLogSha256": "e54fc47c41fa17cce6295db4f050cd202f4e4b972013e8d2349deaeb9fc01cc7",
+    "mode": "AST-only; no paid model labeling"
   }
 }
