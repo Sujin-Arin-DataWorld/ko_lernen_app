@@ -16,12 +16,17 @@ class SoriLearningStageNavigation extends StatelessWidget {
     this.onLeave,
     this.canLeave,
     this.enabled = true,
+    this.onDestinationSelected,
   });
   final bool woodenSurface;
   final SoriHomeEscape escape;
   final VoidCallback? onLeave;
   final bool Function()? canLeave;
   final bool enabled;
+
+  /// An embedded learning journey may own its exit instead of the shell.
+  /// Called only after the same leave guard and cleanup as normal navigation.
+  final ValueChanged<int>? onDestinationSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +51,11 @@ class SoriLearningStageNavigation extends StatelessWidget {
               return;
             }
             onLeave?.call();
+            final destination = onDestinationSelected;
+            if (destination != null) {
+              destination(index);
+              return;
+            }
             Navigator.of(context).popUntil((route) => route.isFirst);
             AppShell.openStageTab(index);
           },

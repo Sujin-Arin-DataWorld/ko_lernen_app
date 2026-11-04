@@ -2963,6 +2963,16 @@ class AppL10nEn extends AppL10n {
   String get scenarioResultSaving => 'Saving this completed scene…';
 
   @override
+  String get scenarioResultSavingTitle => 'Your scene is being saved';
+
+  @override
+  String get scenarioResultSavingAction => 'Saving…';
+
+  @override
+  String get scenarioResultSaveErrorTitle =>
+      'Your scene has not been saved yet';
+
+  @override
   String get scenarioResultSaveRetry => 'Try saving again';
 
   @override

@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/scenario_c.dart';
 import '../../widgets/sori/tts_speed_control.dart';
 
 /// Gemeinsames Layout aller Quest-Engines.
@@ -66,6 +67,7 @@ class QuestLayout extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final pinnedAction = action;
+        final overhang = ScenarioCTheme.of(context) ? 0.0 : _overhang;
         final speedBar = showTtsSpeed
             ? ConstrainedBox(
                 constraints: const BoxConstraints(minHeight: 48),
@@ -101,10 +103,10 @@ class QuestLayout extends StatelessWidget {
             Expanded(
               child: LayoutBuilder(
                 builder: (context, viewport) => SingleChildScrollView(
-                  padding: const EdgeInsets.only(top: _overhang),
+                  padding: EdgeInsets.only(top: overhang),
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
-                      minHeight: (viewport.maxHeight - _overhang).clamp(
+                      minHeight: (viewport.maxHeight - overhang).clamp(
                         0,
                         double.infinity,
                       ),
@@ -121,7 +123,9 @@ class QuestLayout extends StatelessWidget {
               SizedBox(height: gap),
               ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxHeight: constraints.maxHeight * _actionMaxFraction,
+                  maxHeight:
+                      constraints.maxHeight *
+                      (ScenarioCTheme.of(context) ? .85 : _actionMaxFraction),
                 ),
                 child: SingleChildScrollView(child: pinnedAction),
               ),

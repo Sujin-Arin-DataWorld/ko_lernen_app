@@ -5173,6 +5173,24 @@ abstract class AppL10n {
   /// **'Diese abgeschlossene Szene wird gespeichert…'**
   String get scenarioResultSaving;
 
+  /// No description provided for @scenarioResultSavingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Szene wird gespeichert'**
+  String get scenarioResultSavingTitle;
+
+  /// No description provided for @scenarioResultSavingAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Speichern …'**
+  String get scenarioResultSavingAction;
+
+  /// No description provided for @scenarioResultSaveErrorTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Szene ist noch nicht gespeichert'**
+  String get scenarioResultSaveErrorTitle;
+
   /// No description provided for @scenarioResultSaveRetry.
   ///
   /// In de, this message translates to:

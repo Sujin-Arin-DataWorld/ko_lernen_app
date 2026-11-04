@@ -16,25 +16,36 @@ class WordWebStudyScreen extends StatelessWidget {
     return NuancenFrame(
       title: t.wordWebTitle,
       actions: const [NuancenSpeedAction()],
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, NuancenC.actionClearance),
       child: ListView(
         children: [
           NuancenPanel(
-            child: Row(
+            minHeight: 110,
+            padding: const EdgeInsets.fromLTRB(26, 14, 20, 17),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
                         cluster.sourceKo,
-                        style: NuancenC.korean.copyWith(fontSize: 36),
+                        style: NuancenC.korean.copyWith(
+                          fontSize: 30,
+                          height: 1.25,
+                        ),
                       ),
-                      if (cluster.sourceGloss(lang).isNotEmpty)
-                        Text(cluster.sourceGloss(lang), style: NuancenC.body),
-                    ],
-                  ),
+                    ),
+                    NuancenSpeaker(cluster.sourceKo),
+                  ],
                 ),
-                NuancenSpeaker(cluster.sourceKo),
+                if (cluster.sourceGloss(lang).isNotEmpty) ...[
+                  const SizedBox(height: 4),
+                  Text(
+                    cluster.sourceGloss(lang),
+                    style: NuancenC.body.copyWith(height: 1.25),
+                  ),
+                ],
               ],
             ),
           ),
@@ -80,23 +91,27 @@ class _RelationLane extends StatelessWidget {
   final Widget child;
   @override
   Widget build(BuildContext context) => NuancenLinkedPanel(
+    knot: true,
+    inset: 20,
+    relationColor: color,
     child: Padding(
-      padding: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.only(bottom: 8),
       child: NuancenPanel(
-        padding: const EdgeInsets.fromLTRB(24, 18, 20, 22),
+        padding: const EdgeInsets.fromLTRB(26, 14, 20, 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             DecoratedBox(
-              decoration: BoxDecoration(
-                color: color.withValues(alpha: .17),
-                border: Border(left: BorderSide(color: color, width: 3)),
-              ),
+              decoration: BoxDecoration(color: color.withValues(alpha: .24)),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 3),
                 child: Text(
                   title,
-                  style: NuancenC.body.copyWith(fontWeight: FontWeight.w700),
+                  style: NuancenC.body.copyWith(
+                    fontSize: 15,
+                    height: 1.25,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
             ),
@@ -119,14 +134,22 @@ class _NeighborBlock extends StatelessWidget {
     children: [
       Row(
         children: [
-          Expanded(child: Text(item.ko, style: NuancenC.korean)),
+          Expanded(
+            child: Text(
+              item.ko,
+              style: NuancenC.korean.copyWith(fontSize: 30, height: 1.25),
+            ),
+          ),
           NuancenSpeaker(item.ko),
         ],
       ),
-      Text(item.gloss(lang), style: NuancenC.body),
+      Text(item.gloss(lang), style: NuancenC.body.copyWith(height: 1.25)),
       if (item.nuance(lang).isNotEmpty) ...[
         const SizedBox(height: 4),
-        Text(item.nuance(lang), style: NuancenC.body),
+        Text(
+          item.nuance(lang),
+          style: NuancenC.body.copyWith(fontSize: 14, height: 1.25),
+        ),
       ],
     ],
   );
@@ -142,11 +165,16 @@ class _ExpressionBlock extends StatelessWidget {
     children: [
       Row(
         children: [
-          Expanded(child: Text(item.ko, style: NuancenC.korean)),
+          Expanded(
+            child: Text(
+              item.ko,
+              style: NuancenC.korean.copyWith(fontSize: 30, height: 1.25),
+            ),
+          ),
           NuancenSpeaker(item.ko),
         ],
       ),
-      Text(item.gloss(lang), style: NuancenC.body),
+      Text(item.gloss(lang), style: NuancenC.body.copyWith(height: 1.25)),
       if (item.exampleKo.isNotEmpty) ...[
         const SizedBox(height: 8),
         Text(

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' as ui;
 
@@ -467,13 +468,33 @@ void main() {
       ),
       size: size,
     );
-      await _save(tester, 'empty-402-1.0');
+    await _save(tester, 'empty-402-1.0');
     await tester.tap(find.byKey(const ValueKey('word-web-filter-level')));
     await tester.pump();
     expect(find.text('Nuancen & Gegenteile'), findsNWidgets(2));
     await _save(tester, 'catalog-402-1.0');
     await _pump(tester, WordWebStudyScreen(cluster: source), size: size);
     await _save(tester, 'study-402-1.0');
+    final firstLane = find.byType(NuancenLinkedPanel).first;
+    final knot = find.descendant(
+      of: firstLane,
+      matching: find.byWidgetPredicate(
+        (widget) =>
+            widget is Image &&
+            widget.image is AssetImage &&
+            (widget.image as AssetImage).assetName == NuancenC.knot,
+      ),
+    );
+    expect(tester.getSize(knot), const Size(56, 56));
+    final lanes = tester.widgetList<NuancenLinkedPanel>(
+      find.byType(NuancenLinkedPanel),
+    );
+    expect(lanes.map((lane) => lane.relationColor).take(3), [
+      NuancenC.coral,
+      NuancenC.indigo,
+      NuancenC.coral,
+    ]);
+    await _saveStudyGeometry(tester);
     await tester.scrollUntilVisible(
       find.text(source.expressions.single.exampleKo),
       160,
@@ -501,6 +522,108 @@ void main() {
     await _save(tester, 'result-402-1.0');
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('study fidelity stays readable at 320 with normal and large text', (
+    tester,
+  ) async {
+    for (final scale in [1.0, 1.6]) {
+      await _pump(
+        tester,
+        WordWebStudyScreen(cluster: source),
+        size: const Size(320, 640),
+        scale: scale,
+        appKey: ValueKey('study-capture-$scale'),
+      );
+      tester
+          .state<ScrollableState>(find.byType(Scrollable).last)
+          .position
+          .jumpTo(0);
+      await tester.pump();
+      await _save(
+        tester,
+        'study-320-$scale',
+        beforeCapture: () {
+          final scroll = tester
+              .state<ScrollableState>(find.byType(Scrollable).last)
+              .position;
+          expect(scroll.pixels, closeTo(scroll.minScrollExtent, .01));
+          final viewport = tester.getRect(find.byType(Scrollable).last);
+          final hero = find.byType(NuancenPanel).first;
+          final heroRect = tester.getRect(hero);
+          expect(heroRect.top, greaterThanOrEqualTo(viewport.top));
+          expect(heroRect.bottom, lessThanOrEqualTo(viewport.bottom));
+          final speaker = find
+              .descendant(of: hero, matching: find.byType(NuancenSpeaker))
+              .first;
+          final speakerRect = tester.getRect(speaker);
+          expect(speakerRect.height, greaterThanOrEqualTo(48));
+          expect(speakerRect.top, greaterThanOrEqualTo(viewport.top));
+          expect(speakerRect.bottom, lessThanOrEqualTo(viewport.bottom));
+          expect(speaker.hitTestable(), findsOneWidget);
+        },
+      );
+      final example = find.text(source.expressions.single.exampleKo);
+      await tester.scrollUntilVisible(
+        example,
+        160,
+        scrollable: find.byType(Scrollable).last,
+      );
+      await Scrollable.ensureVisible(
+        example.evaluate().single,
+        alignment: .5,
+        duration: Duration.zero,
+      );
+      await tester.pump();
+      expect(example.hitTestable(), findsOneWidget);
+      final speaker = find.byTooltip(
+        '${AppL10n.of(tester.element(example)).ttsListen}: ${source.expressions.single.exampleKo}',
+      );
+      await Scrollable.ensureVisible(
+        speaker.evaluate().single,
+        alignment: .5,
+        duration: Duration.zero,
+      );
+      await tester.pump();
+      expect(tester.getSize(speaker).height, greaterThanOrEqualTo(48));
+      await tester.tap(speaker);
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(tester.takeException(), isNull);
+      await _save(tester, 'study-expression-320-$scale');
+    }
+  });
+}
+
+Future<void> _saveStudyGeometry(WidgetTester tester) async {
+  if (!const bool.fromEnvironment('CAPTURE_NUANCEN_C')) return;
+  final panels = find.byType(NuancenPanel);
+  final rects = <Map<String, double>>[
+    for (final element in panels.evaluate())
+      (() {
+        final rect = tester.getRect(
+          find.byElementPredicate((candidate) => identical(candidate, element)),
+        );
+        return {
+          'x': rect.left,
+          'y': rect.top,
+          'width': rect.width,
+          'height': rect.height,
+        };
+      })(),
+  ];
+  const directory = String.fromEnvironment('NUANCEN_CAPTURE_DIR');
+  await tester.runAsync(() async {
+    await File('$directory/study-402-geometry.json').writeAsString(
+      const JsonEncoder.withIndent('  ').convert({
+        'viewport': [402, 874],
+        'textScale': 1,
+        'panelsInVisibleTree': rects,
+        'knotSlot': [56, 56],
+        'frameScale': 8,
+        'frameCenterSlice': [25, 52.5, 227.5, 62.5],
+        'fonts': {'korean': 30, 'gloss': 16, 'nuance': 14, 'section': 15},
+      }),
+    );
+  });
 }
 
 Future<void> _pump(
@@ -509,6 +632,7 @@ Future<void> _pump(
   Size size = const Size(390, 844),
   double scale = 1,
   bool reduceMotion = true,
+  Key? appKey,
 }) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
@@ -516,6 +640,7 @@ Future<void> _pump(
   addTearDown(tester.view.resetDevicePixelRatio);
   await tester.pumpWidget(
     MaterialApp(
+      key: appKey,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       locale: const Locale('de'),
@@ -538,9 +663,15 @@ Future<void> _pump(
   }
 }
 
-Future<void> _save(WidgetTester tester, String name) async {
-  if (!const bool.fromEnvironment('CAPTURE_NUANCEN_C')) return;
-  await settleCNativeCaptureAssets(tester);
+Future<void> _save(
+  WidgetTester tester,
+  String name, {
+  VoidCallback? beforeCapture,
+}) async {
+  const capture = bool.fromEnvironment('CAPTURE_NUANCEN_C');
+  if (capture) await settleCNativeCaptureAssets(tester);
+  beforeCapture?.call();
+  if (!capture) return;
   final boundary = tester.renderObject<RenderRepaintBoundary>(
     find.byKey(_capture),
   );

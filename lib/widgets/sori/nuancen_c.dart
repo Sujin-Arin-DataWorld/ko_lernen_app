@@ -89,6 +89,12 @@ class NuancenFrame extends StatefulWidget {
     this.onInactive,
     this.homeEscape = const SoriHomeEscape(),
     this.bottomAction,
+    this.padding = const EdgeInsets.fromLTRB(
+      12,
+      12,
+      12,
+      NuancenC.actionClearance,
+    ),
   });
 
   final String title;
@@ -98,6 +104,7 @@ class NuancenFrame extends StatefulWidget {
   final VoidCallback? onInactive;
   final SoriHomeEscape homeEscape;
   final Widget? bottomAction;
+  final EdgeInsetsGeometry padding;
 
   @override
   State<NuancenFrame> createState() => _NuancenFrameState();
@@ -160,7 +167,7 @@ class _NuancenFrameState extends State<NuancenFrame>
     actions: widget.actions,
     homeEscape: widget.homeEscape,
     onLeave: _inactive,
-    padding: const EdgeInsets.fromLTRB(12, 12, 12, NuancenC.actionClearance),
+    padding: widget.padding,
     leadingVisual: const SizedBox(
       width: 48,
       height: 48,
@@ -318,10 +325,12 @@ class NuancenPanel extends StatelessWidget {
     required this.child,
     this.padding = const EdgeInsets.fromLTRB(24, 18, 20, 22),
     this.onTap,
+    this.minHeight = 104,
   });
   final Widget child;
   final EdgeInsetsGeometry padding;
   final VoidCallback? onTap;
+  final double minHeight;
 
   @override
   Widget build(BuildContext context) => Semantics(
@@ -332,17 +341,17 @@ class NuancenPanel extends StatelessWidget {
       pressScale: 1,
       pressOffsetY: 2,
       child: ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: 104),
+        constraints: BoxConstraints(minHeight: minHeight),
         child: Stack(
           children: [
             Positioned.fill(
               child: IgnorePointer(
                 child: Image.asset(
                   NuancenC.frame,
-                  scale: 6,
+                  scale: 8,
                   // Keep the jade corners, shadow and brass anchor at their native
                   // proportions while the blank paper expands for real text.
-                  centerSlice: const Rect.fromLTRB(22, 70, 312.5, 105),
+                  centerSlice: const Rect.fromLTRB(25, 52.5, 227.5, 62.5),
                   fit: BoxFit.fill,
                   excludeFromSemantics: true,
                 ),
@@ -362,49 +371,46 @@ class NuancenLinkedPanel extends StatelessWidget {
     super.key,
     required this.child,
     this.knot = false,
-    this.anchorY = 60,
+    this.anchorY = 46,
     this.brassAnchor = false,
+    this.relationColor = NuancenC.coral,
+    this.inset = 27,
   });
   final Widget child;
   final bool knot;
   final double anchorY;
   final bool brassAnchor;
+  final Color relationColor;
+  final double inset;
   @override
   Widget build(BuildContext context) => Stack(
+    clipBehavior: Clip.none,
     children: [
       const Positioned(
-        left: 7,
+        left: 9,
         top: 0,
         bottom: 0,
-        width: 12,
-        child: IgnorePointer(
-          child: Image(
-            image: AssetImage(NuancenC.cord),
-            fit: BoxFit.cover,
-            excludeFromSemantics: true,
-          ),
-        ),
+        width: 7,
+        child: IgnorePointer(child: _NuancenSilkCord()),
       ),
       Positioned(
-        left: 13,
-        top: anchorY - 1,
-        width: 28,
-        height: 4,
-        child: const IgnorePointer(
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: NuancenC.coral,
-              boxShadow: [
-                BoxShadow(color: Color(0x444b3520), offset: Offset(0, 2)),
-              ],
-            ),
+        left: 0,
+        top: 0,
+        width: inset + 11,
+        height: anchorY + 4,
+        child: IgnorePointer(
+          child: CustomPaint(
+            painter: _NuancenRelationBranch(relationColor, anchorY),
           ),
         ),
       ),
-      Padding(padding: const EdgeInsets.only(left: 27), child: child),
+      Padding(
+        padding: EdgeInsets.only(left: inset),
+        child: child,
+      ),
       if (brassAnchor)
         Positioned(
-          left: 23,
+          left: inset - 4,
           top: anchorY - 5,
           child: IgnorePointer(
             child: Container(
@@ -424,19 +430,87 @@ class NuancenLinkedPanel extends StatelessWidget {
         ),
       if (knot)
         Positioned(
-          left: 0,
-          top: anchorY - 18,
+          left: -15,
+          top: anchorY - 28,
           child: IgnorePointer(
             child: Image.asset(
               NuancenC.knot,
-              width: 29,
-              height: 29,
+              width: 56,
+              height: 56,
               excludeFromSemantics: true,
             ),
           ),
         ),
     ],
   );
+}
+
+/// The source PNG contains 96% transparent width. A fixed 25x image slot keeps
+/// the visible silk at 7dp, independent of the relationship card's text height.
+class _NuancenSilkCord extends StatelessWidget {
+  const _NuancenSilkCord();
+
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, constraints) => ClipRect(
+      child: OverflowBox(
+        minWidth: constraints.maxWidth * 25,
+        maxWidth: constraints.maxWidth * 25,
+        minHeight: constraints.maxHeight * 1.06,
+        maxHeight: constraints.maxHeight * 1.06,
+        child: Image.asset(
+          NuancenC.cord,
+          fit: BoxFit.fill,
+          excludeFromSemantics: true,
+        ),
+      ),
+    ),
+  );
+}
+
+/// Native branch cues retain the authored coral/indigo relationship distinction.
+/// The original coral silk asset remains the continuous central spine.
+class _NuancenRelationBranch extends CustomPainter {
+  const _NuancenRelationBranch(this.color, this.anchorY);
+  final Color color;
+  final double anchorY;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final x = color == NuancenC.indigo ? 6.0 : 12.5;
+    final path = Path()
+      ..moveTo(x, 0)
+      ..lineTo(x, anchorY - 12)
+      ..quadraticBezierTo(x, anchorY, size.width, anchorY);
+    final paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round;
+    canvas.save();
+    canvas.translate(0, 2);
+    canvas.drawPath(
+      path,
+      paint
+        ..strokeWidth = 5
+        ..color = const Color(0x444b3520),
+    );
+    canvas.restore();
+    canvas.drawPath(
+      path,
+      paint
+        ..strokeWidth = 5
+        ..color = color,
+    );
+    canvas.drawPath(
+      path,
+      paint
+        ..strokeWidth = 1.2
+        ..color = Color.lerp(color, Colors.white, .4)!,
+    );
+  }
+
+  @override
+  bool shouldRepaint(_NuancenRelationBranch oldDelegate) =>
+      color != oldDelegate.color || anchorY != oldDelegate.anchorY;
 }
 
 class NuancenSpeaker extends StatelessWidget {

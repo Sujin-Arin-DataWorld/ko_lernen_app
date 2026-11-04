@@ -2977,6 +2977,16 @@ class AppL10nDe extends AppL10n {
       'Diese abgeschlossene Szene wird gespeichert…';
 
   @override
+  String get scenarioResultSavingTitle => 'Deine Szene wird gespeichert';
+
+  @override
+  String get scenarioResultSavingAction => 'Speichern …';
+
+  @override
+  String get scenarioResultSaveErrorTitle =>
+      'Deine Szene ist noch nicht gespeichert';
+
+  @override
   String get scenarioResultSaveRetry => 'Speichern erneut versuchen';
 
   @override

@@ -4,6 +4,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/widgets/sori/scenario_c.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/features/study_library/study_library.dart';
@@ -19,9 +20,7 @@ import 'package:ko_lernen_app/services/tts_service.dart' show TtsSpeechPhase;
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
-import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/badge.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
@@ -147,6 +146,8 @@ void main() {
         expect(find.text(retryLabel), findsOneWidget);
         expect(attempts, 1);
 
+        await tester.ensureVisible(find.text(retryLabel));
+        await tester.pump();
         await tester.tap(find.text(retryLabel));
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 100));
@@ -630,14 +631,19 @@ void main() {
           locale: locale,
         );
 
-        final expectedTitle = scenarioAirportArrivalFixture.title.pick(
-          locale.languageCode,
+        final t = AppL10n.of(tester.element(find.byType(ScenarioPlayerScreen)));
+        final expectedTitle = testCase.stage == ScenarioStage.vocab
+            ? t.scenarioVocabTitle
+            : testCase.stage == ScenarioStage.grammar
+            ? t.scenarioGrammarTitle
+            : '${ScenarioC.title(t)} · A1';
+        final appBar = tester.widget<ScenarioCHeader>(
+          find.byType(ScenarioCHeader),
         );
-        final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
         expect(appBar.title, expectedTitle);
         final title = tester.widget<Text>(
           find.descendant(
-            of: find.byType(SoriAppBar),
+            of: find.byType(ScenarioCHeader),
             matching: find.text(expectedTitle),
           ),
         );
@@ -703,7 +709,7 @@ void main() {
         );
         final actionButton = find.ancestor(
           of: action,
-          matching: find.byType(SoriButton),
+          matching: find.byType(ScenarioCGoldButton),
         );
         expect(tester.getSize(actionButton).width, lessThanOrEqualTo(720));
         expect(tester.takeException(), isNull);

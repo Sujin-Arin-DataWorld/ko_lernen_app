@@ -50,6 +50,7 @@ class SoriStudyFrame extends StatelessWidget {
     this.hero,
     this.homeEscape = const SoriHomeEscape(),
     this.onLeave,
+    this.onLeaveOwnsNavigation = false,
     this.bottom,
     this.adaptTitleAtNormalScale = false,
     this.titleBelowToolbar = false,
@@ -87,6 +88,7 @@ class SoriStudyFrame extends StatelessWidget {
   /// [SoriHomeEscape.confirmWhen]이면 확인 시트에서 "떠나기"를 고른 뒤,
   /// 아니면 즉시 호출된다.
   final VoidCallback? onLeave;
+  final bool onLeaveOwnsNavigation;
   final bool adaptTitleAtNormalScale;
   final bool titleBelowToolbar;
 
@@ -123,6 +125,7 @@ class SoriStudyFrame extends StatelessWidget {
       SoriHomeAction(
         escape: homeEscape,
         onLeave: onLeave,
+        onLeaveOwnsNavigation: onLeaveOwnsNavigation,
         content: homeContent,
       ),
       ...remainingActions,
@@ -130,6 +133,7 @@ class SoriStudyFrame extends StatelessWidget {
     final leading = SoriCloseAction(
       escape: homeEscape,
       onLeave: onLeave,
+      onLeaveOwnsNavigation: onLeaveOwnsNavigation,
       visual: leadingVisual,
     );
     final locked = StudyBodyInputLock.isLocked(context);
@@ -182,6 +186,7 @@ class SoriStudyFrame extends StatelessWidget {
           return;
         }
         onLeave?.call();
+        if (onLeaveOwnsNavigation) return;
         if (!context.mounted) return;
         Navigator.of(context).pop();
       },

@@ -38,6 +38,7 @@ class SoriHomeAction extends StatelessWidget {
     super.key,
     this.escape = const SoriHomeEscape(),
     this.onLeave,
+    this.onLeaveOwnsNavigation = false,
     this.content,
   });
 
@@ -47,6 +48,9 @@ class SoriHomeAction extends StatelessWidget {
   /// 타이머 정지 등 정리를 할 자리.
   final VoidCallback? onLeave;
 
+  /// Embedded flows may route from [onLeave] after the standard confirmation.
+  final bool onLeaveOwnsNavigation;
+
   /// Presentation only; the existing route and leave guard still own the action.
   final Widget? content;
 
@@ -55,6 +59,7 @@ class SoriHomeAction extends StatelessWidget {
       return;
     }
     onLeave?.call();
+    if (onLeaveOwnsNavigation) return;
     if (!context.mounted) return;
     if (LearningJourneyObserver.forContext(context)?.returnHome(context) ==
         true) {
@@ -104,6 +109,7 @@ class SoriCloseAction extends StatelessWidget {
     super.key,
     this.escape = const SoriHomeEscape(),
     this.onLeave,
+    this.onLeaveOwnsNavigation = false,
     this.visual,
   });
 
@@ -113,6 +119,9 @@ class SoriCloseAction extends StatelessWidget {
   /// 타이머 정지 등 정리를 할 자리.
   final VoidCallback? onLeave;
 
+  /// Embedded flows may route from [onLeave] after the standard confirmation.
+  final bool onLeaveOwnsNavigation;
+
   /// Presentation only; semantics, confirmation and close behavior stay here.
   final Widget? visual;
 
@@ -121,6 +130,7 @@ class SoriCloseAction extends StatelessWidget {
       return;
     }
     onLeave?.call();
+    if (onLeaveOwnsNavigation) return;
     if (!context.mounted) return;
     // `Navigator.maybePop`은 `Route.popDisposition`(PopScope의 `canPop`)을
     // 다시 묻는다 — [SoriStudyFrame]이 바로 이 `escape`로 자신을

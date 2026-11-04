@@ -137,6 +137,7 @@ flutter:
     - design_assets/hoeren/
     - design_assets/nuancen/
     - design_assets/grammar/
+    - design_assets/scenarios/
     - design_assets/fonts/Manrope/OFL.txt
     - assets/illustrations/c_listening/
     - assets/illustrations/einleitung_generated/

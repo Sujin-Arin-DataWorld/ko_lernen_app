@@ -35,36 +35,32 @@ import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
-import '../widgets/sori/app_bar.dart';
+import '../widgets/sori/scenario_c.dart';
 import '../widgets/sori/badge.dart';
+import '../widgets/sori/window_class.dart';
+import '../widgets/sori/approved_chrome_assets.dart';
+import '../widgets/sori/learning_stage_navigation.dart';
+import '../widgets/sori/c_gallery/c_materials.dart';
 import '../widgets/sori/mascot_preference.dart';
-import '../widgets/sori/button.dart';
-import '../widgets/sori/card.dart';
 import '../widgets/sori/can_do_result_card.dart';
 import '../widgets/sori/celebration.dart';
-import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/home_action.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/motion.dart' show SoriEntrance;
 import '../widgets/sori/pressable.dart';
-import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/window_class.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/scenario_write_after_roleplay_card.dart';
 import '../widgets/sori/persona_scene_intro.dart';
 import '../widgets/sori/persona_portrait.dart';
-import '../widgets/sori/persona_card_motion.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
-import '../widgets/sori/toast.dart';
 import '../widgets/sori/wordbook_add.dart';
 import 'quest_engines/hoerverstehen_quest.dart';
 import 'quest_engines/luecken_quest.dart';
@@ -382,54 +378,6 @@ double scenarioQuestPosterHeight({
   120.0,
 );
 
-class _QuestSegmentProgress extends StatelessWidget {
-  const _QuestSegmentProgress({
-    required this.current,
-    required this.total,
-    required this.semanticsLabel,
-  });
-
-  final int current;
-  final int total;
-  final String semanticsLabel;
-
-  @override
-  Widget build(BuildContext context) {
-    final surfaces = SoriSurfaces.of(context);
-    return Semantics(
-      label: semanticsLabel,
-      child: ExcludeSemantics(
-        child: Row(
-          children: [
-            for (var index = 0; index < total; index++) ...[
-              Expanded(
-                child: AnimatedContainer(
-                  duration: MediaQuery.disableAnimationsOf(context)
-                      ? Duration.zero
-                      : const Duration(milliseconds: 200),
-                  height: index == current ? 8 : 6,
-                  decoration: BoxDecoration(
-                    color: index < current
-                        ? SoriColors.primary
-                        : index == current
-                        ? SoriColors.primary.withAlpha(82)
-                        : surfaces.surfaceAlt,
-                    borderRadius: BorderRadius.circular(SoriRadius.sm),
-                    border: index == current
-                        ? Border.all(color: SoriColors.primary, width: 1.5)
-                        : null,
-                  ),
-                ),
-              ),
-              if (index < total - 1) const SizedBox(width: Spacing.xs),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 typedef ScenarioCompletionCallback =
     FutureOr<void> Function(ScenarioCompletionSummary summary);
 
@@ -565,6 +513,7 @@ class ScenarioPlayerPreviewFixture {
     this.missionTitle,
     this.onReturn,
     this.onRepeat,
+    this.resolvedGrammar = const [],
   }) : result = null;
 
   const ScenarioPlayerPreviewFixture.result({
@@ -574,10 +523,12 @@ class ScenarioPlayerPreviewFixture {
     this.missionTitle,
     this.onReturn,
     this.onRepeat,
-  }) : stage = ScenarioStage.result,
+  }) : resolvedGrammar = const [],
+       stage = ScenarioStage.result,
        questIndex = 0;
 
   final Scenario scenario;
+  final List<Grammar> resolvedGrammar;
   final ScenarioStage stage;
   final int questIndex;
   final ScenarioCanDoResult? result;
@@ -681,6 +632,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   // (지시서 4.5). ContentSpeechController 배선은 review_session_screen.dart
   // 선례를 그대로 따른다.
   final _speech = ContentSpeechController();
+  bool _speechStoppedForExit = false;
   // Quest-Indizes, die der Nutzer NICHT bestanden hat. Wird in _persistResult
   // konsumiert, um deren Ziel-Vokabeln SRS-mäßig herabzustufen (error-aware
   // review).
@@ -770,9 +722,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       }
       _missionStep = preview.missionStep;
       _missionTitle = preview.missionTitle;
+      _resolvedGrammar = preview.resolvedGrammar;
       _plan = buildScenarioStagePlan(
         hasRollenspiel: scenario.dialog.any((line) => line.speaker == 'user'),
-        hasGrammar: scenario.grammarBlock != null,
+        hasGrammar:
+            scenario.grammarBlock != null || _resolvedGrammar.isNotEmpty,
         questCount: scenario.quests.length,
       );
       final requestedIndex = preview.stage == ScenarioStage.result
@@ -810,7 +764,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   @override
   void deactivate() {
-    _speech.deactivate();
+    if (!_speechStoppedForExit) _speech.deactivate();
     super.deactivate();
   }
 
@@ -1024,6 +978,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   /// Resolved static scene poster for the current scenario. Prefers a
   /// dedicated per-scenario asset and falls back to the category backdrop.
+
   String? get _backdropPoster =>
       _scenario == null ? null : SceneAssetResolver.posterAsset(_scenario!);
 
@@ -1070,8 +1025,6 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     }
     return _scenario?.quests.length ?? 0;
   }
-
-  double get _progress => _totalStages <= 1 ? 0 : _stage / (_totalStages - 1);
 
   // ─── Navigation ────────────────────────────────────────────────────────────
 
@@ -1470,7 +1423,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     } catch (_) {
       if (!mounted) return;
       setState(() => _resultSaving = false);
-      soriToast(context, AppL10n.of(context).courseCheckpointSaveError);
+      // The result's live-region error is persistent. A floating toast would
+      // cover the fixed retry action and prevent an immediate second attempt.
     }
   }
 
@@ -1519,7 +1473,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   // ─── Stage-Widgets ─────────────────────────────────────────────────────────
 
-  Widget _buildIntro(AppL10n t, String lang) {
+  Widget _buildWideIntro(AppL10n t, String lang) {
     final s = _scenario!;
     final ss = SoriSurfaces.of(context);
     final missionStep = _missionStep;
@@ -1674,93 +1628,172 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     );
   }
 
-  Widget _buildVocab(AppL10n t, String lang) {
+  Widget _buildIntro(AppL10n t, String lang) {
+    if (MediaQuery.sizeOf(context).width >= 720) {
+      return _buildWideIntro(t, lang);
+    }
     final sc = _scenario!;
-    final ss = SoriSurfaces.of(context);
-    const vocabAccent = SoriColors.info;
-    return _StageScroll(
+    return SingleChildScrollView(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _StageTitle(t.scenarioVocabTitle, ss.textMuted),
-          const SizedBox(height: Spacing.lg),
-          ...sc.vocab.map(
-            (v) => Padding(
-              padding: const EdgeInsets.only(bottom: Spacing.md),
-              child: SoriCard(
-                variant: SoriCardVariant.base,
-                accent: vocabAccent,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          if (_missionStep != null)
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: MissionContextBar(
+                missionTitle: _missionTitle ?? t.courseMissionTitleShort,
+                step: _missionStep!,
+              ),
+            ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  sc.title.ko,
+                  style: ScenarioC.korean.copyWith(fontSize: 34),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  sc.title.pick(lang),
+                  style: ScenarioC.body.copyWith(
+                    fontSize: 19,
+                    color: ScenarioC.muted,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          const ScenarioCDivider(),
+          const SizedBox(height: 6),
+          ScenarioCHero(scenario: sc, height: 270, people: true),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(24, 16, 24, 12),
+            child: Text(
+              sc.intro.pick(lang),
+              style: ScenarioC.body.copyWith(fontSize: 17),
+            ),
+          ),
+          if (sc.id != ScenarioC.kitchenScene)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: SoriPersonaSceneIntro(scenario: sc),
+            ),
+          if (sc.playerCharacterId.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 28, 16, 12),
+              child: ScenarioCFold(
+                minHeight: 72,
+                child: Wrap(
+                  alignment: WrapAlignment.spaceBetween,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  spacing: 12,
+                  runSpacing: 8,
                   children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            v.korean,
-                            style: SoriTextTheme.of(
-                              context,
-                            ).koDisplay.copyWith(color: vocabAccent),
-                          ),
-                        ),
-                        IconButton(
-                          tooltip: t.ttsListen,
-                          constraints: const BoxConstraints.tightFor(
-                            width: Spacing.xxxl,
-                            height: Spacing.xxxl,
-                          ),
-                          onPressed: () {
-                            HapticService.selectionClick();
-                            SoriSpeech.speak(v.korean);
-                          },
-                          icon: const Icon(
-                            Icons.volume_up_rounded,
-                            color: vocabAccent,
-                            size: 22,
-                          ),
-                          style: IconButton.styleFrom(
-                            backgroundColor: vocabAccent.withValues(
-                              alpha: 0.12,
-                            ),
-                          ),
-                        ),
-                        // 시나리오 단어를 내 단어장에 담기.
-                        AddToWordbookButton(
-                          enabled: widget.previewFixture == null,
-                          korean: v.korean,
-                          translationDe: v.note?.de ?? '',
-                          translationEn: v.note?.en ?? '',
-                          compact: true,
-                        ),
-                      ],
+                    Text(
+                      '${t.scenarioAssignedRole}:',
+                      style: ScenarioC.body.copyWith(fontSize: 14),
                     ),
-                    if (v.aliases.isNotEmpty || v.variants.isNotEmpty) ...[
-                      const SizedBox(height: Spacing.xs),
-                      Wrap(
-                        spacing: Spacing.xs,
-                        runSpacing: Spacing.xs,
-                        children: [
-                          for (final alias in v.aliases)
-                            _MiniChip(
-                              alias,
-                              vocabAccent,
-                              foregroundColor: ss.textMuted,
-                            ),
-                          for (final variant in v.variants)
-                            _MiniChip(variant, ss.textMuted),
-                        ],
+                    Text(
+                      sc.playerRoleDisplayName(
+                        languageCode: lang,
+                        fallbackYou: t.listeningSpeakerYou,
                       ),
-                    ],
-                    if (v.note != null) ...[
-                      const SizedBox(height: Spacing.sm),
-                      Text(
-                        v.note!.pick(lang),
-                        style: SoriTextTheme.of(context).bodySmall,
+                      style: ScenarioC.heading.copyWith(
+                        fontSize: 20,
+                        color: ScenarioC.jade,
                       ),
-                    ],
+                    ),
                   ],
                 ),
               ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildVocab(AppL10n t, String lang) {
+    final sc = _scenario!;
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ScenarioCHero(scenario: sc, height: 114),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
+            child: Column(
+              children: [
+                for (final v in sc.vocab)
+                  ScenarioCFold(
+                    minHeight: 78,
+                    padding: const EdgeInsets.fromLTRB(22, 12, 8, 32),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                v.korean,
+                                style: ScenarioC.korean.copyWith(fontSize: 28),
+                              ),
+                            ),
+                            IconButton(
+                              tooltip: t.ttsListen,
+                              constraints: const BoxConstraints.tightFor(
+                                width: 48,
+                                height: 48,
+                              ),
+                              onPressed: () {
+                                HapticService.selectionClick();
+                                SoriSpeech.speak(v.korean);
+                              },
+                              style: IconButton.styleFrom(
+                                backgroundColor: ScenarioC.paper,
+                                foregroundColor: ScenarioC.ink,
+                                side: const BorderSide(color: ScenarioC.brass),
+                              ),
+                              icon: const Icon(Icons.volume_up_rounded),
+                            ),
+                            SizedBox(
+                              width: 48,
+                              height: 48,
+                              child: AddToWordbookButton(
+                                enabled: widget.previewFixture == null,
+                                korean: v.korean,
+                                translationDe: v.note?.de ?? '',
+                                translationEn: v.note?.en ?? '',
+                                compact: true,
+                              ),
+                            ),
+                          ],
+                        ),
+                        if (v.aliases.isNotEmpty || v.variants.isNotEmpty)
+                          Wrap(
+                            spacing: 4,
+                            runSpacing: 4,
+                            children: [
+                              for (final alias in v.aliases)
+                                _MiniChip(alias, ScenarioC.jade),
+                              for (final variant in v.variants)
+                                _MiniChip(variant, ScenarioC.muted),
+                            ],
+                          ),
+                        if (v.note != null)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 4),
+                            child: Text(
+                              v.note!.pick(lang),
+                              style: ScenarioC.body,
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+              ],
             ),
           ),
         ],
@@ -1785,293 +1818,182 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   Widget _buildDialog(AppL10n t, String lang) {
     final sc = _scenario!;
-    final ss = SoriSurfaces.of(context);
-    return _StageScroll(
+    return SingleChildScrollView(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _StageTitle(t.scenarioDialogTitle, SoriColors.success),
-          const SizedBox(height: Spacing.sm),
-          // 재생 속도 조절 — 전역 배수 컨트롤 (모든 화면과 공유·영속).
-          const TtsSpeedControl(mode: TtsSpeedControlMode.row),
-          const SizedBox(height: Spacing.lg),
-          ...sc.dialog.asMap().entries.map((entry) {
-            final index = entry.key;
-            final line = entry.value;
-            final isUser = line.speaker == 'user';
-            final isNarrator = line.speaker == 'narrator';
-            final bubbleAccent = _speakerAccent(line.speaker);
-            // 첫 대사만 진입 시 자동재생된다(_autoPlayDialogEntry, 지시서
-            // 4.5) — WCAG 1.4.2는 3초 넘는 자동재생에 정지 수단을
-            // 요구하므로, 그 문장에만 탭=정지가 가능한
-            // SoriSpeechIndicator를 배선한다(자동재생과 같은 텍스트·
-            // 보이스). 다른 줄은 기존 카드 전체 탭 재생만 유지 — 중복
-            // 컨트롤을 만들지 않는다.
-            final isAutoPlayTarget = index == 0;
+          ScenarioCHero(scenario: sc, height: 112, people: true),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: ScenarioCSpeedControl(),
+            ),
+          ),
+          for (final entry in sc.dialog.asMap().entries)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(12, 0, 12, 6),
+              child: Builder(
+                builder: (context) {
+                  final line = entry.value;
+                  Widget bubble(TtsSpeechPhase? phase) {
+                    final active =
+                        entry.key == 0 && phase != TtsSpeechPhase.idle;
+                    void speak() {
+                      HapticService.selectionClick();
+                      if (active) {
+                        SoriSpeech.stop();
+                      } else {
+                        SoriSpeech.speak(
+                          line.ko,
+                          voice: sc.voiceForSpeaker(line.speaker),
+                        );
+                      }
+                    }
 
-            return Padding(
-              padding: const EdgeInsets.only(bottom: Spacing.md),
-              child: SoriPersonaCardMotion(
-                index: index,
-                depth: false,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: isUser
-                      ? MainAxisAlignment.end
-                      : MainAxisAlignment.start,
-                  children: [
-                    if (!isUser) ...[
-                      _speakerAvatar(line.speaker, size: 40),
-                      const SizedBox(width: Spacing.sm),
-                    ],
-                    Flexible(
-                      child: isNarrator
-                          ? (isAutoPlayTarget
-                                ? Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      SoriSpeechIndicator(
-                                        text: line.ko,
-                                        voice: sc.voiceForSpeaker(line.speaker),
-                                      ),
-                                      const SizedBox(width: Spacing.xs),
-                                      Expanded(
-                                        child: Text(
-                                          line.ko,
-                                          style: SoriTextTheme.of(context)
-                                              .bodySmall
-                                              .copyWith(
-                                                fontStyle: FontStyle.italic,
-                                              ),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                : SoriSpeakable(
-                                    text: line.ko,
-                                    voice: 'male',
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: Spacing.xs,
-                                      ),
-                                      child: Text(
-                                        line.ko,
-                                        style: SoriTextTheme.of(context)
-                                            .bodySmall
-                                            .copyWith(
-                                              fontStyle: FontStyle.italic,
-                                            ),
-                                      ),
+                    return ScenarioCFold(
+                      semanticLabel: '${t.ttsListen}: ${line.ko}',
+                      semanticValue: phase == null
+                          ? null
+                          : switch (phase) {
+                              TtsSpeechPhase.idle => t.speechIndicatorIdle,
+                              TtsSpeechPhase.resolving =>
+                                t.speechIndicatorResolving,
+                              TtsSpeechPhase.speaking =>
+                                t.speechIndicatorSpeaking,
+                            },
+                      onTap: speak,
+                      padding: const EdgeInsets.fromLTRB(18, 10, 10, 32),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          if (sc.id != ScenarioC.kitchenScene) ...[
+                            _speakerAvatar(line.speaker, size: 36),
+                            const SizedBox(width: 8),
+                          ],
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  sc.speakerDisplayName(
+                                    line.speaker,
+                                    languageCode: lang,
+                                    fallbackYou: t.listeningSpeakerYou,
+                                    fallbackNarrator: t.listeningNarrator,
+                                  ),
+                                  style: ScenarioC.heading.copyWith(
+                                    fontSize: 13,
+                                    color: line.speaker == 'user'
+                                        ? const Color(0xff784f31)
+                                        : ScenarioC.jade,
+                                  ),
+                                ),
+                                const SizedBox(height: 3),
+                                Text(
+                                  line.ko,
+                                  style: ScenarioC.korean.copyWith(
+                                    fontSize: 20,
+                                  ),
+                                ),
+                                if (line.pick(lang).isNotEmpty) ...[
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    line.pick(lang),
+                                    style: ScenarioC.body.copyWith(
+                                      fontSize: 14,
                                     ),
-                                  ))
-                          : Builder(
-                              builder: (context) {
-                                // 자동재생 대상 줄은 카드 하나가 유일한
-                                // 컨트롤이다(리뷰 High — WCAG 4.1.2). 예전엔
-                                // 카드(재생 전용) 안에 SoriSpeechIndicator
-                                // (재생/정지 토글)를 또 넣어 같은 위치에 버튼
-                                // 시맨틱이 중첩됐다. 카드의 onTap을 토글로
-                                // 바꾸고, 상태는 카드의 semanticValue로,
-                                // 아이콘은 장식으로만 반영한다. 다른 줄은
-                                // 기존 "버블 전체 탭=재생" 그대로 둔다.
-                                Widget buildBubbleCard(TtsSpeechPhase? phase) {
-                                  final isActive =
-                                      isAutoPlayTarget &&
-                                      phase != null &&
-                                      phase != TtsSpeechPhase.idle;
-                                  final semanticsValue = isAutoPlayTarget
-                                      ? switch (phase!) {
-                                          TtsSpeechPhase.idle =>
-                                            t.speechIndicatorIdle,
-                                          TtsSpeechPhase.resolving =>
-                                            t.speechIndicatorResolving,
-                                          TtsSpeechPhase.speaking =>
-                                            t.speechIndicatorSpeaking,
-                                        }
-                                      : null;
-                                  final trailingIcon = isAutoPlayTarget
-                                      ? switch (phase!) {
-                                          TtsSpeechPhase.idle =>
-                                            Icons.volume_up_rounded,
-                                          TtsSpeechPhase.resolving =>
-                                            Icons.hourglass_top_rounded,
-                                          TtsSpeechPhase.speaking =>
-                                            Icons.graphic_eq_rounded,
-                                        }
-                                      : Icons.volume_up_rounded;
-
-                                  return SoriPersonaCardMotion(
-                                    entrance: false,
-                                    interactive: true,
-                                    child: SoriCard(
-                                      variant: SoriCardVariant.compact,
-                                      accent: bubbleAccent,
-                                      tinted: isUser,
-                                      semanticLabel:
-                                          '${t.ttsListen}: ${line.ko}',
-                                      semanticValue: semanticsValue,
-                                      // 스피커 아이콘뿐 아니라 **버블 전체**를
-                                      // 탭하면 재생(자동재생 대상 줄은 재생
-                                      // 중이면 정지 — WCAG 1.4.2). SoriCard.onTap
-                                      // 이 SoriPressable+버튼 시맨틱으로 감싼다.
-                                      onTap: () {
-                                        HapticService.selectionClick();
-                                        if (isActive) {
-                                          SoriSpeech.stop();
-                                        } else {
-                                          SoriSpeech.speak(
-                                            line.ko,
-                                            voice: sc.voiceForSpeaker(
-                                              line.speaker,
-                                            ),
-                                          );
-                                        }
-                                      },
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            sc.speakerDisplayName(
-                                              line.speaker,
-                                              languageCode:
-                                                  Localizations.localeOf(
-                                                    context,
-                                                  ).languageCode,
-                                              fallbackYou:
-                                                  t.listeningSpeakerYou,
-                                              fallbackNarrator:
-                                                  t.listeningNarrator,
-                                            ),
-                                            style: SoriTextTheme.of(context)
-                                                .meta
-                                                .copyWith(
-                                                  color: bubbleAccent,
-                                                  fontWeight: FontWeight.w700,
-                                                ),
-                                          ),
-                                          const SizedBox(height: Spacing.xs),
-                                          Text(
-                                            line.ko,
-                                            style: SoriTextTheme.of(
-                                              context,
-                                            ).h3.copyWith(color: ss.text),
-                                          ),
-                                          if (line.pick(lang).isNotEmpty) ...[
-                                            const SizedBox(height: Spacing.xs),
-                                            Text(
-                                              line.pick(lang),
-                                              style: SoriTextTheme.of(context)
-                                                  .bodySmall
-                                                  .copyWith(color: ss.textDim),
-                                            ),
-                                          ],
-                                          const SizedBox(height: Spacing.xs),
-                                          // 대사를 내 단어장에 담기(§9-2: 책갈피만,
-                                          // 하트 없음). AddToWordbookButton 은
-                                          // 자체 IconButton으로 탭을 소비하므로
-                                          // 카드 전체의 onTap(재생) 아레나로
-                                          // 전파되지 않는다.
-                                          //
-                                          // 대사 한 줄은 문장이다 —
-                                          // smalltalk_screen.dart `_savePhrase`와
-                                          // 같은 typed bookmark 경로(itemType:
-                                          // sentence)로 저장하고 활성 로케일을
-                                          // 넘긴다(PR2 리뷰 Important 3-a/3-b).
-                                          // semanticLabel은 줄마다 다른 접근성
-                                          // 이름을 붙인다 — 카드가 여럿이면 같은
-                                          // 이름의 버튼이 여러 개 뜨는 문제(a11y
-                                          // HIGH, WCAG 4.1.2).
-                                          Row(
-                                            children: [
-                                              // 장식용 듣기 아이콘은 본문 아래에 둬서
-                                              // 긴 문장에 카드 전체 너비를 준다.
-                                              ExcludeSemantics(
-                                                child: Icon(
-                                                  trailingIcon,
-                                                  color: bubbleAccent
-                                                      .withValues(alpha: 0.7),
-                                                  size: 18,
-                                                ),
-                                              ),
-                                              const Spacer(),
-                                              AddToWordbookButton(
-                                                enabled:
-                                                    widget.previewFixture ==
-                                                    null,
-                                                compact: true,
-                                                korean: line.ko,
-                                                translationDe: line.de,
-                                                translationEn: line.en,
-                                                translationLanguage: lang,
-                                                itemType: StudyLibraryItemType
-                                                    .sentence,
-                                                itemId: line.ko,
-                                                sourceUnitId: sc.id,
-                                                source: 'scenario_player',
-                                                semanticLabel:
-                                                    '${t.wbAddTooltip}: ${line.ko}',
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  );
-                                }
-
-                                if (!isAutoPlayTarget) {
-                                  return buildBubbleCard(null);
-                                }
-                                return ValueListenableBuilder<TtsSpeechPhase>(
-                                  valueListenable: SoriSpeech.phase,
-                                  builder: (context, phase, _) =>
-                                      buildBubbleCard(phase),
-                                );
-                              },
+                                  ),
+                                ],
+                              ],
                             ),
-                    ),
-                    if (isUser) ...[
-                      const SizedBox(width: Spacing.sm),
-                      _speakerAvatar(line.speaker, size: 40),
-                    ],
-                  ],
-                ),
+                          ),
+                          const SizedBox(width: 8),
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              ScenarioCAudioDisc(
+                                icon: active
+                                    ? Icons.stop_rounded
+                                    : Icons.volume_up_rounded,
+                              ),
+                              SizedBox(
+                                width: 48,
+                                height: 48,
+                                child: AddToWordbookButton(
+                                  enabled: widget.previewFixture == null,
+                                  compact: true,
+                                  korean: line.ko,
+                                  translationDe: line.de,
+                                  translationEn: line.en,
+                                  translationLanguage: lang,
+                                  itemType: StudyLibraryItemType.sentence,
+                                  itemId: line.ko,
+                                  sourceUnitId: sc.id,
+                                  source: 'scenario_player',
+                                  semanticLabel:
+                                      '${t.wbAddTooltip}: ${line.ko}',
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+
+                  return entry.key != 0
+                      ? bubble(null)
+                      : ValueListenableBuilder<TtsSpeechPhase>(
+                          valueListenable: SoriSpeech.phase,
+                          builder: (_, phase, __) => bubble(phase),
+                        );
+                },
               ),
-            );
-          }),
+            ),
         ],
       ),
     );
   }
 
   Widget _buildGrammar(AppL10n t, String lang) {
-    const grammarAccent = SoriColors.primary;
     final resolved = _resolvedGrammar;
     final inline = _scenario!.grammarBlock;
-    return _StageScroll(
+    return SingleChildScrollView(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _StageTitle(t.scenarioGrammarTitle, grammarAccent),
-          const SizedBox(height: Spacing.lg),
-          if (resolved.length == 1)
-            _ScenarioGrammarExpandedCard(
-              grammar: resolved.single,
-              language: lang,
-            )
-          else if (resolved.length > 1)
-            for (var index = 0; index < resolved.length; index++) ...[
-              _ScenarioGrammarSummaryCard(
-                grammar: resolved[index],
-                language: lang,
-              ),
-              if (index + 1 < resolved.length)
-                const SizedBox(height: Spacing.md),
-            ]
-          else if (inline != null)
-            _ScenarioInlineGrammarCard(block: inline, language: lang),
+          SizedBox(
+            height: 62,
+            child: OverflowBox(
+              alignment: Alignment.topCenter,
+              maxHeight: 100,
+              child: ScenarioCHero(scenario: _scenario!, height: 100),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 0, 8, 12),
+            child: Column(
+              children: [
+                if (resolved.length == 1)
+                  _ScenarioGrammarExpandedCard(
+                    grammar: resolved.single,
+                    language: lang,
+                  )
+                else if (resolved.length > 1)
+                  for (final grammar in resolved)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 12),
+                      child: _ScenarioGrammarSummaryCard(
+                        grammar: grammar,
+                        language: lang,
+                      ),
+                    )
+                else if (inline != null)
+                  _ScenarioInlineGrammarCard(block: inline, language: lang),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -2210,13 +2132,6 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     //
     // Die `PageView` gibt jeder Seite eine feste Höhe, also ist die Höhe hier
     // begrenzt. Zu langer Inhalt scrollt innerhalb von `QuestLayout`.
-    final pad = soriClampPadding(
-      MediaQuery.sizeOf(context).width,
-      base: const EdgeInsets.symmetric(
-        horizontal: Spacing.lg,
-        vertical: Spacing.sm,
-      ),
-    );
     final media = MediaQuery.of(context);
     final textScale = media.textScaler.scale(1);
     final basePosterHeight = scenarioQuestPosterHeight(
@@ -2230,50 +2145,27 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       basePosterHeight,
     );
     return Padding(
-      padding: pad,
+      padding: const EdgeInsets.only(bottom: 24),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (_backdropPoster case final poster?) ...[
-            Semantics(
-              image: true,
-              label: _scenario!.title.pick(
-                Localizations.localeOf(context).languageCode,
-              ),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.vertical(
-                  bottom: Radius.circular(SoriRadius.lg),
-                ),
-                child: AnimatedContainer(
-                  duration: MediaQuery.disableAnimationsOf(context)
-                      ? Duration.zero
-                      : const Duration(milliseconds: 180),
-                  curve: Curves.easeOut,
-                  width: double.infinity,
-                  height: posterHeight,
-                  child: Image.asset(
-                    poster,
-                    fit: BoxFit.cover,
-                    alignment: Alignment.center,
-                    errorBuilder: (_, __, ___) => const SizedBox.shrink(),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: Spacing.sm),
-          ],
-          Text(
-            _questTypeLabel(spec.type, t),
-            style: SoriTextTheme.of(context).label.copyWith(
-              color: SoriColors.primary,
-              fontWeight: FontWeight.w700,
+          ScenarioCHero(scenario: scenario, height: posterHeight),
+          const SizedBox(height: 8),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Text(
+              _questTypeLabel(spec.type, t),
+              style: ScenarioC.heading,
             ),
           ),
           const SizedBox(height: Spacing.xs),
           Expanded(
             child: NotificationListener<ScrollMetricsNotification>(
               onNotification: _absorbQuestOverflowIntoPoster,
-              child: questWidget,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: questWidget,
+              ),
             ),
           ),
         ],
@@ -2324,61 +2216,79 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   Widget _buildResult(AppL10n t, String lang) {
     final scenario = _scenario!;
-    final score = _resultScore(scenario);
 
     if (_resultPersisted) {
       return _buildSavedResult(t, scenario, lang);
     }
 
-    return _StageScroll(
-      fill: true,
+    return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const SizedBox(height: Spacing.xl),
-          Text(
-            t.scenarioSavedEyebrow,
-            style: SoriTextTheme.of(
-              context,
-            ).label.copyWith(color: SoriColors.primary),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
+            child: Text(
+              _resultSaving
+                  ? t.scenarioResultSavingTitle
+                  : t.scenarioResultSaveErrorTitle,
+              style: ScenarioC.heading.copyWith(fontSize: 28),
+            ),
           ),
-          const SizedBox(height: Spacing.sm),
-          Text(t.scenarioResultSaving, style: SoriTextTheme.of(context).h1),
-          const SizedBox(height: Spacing.lg),
-          SoriCard(
-            variant: SoriCardVariant.base,
-            accent: SoriColors.primary,
-            tinted: true,
-            child: Row(
-              children: [
-                if (_resultSaving)
-                  const SizedBox.square(
-                    dimension: 24,
-                    child: CircularProgressIndicator(strokeWidth: 2),
+          ScenarioCHero(scenario: scenario, height: 184, people: true),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: ScenarioCFold(
+              child: Row(
+                children: [
+                  if (_resultSaving)
+                    const SizedBox.square(
+                      dimension: 24,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  else
+                    const Icon(
+                      Icons.sync_problem_outlined,
+                      color: SoriColors.primary,
+                    ),
+                  const SizedBox(width: Spacing.md),
+                  Expanded(
+                    child: Semantics(
+                      liveRegion: true,
+                      child: Text(
+                        _resultSaving
+                            ? t.scenarioResultSaving
+                            : t.courseCheckpointSaveError,
+                        style: ScenarioC.body,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          if (scenario.dialog
+                  .where(
+                    (line) =>
+                        line.speaker == 'user' && line.ko.trim().isNotEmpty,
                   )
-                else
-                  const Icon(
-                    Icons.sync_problem_outlined,
-                    color: SoriColors.primary,
-                  ),
-                const SizedBox(width: Spacing.md),
-                Expanded(
-                  child: Text(
-                    t.scenarioResultSaving,
-                    style: SoriTextTheme.of(context).body,
-                  ),
+                  .firstOrNull
+              case final line?)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+              child: ScenarioCFold(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      t.scenarioSavedPhrase,
+                      style: ScenarioC.body.copyWith(fontSize: 14),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(line.ko, style: ScenarioC.korean),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
-          if (!_resultSaving) ...[
-            const SizedBox(height: Spacing.md),
-            SoriButton.outlined(
-              label: t.scenarioResultSaveRetry,
-              fullWidth: true,
-              onTap: () => _complete(score.stars, score.earnedXp),
-            ),
-          ],
         ],
       ),
     );
@@ -2398,92 +2308,85 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     phrase ??= scenario.vocab.isNotEmpty ? scenario.vocab.first.korean : null;
     final grammar = scenario.grammarBlock?.title.pick(lang);
 
-    return _StageScroll(
-      fill: true,
+    return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const SizedBox(height: Spacing.xl),
-          Text(
-            t.scenarioSavedEyebrow,
-            style: SoriTextTheme.of(
-              context,
-            ).label.copyWith(color: SoriColors.primary),
-          ),
-          const SizedBox(height: Spacing.sm),
-          Text(t.scenarioSavedTitle, style: SoriTextTheme.of(context).h1),
-          const SizedBox(height: Spacing.lg),
-          if (_canDoResult case final result?) ...[
-            CanDoResultCard(result: result),
-            const SizedBox(height: Spacing.md),
-            ScenarioStructureResultCard(result: result),
-            const SizedBox(height: Spacing.md),
-          ],
-          if (feedbackScope != null && feedbackScope.featureGate.isEnabled) ...[
-            ContentFeedbackCard(
-              feedbackContext: feedbackCompletion.context,
-              featureGate: feedbackScope.featureGate,
-              submitFeedback: feedbackScope.submitFeedback,
-              mascotKind: MascotPreference.selectedKind,
-              completedMissionIds: feedbackScope.completedMissionIds,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(t.scenarioSavedEyebrow, style: ScenarioC.heading),
+                const SizedBox(height: 16),
+                Text(
+                  t.scenarioSavedTitle,
+                  style: ScenarioC.body.copyWith(fontSize: 18),
+                ),
+              ],
             ),
-            const SizedBox(height: Spacing.md),
-          ],
-          if (phrase != null)
-            SoriCard(
-              variant: SoriCardVariant.base,
-              accent: SoriColors.primary,
-              tinted: true,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    t.scenarioSavedPhrase,
-                    style: SoriTextTheme.of(context).label,
+          ),
+          ScenarioCHero(scenario: scenario, height: 184, people: true),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 14, 16, 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                if (phrase != null)
+                  ScenarioCFold(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          t.scenarioSavedPhrase,
+                          style: ScenarioC.body.copyWith(fontSize: 14),
+                        ),
+                        const SizedBox(height: 6),
+                        Text(phrase, style: ScenarioC.korean),
+                      ],
+                    ),
                   ),
-                  const SizedBox(height: Spacing.xs),
-                  Text(phrase, style: SoriTextTheme.of(context).h2),
+                const SizedBox(height: 12),
+                if (_canDoResult case final result?) ...[
+                  CanDoResultCard(result: result),
+                  const SizedBox(height: Spacing.md),
+                  ScenarioStructureResultCard(result: result),
+                  const SizedBox(height: Spacing.md),
                 ],
-              ),
-            ),
-          if (grammar != null && grammar.isNotEmpty) ...[
-            const SizedBox(height: Spacing.md),
-            SoriCard(
-              variant: SoriCardVariant.compact,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    t.scenarioSavedStructure,
-                    style: SoriTextTheme.of(context).label,
+                if (feedbackScope != null &&
+                    feedbackScope.featureGate.isEnabled) ...[
+                  ContentFeedbackCard(
+                    feedbackContext: feedbackCompletion.context,
+                    featureGate: feedbackScope.featureGate,
+                    submitFeedback: feedbackScope.submitFeedback,
+                    mascotKind: MascotPreference.selectedKind,
+                    completedMissionIds: feedbackScope.completedMissionIds,
                   ),
-                  const SizedBox(height: Spacing.xs),
-                  Text(grammar, style: SoriTextTheme.of(context).body),
+                  const SizedBox(height: Spacing.md),
                 ],
-              ),
+                if (grammar != null && grammar.isNotEmpty) ...[
+                  const SizedBox(height: Spacing.md),
+                  ScenarioCFold(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          t.scenarioSavedStructure,
+                          style: ScenarioC.body.copyWith(fontSize: 14),
+                        ),
+                        const SizedBox(height: Spacing.xs),
+                        Text(grammar, style: ScenarioC.body),
+                      ],
+                    ),
+                  ),
+                ],
+                const SizedBox(height: Spacing.md),
+                Text(
+                  t.scenarioSavedEmpty,
+                  style: ScenarioC.body.copyWith(fontSize: 14),
+                ),
+              ],
             ),
-          ],
-          const SizedBox(height: Spacing.md),
-          Text(
-            t.scenarioSavedEmpty,
-            style: SoriTextTheme.of(context).bodySmall,
-          ),
-          const SizedBox(height: Spacing.xl),
-          SoriButton.filled(
-            label: t.scenarioSavedReturnHanok,
-            fullWidth: true,
-            onTap: widget.previewFixture == null
-                ? () => Navigator.of(context).pushReplacementNamed('/hanok')
-                : widget.previewFixture!.onReturn,
-          ),
-          const SizedBox(height: Spacing.xs),
-          TextButton(
-            onPressed: widget.previewFixture == null
-                ? () => Navigator.of(
-                    context,
-                  ).pushReplacementNamed('/scenario', arguments: scenario.id)
-                : widget.previewFixture!.onRepeat,
-            child: Text(t.scenarioSavedRepeat),
           ),
         ],
       ),
@@ -2560,7 +2463,59 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   // ─── Bottom Button ─────────────────────────────────────────────────────────
 
   Widget _buildBottomBar(AppL10n t) {
-    if (_isResultStage) return const SizedBox.shrink();
+    if (_isResultStage) {
+      final score = _resultScore(_scenario!);
+      return Padding(
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                if (_resultPersisted) ...[
+                  ScenarioCFold(
+                    minHeight: 48,
+                    semanticLabel: t.scenarioSavedRepeat,
+                    onTap: widget.previewFixture == null
+                        ? () => Navigator.of(context).pushReplacementNamed(
+                            '/scenario',
+                            arguments: _scenario!.id,
+                          )
+                        : widget.previewFixture!.onRepeat,
+                    child: Text(
+                      t.scenarioSavedRepeat,
+                      textAlign: TextAlign.center,
+                      style: ScenarioC.body.copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                ],
+                ScenarioCGoldButton(
+                  label: _resultPersisted
+                      ? t.scenarioSavedReturnHanok
+                      : _resultSaving
+                      ? t.scenarioResultSavingAction
+                      : t.scenarioResultSaveRetry,
+                  onTap: _resultPersisted
+                      ? widget.previewFixture == null
+                            ? () => Navigator.of(
+                                context,
+                              ).pushReplacementNamed('/hanok')
+                            : widget.previewFixture!.onReturn
+                      : _resultSaving
+                      ? null
+                      : () => _complete(score.stars, score.earnedXp),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
     // 퀘스트 단계에서는 퀘스트가 자기 CTA(Überprüfen 등)를 직접 그린다.
     // 완료 전까지 시나리오의 Weiter 는 **숨긴다** — 비활성으로 남겨두면 한
     // 화면에 CTA 가 두 개가 되고 아래쪽은 눌리지 않는 죽은 버튼으로 보인다
@@ -2582,22 +2537,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     final enabled = _questReady;
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(
-        Spacing.xl,
-        0,
-        Spacing.xl,
-        Spacing.xxl,
-      ),
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
       child: Center(
         child: ConstrainedBox(
-          constraints: BoxConstraints(
-            maxWidth: isIntro ? 720 : double.infinity,
-          ),
-          child: SoriButton.filled(
+          constraints: const BoxConstraints(maxWidth: 720),
+          child: ScenarioCGoldButton(
             key: _nextBtnKey,
             label: isIntro ? t.scenarioStartBtn : t.scenarioNextBtn,
-            accent: SoriColors.contentCta,
-            fullWidth: true,
             onTap: enabled ? _next : null,
           ),
         ),
@@ -2638,9 +2584,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       // 의미가 없다 — 확인 없이 닫히되, onExit(온보딩 임베딩)이 있으면
       // §_withExitScope 가 시스템 백도 그리로 돌린다.
       return _withExitScope(
-        SoriStudyFrame(
-          title: t.scenariosListTitle,
+        ScenarioCFrame(
+          title: ScenarioC.title(t),
           onLeave: _onExitCleanup,
+          onLeaveOwnsNavigation: widget.onExit != null,
+          onDestinationSelected: widget.onExit == null ? null : (_) {},
           padding: EdgeInsets.zero,
           child: _scenario != null
               ? const SoriQuestEmptyState()
@@ -2661,26 +2609,18 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         : null;
     final interactionBlocked =
         evidenceRecovery != null || !_loadLifecycle.canContinue;
-    final playerBody = SoriScreenBackground(
+    final wooden =
+        _plan[_stage] == ScenarioStage.dialog ||
+        _plan[_stage] == ScenarioStage.vocab ||
+        _plan[_stage] == ScenarioStage.grammar ||
+        _isQuestStage;
+    final playerBody = ScenarioCBackground(
+      wooden: wooden,
       child: Stack(
         children: [
-          if (_backdropPoster != null &&
-              _stage != 0 &&
-              !_isQuestStage &&
-              !_isRoleplayStage)
-            Positioned.fill(
-              child: IgnorePointer(
-                child: Opacity(
-                  opacity: 0.08,
-                  child: Image.asset(
-                    _backdropPoster!,
-                    fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => const SizedBox.shrink(),
-                  ),
-                ),
-              ),
-            ),
           SafeArea(
+            top: false,
+            bottom: false,
             child: Column(
               children: [
                 if (_stage != 0 && _missionStep != null)
@@ -2719,50 +2659,37 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       ),
     );
     final scaffold = Scaffold(
-      appBar: SoriAppBar(
-        title: _scenario!.title.pick(lang),
-        eyebrow: _usesSegmentHeader
-            ? t.scenarioQuestProgress(_segmentCurrent + 1, _segmentTotal)
-            : null,
-        textScale: MediaQuery.textScalerOf(context).scale(1),
-        viewportWidth: MediaQuery.sizeOf(context).width,
-        adaptTitleAtNormalScale: true,
+      appBar: ScenarioCHeader(
+        title: _plan[_stage] == ScenarioStage.vocab
+            ? t.scenarioVocabTitle
+            : _plan[_stage] == ScenarioStage.grammar
+            ? t.scenarioGrammarTitle
+            : '${ScenarioC.title(t)} · ${_scenario!.level.display}',
         leading: _scenarioExitButton(),
-        automaticallyImplyLeading: false,
-        actions: [
-          SoriHomeAction(
+        home: AbsorbPointer(
+          absorbing: interactionBlocked,
+          child: SoriHomeAction(
             escape: SoriHomeEscape(confirmWhen: _stage > 0 && !_isResultStage),
-            onLeave: () {
-              retireStudyEvidence();
-              _loadLifecycle.requestExit();
-            },
-          ),
-        ],
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(12),
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(
-              Spacing.lg,
-              0,
-              Spacing.lg,
-              Spacing.xs,
+            content: const ApprovedChromeImage(
+              asset: 'design_assets/hoeren/home-c-v1.png',
+              size: 44,
             ),
-            child: _usesSegmentHeader
-                ? _QuestSegmentProgress(
-                    current: _segmentCurrent,
-                    total: _segmentTotal,
-                    semanticsLabel: t.scenarioQuestProgress(
-                      _segmentCurrent + 1,
-                      _segmentTotal,
-                    ),
-                  )
-                : SoriProgressBar(
-                    value: _progress,
-                    thickness: 6,
-                    animated: true,
-                  ),
+            onLeave: _onExitCleanup,
+            onLeaveOwnsNavigation: widget.onExit != null,
           ),
         ),
+        width: MediaQuery.sizeOf(context).width,
+        textScaler: MediaQuery.textScalerOf(context),
+        progressLabel: _usesSegmentHeader
+            ? t.scenarioQuestProgress(_segmentCurrent + 1, _segmentTotal)
+            : null,
+      ),
+      bottomNavigationBar: SoriLearningStageNavigation(
+        escape: SoriHomeEscape(confirmWhen: _stage > 0 && !_isResultStage),
+        enabled: !interactionBlocked && !_resultSaving,
+        canLeave: () => _loadLifecycle.canContinue && !_resultSaving,
+        onLeave: _onExitCleanup,
+        onDestinationSelected: widget.onExit == null ? null : (_) {},
       ),
       body: Stack(
         fit: StackFit.expand,
@@ -2792,7 +2719,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         ],
       ),
     );
-    return _withExitScope(scaffold);
+    return ScenarioCTheme(child: _withExitScope(scaffold));
   }
 
   /// §B2(2026-09-03) — 프레임 밖 화면(본문 상태의 raw Scaffold)이 직접
@@ -2817,7 +2744,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             child: const SizedBox(
               width: SoriLayout.chromeRowTouchHeight,
               height: SoriLayout.chromeRowTouchHeight,
-              child: Icon(Icons.close_rounded),
+              child: Icon(Icons.chevron_left, color: ScenarioC.paper, size: 32),
             ),
           ),
         ),
@@ -2866,6 +2793,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     }
     retireStudyEvidence();
     final onExit = widget.onExit;
+    _speechStoppedForExit = true;
+    _speech.unsubscribe();
+    _speech.deactivate();
     if (onExit != null) {
       onExit();
       return;
@@ -2882,6 +2812,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       return;
     }
     retireStudyEvidence();
+    _speechStoppedForExit = true;
+    _speech.unsubscribe();
+    _speech.deactivate();
     widget.onExit?.call();
   }
 
@@ -3031,16 +2964,27 @@ class _ScenarioGrammarExpandedCard extends StatelessWidget {
   final String language;
 
   @override
-  Widget build(BuildContext context) => SoriCard(
+  Widget build(BuildContext context) => ConstrainedBox(
     key: ValueKey<String>('scenario-grammar-expanded-${grammar.id}'),
-    variant: SoriCardVariant.hero,
-    accent: SoriColors.primary,
-    tinted: true,
-    width: double.infinity,
-    child: _ScenarioGrammarDetails(
-      grammar: grammar,
-      language: language,
-      expanded: true,
+    constraints: const BoxConstraints(minHeight: 548),
+    child: Stack(
+      children: [
+        const Positioned.fill(
+          child: CAtlasArt(
+            path: ScenarioC.book,
+            region: Rect.fromLTWH(0, 0, 1, 1),
+            fit: BoxFit.cover,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(44, 44, 28, 48),
+          child: _ScenarioGrammarDetails(
+            grammar: grammar,
+            language: language,
+            expanded: true,
+          ),
+        ),
+      ],
     ),
   );
 }
@@ -3072,12 +3016,9 @@ class _ScenarioGrammarSummaryCard extends StatelessWidget {
       if (type.isNotEmpty) type,
       AppL10n.of(context).hintTapForExplanation,
     ].join('. ');
-    return SoriCard(
+    return ScenarioCFold(
       key: ValueKey<String>('scenario-grammar-summary-${grammar.id}'),
-      variant: SoriCardVariant.base,
       accent: SoriColors.primary,
-      tinted: true,
-      width: double.infinity,
       semanticLabel: semanticLabel,
       onTap: () => _openDetails(context),
       child: Row(
@@ -3146,48 +3087,61 @@ class _ScenarioGrammarDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tt = SoriTextTheme.of(context);
-    final surfaces = SoriSurfaces.of(context);
     final type = grammar.typeFor(language).trim();
     final explanation = grammar.explanationFor(language).trim();
     final koreanExample = grammar.exampleKorean.trim();
     final localizedExample = grammar.exampleFor(language).trim();
     final note = grammar.noteFor(language).trim();
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
-          grammar.pattern,
-          style: tt.h2.copyWith(
-            color: SoriColors.primary,
-            fontSize: expanded ? 30 : null,
+        ScenarioCPlaque(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            child: Text(
+              grammar.pattern,
+              textAlign: TextAlign.center,
+              style: ScenarioC.korean.copyWith(
+                fontSize: 25,
+                color: ScenarioC.paper,
+              ),
+            ),
           ),
         ),
         if (type.isNotEmpty) ...[
-          const SizedBox(height: Spacing.sm),
-          Text(type, style: tt.label.copyWith(color: surfaces.textMuted)),
+          const SizedBox(height: 24),
+          Text(type, style: ScenarioC.heading.copyWith(fontSize: 21)),
         ],
+        const SizedBox(height: 12),
+        const ScenarioCDivider(),
         if (explanation.isNotEmpty) ...[
-          const SizedBox(height: Spacing.lg),
-          Text(explanation, style: tt.body.copyWith(height: 1.55)),
+          const SizedBox(height: 16),
+          Text(explanation, style: ScenarioC.body.copyWith(fontSize: 17)),
         ],
         if (koreanExample.isNotEmpty) ...[
-          const SizedBox(height: Spacing.lg),
-          Text(koreanExample, style: tt.h3.copyWith(color: SoriColors.primary)),
-        ],
-        if (localizedExample.isNotEmpty) ...[
-          const SizedBox(height: Spacing.xs),
-          Text(
-            localizedExample,
-            style: tt.bodySmall.copyWith(
-              color: surfaces.textMuted,
-              fontStyle: FontStyle.italic,
+          const SizedBox(height: 48),
+          ScenarioCFold(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  koreanExample,
+                  style: ScenarioC.korean.copyWith(fontSize: 25),
+                ),
+                if (localizedExample.isNotEmpty) ...[
+                  const SizedBox(height: 12),
+                  Text(
+                    localizedExample,
+                    style: ScenarioC.body.copyWith(fontSize: 17),
+                  ),
+                ],
+              ],
             ),
           ),
         ],
         if (note.isNotEmpty) ...[
-          const SizedBox(height: Spacing.md),
-          Text(note, style: tt.bodySmall.copyWith(color: surfaces.textMuted)),
+          const SizedBox(height: 40),
+          Text(note, style: ScenarioC.body.copyWith(fontSize: 15)),
         ],
       ],
     );
@@ -3204,12 +3158,9 @@ class _ScenarioInlineGrammarCard extends StatelessWidget {
   final String language;
 
   @override
-  Widget build(BuildContext context) => SoriCard(
+  Widget build(BuildContext context) => ScenarioCFold(
     key: const ValueKey<String>('scenario-grammar-inline'),
-    variant: SoriCardVariant.base,
     accent: SoriColors.primary,
-    tinted: true,
-    width: double.infinity,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -3232,29 +3183,10 @@ class _ScenarioInlineGrammarCard extends StatelessWidget {
   );
 }
 
-class _StageTitle extends StatelessWidget {
-  final String text;
-  final Color color;
-
-  const _StageTitle(this.text, this.color);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: SoriTextTheme.of(
-        context,
-      ).label.copyWith(color: color, letterSpacing: 1.2),
-    );
-  }
-}
-
 class _MiniChip extends StatelessWidget {
   final String label;
   final Color color;
-  final Color? foregroundColor;
-
-  const _MiniChip(this.label, this.color, {this.foregroundColor});
+  const _MiniChip(this.label, this.color);
 
   @override
   Widget build(BuildContext context) {
@@ -3267,10 +3199,9 @@ class _MiniChip extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: SoriTextTheme.of(context).caption.copyWith(
-          color: foregroundColor ?? color,
-          fontWeight: FontWeight.w600,
-        ),
+        style: SoriTextTheme.of(
+          context,
+        ).caption.copyWith(color: color, fontWeight: FontWeight.w600),
       ),
     );
   }
@@ -3392,17 +3323,27 @@ class _RollenspielStageState extends State<_RollenspielStage> {
     // ── 완료: 스테이지 전체를 차지하는 중앙 정렬 축하 패널 ──────────────────
     if (_done || _turns.isEmpty) {
       final promptKo = scenarioWritingPromptKo(widget.scenario);
-      return _StageScroll(
-        fill: true,
+      return SingleChildScrollView(
+        padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SoriEntrance(child: const _RollenspielDoneCard()),
             if (promptKo != null) ...[
-              const SizedBox(height: Spacing.lg),
+              const SizedBox(height: 8),
               ScenarioWriteAfterRoleplayCard(
                 promptKo: promptKo,
+                promptSpeaker: widget.scenario.playerRoleDisplayName(
+                  languageCode: widget.lang,
+                  fallbackYou: t.listeningSpeakerYou,
+                ),
+                promptTranslation: widget.scenario.dialog
+                    .lastWhere(
+                      (line) =>
+                          line.speaker == 'user' && line.ko.trim().isNotEmpty,
+                    )
+                    .pick(widget.lang),
                 evidence: ScenarioWritingEvidence.fromScenario(
                   scenario: widget.scenario,
                   language: widget.lang,
@@ -3417,103 +3358,171 @@ class _RollenspielStageState extends State<_RollenspielStage> {
     final turn = _turns[_idx];
     final media = MediaQuery.of(context);
     final textScale = media.textScaler.scale(1);
-    final posterHeight = scenarioPosterHeight(
-      viewportHeight: media.size.height,
-      textScale: textScale,
-    );
-    final poster = SceneAssetResolver.posterAsset(widget.scenario);
-    final reservedForBuilder = textScale >= 2.0
-        ? 280.0
-        : textScale >= 1.6
-        ? 320.0
-        : 360.0;
-    final topMaxHeight = math.max(
-      posterHeight + 64,
-      math.min(posterHeight + 80, media.size.height - reservedForBuilder),
-    );
-    final padding = soriClampPadding(
-      media.size.width,
-      base: const EdgeInsets.fromLTRB(
-        Spacing.lg,
-        Spacing.sm,
-        Spacing.lg,
-        Spacing.sm,
-      ),
-    );
-
-    return Padding(
-      padding: padding,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          ConstrainedBox(
-            constraints: BoxConstraints(maxHeight: topMaxHeight),
-            child: SingleChildScrollView(
+    final topMaxHeight = (media.size.height * (textScale > 1.3 ? .4 : .48))
+        .clamp(160.0, textScale > 1.3 ? 350.0 : 420.0);
+    final contextPanel = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  t.scenarioRoleplayTitle,
+                  style: ScenarioC.heading.copyWith(fontSize: 28),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(right: 8),
+                child: ScenarioCSpeedControl(),
+              ),
+            ],
+          ),
+        ),
+        ScenarioCHero(
+          scenario: widget.scenario,
+          height: textScale > 1.3 ? 112 : 184,
+          people: true,
+        ),
+        if (turn.context case final line?)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 8, 12, 6),
+            child: ScenarioCFold(
+              onTap: () => SoriSpeech.replay(
+                line.ko,
+                voice: widget.scenario.voiceForSpeaker(line.speaker),
+              ),
+              semanticLabel: '${t.ttsListen}: ${line.ko}',
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  if (poster != null) ...[
-                    Semantics(
-                      image: true,
-                      label: widget.scenario.title.pick(widget.lang),
-                      child: ClipRRect(
-                        borderRadius: const BorderRadius.vertical(
-                          bottom: Radius.circular(SoriRadius.lg),
-                        ),
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: posterHeight,
-                          child: Image.asset(
-                            poster,
-                            fit: BoxFit.cover,
-                            alignment: Alignment.center,
-                            errorBuilder: (_, __, ___) =>
-                                const SizedBox.shrink(),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.sm),
-                  ],
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.theater_comedy_outlined,
-                        color: SoriColors.contentCta,
-                        size: 20,
-                      ),
-                      const SizedBox(width: Spacing.xs),
-                      Expanded(
-                        child: Text(
-                          t.scenarioRoleplayTitle,
-                          style: SoriTextTheme.of(context).label.copyWith(
-                            color: SoriColors.contentCta,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ),
-                      const TtsSpeedControl(),
-                    ],
+                  LayoutBuilder(
+                    builder: (context, bounds) {
+                      final name = widget.scenario.speakerDisplayName(
+                        line.speaker,
+                        languageCode: widget.lang,
+                        fallbackYou: t.listeningSpeakerYou,
+                        fallbackNarrator: t.listeningNarrator,
+                      );
+                      double measure(String text, TextStyle style) {
+                        final painter = TextPainter(
+                          text: TextSpan(text: text, style: style),
+                          textDirection: Directionality.of(context),
+                          textScaler: media.textScaler,
+                        )..layout();
+                        final width = painter.width;
+                        painter.dispose();
+                        return width;
+                      }
+
+                      final inline =
+                          measure(line.ko, ScenarioC.korean) +
+                              measure(
+                                name,
+                                ScenarioC.heading.copyWith(fontSize: 13),
+                              ) +
+                              28 +
+                              8 <=
+                          bounds.maxWidth;
+                      final badge = ScenarioCSpeakerBadge(name: name);
+                      final text = Text(line.ko, style: ScenarioC.korean);
+                      return inline
+                          ? Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                badge,
+                                const SizedBox(width: 8),
+                                Expanded(child: text),
+                              ],
+                            )
+                          : Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                badge,
+                                const SizedBox(height: 4),
+                                text,
+                              ],
+                            );
+                    },
                   ),
-                  const Divider(height: 1),
+                  Text(
+                    line.pick(widget.lang),
+                    style: ScenarioC.body.copyWith(fontSize: 14),
+                  ),
                 ],
               ),
             ),
           ),
-          Expanded(
-            child: SatzBauenQuest(
-              key: ValueKey('roleplay_${turn.user.ko}_$_idx'),
-              data: _dataFor(turn.user),
-              onComplete: _onTurnComplete,
-              onContinue: _continueTurn,
-              isLast: _idx + 1 >= _turns.length,
-              showMascot: false,
-              compact: true,
-              showSpeedControl: false,
-            ),
-          ),
-        ],
+      ],
+    );
+    final quest = Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SatzBauenQuest(
+        key: GlobalObjectKey(turn),
+        data: _dataFor(turn.user),
+        onComplete: _onTurnComplete,
+        onContinue: _continueTurn,
+        isLast: _idx + 1 >= _turns.length,
+        showMascot: false,
+        compact: true,
+        promptSpeaker: widget.scenario.playerRoleDisplayName(
+          languageCode: widget.lang,
+          fallbackYou: t.listeningSpeakerYou,
+        ),
+        showSpeedControl: false,
       ),
+    );
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final actionText =
+            TextPainter(
+              text: TextSpan(
+                text: t.questCheckAnswer,
+                style: ScenarioC.heading.copyWith(fontSize: 21),
+              ),
+              textDirection: Directionality.of(context),
+              textScaler: media.textScaler,
+            )..layout(
+              maxWidth: (constraints.maxWidth - 80).clamp(1, double.infinity),
+            );
+        final actionHeight = (actionText.height + 26).clamp(
+          56,
+          double.infinity,
+        );
+        actionText.dispose();
+        // Enlarged chrome and the real action height can leave no useful
+        // exercise viewport. The engine's existing unbounded layout lets the
+        // entire scene scroll together while preserving its action ownership.
+        final pinnedHeight =
+            topMaxHeight + media.textScaler.scale(160) + actionHeight + 8 + 24;
+        if (constraints.maxHeight < pinnedHeight) {
+          return KeyedSubtree(
+            key: ValueKey('scenario-roleplay-turn-$_idx'),
+            child: SingleChildScrollView(
+              key: const ValueKey('scenario-roleplay-scroll'),
+              padding: const EdgeInsets.only(bottom: 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [contextPanel, quest],
+              ),
+            ),
+          );
+        }
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ConstrainedBox(
+                constraints: BoxConstraints(maxHeight: topMaxHeight),
+                child: SingleChildScrollView(child: contextPanel),
+              ),
+              Expanded(child: quest),
+            ],
+          ),
+        );
+      },
     );
   }
 }
@@ -3522,45 +3531,18 @@ class _RollenspielStageState extends State<_RollenspielStage> {
 /// scenario result only.
 class _RollenspielDoneCard extends StatelessWidget {
   const _RollenspielDoneCard();
-
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final tt = SoriTextTheme.of(context);
-
-    return SoriCard(
-      variant: SoriCardVariant.base,
-      accent: SoriColors.success,
-      tinted: true,
-      width: double.infinity,
-      child: Semantics(
-        container: true,
-        liveRegion: true,
-        label: '${t.scenarioRoleplayDoneTitle} ${t.scenarioRoleplayDoneBody}',
-        child: ExcludeSemantics(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(
-                key: ValueKey('roleplay_done_none'),
-                Icons.check_circle_rounded,
-                size: 56,
-                color: SoriColors.success,
-              ),
-              const SizedBox(height: Spacing.md),
-              Text(
-                t.scenarioRoleplayDoneTitle,
-                textAlign: TextAlign.center,
-                style: tt.h2.copyWith(color: SoriColors.success),
-              ),
-              const SizedBox(height: Spacing.xs),
-              Text(
-                t.scenarioRoleplayDoneBody,
-                textAlign: TextAlign.center,
-                style: tt.bodySmall,
-              ),
-            ],
-          ),
+    return Semantics(
+      container: true,
+      liveRegion: true,
+      label: '${t.scenarioRoleplayDoneTitle} ${t.scenarioRoleplayDoneBody}',
+      child: ExcludeSemantics(
+        child: Text(
+          t.scenarioRoleplayDoneTitle,
+          key: const ValueKey('roleplay_done_none'),
+          style: ScenarioC.heading.copyWith(fontSize: 27),
         ),
       ),
     );
