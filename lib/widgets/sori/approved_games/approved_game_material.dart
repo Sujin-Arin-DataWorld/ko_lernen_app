@@ -286,12 +286,16 @@ class ApprovedArtButton extends StatefulWidget {
     this.matched = false,
     this.wrong = false,
     this.faceHeight,
+    this.castShadow = true,
   });
   final String label, material;
   final Widget child;
   final VoidCallback? onTap;
   final bool selected, matched, wrong;
   final double? faceHeight;
+
+  /// Disable when the approved material already includes its contact shadow.
+  final bool castShadow;
   @override
   State<ApprovedArtButton> createState() => _ApprovedArtButtonState();
 }
@@ -369,13 +373,15 @@ class _ApprovedArtButtonState extends State<ApprovedArtButton> {
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(13),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0x61291404),
-                          offset: Offset(0, _pressed ? 1 : 3),
-                          blurRadius: _pressed ? 1 : 3,
-                        ),
-                      ],
+                      boxShadow: widget.castShadow
+                          ? [
+                              BoxShadow(
+                                color: const Color(0x61291404),
+                                offset: Offset(0, _pressed ? 1 : 3),
+                                blurRadius: _pressed ? 1 : 3,
+                              ),
+                            ]
+                          : const [],
                     ),
                     child: Stack(
                       clipBehavior: Clip.none,

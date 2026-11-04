@@ -19,6 +19,8 @@ import '../services/quest_abandon_tracker.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
+import '../widgets/sori/approved_games/approved_game_material.dart';
+import '../widgets/sori/approved_games/approved_word_chain_view.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/button.dart';
@@ -31,14 +33,13 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/pressable.dart';
-import '../widgets/sori/progress.dart';
 import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/route_observer.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
-import '../widgets/sori/text_field.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 
@@ -79,6 +80,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     with
         ScreenCoachMixin<KkeunmariScreen>,
         WidgetsBindingObserver,
+        RouteAware,
         GameResultRecovery<KkeunmariScreen>,
         StudyEvidenceRecovery<KkeunmariScreen> {
   static const _turnSeconds = 30;
@@ -111,6 +113,12 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   int _remaining = _turnSeconds;
   bool _lifecyclePaused = false;
   bool _resumeCountdownAfterLifecycle = false;
+  ModalRoute<dynamic>? _route;
+  bool _routeVisible = true;
+  Timer? _openingSpeech;
+  String? _queuedSpeech;
+  bool _ownsSpeech = false;
+  int _speechRequest = 0;
   Timer? _turnDelayTimer;
   _PendingTurnAction _pendingTurnAction = _PendingTurnAction.none;
   Duration _pendingTurnDelay = Duration.zero;
@@ -120,6 +128,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   final _focusNode = FocusNode();
 
   bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
+  bool get _isVisible => !_lifecyclePaused && _routeVisible;
+  // A covered route may finish an already accepted write, but cannot accept
+  // another input or run the next timed turn underneath its destination.
+  bool get _canInteract => _acceptsInput && _isVisible;
 
   void _retireStudy() {
     retireStudyEvidence();
@@ -166,6 +178,9 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    _lifecyclePaused =
+        WidgetsBinding.instance.lifecycleState != null &&
+        WidgetsBinding.instance.lifecycleState != AppLifecycleState.resumed;
     _start();
     scheduleCoach();
     Analytics.gameStarted(gameType: 'kkeunmari');
@@ -176,31 +191,118 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    switch (state) {
-      case AppLifecycleState.resumed:
-        _lifecyclePaused = false;
-        if (_resumeCountdownAfterLifecycle &&
-            _acceptsInput &&
-            _end == _End.none &&
-            _turn == _Turn.user &&
-            _remaining > 0) {
-          _runTimer();
-        }
-        _resumeCountdownAfterLifecycle = false;
-        _resumePendingTurnAction();
-      case AppLifecycleState.inactive:
-      case AppLifecycleState.hidden:
-      case AppLifecycleState.paused:
-      case AppLifecycleState.detached:
-        _lifecyclePaused = true;
-        if (_timer != null) {
-          _resumeCountdownAfterLifecycle = true;
-          _timer?.cancel();
-          _timer = null;
-        }
-        _pausePendingTurnAction();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final route = ModalRoute.of(context);
+    if (!identical(route, _route)) {
+      soriRouteObserver.unsubscribe(this);
+      _route = route;
+      _routeVisible = route?.isCurrent ?? true;
+      if (route != null) {
+        soriRouteObserver.subscribe(this, route);
+      }
     }
+  }
+
+  void _suspendRound() {
+    if (_timer != null) {
+      _resumeCountdownAfterLifecycle = true;
+      _timer?.cancel();
+      _timer = null;
+    }
+    _pausePendingTurnAction();
+    _openingSpeech?.cancel();
+    _openingSpeech = null;
+    _stopSpeech();
+    if (_focusNode.hasFocus) {
+      _focusNode.unfocus();
+    }
+  }
+
+  void _resumeRound() {
+    if (!_canInteract) {
+      return;
+    }
+    if (_resumeCountdownAfterLifecycle &&
+        _end == _End.none &&
+        _turn == _Turn.user &&
+        _remaining > 0) {
+      _runTimer();
+    }
+    _resumePendingTurnAction();
+    final speech = _queuedSpeech;
+    if (speech != null) {
+      _speakWord(speech);
+    }
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_canInteract &&
+          !_loading &&
+          !_dictionaryChecking &&
+          _end == _End.none &&
+          _turn == _Turn.user &&
+          _pendingTurnAction == _PendingTurnAction.none) {
+        _focusNode.requestFocus();
+      }
+    });
+  }
+
+  @override
+  void didPushNext() {
+    _routeVisible = false;
+    _suspendRound();
+  }
+
+  @override
+  void didPopNext() {
+    _routeVisible = true;
+    _resumeRound();
+  }
+
+  @override
+  void didPop() {
+    _routeVisible = false;
+    _suspendRound();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    _lifecyclePaused = state != AppLifecycleState.resumed;
+    if (_isVisible) {
+      _resumeRound();
+    } else {
+      _suspendRound();
+    }
+  }
+
+  void _speakWord(String word) {
+    if (!_acceptsInput || _finishing || _end != _End.none) {
+      return;
+    }
+    if (!_isVisible) {
+      _queuedSpeech = word;
+      return;
+    }
+    _queuedSpeech = null;
+    _openingSpeech?.cancel();
+    _openingSpeech = null;
+    _ownsSpeech = true;
+    final request = ++_speechRequest;
+    unawaited(
+      SoriSpeech.speak(word).whenComplete(() {
+        if (request == _speechRequest) {
+          _ownsSpeech = false;
+        }
+      }),
+    );
+  }
+
+  void _stopSpeech() {
+    if (!_ownsSpeech) {
+      return;
+    }
+    _ownsSpeech = false;
+    _speechRequest++;
+    unawaited(SoriSpeech.stop());
   }
 
   Future<void> _start() async {
@@ -299,15 +401,17 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     });
     _ctrl.clear();
     _startTimer();
-    Future.delayed(const Duration(milliseconds: 200), () {
+    _queuedSpeech = start.word;
+    _openingSpeech = Timer(const Duration(milliseconds: 200), () {
+      _openingSpeech = null;
       if (_acceptsInput && generation == _roundGeneration) {
-        TtsService.speak(start.word);
+        _speakWord(start.word);
       }
     });
   }
 
   Future<void> _retryLoad(int generation) async {
-    if (!_acceptsInput ||
+    if (!_canInteract ||
         generation != _roundGeneration ||
         _loading ||
         !_loadFailed) {
@@ -322,7 +426,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   void _startTimer() {
     _timer?.cancel();
     _remaining = _turnSeconds;
-    if (_lifecyclePaused) {
+    if (!_isVisible) {
       _timer = null;
       _resumeCountdownAfterLifecycle = true;
       return;
@@ -332,12 +436,13 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
   void _runTimer() {
     _timer?.cancel();
+    _resumeCountdownAfterLifecycle = false;
     _timer = Timer.periodic(const Duration(seconds: 1), (t) {
       if (!identical(t, _timer)) {
         t.cancel();
         return;
       }
-      if (!_acceptsInput ||
+      if (!_canInteract ||
           _dictionaryChecking ||
           _dictionaryUnavailable ||
           _finishing ||
@@ -364,7 +469,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     _pendingTurnAction = action;
     _pendingTurnDelay = delay;
     _pendingTurnStartedAt = null;
-    if (!_lifecyclePaused) {
+    if (_isVisible) {
       _armPendingTurnAction();
     }
   }
@@ -376,7 +481,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     final generation = _roundGeneration;
     _pendingTurnStartedAt = DateTime.now();
     _turnDelayTimer = Timer(_pendingTurnDelay, () {
-      if (!_acceptsInput ||
+      if (!_canInteract ||
           generation != _roundGeneration ||
           _finishing ||
           _end != _End.none) {
@@ -411,7 +516,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   }
 
   void _resumePendingTurnAction() {
-    if (_acceptsInput &&
+    if (_canInteract &&
         _pendingTurnAction != _PendingTurnAction.none &&
         _turnDelayTimer == null) {
       _armPendingTurnAction();
@@ -429,7 +534,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   String get _required => _last?.last ?? '';
 
   Future<void> _submit(int generation, int turnGeneration) async {
-    if (!_acceptsInput ||
+    if (!_canInteract ||
         _finishing ||
         generation != _roundGeneration ||
         turnGeneration != _turnGeneration ||
@@ -497,7 +602,9 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         );
         return;
       }
-      HapticService.mediumImpact();
+      if (_isVisible) {
+        HapticService.mediumImpact();
+      }
       setState(() {
         // Do not make learners lose a turn because our dictionary is down.
         // Keep this turn paused until a valid answer advances the game.
@@ -567,10 +674,12 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         return;
       }
     }
-    HapticService.lightImpact();
-    // 정답을 또렷한 긍정 신호로 알린다 — 예전엔 햅틱만 있어 곧바로 뜨는
-    // 호랑이 '생각 중' 클립이 오답 플래시처럼 읽혔다 (Jin 2026-08-11 실기기).
-    SoundService.correct();
+    if (_isVisible) {
+      HapticService.lightImpact();
+      // Accepted writes still finish under cover, but transient feedback belongs
+      // only to the currently visible round.
+      SoundService.correct();
+    }
     setState(() {
       _turnGeneration++;
       _dictionaryUnavailable = false;
@@ -580,7 +689,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       _errorMsg = '';
       _ctrl.clear();
     });
-    TtsService.speak(w.word);
+    _speakWord(w.word);
 
     // The bundle-level `is_dead_end` is only an unused-pool snapshot. A real
     // turn must account for already-used words, otherwise a stale next_count
@@ -605,7 +714,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   }
 
   void _tigerMove() {
-    if (!_acceptsInput || _finishing || _end != _End.none) {
+    if (!_canInteract || _finishing || _end != _End.none) {
       return;
     }
     final next = KkeunmariEngine.pickTigerNext(_required, _used, source: _pool);
@@ -620,7 +729,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       _turn = _Turn.user;
       _turnGeneration++;
     });
-    TtsService.speak(next.word);
+    _speakWord(next.word);
     _startTimer();
     _focusNode.requestFocus();
   }
@@ -649,7 +758,9 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     _newBest = outcome.isNewBest;
     _learningAttempt = outcome.attempt;
     _persistedXp = outcome.xpGained;
-    HapticService.heavyImpact();
+    if (_isVisible) {
+      HapticService.heavyImpact();
+    }
     _feedbackCompletion.complete(
       () => FeedbackCompletion.kkeunmari(
         contentLabel: AppL10n.of(context).kkeunmariTitle,
@@ -676,7 +787,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     }
     if (didWin) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (_acceptsInput && generation == _roundGeneration && _end == reason) {
+        if (_canInteract && generation == _roundGeneration && _end == reason) {
           SoriCelebration.burst(context);
         }
       });
@@ -690,15 +801,22 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     _dictionaryGeneration++;
     _stopTimer();
     _cancelPendingTurnAction();
+    _openingSpeech?.cancel();
+    _openingSpeech = null;
+    _queuedSpeech = null;
+    _stopSpeech();
     super.retireGameResult();
   }
 
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    soriRouteObserver.unsubscribe(this);
     _abandonTracker.dispose();
     _timer?.cancel();
     _turnDelayTimer?.cancel();
+    _openingSpeech?.cancel();
+    _stopSpeech();
     _ctrl.dispose();
     _focusNode.dispose();
     super.dispose();
@@ -713,8 +831,6 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     if (recovery != null) return recovery;
     final generation = _roundGeneration;
     final turnGeneration = _turnGeneration;
-    final s = SoriSurfaces.of(context);
-
     if (_loading) {
       return SoriStudyFrame(
         onLeave: _retireStudy,
@@ -728,7 +844,6 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         ),
       );
     }
-
     if (_loadFailed) {
       return SoriStudyFrame(
         onLeave: _retireStudy,
@@ -741,7 +856,6 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         ),
       );
     }
-
     if (!_hasPlayablePool) {
       return SoriStudyFrame(
         onLeave: _retireStudy,
@@ -756,16 +870,98 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         ),
       );
     }
-
+    if (_end == _End.none) {
+      final word = _last!;
+      final gloss =
+          widget.source?.meaningFor(
+            word.word,
+            Localizations.localeOf(context).languageCode,
+          ) ??
+          word.meaning(Localizations.localeOf(context).languageCode);
+      return ApprovedWordChainFrame(
+        title: t.kkeunmariTitle,
+        onLeave: _retireStudy,
+        confirmWhen: _remaining > 0,
+        contentBuilder: (context, close) => ValueListenableBuilder<double>(
+          valueListenable: TtsService.speedNotifier,
+          builder: (context, speed, _) =>
+              ValueListenableBuilder<CompanionPreference>(
+                valueListenable: MascotPreference.preference,
+                builder: (context, preference, _) {
+                  final kind = MascotPreference.mascotKindFor(preference);
+                  final userTurn = _turn == _Turn.user;
+                  final speedText = speed
+                      .toStringAsFixed(2)
+                      .replaceFirst(RegExp(r'0+$'), '')
+                      .replaceFirst(RegExp(r'\.$'), '');
+                  return ApprovedWordChainView(
+                    key: const ValueKey('kkeunmari-gameplay'),
+                    title: t.kkeunmariTitle,
+                    instruction: t.kkeunmariSubtitle,
+                    turnLabel: userTurn
+                        ? t.kkeunmariYourTurn
+                        : kind == null
+                        ? t.companionNeutralThinking
+                        : t.kkeunmariTigerTurn,
+                    timerLabel: t.kkeunmariTimerSeconds(_remaining),
+                    chainLabel: t.kkeunmariChainLength(_chain.length),
+                    chain: [for (final item in _chain) item.word],
+                    word: word.word,
+                    meaning: gloss == 'TODO' ? '' : gloss,
+                    requiredSyllable: _required,
+                    requiredHint: t.kkeunmariStartHint(_required),
+                    inputHint: t.kkeunmariInputHint,
+                    listenLabel: t.approvedGameListen,
+                    listenSemantics: t.ttsListenTarget(word.word),
+                    submitLabel: t.kkeunmariSubmit,
+                    controller: _ctrl,
+                    focusNode: _focusNode,
+                    close: close,
+                    onSubmit: () =>
+                        unawaited(_submit(generation, turnGeneration)),
+                    onListen: () {
+                      if (_canInteract &&
+                          generation == _roundGeneration &&
+                          turnGeneration == _turnGeneration) {
+                        _speakWord(word.word);
+                      }
+                    },
+                    speedLabel: '$speedText×',
+                    onSpeed: () {
+                      if (_canInteract && generation == _roundGeneration) {
+                        showWordChainSpeedSheet(context);
+                      }
+                    },
+                    userTurn: userTurn,
+                    checkingDictionary: _dictionaryChecking,
+                    urgent: _remaining <= 10,
+                    statusMessage: _errorMsg,
+                    selectionHint: widget.source == null
+                        ? null
+                        : t.kkeunmariSelectionHint,
+                    lastWordKey: _lastWordCardKey,
+                    timerKey: _timerRowKey,
+                    inputKey: _inputFieldKey,
+                    companion: userTurn || kind == null
+                        ? null
+                        : CharacterClipPlayer(
+                            asset: CharacterClips.thinkingFor(kind),
+                            size: 56,
+                            loop: true,
+                            blendColor: gameCream,
+                            fallbackKind: kind,
+                            fallbackEmotion: MascotEmotion.thinking,
+                          ),
+                  );
+                },
+              ),
+        ),
+      );
+    }
+    // Results retain their existing save/recovery, reward, replay and home contracts.
     return SoriStudyFrame(
       onLeave: _retireStudy,
       title: t.kkeunmariTitle,
-      homeEscape: SoriHomeEscape(
-        // The round is live as soon as its initial timer starts. `_end`
-        // distinguishes that state from an already-shown result whose timer
-        // may have stopped with time remaining.
-        confirmWhen: _end == _End.none && _remaining > 0,
-      ),
       actions: const [TtsSpeedAction()],
       padding: EdgeInsets.zero,
       child: LayoutBuilder(
@@ -786,178 +982,31 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                   Text(t.kkeunmariSelectionHint),
                   const SizedBox(height: Spacing.md),
                 ],
-                // ── chain 시각화 ──
                 _ChainStrip(chain: _chain),
                 const SizedBox(height: Spacing.md),
-
-                if (_end != _End.none)
-                  _ResultCard(
-                    learningAttempt: _learningAttempt,
-                    end: _end,
-                    chainLength: _chain.length,
-                    xpEarned: _persistedXp ?? 0,
-                    rewardReady: _persistedXp != null,
-                    isNewBest: _newBest,
-                    feedbackCompletion: _feedbackCompletion.current,
-                    onAgain: () {
-                      if (_acceptsInput &&
-                          generation == _roundGeneration &&
-                          _end != _End.none) {
-                        _start();
-                      }
-                    },
-                    onHome: () {
-                      if (_acceptsInput &&
-                          generation == _roundGeneration &&
-                          _end != _End.none) {
-                        Navigator.pop(context);
-                      }
-                    },
-                  )
-                else ...[
-                  // ── 현재 차례 + 타이머 ──
-                  KeyedSubtree(
-                    key: const ValueKey('kkeunmari-gameplay'),
-                    child: Wrap(
-                      key: _timerRowKey,
-                      alignment: WrapAlignment.spaceBetween,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      spacing: Spacing.sm,
-                      runSpacing: Spacing.xs,
-                      children: [
-                        _TurnIndicator(turn: _turn, t: t),
-                        _Timer(remaining: _remaining, total: _turnSeconds),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.md),
-
-                  // ── 마지막 단어 카드 (last 음절 강조) ──
-                  KeyedSubtree(
-                    key: _lastWordCardKey,
-                    child: _LastWordCard(
-                      word: _last!,
-                      meaning: widget.source?.meaningFor(
-                        _last!.word,
-                        Localizations.localeOf(context).languageCode,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.md),
-
-                  // ── 사용자 차례: 입력 ──
-                  if (_turn == _Turn.user) ...[
-                    Text(
-                      t.kkeunmariStartHint(_required),
-                      style: SoriTextTheme.of(context).caption.copyWith(
-                        color: s.textMuted,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: Spacing.sm),
-                    SoriTextField(
-                      fieldKey: _inputFieldKey,
-                      controller: _ctrl,
-                      focusNode: _focusNode,
-                      autofocus: true,
-                      enabled: !_dictionaryChecking,
-                      maxLength: 20,
-                      textAlign: TextAlign.center,
-                      hintText: t.kkeunmariInputHint,
-                      style: SoriTextTheme.of(context).caption.copyWith(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      onSubmitted: (_) =>
-                          unawaited(_submit(generation, turnGeneration)),
-                    ),
-                    if (_errorMsg.isNotEmpty) ...[
-                      const SizedBox(height: Spacing.xs),
-                      Semantics(
-                        liveRegion: true,
-                        child: Text(
-                          _errorMsg,
-                          textAlign: TextAlign.center,
-                          style: SoriTextTheme.of(context).caption.copyWith(
-                            color: SoriColors.danger,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ],
-                    const SizedBox(height: Spacing.md),
-                    SoriButton.filled(
-                      label: t.kkeunmariSubmit,
-                      icon: Icons.send_rounded,
-                      accent: SoriColors.accent,
-                      fullWidth: true,
-                      onTap: _dictionaryChecking
-                          ? null
-                          : () =>
-                                unawaited(_submit(generation, turnGeneration)),
-                    ),
-                  ] else
-                    // 호랑이 차례: 짧은 "생각 중" 카드
-                    SoriCard(
-                      variant: SoriCardVariant.base,
-                      accent: SoriColors.tiger,
-                      tinted: true,
-                      child: Row(
-                        children: [
-                          // 생각 중 클립 루프 — 카드 실배경과 **같은 함수**로
-                          // blendColor를 맞춰 흰 배경 흡수(수식 복제 금지).
-                          CompanionBuilder(
-                            builder: (context, kind) => CharacterClipPlayer(
-                              asset: CharacterClips.thinkingFor(kind),
-                              size: 56,
-                              loop: true,
-                              blendColor: SoriCard.resolvedBackground(
-                                context,
-                                accent: SoriColors.tiger,
-                                tinted: true,
-                              ),
-                              fallbackKind: kind,
-                              fallbackEmotion: MascotEmotion.thinking,
-                            ),
-                            noneBuilder: (context) => const SizedBox.square(
-                              dimension: 56,
-                              child: Icon(
-                                Icons.psychology_alt_rounded,
-                                color: SoriColors.tiger,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: Spacing.md),
-                          Expanded(
-                            child: Text(
-                              MascotPreference.hasCompanion
-                                  ? t.kkeunmariTigerTurn
-                                  : t.companionNeutralThinking,
-                              style: SoriTextTheme.of(context).caption.copyWith(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700,
-                                color: SoriColors.tiger,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                  const SizedBox(height: Spacing.lg),
-
-                  // ── chain length ──
-                  Center(
-                    child: SoriChip(
-                      label: t.kkeunmariChainLength(_chain.length),
-                      accent: SoriColors.accent,
-                      variant: SoriChipVariant.soft,
-                    ),
-                  ),
-                ],
+                _ResultCard(
+                  learningAttempt: _learningAttempt,
+                  end: _end,
+                  chainLength: _chain.length,
+                  xpEarned: _persistedXp ?? 0,
+                  rewardReady: _persistedXp != null,
+                  isNewBest: _newBest,
+                  feedbackCompletion: _feedbackCompletion.current,
+                  onAgain: () {
+                    if (_canInteract &&
+                        generation == _roundGeneration &&
+                        _end != _End.none) {
+                      _start();
+                    }
+                  },
+                  onHome: () {
+                    if (_canInteract &&
+                        generation == _roundGeneration &&
+                        _end != _End.none) {
+                      Navigator.pop(context);
+                    }
+                  },
+                ),
               ],
             ),
           ),
@@ -1016,194 +1065,6 @@ class _ChainStrip extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
-  }
-}
-
-// ─── Turn Indicator ───────────────────────────────────────────────────────────
-
-class _TurnIndicator extends StatelessWidget {
-  final _Turn turn;
-  final AppL10n t;
-  const _TurnIndicator({required this.turn, required this.t});
-
-  @override
-  Widget build(BuildContext context) {
-    final isUser = turn == _Turn.user;
-    final color = isUser ? SoriColors.accent : SoriColors.tiger;
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(
-          isUser ? Icons.person_rounded : Icons.pets_rounded,
-          color: color,
-          size: 16,
-        ),
-        const SizedBox(width: 4),
-        Flexible(
-          child: Text(
-            isUser ? t.kkeunmariYourTurn : t.kkeunmariTigerTurn,
-            style: SoriTextTheme.of(context).caption.copyWith(
-              color: color,
-              fontWeight: FontWeight.w700,
-              fontSize: 13.5,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _Timer extends StatelessWidget {
-  final int remaining;
-  final int total;
-  const _Timer({required this.remaining, required this.total});
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final urgent = remaining <= 10;
-    final color = urgent ? SoriColors.danger : SoriColors.info;
-    final label = t.kkeunmariTimerSeconds(remaining < 0 ? 0 : remaining);
-    return Semantics(
-      liveRegion: urgent,
-      label: label,
-      excludeSemantics: true,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(
-            width: 50,
-            child: SoriProgressBar(
-              value: (remaining / total).clamp(0.0, 1.0),
-              thickness: 6,
-              animated: false,
-              color: color,
-            ),
-          ),
-          const SizedBox(width: Spacing.xs),
-          Text(
-            label,
-            style: SoriTextTheme.of(context).caption.copyWith(
-              color: color,
-              fontWeight: FontWeight.w700,
-              fontSize: 13,
-              // 카운트다운 자릿수 폭 고정(흔들림 방지).
-              fontFeatures: const [FontFeature.tabularFigures()],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-// ─── Last Word Card ───────────────────────────────────────────────────────────
-
-class _LastWordCard extends StatelessWidget {
-  final KkeunmariWord word;
-  final String? meaning;
-  const _LastWordCard({required this.word, this.meaning});
-
-  @override
-  Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    final t = AppL10n.of(context);
-    final chars = word.word.split('');
-    final gloss =
-        meaning ?? word.meaning(Localizations.localeOf(context).languageCode);
-    void onListen() => unawaited(TtsService.speak(word.word));
-    return SoriCard(
-      variant: SoriCardVariant.hero,
-      accent: SoriColors.accent,
-      tinted: true,
-      width: double.infinity,
-      child: Column(
-        children: [
-          LayoutBuilder(
-            builder: (context, c) {
-              final n = chars.length;
-              final fittedBox = ((c.maxWidth - (n - 1) * 4) / n).clamp(
-                36.0,
-                56.0,
-              );
-              final scaledGlyph = MediaQuery.textScalerOf(context).scale(20);
-              final accessibleBox = (scaledGlyph + Spacing.md).clamp(
-                36.0,
-                72.0,
-              );
-              final box = fittedBox < accessibleBox ? accessibleBox : fittedBox;
-              return Wrap(
-                alignment: WrapAlignment.center,
-                spacing: 4,
-                runSpacing: 4,
-                children: List.generate(n, (i) {
-                  final isLast = i == n - 1;
-                  return Container(
-                    width: box,
-                    height: box,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: isLast
-                          ? SoriColors.accent
-                          : SoriColors.accent.withValues(alpha: 0.10),
-                      borderRadius: BorderRadius.circular(SoriRadius.sm),
-                      border: Border.all(
-                        color: SoriColors.accent.withValues(alpha: 0.6),
-                        width: 1.5,
-                      ),
-                    ),
-                    child: Text(
-                      chars[i],
-                      style: SoriTextTheme.of(context).caption.copyWith(
-                        color: isLast ? Colors.white : SoriColors.accent,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  );
-                }),
-              );
-            },
-          ),
-          const SizedBox(height: Spacing.sm),
-          // Nur echte Übersetzungen zeigen — "TODO"/leer wird ausgeblendet
-          // (der Pool ist fragment-lastig; siehe tools/content_factory/README).
-          if (gloss.isNotEmpty && gloss != 'TODO')
-            Text(
-              gloss,
-              textAlign: TextAlign.center,
-              style: SoriTextTheme.of(context).caption.copyWith(
-                color: s.textMuted,
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          Tooltip(
-            message: t.ttsListenTarget(word.word),
-            excludeFromSemantics: true,
-            child: Semantics(
-              button: true,
-              label: t.ttsListenTarget(word.word),
-              onTap: onListen,
-              excludeSemantics: true,
-              child: SoriPressable(
-                onTap: onListen,
-                haptic: SoriHaptic.selection,
-                child: SizedBox.square(
-                  dimension: 48,
-                  child: Icon(
-                    Icons.volume_up_rounded,
-                    color: SoriColors.accent.withValues(alpha: 0.7),
-                    size: 22,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }
