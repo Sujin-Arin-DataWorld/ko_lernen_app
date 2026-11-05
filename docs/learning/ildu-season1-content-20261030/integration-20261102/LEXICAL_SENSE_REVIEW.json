@@ -1,0 +1,607 @@
+{
+  "scope": "exact lexical matches for human/model semantic comparison, not automatic homograph approval",
+  "rows": [
+    {
+      "unit_id": "A1.1-01",
+      "vocab_id": "vocab_a1_0001",
+      "form": "안녕하세요",
+      "en": "Hello (polite)",
+      "de": "Hallo (höflich)"
+    },
+    {
+      "unit_id": "A1.1-01",
+      "vocab_id": "vocab_a1_0008",
+      "form": "네",
+      "en": "Yes",
+      "de": "Ja"
+    },
+    {
+      "unit_id": "A1.1-01",
+      "vocab_id": "vocab_a1_0010",
+      "form": "이름",
+      "en": "name",
+      "de": "Name"
+    },
+    {
+      "unit_id": "A1.1-01",
+      "vocab_id": "vocab_a1_0456",
+      "form": "다시",
+      "en": "again, once more",
+      "de": "noch einmal, wieder"
+    },
+    {
+      "unit_id": "A1.1-02",
+      "vocab_id": "vocab_a1_0428",
+      "form": "한국",
+      "en": "Korea",
+      "de": "Korea"
+    },
+    {
+      "unit_id": "A1.1-02",
+      "vocab_id": "vocab_a1_0429",
+      "form": "독일",
+      "en": "Germany",
+      "de": "Deutschland"
+    },
+    {
+      "unit_id": "A1.1-02",
+      "vocab_id": "vocab_a1_0430",
+      "form": "사람",
+      "en": "person",
+      "de": "Mensch, Person"
+    },
+    {
+      "unit_id": "A1.1-02",
+      "vocab_id": "vocab_a1_0432",
+      "form": "한국어",
+      "en": "Korean (language)",
+      "de": "Koreanisch"
+    },
+    {
+      "unit_id": "A1.1-02",
+      "vocab_id": "vocab_a1_0434",
+      "form": "영어",
+      "en": "English (language)",
+      "de": "Englisch"
+    },
+    {
+      "unit_id": "A1.1-03",
+      "vocab_id": "vocab_a1_0091",
+      "form": "있다",
+      "en": "to be there / to have",
+      "de": "da sein / haben"
+    },
+    {
+      "unit_id": "A1.1-03",
+      "vocab_id": "vocab_a1_0092",
+      "form": "없다",
+      "en": "to not be there / to not have",
+      "de": "nicht da sein / nicht haben"
+    },
+    {
+      "unit_id": "A1.1-03",
+      "vocab_id": "vocab_a1_0194",
+      "form": "여기",
+      "en": "here",
+      "de": "hier"
+    },
+    {
+      "unit_id": "A1.1-03",
+      "vocab_id": "vocab_a1_0196",
+      "form": "저기",
+      "en": "over there",
+      "de": "dort"
+    },
+    {
+      "unit_id": "A1.1-03",
+      "vocab_id": "vocab_a1_0495",
+      "form": "모자",
+      "en": "hat",
+      "de": "Hut, Mütze"
+    },
+    {
+      "unit_id": "A1.1-03",
+      "vocab_id": "vocab_a1_0592",
+      "form": "가방",
+      "en": "bag",
+      "de": "Tasche"
+    },
+    {
+      "unit_id": "A1.1-04",
+      "vocab_id": "vocab_a1_0003",
+      "form": "감사합니다",
+      "en": "Thank you (formal)",
+      "de": "Vielen Dank (formell)"
+    },
+    {
+      "unit_id": "A1.1-04",
+      "vocab_id": "vocab_a1_0021",
+      "form": "물",
+      "en": "water",
+      "de": "Wasser"
+    },
+    {
+      "unit_id": "A1.1-04",
+      "vocab_id": "vocab_a1_0090",
+      "form": "마시다",
+      "en": "to drink",
+      "de": "trinken"
+    },
+    {
+      "unit_id": "A1.1-05",
+      "vocab_id": "vocab_a1_0015",
+      "form": "친구",
+      "en": "friend",
+      "de": "Freund/Freundin"
+    },
+    {
+      "unit_id": "A1.1-05",
+      "vocab_id": "vocab_a1_0025",
+      "form": "책",
+      "en": "book",
+      "de": "Buch"
+    },
+    {
+      "unit_id": "A1.1-05",
+      "vocab_id": "vocab_a1_0461",
+      "form": "누구",
+      "en": "who",
+      "de": "wer"
+    },
+    {
+      "unit_id": "A1.1-05",
+      "vocab_id": "vocab_a1_0832",
+      "form": "제",
+      "en": "my (polite)",
+      "de": "mein (höflich)"
+    },
+    {
+      "unit_id": "A1.1-06",
+      "vocab_id": "vocab_a1_0009",
+      "form": "아니요",
+      "en": "No",
+      "de": "Nein"
+    },
+    {
+      "unit_id": "A1.1-06",
+      "vocab_id": "vocab_a1_0143",
+      "form": "하나",
+      "en": "one (native Korean)",
+      "de": "eins (rein-koreanisch)"
+    },
+    {
+      "unit_id": "A1.1-06",
+      "vocab_id": "vocab_a1_0191",
+      "form": "이거",
+      "en": "this (one)",
+      "de": "das (hier)"
+    },
+    {
+      "unit_id": "A1.1-06",
+      "vocab_id": "vocab_a1_0759",
+      "form": "아니다",
+      "en": "to not be",
+      "de": "nicht Student/in sein"
+    },
+    {
+      "unit_id": "A1.2-01",
+      "vocab_id": "vocab_a1_0029",
+      "form": "오늘",
+      "en": "today",
+      "de": "heute"
+    },
+    {
+      "unit_id": "A1.2-01",
+      "vocab_id": "vocab_a1_0030",
+      "form": "내일",
+      "en": "tomorrow",
+      "de": "morgen"
+    },
+    {
+      "unit_id": "A1.2-01",
+      "vocab_id": "vocab_a1_0153",
+      "form": "시",
+      "en": "o'clock (hour)",
+      "de": "Uhr (Stunde)"
+    },
+    {
+      "unit_id": "A1.2-01",
+      "vocab_id": "vocab_a1_0154",
+      "form": "분",
+      "en": "minute",
+      "de": "Minute"
+    },
+    {
+      "unit_id": "A1.2-02",
+      "vocab_id": "vocab_a1_0027",
+      "form": "버스",
+      "en": "bus",
+      "de": "Bus"
+    },
+    {
+      "unit_id": "A1.2-02",
+      "vocab_id": "vocab_a1_0087",
+      "form": "가다",
+      "en": "to go",
+      "de": "gehen"
+    },
+    {
+      "unit_id": "A1.2-02",
+      "vocab_id": "vocab_a1_0088",
+      "form": "오다",
+      "en": "to come",
+      "de": "kommen"
+    },
+    {
+      "unit_id": "A1.2-02",
+      "vocab_id": "vocab_a1_0179",
+      "form": "앞",
+      "en": "front / in front of",
+      "de": "vorne / vor"
+    },
+    {
+      "unit_id": "A1.2-02",
+      "vocab_id": "vocab_a1_0180",
+      "form": "뒤",
+      "en": "back / behind",
+      "de": "hinten / hinter"
+    },
+    {
+      "unit_id": "A1.2-02",
+      "vocab_id": "vocab_a1_0186",
+      "form": "오른쪽",
+      "en": "right",
+      "de": "rechts"
+    },
+    {
+      "unit_id": "A1.2-03",
+      "vocab_id": "vocab_a1_0031",
+      "form": "어제",
+      "en": "yesterday",
+      "de": "gestern"
+    },
+    {
+      "unit_id": "A1.2-03",
+      "vocab_id": "vocab_a1_0089",
+      "form": "먹다",
+      "en": "to eat",
+      "de": "essen"
+    },
+    {
+      "unit_id": "A1.2-03",
+      "vocab_id": "vocab_a1_0094",
+      "form": "보다",
+      "en": "to see / to watch",
+      "de": "sehen / schauen"
+    },
+    {
+      "unit_id": "A1.2-03",
+      "vocab_id": "vocab_a1_0096",
+      "form": "읽다",
+      "en": "to read",
+      "de": "lesen"
+    },
+    {
+      "unit_id": "A1.2-04",
+      "vocab_id": "vocab_a1_0107",
+      "form": "주다",
+      "en": "to give",
+      "de": "geben"
+    },
+    {
+      "unit_id": "A1.2-04",
+      "vocab_id": "vocab_a1_0108",
+      "form": "받다",
+      "en": "to receive / to get",
+      "de": "bekommen / empfangen"
+    },
+    {
+      "unit_id": "A1.2-04",
+      "vocab_id": "vocab_a1_0453",
+      "form": "원",
+      "en": "won (currency)",
+      "de": "Won (Währung)"
+    },
+    {
+      "unit_id": "A1.2-04",
+      "vocab_id": "vocab_a1_0816",
+      "form": "명",
+      "en": "counter for people",
+      "de": "Zählwort für Personen"
+    },
+    {
+      "unit_id": "A1.2-05",
+      "vocab_id": "vocab_a1_0677",
+      "form": "사진",
+      "en": "photo",
+      "de": "Foto"
+    },
+    {
+      "unit_id": "A1.2-05",
+      "vocab_id": "vocab_a1_0724",
+      "form": "찍다",
+      "en": "to take (a photo)",
+      "de": "(ein Foto) machen"
+    },
+    {
+      "unit_id": "A1.2-06",
+      "vocab_id": "vocab_a1_0098",
+      "form": "만나다",
+      "en": "to meet",
+      "de": "treffen"
+    },
+    {
+      "unit_id": "A1.2-06",
+      "vocab_id": "vocab_a1_0634",
+      "form": "비",
+      "en": "rain",
+      "de": "Regen"
+    },
+    {
+      "unit_id": "A1.2-06",
+      "vocab_id": "vocab_a1_0652",
+      "form": "늦다",
+      "en": "to be late",
+      "de": "zu spät sein, sich verspäten"
+    },
+    {
+      "unit_id": "A1.2-06",
+      "vocab_id": "vocab_a1_0770",
+      "form": "먼저",
+      "en": "first",
+      "de": "zuerst"
+    },
+    {
+      "unit_id": "A2.1-01",
+      "vocab_id": "vocab_a1_0424",
+      "form": "예약",
+      "en": "appointment",
+      "de": "Termin"
+    },
+    {
+      "unit_id": "A2.1-01",
+      "vocab_id": "vocab_a2_0499",
+      "form": "가능하다",
+      "en": "to be possible",
+      "de": "möglich sein"
+    },
+    {
+      "unit_id": "A2.1-01",
+      "vocab_id": "vocab_a1_0505",
+      "form": "날짜",
+      "en": "date",
+      "de": "Datum"
+    },
+    {
+      "unit_id": "A2.1-01",
+      "vocab_id": "vocab_a2_0555",
+      "form": "취소",
+      "en": "cancellation",
+      "de": "Absage, Stornierung"
+    },
+    {
+      "unit_id": "A2.1-02",
+      "vocab_id": "vocab_a1_0116",
+      "form": "크다",
+      "en": "big",
+      "de": "groß"
+    },
+    {
+      "unit_id": "A2.1-02",
+      "vocab_id": "vocab_a1_0117",
+      "form": "작다",
+      "en": "small",
+      "de": "klein"
+    },
+    {
+      "unit_id": "A2.1-02",
+      "vocab_id": "vocab_a2_0102",
+      "form": "교환",
+      "en": "exchange",
+      "de": "Umtausch"
+    },
+    {
+      "unit_id": "A2.1-02",
+      "vocab_id": "vocab_a2_0262",
+      "form": "남다",
+      "en": "to remain",
+      "de": "übrig bleiben"
+    },
+    {
+      "unit_id": "A2.1-03",
+      "vocab_id": "vocab_a1_0083",
+      "form": "매일",
+      "en": "every day / daily",
+      "de": "jeden Tag / täglich"
+    },
+    {
+      "unit_id": "A2.1-03",
+      "vocab_id": "vocab_a2_0105",
+      "form": "길",
+      "en": "road / way",
+      "de": "Weg / Straße"
+    },
+    {
+      "unit_id": "A2.1-03",
+      "vocab_id": "vocab_a1_0446",
+      "form": "역",
+      "en": "station",
+      "de": "Bahnhof, Station"
+    },
+    {
+      "unit_id": "A2.1-03",
+      "vocab_id": "vocab_a1_0448",
+      "form": "출발",
+      "en": "departure",
+      "de": "Abfahrt"
+    },
+    {
+      "unit_id": "A2.1-03",
+      "vocab_id": "vocab_a1_0449",
+      "form": "도착",
+      "en": "arrival",
+      "de": "Ankunft"
+    },
+    {
+      "unit_id": "A2.1-03",
+      "vocab_id": "vocab_a1_0697",
+      "form": "안내",
+      "en": "information, guidance",
+      "de": "Auskunft, Information"
+    },
+    {
+      "unit_id": "A2.1-04",
+      "vocab_id": "vocab_a1_0455",
+      "form": "기다리다",
+      "en": "to wait",
+      "de": "warten"
+    },
+    {
+      "unit_id": "A2.1-04",
+      "vocab_id": "vocab_a1_0496",
+      "form": "신발",
+      "en": "shoes",
+      "de": "Schuhe"
+    },
+    {
+      "unit_id": "A2.1-04",
+      "vocab_id": "vocab_a1_0730",
+      "form": "들어가다",
+      "en": "to enter",
+      "de": "hineingehen"
+    },
+    {
+      "unit_id": "A2.1-05",
+      "vocab_id": "vocab_a2_0050",
+      "form": "찾다",
+      "en": "to look for / to find",
+      "de": "suchen / finden"
+    },
+    {
+      "unit_id": "A2.1-05",
+      "vocab_id": "vocab_a2_0053",
+      "form": "보내다",
+      "en": "to send",
+      "de": "schicken / senden"
+    },
+    {
+      "unit_id": "A2.1-05",
+      "vocab_id": "vocab_a1_0430",
+      "form": "사람",
+      "en": "person",
+      "de": "Mensch, Person"
+    },
+    {
+      "unit_id": "A2.1-05",
+      "vocab_id": "vocab_a1_0658",
+      "form": "준비",
+      "en": "preparation",
+      "de": "Vorbereitung"
+    },
+    {
+      "unit_id": "A2.1-06",
+      "vocab_id": "vocab_a1_0014",
+      "form": "선생님",
+      "en": "teacher",
+      "de": "Lehrer/in"
+    },
+    {
+      "unit_id": "A2.1-06",
+      "vocab_id": "vocab_b2_0198",
+      "form": "드리다",
+      "en": "to give (honorific)",
+      "de": "geben (ehrerbietig)"
+    },
+    {
+      "unit_id": "A2.1-06",
+      "vocab_id": "vocab_b2_0203",
+      "form": "계시다",
+      "en": "to be (honorific)",
+      "de": "sich befinden (ehrerbietig)"
+    },
+    {
+      "unit_id": "A2.1-06",
+      "vocab_id": "vocab_a1_0697",
+      "form": "안내",
+      "en": "information, guidance",
+      "de": "Auskunft, Information"
+    },
+    {
+      "unit_id": "A2.2-01",
+      "vocab_id": "vocab_a1_0435",
+      "form": "살다",
+      "en": "to live",
+      "de": "wohnen, leben"
+    },
+    {
+      "unit_id": "A2.2-01",
+      "vocab_id": "vocab_a1_0437",
+      "form": "처음",
+      "en": "first time",
+      "de": "das erste Mal"
+    },
+    {
+      "unit_id": "A2.2-01",
+      "vocab_id": "vocab_a1_0618",
+      "form": "동안",
+      "en": "during, for (duration)",
+      "de": "während, für (Dauer)"
+    },
+    {
+      "unit_id": "A2.2-02",
+      "vocab_id": "vocab_a2_0056",
+      "form": "걷다",
+      "en": "to walk",
+      "de": "zu Fuß gehen / laufen"
+    },
+    {
+      "unit_id": "A2.2-03",
+      "vocab_id": "vocab_a2_0116",
+      "form": "기쁘다",
+      "en": "to be glad / joyful",
+      "de": "sich freuen / froh sein"
+    },
+    {
+      "unit_id": "A2.2-03",
+      "vocab_id": "vocab_a1_0746",
+      "form": "괜찮다",
+      "en": "to be okay",
+      "de": "in Ordnung sein"
+    },
+    {
+      "unit_id": "A2.2-04",
+      "vocab_id": "vocab_a2_0495",
+      "form": "약속",
+      "en": "appointment; promise",
+      "de": "Verabredung; Versprechen"
+    },
+    {
+      "unit_id": "A2.2-05",
+      "vocab_id": "vocab_a1_0111",
+      "form": "열다",
+      "en": "to open",
+      "de": "öffnen"
+    },
+    {
+      "unit_id": "A2.2-05",
+      "vocab_id": "vocab_a1_0112",
+      "form": "닫다",
+      "en": "to close",
+      "de": "schließen"
+    },
+    {
+      "unit_id": "A2.2-05",
+      "vocab_id": "vocab_a2_0264",
+      "form": "걸리다",
+      "en": "to hang",
+      "de": "hängen (dauern)"
+    },
+    {
+      "unit_id": "A2.2-06",
+      "vocab_id": "vocab_a1_0513",
+      "form": "빌리다",
+      "en": "to borrow, to rent",
+      "de": "leihen, ausleihen"
+    }
+  ]
+}

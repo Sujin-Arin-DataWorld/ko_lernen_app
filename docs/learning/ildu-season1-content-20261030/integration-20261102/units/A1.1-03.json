@@ -1,0 +1,1412 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "record_type": "inherited_detailed_with_integration_overlay",
+  "unit_id": "A1.1-03",
+  "band": "A1.1",
+  "title": {
+    "ko": "무엇이 어디에 있나요",
+    "en": "Finding familiar objects",
+    "de": "Vertraute Gegenstände finden"
+  },
+  "goal": {
+    "ko": "익힌 물건이 있는지 묻고 장소를 짧게 확인한다",
+    "en": "Ask whether familiar objects are present and check their location.",
+    "de": "Frage nach vertrauten Gegenständen und kläre, wo sie sind."
+  },
+  "prerequisites": [
+    "A1.1-01"
+  ],
+  "base_manuscript": {
+    "path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/03_A1.1-03.md",
+    "sha256": "af389178144dd09945baec14e4bdb1c708f1d0389394b7b1a98669391010a5eb",
+    "inheritance": "full dialogue, teaching, P/I/R items, answer criteria, help and feedback retained verbatim; overlay is additive"
+  },
+  "source_contract": {
+    "id": "A1.1-03",
+    "title": "무엇이 어디에 있나요",
+    "can_do": "익힌 물건이 있는지 묻고 장소를 짧게 확인한다",
+    "lexis": "가방,모자,여기,저기,있다,없다",
+    "model": "여기 모자가 있어요.",
+    "teach": "물건의 뜻·소리를 먼저 연결한 뒤 새 정보 이·가; 있다·없다의 해요체를 각각 시범",
+    "practice": "가려진 물건의 유무를 서로 물어 위치 찾기",
+    "transfer": "다른 배치의 분실물 자리에서 유무를 확인; 학습 범위 밖 표지는 번역",
+    "prerequisites": "A1.1-01",
+    "review_in": "A1.1-06,A1.2-02",
+    "grammar_rows": "4,10"
+  },
+  "inherited_content": {
+    "items": [
+      {
+        "item_id": "A1.1-03-P01",
+        "unit_id": "A1.1-03",
+        "phase": "P",
+        "objective_id": "A1.1-03.place",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-place"
+        ],
+        "context": {
+          "ko": "화자는 선반 앞. 화자 가까이 모자, 멀리 가방. R에서는 다른 방의 다른 선반을 사용해요.",
+          "en": "The speaker stands at the shelf: 모자 nearby, 가방 farther away. R uses a different shelf in another room.",
+          "de": "Die sprechende Person steht am Regal: 모자 in der Nähe, 가방 weiter weg. R verwendet ein anderes Regal in einem anderen Raum."
+        },
+        "prompt": {
+          "ko": "가까운 물건이 어디에 있는지 상대에게 알려요.",
+          "en": "Tell your partner what is nearby.",
+          "de": "Sage der anderen Person, welcher Gegenstand in der Nähe ist."
+        },
+        "model_or_answer": "여기 모자가 있어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "여기",
+            "sense_ko": "표시된 화자 가까운 곳"
+          },
+          {
+            "form": "있어요",
+            "sense_ko": "확인한 제한 범위에 대상이 있음"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "카메라가 아니라 말하는 사람 가까운 쪽을 봐요.",
+            "en": "Look near the speaker, regardless of camera position.",
+            "de": "Achte auf die Nähe zur sprechenden Person, unabhängig von der Kameraposition."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "여기 모자가 있어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "물건 이름과 화자의 위치를 따로 확인해요. 다른 조사를 써도 뜻이 통했는지는 별도로 남겨요.",
+          "en": "Check the object and the speaker’s position separately. If you use a different particle, record whether the meaning was still clear.",
+          "de": "Prüfe Gegenstand und Standort getrennt. Bei einer anderen Partikel wird zusätzlich festgehalten, ob die Aussage verständlich war."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 여기(에) 가방이/모자가 있어요 and meaningful omission/topic alternatives. Presence and referent must match; particle production is separately observed. Pointing without language = supported action, no sentence production.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-03-R01",
+        "leak_keys": [
+          "place",
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-06-I06",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-03-P02",
+        "unit_id": "A1.1-03",
+        "phase": "P",
+        "objective_id": "A1.1-03.exist",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-exist"
+        ],
+        "context": {
+          "ko": "전체가 보이는 작은 칸을 확인했어요. 그 칸에는 가방 없음. 집의 다른 곳은 확인하지 않았어요.",
+          "en": "You checked the whole small compartment. There is no 가방 in it. Other parts of the house have not been checked.",
+          "de": "Du hast das ganze kleine Fach geprüft. Darin ist kein 가방. Andere Bereiche des Hauses wurden nicht geprüft."
+        },
+        "prompt": {
+          "ko": "확인한 칸에 그 물건이 있는지 말해요.",
+          "en": "Say whether that object is in the checked compartment.",
+          "de": "Sage, ob der Gegenstand im geprüften Fach liegt."
+        },
+        "model_or_answer": "가방이 없어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "가방",
+            "sense_ko": "물건을 넣어 가지고 다니는 가방"
+          },
+          {
+            "form": "없어요",
+            "sense_ko": "확인한 제한 범위에 대상이 없음"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "전체를 확인한 작은 칸의 유무만 말해요.",
+            "en": "Report presence or absence only for the fully checked compartment.",
+            "de": "Sprich nur über das vollständig geprüfte kleine Fach."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "가방이 없어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "있어요는 있는 경우예요. 이번 칸은 확인했고 그 물건이 없어요.",
+          "en": "있어요 means it is present. This compartment has been checked and does not contain that object.",
+          "de": "있어요 bedeutet, dass etwas vorhanden ist. Dieses Fach wurde geprüft; der Gegenstand ist nicht darin."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Open replies: accept equivalent meaning, speech act and appropriate politeness. Record requested target form separately. Choice items require the stated referent; no unrelated paraphrase substitution.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-03-R02",
+        "leak_keys": [
+          "exist",
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-06-I06",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-03-P03",
+        "unit_id": "A1.1-03",
+        "phase": "P",
+        "objective_id": "A1.1-03.place",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-place"
+        ],
+        "context": {
+          "ko": "그림: 화자 곁 흰 칸=모자, 화자에게서 먼 갈색 칸=가방. 카메라는 R에서 반대편이에요. 음성: 저기 가방이 있어요.",
+          "en": "Picture: hat near speaker in white compartment; bag farther away in brown compartment. R reverses camera position. Audio: 저기 가방이 있어요.",
+          "de": "Bild: Hut im weißen Fach nahe bei der sprechenden Person, Tasche im braunen Fach weiter weg. In R steht die Kamera gegenüber. Aufnahme: 저기 가방이 있어요."
+        },
+        "prompt": {
+          "ko": "음성이 가리키는 칸을 골라요.",
+          "en": "Choose the compartment described by the voice.",
+          "de": "Wähle das Fach, das die Stimme beschreibt."
+        },
+        "model_or_answer": "갈색 칸",
+        "choices": [
+          "흰 칸",
+          "갈색 칸"
+        ],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "여기",
+            "sense_ko": "표시된 화자 가까운 곳"
+          },
+          {
+            "form": "저기",
+            "sense_ko": "표시된 화자에게서 떨어진 곳"
+          },
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "가방",
+            "sense_ko": "물건을 넣어 가지고 다니는 가방"
+          },
+          {
+            "form": "있어요",
+            "sense_ko": "확인한 제한 범위에 대상이 있음"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "audio-to-selection",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "화자 표식을 먼저 찾고 같은 음성을 다시 들어요.",
+            "en": "Find the speaker marker, then replay the same audio.",
+            "de": "Finde die Markierung der sprechenden Person und hör dieselbe Aufnahme noch einmal."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "갈색 칸",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "화면 왼쪽·오른쪽이 아니라 화자와의 거리예요.",
+          "en": "The words refer to distance from the speaker, not screen left and right.",
+          "de": "Die Wörter beziehen sich auf die Entfernung zur sprechenden Person, nicht auf links und rechts im Bild."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Open replies: accept equivalent meaning, speech act and appropriate politeness. Record requested target form separately. Choice items require the stated referent; no unrelated paraphrase substitution.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-03-R03",
+        "leak_keys": [
+          "place",
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-06-I06",
+        "choice_labels": [
+          {
+            "ko": "흰 칸",
+            "en": "white compartment",
+            "de": "weißes Fach"
+          },
+          {
+            "ko": "갈색 칸",
+            "en": "brown compartment",
+            "de": "braunes Fach"
+          }
+        ]
+      },
+      {
+        "item_id": "A1.1-03-P04",
+        "unit_id": "A1.1-03",
+        "phase": "P",
+        "objective_id": "A1.1-03.exist",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-exist"
+        ],
+        "context": {
+          "ko": "가려진 칸의 내용은 아직 몰라요. 상대가 확인할 수 있어요.",
+          "en": "The covered compartment has not been checked. Your partner can check it.",
+          "de": "Der Inhalt des verdeckten Fachs ist noch unbekannt. Die andere Person kann nachsehen."
+        },
+        "prompt": {
+          "ko": "모자가 있는지 물어봐요.",
+          "en": "Ask whether there is a hat.",
+          "de": "Frage, ob dort ein Hut ist."
+        },
+        "model_or_answer": "모자가 있어요?",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "있어요?",
+            "sense_ko": "확인 안 된 대상의 유무를 묻는 배운 억양형"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "아직 모르는 정보이므로 유무를 질문해요.",
+            "en": "Ask about presence because the information is still unknown.",
+            "de": "Frage nach dem Vorhandensein, weil die Information noch unbekannt ist."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "모자가 있어요?",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "가려져 있다는 것만으로 없다고 결론내릴 수 없어요. 먼저 물어봐요.",
+          "en": "A cover does not establish absence. Ask first.",
+          "de": "Eine Abdeckung beweist nicht, dass etwas fehlt. Frage zuerst nach."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Open replies: accept equivalent meaning, speech act and appropriate politeness. Record requested target form separately. Choice items require the stated referent; no unrelated paraphrase substitution.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-03-R04",
+        "leak_keys": [
+          "exist",
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-06-I06",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-03-P05",
+        "unit_id": "A1.1-03",
+        "phase": "P",
+        "objective_id": "A1.1-03.optional-read",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-optional-read"
+        ],
+        "context": {
+          "ko": "선택 보충. 익힌 읽어요/있어요의 표기와 소리 중에서 골라요. P는 시범, I/R은 표기 읽기예요.",
+          "en": "Optional. Use the familiar spellings and sounds 읽어요 and 있어요. P models the word; I/R check reading.",
+          "de": "Freiwillig. Verwende die bekannten Schreibweisen und Laute 읽어요 und 있어요. P zeigt das Wort; I/R prüfen das Lesen."
+        },
+        "prompt": {
+          "ko": "읽어요를 보고 맞는 소리를 골라요.",
+          "en": "Look at 읽어요 and choose its sound.",
+          "de": "Schau dir 읽어요 an und wähle den passenden Klang."
+        },
+        "model_or_answer": "[일거요]",
+        "choices": [
+          "[일거요]",
+          "[이써요]"
+        ],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "읽어요",
+            "sense_ko": "책을 읽는 행동; 전체 소리 [일거요], 선택 낱말 보충"
+          },
+          {
+            "form": "있어요",
+            "sense_ko": "확인한 제한 범위에 대상이 있음"
+          }
+        ],
+        "required_grammar_functions": [
+          "optional whole-word reading"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "text-to-selection",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "읽는 행동의 낱말이에요. 낱말 음성 도움을 선택할 수 있어요.",
+            "en": "This is the word for reading. You can choose whole-word audio help.",
+            "de": "Das ist das Wort für Lesen. Du kannst eine Hilfe mit der ganzen Wortaufnahme wählen."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "[일거요]",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "두 낱말의 소리가 달라요. 읽어요의 감수된 전체 소리를 다시 들어요.",
+          "en": "These two words sound different. Hear the reviewed whole-word recording of 읽어요 again.",
+          "de": "Die zwei Wörter klingen verschieden. Hör noch einmal die geprüfte Aufnahme des ganzen Wortes 읽어요."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Optional bridge, skip without penalty. Word-specific text-to-audio mapping, not productive present conjugation mastery. Pronunciation brackets are production annotations, not alternative Korean spellings.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-03-R05",
+        "leak_keys": [
+          "optional-read",
+          "optional whole-word reading"
+        ],
+        "delay_policy": null,
+        "choice_labels": [
+          {
+            "ko": "음성 A",
+            "en": "Audio A",
+            "de": "Aufnahme A"
+          },
+          {
+            "ko": "음성 B",
+            "en": "Audio B",
+            "de": "Aufnahme B"
+          }
+        ]
+      },
+      {
+        "item_id": "A1.1-03-I01",
+        "unit_id": "A1.1-03",
+        "phase": "I",
+        "objective_id": "A1.1-03.place",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-place"
+        ],
+        "context": {
+          "ko": "화자는 선반 앞. 화자 가까이 가방, 멀리 모자. R에서는 다른 방의 다른 선반을 사용해요.",
+          "en": "The speaker stands at the shelf: 가방 nearby, 모자 farther away. R uses a different shelf in another room.",
+          "de": "Die sprechende Person steht am Regal: 가방 in der Nähe, 모자 weiter weg. R verwendet ein anderes Regal in einem anderen Raum."
+        },
+        "prompt": {
+          "ko": "가까운 물건이 어디에 있는지 상대에게 알려요.",
+          "en": "Tell your partner what is nearby.",
+          "de": "Sage der anderen Person, welcher Gegenstand in der Nähe ist."
+        },
+        "model_or_answer": "여기 가방이 있어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "가방",
+            "sense_ko": "물건을 넣어 가지고 다니는 가방"
+          },
+          {
+            "form": "여기",
+            "sense_ko": "표시된 화자 가까운 곳"
+          },
+          {
+            "form": "있어요",
+            "sense_ko": "확인한 제한 범위에 대상이 있음"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "카메라가 아니라 말하는 사람 가까운 쪽을 봐요.",
+            "en": "Look near the speaker, regardless of camera position.",
+            "de": "Achte auf die Nähe zur sprechenden Person, unabhängig von der Kameraposition."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "여기 가방이 있어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "물건 이름과 화자의 위치를 따로 확인해요. 다른 조사를 써도 뜻이 통했는지는 별도로 남겨요.",
+          "en": "Check the object and the speaker’s position separately. If you use a different particle, record whether the meaning was still clear.",
+          "de": "Prüfe Gegenstand und Standort getrennt. Bei einer anderen Partikel wird zusätzlich festgehalten, ob die Aussage verständlich war."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 여기(에) 가방이/모자가 있어요 and meaningful omission/topic alternatives. Presence and referent must match; particle production is separately observed. Pointing without language = supported action, no sentence production.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-03-R01",
+        "leak_keys": [
+          "place",
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-06-I06",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-03-I02",
+        "unit_id": "A1.1-03",
+        "phase": "I",
+        "objective_id": "A1.1-03.exist",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-exist"
+        ],
+        "context": {
+          "ko": "전체가 보이는 작은 칸을 확인했어요. 그 칸에는 모자 없음. 집의 다른 곳은 확인하지 않았어요.",
+          "en": "You checked the whole small compartment. There is no 모자 in it. Other parts of the house have not been checked.",
+          "de": "Du hast das ganze kleine Fach geprüft. Darin ist kein 모자. Andere Bereiche des Hauses wurden nicht geprüft."
+        },
+        "prompt": {
+          "ko": "확인한 칸에 그 물건이 있는지 말해요.",
+          "en": "Say whether that object is in the checked compartment.",
+          "de": "Sage, ob der Gegenstand im geprüften Fach liegt."
+        },
+        "model_or_answer": "모자가 없어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "없어요",
+            "sense_ko": "확인한 제한 범위에 대상이 없음"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "전체를 확인한 작은 칸의 유무만 말해요.",
+            "en": "Report presence or absence only for the fully checked compartment.",
+            "de": "Sprich nur über das vollständig geprüfte kleine Fach."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "모자가 없어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "있어요는 있는 경우예요. 이번 칸은 확인했고 그 물건이 없어요.",
+          "en": "있어요 means it is present. This compartment has been checked and does not contain that object.",
+          "de": "있어요 bedeutet, dass etwas vorhanden ist. Dieses Fach wurde geprüft; der Gegenstand ist nicht darin."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Open replies: accept equivalent meaning, speech act and appropriate politeness. Record requested target form separately. Choice items require the stated referent; no unrelated paraphrase substitution.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-03-R02",
+        "leak_keys": [
+          "exist",
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-06-I06",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-03-I03",
+        "unit_id": "A1.1-03",
+        "phase": "I",
+        "objective_id": "A1.1-03.place",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-place"
+        ],
+        "context": {
+          "ko": "그림: 화자 곁 흰 칸=모자, 화자에게서 먼 갈색 칸=가방. 카메라는 R에서 반대편이에요. 음성: 여기 모자가 있어요.",
+          "en": "Picture: hat near speaker in white compartment; bag farther away in brown compartment. R reverses camera position. Audio: 여기 모자가 있어요.",
+          "de": "Bild: Hut im weißen Fach nahe bei der sprechenden Person, Tasche im braunen Fach weiter weg. In R steht die Kamera gegenüber. Aufnahme: 여기 모자가 있어요."
+        },
+        "prompt": {
+          "ko": "음성이 가리키는 칸을 골라요.",
+          "en": "Choose the compartment described by the voice.",
+          "de": "Wähle das Fach, das die Stimme beschreibt."
+        },
+        "model_or_answer": "흰 칸",
+        "choices": [
+          "흰 칸",
+          "갈색 칸"
+        ],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "여기",
+            "sense_ko": "표시된 화자 가까운 곳"
+          },
+          {
+            "form": "저기",
+            "sense_ko": "표시된 화자에게서 떨어진 곳"
+          },
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "가방",
+            "sense_ko": "물건을 넣어 가지고 다니는 가방"
+          },
+          {
+            "form": "있어요",
+            "sense_ko": "확인한 제한 범위에 대상이 있음"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "audio-to-selection",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "화자 표식을 먼저 찾고 같은 음성을 다시 들어요.",
+            "en": "Find the speaker marker, then replay the same audio.",
+            "de": "Finde die Markierung der sprechenden Person und hör dieselbe Aufnahme noch einmal."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "흰 칸",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "화면 왼쪽·오른쪽이 아니라 화자와의 거리예요.",
+          "en": "The words refer to distance from the speaker, not screen left and right.",
+          "de": "Die Wörter beziehen sich auf die Entfernung zur sprechenden Person, nicht auf links und rechts im Bild."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Open replies: accept equivalent meaning, speech act and appropriate politeness. Record requested target form separately. Choice items require the stated referent; no unrelated paraphrase substitution.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "listening identification only; no speech credit",
+        "later_probe_id": "A1.1-03-R03",
+        "leak_keys": [
+          "place",
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-06-I06",
+        "choice_labels": [
+          {
+            "ko": "흰 칸",
+            "en": "white compartment",
+            "de": "weißes Fach"
+          },
+          {
+            "ko": "갈색 칸",
+            "en": "brown compartment",
+            "de": "braunes Fach"
+          }
+        ]
+      },
+      {
+        "item_id": "A1.1-03-I04",
+        "unit_id": "A1.1-03",
+        "phase": "I",
+        "objective_id": "A1.1-03.exist",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-exist"
+        ],
+        "context": {
+          "ko": "가려진 칸의 내용은 아직 몰라요. 상대가 확인할 수 있어요.",
+          "en": "The covered compartment has not been checked. Your partner can check it.",
+          "de": "Der Inhalt des verdeckten Fachs ist noch unbekannt. Die andere Person kann nachsehen."
+        },
+        "prompt": {
+          "ko": "모자가 있는지 물어봐요.",
+          "en": "Ask whether there is a hat.",
+          "de": "Frage, ob dort ein Hut ist."
+        },
+        "model_or_answer": "모자가 있어요?",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "있어요?",
+            "sense_ko": "확인 안 된 대상의 유무를 묻는 배운 억양형"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "아직 모르는 정보이므로 유무를 질문해요.",
+            "en": "Ask about presence because the information is still unknown.",
+            "de": "Frage nach dem Vorhandensein, weil die Information noch unbekannt ist."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "모자가 있어요?",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "가려져 있다는 것만으로 없다고 결론내릴 수 없어요. 먼저 물어봐요.",
+          "en": "A cover does not establish absence. Ask first.",
+          "de": "Eine Abdeckung beweist nicht, dass etwas fehlt. Frage zuerst nach."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Open replies: accept equivalent meaning, speech act and appropriate politeness. Record requested target form separately. Choice items require the stated referent; no unrelated paraphrase substitution.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-03-R04",
+        "leak_keys": [
+          "exist",
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-06-I06",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-03-I05",
+        "unit_id": "A1.1-03",
+        "phase": "I",
+        "objective_id": "A1.1-03.optional-read",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-optional-read"
+        ],
+        "context": {
+          "ko": "선택 보충. 익힌 읽어요/있어요의 표기와 소리 중에서 골라요. P는 시범, I/R은 표기 읽기예요.",
+          "en": "Optional. Use the familiar spellings and sounds 읽어요 and 있어요. P models the word; I/R check reading.",
+          "de": "Freiwillig. Verwende die bekannten Schreibweisen und Laute 읽어요 und 있어요. P zeigt das Wort; I/R prüfen das Lesen."
+        },
+        "prompt": {
+          "ko": "읽어요를 보고 맞는 소리를 골라요.",
+          "en": "Look at 읽어요 and choose its sound.",
+          "de": "Schau dir 읽어요 an und wähle den passenden Klang."
+        },
+        "model_or_answer": "[일거요]",
+        "choices": [
+          "[일거요]",
+          "[이써요]"
+        ],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "읽어요",
+            "sense_ko": "책을 읽는 행동; 전체 소리 [일거요], 선택 낱말 보충"
+          },
+          {
+            "form": "있어요",
+            "sense_ko": "확인한 제한 범위에 대상이 있음"
+          }
+        ],
+        "required_grammar_functions": [
+          "optional whole-word reading"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "text-to-selection",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "읽는 행동의 낱말이에요. 낱말 음성 도움을 선택할 수 있어요.",
+            "en": "This is the word for reading. You can choose whole-word audio help.",
+            "de": "Das ist das Wort für Lesen. Du kannst eine Hilfe mit der ganzen Wortaufnahme wählen."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "[일거요]",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "두 낱말의 소리가 달라요. 읽어요의 감수된 전체 소리를 다시 들어요.",
+          "en": "These two words sound different. Hear the reviewed whole-word recording of 읽어요 again.",
+          "de": "Die zwei Wörter klingen verschieden. Hör noch einmal die geprüfte Aufnahme des ganzen Wortes 읽어요."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Optional bridge, skip without penalty. Word-specific text-to-audio mapping, not productive present conjugation mastery. Pronunciation brackets are production annotations, not alternative Korean spellings.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "reading recognition only; no listening or speech credit",
+        "later_probe_id": "A1.1-03-R05",
+        "leak_keys": [
+          "optional-read",
+          "optional whole-word reading"
+        ],
+        "delay_policy": null,
+        "choice_labels": [
+          {
+            "ko": "음성 A",
+            "en": "Audio A",
+            "de": "Aufnahme A"
+          },
+          {
+            "ko": "음성 B",
+            "en": "Audio B",
+            "de": "Aufnahme B"
+          }
+        ]
+      },
+      {
+        "item_id": "A1.1-03-R01",
+        "unit_id": "A1.1-03",
+        "phase": "R",
+        "objective_id": "A1.1-03.place",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-place"
+        ],
+        "context": {
+          "ko": "화자는 선반 앞. 화자 가까이 모자, 멀리 가방. R에서는 다른 방의 다른 선반을 사용해요.",
+          "en": "The speaker stands at the shelf: 모자 nearby, 가방 farther away. R uses a different shelf in another room.",
+          "de": "Die sprechende Person steht am Regal: 모자 in der Nähe, 가방 weiter weg. R verwendet ein anderes Regal in einem anderen Raum."
+        },
+        "prompt": {
+          "ko": "가까운 물건이 어디에 있는지 상대에게 알려요.",
+          "en": "Tell your partner what is nearby.",
+          "de": "Sage der anderen Person, welcher Gegenstand in der Nähe ist."
+        },
+        "model_or_answer": "여기 모자가 있어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "여기",
+            "sense_ko": "표시된 화자 가까운 곳"
+          },
+          {
+            "form": "있어요",
+            "sense_ko": "확인한 제한 범위에 대상이 있음"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "카메라가 아니라 말하는 사람 가까운 쪽을 봐요.",
+            "en": "Look near the speaker, regardless of camera position.",
+            "de": "Achte auf die Nähe zur sprechenden Person, unabhängig von der Kameraposition."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "여기 모자가 있어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "물건 이름과 화자의 위치를 따로 확인해요. 다른 조사를 써도 뜻이 통했는지는 별도로 남겨요.",
+          "en": "Check the object and the speaker’s position separately. If you use a different particle, record whether the meaning was still clear.",
+          "de": "Prüfe Gegenstand und Standort getrennt. Bei einer anderen Partikel wird zusätzlich festgehalten, ob die Aussage verständlich war."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 여기(에) 가방이/모자가 있어요 and meaningful omission/topic alternatives. Presence and referent must match; particle production is separately observed. Pointing without language = supported action, no sentence production.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "place",
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "later_unit_probe_id": "A1.1-06-I06",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-03-R02",
+        "unit_id": "A1.1-03",
+        "phase": "R",
+        "objective_id": "A1.1-03.exist",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-exist"
+        ],
+        "context": {
+          "ko": "전체가 보이는 작은 칸을 확인했어요. 그 칸에는 가방 없음. 집의 다른 곳은 확인하지 않았어요.",
+          "en": "You checked the whole small compartment. There is no 가방 in it. Other parts of the house have not been checked.",
+          "de": "Du hast das ganze kleine Fach geprüft. Darin ist kein 가방. Andere Bereiche des Hauses wurden nicht geprüft."
+        },
+        "prompt": {
+          "ko": "확인한 칸에 그 물건이 있는지 말해요.",
+          "en": "Say whether that object is in the checked compartment.",
+          "de": "Sage, ob der Gegenstand im geprüften Fach liegt."
+        },
+        "model_or_answer": "가방이 없어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "가방",
+            "sense_ko": "물건을 넣어 가지고 다니는 가방"
+          },
+          {
+            "form": "없어요",
+            "sense_ko": "확인한 제한 범위에 대상이 없음"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "전체를 확인한 작은 칸의 유무만 말해요.",
+            "en": "Report presence or absence only for the fully checked compartment.",
+            "de": "Sprich nur über das vollständig geprüfte kleine Fach."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "가방이 없어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "있어요는 있는 경우예요. 이번 칸은 확인했고 그 물건이 없어요.",
+          "en": "있어요 means it is present. This compartment has been checked and does not contain that object.",
+          "de": "있어요 bedeutet, dass etwas vorhanden ist. Dieses Fach wurde geprüft; der Gegenstand ist nicht darin."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Open replies: accept equivalent meaning, speech act and appropriate politeness. Record requested target form separately. Choice items require the stated referent; no unrelated paraphrase substitution.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "exist",
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "later_unit_probe_id": "A1.1-06-I06",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-03-R03",
+        "unit_id": "A1.1-03",
+        "phase": "R",
+        "objective_id": "A1.1-03.place",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-place"
+        ],
+        "context": {
+          "ko": "그림: 화자 곁 흰 칸=모자, 화자에게서 먼 갈색 칸=가방. 카메라는 R에서 반대편이에요. 음성: 저기 가방이 있어요.",
+          "en": "Picture: hat near speaker in white compartment; bag farther away in brown compartment. R reverses camera position. Audio: 저기 가방이 있어요.",
+          "de": "Bild: Hut im weißen Fach nahe bei der sprechenden Person, Tasche im braunen Fach weiter weg. In R steht die Kamera gegenüber. Aufnahme: 저기 가방이 있어요."
+        },
+        "prompt": {
+          "ko": "음성이 가리키는 칸을 골라요.",
+          "en": "Choose the compartment described by the voice.",
+          "de": "Wähle das Fach, das die Stimme beschreibt."
+        },
+        "model_or_answer": "갈색 칸",
+        "choices": [
+          "흰 칸",
+          "갈색 칸"
+        ],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "여기",
+            "sense_ko": "표시된 화자 가까운 곳"
+          },
+          {
+            "form": "저기",
+            "sense_ko": "표시된 화자에게서 떨어진 곳"
+          },
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "가방",
+            "sense_ko": "물건을 넣어 가지고 다니는 가방"
+          },
+          {
+            "form": "있어요",
+            "sense_ko": "확인한 제한 범위에 대상이 있음"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "audio-to-selection",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "화자 표식을 먼저 찾고 같은 음성을 다시 들어요.",
+            "en": "Find the speaker marker, then replay the same audio.",
+            "de": "Finde die Markierung der sprechenden Person und hör dieselbe Aufnahme noch einmal."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "갈색 칸",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "화면 왼쪽·오른쪽이 아니라 화자와의 거리예요.",
+          "en": "The words refer to distance from the speaker, not screen left and right.",
+          "de": "Die Wörter beziehen sich auf die Entfernung zur sprechenden Person, nicht auf links und rechts im Bild."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Open replies: accept equivalent meaning, speech act and appropriate politeness. Record requested target form separately. Choice items require the stated referent; no unrelated paraphrase substitution.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "listening identification only; no speech credit",
+        "later_probe_id": null,
+        "leak_keys": [
+          "place",
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "later_unit_probe_id": "A1.1-06-I06",
+        "choice_labels": [
+          {
+            "ko": "흰 칸",
+            "en": "white compartment",
+            "de": "weißes Fach"
+          },
+          {
+            "ko": "갈색 칸",
+            "en": "brown compartment",
+            "de": "braunes Fach"
+          }
+        ]
+      },
+      {
+        "item_id": "A1.1-03-R04",
+        "unit_id": "A1.1-03",
+        "phase": "R",
+        "objective_id": "A1.1-03.exist",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-exist"
+        ],
+        "context": {
+          "ko": "가려진 칸의 내용은 아직 몰라요. 상대가 확인할 수 있어요.",
+          "en": "The covered compartment has not been checked. Your partner can check it.",
+          "de": "Der Inhalt des verdeckten Fachs ist noch unbekannt. Die andere Person kann nachsehen."
+        },
+        "prompt": {
+          "ko": "모자가 있는지 물어봐요.",
+          "en": "Ask whether there is a hat.",
+          "de": "Frage, ob dort ein Hut ist."
+        },
+        "model_or_answer": "모자가 있어요?",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "있어요?",
+            "sense_ko": "확인 안 된 대상의 유무를 묻는 배운 억양형"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "아직 모르는 정보이므로 유무를 질문해요.",
+            "en": "Ask about presence because the information is still unknown.",
+            "de": "Frage nach dem Vorhandensein, weil die Information noch unbekannt ist."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "모자가 있어요?",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "가려져 있다는 것만으로 없다고 결론내릴 수 없어요. 먼저 물어봐요.",
+          "en": "A cover does not establish absence. Ask first.",
+          "de": "Eine Abdeckung beweist nicht, dass etwas fehlt. Frage zuerst nach."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Open replies: accept equivalent meaning, speech act and appropriate politeness. Record requested target form separately. Choice items require the stated referent; no unrelated paraphrase substitution.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "exist",
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "later_unit_probe_id": "A1.1-06-I06",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-03-R05",
+        "unit_id": "A1.1-03",
+        "phase": "R",
+        "objective_id": "A1.1-03.optional-read",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-optional-read"
+        ],
+        "context": {
+          "ko": "선택 보충. 익힌 읽어요/있어요의 표기와 소리 중에서 골라요. P는 시범, I/R은 표기 읽기예요.",
+          "en": "Optional. Use the familiar spellings and sounds 읽어요 and 있어요. P models the word; I/R check reading.",
+          "de": "Freiwillig. Verwende die bekannten Schreibweisen und Laute 읽어요 und 있어요. P zeigt das Wort; I/R prüfen das Lesen."
+        },
+        "prompt": {
+          "ko": "읽어요를 보고 맞는 소리를 골라요.",
+          "en": "Look at 읽어요 and choose its sound.",
+          "de": "Schau dir 읽어요 an und wähle den passenden Klang."
+        },
+        "model_or_answer": "[일거요]",
+        "choices": [
+          "[일거요]",
+          "[이써요]"
+        ],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "읽어요",
+            "sense_ko": "책을 읽는 행동; 전체 소리 [일거요], 선택 낱말 보충"
+          },
+          {
+            "form": "있어요",
+            "sense_ko": "확인한 제한 범위에 대상이 있음"
+          }
+        ],
+        "required_grammar_functions": [
+          "optional whole-word reading"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "text-to-selection",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "읽는 행동의 낱말이에요. 낱말 음성 도움을 선택할 수 있어요.",
+            "en": "This is the word for reading. You can choose whole-word audio help.",
+            "de": "Das ist das Wort für Lesen. Du kannst eine Hilfe mit der ganzen Wortaufnahme wählen."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "[일거요]",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "두 낱말의 소리가 달라요. 읽어요의 감수된 전체 소리를 다시 들어요.",
+          "en": "These two words sound different. Hear the reviewed whole-word recording of 읽어요 again.",
+          "de": "Die zwei Wörter klingen verschieden. Hör noch einmal die geprüfte Aufnahme des ganzen Wortes 읽어요."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Optional bridge, skip without penalty. Word-specific text-to-audio mapping, not productive present conjugation mastery. Pronunciation brackets are production annotations, not alternative Korean spellings.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "reading recognition only; no listening or speech credit",
+        "later_probe_id": null,
+        "leak_keys": [
+          "optional-read",
+          "optional whole-word reading"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "choice_labels": [
+          {
+            "ko": "음성 A",
+            "en": "Audio A",
+            "de": "Aufnahme A"
+          },
+          {
+            "ko": "음성 B",
+            "en": "Audio B",
+            "de": "Aufnahme B"
+          }
+        ]
+      },
+      {
+        "item_id": "A1.1-03-P06",
+        "unit_id": "A1.1-03",
+        "phase": "P",
+        "objective_id": "A1.1-03.f02-hat-recall",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-exist"
+        ],
+        "context": {
+          "ko": "입문2에서 본 모자의 다른 사진. 입문2 기록이 없어도 뜻·음성 준비를 다시 할 수 있어요.",
+          "en": "A different photo of the hat from Foundation2. Without prior evidence, repeat meaning and sound preparation.",
+          "de": "Ein anderes Foto des Huts aus Einstieg2. Ohne frühere Lerndaten kannst du Bedeutung und Klang noch einmal vorbereiten."
+        },
+        "prompt": {
+          "ko": "모자 소리를 듣고 맞는 물건을 골라요.",
+          "en": "Hear 모자 and choose the object.",
+          "de": "Hör 모자 und wähle den Gegenstand."
+        },
+        "model_or_answer": "모자",
+        "choices": [
+          "모자",
+          "가방"
+        ],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "가방",
+            "sense_ko": "물건을 넣어 가지고 다니는 가방"
+          }
+        ],
+        "required_grammar_functions": [],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "audio-to-selection",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "사진의 실제 쓰임을 확인해요.",
+            "en": "Check what the object is used for.",
+            "de": "Schau, wofür der Gegenstand benutzt wird."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "모자",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "가방과 모자는 쓰는 곳이 달라요. 뜻을 다시 확인해요.",
+          "en": "A bag and a hat are used differently. Check the meaning again.",
+          "de": "Tasche und Hut werden unterschiedlich verwendet. Prüfe die Bedeutung noch einmal."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Concrete F0.2 whole-word hat audio-to-object recall. Without prior evidence this is preparation. It does not assess presence/location sentence production. A corresponding later probe of this exact scope is not authored in this package; later_probe_id and later_unit_probe_id are intentionally null.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": null,
+        "leak_keys": [
+          "lexis:모자",
+          "lexis:가방"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": null,
+        "choice_labels": [
+          {
+            "ko": "모자",
+            "en": "hat",
+            "de": "Hut"
+          },
+          {
+            "ko": "가방",
+            "en": "bag",
+            "de": "Tasche"
+          }
+        ]
+      }
+    ]
+  },
+  "responses": {
+    "assisted": {
+      "ko": "도움을 받아 이 활동을 함께 마쳤어요. 다른 예는 준비되면 해 봐요.",
+      "en": "You completed this activity with support. Try another example when you are ready.",
+      "de": "Du hast diese Aufgabe mit Hilfe abgeschlossen. Probiere ein weiteres Beispiel, wenn du bereit bist."
+    },
+    "independent": {
+      "ko": "이 예는 시범 없이 확인했어요. 다른 날 새로운 상황에서도 다시 해 봐요.",
+      "en": "You checked this example without a model. Try it in a new setting another day.",
+      "de": "Du hast dieses Beispiel ohne Vorlage bearbeitet. Probiere es an einem anderen Tag in einer neuen Situation."
+    },
+    "audio_unavailable": {
+      "ko": "지금은 소리를 재생할 수 없어요. 글과 그림으로 계속하거나 나중에 다시 들어요.",
+      "en": "Audio is unavailable right now. Continue with text and pictures, or listen later.",
+      "de": "Der Ton ist gerade nicht verfügbar. Mach mit Text und Bildern weiter oder höre später noch einmal zu."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 괜찮아요. 돌아오면 같은 차례에서 이어가요.",
+      "en": "You can take a break here. When you return, continue from the same turn.",
+      "de": "Du kannst hier eine Pause machen. Wenn du zurückkommst, geht es an derselben Stelle weiter."
+    },
+    "resume": {
+      "ko": "돌아왔네요. 놓아 둔 답과 도움 상태를 확인하고 이어가요.",
+      "en": "Welcome back. Check your previous response and any help you used, then continue.",
+      "de": "Willkommen zurück. Sieh dir deine bisherige Antwort und die verwendete Hilfe an und mach dann weiter."
+    },
+    "save_failed": {
+      "ko": "아직 저장을 확인하지 못했어요. 지금 답은 유지한 채 다시 시도해요.",
+      "en": "Saving has not been confirmed yet. Keep your response and try again.",
+      "de": "Das Speichern ist noch nicht bestätigt. Deine Antwort bleibt stehen; versuche es erneut."
+    },
+    "revisit": {
+      "ko": "이미 본 장면이에요. 다시 보아도 보상이나 공정이 중복 생성되지 않아요.",
+      "en": "You have seen this scene before. Replaying it does not grant another reward or construction step.",
+      "de": "Du kennst diese Szene bereits. Beim erneuten Ansehen erhältst du keine weitere Belohnung und keinen zusätzlichen Bauabschnitt."
+    }
+  },
+  "response_conditions": {
+    "assisted": "only after supported task is resolved",
+    "independent": "only if the eligible item met its criteria without model/hint; not all modalities",
+    "resume": "only after original state is actually restored",
+    "revisit": "existing reward owner remains authoritative"
+  },
+  "story": {
+    "lq_id": "LQ-05",
+    "anchor": "중문간채 중간",
+    "spoiler_guard": "Use only revealed facts. First book has no completed Sarangchae; first 집 remains practice draft until original readiness is confirmed."
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true,
+    "original_review_scope": "existing manuscript reviews and same-byte source; not human/native/device approval"
+  }
+}

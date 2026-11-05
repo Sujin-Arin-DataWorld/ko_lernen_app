@@ -1,0 +1,1113 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "record_type": "inherited_detailed_with_integration_overlay",
+  "unit_id": "F0.3.silent-or-sounding",
+  "band": "F0.3",
+  "title": {
+    "ko": "ㅇ이 첫자리와 받침에서 하는 일을 구분한다",
+    "en": "Two positions of ㅇ",
+    "de": "Zwei Positionen von ㅇ"
+  },
+  "goal": {
+    "ko": "ㅇ이 첫자리와 받침에서 하는 일을 구분한다",
+    "en": "Distinguish the role of ㅇ at the start and end of a syllable.",
+    "de": "Unterscheide die Funktion von ㅇ am Silbenanfang und am Silbenende."
+  },
+  "prerequisites": [],
+  "base_manuscript": {
+    "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/11_INITIAL_FINAL_NG_MAP.md",
+    "sha256": "10f9d1cf6bd490f6e31d467d4191200e7bfc084e936c9ee4a0e1c701379959c8",
+    "inheritance": "full dialogue, teaching, P/I/R items, answer criteria, help and feedback retained verbatim; overlay is additive"
+  },
+  "source_contract": {
+    "id": "F0.3.silent-or-sounding",
+    "goal": "ㅇ이 첫자리와 받침에서 하는 일을 구분한다",
+    "teach_targets": "아,방",
+    "check_targets": "공,강",
+    "meaning_or_oral": "방·공의 뜻을 그림으로 먼저 제공",
+    "transfer_task": "강·공에서 첫소리와 받침을 표시하고 음성 비교",
+    "review_in": "F0.4.linked-sounds",
+    "review_prompt": "방과 방에의 소리를 비교하며 받침 ㅇ 유지 확인",
+    "evidence_limit": "받침 ㅇ을 영어 ng 표기 암기로만 평가하지 않음"
+  },
+  "inherited_content": {
+    "selected_feedback_refs": [
+      "H02",
+      "B02"
+    ],
+    "feedback_rows": [
+      {
+        "key": "H01·시범 도움",
+        "en": "The ㅇ in 아 is silent in the initial position. The last ㅇ in 방 is a final consonant and has a sound. Point to the two positions and listen to 아 and 방 separately.",
+        "de": "Das ㅇ in 아 ist am Anfang stumm. Das letzte ㅇ in 방 ist ein Endkonsonant und hat einen Laut. Zeig auf beide Positionen und hör dir 아 und 방 einzeln an."
+      },
+      {
+        "key": "A01·듣고 표기·아",
+        "en": "The sound was 아. Listen again with the written example 아, then choose the written form again.",
+        "de": "Der Laut war 아. Hör ihn noch einmal mit dem Schriftbeispiel 아 und wähle dann das Schriftzeichen erneut."
+      },
+      {
+        "key": "B01·배치·아",
+        "en": "The written form here is 아: initial ㅇ, vowel ㅏ. Put the pieces into one block and try again with the same example.",
+        "de": "Hier steht 아: Anfangszeichen ㅇ, Vokal ㅏ. Setze die Teile zu einem Block zusammen und versuch es mit demselben Beispiel noch einmal."
+      },
+      {
+        "key": "B01·배치·공",
+        "en": "The written form here is 공: initial ㄱ, vowel ㅗ, final consonant ㅇ. Put the pieces into one block and try again with the same example.",
+        "de": "Hier steht 공: Anfangszeichen ㄱ, Vokal ㅗ, Endkonsonant ㅇ. Setze die Teile zu einem Block zusammen und versuch es mit demselben Beispiel noch einmal."
+      },
+      {
+        "key": "C01·받침 소리·아",
+        "en": "The written syllable is 아: initial ㅇ, vowel ㅏ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 아: Anfangszeichen ㅇ, Vokal ㅏ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "C01·받침 소리·공",
+        "en": "The written syllable is 공: initial ㄱ, vowel ㅗ, final consonant ㅇ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 공: Anfangszeichen ㄱ, Vokal ㅗ, Endkonsonant ㅇ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "V01·모음·아",
+        "en": "The written syllable is 아: initial ㅇ, vowel ㅏ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 아: Anfangszeichen ㅇ, Vokal ㅏ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "V01·모음·공",
+        "en": "The written syllable is 공: initial ㄱ, vowel ㅗ, final consonant ㅇ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 공: Anfangszeichen ㄱ, Vokal ㅗ, Endkonsonant ㅇ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "H02·시범 도움",
+        "en": "방 is a room inside a building. Put ㅇ below 바 to make 방. Don't leave out final ㅇ as if it were silent initial ㅇ.",
+        "de": "방 ist ein Raum im Inneren eines Gebäudes. Setze ㅇ unter 바 zu 방. Lass das ㅇ am Ende nicht wie ein stummes Anfangs-ㅇ weg."
+      },
+      {
+        "key": "A02·듣고 표기·방",
+        "en": "The sound was 방. Listen again with the written example 방, then choose the written form again.",
+        "de": "Der Laut war 방. Hör ihn noch einmal mit dem Schriftbeispiel 방 und wähle dann das Schriftzeichen erneut."
+      },
+      {
+        "key": "B02·배치·방",
+        "en": "The written form here is 방: initial ㅂ, vowel ㅏ, final consonant ㅇ. Put the pieces into one block and try again with the same example.",
+        "de": "Hier steht 방: Anfangszeichen ㅂ, Vokal ㅏ, Endkonsonant ㅇ. Setze die Teile zu einem Block zusammen und versuch es mit demselben Beispiel noch einmal."
+      },
+      {
+        "key": "B02·배치·강",
+        "en": "The written form here is 강: initial ㄱ, vowel ㅏ, final consonant ㅇ. Put the pieces into one block and try again with the same example.",
+        "de": "Hier steht 강: Anfangszeichen ㄱ, Vokal ㅏ, Endkonsonant ㅇ. Setze die Teile zu einem Block zusammen und versuch es mit demselben Beispiel noch einmal."
+      },
+      {
+        "key": "C02·받침 소리·방",
+        "en": "The written syllable is 방: initial ㅂ, vowel ㅏ, final consonant ㅇ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 방: Anfangszeichen ㅂ, Vokal ㅏ, Endkonsonant ㅇ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "C02·받침 소리·강",
+        "en": "The written syllable is 강: initial ㄱ, vowel ㅏ, final consonant ㅇ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 강: Anfangszeichen ㄱ, Vokal ㅏ, Endkonsonant ㅇ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "V02·모음·방",
+        "en": "The written syllable is 방: initial ㅂ, vowel ㅏ, final consonant ㅇ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 방: Anfangszeichen ㅂ, Vokal ㅏ, Endkonsonant ㅇ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "V02·모음·강",
+        "en": "The written syllable is 강: initial ㄱ, vowel ㅏ, final consonant ㅇ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 강: Anfangszeichen ㄱ, Vokal ㅏ, Endkonsonant ㅇ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "NG-H·도움",
+        "en": "Initial ㅇ is silent in these syllables; final ㅇ has a sound. First look at the marked position.",
+        "de": "ㅇ am Anfang dieser Silben ist stumm; ㅇ am Ende hat einen Laut. Sieh dir zuerst die markierte Position an."
+      },
+      {
+        "key": "NG-F·오답",
+        "en": "The shape is the same, but the position differs. In the same written block, check whether the marked ㅇ is initial or final.",
+        "de": "Die Form ist gleich, doch der Platz ist anders. Prüfe im selben Schriftblock, ob das markierte ㅇ am Anfang oder Ende steht."
+      },
+      {
+        "key": "NG-아·오답",
+        "en": "The ㅇ in 아 is silent in the initial position. Point to that initial position in the same block again.",
+        "de": "Das ㅇ in 아 steht am Anfang und ist stumm. Zeig im selben Block noch einmal auf diese Anfangsposition."
+      },
+      {
+        "key": "NG-방·오답",
+        "en": "The ㅇ in 방 is a final consonant at the bottom and has a sound. Point to that final position in the same block again.",
+        "de": "Das ㅇ in 방 steht unten als Endkonsonant und hat einen Laut. Zeig im selben Block noch einmal auf diese Endposition."
+      },
+      {
+        "key": "NG-공·오답",
+        "en": "The ㅇ in 공 is a final consonant at the bottom and has a sound. Point to that final position in the same block again.",
+        "de": "Das ㅇ in 공 steht unten als Endkonsonant und hat einen Laut. Zeig im selben Block noch einmal auf diese Endposition."
+      },
+      {
+        "key": "COURTYARD-ORDER·오답",
+        "en": "In 마당, 마 comes before 당. Put the two syllables in this order and listen to them together.",
+        "de": "In 마당 steht 마 vor 당. Ordne die beiden Silben so an und hör sie dir zusammen an."
+      },
+      {
+        "key": "MAP-DOOR·도움/오답",
+        "en": "문 is the marked door or gate. Compare the entrance with the photo again.",
+        "de": "문 ist die markierte Tür oder das Tor. Vergleiche den Eingang noch einmal mit dem Foto."
+      },
+      {
+        "key": "MAP-ROOM·도움/오답",
+        "en": "방 is the marked indoor room. Look inside the room rather than at the door or outdoor courtyard.",
+        "de": "방 ist der markierte Innenraum. Sieh in den Raum hinein, nicht auf die Tür oder den Hof draußen."
+      },
+      {
+        "key": "MAP-PATH·도움/오답",
+        "en": "길 is the walkway leading from the entrance. Compare it with the indoor room and open courtyard.",
+        "de": "길 ist der Weg am Eingang. Vergleiche ihn mit dem Innenraum und dem offenen Hof."
+      },
+      {
+        "key": "MAP-COURTYARD·도움/오답",
+        "en": "마당 is the marked open space outdoors. Distinguish it from the indoor room and narrow path and connect 마 and 당 again.",
+        "de": "마당 ist der markierte offene Platz draußen. Unterscheide ihn vom Innenraum und dem schmalen Weg und verbinde 마 und 당 noch einmal."
+      },
+      {
+        "key": "OK·현재 목표만",
+        "en": "That matches this written form or the marked target. Take your time with the next one too.",
+        "de": "Das passt zu dieser Schriftform oder zur markierten Stelle. Nimm dir auch für die nächste Aufgabe Zeit."
+      }
+    ],
+    "practice_task_ids": [
+      "C11-P01",
+      "C11-P02",
+      "C11-P03",
+      "C11-P04",
+      "C11-P05",
+      "C11-P06",
+      "C11-P07",
+      "C11-P08",
+      "C11-P09",
+      "C11-P10"
+    ],
+    "independent_task_ids": [
+      "C11-I01",
+      "C11-I02",
+      "C11-I03",
+      "C11-I04",
+      "C11-I05",
+      "C11-I06",
+      "C11-I07",
+      "C11-I08",
+      "C11-I09",
+      "C11-I10",
+      "C11-I11",
+      "C11-I12"
+    ],
+    "next_day_task_ids": [
+      "C11-R01",
+      "C11-R02",
+      "C11-R03",
+      "C11-R04",
+      "C11-R05",
+      "C11-R06",
+      "C11-R07",
+      "C11-R08",
+      "C11-R09",
+      "C11-R10",
+      "C11-R11",
+      "C11-R12"
+    ],
+    "common_copy_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-3-v35\\COMMON_COPY.md",
+    "readme_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-3-v35\\README.md",
+    "task_bindings": [
+      {
+        "task_id": "C11-P01",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to put the pieces into one syllable block.",
+          "de": "Setze die Teile nach dem Beispiel zu einem Silbenblock zusammen."
+        },
+        "target": "아",
+        "feedback_refs": [
+          "H01",
+          "B01"
+        ],
+        "material": {
+          "shown_model": "아",
+          "pieces": [
+            "ㅏ",
+            "ㅇ"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-P02",
+        "kind": "P",
+        "prompt": {
+          "en": "Listen and choose the matching written form.",
+          "de": "Hör zu und wähle die passende Schriftform."
+        },
+        "target": "아",
+        "feedback_refs": [
+          "H01",
+          "A01"
+        ],
+        "material": {
+          "audio": "아",
+          "no_transcript": true
+        },
+        "choices": [
+          "아",
+          "방"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-I01",
+        "kind": "I",
+        "prompt": {
+          "en": "Look at the written syllable and choose its sound.",
+          "de": "Sieh dir die geschriebene Silbe an und wähle den passenden Laut."
+        },
+        "target": "공",
+        "feedback_refs": [
+          "H01",
+          "C01",
+          "V01"
+        ],
+        "material": {
+          "written": "공",
+          "audio_ui": "A/B/C/D, 전사 숨김",
+          "required_prelearned_finals_for_main_choices": [
+            "ㅁ",
+            "ㄴ",
+            "ㅇ"
+          ],
+          "if_any_m_n_not_learned": {
+            "audio_choices": [
+              "공",
+              "고",
+              "궁"
+            ],
+            "correct_button": "A",
+            "scope": "ㅁ·ㄴ 중 하나라도 미학습이면 이 보기 사용. 받침 ㅇ 유무와 모음만 확인; 다른 받침과의 대조 근거 아님"
+          }
+        },
+        "choices": [
+          "공",
+          "고",
+          "곰",
+          "곤"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-I02",
+        "kind": "I",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist noch verborgen."
+        },
+        "target": "공",
+        "feedback_refs": [
+          "H01",
+          "B01"
+        ],
+        "material": {
+          "pieces": [
+            "ㅇ",
+            "ㅗ",
+            "ㄱ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-P03",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to put the pieces into one syllable block.",
+          "de": "Setze die Teile nach dem Beispiel zu einem Silbenblock zusammen."
+        },
+        "target": "방",
+        "feedback_refs": [
+          "H02",
+          "B02"
+        ],
+        "material": {
+          "shown_model": "방",
+          "pieces": [
+            "ㅇ",
+            "ㅏ",
+            "ㅂ"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-P04",
+        "kind": "P",
+        "prompt": {
+          "en": "Listen and choose the matching written form.",
+          "de": "Hör zu und wähle die passende Schriftform."
+        },
+        "target": "방",
+        "feedback_refs": [
+          "H02",
+          "A02"
+        ],
+        "material": {
+          "audio": "방",
+          "no_transcript": true
+        },
+        "choices": [
+          "바",
+          "방"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-I03",
+        "kind": "I",
+        "prompt": {
+          "en": "Look at the written syllable and choose its sound.",
+          "de": "Sieh dir die geschriebene Silbe an und wähle den passenden Laut."
+        },
+        "target": "강",
+        "feedback_refs": [
+          "H02",
+          "C02",
+          "V02"
+        ],
+        "material": {
+          "written": "강",
+          "audio_ui": "A/B/C/D, 전사 숨김",
+          "required_prelearned_finals_for_main_choices": [
+            "ㅁ",
+            "ㄴ",
+            "ㅇ"
+          ],
+          "if_any_m_n_not_learned": {
+            "audio_choices": [
+              "가",
+              "공",
+              "강"
+            ],
+            "correct_button": "C",
+            "scope": "ㅁ·ㄴ 중 하나라도 미학습이면 이 보기 사용. 받침 ㅇ 유무와 모음만 확인; 다른 받침과의 대조 근거 아님"
+          }
+        },
+        "choices": [
+          "가",
+          "감",
+          "간",
+          "강"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-I04",
+        "kind": "I",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist noch verborgen."
+        },
+        "target": "강",
+        "feedback_refs": [
+          "H02",
+          "B02"
+        ],
+        "material": {
+          "pieces": [
+            "ㅇ",
+            "ㅏ",
+            "ㄱ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-I05",
+        "kind": "I",
+        "prompt": {
+          "en": "What does the marked ㅇ do in this position?",
+          "de": "Welche Funktion hat das markierte ㅇ an dieser Stelle?"
+        },
+        "target": "A",
+        "feedback_refs": [
+          "NG-H",
+          "NG-아"
+        ],
+        "material": {
+          "written": "아",
+          "marked_ㅇ": "initial"
+        },
+        "choices": [
+          "A",
+          "B"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-I06",
+        "kind": "I",
+        "prompt": {
+          "en": "What does the marked ㅇ do in this position?",
+          "de": "Welche Funktion hat das markierte ㅇ an dieser Stelle?"
+        },
+        "target": "B",
+        "feedback_refs": [
+          "NG-H",
+          "NG-방"
+        ],
+        "material": {
+          "written": "방",
+          "marked_ㅇ": "final"
+        },
+        "choices": [
+          "A",
+          "B"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-P05",
+        "kind": "P",
+        "prompt": {
+          "en": "Look at the picture, meaning and word example, then choose the matching word.",
+          "de": "Sieh dir Bild, Bedeutung und Wortbeispiel zusammen an und wähle das passende Wort."
+        },
+        "target": "마당",
+        "feedback_refs": [
+          "MAP-COURTYARD"
+        ],
+        "material": {
+          "picture": "COURTYARD-T1",
+          "shown_word": "마당",
+          "meaning_supplied": true
+        },
+        "choices": [
+          "방",
+          "마당"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-P06",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to put the syllable pieces in the same order.",
+          "de": "Lege die Silbenteile nach dem Beispiel in dieselbe Reihenfolge."
+        },
+        "target": "마당",
+        "feedback_refs": [
+          "MAP-COURTYARD",
+          "COURTYARD-ORDER"
+        ],
+        "material": {
+          "shown_word": "마당",
+          "syllable_pieces": [
+            "당",
+            "마"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-I07",
+        "kind": "I",
+        "prompt": {
+          "en": "Choose the word that matches the picture.",
+          "de": "Wähle das Wort, das zum Bild passt."
+        },
+        "target": "마당",
+        "feedback_refs": [
+          "MAP-COURTYARD"
+        ],
+        "material": {
+          "picture": "COURTYARD-I1"
+        },
+        "choices": [
+          "마당",
+          "방"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-I08",
+        "kind": "I",
+        "prompt": {
+          "en": "Listen and choose the picture that matches the meaning.",
+          "de": "Hör zu und wähle das Bild, das zur Bedeutung passt."
+        },
+        "target": "COURTYARD-I1",
+        "feedback_refs": [
+          "MAP-COURTYARD"
+        ],
+        "material": {
+          "audio": "마당",
+          "no_transcript": true
+        },
+        "choices": [
+          "ROOM-I1",
+          "COURTYARD-I1"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-P07",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the place and label example to place the matching label.",
+          "de": "Ordne mit dem Ortsbild und dem Schildbeispiel das passende Schild zu."
+        },
+        "target": "문",
+        "feedback_refs": [
+          "MAP-DOOR"
+        ],
+        "material": {
+          "map": "MAP-T",
+          "marked_place": "DOOR",
+          "shown_word": "문"
+        },
+        "choices": [
+          "방",
+          "길",
+          "마당",
+          "문"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-P08",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the place and label example to place the matching label.",
+          "de": "Ordne mit dem Ortsbild und dem Schildbeispiel das passende Schild zu."
+        },
+        "target": "방",
+        "feedback_refs": [
+          "MAP-ROOM"
+        ],
+        "material": {
+          "map": "MAP-T",
+          "marked_place": "ROOM",
+          "shown_word": "방"
+        },
+        "choices": [
+          "방",
+          "길",
+          "마당",
+          "문"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-P09",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the place and label example to place the matching label.",
+          "de": "Ordne mit dem Ortsbild und dem Schildbeispiel das passende Schild zu."
+        },
+        "target": "길",
+        "feedback_refs": [
+          "MAP-PATH"
+        ],
+        "material": {
+          "map": "MAP-T",
+          "marked_place": "PATH",
+          "shown_word": "길"
+        },
+        "choices": [
+          "방",
+          "길",
+          "마당",
+          "문"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-P10",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the place and label example to place the matching label.",
+          "de": "Ordne mit dem Ortsbild und dem Schildbeispiel das passende Schild zu."
+        },
+        "target": "마당",
+        "feedback_refs": [
+          "MAP-COURTYARD"
+        ],
+        "material": {
+          "map": "MAP-T",
+          "marked_place": "COURTYARD",
+          "shown_word": "마당"
+        },
+        "choices": [
+          "방",
+          "길",
+          "마당",
+          "문"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-I09",
+        "kind": "I",
+        "prompt": {
+          "en": "Choose the label for the marked place.",
+          "de": "Wähle das Schild für die markierte Stelle."
+        },
+        "target": "문",
+        "feedback_refs": [
+          "MAP-DOOR"
+        ],
+        "material": {
+          "map": "MAP-I",
+          "marked_place": "DOOR",
+          "no_answer_labels": true
+        },
+        "choices": [
+          "방",
+          "길",
+          "마당",
+          "문"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-I10",
+        "kind": "I",
+        "prompt": {
+          "en": "Choose the label for the marked place.",
+          "de": "Wähle das Schild für die markierte Stelle."
+        },
+        "target": "방",
+        "feedback_refs": [
+          "MAP-ROOM"
+        ],
+        "material": {
+          "map": "MAP-I",
+          "marked_place": "ROOM",
+          "no_answer_labels": true
+        },
+        "choices": [
+          "방",
+          "길",
+          "마당",
+          "문"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-I11",
+        "kind": "I",
+        "prompt": {
+          "en": "Choose the label for the marked place.",
+          "de": "Wähle das Schild für die markierte Stelle."
+        },
+        "target": "길",
+        "feedback_refs": [
+          "MAP-PATH"
+        ],
+        "material": {
+          "map": "MAP-I",
+          "marked_place": "PATH",
+          "no_answer_labels": true
+        },
+        "choices": [
+          "방",
+          "길",
+          "마당",
+          "문"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-I12",
+        "kind": "I",
+        "prompt": {
+          "en": "Choose the label for the marked place.",
+          "de": "Wähle das Schild für die markierte Stelle."
+        },
+        "target": "마당",
+        "feedback_refs": [
+          "MAP-COURTYARD"
+        ],
+        "material": {
+          "map": "MAP-I",
+          "marked_place": "COURTYARD",
+          "no_answer_labels": true
+        },
+        "choices": [
+          "방",
+          "길",
+          "마당",
+          "문"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-R01",
+        "kind": "R",
+        "prompt": {
+          "en": "Look at the written syllable and choose its sound.",
+          "de": "Sieh dir die geschriebene Silbe an und wähle den passenden Laut."
+        },
+        "target": "공",
+        "feedback_refs": [
+          "H01",
+          "C01",
+          "V01"
+        ],
+        "material": {
+          "written": "공",
+          "audio_ui": "A/B/C/D, 전사 숨김",
+          "required_prelearned_finals_for_main_choices": [
+            "ㅁ",
+            "ㄴ",
+            "ㅇ"
+          ],
+          "if_any_m_n_not_learned": {
+            "audio_choices": [
+              "궁",
+              "고",
+              "공"
+            ],
+            "correct_button": "C",
+            "scope": "ㅁ·ㄴ 중 하나라도 미학습이면 이 보기 사용. 받침 ㅇ 유무와 모음만 확인; 다른 받침과의 대조 근거 아님"
+          }
+        },
+        "choices": [
+          "곤",
+          "곰",
+          "고",
+          "공"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-R02",
+        "kind": "R",
+        "prompt": {
+          "en": "Look at the written syllable and choose its sound.",
+          "de": "Sieh dir die geschriebene Silbe an und wähle den passenden Laut."
+        },
+        "target": "강",
+        "feedback_refs": [
+          "H02",
+          "C02",
+          "V02"
+        ],
+        "material": {
+          "written": "강",
+          "audio_ui": "A/B/C/D, 전사 숨김",
+          "required_prelearned_finals_for_main_choices": [
+            "ㅁ",
+            "ㄴ",
+            "ㅇ"
+          ],
+          "if_any_m_n_not_learned": {
+            "audio_choices": [
+              "강",
+              "공",
+              "가"
+            ],
+            "correct_button": "A",
+            "scope": "ㅁ·ㄴ 중 하나라도 미학습이면 이 보기 사용. 받침 ㅇ 유무와 모음만 확인; 다른 받침과의 대조 근거 아님"
+          }
+        },
+        "choices": [
+          "강",
+          "간",
+          "감",
+          "가"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-R03",
+        "kind": "R",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist noch verborgen."
+        },
+        "target": "공",
+        "feedback_refs": [
+          "H01",
+          "B01"
+        ],
+        "material": {
+          "pieces": [
+            "ㄱ",
+            "ㅗ",
+            "ㅇ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-R04",
+        "kind": "R",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist noch verborgen."
+        },
+        "target": "강",
+        "feedback_refs": [
+          "H02",
+          "B02"
+        ],
+        "material": {
+          "pieces": [
+            "ㄱ",
+            "ㅏ",
+            "ㅇ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-R05",
+        "kind": "R",
+        "prompt": {
+          "en": "What does the marked ㅇ do in this position?",
+          "de": "Welche Funktion hat das markierte ㅇ an dieser Stelle?"
+        },
+        "target": "A",
+        "feedback_refs": [
+          "NG-H",
+          "NG-아"
+        ],
+        "material": {
+          "written": "아",
+          "marked_ㅇ": "initial"
+        },
+        "choices": [
+          "A",
+          "B"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-R06",
+        "kind": "R",
+        "prompt": {
+          "en": "What does the marked ㅇ do in this position?",
+          "de": "Welche Funktion hat das markierte ㅇ an dieser Stelle?"
+        },
+        "target": "B",
+        "feedback_refs": [
+          "NG-H",
+          "NG-공"
+        ],
+        "material": {
+          "written": "공",
+          "marked_ㅇ": "final"
+        },
+        "choices": [
+          "A",
+          "B"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-R07",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the word that matches the picture.",
+          "de": "Wähle das Wort, das zum Bild passt."
+        },
+        "target": "마당",
+        "feedback_refs": [
+          "MAP-COURTYARD"
+        ],
+        "material": {
+          "picture": "COURTYARD-R1"
+        },
+        "choices": [
+          "방",
+          "마당"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-R08",
+        "kind": "R",
+        "prompt": {
+          "en": "Listen and choose the picture that matches the meaning.",
+          "de": "Hör zu und wähle das Bild, das zur Bedeutung passt."
+        },
+        "target": "COURTYARD-R1",
+        "feedback_refs": [
+          "MAP-COURTYARD"
+        ],
+        "material": {
+          "audio": "마당",
+          "no_transcript": true
+        },
+        "choices": [
+          "COURTYARD-R1",
+          "ROOM-R1"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-R09",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the label for the marked place.",
+          "de": "Wähle das Schild für die markierte Stelle."
+        },
+        "target": "문",
+        "feedback_refs": [
+          "MAP-DOOR"
+        ],
+        "material": {
+          "map": "MAP-R",
+          "marked_place": "DOOR",
+          "no_answer_labels": true
+        },
+        "choices": [
+          "문",
+          "마당",
+          "길",
+          "방"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-R10",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the label for the marked place.",
+          "de": "Wähle das Schild für die markierte Stelle."
+        },
+        "target": "방",
+        "feedback_refs": [
+          "MAP-ROOM"
+        ],
+        "material": {
+          "map": "MAP-R",
+          "marked_place": "ROOM",
+          "no_answer_labels": true
+        },
+        "choices": [
+          "문",
+          "마당",
+          "길",
+          "방"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-R11",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the label for the marked place.",
+          "de": "Wähle das Schild für die markierte Stelle."
+        },
+        "target": "길",
+        "feedback_refs": [
+          "MAP-PATH"
+        ],
+        "material": {
+          "map": "MAP-R",
+          "marked_place": "PATH",
+          "no_answer_labels": true
+        },
+        "choices": [
+          "문",
+          "마당",
+          "길",
+          "방"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C11-R12",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the label for the marked place.",
+          "de": "Wähle das Schild für die markierte Stelle."
+        },
+        "target": "마당",
+        "feedback_refs": [
+          "MAP-COURTYARD"
+        ],
+        "material": {
+          "map": "MAP-R",
+          "marked_place": "COURTYARD",
+          "no_answer_labels": true
+        },
+        "choices": [
+          "문",
+          "마당",
+          "길",
+          "방"
+        ],
+        "source_row": null
+      }
+    ]
+  },
+  "responses": {
+    "assisted": {
+      "ko": "도움을 받아 이 활동을 함께 마쳤어요. 다른 예는 준비되면 해 봐요.",
+      "en": "You completed this activity with support. Try another example when you are ready.",
+      "de": "Du hast diese Aufgabe mit Hilfe abgeschlossen. Probiere ein weiteres Beispiel, wenn du bereit bist."
+    },
+    "independent": {
+      "ko": "이 예는 시범 없이 확인했어요. 다른 날 새로운 상황에서도 다시 해 봐요.",
+      "en": "You checked this example without a model. Try it in a new setting another day.",
+      "de": "Du hast dieses Beispiel ohne Vorlage bearbeitet. Probiere es an einem anderen Tag in einer neuen Situation."
+    },
+    "audio_unavailable": {
+      "ko": "지금은 소리를 재생할 수 없어요. 글과 그림으로 계속하거나 나중에 다시 들어요.",
+      "en": "Audio is unavailable right now. Continue with text and pictures, or listen later.",
+      "de": "Der Ton ist gerade nicht verfügbar. Mach mit Text und Bildern weiter oder höre später noch einmal zu."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 괜찮아요. 돌아오면 같은 차례에서 이어가요.",
+      "en": "You can take a break here. When you return, continue from the same turn.",
+      "de": "Du kannst hier eine Pause machen. Wenn du zurückkommst, geht es an derselben Stelle weiter."
+    },
+    "resume": {
+      "ko": "돌아왔네요. 놓아 둔 답과 도움 상태를 확인하고 이어가요.",
+      "en": "Welcome back. Check your previous response and any help you used, then continue.",
+      "de": "Willkommen zurück. Sieh dir deine bisherige Antwort und die verwendete Hilfe an und mach dann weiter."
+    },
+    "save_failed": {
+      "ko": "아직 저장을 확인하지 못했어요. 지금 답은 유지한 채 다시 시도해요.",
+      "en": "Saving has not been confirmed yet. Keep your response and try again.",
+      "de": "Das Speichern ist noch nicht bestätigt. Deine Antwort bleibt stehen; versuche es erneut."
+    },
+    "revisit": {
+      "ko": "이미 본 장면이에요. 다시 보아도 보상이나 공정이 중복 생성되지 않아요.",
+      "en": "You have seen this scene before. Replaying it does not grant another reward or construction step.",
+      "de": "Du kennst diese Szene bereits. Beim erneuten Ansehen erhältst du keine weitere Belohnung und keinen zusätzlichen Bauabschnitt."
+    }
+  },
+  "response_conditions": {
+    "assisted": "only after supported task is resolved",
+    "independent": "only if the eligible item met its criteria without model/hint; not all modalities",
+    "resume": "only after original state is actually restored",
+    "revisit": "existing reward owner remains authoritative"
+  },
+  "story": {
+    "lq_id": "LQ-03",
+    "anchor": "중문간채 착공",
+    "spoiler_guard": "Use only revealed facts. First book has no completed Sarangchae; first 집 remains practice draft until original readiness is confirmed."
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true,
+    "original_review_scope": "existing manuscript reviews and same-byte source; not human/native/device approval"
+  }
+}

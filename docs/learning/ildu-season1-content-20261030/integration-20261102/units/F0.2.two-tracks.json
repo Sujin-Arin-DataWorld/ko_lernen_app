@@ -1,0 +1,444 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "record_type": "inherited_detailed_with_integration_overlay",
+  "unit_id": "F0.2.two-tracks",
+  "band": "F0.2",
+  "title": {
+    "ko": "ㅅ·ㅈ을 모음과 결합한다",
+    "en": "Syllables with ㅅ and ㅈ",
+    "de": "Silben mit ㅅ und ㅈ"
+  },
+  "goal": {
+    "ko": "ㅅ·ㅈ을 모음과 결합한다",
+    "en": "Build syllables with ㅅ and ㅈ.",
+    "de": "Bilde Silben mit ㅅ und ㅈ."
+  },
+  "prerequisites": [],
+  "base_manuscript": {
+    "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/04_TWO_INITIALS.md",
+    "sha256": "10bbba1b853787ff6b7335bb0b8ef6548053d76cafbc4b2f009d0ea362c4b12f",
+    "inheritance": "full dialogue, teaching, P/I/R items, answer criteria, help and feedback retained verbatim; overlay is additive"
+  },
+  "source_contract": {
+    "id": "F0.2.two-tracks",
+    "goal": "ㅅ·ㅈ을 모음과 결합한다",
+    "teach_targets": "사,소,자,조",
+    "check_targets": "수,지",
+    "meaning_or_oral": "친구의 요청을 듣고 가리킨 물건 전달; 새 문장 문법 시험 없음",
+    "transfer_task": "다른 소리표 수·지를 찾아 조립; 한자어 수 의미 시험 없음",
+    "review_in": "F0.2.tree-and-hat",
+    "review_prompt": "모자의 자와 나무의 무를 서로 다른 그림에서 확인",
+    "evidence_limit": "조작 속도를 자모 능력 점수로 쓰지 않음"
+  },
+  "inherited_content": {
+    "selected_feedback_refs": [
+      "H01",
+      "F01",
+      "F02"
+    ],
+    "feedback_rows": [
+      {
+        "key": "H01·도움",
+        "en": "사 and 소 start with ㅅ; 자 and 조 start with ㅈ. Let's revisit the two pairs.",
+        "de": "사 und 소 beginnen mit ㅅ, 자 und 조 mit ㅈ. Sehen wir uns die beiden Paare noch einmal an."
+      },
+      {
+        "key": "F01·배치",
+        "en": "Put the initial and vowel into one block. ㅏ, ㅓ and ㅣ go on the right; ㅗ, ㅜ and ㅡ go below. Let's look at the example for this syllable again.",
+        "de": "Setze Anfangszeichen und Vokal zu einem Block zusammen. ㅏ, ㅓ und ㅣ stehen rechts; ㅗ, ㅜ und ㅡ darunter. Sehen wir uns das Beispiel für diese Silbe noch einmal an."
+      },
+      {
+        "key": "F02·첫자리",
+        "en": "Use just one initial piece. When another initial is present, don't add ㅇ as well. Try the same syllable again.",
+        "de": "Am Anfang steht nur ein Anfangszeichen. Wenn ein anderes Anfangszeichen da ist, kommt kein zusätzliches ㅇ dazu. Versuch dieselbe Silbe noch einmal."
+      },
+      {
+        "key": "F03·수",
+        "en": "This written syllable is 수. Listen to the initial ㅅ with the vowel ㅜ. You can choose the sound for the same syllable again.",
+        "de": "Diese geschriebene Silbe ist 수. Hör dir das Anfangszeichen ㅅ zusammen mit dem Vokal ㅜ an. Du kannst den Laut für dieselbe Silbe noch einmal wählen."
+      },
+      {
+        "key": "F04·지",
+        "en": "This written syllable is 지. Listen to the initial ㅈ with the vowel ㅣ. You can choose the sound for the same syllable again.",
+        "de": "Diese geschriebene Silbe ist 지. Hör dir das Anfangszeichen ㅈ zusammen mit dem Vokal ㅣ an. Du kannst den Laut für dieselbe Silbe noch einmal wählen."
+      },
+      {
+        "key": "OK",
+        "en": "That matches this syllable. Take your time with the next one too.",
+        "de": "Das passt zu dieser Silbe. Nimm dir auch für die nächste Silbe Zeit."
+      }
+    ],
+    "practice_task_ids": [
+      "B04-P01",
+      "B04-P02",
+      "B04-P03",
+      "B04-P04"
+    ],
+    "independent_task_ids": [
+      "B04-I01",
+      "B04-I02",
+      "B04-I03",
+      "B04-I04"
+    ],
+    "next_day_task_ids": [
+      "B04-R01",
+      "B04-R02",
+      "B04-R03",
+      "B04-R04"
+    ],
+    "common_copy_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-2-v35\\COMMON_COPY.md",
+    "readme_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-2-v35\\README.md",
+    "task_bindings": [
+      {
+        "task_id": "B04-P01",
+        "kind": "P",
+        "prompt": {
+          "en": "Put the pieces together into one syllable block using the example.",
+          "de": "Setze die Teile nach dem Beispiel zu einem Silbenblock zusammen."
+        },
+        "target": "사",
+        "feedback_refs": [
+          "H01",
+          "F01",
+          "F02"
+        ],
+        "material": {
+          "shown_model": "사",
+          "pieces": [
+            "ㅏ",
+            "ㅅ"
+          ]
+        },
+        "choices": [
+          "좌우 자리",
+          "위아래 자리"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B04-P02",
+        "kind": "P",
+        "prompt": {
+          "en": "Put the pieces together into one syllable block using the example.",
+          "de": "Setze die Teile nach dem Beispiel zu einem Silbenblock zusammen."
+        },
+        "target": "소",
+        "feedback_refs": [
+          "H01",
+          "F01",
+          "F02"
+        ],
+        "material": {
+          "shown_model": "소",
+          "pieces": [
+            "ㅗ",
+            "ㅅ"
+          ]
+        },
+        "choices": [
+          "좌우 자리",
+          "위아래 자리"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B04-P03",
+        "kind": "P",
+        "prompt": {
+          "en": "Put the pieces together into one syllable block using the example.",
+          "de": "Setze die Teile nach dem Beispiel zu einem Silbenblock zusammen."
+        },
+        "target": "자",
+        "feedback_refs": [
+          "H01",
+          "F01",
+          "F02"
+        ],
+        "material": {
+          "shown_model": "자",
+          "pieces": [
+            "ㅏ",
+            "ㅈ"
+          ]
+        },
+        "choices": [
+          "좌우 자리",
+          "위아래 자리"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B04-P04",
+        "kind": "P",
+        "prompt": {
+          "en": "Put the pieces together into one syllable block using the example.",
+          "de": "Setze die Teile nach dem Beispiel zu einem Silbenblock zusammen."
+        },
+        "target": "조",
+        "feedback_refs": [
+          "H01",
+          "F01",
+          "F02"
+        ],
+        "material": {
+          "shown_model": "조",
+          "pieces": [
+            "ㅗ",
+            "ㅈ"
+          ]
+        },
+        "choices": [
+          "좌우 자리",
+          "위아래 자리"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B04-I01",
+        "kind": "I",
+        "prompt": {
+          "en": "Look at the written syllable and choose its sound.",
+          "de": "Sieh dir die geschriebene Silbe an und wähle den passenden Laut."
+        },
+        "target": "수",
+        "feedback_refs": [
+          "F03",
+          "H01"
+        ],
+        "material": {
+          "written": "수",
+          "audio_ui": "A/B/C, 전사와 정답 숨김"
+        },
+        "choices": [
+          "소",
+          "수",
+          "주"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B04-I02",
+        "kind": "I",
+        "prompt": {
+          "en": "Look at the written syllable and choose its sound.",
+          "de": "Sieh dir die geschriebene Silbe an und wähle den passenden Laut."
+        },
+        "target": "지",
+        "feedback_refs": [
+          "F04",
+          "H01"
+        ],
+        "material": {
+          "written": "지",
+          "audio_ui": "A/B/C, 전사와 정답 숨김"
+        },
+        "choices": [
+          "지",
+          "시",
+          "조"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B04-I03",
+        "kind": "I",
+        "prompt": {
+          "en": "Put these pieces together into one syllable block.",
+          "de": "Setze diese Teile zu einem Silbenblock zusammen."
+        },
+        "target": "수",
+        "feedback_refs": [
+          "F01",
+          "F02"
+        ],
+        "material": {
+          "pieces": [
+            "ㅜ",
+            "ㅅ"
+          ],
+          "no_model": true
+        },
+        "choices": [
+          "좌우 자리",
+          "위아래 자리"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B04-I04",
+        "kind": "I",
+        "prompt": {
+          "en": "Put these pieces together into one syllable block.",
+          "de": "Setze diese Teile zu einem Silbenblock zusammen."
+        },
+        "target": "지",
+        "feedback_refs": [
+          "F01",
+          "F02"
+        ],
+        "material": {
+          "pieces": [
+            "ㅣ",
+            "ㅈ"
+          ],
+          "no_model": true
+        },
+        "choices": [
+          "좌우 자리",
+          "위아래 자리"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B04-R01",
+        "kind": "R",
+        "prompt": {
+          "en": "Look at the written syllable and choose its sound.",
+          "de": "Sieh dir die geschriebene Silbe an und wähle den passenden Laut."
+        },
+        "target": "지",
+        "feedback_refs": [
+          "F04",
+          "H01"
+        ],
+        "material": {
+          "written": "지",
+          "audio_ui": "A/B/C, 전사와 정답 숨김"
+        },
+        "choices": [
+          "조",
+          "시",
+          "지"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B04-R02",
+        "kind": "R",
+        "prompt": {
+          "en": "Put these pieces together into one syllable block.",
+          "de": "Setze diese Teile zu einem Silbenblock zusammen."
+        },
+        "target": "수",
+        "feedback_refs": [
+          "F01",
+          "F02"
+        ],
+        "material": {
+          "pieces": [
+            "ㅅ",
+            "ㅜ"
+          ],
+          "no_model": true
+        },
+        "choices": [
+          "좌우 자리",
+          "위아래 자리"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B04-R03",
+        "kind": "R",
+        "prompt": {
+          "en": "Look at the written syllable and choose its sound.",
+          "de": "Sieh dir die geschriebene Silbe an und wähle den passenden Laut."
+        },
+        "target": "수",
+        "feedback_refs": [
+          "F03",
+          "H01"
+        ],
+        "material": {
+          "written": "수",
+          "audio_ui": "A/B/C, 전사와 정답 숨김"
+        },
+        "choices": [
+          "주",
+          "수",
+          "소"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B04-R04",
+        "kind": "R",
+        "prompt": {
+          "en": "Put these pieces together into one syllable block.",
+          "de": "Setze diese Teile zu einem Silbenblock zusammen."
+        },
+        "target": "지",
+        "feedback_refs": [
+          "F01",
+          "F02"
+        ],
+        "material": {
+          "pieces": [
+            "ㅈ",
+            "ㅣ"
+          ],
+          "no_model": true
+        },
+        "choices": [
+          "좌우 자리",
+          "위아래 자리"
+        ],
+        "source_row": null
+      }
+    ]
+  },
+  "responses": {
+    "assisted": {
+      "ko": "도움을 받아 이 활동을 함께 마쳤어요. 다른 예는 준비되면 해 봐요.",
+      "en": "You completed this activity with support. Try another example when you are ready.",
+      "de": "Du hast diese Aufgabe mit Hilfe abgeschlossen. Probiere ein weiteres Beispiel, wenn du bereit bist."
+    },
+    "independent": {
+      "ko": "이 예는 시범 없이 확인했어요. 다른 날 새로운 상황에서도 다시 해 봐요.",
+      "en": "You checked this example without a model. Try it in a new setting another day.",
+      "de": "Du hast dieses Beispiel ohne Vorlage bearbeitet. Probiere es an einem anderen Tag in einer neuen Situation."
+    },
+    "audio_unavailable": {
+      "ko": "지금은 소리를 재생할 수 없어요. 글과 그림으로 계속하거나 나중에 다시 들어요.",
+      "en": "Audio is unavailable right now. Continue with text and pictures, or listen later.",
+      "de": "Der Ton ist gerade nicht verfügbar. Mach mit Text und Bildern weiter oder höre später noch einmal zu."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 괜찮아요. 돌아오면 같은 차례에서 이어가요.",
+      "en": "You can take a break here. When you return, continue from the same turn.",
+      "de": "Du kannst hier eine Pause machen. Wenn du zurückkommst, geht es an derselben Stelle weiter."
+    },
+    "resume": {
+      "ko": "돌아왔네요. 놓아 둔 답과 도움 상태를 확인하고 이어가요.",
+      "en": "Welcome back. Check your previous response and any help you used, then continue.",
+      "de": "Willkommen zurück. Sieh dir deine bisherige Antwort und die verwendete Hilfe an und mach dann weiter."
+    },
+    "save_failed": {
+      "ko": "아직 저장을 확인하지 못했어요. 지금 답은 유지한 채 다시 시도해요.",
+      "en": "Saving has not been confirmed yet. Keep your response and try again.",
+      "de": "Das Speichern ist noch nicht bestätigt. Deine Antwort bleibt stehen; versuche es erneut."
+    },
+    "revisit": {
+      "ko": "이미 본 장면이에요. 다시 보아도 보상이나 공정이 중복 생성되지 않아요.",
+      "en": "You have seen this scene before. Replaying it does not grant another reward or construction step.",
+      "de": "Du kennst diese Szene bereits. Beim erneuten Ansehen erhältst du keine weitere Belohnung und keinen zusätzlichen Bauabschnitt."
+    }
+  },
+  "response_conditions": {
+    "assisted": "only after supported task is resolved",
+    "independent": "only if the eligible item met its criteria without model/hint; not all modalities",
+    "resume": "only after original state is actually restored",
+    "revisit": "existing reward owner remains authoritative"
+  },
+  "story": {
+    "lq_id": "LQ-02",
+    "anchor": "창고 착공",
+    "spoiler_guard": "Use only revealed facts. First book has no completed Sarangchae; first 집 remains practice draft until original readiness is confirmed."
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true,
+    "original_review_scope": "existing manuscript reviews and same-byte source; not human/native/device approval"
+  }
+}

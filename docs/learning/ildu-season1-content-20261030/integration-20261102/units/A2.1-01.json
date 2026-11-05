@@ -1,0 +1,868 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "unit_id": "A2.1-01",
+  "band": "A2.1",
+  "title": {
+    "ko": "예약을 바꾸기",
+    "en": "Changing a reservation",
+    "de": "Eine Reservierung ändern"
+  },
+  "goal": {
+    "ko": "가능한 날짜·조건을 확인하고 예약 변경을 요청한다",
+    "en": "Check available dates and conditions and request a reservation change.",
+    "de": "Mögliche Termine und Bedingungen klären und um eine Änderung der Reservierung bitten."
+  },
+  "prerequisites": [
+    "A1.2-01",
+    "A1.2-06"
+  ],
+  "teach_targets": {
+    "vocab": [
+      {
+        "ko": "예약",
+        "en": "reservation",
+        "de": "Reservierung"
+      },
+      {
+        "ko": "변경",
+        "en": "change",
+        "de": "Änderung"
+      },
+      {
+        "ko": "취소",
+        "en": "cancellation",
+        "de": "Stornierung"
+      },
+      {
+        "ko": "가능하다",
+        "en": "to be possible",
+        "de": "möglich sein"
+      },
+      {
+        "ko": "날짜",
+        "en": "date",
+        "de": "Datum"
+      }
+    ],
+    "grammar": [
+      "-(으)면",
+      "-거나",
+      "(이)나",
+      "-기로 하다"
+    ]
+  },
+  "non_assessed": [
+    "선택한 답·도움받은 시도·모형 없는 회상·열린 역할 수행은 서로 다른 근거다.",
+    "본편 사실 공개·건축 공정·엽전 지급·소유권·해금은 이 패킷의 결과로 판정하지 않는다.",
+    "음성 입력은 선택이며 마이크·AI 의미 채점은 필수가 아니다.",
+    "임시 쉼자리 표는 학습용이다. 변경 요청과 상대 확인 뒤 합의는 구분하며 실제 예약 시스템을 변경하지 않는다."
+  ],
+  "source": {
+    "contract_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/UNITS.psv",
+    "contract_sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+    "story_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+    "story_sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332",
+    "base_sha": "646c4658e70f594ab234a172679e29122d0f0e66"
+  },
+  "story": {
+    "lq_id": "LQ-07",
+    "building_id": "toilet-south",
+    "anchor": "남측 측간 중간",
+    "spoiler_guard": "none. LQ07에는 새 핵심 단서가 없다. E06의 이름·가족 기억, E08·E11의 사실은 선공개하지 않는다. 장면 대사는 고정 v3.5 앵커의 집필 후보이며 공정 완료나 보상을 선언하지 않는다."
+  },
+  "dialogue": [
+    {
+      "id": "A2.1-01-D01",
+      "speaker": "dokkaebi",
+      "phase": "entry",
+      "ko": "내일로 바꾸면 그 자리가 비겠느냐?",
+      "en": "Would that place be free if we moved it to tomorrow?",
+      "de": "Wäre der Platz frei, wenn wir es auf morgen verschieben?"
+    },
+    {
+      "id": "A2.1-01-D02",
+      "speaker": "sujin",
+      "phase": "request",
+      "ko": "임시 쉼자리 표부터 볼까요? 오늘 예약과 가능한 날짜를 따로 확인해요.",
+      "en": "Shall we check the temporary rest-place schedule? Check today's reservation and the available dates separately.",
+      "de": "Sehen wir uns den Plan für die vorübergehenden Ruheplätze an? Prüfen wir die heutige Reservierung und die freien Termine getrennt."
+    },
+    {
+      "id": "A2.1-01-D03",
+      "speaker": "sujin",
+      "phase": "model",
+      "ko": "조건은 이렇게 말해요. 내일 자리가 있으면 바꾸고 싶어요.",
+      "en": "This states a condition: If a place is available tomorrow, I'd like to change the reservation.",
+      "de": "So nennst du eine Bedingung: Wenn morgen ein Platz frei ist, möchte ich die Reservierung ändern."
+    },
+    {
+      "id": "A2.1-01-D04",
+      "speaker": "traveler_model",
+      "phase": "practice",
+      "ko": "내일이나 모레 가능한가요?",
+      "en": "Is tomorrow or the day after possible?",
+      "de": "Geht es morgen oder übermorgen?"
+    },
+    {
+      "id": "A2.1-01-D05",
+      "speaker": "sujin",
+      "phase": "use",
+      "ko": "이건 선택지를 묻는 연습이에요. 아직 날짜를 정한 것은 아니에요.",
+      "en": "This is practice asking about alternatives. No date has been agreed yet.",
+      "de": "Damit übst du, nach Alternativen zu fragen. Ein Termin ist damit noch nicht vereinbart."
+    },
+    {
+      "id": "A2.1-01-D06",
+      "speaker": "sujin",
+      "phase": "result",
+      "ko": "상대가 모레로 바꾼다고 확인한 뒤에만 ‘모레로 바꾸기로 했어요’라고 정리해요.",
+      "en": "Only after the other person confirms the change to the day after tomorrow can you say, 'We agreed to change it to the day after tomorrow.'",
+      "de": "Erst wenn die andere Person die Änderung auf übermorgen bestätigt, kannst du sagen: „Wir haben vereinbart, auf übermorgen zu verschieben.“"
+    },
+    {
+      "id": "A2.1-01-D07",
+      "speaker": "sujin",
+      "phase": "return",
+      "ko": "틀려도 같은 표에서 다시 골라요. 오늘 예약을 저절로 취소하지 않아요.",
+      "en": "If you make a mistake, try again with the same schedule. Today's reservation is not automatically cancelled.",
+      "de": "Bei einem Fehler wählst du mit demselben Plan erneut. Die heutige Reservierung wird dadurch nicht automatisch storniert."
+    },
+    {
+      "id": "A2.1-01-D08",
+      "speaker": "sujin",
+      "phase": "next",
+      "ko": "다음에는 쉼자리에 놓인 모자를 살펴봐요. 먼저 누구의 것인지 확인해요.",
+      "en": "Next, look at the hat by the resting place. First check whose it is.",
+      "de": "Als Nächstes sehen wir uns den Hut am Ruheplatz an. Zuerst klären wir, wem er gehört."
+    }
+  ],
+  "items": [
+    {
+      "id": "A2.1-01-P01",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "조건을 확인하고 -(으)면으로 변경 의사를 말하기",
+      "prompt": {
+        "ko": "모형을 보고, 빈자리가 있을 때만 바꾸겠다는 말을 골라요.",
+        "en": "Use the model to choose the request that depends on a place being available.",
+        "de": "Wähle mit dem Muster die Bitte, die einen freien Platz voraussetzt."
+      },
+      "material": {
+        "fictional_practice": true,
+        "display_model": true,
+        "delay": null,
+        "situation": {
+          "ko": "오늘 예약은 있어요. 내일 빈자리는 아직 확인 중이에요.",
+          "en": "There is a reservation for today. Tomorrow's availability is still being checked.",
+          "de": "Für heute besteht eine Reservierung. Ob morgen etwas frei ist, wird noch geprüft."
+        },
+        "model": {
+          "ko": "내일 자리가 있으면 바꾸고 싶어요.",
+          "en": "If a place is available tomorrow, I'd like to change the reservation.",
+          "de": "Wenn morgen ein Platz frei ist, möchte ich die Reservierung ändern."
+        }
+      },
+      "options": [
+        {
+          "id": "A",
+          "ko": "내일 자리가 있으면 바꾸고 싶어요.",
+          "en": "If a place is available tomorrow, I'd like to change it.",
+          "de": "Wenn morgen ein Platz frei ist, möchte ich die Reservierung ändern."
+        },
+        {
+          "id": "B",
+          "ko": "내일 자리로 바꾸기로 했어요.",
+          "en": "We agreed to change to tomorrow's place.",
+          "de": "Wir haben die Änderung auf morgen vereinbart."
+        },
+        {
+          "id": "C",
+          "ko": "내일 예약을 취소했어요.",
+          "en": "I cancelled tomorrow's reservation.",
+          "de": "Ich habe die Reservierung für morgen storniert."
+        }
+      ],
+      "accepted_answers": [
+        "A"
+      ],
+      "feedback_correct": {
+        "ko": "자료에 맞게 표현했어요.",
+        "en": "Your answer matches the information.",
+        "de": "Deine Antwort passt zu den Angaben."
+      },
+      "feedback_wrong": {
+        "ko": "조건이 아직 확정되지 않았어요. 결정·취소를 완료한 말과 구별해요.",
+        "en": "The condition is not confirmed. Distinguish this from a completed decision or cancellation.",
+        "de": "Die Bedingung steht noch nicht fest. Unterscheide das von einer getroffenen Entscheidung oder Stornierung."
+      },
+      "help": {
+        "ko": "받침이 있는 ‘있다’에 조건 연결형을 붙여요.",
+        "en": "Use the conditional ending with 있다, whose stem ends in a consonant.",
+        "de": "Bilde die Bedingungsform von 있다. Der Stamm endet auf einen Konsonanten."
+      },
+      "scoring": "structured",
+      "evidence_limit": "주어진 선택지에서 의미·형태를 고른 근거다. 독립 발화나 실제 예약·이동·교환 성립의 증거가 아니다."
+    },
+    {
+      "id": "A2.1-01-I01",
+      "mode": "I",
+      "kind": "short",
+      "objective": "조건을 확인하고 -(으)면으로 변경 의사를 말하기",
+      "prompt": {
+        "ko": "모형 없이 빈칸만 써요. 모레에 빈자리가 있을 때 변경하고 싶어요.",
+        "en": "Without a model, fill only the gap. You want to change it if a place is available the day after tomorrow.",
+        "de": "Fülle ohne Muster nur die Lücke. Du möchtest ändern, falls übermorgen ein Platz frei ist."
+      },
+      "material": {
+        "fictional_practice": true,
+        "display_model": false,
+        "delay": null,
+        "context": {
+          "ko": "모레의 빈자리는 아직 확인되지 않았어요.",
+          "en": "Availability for the day after tomorrow has not been confirmed.",
+          "de": "Ob übermorgen ein Platz frei ist, ist noch offen."
+        },
+        "frame_ko": "모레 자리가 ___ 바꾸고 싶어요.",
+        "lexical_base": "있다"
+      },
+      "options": [],
+      "accepted_answers": [
+        "있으면"
+      ],
+      "feedback_correct": {
+        "ko": "자료에 맞게 표현했어요.",
+        "en": "Your answer matches the information.",
+        "de": "Deine Antwort passt zu den Angaben."
+      },
+      "feedback_wrong": {
+        "ko": "조건이 아직 확정되지 않았어요. 결정·취소를 완료한 말과 구별해요.",
+        "en": "The condition is not confirmed. Distinguish this from a completed decision or cancellation.",
+        "de": "Die Bedingung steht noch nicht fest. Unterscheide das von einer getroffenen Entscheidung oder Stornierung."
+      },
+      "help": {
+        "ko": "받침이 있는 ‘있다’에 조건 연결형을 붙여요.",
+        "en": "Use the conditional ending with 있다, whose stem ends in a consonant.",
+        "de": "Bilde die Bedingungsform von 있다. Der Stamm endet auf einen Konsonanten."
+      },
+      "scoring": "structured",
+      "evidence_limit": "명시한 빈칸의 제한 회상만 확인한다. 허용 문자열 비교는 열린 발화 의미 채점이나 전반적 숙달 인증이 아니다. 정답·대화 모형은 응답 전 감춘다. 도움을 열면 assisted로 별도 기록한다."
+    },
+    {
+      "id": "A2.1-01-P02",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "-거나로 두 행동 중 선택 제시하기",
+      "prompt": {
+        "ko": "변경과 취소 중 하나를 선택할 수 있다는 말을 골라요.",
+        "en": "Choose the sentence offering a choice between changing and cancelling.",
+        "de": "Wähle den Satz, der Änderung und Stornierung als Alternativen nennt."
+      },
+      "material": {
+        "fictional_practice": true,
+        "display_model": true,
+        "delay": null,
+        "rule": {
+          "ko": "연습표: 날짜 변경 가능 / 취소 가능. 두 행동을 모두 할 필요는 없어요.",
+          "en": "Practice schedule: date change possible / cancellation possible. Both actions are not required.",
+          "de": "Übungsplan: Änderung möglich / Stornierung möglich. Beides zusammen ist nicht nötig."
+        },
+        "model": {
+          "ko": "날짜를 바꾸거나 예약을 취소할 수 있어요.",
+          "en": "You can change the date or cancel the reservation.",
+          "de": "Du kannst den Termin ändern oder die Reservierung stornieren."
+        }
+      },
+      "options": [
+        {
+          "id": "A",
+          "ko": "날짜를 바꾸고 예약을 취소해야 해요.",
+          "en": "You must change the date and cancel.",
+          "de": "Du musst ändern und stornieren."
+        },
+        {
+          "id": "B",
+          "ko": "날짜를 바꾸거나 예약을 취소할 수 있어요.",
+          "en": "You can change the date or cancel.",
+          "de": "Du kannst ändern oder stornieren."
+        },
+        {
+          "id": "C",
+          "ko": "날짜를 바꾸면 예약이 취소돼요.",
+          "en": "If you change the date, it is cancelled.",
+          "de": "Wenn du änderst, wird storniert."
+        }
+      ],
+      "accepted_answers": [
+        "B"
+      ],
+      "feedback_correct": {
+        "ko": "자료에 맞게 표현했어요.",
+        "en": "Your answer matches the information.",
+        "de": "Deine Antwort passt zu den Angaben."
+      },
+      "feedback_wrong": {
+        "ko": "두 행동을 반드시 차례로 하는 것이 아니라 하나를 고르는 상황이에요.",
+        "en": "You are choosing between two actions, not carrying both out in order.",
+        "de": "Hier wählst du zwischen zwei Handlungen. Du sollst sie nicht beide nacheinander ausführen."
+      },
+      "help": {
+        "ko": "동사 뒤에 대안을 잇는 -거나를 붙여요.",
+        "en": "Attach -거나 to the verb to connect alternatives.",
+        "de": "Hänge -거나 an das Verb, um Alternativen zu verbinden."
+      },
+      "scoring": "structured",
+      "evidence_limit": "주어진 선택지에서 의미·형태를 고른 근거다. 독립 발화나 실제 예약·이동·교환 성립의 증거가 아니다."
+    },
+    {
+      "id": "A2.1-01-I02",
+      "mode": "I",
+      "kind": "short",
+      "objective": "-거나로 두 행동 중 선택 제시하기",
+      "prompt": {
+        "ko": "빈칸만 써서 두 행동을 선택지로 연결해요.",
+        "en": "Fill only the gap to present two actions as alternatives.",
+        "de": "Verbinde die beiden Handlungen als Alternativen. Schreibe nur das fehlende Wort."
+      },
+      "material": {
+        "fictional_practice": true,
+        "display_model": false,
+        "delay": null,
+        "rule": {
+          "ko": "선택: 오늘 예약 유지 / 모레로 변경. 한쪽만 선택해요.",
+          "en": "Choose one: keep today's reservation / change to the day after tomorrow.",
+          "de": "Wähle eines: heutige Reservierung behalten / auf übermorgen ändern."
+        },
+        "frame_ko": "오늘 예약을 ___ 모레로 바꿀 수 있어요.",
+        "lexical_base": "유지하다"
+      },
+      "options": [],
+      "accepted_answers": [
+        "유지하거나"
+      ],
+      "feedback_correct": {
+        "ko": "자료에 맞게 표현했어요.",
+        "en": "Your answer matches the information.",
+        "de": "Deine Antwort passt zu den Angaben."
+      },
+      "feedback_wrong": {
+        "ko": "두 행동을 반드시 차례로 하는 것이 아니라 하나를 고르는 상황이에요.",
+        "en": "You are choosing between two actions, not carrying both out in order.",
+        "de": "Hier wählst du zwischen zwei Handlungen. Du sollst sie nicht beide nacheinander ausführen."
+      },
+      "help": {
+        "ko": "동사 뒤에 대안을 잇는 -거나를 붙여요.",
+        "en": "Attach -거나 to the verb to connect alternatives.",
+        "de": "Hänge -거나 an das Verb, um Alternativen zu verbinden."
+      },
+      "scoring": "structured",
+      "evidence_limit": "명시한 빈칸의 제한 회상만 확인한다. 허용 문자열 비교는 열린 발화 의미 채점이나 전반적 숙달 인증이 아니다. 정답·대화 모형은 응답 전 감춘다. 도움을 열면 assisted로 별도 기록한다."
+    },
+    {
+      "id": "A2.1-01-P03",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "(이)나로 날짜 명사 선택 제시하기",
+      "prompt": {
+        "ko": "금요일과 토요일 중 가능한 날을 묻는 말을 골라요.",
+        "en": "Choose the question asking which of Friday or Saturday is possible.",
+        "de": "Wähle die Frage nach einem möglichen Termin am Freitag oder Samstag."
+      },
+      "material": {
+        "fictional_practice": true,
+        "display_model": true,
+        "delay": null,
+        "dates": {
+          "ko": "원하는 후보: 금요일 / 토요일. 두 날 모두를 예약하려는 것은 아니에요.",
+          "en": "Preferred alternatives: Friday / Saturday. You do not want reservations on both days.",
+          "de": "Mögliche Wunschtage: Freitag / Samstag. Du willst nicht beide Tage reservieren."
+        },
+        "model": {
+          "ko": "금요일이나 토요일에 가능한가요?",
+          "en": "Is Friday or Saturday possible?",
+          "de": "Geht es am Freitag oder Samstag?"
+        }
+      },
+      "options": [
+        {
+          "id": "A",
+          "ko": "금요일부터 토요일까지 가능한가요?",
+          "en": "Is Friday through Saturday possible?",
+          "de": "Geht es von Freitag bis Samstag?"
+        },
+        {
+          "id": "B",
+          "ko": "금요일하고 토요일에 모두 예약할게요.",
+          "en": "I'll reserve both Friday and Saturday.",
+          "de": "Ich reserviere Freitag und Samstag."
+        },
+        {
+          "id": "C",
+          "ko": "금요일이나 토요일에 가능한가요?",
+          "en": "Is Friday or Saturday possible?",
+          "de": "Geht es am Freitag oder Samstag?"
+        }
+      ],
+      "accepted_answers": [
+        "C"
+      ],
+      "feedback_correct": {
+        "ko": "자료에 맞게 표현했어요.",
+        "en": "Your answer matches the information.",
+        "de": "Deine Antwort passt zu den Angaben."
+      },
+      "feedback_wrong": {
+        "ko": "기간이나 두 날짜 모두가 아니라 한 날짜를 고르는 질문이에요.",
+        "en": "This asks for one alternative date, not a date range or both dates.",
+        "de": "Die Frage gilt einem von zwei Terminen, keinem Zeitraum und nicht beiden Tagen."
+      },
+      "help": {
+        "ko": "받침이 있는 명사 뒤의 선택 표지는 ‘이나’예요.",
+        "en": "The alternative marker after a consonant-ending noun is 이나.",
+        "de": "Nach einem Nomen mit Endkonsonant steht 이나."
+      },
+      "scoring": "structured",
+      "evidence_limit": "주어진 선택지에서 의미·형태를 고른 근거다. 독립 발화나 실제 예약·이동·교환 성립의 증거가 아니다."
+    },
+    {
+      "id": "A2.1-01-I03",
+      "mode": "I",
+      "kind": "short",
+      "objective": "(이)나로 날짜 명사 선택 제시하기",
+      "prompt": {
+        "ko": "화요일과 수요일 중 하나를 묻도록 빈칸만 써요.",
+        "en": "Fill only the gap to ask about Tuesday or Wednesday as alternatives.",
+        "de": "Fülle nur die Lücke und frage nach Dienstag oder Mittwoch als Alternativen."
+      },
+      "material": {
+        "fictional_practice": true,
+        "display_model": false,
+        "delay": null,
+        "frame_ko": "___ 수요일에 자리가 있나요?",
+        "lexical_base": "화요일",
+        "situation": {
+          "ko": "한 날짜만 예약할 예정이에요.",
+          "en": "You plan to reserve just one date.",
+          "de": "Du möchtest nur einen Tag reservieren."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "화요일이나"
+      ],
+      "feedback_correct": {
+        "ko": "자료에 맞게 표현했어요.",
+        "en": "Your answer matches the information.",
+        "de": "Deine Antwort passt zu den Angaben."
+      },
+      "feedback_wrong": {
+        "ko": "기간이나 두 날짜 모두가 아니라 한 날짜를 고르는 질문이에요.",
+        "en": "This asks for one alternative date, not a date range or both dates.",
+        "de": "Die Frage gilt einem von zwei Terminen, keinem Zeitraum und nicht beiden Tagen."
+      },
+      "help": {
+        "ko": "받침이 있는 명사 뒤의 선택 표지는 ‘이나’예요.",
+        "en": "The alternative marker after a consonant-ending noun is 이나.",
+        "de": "Nach einem Nomen mit Endkonsonant steht 이나."
+      },
+      "scoring": "structured",
+      "evidence_limit": "명시한 빈칸의 제한 회상만 확인한다. 허용 문자열 비교는 열린 발화 의미 채점이나 전반적 숙달 인증이 아니다. 정답·대화 모형은 응답 전 감춘다. 도움을 열면 assisted로 별도 기록한다."
+    },
+    {
+      "id": "A2.1-01-P04",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "-기로 하다로 확인된 합의 말하기",
+      "prompt": {
+        "ko": "두 사람이 변경에 동의한 뒤의 정리 말을 골라요.",
+        "en": "Choose the summary after both people agree to the change.",
+        "de": "Wähle die Zusammenfassung, nachdem beide der Änderung zugestimmt haben."
+      },
+      "material": {
+        "fictional_practice": true,
+        "display_model": true,
+        "delay": null,
+        "exchange": {
+          "ko": "여행자: 모레로 바꿔 주세요. / 수진의 연습 응답: 네, 모레로 변경했어요.",
+          "en": "Traveler: Please change it to the day after tomorrow. / Sujin's practice reply: Yes, it has been changed to that day.",
+          "de": "Reisende Person: Bitte auf übermorgen ändern. / Sujins Übungsantwort: Ja, es ist auf übermorgen geändert."
+        },
+        "model": {
+          "ko": "모레로 바꾸기로 했어요.",
+          "en": "We agreed to change it to the day after tomorrow.",
+          "de": "Wir haben vereinbart, auf übermorgen zu verschieben."
+        }
+      },
+      "options": [
+        {
+          "id": "A",
+          "ko": "모레로 바꾸기로 했어요.",
+          "en": "We agreed to change it to the day after tomorrow.",
+          "de": "Wir haben die Änderung auf übermorgen vereinbart."
+        },
+        {
+          "id": "B",
+          "ko": "모레에 자리가 있나요?",
+          "en": "Is a place available the day after tomorrow?",
+          "de": "Ist übermorgen ein Platz frei?"
+        },
+        {
+          "id": "C",
+          "ko": "모레로 바꾸고 싶지만 아직 물어보지 않았어요.",
+          "en": "I want to change it, but haven't asked yet.",
+          "de": "Ich möchte auf übermorgen ändern, habe aber noch nicht gefragt."
+        }
+      ],
+      "accepted_answers": [
+        "A"
+      ],
+      "feedback_correct": {
+        "ko": "자료에 맞게 표현했어요.",
+        "en": "Your answer matches the information.",
+        "de": "Deine Antwort passt zu den Angaben."
+      },
+      "feedback_wrong": {
+        "ko": "이 자료에는 상대의 변경 확인이 있어요. 단순한 희망이나 가능 여부 질문과 달라요.",
+        "en": "Here the other person has confirmed the change. This is more than a wish or an availability question.",
+        "de": "Hier hat die andere Person die Änderung bestätigt. Das ist mehr als ein Wunsch oder eine Frage nach freien Plätzen."
+      },
+      "help": {
+        "ko": "동사 어간 뒤에 -기로를 붙이고 했어요로 합의를 정리해요.",
+        "en": "Add -기로 to the verb stem, followed by 했어요, to report the agreement.",
+        "de": "An den Verbstamm kommt -기로; mit 했어요 berichtest du die Vereinbarung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "주어진 선택지에서 의미·형태를 고른 근거다. 독립 발화나 실제 예약·이동·교환 성립의 증거가 아니다."
+    },
+    {
+      "id": "A2.1-01-I04",
+      "mode": "I",
+      "kind": "short",
+      "objective": "-기로 하다로 확인된 합의 말하기",
+      "prompt": {
+        "ko": "확인된 합의를 ‘-기로 하다’로 정리해요. 빈칸만 써요.",
+        "en": "Use -기로 하다 to summarize the confirmed agreement. Fill only the gap.",
+        "de": "Fasse die bestätigte Vereinbarung mit -기로 하다 zusammen. Schreibe nur die Lücke."
+      },
+      "material": {
+        "fictional_practice": true,
+        "display_model": false,
+        "delay": null,
+        "exchange": {
+          "ko": "여행자: 토요일로 바꿔 주세요. / 수진의 연습 응답: 네, 토요일로 변경했어요.",
+          "en": "Traveler: Please change it to Saturday. / Sujin's practice reply: Yes, it has been changed to Saturday.",
+          "de": "Reisende Person: Bitte auf Samstag ändern. / Sujins Übungsantwort: Ja, es ist auf Samstag geändert."
+        },
+        "frame_ko": "토요일로 ___ 했어요.",
+        "lexical_base": "바꾸다"
+      },
+      "options": [],
+      "accepted_answers": [
+        "바꾸기로"
+      ],
+      "feedback_correct": {
+        "ko": "자료에 맞게 표현했어요.",
+        "en": "Your answer matches the information.",
+        "de": "Deine Antwort passt zu den Angaben."
+      },
+      "feedback_wrong": {
+        "ko": "이 자료에는 상대의 변경 확인이 있어요. 단순한 희망이나 가능 여부 질문과 달라요.",
+        "en": "Here the other person has confirmed the change. This is more than a wish or an availability question.",
+        "de": "Hier hat die andere Person die Änderung bestätigt. Das ist mehr als ein Wunsch oder eine Frage nach freien Plätzen."
+      },
+      "help": {
+        "ko": "동사 어간 뒤에 -기로를 붙이고 했어요로 합의를 정리해요.",
+        "en": "Add -기로 to the verb stem, followed by 했어요, to report the agreement.",
+        "de": "An den Verbstamm kommt -기로; mit 했어요 berichtest du die Vereinbarung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "명시한 빈칸의 제한 회상만 확인한다. 허용 문자열 비교는 열린 발화 의미 채점이나 전반적 숙달 인증이 아니다. 정답·대화 모형은 응답 전 감춘다. 도움을 열면 assisted로 별도 기록한다."
+    },
+    {
+      "id": "A2.1-01-R01",
+      "mode": "R",
+      "kind": "short",
+      "objective": "새 날짜의 조건 회상",
+      "prompt": {
+        "ko": "다음 날이에요. 새 표를 보고 빈칸만 써요.",
+        "en": "It is the next day. Use the new schedule and fill only the gap.",
+        "de": "Am nächsten Tag: Lies den neuen Plan und fülle nur die Lücke."
+      },
+      "material": {
+        "fictional_practice": true,
+        "display_model": false,
+        "delay": "next_day",
+        "schedule": {
+          "ko": "일요일: 확인 중 / 월요일: 빈자리 없음. 일요일에 빈자리가 있을 때만 바꾸려 해요.",
+          "en": "Sunday: being checked / Monday: no places. You want to change only if a place is available on Sunday.",
+          "de": "Sonntag: wird geprüft / Montag: kein Platz. Du willst nur ändern, wenn am Sonntag etwas frei ist."
+        },
+        "frame_ko": "일요일에 자리가 ___ 바꾸고 싶어요.",
+        "lexical_base": "있다"
+      },
+      "options": [],
+      "accepted_answers": [
+        "있으면"
+      ],
+      "feedback_correct": {
+        "ko": "자료에 맞게 표현했어요.",
+        "en": "Your answer matches the information.",
+        "de": "Deine Antwort passt zu den Angaben."
+      },
+      "feedback_wrong": {
+        "ko": "새 표에서 일요일의 가능 여부는 미확정이에요.",
+        "en": "Sunday's availability is still unconfirmed in this new schedule.",
+        "de": "Im neuen Plan ist noch offen, ob am Sonntag etwas frei ist."
+      },
+      "help": {
+        "ko": "조건을 나타내는 연결형을 떠올려요.",
+        "en": "Recall the ending that expresses a condition.",
+        "de": "Erinnere dich an die Verbindungsform für eine Bedingung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "명시한 빈칸의 제한 회상만 확인한다. 허용 문자열 비교는 열린 발화 의미 채점이나 전반적 숙달 인증이 아니다. 전날과 다른 자극이다. 단회 성공을 장기 보존 전체로 확대하지 않는다."
+    },
+    {
+      "id": "A2.1-01-R02",
+      "mode": "R",
+      "kind": "short",
+      "objective": "새 행동 대안 회상",
+      "prompt": {
+        "ko": "다음 날, 취소 대신 선택할 행동 두 가지를 연결해요. 빈칸만 써요.",
+        "en": "The next day, connect two alternatives to cancelling. Fill only the gap.",
+        "de": "Verbinde am nächsten Tag zwei Alternativen zur Stornierung. Schreibe nur die Lücke."
+      },
+      "material": {
+        "fictional_practice": true,
+        "display_model": false,
+        "delay": "next_day",
+        "rule": {
+          "ko": "연습 선택지: 날짜 변경 / 시간 변경. 한 가지만 바꿀 수 있어요.",
+          "en": "Practice alternatives: change date / change time. Only one can be changed.",
+          "de": "Übungsalternativen: Tag ändern / Uhrzeit ändern. Nur eines ist möglich."
+        },
+        "frame_ko": "날짜를 ___ 시간을 바꿀 수 있어요.",
+        "lexical_base": "바꾸다"
+      },
+      "options": [],
+      "accepted_answers": [
+        "바꾸거나"
+      ],
+      "feedback_correct": {
+        "ko": "자료에 맞게 표현했어요.",
+        "en": "Your answer matches the information.",
+        "de": "Deine Antwort passt zu den Angaben."
+      },
+      "feedback_wrong": {
+        "ko": "두 변경을 동시에 요구하지 말고 대안으로 연결해요.",
+        "en": "Link the changes as alternatives instead of requesting both.",
+        "de": "Verbinde die Änderungen als Alternativen, statt beides zu verlangen."
+      },
+      "help": {
+        "ko": "행동의 대안에 쓰는 연결 어미를 떠올려요.",
+        "en": "Recall the ending used for alternative actions.",
+        "de": "Erinnere dich an die Endung für alternative Handlungen."
+      },
+      "scoring": "structured",
+      "evidence_limit": "명시한 빈칸의 제한 회상만 확인한다. 허용 문자열 비교는 열린 발화 의미 채점이나 전반적 숙달 인증이 아니다. 전날과 다른 자극이다. 단회 성공을 장기 보존 전체로 확대하지 않는다."
+    },
+    {
+      "id": "A2.1-01-R03",
+      "mode": "R",
+      "kind": "short",
+      "objective": "새 명사 대안 회상",
+      "prompt": {
+        "ko": "새 날짜 후보 중 하나를 물어요. 빈칸만 써요.",
+        "en": "Ask about one of the new alternative dates. Fill only the gap.",
+        "de": "Frage nach einem der neuen möglichen Termine. Schreibe nur die Lücke."
+      },
+      "material": {
+        "fictional_practice": true,
+        "display_model": false,
+        "delay": "next_day",
+        "frame_ko": "___ 목요일에 가능한가요?",
+        "lexical_base": "월요일",
+        "context": {
+          "ko": "월요일 또는 목요일 중 하루만 예약해요.",
+          "en": "Reserve just one day: Monday or Thursday.",
+          "de": "Reserviere nur einen Tag: Montag oder Donnerstag."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "월요일이나"
+      ],
+      "feedback_correct": {
+        "ko": "자료에 맞게 표현했어요.",
+        "en": "Your answer matches the information.",
+        "de": "Deine Antwort passt zu den Angaben."
+      },
+      "feedback_wrong": {
+        "ko": "기간이 아니라 명사 두 개 사이의 선택이에요.",
+        "en": "These are alternative nouns, not a range.",
+        "de": "Hier geht es um die Wahl zwischen zwei Nomen, nicht um einen Zeitraum."
+      },
+      "help": {
+        "ko": "요일 명사 뒤의 선택 표지를 떠올려요.",
+        "en": "Recall the alternative marker after a day noun.",
+        "de": "Erinnere dich an das Auswahlteilchen nach einem Wochentag."
+      },
+      "scoring": "structured",
+      "evidence_limit": "명시한 빈칸의 제한 회상만 확인한다. 허용 문자열 비교는 열린 발화 의미 채점이나 전반적 숙달 인증이 아니다. 전날과 다른 자극이다. 단회 성공을 장기 보존 전체로 확대하지 않는다."
+    },
+    {
+      "id": "A2.1-01-R04",
+      "mode": "R",
+      "kind": "short",
+      "objective": "새 합의 회상",
+      "prompt": {
+        "ko": "새 확인 응답 뒤 합의를 정리해요. 빈칸만 써요.",
+        "en": "Summarize the agreement after a new confirmation. Fill only the gap.",
+        "de": "Fasse die Vereinbarung nach einer neuen Bestätigung zusammen. Schreibe nur die Lücke."
+      },
+      "material": {
+        "fictional_practice": true,
+        "display_model": false,
+        "delay": "next_day",
+        "exchange": {
+          "ko": "여행자: 목요일로 바꿔 주세요. / 수진의 연습 응답: 네, 목요일로 변경했어요.",
+          "en": "Traveler: Please change it to Thursday. / Sujin's practice reply: Yes, it has been changed to Thursday.",
+          "de": "Reisende Person: Bitte auf Donnerstag ändern. / Sujins Übungsantwort: Ja, auf Donnerstag geändert."
+        },
+        "frame_ko": "목요일로 ___ 했어요.",
+        "lexical_base": "바꾸다"
+      },
+      "options": [],
+      "accepted_answers": [
+        "바꾸기로"
+      ],
+      "feedback_correct": {
+        "ko": "자료에 맞게 표현했어요.",
+        "en": "Your answer matches the information.",
+        "de": "Deine Antwort passt zu den Angaben."
+      },
+      "feedback_wrong": {
+        "ko": "상대가 확인했으므로 합의된 행동으로 말해요.",
+        "en": "The other person has confirmed it, so report an agreed action.",
+        "de": "Die andere Person hat bestätigt. Berichte daher von einer vereinbarten Handlung."
+      },
+      "help": {
+        "ko": "결정을 정리하는 -기로 하다를 떠올려요.",
+        "en": "Recall -기로 하다 for reporting a decision.",
+        "de": "Erinnere dich an -기로 하다 für eine vereinbarte Entscheidung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "명시한 빈칸의 제한 회상만 확인한다. 허용 문자열 비교는 열린 발화 의미 채점이나 전반적 숙달 인증이 아니다. 전날과 다른 자극이다. 단회 성공을 장기 보존 전체로 확대하지 않는다."
+    },
+    {
+      "id": "A2.1-01-T01",
+      "mode": "T",
+      "kind": "roleplay",
+      "objective": "불가능한 예약 조건을 듣고 대안·재확인하기",
+      "prompt": {
+        "ko": "새 예약 역할 카드예요. 원하는 날이 불가능하면 다른 날을 묻고, 한 날짜를 요청한 뒤 확인 응답을 받아 정리해요.",
+        "en": "Use the new reservation role card. If your preferred day is unavailable, ask for alternatives, request one date, and summarize only after confirmation.",
+        "de": "Übe mit der neuen Reservierungskarte: Ist dein Wunschtag nicht möglich, frage nach Alternativen, bitte um einen Termin und fasse erst nach der Bestätigung zusammen."
+      },
+      "material": {
+        "fictional_practice": true,
+        "display_model": false,
+        "delay": null,
+        "schedule": {
+          "ko": "금요일: 빈자리 없음 / 토요일: 오전만 가능 / 일요일: 오후만 가능. 원래 예약: 금요일 오후. 취소는 선택이며 자동으로 실행하지 않아요.",
+          "en": "Friday: no places / Saturday: morning only / Sunday: afternoon only. Original reservation: Friday afternoon. Cancellation is optional and never automatic.",
+          "de": "Freitag: kein Platz / Samstag: nur vormittags / Sonntag: nur nachmittags. Ursprünglich: Freitag nachmittags. Eine Stornierung ist freiwillig und erfolgt nie automatisch."
+        },
+        "partner_turns": [
+          {
+            "ko": "금요일은 자리가 없어요. 토요일 오전이나 일요일 오후는 가능해요.",
+            "en": "Friday is unavailable. Saturday morning or Sunday afternoon is possible.",
+            "de": "Am Freitag ist nichts frei. Samstagvormittag oder Sonntagnachmittag geht."
+          },
+          {
+            "ko": "고른 날짜와 시간을 다시 말해 주세요. 요청을 확인한 뒤 변경 응답을 해 볼게요.",
+            "en": "Repeat your chosen date and time. I'll practice confirming the change after checking your request.",
+            "de": "Nenne deinen gewählten Tag und die Uhrzeit noch einmal. Nach der Prüfung deiner Bitte übe ich die Bestätigung."
+          }
+        ],
+        "self_check": [
+          {
+            "ko": "조건·대안을 확인했나요?",
+            "en": "Did you check the condition and alternatives?",
+            "de": "Hast du Bedingungen und Alternativen geklärt?"
+          },
+          {
+            "ko": "요청과 상대 확인 뒤의 합의를 구분했나요?",
+            "en": "Did you distinguish a request from an agreement confirmed by the other person?",
+            "de": "Hast du Bitte und bestätigte Vereinbarung unterschieden?"
+          }
+        ],
+        "reply_channel": {
+          "ko": "글·선택·말하기 중 편한 방법을 사용한다.",
+          "en": "Use text, choices, or speech, whichever works for you.",
+          "de": "Antworte schriftlich, per Auswahl oder mündlich, wie es für dich passt."
+        }
+      },
+      "options": [],
+      "accepted_answers": [],
+      "feedback_correct": {
+        "ko": "어떤 내용을 전했는지 스스로 확인해요. 수행 점수는 매기지 않아요.",
+        "en": "Check what you communicated. No performance score is assigned.",
+        "de": "Prüfe selbst, was du vermittelt hast. Deine freie Antwort wird nicht benotet."
+      },
+      "feedback_wrong": {
+        "ko": "빠진 내용을 한 가지씩 보태 다시 해 볼 수 있어요.",
+        "en": "Add any missing point and try again.",
+        "de": "Ergänze fehlende Angaben einzeln und versuch es noch einmal."
+      },
+      "help": {
+        "ko": "조건·대상·다음 행동을 나누어 생각해요. 도움 뒤의 수행은 따로 남겨요.",
+        "en": "Separate the condition, the target, and the next action. Keep helped attempts separate.",
+        "de": "Überlege dir Bedingung, Bezug und nächsten Schritt einzeln. Versuche mit Hilfe bleiben getrennt erfasst."
+      },
+      "scoring": "unscored",
+      "evidence_limit": "열린 언어 사용의 자기 점검용이다. 녹음·AI 의미 판정·자동 숙달 인증을 요구하지 않는다."
+    }
+  ],
+  "responses": {
+    "assisted": {
+      "ko": "도움을 보고 이어 했어요. 이 시도는 도움받은 연습으로 남겨요.",
+      "en": "You continued with help. Keep this attempt as assisted practice.",
+      "de": "Du hast mit Hilfe weitergemacht. Dieser Versuch zählt als Übung mit Hilfe."
+    },
+    "independent": {
+      "ko": "모형 없이 답했어요. 이 문항에서 한 수행만 따로 확인해요.",
+      "en": "You answered without a model. Record only what this task shows.",
+      "de": "Du hast ohne Muster geantwortet. Halte nur fest, was diese Aufgabe tatsächlich zeigt."
+    },
+    "audio_unavailable": {
+      "ko": "소리가 없어도 글과 선택으로 계속할 수 있어요. 듣기·발음 결과는 확인하지 않아요.",
+      "en": "Continue with text and choices if sound is unavailable. This does not verify listening or pronunciation.",
+      "de": "Ohne Ton kannst du mit Text und Auswahl weitermachen. Hörverstehen und Aussprache werden dabei nicht geprüft."
+    },
+    "pause": {
+      "ko": "여기서 잠깐 쉬어도 괜찮아요. 돌아와서 같은 자료로 이어 가요.",
+      "en": "You can pause here and return to the same material.",
+      "de": "Du kannst hier pausieren und später mit denselben Angaben weitermachen."
+    },
+    "resume": {
+      "ko": "하던 자료부터 다시 봐요. 이미 본 도움은 도움 사용으로 구분해요.",
+      "en": "Return to your current material. Previously viewed help still counts as help.",
+      "de": "Mach mit deinen bisherigen Angaben weiter. Bereits geöffnete Hilfen zählen weiterhin als Hilfe."
+    },
+    "save_failed": {
+      "ko": "저장되지 않았어요. 현재 답을 그대로 두고 다시 저장해요. 저장 확인 전에는 완료로 표시하지 않아요.",
+      "en": "Saving failed. Keep the current answer and try saving again. Do not mark it complete before saving is confirmed.",
+      "de": "Das Speichern hat nicht geklappt. Behalte deine Antwort und versuche es erneut. Erst nach der Speicherbestätigung gilt sie als gesichert."
+    },
+    "revisit": {
+      "ko": "다음 날 새 자료로 다시 해 봐요. 복습을 미뤄도 이야기나 건축이 돌아가지 않아요.",
+      "en": "Try new material the next day. Postponing review does not undo story or construction progress.",
+      "de": "Versuch es am nächsten Tag mit neuen Angaben. Wenn du die Wiederholung verschiebst, bleiben Geschichte und Baufortschritt erhalten."
+    }
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true
+  }
+}
