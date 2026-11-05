@@ -19,6 +19,7 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
+import 'package:ko_lernen_app/widgets/sori/grammar_c_plan.dart';
 import 'package:ko_lernen_app/widgets/sori/spotlight_coach.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
@@ -56,7 +57,9 @@ void main() {
     }
     expect(
       tester
-          .widget<SoriChip>(find.byKey(const Key('grammar-plan-items-5')))
+          .widget<GrammarCPlanChoice>(
+            find.byKey(const Key('grammar-plan-items-5')),
+          )
           .selected,
       isTrue,
       reason: 'five items is the default selected pace',
@@ -70,7 +73,9 @@ void main() {
       await _pumpGrammar(tester);
 
       final selected = find.byKey(const Key('grammar-plan-items-5'));
-      final chip = tester.widget<SoriChip>(selected);
+      await tester.ensureVisible(selected);
+      await tester.pumpAndSettle();
+      final chip = tester.widget<GrammarCPlanChoice>(selected);
       final data = tester.getSemantics(selected).getSemanticsData();
 
       expect(
@@ -88,9 +93,9 @@ void main() {
 
       await tester.tap(selected);
       await tester.pump();
-      expect(tester.widget<SoriChip>(selected).selected, isTrue);
+      expect(tester.widget<GrammarCPlanChoice>(selected).selected, isTrue);
       expect(
-        tester.widget<SoriChip>(selected),
+        tester.widget<GrammarCPlanChoice>(selected),
         same(chip),
         reason: 'reselecting the active pace must not rebuild the chip group',
       );
@@ -133,6 +138,8 @@ void main() {
         'A1',
       );
       await _pumpGrammar(tester);
+
+      await tester.ensureVisible(find.byKey(const Key('grammar-plan-items-3')));
 
       await tester.tap(find.byKey(const Key('grammar-plan-items-3')));
       await tester.pump();
@@ -438,6 +445,11 @@ void main() {
       await tester.tap(find.byType(FlipCard));
       await tester.pump();
       final feed = tester.widget<SoriContentFeed>(find.byType(SoriContentFeed));
+      for (var i = 0; i < 4; i++) {
+        feed.onNext!();
+        await tester.pump(const Duration(milliseconds: 500));
+      }
+      // Multiple taps on the final pending save admit only one judgment.
       for (var i = 0; i < 5; i++) {
         feed.onNext!();
       }
@@ -459,7 +471,7 @@ void main() {
       );
       await _pumpGrammar(tester);
 
-      await tester.tap(find.widgetWithText(SoriChip, 'B1'));
+      await tester.tap(find.byKey(const Key('grammar-plan-level-b1')));
       await tester.pump();
       _tapSheetButton(tester, _l10n.grammarPlanStartCta);
       await tester.pump(const Duration(milliseconds: 500));
@@ -520,7 +532,7 @@ void main() {
     );
     await _pumpGrammar(tester);
 
-    await tester.tap(find.widgetWithText(SoriChip, 'B1'));
+    await tester.tap(find.byKey(const Key('grammar-plan-level-b1')));
     await tester.pump();
     _tapSheetButton(tester, _l10n.grammarPlanStartCta);
     await tester.pump(const Duration(milliseconds: 500));
@@ -619,13 +631,8 @@ void main() {
       find.byKey(const Key('grammar-plan-onboarding-sheet')),
       findsOneWidget,
     );
-    expect(
-      find.text(
-        'Choose a daily recommendation. You can change the pace and level '
-        'at the top or browse every pattern at any time.',
-      ),
-      findsOneWidget,
-    );
+    expect(find.text(_l10n.grammarPlanSetupHint), findsOneWidget);
+    expect(find.text(_l10n.grammarPlanPaceChangeHint), findsOneWidget);
   });
 
   testWidgets('the pace chip semantic label includes the per-day count '

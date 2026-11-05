@@ -2922,9 +2922,6 @@ class AppL10nDe extends AppL10n {
   String get scenarioVocabTitle => 'Wortschatz';
 
   @override
-  String get scenarioDialogTitle => 'Dialog';
-
-  @override
   String get scenarioGrammarTitle => 'Grammatik';
 
   @override
@@ -2975,6 +2972,16 @@ class AppL10nDe extends AppL10n {
   @override
   String get scenarioResultSaving =>
       'Diese abgeschlossene Szene wird gespeichert…';
+
+  @override
+  String get scenarioResultSavingTitle => 'Deine Szene wird gespeichert';
+
+  @override
+  String get scenarioResultSavingAction => 'Speichern …';
+
+  @override
+  String get scenarioResultSaveErrorTitle =>
+      'Deine Szene ist noch nicht gespeichert';
 
   @override
   String get scenarioResultSaveRetry => 'Speichern erneut versuchen';
@@ -5309,10 +5316,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get grammarPlanOnboardingTitle => 'Wie viele Muster pro Tag?';
-
-  @override
-  String get grammarPlanOnboardingBody =>
-      'Wähle eine tägliche Empfehlung. Oben kannst du Tempo und Niveau ändern oder jederzeit alle Muster ansehen.';
 
   @override
   String grammarPlanItemsPerDayOption(int n) {
@@ -12402,4 +12405,182 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get todayBeginStage => 'Los geht’s';
+
+  @override
+  String get listeningShelfPhone => 'Anrufe';
+
+  @override
+  String get listeningFlowFollow => 'Zur aktuellen Nachricht';
+
+  @override
+  String get listeningShelfShopping => 'Einkauf';
+
+  @override
+  String get listeningFlowResult => 'Ergebnis';
+
+  @override
+  String get listeningShelfFamily => 'Erster Besuch';
+
+  @override
+  String get listeningShelfArrival => 'Ankunft';
+
+  @override
+  String get listeningShelfEthics => 'Forschungsethik';
+
+  @override
+  String get listeningShelfExplore => 'Entdecken';
+
+  @override
+  String get listeningShelfUncertainty => 'Unsicherheit';
+
+  @override
+  String get listeningShelfRestaurant => 'Restaurant';
+
+  @override
+  String get listeningShelfPrompt => 'Wähle dein nächstes Gespräch.';
+
+  @override
+  String get listeningShelfDiscourse => 'Vorannahmen';
+
+  @override
+  String get listeningShelfSources => 'Zitate & Quellen';
+
+  @override
+  String get listeningShelfMemory => 'Erinnerung';
+
+  @override
+  String get listeningShelfFocus => 'IM FOKUS';
+
+  @override
+  String get listeningShelfGreeting => 'Begrüßung';
+
+  @override
+  String get listeningFlowChoose => 'DEINE LEKTION';
+
+  @override
+  String get listeningShelfHealth => 'Arzt & Sport';
+
+  @override
+  String get listeningShelfCritique => 'Kunstkritik';
+
+  @override
+  String get listeningShelfRecord => 'Aktenlücken';
+
+  @override
+  String get listeningShelfWork => 'Im Job';
+
+  @override
+  String get listeningShelfMethod => 'Methodik';
+
+  @override
+  String get listeningFlowUnderstand => 'Verstehen';
+
+  @override
+  String get listeningRecoverySaving => 'Wird gespeichert …';
+
+  @override
+  String get listeningRecoverySaveFailed => 'Noch nicht gespeichert.';
+
+  @override
+  String get listeningServiceRole => 'Service';
+
+  @override
+  String get listeningRecoveryDone => 'Lektion abgeschlossen';
+
+  @override
+  String get listeningRecoverySavingBody =>
+      'Deine Eingaben bleiben unverändert. Bitte kurz warten.';
+
+  @override
+  String get listeningRecoverySaveBody =>
+      'Deine Antworten bleiben hier erhalten. Bitte versuche es erneut.';
+
+  @override
+  String get listeningRecoverySaved => 'Antworten gespeichert.';
+
+  @override
+  String get listeningRecoveryAnswers => 'Deine Antworten';
+
+  @override
+  String listeningRecoveryScore(int correct, int total) {
+    return '$correct von $total richtig';
+  }
+
+  @override
+  String get listeningRecoverySaveRetry => 'Erneut speichern';
+
+  @override
+  String get listeningRecoveryWait => 'Bitte kurz warten';
+
+  @override
+  String get listeningRecoveryStay => 'Hier bleiben';
+
+  @override
+  String get listeningRecoveryAudioFailed => 'Ton gerade nicht verfügbar.';
+
+  @override
+  String get listeningRecoveryAudioBody => 'Erneut versuchen oder weiterlesen.';
+
+  @override
+  String get listeningRecoveryAudioRetry => 'Ton wiederholen';
+
+  @override
+  String get listeningRecoveryRead => 'Weiterlesen';
+
+  @override
+  String get listeningRecoveryPractice => 'Noch einmal üben';
+
+  @override
+  String get listeningRecoveryTopics => 'Zu den Themen';
+
+  @override
+  String get listeningRecoveryMore => 'Vertiefen';
+
+  @override
+  String listeningRecoveryRemaining(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Antworten kannst du noch üben.',
+      one: 'Eine Antwort kannst du noch üben.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get grammarPlanTitle => 'Dein\nGrammatik­plan';
+
+  @override
+  String get grammarPlanSetupHint =>
+      'Wähle dein Niveau und dein tägliches Pensum.';
+
+  @override
+  String get grammarPlanPatternsPerDayLabel => 'Muster pro Tag';
+
+  @override
+  String grammarPlanDailyPreview(int n) {
+    return '$n Muster pro Tag';
+  }
+
+  @override
+  String get grammarPlanPaceChangeHint =>
+      'Dein Tempo lässt sich jederzeit ändern.';
+
+  @override
+  String grammarPlanLevelCount(String level, int count) {
+    return '$level · $count Muster';
+  }
+
+  @override
+  String get grammarPlanSaveErrorTitle => 'Fortschritt nicht gespeichert';
+
+  @override
+  String get grammarPlanSelectionRetained => 'Deine Auswahl bleibt erhalten.';
+
+  @override
+  String get wordWebCloseConfirmBody =>
+      'Dein Fortschritt in dieser Runde geht verloren, wenn du zur Wortliste zurückkehrst.';
+
+  @override
+  String get wordWebCloseConfirmLeave => 'Zur Wortliste';
 }

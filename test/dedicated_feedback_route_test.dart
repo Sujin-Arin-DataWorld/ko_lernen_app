@@ -169,7 +169,7 @@ void main() {
     await _tapText(tester, 'Weiter');
     await tester.pump();
     await tester.pump(const Duration(seconds: 2));
-    expect(find.text('Dialog'), findsOneWidget);
+    expect(find.byType(TtsSpeedControl), findsOneWidget);
     expect(find.byType(ContentFeedbackCard), findsNothing);
     await _tapText(tester, 'Weiter');
     await tester.pump();

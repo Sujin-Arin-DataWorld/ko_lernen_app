@@ -69,7 +69,8 @@ void main() {
     // two formerly orphaned keys now have actual native actions.
     // Approved Najeon copy replaces the 11 unused bundle-specific keys;
     // unused draft Today labels are retired and homeReviewDue is now used.
-    const ceiling = 314;
+    // Approved image-first screens retire the two unused legacy headings.
+    const ceiling = 313;
     expect(
       orphaned.length,
       lessThanOrEqualTo(ceiling),

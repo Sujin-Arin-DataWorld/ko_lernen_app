@@ -11,6 +11,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_pop.dart';
 import 'package:ko_lernen_app/widgets/sori/scenario_write_after_roleplay_card.dart';
+import 'package:ko_lernen_app/widgets/sori/scenario_c.dart';
 import 'package:ko_lernen_app/widgets/sori/tts_speed_control.dart';
 
 void main() {
@@ -104,7 +105,14 @@ void main() {
       expect(find.byType(TtsSpeedControl), findsOneWidget);
       expect(find.byType(MascotPartner), findsNothing);
       expect(find.text('Weiter'), findsNothing);
-      expect(find.text('Deine Antwort bauen'), findsOneWidget);
+      expect(
+        find.byWidgetPredicate(
+          (widget) =>
+              widget is Semantics &&
+              widget.properties.label?.contains('Deine Antwort bauen') == true,
+        ),
+        findsOneWidget,
+      );
       expect(find.text('Rollenspiel'), findsOneWidget);
       expect(
         find.textContaining(
@@ -112,7 +120,15 @@ void main() {
         ),
         findsOneWidget,
       );
-      expect(find.text('Erneut anhören'), findsOneWidget);
+      expect(
+        find.byWidgetPredicate(
+          (widget) =>
+              widget is ScenarioCFold &&
+              widget.onTap != null &&
+              widget.semanticLabel?.contains('Erneut anhören') == true,
+        ),
+        findsOneWidget,
+      );
       expect(find.byKey(const ValueKey('quest-submit')), findsOneWidget);
 
       final buttonRect = tester.getRect(
@@ -165,6 +181,10 @@ void main() {
       expect(tester.takeException(), isNull);
       expect(find.byType(TtsSpeedControl), findsOneWidget);
       expect(find.byKey(const ValueKey('quest-submit')), findsOneWidget);
+      final action = find.byKey(const ValueKey('quest-submit'));
+      await Scrollable.ensureVisible(action.evaluate().single, alignment: .5);
+      await tester.pump();
+      expect(tester.getRect(action).top, greaterThanOrEqualTo(0));
       expect(
         tester.getRect(find.byKey(const ValueKey('quest-submit'))).bottom,
         lessThanOrEqualTo(700),

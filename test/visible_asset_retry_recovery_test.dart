@@ -19,6 +19,7 @@ import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
+import 'package:ko_lernen_app/widgets/sori/nuancen_c.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -265,12 +266,13 @@ void main() {
         await tester.pumpWidget(
           _host(const WordWebScreen(seenLoader: _seenHello)),
         );
-        await _pumpUntil(tester, find.byType(SoriEmptyState));
+        await _pumpUntil(tester, find.byType(NuancenStateBody));
         expect(find.text(t.wordWebLoadErrorTitle), findsOneWidget);
 
         await _press(tester, t.btnRetry);
         await _pumpUntil(tester, find.byKey(const ValueKey('rel_a1_0001')));
         expect(reads[WordRelationService.assetPath], 2);
+        expect(find.text(t.wordWebLoadErrorTitle), findsNothing);
         expect(find.text('안녕하세요'), findsOneWidget);
         expect(find.text('Hello (polite)'), findsOneWidget);
       },

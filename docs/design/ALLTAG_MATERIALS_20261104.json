@@ -1,0 +1,122 @@
+{
+  "date": "2026-11-04",
+  "designAuthority": "Image-generated Alltagsszenen boards approved by Jin; retain originals independently in Figma section 140:585. Native renders are implementation evidence, not design replacements.",
+  "figma": {
+    "file": "zhJY0ZY4gl4VNg8vaaNIXw",
+    "editableAlltag": "129:311",
+    "approvedOriginals": "140:585",
+    "nextCandidates": "140:586",
+    "nuancen": "111:192",
+    "grammar": "102:160",
+    "horenOriginals": "56:196"
+  },
+  "materials": [
+    {
+      "name": "fold-paper.png",
+      "path": "design_assets/scenarios/fold-paper.png",
+      "sha256": "2c03effe07f091bdecbbd7199eb77e337d5bfac9c23315aa97f55bf7529d88c7",
+      "bytes": 2130297,
+      "width": 2206,
+      "height": 713,
+      "source": "C:/Users/vjinn/.codex/generated_images/01a1a20b-61e1-74d1-84f2-7b48467f9dea//exec-2ba7157a-6bd3-4359-947d-fc9647d2809f.png"
+    },
+    {
+      "name": "jade-plaque.png",
+      "path": "design_assets/scenarios/jade-plaque.png",
+      "sha256": "f1477328b8ee0203e9599765f59fcc7019d626366290895a62ebdca97b9611f1",
+      "bytes": 1204220,
+      "width": 2120,
+      "height": 742,
+      "source": "C:/Users/vjinn/.codex/generated_images/01a1a20b-61e1-74d1-84f2-7b48467f9dea//exec-05cc5b82-369c-4587-97d3-af04abc2ce09.png"
+    },
+    {
+      "name": "kitchen-stage.png",
+      "path": "design_assets/scenarios/kitchen-stage.png",
+      "sha256": "77fc11f4f38963bb4d7eec735d9f003980b40b1cfcaea2f08bf1fbd870b92ac6",
+      "bytes": 2471098,
+      "width": 1672,
+      "height": 941,
+      "source": "C:/Users/vjinn/.codex/generated_images/01a1a20b-61e1-74d1-84f2-7b48467f9dea//exec-bef0b621-2edb-420d-a1a4-36776dc7c144.png"
+    },
+    {
+      "name": "open-book.png",
+      "path": "design_assets/scenarios/open-book.png",
+      "sha256": "6c4444887fbf6c815e5f9610a6cc10163cac6feba5c5701b795a11e4d393424e",
+      "bytes": 2276988,
+      "width": 1093,
+      "height": 1439,
+      "source": "C:/Users/vjinn/.codex/generated_images/01a1a20b-61e1-74d1-84f2-7b48467f9dea//exec-77ff218c-00f8-4586-aaa1-269a73b73bcb.png"
+    },
+    {
+      "name": "gold-button.png",
+      "path": "design_assets/scenarios/gold-button.png",
+      "sha256": "b5512699417334e16cb50facd34372dc8754bab9e054650eaa73682b8311f28e",
+      "bytes": 1801501,
+      "width": 2172,
+      "height": 724,
+      "source": "C:/Users/vjinn/.codex/generated_images/01a1a20b-61e1-74d1-84f2-7b48467f9dea//exec-503425da-80ee-4c99-9be9-bdaf242079df.png"
+    },
+    {
+      "name": "word-tile.png",
+      "path": "design_assets/scenarios/word-tile.png",
+      "sha256": "088000677f9b0aeac9843e86bbb38635dff96cbda067d385c7c621d09a15128d",
+      "bytes": 2054798,
+      "width": 2172,
+      "height": 724,
+      "source": "C:/Users/vjinn/.codex/generated_images/01a1a20b-61e1-74d1-84f2-7b48467f9dea//exec-891d2945-bbca-4eb2-82d3-252fd0c11068.png"
+    },
+    {
+      "name": "answer-tray.png",
+      "path": "design_assets/scenarios/answer-tray.png",
+      "sha256": "db1c83e707de38a0ca4a4952bec70dec1f4e6186274f68ed0beb1140b336c378",
+      "bytes": 1924999,
+      "width": 2172,
+      "height": 724,
+      "source": "C:/Users/vjinn/.codex/generated_images/01a1a20b-61e1-74d1-84f2-7b48467f9dea//exec-2b599eb5-1dc4-4638-86e0-bf963ad92de4.png"
+    },
+    {
+      "name": "writing-board.png",
+      "path": "design_assets/scenarios/writing-board.png",
+      "sha256": "1c108c485b62660b860eac793fe20c0fe0be980edc6d173309696decc33d7ab7",
+      "bytes": 2448729,
+      "width": 1774,
+      "height": 887,
+      "source": "C:/Users/vjinn/.codex/generated_images/01a1a20b-61e1-74d1-84f2-7b48467f9dea//exec-6ba362fa-901e-475d-9c0a-85a34bfd32db.png"
+    }
+  ],
+  "nextContent": [
+    {
+      "name": "Wortpakete",
+      "file": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/next-content/01-wortpakete-catalog-front-back.png",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a1a20b-61e1-74d1-84f2-7b48467f9dea/exec-bb7abec6-0553-4b72-824c-1e91c9641810.png",
+      "sha256": "c6f6e6d0c766898370919871358182809a8460fd8555d26573c1b4442a5908d4",
+      "figmaNode": "139:590",
+      "fixture": "a1_greetings_1 authored12learn/10quiz/2boss; initial front/back",
+      "canonicalChrome": "Final Figma/native must use original independent PNGs; image-generated representations are not canonical assets",
+      "status": "new_generated_candidates_pending_user_review"
+    },
+    {
+      "name": "Wiederholen",
+      "file": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/next-content/02-wiederholen-hub-front-back.png",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a1a20b-61e1-74d1-84f2-7b48467f9dea/exec-e9ae50bb-6e12-4836-bbdf-3608e5b5789f.png",
+      "sha256": "c9d1a6b51d131b4c2938f44e4dcdc254f68423733868d9d0ddcce0f49f31d0e6",
+      "figmaNode": "139:591",
+      "fixture": "declaredtodayledger3authoredwords, no liveuserprogress claim",
+      "canonicalChrome": "Final Figma/native must use original independent PNGs; image-generated representations are not canonical assets",
+      "status": "new_generated_candidates_pending_user_review"
+    }
+  ],
+  "canonicalAssets": "C:/Users/vjinn/.codex/generated_images/공통UI정본/CANONICAL_UI.json",
+  "imageReuseRules": [
+    "Cloud, settings, coin, home, nav and personas must use original independent PNGs.",
+    "Alltag kitchen art is specific to a2_minho_weekend_cooking_plan.",
+    "Topic chooser uses existing approved ListeningObjectArt topic IDs; no generic fallback for mapped topics.",
+    "No whole-screen raster used in place of editable content or native controls."
+  ],
+  "topicPickerCorrection": {
+    "source": "C:/Users/vjinn/.codex/generated_images/01a1a20b-61e1-74d1-84f2-7b48467f9dea//exec-cbcaee0d-8724-4150-9745-cc9208b8ddf3.png",
+    "sha256": "540bdc3948095f3ee8991de6f55a5ae7b99744a83b1a1a0ed211e2b28235db50",
+    "figma": "146:602",
+    "reason": "Filtered playable counts2/1 replace raw inventory1/6 on last two cards; first four unchanged."
+  }
+}

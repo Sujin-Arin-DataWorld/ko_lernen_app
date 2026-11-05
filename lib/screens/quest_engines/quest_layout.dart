@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/scenario_c.dart';
 import '../../widgets/sori/tts_speed_control.dart';
 
 /// Gemeinsames Layout aller Quest-Engines.
@@ -66,6 +68,7 @@ class QuestLayout extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final pinnedAction = action;
+        final overhang = ScenarioCTheme.of(context) ? 0.0 : _overhang;
         final speedBar = showTtsSpeed
             ? ConstrainedBox(
                 constraints: const BoxConstraints(minHeight: 48),
@@ -94,6 +97,48 @@ class QuestLayout extends StatelessWidget {
           );
         }
 
+        // A recovery overlay or enlarged chrome can leave less than one
+        // interactive row for the quest. Keep all controls reachable in one
+        // scroll viewport instead of letting fixed audio/action rows overflow.
+        final paper = ScenarioCTheme.of(context);
+        var actionHeight = 48.0;
+        if (paper && pinnedAction != null) {
+          final label =
+              TextPainter(
+                text: TextSpan(
+                  text: AppL10n.of(context).questCheckAnswer,
+                  style: ScenarioC.heading.copyWith(fontSize: 21),
+                ),
+                textDirection: Directionality.of(context),
+                textScaler: MediaQuery.textScalerOf(context),
+              )..layout(
+                maxWidth: (constraints.maxWidth - 80).clamp(1, double.infinity),
+              );
+          actionHeight = (label.height + 26).clamp(56, double.infinity);
+          label.dispose();
+        }
+        // Keep two touch rows available for input; at enlarged text this also
+        // accommodates a complete word tile instead of a narrow clipped strip.
+        final minimumPinnedHeight =
+            (speedBar == null ? 0.0 : 48.0) +
+            (paper ? MediaQuery.textScalerOf(context).scale(96) : 96) +
+            (pinnedAction == null ? 0.0 : gap + actionHeight);
+        if (paper && constraints.maxHeight < minimumPinnedHeight) {
+          return SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                if (speedBar != null) ...[speedBar, SizedBox(height: gap)],
+                content,
+                if (pinnedAction != null) ...[
+                  SizedBox(height: gap),
+                  pinnedAction,
+                ],
+              ],
+            ),
+          );
+        }
+
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -101,10 +146,10 @@ class QuestLayout extends StatelessWidget {
             Expanded(
               child: LayoutBuilder(
                 builder: (context, viewport) => SingleChildScrollView(
-                  padding: const EdgeInsets.only(top: _overhang),
+                  padding: EdgeInsets.only(top: overhang),
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
-                      minHeight: (viewport.maxHeight - _overhang).clamp(
+                      minHeight: (viewport.maxHeight - overhang).clamp(
                         0,
                         double.infinity,
                       ),
@@ -121,7 +166,9 @@ class QuestLayout extends StatelessWidget {
               SizedBox(height: gap),
               ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxHeight: constraints.maxHeight * _actionMaxFraction,
+                  maxHeight:
+                      constraints.maxHeight *
+                      (ScenarioCTheme.of(context) ? .85 : _actionMaxFraction),
                 ),
                 child: SingleChildScrollView(child: pinnedAction),
               ),

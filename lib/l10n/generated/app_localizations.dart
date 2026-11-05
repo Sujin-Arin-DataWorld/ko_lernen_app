@@ -5071,12 +5071,6 @@ abstract class AppL10n {
   /// **'Wortschatz'**
   String get scenarioVocabTitle;
 
-  /// No description provided for @scenarioDialogTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Dialog'**
-  String get scenarioDialogTitle;
-
   /// No description provided for @scenarioGrammarTitle.
   ///
   /// In de, this message translates to:
@@ -5172,6 +5166,24 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Diese abgeschlossene Szene wird gespeichert…'**
   String get scenarioResultSaving;
+
+  /// No description provided for @scenarioResultSavingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Szene wird gespeichert'**
+  String get scenarioResultSavingTitle;
+
+  /// No description provided for @scenarioResultSavingAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Speichern …'**
+  String get scenarioResultSavingAction;
+
+  /// No description provided for @scenarioResultSaveErrorTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Szene ist noch nicht gespeichert'**
+  String get scenarioResultSaveErrorTitle;
 
   /// No description provided for @scenarioResultSaveRetry.
   ///
@@ -9185,12 +9197,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Wie viele Muster pro Tag?'**
   String get grammarPlanOnboardingTitle;
-
-  /// No description provided for @grammarPlanOnboardingBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Wähle eine tägliche Empfehlung. Oben kannst du Tempo und Niveau ändern oder jederzeit alle Muster ansehen.'**
-  String get grammarPlanOnboardingBody;
 
   /// No description provided for @grammarPlanItemsPerDayOption.
   ///
@@ -21011,6 +21017,324 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Los geht’s'**
   String get todayBeginStage;
+
+  /// No description provided for @listeningShelfPhone.
+  ///
+  /// In de, this message translates to:
+  /// **'Anrufe'**
+  String get listeningShelfPhone;
+
+  /// No description provided for @listeningFlowFollow.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur aktuellen Nachricht'**
+  String get listeningFlowFollow;
+
+  /// No description provided for @listeningShelfShopping.
+  ///
+  /// In de, this message translates to:
+  /// **'Einkauf'**
+  String get listeningShelfShopping;
+
+  /// No description provided for @listeningFlowResult.
+  ///
+  /// In de, this message translates to:
+  /// **'Ergebnis'**
+  String get listeningFlowResult;
+
+  /// No description provided for @listeningShelfFamily.
+  ///
+  /// In de, this message translates to:
+  /// **'Erster Besuch'**
+  String get listeningShelfFamily;
+
+  /// No description provided for @listeningShelfArrival.
+  ///
+  /// In de, this message translates to:
+  /// **'Ankunft'**
+  String get listeningShelfArrival;
+
+  /// No description provided for @listeningShelfEthics.
+  ///
+  /// In de, this message translates to:
+  /// **'Forschungsethik'**
+  String get listeningShelfEthics;
+
+  /// No description provided for @listeningShelfExplore.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecken'**
+  String get listeningShelfExplore;
+
+  /// No description provided for @listeningShelfUncertainty.
+  ///
+  /// In de, this message translates to:
+  /// **'Unsicherheit'**
+  String get listeningShelfUncertainty;
+
+  /// No description provided for @listeningShelfRestaurant.
+  ///
+  /// In de, this message translates to:
+  /// **'Restaurant'**
+  String get listeningShelfRestaurant;
+
+  /// No description provided for @listeningShelfPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle dein nächstes Gespräch.'**
+  String get listeningShelfPrompt;
+
+  /// No description provided for @listeningShelfDiscourse.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorannahmen'**
+  String get listeningShelfDiscourse;
+
+  /// No description provided for @listeningShelfSources.
+  ///
+  /// In de, this message translates to:
+  /// **'Zitate & Quellen'**
+  String get listeningShelfSources;
+
+  /// No description provided for @listeningShelfMemory.
+  ///
+  /// In de, this message translates to:
+  /// **'Erinnerung'**
+  String get listeningShelfMemory;
+
+  /// No description provided for @listeningShelfFocus.
+  ///
+  /// In de, this message translates to:
+  /// **'IM FOKUS'**
+  String get listeningShelfFocus;
+
+  /// No description provided for @listeningShelfGreeting.
+  ///
+  /// In de, this message translates to:
+  /// **'Begrüßung'**
+  String get listeningShelfGreeting;
+
+  /// No description provided for @listeningFlowChoose.
+  ///
+  /// In de, this message translates to:
+  /// **'DEINE LEKTION'**
+  String get listeningFlowChoose;
+
+  /// No description provided for @listeningShelfHealth.
+  ///
+  /// In de, this message translates to:
+  /// **'Arzt & Sport'**
+  String get listeningShelfHealth;
+
+  /// No description provided for @listeningShelfCritique.
+  ///
+  /// In de, this message translates to:
+  /// **'Kunstkritik'**
+  String get listeningShelfCritique;
+
+  /// No description provided for @listeningShelfRecord.
+  ///
+  /// In de, this message translates to:
+  /// **'Aktenlücken'**
+  String get listeningShelfRecord;
+
+  /// No description provided for @listeningShelfWork.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Job'**
+  String get listeningShelfWork;
+
+  /// No description provided for @listeningShelfMethod.
+  ///
+  /// In de, this message translates to:
+  /// **'Methodik'**
+  String get listeningShelfMethod;
+
+  /// No description provided for @listeningFlowUnderstand.
+  ///
+  /// In de, this message translates to:
+  /// **'Verstehen'**
+  String get listeningFlowUnderstand;
+
+  /// No description provided for @listeningRecoverySaving.
+  ///
+  /// In de, this message translates to:
+  /// **'Wird gespeichert …'**
+  String get listeningRecoverySaving;
+
+  /// No description provided for @listeningRecoverySaveFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch nicht gespeichert.'**
+  String get listeningRecoverySaveFailed;
+
+  /// No description provided for @listeningServiceRole.
+  ///
+  /// In de, this message translates to:
+  /// **'Service'**
+  String get listeningServiceRole;
+
+  /// No description provided for @listeningRecoveryDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Lektion abgeschlossen'**
+  String get listeningRecoveryDone;
+
+  /// No description provided for @listeningRecoverySavingBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Eingaben bleiben unverändert. Bitte kurz warten.'**
+  String get listeningRecoverySavingBody;
+
+  /// No description provided for @listeningRecoverySaveBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Antworten bleiben hier erhalten. Bitte versuche es erneut.'**
+  String get listeningRecoverySaveBody;
+
+  /// No description provided for @listeningRecoverySaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Antworten gespeichert.'**
+  String get listeningRecoverySaved;
+
+  /// No description provided for @listeningRecoveryAnswers.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Antworten'**
+  String get listeningRecoveryAnswers;
+
+  /// No description provided for @listeningRecoveryScore.
+  ///
+  /// In de, this message translates to:
+  /// **'{correct} von {total} richtig'**
+  String listeningRecoveryScore(int correct, int total);
+
+  /// No description provided for @listeningRecoverySaveRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut speichern'**
+  String get listeningRecoverySaveRetry;
+
+  /// No description provided for @listeningRecoveryWait.
+  ///
+  /// In de, this message translates to:
+  /// **'Bitte kurz warten'**
+  String get listeningRecoveryWait;
+
+  /// No description provided for @listeningRecoveryStay.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier bleiben'**
+  String get listeningRecoveryStay;
+
+  /// No description provided for @listeningRecoveryAudioFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Ton gerade nicht verfügbar.'**
+  String get listeningRecoveryAudioFailed;
+
+  /// No description provided for @listeningRecoveryAudioBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut versuchen oder weiterlesen.'**
+  String get listeningRecoveryAudioBody;
+
+  /// No description provided for @listeningRecoveryAudioRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Ton wiederholen'**
+  String get listeningRecoveryAudioRetry;
+
+  /// No description provided for @listeningRecoveryRead.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiterlesen'**
+  String get listeningRecoveryRead;
+
+  /// No description provided for @listeningRecoveryPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch einmal üben'**
+  String get listeningRecoveryPractice;
+
+  /// No description provided for @listeningRecoveryTopics.
+  ///
+  /// In de, this message translates to:
+  /// **'Zu den Themen'**
+  String get listeningRecoveryTopics;
+
+  /// No description provided for @listeningRecoveryMore.
+  ///
+  /// In de, this message translates to:
+  /// **'Vertiefen'**
+  String get listeningRecoveryMore;
+
+  /// No description provided for @listeningRecoveryRemaining.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one {Eine Antwort kannst du noch üben.} other {{count} Antworten kannst du noch üben.}}'**
+  String listeningRecoveryRemaining(int count);
+
+  /// No description provided for @grammarPlanTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein\nGrammatik­plan'**
+  String get grammarPlanTitle;
+
+  /// No description provided for @grammarPlanSetupHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle dein Niveau und dein tägliches Pensum.'**
+  String get grammarPlanSetupHint;
+
+  /// No description provided for @grammarPlanPatternsPerDayLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Muster pro Tag'**
+  String get grammarPlanPatternsPerDayLabel;
+
+  /// No description provided for @grammarPlanDailyPreview.
+  ///
+  /// In de, this message translates to:
+  /// **'{n} Muster pro Tag'**
+  String grammarPlanDailyPreview(int n);
+
+  /// No description provided for @grammarPlanPaceChangeHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Tempo lässt sich jederzeit ändern.'**
+  String get grammarPlanPaceChangeHint;
+
+  /// No description provided for @grammarPlanLevelCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{level} · {count} Muster'**
+  String grammarPlanLevelCount(String level, int count);
+
+  /// No description provided for @grammarPlanSaveErrorTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Fortschritt nicht gespeichert'**
+  String get grammarPlanSaveErrorTitle;
+
+  /// No description provided for @grammarPlanSelectionRetained.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Auswahl bleibt erhalten.'**
+  String get grammarPlanSelectionRetained;
+
+  /// No description provided for @wordWebCloseConfirmBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Fortschritt in dieser Runde geht verloren, wenn du zur Wortliste zurückkehrst.'**
+  String get wordWebCloseConfirmBody;
+
+  /// No description provided for @wordWebCloseConfirmLeave.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur Wortliste'**
+  String get wordWebCloseConfirmLeave;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {
