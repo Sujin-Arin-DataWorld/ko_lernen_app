@@ -8,6 +8,7 @@ import '../../models/scenario.dart';
 import '../../services/sound_service.dart';
 import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/scenario_c.dart';
 import 'quest_content.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
@@ -42,6 +43,7 @@ class SatzBauenQuest extends StatefulWidget {
   final bool compact;
   final bool showSpeedControl;
   final bool allowDontKnow;
+  final String? promptSpeaker;
   final SoriQuestCorrectFeedback correctFeedback;
 
   const SatzBauenQuest({
@@ -55,6 +57,7 @@ class SatzBauenQuest extends StatefulWidget {
     this.compact = false,
     this.showSpeedControl = true,
     this.allowDontKnow = false,
+    this.promptSpeaker,
     this.correctFeedback = const SoriQuestCorrectFeedback(),
   });
 
@@ -442,88 +445,113 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     final slotCount =
         SatzBauenQuest.tokenize(_targetKo).length + (_punct != null ? 1 : 0);
 
-    final exerciseBody = Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        SoriPromptCard(
-          key: const ValueKey('quest-prompt-card'),
-          sentence: _prompt(langCode),
-          speakText: _audioKo.isEmpty ? null : _audioKo,
-          compact: widget.compact,
-        ),
-        // 지시서 4.8 — 문제(질문 카드)와 "Deine Antwort bauen"(→선택 칩)
-        // 사이는 다른 선택형 퀘스트의 질문↔옵션 간격과 같은 토큰을 쓴다.
-        const SizedBox(height: SoriGaps.questionToOptions),
-        Text(
-          t.questBuildAnswerLabel,
-          style: SoriTextTheme.of(context).label.copyWith(color: s.text),
-        ),
-        SizedBox(height: Spacing.xs),
-        Text(
-          t.questSatzBauenInstruction,
-          style: SoriTextTheme.of(
-            context,
-          ).bodySmall.copyWith(color: s.textMuted),
-        ),
-        SizedBox(height: compactGap),
-        SoriAnswerTray(
-          minHeight: widget.compact ? 72 : 96,
-          accent: revealedOk
-              ? SoriColors.success
-              : (_wrong ? SoriColors.danger : SoriColors.primary),
-          slotCount: slotCount,
-          tiles: [
-            for (var i = 0; i < _answer.length; i++)
-              _buildTile(
-                _answer[i],
-                s,
-                inAnswer: true,
-                highlightWrong: _wrong && i == _mismatchIdx,
-                highlightOk: revealedOk,
-              ),
-          ],
-        ),
-        SizedBox(
-          height: widget.compact ? 20 : 24,
-          child: (_wrong && !_completed && _diag != SatzError.none)
-              ? Text(
-                  _diagText(t),
-                  style: SoriTextTheme.of(context).label.copyWith(
-                    color: s.brightness == Brightness.light
-                        ? SoriColors.accent
-                        : SoriColors.danger,
-                  ),
-                )
-              : const SizedBox.shrink(),
-        ),
-        SizedBox(height: compactGap),
-        LayoutBuilder(
-          builder: (context, constraints) {
-            final columns = constraints.maxWidth < SoriBreakpoints.narrowPhone
-                ? 3
-                : 4;
-            if (_bank.isEmpty) {
-              return const SizedBox.shrink();
-            }
-            const gridSpacing = 12.0;
-            final tileWidth =
-                (constraints.maxWidth - gridSpacing * (columns - 1)) / columns;
-            final tileHeight = math.max(48.0, tileWidth / 1.9);
-            return GridView.count(
-              crossAxisCount: columns,
-              mainAxisExtent: tileHeight,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              mainAxisSpacing: gridSpacing,
-              crossAxisSpacing: gridSpacing,
-              children: [
-                for (final tile in _bank)
-                  _buildTile(tile, s, inAnswer: false, expand: true),
-              ],
-            );
-          },
-        ),
+    final paper = ScenarioCTheme.of(context);
+    final tray = SoriAnswerTray(
+      minHeight: paper
+          ? 56
+          : widget.compact
+          ? 72
+          : 96,
+      accent: revealedOk
+          ? SoriColors.success
+          : (_wrong ? SoriColors.danger : SoriColors.primary),
+      slotCount: slotCount,
+      tiles: [
+        for (var i = 0; i < _answer.length; i++)
+          _buildTile(
+            _answer[i],
+            s,
+            inAnswer: true,
+            highlightWrong: _wrong && i == _mismatchIdx,
+            highlightOk: revealedOk,
+          ),
       ],
+    );
+    final bank = LayoutBuilder(
+      builder: (context, constraints) {
+        final columns =
+            paper || constraints.maxWidth < SoriBreakpoints.narrowPhone ? 3 : 4;
+        if (_bank.isEmpty) {
+          return const SizedBox.shrink();
+        }
+        const gridSpacing = 12.0;
+        final tileWidth =
+            (constraints.maxWidth - gridSpacing * (columns - 1)) / columns;
+        final tileHeight = paper
+            ? _bank.fold<double>(48, (height, tile) {
+                final painter = TextPainter(
+                  text: TextSpan(
+                    text: tile.text,
+                    style: ScenarioC.korean.copyWith(fontSize: 21),
+                  ),
+                  textDirection: TextDirection.ltr,
+                  textScaler: MediaQuery.textScalerOf(context),
+                )..layout(maxWidth: tileWidth - 24);
+                return math.max(height, painter.height + 30);
+              })
+            : math.max(48.0, tileWidth / 1.9);
+        return GridView.count(
+          crossAxisCount: columns,
+          mainAxisExtent: tileHeight,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          mainAxisSpacing: gridSpacing,
+          crossAxisSpacing: gridSpacing,
+          children: [
+            for (final tile in _bank)
+              _buildTile(tile, s, inAnswer: false, expand: true),
+          ],
+        );
+      },
+    );
+    final exerciseBody = Semantics(
+      label: paper && widget.compact
+          ? '${t.questBuildAnswerLabel}. ${t.questSatzBauenInstruction}'
+          : null,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          SoriPromptCard(
+            key: const ValueKey('quest-prompt-card'),
+            sentence: _prompt(langCode),
+            speakText: _audioKo.isEmpty ? null : _audioKo,
+            compact: widget.compact,
+            speaker: widget.promptSpeaker,
+          ),
+          SizedBox(height: paper ? 8 : SoriGaps.questionToOptions),
+          if (!paper || !widget.compact) ...[
+            Text(
+              t.questBuildAnswerLabel,
+              style: SoriTextTheme.of(context).label.copyWith(color: s.text),
+            ),
+            const SizedBox(height: Spacing.xs),
+            Text(
+              t.questSatzBauenInstruction,
+              style: SoriTextTheme.of(
+                context,
+              ).bodySmall.copyWith(color: s.textMuted),
+            ),
+            SizedBox(height: compactGap),
+          ],
+          if (paper) ...[bank, const SizedBox(height: 8)],
+          tray,
+          if (_wrong && !_completed && _diag != SatzError.none)
+            Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Text(
+                _diagText(t),
+                style: SoriTextTheme.of(context).label.copyWith(
+                  color: s.brightness == Brightness.light
+                      ? SoriColors.accent
+                      : SoriColors.danger,
+                ),
+              ),
+            )
+          else if (!paper)
+            SizedBox(height: widget.compact ? 20 : 24),
+          if (!paper) ...[SizedBox(height: compactGap), bank],
+        ],
+      ),
     );
     final action = ScenarioQuestAction(
       canSubmit: _answer.isNotEmpty,

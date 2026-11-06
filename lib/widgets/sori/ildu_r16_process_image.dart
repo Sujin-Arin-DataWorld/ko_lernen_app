@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../models/ildu_r16_art.dart';
 import '../hanok_asset_image.dart';
+import 'ildu_r16_layer_artwork.dart';
 
 /// Switches artwork by an exact existing process ID, never by a guessed index.
 /// The caller continues to own visibility, eligibility and purchases. Gates and
@@ -74,6 +75,17 @@ class _IlDuR16ProcessImageState extends State<IlDuR16ProcessImage> {
   Widget build(BuildContext context) => FutureBuilder<IlDuR16ArtCatalog>(
     future: _future,
     builder: (context, snapshot) {
+      // Sarangchae has a complete foreground/shadow catalog. Fail closed in
+      // that renderer even if metadata fails; never flash the old studio mat.
+      if (widget.processId.startsWith('ildu.sarangchae-')) {
+        return IlDuR16LayerArtwork(
+          key: ValueKey('r16-${widget.processId}'),
+          processId: widget.processId,
+          fit: widget.fit,
+          semanticLabel: widget.semanticLabel,
+          excludeFromSemantics: widget.excludeFromSemantics,
+        );
+      }
       if (!snapshot.hasData &&
           !snapshot.hasError &&
           snapshot.connectionState != ConnectionState.done) {

@@ -54,6 +54,10 @@ class QuizChoice extends StatefulWidget {
   /// `false` 로 넘겨 **고른 오답만 빨갛게** 표시한다.
   final bool revealCorrect;
 
+  /// Opt-in presentation, while this widget retains tap and answer semantics.
+  final Widget Function(BuildContext, Widget)? surfaceBuilder;
+  final TextStyle? textStyle;
+
   const QuizChoice({
     super.key,
     required this.text,
@@ -66,6 +70,8 @@ class QuizChoice extends StatefulWidget {
     this.idleBorderColor,
     this.semanticTapEnabled = false,
     this.revealCorrect = true,
+    this.surfaceBuilder,
+    this.textStyle,
   });
 
   @override
@@ -153,31 +159,38 @@ class _QuizChoiceState extends State<QuizChoice>
             ? widget.minHeight!
             : kMinInteractiveDimension,
       ),
-      decoration: BoxDecoration(
-        color: bg,
-        border: Border.all(color: border, width: 1.6),
-        borderRadius: BorderRadius.circular(SoriRadius.md),
-      ),
-      padding: const EdgeInsets.symmetric(
+      decoration: widget.surfaceBuilder != null
+          ? null
+          : BoxDecoration(
+              color: bg,
+              border: Border.all(color: border, width: 1.6),
+              borderRadius: BorderRadius.circular(SoriRadius.md),
+            ),
+      padding: EdgeInsets.symmetric(
         horizontal: Spacing.lg,
-        vertical: Spacing.md,
+        vertical: widget.surfaceBuilder == null ? Spacing.md : Spacing.sm,
       ),
       child: Row(
         children: [
           Expanded(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: widget.surfaceBuilder == null
+                  ? CrossAxisAlignment.start
+                  : CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   widget.text,
-                  style: QuizChoice.optionTextStyle(
-                    context,
-                  ).copyWith(color: fg),
+                  textAlign: widget.surfaceBuilder == null
+                      ? null
+                      : TextAlign.center,
+                  style:
+                      (widget.textStyle ?? QuizChoice.optionTextStyle(context))
+                          .copyWith(color: fg),
                 ),
                 if (widget.subtitle != null &&
                     widget.subtitle!.trim().isNotEmpty) ...[
-                  const SizedBox(height: 2),
+                  const SizedBox(height: Spacing.xs),
                   Text(
                     widget.subtitle!,
                     style: TextStyle(fontSize: 13, color: s.textMuted),
@@ -199,7 +212,7 @@ class _QuizChoiceState extends State<QuizChoice>
       child: InkWell(
         onTap: widget.onSelected == null || widget.revealed ? null : _handleTap,
         borderRadius: BorderRadius.circular(SoriRadius.md),
-        child: content,
+        child: widget.surfaceBuilder?.call(context, content) ?? content,
       ),
     );
 

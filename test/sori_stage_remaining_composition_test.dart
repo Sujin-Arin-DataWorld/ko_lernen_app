@@ -209,19 +209,22 @@ void main() {
         );
         expect(tester.takeException(), isNull);
         if (tab == 'today') {
-          await pumpUntilFound(tester, find.byType(TodayGuideChecklistCard));
-          await tester.pump();
-          expect(find.byType(TodayGuideChecklistCard), findsOneWidget);
-          final action = find.text(
-            lookupAppL10n(Locale(locale)).learningFocusStart,
-          );
+          expect(find.byType(TodayGuideChecklistCard), findsNothing);
+          final action = find.byKey(const ValueKey('learning-focus-start'));
           expect(action.hitTestable(), findsOneWidget);
+          await openTodayDetails(tester);
+          await pumpUntilFound(tester, find.byType(TodayGuideChecklistCard));
+          expect(find.byType(TodayGuideChecklistCard), findsOneWidget);
+          Navigator.of(
+            tester.element(find.byType(TodayGuideChecklistCard)),
+          ).pop();
+          await pumpSoriStage(tester);
         } else if (tab == 'hanok') {
           expect(
-            find.byKey(const ValueKey('sarangchae-stage-artwork-1')),
+            find.byKey(const ValueKey('hanok-empty-site')),
             findsOneWidget,
             reason:
-                'Capture the confirmed first-stage preview, not its loader.',
+                'R16 stage1 has zero meshes; show the honest empty site, not a substitute house.',
           );
           expect(
             find.byKey(const ValueKey('hanok-map-header')),
@@ -316,9 +319,7 @@ void main() {
                   : tab == 'hanok'
                   ? 'hanok-shortcut-bojagi'
                   : 'gye-continue-solo';
-              final action = tab == 'today'
-                  ? find.text(lookupAppL10n(Locale(locale)).learningFocusStart)
-                  : find.byKey(ValueKey(key));
+              final action = find.byKey(ValueKey(key));
               if (action.evaluate().isEmpty) {
                 await tester.scrollUntilVisible(
                   action,

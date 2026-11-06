@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../models/learner_level.dart';
 import '../../widgets/sori/approved_chrome_assets.dart';
 import '../../widgets/sori/intro_tokens.dart';
+import '../../widgets/sori/intro_motion.dart';
 export '../../widgets/sori/intro_tokens.dart';
 
 /// Complete assets with provenance in tool/einleitung_generated_assets.json.
@@ -68,23 +69,23 @@ class IntroPanel extends StatelessWidget {
   final double radius;
 
   @override
-  Widget build(BuildContext context) => DecoratedBox(
-    decoration: BoxDecoration(
-      color: IntroPalette.paper,
-      borderRadius: BorderRadius.circular(radius),
-      border: Border.all(
-        color: selected ? IntroPalette.jade : const Color(0xffe1caa8),
-        width: selected ? 2 : 1,
-      ),
-      boxShadow: const [
-        BoxShadow(
-          color: Color(0x302f1c0a),
-          offset: Offset(0, 3),
-          blurRadius: 3,
-        ),
-      ],
-    ),
+  Widget build(BuildContext context) => IntroSelectionSurface(
+    selected: selected,
+    idle: _decoration(false),
+    active: _decoration(true),
     child: Padding(padding: padding, child: child),
+  );
+
+  BoxDecoration _decoration(bool selected) => BoxDecoration(
+    color: IntroPalette.paper,
+    borderRadius: BorderRadius.circular(radius),
+    border: Border.all(
+      color: selected ? IntroPalette.jade : const Color(0xffe1caa8),
+      width: selected ? 2 : 1,
+    ),
+    boxShadow: const [
+      BoxShadow(color: Color(0x302f1c0a), offset: Offset(0, 3), blurRadius: 3),
+    ],
   );
 }
 

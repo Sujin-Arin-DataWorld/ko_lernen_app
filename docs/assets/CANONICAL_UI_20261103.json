@@ -1,0 +1,41 @@
+{
+  "approved_on": "2026-11-03",
+  "authority": "Jin explicitly: 구름은 항상 이걸로 써줘. 이 구름, 세팅 아이콘, 엽전이미지 정본으로 올려.",
+  "policy": "Use exact source bytes. No generated substitutions, redraw, mirroring, recolor or crop. Place originals separately in Figma/runtime. Do not claim an imagegen recreation is the original.",
+  "assets": [
+    {
+      "role": "cloud",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-632a39fd-cdd0-4a79-8d27-4069077b771d.png",
+      "canonical": "C:\\Users\\vjinn\\.codex\\generated_images\\공통UI정본\\cloud.png",
+      "runtime": "assets/icons/chrome/cloud.png",
+      "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+      "byte_identical": true
+    },
+    {
+      "role": "settings",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-9c3a27f8-15cf-47e4-9b96-510158d83a69.png",
+      "canonical": "C:\\Users\\vjinn\\.codex\\generated_images\\공통UI정본\\settings-gear.png",
+      "runtime": "assets/icons/chrome/settings-gear.png",
+      "sha256": "bee0e7a48115fe34c1a1a6f3fba17d022c0bd978470004ae5e92a2bf378c068d",
+      "byte_identical": true
+    },
+    {
+      "role": "yeopjeon",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-92edb7ca-b8ac-44f1-9a2f-23fd2e4b324f.png",
+      "canonical": "C:\\Users\\vjinn\\.codex\\generated_images\\공통UI정본\\yeopjeon-front.png",
+      "runtime": "assets/icons/chrome/yeopjeon-front.png",
+      "sha256": "c187032485925a52d6a6148fdeea11382a95648f0c37eecdfd1cd5654959f40f",
+      "byte_identical": true
+    },
+    {
+      "role": "home",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a1a20b-61e1-74d1-84f2-7b48467f9dea/exec-97769f13-9dc0-4d8b-a717-0006b1f530e0.png",
+      "canonical": "C:/Users/vjinn/.codex/generated_images/공통UI정본/home-c-v1.png",
+      "runtime": "design_assets/hoeren/home-c-v1.png",
+      "sha256": "4c7b716bb352105672b7823f8f9b6df886cd6443086b72174a628c3489350435",
+      "byte_identical": true,
+      "approved_on": "2026-11-04",
+      "authority": "Jin approved the new jade roof / ivory / brass home in response annotation 1."
+    }
+  ]
+}

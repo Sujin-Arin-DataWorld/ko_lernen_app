@@ -2909,9 +2909,6 @@ class AppL10nEn extends AppL10n {
   String get scenarioVocabTitle => 'Vocabulary';
 
   @override
-  String get scenarioDialogTitle => 'Dialogue';
-
-  @override
   String get scenarioGrammarTitle => 'Grammar';
 
   @override
@@ -2961,6 +2958,16 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get scenarioResultSaving => 'Saving this completed scene…';
+
+  @override
+  String get scenarioResultSavingTitle => 'Your scene is being saved';
+
+  @override
+  String get scenarioResultSavingAction => 'Saving…';
+
+  @override
+  String get scenarioResultSaveErrorTitle =>
+      'Your scene has not been saved yet';
 
   @override
   String get scenarioResultSaveRetry => 'Try saving again';
@@ -5290,10 +5297,6 @@ class AppL10nEn extends AppL10n {
   String get grammarPlanOnboardingTitle => 'How many patterns per day?';
 
   @override
-  String get grammarPlanOnboardingBody =>
-      'Choose a daily recommendation. You can change the pace and level at the top or browse every pattern at any time.';
-
-  @override
   String grammarPlanItemsPerDayOption(int n) {
     return '$n per day';
   }
@@ -7511,17 +7514,7 @@ class AppL10nEn extends AppL10n {
   String get bojagiTitle => 'Bojagi bundle';
 
   @override
-  String get bojagiLoading => 'Preparing your bundle…';
-
-  @override
-  String get bojagiOpenHint => 'Tap the knot to open the bundle.';
-
-  @override
   String get bojagiPickTitle => 'Pick one';
-
-  @override
-  String get bojagiPickBody =>
-      'Whatever you leave stays in the pool and can turn up in a later bundle.';
 
   @override
   String bojagiChooseDecoration(String name) {
@@ -7529,24 +7522,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get bojagiEmptyTitle => 'No bundle waiting';
-
-  @override
-  String get bojagiEmptyBody => 'Finish a quest and you get a bundle for it.';
-
-  @override
   String get bojagiAllOwnedTitle => 'Nothing new inside';
-
-  @override
-  String get bojagiAllOwnedBody =>
-      'You already own all three pieces from this bundle.';
-
-  @override
-  String get bojagiProblemTitle => 'This bundle will not open right now';
-
-  @override
-  String get bojagiProblemBody =>
-      'Try again in a moment. Your bundle is not lost.';
 
   @override
   String get bojagiRetry => 'Try again';
@@ -7563,17 +7539,7 @@ class AppL10nEn extends AppL10n {
   String get bojagiGoToRoom => 'Place it in the room';
 
   @override
-  String get bojagiNext => 'Open the next bundle';
-
-  @override
   String get bojagiCollectionCompleteTitle => 'Collection complete';
-
-  @override
-  String get bojagiCollectionCompleteBody =>
-      'You already own every room piece. Archive this bundle to continue.';
-
-  @override
-  String get bojagiArchiveComplete => 'Archive bundle';
 
   @override
   String get hanokWorldTitle => 'My Hanok world';
@@ -12234,4 +12200,326 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get accountRecoveryResumeConfirm => 'Continue confirmed choice';
+
+  @override
+  String get todayFirstSyllable => 'Your first syllable';
+
+  @override
+  String get todayFirstSyllableBody => 'Listen and combine two letters.';
+
+  @override
+  String get todayStartHangul => 'Start Hangul';
+
+  @override
+  String get todayStartReview => 'Start review';
+
+  @override
+  String get todayYourHanok => 'Your Hanok';
+
+  @override
+  String get todayDetails => 'Your day at a glance';
+
+  @override
+  String get todayProgress => 'Learning progress';
+
+  @override
+  String get najeonChestTitle => 'Treasure chest';
+
+  @override
+  String get najeonChestLoading => 'Preparing your treasure chest…';
+
+  @override
+  String get najeonChestOpenHint => 'Tap the chest to open it.';
+
+  @override
+  String get najeonChestOpen => 'Open chest';
+
+  @override
+  String get najeonChestPickBody =>
+      'Choose one piece for your room. The other pieces can appear in a later treasure chest.';
+
+  @override
+  String get najeonChestEmptyTitle => 'No treasure chest waiting';
+
+  @override
+  String get najeonChestEmptyBody =>
+      'Finish a quest to receive a treasure chest.';
+
+  @override
+  String get najeonChestAllOwnedBody =>
+      'You already own all three pieces from this treasure chest.';
+
+  @override
+  String get najeonChestProblemTitle =>
+      'This treasure chest will not open right now';
+
+  @override
+  String get najeonChestProblemBody =>
+      'Try again in a moment. Your treasure chest is not lost.';
+
+  @override
+  String get najeonChestNext => 'Open the next chest';
+
+  @override
+  String get najeonChestCollectionCompleteBody =>
+      'You already own every room piece. Archive this treasure chest to continue.';
+
+  @override
+  String get najeonChestArchive => 'Archive chest';
+
+  @override
+  String get najeonChestHelpTitle => 'Najeon · 나전';
+
+  @override
+  String get najeonChestHelpBody =>
+      'Najeon uses thin pieces of shell cut into patterns and inlaid into a lacquered surface. The shimmering shell material is called mother-of-pearl.';
+
+  @override
+  String get todayCompanionSubtitle => 'Your Korean is growing.';
+
+  @override
+  String get todayNextStage => 'Your next step';
+
+  @override
+  String get todayTreasureTitle => 'Your treasure chest';
+
+  @override
+  String todayTreasureReady(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ready to open',
+      one: '1 ready to open',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get todayTreasureCollection => 'My collection';
+
+  @override
+  String get todayExploreGames => 'Explore games';
+
+  @override
+  String get todayMissionGreetingTitle => 'Your first hello';
+
+  @override
+  String get todayMissionGreetingBody =>
+      'Greet someone and ask a short question.';
+
+  @override
+  String get todayMissionPlansTitle => 'Make a plan together';
+
+  @override
+  String get todayMissionPlansBody => 'Suggest a meeting and change the time.';
+
+  @override
+  String get todayMissionRequestsTitle => 'Make the terms clear';
+
+  @override
+  String get todayMissionRequestsBody =>
+      'Make a request and negotiate a solution.';
+
+  @override
+  String get todayMissionPolicyTitle => 'Shape the rules together';
+
+  @override
+  String get todayMissionPolicyBody =>
+      'Weigh different views and support a proposal.';
+
+  @override
+  String get todayMissionAuthorityTitle => 'Where authority ends';
+
+  @override
+  String get todayMissionAuthorityBody =>
+      'Examine mandates and distinguish their limits.';
+
+  @override
+  String get todayMissionReviewTitle => 'Keep it with you';
+
+  @override
+  String get todayResumeStage => 'Continue';
+
+  @override
+  String get todayTreasureOpen => 'Open';
+
+  @override
+  String get todayBeginStage => 'Let’s begin';
+
+  @override
+  String get listeningShelfPhone => 'Calls';
+
+  @override
+  String get listeningFlowFollow => 'Back to the current message';
+
+  @override
+  String get listeningShelfShopping => 'Shopping';
+
+  @override
+  String get listeningFlowResult => 'Result';
+
+  @override
+  String get listeningShelfFamily => 'First visit';
+
+  @override
+  String get listeningShelfArrival => 'Arrival';
+
+  @override
+  String get listeningShelfEthics => 'Research ethics';
+
+  @override
+  String get listeningShelfExplore => 'Explore';
+
+  @override
+  String get listeningShelfUncertainty => 'Uncertainty';
+
+  @override
+  String get listeningShelfRestaurant => 'Restaurant';
+
+  @override
+  String get listeningShelfPrompt => 'Choose your next conversation.';
+
+  @override
+  String get listeningShelfDiscourse => 'Assumptions';
+
+  @override
+  String get listeningShelfSources => 'Quotes & sources';
+
+  @override
+  String get listeningShelfMemory => 'Memory';
+
+  @override
+  String get listeningShelfFocus => 'IN FOCUS';
+
+  @override
+  String get listeningShelfGreeting => 'Greetings';
+
+  @override
+  String get listeningFlowChoose => 'YOUR LESSON';
+
+  @override
+  String get listeningShelfHealth => 'Health & sport';
+
+  @override
+  String get listeningShelfCritique => 'Art criticism';
+
+  @override
+  String get listeningShelfRecord => 'Missing records';
+
+  @override
+  String get listeningShelfWork => 'At work';
+
+  @override
+  String get listeningShelfMethod => 'Methods';
+
+  @override
+  String get listeningFlowUnderstand => 'Understand';
+
+  @override
+  String get listeningRecoverySaving => 'Saving …';
+
+  @override
+  String get listeningRecoverySaveFailed => 'Not saved yet.';
+
+  @override
+  String get listeningServiceRole => 'Staff';
+
+  @override
+  String get listeningRecoveryDone => 'Lesson complete';
+
+  @override
+  String get listeningRecoverySavingBody =>
+      'Your answers stay unchanged. Please wait.';
+
+  @override
+  String get listeningRecoverySaveBody =>
+      'Your answers are still here. Please try again.';
+
+  @override
+  String get listeningRecoverySaved => 'Answers saved.';
+
+  @override
+  String get listeningRecoveryAnswers => 'Your answers';
+
+  @override
+  String listeningRecoveryScore(int correct, int total) {
+    return '$correct of $total correct';
+  }
+
+  @override
+  String get listeningRecoverySaveRetry => 'Save again';
+
+  @override
+  String get listeningRecoveryWait => 'Please wait';
+
+  @override
+  String get listeningRecoveryStay => 'Stay here';
+
+  @override
+  String get listeningRecoveryAudioFailed => 'Audio is unavailable right now.';
+
+  @override
+  String get listeningRecoveryAudioBody => 'Try again or keep reading.';
+
+  @override
+  String get listeningRecoveryAudioRetry => 'Retry audio';
+
+  @override
+  String get listeningRecoveryRead => 'Keep reading';
+
+  @override
+  String get listeningRecoveryPractice => 'Practise again';
+
+  @override
+  String get listeningRecoveryTopics => 'Back to topics';
+
+  @override
+  String get listeningRecoveryMore => 'Explore further';
+
+  @override
+  String listeningRecoveryRemaining(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count answers still need practice.',
+      one: 'One answer still needs practice.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get grammarPlanTitle => 'Your\ngrammar plan';
+
+  @override
+  String get grammarPlanSetupHint => 'Choose your level and daily pace.';
+
+  @override
+  String get grammarPlanPatternsPerDayLabel => 'Patterns per day';
+
+  @override
+  String grammarPlanDailyPreview(int n) {
+    return '$n patterns per day';
+  }
+
+  @override
+  String get grammarPlanPaceChangeHint =>
+      'You can change your pace at any time.';
+
+  @override
+  String grammarPlanLevelCount(String level, int count) {
+    return '$level · $count patterns';
+  }
+
+  @override
+  String get grammarPlanSaveErrorTitle => 'Progress not saved';
+
+  @override
+  String get grammarPlanSelectionRetained => 'Your selection is kept.';
+
+  @override
+  String get wordWebCloseConfirmBody =>
+      'Your progress in this round will be lost if you return to the word list.';
+
+  @override
+  String get wordWebCloseConfirmLeave => 'Back to word list';
 }

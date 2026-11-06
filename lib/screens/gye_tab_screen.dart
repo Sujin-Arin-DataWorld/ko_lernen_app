@@ -179,7 +179,9 @@ class _GyeTabScreenState extends State<GyeTabScreen>
           maxWidth: SoriMaxWidth.hub,
           // top=0 — 스텝퍼 슬리버가 이미 자기 bottom(lg)으로 간격을 뒀다.
           // bottom=xxxl(48) 은 부모의 `SoriContentClamp` 하단 여백과 맞춘다.
-          base: const EdgeInsets.fromLTRB(20, 0, 20, Spacing.xxxl),
+          base: widget.conceptC
+              ? const EdgeInsets.fromLTRB(12, 0, 12, 24)
+              : const EdgeInsets.fromLTRB(20, 0, 20, Spacing.xxxl),
         );
         if (gyeList.isEmpty) {
           if (widget.conceptC) {
@@ -365,32 +367,40 @@ List<Widget> _introContent(
     return [
       CPaperPanel(
         key: const ValueKey('c-gye-empty-board'),
+        padding: EdgeInsets.zero,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(
-              key: const ValueKey('gye-current-preview'),
-              height: compact ? 112 : 168,
-              child: const CReferenceArt(CReferencePart.studyTogether),
+            const AspectRatio(
+              key: ValueKey('gye-current-preview'),
+              aspectRatio: 1.5,
+              child: CReferenceArt(CReferencePart.studyTogether),
             ),
-            const SizedBox(height: 8),
-            Text(t.gyeRootPurpose, key: introKey, style: body),
-            const SizedBox(height: 4),
-            Text(t.gyeRootPrivacy, style: body),
-            const SizedBox(height: 12),
-            CMaterialAction(
-              key: const ValueKey('gye-empty-start'),
-              label: t.gyeFindOrCreate,
-              onTap: onFindOrCreate,
-              compact: compact,
-            ),
-            const SizedBox(height: 8),
-            CMaterialAction(
-              key: const ValueKey('gye-continue-solo'),
-              label: t.gyeContinueSolo,
-              onTap: onContinueSolo,
-              gold: false,
-              compact: compact,
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(t.gyeRootPurpose, key: introKey, style: body),
+                  const SizedBox(height: 4),
+                  Text(t.gyeRootPrivacy, style: body),
+                  const SizedBox(height: 12),
+                  CMaterialAction(
+                    key: const ValueKey('gye-empty-start'),
+                    label: t.gyeFindOrCreate,
+                    onTap: onFindOrCreate,
+                    compact: compact,
+                  ),
+                  const SizedBox(height: 8),
+                  CMaterialAction(
+                    key: const ValueKey('gye-continue-solo'),
+                    label: t.gyeContinueSolo,
+                    onTap: onContinueSolo,
+                    gold: false,
+                    compact: compact,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -628,71 +638,105 @@ class _GyeCard extends StatelessWidget {
         pressScale: 1,
         surfaceDepth: 2,
         child: CPaperPanel(
+          padding: EdgeInsets.zero,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(
-                key: const ValueKey('c-gye-group-hero'),
-                height: compact ? 80 : 152,
-                child: GyeHanok.isComplete(gye)
-                    ? GyeHanok(meta: gye, animate: false)
-                    : const CReferenceArt(CReferencePart.studyTogether),
-              ),
-              const SizedBox(height: 8),
-              if (compact)
-                Wrap(
-                  spacing: 8,
-                  runSpacing: 4,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    Text(
-                      gye.name,
-                      style: tt.cardTitle.copyWith(
-                        fontSize: 22,
-                        color: CPalette.ink,
-                      ),
-                    ),
-                    Text(t.gyeMembersN(gye.memberCount), style: body),
-                  ],
-                )
-              else ...[
-                Text(
-                  gye.name,
-                  style: tt.cardTitle.copyWith(
-                    fontSize: 22,
-                    color: CPalette.ink,
+              if (!compact) ...[
+                if (GyeHanok.isComplete(gye))
+                  SizedBox(
+                    key: const ValueKey('c-gye-group-hero'),
+                    height: 152,
+                    child: GyeHanok(meta: gye, animate: false),
+                  )
+                else
+                  const AspectRatio(
+                    key: ValueKey('c-gye-group-hero'),
+                    aspectRatio: 1.5,
+                    child: CReferenceArt(CReferencePart.studyTogether),
                   ),
-                ),
-                const SizedBox(height: 4),
-                Text(t.gyeMembersN(gye.memberCount), style: body),
               ],
-              const SizedBox(height: 8),
-              if (progress.hasWeeklyGoal) ...[
-                Text(
-                  usesPromise
-                      ? switch (gye.weeklyPromiseId) {
-                          GyeWeeklyPromises.cafeOrder =>
-                            t.gyePromiseCafeOrderTitle,
-                          GyeWeeklyPromises.directions =>
-                            t.gyePromiseDirectionsTitle,
-                          GyeWeeklyPromises.selfIntroduction =>
-                            t.gyePromiseSelfIntroductionTitle,
-                          _ => t.gyeWeeklyTitle,
-                        }
-                      : t.gyeWeeklyTitle,
-                  style: body,
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (compact)
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 144,
+                            height: 96,
+                            key: const ValueKey('c-gye-group-hero'),
+                            child: GyeHanok.isComplete(gye)
+                                ? GyeHanok(meta: gye, animate: false)
+                                : const CReferenceArt(
+                                    CReferencePart.studyTogether,
+                                  ),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  gye.name,
+                                  style: tt.cardTitle.copyWith(
+                                    fontSize: 22,
+                                    color: CPalette.ink,
+                                  ),
+                                ),
+                                Text(
+                                  t.gyeMembersN(gye.memberCount),
+                                  style: body,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      )
+                    else ...[
+                      Text(
+                        gye.name,
+                        style: tt.cardTitle.copyWith(
+                          fontSize: 22,
+                          color: CPalette.ink,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(t.gyeMembersN(gye.memberCount), style: body),
+                    ],
+                    const SizedBox(height: 8),
+                    if (progress.hasWeeklyGoal) ...[
+                      Text(
+                        usesPromise
+                            ? switch (gye.weeklyPromiseId) {
+                                GyeWeeklyPromises.cafeOrder =>
+                                  t.gyePromiseCafeOrderTitle,
+                                GyeWeeklyPromises.directions =>
+                                  t.gyePromiseDirectionsTitle,
+                                GyeWeeklyPromises.selfIntroduction =>
+                                  t.gyePromiseSelfIntroductionTitle,
+                                _ => t.gyeWeeklyTitle,
+                              }
+                            : t.gyeWeeklyTitle,
+                        style: body,
+                      ),
+                      const SizedBox(height: 4),
+                      GyeWeeklyGoalProgress(
+                        meta: gye,
+                        maxLanternWidth: compact ? 40 : 76,
+                      ),
+                      const SizedBox(height: 8),
+                    ],
+                    CMaterialAction(
+                      label: t.gyeOpenCta,
+                      onTap: onTap,
+                      compact: compact,
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 4),
-                GyeWeeklyGoalProgress(
-                  meta: gye,
-                  maxLanternWidth: compact ? 40 : 76,
-                ),
-                const SizedBox(height: 8),
-              ],
-              CMaterialAction(
-                label: t.gyeOpenCta,
-                onTap: onTap,
-                compact: compact,
               ),
             ],
           ),

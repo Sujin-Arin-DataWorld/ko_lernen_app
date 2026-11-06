@@ -375,6 +375,7 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
     );
     final screens = [
       SoriStageTodayScreen(
+        onOpenGames: () => _select(2),
         replayHomeTour: widget.replayHomeTour,
         active: _index == 0,
         refreshGeneration: _refreshGeneration,

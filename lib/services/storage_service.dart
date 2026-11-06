@@ -376,14 +376,15 @@ enum GrammarPlanRestoreResult { written, skippedExisting, skippedRecoveryValue }
 
 enum _ConfirmedChoiceDomain {
   likedContent('kl_liked_content_v1'),
-  vokFavorite('kl_vok_favorites');
+  vokFavorite('kl_vok_favorites'),
+  grammarHard('kl_gram_hard');
 
   const _ConfirmedChoiceDomain(this.preferenceKey);
 
   final String preferenceKey;
 }
 
-/// One explicit add/remove choice for the two learner favorite lists.
+/// One explicit add/remove choice for a confirmed learner preference list.
 ///
 /// The item and desired state are frozen at admission so Retry cannot invert a
 /// choice or accidentally act on a newly rendered card.
@@ -3964,7 +3965,8 @@ class Storage {
   // ───────── Grammatik ─────────
   static int get grammarLastIdx => _i('kl_gram_last_idx');
   static List<String> get grammarSeen => _l('kl_gram_seen');
-  static List<String> get grammarHard => _l('kl_gram_hard');
+  static List<String> get grammarHard =>
+      _confirmedChoiceList(_ConfirmedChoiceDomain.grammarHard);
   static String get grammarPlanRawJson {
     if (_grammarPlanConfirmedViewInitialized) {
       return _confirmedGrammarPlanRaw;
@@ -4445,20 +4447,21 @@ class Storage {
     }
   }
 
-  static Future<void> markGrammarHard(String pattern) async {
-    final list = grammarHard;
-    if (!list.contains(pattern)) {
-      list.add(pattern);
-      await _sl('kl_gram_hard', list);
-    }
-  }
+  static Future<void> markGrammarHard(String pattern) =>
+      _setGrammarHard(pattern, true);
 
-  static Future<void> markGrammarEasy(String pattern) async {
-    final list = grammarHard;
-    if (list.contains(pattern)) {
-      list.remove(pattern);
-      await _sl('kl_gram_hard', list);
-    }
+  static Future<void> markGrammarEasy(String pattern) =>
+      _setGrammarHard(pattern, false);
+
+  static Future<void> _setGrammarHard(String pattern, bool desired) async {
+    // Share the strict list commit, confirmed cache and per-list queue so a
+    // rejected or unknown native write cannot become a successful no-op retry.
+    await ConfirmedLocalChoiceOperation._(
+      null,
+      itemKey: pattern,
+      desired: desired,
+      domain: _ConfirmedChoiceDomain.grammarHard,
+    ).save();
   }
 
   // ───────── Onboarding ─────────

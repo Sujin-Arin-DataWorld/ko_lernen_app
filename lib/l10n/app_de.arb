@@ -1473,7 +1473,6 @@
   "moduleScenariosDesc": "Übe Alltagssituationen: Café, Flughafen, Vorstellung …",
   "scenarioIntroTitle": "Einleitung",
   "scenarioVocabTitle": "Wortschatz",
-  "scenarioDialogTitle": "Dialog",
   "scenarioGrammarTitle": "Grammatik",
   "scenarioQuestsTitle": "Mini-Spiele",
   "scenarioQuestProgress": "{current} von {total}",
@@ -1500,6 +1499,9 @@
   "scenarioSavedReturnHanok": "Zurück zum Hanok",
   "scenarioSavedRepeat": "Diese Szene noch einmal üben",
   "scenarioResultSaving": "Diese abgeschlossene Szene wird gespeichert…",
+  "scenarioResultSavingTitle": "Deine Szene wird gespeichert",
+  "scenarioResultSavingAction": "Speichern …",
+  "scenarioResultSaveErrorTitle": "Deine Szene ist noch nicht gespeichert",
   "scenarioResultSaveRetry": "Speichern erneut versuchen",
   "scenarioStructureChangedTitle": "Dein Hanok hat sich verändert.",
   "scenarioStructureChangedBody": "Neue Struktur: {stage}",
@@ -2771,7 +2773,6 @@
   "grammarPlanLevelLabel": "Niveau",
   "grammarPlanEditTooltip": "Niveau oder Tempo ändern",
   "grammarPlanOnboardingTitle": "Wie viele Muster pro Tag?",
-  "grammarPlanOnboardingBody": "Wähle eine tägliche Empfehlung. Oben kannst du Tempo und Niveau ändern oder jederzeit alle Muster ansehen.",
   "grammarPlanItemsPerDayOption": "{n} pro Tag",
   "@grammarPlanItemsPerDayOption": {
     "placeholders": {
@@ -3752,10 +3753,7 @@
   },
   "sarangbangHubDesc": "Lerne im Sarangbang weiter.",
   "bojagiTitle": "Bojagi-Bündel",
-  "bojagiLoading": "Dein Bündel wird vorbereitet …",
-  "bojagiOpenHint": "Tippe auf den Knoten, um das Bündel zu öffnen.",
   "bojagiPickTitle": "Such dir eins aus",
-  "bojagiPickBody": "Was du liegen lässt, bleibt im Beutel und kann in einem späteren Bündel wiederkommen.",
   "bojagiChooseDecoration": "{name} auswählen",
   "@bojagiChooseDecoration": {
     "placeholders": {
@@ -3764,12 +3762,7 @@
       }
     }
   },
-  "bojagiEmptyTitle": "Kein Bündel wartet",
-  "bojagiEmptyBody": "Schließe eine Quest ab. Dafür bekommst du ein Bündel.",
   "bojagiAllOwnedTitle": "Nichts Neues drin",
-  "bojagiAllOwnedBody": "Alle drei Stücke aus diesem Bündel hast du schon.",
-  "bojagiProblemTitle": "Das Bündel lässt sich gerade nicht öffnen",
-  "bojagiProblemBody": "Versuch es gleich noch einmal. Dein Bündel geht dabei nicht verloren.",
   "bojagiRetry": "Nochmal versuchen",
   "bojagiClaimedTitle": "Bekommen!",
   "bojagiClaimedAnnouncement": "Bekommen: {name}",
@@ -3781,10 +3774,7 @@
     }
   },
   "bojagiGoToRoom": "In der Stube aufstellen",
-  "bojagiNext": "Nächstes Bündel öffnen",
   "bojagiCollectionCompleteTitle": "Sammlung vollständig",
-  "bojagiCollectionCompleteBody": "Du besitzt bereits alle Einrichtungsstücke. Lege dieses Bündel ab, um weiterzumachen.",
-  "bojagiArchiveComplete": "Bündel ablegen",
   "@_hanok_world": {
     "description": "Persönliche Hanok-Welt — Karte und Ortsnavigation."
   },
@@ -5861,5 +5851,141 @@
   "accountRecoveryBackupWaiting": "Verbunden; Sicherung wartet auf Prüfung",
   "accountRecoveryResumeTitle": "Bestätigte Auswahl fortsetzen?",
   "accountRecoveryResumeBody": "Deine Auswahl wurde bereits gespeichert. Du kannst denselben Vorgang fortsetzen. Der Startpunkt wird dabei nicht neu gewählt.",
-  "accountRecoveryResumeConfirm": "Bestätigte Auswahl fortsetzen"
+  "accountRecoveryResumeConfirm": "Bestätigte Auswahl fortsetzen",
+  "todayFirstSyllable": "Deine erste Silbe",
+  "todayFirstSyllableBody": "Höre und verbinde zwei Zeichen.",
+  "todayStartHangul": "Hangul starten",
+  "todayStartReview": "Jetzt wiederholen",
+  "todayYourHanok": "Dein Hanok",
+  "todayDetails": "Dein Tag im Überblick",
+  "todayProgress": "Lernfortschritt",
+  "najeonChestTitle": "Schatztruhe",
+  "najeonChestLoading": "Deine Schatztruhe wird vorbereitet …",
+  "najeonChestOpenHint": "Tippe auf die Truhe, um sie zu öffnen.",
+  "najeonChestOpen": "Truhe öffnen",
+  "najeonChestPickBody": "Wähle ein Stück für dein Zimmer. Die anderen Stücke können in einer späteren Schatztruhe wiederkommen.",
+  "najeonChestEmptyTitle": "Keine Schatztruhe wartet",
+  "najeonChestEmptyBody": "Schließe eine Quest ab. Dafür bekommst du eine Schatztruhe.",
+  "najeonChestAllOwnedBody": "Du besitzt bereits alle drei Stücke aus dieser Schatztruhe.",
+  "najeonChestProblemTitle": "Die Schatztruhe lässt sich gerade nicht öffnen",
+  "najeonChestProblemBody": "Versuch es gleich noch einmal. Deine Schatztruhe geht dabei nicht verloren.",
+  "najeonChestNext": "Nächste Truhe öffnen",
+  "najeonChestCollectionCompleteBody": "Du besitzt bereits alle Einrichtungsstücke. Lege diese Schatztruhe ab, um weiterzumachen.",
+  "najeonChestArchive": "Truhe ablegen",
+  "najeonChestHelpTitle": "Najeon · 나전",
+  "najeonChestHelpBody": "Bei Najeon werden dünne Stücke aus Muschelschalen zu Mustern geschnitten und in eine Lackoberfläche eingelegt. Die schimmernden Einlagen nennt man Perlmutt.",
+  "todayCompanionSubtitle": "Dein Koreanisch wächst.",
+  "todayNextStage": "Deine nächste Etappe",
+  "todayTreasureTitle": "Deine Schatztruhe",
+  "todayTreasureReady": "{count, plural, one{1 wartet auf dich} other{{count} warten auf dich}}",
+  "todayTreasureCollection": "Sammlung",
+  "todayExploreGames": "Spiele entdecken",
+  "todayMissionGreetingTitle": "Heute sagst du Hallo",
+  "todayMissionGreetingBody": "Begrüße jemanden und stelle eine kurze Frage.",
+  "todayMissionPlansTitle": "Ein Plan mit Freunden",
+  "todayMissionPlansBody": "Schlage ein Treffen vor und ändere den Termin.",
+  "todayMissionRequestsTitle": "Klar miteinander planen",
+  "todayMissionRequestsBody": "Formuliere eine Bitte und handle eine Lösung aus.",
+  "todayMissionPolicyTitle": "Regeln gemeinsam gestalten",
+  "todayMissionPolicyBody": "Wäge Positionen ab und begründe einen Vorschlag.",
+  "todayMissionAuthorityTitle": "Wo Zuständigkeit endet",
+  "todayMissionAuthorityBody": "Prüfe Mandate und unterscheide ihre Grenzen.",
+  "todayMissionReviewTitle": "Was bleibt, wächst",
+  "todayResumeStage": "Fortsetzen",
+  "@todayTreasureReady": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "todayTreasureOpen": "Öffnen",
+  "todayBeginStage": "Los geht’s",
+  "listeningShelfPhone": "Anrufe",
+  "listeningFlowFollow": "Zur aktuellen Nachricht",
+  "listeningShelfShopping": "Einkauf",
+  "listeningFlowResult": "Ergebnis",
+  "listeningShelfFamily": "Erster Besuch",
+  "listeningShelfArrival": "Ankunft",
+  "listeningShelfEthics": "Forschungsethik",
+  "listeningShelfExplore": "Entdecken",
+  "listeningShelfUncertainty": "Unsicherheit",
+  "listeningShelfRestaurant": "Restaurant",
+  "listeningShelfPrompt": "Wähle dein nächstes Gespräch.",
+  "listeningShelfDiscourse": "Vorannahmen",
+  "listeningShelfSources": "Zitate & Quellen",
+  "listeningShelfMemory": "Erinnerung",
+  "listeningShelfFocus": "IM FOKUS",
+  "listeningShelfGreeting": "Begrüßung",
+  "listeningFlowChoose": "DEINE LEKTION",
+  "listeningShelfHealth": "Arzt & Sport",
+  "listeningShelfCritique": "Kunstkritik",
+  "listeningShelfRecord": "Aktenlücken",
+  "listeningShelfWork": "Im Job",
+  "listeningShelfMethod": "Methodik",
+  "listeningFlowUnderstand": "Verstehen",
+  "listeningRecoverySaving": "Wird gespeichert …",
+  "listeningRecoverySaveFailed": "Noch nicht gespeichert.",
+  "listeningServiceRole": "Service",
+  "listeningRecoveryDone": "Lektion abgeschlossen",
+  "listeningRecoverySavingBody": "Deine Eingaben bleiben unverändert. Bitte kurz warten.",
+  "listeningRecoverySaveBody": "Deine Antworten bleiben hier erhalten. Bitte versuche es erneut.",
+  "listeningRecoverySaved": "Antworten gespeichert.",
+  "listeningRecoveryAnswers": "Deine Antworten",
+  "listeningRecoveryScore": "{correct} von {total} richtig",
+  "listeningRecoverySaveRetry": "Erneut speichern",
+  "listeningRecoveryWait": "Bitte kurz warten",
+  "listeningRecoveryStay": "Hier bleiben",
+  "listeningRecoveryAudioFailed": "Ton gerade nicht verfügbar.",
+  "listeningRecoveryAudioBody": "Erneut versuchen oder weiterlesen.",
+  "listeningRecoveryAudioRetry": "Ton wiederholen",
+  "listeningRecoveryRead": "Weiterlesen",
+  "listeningRecoveryPractice": "Noch einmal üben",
+  "listeningRecoveryTopics": "Zu den Themen",
+  "listeningRecoveryMore": "Vertiefen",
+  "@listeningRecoveryScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "listeningRecoveryRemaining": "{count, plural, one {Eine Antwort kannst du noch üben.} other {{count} Antworten kannst du noch üben.}}",
+  "@listeningRecoveryRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanTitle": "Dein\nGrammatik­plan",
+  "grammarPlanSetupHint": "Wähle dein Niveau und dein tägliches Pensum.",
+  "grammarPlanPatternsPerDayLabel": "Muster pro Tag",
+  "grammarPlanDailyPreview": "{n} Muster pro Tag",
+  "grammarPlanPaceChangeHint": "Dein Tempo lässt sich jederzeit ändern.",
+  "grammarPlanLevelCount": "{level} · {count} Muster",
+  "@grammarPlanDailyPreview": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@grammarPlanLevelCount": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanSaveErrorTitle": "Fortschritt nicht gespeichert",
+  "grammarPlanSelectionRetained": "Deine Auswahl bleibt erhalten.",
+  "wordWebCloseConfirmBody": "Dein Fortschritt in dieser Runde geht verloren, wenn du zur Wortliste zurückkehrst.",
+  "wordWebCloseConfirmLeave": "Zur Wortliste"
 }

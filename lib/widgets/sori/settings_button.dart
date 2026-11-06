@@ -7,7 +7,9 @@ import 'tokens.dart';
 
 /// Tactile settings entry. The existing SettingsScreen owns every setting.
 class SoriSettingsButton extends StatelessWidget {
-  const SoriSettingsButton({super.key});
+  const SoriSettingsButton({super.key, this.iconSize = 36});
+
+  final double iconSize;
 
   static const asset = ApprovedChromeAssets.settings;
 
@@ -29,7 +31,7 @@ class SoriSettingsButton extends StatelessWidget {
             dimension: 48,
             child: Center(
               child: ExcludeSemantics(
-                child: const ApprovedChromeImage(asset: asset, size: 36),
+                child: ApprovedChromeImage(asset: asset, size: iconSize),
               ),
             ),
           ),

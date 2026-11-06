@@ -13,9 +13,9 @@ import 'package:ko_lernen_app/screens/word_web_study_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'package:ko_lernen_app/widgets/sori/card.dart';
-import 'package:ko_lernen_app/widgets/sori/chip.dart';
-import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
+import 'package:ko_lernen_app/widgets/sori/nuancen_c.dart';
+import 'package:ko_lernen_app/widgets/sori/c_learning_surface.dart';
+import 'support/sori_speech_stubs.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
@@ -39,6 +39,7 @@ void main() {
     SharedPreferences.setMockInitialValues({'kl_tut_wordWeb': true});
     await Storage.init();
     await Storage.setTutSeen('wordWeb');
+    stubSoriSpeech();
   });
 
   testWidgets('filters and pronunciation actions expose the shared contract', (
@@ -60,14 +61,10 @@ void main() {
     ];
     for (final filter in filters) {
       expect(filter, findsOneWidget);
-      final chip = tester.widget<SoriChip>(filter);
-      expect(chip.maxLines, isNull);
-      expect(chip.minInteractiveHeight, greaterThanOrEqualTo(48));
       expect(tester.getSize(filter).height, greaterThanOrEqualTo(48));
     }
-    final selected = tester.widget<SoriChip>(filters.first);
+    final selected = tester.widget<NuancenScopeChoice>(filters.first);
     expect(selected.selected, isTrue);
-    expect(selected.icon, Icons.check_rounded);
 
     final hubAudio = find.byTooltip('Pronunciation: 크다');
     expect(hubAudio, findsOneWidget);
@@ -79,7 +76,13 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('big')));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
-    expect(find.byType(SoriStudyFrame), findsOneWidget);
+    expect(
+      find.descendant(
+        of: find.byType(WordWebStudyScreen),
+        matching: find.byType(SoriStudyFrame),
+      ),
+      findsOneWidget,
+    );
 
     for (final label in const [
       'Pronunciation: 크다',
@@ -126,6 +129,12 @@ void main() {
           );
           await _finishLoad(tester);
 
+          await tester.scrollUntilVisible(
+            find.text('크다'),
+            120,
+            scrollable: find.byType(Scrollable).first,
+          );
+
           expect(find.text('크다'), findsOneWidget);
           expect(find.byKey(const ValueKey('word-web-quiz')), findsOneWidget);
           expect(tester.takeException(), isNull);
@@ -171,6 +180,11 @@ void main() {
           );
 
           expect(find.byType(SoriStudyFrame), findsOneWidget);
+          await tester.scrollUntilVisible(
+            find.text(_quizItem.promptGloss(locale.languageCode)),
+            120,
+            scrollable: find.byType(Scrollable).last,
+          );
           expect(
             find.text(_quizItem.promptGloss(locale.languageCode)),
             findsOneWidget,
@@ -243,7 +257,7 @@ void main() {
     }
   }
 
-  testWidgets('normal motion retains the exact 850 ms word-web advance', (
+  testWidgets('normal motion keeps the 850 ms minimum after completed speech', (
     tester,
   ) async {
     final t = await AppL10n.delegate.load(const Locale('en'));
@@ -291,7 +305,7 @@ void main() {
         includeSafeInsets: true,
       );
 
-      expect(find.byType(SoriEmptyState), findsOneWidget);
+      expect(find.byType(NuancenStateBody), findsOneWidget);
       expect(find.text(t.wordWebQuizEmptyTitle), findsOneWidget);
       expect(find.text(t.wordWebQuizEmptyBody), findsOneWidget);
       _expectExecutableButton(tester, _soriButton(t.btnClose), minHeight: 48);
@@ -400,8 +414,8 @@ List<QuizChoice> _choiceWidgets(WidgetTester tester) {
     for (final child in children)
       if (child is QuizChoice)
         child
-      else if (child is Padding && child.child is QuizChoice)
-        child.child! as QuizChoice,
+      else if (child is NuancenLinkedPanel && child.child is QuizChoice)
+        child.child as QuizChoice,
   ];
 }
 
@@ -495,15 +509,19 @@ void _expectExecutableButton(
 void _expectBoundaryContrast(WidgetTester tester, Finder control) {
   final decorated = find.descendant(
     of: control,
-    matching: find.byType(AnimatedContainer),
+    matching: find.byWidgetPredicate(
+      (w) =>
+          w is DecoratedBox &&
+          w.decoration is BoxDecoration &&
+          (w.decoration as BoxDecoration).border != null,
+    ),
   );
   expect(decorated, findsOneWidget);
   final box =
-      tester.widget<AnimatedContainer>(decorated).decoration! as BoxDecoration;
+      tester.widget<DecoratedBox>(decorated).decoration as BoxDecoration;
   final border = box.border! as Border;
-  final rendered = Color.alphaBlend(border.top.color, SoriColors.lightBg);
   expect(
-    SoriColors.contrastRatio(rendered, SoriColors.lightBg),
+    SoriColors.contrastRatio(border.top.color, SoriCLearningTokens.paper),
     greaterThanOrEqualTo(3),
   );
 }
@@ -511,21 +529,12 @@ void _expectBoundaryContrast(WidgetTester tester, Finder control) {
 void _expectTextContrastOnCard(WidgetTester tester, String text) {
   final textFinder = find.text(text);
   expect(textFinder, findsOneWidget);
-  final cardFinder = find.ancestor(
-    of: textFinder,
-    matching: find.byType(SoriCard),
-  );
-  expect(cardFinder, findsOneWidget);
   final renderedText = tester.widget<Text>(textFinder);
-  final card = tester.widget<SoriCard>(cardFinder);
-  final foreground = renderedText.style!.color!;
-  final background = SoriCard.resolvedBackground(
-    tester.element(cardFinder),
-    accent: card.accent,
-    tinted: card.tinted,
-  );
   expect(
-    SoriColors.contrastRatio(foreground, background),
+    SoriColors.contrastRatio(
+      renderedText.style!.color!,
+      SoriCLearningTokens.paper,
+    ),
     greaterThanOrEqualTo(4.5),
   );
 }

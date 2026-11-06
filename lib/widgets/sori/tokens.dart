@@ -55,6 +55,9 @@ class SoriBreakpoints {
   /// into an unreadably narrow side-by-side column.
   static const double missionHeaderStack = 280;
 
+  /// Owned Hanok art and its progress summary need a full-width stack here.
+  static const double hanokSummaryStack = 280;
+
   /// Deck judgment labels become full-width rows at this component width.
   static const double contentActionStack = 320;
 
@@ -195,6 +198,13 @@ double soriComfortScale(double width) {
 // RADIUS — round corners scale
 // ─────────────────────────────────────────────────────────────────────────
 class SoriRadius {
+  // Approved Today treasure tray: frame, inset, clipping and action surface.
+  static const double todayTreasure = 18;
+  static const double todayTreasureInset = 14;
+  static const double todayTreasureClip = 13;
+  static const double todayTreasureAction = 22;
+  static const double c5Tile = 9;
+  static const double c5DetailAction = 10;
   static const double xs = 8;
   static const double sm = 12;
   static const double md = 16; // default card
@@ -807,6 +817,28 @@ class SoriTextTheme {
     height: 1.4,
     color: _s.textMuted,
   );
+
+  /// Functional task copy stays proportional in both interface languages.
+  /// Editorial headings retain the selected locale face; Korean keeps its
+  /// bundled fallback. Use actual Supreme Regular/Medium/Bold weights.
+  TextStyle get taskBody => body.copyWith(
+    fontFamily: SoriLocaleFonts.english.body,
+    fontWeight: FontWeight.w400,
+    height: 1.35,
+  );
+  TextStyle get taskTitle => taskBody.copyWith(
+    fontSize: 22,
+    fontWeight: FontWeight.w700,
+    letterSpacing: -.2,
+    height: 1.18,
+  );
+  TextStyle get taskLabel => taskBody.copyWith(
+    fontSize: 15,
+    fontWeight: FontWeight.w700,
+    height: 1.25,
+  );
+  TextStyle get taskCaption =>
+      taskBody.copyWith(fontSize: 13, height: 1.3, color: _s.textMuted);
 
   // ── Caption / Label ──────────────────────────────────────────────────
   TextStyle get caption => _base(

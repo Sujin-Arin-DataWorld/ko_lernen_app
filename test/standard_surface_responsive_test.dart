@@ -309,16 +309,40 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
 
-    final list = find.byType(ListView).first;
-    for (var i = 0; i < 5; i += 1) {
-      await tester.drag(list, const Offset(0, -240));
-      await tester.pump();
-      expect(tester.takeException(), isNull);
-    }
-
+    final topic = find.byKey(const ValueKey('scenario-category-a1_friends'));
+    await tester.scrollUntilVisible(
+      topic,
+      160,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await Scrollable.ensureVisible(tester.element(topic), alignment: .5);
+    await tester.pump();
+    expect(topic.hitTestable(), findsOneWidget);
+    await tester.tap(topic);
+    await tester.pump();
+    final title = find.text(_scenarioFixture.title.de).first;
+    await tester.scrollUntilVisible(
+      title,
+      160,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(
+      tester.renderObject<RenderParagraph>(title).didExceedMaxLines,
+      isFalse,
+    );
     expect(find.text(_scenarioFixture.title.de), findsWidgets);
     final t = AppL10n.of(tester.element(find.byType(ScenariosListScreen)));
-    expect(find.text(t.scenariosPathStartCta), findsOneWidget);
+    final start = find.text(t.scenariosPathStartCta);
+    await tester.scrollUntilVisible(
+      start,
+      160,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(start, findsOneWidget);
+    expect(
+      tester.renderObject<RenderParagraph>(start).didExceedMaxLines,
+      isFalse,
+    );
     expect(tester.takeException(), isNull);
   });
 

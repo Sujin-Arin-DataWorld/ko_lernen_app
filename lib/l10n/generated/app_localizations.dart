@@ -5071,12 +5071,6 @@ abstract class AppL10n {
   /// **'Wortschatz'**
   String get scenarioVocabTitle;
 
-  /// No description provided for @scenarioDialogTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Dialog'**
-  String get scenarioDialogTitle;
-
   /// No description provided for @scenarioGrammarTitle.
   ///
   /// In de, this message translates to:
@@ -5172,6 +5166,24 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Diese abgeschlossene Szene wird gespeichert…'**
   String get scenarioResultSaving;
+
+  /// No description provided for @scenarioResultSavingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Szene wird gespeichert'**
+  String get scenarioResultSavingTitle;
+
+  /// No description provided for @scenarioResultSavingAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Speichern …'**
+  String get scenarioResultSavingAction;
+
+  /// No description provided for @scenarioResultSaveErrorTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Szene ist noch nicht gespeichert'**
+  String get scenarioResultSaveErrorTitle;
 
   /// No description provided for @scenarioResultSaveRetry.
   ///
@@ -9186,12 +9198,6 @@ abstract class AppL10n {
   /// **'Wie viele Muster pro Tag?'**
   String get grammarPlanOnboardingTitle;
 
-  /// No description provided for @grammarPlanOnboardingBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Wähle eine tägliche Empfehlung. Oben kannst du Tempo und Niveau ändern oder jederzeit alle Muster ansehen.'**
-  String get grammarPlanOnboardingBody;
-
   /// No description provided for @grammarPlanItemsPerDayOption.
   ///
   /// In de, this message translates to:
@@ -13014,29 +13020,11 @@ abstract class AppL10n {
   /// **'Bojagi-Bündel'**
   String get bojagiTitle;
 
-  /// No description provided for @bojagiLoading.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Bündel wird vorbereitet …'**
-  String get bojagiLoading;
-
-  /// No description provided for @bojagiOpenHint.
-  ///
-  /// In de, this message translates to:
-  /// **'Tippe auf den Knoten, um das Bündel zu öffnen.'**
-  String get bojagiOpenHint;
-
   /// No description provided for @bojagiPickTitle.
   ///
   /// In de, this message translates to:
   /// **'Such dir eins aus'**
   String get bojagiPickTitle;
-
-  /// No description provided for @bojagiPickBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Was du liegen lässt, bleibt im Beutel und kann in einem späteren Bündel wiederkommen.'**
-  String get bojagiPickBody;
 
   /// No description provided for @bojagiChooseDecoration.
   ///
@@ -13044,41 +13032,11 @@ abstract class AppL10n {
   /// **'{name} auswählen'**
   String bojagiChooseDecoration(String name);
 
-  /// No description provided for @bojagiEmptyTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Kein Bündel wartet'**
-  String get bojagiEmptyTitle;
-
-  /// No description provided for @bojagiEmptyBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Schließe eine Quest ab. Dafür bekommst du ein Bündel.'**
-  String get bojagiEmptyBody;
-
   /// No description provided for @bojagiAllOwnedTitle.
   ///
   /// In de, this message translates to:
   /// **'Nichts Neues drin'**
   String get bojagiAllOwnedTitle;
-
-  /// No description provided for @bojagiAllOwnedBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Alle drei Stücke aus diesem Bündel hast du schon.'**
-  String get bojagiAllOwnedBody;
-
-  /// No description provided for @bojagiProblemTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Das Bündel lässt sich gerade nicht öffnen'**
-  String get bojagiProblemTitle;
-
-  /// No description provided for @bojagiProblemBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Versuch es gleich noch einmal. Dein Bündel geht dabei nicht verloren.'**
-  String get bojagiProblemBody;
 
   /// No description provided for @bojagiRetry.
   ///
@@ -13104,29 +13062,11 @@ abstract class AppL10n {
   /// **'In der Stube aufstellen'**
   String get bojagiGoToRoom;
 
-  /// No description provided for @bojagiNext.
-  ///
-  /// In de, this message translates to:
-  /// **'Nächstes Bündel öffnen'**
-  String get bojagiNext;
-
   /// No description provided for @bojagiCollectionCompleteTitle.
   ///
   /// In de, this message translates to:
   /// **'Sammlung vollständig'**
   String get bojagiCollectionCompleteTitle;
-
-  /// No description provided for @bojagiCollectionCompleteBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Du besitzt bereits alle Einrichtungsstücke. Lege dieses Bündel ab, um weiterzumachen.'**
-  String get bojagiCollectionCompleteBody;
-
-  /// No description provided for @bojagiArchiveComplete.
-  ///
-  /// In de, this message translates to:
-  /// **'Bündel ablegen'**
-  String get bojagiArchiveComplete;
 
   /// No description provided for @hanokWorldTitle.
   ///
@@ -20825,6 +20765,576 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Bestätigte Auswahl fortsetzen'**
   String get accountRecoveryResumeConfirm;
+
+  /// No description provided for @todayFirstSyllable.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine erste Silbe'**
+  String get todayFirstSyllable;
+
+  /// No description provided for @todayFirstSyllableBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Höre und verbinde zwei Zeichen.'**
+  String get todayFirstSyllableBody;
+
+  /// No description provided for @todayStartHangul.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul starten'**
+  String get todayStartHangul;
+
+  /// No description provided for @todayStartReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt wiederholen'**
+  String get todayStartReview;
+
+  /// No description provided for @todayYourHanok.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hanok'**
+  String get todayYourHanok;
+
+  /// No description provided for @todayDetails.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Tag im Überblick'**
+  String get todayDetails;
+
+  /// No description provided for @todayProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernfortschritt'**
+  String get todayProgress;
+
+  /// No description provided for @najeonChestTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Schatztruhe'**
+  String get najeonChestTitle;
+
+  /// No description provided for @najeonChestLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Schatztruhe wird vorbereitet …'**
+  String get najeonChestLoading;
+
+  /// No description provided for @najeonChestOpenHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf die Truhe, um sie zu öffnen.'**
+  String get najeonChestOpenHint;
+
+  /// No description provided for @najeonChestOpen.
+  ///
+  /// In de, this message translates to:
+  /// **'Truhe öffnen'**
+  String get najeonChestOpen;
+
+  /// No description provided for @najeonChestPickBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle ein Stück für dein Zimmer. Die anderen Stücke können in einer späteren Schatztruhe wiederkommen.'**
+  String get najeonChestPickBody;
+
+  /// No description provided for @najeonChestEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Schatztruhe wartet'**
+  String get najeonChestEmptyTitle;
+
+  /// No description provided for @najeonChestEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließe eine Quest ab. Dafür bekommst du eine Schatztruhe.'**
+  String get najeonChestEmptyBody;
+
+  /// No description provided for @najeonChestAllOwnedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Du besitzt bereits alle drei Stücke aus dieser Schatztruhe.'**
+  String get najeonChestAllOwnedBody;
+
+  /// No description provided for @najeonChestProblemTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Schatztruhe lässt sich gerade nicht öffnen'**
+  String get najeonChestProblemTitle;
+
+  /// No description provided for @najeonChestProblemBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Versuch es gleich noch einmal. Deine Schatztruhe geht dabei nicht verloren.'**
+  String get najeonChestProblemBody;
+
+  /// No description provided for @najeonChestNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächste Truhe öffnen'**
+  String get najeonChestNext;
+
+  /// No description provided for @najeonChestCollectionCompleteBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Du besitzt bereits alle Einrichtungsstücke. Lege diese Schatztruhe ab, um weiterzumachen.'**
+  String get najeonChestCollectionCompleteBody;
+
+  /// No description provided for @najeonChestArchive.
+  ///
+  /// In de, this message translates to:
+  /// **'Truhe ablegen'**
+  String get najeonChestArchive;
+
+  /// No description provided for @najeonChestHelpTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Najeon · 나전'**
+  String get najeonChestHelpTitle;
+
+  /// No description provided for @najeonChestHelpBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Bei Najeon werden dünne Stücke aus Muschelschalen zu Mustern geschnitten und in eine Lackoberfläche eingelegt. Die schimmernden Einlagen nennt man Perlmutt.'**
+  String get najeonChestHelpBody;
+
+  /// No description provided for @todayCompanionSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Koreanisch wächst.'**
+  String get todayCompanionSubtitle;
+
+  /// No description provided for @todayNextStage.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine nächste Etappe'**
+  String get todayNextStage;
+
+  /// No description provided for @todayTreasureTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Schatztruhe'**
+  String get todayTreasureTitle;
+
+  /// No description provided for @todayTreasureReady.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{1 wartet auf dich} other{{count} warten auf dich}}'**
+  String todayTreasureReady(int count);
+
+  /// No description provided for @todayTreasureCollection.
+  ///
+  /// In de, this message translates to:
+  /// **'Sammlung'**
+  String get todayTreasureCollection;
+
+  /// No description provided for @todayExploreGames.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiele entdecken'**
+  String get todayExploreGames;
+
+  /// No description provided for @todayMissionGreetingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute sagst du Hallo'**
+  String get todayMissionGreetingTitle;
+
+  /// No description provided for @todayMissionGreetingBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Begrüße jemanden und stelle eine kurze Frage.'**
+  String get todayMissionGreetingBody;
+
+  /// No description provided for @todayMissionPlansTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Plan mit Freunden'**
+  String get todayMissionPlansTitle;
+
+  /// No description provided for @todayMissionPlansBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Schlage ein Treffen vor und ändere den Termin.'**
+  String get todayMissionPlansBody;
+
+  /// No description provided for @todayMissionRequestsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Klar miteinander planen'**
+  String get todayMissionRequestsTitle;
+
+  /// No description provided for @todayMissionRequestsBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Formuliere eine Bitte und handle eine Lösung aus.'**
+  String get todayMissionRequestsBody;
+
+  /// No description provided for @todayMissionPolicyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Regeln gemeinsam gestalten'**
+  String get todayMissionPolicyTitle;
+
+  /// No description provided for @todayMissionPolicyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wäge Positionen ab und begründe einen Vorschlag.'**
+  String get todayMissionPolicyBody;
+
+  /// No description provided for @todayMissionAuthorityTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wo Zuständigkeit endet'**
+  String get todayMissionAuthorityTitle;
+
+  /// No description provided for @todayMissionAuthorityBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Prüfe Mandate und unterscheide ihre Grenzen.'**
+  String get todayMissionAuthorityBody;
+
+  /// No description provided for @todayMissionReviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Was bleibt, wächst'**
+  String get todayMissionReviewTitle;
+
+  /// No description provided for @todayResumeStage.
+  ///
+  /// In de, this message translates to:
+  /// **'Fortsetzen'**
+  String get todayResumeStage;
+
+  /// No description provided for @todayTreasureOpen.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffnen'**
+  String get todayTreasureOpen;
+
+  /// No description provided for @todayBeginStage.
+  ///
+  /// In de, this message translates to:
+  /// **'Los geht’s'**
+  String get todayBeginStage;
+
+  /// No description provided for @listeningShelfPhone.
+  ///
+  /// In de, this message translates to:
+  /// **'Anrufe'**
+  String get listeningShelfPhone;
+
+  /// No description provided for @listeningFlowFollow.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur aktuellen Nachricht'**
+  String get listeningFlowFollow;
+
+  /// No description provided for @listeningShelfShopping.
+  ///
+  /// In de, this message translates to:
+  /// **'Einkauf'**
+  String get listeningShelfShopping;
+
+  /// No description provided for @listeningFlowResult.
+  ///
+  /// In de, this message translates to:
+  /// **'Ergebnis'**
+  String get listeningFlowResult;
+
+  /// No description provided for @listeningShelfFamily.
+  ///
+  /// In de, this message translates to:
+  /// **'Erster Besuch'**
+  String get listeningShelfFamily;
+
+  /// No description provided for @listeningShelfArrival.
+  ///
+  /// In de, this message translates to:
+  /// **'Ankunft'**
+  String get listeningShelfArrival;
+
+  /// No description provided for @listeningShelfEthics.
+  ///
+  /// In de, this message translates to:
+  /// **'Forschungsethik'**
+  String get listeningShelfEthics;
+
+  /// No description provided for @listeningShelfExplore.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecken'**
+  String get listeningShelfExplore;
+
+  /// No description provided for @listeningShelfUncertainty.
+  ///
+  /// In de, this message translates to:
+  /// **'Unsicherheit'**
+  String get listeningShelfUncertainty;
+
+  /// No description provided for @listeningShelfRestaurant.
+  ///
+  /// In de, this message translates to:
+  /// **'Restaurant'**
+  String get listeningShelfRestaurant;
+
+  /// No description provided for @listeningShelfPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle dein nächstes Gespräch.'**
+  String get listeningShelfPrompt;
+
+  /// No description provided for @listeningShelfDiscourse.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorannahmen'**
+  String get listeningShelfDiscourse;
+
+  /// No description provided for @listeningShelfSources.
+  ///
+  /// In de, this message translates to:
+  /// **'Zitate & Quellen'**
+  String get listeningShelfSources;
+
+  /// No description provided for @listeningShelfMemory.
+  ///
+  /// In de, this message translates to:
+  /// **'Erinnerung'**
+  String get listeningShelfMemory;
+
+  /// No description provided for @listeningShelfFocus.
+  ///
+  /// In de, this message translates to:
+  /// **'IM FOKUS'**
+  String get listeningShelfFocus;
+
+  /// No description provided for @listeningShelfGreeting.
+  ///
+  /// In de, this message translates to:
+  /// **'Begrüßung'**
+  String get listeningShelfGreeting;
+
+  /// No description provided for @listeningFlowChoose.
+  ///
+  /// In de, this message translates to:
+  /// **'DEINE LEKTION'**
+  String get listeningFlowChoose;
+
+  /// No description provided for @listeningShelfHealth.
+  ///
+  /// In de, this message translates to:
+  /// **'Arzt & Sport'**
+  String get listeningShelfHealth;
+
+  /// No description provided for @listeningShelfCritique.
+  ///
+  /// In de, this message translates to:
+  /// **'Kunstkritik'**
+  String get listeningShelfCritique;
+
+  /// No description provided for @listeningShelfRecord.
+  ///
+  /// In de, this message translates to:
+  /// **'Aktenlücken'**
+  String get listeningShelfRecord;
+
+  /// No description provided for @listeningShelfWork.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Job'**
+  String get listeningShelfWork;
+
+  /// No description provided for @listeningShelfMethod.
+  ///
+  /// In de, this message translates to:
+  /// **'Methodik'**
+  String get listeningShelfMethod;
+
+  /// No description provided for @listeningFlowUnderstand.
+  ///
+  /// In de, this message translates to:
+  /// **'Verstehen'**
+  String get listeningFlowUnderstand;
+
+  /// No description provided for @listeningRecoverySaving.
+  ///
+  /// In de, this message translates to:
+  /// **'Wird gespeichert …'**
+  String get listeningRecoverySaving;
+
+  /// No description provided for @listeningRecoverySaveFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch nicht gespeichert.'**
+  String get listeningRecoverySaveFailed;
+
+  /// No description provided for @listeningServiceRole.
+  ///
+  /// In de, this message translates to:
+  /// **'Service'**
+  String get listeningServiceRole;
+
+  /// No description provided for @listeningRecoveryDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Lektion abgeschlossen'**
+  String get listeningRecoveryDone;
+
+  /// No description provided for @listeningRecoverySavingBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Eingaben bleiben unverändert. Bitte kurz warten.'**
+  String get listeningRecoverySavingBody;
+
+  /// No description provided for @listeningRecoverySaveBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Antworten bleiben hier erhalten. Bitte versuche es erneut.'**
+  String get listeningRecoverySaveBody;
+
+  /// No description provided for @listeningRecoverySaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Antworten gespeichert.'**
+  String get listeningRecoverySaved;
+
+  /// No description provided for @listeningRecoveryAnswers.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Antworten'**
+  String get listeningRecoveryAnswers;
+
+  /// No description provided for @listeningRecoveryScore.
+  ///
+  /// In de, this message translates to:
+  /// **'{correct} von {total} richtig'**
+  String listeningRecoveryScore(int correct, int total);
+
+  /// No description provided for @listeningRecoverySaveRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut speichern'**
+  String get listeningRecoverySaveRetry;
+
+  /// No description provided for @listeningRecoveryWait.
+  ///
+  /// In de, this message translates to:
+  /// **'Bitte kurz warten'**
+  String get listeningRecoveryWait;
+
+  /// No description provided for @listeningRecoveryStay.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier bleiben'**
+  String get listeningRecoveryStay;
+
+  /// No description provided for @listeningRecoveryAudioFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Ton gerade nicht verfügbar.'**
+  String get listeningRecoveryAudioFailed;
+
+  /// No description provided for @listeningRecoveryAudioBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut versuchen oder weiterlesen.'**
+  String get listeningRecoveryAudioBody;
+
+  /// No description provided for @listeningRecoveryAudioRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Ton wiederholen'**
+  String get listeningRecoveryAudioRetry;
+
+  /// No description provided for @listeningRecoveryRead.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiterlesen'**
+  String get listeningRecoveryRead;
+
+  /// No description provided for @listeningRecoveryPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch einmal üben'**
+  String get listeningRecoveryPractice;
+
+  /// No description provided for @listeningRecoveryTopics.
+  ///
+  /// In de, this message translates to:
+  /// **'Zu den Themen'**
+  String get listeningRecoveryTopics;
+
+  /// No description provided for @listeningRecoveryMore.
+  ///
+  /// In de, this message translates to:
+  /// **'Vertiefen'**
+  String get listeningRecoveryMore;
+
+  /// No description provided for @listeningRecoveryRemaining.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one {Eine Antwort kannst du noch üben.} other {{count} Antworten kannst du noch üben.}}'**
+  String listeningRecoveryRemaining(int count);
+
+  /// No description provided for @grammarPlanTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein\nGrammatik­plan'**
+  String get grammarPlanTitle;
+
+  /// No description provided for @grammarPlanSetupHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle dein Niveau und dein tägliches Pensum.'**
+  String get grammarPlanSetupHint;
+
+  /// No description provided for @grammarPlanPatternsPerDayLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Muster pro Tag'**
+  String get grammarPlanPatternsPerDayLabel;
+
+  /// No description provided for @grammarPlanDailyPreview.
+  ///
+  /// In de, this message translates to:
+  /// **'{n} Muster pro Tag'**
+  String grammarPlanDailyPreview(int n);
+
+  /// No description provided for @grammarPlanPaceChangeHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Tempo lässt sich jederzeit ändern.'**
+  String get grammarPlanPaceChangeHint;
+
+  /// No description provided for @grammarPlanLevelCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{level} · {count} Muster'**
+  String grammarPlanLevelCount(String level, int count);
+
+  /// No description provided for @grammarPlanSaveErrorTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Fortschritt nicht gespeichert'**
+  String get grammarPlanSaveErrorTitle;
+
+  /// No description provided for @grammarPlanSelectionRetained.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Auswahl bleibt erhalten.'**
+  String get grammarPlanSelectionRetained;
+
+  /// No description provided for @wordWebCloseConfirmBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Fortschritt in dieser Runde geht verloren, wenn du zur Wortliste zurückkehrst.'**
+  String get wordWebCloseConfirmBody;
+
+  /// No description provided for @wordWebCloseConfirmLeave.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur Wortliste'**
+  String get wordWebCloseConfirmLeave;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

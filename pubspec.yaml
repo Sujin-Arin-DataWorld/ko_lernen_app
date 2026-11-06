@@ -134,10 +134,18 @@ flutter:
   generate: true                   # für ARB Localisations
 
   assets:
+    - design_assets/hoeren/
+    - design_assets/nuancen/
+    - design_assets/grammar/
+    - design_assets/scenarios/
+    - design_assets/fonts/Manrope/OFL.txt
+    - assets/illustrations/c_listening/
     - assets/illustrations/einleitung_generated/
     - assets/data/
     # Approved R16 renders, losslessly packaged with exact process identities.
     - assets/illustrations/ildu_r16/
+    # Same approved standalone geometry, foreground + separate contact shadow.
+    - assets/illustrations/ildu_r16_layers/
     - assets/tts/v3/female/
     - assets/tts/v3/male/
     - assets/tts/recorded_jamo/
@@ -155,10 +163,13 @@ flutter:
     - assets/illustrations/personal_hanok_v3/construction/lessons/
     - assets/illustrations/decorations/
     - assets/illustrations/reward/
+    - assets/illustrations/rewards/najeon/
     - assets/illustrations/stamps/
     - assets/illustrations/dancheong_studio/v1/
     - assets/illustrations/concept_c/spiele_preview/
     - assets/illustrations/concept_c/
+    - assets/illustrations/concept_c/c5_scenes/
+    - assets/illustrations/concept_c/today/
     - assets/illustrations/concept_c/approved_20261018/
     - assets/illustrations/concept_c/pronunciation/
     # C-learning and Atelier share the original material_atlas.png and jade.png.
@@ -266,6 +277,9 @@ flutter:
   # OFL: Paperlogy for interface lettering; Noto Sans KR for learning copy.
   # Both families contain Korean, German and English glyphs (font bundle guard).
   fonts:
+    - family: Manrope
+      fonts:
+        - asset: design_assets/fonts/Manrope/Manrope-Variable.ttf
     - family: Chubbo
       fonts:
         - asset: assets/fonts/Chubbo/Chubbo-Bold.otf

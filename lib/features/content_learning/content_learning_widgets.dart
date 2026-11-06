@@ -7,6 +7,7 @@ import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/study_frame.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/c_gallery/c_materials.dart';
 import 'content_learning_models.dart';
 import 'content_learning_layout.dart';
 import 'content_learning_day_refresh.dart';
@@ -16,8 +17,13 @@ String contentKindTitle(AppL10n t, LearningContentKind kind) =>
     kind == LearningContentKind.smalltalk ? t.smalltalkTitle : t.listeningTitle;
 
 class ContentLearningFailure extends StatefulWidget {
-  const ContentLearningFailure({super.key, required this.onRetry});
+  const ContentLearningFailure({
+    super.key,
+    required this.onRetry,
+    this.conceptC = false,
+  });
   final VoidCallback onRetry;
+  final bool conceptC;
   @override
   State<ContentLearningFailure> createState() => _ContentLearningFailureState();
 }
@@ -49,6 +55,28 @@ class _ContentLearningFailureState extends State<ContentLearningFailure> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    if (widget.conceptC) {
+      return CPaperPanel(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Semantics(
+              liveRegion: true,
+              child: Text(
+                t.contentLearningError,
+                style: cMaterialText(SoriTextTheme.of(context).body),
+              ),
+            ),
+            const SizedBox(height: 12),
+            CMaterialAction(
+              label: t.contentLearningRetry,
+              gold: false,
+              onTap: _retrying ? null : _retry,
+            ),
+          ],
+        ),
+      );
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -71,11 +99,13 @@ class ContentGoalEditor extends StatefulWidget {
     required this.level,
     this.onSaved,
     this.fillViewport = false,
+    this.cMaterial = false,
   });
   final LearningContentKind kind;
   final String level;
   final VoidCallback? onSaved;
   final bool fillViewport;
+  final bool cMaterial;
   @override
   State<ContentGoalEditor> createState() => _ContentGoalEditorState();
 }
@@ -117,6 +147,7 @@ class _ContentGoalEditorState extends State<ContentGoalEditor> {
       goal = ContentLearningService.goal(widget.kind, widget.level);
     } catch (_) {
       return ContentLearningFailure(
+        conceptC: widget.cMaterial,
         onRetry: () {
           if (_failed case final value?) {
             _save(value);
@@ -129,12 +160,23 @@ class _ContentGoalEditorState extends State<ContentGoalEditor> {
     final body = <Widget>[
       Text(
         t.contentLearningGoal(widget.level.toUpperCase()),
-        style: widget.fillViewport
+        style: widget.cMaterial
+            ? cMaterialText(
+                widget.fillViewport
+                    ? SoriTextTheme.of(context).h2
+                    : SoriTextTheme.of(context).h3,
+              )
+            : widget.fillViewport
             ? SoriTextTheme.of(context).h2
             : SoriTextTheme.of(context).h3,
       ),
       const SizedBox(height: Spacing.sm),
-      Text(t.contentLearningGoalIntro, style: SoriTextTheme.of(context).body),
+      Text(
+        t.contentLearningGoalIntro,
+        style: widget.cMaterial
+            ? cMaterialText(SoriTextTheme.of(context).body)
+            : SoriTextTheme.of(context).body,
+      ),
     ];
     final actions = <Widget>[
       for (final value in [1, 2, 3, 0])
@@ -143,6 +185,7 @@ class _ContentGoalEditorState extends State<ContentGoalEditor> {
           child: Semantics(
             selected: goal == value,
             child: SoriButton(
+              cMaterial: widget.cMaterial,
               key: ValueKey('content-goal-$value'),
               label: value == 0
                   ? t.contentLearningFree
@@ -158,12 +201,16 @@ class _ContentGoalEditorState extends State<ContentGoalEditor> {
         ),
       if (_saving) const LinearProgressIndicator(),
       if (_failed != null)
-        ContentLearningFailure(onRetry: () => _save(_failed!)),
+        ContentLearningFailure(
+          conceptC: widget.cMaterial,
+          onRetry: () => _save(_failed!),
+        ),
     ];
     if (widget.fillViewport) {
       return ContentLearningLayout(body: body, actions: actions);
     }
     return SoriCard(
+      cMaterial: widget.cMaterial,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

@@ -5,13 +5,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/quest.dart';
+import 'package:ko_lernen_app/models/sarangchae_construction.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
+import 'package:ko_lernen_app/models/yeopjeon_wallet.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_hanok_screen.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/collapsing_header.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
+import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 
 import 'support/real_fonts.dart';
 
@@ -20,7 +24,11 @@ const _bottomTabReserve = 80.0;
 const _viewportSize = Size(390, 844);
 
 void main() {
-  setUpAll(loadSoriRealFonts);
+  late SarangchaeConstruction construction;
+  setUpAll(() async {
+    await loadSoriRealFonts();
+    construction = await SarangchaeConstruction.load();
+  });
 
   setUp(() async {
     Storage.resetForTesting();
@@ -39,21 +47,25 @@ void main() {
     }
   }
 
-  Widget app({double textScale = 1}) => MaterialApp(
-    theme: AppTheme.light,
-    locale: const Locale('de'),
-    supportedLocales: AppL10n.supportedLocales,
-    localizationsDelegates: AppL10n.localizationsDelegates,
-    builder: (context, child) => MediaQuery(
-      data: MediaQuery.of(
-        context,
-      ).copyWith(textScaler: TextScaler.linear(textScale)),
-      child: child!,
-    ),
-    home: SoriStageHanokScreen(loadSnapshot: () async => _snapshot()),
-  );
+  Widget app({double textScale = 1, int owned = 0, String language = 'de'}) =>
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: Locale(language),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(
+            context,
+          ).copyWith(textScaler: TextScaler.linear(textScale)),
+          child: child!,
+        ),
+        home: SoriStageHanokScreen(
+          loadConstruction: () async => construction,
+          loadSnapshot: () async => _snapshot(owned: owned),
+        ),
+      );
 
-  testWidgets('keeps header and complete original preview visible at 390x844', (
+  testWidgets('zero ownership shows an honest compact site and first actions', (
     tester,
   ) async {
     tester.view.physicalSize = _viewportSize;
@@ -79,6 +91,12 @@ void main() {
     expect(header, findsOneWidget);
     expect(map, findsOneWidget);
     expect(shortcut, findsOneWidget);
+    expect(find.byKey(const ValueKey('hanok-empty-site')), findsOneWidget);
+    expect(find.byType(SarangchaeStageArtwork), findsNothing);
+    expect(
+      find.ancestor(of: map, matching: find.byType(CPaperPanel)),
+      findsNothing,
+    );
 
     // Header, current construction portrait, and the first action are visible.
     for (final finder in [header, map, shortcut]) {
@@ -100,7 +118,7 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(app(textScale: 2));
+    await tester.pumpWidget(app(textScale: 2, owned: 8));
     await settle(tester);
 
     final mapKey = find.byKey(const ValueKey('hanok-map-header'));
@@ -111,8 +129,12 @@ void main() {
     await tester.pump(const Duration(seconds: 1));
 
     final scrolledRect = tester.getRect(mapKey);
+    final backing = find.byKey(const ValueKey('hanok-pinned-jade-backing'));
+    expect(backing, findsOneWidget);
+    expect(tester.widget<ColoredBox>(backing).color, CPalette.jade);
+    expect(tester.getRect(backing), scrolledRect);
     expect(scrolledRect.height, lessThan(expandedHeight));
-    expect(scrolledRect.height, greaterThanOrEqualTo(88));
+    expect(scrolledRect.height, greaterThanOrEqualTo(104));
     final chrome = tester.getRect(
       find.byKey(const ValueKey('sori-root-top-chrome')),
     );
@@ -141,28 +163,67 @@ void main() {
     );
     expect(tester.takeException(), isNull);
   });
+
+  for (final language in ['de', 'en']) {
+    for (final owned in [8, 16]) {
+      testWidgets(
+        '$owned owned stages use full-width jade scene in $language',
+        (tester) async {
+          tester.view.physicalSize = _viewportSize;
+          tester.view.devicePixelRatio = 1;
+          addTearDown(tester.view.resetPhysicalSize);
+          addTearDown(tester.view.resetDevicePixelRatio);
+          await tester.pumpWidget(app(owned: owned, language: language));
+          await settle(tester);
+          final map = find.byKey(const ValueKey('hanok-map-header'));
+          expect(tester.getSize(map).width, greaterThanOrEqualTo(360));
+          expect(tester.getSize(map).height, greaterThanOrEqualTo(240));
+          expect(
+            find.ancestor(of: map, matching: find.byType(CPaperPanel)),
+            findsNothing,
+          );
+          final artwork = tester.widget<SarangchaeStageArtwork>(
+            find.byType(SarangchaeStageArtwork),
+          );
+          expect(artwork.earnedStageCount, owned);
+          expect(find.text('$owned / 16'), findsOneWidget);
+          final primary = find.byKey(
+            const ValueKey('hanok-construction-entry'),
+          );
+          expect(tester.getSize(primary).height, greaterThanOrEqualTo(48));
+          expect(
+            tester.getRect(primary).bottom,
+            lessThanOrEqualTo(_viewportSize.height - _bottomTabReserve),
+          );
+          expect(tester.takeException(), isNull);
+        },
+      );
+    }
+  }
 }
 
-SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
-  today: const TodayLearningSnapshot(
-    pick: ReviewPick(dueCount: 1),
-    destination: TodayLearningDestination(route: '/review'),
-    dueCount: 1,
-  ),
-  hanokCompetence: const HanokCompetenceProjection.empty(),
-  quests: [
-    QuestProgress(
-      questId: 'q_jangdokdae',
-      current: 3,
-      target: 15,
-      active: true,
-      completed: false,
-      completedAtIso: null,
-    ),
-  ],
-  pendingBojagiCount: 1,
-  stampCount: 0,
-  xp: 0,
-  streakDays: 0,
-  todayReward: null,
-);
+SoriStageProgressionSnapshot _snapshot({int owned = 0}) =>
+    SoriStageProgressionSnapshot(
+      today: const TodayLearningSnapshot(
+        pick: ReviewPick(dueCount: 1),
+        destination: TodayLearningDestination(route: '/review'),
+        dueCount: 1,
+      ),
+      hanokCompetence: const HanokCompetenceProjection.empty(),
+      wallet: YeopjeonWallet.grandfather(sarangchaeStage: owned, b2Stage: 0),
+      quests: [
+        QuestProgress(
+          questId: 'q_jangdokdae',
+          current: 3,
+          target: 15,
+          active: true,
+          completed: false,
+          completedAtIso: null,
+        ),
+      ],
+      pendingBojagiCount: 1,
+      stampCount: 0,
+      xp: 0,
+      streakDays: 0,
+      todayReward: null,
+    );

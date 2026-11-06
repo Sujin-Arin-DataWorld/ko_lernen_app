@@ -15,7 +15,6 @@ import '../../services/storage_service.dart';
 import '../../services/today_learning_snapshot.dart';
 import '../../widgets/sori/activity_sheet.dart';
 import '../../widgets/sori/activity_illustration.dart';
-import '../../widgets/sori/approved_figma_scene.dart';
 import '../../widgets/sori/c_gallery/c_materials.dart';
 import '../../widgets/sori/top_chrome.dart';
 import '../../widgets/sori/study_library_button.dart';
@@ -528,20 +527,15 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
       _ => CGameReferencePart.hero,
     };
     final heroPart = partFor(hero?.id);
-    final unit = LearningFocusScope.maybeOf(context)
-        ?.notifier
-        ?.value
-        ?.brief
-        ?.unit
-        .title
-        .pick(Localizations.localeOf(context).languageCode);
+    final brief = LearningFocusScope.maybeOf(context)?.notifier?.value?.brief;
+    final unit = brief?.unit.title.pick(
+      Localizations.localeOf(context).languageCode,
+    );
     return C5CatalogOverview(
       key: const ValueKey('c5-catalog-overview'),
       games: games,
       maxHeight: maxHeight,
-      primaryLabel: games
-          ? t.catalogStartSession
-          : localCopy(context, course!.title),
+      primaryLabel: games ? t.catalogStartSession : t.learningFocusViewCourse,
       heroLabel: games
           ? localCopy(context, hero!.title)
           : unit ?? localCopy(context, course!.title),
@@ -551,7 +545,12 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
       onPrimary: _opening ? null : () => open(games ? hero! : course!),
       detailsLabel: t.catalogDetails,
       onDetails: games && hero != null ? () => open(hero, details: true) : null,
-      steps: [t.soriStageActivityStart, t.catalogListen, t.onboardingCPractice],
+      unitMeta: games || brief == null
+          ? null
+          : t.learningFocusCoursePosition(
+              brief.unit.level.toUpperCase(),
+              brief.unit.order,
+            ),
       tiles: games
           ? [
               for (final id in gameIds)
@@ -573,9 +572,14 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                     t.catalogHangul,
                     t.catalogReview,
                   ][i],
-                  art: ApprovedFigmaArt(
-                    scene: 'lernen-65.json',
-                    nodeId: '65:${385 + i * 3}',
+                  art: CReferenceArt(
+                    [
+                      CReferencePart.words,
+                      CReferencePart.listening,
+                      CReferencePart.hangul,
+                      CReferencePart.review,
+                    ][i],
+                    opticalFit: true,
                   ),
                   onTap: () => _jump(section),
                 ),
@@ -647,35 +651,71 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                     padding: EdgeInsets.symmetric(horizontal: padding.left),
                     sliver: Builder(
                       builder: (context) {
+                        final compactActions =
+                            MediaQuery.textScalerOf(context).scale(16) > 22.4;
                         return SoriRootHeader(
                           title: title,
                           foreground: CPalette.paper,
                           background: CPalette.jade,
-                          trailingSlots: (isGames ? 0 : 1) + (_showAll ? 1 : 0),
-                          trailing: !_showAll && isGames
-                              ? null
-                              : Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    if (_showAll)
-                                      IconButton(
-                                        key: const ValueKey('c5-catalog-close'),
-                                        tooltip: t.btnClose,
-                                        onPressed: () => _toggleCatalog(false),
-                                        icon: const Icon(
-                                          Icons.close_rounded,
-                                          color: CPalette.paper,
-                                        ),
-                                      ),
-                                    if (!isGames)
-                                      const IconTheme(
-                                        data: IconThemeData(
-                                          color: CPalette.paper,
-                                        ),
-                                        child: SoriStudyLibraryButton(),
-                                      ),
-                                  ],
+                          trailingSlots: _showAll || compactActions
+                              ? (isGames ? 1 : 2)
+                              : (isGames ? 3 : 4),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              if (!_showAll && compactActions)
+                                IconButton(
+                                  key: const ValueKey('c5-catalog-all'),
+                                  tooltip: isGames
+                                      ? t.c5AllGames
+                                      : t.c5AllLearningActivities,
+                                  onPressed: () => _toggleCatalog(true),
+                                  icon: const Icon(
+                                    Icons.grid_view_rounded,
+                                    color: CPalette.paper,
+                                  ),
                                 ),
+                              if (!_showAll && !compactActions)
+                                ConstrainedBox(
+                                  constraints: const BoxConstraints(
+                                    maxWidth: 152,
+                                  ),
+                                  child: SoriTextAction(
+                                    key: const ValueKey('c5-catalog-all'),
+                                    style: TextButton.styleFrom(
+                                      minimumSize: const Size(48, 48),
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 4,
+                                      ),
+                                      foregroundColor: CPalette.paper,
+                                      textStyle: text.body.copyWith(
+                                        fontSize: 16,
+                                        height: 1.15,
+                                      ),
+                                    ),
+                                    onPressed: () => _toggleCatalog(true),
+                                    label: isGames
+                                        ? t.c5AllGames
+                                        : t.c5AllLearningActivities,
+                                  ),
+                                ),
+                              if (_showAll)
+                                IconButton(
+                                  key: const ValueKey('c5-catalog-close'),
+                                  tooltip: t.btnClose,
+                                  onPressed: () => _toggleCatalog(false),
+                                  icon: const Icon(
+                                    Icons.close_rounded,
+                                    color: CPalette.paper,
+                                  ),
+                                ),
+                              if (!isGames)
+                                const IconTheme(
+                                  data: IconThemeData(color: CPalette.paper),
+                                  child: SoriStudyLibraryButton(),
+                                ),
+                            ],
+                          ),
                         );
                       },
                     ),
@@ -700,12 +740,7 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                             final available =
                                 constraints.viewportMainAxisExtent -
                                 constraints.precedingScrollExtent -
-                                (48 *
-                                        soriComfortScale(
-                                          MediaQuery.sizeOf(context).width,
-                                        ) +
-                                    Spacing.xs +
-                                    Spacing.sm);
+                                Spacing.sm;
                             return SliverPadding(
                               padding: const EdgeInsets.only(bottom: 8),
                               sliver: SliverToBoxAdapter(
@@ -730,23 +765,6 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                                                       0
                                               ? available.clamp(280.0, 900.0)
                                               : null,
-                                        ),
-                                        const SizedBox(height: Spacing.xs),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 20,
-                                          ),
-                                          child: SoriButton.outlined(
-                                            key: const ValueKey(
-                                              'c5-catalog-all',
-                                            ),
-                                            cMaterial: true,
-                                            fullWidth: true,
-                                            label: isGames
-                                                ? t.c5AllGames
-                                                : t.c5AllLearningActivities,
-                                            onTap: () => _toggleCatalog(true),
-                                          ),
                                         ),
                                       ],
                                     ),

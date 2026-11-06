@@ -32,6 +32,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/sticker_image.dart';
+import 'package:ko_lernen_app/widgets/sori/scenario_c.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -273,12 +274,12 @@ void main() {
     await tester.pumpWidget(const UxPreviewApp(initialPanelId: '02J'));
     await tester.pump();
 
-    expect(find.text('Vorstellung beim Geschäftsmeeting'), findsWidgets);
+    expect(find.text('Alltagsszenen · B2'), findsOneWidget);
     expect(find.text('1 von 3'), findsOneWidget);
     expect(find.text('Rollenspiel'), findsOneWidget);
-    expect(find.text('Deine Antwort bauen'), findsOneWidget);
+    expect(find.byType(ScenarioCAnswerTray), findsOneWidget);
     expect(find.text('Antwort prüfen'), findsOneWidget);
-    expect(find.text('Erneut anhören'), findsOneWidget);
+    expect(find.byType(ScenarioCAudioDisc), findsOneWidget);
     expect(
       find.textContaining('Darf ich Ihnen meine Visitenkarte überreichen?'),
       findsOneWidget,

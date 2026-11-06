@@ -2,13 +2,12 @@ import '../data/canonical_companion_art.dart';
 import 'package:flutter/material.dart';
 import '../features/scenarios/scenario_quest_stock.dart';
 import '../features/personas/persona_people_screen.dart';
+import '../features/content_learning/listening_object_art.dart';
 
 import '../features/scenarios/scenario_browse_query.dart';
 import '../models/guide_contract.dart';
 import '../models/scenario.dart';
 import '../data/chaekgado_shelf.dart';
-import '../widgets/sori/chip.dart';
-import '../widgets/sori/button.dart';
 import '../motion/transitions.dart';
 import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
@@ -21,7 +20,7 @@ import '../widgets/sori/persona_card_motion.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
-import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/scenario_c.dart';
 import '../widgets/sori/media_phrase_link.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
@@ -184,16 +183,14 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
     final t = AppL10n.of(context);
 
     if (_loading) {
-      return SoriStandardPage(
-        appBarTitle: t.scenariosListTitle,
-        maxWidth: SoriMaxWidth.hub,
+      return _ScenarioCatalogPage(
+        title: ScenarioC.title(t),
         children: [AppLoading(message: t.scenariosListTitle)],
       );
     }
     if (_loadFailed) {
-      return SoriStandardPage(
-        appBarTitle: t.scenariosListTitle,
-        maxWidth: SoriMaxWidth.hub,
+      return _ScenarioCatalogPage(
+        title: ScenarioC.title(t),
         children: [
           SoriEmptyState(
             asset: CanonicalCompanionArt.magpieStanding,
@@ -213,9 +210,8 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
     if (_all.isEmpty ||
         (widget.browseDestination != null &&
             _browseStatus != ScenarioBrowseQueryStatus.ready)) {
-      return SoriStandardPage(
-        appBarTitle: t.scenariosListTitle,
-        maxWidth: SoriMaxWidth.hub,
+      return _ScenarioCatalogPage(
+        title: ScenarioC.title(t),
         children: [
           SoriEmptyState(
             asset: CanonicalCompanionArt.baekhoSeated,
@@ -231,53 +227,95 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
     final stars = Storage.scenarioStars;
     final lang = Localizations.localeOf(context).languageCode;
 
-    return SoriStandardPage(
-      appBarTitle: t.scenariosListTitle,
-      maxWidth: SoriMaxWidth.hub,
+    return _ScenarioCatalogPage(
+      title: ScenarioC.title(t),
       children: [
-        const SoriMediaPhraseLink(),
-        PersonaPeopleEntry(loadScenarios: widget.loadScenarios, compact: true),
-        const SizedBox(height: Spacing.lg),
         if (widget.browseDestination == null && widget.scenarioIds == null) ...[
-          Text(t.scenariosLevelFilter, style: SoriTextTheme.of(context).label),
-          const SizedBox(height: Spacing.sm),
           LayoutBuilder(
-            builder: (context, constraints) {
-              final width = MediaQuery.textScalerOf(context).scale(24) + 24;
-              final columns = constraints.maxWidth >= width * 6 + 20 ? 6 : 3;
-              return SizedBox(
-                width: width * columns + (columns - 1) * Spacing.xs,
+            builder: (context, bounds) {
+              const columns = 3;
+              const gridGaps = (columns - 1) * Spacing.sm;
+              const minimumSideBySideWidth =
+                  ScenarioC.levelFilterLabelWidth + columns * 48 + gridGaps;
+              final large =
+                  MediaQuery.textScalerOf(context).scale(1) > 1.3 ||
+                  bounds.maxWidth < minimumSideBySideWidth;
+              final gridWidth = large
+                  ? bounds.maxWidth
+                  : bounds.maxWidth - ScenarioC.levelFilterLabelWidth;
+              final tileWidth = (gridWidth - gridGaps) / columns;
+              final choices = SizedBox(
+                width: gridWidth,
                 child: Wrap(
                   key: const ValueKey('scenario-level-grid'),
-                  spacing: Spacing.xs,
+                  spacing: Spacing.sm,
                   runSpacing: Spacing.sm,
                   children: [
                     for (final level in LearnerLevel.values)
                       SizedBox(
-                        width: width,
+                        width: tileWidth,
                         child: SoriPersonaCardMotion(
                           interactive: _all.any((sc) => sc.level == level),
                           entrance: false,
-                          borderRadius: SoriRadius.brPill,
-                          child: SoriChip(
-                            key: ValueKey('scenario-level-${level.code}'),
-                            label: level.display,
+                          depth: false,
+                          child: Semantics(
                             selected: _selectedLevel == level.code,
-                            minInteractiveHeight: 48,
-                            horizontalPadding: 8,
-                            maxLines: null,
-                            semanticLabel: t.scenariosLevelBadge(level.display),
-                            onTap: _all.any((sc) => sc.level == level)
-                                ? () => setState(
-                                    () => _selectedLevel = level.code,
-                                  )
-                                : null,
+                            button: true,
+                            enabled: _all.any((sc) => sc.level == level),
+                            child: ScenarioCFold(
+                              key: ValueKey('scenario-level-${level.code}'),
+                              minHeight: 48,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 12,
+                              ),
+                              accent: _selectedLevel == level.code
+                                  ? ScenarioC.jade
+                                  : null,
+                              semanticLabel: t.scenariosLevelBadge(
+                                level.display,
+                              ),
+                              onTap: _all.any((sc) => sc.level == level)
+                                  ? () => setState(
+                                      () => _selectedLevel = level.code,
+                                    )
+                                  : null,
+                              child: Center(
+                                child: Text(
+                                  level.display,
+                                  style: ScenarioC.body.copyWith(
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
                   ],
                 ),
               );
+              final label = Text(
+                t.scenariosLevelFilter,
+                style: ScenarioC.body.copyWith(fontWeight: FontWeight.w600),
+              );
+              return large
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [label, const SizedBox(height: 8), choices],
+                    )
+                  : Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 12),
+                            child: label,
+                          ),
+                        ),
+                        choices,
+                      ],
+                    );
             },
           ),
           const SizedBox(height: Spacing.lg),
@@ -302,6 +340,14 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
           ),
           const SizedBox(height: Spacing.xl),
         ],
+        TextButtonTheme(
+          data: TextButtonThemeData(
+            style: TextButton.styleFrom(foregroundColor: ScenarioC.jade),
+          ),
+          child: const SoriMediaPhraseLink(),
+        ),
+        PersonaPeopleEntry(loadScenarios: widget.loadScenarios, compact: true),
+        const SizedBox(height: Spacing.lg),
         if (widget.browseDestination == null) ...[
           KeyedSubtree(
             key: _pathHeaderKey,
@@ -419,9 +465,10 @@ class _LevelSectionState extends State<_LevelSection>
                     SizedBox(
                       width: width,
                       child: SoriPersonaCardMotion(
+                        depth: false,
                         interactive: true,
                         entrance: false,
-                        child: SoriCard(
+                        child: ScenarioCFold(
                           key: ValueKey('scenario-category-${group.key}'),
                           onTap: () => setState(() => _shelf = group.key),
                           semanticLabel:
@@ -429,20 +476,16 @@ class _LevelSectionState extends State<_LevelSection>
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              if (chaekgadoImageKeyForShelf(group.key)
-                                  case final art?)
-                                Image.asset(
-                                  'assets/illustrations/listening/$art.webp',
+                              if (listeningObjects.containsKey(group.key))
+                                SizedBox(
+                                  height: largeText ? 112 : 96,
                                   width: double.infinity,
-                                  height: largeText ? 112 : 64,
-                                  fit: BoxFit.contain,
-                                  errorBuilder: (_, _, _) =>
-                                      const Icon(Icons.chat_bubble_outline),
+                                  child: ListeningObjectArt(group.key),
                                 ),
                               const SizedBox(height: Spacing.sm),
                               Text(
                                 label(group.key),
-                                style: SoriTextTheme.of(context).bodySmall,
+                                style: ScenarioC.heading.copyWith(fontSize: 18),
                               ),
                               const SizedBox(height: Spacing.sm),
                               Row(
@@ -450,7 +493,9 @@ class _LevelSectionState extends State<_LevelSection>
                                   Expanded(
                                     child: Text(
                                       countLabel(group.value.length),
-                                      style: SoriTextTheme.of(context).caption,
+                                      style: ScenarioC.body.copyWith(
+                                        fontSize: 14,
+                                      ),
                                     ),
                                   ),
                                   const SizedBox(width: Spacing.sm),
@@ -468,10 +513,17 @@ class _LevelSectionState extends State<_LevelSection>
           ),
         ] else ...[
           if (!widget.directBrowse) ...[
-            SoriButton.ghost(
+            ScenarioCFold(
               key: const ValueKey('scenario-category-back'),
-              label: t.scenariosChangeTopic,
+              minHeight: 56,
+              semanticLabel: t.scenariosChangeTopic,
               onTap: () => setState(() => _shelf = null),
+              child: Center(
+                child: Text(
+                  t.scenariosChangeTopic,
+                  style: ScenarioC.body.copyWith(fontWeight: FontWeight.w700),
+                ),
+              ),
             ),
             const SizedBox(height: Spacing.md),
           ],
@@ -482,7 +534,7 @@ class _LevelSectionState extends State<_LevelSection>
               header: true,
               child: Text(
                 label(group.key),
-                style: SoriTextTheme.of(context).h3,
+                style: ScenarioC.heading.copyWith(fontSize: 28),
               ),
             ),
             const SizedBox(height: Spacing.sm),
@@ -532,6 +584,7 @@ class _OpenScenarioCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SoriPersonaCardMotion(
+      depth: false,
       index: motionIndex,
       interactive: true,
       entrance: false,
@@ -580,14 +633,8 @@ class _ScenarioCardBody extends StatelessWidget {
     final metadata = t.scenariosCardMeta(scenario.xpReward);
     final semanticLabel = '$title. $metadata';
 
-    final card = Container(
-      padding: const EdgeInsets.all(Spacing.lg),
-      decoration: BoxDecoration(
-        color: Color.alphaBlend(accent.withValues(alpha: 0.07), s.surface),
-        borderRadius: SoriRadius.brMd,
-        border: Border.all(color: accent.withValues(alpha: 0.28), width: 1),
-        boxShadow: SoriElevation.low,
-      ),
+    final card = ScenarioCFold(
+      padding: const EdgeInsets.all(16),
       child: Row(
         children: [
           // Scene + sidekick thumbnail (Phase 5)
@@ -600,7 +647,13 @@ class _ScenarioCardBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(title, style: SoriTextTheme.of(context).cardTitle),
+                Text(
+                  title,
+                  style: ScenarioC.body.copyWith(
+                    fontSize: 19,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
                 const SizedBox(height: Spacing.xs),
                 Row(
                   children: [
@@ -834,7 +887,10 @@ class _LevelProgressBadge extends StatelessWidget {
     return Semantics(
       label: label,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: const EdgeInsets.symmetric(
+          horizontal: Spacing.md,
+          vertical: Spacing.xs,
+        ),
         decoration: BoxDecoration(
           color: tint.withValues(alpha: 0.12),
           borderRadius: SoriRadius.brPill,
@@ -1090,4 +1146,19 @@ class _ScenarioThumbnail extends StatelessWidget {
       ),
     );
   }
+}
+
+class _ScenarioCatalogPage extends StatelessWidget {
+  const _ScenarioCatalogPage({required this.title, required this.children});
+  final String title;
+  final List<Widget> children;
+  @override
+  Widget build(BuildContext context) => ScenarioCFrame(
+    title: title,
+    wooden: false,
+    child: ListView(
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+      children: children,
+    ),
+  );
 }

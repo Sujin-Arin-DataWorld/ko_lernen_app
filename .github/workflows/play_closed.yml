@@ -269,6 +269,12 @@ jobs:
       # flipped without a commit. Unset → empty string → Dart's
       # bool.fromEnvironment falls back to its own defaultValue (false).
       # Server-side gates remain authoritative either way.
+      - name: Verify exact artwork manifest before building
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tool/android_artwork_manifest.py --check
+
       - name: Build signed public-testing bundle
         env:
           PLAY_TRACK: ${{ inputs.target_track }}
@@ -328,6 +334,7 @@ jobs:
           set -euo pipefail
           aab=build/app/outputs/bundle/release/app-release.aab
           evidence=build/app/outputs/bundle/release
+          artwork_manifest=android/c_artwork/artwork_manifest.tsv
           measurement="$(mktemp -d "$RUNNER_TEMP/artwork-size.XXXXXX")"
           trap 'rm -rf "$measurement"' EXIT
           # This ephemeral key signs size-measurement APKs only. The uploaded
@@ -345,12 +352,16 @@ jobs:
             --dimensions=ABI | tee "$evidence/initial-download-size.csv"
           java -jar "$BUNDLETOOL_JAR" dump manifest --bundle="$aab" \
             --module=c_artwork > "$evidence/c-artwork-manifest.xml"
+          javac --release 17 -cp "$BUNDLETOOL_JAR" -d "$measurement/marker-test-classes" \
+            tool/AndroidArtworkDownloadSize.java tool/AndroidArtworkMarkerTest.java
+          java -cp "$BUNDLETOOL_JAR:$measurement/marker-test-classes" AndroidArtworkMarkerTest
           java -cp "$BUNDLETOOL_JAR" tool/AndroidArtworkDownloadSize.java \
-            "$aab" "$measurement/size.apks" > "$evidence/artwork-apk-sizes.json"
+            "$aab" "$measurement/size.apks" "$artwork_manifest" > "$evidence/artwork-apk-sizes.json"
           python3 tool/verify_android_artwork_delivery.py --aab "$aab" \
             --apks "$measurement/size.apks" \
             --apk-sizes "$evidence/artwork-apk-sizes.json" \
             --manifest "$evidence/c-artwork-manifest.xml" \
+            --artwork-manifest "$artwork_manifest" \
             --initial-size "$evidence/initial-download-size.csv" \
             --output "$evidence/artwork-delivery.json"
 

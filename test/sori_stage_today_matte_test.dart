@@ -21,11 +21,16 @@ import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/reward_thumb.dart';
-import 'package:ko_lernen_app/widgets/sori/stats_top_bar.dart';
+import 'package:ko_lernen_app/widgets/sori/approved_chrome_assets.dart';
+import 'package:ko_lernen_app/widgets/sori/settings_button.dart';
+import 'package:ko_lernen_app/widgets/sori/top_chrome.dart';
+
+import 'support/real_fonts.dart';
 
 /// The approved C5 jade material and transparent canonical companion replace
 /// the retired video-matte composition; interaction/state contracts remain.
 void main() {
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(<String, Object>{
@@ -71,6 +76,20 @@ void main() {
     await tester.pump(const Duration(milliseconds: 400));
   }
 
+  Future<void> openDetails(WidgetTester tester) async {
+    final details = find.byKey(const ValueKey('today-details'));
+    expect(details, findsOneWidget);
+    await tester.tap(details);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(find.byKey(const ValueKey('c-today-board')), findsOneWidget);
+  }
+
+  Finder inDetails(Finder target) => find.descendant(
+    of: find.byKey(const ValueKey('c-today-board')),
+    matching: target,
+  );
+
   testWidgets(
     'Today uses the approved jade material behind its native header',
     (tester) async {
@@ -85,24 +104,37 @@ void main() {
             (widget) => widget is ColoredBox && widget.color == CPalette.jade,
           ),
         ),
-        findsOneWidget,
+        findsWidgets,
       );
     },
   );
 
-  testWidgets('마스코트 히어로와 스탯 톱바가 Today 를 이끈다 (RootHeader 부재)', (tester) async {
-    await pumpToday(tester);
+  testWidgets(
+    'Today keeps canonical companion, brand, wallet and settings chrome',
+    (tester) async {
+      await pumpToday(tester);
 
-    expect(
-      find.byKey(const ValueKey('today-companion-greeting')),
-      findsOneWidget,
-    );
-    expect(find.byType(SoriStatsTopBar), findsOneWidget);
-    // 2026-08-13 롤백 사유의 수리 증명: 텍스트 RootHeader 는 이 탭에 없다.
-    expect(find.byType(SoriStageRootHeader), findsNothing);
-    // 프로필 진입은 톱바 아이콘으로 유지 (셸 테스트의 byTooltip 계약).
-    expect(find.byTooltip('Profile'), findsOneWidget);
-  });
+      expect(
+        find.byKey(const ValueKey('today-companion-greeting')),
+        findsOneWidget,
+      );
+      expect(find.text('HANGUL SORI'), findsOneWidget);
+      expect(find.byType(SoriWalletBadge), findsOneWidget);
+      expect(find.byType(SoriSettingsButton), findsOneWidget);
+      expect(
+        find.byWidgetPredicate(
+          (widget) =>
+              widget is ApprovedChromeImage &&
+              widget.asset == ApprovedChromeAssets.cloud,
+        ),
+        findsOneWidget,
+      );
+      // 2026-08-13 롤백 사유의 수리 증명: 텍스트 RootHeader 는 이 탭에 없다.
+      expect(find.byType(SoriStageRootHeader), findsNothing);
+      // 프로필 진입은 톱바 아이콘으로 유지 (셸 테스트의 byTooltip 계약).
+      expect(find.byTooltip('Profile'), findsOneWidget);
+    },
+  );
 
   testWidgets(
     'Today adopts the mature textured portrait without legacy video',
@@ -116,17 +148,25 @@ void main() {
       final companion = find.byKey(const ValueKey('learning-companion-ground'));
       final portrait = find.descendant(
         of: companion,
-        matching: find.byType(Image),
+        matching: find.byType(CAtlasArt),
       );
       expect(
-        (tester.widget<Image>(portrait).image as AssetImage).assetName,
-        CanonicalCompanionArt.baekhoPortrait,
+        tester.widget<CAtlasArt>(portrait).path,
+        CanonicalCompanionArt.baekhoExpressions,
       );
       final ground = tester.getSize(
         find.byKey(const ValueKey('learning-companion-ground')),
       );
-      expect(ground, const Size(104, 104));
-      expect(tester.widget<Image>(portrait).fit, BoxFit.contain);
+      expect([
+        const Size(104, 72),
+        const Size(132, 132),
+        const Size(152, 152),
+      ], contains(ground));
+      expect(tester.widget<CAtlasArt>(portrait).fit, BoxFit.contain);
+      expect(
+        tester.widget<CAtlasArt>(portrait).region,
+        const Rect.fromLTWH(0, 0, .25, .5),
+      );
     },
   );
 
@@ -156,11 +196,13 @@ void main() {
     expect(find.byKey(const ValueKey('home_hero_magpie_scale')), findsNothing);
   });
 
-  testWidgets('아침 9시 인사말이 헤더를 대신한다', (tester) async {
+  testWidgets('Today has the approved learning subtitle below its title', (
+    tester,
+  ) async {
     await pumpToday(tester);
 
     final l10n = await AppL10n.delegate.load(const Locale('en'));
-    expect(find.text(l10n.homeHeroGreetingMorning), findsOneWidget);
+    expect(find.text(l10n.todayCompanionSubtitle), findsOneWidget);
   });
 
   // W-C2: q_jangdokdae's QuestDefinition.name.en changed from
@@ -174,20 +216,21 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
 
     await pumpToday(tester, snapshot: _richSnapshot());
+    await openDetails(tester);
 
-    expect(find.text('XP'), findsOneWidget);
-    expect(find.text('Quest'), findsOneWidget);
+    expect(inDetails(find.text('XP')), findsOneWidget);
+    expect(inDetails(find.text('Quest')), findsOneWidget);
 
     await tester.scrollUntilVisible(
-      find.text('Jar terrace'),
+      inDetails(find.text('Jar terrace')),
       260,
-      scrollable: find.byType(Scrollable).first,
+      scrollable: find.byType(Scrollable).last,
     );
     await tester.pump();
 
-    expect(find.byType(SoriRewardThumb), findsOneWidget);
-    expect(find.text('Jar terrace'), findsOneWidget);
-    expect(find.text('3 / 15'), findsOneWidget);
+    expect(inDetails(find.byType(SoriRewardThumb)), findsOneWidget);
+    expect(inDetails(find.text('Jar terrace')), findsOneWidget);
+    expect(inDetails(find.text('3 / 15')), findsOneWidget);
     expect(tester.takeException(), isNull);
 
     // §MOTION-1(J5): reduce-motion (pumpToday sets disableAnimations:
@@ -211,15 +254,19 @@ void main() {
       locale: const Locale('de'),
       textScale: 2,
     );
+    await openDetails(tester);
 
     await tester.scrollUntilVisible(
-      find.text('Verifizierter Hanok-Baufortschritt'),
+      inDetails(find.text('Verifizierter Hanok-Baufortschritt')),
       220,
-      scrollable: find.byType(Scrollable).first,
+      scrollable: find.byType(Scrollable).last,
     );
     await tester.pump();
 
-    expect(find.text('Verifizierter Hanok-Baufortschritt'), findsOneWidget);
+    expect(
+      inDetails(find.text('Verifizierter Hanok-Baufortschritt')),
+      findsOneWidget,
+    );
     expect(tester.takeException(), isNull);
 
     // §MOTION-1(J5) — 위 테스트와 같은 이유로 더 이상 필요 없다.

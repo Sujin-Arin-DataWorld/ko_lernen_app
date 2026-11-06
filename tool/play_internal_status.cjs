@@ -7,7 +7,8 @@ const path = require('node:path');
 const { createRequire } = require('node:module');
 
 const PACKAGE = 'com.sujinarin.ko_lernen_app';
-const ENDPOINT = `https://androidpublisher.googleapis.com/androidpublisher/v3/applications/${PACKAGE}/tracks/internal/releases`;
+const TRACK_ENDPOINT = `https://androidpublisher.googleapis.com/androidpublisher/v3/applications/${PACKAGE}/tracks/`;
+const ENDPOINT = `${TRACK_ENDPOINT}internal/releases`;
 const SCOPE = 'https://www.googleapis.com/auth/androidpublisher';
 const PREFIX = 'RELEASE_LIFECYCLE_STATE_';
 const STATES = new Set([
@@ -30,14 +31,22 @@ function versionCode(value) {
   return Number(value);
 }
 
-function summarize(data, expectedVersion) {
+function trackName(value = 'internal') {
+  if (typeof value !== 'string' || !['internal', 'alpha', 'beta'].includes(value)) {
+    throw new StatusError('invalid_target_track');
+  }
+  return value;
+}
+
+function summarize(data, expectedVersion, targetTrack = 'internal') {
+  const track = trackName(targetTrack);
   if (!data || typeof data !== 'object' || Array.isArray(data) ||
       (data.releases !== undefined && !Array.isArray(data.releases)) ||
       (data.releases?.length ?? 0) > 20) {
     throw new StatusError('invalid_response');
   }
   const releases = (data.releases ?? []).map((release) => {
-    if (!release || release.track !== 'internal' ||
+    if (!release || release.track !== track ||
         !STATES.has(release.releaseLifecycleState) ||
         !Array.isArray(release.activeArtifacts)) {
       throw new StatusError('invalid_response');
@@ -55,7 +64,7 @@ function summarize(data, expectedVersion) {
   const matches = releases.filter((r) => r.versionCodes.includes(expectedVersion));
   const published = matches.some((r) => r.lifecycleState === PREFIX + 'PUBLISHED');
   return {
-    schemaVersion: 1, packageName: PACKAGE, track: 'internal', expectedVersion,
+    schemaVersion: 1, packageName: PACKAGE, track, expectedVersion,
     verdict: published ? 'published' : matches.length ? 'not_published' : 'not_found',
     releases,
     // API publication is not proof that a particular device/account can install.
@@ -91,14 +100,18 @@ async function accessToken(secret, JWTClass) {
   }
 }
 
-async function queryReleases(token, fetchImpl = fetch) {
+async function queryReleases(token, fetchImpl = fetch, targetTrack = 'internal') {
+  const endpoint = `${TRACK_ENDPOINT}${trackName(targetTrack)}/releases`;
   let response;
   try {
-    response = await fetchImpl(ENDPOINT, {
+    response = await fetchImpl(endpoint, {
       method: 'GET', redirect: 'error', signal: AbortSignal.timeout(15000),
       headers: { Authorization: `Bearer ${token}`, Accept: 'application/json' },
     });
   } catch (_) {
+    throw new StatusError('request_failed');
+  }
+  if (response.redirected || (response.url && response.url !== endpoint)) {
     throw new StatusError('request_failed');
   }
   if (!response.ok) {
@@ -117,13 +130,14 @@ async function queryReleases(token, fetchImpl = fetch) {
 async function main() {
   try {
     const expected = versionCode(process.env.EXPECTED_VERSION_CODE);
+    const track = trackName(process.env.TARGET_TRACK);
     const secret = process.env.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON;
     delete process.env.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON;
     // Reuse the checked-in TTS dependency lock; no new package/version resolution.
     const ttsRequire = createRequire(path.join(__dirname, '../functions/tts/package.json'));
     const { JWT } = ttsRequire('google-auth-library');
     const token = await accessToken(secret, JWT);
-    const receipt = summarize(await queryReleases(token), expected);
+    const receipt = summarize(await queryReleases(token, fetch, track), expected, track);
     receipt.checkedAt = new Date().toISOString();
     fs.writeFileSync('play-internal-status.json', JSON.stringify(receipt, null, 2) + '\n');
     console.log(JSON.stringify(receipt));
@@ -135,5 +149,5 @@ async function main() {
   }
 }
 
-module.exports = { PACKAGE, ENDPOINT, SCOPE, StatusError, versionCode, summarize, accessToken, queryReleases };
+module.exports = { PACKAGE, ENDPOINT, SCOPE, StatusError, versionCode, trackName, summarize, accessToken, queryReleases };
 if (require.main === module) main();

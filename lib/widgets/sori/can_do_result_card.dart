@@ -5,6 +5,7 @@ import '../../models/hanok_stage.dart';
 import '../../models/scenario_can_do_result.dart';
 import 'card.dart';
 import 'tokens.dart';
+import 'scenario_c.dart';
 
 /// Shows an outcome derived from a persisted scenario checkpoint. The card has
 /// no action and no storage dependency, so it cannot turn a UI visit into
@@ -17,6 +18,7 @@ class CanDoResultCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final paper = ScenarioCTheme.of(context);
     final languageCode = Localizations.localeOf(context).languageCode;
     final (
       IconData icon,
@@ -51,11 +53,8 @@ class CanDoResultCard extends StatelessWidget {
       container: true,
       label: title,
       child: ExcludeSemantics(
-        child: SoriCard(
-          variant: SoriCardVariant.base,
+        child: _ResultSurface(
           accent: accent,
-          tinted: true,
-          width: double.infinity,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -67,21 +66,30 @@ class CanDoResultCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: SoriTextTheme.of(
-                        context,
-                      ).h3.copyWith(color: accent),
+                      style:
+                          (paper
+                                  ? ScenarioC.heading.copyWith(fontSize: 21)
+                                  : SoriTextTheme.of(context).h3)
+                              .copyWith(color: accent),
                     ),
                     if (canDo != null && canDo.isNotEmpty) ...[
                       const SizedBox(height: Spacing.xs),
                       Text(
                         canDo,
-                        style: SoriTextTheme.of(
-                          context,
-                        ).body.copyWith(fontWeight: FontWeight.w700),
+                        style:
+                            (paper
+                                    ? ScenarioC.body
+                                    : SoriTextTheme.of(context).body)
+                                .copyWith(fontWeight: FontWeight.w700),
                       ),
                     ],
                     const SizedBox(height: Spacing.xs),
-                    Text(body, style: SoriTextTheme.of(context).bodySmall),
+                    Text(
+                      body,
+                      style: paper
+                          ? ScenarioC.body.copyWith(fontSize: 14)
+                          : SoriTextTheme.of(context).bodySmall,
+                    ),
                   ],
                 ),
               ),
@@ -103,6 +111,7 @@ class ScenarioStructureResultCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final paper = ScenarioCTheme.of(context);
     final changed = result.hasStructureChange;
     final hasEvidence = result.hasStructureEvidence;
     final title = !hasEvidence
@@ -123,11 +132,8 @@ class ScenarioStructureResultCard extends StatelessWidget {
       container: true,
       label: '$title $body',
       child: ExcludeSemantics(
-        child: SoriCard(
-          variant: SoriCardVariant.base,
+        child: _ResultSurface(
           accent: accent,
-          tinted: true,
-          width: double.infinity,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -137,9 +143,19 @@ class ScenarioStructureResultCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(title, style: SoriTextTheme.of(context).h3),
+                    Text(
+                      title,
+                      style: paper
+                          ? ScenarioC.heading.copyWith(fontSize: 21)
+                          : SoriTextTheme.of(context).h3,
+                    ),
                     const SizedBox(height: Spacing.xs),
-                    Text(body, style: SoriTextTheme.of(context).bodySmall),
+                    Text(
+                      body,
+                      style: paper
+                          ? ScenarioC.body.copyWith(fontSize: 14)
+                          : SoriTextTheme.of(context).bodySmall,
+                    ),
                   ],
                 ),
               ),
@@ -164,4 +180,20 @@ class ScenarioStructureResultCard extends StatelessWidget {
     HanokStage.sideBuilding => t.hanokStageSideBuilding,
     HanokStage.jongga => t.hanokStageJongga,
   };
+}
+
+class _ResultSurface extends StatelessWidget {
+  const _ResultSurface({required this.accent, required this.child});
+  final Color accent;
+  final Widget child;
+  @override
+  Widget build(BuildContext context) => ScenarioCTheme.of(context)
+      ? ScenarioCFold(accent: accent, child: child)
+      : SoriCard(
+          variant: SoriCardVariant.base,
+          accent: accent,
+          tinted: true,
+          width: double.infinity,
+          child: child,
+        );
 }

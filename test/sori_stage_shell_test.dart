@@ -23,6 +23,7 @@ import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
+import 'package:ko_lernen_app/widgets/sori/today_learning_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
@@ -511,7 +512,7 @@ void main() {
         ),
       );
       await pumpSoriStage(tester);
-      final caller = tester.element(find.byType(SoriLearningFocus).first);
+      final caller = tester.element(find.byType(TodayLearningCard).first);
       final scope = LearningFocusScope.maybeOf(caller)!;
       expect(scope.notifier!.value!.ready, isTrue);
       final returned = scope.open(

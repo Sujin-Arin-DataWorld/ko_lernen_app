@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart' show kTouchSlop;
 
 import 'approved_chrome_assets.dart';
+import 'c_gallery/c_materials.dart';
 import 'tokens.dart';
 
 /// Native destination behavior with the user's five image-only icons.
@@ -55,25 +56,36 @@ class _SoriImageNavigationBarState extends State<SoriImageNavigationBar>
   @override
   Widget build(BuildContext context) => TickerMode(
     enabled: _resumed,
-    child: NavigationBar(
-      key: const ValueKey('sori-image-navigation-bar'),
-      height: 76,
-      backgroundColor: SoriSurfaces.of(context).surface,
-      indicatorColor: Colors.transparent,
-      labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-      selectedIndex: widget.selectedIndex,
-      onDestinationSelected: widget.onDestinationSelected,
-      destinations: [
-        for (var index = 0; index < widget.assets.length; index++)
-          _ImageDestination(
-            // Pausing clears transient contact state; resuming starts settled.
-            key: ValueKey('${widget.assets[index]}-$_resumed'),
-            asset: widget.assets[index],
-            label: widget.labels[index],
-            selected: widget.selectedIndex == index,
-            motionActive: _resumed,
+    child: ColoredBox(
+      color: CPalette.jade,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(10, 0, 10, 6),
+        child: CPaperPanel(
+          radius: 18,
+          padding: EdgeInsets.zero,
+          surfaceTexture: const CTexture(CMaterial.paper),
+          child: NavigationBar(
+            key: const ValueKey('sori-image-navigation-bar'),
+            height: 62,
+            backgroundColor: Colors.transparent,
+            indicatorColor: Colors.transparent,
+            labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+            selectedIndex: widget.selectedIndex,
+            onDestinationSelected: widget.onDestinationSelected,
+            destinations: [
+              for (var index = 0; index < widget.assets.length; index++)
+                _ImageDestination(
+                  // Pausing clears transient contact state; resuming starts settled.
+                  key: ValueKey('${widget.assets[index]}-$_resumed'),
+                  asset: widget.assets[index],
+                  label: widget.labels[index],
+                  selected: widget.selectedIndex == index,
+                  motionActive: _resumed,
+                ),
+            ],
           ),
-      ],
+        ),
+      ),
     ),
   );
 }
@@ -176,26 +188,37 @@ class SoriNavigationImage extends StatelessWidget {
         : 0.0;
     final duration = animate ? SoriMotion.fast : Duration.zero;
     return SizedBox(
-      width: 56,
-      height: 56,
+      width: 54,
+      height: 54,
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Positioned(
-            bottom: 4,
-            child: AnimatedOpacity(
-              opacity: selected ? 1 : .4,
+          Positioned.fill(
+            child: AnimatedContainer(
               duration: duration,
-              curve: Curves.linear,
-              child: Container(
-                width: selected ? 26 : 22,
-                height: 3,
-                decoration: BoxDecoration(
+              curve: SoriMotion.gentle,
+              decoration: BoxDecoration(
+                color: selected ? const Color(0xff084a3e) : Colors.transparent,
+                borderRadius: BorderRadius.circular(SoriRadius.sm),
+                border: Border.all(
                   color: selected
-                      ? SoriSurfaces.of(context).text
-                      : SoriSurfaces.of(context).text.withValues(alpha: .2),
-                  borderRadius: SoriRadius.brPill,
+                      ? const Color(0xffd4bc80)
+                      : Colors.transparent,
+                  width: 1.2,
                 ),
+                boxShadow: selected
+                    ? const [
+                        BoxShadow(
+                          color: Color(0xff082d27),
+                          offset: Offset(0, 2),
+                        ),
+                        BoxShadow(
+                          color: Color(0x300c281b),
+                          offset: Offset(0, 3),
+                          blurRadius: 4,
+                        ),
+                      ]
+                    : const [],
               ),
             ),
           ),
@@ -203,7 +226,7 @@ class SoriNavigationImage extends StatelessWidget {
             tween: Tween(begin: target, end: target),
             duration: duration,
             curve: SoriMotion.gentle,
-            child: ApprovedChromeImage(asset: asset, size: 48),
+            child: ApprovedChromeImage(asset: asset, size: 44),
             builder: (_, value, child) => Transform.translate(
               key: ValueKey('sori-navigation-depth-$asset'),
               offset: Offset(0, -2 * value),

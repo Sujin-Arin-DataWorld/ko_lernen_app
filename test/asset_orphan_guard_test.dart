@@ -26,6 +26,10 @@ void main() {
     // IlDuR16ArtCatalog validates the content-addressed paths; ildu_r16_art_test
     // verifies every referenced image's SHA and the complete file set.
     'assets/illustrations/ildu_r16/': 'assets/illustrations/ildu_r16/',
+    // The R16 layer catalog validates each foreground/shadow address; the
+    // layer source test verifies exact folder coverage, provenance and bytes.
+    'assets/illustrations/ildu_r16_layers/':
+        'assets/illustrations/ildu_r16_layers/',
     // ApprovedFigmaScene loads these five scene exports and their atlas map.
     'assets/illustrations/concept_c/approved_20261018/':
         'assets/illustrations/concept_c/approved_20261018/',

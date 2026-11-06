@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'support/sori_speech_stubs.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -109,6 +111,7 @@ void main() {
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
     await Storage.setTutSeen('wordWeb');
+    stubSoriSpeech();
   });
 
   tearDown(WordRelationService.resetForTesting);

@@ -1,0 +1,650 @@
+{
+  "date": "2026-11-04",
+  "sourceParentHead": "02cc44e7905107c134e82ec35f9a3c0662741291",
+  "historicalEvidence": "The previous committed receipt at51354fdf4 records initial implementation tests. This receipt supersedes its source and capture hashes after full-suite CI findings.",
+  "figma": {
+    "file": "zhJY0ZY4gl4VNg8vaaNIXw",
+    "alltagSection": "129:311",
+    "firstTurnFrame": "167:606",
+    "originalBoards": "140:585",
+    "nextCandidates": "140:586",
+    "sections": {
+      "grammar": "102:160",
+      "nuancen": "111:192",
+      "alltag": "129:311",
+      "alltagFrames": 17,
+      "nextCandidates": "140:586"
+    }
+  },
+  "referenceView": {
+    "width": 402,
+    "height": 874,
+    "language": "de",
+    "textScale": 1,
+    "disableAnimations": true
+  },
+  "ciRemediation": {
+    "triggerRun": 41796602488,
+    "findings": 44,
+    "initialRun": "canceled after detailed failures were preserved; not a passing gate",
+    "fixes": [
+      "Actual short/enlarged quest and grammar overflow repaired; complete actions reached with real scroll and tap tests.",
+      "Generic scene crop restored; kitchen-specific approved scene remains separate.",
+      "Contrast and13dp typography corrected with exact approved font families.",
+      "Shared controls/overlays retain keyboard, semantics, minimum targets and lifecycle ownership.",
+      "Stale finder/source inventories updated without raising guard ceilings."
+    ],
+    "sourceGuards": {
+      "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/ci-fix-source-guards.log",
+      "sha256": "7640b72f0aeb1ed444a62335c8b91252572395f95aa03cae466355e70d896046",
+      "passedSourceGuardCases": 44,
+      "initialSharedTestFailure": "SemanticsHandle teardown in new test only; fixed and rerun below"
+    },
+    "broadRegression": {
+      "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/shared-regression-ci-fix.log",
+      "sha256": "200720f0a0366cb82dbafbf6d059e10ba2218c1030d9ed09b78ae72fa18adf17",
+      "passed": 178,
+      "failed": 4,
+      "failures": "Three stale pinned-action assertions and duplicate semantics test disposal; all four are covered by the successful final rerun."
+    },
+    "finalRerun": {
+      "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/shared-regression-ci-rerun.log",
+      "sha256": "17fa4ba4f1f3e6556681e9ec02fdd576a50a9ae705f525b739cfa0dad3cc5bc8",
+      "passed": 21,
+      "failed": 0,
+      "includes": "Real scroll/tap, score, persistence, target dimensions and CTA clearance; shared action single announcement and keyboard activation."
+    },
+    "combinedAnalysis": {
+      "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/ci-fix-combined-analysis.log",
+      "sha256": "86cbd8bf76b3da18ba113b67d59a2bc46442ed495c16de17f9c87a1801feeb5e",
+      "files": 44,
+      "issues": 0
+    },
+    "planGeometry": {
+      "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/plan-geometry-final.log",
+      "sha256": "c4058ccf94f2a8dea745a65528213c332af1be6bb0c7cfb9d3a9d0c33d43590a",
+      "passed": 1,
+      "failed": 0
+    },
+    "planGeometryAnalysis": {
+      "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/plan-geometry-analysis.log",
+      "sha256": "723c66eb7d27ee1ff010c5278ffb7242b515b648f8fc1e8fa1d847477f271775",
+      "issues": 0
+    },
+    "alltag": {
+      "report": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/out2/alltag-native-report.json",
+      "sha256": "ca77b6816fcfceb934c0c64ffee0725f151c8a1a93000b0291bc067ac96d22e8",
+      "validationRuns": [
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-full-ui-20261104\\out2\\ci-alltag-recovery.log",
+          "sha256": "f9ad564e3c7c37406a27c204cdca3dcdcba603248f4196592c9c7c6d9b407fa7",
+          "passed": 9,
+          "failed": 0,
+          "success": true,
+          "command": "COMMAND: rtk proxy flutter test test/quest_course_evidence_recovery_test.dart --plain-name scenario --concurrency=1 --reporter expanded --no-pub"
+        },
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-full-ui-20261104\\out2\\ci-alltag-contracts-first.log",
+          "sha256": "34b477914c7c06d4819db26b33a32867bc2de65981922c8a2dde2e5af59b717d",
+          "passed": 21,
+          "failed": 1,
+          "success": false,
+          "command": "COMMAND: rtk proxy flutter test test/scenario_intro_art_test.dart test/scenario_can_do_result_flow_test.dart test/scenario_completion_persists_test.dart test/dedicated_feedback_route_test.dart test/ux_preview_app_test.dart test/standard_surface_responsive_test.dart test/accessibility_guideline_test.dart --name scenario|02J|crop|course unit|중간 이탈 --concurrency=1 --reporter expanded --no-pub"
+        },
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-full-ui-20261104\\out2\\ci-alltag-responsive-final.log",
+          "sha256": "a38a22d71f3c520548684df647156d6c9eb3555f9c25e6ddb73ebaa239c27963",
+          "passed": 3,
+          "failed": 0,
+          "success": true,
+          "command": "COMMAND: rtk proxy flutter test test/scenario_quest_constrained_layout_test.dart test/standard_surface_responsive_test.dart --plain-name scenario --concurrency=1 --reporter expanded --no-pub"
+        },
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-full-ui-20261104\\out2\\ci-alltag-native-final.log",
+          "sha256": "756b818dd386d455249659c6a35a4c54a99050fc40bc59429c45384105bc8849",
+          "passed": 34,
+          "failed": 1,
+          "success": false,
+          "command": "COMMAND: rtk proxy flutter test test/scenario_c_native_test.dart test/quest_course_evidence_recovery_test.dart test/scenario_quest_constrained_layout_test.dart --name source |writing source|paper dictation|all real|320dp|scenario|short --concurrency=1 --reporter expanded --no-pub --dart-define=CAPTURE_ALLTAG_C=true --dart-define=ALLTAG_CAPTURE_DIR=C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/out2"
+        },
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-full-ui-20261104\\out2\\ci-alltag-writing-dictation-final.log",
+          "sha256": "8838bf355815ae2322224364a05e04dbdf787a835a4b5feb89c79912b33b30d3",
+          "passed": 7,
+          "failed": 0,
+          "success": true,
+          "command": "COMMAND: rtk proxy flutter test test/scenario_c_native_test.dart --name writing source|paper dictation|all real|real six-quest|stored practice --concurrency=1 --reporter expanded --no-pub --dart-define=CAPTURE_ALLTAG_C=true --dart-define=ALLTAG_CAPTURE_DIR=C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/out2"
+        },
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-full-ui-20261104\\out2\\ci-alltag-final-clearance.log",
+          "sha256": "05437b84003fef50934df32ccc3c37e3f272a36dfeae8c288682beea0e28d9e5",
+          "passed": 6,
+          "failed": 0,
+          "success": true,
+          "command": "COMMAND: rtk proxy flutter test test/scenario_quest_constrained_layout_test.dart test/satz_bauen_unbounded_height_test.dart test/scenario_c_native_test.dart --name scenario input|SatzBauenQuest|바닥이|paper dictation --concurrency=1 --reporter expanded --no-pub"
+        },
+        {
+          "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-full-ui-20261104\\out2\\ci-alltag-analysis-final.log",
+          "sha256": "e72ecba1ed9c798fa1f6bcadaf2b770818b70022e3b5007469a079ded8466081",
+          "passed": null,
+          "failed": 0,
+          "success": true,
+          "command": "COMMAND: rtk proxy flutter analyze --no-pub lib/screens/quest_engines/diktat_quest.dart lib/screens/quest_engines/quest_layout.dart lib/screens/scenario_player_screen.dart lib/screens/scenarios_list_screen.dart lib/widgets/sori/scenario_c.dart lib/widgets/sori/scenario_write_after_roleplay_card.dart test/dedicated_feedback_route_test.dart test/scenario_can_do_result_flow_test.dart test/scenario_completion_persists_test.dart test/standard_surface_responsive_test.dart test/ux_preview_app_test.dart test/scenario_c_native_test.dart test/scenario_quest_constrained_layout_test.dart"
+        }
+      ],
+      "resolvedIntermediateFailures": {
+        "ci-alltag-contracts-first.log": "Its sole catalog scrolling failure is fixed and passed in ci-alltag-responsive-final.log.",
+        "ci-alltag-native-final.log": "Its sole large-dictation pinned-action assumption was migrated to full target reachability and passed in ci-alltag-writing-dictation-final.log and ci-alltag-final-clearance.log."
+      }
+    },
+    "grammarNuancen": {
+      "report": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/grammar-nuancen-ci-report.json",
+      "sha256": "1758ebce61d373c59a972a2270f3407796a0f486d61975e26731ab0cf3951772",
+      "verification": [
+        {
+          "command": "flutter test --no-pub --concurrency=1 [six assigned files] --name grammar|Grammar|word-web|choice quizzes",
+          "result": "39pass/3fail initial; failures investigated and resolved",
+          "log": "grammar-nuancen-ci-targeted.log",
+          "passed_areas": [
+            "18responsive Grammar cases",
+            "1speech phase/stop ownership case",
+            "5WordWeb asset/cache/retry cases",
+            "7Grammar course/checkpoint cases",
+            "8choice viewport cases"
+          ]
+        },
+        {
+          "command": "flutter test --no-pub --concurrency=1 test/choice_quizzes_uiux_test.dart test/visual_layout_regression_test.dart --name 320x640|grammar keeps",
+          "result": "2pass/1fail; DE/EN200% overflow fixed; geometry failure demonstrated equal right edges in Rect.contains",
+          "log": "grammar-nuancen-ci-small-layout.log"
+        },
+        {
+          "command": "flutter test --no-pub --concurrency=1 test/choice_quizzes_uiux_test.dart test/visual_layout_regression_test.dart",
+          "result": "14/14passed after final source/test correction",
+          "log": "grammar-nuancen-ci-layout-final.log"
+        },
+        {
+          "command": "dart format [14owned/shared files]",
+          "result": "formatted successfully"
+        },
+        {
+          "command": "git diff --check",
+          "result": "no whitespace errors; unrelated parent CRLF notices only"
+        }
+      ]
+    },
+    "countsOverlap": true,
+    "remoteGate": "Fresh exact-head PR and merged-main Actions results remain separate from these local checks.",
+    "finalFullSuiteFinding": {
+      "run": 41808877598,
+      "head": "02cc44e7905107c134e82ec35f9a3c0662741291",
+      "passed": 9530,
+      "failed": 1,
+      "skipped": 77,
+      "issue": "308dp and200% business roleplay overflow in fixed-width header brand/progress row",
+      "fix": "Measure actual brand and scaled progress widths; retain single row when it fits, wrap progress onto a second row otherwise; measure full header height without clipping or suppressing text scaling.",
+      "verification": [
+        {
+          "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/airport-header-fixed.log",
+          "sha256": "b30a9e1a88d32d018ed35626d4af151ed3c9da8746961887adc27a7cbff3842c",
+          "passed": 3,
+          "failed": 0
+        },
+        {
+          "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/header-wrap-regression.log",
+          "sha256": "7adf5629a680093b8003a9379a77600f3fe6af92d58a8c94613b59b4f0d8c436",
+          "passed": 49,
+          "failed": 0
+        },
+        {
+          "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/header-wrap-analysis.log",
+          "sha256": "c8d42aaad15d9f72e5e6d61bae87c211c962f622b070846cd29fbf9a5df97d62",
+          "passed": null,
+          "failed": 0
+        }
+      ],
+      "baselineCaptureComparison": {
+        "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/header-wrap-baseline-comparison.json",
+        "sha256": "a5a29cee9ea9331a247a919de2e311d927364b930b91e2da62011336a58b0c2b",
+        "fiveNormalCapturesByteIdentical": true
+      }
+    }
+  },
+  "assets": {
+    "horenOriginalsPreserved": 75,
+    "approvedSubset": 55,
+    "canonicalChromeRechecked": true,
+    "materials": "ALLTAG_MATERIALS_20261104.json",
+    "canonical": [
+      {
+        "role": "cloud",
+        "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-632a39fd-cdd0-4a79-8d27-4069077b771d.png",
+        "canonical": "C:\\Users\\vjinn\\.codex\\generated_images\\공통UI정본\\cloud.png",
+        "runtime": "assets/icons/chrome/cloud.png",
+        "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+        "byte_identical": true
+      },
+      {
+        "role": "settings",
+        "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-9c3a27f8-15cf-47e4-9b96-510158d83a69.png",
+        "canonical": "C:\\Users\\vjinn\\.codex\\generated_images\\공통UI정본\\settings-gear.png",
+        "runtime": "assets/icons/chrome/settings-gear.png",
+        "sha256": "bee0e7a48115fe34c1a1a6f3fba17d022c0bd978470004ae5e92a2bf378c068d",
+        "byte_identical": true
+      },
+      {
+        "role": "yeopjeon",
+        "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-92edb7ca-b8ac-44f1-9a2f-23fd2e4b324f.png",
+        "canonical": "C:\\Users\\vjinn\\.codex\\generated_images\\공통UI정본\\yeopjeon-front.png",
+        "runtime": "assets/icons/chrome/yeopjeon-front.png",
+        "sha256": "c187032485925a52d6a6148fdeea11382a95648f0c37eecdfd1cd5654959f40f",
+        "byte_identical": true
+      },
+      {
+        "role": "home",
+        "source": "C:/Users/vjinn/.codex/generated_images/01a1a20b-61e1-74d1-84f2-7b48467f9dea/exec-97769f13-9dc0-4d8b-a717-0006b1f530e0.png",
+        "canonical": "C:/Users/vjinn/.codex/generated_images/공통UI정본/home-c-v1.png",
+        "runtime": "design_assets/hoeren/home-c-v1.png",
+        "sha256": "4c7b716bb352105672b7823f8f9b6df886cd6443086b72174a628c3489350435",
+        "byte_identical": true,
+        "approved_on": "2026-11-04",
+        "authority": "Jin approved the new jade roof / ivory / brass home in response annotation 1."
+      },
+      {
+        "role": "navigation_today",
+        "canonical": "C:/Users/vjinn/.codex/generated_images/공통UI정본/exec-d0abcd6e-3c27-46de-8c6b-85caa1ac23e3.png",
+        "runtime": "assets/icons/navigation/today.png",
+        "sha256": "a8ef18b79cc93d75600f2fccb35d8830c2277e9d42151176c0e22d34eb6bf22a",
+        "byte_identical": true,
+        "authority": "User explicitly referenced common UI canon folder on 2026-11-04"
+      },
+      {
+        "role": "navigation_games",
+        "canonical": "C:/Users/vjinn/.codex/generated_images/공통UI정본/exec-0341b149-61b9-4a48-acb3-74fa59314392.png",
+        "runtime": "assets/icons/navigation/games.png",
+        "sha256": "11c9d9004f23cb9a4c63eb53fe546b3c745e7b5c10047996b94b724f9eabe5b1",
+        "byte_identical": true,
+        "authority": "User explicitly referenced common UI canon folder on 2026-11-04"
+      },
+      {
+        "role": "navigation_hanok",
+        "canonical": "C:/Users/vjinn/.codex/generated_images/공통UI정본/exec-801c0e2c-d79d-466c-b2ea-915356b4fe29.png",
+        "runtime": "assets/icons/navigation/hanok.png",
+        "sha256": "4c42fda8e624093c8ba39699492bbc5bf27efc1f3a04d9669b1d7d8720df61bf",
+        "byte_identical": true,
+        "authority": "User explicitly referenced common UI canon folder on 2026-11-04"
+      },
+      {
+        "role": "navigation_gye",
+        "canonical": "C:/Users/vjinn/.codex/generated_images/공통UI정본/exec-effff9d2-a719-420a-9eb2-54f9b5d4a076.png",
+        "runtime": "assets/icons/navigation/gye.png",
+        "sha256": "42c2618b59241ff79f5413471b7b4f2bd61ce6d8c18b6acbdee9fff4f51a19b5",
+        "byte_identical": true,
+        "authority": "User explicitly referenced common UI canon folder on 2026-11-04"
+      },
+      {
+        "role": "navigation_learn",
+        "runtime": "assets/icons/navigation/learn.png",
+        "sha256": "c4db0fd39d3b16c79db99ce75b1fccbea1eaf9acda64c52ed40bb6c4c8fc0b42",
+        "authority": "Preserve already approved Lernen book; supplied common UI folder has no replacement book"
+      }
+    ]
+  },
+  "figmaNavigationByteIdentity": {
+    "component": "8:16",
+    "rows": [
+      {
+        "name": "today",
+        "bytes": 2283006,
+        "sha256": "a8ef18b79cc93d75600f2fccb35d8830c2277e9d42151176c0e22d34eb6bf22a"
+      },
+      {
+        "name": "learn",
+        "bytes": 1685124,
+        "sha256": "c4db0fd39d3b16c79db99ce75b1fccbea1eaf9acda64c52ed40bb6c4c8fc0b42"
+      },
+      {
+        "name": "games",
+        "bytes": 2417100,
+        "sha256": "11c9d9004f23cb9a4c63eb53fe546b3c745e7b5c10047996b94b724f9eabe5b1"
+      },
+      {
+        "name": "hanok",
+        "bytes": 1817279,
+        "sha256": "4c42fda8e624093c8ba39699492bbc5bf27efc1f3a04d9669b1d7d8720df61bf"
+      },
+      {
+        "name": "gye",
+        "bytes": 2028175,
+        "sha256": "42c2618b59241ff79f5413471b7b4f2bd61ce6d8c18b6acbdee9fff4f51a19b5"
+      }
+    ]
+  },
+  "sourceHashes": [
+    {
+      "path": "lib/features/content_learning/content_learning_hub.dart",
+      "sha256": "e591863895bac36e1db7340910aa3c316eeb8c3d15134cd39e18cb67a3dddc4a"
+    },
+    {
+      "path": "lib/features/content_learning/content_lesson_screen.dart",
+      "sha256": "a0bbcb414de0599a3029dec876a08f3f3389ff1ccba063179f108d359b146ec9"
+    },
+    {
+      "path": "lib/features/content_learning/listening_figma_materials.dart",
+      "sha256": "98c30a992ddccb0a3885e0aa5c9625e832e874dcba36218ab248d4c64f3ad91e"
+    },
+    {
+      "path": "lib/features/content_learning/listening_flow_widgets.dart",
+      "sha256": "c7c5d5abbc56608a0f97d098b63ee7c496132dad33d771cd28e55f35a7d37c16"
+    },
+    {
+      "path": "lib/features/content_learning/listening_recovery_widgets.dart",
+      "sha256": "2bb32ad4810f8a7e38e98478eaa7273448e72ce411c48aa984d262c3783a618f"
+    },
+    {
+      "path": "lib/features/content_learning/listening_topic_shelf.dart",
+      "sha256": "8cda04eac8ef5e4d4a23a3f7cb14d92a1bf46e5a33a82cd5a1eda85e78200405"
+    },
+    {
+      "path": "lib/l10n/app_de.arb",
+      "sha256": "efe41625cd91f71a88d9e764be96aa1ce8da3e9e969105b16dcb34c47afe6a34"
+    },
+    {
+      "path": "lib/l10n/app_en.arb",
+      "sha256": "a4a238ca621879924f8fbf1de012b77d43ca006ca20e32eb436841262c464ade"
+    },
+    {
+      "path": "lib/l10n/generated/app_localizations.dart",
+      "sha256": "0fa0f58a4d040e62b61776899012830cdb17f2f298c632b3108818da2a7674a2"
+    },
+    {
+      "path": "lib/l10n/generated/app_localizations_de.dart",
+      "sha256": "94fef94aa41d1d65c385e5fd0155e796b7a927d7e21bd4cf6375cf00d667291f"
+    },
+    {
+      "path": "lib/l10n/generated/app_localizations_en.dart",
+      "sha256": "160e3ba2b882ce66a5f6696af5473998d356b926dde55b67ddce7a7118e8e209"
+    },
+    {
+      "path": "lib/screens/grammar_choice_quiz_screen.dart",
+      "sha256": "24167e5238fd7963494669aa880a52bc8b96a252612569fc9abc75e950e65e4c"
+    },
+    {
+      "path": "lib/screens/grammar_screen.dart",
+      "sha256": "46a687035dad3cae57ad8913dd1377271a2685265dac31dae7c6e64c7acebdd2"
+    },
+    {
+      "path": "lib/screens/quest_engines/diktat_quest.dart",
+      "sha256": "ff85db72dd3f1c5998fefa5dd5958ee724d5602b2463f8d76f200b653696cd57"
+    },
+    {
+      "path": "lib/screens/quest_engines/quest_layout.dart",
+      "sha256": "23e6dc7abd29df0d6bde5ae4134a35b85d1dddfd4ed38e93ba003fe6601c629d"
+    },
+    {
+      "path": "lib/screens/scenario_player_screen.dart",
+      "sha256": "9a9890cf48aad63b907ff210c34d25d9485df1bc7db2939af1dc4f88ea911785"
+    },
+    {
+      "path": "lib/screens/scenarios_list_screen.dart",
+      "sha256": "77ad3c3b98a96104ad6a8b3231e123c4b513f08c82794077d90b047cd6c22298"
+    },
+    {
+      "path": "lib/screens/word_web_quiz_screen.dart",
+      "sha256": "e9a08a76e76e4293760bc13c9aaee0079abda9e9b6d308bf3f9782770f189150"
+    },
+    {
+      "path": "lib/screens/word_web_study_screen.dart",
+      "sha256": "9e8f4b20aee530c05ffaa1aa53821d413e8d04074cde8fb7e599d20877d88a02"
+    },
+    {
+      "path": "lib/widgets/sori/button.dart",
+      "sha256": "c2316dbca244e3c768361eee81f7c944e2308d19c1cb2eec0e24eba245779133"
+    },
+    {
+      "path": "lib/widgets/sori/c_learning_surface.dart",
+      "sha256": "6ae4cebbdb87a980330ecb798f2b84eea6e07697860ed945cc1f066ecaf26c44"
+    },
+    {
+      "path": "lib/widgets/sori/grammar_c.dart",
+      "sha256": "b8d6aa4ecccf551d2979d2cc819cee6d125bfef97e4e086272452ada00ea51bf"
+    },
+    {
+      "path": "lib/widgets/sori/grammar_c_plan.dart",
+      "sha256": "df2bb428f153eb514896d8c4ba4ed247591da5af3101244b75a4435653c68211"
+    },
+    {
+      "path": "lib/widgets/sori/nuancen_c.dart",
+      "sha256": "4434f7c55a80d79aced599987ca942ad63ac848633a568ad47fd9ad8949cb291"
+    },
+    {
+      "path": "lib/widgets/sori/quiz_choice.dart",
+      "sha256": "1d8adedb79aed1711b0d1f6f2aae554ac1ea872a71814ae476577419b44de346"
+    },
+    {
+      "path": "lib/widgets/sori/scenario_c.dart",
+      "sha256": "9d8f2ebc9a87b462befc31ea3297f2bdfc5f7fd9698d7b37bbd131295a9ff2e1"
+    },
+    {
+      "path": "lib/widgets/sori/scenario_write_after_roleplay_card.dart",
+      "sha256": "902d7fe6fa0c4ba29dc46a98554dfc1cd0c25f0a42be024937a0a0491a4940c1"
+    },
+    {
+      "path": "test/arb_orphan_key_guard_test.dart",
+      "sha256": "fb1fefeb3b758e8161a3e4b36a4650de4ce25d1e794beb7c9f65604dec3cd1f2"
+    },
+    {
+      "path": "test/choice_quizzes_uiux_test.dart",
+      "sha256": "0663af0e4ae160a0519b574adb5bf47715d6e10879d8e80ae42382e4ccbeda7f"
+    },
+    {
+      "path": "test/content_audio_policy_guard_test.dart",
+      "sha256": "b4e926e1272068ebf3ed7d7ffbcd98c6746380f26406a6af9ed4df89bb0ca404"
+    },
+    {
+      "path": "test/course_practice_screen_test.dart",
+      "sha256": "75a7c281c68dd3cc8f6a226a7d532cc89a9a65e9356e1f6a2fae24c2fbdad4e9"
+    },
+    {
+      "path": "test/dedicated_feedback_route_test.dart",
+      "sha256": "3548eefe65cf6fdd75bf545c602b077feee6567996b4f3f2a2c2d72cf1cacbd2"
+    },
+    {
+      "path": "test/grammar_c_native_test.dart",
+      "sha256": "23ce1bf96bfd87bc1317e85cbca7f340e4399e13f84bbe0b7b83bb1017374b64"
+    },
+    {
+      "path": "test/scenario_c_native_test.dart",
+      "sha256": "410fd1e6c555725e3488806cfc4b54d86fbec1d6713513c31a50411eca0923ed"
+    },
+    {
+      "path": "test/scenario_can_do_result_flow_test.dart",
+      "sha256": "73b270a556d64db3e3daefaf80feb194aae61c2b99448b653895f55ecfa64677"
+    },
+    {
+      "path": "test/scenario_completion_persists_test.dart",
+      "sha256": "e53e82516f82dca2674f93386956a6b4c5190bb4c88b788a20a1c359760550a0"
+    },
+    {
+      "path": "test/sori_button_multiline_test.dart",
+      "sha256": "d474824af8f7ce3f136b5403ed9dc444a4150e5c7f4edec5b85e5a3bebee03db"
+    },
+    {
+      "path": "test/speech_indicator_placement_test.dart",
+      "sha256": "e637f7160a9b1d792a6d829f6839e92ceaaea09c02193957e06bd1e41e052915"
+    },
+    {
+      "path": "test/standard_surface_responsive_test.dart",
+      "sha256": "8748f0bbeab6492cce93df4e370d5de41ac3ad1a96d4961495b73ae3c38df54b"
+    },
+    {
+      "path": "test/study_home_escape_guard_test.dart",
+      "sha256": "ffcb160110729c5fe54d5873b176af337fc450a8e6384c1cf96d51f589406913"
+    },
+    {
+      "path": "test/typography_guard_test.dart",
+      "sha256": "bff266dd9bad35fb091a50af5dc0e910f83e67ed7dc01e3628a3fde725cad9a6"
+    },
+    {
+      "path": "test/uiux_bible_closeout_inventory_test.dart",
+      "sha256": "31d6c00ff5cfdb445476899e7d8456f40deeb815bb16046ae8409b57714efcb0"
+    },
+    {
+      "path": "test/ux_preview_app_test.dart",
+      "sha256": "2de9ff1229c3df8e4e0fab247a84d83bd74ac1c684e1dbb5c8d6fa4f4f3ffab3"
+    },
+    {
+      "path": "test/visible_asset_retry_recovery_test.dart",
+      "sha256": "2732004dce96ac0bab94768b19d7d0c64a92dc8ac09ce0504c94f24803488d46"
+    },
+    {
+      "path": "test/visual_layout_regression_test.dart",
+      "sha256": "9ccb9f7d2aa83acb9be66ce8d32e45612a15a9472f85a8090e7bccb94465d62d"
+    },
+    {
+      "path": "test/scenario_quest_constrained_layout_test.dart",
+      "sha256": "a4a56b0df57b26915935ad24bf5b1b8d4b761107cbf98e5daea02842fca5eb6b"
+    }
+  ],
+  "renderEvidence": {
+    "pixelPerfectClaim": false,
+    "wholeScreenRasterRuntime": false,
+    "figmaEditable": true,
+    "actualSourceUsed": true,
+    "baselineNavigationHeight": 70,
+    "grammarPlan": "Full-screen modal; independently measured editable geometry, no inactive navigation controls.",
+    "planGeometryFile": "docs/design/lernen-20261104/native-grammar-plan.geometry.json",
+    "nuancenBrand": "Manrope ExtraBold13dp follows NuancenC.heading; Grammar remains Lora. Figma-only font-family correction after native source8095f6271 validation."
+  },
+  "committedCaptureHashes": [
+    {
+      "path": "docs/design/lernen-20261104/figma-alltag-dialog.png",
+      "sha256": "aee88ca5b850236f0bda12080b2843a21ed99cb2350156f5f72dcf7741c64740"
+    },
+    {
+      "path": "docs/design/lernen-20261104/figma-alltag-dictation.png",
+      "sha256": "3875bcb34b125654096375f8962ee6ab08924ce46c982ab543d51f5590be390a"
+    },
+    {
+      "path": "docs/design/lernen-20261104/figma-alltag-roleplay-initial.png",
+      "sha256": "1b579925bae5b99764d90d2c4f40214143e49951d74826ececee66120c35fd13"
+    },
+    {
+      "path": "docs/design/lernen-20261104/figma-alltag-save-error.png",
+      "sha256": "df0fd1b6a6ab2207a222c94894054a163337768ab1f76cc6fb3007583d3c5a79"
+    },
+    {
+      "path": "docs/design/lernen-20261104/figma-alltag-topics.png",
+      "sha256": "df6745d6de0499966824d9b821a7c6a8ac0578d2a954fc4ace34c783cb651638"
+    },
+    {
+      "path": "docs/design/lernen-20261104/figma-alltag-writing.png",
+      "sha256": "e02904f360d6a2b74be452783d89b8753548a5a327ddfe85b75b048613464a9d"
+    },
+    {
+      "path": "docs/design/lernen-20261104/figma-grammar-plan.png",
+      "sha256": "835d640addd72c376003bd83f12ce8ea1297dbb819ac02ce8f896bdc5af847ff"
+    },
+    {
+      "path": "docs/design/lernen-20261104/figma-nuancen-catalog.png",
+      "sha256": "f887bd69385b815c5cc8e3224882752fa4403f175a1f74b6734744bd537e4219"
+    },
+    {
+      "path": "docs/design/lernen-20261104/figma-nuancen-question.png",
+      "sha256": "6b1f763070c80cffe2dd6890f6445190cb61bb6a1b5e00905d4eb6520302c386"
+    },
+    {
+      "path": "docs/design/lernen-20261104/figma-nuancen-speed.png",
+      "sha256": "609d0aea4af1b9c2c793a4c1ef62a825863e6c25197e5e7f81c8c927757fe57a"
+    },
+    {
+      "path": "docs/design/lernen-20261104/figma-nuancen-study.png",
+      "sha256": "7a00dc80386a19747cfb0ba845acefd41c673baf6c249e4452f382c9480a54c3"
+    },
+    {
+      "path": "docs/design/lernen-20261104/native-alltag-dialog.png",
+      "sha256": "71b83992fd3738e2d10bd11374e7b9feb9647349700395ed449dab6d645937f9"
+    },
+    {
+      "path": "docs/design/lernen-20261104/native-alltag-roleplay-approved-turn.png",
+      "sha256": "444e1d54cf2dd53cb3b0f2a3eb1898b5c7543e6b461e038c42b34ef2a346fe62"
+    },
+    {
+      "path": "docs/design/lernen-20261104/native-alltag-roleplay-assembled.png",
+      "sha256": "1c4777f46f1bd0f7735adca174c64c0c6ce9cbb85fcf0d4e28e059189e121cc0"
+    },
+    {
+      "path": "docs/design/lernen-20261104/native-alltag-roleplay-initial.png",
+      "sha256": "1f4359855f6ef05c18aa1f7ac7ce6f0405ba9a1fb0f3a5cb6579ef80b972d5c1"
+    },
+    {
+      "path": "docs/design/lernen-20261104/native-alltag-roleplay-large-qa.png",
+      "sha256": "b63cf88aff394d46a16c4f9184616b08102d70a15605f2c8db72860c8efb43db"
+    },
+    {
+      "path": "docs/design/lernen-20261104/native-alltag-save-error.png",
+      "sha256": "754d2384d842c7f4e9edc8b96da1b337258a9af3785c4e308eed12301975e5e9"
+    },
+    {
+      "path": "docs/design/lernen-20261104/native-alltag-topics.png",
+      "sha256": "4774e1fbd6a80475685920dcfb4c3d1245dccdbb611ef6fc131ac3fba6d6f45b"
+    },
+    {
+      "path": "docs/design/lernen-20261104/native-alltag-writing.png",
+      "sha256": "fb8c23f47f1072db3e6505d3fb9ee01fb134b34878571e3e0b9a41b476cd9c52"
+    },
+    {
+      "path": "docs/design/lernen-20261104/native-grammar-explanation.png",
+      "sha256": "ad37a1ccdd227e7d487f556a640adb32373a86a5986ea4595cf3c51f56b7b008"
+    },
+    {
+      "path": "docs/design/lernen-20261104/native-grammar-plan.geometry.json",
+      "sha256": "2944d7ce5f104ab3f49897503ac798fb2ea450626bee61a6b23c85c2e1f9c138"
+    },
+    {
+      "path": "docs/design/lernen-20261104/native-grammar-plan.png",
+      "sha256": "5793b88d8aff6e27084cbda5306c332b3de9b5ef079f303cb827982a4fa2c6c1"
+    },
+    {
+      "path": "docs/design/lernen-20261104/native-nuancen-catalog.png",
+      "sha256": "e53bab080db4a6dabdc52a61ae30b125057ea15cf3aaab81f0987522cdf9b293"
+    },
+    {
+      "path": "docs/design/lernen-20261104/native-nuancen-question.png",
+      "sha256": "82a15a86dc619ff093b67a14eb6f6bc5fffc3dc9e5aab0552334abb10e997a45"
+    },
+    {
+      "path": "docs/design/lernen-20261104/native-nuancen-study.png",
+      "sha256": "34c144a0dc6b65e9e42a33d63d9ff222edba28e721de8450467c2c219efd163e"
+    }
+  ],
+  "unverified": [
+    "physical device render/audio/keyboard and background interruption",
+    "all course/Can-Do/persona states as image captures",
+    "store release"
+  ],
+  "previousApk": "The 722dac7 debug APK documented in LERNEN_VERIFICATION_20261104.json predates this delta; not used as proof of the current source.",
+  "verifiedAt": "2026-11-04T10:17:11.154Z",
+  "review": {
+    "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/final-current-review.json",
+    "sha256": "50e676eabf0aa68f7b0b3d92b679e53f61eeb315476a93a625d5c54fe2104117",
+    "openFindings": 0,
+    "remoteCI": "pending exact-head checks",
+    "headerWrapAddendum": {
+      "path": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/header-wrap-review.json",
+      "sha256": "92a93ca8bc9afd6ce6823df374c2b557d045d2f5d5a24d9d639aa8de88ab6109",
+      "status": "no_actionable_findings"
+    }
+  },
+  "graph": {
+    "nodes": 64808,
+    "edges": 93073,
+    "communities": 1816,
+    "astOnly": true,
+    "sourceMtimeDrift": 0,
+    "pruneRemovedBytes": 0,
+    "updateLog": "C:/dev/hangulsori/_codex_artifacts/lernen-full-ui-20261104/header-wrap-graphify.log",
+    "updateLogSha256": "e54fc47c41fa17cce6295db4f050cd202f4e4b972013e8d2349deaeb9fc01cc7",
+    "mode": "AST-only; no paid model labeling"
+  }
+}

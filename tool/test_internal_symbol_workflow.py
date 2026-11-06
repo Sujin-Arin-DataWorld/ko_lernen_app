@@ -86,6 +86,18 @@ class InternalSymbolWorkflowTest(unittest.TestCase):
         self.assertIn('verify_android_artwork_delivery.py', gate['run'])
         self.assertIn('--dimensions=ABI', gate['run'])
         self.assertIn('--apks "$measurement/size.apks"', gate['run'])
+        self.assertIn('javac --release 17', gate['run'])
+        self.assertLess(gate['run'].index('AndroidArtworkMarkerTest'),
+                        gate['run'].index('verify_android_artwork_delivery.py'))
+        self.assertIn('artwork_manifest=android/c_artwork/artwork_manifest.tsv', gate['run'])
+        self.assertIn('"$aab" "$measurement/size.apks" "$artwork_manifest"', gate['run'])
+        self.assertIn('--artwork-manifest "$artwork_manifest"', gate['run'])
+        source = steps[names.index('Verify exact artwork manifest before building')]
+        self.assertLess(names.index(source['name']), names.index('Build signed public-testing bundle'))
+        self.assertNotIn('if', source)
+        self.assertNotIn('continue-on-error', source)
+        self.assertIn('set -euo pipefail', source['run'])
+        self.assertIn('python3 tool/android_artwork_manifest.py --check', source['run'])
 
     def test_public_failed_marker_retains_exact_diagnostics_without_enabling_upload(self):
         public = yaml.safe_load((ROOT / '.github/workflows/play_closed.yml').read_text())

@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 /// AGENTS.md's "UI 루트 증거" bullet). This is a lightweight directory scan,
 /// not a golden-file diff: it only confirms each captured root still has at
 /// least one non-empty PNG on disk with the
-/// `sori-stage-<root>-<width>[-<state>].png` naming convention, so a
+/// `sori-{stage|shell}-<root>-<width>[-<state>].png` naming convention, so a
 /// careless rename/delete can't silently drop a root's evidence from the
 /// repository.
 ///
@@ -33,7 +33,7 @@ void main() {
       const roots = ['today', 'learn', 'games', 'hanok', 'gye'];
       const requiredRoots = roots;
       final namePattern = RegExp(
-        r'^sori-stage-(today|learn|games|hanok|gye)-\d+(-[a-z]+(?:-[a-z]+)*)?\.png$',
+        r'^sori-(?:stage|shell)-(today|learn|games|hanok|gye)-\d+(?:-[a-z0-9]+)*\.png$',
       );
 
       final byRoot = <String, List<File>>{for (final root in roots) root: []};
@@ -54,7 +54,7 @@ void main() {
         isEmpty,
         reason:
             "These docs/screenshots/*.png files don't follow the "
-            '`sori-stage-<root>-<width>[-<state>].png` naming convention: '
+            '`sori-{stage|shell}-<root>-<width>[-<state>].png` naming convention: '
             '${malformed.join(', ')}',
       );
 
