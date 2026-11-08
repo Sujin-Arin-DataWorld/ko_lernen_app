@@ -165,3 +165,102 @@ Re-read live source occurrences of 심지/등불/등잔 across canon, note and n
 Bounded plan **PASS for source consistency**: treat this C candidate's desk/one-note/wood-lantern arrangement as provisional continuity reference only; generate B with the same lantern/desk before any note exists, show old wick ignition or visible aged fibre-wick flame through an open access panel/simple inner lamp dish, correct 도깨비 speaker, exact lamp dialogue/Weiter, no recognizable invented facade or rewards. Re-open B and compare lamp/desk to C. This is not canon promotion of the new lantern, user approval, or permission to claim the unobserved mechanism already passed. Preserve one same lamp and one same note through C/D/E/F after that baseline passes.
 
 Packaging clarification from parent: 853×1843 is an internal baseline, not a user-mandated exact pixel count. C's 853×1844 is one extra pixel (0.054% height) with near-identical aspect and no observed story/copy defect. **Accepted within explicitly documented 1px internal tolerance**; do not regenerate/crop/stretch solely for that pixel. Initial strict packaging-failure recommendation is withdrawn on this clarified gate; actual dimensions remain recorded and are never called exact 853×1843. The substantial R24a V2 aspect failure remains a different case.
+
+## Addendum: R26d and R26e actual output postflight
+
+Opened both actual images and compared them with the previously opened C image rather than relying on their filenames.
+
+| Scene | Actual output | SHA-256 | Dimensions |
+|---|---|---|---|
+| R26d | `C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-0bff9f3f-8131-4d91-8da1-032d93072dbc.png` | `247c684c6dad9ce84a376e0003d61a3f04faf68e700198f04fda213c4b427f73` | 853×1843 RGB |
+| R26e | `C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-b55492fb-ecbb-45f3-9825-9b72d44d6add.png` | `549033e86922d0c7484d65e717bf057c2ee24887d339279df881d5da4445e6c5` | 853×1844 RGB; accepted documented 1px tolerance |
+
+R26d **PASS story/copy/state and local prop continuity**. Exact 시스템 label; KO `아직 쪽지 보관을 확인하지 못했어요. 방금 쓴 내용은 그대로 두고 다시 확인할게요.`; DE `Es ist noch nicht bestätigt, dass der Zettel aufbewahrt wurde. Deine Eingabe bleibt erhalten; wir prüfen es noch einmal.`; CTA Noch einmal versuchen. One same 집 note on same carved wood desk with same lit floral lantern/inkstone. Hands/brush naturally absent after writing; no erased content, duplicate note, save-success icon, reward or building rollback. This is retry/unconfirmed, not confirmed storage.
+
+R26e **PASS story/copy/state and local prop continuity**. Exact 시스템; KO `집이라고 적힌 첫 쪽지를 서안에 남겼어요.`; DE `Der erste Zettel mit dem Wort 집 liegt jetzt auf dem Schreibpult.`; CTA Weiter. Same single 집 note/desk/lantern/inkstone, no duplication/new container/reward. Depicted scenario requires actual successful storage response, as source says; image itself is not a runtime storage test. D and E are response branches, not two successive saves.
+
+## Addendum: matched-lantern R26b candidate
+
+Opened `C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-9e833d4a-315a-4f6c-96e1-dbeaa12e2e04.png`; SHA-256 `a5402496abc71155721ada7b0fbdbc5faf9d35a9b12dea90afbeb289cb5a6834`; actual **935×1682**.
+
+**Story-state/copy/continuity candidate consistent; overall HOLD for substantial aspect/cropping design failures.** Exact 도깨비 label, source KO/DE and Weiter; no note exists yet on same carved desk. Same floral wood/hanji lantern style as C/D/E, open access door showing a flame atop supported small inner lamp; character looks toward lamp, holds door edge and rests other hand on desk. Dark unfocused background, no recognizable new facade. Flame mechanism is now visibly a small inner lamp rather than an unexplained electric glow; its actual historic age cannot be pixel-certified. No new sender/Yeoni clue/reward. This provides reviewed continuity evidence only; it is not a final passed B and cannot override packaging/crop hold. Re-open final B independently before whole B→C→D/E→F sequence completion is claimed.
+
+## Addendum: R26g V1 and R26f V1 actual output postflight
+
+Both actual images opened. Reviewed against their source rows and the already opened A2/C/D/E, not merely the output names.
+
+| Scene | Actual output | SHA-256 | Dimensions |
+|---|---|---|---|
+| R26g | `C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-bb3250f3-46b0-423e-97b3-f873c973966a.png` | `f5f0180fbe0f3463b95f5a5b93fa01e074ab3ca755c4ba4fb6b32e984418b5a8` | 853×1843 RGB |
+| R26f | `C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-a68bb969-2d09-49f4-9196-7035020b59d0.png` | `800fcbe4dac3d28b6d8081362dcc8c8210030293f1fc6549ed0e7fe351efec39` | 853×1843 RGB |
+
+R26g **PASS story/copy/state/props**. Exact 시스템; KO `괜찮아요. 같은 자리에서 다시 시작할 수 있어요.`; DE `Das ist in Ordnung. Du kannst an derselben Stelle weitermachen.`; CTA Zurück in den Hof. Same intact thin grey practice ledger, same 연습 기록 heading, 집 left/blank right, same worn practice table and ruined flowers/tiles environment as A2. No lit completed-room lamp, official loose note, reset/penalty/reward or save success. Correct representative N-WAIT→stop branch; it is not subsequent completion after F.
+
+R26f **PASS story/copy/state, narrative prop continuity compatible**. Exact 탈선비; KO `처음 쓴 낱말이 ‘집’이라니, 허허, 좋은 시작일세.`; DE `Dein erstes geschriebenes Wort ist 집. Hoho, ein guter Anfang.`; CTA Zurück in den Hof. Tal faces player with open free hand and supports bamboo-painted fan in other hand. One rough-edged cream paper with one black brush 집 remains on a floral-carved wood desk; same floral wood/hanji lit lantern. No second note, additional words/date/signature, new bookmark object, container, reward or extra save.
+
+Continuity evidence is more than word equality: hand-torn cream sheet material/proportion, single bold brush word, supported tabletop placement, matching floral drawer carving and matching floral lantern all persist. Camera is recomposed, so edges/ink are not directly registered and no exact physical/pixel identity is certified. No replacement/duplication event or contradiction is visible. Treat this as a compatible static depiction of the already-kept note, not proof of stored bytes or every paper fibre. Character mask/identity is a separate design gate; static narrative PASS does not substitute for that check. N-LAMP final candidate still needs the held ratio/crop issues resolved before the whole sequence is marked complete.
+
+## Addendum: R23 V4 and R25 V1 fresh actual output postflight
+
+| Scene | Actual output opened | SHA-256 | Dimensions |
+|---|---|---|---|
+| R23 V4 | `C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-a57dade5-b7ad-45cd-a072-1c0cdd2883ae.png` | `862e06705554751acb99c27ecd48b325e2f2e053cf4cdeba125e11e333fe3957` | 853×1843 RGB |
+| R25 V1 | `C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-3855b35a-a9e8-4e9b-a59f-c1065734a97d.png` | `fe964c070dbfab3383a3052e7dd4cec710106ac79b4007664edc5ae4b32a7da7` | 853×1843 RGB |
+
+R23 V4 **PASS fresh story/copy/state postflight**. Exact 시스템, `여기까지 했어요. 다음에 이곳부터 이어갈 수 있어요.`, `Bis hierhin bist du gekommen. Hier kannst du nächstes Mal weitermachen.`, Weitermachen. All five companions present, with distributed attention: Sujin toward Tal, Dokkaebi toward study materials, Joy near Dokkaebi; Tal/Taego outward. Not all camera-facing or celebrating. Existing supported old book left 아/right blank, ruined stone court, no new dialogue, completed construction, gift/reward/counter. Confirmed-save scenario remains preconditioned, not proof of runtime. Canonical proportions/anatomy/Joy/entire-cast gate still needs the independent character-design verdict; V1's full-cast hold is not automatically cleared just by this story PASS.
+
+R25 V1 **PASS story/copy/props/state**. Exact 탈선비, KO `문 하나에도 이름이 있으면 길이 되는군.`, DE `Selbst ein Tor wird zu einem Weg, wenn es einen Namen hat.`, Weiter. Four correctly spelled labels 문·방·길·마당 are already fixed on one loose plain paper route schematic held from below. No answer choices, drag prompts, score, question or permanent carved building sign. Tal addresses outward with open free hand; Sujin supports closed red book and looks toward the route direction. Unfinished timber gate work area, not a completed gate panorama or new outer monumental gate. No storm/footsteps/shadow/E04/30%/completed construction/reward. A fixed schematic result does not itself assert actual route-unlock execution, and source fallback of explanatory guide remains available. No book single-character substitution for the route-label event.
+
+## Addendum: R27a V1 actual output postflight
+
+Opened `C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-7a2fef7d-3a36-4303-9782-6993548871f7.png`; SHA-256 `c648a6b8f70559753a9f1a859422d9cc5ae8a2f8805635d0112e8e321f14cf6e`; actual 853×1843 RGB.
+
+**PASS story/copy/state/props**. Exact 도깨비 speaker; KO `오늘은 내가 문지기다. 누가 왔는지 들어 볼까?`; DE `Heute bin ich der Torwächter. Mal hören, wer da ist.`; Weiter. Existing Dokkaebi playfully spreads both arms in threshold, with two feet grounded. Sujin smiles toward him and supports closed red book. Club's heavy end on ground, leaning by left post, not floating while both hands are open. Generic unfinished timber threshold with no full newly completed facade. No new guard NPC, forgotten relationship, real-name demand, question/score UI, memory storm/30%, repair/reward or gate-completion mark. Depicted mainline role-play entry is compatible with manuscript's middle milestone; not evidence of actual milestone execution. R27b must preserve this gate/set-down-club continuity and reserve its praise for actual re-question/repeat path, with help path independently available.
+
+## Final four actual postflights
+
+Opened all four actual outputs independently. Earlier pending/hold statuses are superseded only for these exact final hashes, not for their failed predecessors.
+
+| Scene | Actual output opened | SHA-256 | Dimensions |
+|---|---|---|---|
+| R24b V2 | `C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-6306b6ba-7eb0-4f3b-9572-02887b73ed31.png` | `cf139e83e1fe9722a5b4d67916236bc37d6f7bab18d35de0c2bdab7eceb17b36` | 853×1843 RGB |
+| R25 V2 | `C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-a04133cd-4425-4e9d-b4c1-7d6632728e9a.png` | `5e1e2e55db2bc614c4ba63d5b574e2b7e5e921bdfd3d740b75002a8d08b7150f` | 853×1843 RGB |
+| R26b V7 | `C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-b8c231f4-8bae-4602-a74b-a6050799db22.png` | `cc6616f5287f813b0a5172b97bf10606238689b100a01cc504fe3294ce2ae5f1` | 853×1843 RGB |
+| R27b V1 | `C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-9c4f4042-a7bd-4635-b70e-6cf654b4052f.png` | `5c1da8e3f745a2ebf2220079fdd165c26ed2bc735bbf71bc663285a26cbd55a7` | 852×1846 RGB |
+
+R24b V2 **PASS story/copy/state/props**. Exact 수진 label now present with full source KO/DE and Weiter. Sujin observes small empty fabric bag, Joy's beak visibly contacts rim, open interior empty; Dokkaebi surprised/reaches rather than already clutching it. Required three cast present, bird tail now fully within canvas. Same nameless old box/discovery area, no seeds/sender/Yeoni/letter/reward. This is BUILD_FINISHED/story-ready discovery, not a reward for seven completed lessons. Detailed canonical bird anatomy remains separate design gate.
+
+R25 V2 **PASS fresh story/copy/state/props**. Same exact 탈선비/source KO/DE/Weiter, four correctly spelled fixed schematic labels, hand support, unfinished threshold, no new unlock/quiz/permanent sign/history event. Sujin's head/eyes now toward guide, strengthening shared attention; no added story event through that acting edit. Supersedes V1 as final selection without rewriting its prior bounded PASS observations.
+
+R26b V7 **PASS fresh story/copy/state/prop continuity**. Exact 도깨비, `드디어 이 집에 다시 불이 켜지는구나!`, `Endlich brennt in diesem Haus wieder Licht!`, Weiter. One supported floral wood/hanji lantern and same floral-carved desk, open access panel exposing flame in a supported small inner lamp; no official note yet. Character attends to lamp, holds panel, other hand on desk; dark bokeh and no recognizable invented facade. Complete lamp and tabletop framing now visible. The old-wick fact is source-bound rather than pixel-certified age, with visible flame mechanism consistent with it. No reward/success or new sender clue. It supplies the missing preceding lamp-state baseline for C/D/E/F; closed panel thereafter is ordinary state continuity, not a new lamp.
+
+R27b V1 **PASS story/copy/state/props and A→B threshold continuity**. Exact 도깨비; KO `잘 물었다. 모르면 다시 물어도 되는 거다.`; DE `Gut nachgefragt. Wenn du etwas nicht weißt, darfst du noch einmal fragen.`; CTA Zurück in den Hof. Same timber threshold, flowers/stone ground and club stably set down by left post; Dokkaebi moves to left edge with two grounded feet and open arm showing clear passage. Sujin remains familiar/smiling with supported red book. No new guard, attack/defeat/reward, key, E04 storm/30%, building completion or late latch repair. This depicts manuscript mainline after actual re-question and full repeat; image cannot prove those actions occurred, and no-assessment help branch must not reuse unearned praise.
+
+R27b actual 852×1846 differs from internal 853×1843 baseline by about 0.28% in aspect ratio. Parent clarified baseline is not a user-mandated pixel count and accepts this near-identical generated canvas without crop/stretch. No narrative/copy defect from this size was observed; record real dimensions and never label it exact 853×1843. Native touch/spacing is still unverified.
+
+## Aggregate 15-state story flow verdict
+
+**PASS: 15 selected static story-state images have individually observed source/copy/state postflight, subject to independent character/design review and the limits below.** Count is 14 new state images plus 1 existing R22; bilingual KO+DE within new images does not double image counts. This is not 52-unit learning-screen coverage, all-manuscript-dialogue PNG coverage, all Season 1 ending coverage, runtime storage/build validation, user approval, native/device QA or release.
+
+Final selected story versions: R21b V8; existing R22 V4; R23 V4; R24a V4; R24b V2; R25 V2; R26a V2; R26b V7; R26c V1; R26d V1; R26e V1; R26f V1; R26g V1; R27a V1; R27b V1. Exact paths/hashes/dimensions are in their observed postflights and machine-readable companion `STORY_AGGREGATE_20261108.json`.
+
+Flow audit, checked against original manuscript and actual selected outputs:
+
+1. **First-book save branch:** R21b closes name-addressing dialogue; save response owns the branch. Unconfirmed/failure → R22 retry retaining 아; confirmed → R23 C-SAVE/return/resume with companions. R22→R23 is conditional on actual confirmation, not an unconditional next-screen success. No save can reconstruct the ruined buildings.
+2. **Storeroom separation:** R24a is the initial unfinished-material/label request; R24b is a later actual BUILD_FINISHED/S1-E03-ready discovery of empty bag. Lesson participation/completion and generic Weiter never manufacture BUILD_FINISHED, E03, memory percentage or rewards.
+3. **Gate separation:** R25 is the BUILD_STARTED fixed guide-label result; explanatory guide does not prove real route unlock. R27 is a separately gated middle milestone, with E04/storm/30% reserved for later completion. R25→R27 is not auto-completion or a newly implemented route.
+4. **Draft/wait/pause branch:** R26a preserves practice 집 while Sarangchae/story readiness is not met. Choosing stop → R26g, retaining the same separate grey practice record and incomplete environment. Resume returns to existing owner state; G is not forced after F. Neither A nor G depicts official kept note, lamp completion, forfeiture/reset or bonus.
+5. **Official note branch:** only actual BUILD_FINISHED/ready permits R26b lamp → R26c same-word official note. Actual storage response selects R26d pending/retry OR R26e kept; retry retains one same note. Only confirmed E leads to R26f Tal bookmark dialogue. No storage claim is inferred from C or D, no second note/reward created, and practice/other words never overwrite the official one-word 집 note. Same floral lantern/desk and single rough cream sheet sustain narrative continuity; exact pixel/fibre identity and real storage are not claimed.
+6. **Gatekeeper branch:** R27a introduces familiar Dokkaebi's role play. Mainline request/repaired hearing/full repeated `이쪽으로 오너라. / Komm hier entlang.` precedes R27b praise and stepping aside. Manuscript assistance route remains available, with independent speech unassessed and no mandatory real name/speech score/six-unit-perfect gate. Selected B is not mislabeled as universal help-route outcome.
+
+All selected images preserve one current speaker/system state and one primary story action, with next action represented by source-bound CTA. No exercise UI, invented progress/currency/ownership or regenerated common cloud/settings/coin was observed. Failed candidates remain failed in this report. Static AI story PASS does not waive any independent character/anatomy/design failure and is never promoted to human localization or image approval.
+
+## Final live rehash and session continuity
+
+Final selected 15 images were rehashed from actual files after all postflights; hashes remain exactly those observed above. Machine-readable final inventory was written to `C:/dev/hangulsori/_codex_artifacts/season1-completion-20261106/review/STORY_AGGREGATE_20261108.json`, containing all 15 exact paths/hashes/dimensions, source expected/actual hashes and live Git snapshots.
+
+At final recheck the content worktree remains clean at `e5f77c9440d8d10d74c3ae1780cc0c94897c39d1`. **All ten original manuscript/content hashes and SCOPE still match the initial exact source hashes.** Gate and exact-story manuscript requirements were not replaced with remembered summaries.
+
+Design worktree is now clean at **`ba96c866d2e50b07d22b7de23a62f2f812b6c3eb`**, advanced by concurrent parent work from initial `0ccabfe290e0f7dad49bde0eb1c51758d13136ea`. Exactly one declared ancillary source changed: final-selection README SHA from `538db1700528a4b1732849b1b49f9f94ff39987d0ce192aa5130338b4998809d` to **`97eb8fb3f0c822682399ddf9942f461e09c300870f85465b5f11070743e3f51a`**. Read exact live Git diff: adds ten lines linking the continuation package and reporting its intermediate four-of-fifteen reviewed status; original historical November4 text remains unchanged. This is reviewed progress-document drift, **not manuscript/copy/state drift**, and was not silently claimed as hash match. Parent may subsequently publish newer completion status; that document's intermediate count is not the final observed 15-state verdict here.
+
+This reviewer mutated only the external artifact review report/inventory/change-check outputs, not repository files. Final source and file snapshots reflect this check time; later hash changes need a new limited review rather than automatic PASS inheritance.
