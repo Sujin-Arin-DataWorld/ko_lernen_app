@@ -1,0 +1,73 @@
+{
+  "reviewer": "/root/character_design_guard_v7",
+  "date": "2026-11-08",
+  "request_sha256": "7a4574f8631f05a7c151a31644a88c031fd3bdf6c555ccf60bc1c3f5bdfa9a31",
+  "supersedes": "V1 brief-only and V2 interim readiness records; current live updated request controls",
+  "scenes": [
+    {
+      "id": "R23",
+      "status": "PASS_EXACT_PROMPT_FOR_GENERATION",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R23_REQUEST_REVIEW_V3.json"
+    },
+    {
+      "id": "R24a_request",
+      "status": "PASS_EXACT_PROMPT_FOR_GENERATION",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R24a_request_REQUEST_REVIEW_V3.json"
+    },
+    {
+      "id": "R24b_discovery",
+      "status": "PASS_EXACT_PROMPT_FOR_GENERATION",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R24b_discovery_REQUEST_REVIEW_V3.json"
+    },
+    {
+      "id": "R25_labels",
+      "status": "HOLD_CANONICAL_GATE_GUIDE_EVIDENCE",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R25_labels_REQUEST_REVIEW_V3.json"
+    },
+    {
+      "id": "R26a_draft_wait",
+      "status": "PASS_EXACT_PROMPT_BASE_CROP",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R26a_draft_wait_REQUEST_REVIEW_V3.json"
+    },
+    {
+      "id": "R26b_lamp",
+      "status": "PASS_EXACT_PROMPT_BASE_CROP",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R26b_lamp_REQUEST_REVIEW_V3.json"
+    },
+    {
+      "id": "R26c_write",
+      "status": "PASS_EXACT_PROMPT_BASE_CROP",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R26c_write_REQUEST_REVIEW_V3.json"
+    },
+    {
+      "id": "R26d_pending",
+      "status": "QUEUED_AWAIT_REVIEWED_R26C_REFERENCE",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R26d_pending_REQUEST_REVIEW_V3.json"
+    },
+    {
+      "id": "R26e_kept",
+      "status": "QUEUED_AWAIT_REVIEWED_R26C_REFERENCE",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R26e_kept_REQUEST_REVIEW_V3.json"
+    },
+    {
+      "id": "R26f_bookmark",
+      "status": "QUEUED_AWAIT_REVIEWED_R26E_REFERENCE",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R26f_bookmark_REQUEST_REVIEW_V3.json"
+    },
+    {
+      "id": "R26g_pause",
+      "status": "QUEUED_AWAIT_REVIEWED_R26A_REFERENCE",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R26g_pause_REQUEST_REVIEW_V3.json"
+    },
+    {
+      "id": "R27a_entry",
+      "status": "HOLD_CANONICAL_GATE_EVIDENCE",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R27a_entry_REQUEST_REVIEW_V3.json"
+    },
+    {
+      "id": "R27b_step_aside",
+      "status": "QUEUED_AWAIT_GATE_AND_R27A_REFERENCE",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R27b_step_aside_REQUEST_REVIEW_V3.json"
+    }
+  ]
+}

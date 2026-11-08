@@ -1,0 +1,48 @@
+{
+  "book": {
+    "source": "C:/Users/vjinn/AppData/Local/Temp/codex-clipboard-6c87b7c7-c637-4912-a211-3f1a94abfb6c.png",
+    "preserved_file": "references/user-open-book-table.png",
+    "sha256": "f9f7edb925e6767df3d19756a4f28f488c60e973677fd3063186af2a7df4fbe8",
+    "authority": "user_provided_prop_reference_not_replacement_character_canon",
+    "source_pages": "both blank",
+    "output_state": "existing restored 아 on left, right blank"
+  },
+  "copy": {
+    "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-integration-20261102/docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/README.md",
+    "sha256": "f39cf6e56e0115e8095e1057a2485ddecade03e384f9ad0119316cbf0bd1aa74",
+    "lines": [
+      39,
+      51,
+      58
+    ],
+    "de_body": "Es ist noch nicht bestätigt, dass dein Fortschritt gespeichert wurde. Wir prüfen es noch einmal.",
+    "de_cta": "Noch einmal versuchen",
+    "new_ui_summary": "Noch nicht bestätigt"
+  },
+  "canvas_reference": {
+    "source": "C:/Users/vjinn/AppData/Local/Temp/codex-clipboard-b4dbae6a-f831-470c-a786-deac70dcf4f3.png",
+    "preserved_file": "references/tall-canvas-reference-only.png",
+    "sha256": "9f2106f54eaa8e4c45f4f9bb8b9039959d7e2f8319b0a97d84242a6f59cb2bb1",
+    "dimensions": [
+      853,
+      1843
+    ],
+    "authority": "canvas_shape_only_not_UI_or_architecture_canon",
+    "excluded_content": [
+      "clouds",
+      "settings",
+      "coin",
+      "restoration_counter",
+      "island_architecture",
+      "English_copy",
+      "Sarangchae_label",
+      "closed_book",
+      "secondary_link"
+    ]
+  },
+  "gold_cta": {
+    "source": "C:/dev/hangulsori/_codex_artifacts/season1-story-image-revision-20261102/references/canonical/assets/ui/approved-gold-cta.png",
+    "sha256": "5857e3e341e4281f0f1133bb44bbf20593b7f1f928f4557d670619badea0c923",
+    "role": "material_reference_in_v1_not_byte_exact_compositing"
+  }
+}

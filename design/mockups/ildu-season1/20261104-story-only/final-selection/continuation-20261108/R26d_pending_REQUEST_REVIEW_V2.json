@@ -1,0 +1,23 @@
+{
+  "reviewer": "/root/character_design_guard_v7",
+  "date": "2026-11-08",
+  "id": "R26d_pending",
+  "status": "HOLD_CONTINUITY_REFERENCE",
+  "request_source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\REQUESTS_20261108.json",
+  "request_sha256": "7a4574f8631f05a7c151a31644a88c031fd3bdf6c555ccf60bc1c3f5bdfa9a31",
+  "prompt_sha256": "ec96abda4efd020c76fb1ff7351635c718b30867e831e03acd3eb01afce61c8c",
+  "embedded_scene_exact_match": true,
+  "copy_exact_match": true,
+  "references": [
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-illustration-spec-20261103\\design\\mockups\\ildu-season1\\20261104-story-only\\final-selection\\R22-save-unconfirmed-de.png",
+      "exists": true,
+      "sha256": "841979563167f299c86bc202e65b451b3b520935ff8935f69972fe17ea75f40c"
+    }
+  ],
+  "corrections": "Only UI ref exists. Attach reviewed R26c actual output for identical single 집 note, desk, lamp and position. It is insufficient to independently regenerate those from text and claim continuity. No new architecture; completed stage maintained, not rolled back. Exact long copy must fit without shrinking unreadably.",
+  "common_wrapper_review": "853x1843, C teal/hanji/gold, exact KO+DE and single CTA, no clouds/settings/coins/tabs, no learning UI, cast-only, static scenario limit all acceptable. Art64/panel36 is a target only; longest copy must fit legibly and feet stay unobscured. Make reference roles explicit rather than calling architecture/prop/identity references immutable in every detail.",
+  "postflight_required": true,
+  "user_approval": false,
+  "runtime_verified": false
+}

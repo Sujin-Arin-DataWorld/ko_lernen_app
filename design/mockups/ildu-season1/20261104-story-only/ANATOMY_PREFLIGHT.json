@@ -1,0 +1,16 @@
+{
+  "id": "TAEGO-R21b-ANATOMY-01",
+  "type": "identity-preserve",
+  "status": "PREFLIGHT_REVIEWED_GENERATION_PENDING",
+  "reviewer": "/root/character_design_guard",
+  "refRoles": [
+    "approved body design; lower-left WELCOME figure only",
+    "approved facial structure/material reference; not a new expression"
+  ],
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/canonical/ensemble/20261103-taego-design/taego-body-design.png",
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/canonical/ensemble/20261103-taego-design/taego-face-design.png"
+  ],
+  "prompt": "Use case: identity-preserve.\nCreate ONE re-rendered transparent full-body candidate based ONLY on the lower-left WELCOME rendered tiger in reference image 1. This is a faithful production asset, not a new character design, and not a sheet or pixel-identical crop. Reference image 2 is facial structure and material guidance only: do not combine expressions or change the WELCOME mouth state, head angle or gaze.\nPreserve that specific three-quarter standing Taego: head and forequarters at left, long adult body extending right, tail curving to the right. Exactly TWO forelegs and TWO hindlegs. Each must form one anatomically continuous silhouette and stripe flow from its correct shoulder or pelvis region, through elbow/wrist or knee/hock, to its OWN independent paw. Four actual legs and four independent paws. Show background gaps between the two hind lower legs and between the two hind paws. Do not merely append a fourth paw, fuse limbs, hide a missing limb behind a fur curtain, crop the hindquarters or overlap one leg completely behind another.\nAll four paws bear weight naturally on the same implied flat ground plane; natural perspective staggering, not forced onto one pixel row. Full ear tips, long ribcage, tucked waist, separate pelvis, all four legs and paws, one complete ringed tail and tail tip contained with about 8 percent transparent outer margin. Preserve source body proportions. No bear barrel body, cub legs, lion mane, enlarged head or shortened hindbody.\nSame approved face: broad feline cheeks, two distinct whisker pads, white chin, short broad pink-brown nose, clear blue-gray irises with dark round pupils and subtle catchlights; gentle guardian attentiveness. Preserve source small mouth opening, no invented grin or wider mouth. Same directional ivory fur, charcoal tiger stripes, and ONE three-curl teal-and-gold badge on the anatomical LEFT chest.\nOutput a single high detail full-body tiger asset on TRUE transparent alpha background. No environment, floor, pedestal, humans, other characters, objects, UI, labels, shadows drawn as a floor, aura, text, opaque background or painted checkerboard. Do not include any other views from the reference sheets.",
+  "transparent": true
+}

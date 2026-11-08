@@ -1,0 +1,76 @@
+{
+  "checked_utc": "2026-11-03T12:20:09.097943+00:00",
+  "base_commit": "35442814ceb4cebcee9e90942668033f04419974",
+  "scope": "Documentation integrity, unchanged numeric source, source/output hashes and local links. Not new image or geometry approval.",
+  "required_documents": {
+    "README.md": {
+      "lines": 104,
+      "bytes": 13059,
+      "sha256": "26678960de271994021986c96cab9dfe1261cf1920b33805fd95db5f95c8a960"
+    },
+    "MEASUREMENTS.md": {
+      "lines": 74,
+      "bytes": 7235,
+      "sha256": "db4bbfa3cd9de2009a93ae1bcd31863068f8e0ee3c123ef02b2d70ea14652890"
+    },
+    "SUJIN.md": {
+      "lines": 82,
+      "bytes": 10254,
+      "sha256": "8936eaf040040cebad9245ca5510d28f86afa7a927a6ee9f2c06de5109913e49"
+    },
+    "DOKKAEBI.md": {
+      "lines": 103,
+      "bytes": 11453,
+      "sha256": "ba854bc75f7fa0d2ec64323ac09656217ecc4b41b67204cf625680481bf13fdf"
+    },
+    "JOY.md": {
+      "lines": 268,
+      "bytes": 37063,
+      "sha256": "ae2dcbae27010a5a1db3ad09255d9ec949881cdba7b129a1c266fbca65d1ec05"
+    },
+    "TAEGO.md": {
+      "lines": 234,
+      "bytes": 33085,
+      "sha256": "425116b5c2ce739cfa111a46b6d37e307c9e62b21ffc077dad5f0de306615e70"
+    },
+    "TALSUNBI.md": {
+      "lines": 141,
+      "bytes": 19375,
+      "sha256": "69b5a5be5ca76febd4b08a6f0a35062d9d12a6e233e31656c32db746f1a694f1"
+    },
+    "YEONI.md": {
+      "lines": 160,
+      "bytes": 24101,
+      "sha256": "100578cb886854f94825ad69cc4b768291e226348ca8ad1b68d3b344d9be9d38"
+    },
+    "ACTING_MECHANICS.md": {
+      "lines": 95,
+      "bytes": 11663,
+      "sha256": "1eee23ca43bb5b886ffcd99d5df6d67c0bd64add4c7d4319c9442b7646d26402"
+    },
+    "SHOT_REVIEW_20261103.md": {
+      "lines": 53,
+      "bytes": 6509,
+      "sha256": "6a140bbaecdf9ff08d9e02c46bf604c70dcbe5d79e7e5da06ff34697dc292e24"
+    },
+    "QA.md": {
+      "lines": 91,
+      "bytes": 7928,
+      "sha256": "2ab9fde34bc3e0b4f93bdc915f0b1406b71ca42cc2a736329ed2445c6f40f8f3"
+    },
+    "SESSION_FINDINGS.md": {
+      "lines": 57,
+      "bytes": 8385,
+      "sha256": "40e5576c0d2b32bd1cede30fbbe5986d6886860ae71a34980f1c2c057babe26b"
+    }
+  },
+  "numeric_rows_verified": 46,
+  "approved_profile_byte_unchanged": true,
+  "broken_local_links": [],
+  "trailing_whitespace": [],
+  "past_output_records": 43,
+  "past_scene_copy_hash_failures": [],
+  "current_shot_input_hashes_verified": 2,
+  "acting_contract_required_reads_verified": true,
+  "current_task_image_generations": 0
+}

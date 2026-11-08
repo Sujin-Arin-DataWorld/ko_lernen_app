@@ -1,0 +1,74 @@
+{
+  "reviewer": "/root/character_design_guard_v7",
+  "date": "2026-11-08",
+  "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\STORY_COPY.json",
+  "source_sha256": "ec74e76a0bad2b185ae6beddc6de83a8cc9f2bcec5c0e756865dba095bd473fe",
+  "status": "PASS_DESIGN_BRIEF_ONLY_AWAIT_FINAL_PROMPT",
+  "scenes": [
+    {
+      "image_key": "R23",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R23_DESIGN_PREFLIGHT_V1.md",
+      "status": "PASS_DESIGN_BRIEF_ONLY_AWAIT_FINAL_PROMPT"
+    },
+    {
+      "image_key": "R24a_request",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R24a_request_DESIGN_PREFLIGHT_V1.md",
+      "status": "PASS_DESIGN_BRIEF_ONLY_AWAIT_FINAL_PROMPT"
+    },
+    {
+      "image_key": "R24b_discovery",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R24b_discovery_DESIGN_PREFLIGHT_V1.md",
+      "status": "PASS_DESIGN_BRIEF_ONLY_AWAIT_FINAL_PROMPT"
+    },
+    {
+      "image_key": "R25_labels",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R25_labels_DESIGN_PREFLIGHT_V1.md",
+      "status": "PASS_DESIGN_BRIEF_ONLY_AWAIT_FINAL_PROMPT"
+    },
+    {
+      "image_key": "R26a_draft_wait",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R26a_draft_wait_DESIGN_PREFLIGHT_V1.md",
+      "status": "PASS_DESIGN_BRIEF_ONLY_AWAIT_FINAL_PROMPT"
+    },
+    {
+      "image_key": "R26b_lamp",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R26b_lamp_DESIGN_PREFLIGHT_V1.md",
+      "status": "PASS_DESIGN_BRIEF_ONLY_AWAIT_FINAL_PROMPT"
+    },
+    {
+      "image_key": "R26c_write",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R26c_write_DESIGN_PREFLIGHT_V1.md",
+      "status": "PASS_DESIGN_BRIEF_ONLY_AWAIT_FINAL_PROMPT"
+    },
+    {
+      "image_key": "R26d_pending",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R26d_pending_DESIGN_PREFLIGHT_V1.md",
+      "status": "PASS_DESIGN_BRIEF_ONLY_AWAIT_FINAL_PROMPT"
+    },
+    {
+      "image_key": "R26e_kept",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R26e_kept_DESIGN_PREFLIGHT_V1.md",
+      "status": "PASS_DESIGN_BRIEF_ONLY_AWAIT_FINAL_PROMPT"
+    },
+    {
+      "image_key": "R26f_bookmark",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R26f_bookmark_DESIGN_PREFLIGHT_V1.md",
+      "status": "PASS_DESIGN_BRIEF_ONLY_AWAIT_FINAL_PROMPT"
+    },
+    {
+      "image_key": "R26g_pause",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R26g_pause_DESIGN_PREFLIGHT_V1.md",
+      "status": "PASS_DESIGN_BRIEF_ONLY_AWAIT_FINAL_PROMPT"
+    },
+    {
+      "image_key": "R27a_entry",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R27a_entry_DESIGN_PREFLIGHT_V1.md",
+      "status": "PASS_DESIGN_BRIEF_ONLY_AWAIT_FINAL_PROMPT"
+    },
+    {
+      "image_key": "R27b_step_aside",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\review\\R27b_step_aside_DESIGN_PREFLIGHT_V1.md",
+      "status": "PASS_DESIGN_BRIEF_ONLY_AWAIT_FINAL_PROMPT"
+    }
+  ]
+}

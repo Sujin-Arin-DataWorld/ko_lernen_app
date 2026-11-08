@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-03",
+  "assets": [
+    {
+      "id": "approved-face",
+      "file": "taego-face-design.png",
+      "source": "C:/dev/hangulsori/_codex_artifacts/taego-joy-acting-refinement-20261103/design-sheet-v1/taego-design-sheet-v1.png",
+      "authority": "user_approved_design",
+      "sha256": "570bc17bb9d16ed8a035880db8a60aebd7544ec44550b97160cda9feda2c7c77",
+      "bytes": 2484072,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixel_fraction": 0.451514
+    },
+    {
+      "id": "approved-body",
+      "file": "taego-body-design.png",
+      "source": "C:/dev/hangulsori/_codex_artifacts/taego-joy-acting-refinement-20261103/body-design-sheet-v1/taego-body-design-sheet-v1.png",
+      "authority": "user_approved_design",
+      "sha256": "c68f9d43959eeb1812762291642ef6b4b9cf80668b657cbc5377d14d1c2c546c",
+      "bytes": 2235092,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixel_fraction": 0.585259
+    },
+    {
+      "id": "expressions-8",
+      "file": "taego-expressions-8.png",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-eae2c91c-7aad-46d3-b671-f5b0d8baeac4.png",
+      "authority": "production_reference_under_explicit_registration_request",
+      "sha256": "1d2fb86f0aed522ad83a61a1c1518770d8b7789ebbf1e6a30d35960f0465c10a",
+      "bytes": 2726132,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixel_fraction": 0.296134
+    },
+    {
+      "id": "poses-6",
+      "file": "taego-poses-6.png",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-ebd69769-bdf0-4f83-928d-7e233f0d09f5.png",
+      "authority": "production_reference_under_explicit_registration_request",
+      "sha256": "01a927a15568eb1eb61ce12be487b01f5c38be06058a11e2ad38ee59b0e2355b",
+      "bytes": 2334462,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixel_fraction": 0.520241
+    }
+  ]
+}
