@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-08",
+  "scope_total": 15,
+  "passed_including_existing_r22": 4,
+  "new_passed": [
+    {
+      "id": "R21b",
+      "file": "R21b-first-book-closing-de-v8.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-9cf5ab89-4dee-4969-bac0-9f8d94826f61.png",
+      "sha256": "b4ce9c4a42a650cf6ff8e63872f7fb901b66e59e83f671290375e8a2a907fd44",
+      "size": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "status": "independent_static_design_and_story_pass_user_approval_pending"
+    },
+    {
+      "id": "R24a_request",
+      "file": "R24a-materials-request-de-v4.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-ccab549a-ecdf-47cd-8ac2-71bc63b18d50.png",
+      "sha256": "592353791c1f68a43e6b9a059181a16da10bb0daf4d33efb441541efb55a0877",
+      "size": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "status": "independent_static_design_and_story_pass_user_approval_pending"
+    },
+    {
+      "id": "R26a_draft_wait",
+      "file": "R26a-practice-record-de-v2.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-7aa1c9d8-9bca-4613-b3cf-708935382c65.png",
+      "sha256": "7488735ab99e45f95b62af4c744bc12d26b00fac9771632e3e656ead360bf88b",
+      "size": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "status": "independent_static_design_and_story_pass_user_approval_pending"
+    }
+  ],
+  "existing_passed": [
+    "R22"
+  ],
+  "remaining": [
+    "R23",
+    "R24b_discovery",
+    "R25_labels",
+    "R26b_lamp",
+    "R26c_write",
+    "R26d_pending",
+    "R26e_kept",
+    "R26f_bookmark",
+    "R26g_pause",
+    "R27a_entry",
+    "R27b_step_aside"
+  ],
+  "release_state": "in_progress_not_complete",
+  "limits": [
+    "not user approval",
+    "not canon promotion",
+    "not runtime/device proof",
+    "no main merge or cleanup until full completion"
+  ]
+}
