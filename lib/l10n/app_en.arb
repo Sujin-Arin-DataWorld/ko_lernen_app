@@ -5805,5 +5805,73 @@
   "grammarPlanSaveErrorTitle": "Progress not saved",
   "grammarPlanSelectionRetained": "Your selection is kept.",
   "wordWebCloseConfirmBody": "Your progress in this round will be lost if you return to the word list.",
-  "wordWebCloseConfirmLeave": "Back to word list"
+  "wordWebCloseConfirmLeave": "Back to word list",
+  "wortpaketeOverview": "Your vocabulary",
+  "wortpaketeChooseLevel": "Choose a level",
+  "wortpaketeSearchAll": "Search for a topic or word",
+  "wortpaketeSearchLevel": "Search {level}",
+  "@wortpaketeSearchLevel": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "wortpaketeTopics": "Topics",
+  "wortpaketeAllTopics": "Show all topics",
+  "wortpaketeOpenPack": "Open pack",
+  "wortpaketeNoResults": "No matching topics or words",
+  "wortpaketePacks": "{count, plural, one{1 pack} other{{count} packs}}",
+  "@wortpaketePacks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wortpaketeWords": "{count, plural, one{1 word} other{{count} words}}",
+  "@wortpaketeWords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wortpaketeSearchClear": "Clear search",
+  "wortpaketePackNumber": "Pack {number}",
+  "@wortpaketePackNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "wortpaketeLevelGoalA1": "First conversations",
+  "wortpaketeLevelGoalA2": "Handle daily life",
+  "wortpaketeLevelGoalB1": "Share experiences",
+  "wortpaketeLevelGoalB2": "Explain and discuss",
+  "wortpaketeLevelGoalC1": "Argue precisely",
+  "wortpaketeLevelGoalC2": "Distinguish meanings",
+  "wortpaketeLevelHintA1": "Greetings · Food · Daily life",
+  "wortpaketeLevelHintA2": "Home · Clothing · Work",
+  "wortpaketeLevelHintB1": "Work · Media · Society",
+  "wortpaketeLevelHintB2": "Society · Environment · Ideas",
+  "wortpaketeLevelHintC1": "Research · Risk · Participation",
+  "wortpaketeLevelHintC2": "Interpretation · Memory · Ethics",
+  "wortpaketeTopicName": "{topic, select, a1_greetings{Greetings & politeness} a1_food{Food & drink} a1_home_daily{Home & daily life} a1_transport{Transport} a2_home{Home} a2_clothing{Clothing} a2_restaurant{At the restaurant} a2_work{Work} b1_work_career{Career & office} b1_media_culture{Media & culture} b1_tech_society{Technology & society} b1_city_places{City & places} b2_society{Society} b2_thinking{Reasoning} b2_environment{Environment} b2_work{Work} c1_evidence_reasoning{Research & evidence} c1_accessible_participation{Participation} c1_risk_communication{Risk communication} c1_sustainable_tradeoffs{Sustainability} c2_language_framing{Language & framing} c2_narrative_perspective{Narrative perspective} c2_institutional_mediation{Mediation} c2_technology_ethics{Technology ethics} other{}}",
+  "@wortpaketeTopicName": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "wortpaketeTopicGoal": "{topic, select, a1_greetings{Greet and thank} a1_food{Name food and drinks} a1_home_daily{Talk about daily life} a1_transport{Name means of transport} a2_home{Describe rooms} a2_clothing{Name clothing} a2_restaurant{Talk about ingredients} a2_work{Discuss work schedules} b1_work_career{Describe work experience} b1_media_culture{Describe media content} b1_tech_society{Talk about posts} b1_city_places{Describe places} b2_society{Put conflicts in context} b2_thinking{Justify viewpoints} b2_environment{Discuss environmental impacts} b2_work{Discuss contracts} c1_evidence_reasoning{Evaluate studies} c1_accessible_participation{Identify barriers to access} c1_risk_communication{Express uncertainty} c1_sustainable_tradeoffs{Weigh downstream costs} c2_language_framing{Recognize framing} c2_narrative_perspective{Reflect on memory} c2_institutional_mediation{Negotiate interests} c2_technology_ethics{Assess decisions} other{}}",
+  "@wortpaketeTopicGoal": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  }
 }

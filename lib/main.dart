@@ -928,6 +928,10 @@ class _KoLernenAppState extends State<KoLernenApp> with WidgetsBindingObserver {
                   courseContext: packCourseContext,
                 ),
                 settings: settings,
+                entranceDuration:
+                    settings.arguments is VocabCatalogPackArguments
+                    ? const Duration(milliseconds: 220)
+                    : null,
               );
             case '/vocab/result':
               return SoriTransitions.page(

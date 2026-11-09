@@ -63,7 +63,11 @@ void main() {
     WordRelationService.resetForTesting();
   });
 
-  for (final size in [const Size(390, 844), const Size(320, 640)]) {
+  for (final size in [
+    const Size(390, 844),
+    const Size(430, 932),
+    const Size(320, 640),
+  ]) {
     for (final scale in [1.0, 1.6]) {
       testWidgets(
         'Nuancen $size scale $scale choice feedback result and clearance',

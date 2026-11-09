@@ -14,6 +14,7 @@ import '../services/pack_progress_service.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/storage_service.dart';
 import '../services/vocab_pack_service.dart';
+import '../services/data_loader.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/app_bar.dart';
@@ -21,13 +22,21 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
-import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pack_card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
+import '../widgets/sori/approved_chrome_assets.dart';
+import '../widgets/sori/c_learning_surface.dart';
+import '../widgets/sori/learning_stage_navigation.dart';
+import '../widgets/sori/level_filter_bar.dart';
+import '../widgets/sori/pressable.dart';
+import '../widgets/sori/sheet.dart';
+import '../widgets/sori/study_frame.dart';
+
+part 'wortpakete_catalog.dart';
 
 /// **Vocab Packs Screen** — Phase 2 의 새 vocab 진입 화면.
 ///
@@ -57,6 +66,9 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   String _level = 'A1';
   List<({VocabPack pack, PackProgress progress})> _packs = [];
   String? _loadError;
+  int _loadGeneration = 0;
+  bool _openingPack = false;
+  List<VocabPack> _catalog = const [];
   CourseMissionStep? _missionStep;
   String? _missionTitle;
 
@@ -79,12 +91,28 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   }
 
   Future<void> _load() async {
+    final generation = ++_loadGeneration;
+    final level = _level;
     setState(() {
       _loading = true;
       _loadError = null;
     });
     try {
-      final packs = await PackProgressService.loadLevelView(_level);
+      final corpus = await VocabPackService.loadForDisplay();
+      if (!mounted || generation != _loadGeneration) {
+        return;
+      }
+      if (!corpus.isAvailable) {
+        setState(() {
+          _loading = false;
+          _loadError = AppL10n.of(context).loadErrorTryAgain;
+        });
+        return;
+      }
+      final packs = await PackProgressService.loadLevelView(level);
+      if (!mounted || generation != _loadGeneration) {
+        return;
+      }
       // 지시서 검수#21 표준팩 소급 복구(검수 라운드1 반영): vokSeenIds 는 이미
       // 정직하게 쌓였는데 PackProgress.wordsLearned 만 어긋난(과거 "3/9 멈춤")
       // 팩을 여기서 재동기화한다. wordsLearnedIn 은 순수 유도값이라 매번 다시
@@ -107,6 +135,9 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
             entry.pack,
       ];
       for (var i = 0; i < staleDelta.length; i += _backfillChunkSize) {
+        if (!mounted || generation != _loadGeneration) {
+          return;
+        }
         await Future.wait(
           staleDelta
               .skip(i)
@@ -118,7 +149,9 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
       final catalog = courseUnitId == null
           ? null
           : await CurriculumCatalog.load();
-      if (!mounted) return;
+      if (!mounted || generation != _loadGeneration) {
+        return;
+      }
       final languageCode = Localizations.localeOf(context).languageCode;
       final contentIds = catalog == null
           ? const <String>{}
@@ -166,12 +199,15 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                 .pick(languageCode);
       setState(() {
         _packs = scoped;
+        _catalog = corpus.packs;
         _missionStep = missionStep;
         _missionTitle = missionTitle;
         _loading = false;
       });
     } catch (_) {
-      if (!mounted) return;
+      if (!mounted || generation != _loadGeneration) {
+        return;
+      }
       setState(() {
         _loading = false;
         _loadError = AppL10n.of(context).loadErrorTryAgain;
@@ -179,39 +215,55 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     }
   }
 
+  Future<void> _retry() {
+    if (DataLoader.vocabError != null) {
+      DataLoader.resetVocab();
+      VocabPackService.reset();
+    }
+    return _load();
+  }
+
   Future<void> _switchLevel(String level) async {
-    if (_courseUnitId != null) return;
-    if (level == _level) return;
-    HapticService.selectionClick();
-    await Storage.setBrowseLevelCode(
-      (LearnerLevel.fromCode(level) ?? LearnerLevel.a1).code,
-    );
-    if (!mounted) return;
+    if (_isScoped || level == _level) {
+      return;
+    }
+    final code = LearnerLevel.fromCode(level)?.code;
+    if (code == null) {
+      return;
+    }
     setState(() => _level = level);
-    await _load();
+    await Future.wait([Storage.setBrowseLevelCode(code), _load()]);
   }
 
   void _onPackTap(VocabPack pack) {
     _openPack(pack);
   }
 
-  void _openPack(VocabPack pack) {
+  Future<void> _openPack(VocabPack pack) async {
+    if (_openingPack) {
+      return;
+    }
+    _openingPack = true;
     final courseContext = vocabCourseContextForPack(
       courseContext: widget.courseContext,
       contentIds: pack.words.map((word) => word.id),
     );
-    Navigator.of(context)
-        .pushNamed(
-          '/vocab/pack',
-          arguments: vocabPackRouteArguments(
-            packId: pack.id,
-            courseContext: courseContext,
-          ),
-        )
-        .then((_) {
-          // 복귀 시 진행도 새로고침 — 학습/보스 진행 반영.
-          if (mounted) _load();
-        });
+    try {
+      await Navigator.of(context).pushNamed(
+        '/vocab/pack',
+        arguments: _isScoped
+            ? vocabPackRouteArguments(
+                packId: pack.id,
+                courseContext: courseContext,
+              )
+            : VocabCatalogPackArguments(pack.id),
+      );
+      if (mounted) {
+        await _load();
+      }
+    } finally {
+      _openingPack = false;
+    }
   }
 
   /// 미션 경로로 진입해 팩이 미션 그래프 링크로 좁혀진 상태인지.
@@ -235,6 +287,19 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
 
+    if (!_isScoped) {
+      return _WortpaketeCatalog(
+        packs: _catalog,
+        browseLevel: _level,
+        loading: _loading,
+        loadError: _loadError,
+        onRetry: _retry,
+        onLevel: _switchLevel,
+        onPack: _openPack,
+        onDojang: () => Navigator.of(context).pushNamed('/dojangcheop'),
+      );
+    }
+
     if (_loading) {
       return Scaffold(
         appBar: SoriAppBar(
@@ -252,7 +317,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
           textScale: MediaQuery.textScalerOf(context).scale(1),
           viewportWidth: MediaQuery.sizeOf(context).width,
         ),
-        body: AppError(message: _loadError!, onRetry: _load),
+        body: AppError(message: _loadError!, onRetry: _retry),
       );
     }
 
@@ -299,17 +364,6 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                               _missionTitle ?? t.courseMissionTitleShort,
                           step: step,
                         ),
-                      ),
-                    ),
-                  if (_courseUnitId == null)
-                    SliverToBoxAdapter(
-                      child: SoriLevelFilterBar(
-                        selected: _level.toLowerCase(),
-                        onChanged: (level) {
-                          if (level != null) {
-                            _switchLevel(level.toUpperCase());
-                          }
-                        },
                       ),
                     ),
                   SliverToBoxAdapter(

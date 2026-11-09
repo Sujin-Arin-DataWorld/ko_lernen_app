@@ -5987,5 +5987,73 @@
   "grammarPlanSaveErrorTitle": "Fortschritt nicht gespeichert",
   "grammarPlanSelectionRetained": "Deine Auswahl bleibt erhalten.",
   "wordWebCloseConfirmBody": "Dein Fortschritt in dieser Runde geht verloren, wenn du zur Wortliste zurückkehrst.",
-  "wordWebCloseConfirmLeave": "Zur Wortliste"
+  "wordWebCloseConfirmLeave": "Zur Wortliste",
+  "wortpaketeOverview": "Dein Wortschatz",
+  "wortpaketeChooseLevel": "Wähle ein Niveau",
+  "wortpaketeSearchAll": "Thema oder Wort suchen",
+  "wortpaketeSearchLevel": "In {level} suchen",
+  "@wortpaketeSearchLevel": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "wortpaketeTopics": "Themen",
+  "wortpaketeAllTopics": "Alle Themen anzeigen",
+  "wortpaketeOpenPack": "Paket öffnen",
+  "wortpaketeNoResults": "Keine passenden Themen oder Wörter",
+  "wortpaketePacks": "{count, plural, one{1 Paket} other{{count} Pakete}}",
+  "@wortpaketePacks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wortpaketeWords": "{count, plural, one{1 Wort} other{{count} Wörter}}",
+  "@wortpaketeWords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wortpaketeSearchClear": "Suche löschen",
+  "wortpaketePackNumber": "Paket {number}",
+  "@wortpaketePackNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "wortpaketeLevelGoalA1": "Erste Gespräche",
+  "wortpaketeLevelGoalA2": "Alltag meistern",
+  "wortpaketeLevelGoalB1": "Erfahrungen austauschen",
+  "wortpaketeLevelGoalB2": "Begründen & diskutieren",
+  "wortpaketeLevelGoalC1": "Präzise argumentieren",
+  "wortpaketeLevelGoalC2": "Bedeutung differenzieren",
+  "wortpaketeLevelHintA1": "Begrüßung · Essen · Alltag",
+  "wortpaketeLevelHintA2": "Wohnen · Kleidung · Beruf",
+  "wortpaketeLevelHintB1": "Arbeit · Medien · Gesellschaft",
+  "wortpaketeLevelHintB2": "Gesellschaft · Umwelt · Denken",
+  "wortpaketeLevelHintC1": "Forschung · Risiko · Teilhabe",
+  "wortpaketeLevelHintC2": "Deutung · Erinnerung · Ethik",
+  "wortpaketeTopicName": "{topic, select, a1_greetings{Begrüßung & Höflichkeit} a1_food{Essen & Trinken} a1_home_daily{Zuhause & Alltag} a1_transport{Verkehr & Bewegung} a2_home{Wohnen} a2_clothing{Kleidung} a2_restaurant{Im Restaurant} a2_work{Beruf} b1_work_career{Karriere & Büro} b1_media_culture{Medien & Kultur} b1_tech_society{Technologie & Gesellschaft} b1_city_places{Stadt & Orte} b2_society{Gesellschaft} b2_thinking{Denken} b2_environment{Umwelt} b2_work{Beruf} c1_evidence_reasoning{Forschung & Evidenz} c1_accessible_participation{Teilhabe} c1_risk_communication{Risiko­kommunikation} c1_sustainable_tradeoffs{Nachhaltigkeit} c2_language_framing{Sprache & Deutung} c2_narrative_perspective{Erzählperspektive} c2_institutional_mediation{Vermittlung} c2_technology_ethics{Technikethik} other{}}",
+  "@wortpaketeTopicName": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "wortpaketeTopicGoal": "{topic, select, a1_greetings{Grüßen und danken} a1_food{Essen und Getränke benennen} a1_home_daily{Über den Alltag sprechen} a1_transport{Verkehrsmittel benennen} a2_home{Räume beschreiben} a2_clothing{Kleidung benennen} a2_restaurant{Über Zutaten sprechen} a2_work{Arbeitstermine besprechen} b1_work_career{Berufserfahrungen schildern} b1_media_culture{Medieninhalte beschreiben} b1_tech_society{Über Beiträge sprechen} b1_city_places{Orte beschreiben} b2_society{Konflikte einordnen} b2_thinking{Standpunkte begründen} b2_environment{Umweltfolgen diskutieren} b2_work{Verträge besprechen} c1_evidence_reasoning{Studien beurteilen} c1_accessible_participation{Zugangshürden benennen} c1_risk_communication{Unsicherheit benennen} c1_sustainable_tradeoffs{Folgekosten abwägen} c2_language_framing{Framing erkennen} c2_narrative_perspective{Erinnerung reflektieren} c2_institutional_mediation{Interessen verhandeln} c2_technology_ethics{Entscheidungen prüfen} other{}}",
+  "@wortpaketeTopicGoal": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  }
 }

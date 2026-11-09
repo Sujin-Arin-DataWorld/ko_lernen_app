@@ -21335,6 +21335,162 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Zur Wortliste'**
   String get wordWebCloseConfirmLeave;
+
+  /// No description provided for @wortpaketeOverview.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Wortschatz'**
+  String get wortpaketeOverview;
+
+  /// No description provided for @wortpaketeChooseLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle ein Niveau'**
+  String get wortpaketeChooseLevel;
+
+  /// No description provided for @wortpaketeSearchAll.
+  ///
+  /// In de, this message translates to:
+  /// **'Thema oder Wort suchen'**
+  String get wortpaketeSearchAll;
+
+  /// No description provided for @wortpaketeSearchLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'In {level} suchen'**
+  String wortpaketeSearchLevel(String level);
+
+  /// No description provided for @wortpaketeTopics.
+  ///
+  /// In de, this message translates to:
+  /// **'Themen'**
+  String get wortpaketeTopics;
+
+  /// No description provided for @wortpaketeAllTopics.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Themen anzeigen'**
+  String get wortpaketeAllTopics;
+
+  /// No description provided for @wortpaketeOpenPack.
+  ///
+  /// In de, this message translates to:
+  /// **'Paket öffnen'**
+  String get wortpaketeOpenPack;
+
+  /// No description provided for @wortpaketeNoResults.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine passenden Themen oder Wörter'**
+  String get wortpaketeNoResults;
+
+  /// No description provided for @wortpaketePacks.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{1 Paket} other{{count} Pakete}}'**
+  String wortpaketePacks(int count);
+
+  /// No description provided for @wortpaketeWords.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{1 Wort} other{{count} Wörter}}'**
+  String wortpaketeWords(int count);
+
+  /// No description provided for @wortpaketeSearchClear.
+  ///
+  /// In de, this message translates to:
+  /// **'Suche löschen'**
+  String get wortpaketeSearchClear;
+
+  /// No description provided for @wortpaketePackNumber.
+  ///
+  /// In de, this message translates to:
+  /// **'Paket {number}'**
+  String wortpaketePackNumber(int number);
+
+  /// No description provided for @wortpaketeLevelGoalA1.
+  ///
+  /// In de, this message translates to:
+  /// **'Erste Gespräche'**
+  String get wortpaketeLevelGoalA1;
+
+  /// No description provided for @wortpaketeLevelGoalA2.
+  ///
+  /// In de, this message translates to:
+  /// **'Alltag meistern'**
+  String get wortpaketeLevelGoalA2;
+
+  /// No description provided for @wortpaketeLevelGoalB1.
+  ///
+  /// In de, this message translates to:
+  /// **'Erfahrungen austauschen'**
+  String get wortpaketeLevelGoalB1;
+
+  /// No description provided for @wortpaketeLevelGoalB2.
+  ///
+  /// In de, this message translates to:
+  /// **'Begründen & diskutieren'**
+  String get wortpaketeLevelGoalB2;
+
+  /// No description provided for @wortpaketeLevelGoalC1.
+  ///
+  /// In de, this message translates to:
+  /// **'Präzise argumentieren'**
+  String get wortpaketeLevelGoalC1;
+
+  /// No description provided for @wortpaketeLevelGoalC2.
+  ///
+  /// In de, this message translates to:
+  /// **'Bedeutung differenzieren'**
+  String get wortpaketeLevelGoalC2;
+
+  /// No description provided for @wortpaketeLevelHintA1.
+  ///
+  /// In de, this message translates to:
+  /// **'Begrüßung · Essen · Alltag'**
+  String get wortpaketeLevelHintA1;
+
+  /// No description provided for @wortpaketeLevelHintA2.
+  ///
+  /// In de, this message translates to:
+  /// **'Wohnen · Kleidung · Beruf'**
+  String get wortpaketeLevelHintA2;
+
+  /// No description provided for @wortpaketeLevelHintB1.
+  ///
+  /// In de, this message translates to:
+  /// **'Arbeit · Medien · Gesellschaft'**
+  String get wortpaketeLevelHintB1;
+
+  /// No description provided for @wortpaketeLevelHintB2.
+  ///
+  /// In de, this message translates to:
+  /// **'Gesellschaft · Umwelt · Denken'**
+  String get wortpaketeLevelHintB2;
+
+  /// No description provided for @wortpaketeLevelHintC1.
+  ///
+  /// In de, this message translates to:
+  /// **'Forschung · Risiko · Teilhabe'**
+  String get wortpaketeLevelHintC1;
+
+  /// No description provided for @wortpaketeLevelHintC2.
+  ///
+  /// In de, this message translates to:
+  /// **'Deutung · Erinnerung · Ethik'**
+  String get wortpaketeLevelHintC2;
+
+  /// No description provided for @wortpaketeTopicName.
+  ///
+  /// In de, this message translates to:
+  /// **'{topic, select, a1_greetings{Begrüßung & Höflichkeit} a1_food{Essen & Trinken} a1_home_daily{Zuhause & Alltag} a1_transport{Verkehr & Bewegung} a2_home{Wohnen} a2_clothing{Kleidung} a2_restaurant{Im Restaurant} a2_work{Beruf} b1_work_career{Karriere & Büro} b1_media_culture{Medien & Kultur} b1_tech_society{Technologie & Gesellschaft} b1_city_places{Stadt & Orte} b2_society{Gesellschaft} b2_thinking{Denken} b2_environment{Umwelt} b2_work{Beruf} c1_evidence_reasoning{Forschung & Evidenz} c1_accessible_participation{Teilhabe} c1_risk_communication{Risiko­kommunikation} c1_sustainable_tradeoffs{Nachhaltigkeit} c2_language_framing{Sprache & Deutung} c2_narrative_perspective{Erzählperspektive} c2_institutional_mediation{Vermittlung} c2_technology_ethics{Technikethik} other{}}'**
+  String wortpaketeTopicName(String topic);
+
+  /// No description provided for @wortpaketeTopicGoal.
+  ///
+  /// In de, this message translates to:
+  /// **'{topic, select, a1_greetings{Grüßen und danken} a1_food{Essen und Getränke benennen} a1_home_daily{Über den Alltag sprechen} a1_transport{Verkehrsmittel benennen} a2_home{Räume beschreiben} a2_clothing{Kleidung benennen} a2_restaurant{Über Zutaten sprechen} a2_work{Arbeitstermine besprechen} b1_work_career{Berufserfahrungen schildern} b1_media_culture{Medieninhalte beschreiben} b1_tech_society{Über Beiträge sprechen} b1_city_places{Orte beschreiben} b2_society{Konflikte einordnen} b2_thinking{Standpunkte begründen} b2_environment{Umweltfolgen diskutieren} b2_work{Verträge besprechen} c1_evidence_reasoning{Studien beurteilen} c1_accessible_participation{Zugangshürden benennen} c1_risk_communication{Unsicherheit benennen} c1_sustainable_tradeoffs{Folgekosten abwägen} c2_language_framing{Framing erkennen} c2_narrative_perspective{Erinnerung reflektieren} c2_institutional_mediation{Interessen verhandeln} c2_technology_ethics{Entscheidungen prüfen} other{}}'**
+  String wortpaketeTopicGoal(String topic);
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

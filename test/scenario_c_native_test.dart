@@ -275,7 +275,11 @@ void main() {
     },
   );
 
-  for (final scale in [1.0, 1.6]) {
+  for (final (size, scale) in [
+    (const Size(402, 874), 1.0),
+    (const Size(430, 932), 1.0),
+    (const Size(320, 640), 1.6),
+  ]) {
     testWidgets(
       'writing source cue stays inside the flat paper at scale $scale',
       (tester) async {
@@ -297,7 +301,7 @@ void main() {
               ),
             ),
           ),
-          size: scale == 1 ? const Size(402, 874) : const Size(320, 640),
+          size: size,
           scale: scale,
         );
         final paper = tester.getRect(
@@ -313,7 +317,7 @@ void main() {
         expect(editable.top, greaterThanOrEqualTo(board.top + 24));
         expect(editable.bottom, lessThanOrEqualTo(board.bottom - 24));
         expect(tester.takeException(), isNull);
-        await _save(tester, 'writing-paper-${scale == 1 ? 402 : 320}-$scale');
+        await _save(tester, 'writing-paper-${size.width.toInt()}-$scale');
       },
     );
     for (final stage in [
@@ -324,7 +328,7 @@ void main() {
       ScenarioStage.rollenspiel,
     ]) {
       testWidgets(
-        'source ${stage.name} ${scale == 1 ? 402 : 320} scale $scale keeps navigation and native content',
+        'source ${stage.name} ${size.width.toInt()} scale $scale keeps navigation and native content',
         (tester) async {
           await _pump(
             tester,
@@ -335,7 +339,7 @@ void main() {
                 resolvedGrammar: [promise],
               ),
             ),
-            size: scale == 1 ? const Size(402, 874) : const Size(320, 640),
+            size: size,
             scale: scale,
           );
           expect(find.byType(SoriLearningStageNavigation), findsOneWidget);
@@ -433,7 +437,7 @@ void main() {
           }
           expect(tester.takeException(), isNull);
           _expectFoldTextOnPaper(tester);
-          await _save(tester, '${stage.name}-${scale == 1 ? 402 : 320}-$scale');
+          await _save(tester, '${stage.name}-${size.width.toInt()}-$scale');
         },
       );
     }

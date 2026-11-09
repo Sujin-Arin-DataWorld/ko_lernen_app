@@ -12,6 +12,7 @@ import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
+import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
@@ -138,6 +139,10 @@ void main() {
             addTearDown(tester.view.resetPhysicalSize);
             addTearDown(tester.view.resetDevicePixelRatio);
 
+            if (screen.key == 'vocab_packs') {
+              VocabPackService.reset();
+              await tester.runAsync(VocabPackService.loadAll);
+            }
             await tester.pumpWidget(_wrap(screen.value()));
             await tester.pump();
             if (screen.key == 'settings') {
@@ -157,21 +162,8 @@ void main() {
               await tester.pump();
             }
             if (screen.key == 'vocab_packs') {
-              await tester.runAsync(() async {
-                final context = tester.element(find.byType(VocabPacksScreen));
-                await precacheImage(
-                  const AssetImage(
-                    'assets/illustrations/hanok/study_classroom.png',
-                  ),
-                  context,
-                );
-              });
-              await tester.pump();
               final context = tester.element(find.byType(VocabPacksScreen));
-              // The hero preload above runs outside fake async. Pack artwork
-              // can otherwise win or lose that same decode race, so compact
-              // and medium capture a different subset of visible images.
-              // Await every mounted Image provider before taking the golden.
+              // Await every artwork provider in the level overview.
               final imageProviders = tester
                   .widgetList<Image>(
                     find.descendant(

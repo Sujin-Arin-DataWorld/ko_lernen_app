@@ -142,6 +142,12 @@ abstract final class SoriMaxWidth {
 /// 창 전체의 size class가 아니라 padding과 clamp를 지난 실제 내부 폭에 쓴다.
 /// 화면 파일에 숫자 비교가 흩어지지 않도록 이곳에서만 관리한다.
 abstract final class SoriAdaptiveWidth {
+  /// Six Wortpakete level targets fit in one row at the approved width.
+  static const double wortpaketeLevelRow = 336;
+
+  /// The approved topic illustration and copy fit in two cards above this width.
+  static const double wortpaketeTopicGrid = 355;
+
   /// Reference onboarding prose remains a single readable phone column.
   static const double onboardingReferenceColumn = 450;
 

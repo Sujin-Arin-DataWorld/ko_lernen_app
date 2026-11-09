@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 /// §B2(2026-09-03) — [lib/widgets/sori/study_frame.dart]'s `SoriStudyFrame`
 /// owns the sole close (X, leading) and home (trailing) actions; it no
-/// longer accepts a custom `leading` widget. This guard pins the 34-screen
+/// longer accepts a custom `leading` widget. This guard pins the screen
 /// inventory, the confirm-before-leaving contract each active screen wires
 /// through `SoriHomeEscape`, and that the pre-§B2 per-screen close-button
 /// builders (`leading: IconButton(...)`, `Icons.arrow_back_ios_new`,
@@ -50,6 +50,7 @@ void main() {
     'lib/screens/word_web_quiz_screen.dart',
     'lib/screens/word_web_screen.dart',
     'lib/screens/word_web_study_screen.dart',
+    'lib/screens/wortpakete_catalog.dart',
   };
   // Embedded scenario exits are owned by onExit; this existing exception uses
   // the approved header directly instead of a StudyFrame wrapper.
@@ -108,6 +109,7 @@ void main() {
     'lib/screens/vocab_pack_result_screen.dart',
     'lib/screens/word_web_screen.dart',
     'lib/screens/word_web_study_screen.dart',
+    'lib/screens/wortpakete_catalog.dart',
   };
 
   test('the StudyFrame inventory stays explicit and complete', () {
@@ -132,7 +134,7 @@ void main() {
 
     expect(actual.intersection(bespokeStudyScreens), isEmpty);
     expect({...actual, ...bespokeStudyScreens}, expectedStudyFrameScreens);
-    expect(expectedStudyFrameScreens, hasLength(34));
+    expect(expectedStudyFrameScreens, hasLength(35));
   });
 
   test('embedded scenario keeps one header-owned home with cleanup', () {
@@ -228,7 +230,7 @@ void main() {
     );
   });
 
-  test('active and static home-escape decisions cover all 34 screens', () {
+  test('active and static home-escape decisions cover the full inventory', () {
     expect(
       activeConfirmContracts.keys.toSet().intersection(
         staticImmediateEscapeScreens,

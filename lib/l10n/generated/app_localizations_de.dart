@@ -12583,4 +12583,160 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get wordWebCloseConfirmLeave => 'Zur Wortliste';
+
+  @override
+  String get wortpaketeOverview => 'Dein Wortschatz';
+
+  @override
+  String get wortpaketeChooseLevel => 'Wähle ein Niveau';
+
+  @override
+  String get wortpaketeSearchAll => 'Thema oder Wort suchen';
+
+  @override
+  String wortpaketeSearchLevel(String level) {
+    return 'In $level suchen';
+  }
+
+  @override
+  String get wortpaketeTopics => 'Themen';
+
+  @override
+  String get wortpaketeAllTopics => 'Alle Themen anzeigen';
+
+  @override
+  String get wortpaketeOpenPack => 'Paket öffnen';
+
+  @override
+  String get wortpaketeNoResults => 'Keine passenden Themen oder Wörter';
+
+  @override
+  String wortpaketePacks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Pakete',
+      one: '1 Paket',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String wortpaketeWords(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Wörter',
+      one: '1 Wort',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get wortpaketeSearchClear => 'Suche löschen';
+
+  @override
+  String wortpaketePackNumber(int number) {
+    return 'Paket $number';
+  }
+
+  @override
+  String get wortpaketeLevelGoalA1 => 'Erste Gespräche';
+
+  @override
+  String get wortpaketeLevelGoalA2 => 'Alltag meistern';
+
+  @override
+  String get wortpaketeLevelGoalB1 => 'Erfahrungen austauschen';
+
+  @override
+  String get wortpaketeLevelGoalB2 => 'Begründen & diskutieren';
+
+  @override
+  String get wortpaketeLevelGoalC1 => 'Präzise argumentieren';
+
+  @override
+  String get wortpaketeLevelGoalC2 => 'Bedeutung differenzieren';
+
+  @override
+  String get wortpaketeLevelHintA1 => 'Begrüßung · Essen · Alltag';
+
+  @override
+  String get wortpaketeLevelHintA2 => 'Wohnen · Kleidung · Beruf';
+
+  @override
+  String get wortpaketeLevelHintB1 => 'Arbeit · Medien · Gesellschaft';
+
+  @override
+  String get wortpaketeLevelHintB2 => 'Gesellschaft · Umwelt · Denken';
+
+  @override
+  String get wortpaketeLevelHintC1 => 'Forschung · Risiko · Teilhabe';
+
+  @override
+  String get wortpaketeLevelHintC2 => 'Deutung · Erinnerung · Ethik';
+
+  @override
+  String wortpaketeTopicName(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'a1_greetings': 'Begrüßung & Höflichkeit',
+      'a1_food': 'Essen & Trinken',
+      'a1_home_daily': 'Zuhause & Alltag',
+      'a1_transport': 'Verkehr & Bewegung',
+      'a2_home': 'Wohnen',
+      'a2_clothing': 'Kleidung',
+      'a2_restaurant': 'Im Restaurant',
+      'a2_work': 'Beruf',
+      'b1_work_career': 'Karriere & Büro',
+      'b1_media_culture': 'Medien & Kultur',
+      'b1_tech_society': 'Technologie & Gesellschaft',
+      'b1_city_places': 'Stadt & Orte',
+      'b2_society': 'Gesellschaft',
+      'b2_thinking': 'Denken',
+      'b2_environment': 'Umwelt',
+      'b2_work': 'Beruf',
+      'c1_evidence_reasoning': 'Forschung & Evidenz',
+      'c1_accessible_participation': 'Teilhabe',
+      'c1_risk_communication': 'Risiko­kommunikation',
+      'c1_sustainable_tradeoffs': 'Nachhaltigkeit',
+      'c2_language_framing': 'Sprache & Deutung',
+      'c2_narrative_perspective': 'Erzählperspektive',
+      'c2_institutional_mediation': 'Vermittlung',
+      'c2_technology_ethics': 'Technikethik',
+      'other': '',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String wortpaketeTopicGoal(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'a1_greetings': 'Grüßen und danken',
+      'a1_food': 'Essen und Getränke benennen',
+      'a1_home_daily': 'Über den Alltag sprechen',
+      'a1_transport': 'Verkehrsmittel benennen',
+      'a2_home': 'Räume beschreiben',
+      'a2_clothing': 'Kleidung benennen',
+      'a2_restaurant': 'Über Zutaten sprechen',
+      'a2_work': 'Arbeitstermine besprechen',
+      'b1_work_career': 'Berufserfahrungen schildern',
+      'b1_media_culture': 'Medieninhalte beschreiben',
+      'b1_tech_society': 'Über Beiträge sprechen',
+      'b1_city_places': 'Orte beschreiben',
+      'b2_society': 'Konflikte einordnen',
+      'b2_thinking': 'Standpunkte begründen',
+      'b2_environment': 'Umweltfolgen diskutieren',
+      'b2_work': 'Verträge besprechen',
+      'c1_evidence_reasoning': 'Studien beurteilen',
+      'c1_accessible_participation': 'Zugangshürden benennen',
+      'c1_risk_communication': 'Unsicherheit benennen',
+      'c1_sustainable_tradeoffs': 'Folgekosten abwägen',
+      'c2_language_framing': 'Framing erkennen',
+      'c2_narrative_perspective': 'Erinnerung reflektieren',
+      'c2_institutional_mediation': 'Interessen verhandeln',
+      'c2_technology_ethics': 'Entscheidungen prüfen',
+      'other': '',
+    });
+    return '$_temp0';
+  }
 }

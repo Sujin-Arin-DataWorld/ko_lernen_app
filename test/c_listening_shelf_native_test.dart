@@ -34,12 +34,18 @@ void main() {
     stubSoriSpeech();
   });
 
-  for (final width in [402.0, 320.0]) {
+  for (final width in [402.0, 430.0, 320.0]) {
     for (final level in ['a1', 'a2', 'b1', 'b2', 'c1', 'c2']) {
       testWidgets(
         '$level shelf at $width keeps all live topics reachable and five actions visible',
         (tester) async {
-          await _pump(tester, lessons, level, width);
+          await _pump(
+            tester,
+            lessons,
+            level,
+            width,
+            height: width == 430 ? 932 : 874,
+          );
           final expected = lessons
               .where((l) => l.level == level)
               .map((l) => l.topicId)

@@ -63,7 +63,11 @@ void main() {
   });
   tearDown(SoundService.resetForTesting);
 
-  for (final size in [const Size(402, 874), const Size(320, 640)]) {
+  for (final size in [
+    const Size(402, 874),
+    const Size(430, 932),
+    const Size(320, 640),
+  ]) {
     for (final scale in [1.0, 1.6]) {
       testWidgets(
         'C grammar $size scale $scale preserves choices, score and CTA clearance',

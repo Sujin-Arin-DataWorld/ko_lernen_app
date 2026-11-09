@@ -77,8 +77,16 @@ class SoriTransitions {
   /// `pageTransitionsTheme`가 실제 애니메이션(플랫폼별 predictive-back/
   /// Cupertino/fade-upwards)을 고르고, 이 헬퍼는 축약-동작 대응만 얹는다 —
   /// [SoriPageRoute] 참고.
-  static Route<T> page<T>(WidgetBuilder builder, {RouteSettings? settings}) {
-    return SoriPageRoute<T>(builder: builder, settings: settings);
+  static Route<T> page<T>(
+    WidgetBuilder builder, {
+    RouteSettings? settings,
+    Duration? entranceDuration,
+  }) {
+    return SoriPageRoute<T>(
+      builder: builder,
+      settings: settings,
+      entranceDuration: entranceDuration,
+    );
   }
 }
 
@@ -88,7 +96,14 @@ class SoriTransitions {
 /// 라우트는 그 위에 축약된 동작(reduce-motion) 시 duration을 0으로 낮추는
 /// 책임만 더한다.
 class SoriPageRoute<T> extends MaterialPageRoute<T> {
-  SoriPageRoute({required super.builder, super.settings, this.reduceMotion});
+  SoriPageRoute({
+    required super.builder,
+    super.settings,
+    this.reduceMotion,
+    this.entranceDuration,
+  });
+
+  final Duration? entranceDuration;
 
   /// 테스트 전용 오버라이드 — 운영 코드는 항상 null을 넘겨
   /// [WidgetsBinding.instance.platformDispatcher.accessibilityFeatures]에서
@@ -104,8 +119,9 @@ class SoriPageRoute<T> extends MaterialPageRoute<T> {
           .disableAnimations;
 
   @override
-  Duration get transitionDuration =>
-      _shouldReduceMotion ? Duration.zero : super.transitionDuration;
+  Duration get transitionDuration => _shouldReduceMotion
+      ? Duration.zero
+      : entranceDuration ?? super.transitionDuration;
 
   @override
   Duration get reverseTransitionDuration =>

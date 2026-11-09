@@ -37,7 +37,6 @@ import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'package:ko_lernen_app/widgets/sori/illustrated_card.dart';
 import 'package:ko_lernen_app/widgets/sori/level_filter_bar.dart';
-import 'package:ko_lernen_app/widgets/sori/pack_card.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
@@ -346,28 +345,24 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('vocab pack cards use a measured one-column grid at 200%', (
+  testWidgets('vocabulary topic cards use a single column at 200%', (
     tester,
   ) async {
     await tester.runAsync(() => VocabPackService.loadAll());
     await _configurePhone(tester);
     await tester.pumpWidget(_host(const VocabPacksScreen()));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
-    final scrollView = find.byType(CustomScrollView);
-    for (
-      var i = 0;
-      i < 20 && find.byType(PackCard).evaluate().isEmpty;
-      i += 1
-    ) {
-      await tester.pump(const Duration(milliseconds: 50));
-      if (scrollView.evaluate().isNotEmpty) {
-        await tester.drag(scrollView, const Offset(0, -120));
-      }
-    }
-
-    expect(find.byType(PackCard), findsWidgets);
-    expect(tester.getSize(find.byType(PackCard).first).width, greaterThan(250));
+    final t = AppL10n.of(tester.element(find.byType(VocabPacksScreen)));
+    final level = find.text(t.wortpaketeLevelGoalA1);
+    await tester.ensureVisible(level);
+    await tester.pumpAndSettle();
+    await tester.tap(level);
+    await tester.pumpAndSettle();
+    final card = find.byKey(const ValueKey('wortpakete-topic-a1_greetings'));
+    await tester.ensureVisible(card);
+    await tester.pumpAndSettle();
+    expect(tester.getSize(card).width, greaterThan(250));
     expect(tester.takeException(), isNull);
   });
 

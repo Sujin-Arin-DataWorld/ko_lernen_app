@@ -6,6 +6,20 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../services/locale_service.dart';
 import 'tokens.dart';
 
+class SoriAppBarAppearance {
+  const SoriAppBarAppearance({
+    required this.toolbarHeight,
+    required this.foregroundColor,
+    required this.titleStyle,
+    required this.background,
+  });
+
+  final double toolbarHeight;
+  final Color foregroundColor;
+  final TextStyle titleStyle;
+  final Widget background;
+}
+
 /// **SoriAppBar** — 공용 앱바 (2026-08-13 UI 개편 Phase 1).
 ///
 /// 저장소의 raw `AppBar(` 105곳이 수렴할 단일 지점. 규칙:
@@ -33,6 +47,7 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.adaptTitleAtNormalScale = false,
     this.titleBelowToolbar = false,
     this.locale,
+    this.appearance,
   });
 
   final String title;
@@ -59,6 +74,9 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// Isolated hosts with a locale separate from the app's LocaleService may
   /// pass it here so PreferredSize measures the same fonts as their context.
   final Locale? locale;
+
+  /// Opt-in presentation for an approved compact study header.
+  final SoriAppBarAppearance? appearance;
 
   // PreferredSize has no BuildContext. Use main.dart's selected/system locale
   // resolution; build itself measures and paints the active context tokens.
@@ -143,6 +161,11 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize {
+    if (appearance case final custom?) {
+      return Size.fromHeight(
+        custom.toolbarHeight + (bottom?.preferredSize.height ?? 0),
+      );
+    }
     final tt = _measurementTypography;
     return !_usesAdaptiveChrome(tt)
         ? Size.fromHeight(kToolbarHeight + (bottom?.preferredSize.height ?? 0))
@@ -155,6 +178,25 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (appearance case final custom?) {
+      return AppBar(
+        backgroundColor: Colors.transparent,
+        foregroundColor: custom.foregroundColor,
+        centerTitle: true,
+        scrolledUnderElevation: 0,
+        toolbarHeight: custom.toolbarHeight,
+        flexibleSpace: custom.background,
+        title: Text(
+          title,
+          textAlign: TextAlign.center,
+          style: custom.titleStyle,
+        ),
+        leading: leading,
+        automaticallyImplyLeading: automaticallyImplyLeading,
+        actions: actions,
+        bottom: bottom,
+      );
+    }
     final tt = SoriTextTheme.of(context);
     if (!_usesAdaptiveChrome(tt)) {
       return AppBar(
