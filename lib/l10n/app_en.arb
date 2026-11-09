@@ -5846,22 +5846,18 @@
       }
     }
   },
-  "wortpaketeLevelGoal": "{level, select, a1{First conversations} a2{Handle daily life} b1{Share experiences} b2{Explain and discuss} c1{Argue precisely} c2{Distinguish meanings} other{}}",
-  "@wortpaketeLevelGoal": {
-    "placeholders": {
-      "level": {
-        "type": "String"
-      }
-    }
-  },
-  "wortpaketeLevelHint": "{level, select, a1{Greetings · Food · Daily life} a2{Home · Clothing · Work} b1{Work · Media · Society} b2{Society · Environment · Ideas} c1{Research · Risk · Participation} c2{Interpretation · Memory · Ethics} other{}}",
-  "@wortpaketeLevelHint": {
-    "placeholders": {
-      "level": {
-        "type": "String"
-      }
-    }
-  },
+  "wortpaketeLevelGoalA1": "First conversations",
+  "wortpaketeLevelGoalA2": "Handle daily life",
+  "wortpaketeLevelGoalB1": "Share experiences",
+  "wortpaketeLevelGoalB2": "Explain and discuss",
+  "wortpaketeLevelGoalC1": "Argue precisely",
+  "wortpaketeLevelGoalC2": "Distinguish meanings",
+  "wortpaketeLevelHintA1": "Greetings · Food · Daily life",
+  "wortpaketeLevelHintA2": "Home · Clothing · Work",
+  "wortpaketeLevelHintB1": "Work · Media · Society",
+  "wortpaketeLevelHintB2": "Society · Environment · Ideas",
+  "wortpaketeLevelHintC1": "Research · Risk · Participation",
+  "wortpaketeLevelHintC2": "Interpretation · Memory · Ethics",
   "wortpaketeTopicName": "{topic, select, a1_greetings{Greetings & politeness} a1_food{Food & drink} a1_home_daily{Home & daily life} a1_transport{Transport} a2_home{Home} a2_clothing{Clothing} a2_restaurant{At the restaurant} a2_work{Work} b1_work_career{Career & office} b1_media_culture{Media & culture} b1_tech_society{Technology & society} b1_city_places{City & places} b2_society{Society} b2_thinking{Reasoning} b2_environment{Environment} b2_work{Work} c1_evidence_reasoning{Research & evidence} c1_accessible_participation{Participation} c1_risk_communication{Risk communication} c1_sustainable_tradeoffs{Sustainability} c2_language_framing{Language & framing} c2_narrative_perspective{Narrative perspective} c2_institutional_mediation{Mediation} c2_technology_ethics{Technology ethics} other{}}",
   "@wortpaketeTopicName": {
     "placeholders": {

@@ -6028,22 +6028,18 @@
       }
     }
   },
-  "wortpaketeLevelGoal": "{level, select, a1{Erste Gespräche} a2{Alltag meistern} b1{Erfahrungen austauschen} b2{Begründen & diskutieren} c1{Präzise argumentieren} c2{Bedeutung differenzieren} other{}}",
-  "@wortpaketeLevelGoal": {
-    "placeholders": {
-      "level": {
-        "type": "String"
-      }
-    }
-  },
-  "wortpaketeLevelHint": "{level, select, a1{Begrüßung · Essen · Alltag} a2{Wohnen · Kleidung · Beruf} b1{Arbeit · Medien · Gesellschaft} b2{Gesellschaft · Umwelt · Denken} c1{Forschung · Risiko · Teilhabe} c2{Deutung · Erinnerung · Ethik} other{}}",
-  "@wortpaketeLevelHint": {
-    "placeholders": {
-      "level": {
-        "type": "String"
-      }
-    }
-  },
+  "wortpaketeLevelGoalA1": "Erste Gespräche",
+  "wortpaketeLevelGoalA2": "Alltag meistern",
+  "wortpaketeLevelGoalB1": "Erfahrungen austauschen",
+  "wortpaketeLevelGoalB2": "Begründen & diskutieren",
+  "wortpaketeLevelGoalC1": "Präzise argumentieren",
+  "wortpaketeLevelGoalC2": "Bedeutung differenzieren",
+  "wortpaketeLevelHintA1": "Begrüßung · Essen · Alltag",
+  "wortpaketeLevelHintA2": "Wohnen · Kleidung · Beruf",
+  "wortpaketeLevelHintB1": "Arbeit · Medien · Gesellschaft",
+  "wortpaketeLevelHintB2": "Gesellschaft · Umwelt · Denken",
+  "wortpaketeLevelHintC1": "Forschung · Risiko · Teilhabe",
+  "wortpaketeLevelHintC2": "Deutung · Erinnerung · Ethik",
   "wortpaketeTopicName": "{topic, select, a1_greetings{Begrüßung & Höflichkeit} a1_food{Essen & Trinken} a1_home_daily{Zuhause & Alltag} a1_transport{Verkehr & Bewegung} a2_home{Wohnen} a2_clothing{Kleidung} a2_restaurant{Im Restaurant} a2_work{Beruf} b1_work_career{Karriere & Büro} b1_media_culture{Medien & Kultur} b1_tech_society{Technologie & Gesellschaft} b1_city_places{Stadt & Orte} b2_society{Gesellschaft} b2_thinking{Denken} b2_environment{Umwelt} b2_work{Beruf} c1_evidence_reasoning{Forschung & Evidenz} c1_accessible_participation{Teilhabe} c1_risk_communication{Risiko­kommunikation} c1_sustainable_tradeoffs{Nachhaltigkeit} c2_language_framing{Sprache & Deutung} c2_narrative_perspective{Erzählperspektive} c2_institutional_mediation{Vermittlung} c2_technology_ethics{Technikethik} other{}}",
   "@wortpaketeTopicName": {
     "placeholders": {

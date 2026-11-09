@@ -35,6 +35,7 @@ Future<T?> showSoriSheet<T>({
   bool isDismissible = true,
   bool enableDrag = true,
   SoriSheetPresentation? presentation,
+  AnimationStyle? animationStyle,
 }) {
   return showModalBottomSheet<T>(
     context: context,
@@ -42,6 +43,7 @@ Future<T?> showSoriSheet<T>({
     useSafeArea: true,
     isDismissible: isDismissible,
     enableDrag: enableDrag,
+    sheetAnimationStyle: animationStyle,
     backgroundColor: presentation?.backgroundColor ?? Colors.transparent,
     constraints: presentation?.constraints,
     shape: presentation?.shape,

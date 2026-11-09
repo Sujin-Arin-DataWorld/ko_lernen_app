@@ -21408,17 +21408,77 @@ abstract class AppL10n {
   /// **'Paket {number}'**
   String wortpaketePackNumber(int number);
 
-  /// No description provided for @wortpaketeLevelGoal.
+  /// No description provided for @wortpaketeLevelGoalA1.
   ///
   /// In de, this message translates to:
-  /// **'{level, select, a1{Erste Gespräche} a2{Alltag meistern} b1{Erfahrungen austauschen} b2{Begründen & diskutieren} c1{Präzise argumentieren} c2{Bedeutung differenzieren} other{}}'**
-  String wortpaketeLevelGoal(String level);
+  /// **'Erste Gespräche'**
+  String get wortpaketeLevelGoalA1;
 
-  /// No description provided for @wortpaketeLevelHint.
+  /// No description provided for @wortpaketeLevelGoalA2.
   ///
   /// In de, this message translates to:
-  /// **'{level, select, a1{Begrüßung · Essen · Alltag} a2{Wohnen · Kleidung · Beruf} b1{Arbeit · Medien · Gesellschaft} b2{Gesellschaft · Umwelt · Denken} c1{Forschung · Risiko · Teilhabe} c2{Deutung · Erinnerung · Ethik} other{}}'**
-  String wortpaketeLevelHint(String level);
+  /// **'Alltag meistern'**
+  String get wortpaketeLevelGoalA2;
+
+  /// No description provided for @wortpaketeLevelGoalB1.
+  ///
+  /// In de, this message translates to:
+  /// **'Erfahrungen austauschen'**
+  String get wortpaketeLevelGoalB1;
+
+  /// No description provided for @wortpaketeLevelGoalB2.
+  ///
+  /// In de, this message translates to:
+  /// **'Begründen & diskutieren'**
+  String get wortpaketeLevelGoalB2;
+
+  /// No description provided for @wortpaketeLevelGoalC1.
+  ///
+  /// In de, this message translates to:
+  /// **'Präzise argumentieren'**
+  String get wortpaketeLevelGoalC1;
+
+  /// No description provided for @wortpaketeLevelGoalC2.
+  ///
+  /// In de, this message translates to:
+  /// **'Bedeutung differenzieren'**
+  String get wortpaketeLevelGoalC2;
+
+  /// No description provided for @wortpaketeLevelHintA1.
+  ///
+  /// In de, this message translates to:
+  /// **'Begrüßung · Essen · Alltag'**
+  String get wortpaketeLevelHintA1;
+
+  /// No description provided for @wortpaketeLevelHintA2.
+  ///
+  /// In de, this message translates to:
+  /// **'Wohnen · Kleidung · Beruf'**
+  String get wortpaketeLevelHintA2;
+
+  /// No description provided for @wortpaketeLevelHintB1.
+  ///
+  /// In de, this message translates to:
+  /// **'Arbeit · Medien · Gesellschaft'**
+  String get wortpaketeLevelHintB1;
+
+  /// No description provided for @wortpaketeLevelHintB2.
+  ///
+  /// In de, this message translates to:
+  /// **'Gesellschaft · Umwelt · Denken'**
+  String get wortpaketeLevelHintB2;
+
+  /// No description provided for @wortpaketeLevelHintC1.
+  ///
+  /// In de, this message translates to:
+  /// **'Forschung · Risiko · Teilhabe'**
+  String get wortpaketeLevelHintC1;
+
+  /// No description provided for @wortpaketeLevelHintC2.
+  ///
+  /// In de, this message translates to:
+  /// **'Deutung · Erinnerung · Ethik'**
+  String get wortpaketeLevelHintC2;
 
   /// No description provided for @wortpaketeTopicName.
   ///

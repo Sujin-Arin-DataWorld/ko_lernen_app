@@ -12641,32 +12641,40 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String wortpaketeLevelGoal(String level) {
-    String _temp0 = intl.Intl.selectLogic(level, {
-      'a1': 'Erste Gespräche',
-      'a2': 'Alltag meistern',
-      'b1': 'Erfahrungen austauschen',
-      'b2': 'Begründen & diskutieren',
-      'c1': 'Präzise argumentieren',
-      'c2': 'Bedeutung differenzieren',
-      'other': '',
-    });
-    return '$_temp0';
-  }
+  String get wortpaketeLevelGoalA1 => 'Erste Gespräche';
 
   @override
-  String wortpaketeLevelHint(String level) {
-    String _temp0 = intl.Intl.selectLogic(level, {
-      'a1': 'Begrüßung · Essen · Alltag',
-      'a2': 'Wohnen · Kleidung · Beruf',
-      'b1': 'Arbeit · Medien · Gesellschaft',
-      'b2': 'Gesellschaft · Umwelt · Denken',
-      'c1': 'Forschung · Risiko · Teilhabe',
-      'c2': 'Deutung · Erinnerung · Ethik',
-      'other': '',
-    });
-    return '$_temp0';
-  }
+  String get wortpaketeLevelGoalA2 => 'Alltag meistern';
+
+  @override
+  String get wortpaketeLevelGoalB1 => 'Erfahrungen austauschen';
+
+  @override
+  String get wortpaketeLevelGoalB2 => 'Begründen & diskutieren';
+
+  @override
+  String get wortpaketeLevelGoalC1 => 'Präzise argumentieren';
+
+  @override
+  String get wortpaketeLevelGoalC2 => 'Bedeutung differenzieren';
+
+  @override
+  String get wortpaketeLevelHintA1 => 'Begrüßung · Essen · Alltag';
+
+  @override
+  String get wortpaketeLevelHintA2 => 'Wohnen · Kleidung · Beruf';
+
+  @override
+  String get wortpaketeLevelHintB1 => 'Arbeit · Medien · Gesellschaft';
+
+  @override
+  String get wortpaketeLevelHintB2 => 'Gesellschaft · Umwelt · Denken';
+
+  @override
+  String get wortpaketeLevelHintC1 => 'Forschung · Risiko · Teilhabe';
+
+  @override
+  String get wortpaketeLevelHintC2 => 'Deutung · Erinnerung · Ethik';
 
   @override
   String wortpaketeTopicName(String topic) {

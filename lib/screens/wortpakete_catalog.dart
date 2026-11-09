@@ -167,6 +167,18 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
   static const _edge = Color(0xffe5d5bc);
   static const _brass = Color(0xffa6783d);
   static const _jade = Color(0xff194637);
+  static const _searchRadius = BorderRadius.all(Radius.circular(10));
+  static const _levelRowRadius = BorderRadius.all(Radius.circular(13));
+  static const _badgeRadius = BorderRadius.all(Radius.circular(9));
+  static const _topicRadius = BorderRadius.all(Radius.circular(14));
+  static const _previewMarkerRadius = BorderRadius.all(Radius.circular(3));
+  // Measured in the approved 430 × 932 artwork.
+  static const _levelHeaderGap = 14.0;
+  static const _searchInset = 2.0;
+  static const _inlineGap = 6.0;
+  static const _dividerGap = 5.0;
+  static const _packActionGap = 18.0;
+  static const _compactPanelInset = 10.0;
   final _search = TextEditingController();
   final _scroll = ScrollController();
   LearnerLevel? _level;
@@ -294,26 +306,24 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
             ),
           ),
         ),
-        headerBuilder: (context, leading, actions) => AppBar(
-          toolbarHeight: toolbarHeight,
-          backgroundColor: Colors.transparent,
-          foregroundColor: _paper,
-          centerTitle: true,
-          scrolledUnderElevation: 0,
+        headerBuilder: (context, leading, actions) => SoriAppBar(
+          title: title,
+          textScale: MediaQuery.textScalerOf(context).scale(1),
+          viewportWidth: MediaQuery.sizeOf(context).width,
           leading: level == null
               ? BackButton(onPressed: () => Navigator.of(context).maybePop())
               : BackButton(onPressed: () => _selectLevel(null)),
           actions: actions,
-          flexibleSpace: const SoriCMaterialSurface(
-            material: SoriCMaterial.jade,
-            raised: false,
-            borderRadius: BorderRadius.zero,
-            child: SizedBox.expand(),
-          ),
-          title: Text(
-            title,
-            textAlign: TextAlign.center,
-            style: _type(23, color: _paper, heading: true),
+          appearance: SoriAppBarAppearance(
+            toolbarHeight: toolbarHeight,
+            foregroundColor: _paper,
+            titleStyle: _type(23, color: _paper, heading: true),
+            background: const SoriCMaterialSurface(
+              material: SoriCMaterial.jade,
+              raised: false,
+              borderRadius: BorderRadius.zero,
+              child: SizedBox.expand(),
+            ),
           ),
         ),
         backgroundBuilder: (context, body) => SoriCMaterialSurface(
@@ -351,12 +361,14 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
                             _overviewHeader(t)
                           else ...[
                             _levelHeader(t, level, packs),
-                            const SizedBox(height: 14),
+                            const SizedBox(height: _levelHeaderGap),
                             _levelTabs(level),
                           ],
                           SizedBox(height: level == null ? 27 : 2),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 2),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: _searchInset,
+                            ),
                             child: _searchField(t, level),
                           ),
                           SizedBox(height: level == null ? 20 : 16),
@@ -426,7 +438,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
         ConstrainedBox(
           constraints: BoxConstraints(minHeight: level.index < 4 ? 43 : 37),
           child: Text(
-            t.wortpaketeLevelGoal(level.code),
+            t.wortpaketeLevelGoal(level),
             style: _type(level.index < 2 ? 36 : 31, heading: true),
           ),
         ),
@@ -461,10 +473,10 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
       filled: true,
       fillColor: const Color(0x60fffbf3),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: _searchRadius,
         borderSide: const BorderSide(color: Color(0xffc9bca7)),
       ),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+      border: const OutlineInputBorder(borderRadius: _searchRadius),
     ),
   );
 
@@ -474,14 +486,14 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
         Semantics(
           button: true,
           selected: widget.browseLevel == level.display,
-          child: InkWell(
-            borderRadius: BorderRadius.circular(13),
+          child: SoriPressable(
+            pressScale: 1,
             onTap: () => _selectLevel(level),
             child: Container(
               constraints: const BoxConstraints(minHeight: 72),
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(13),
+                borderRadius: _levelRowRadius,
                 border: Border.all(
                   color: widget.browseLevel == level.display
                       ? _brass
@@ -497,13 +509,10 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          t.wortpaketeLevelGoal(level.code),
+                          t.wortpaketeLevelGoal(level),
                           style: _type(17, weight: FontWeight.w700),
                         ),
-                        Text(
-                          t.wortpaketeLevelHint(level.code),
-                          style: _type(13),
-                        ),
+                        Text(t.wortpaketeLevelHint(level), style: _type(13)),
                         if (MediaQuery.textScalerOf(context).scale(1) > 1.3)
                           Text(
                             t.wortpaketePacks(all[level]!.length),
@@ -517,7 +526,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
                       t.wortpaketePacks(all[level]!.length),
                       style: _type(13, weight: FontWeight.w700),
                     ),
-                  const SizedBox(width: 6),
+                  const SizedBox(width: _inlineGap),
                   const Icon(Icons.chevron_right),
                 ],
               ),
@@ -530,7 +539,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
   Widget _badge(String label, bool selected, {double fontSize = 18}) =>
       DecoratedBox(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(9),
+          borderRadius: _badgeRadius,
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -543,7 +552,10 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+          padding: const EdgeInsets.symmetric(
+            horizontal: Spacing.sm,
+            vertical: _inlineGap,
+          ),
           child: Text(
             label,
             textAlign: TextAlign.center,
@@ -559,37 +571,34 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
   Widget _levelTabs(LearnerLevel level) => LayoutBuilder(
     builder: (context, bounds) {
       final fit =
-          bounds.maxWidth >= 336 &&
+          bounds.maxWidth >= SoriAdaptiveWidth.wortpaketeLevelRow &&
           MediaQuery.textScalerOf(context).scale(1) <= 1.35;
-      Widget tab(LearnerLevel item) => Semantics(
-        button: true,
-        selected: item == level,
-        child: InkWell(
+      return SoriLevelFilterBar(
+        selected: level.code,
+        onChanged: (code) => _selectLevel(LearnerLevel.fromCode(code)),
+        choiceBuilder: (item, selected) => ConstrainedBox(
           key: ValueKey('wortpakete-level-${item.code}'),
-          borderRadius: BorderRadius.circular(9),
-          onTap: item == level ? null : () => _selectLevel(item),
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
-            child: Align(
-              heightFactor: 1,
-              child: SizedBox(
-                width: fit ? (bounds.maxWidth - 42) / 6 : null,
-                child: _badge(item.display, item == level),
-              ),
+          constraints: const BoxConstraints(
+            minWidth: SoriLayout.chromeRowTouchHeight,
+            minHeight: SoriLayout.chromeRowTouchHeight,
+          ),
+          child: Align(
+            heightFactor: 1,
+            child: SizedBox(
+              width: fit
+                  ? (bounds.maxWidth - 42) / LearnerLevel.values.length
+                  : null,
+              child: _badge(item.display, selected),
             ),
           ),
         ),
-      );
-      if (!fit) {
-        return Wrap(
-          spacing: 6,
-          children: LearnerLevel.values.map(tab).toList(),
-        );
-      }
-      return Row(
-        children: [
-          for (final item in LearnerLevel.values) Expanded(child: tab(item)),
-        ],
+        choiceLayout: (choices) => fit
+            ? Row(
+                children: choices
+                    .map((choice) => Expanded(child: choice))
+                    .toList(),
+              )
+            : Wrap(spacing: _inlineGap, children: choices),
       );
     },
   );
@@ -622,11 +631,11 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(t.wortpaketeTopics, style: _type(22, weight: FontWeight.w700)),
-        const SizedBox(height: 6),
+        const SizedBox(height: _inlineGap),
         LayoutBuilder(
           builder: (context, box) {
             final columns =
-                box.maxWidth >= 355 &&
+                box.maxWidth >= SoriAdaptiveWidth.wortpaketeTopicGrid &&
                     MediaQuery.textScalerOf(context).scale(1) <= 1.1 &&
                     _lang(context) == 'de'
                 ? 2
@@ -655,15 +664,17 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
         ListTile(
           minTileHeight: 48,
           visualDensity: VisualDensity.compact,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: _compactPanelInset,
+          ),
           title: Text(t.wortpaketeAllTopics, style: _type(18)),
           trailing: const Icon(Icons.arrow_forward),
           onTap: () => _pickTopic(t, level, topics),
         ),
         const Divider(height: 5, color: _edge),
-        const SizedBox(height: 5),
+        const SizedBox(height: _dividerGap),
         _preview(t, selected, pack),
-        const SizedBox(height: 18),
+        const SizedBox(height: _packActionGap),
         _goldAction(t.wortpaketeOpenPack, () => widget.onPack(pack)),
         const SizedBox(height: 16),
       ],
@@ -796,11 +807,11 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
       selected: selected,
       child: Material(
         color: Colors.transparent,
-        borderRadius: BorderRadius.circular(14),
-        child: InkWell(
+        borderRadius: _topicRadius,
+        child: SoriPressable(
+          pressScale: 1,
           key: ValueKey('wortpakete-topic-${topic.id}'),
           onTap: () => _selectTopic(topic),
-          borderRadius: BorderRadius.circular(14),
           child: Ink(
             decoration: BoxDecoration(
               gradient: const LinearGradient(
@@ -808,7 +819,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
                 end: Alignment.bottomCenter,
                 colors: [Color(0xfffff6e8), Color(0xfff5e8d3)],
               ),
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: _topicRadius,
               border: Border.all(color: selected ? _brass : _edge),
               boxShadow: const [
                 BoxShadow(
@@ -877,7 +888,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
       constraints: const BoxConstraints(minHeight: 100),
       decoration: BoxDecoration(
         color: const Color(0xadfaefde),
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: _topicRadius,
         border: Border.all(color: _edge),
         boxShadow: const [
           BoxShadow(
@@ -895,10 +906,10 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
             height: 27,
             decoration: BoxDecoration(
               color: _ink,
-              borderRadius: BorderRadius.circular(3),
+              borderRadius: _previewMarkerRadius,
             ),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: _compactPanelInset),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -985,7 +996,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
               ? const Color(0xffe9d6b6)
               : null,
           border: Border.all(color: _brass),
-          borderRadius: BorderRadius.circular(13),
+          borderRadius: _levelRowRadius,
         ),
         child: Text(
           label,
@@ -1117,12 +1128,11 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
     required String Function(T) label,
     required String Function(T) subtitle,
     Widget? header,
-  }) => showModalBottomSheet<T>(
+  }) => showSoriSheet<T>(
     context: context,
-    isScrollControlled: true,
-    useSafeArea: true,
-    backgroundColor: _paper,
-    sheetAnimationStyle: _reduced(context)
+    presentation: const SoriSheetPresentation(backgroundColor: _paper),
+    maxHeightFactor: 1,
+    animationStyle: _reduced(context)
         ? AnimationStyle.noAnimation
         : const AnimationStyle(
             duration: Duration(milliseconds: 220),
@@ -1177,4 +1187,24 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
       ),
     ),
   );
+}
+
+extension _WortpaketeLevelCopy on AppL10n {
+  String wortpaketeLevelGoal(LearnerLevel level) => switch (level) {
+    LearnerLevel.a1 => wortpaketeLevelGoalA1,
+    LearnerLevel.a2 => wortpaketeLevelGoalA2,
+    LearnerLevel.b1 => wortpaketeLevelGoalB1,
+    LearnerLevel.b2 => wortpaketeLevelGoalB2,
+    LearnerLevel.c1 => wortpaketeLevelGoalC1,
+    LearnerLevel.c2 => wortpaketeLevelGoalC2,
+  };
+
+  String wortpaketeLevelHint(LearnerLevel level) => switch (level) {
+    LearnerLevel.a1 => wortpaketeLevelHintA1,
+    LearnerLevel.a2 => wortpaketeLevelHintA2,
+    LearnerLevel.b1 => wortpaketeLevelHintB1,
+    LearnerLevel.b2 => wortpaketeLevelHintB2,
+    LearnerLevel.c1 => wortpaketeLevelHintC1,
+    LearnerLevel.c2 => wortpaketeLevelHintC2,
+  };
 }

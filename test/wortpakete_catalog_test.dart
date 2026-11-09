@@ -24,6 +24,7 @@ import 'package:ko_lernen_app/widgets/app_error.dart';
 
 import 'support/c_native_capture_assets.dart';
 import 'support/real_fonts.dart';
+import 'support/sori_speech_stubs.dart';
 
 const _search = ValueKey('wortpakete-search');
 const _capture = ValueKey('wortpakete-capture');
@@ -36,6 +37,7 @@ void main() {
   );
 
   setUp(() async {
+    stubSoriSpeech();
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
@@ -232,7 +234,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
     final l10n = AppL10n.of(tester.element(find.byType(VocabPacksScreen)));
-    await tester.tap(find.text(l10n.wortpaketeLevelGoal('a1')));
+    await tester.tap(find.text(l10n.wortpaketeLevelGoalA1));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 200));
     final cta = find.byKey(const ValueKey('wortpakete-open-pack'));
