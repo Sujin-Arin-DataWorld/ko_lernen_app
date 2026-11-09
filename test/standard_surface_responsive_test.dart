@@ -354,7 +354,7 @@ void main() {
     await tester.pumpAndSettle();
 
     final t = AppL10n.of(tester.element(find.byType(VocabPacksScreen)));
-    final level = find.text(t.wortpaketeLevelGoal('a1'));
+    final level = find.text(t.wortpaketeLevelGoalA1);
     await tester.ensureVisible(level);
     await tester.pumpAndSettle();
     await tester.tap(level);
