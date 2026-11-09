@@ -1,5 +1,6 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
+
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -8956,8 +8957,7 @@ class AppL10nDe extends AppL10n {
       locale: localeName,
       other:
           '$count Wörter aus deinem Heft. Spiele damit, statt neue Vokabeln zu bekommen.',
-      one:
-          '1 Wort aus deinem Heft. Spiele damit, statt neue Vokabeln zu bekommen.',
+      one: '1 Wort aus deinem Heft. Spiele damit, statt neue Vokabeln zu bekommen.',
     );
     return '$_temp0';
   }

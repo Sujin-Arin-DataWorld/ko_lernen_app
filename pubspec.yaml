@@ -4,7 +4,8 @@ publish_to: 'none'
 version: 2.0.9+37
 
 environment:
-  sdk: ^3.12.0
+  sdk: ^3.13.7
+  flutter: '>=3.47.8'
 
 dependencies:
   flutter:
@@ -46,15 +47,15 @@ dependencies:
   # google_mobile_ads: 5.2.0
 
   # ── Firebase + Google Sign-In ───────────────────────────
-  firebase_core:           ^4.13.0
-  firebase_auth:           ^6.5.7
+  firebase_core:           ^4.15.2
+  firebase_auth:           ^6.7.1
   # 7.x requires an authentication-flow migration. Keep the latest compatible
   # 6.x line in this maintenance batch so account-link/recovery semantics stay
   # stable across Android, iOS, and Web.
   google_sign_in:          ^6.3.0
-  cloud_firestore:         ^6.8.0
+  cloud_firestore:         ^6.10.2
   firebase_remote_config:  ^6.5.6   # v6.0 palette kill-switch (dancheong ↔ teal)
-  firebase_analytics: ^12.4.6
+  firebase_analytics: ^12.6.1
   firebase_crashlytics: ^5.2.7
   firebase_messaging: ^16.5.0   # Phase 7 — 계 피드 푸시(목표 달성). ⚠️ iOS APNs 필요
   firebase_storage: ^13.4.6     # 고품질 TTS mp3 (사전생성 + 동적 CF 캐시). auth-gated read.
@@ -95,7 +96,7 @@ dependencies:
   video_player: ^2.11.1
   flutter_native_splash: ^2.4.2
   cloud_functions: ^6.3.6
-  firebase_app_check: ^0.4.6
+  firebase_app_check: ^0.4.9
   firebase_app_check_platform_interface: ^0.4.2
   flutter_secure_storage: ^10.3.1
   package_info_plus: ^10.2.1
