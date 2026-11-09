@@ -12522,4 +12522,152 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get wordWebCloseConfirmLeave => 'Back to word list';
+
+  @override
+  String get wortpaketeOverview => 'Your vocabulary';
+
+  @override
+  String get wortpaketeChooseLevel => 'Choose a level';
+
+  @override
+  String get wortpaketeSearchAll => 'Search for a topic or word';
+
+  @override
+  String wortpaketeSearchLevel(String level) {
+    return 'Search $level';
+  }
+
+  @override
+  String get wortpaketeTopics => 'Topics';
+
+  @override
+  String get wortpaketeAllTopics => 'Show all topics';
+
+  @override
+  String get wortpaketeOpenPack => 'Open pack';
+
+  @override
+  String get wortpaketeNoResults => 'No matching topics or words';
+
+  @override
+  String wortpaketePacks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count packs',
+      one: '1 pack',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String wortpaketeWords(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count words',
+      one: '1 word',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get wortpaketeSearchClear => 'Clear search';
+
+  @override
+  String wortpaketePackNumber(int number) {
+    return 'Pack $number';
+  }
+
+  @override
+  String wortpaketeLevelGoal(String level) {
+    String _temp0 = intl.Intl.selectLogic(level, {
+      'a1': 'First conversations',
+      'a2': 'Handle daily life',
+      'b1': 'Share experiences',
+      'b2': 'Explain and discuss',
+      'c1': 'Argue precisely',
+      'c2': 'Distinguish meanings',
+      'other': '',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String wortpaketeLevelHint(String level) {
+    String _temp0 = intl.Intl.selectLogic(level, {
+      'a1': 'Greetings · Food · Daily life',
+      'a2': 'Home · Clothing · Work',
+      'b1': 'Work · Media · Society',
+      'b2': 'Society · Environment · Ideas',
+      'c1': 'Research · Risk · Participation',
+      'c2': 'Interpretation · Memory · Ethics',
+      'other': '',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String wortpaketeTopicName(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'a1_greetings': 'Greetings & politeness',
+      'a1_food': 'Food & drink',
+      'a1_home_daily': 'Home & daily life',
+      'a1_transport': 'Transport',
+      'a2_home': 'Home',
+      'a2_clothing': 'Clothing',
+      'a2_restaurant': 'At the restaurant',
+      'a2_work': 'Work',
+      'b1_work_career': 'Career & office',
+      'b1_media_culture': 'Media & culture',
+      'b1_tech_society': 'Technology & society',
+      'b1_city_places': 'City & places',
+      'b2_society': 'Society',
+      'b2_thinking': 'Reasoning',
+      'b2_environment': 'Environment',
+      'b2_work': 'Work',
+      'c1_evidence_reasoning': 'Research & evidence',
+      'c1_accessible_participation': 'Participation',
+      'c1_risk_communication': 'Risk communication',
+      'c1_sustainable_tradeoffs': 'Sustainability',
+      'c2_language_framing': 'Language & framing',
+      'c2_narrative_perspective': 'Narrative perspective',
+      'c2_institutional_mediation': 'Mediation',
+      'c2_technology_ethics': 'Technology ethics',
+      'other': '',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String wortpaketeTopicGoal(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'a1_greetings': 'Greet and thank',
+      'a1_food': 'Name food and drinks',
+      'a1_home_daily': 'Talk about daily life',
+      'a1_transport': 'Name means of transport',
+      'a2_home': 'Describe rooms',
+      'a2_clothing': 'Name clothing',
+      'a2_restaurant': 'Talk about ingredients',
+      'a2_work': 'Discuss work schedules',
+      'b1_work_career': 'Describe work experience',
+      'b1_media_culture': 'Describe media content',
+      'b1_tech_society': 'Talk about posts',
+      'b1_city_places': 'Describe places',
+      'b2_society': 'Put conflicts in context',
+      'b2_thinking': 'Justify viewpoints',
+      'b2_environment': 'Discuss environmental impacts',
+      'b2_work': 'Discuss contracts',
+      'c1_evidence_reasoning': 'Evaluate studies',
+      'c1_accessible_participation': 'Identify barriers to access',
+      'c1_risk_communication': 'Express uncertainty',
+      'c1_sustainable_tradeoffs': 'Weigh downstream costs',
+      'c2_language_framing': 'Recognize framing',
+      'c2_narrative_perspective': 'Reflect on memory',
+      'c2_institutional_mediation': 'Negotiate interests',
+      'c2_technology_ethics': 'Assess decisions',
+      'other': '',
+    });
+    return '$_temp0';
+  }
 }

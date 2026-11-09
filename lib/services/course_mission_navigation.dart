@@ -64,6 +64,13 @@ class VocabPackRouteArguments {
   final CoursePracticeContext courseContext;
 }
 
+/// A pack opened from the Wortpakete catalogue uses its short entrance motion.
+class VocabCatalogPackArguments {
+  const VocabCatalogPackArguments(this.packId);
+
+  final String packId;
+}
+
 /// Returns trusted-looking mission provenance only for the activity family
 /// expected by a route. Direct library arguments intentionally fall back to
 /// browse mode instead of becoming unlock evidence.
@@ -119,6 +126,7 @@ CoursePracticeContext? vocabCourseContextForPack({
 /// Reads the legacy string pack ID or a typed mission-pack route.
 String? vocabPackIdFromRouteArguments(Object? arguments) => switch (arguments) {
   VocabPackRouteArguments(:final packId) => packId,
+  VocabCatalogPackArguments(:final packId) => packId,
   String() => arguments,
   _ => null,
 };

@@ -59,6 +59,7 @@ void main() {
   for (final level in ['a1', 'a2', 'b1', 'b2', 'c1', 'c2']) {
     for (final view in const [
       (width: 402.0, height: 874.0, scale: 1.0),
+      (width: 430.0, height: 932.0, scale: 1.0),
       (width: 360.0, height: 740.0, scale: 1.0),
       (width: 320.0, height: 640.0, scale: 1.0),
       (width: 320.0, height: 874.0, scale: 2.0),
@@ -243,7 +244,7 @@ void main() {
             });
             if (_capture &&
                 metric == 'combined' &&
-                (view.width == 402 || view.scale > 1)) {
+                (view.width == 402 || view.width == 430 || view.scale > 1)) {
               await Scrollable.ensureVisible(
                 tester.element(bubble),
                 alignment: 1,

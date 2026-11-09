@@ -39,6 +39,7 @@ void main() {
       final route = SoriPageRoute<void>(
         builder: (_) => const SizedBox(),
         reduceMotion: true,
+        entranceDuration: const Duration(milliseconds: 220),
       );
       unawaited(navigatorKey.currentState!.push(route));
       await tester.pump();
