@@ -658,7 +658,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
           contentPadding: const EdgeInsets.symmetric(horizontal: 10),
           title: Text(t.wortpaketeAllTopics, style: _type(18)),
           trailing: const Icon(Icons.arrow_forward),
-          onTap: () => _pickTopic(t, topics),
+          onTap: () => _pickTopic(t, level, topics),
         ),
         const Divider(height: 5, color: _edge),
         const SizedBox(height: 5),
@@ -1059,12 +1059,25 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
     );
   }
 
-  Future<void> _pickTopic(AppL10n t, List<_PackTopic> topics) async {
+  Future<void> _pickTopic(
+    AppL10n t,
+    LearnerLevel level,
+    List<_PackTopic> topics,
+  ) async {
+    final packs = topics.expand((topic) => topic.packs);
+    final progress = PackProgressService.getAll();
     final topic = await _pick(
       title: t.wortpaketeTopics,
       items: topics,
       label: _topicName,
       subtitle: (item) => t.wortpaketePacks(item.packs.length),
+      header: _LevelProgressHeader(
+        level: level.display,
+        cleared: packs
+            .where((pack) => progress[pack.id]?.isCleared == true)
+            .length,
+        total: packs.length,
+      ),
     );
     if (topic != null && mounted) {
       _selectTopic(topic);
@@ -1082,7 +1095,15 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
       items: topic.packs,
       label: (item) =>
           VocabPackService.displayLabel(item.id, lang: _lang(context)),
-      subtitle: (item) => t.wortpaketeWords(item.words.length),
+      subtitle: (item) {
+        final progress = PackProgressService.get(item.id);
+        final total = item.words.length;
+        if (progress == null) {
+          return t.wortpaketeWords(total);
+        }
+        final count = '${progress.wordsLearned.clamp(0, total)} / $total';
+        return progress.isCleared ? '$count · ${t.packStateCleared}' : count;
+      },
     );
     if (pack != null && mounted) {
       setState(() => _packId = pack.id);
@@ -1095,6 +1116,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
     required List<T> items,
     required String Function(T) label,
     required String Function(T) subtitle,
+    Widget? header,
   }) => showModalBottomSheet<T>(
     context: context,
     isScrollControlled: true,
@@ -1128,17 +1150,26 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
               ),
             ),
             Expanded(
-              child: ListView.builder(
-                itemCount: items.length,
-                itemBuilder: (context, index) {
-                  final item = items[index];
-                  return ListTile(
-                    title: Text(label(item)),
-                    subtitle: Text(subtitle(item)),
-                    trailing: const Icon(Icons.chevron_right),
-                    onTap: () => Navigator.of(sheetContext).pop(item),
-                  );
-                },
+              child: CustomScrollView(
+                slivers: [
+                  if (header != null)
+                    SliverPadding(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+                      sliver: SliverToBoxAdapter(child: header),
+                    ),
+                  SliverList.builder(
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      final item = items[index];
+                      return ListTile(
+                        title: Text(label(item)),
+                        subtitle: Text(subtitle(item)),
+                        trailing: const Icon(Icons.chevron_right),
+                        onTap: () => Navigator.of(sheetContext).pop(item),
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
           ],

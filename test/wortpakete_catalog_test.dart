@@ -12,6 +12,7 @@ import 'package:ko_lernen_app/features/onboarding_v2/first_run_runtime.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/main.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
+import 'package:ko_lernen_app/models/pack_progress.dart';
 import 'package:ko_lernen_app/services/course_mission_navigation.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
@@ -138,14 +139,48 @@ void main() {
     tester,
   ) async {
     final opened = <String>[];
+    final a1 = await tester.runAsync(
+      () => VocabPackService.packsForLevel('A1'),
+    );
+    final saved = a1!.firstWhere((pack) => pack.id == 'a1_greetings_2');
+    await Storage.setPackProgressJson(
+      saved.id,
+      PackProgress.fresh(
+            packId: saved.id,
+            level: saved.level,
+            wordsTotal: saved.words.length,
+          )
+          .copyWith(
+            status: PackStatus.cleared,
+            wordsLearned: saved.words.length,
+          )
+          .toJson(),
+    );
     await _open(tester, onPack: opened.add);
     await tester.tap(find.text('Erste Gespräche'));
+    await tester.pumpAndSettle();
+    final allTopics = find.text('Alle Themen anzeigen');
+    await tester.ensureVisible(allTopics);
+    await tester.tap(allTopics);
+    await tester.pumpAndSettle();
+    final l10n = AppL10n.of(tester.element(find.byType(VocabPacksScreen)));
+    expect(
+      find.text(l10n.vocabPacksProgressLabel(1, a1.length)),
+      findsOneWidget,
+    );
+    await tester.tap(find.byType(CloseButton));
     await tester.pumpAndSettle();
     final choose = find.byTooltip('2 Pakete');
     await tester.ensureVisible(choose);
     await tester.pumpAndSettle();
     await tester.tap(choose);
     await tester.pumpAndSettle();
+    expect(
+      find.text(
+        '${saved.words.length} / ${saved.words.length} · ${l10n.packStateCleared}',
+      ),
+      findsOneWidget,
+    );
     await tester.tap(find.text('Begrüßung & Höflichkeit (2)'));
     await tester.pumpAndSettle();
     expect(opened, ['a1_greetings_2']);
