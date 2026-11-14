@@ -1,0 +1,538 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "record_type": "inherited_detailed_with_integration_overlay",
+  "unit_id": "F0.4.first-input",
+  "band": "F0.4",
+  "title": {
+    "ko": "익힌 음절·단어를 입력하고 오타를 고친다",
+    "en": "The first note",
+    "de": "Der erste Zettel"
+  },
+  "goal": {
+    "ko": "익힌 음절·단어를 입력하고 오타를 고친다",
+    "en": "Type familiar syllables and words and correct a typo.",
+    "de": "Tippe vertraute Silben und Wörter und verbessere einen Tippfehler."
+  },
+  "prerequisites": [],
+  "base_manuscript": {
+    "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/06_FIRST_NOTE_INPUT.md",
+    "sha256": "59ec7e468ccc1af10efef3600c204b0b77072d33c1063cca521a77b3b29e720c",
+    "inheritance": "full dialogue, teaching, P/I/R items, answer criteria, help and feedback retained verbatim; overlay is additive"
+  },
+  "source_contract": {
+    "id": "F0.4.first-input",
+    "goal": "익힌 음절·단어를 입력하고 오타를 고친다",
+    "teach_targets": "나무,모자",
+    "check_targets": "바다,다리",
+    "meaning_or_oral": "키보드 또는 글자 선택 대안을 먼저 시범",
+    "transfer_task": "보여 주지 않은 배운 단어를 뜻 그림으로 요청하여 재구성",
+    "review_in": "A1.1-05",
+    "review_prompt": "익힌 소유물 이름을 짧은 메시지에 입력",
+    "evidence_limit": "복사와 회상 입력 분리; 필기·자유 작문 확인 아님"
+  },
+  "inherited_content": {
+    "selected_feedback_refs": [
+      "INPUT-H",
+      "INPUT-집"
+    ],
+    "feedback_rows": [
+      {
+        "key": "N-LAMP·원문·사랑채 완공 확인 뒤",
+        "en": "At last, the lights are on in this house again!",
+        "de": "Endlich brennt in diesem Haus wieder Licht!"
+      },
+      {
+        "key": "N-PLAYER·극중 쪽지 작성·실제 발화와 별도",
+        "en": "House",
+        "de": "Haus"
+      },
+      {
+        "key": "N-KEPT·쪽지 보관 성공을 확인한 뒤",
+        "en": "The first note, with 집 written on it, has been left on the writing desk.",
+        "de": "Der erste Zettel mit dem Wort 집 liegt jetzt auf dem Schreibpult."
+      },
+      {
+        "key": "N-BOOKMARK·v3.5 원문·보관 확인 뒤",
+        "en": "Your first written word is 집. Heh, a good beginning.",
+        "de": "Dein erstes geschriebenes Wort ist 집. Hoho, ein guter Anfang."
+      },
+      {
+        "key": "N-WAIT·사랑채 완공 전",
+        "en": "We'll keep the first word in your practice record. When the lamp is lit in the completed sarangchae, we'll continue to the note scene.",
+        "de": "Das erste Wort bleibt in deiner Übungsaufzeichnung. Wenn in der fertigen Sarangchae die Lampe brennt, geht es mit der Zettelszene weiter."
+      },
+      {
+        "key": "N-PENDING·보관 확인 실패",
+        "en": "The note hasn't been confirmed as kept yet. We'll keep what you entered and check again.",
+        "de": "Es ist noch nicht bestätigt, dass der Zettel aufbewahrt wurde. Deine Eingabe bleibt erhalten; wir prüfen es noch einmal."
+      },
+      {
+        "key": "N-SKIP·지금은 멈추기 선택",
+        "en": "That's fine. You can return to the same point.",
+        "de": "Das ist in Ordnung. Du kannst an derselben Stelle weitermachen."
+      },
+      {
+        "key": "INPUT-H·입력 방법",
+        "en": "If the characters are still being composed, wait until they are complete. Check Korean input or continue with pieces.",
+        "de": "Warte, bis die Zeichen fertig zusammengesetzt sind. Prüfe die koreanische Eingabe oder mache mit Teilen weiter."
+      },
+      {
+        "key": "INPUT-MODE·입력 상태 문제",
+        "en": "Korean text is not being entered yet. Check the input method or choose letter pieces.",
+        "de": "Es wird noch kein koreanischer Text eingegeben. Prüfe die Eingabemethode oder wähle Schriftteile."
+      },
+      {
+        "key": "INPUT-집·현재 목표",
+        "en": "The target spelling is 집. Revisit the example with ㅈ · ㅣ · ㅂ; you can correct the entered text yourself.",
+        "de": "Die Zielschreibung ist 집. Sieh dir das Beispiel mit ㅈ · ㅣ · ㅂ erneut an; du kannst deine Eingabe selbst korrigieren."
+      },
+      {
+        "key": "INPUT-나무·현재 목표",
+        "en": "The target spelling is 나무. Revisit the example with ㄴ · ㅏ · ㅁ · ㅜ; you can correct the entered text yourself.",
+        "de": "Die Zielschreibung ist 나무. Sieh dir das Beispiel mit ㄴ · ㅏ · ㅁ · ㅜ erneut an; du kannst deine Eingabe selbst korrigieren."
+      },
+      {
+        "key": "INPUT-모자·현재 목표",
+        "en": "The target spelling is 모자. Revisit the example with ㅁ · ㅗ · ㅈ · ㅏ; you can correct the entered text yourself.",
+        "de": "Die Zielschreibung ist 모자. Sieh dir das Beispiel mit ㅁ · ㅗ · ㅈ · ㅏ erneut an; du kannst deine Eingabe selbst korrigieren."
+      },
+      {
+        "key": "INPUT-바다·현재 목표",
+        "en": "The target spelling is 바다. Revisit the example with ㅂ · ㅏ · ㄷ · ㅏ; you can correct the entered text yourself.",
+        "de": "Die Zielschreibung ist 바다. Sieh dir das Beispiel mit ㅂ · ㅏ · ㄷ · ㅏ erneut an; du kannst deine Eingabe selbst korrigieren."
+      },
+      {
+        "key": "INPUT-다리·현재 목표",
+        "en": "The target spelling is 다리. Revisit the example with ㄷ · ㅏ · ㄹ · ㅣ; you can correct the entered text yourself.",
+        "de": "Die Zielschreibung ist 다리. Sieh dir das Beispiel mit ㄷ · ㅏ · ㄹ · ㅣ erneut an; du kannst deine Eingabe selbst korrigieren."
+      },
+      {
+        "key": "OK·현재 범위",
+        "en": "That matches the current target. Take your time with the next one too.",
+        "de": "Das passt zum aktuellen Ziel. Nimm dir auch für die nächste Aufgabe Zeit."
+      }
+    ],
+    "practice_task_ids": [
+      "D06-P01",
+      "D06-P02",
+      "D06-P03",
+      "D06-P04",
+      "D06-P05"
+    ],
+    "independent_task_ids": [
+      "D06-I01",
+      "D06-I02",
+      "D06-I03",
+      "D06-I04"
+    ],
+    "next_day_task_ids": [
+      "D06-R01",
+      "D06-R02",
+      "D06-R03",
+      "D06-R04"
+    ],
+    "common_copy_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-4-v35\\COMMON_COPY.md",
+    "readme_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-4-v35\\README.md",
+    "task_bindings": [
+      {
+        "task_id": "D06-I01",
+        "kind": "I",
+        "prompt": {
+          "en": "Enter the familiar word for the picture by typing or using pieces. The example is hidden.",
+          "de": "Gib das bekannte Wort zum Bild ein oder bilde es aus Teilen. Das Beispiel ist verborgen."
+        },
+        "target": "집",
+        "feedback_refs": [
+          "INPUT-H",
+          "INPUT-집"
+        ],
+        "material": {
+          "allowed_methods": [
+            "DUBEOLSIK",
+            "JAMO_SELECTION"
+          ],
+          "raw_response_preserved": true,
+          "score_only_after_composition_commit": true,
+          "picture": "HOUSE-I1",
+          "no_model": true,
+          "no_romanization": true,
+          "no_key_sequence": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D06-P01",
+        "kind": "P",
+        "prompt": {
+          "en": "Copy the word by typing or using letter pieces.",
+          "de": "Schreibe das Wort nach dem Beispiel oder bilde es aus Schriftteilen."
+        },
+        "target": "집",
+        "feedback_refs": [
+          "INPUT-H",
+          "INPUT-집"
+        ],
+        "material": {
+          "allowed_methods": [
+            "DUBEOLSIK",
+            "JAMO_SELECTION"
+          ],
+          "raw_response_preserved": true,
+          "score_only_after_composition_commit": true,
+          "shown_word": "집",
+          "prepared_draft": null,
+          "picture": "HOUSE-T1"
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D06-P02",
+        "kind": "P",
+        "prompt": {
+          "en": "This is a practice typo prepared by Sujin. Correct it to the familiar word for the picture.",
+          "de": "Das ist ein von Sujin vorbereiteter Übungsfehler. Korrigiere ihn zu dem bekannten Wort zum Bild."
+        },
+        "target": "집",
+        "feedback_refs": [
+          "INPUT-H",
+          "INPUT-집"
+        ],
+        "material": {
+          "allowed_methods": [
+            "DUBEOLSIK",
+            "JAMO_SELECTION"
+          ],
+          "raw_response_preserved": true,
+          "score_only_after_composition_commit": true,
+          "shown_word": "집",
+          "prepared_draft": "짐",
+          "picture": "HOUSE-T1"
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D06-P03",
+        "kind": "P",
+        "prompt": {
+          "en": "Copy the word by typing or using letter pieces.",
+          "de": "Schreibe das Wort nach dem Beispiel oder bilde es aus Schriftteilen."
+        },
+        "target": "나무",
+        "feedback_refs": [
+          "INPUT-H",
+          "INPUT-나무"
+        ],
+        "material": {
+          "allowed_methods": [
+            "DUBEOLSIK",
+            "JAMO_SELECTION"
+          ],
+          "raw_response_preserved": true,
+          "score_only_after_composition_commit": true,
+          "shown_word": "나무",
+          "prepared_draft": null,
+          "picture": "TREE-T1"
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D06-P04",
+        "kind": "P",
+        "prompt": {
+          "en": "Copy the word by typing or using letter pieces.",
+          "de": "Schreibe das Wort nach dem Beispiel oder bilde es aus Schriftteilen."
+        },
+        "target": "모자",
+        "feedback_refs": [
+          "INPUT-H",
+          "INPUT-모자"
+        ],
+        "material": {
+          "allowed_methods": [
+            "DUBEOLSIK",
+            "JAMO_SELECTION"
+          ],
+          "raw_response_preserved": true,
+          "score_only_after_composition_commit": true,
+          "shown_word": "모자",
+          "prepared_draft": null,
+          "picture": "HAT-T1"
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D06-P05",
+        "kind": "P",
+        "prompt": {
+          "en": "This is a practice typo prepared by Sujin. Correct it to the familiar word for the picture.",
+          "de": "Das ist ein von Sujin vorbereiteter Übungsfehler. Korrigiere ihn zu dem bekannten Wort zum Bild."
+        },
+        "target": "모자",
+        "feedback_refs": [
+          "INPUT-H",
+          "INPUT-모자"
+        ],
+        "material": {
+          "allowed_methods": [
+            "DUBEOLSIK",
+            "JAMO_SELECTION"
+          ],
+          "raw_response_preserved": true,
+          "score_only_after_composition_commit": true,
+          "shown_word": "모자",
+          "prepared_draft": "모사",
+          "picture": "HAT-T1"
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D06-I02",
+        "kind": "I",
+        "prompt": {
+          "en": "Enter the familiar word for the picture by typing or using pieces. The example is hidden.",
+          "de": "Gib das bekannte Wort zum Bild ein oder bilde es aus Teilen. Das Beispiel ist verborgen."
+        },
+        "target": "바다",
+        "feedback_refs": [
+          "INPUT-H",
+          "INPUT-바다"
+        ],
+        "material": {
+          "allowed_methods": [
+            "DUBEOLSIK",
+            "JAMO_SELECTION"
+          ],
+          "raw_response_preserved": true,
+          "score_only_after_composition_commit": true,
+          "picture": "SEA-I1",
+          "no_model": true,
+          "no_romanization": true,
+          "no_key_sequence": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D06-I03",
+        "kind": "I",
+        "prompt": {
+          "en": "Enter the familiar word for the picture by typing or using pieces. The example is hidden.",
+          "de": "Gib das bekannte Wort zum Bild ein oder bilde es aus Teilen. Das Beispiel ist verborgen."
+        },
+        "target": "다리",
+        "feedback_refs": [
+          "INPUT-H",
+          "INPUT-다리"
+        ],
+        "material": {
+          "allowed_methods": [
+            "DUBEOLSIK",
+            "JAMO_SELECTION"
+          ],
+          "raw_response_preserved": true,
+          "score_only_after_composition_commit": true,
+          "picture": "BRIDGE-I1",
+          "no_model": true,
+          "no_romanization": true,
+          "no_key_sequence": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D06-I04",
+        "kind": "I",
+        "prompt": {
+          "en": "This is a practice typo prepared by Sujin. Correct it to the familiar word for the picture.",
+          "de": "Das ist ein von Sujin vorbereiteter Übungsfehler. Korrigiere ihn zu dem bekannten Wort zum Bild."
+        },
+        "target": "집",
+        "feedback_refs": [
+          "INPUT-H",
+          "INPUT-집"
+        ],
+        "material": {
+          "allowed_methods": [
+            "DUBEOLSIK",
+            "JAMO_SELECTION"
+          ],
+          "raw_response_preserved": true,
+          "score_only_after_composition_commit": true,
+          "picture": "HOUSE-I1",
+          "prepared_draft": "짐",
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D06-R01",
+        "kind": "R",
+        "prompt": {
+          "en": "Enter the familiar word for the picture by typing or using pieces. The example is hidden.",
+          "de": "Gib das bekannte Wort zum Bild ein oder bilde es aus Teilen. Das Beispiel ist verborgen."
+        },
+        "target": "집",
+        "feedback_refs": [
+          "INPUT-H",
+          "INPUT-집"
+        ],
+        "material": {
+          "allowed_methods": [
+            "DUBEOLSIK",
+            "JAMO_SELECTION"
+          ],
+          "raw_response_preserved": true,
+          "score_only_after_composition_commit": true,
+          "picture": "HOUSE-R1",
+          "no_model": true,
+          "prepared_draft": null,
+          "no_romanization": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D06-R02",
+        "kind": "R",
+        "prompt": {
+          "en": "Enter the familiar word for the picture by typing or using pieces. The example is hidden.",
+          "de": "Gib das bekannte Wort zum Bild ein oder bilde es aus Teilen. Das Beispiel ist verborgen."
+        },
+        "target": "바다",
+        "feedback_refs": [
+          "INPUT-H",
+          "INPUT-바다"
+        ],
+        "material": {
+          "allowed_methods": [
+            "DUBEOLSIK",
+            "JAMO_SELECTION"
+          ],
+          "raw_response_preserved": true,
+          "score_only_after_composition_commit": true,
+          "picture": "SEA-R1",
+          "no_model": true,
+          "prepared_draft": null,
+          "no_romanization": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D06-R03",
+        "kind": "R",
+        "prompt": {
+          "en": "Enter the familiar word for the picture by typing or using pieces. The example is hidden.",
+          "de": "Gib das bekannte Wort zum Bild ein oder bilde es aus Teilen. Das Beispiel ist verborgen."
+        },
+        "target": "다리",
+        "feedback_refs": [
+          "INPUT-H",
+          "INPUT-다리"
+        ],
+        "material": {
+          "allowed_methods": [
+            "DUBEOLSIK",
+            "JAMO_SELECTION"
+          ],
+          "raw_response_preserved": true,
+          "score_only_after_composition_commit": true,
+          "picture": "BRIDGE-R1",
+          "no_model": true,
+          "prepared_draft": null,
+          "no_romanization": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D06-R04",
+        "kind": "R",
+        "prompt": {
+          "en": "This is a practice typo prepared by Sujin. Correct it to the familiar word for the picture.",
+          "de": "Das ist ein von Sujin vorbereiteter Übungsfehler. Korrigiere ihn zu dem bekannten Wort zum Bild."
+        },
+        "target": "모자",
+        "feedback_refs": [
+          "INPUT-H",
+          "INPUT-모자"
+        ],
+        "material": {
+          "allowed_methods": [
+            "DUBEOLSIK",
+            "JAMO_SELECTION"
+          ],
+          "raw_response_preserved": true,
+          "score_only_after_composition_commit": true,
+          "picture": "HAT-R1",
+          "no_model": true,
+          "prepared_draft": "모사",
+          "no_romanization": true
+        },
+        "choices": [],
+        "source_row": null
+      }
+    ]
+  },
+  "responses": {
+    "assisted": {
+      "ko": "도움을 받아 이 활동을 함께 마쳤어요. 다른 예는 준비되면 해 봐요.",
+      "en": "You completed this activity with support. Try another example when you are ready.",
+      "de": "Du hast diese Aufgabe mit Hilfe abgeschlossen. Probiere ein weiteres Beispiel, wenn du bereit bist."
+    },
+    "independent": {
+      "ko": "이 예는 시범 없이 확인했어요. 다른 날 새로운 상황에서도 다시 해 봐요.",
+      "en": "You checked this example without a model. Try it in a new setting another day.",
+      "de": "Du hast dieses Beispiel ohne Vorlage bearbeitet. Probiere es an einem anderen Tag in einer neuen Situation."
+    },
+    "audio_unavailable": {
+      "ko": "지금은 소리를 재생할 수 없어요. 글과 그림으로 계속하거나 나중에 다시 들어요.",
+      "en": "Audio is unavailable right now. Continue with text and pictures, or listen later.",
+      "de": "Der Ton ist gerade nicht verfügbar. Mach mit Text und Bildern weiter oder höre später noch einmal zu."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 괜찮아요. 돌아오면 같은 차례에서 이어가요.",
+      "en": "You can take a break here. When you return, continue from the same turn.",
+      "de": "Du kannst hier eine Pause machen. Wenn du zurückkommst, geht es an derselben Stelle weiter."
+    },
+    "resume": {
+      "ko": "돌아왔네요. 놓아 둔 답과 도움 상태를 확인하고 이어가요.",
+      "en": "Welcome back. Check your previous response and any help you used, then continue.",
+      "de": "Willkommen zurück. Sieh dir deine bisherige Antwort und die verwendete Hilfe an und mach dann weiter."
+    },
+    "save_failed": {
+      "ko": "아직 저장을 확인하지 못했어요. 지금 답은 유지한 채 다시 시도해요.",
+      "en": "Saving has not been confirmed yet. Keep your response and try again.",
+      "de": "Das Speichern ist noch nicht bestätigt. Deine Antwort bleibt stehen; versuche es erneut."
+    },
+    "revisit": {
+      "ko": "이미 본 장면이에요. 다시 보아도 보상이나 공정이 중복 생성되지 않아요.",
+      "en": "You have seen this scene before. Replaying it does not grant another reward or construction step.",
+      "de": "Du kennst diese Szene bereits. Beim erneuten Ansehen erhältst du keine weitere Belohnung und keinen zusätzlichen Bauabschnitt."
+    }
+  },
+  "response_conditions": {
+    "assisted": "only after supported task is resolved",
+    "independent": "only if the eligible item met its criteria without model/hint; not all modalities",
+    "resume": "only after original state is actually restored",
+    "revisit": "existing reward owner remains authoritative"
+  },
+  "story": {
+    "lq_id": "LQ-04",
+    "anchor": "사랑채 완공·재방문",
+    "spoiler_guard": "Use only revealed facts. First book has no completed Sarangchae; first 집 remains practice draft until original readiness is confirmed."
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true,
+    "original_review_scope": "existing manuscript reviews and same-byte source; not human/native/device approval"
+  }
+}

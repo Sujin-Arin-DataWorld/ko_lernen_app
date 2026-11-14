@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "base_sha": "646c4658e70f594ab234a172679e29122d0f0e66",
+  "scope": "authoring and source-reference checks, not learner/device/native approval",
+  "units": 52,
+  "bands": {
+    "F0.1": 3,
+    "F0.2": 7,
+    "F0.3": 11,
+    "F0.4": 7,
+    "A1.1": 6,
+    "A1.2": 6,
+    "A2.1": 6,
+    "A2.2": 6
+  },
+  "inherited_detailed": 34,
+  "newly_detailed": 18,
+  "new_items": 233,
+  "new_dialogue_turns": 152,
+  "existing_source_references": 403,
+  "grammar_card_references": 81,
+  "hanok_contexts": 128,
+  "new_units_with_exact_hash_in_peer_review": 18,
+  "original_snapshot_files_unchanged": 119,
+  "errors": [],
+  "warnings": []
+}

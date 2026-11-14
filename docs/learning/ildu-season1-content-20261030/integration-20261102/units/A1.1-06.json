@@ -1,0 +1,1354 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "record_type": "inherited_detailed_with_integration_overlay",
+  "unit_id": "A1.1-06",
+  "band": "A1.1",
+  "title": {
+    "ko": "아니에요, 이거예요",
+    "en": "Correcting a misunderstanding",
+    "de": "Ein Missverständnis klären"
+  },
+  "goal": {
+    "ko": "잘못 알려진 물건·이름을 정정하고 필요한 범위를 말한다",
+    "en": "Correct a mix-up over a name or object, and ask for only what you need.",
+    "de": "Korrigiere falsche Angaben zu Namen oder Gegenständen und grenze ein, was du brauchst."
+  },
+  "prerequisites": [
+    "A1.1-03",
+    "A1.1-04",
+    "A1.1-05"
+  ],
+  "base_manuscript": {
+    "path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/06_A1.1-06.md",
+    "sha256": "4203b6d69c7bcb7de044cc3a8143022101a2c9fe192a2328a1f833d963c838f5",
+    "inheritance": "full dialogue, teaching, P/I/R items, answer criteria, help and feedback retained verbatim; overlay is additive"
+  },
+  "source_contract": {
+    "id": "A1.1-06",
+    "title": "아니에요, 이거예요",
+    "can_do": "잘못 알려진 물건·이름을 정정하고 필요한 범위를 말한다",
+    "lexis": "아니요,아니다,이거,저도,하나",
+    "model": "제 모자가 아니에요.",
+    "teach": "아니다의 이·가와 존재문의 이·가를 기능별로 분리; 도·만은 별도 상황에서 비교",
+    "practice": "잘못 건넨 물건에 정정하고 맞는 물건을 가리키기",
+    "transfer": "처음 보는 배열과 다른 상대에게 정정 후 다시 확인; A1.1 종합",
+    "prerequisites": "A1.1-03,A1.1-04,A1.1-05",
+    "review_in": "A1.2-06,A2.2-06",
+    "grammar_rows": "2,22,23"
+  },
+  "inherited_content": {
+    "items": [
+      {
+        "item_id": "A1.1-06-P01",
+        "unit_id": "A1.1-06",
+        "phase": "P",
+        "objective_id": "A1.1-06.negate",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-negate"
+        ],
+        "context": {
+          "ko": "모자는 눈앞에 있지만 소유자 표가 내 카드와 달라요. 도깨비가 내 것이라고 잘못 건넸어요.",
+          "en": "The 모자 is visible, but its owner tag differs from yours. The gatekeeper handed it to you as if it were yours.",
+          "de": "Der Gegenstand 모자 ist sichtbar, aber sein Besitzschild passt nicht zu deiner Karte. Der Torwächter hat ihn dir irrtümlich als deinen gegeben."
+        },
+        "prompt": {
+          "ko": "물건이 없다고 하지 않고 내 것이 아님을 정정해요.",
+          "en": "Correct the ownership without claiming the object is absent.",
+          "de": "Korrigiere den Besitz, ohne zu sagen, dass der Gegenstand fehlt."
+        },
+        "model_or_answer": "제 모자가 아니에요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "제",
+            "sense_ko": "나의 공손한 소유 표현"
+          },
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "아니에요",
+            "sense_ko": "명사로 제시한 정체·소유를 부정하는 배운 형태"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가 아니다: noun negation"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "보이는 물건의 소유자가 다르다는 점을 말해요.",
+            "en": "Say that the visible object belongs to someone else.",
+            "de": "Sage, dass der sichtbare Gegenstand jemand anderem gehört."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "제 모자가 아니에요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "없어요는 유무의 말이에요. 여기에는 물건이 있으니 누구 것인지 정정해요.",
+          "en": "없어요 reports absence. The object is present, so correct whose it is.",
+          "de": "없어요 meldet ein Fehlen. Der Gegenstand ist vorhanden; korrigiere daher den Besitz."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Correct the ownership of the currently handed 모자. Accept its correct noun with appropriate negation, 제 것이 아니에요, or an equally clear referential alternative. Do not substitute the other object noun. Topic particles may be appropriate; exact particle string is not sole correctness. Absence statement conflicts with this present-visible scope.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-06-R01",
+        "leak_keys": [
+          "negate",
+          "이/가 아니다: noun negation"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-P02",
+        "unit_id": "A1.1-06",
+        "phase": "P",
+        "objective_id": "A1.1-06.name-repair",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-negate"
+        ],
+        "context": {
+          "ko": "새 역할 이름은 하린. 상대가 다른 이름으로 불렀어요. 예전 소개 카드 설정과 별개예요.",
+          "en": "Your new role name is 하린. The partner used a different name. This is separate from earlier introduction cards.",
+          "de": "Dein neuer Rollenname ist 하린. Die andere Person hat einen anderen Namen verwendet. Das gehört nicht zu früheren Vorstellungskarten."
+        },
+        "prompt": {
+          "ko": "아니요로 응답하고 맞는 이름을 알려요.",
+          "en": "Reply no and give the correct name.",
+          "de": "Antworte verneinend und nenne den richtigen Namen."
+        },
+        "model_or_answer": "아니요. 하린이에요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "아니요",
+            "sense_ko": "상대 질문·오해에 대한 부정 응답"
+          },
+          {
+            "form": "하린",
+            "sense_ko": "임시 역할 이름, 받침으로 끝나는 감수용 한글 표기"
+          },
+          {
+            "form": "예요/이에요",
+            "sense_ko": "배운 명사 정체 서술형; 받침별 이름 시범"
+          }
+        ],
+        "required_grammar_functions": [
+          "negative response 아니요 plus learned identity"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "틀린 이름을 거절한 다음 카드 이름을 말해요.",
+            "en": "Reject the wrong name, then give the card’s name.",
+            "de": "Verneine den falschen Namen und nenne den Namen auf der Karte."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "아니요. 하린이에요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "상대가 잘못 안 이름 하나만 고치면 돼요. 새 개인정보는 필요 없어요.",
+          "en": "You only need to correct the one mistaken name. No new personal information is needed.",
+          "de": "Du musst nur den falsch verstandenen Namen korrigieren. Weitere persönliche Angaben sind nicht nötig."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 아니요 + correct identity, or full wrongname이/가 아니에요 + correct name. Short 아니요 is response negation, not evidence of noun-negation morphology; assess identity correction separately.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-06-R02",
+        "leak_keys": [
+          "negate",
+          "이/가 아니다: noun negation"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-P03",
+        "unit_id": "A1.1-06",
+        "phase": "P",
+        "objective_id": "A1.1-06.also",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-also"
+        ],
+        "context": {
+          "ko": "앞 대화: 수진은 모자가 있어요. 내 역할 카드에도 모자가 있어요. 둘 다 있다는 사실을 전해요.",
+          "en": "Previous turn: Sujin has a hat. Your role card also shows a hat. Communicate that both have one.",
+          "de": "Vorherige Aussage: Sujin hat einen Hut. Deine Rollenkarte zeigt ebenfalls einen Hut. Teile mit, dass beide einen haben."
+        },
+        "prompt": {
+          "ko": "나도 같은 상황임을 도로 덧붙여요.",
+          "en": "Use 도 to add that the same is true of you.",
+          "de": "Ergänze mit 도, dass dasselbe für dich gilt."
+        },
+        "model_or_answer": "저도 모자가 있어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "저도",
+            "sense_ko": "앞 사람과 동일한 사실에 나를 추가"
+          },
+          {
+            "form": "모자가 있어요",
+            "sense_ko": "모자를 가지고 있거나 지정 범위에 모자가 있는 상태; 해당 문맥에서 판단"
+          }
+        ],
+        "required_grammar_functions": [
+          "도: additive same fact"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "앞 사람과 나에게 같은 사실이 있어요.",
+            "en": "The same fact applies to the previous person and you.",
+            "de": "Dieselbe Angabe gilt für die zuvor genannte Person und für dich."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "저도 모자가 있어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "저는 모자가 있어요도 내 정보는 전해요. 같은 사실에 더한다는 뜻의 도를 썼는지는 따로 확인해요.",
+          "en": "저는 모자가 있어요 communicates your fact. We check separately whether 도 adds the same fact.",
+          "de": "저는 모자가 있어요 teilt deine Angabe mit. Getrennt wird geprüft, ob 도 dieselbe Angabe ergänzt."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 저도 모자가 있어요 or equivalent explicit additive meaning. 저는... communicates possession but additive target unobserved, not factual error.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-06-R03",
+        "leak_keys": [
+          "also",
+          "도: additive same fact"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-P04",
+        "unit_id": "A1.1-06",
+        "phase": "P",
+        "objective_id": "A1.1-06.only",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-only"
+        ],
+        "context": {
+          "ko": "제안된 물건은 물과 우산. 내 역할 카드는 물만 필요하고 다른 물건은 필요 없다고 정해요.",
+          "en": "The offered objects are water and an umbrella. Your role card needs only 물, not the other object.",
+          "de": "Angeboten werden Wasser und Regenschirm. Deine Rollenkarte braucht nur 물, den anderen Gegenstand nicht."
+        },
+        "prompt": {
+          "ko": "필요한 것만 부탁해요.",
+          "en": "Ask for only the needed object.",
+          "de": "Bitte nur um den benötigten Gegenstand."
+        },
+        "model_or_answer": "물만 주세요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "물",
+            "sense_ko": "마시는 물"
+          },
+          {
+            "form": "만",
+            "sense_ko": "제시된 다른 대상을 제외하는 한정"
+          },
+          {
+            "form": "주세요",
+            "sense_ko": "앞 명사의 물건을 달라는 부탁 덩어리"
+          }
+        ],
+        "required_grammar_functions": [
+          "만: restrictive choice"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "두 선택지 중 하나로 범위를 좁혀요.",
+            "en": "Restrict your request to one of the two options.",
+            "de": "Beschränke deine Bitte auf eine der zwei Möglichkeiten."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "물만 주세요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "물건 이름과 주세요만으로도 부탁은 가능해요. 다른 것은 제외한다는 뜻까지 전달했는지 따로 확인해요.",
+          "en": "An object name with 주세요 can make a request. Check separately whether it also excludes the other item.",
+          "de": "Gegenstand und 주세요 können eine Bitte ausdrücken. Prüfe getrennt, ob damit auch der andere Gegenstand ausgeschlossen wird."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept noun만 주세요 / noun만 필요해요 / explicit only-equivalent. noun 주세요 may request correctly but restriction unobserved. Do not make a natural request an unrelated wrong answer.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-06-R04",
+        "leak_keys": [
+          "only",
+          "만: restrictive choice"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-P05",
+        "unit_id": "A1.1-06",
+        "phase": "P",
+        "objective_id": "A1.1-06.identify",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-negate"
+        ],
+        "context": {
+          "ko": "가까운 칸의 내 소유자 표 모자와 먼 칸의 수진 모자. 상대가 먼 모자를 가리켰어요. R에서는 칸 위치와 모자 색을 바꿔요.",
+          "en": "Your hat is in a near compartment; Sujin’s is farther away. The partner points to the farther hat. R changes compartment positions and hat colours.",
+          "de": "Dein Hut liegt im nahen Fach, Sujins Hut weiter weg. Die andere Person zeigt auf den fernen Hut. R ändert die Fachpositionen und Hutfarben."
+        },
+        "prompt": {
+          "ko": "맞는 물건을 가리키고 이거예요로 확인해요. 필요하면 먼저 주인을 정정해요.",
+          "en": "Point to the correct object and confirm it with 이거예요. Correct the ownership first if needed.",
+          "de": "Zeige auf den richtigen Gegenstand und bestätige ihn mit 이거예요. Korrigiere bei Bedarf zuerst den Besitz."
+        },
+        "model_or_answer": "[내 모자 선택] 이거예요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "이거예요",
+            "sense_ko": "가까운 대상을 지목·정체 확인하는 전체 표현"
+          },
+          {
+            "form": "제 모자",
+            "sense_ko": "내가 소유한 모자"
+          }
+        ],
+        "required_grammar_functions": [
+          "이다: proximal identification"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "화자 가까운 내 소유자 표를 확인해요.",
+            "en": "Check your owner tag near the speaker.",
+            "de": "Prüfe dein Besitzschild nahe bei der sprechenden Person."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "[내 모자 선택] 이거예요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "색만 외우지 않고 이번 소유자 표와 거리를 확인해요.",
+          "en": "Check this owner tag and distance rather than memorising a colour.",
+          "de": "Prüfe das aktuelle Besitzschild und die Entfernung, statt eine Farbe auswendig zu verwenden."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Goal: correct referent and this-identification. 이거예요 alone does not demonstrate negation; no invented negation credit. Pointing only is action evidence, not spoken production.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-06-R05",
+        "leak_keys": [
+          "negate",
+          "이/가 아니다: noun negation"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-I01",
+        "unit_id": "A1.1-06",
+        "phase": "I",
+        "objective_id": "A1.1-06.negate",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-negate"
+        ],
+        "context": {
+          "ko": "가방은 눈앞에 있지만 소유자 표가 내 카드와 달라요. 도깨비가 내 것이라고 잘못 건넸어요.",
+          "en": "The 가방 is visible, but its owner tag differs from yours. The gatekeeper handed it to you as if it were yours.",
+          "de": "Der Gegenstand 가방 ist sichtbar, aber sein Besitzschild passt nicht zu deiner Karte. Der Torwächter hat ihn dir irrtümlich als deinen gegeben."
+        },
+        "prompt": {
+          "ko": "물건이 없다고 하지 않고 내 것이 아님을 정정해요.",
+          "en": "Correct the ownership without claiming the object is absent.",
+          "de": "Korrigiere den Besitz, ohne zu sagen, dass der Gegenstand fehlt."
+        },
+        "model_or_answer": "제 가방이 아니에요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "제",
+            "sense_ko": "나의 공손한 소유 표현"
+          },
+          {
+            "form": "가방",
+            "sense_ko": "물건을 넣어 가지고 다니는 가방"
+          },
+          {
+            "form": "아니에요",
+            "sense_ko": "명사로 제시한 정체·소유를 부정하는 배운 형태"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가 아니다: noun negation"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "보이는 물건의 소유자가 다르다는 점을 말해요.",
+            "en": "Say that the visible object belongs to someone else.",
+            "de": "Sage, dass der sichtbare Gegenstand jemand anderem gehört."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "제 가방이 아니에요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "없어요는 유무의 말이에요. 여기에는 물건이 있으니 누구 것인지 정정해요.",
+          "en": "없어요 reports absence. The object is present, so correct whose it is.",
+          "de": "없어요 meldet ein Fehlen. Der Gegenstand ist vorhanden; korrigiere daher den Besitz."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Correct the ownership of the currently handed 가방. Accept its correct noun with appropriate negation, 제 것이 아니에요, or an equally clear referential alternative. Do not substitute the other object noun. Topic particles may be appropriate; exact particle string is not sole correctness. Absence statement conflicts with this present-visible scope.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-06-R01",
+        "leak_keys": [
+          "negate",
+          "이/가 아니다: noun negation"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-I02",
+        "unit_id": "A1.1-06",
+        "phase": "I",
+        "objective_id": "A1.1-06.name-repair",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-negate"
+        ],
+        "context": {
+          "ko": "새 역할 이름은 민수. 상대가 다른 이름으로 불렀어요. 예전 소개 카드 설정과 별개예요.",
+          "en": "Your new role name is 민수. The partner used a different name. This is separate from earlier introduction cards.",
+          "de": "Dein neuer Rollenname ist 민수. Die andere Person hat einen anderen Namen verwendet. Das gehört nicht zu früheren Vorstellungskarten."
+        },
+        "prompt": {
+          "ko": "아니요로 응답하고 맞는 이름을 알려요.",
+          "en": "Reply no and give the correct name.",
+          "de": "Antworte verneinend und nenne den richtigen Namen."
+        },
+        "model_or_answer": "아니요. 민수예요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "아니요",
+            "sense_ko": "상대 질문·오해에 대한 부정 응답"
+          },
+          {
+            "form": "민수",
+            "sense_ko": "임시 역할 이름, 모음으로 끝나는 감수용 한글 표기"
+          },
+          {
+            "form": "예요/이에요",
+            "sense_ko": "배운 명사 정체 서술형; 받침별 이름 시범"
+          }
+        ],
+        "required_grammar_functions": [
+          "negative response 아니요 plus learned identity"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "틀린 이름을 거절한 다음 카드 이름을 말해요.",
+            "en": "Reject the wrong name, then give the card’s name.",
+            "de": "Verneine den falschen Namen und nenne den Namen auf der Karte."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "아니요. 민수예요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "상대가 잘못 안 이름 하나만 고치면 돼요. 새 개인정보는 필요 없어요.",
+          "en": "You only need to correct the one mistaken name. No new personal information is needed.",
+          "de": "Du musst nur den falsch verstandenen Namen korrigieren. Weitere persönliche Angaben sind nicht nötig."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 아니요 + correct identity, or full wrongname이/가 아니에요 + correct name. Short 아니요 is response negation, not evidence of noun-negation morphology; assess identity correction separately.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-06-R02",
+        "leak_keys": [
+          "negate",
+          "이/가 아니다: noun negation"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-I03",
+        "unit_id": "A1.1-06",
+        "phase": "I",
+        "objective_id": "A1.1-06.also",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-also"
+        ],
+        "context": {
+          "ko": "앞 대화: 수진은 모자가 있어요. 내 역할 카드에도 모자가 있어요. 둘 다 있다는 사실을 전해요.",
+          "en": "Previous turn: Sujin has a hat. Your role card also shows a hat. Communicate that both have one.",
+          "de": "Vorherige Aussage: Sujin hat einen Hut. Deine Rollenkarte zeigt ebenfalls einen Hut. Teile mit, dass beide einen haben."
+        },
+        "prompt": {
+          "ko": "나도 같은 상황임을 도로 덧붙여요.",
+          "en": "Use 도 to add that the same is true of you.",
+          "de": "Ergänze mit 도, dass dasselbe für dich gilt."
+        },
+        "model_or_answer": "저도 모자가 있어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "저도",
+            "sense_ko": "앞 사람과 동일한 사실에 나를 추가"
+          },
+          {
+            "form": "모자가 있어요",
+            "sense_ko": "모자를 가지고 있거나 지정 범위에 모자가 있는 상태; 해당 문맥에서 판단"
+          }
+        ],
+        "required_grammar_functions": [
+          "도: additive same fact"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "앞 사람과 나에게 같은 사실이 있어요.",
+            "en": "The same fact applies to the previous person and you.",
+            "de": "Dieselbe Angabe gilt für die zuvor genannte Person und für dich."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "저도 모자가 있어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "저는 모자가 있어요도 내 정보는 전해요. 같은 사실에 더한다는 뜻의 도를 썼는지는 따로 확인해요.",
+          "en": "저는 모자가 있어요 communicates your fact. We check separately whether 도 adds the same fact.",
+          "de": "저는 모자가 있어요 teilt deine Angabe mit. Getrennt wird geprüft, ob 도 dieselbe Angabe ergänzt."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 저도 모자가 있어요 or equivalent explicit additive meaning. 저는... communicates possession but additive target unobserved, not factual error.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-06-R03",
+        "leak_keys": [
+          "also",
+          "도: additive same fact"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-I04",
+        "unit_id": "A1.1-06",
+        "phase": "I",
+        "objective_id": "A1.1-06.only",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-only"
+        ],
+        "context": {
+          "ko": "제안된 물건은 물과 우산. 내 역할 카드는 우산만 필요하고 다른 물건은 필요 없다고 정해요.",
+          "en": "The offered objects are water and an umbrella. Your role card needs only 우산, not the other object.",
+          "de": "Angeboten werden Wasser und Regenschirm. Deine Rollenkarte braucht nur 우산, den anderen Gegenstand nicht."
+        },
+        "prompt": {
+          "ko": "필요한 것만 부탁해요.",
+          "en": "Ask for only the needed object.",
+          "de": "Bitte nur um den benötigten Gegenstand."
+        },
+        "model_or_answer": "우산만 주세요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "우산",
+            "sense_ko": "비를 가리는 물건"
+          },
+          {
+            "form": "만",
+            "sense_ko": "제시된 다른 대상을 제외하는 한정"
+          },
+          {
+            "form": "주세요",
+            "sense_ko": "앞 명사의 물건을 달라는 부탁 덩어리"
+          }
+        ],
+        "required_grammar_functions": [
+          "만: restrictive choice"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "두 선택지 중 하나로 범위를 좁혀요.",
+            "en": "Restrict your request to one of the two options.",
+            "de": "Beschränke deine Bitte auf eine der zwei Möglichkeiten."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "우산만 주세요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "물건 이름과 주세요만으로도 부탁은 가능해요. 다른 것은 제외한다는 뜻까지 전달했는지 따로 확인해요.",
+          "en": "An object name with 주세요 can make a request. Check separately whether it also excludes the other item.",
+          "de": "Gegenstand und 주세요 können eine Bitte ausdrücken. Prüfe getrennt, ob damit auch der andere Gegenstand ausgeschlossen wird."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept noun만 주세요 / noun만 필요해요 / explicit only-equivalent. noun 주세요 may request correctly but restriction unobserved. Do not make a natural request an unrelated wrong answer.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-06-R04",
+        "leak_keys": [
+          "only",
+          "만: restrictive choice"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-I05",
+        "unit_id": "A1.1-06",
+        "phase": "I",
+        "objective_id": "A1.1-06.identify",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-negate"
+        ],
+        "context": {
+          "ko": "가까운 칸의 내 소유자 표 모자와 먼 칸의 수진 모자. 상대가 먼 모자를 가리켰어요. R에서는 칸 위치와 모자 색을 바꿔요.",
+          "en": "Your hat is in a near compartment; Sujin’s is farther away. The partner points to the farther hat. R changes compartment positions and hat colours.",
+          "de": "Dein Hut liegt im nahen Fach, Sujins Hut weiter weg. Die andere Person zeigt auf den fernen Hut. R ändert die Fachpositionen und Hutfarben."
+        },
+        "prompt": {
+          "ko": "맞는 물건을 가리키고 이거예요로 확인해요. 필요하면 먼저 주인을 정정해요.",
+          "en": "Point to the correct object and confirm it with 이거예요. Correct the ownership first if needed.",
+          "de": "Zeige auf den richtigen Gegenstand und bestätige ihn mit 이거예요. Korrigiere bei Bedarf zuerst den Besitz."
+        },
+        "model_or_answer": "[내 모자 선택] 이거예요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "이거예요",
+            "sense_ko": "가까운 대상을 지목·정체 확인하는 전체 표현"
+          },
+          {
+            "form": "제 모자",
+            "sense_ko": "내가 소유한 모자"
+          }
+        ],
+        "required_grammar_functions": [
+          "이다: proximal identification"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "화자 가까운 내 소유자 표를 확인해요.",
+            "en": "Check your owner tag near the speaker.",
+            "de": "Prüfe dein Besitzschild nahe bei der sprechenden Person."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "[내 모자 선택] 이거예요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "색만 외우지 않고 이번 소유자 표와 거리를 확인해요.",
+          "en": "Check this owner tag and distance rather than memorising a colour.",
+          "de": "Prüfe das aktuelle Besitzschild und die Entfernung, statt eine Farbe auswendig zu verwenden."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Goal: correct referent and this-identification. 이거예요 alone does not demonstrate negation; no invented negation credit. Pointing only is action evidence, not spoken production.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-06-R05",
+        "leak_keys": [
+          "negate",
+          "이/가 아니다: noun negation"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-R01",
+        "unit_id": "A1.1-06",
+        "phase": "R",
+        "objective_id": "A1.1-06.negate",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-negate"
+        ],
+        "context": {
+          "ko": "모자는 눈앞에 있지만 소유자 표가 내 카드와 달라요. 도깨비가 내 것이라고 잘못 건넸어요.",
+          "en": "The 모자 is visible, but its owner tag differs from yours. The gatekeeper handed it to you as if it were yours.",
+          "de": "Der Gegenstand 모자 ist sichtbar, aber sein Besitzschild passt nicht zu deiner Karte. Der Torwächter hat ihn dir irrtümlich als deinen gegeben."
+        },
+        "prompt": {
+          "ko": "물건이 없다고 하지 않고 내 것이 아님을 정정해요.",
+          "en": "Correct the ownership without claiming the object is absent.",
+          "de": "Korrigiere den Besitz, ohne zu sagen, dass der Gegenstand fehlt."
+        },
+        "model_or_answer": "제 모자가 아니에요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "제",
+            "sense_ko": "나의 공손한 소유 표현"
+          },
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "아니에요",
+            "sense_ko": "명사로 제시한 정체·소유를 부정하는 배운 형태"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가 아니다: noun negation"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "보이는 물건의 소유자가 다르다는 점을 말해요.",
+            "en": "Say that the visible object belongs to someone else.",
+            "de": "Sage, dass der sichtbare Gegenstand jemand anderem gehört."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "제 모자가 아니에요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "없어요는 유무의 말이에요. 여기에는 물건이 있으니 누구 것인지 정정해요.",
+          "en": "없어요 reports absence. The object is present, so correct whose it is.",
+          "de": "없어요 meldet ein Fehlen. Der Gegenstand ist vorhanden; korrigiere daher den Besitz."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Correct the ownership of the currently handed 모자. Accept its correct noun with appropriate negation, 제 것이 아니에요, or an equally clear referential alternative. Do not substitute the other object noun. Topic particles may be appropriate; exact particle string is not sole correctness. Absence statement conflicts with this present-visible scope.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "negate",
+          "이/가 아니다: noun negation"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-R02",
+        "unit_id": "A1.1-06",
+        "phase": "R",
+        "objective_id": "A1.1-06.name-repair",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-negate"
+        ],
+        "context": {
+          "ko": "새 역할 이름은 하린. 상대가 다른 이름으로 불렀어요. 예전 소개 카드 설정과 별개예요.",
+          "en": "Your new role name is 하린. The partner used a different name. This is separate from earlier introduction cards.",
+          "de": "Dein neuer Rollenname ist 하린. Die andere Person hat einen anderen Namen verwendet. Das gehört nicht zu früheren Vorstellungskarten."
+        },
+        "prompt": {
+          "ko": "잘못 불린 이름을 정정해요.",
+          "en": "Correct the mistaken name.",
+          "de": "Korrigiere den falsch genannten Namen."
+        },
+        "model_or_answer": "아니요. 하린이에요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "아니요",
+            "sense_ko": "상대 질문·오해에 대한 부정 응답"
+          },
+          {
+            "form": "하린",
+            "sense_ko": "임시 역할 이름, 받침으로 끝나는 감수용 한글 표기"
+          },
+          {
+            "form": "예요/이에요",
+            "sense_ko": "배운 명사 정체 서술형; 받침별 이름 시범"
+          }
+        ],
+        "required_grammar_functions": [
+          "negative response 아니요 plus learned identity"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "틀린 이름을 거절한 다음 카드 이름을 말해요.",
+            "en": "Reject the wrong name, then give the card’s name.",
+            "de": "Verneine den falschen Namen und nenne den Namen auf der Karte."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "아니요. 하린이에요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "상대가 잘못 안 이름 하나만 고치면 돼요. 새 개인정보는 필요 없어요.",
+          "en": "You only need to correct the one mistaken name. No new personal information is needed.",
+          "de": "Du musst nur den falsch verstandenen Namen korrigieren. Weitere persönliche Angaben sind nicht nötig."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 아니요 + correct identity, or full wrongname이/가 아니에요 + correct name. Short 아니요 is response negation, not evidence of noun-negation morphology; assess identity correction separately.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "negate",
+          "이/가 아니다: noun negation"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-R03",
+        "unit_id": "A1.1-06",
+        "phase": "R",
+        "objective_id": "A1.1-06.also",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-also"
+        ],
+        "context": {
+          "ko": "앞 대화: 수진은 모자가 있어요. 내 역할 카드에도 모자가 있어요. 둘 다 있다는 사실을 전해요.",
+          "en": "Previous turn: Sujin has a hat. Your role card also shows a hat. Communicate that both have one.",
+          "de": "Vorherige Aussage: Sujin hat einen Hut. Deine Rollenkarte zeigt ebenfalls einen Hut. Teile mit, dass beide einen haben."
+        },
+        "prompt": {
+          "ko": "앞 사람과 내 카드에 공통으로 해당하는 사실을 덧붙여요.",
+          "en": "Add that the same fact applies to you.",
+          "de": "Ergänze, dass dieselbe Angabe für dich gilt."
+        },
+        "model_or_answer": "저도 모자가 있어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "저도",
+            "sense_ko": "앞 사람과 동일한 사실에 나를 추가"
+          },
+          {
+            "form": "모자가 있어요",
+            "sense_ko": "모자를 가지고 있거나 지정 범위에 모자가 있는 상태; 해당 문맥에서 판단"
+          }
+        ],
+        "required_grammar_functions": [
+          "도: additive same fact"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "앞 사람과 나에게 같은 사실이 있어요.",
+            "en": "The same fact applies to the previous person and you.",
+            "de": "Dieselbe Angabe gilt für die zuvor genannte Person und für dich."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "저도 모자가 있어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "저는 모자가 있어요도 내 정보는 전해요. 같은 사실에 더한다는 뜻의 도를 썼는지는 따로 확인해요.",
+          "en": "저는 모자가 있어요 communicates your fact. We check separately whether 도 adds the same fact.",
+          "de": "저는 모자가 있어요 teilt deine Angabe mit. Getrennt wird geprüft, ob 도 dieselbe Angabe ergänzt."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 저도 모자가 있어요 or equivalent explicit additive meaning. 저는... communicates possession but additive target unobserved, not factual error.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "also",
+          "도: additive same fact"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-R04",
+        "unit_id": "A1.1-06",
+        "phase": "R",
+        "objective_id": "A1.1-06.only",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-only"
+        ],
+        "context": {
+          "ko": "제안된 물건은 물과 우산. 내 역할 카드는 물만 필요하고 다른 물건은 필요 없다고 정해요.",
+          "en": "The offered objects are water and an umbrella. Your role card needs only 물, not the other object.",
+          "de": "Angeboten werden Wasser und Regenschirm. Deine Rollenkarte braucht nur 물, den anderen Gegenstand nicht."
+        },
+        "prompt": {
+          "ko": "필요한 것만 부탁해요.",
+          "en": "Ask for only the needed object.",
+          "de": "Bitte nur um den benötigten Gegenstand."
+        },
+        "model_or_answer": "물만 주세요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "물",
+            "sense_ko": "마시는 물"
+          },
+          {
+            "form": "만",
+            "sense_ko": "제시된 다른 대상을 제외하는 한정"
+          },
+          {
+            "form": "주세요",
+            "sense_ko": "앞 명사의 물건을 달라는 부탁 덩어리"
+          }
+        ],
+        "required_grammar_functions": [
+          "만: restrictive choice"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "두 선택지 중 하나로 범위를 좁혀요.",
+            "en": "Restrict your request to one of the two options.",
+            "de": "Beschränke deine Bitte auf eine der zwei Möglichkeiten."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "물만 주세요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "물건 이름과 주세요만으로도 부탁은 가능해요. 다른 것은 제외한다는 뜻까지 전달했는지 따로 확인해요.",
+          "en": "An object name with 주세요 can make a request. Check separately whether it also excludes the other item.",
+          "de": "Gegenstand und 주세요 können eine Bitte ausdrücken. Prüfe getrennt, ob damit auch der andere Gegenstand ausgeschlossen wird."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept noun만 주세요 / noun만 필요해요 / explicit only-equivalent. noun 주세요 may request correctly but restriction unobserved. Do not make a natural request an unrelated wrong answer.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "only",
+          "만: restrictive choice"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-R05",
+        "unit_id": "A1.1-06",
+        "phase": "R",
+        "objective_id": "A1.1-06.identify",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-06-T-negate"
+        ],
+        "context": {
+          "ko": "가까운 칸의 내 소유자 표 모자와 먼 칸의 수진 모자. 상대가 먼 모자를 가리켰어요. R에서는 칸 위치와 모자 색을 바꿔요.",
+          "en": "Your hat is in a near compartment; Sujin’s is farther away. The partner points to the farther hat. R changes compartment positions and hat colours.",
+          "de": "Dein Hut liegt im nahen Fach, Sujins Hut weiter weg. Die andere Person zeigt auf den fernen Hut. R ändert die Fachpositionen und Hutfarben."
+        },
+        "prompt": {
+          "ko": "내 것인 물건을 가리켜 맞는 대상을 알려요.",
+          "en": "Point out the object you own and identify the correct one.",
+          "de": "Zeige auf deinen Gegenstand und benenne den richtigen."
+        },
+        "model_or_answer": "[내 모자 선택] 이거예요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "이거예요",
+            "sense_ko": "가까운 대상을 지목·정체 확인하는 전체 표현"
+          },
+          {
+            "form": "제 모자",
+            "sense_ko": "내가 소유한 모자"
+          }
+        ],
+        "required_grammar_functions": [
+          "이다: proximal identification"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "화자 가까운 내 소유자 표를 확인해요.",
+            "en": "Check your owner tag near the speaker.",
+            "de": "Prüfe dein Besitzschild nahe bei der sprechenden Person."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "[내 모자 선택] 이거예요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "색만 외우지 않고 이번 소유자 표와 거리를 확인해요.",
+          "en": "Check this owner tag and distance rather than memorising a colour.",
+          "de": "Prüfe das aktuelle Besitzschild und die Entfernung, statt eine Farbe auswendig zu verwenden."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Goal: correct referent and this-identification. 이거예요 alone does not demonstrate negation; no invented negation credit. Pointing only is action evidence, not spoken production.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "negate",
+          "이/가 아니다: noun negation"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-I06",
+        "unit_id": "A1.1-06",
+        "phase": "I",
+        "objective_id": "A1.1-06.exist-recall",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-exist",
+          "A1.1-03-T-place"
+        ],
+        "context": {
+          "ko": "정정 뒤 다른 선반을 함께 점검해요. 화자에게서 먼 선반 전체에 모자만 있어요.",
+          "en": "After the correction, check a different shelf. Its whole surface is visible, farther from the speaker, with only the stated object on it.",
+          "de": "Prüfe nach der Korrektur ein anderes Regalbrett. Es ist vollständig sichtbar, liegt weiter von der sprechenden Person weg und zeigt nur den angegebenen Gegenstand."
+        },
+        "prompt": {
+          "ko": "무엇이 어디에 있는지 알려요.",
+          "en": "Say what is there and where it is.",
+          "de": "Sage, was wo liegt."
+        },
+        "model_or_answer": "저기 모자가 있어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "저기",
+            "sense_ko": "표시된 화자에게서 떨어진 곳"
+          },
+          {
+            "form": "있어요",
+            "sense_ko": "확인한 제한 범위에 대상이 있음"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "주인 정정과 별개로 물건의 유무와 위치를 말해요.",
+            "en": "Report presence and location separately from correcting ownership.",
+            "de": "Beschreibe Vorhandensein und Ort getrennt von der Korrektur des Besitzes."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "저기 모자가 있어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "아니에요는 정체의 정정이에요. 이번에는 다른 선반에 있는 물건을 보고해요.",
+          "en": "아니에요 corrects identity. Here you report an object on a different shelf.",
+          "de": "아니에요 korrigiert eine Zuordnung. Hier beschreibst du einen Gegenstand auf einem anderen Regalbrett."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Concrete03presence/location retrieval in designated06destination. Omission/topic alternatives judged by meaning and separate target observation.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-06-R06",
+        "leak_keys": [
+          "exist-recall",
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-06-R06",
+        "unit_id": "A1.1-06",
+        "phase": "R",
+        "objective_id": "A1.1-06.exist-recall",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-03-T-exist",
+          "A1.1-03-T-place"
+        ],
+        "context": {
+          "ko": "정정 뒤 다른 선반을 함께 점검해요. 화자에게서 먼 선반 전체에 가방만 있어요.",
+          "en": "After the correction, check a different shelf. Its whole surface is visible, farther from the speaker, with only the stated object on it.",
+          "de": "Prüfe nach der Korrektur ein anderes Regalbrett. Es ist vollständig sichtbar, liegt weiter von der sprechenden Person weg und zeigt nur den angegebenen Gegenstand."
+        },
+        "prompt": {
+          "ko": "무엇이 어디에 있는지 알려요.",
+          "en": "Say what is there and where it is.",
+          "de": "Sage, was wo liegt."
+        },
+        "model_or_answer": "저기 가방이 있어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "가방",
+            "sense_ko": "물건을 넣어 가지고 다니는 가방"
+          },
+          {
+            "form": "저기",
+            "sense_ko": "표시된 화자에게서 떨어진 곳"
+          },
+          {
+            "form": "있어요",
+            "sense_ko": "확인한 제한 범위에 대상이 있음"
+          }
+        ],
+        "required_grammar_functions": [
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "주인 정정과 별개로 물건의 유무와 위치를 말해요.",
+            "en": "Report presence and location separately from correcting ownership.",
+            "de": "Beschreibe Vorhandensein und Ort getrennt von der Korrektur des Besitzes."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "저기 가방이 있어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "아니에요는 정체의 정정이에요. 이번에는 다른 선반에 있는 물건을 보고해요.",
+          "en": "아니에요 corrects identity. Here you report an object on a different shelf.",
+          "de": "아니에요 korrigiert eine Zuordnung. Hier beschreibst du einen Gegenstand auf einem anderen Regalbrett."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Concrete03presence/location retrieval in designated06destination. Omission/topic alternatives judged by meaning and separate target observation.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "exist-recall",
+          "이/가: presence information",
+          "-어요: 있어요/없어요"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "choice_labels": []
+      }
+    ]
+  },
+  "responses": {
+    "assisted": {
+      "ko": "도움을 받아 이 활동을 함께 마쳤어요. 다른 예는 준비되면 해 봐요.",
+      "en": "You completed this activity with support. Try another example when you are ready.",
+      "de": "Du hast diese Aufgabe mit Hilfe abgeschlossen. Probiere ein weiteres Beispiel, wenn du bereit bist."
+    },
+    "independent": {
+      "ko": "이 예는 시범 없이 확인했어요. 다른 날 새로운 상황에서도 다시 해 봐요.",
+      "en": "You checked this example without a model. Try it in a new setting another day.",
+      "de": "Du hast dieses Beispiel ohne Vorlage bearbeitet. Probiere es an einem anderen Tag in einer neuen Situation."
+    },
+    "audio_unavailable": {
+      "ko": "지금은 소리를 재생할 수 없어요. 글과 그림으로 계속하거나 나중에 다시 들어요.",
+      "en": "Audio is unavailable right now. Continue with text and pictures, or listen later.",
+      "de": "Der Ton ist gerade nicht verfügbar. Mach mit Text und Bildern weiter oder höre später noch einmal zu."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 괜찮아요. 돌아오면 같은 차례에서 이어가요.",
+      "en": "You can take a break here. When you return, continue from the same turn.",
+      "de": "Du kannst hier eine Pause machen. Wenn du zurückkommst, geht es an derselben Stelle weiter."
+    },
+    "resume": {
+      "ko": "돌아왔네요. 놓아 둔 답과 도움 상태를 확인하고 이어가요.",
+      "en": "Welcome back. Check your previous response and any help you used, then continue.",
+      "de": "Willkommen zurück. Sieh dir deine bisherige Antwort und die verwendete Hilfe an und mach dann weiter."
+    },
+    "save_failed": {
+      "ko": "아직 저장을 확인하지 못했어요. 지금 답은 유지한 채 다시 시도해요.",
+      "en": "Saving has not been confirmed yet. Keep your response and try again.",
+      "de": "Das Speichern ist noch nicht bestätigt. Deine Antwort bleibt stehen; versuche es erneut."
+    },
+    "revisit": {
+      "ko": "이미 본 장면이에요. 다시 보아도 보상이나 공정이 중복 생성되지 않아요.",
+      "en": "You have seen this scene before. Replaying it does not grant another reward or construction step.",
+      "de": "Du kennst diese Szene bereits. Beim erneuten Ansehen erhältst du keine weitere Belohnung und keinen zusätzlichen Bauabschnitt."
+    }
+  },
+  "response_conditions": {
+    "assisted": "only after supported task is resolved",
+    "independent": "only if the eligible item met its criteria without model/hint; not all modalities",
+    "resume": "only after original state is actually restored",
+    "revisit": "existing reward owner remains authoritative"
+  },
+  "story": {
+    "lq_id": "LQ-05",
+    "anchor": "중문간채 중간",
+    "spoiler_guard": "Use only revealed facts. First book has no completed Sarangchae; first 집 remains practice draft until original readiness is confirmed."
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true,
+    "original_review_scope": "existing manuscript reviews and same-byte source; not human/native/device approval"
+  }
+}

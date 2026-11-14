@@ -1,0 +1,574 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "record_type": "inherited_detailed_with_integration_overlay",
+  "unit_id": "F0.3.round-corner",
+  "band": "F0.3",
+  "title": {
+    "ko": "ㅟ·ㅚ의 표기를 익히고 음성을 경험한다",
+    "en": "ㅟ, ㅚ and 위",
+    "de": "ㅟ, ㅚ und 위"
+  },
+  "goal": {
+    "ko": "ㅟ·ㅚ의 표기를 익히고 음성을 경험한다",
+    "en": "Learn the spellings ㅟ and ㅚ and listen to their sounds.",
+    "de": "Lerne die Schreibweisen ㅟ und ㅚ kennen und höre ihre Laute."
+  },
+  "prerequisites": [],
+  "base_manuscript": {
+    "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/09_WI_OE.md",
+    "sha256": "a850a5ccf571f9c2c5c327471736221bfd35022c821a2dc075184941b9ffbe2e",
+    "inheritance": "full dialogue, teaching, P/I/R items, answer criteria, help and feedback retained verbatim; overlay is additive"
+  },
+  "source_contract": {
+    "id": "F0.3.round-corner",
+    "goal": "ㅟ·ㅚ의 표기를 익히고 음성을 경험한다",
+    "teach_targets": "위,외",
+    "check_targets": "귀,괴",
+    "meaning_or_oral": "위의 뜻은 위치 그림과 별도 지도",
+    "transfer_task": "새 음절 귀·괴를 배운 조각으로 조립",
+    "review_in": "A1.2-02",
+    "review_prompt": "위의 뜻과 표기를 새 지도에서 재사용",
+    "evidence_limit": "발음 변이 허용 범위는 음성 감수 후 결정"
+  },
+  "inherited_content": {
+    "selected_feedback_refs": [
+      "H01",
+      "B01"
+    ],
+    "feedback_rows": [
+      {
+        "key": "H01·시범 도움",
+        "en": "Find the ㅜ and ㅣ parts in the written form ㅟ. Put ㅇ and ㅟ together to make 위 and listen. You'll learn its position meaning separately after the letter practice.",
+        "de": "Finde die Teile ㅜ und ㅣ in der Schriftform ㅟ. Verbinde ㅇ und ㅟ zu 위 und hör zu. Die Ortsbedeutung lernst du nach der Zeichenübung gesondert."
+      },
+      {
+        "key": "A01·듣고 표기·위",
+        "en": "The sound was 위. Listen again with the written example 위, then choose the written form again.",
+        "de": "Der Laut war 위. Hör ihn noch einmal mit dem Schriftbeispiel 위 und wähle dann das Schriftzeichen erneut."
+      },
+      {
+        "key": "B01·배치·위",
+        "en": "The written form here is 위: initial ㅇ, vowel ㅟ. Put the pieces into one block and try again with the same example.",
+        "de": "Hier steht 위: Anfangszeichen ㅇ, Vokal ㅟ. Setze die Teile zu einem Block zusammen und versuch es mit demselben Beispiel noch einmal."
+      },
+      {
+        "key": "B01·배치·귀",
+        "en": "The written form here is 귀: initial ㄱ, vowel ㅟ. Put the pieces into one block and try again with the same example.",
+        "de": "Hier steht 귀: Anfangszeichen ㄱ, Vokal ㅟ. Setze die Teile zu einem Block zusammen und versuch es mit demselben Beispiel noch einmal."
+      },
+      {
+        "key": "C01·첫소리·위",
+        "en": "The written syllable is 위: initial ㅇ, vowel ㅟ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 위: Anfangszeichen ㅇ, Vokal ㅟ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "C01·첫소리·귀",
+        "en": "The written syllable is 귀: initial ㄱ, vowel ㅟ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 귀: Anfangszeichen ㄱ, Vokal ㅟ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "V01·모음·위",
+        "en": "The written syllable is 위: initial ㅇ, vowel ㅟ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 위: Anfangszeichen ㅇ, Vokal ㅟ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "V01·모음·귀",
+        "en": "The written syllable is 귀: initial ㄱ, vowel ㅟ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 귀: Anfangszeichen ㄱ, Vokal ㅟ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "H02·시범 도움",
+        "en": "Look at the ㅗ and ㅣ parts in ㅚ. Put ㅇ and ㅚ together to make 외. Connect the writing with actual audio without treating one mouth shape as the only correct one.",
+        "de": "Sieh dir die Teile ㅗ und ㅣ in ㅚ an. Verbinde ㅇ und ㅚ zu 외. Verknüpfe Schrift und Aufnahme, ohne nur eine Mundform als richtig anzusehen."
+      },
+      {
+        "key": "A02·듣고 표기·외",
+        "en": "The sound was 외. Listen again with the written example 외, then choose the written form again.",
+        "de": "Der Laut war 외. Hör ihn noch einmal mit dem Schriftbeispiel 외 und wähle dann das Schriftzeichen erneut."
+      },
+      {
+        "key": "B02·배치·외",
+        "en": "The written form here is 외: initial ㅇ, vowel ㅚ. Put the pieces into one block and try again with the same example.",
+        "de": "Hier steht 외: Anfangszeichen ㅇ, Vokal ㅚ. Setze die Teile zu einem Block zusammen und versuch es mit demselben Beispiel noch einmal."
+      },
+      {
+        "key": "B02·배치·괴",
+        "en": "The written form here is 괴: initial ㄱ, vowel ㅚ. Put the pieces into one block and try again with the same example.",
+        "de": "Hier steht 괴: Anfangszeichen ㄱ, Vokal ㅚ. Setze die Teile zu einem Block zusammen und versuch es mit demselben Beispiel noch einmal."
+      },
+      {
+        "key": "C02·첫소리·외",
+        "en": "The written syllable is 외: initial ㅇ, vowel ㅚ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 외: Anfangszeichen ㅇ, Vokal ㅚ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "C02·첫소리·괴",
+        "en": "The written syllable is 괴: initial ㄱ, vowel ㅚ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 괴: Anfangszeichen ㄱ, Vokal ㅚ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "V02·모음·외",
+        "en": "The written syllable is 외: initial ㅇ, vowel ㅚ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 외: Anfangszeichen ㅇ, Vokal ㅚ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "V02·모음·괴",
+        "en": "The written syllable is 괴: initial ㄱ, vowel ㅚ. Check its pieces, listen to the whole syllable and choose its sound again.",
+        "de": "Geschrieben steht 괴: Anfangszeichen ㄱ, Vokal ㅚ. Prüfe die Teile, hör dir die ganze Silbe an und wähle ihren Laut erneut."
+      },
+      {
+        "key": "S-H·뜻 도움/오답",
+        "en": "위 is the higher position relative to the box. Revisit the upper position and the sound 위.",
+        "de": "위 ist die höhere Position im Verhältnis zur Kiste. Sieh dir den oberen Platz an und hör dir 위 noch einmal an."
+      },
+      {
+        "key": "OK·현재 목표만",
+        "en": "That matches this written form or the marked target. Take your time with the next one too.",
+        "de": "Das passt zu dieser Schriftform oder zur markierten Stelle. Nimm dir auch für die nächste Aufgabe Zeit."
+      }
+    ],
+    "practice_task_ids": [
+      "C09-P01",
+      "C09-P02",
+      "C09-P03",
+      "C09-P04",
+      "C09-P05",
+      "C09-P06"
+    ],
+    "independent_task_ids": [
+      "C09-I01",
+      "C09-I02",
+      "C09-I03",
+      "C09-I04"
+    ],
+    "next_day_task_ids": [
+      "C09-R01",
+      "C09-R02",
+      "C09-R03",
+      "C09-R04",
+      "C09-R05",
+      "C09-R06"
+    ],
+    "common_copy_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-3-v35\\COMMON_COPY.md",
+    "readme_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-3-v35\\README.md",
+    "task_bindings": [
+      {
+        "task_id": "C09-P01",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to put the pieces into one syllable block.",
+          "de": "Setze die Teile nach dem Beispiel zu einem Silbenblock zusammen."
+        },
+        "target": "위",
+        "feedback_refs": [
+          "H01",
+          "B01"
+        ],
+        "material": {
+          "shown_model": "위",
+          "pieces": [
+            "ㅟ",
+            "ㅇ"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-P02",
+        "kind": "P",
+        "prompt": {
+          "en": "Listen and choose the matching written form.",
+          "de": "Hör zu und wähle die passende Schriftform."
+        },
+        "target": "위",
+        "feedback_refs": [
+          "H01",
+          "A01"
+        ],
+        "material": {
+          "audio": "위",
+          "no_transcript": true
+        },
+        "choices": [
+          "위",
+          "우"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-I01",
+        "kind": "I",
+        "prompt": {
+          "en": "Look at the written syllable and choose its sound.",
+          "de": "Sieh dir die geschriebene Silbe an und wähle den passenden Laut."
+        },
+        "target": "귀",
+        "feedback_refs": [
+          "H01",
+          "C01",
+          "V01"
+        ],
+        "material": {
+          "written": "귀",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "뉘",
+          "구",
+          "귀"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-I02",
+        "kind": "I",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist noch verborgen."
+        },
+        "target": "귀",
+        "feedback_refs": [
+          "H01",
+          "B01"
+        ],
+        "material": {
+          "pieces": [
+            "ㅟ",
+            "ㄱ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-P03",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to put the pieces into one syllable block.",
+          "de": "Setze die Teile nach dem Beispiel zu einem Silbenblock zusammen."
+        },
+        "target": "외",
+        "feedback_refs": [
+          "H02",
+          "B02"
+        ],
+        "material": {
+          "shown_model": "외",
+          "pieces": [
+            "ㅚ",
+            "ㅇ"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-P04",
+        "kind": "P",
+        "prompt": {
+          "en": "Listen and choose the matching written form.",
+          "de": "Hör zu und wähle die passende Schriftform."
+        },
+        "target": "외",
+        "feedback_refs": [
+          "H02",
+          "A02"
+        ],
+        "material": {
+          "audio": "외",
+          "no_transcript": true
+        },
+        "choices": [
+          "오",
+          "외"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-I03",
+        "kind": "I",
+        "prompt": {
+          "en": "Look at the written syllable and choose its sound.",
+          "de": "Sieh dir die geschriebene Silbe an und wähle den passenden Laut."
+        },
+        "target": "괴",
+        "feedback_refs": [
+          "H02",
+          "C02",
+          "V02"
+        ],
+        "material": {
+          "written": "괴",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "고",
+          "괴",
+          "뇌"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-I04",
+        "kind": "I",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist noch verborgen."
+        },
+        "target": "괴",
+        "feedback_refs": [
+          "H02",
+          "B02"
+        ],
+        "material": {
+          "pieces": [
+            "ㅚ",
+            "ㄱ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-P05",
+        "kind": "P",
+        "prompt": {
+          "en": "Look at the picture, meaning and word example, then choose the matching word.",
+          "de": "Sieh dir Bild, Bedeutung und Wortbeispiel zusammen an und wähle das passende Wort."
+        },
+        "target": "위",
+        "feedback_refs": [
+          "S-H"
+        ],
+        "material": {
+          "picture": "ABOVE-T1",
+          "meaning_supplied": true,
+          "shown_word": "위"
+        },
+        "choices": [
+          "위",
+          "우",
+          "오"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-P06",
+        "kind": "P",
+        "prompt": {
+          "en": "Choose the position that matches the written word, using the box as the reference.",
+          "de": "Wähle den Platz, der zum geschriebenen Wort passt. Nimm die Kiste als Bezugspunkt."
+        },
+        "target": "ABOVE",
+        "feedback_refs": [
+          "S-H"
+        ],
+        "material": {
+          "picture": "ABOVE-T2",
+          "written": "위",
+          "shown_position": "ABOVE"
+        },
+        "choices": [
+          "BELOW",
+          "ABOVE",
+          "SIDE"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-R01",
+        "kind": "R",
+        "prompt": {
+          "en": "Look at the written syllable and choose its sound.",
+          "de": "Sieh dir die geschriebene Silbe an und wähle den passenden Laut."
+        },
+        "target": "귀",
+        "feedback_refs": [
+          "H01",
+          "C01",
+          "V01"
+        ],
+        "material": {
+          "written": "귀",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "귀",
+          "구",
+          "뉘"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-R02",
+        "kind": "R",
+        "prompt": {
+          "en": "Look at the written syllable and choose its sound.",
+          "de": "Sieh dir die geschriebene Silbe an und wähle den passenden Laut."
+        },
+        "target": "괴",
+        "feedback_refs": [
+          "H02",
+          "C02",
+          "V02"
+        ],
+        "material": {
+          "written": "괴",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "뇌",
+          "괴",
+          "고"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-R03",
+        "kind": "R",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist noch verborgen."
+        },
+        "target": "귀",
+        "feedback_refs": [
+          "H01",
+          "B01"
+        ],
+        "material": {
+          "pieces": [
+            "ㄱ",
+            "ㅟ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-R04",
+        "kind": "R",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist noch verborgen."
+        },
+        "target": "괴",
+        "feedback_refs": [
+          "H02",
+          "B02"
+        ],
+        "material": {
+          "pieces": [
+            "ㄱ",
+            "ㅚ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-R05",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the position that matches the written word, using the box as the reference.",
+          "de": "Wähle den Platz, der zum geschriebenen Wort passt. Nimm die Kiste als Bezugspunkt."
+        },
+        "target": "ABOVE",
+        "feedback_refs": [
+          "S-H"
+        ],
+        "material": {
+          "picture": "ABOVE-R1",
+          "written": "위"
+        },
+        "choices": [
+          "SIDE",
+          "BELOW",
+          "ABOVE"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C09-R06",
+        "kind": "R",
+        "prompt": {
+          "en": "Listen and choose the matching position relative to the box.",
+          "de": "Hör zu und wähle den passenden Platz im Verhältnis zur Kiste."
+        },
+        "target": "ABOVE",
+        "feedback_refs": [
+          "S-H"
+        ],
+        "material": {
+          "picture": "ABOVE-R1",
+          "audio": "위",
+          "no_transcript": true
+        },
+        "choices": [
+          "ABOVE",
+          "SIDE",
+          "BELOW"
+        ],
+        "source_row": null
+      }
+    ]
+  },
+  "responses": {
+    "assisted": {
+      "ko": "도움을 받아 이 활동을 함께 마쳤어요. 다른 예는 준비되면 해 봐요.",
+      "en": "You completed this activity with support. Try another example when you are ready.",
+      "de": "Du hast diese Aufgabe mit Hilfe abgeschlossen. Probiere ein weiteres Beispiel, wenn du bereit bist."
+    },
+    "independent": {
+      "ko": "이 예는 시범 없이 확인했어요. 다른 날 새로운 상황에서도 다시 해 봐요.",
+      "en": "You checked this example without a model. Try it in a new setting another day.",
+      "de": "Du hast dieses Beispiel ohne Vorlage bearbeitet. Probiere es an einem anderen Tag in einer neuen Situation."
+    },
+    "audio_unavailable": {
+      "ko": "지금은 소리를 재생할 수 없어요. 글과 그림으로 계속하거나 나중에 다시 들어요.",
+      "en": "Audio is unavailable right now. Continue with text and pictures, or listen later.",
+      "de": "Der Ton ist gerade nicht verfügbar. Mach mit Text und Bildern weiter oder höre später noch einmal zu."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 괜찮아요. 돌아오면 같은 차례에서 이어가요.",
+      "en": "You can take a break here. When you return, continue from the same turn.",
+      "de": "Du kannst hier eine Pause machen. Wenn du zurückkommst, geht es an derselben Stelle weiter."
+    },
+    "resume": {
+      "ko": "돌아왔네요. 놓아 둔 답과 도움 상태를 확인하고 이어가요.",
+      "en": "Welcome back. Check your previous response and any help you used, then continue.",
+      "de": "Willkommen zurück. Sieh dir deine bisherige Antwort und die verwendete Hilfe an und mach dann weiter."
+    },
+    "save_failed": {
+      "ko": "아직 저장을 확인하지 못했어요. 지금 답은 유지한 채 다시 시도해요.",
+      "en": "Saving has not been confirmed yet. Keep your response and try again.",
+      "de": "Das Speichern ist noch nicht bestätigt. Deine Antwort bleibt stehen; versuche es erneut."
+    },
+    "revisit": {
+      "ko": "이미 본 장면이에요. 다시 보아도 보상이나 공정이 중복 생성되지 않아요.",
+      "en": "You have seen this scene before. Replaying it does not grant another reward or construction step.",
+      "de": "Du kennst diese Szene bereits. Beim erneuten Ansehen erhältst du keine weitere Belohnung und keinen zusätzlichen Bauabschnitt."
+    }
+  },
+  "response_conditions": {
+    "assisted": "only after supported task is resolved",
+    "independent": "only if the eligible item met its criteria without model/hint; not all modalities",
+    "resume": "only after original state is actually restored",
+    "revisit": "existing reward owner remains authoritative"
+  },
+  "story": {
+    "lq_id": "LQ-03",
+    "anchor": "중문간채 착공",
+    "spoiler_guard": "Use only revealed facts. First book has no completed Sarangchae; first 집 remains practice draft until original readiness is confirmed."
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true,
+    "original_review_scope": "existing manuscript reviews and same-byte source; not human/native/device approval"
+  }
+}

@@ -1,0 +1,695 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "unit_id": "A2.2-02",
+  "band": "A2.2",
+  "title": {
+    "ko": "하다가 생긴 일",
+    "en": "What happened during an activity",
+    "de": "Was während einer Tätigkeit geschah"
+  },
+  "goal": {
+    "ko": "겹친 행동·중단·변화를 연결해 설명한다",
+    "en": "Explain simultaneous actions, interruptions, and changed outcomes.",
+    "de": "Erkläre gleichzeitige Handlungen, Unterbrechungen und veränderte Folgen."
+  },
+  "prerequisites": [
+    "A1.2-03",
+    "A2.2-01"
+  ],
+  "teach_targets": {
+    "vocab": [
+      {
+        "ko": "걷다",
+        "en": "walk",
+        "de": "gehen"
+      },
+      {
+        "ko": "놓치다",
+        "en": "miss",
+        "de": "verpassen"
+      },
+      {
+        "ko": "갑자기",
+        "en": "suddenly",
+        "de": "plötzlich"
+      },
+      {
+        "ko": "바뀌다",
+        "en": "change",
+        "de": "sich ändern"
+      }
+    ],
+    "grammar": [
+      "-(으)면서",
+      "-다가",
+      "-게 되다"
+    ]
+  },
+  "non_assessed": [
+    "원문의 사진 속 이름 발견은 새 비밀 이름을 찾는 문항으로 만들지 않는다.",
+    "영상은 재생 구현이 아닌 집필용 동작 대본이다."
+  ],
+  "source": {
+    "contract_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/UNITS.psv",
+    "contract_sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+    "story_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+    "story_sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332",
+    "base_sha": "646c4658e70f594ab234a172679e29122d0f0e66"
+  },
+  "story": {
+    "lq_id": "LQ-08",
+    "building_id": "anchae",
+    "anchor": "안채 중간 / v3.5 §6 06·§8.1; 이 패킷의 보이는 장면은 2026년 현대 역할 카드",
+    "spoiler_guard": {
+      "canonical_gate": "S1-E06.middle",
+      "visible_variant": "modern_role_card_no_story_gate",
+      "if_unmet": "이 패킷의 현대 모의 대화와 새 자극만 제공한다. 고택의 기억·이름·가족 약속·물건·대사를 선공개하지 않는다.",
+      "if_met": "이미 공개된 본편 자료로 돌아가는 선택만 제공한다. 이 패킷은 새 가족 사실이나 후속 진실을 추가하지 않는다.",
+      "gate_owner": "기존 본편 공개 상태; 학습 수준·정답률·지연 복습·건축률로 대체하지 않는다.",
+      "new_clue": 0,
+      "new_resident_npc": 0,
+      "ownership_or_reward_grant": false
+    }
+  },
+  "dialogue": [
+    {
+      "id": "A2.2-02-D01",
+      "speaker": "sujin",
+      "phase": "entry",
+      "ko": "이번에는 현대 역할 카드의 행동 순서를 보자.",
+      "en": "Let’s look at the action sequence on a modern role card.",
+      "de": "Sehen wir uns die Handlungsfolge einer modernen Rollenkarte an."
+    },
+    {
+      "id": "A2.2-02-D02",
+      "speaker": "christian",
+      "phase": "request",
+      "ko": "두 일을 같이 한 건지, 하다가 멈춘 건지 헷갈려요.",
+      "en": "I am not sure whether both happened together or one was interrupted.",
+      "de": "Ich bin unsicher, ob beides gleichzeitig geschah oder eine Handlung unterbrochen wurde."
+    },
+    {
+      "id": "A2.2-02-D03",
+      "speaker": "sujin",
+      "phase": "model",
+      "ko": "걸으면서 노래하면 두 행동이 함께 이어져.",
+      "en": "When you sing while walking, both actions continue together.",
+      "de": "Wenn du beim Gehen singst, laufen beide Handlungen gleichzeitig."
+    },
+    {
+      "id": "A2.2-02-D04",
+      "speaker": "sujin",
+      "phase": "model",
+      "ko": "읽다가 전화를 받으면 하던 일 중간에 다른 일이 생긴 거야.",
+      "en": "When you answer a call while reading, another event enters the ongoing activity.",
+      "de": "Wenn du beim Lesen einen Anruf annimmst, tritt während der Tätigkeit etwas anderes ein."
+    },
+    {
+      "id": "A2.2-02-D05",
+      "speaker": "sujin",
+      "phase": "practice",
+      "ko": "상황 때문에 계획이 바뀐 결과는 게 됐어요로 연결해 보자.",
+      "en": "For an outcome caused by changed circumstances, try linking it with 게 됐어요.",
+      "de": "Für die Folge veränderter Umstände verwenden wir 게 됐어요."
+    },
+    {
+      "id": "A2.2-02-D06",
+      "speaker": "christian",
+      "phase": "use",
+      "ko": "새 카드에서는 지도를 보다가 버스를 놓쳤어요.",
+      "en": "In the new card, I missed the bus while looking at a map.",
+      "de": "Auf der neuen Karte habe ich beim Kartenlesen den Bus verpasst."
+    },
+    {
+      "id": "A2.2-02-D07",
+      "speaker": "sujin",
+      "phase": "result",
+      "ko": "같이 한 시간과 바뀐 순간이 나뉘니 순서가 분명해졌어.",
+      "en": "Separating shared time from the moment of change makes the sequence clearer.",
+      "de": "Wenn wir Überschneidung und Wechsel trennen, wird der Ablauf klarer."
+    },
+    {
+      "id": "A2.2-02-D08",
+      "speaker": "sujin",
+      "phase": "return",
+      "ko": "이제 공개 상태에 맞는 고택 장면으로 돌아갈 수 있어. 연습으로 새 이름을 찾은 것은 아니야.",
+      "en": "You can now return to an estate scene allowed by your story progress. The exercise has uncovered no new name.",
+      "de": "Jetzt kannst du zu einer gemäß deinem Geschichtenstand zugänglichen Gutshausszene zurückkehren. Die Übung hat keinen neuen Namen enthüllt."
+    },
+    {
+      "id": "A2.2-02-D09",
+      "speaker": "sujin",
+      "phase": "next",
+      "ko": "내일은 다른 동작과 예상 밖의 일로 다시 확인하자.",
+      "en": "Tomorrow, we will use different actions and an unexpected event.",
+      "de": "Morgen prüfen wir es mit anderen Tätigkeiten und einem unerwarteten Ereignis."
+    }
+  ],
+  "items": [
+    {
+      "id": "A2.2-02-P01",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "동시에 이어진 행동을 구분한다",
+      "prompt": {
+        "ko": "동시에 한 두 행동의 설명을 골라요.",
+        "en": "Choose the description of two simultaneous actions.",
+        "de": "Wähle die Beschreibung zweier gleichzeitiger Handlungen."
+      },
+      "material": {
+        "context": {
+          "ko": "현대 영상 대본: 여행자는 10초 내내 걸으며 노래한다. 멈춤 없음. 시범: 걸으면서 노래했어요.",
+          "en": "Modern video script: the traveler walks and sings throughout ten seconds, without stopping. Model: I sang while walking.",
+          "de": "Modernes Videoskript: Die reisende Person geht zehn Sekunden lang und singt dabei, ohne Unterbrechung. Beispiel: Ich habe beim Gehen gesungen."
+        }
+      },
+      "options": [
+        {
+          "id": "overlap",
+          "ko": "걸으면서 노래했어요.",
+          "en": "I sang while walking.",
+          "de": "Ich habe beim Gehen gesungen."
+        },
+        {
+          "id": "switch",
+          "ko": "걷다가 멈춰서 노래했어요.",
+          "en": "I stopped walking and then sang.",
+          "de": "Ich habe beim Gehen angehalten und dann gesungen."
+        },
+        {
+          "id": "later",
+          "ko": "다 걷고 나서 노래했어요.",
+          "en": "I sang after finishing the walk.",
+          "de": "Ich habe nach dem Spaziergang gesungen."
+        }
+      ],
+      "accepted_answers": [
+        "overlap"
+      ],
+      "feedback_correct": {
+        "ko": "걷기와 노래가 같은 시간에 이어져요.",
+        "en": "The walking and singing continue at the same time.",
+        "de": "Gehen und Singen dauern gleichzeitig an."
+      },
+      "feedback_wrong": {
+        "ko": "멈춤이나 나중이라는 정보는 대본에 없어요.",
+        "en": "The script contains no stopping or later action.",
+        "de": "Das Skript nennt weder Anhalten noch eine spätere Handlung."
+      },
+      "help": {
+        "ko": "-면서는 여기서 같은 사람이 동시에 하는 두 행동을 이어요.",
+        "en": "Here -면서 links two actions done simultaneously by the same person.",
+        "de": "Hier verbindet -면서 zwei gleichzeitige Handlungen derselben Person."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-02-P02",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "행동 도중 전환을 설명한다",
+      "prompt": {
+        "ko": "중간에 멈춘 흐름을 골라요.",
+        "en": "Choose the interrupted sequence.",
+        "de": "Wähle den unterbrochenen Ablauf."
+      },
+      "material": {
+        "context": {
+          "ko": "영상 대본: 책을 읽음 → 전화가 울림 → 읽기를 멈추고 전화를 받음. 시범: 책을 읽다가 전화를 받았어요.",
+          "en": "Script: reading a book; phone rings; reading stops and the call is answered. Model: I was reading a book when I answered the phone.",
+          "de": "Skript: Buch lesen; Telefon klingelt; Lesen wird unterbrochen, Anruf angenommen. Beispiel: Ich habe beim Lesen einen Anruf angenommen."
+        }
+      },
+      "options": [
+        {
+          "id": "interrupt",
+          "ko": "책을 읽다가 전화를 받았어요.",
+          "en": "I stopped reading to answer the phone.",
+          "de": "Ich habe das Lesen unterbrochen und einen Anruf angenommen."
+        },
+        {
+          "id": "together",
+          "ko": "책을 읽으면서 계속 전화했어요.",
+          "en": "I kept reading while talking on the phone.",
+          "de": "Ich habe weitergelesen und gleichzeitig telefoniert."
+        },
+        {
+          "id": "before",
+          "ko": "책을 읽기 전에 전화를 받았어요.",
+          "en": "I answered the phone before reading.",
+          "de": "Ich habe vor dem Lesen einen Anruf angenommen."
+        }
+      ],
+      "accepted_answers": [
+        "interrupt"
+      ],
+      "feedback_correct": {
+        "ko": "읽던 중 다른 일이 생긴 전환을 지켰어요.",
+        "en": "You preserved the switch caused by something happening during reading.",
+        "de": "Du hast den Wechsel während des Lesens erhalten."
+      },
+      "feedback_wrong": {
+        "ko": "동시에 계속했거나 읽기 전이었다고 바꾸면 장면과 달라져요.",
+        "en": "Continuing both actions or placing the call before reading changes the scene.",
+        "de": "Gleichzeitig weitermachen oder vor dem Lesen telefonieren würde die Szene verändern."
+      },
+      "help": {
+        "ko": "화살표 앞뒤에서 첫 행동이 이어지는지 멈추는지 봐요.",
+        "en": "Check whether the first action continues across the transition or stops.",
+        "de": "Prüfe am Übergang, ob die erste Handlung weitergeht oder aufhört."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-02-P03",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "상황 변화로 생긴 결과를 말한다",
+      "prompt": {
+        "ko": "사정 때문에 달라진 결과를 골라요.",
+        "en": "Choose the result of the changed circumstances.",
+        "de": "Wähle die Folge der veränderten Umstände."
+      },
+      "material": {
+        "context": {
+          "ko": "원래 공원 산책 계획. 갑자기 비가 많이 옴. 장소가 도서관으로 바뀜. 시범: 비가 와서 도서관에 가게 됐어요.",
+          "en": "Original plan: walk in the park. Sudden heavy rain. Destination changes to the library. Model: Because it rained, I ended up going to the library.",
+          "de": "Ursprünglich: Spaziergang im Park. Plötzlich starker Regen. Neues Ziel: Bibliothek. Beispiel: Wegen des Regens bin ich schließlich in die Bibliothek gegangen."
+        }
+      },
+      "options": [
+        {
+          "id": "change",
+          "ko": "비가 와서 도서관에 가게 됐어요.",
+          "en": "The rain meant I ended up going to the library.",
+          "de": "Wegen des Regens bin ich schließlich in die Bibliothek gegangen."
+        },
+        {
+          "id": "unchanged",
+          "ko": "계획대로 공원에서 산책했어요.",
+          "en": "I walked in the park as planned.",
+          "de": "Ich bin wie geplant im Park spazieren gegangen."
+        },
+        {
+          "id": "before",
+          "ko": "비가 오기 전에 공원 산책을 끝냈어요.",
+          "en": "I finished the park walk before it rained.",
+          "de": "Ich war schon vor dem Regen mit dem Spaziergang fertig."
+        }
+      ],
+      "accepted_answers": [
+        "change"
+      ],
+      "feedback_correct": {
+        "ko": "원래 계획과 다른 결과를 상황에 연결했어요.",
+        "en": "You linked the changed outcome to the circumstances.",
+        "de": "Du hast die geänderte Folge mit den Umständen verbunden."
+      },
+      "feedback_wrong": {
+        "ko": "카드의 장소가 바뀌었다는 사실을 유지해요.",
+        "en": "Keep the change of destination given on the card.",
+        "de": "Behalte den auf der Karte genannten Ortswechsel bei."
+      },
+      "help": {
+        "ko": "-게 됐어요는 여기서 새 상황 때문에 생긴 결과예요.",
+        "en": "Here -게 됐어요 presents an outcome brought about by new circumstances.",
+        "de": "-게 됐어요 beschreibt hier ein Ergebnis, das durch neue Umstände entstand."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-02-I01",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 장면에서 행동의 겹침을 해석한다",
+      "prompt": {
+        "ko": "크리스티안이 자기 행동을 직접 되말하는 문장을 골라요.",
+        "en": "Choose the first-person sentence in which Christian retells the actions.",
+        "de": "Wähle den Satz, mit dem Christian die eigenen Tätigkeiten in der Ich-Form wiedergibt."
+      },
+      "material": {
+        "context": {
+          "ko": "새 대본: 크리스티안은 조리하는 2분 내내 라디오를 듣는다. 조리도 듣기도 멈추지 않는다.",
+          "en": "New script: Christian listens to the radio throughout two minutes of cooking. Neither action stops.",
+          "de": "Neues Skript: Christian hört während zwei Minuten Kochen durchgehend Radio. Keine der Handlungen wird unterbrochen."
+        }
+      },
+      "options": [
+        {
+          "id": "same",
+          "ko": "요리하면서 라디오를 들었어요.",
+          "en": "I listened to the radio while cooking.",
+          "de": "Ich habe beim Kochen Radio gehört."
+        },
+        {
+          "id": "stop",
+          "ko": "요리하다가 멈추고 라디오를 들었어요.",
+          "en": "I stopped cooking and listened to the radio.",
+          "de": "Ich habe das Kochen unterbrochen und dann Radio gehört."
+        },
+        {
+          "id": "end",
+          "ko": "요리를 끝내고 라디오를 들었어요.",
+          "en": "I listened to the radio after finishing cooking.",
+          "de": "Nach dem Kochen habe ich Radio gehört."
+        }
+      ],
+      "accepted_answers": [
+        "same"
+      ],
+      "feedback_correct": {
+        "ko": "새 행동 둘의 겹침을 확인했어요.",
+        "en": "You identified the overlap between two new activities.",
+        "de": "Du hast die Überschneidung der beiden neuen Tätigkeiten erkannt."
+      },
+      "feedback_wrong": {
+        "ko": "첫 행동을 멈췄다는 정보는 없어요.",
+        "en": "Nothing says the first activity stopped.",
+        "de": "Es steht nirgends, dass die erste Tätigkeit aufgehört hat."
+      },
+      "help": {
+        "ko": "두 시간 막대가 전체 구간에서 겹치는지 봐요.",
+        "en": "Check whether both activity bars overlap for the whole interval.",
+        "de": "Prüfe, ob sich beide Zeitbalken über die ganze Dauer überlappen."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-02-I02",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 중단 사건을 연결한다",
+      "prompt": {
+        "ko": "순서와 멈춤이 맞는 답을 골라요.",
+        "en": "Choose the answer with the correct sequence and interruption.",
+        "de": "Wähle die Antwort mit der richtigen Reihenfolge und Unterbrechung."
+      },
+      "material": {
+        "context": {
+          "ko": "새 카드: 지도를 봄 → 버스가 지나간 것을 발견 → 지도를 접고 정류장으로 뛰어감. 버스를 놓침.",
+          "en": "New card: looking at a map; noticing the bus has gone by; folding the map and running to the stop. The bus is missed.",
+          "de": "Neue Karte: Karte ansehen; bemerken, dass der Bus vorbeigefahren ist; Karte zusammenfalten und zur Haltestelle laufen. Der Bus wird verpasst."
+        }
+      },
+      "options": [
+        {
+          "id": "miss",
+          "ko": "지도를 보다가 버스를 놓쳤어요.",
+          "en": "I missed the bus while I was looking at the map.",
+          "de": "Beim Kartenlesen habe ich den Bus verpasst."
+        },
+        {
+          "id": "before",
+          "ko": "지도를 보기 전에 버스를 탔어요.",
+          "en": "I boarded the bus before looking at the map.",
+          "de": "Vor dem Kartenlesen bin ich eingestiegen."
+        },
+        {
+          "id": "both",
+          "ko": "버스를 타면서 지도를 계속 봤어요.",
+          "en": "I kept looking at the map while boarding the bus.",
+          "de": "Beim Einsteigen habe ich weiter auf die Karte gesehen."
+        }
+      ],
+      "accepted_answers": [
+        "miss"
+      ],
+      "feedback_correct": {
+        "ko": "하던 일 도중 생긴 사건을 연결했어요.",
+        "en": "You linked the event to the activity in progress.",
+        "de": "Du hast das Ereignis mit der laufenden Handlung verbunden."
+      },
+      "feedback_wrong": {
+        "ko": "카드에는 버스에 탄 것이 아니라 놓친 결과가 있어요.",
+        "en": "The card says the bus was missed, not boarded.",
+        "de": "Laut Karte wurde der Bus verpasst, nicht bestiegen."
+      },
+      "help": {
+        "ko": "처음 하던 일과 중간에 생긴 일을 두 칸으로 나눠요.",
+        "en": "Separate the initial activity from the event that occurred during it.",
+        "de": "Trenne die ursprüngliche Tätigkeit vom Ereignis, das dabei eintrat."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-02-I03",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 변화의 결과를 말한다",
+      "prompt": {
+        "ko": "바뀐 일정의 결과를 골라요.",
+        "en": "Choose the outcome of the changed schedule.",
+        "de": "Wähle die Folge der Terminänderung."
+      },
+      "material": {
+        "context": {
+          "ko": "체육관 휴관 안내. 오늘 운동 수업 취소. 수진과 도서관에서 공부하는 일정으로 변경.",
+          "en": "Notice: gym closed. Today’s exercise class canceled. Plan changes to studying with Sujin at the library.",
+          "de": "Aushang: Sporthalle geschlossen, heutiger Kurs entfällt. Neuer Plan: mit Sujin in der Bibliothek lernen."
+        }
+      },
+      "options": [
+        {
+          "id": "result",
+          "ko": "수업이 취소돼서 도서관에서 공부하게 됐어요.",
+          "en": "The class was canceled, so I ended up studying at the library.",
+          "de": "Weil der Kurs ausfiel, habe ich schließlich in der Bibliothek gelernt."
+        },
+        {
+          "id": "gym",
+          "ko": "수업이 있어서 체육관에서 운동했어요.",
+          "en": "There was a class, so I exercised at the gym.",
+          "de": "Weil der Kurs stattfand, habe ich in der Sporthalle trainiert."
+        },
+        {
+          "id": "choice",
+          "ko": "도서관에 가고 싶어서 수업을 취소했어요.",
+          "en": "I canceled the class because I wanted to go to the library.",
+          "de": "Ich habe den Kurs abgesagt, weil ich in die Bibliothek wollte."
+        }
+      ],
+      "accepted_answers": [
+        "result"
+      ],
+      "feedback_correct": {
+        "ko": "취소 안내가 먼저이고 공부 일정은 그 결과예요.",
+        "en": "The cancellation comes first; the study plan follows from it.",
+        "de": "Zuerst kam die Absage; daraus entstand der Lernplan."
+      },
+      "feedback_wrong": {
+        "ko": "여행자가 수업을 취소했다는 원인은 주어지지 않았어요.",
+        "en": "The stimulus does not say the traveler canceled the class.",
+        "de": "Die Karte sagt nicht, dass die reisende Person den Kurs abgesagt hat."
+      },
+      "help": {
+        "ko": "누가 바꿨는지 만들지 말고 안내 뒤 생긴 결과를 말해요.",
+        "en": "Describe the outcome after the notice without inventing who caused the cancellation.",
+        "de": "Beschreibe die Folge des Aushangs, ohne jemanden als Verursacher der Absage zu erfinden."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-02-R01",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "다음 날 새 자료의 동시 행동을 회상한다",
+      "prompt": {
+        "ko": "새 장면과 맞는 설명을 골라요.",
+        "en": "Choose the description matching the new scene.",
+        "de": "Wähle die passende Beschreibung der neuen Szene."
+      },
+      "material": {
+        "context": {
+          "ko": "다음 날 새 자극: 여행자는 3분 내내 빨래를 개며 친구와 통화함. 두 행동 모두 계속됨. 기존 시범 숨김.",
+          "en": "Next-day new stimulus: the traveler folds laundry and talks with a friend throughout three minutes. Both continue. Previous models hidden.",
+          "de": "Neuer Impuls am nächsten Tag: Die reisende Person faltet drei Minuten lang Wäsche und telefoniert dabei mit einer befreundeten Person. Beides läuft weiter. Alte Beispiele sind verborgen."
+        },
+        "delay": "next_day"
+      },
+      "options": [
+        {
+          "id": "overlap",
+          "ko": "빨래를 개면서 통화했어요.",
+          "en": "I talked on the phone while folding laundry.",
+          "de": "Ich habe beim Wäschefalten telefoniert."
+        },
+        {
+          "id": "pause",
+          "ko": "빨래를 개다가 멈추고 통화했어요.",
+          "en": "I stopped folding laundry to make a call.",
+          "de": "Ich habe das Wäschefalten unterbrochen und dann telefoniert."
+        },
+        {
+          "id": "after",
+          "ko": "통화를 끝내고 빨래를 갰어요.",
+          "en": "I folded laundry after the call.",
+          "de": "Nach dem Telefonat habe ich Wäsche gefaltet."
+        }
+      ],
+      "accepted_answers": [
+        "overlap"
+      ],
+      "feedback_correct": {
+        "ko": "새 맥락에서도 동시에 이어진 행동을 구분했어요.",
+        "en": "You identified continuing simultaneous actions in a new context.",
+        "de": "Auch im neuen Kontext hast du gleichzeitige Handlungen erkannt."
+      },
+      "feedback_wrong": {
+        "ko": "순서를 새로 만들지 말고 두 행동의 겹침을 봐요.",
+        "en": "Use the overlap rather than inventing a sequence.",
+        "de": "Achte auf die Überschneidung, statt eine Reihenfolge zu erfinden."
+      },
+      "help": {
+        "ko": "도움을 사용하면 별도 표시하고 두 행동의 시작과 끝을 비교해요.",
+        "en": "Keep help use separate and compare the start and end of both actions.",
+        "de": "Halte die Hilfe getrennt fest und vergleiche Anfang und Ende beider Tätigkeiten."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 자료의 선택 이해만 확인한다. 도움·정답 공개 전후를 구분하며 보존 성공·독립 발화·이야기 해금 증거로 확대하지 않는다."
+    },
+    {
+      "id": "A2.2-02-R02",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "다음 날 중단과 변화 결과를 함께 회상한다",
+      "prompt": {
+        "ko": "카드의 두 사건을 정확히 이어요.",
+        "en": "Choose the accurate link between the two events.",
+        "de": "Verbinde die beiden Ereignisse der Karte richtig."
+      },
+      "material": {
+        "context": {
+          "ko": "다음 날 새 분실 모의 카드: 자전거로 이동 → 갑자기 타이어 펑크, 이동 중단 → 자전거를 수리점에 맡김 → 버스로 귀가. 이전 답 숨김.",
+          "en": "Next-day new simulated incident: cycling; sudden flat tire interrupts the ride; bicycle left at a repair shop; bus taken home. Previous answers hidden.",
+          "de": "Neue simulierte Panne am nächsten Tag: Radfahren; plötzlich platter Reifen, Fahrt stoppt; Rad zur Reparatur gebracht; Heimfahrt mit dem Bus. Frühere Antworten sind verborgen."
+        },
+        "delay": "next_day"
+      },
+      "options": [
+        {
+          "id": "chain",
+          "ko": "자전거를 타다가 타이어가 터졌어요. 그래서 버스로 돌아오게 됐어요.",
+          "en": "I got a flat tire while cycling, so I ended up taking the bus home.",
+          "de": "Beim Radfahren hatte ich einen Platten. Deshalb bin ich schließlich mit dem Bus nach Hause gefahren."
+        },
+        {
+          "id": "reverse",
+          "ko": "버스로 오다가 자전거를 타게 됐어요.",
+          "en": "I was on the bus and ended up cycling.",
+          "de": "Während der Busfahrt bin ich schließlich aufs Fahrrad umgestiegen."
+        },
+        {
+          "id": "same",
+          "ko": "자전거를 타면서 버스로 돌아왔어요.",
+          "en": "I returned by bus while riding a bicycle.",
+          "de": "Ich bin beim Radfahren mit dem Bus nach Hause gekommen."
+        }
+      ],
+      "accepted_answers": [
+        "chain"
+      ],
+      "feedback_correct": {
+        "ko": "중간 사건과 그 뒤 바뀐 이동 수단을 연결했어요.",
+        "en": "You linked the interruption to the changed means of transport.",
+        "de": "Du hast die Unterbrechung mit dem geänderten Verkehrsmittel verbunden."
+      },
+      "feedback_wrong": {
+        "ko": "펑크가 난 뒤 자전거 이동이 멈췄고 버스를 탔어요.",
+        "en": "Cycling stopped after the flat tire, and the bus came next.",
+        "de": "Nach dem Platten endete die Radfahrt; danach kam der Bus."
+      },
+      "help": {
+        "ko": "중단 순간과 달라진 결과를 따로 고른 뒤 연결해요.",
+        "en": "Identify the interruption and changed outcome separately, then connect them.",
+        "de": "Bestimme Unterbrechung und veränderte Folge zuerst getrennt und verbinde sie dann."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 자료의 선택 이해만 확인한다. 도움·정답 공개 전후를 구분하며 보존 성공·독립 발화·이야기 해금 증거로 확대하지 않는다."
+    },
+    {
+      "id": "A2.2-02-T01",
+      "mode": "T",
+      "kind": "roleplay",
+      "objective": "새 분실 상황의 경위와 결과를 설명한다",
+      "prompt": {
+        "ko": "분실 상황을 두세 문장으로 설명해 보세요.",
+        "en": "Explain the lost-item situation in two or three sentences.",
+        "de": "Erkläre die Fundsachensituation in zwei oder drei Sätzen."
+      },
+      "material": {
+        "context": {
+          "ko": "현대 모의 분실 카드: 공원을 걸으며 음악을 들음 → 벤치에서 쉬다가 가방이 없음을 알아차림 → 되돌아갈 시간이 필요해 다음 약속에 늦음. 가방을 잃은 정확한 시점·원인은 모름. 이름 없는 약속 상대에게 하던 일과 달라진 일을 설명한다.",
+          "en": "Modern simulated lost-item card: walking through a park while listening to music; noticing the bag is missing during a bench break; needing time to retrace the route and becoming late for an appointment. The exact time and cause of loss are unknown. Explain the activity and changed outcome to an unnamed appointment partner.",
+          "de": "Moderne Verlust-Rollenkarte: Im Park gehen und Musik hören; während einer Bankpause fällt die fehlende Tasche auf; die Wegsuche kostet Zeit, deshalb Verspätung beim Treffen. Zeitpunkt und Ursache des Verlusts sind unbekannt. Erkläre einer unbenannten Gegenrolle die Tätigkeiten und die veränderte Folge."
+        }
+      },
+      "options": [],
+      "accepted_answers": [],
+      "feedback_correct": {
+        "ko": "동시 행동·알아차린 때·늦게 된 결과가 유지되는지 살펴봐요.",
+        "en": "Check that the simultaneous actions, moment of noticing, and resulting delay are preserved.",
+        "de": "Prüfe, ob Gleichzeitigkeit, Zeitpunkt des Bemerkens und daraus entstandene Verspätung erhalten bleiben."
+      },
+      "feedback_wrong": {
+        "ko": "누가 가져갔다고 추측하지 말고, 알려진 경위만 보완해요.",
+        "en": "Add only known details; do not guess that someone took the bag.",
+        "de": "Ergänze nur Bekanntes; vermute nicht, dass jemand die Tasche genommen hat."
+      },
+      "help": {
+        "ko": "겹친 행동 / 중간 사건 / 결과 세 칸에 메모해요. 열린 설명은 자동 채점하지 않아요.",
+        "en": "Make three notes: simultaneous actions, intervening event, outcome. This open explanation is not automatically scored.",
+        "de": "Notiere: gleichzeitige Tätigkeiten, Zwischenereignis, Folge. Die offene Erklärung wird nicht automatisch bewertet."
+      },
+      "scoring": "unscored",
+      "evidence_limit": "열린 역할 수행은 자동 채점하지 않는다. 의미·화행·사실·관계의 충족 여부를 본인 또는 별도 검토자가 살핀다. 독립 발화·발음·실생활 전이는 이 문항만으로 인증하지 않는다."
+    }
+  ],
+  "responses": {
+    "assisted": {
+      "ko": "도움을 보고 이어 갔어요. 이번 시도는 도움 사용으로 구분해요.",
+      "en": "You continued with help. Keep this attempt separate from work done independently.",
+      "de": "Du hast mit Hilfe weitergemacht. Dieser Versuch zählt getrennt von selbstständiger Arbeit."
+    },
+    "independent": {
+      "ko": "정답 시범 없이 선택했어요. 선택 이해와 직접 말하기는 따로 확인해요.",
+      "en": "You chose without an answer model. Choosing an answer and producing your own speech are checked separately.",
+      "de": "Du hast ohne Lösungsvorlage gewählt. Antworten auszuwählen und selbst zu sprechen wird getrennt geprüft."
+    },
+    "audio_unavailable": {
+      "ko": "소리를 재생할 수 없어요. 글과 상황 카드로 계속하고, 듣기·발음 확인은 나중에 해요.",
+      "en": "Audio is unavailable. Continue with the text and situation cards; check listening and pronunciation later.",
+      "de": "Der Ton ist nicht verfügbar. Mach mit Text und Situationskarten weiter; Hören und Aussprache prüfst du später."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 돼요. 이야기나 건축 진행을 되돌리는 조건은 없어요.",
+      "en": "You can pause here. Pausing does not undo story or construction progress.",
+      "de": "Du kannst hier pausieren. Dadurch gehen weder Geschichte noch Baufortschritt zurück."
+    },
+    "resume": {
+      "ko": "현재 상황과 입력을 다시 보고 이어 가요. 도움을 본 시도는 그대로 구분해요.",
+      "en": "Review the current situation and input, then continue. Attempts made with help stay separate.",
+      "de": "Sieh dir die aktuelle Situation und deine Eingabe an und mach weiter. Versuche mit Hilfe bleiben getrennt."
+    },
+    "save_failed": {
+      "ko": "저장을 확인하지 못했어요. 현재 입력을 유지한 채 다시 시도해요. 저장 완료로 표시하지 않아요.",
+      "en": "Saving could not be confirmed. Keep the current input and try again; do not mark it as saved.",
+      "de": "Das Speichern konnte nicht bestätigt werden. Behalte deine Eingabe und versuche es erneut; sie gilt noch nicht als gespeichert."
+    },
+    "revisit": {
+      "ko": "다음 날에는 새 상황으로 다시 해 봐요. 놓쳐도 본편은 계속할 수 있어요.",
+      "en": "Try a new situation the next day. Missing the review does not block the story.",
+      "de": "Versuche es am nächsten Tag mit einer neuen Situation. Auch ohne diese Wiederholung geht die Geschichte weiter."
+    }
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true
+  }
+}

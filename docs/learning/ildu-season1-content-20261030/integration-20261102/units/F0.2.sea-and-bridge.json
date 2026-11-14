@@ -1,0 +1,543 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "record_type": "inherited_detailed_with_integration_overlay",
+  "unit_id": "F0.2.sea-and-bridge",
+  "band": "F0.2",
+  "title": {
+    "ko": "바다·다리의 소리·표기를 뜻과 연결한다",
+    "en": "Photo cards and labels",
+    "de": "Fotokarten und Schilder"
+  },
+  "goal": {
+    "ko": "바다·다리의 소리·표기를 뜻과 연결한다",
+    "en": "Connect the sounds and spellings of 바다 and 다리 with their meanings.",
+    "de": "Verbinde die Laute und Schreibweisen von 바다 und 다리 mit ihren Bedeutungen."
+  },
+  "prerequisites": [],
+  "base_manuscript": {
+    "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/07_PHOTO_CARDS_AND_LABELS.md",
+    "sha256": "3c880d1dfed9372866ef4a9768f7a00c0a4c6a5bbf94ef9b738b1af1512923d7",
+    "inheritance": "full dialogue, teaching, P/I/R items, answer criteria, help and feedback retained verbatim; overlay is additive"
+  },
+  "source_contract": {
+    "id": "F0.2.sea-and-bridge",
+    "goal": "바다·다리의 소리·표기를 뜻과 연결한다",
+    "teach_targets": "바다,다리",
+    "check_targets": "바다,다리",
+    "meaning_or_oral": "다리는 이번 장면에서 건너는 다리; 신체 의미는 별도 신규 학습",
+    "transfer_task": "새 지도 사진에서 바다와 다리를 구별; 미학습 지명은 번역",
+    "review_in": "A1.2-02",
+    "review_prompt": "다른 지도에서 배운 뜻의 다리를 찾아 위치 확인",
+    "evidence_limit": "같은 표기의 다른 의미를 이미 배웠다고 추정하지 않음"
+  },
+  "inherited_content": {
+    "selected_feedback_refs": [
+      "H01",
+      "F03"
+    ],
+    "feedback_rows": [
+      {
+        "key": "H01·도움",
+        "en": "바다 is the sea; 다리 here is a structure for crossing water. Let's compare two photos that show those meanings.",
+        "de": "바다 ist das Meer; 다리 ist hier ein Bauwerk zum Überqueren von Wasser. Vergleichen wir zwei Fotos, die diese Bedeutungen zeigen."
+      },
+      {
+        "key": "F03·바다",
+        "en": "Here, 바다 refers to the sea. Let's revisit the same picture with the word and its sound.",
+        "de": "Hier bezeichnet 바다 das Meer. Sehen wir uns dasselbe Bild mit dem Wort und seinem Laut noch einmal an."
+      },
+      {
+        "key": "F04·다리",
+        "en": "Here, 다리 refers to a bridge over water. Let's revisit the same picture with the word and its sound.",
+        "de": "Hier bezeichnet 다리 eine Brücke über Wasser. Sehen wir uns dasselbe Bild mit dem Wort und seinem Laut noch einmal an."
+      },
+      {
+        "key": "OK",
+        "en": "This word matches what the picture shows. Look for it in another example too.",
+        "de": "Das Wort passt zu dem, was das Bild zeigt. Erkenne es auch in einem anderen Beispiel wieder."
+      },
+      {
+        "key": "L01·상황 도움/오답",
+        "en": "This word refers to things used to make and repair things. Let's watch their use again.",
+        "de": "Das Wort bezeichnet Dinge zum Herstellen und Reparieren. Sehen wir uns ihre Verwendung noch einmal an."
+      },
+      {
+        "key": "L02·상황 도움/오답",
+        "en": "Here, 나무 refers to a material, not a growing plant. Let's revisit both pictures with their meanings.",
+        "de": "Hier bezeichnet 나무 Material und keine wachsende Pflanze. Sehen wir uns beide Bilder mit ihren Bedeutungen noch einmal an."
+      },
+      {
+        "key": "L03·상황 도움/오답",
+        "en": "마루 is the wooden floor space in the photo. Let's distinguish it from loose boards.",
+        "de": "마루 ist der hölzerne Bodenbereich auf dem Foto. Unterscheiden wir ihn von losen Brettern."
+      }
+    ],
+    "practice_task_ids": [
+      "B07-P01",
+      "B07-P02",
+      "B07-P03",
+      "B07-P04"
+    ],
+    "independent_task_ids": [
+      "B07-I01",
+      "B07-I02",
+      "B07-I03",
+      "B07-I04",
+      "B07-I05",
+      "B07-I06",
+      "B07-I07"
+    ],
+    "next_day_task_ids": [
+      "B07-R01",
+      "B07-R02",
+      "B07-R03",
+      "B07-R04",
+      "B07-R05",
+      "B07-R06",
+      "B07-R07"
+    ],
+    "common_copy_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-2-v35\\COMMON_COPY.md",
+    "readme_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-2-v35\\README.md",
+    "task_bindings": [
+      {
+        "task_id": "B07-P01",
+        "kind": "P",
+        "prompt": {
+          "en": "Look at the picture and its word together, then choose the matching label.",
+          "de": "Sieh dir das Bild und das Wort zusammen an und wähle das passende Schild."
+        },
+        "target": "바다",
+        "feedback_refs": [
+          "H01",
+          "F03"
+        ],
+        "material": {
+          "picture": "SEA-T1",
+          "shown_word": "바다"
+        },
+        "choices": [
+          "다리",
+          "바다"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-P02",
+        "kind": "P",
+        "prompt": {
+          "en": "Look at the picture and its word together, then choose the matching label.",
+          "de": "Sieh dir das Bild und das Wort zusammen an und wähle das passende Schild."
+        },
+        "target": "다리",
+        "feedback_refs": [
+          "H01",
+          "F04"
+        ],
+        "material": {
+          "picture": "BRIDGE-T1",
+          "shown_word": "다리"
+        },
+        "choices": [
+          "바다",
+          "다리"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-P03",
+        "kind": "P",
+        "prompt": {
+          "en": "Listen and choose the matching picture.",
+          "de": "Hör zu und wähle das passende Bild."
+        },
+        "target": "SEA-T2",
+        "feedback_refs": [
+          "H01",
+          "F03"
+        ],
+        "material": {
+          "audio": "바다",
+          "no_transcript": true
+        },
+        "choices": [
+          "BRIDGE-T2",
+          "SEA-T2"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-P04",
+        "kind": "P",
+        "prompt": {
+          "en": "Listen and choose the matching picture.",
+          "de": "Hör zu und wähle das passende Bild."
+        },
+        "target": "BRIDGE-T2",
+        "feedback_refs": [
+          "H01",
+          "F04"
+        ],
+        "material": {
+          "audio": "다리",
+          "no_transcript": true
+        },
+        "choices": [
+          "SEA-T2",
+          "BRIDGE-T2"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-I01",
+        "kind": "I",
+        "prompt": {
+          "en": "Choose the word that matches the picture.",
+          "de": "Wähle das Wort, das zum Bild passt."
+        },
+        "target": "바다",
+        "feedback_refs": [
+          "F03",
+          "H01"
+        ],
+        "material": {
+          "picture": "SEA-I1"
+        },
+        "choices": [
+          "다리",
+          "바다"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-I02",
+        "kind": "I",
+        "prompt": {
+          "en": "Listen and choose the matching picture.",
+          "de": "Hör zu und wähle das passende Bild."
+        },
+        "target": "BRIDGE-I1",
+        "feedback_refs": [
+          "F04",
+          "H01"
+        ],
+        "material": {
+          "audio": "다리",
+          "no_transcript": true
+        },
+        "choices": [
+          "BRIDGE-I1",
+          "SEA-I1"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-I03",
+        "kind": "I",
+        "prompt": {
+          "en": "Read the word and choose the matching picture.",
+          "de": "Lies das Wort und wähle das passende Bild."
+        },
+        "target": "SEA-T2",
+        "feedback_refs": [
+          "F03",
+          "H01"
+        ],
+        "material": {
+          "written": "바다"
+        },
+        "choices": [
+          "SEA-T2",
+          "BRIDGE-T2"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-I04",
+        "kind": "I",
+        "prompt": {
+          "en": "Choose the word that matches the picture.",
+          "de": "Wähle das Wort, das zum Bild passt."
+        },
+        "target": "다리",
+        "feedback_refs": [
+          "F04",
+          "H01"
+        ],
+        "material": {
+          "picture": "BRIDGE-I1"
+        },
+        "choices": [
+          "바다",
+          "다리"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-I05",
+        "kind": "I",
+        "prompt": {
+          "en": "What are these objects used for making and repairing things called? Choose their label.",
+          "de": "Wie heißen diese Gegenstände zum Herstellen und Reparieren? Wähle das passende Schild."
+        },
+        "target": "도구",
+        "feedback_refs": [
+          "L01"
+        ],
+        "material": {
+          "picture": "TOOLS-I1"
+        },
+        "choices": [
+          "마루",
+          "나무",
+          "도구"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-I06",
+        "kind": "I",
+        "prompt": {
+          "en": "What is the material in this area called? Choose its label.",
+          "de": "Wie heißt das Material in diesem Bereich? Wähle das passende Schild."
+        },
+        "target": "나무",
+        "feedback_refs": [
+          "L02"
+        ],
+        "material": {
+          "picture": "TIMBER-I1"
+        },
+        "choices": [
+          "나무",
+          "도구",
+          "마루"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-I07",
+        "kind": "I",
+        "prompt": {
+          "en": "What is the floor space where people sit and stand in the reference photo called? Choose its label.",
+          "de": "Wie heißt der Bodenbereich auf dem Referenzfoto, auf dem man sitzt und steht? Wähle das passende Schild."
+        },
+        "target": "마루",
+        "feedback_refs": [
+          "L03"
+        ],
+        "material": {
+          "picture": "FLOOR-I1"
+        },
+        "choices": [
+          "도구",
+          "마루",
+          "나무"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-R01",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the word that matches the picture.",
+          "de": "Wähle das Wort, das zum Bild passt."
+        },
+        "target": "다리",
+        "feedback_refs": [
+          "F04",
+          "H01"
+        ],
+        "material": {
+          "picture": "BRIDGE-R1"
+        },
+        "choices": [
+          "다리",
+          "바다"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-R02",
+        "kind": "R",
+        "prompt": {
+          "en": "Listen and choose the matching picture.",
+          "de": "Hör zu und wähle das passende Bild."
+        },
+        "target": "SEA-R1",
+        "feedback_refs": [
+          "F03",
+          "H01"
+        ],
+        "material": {
+          "audio": "바다",
+          "no_transcript": true
+        },
+        "choices": [
+          "BRIDGE-R1",
+          "SEA-R1"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-R03",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the word that matches the picture.",
+          "de": "Wähle das Wort, das zum Bild passt."
+        },
+        "target": "바다",
+        "feedback_refs": [
+          "F03",
+          "H01"
+        ],
+        "material": {
+          "picture": "SEA-R1"
+        },
+        "choices": [
+          "바다",
+          "다리"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-R04",
+        "kind": "R",
+        "prompt": {
+          "en": "Listen and choose the matching picture.",
+          "de": "Hör zu und wähle das passende Bild."
+        },
+        "target": "BRIDGE-R1",
+        "feedback_refs": [
+          "F04",
+          "H01"
+        ],
+        "material": {
+          "audio": "다리",
+          "no_transcript": true
+        },
+        "choices": [
+          "SEA-R1",
+          "BRIDGE-R1"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-R05",
+        "kind": "R",
+        "prompt": {
+          "en": "What are these objects used for making and repairing things called? Choose their label.",
+          "de": "Wie heißen diese Gegenstände zum Herstellen und Reparieren? Wähle das passende Schild."
+        },
+        "target": "도구",
+        "feedback_refs": [
+          "L01"
+        ],
+        "material": {
+          "picture": "TOOLS-R1"
+        },
+        "choices": [
+          "도구",
+          "나무",
+          "마루"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-R06",
+        "kind": "R",
+        "prompt": {
+          "en": "What is the material in this area called? Choose its label.",
+          "de": "Wie heißt das Material in diesem Bereich? Wähle das passende Schild."
+        },
+        "target": "나무",
+        "feedback_refs": [
+          "L02"
+        ],
+        "material": {
+          "picture": "TIMBER-R1"
+        },
+        "choices": [
+          "마루",
+          "도구",
+          "나무"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "B07-R07",
+        "kind": "R",
+        "prompt": {
+          "en": "What is the floor space where people sit and stand in the reference photo called? Choose its label.",
+          "de": "Wie heißt der Bodenbereich auf dem Referenzfoto, auf dem man sitzt und steht? Wähle das passende Schild."
+        },
+        "target": "마루",
+        "feedback_refs": [
+          "L03"
+        ],
+        "material": {
+          "picture": "FLOOR-R1"
+        },
+        "choices": [
+          "나무",
+          "마루",
+          "도구"
+        ],
+        "source_row": null
+      }
+    ]
+  },
+  "responses": {
+    "assisted": {
+      "ko": "도움을 받아 이 활동을 함께 마쳤어요. 다른 예는 준비되면 해 봐요.",
+      "en": "You completed this activity with support. Try another example when you are ready.",
+      "de": "Du hast diese Aufgabe mit Hilfe abgeschlossen. Probiere ein weiteres Beispiel, wenn du bereit bist."
+    },
+    "independent": {
+      "ko": "이 예는 시범 없이 확인했어요. 다른 날 새로운 상황에서도 다시 해 봐요.",
+      "en": "You checked this example without a model. Try it in a new setting another day.",
+      "de": "Du hast dieses Beispiel ohne Vorlage bearbeitet. Probiere es an einem anderen Tag in einer neuen Situation."
+    },
+    "audio_unavailable": {
+      "ko": "지금은 소리를 재생할 수 없어요. 글과 그림으로 계속하거나 나중에 다시 들어요.",
+      "en": "Audio is unavailable right now. Continue with text and pictures, or listen later.",
+      "de": "Der Ton ist gerade nicht verfügbar. Mach mit Text und Bildern weiter oder höre später noch einmal zu."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 괜찮아요. 돌아오면 같은 차례에서 이어가요.",
+      "en": "You can take a break here. When you return, continue from the same turn.",
+      "de": "Du kannst hier eine Pause machen. Wenn du zurückkommst, geht es an derselben Stelle weiter."
+    },
+    "resume": {
+      "ko": "돌아왔네요. 놓아 둔 답과 도움 상태를 확인하고 이어가요.",
+      "en": "Welcome back. Check your previous response and any help you used, then continue.",
+      "de": "Willkommen zurück. Sieh dir deine bisherige Antwort und die verwendete Hilfe an und mach dann weiter."
+    },
+    "save_failed": {
+      "ko": "아직 저장을 확인하지 못했어요. 지금 답은 유지한 채 다시 시도해요.",
+      "en": "Saving has not been confirmed yet. Keep your response and try again.",
+      "de": "Das Speichern ist noch nicht bestätigt. Deine Antwort bleibt stehen; versuche es erneut."
+    },
+    "revisit": {
+      "ko": "이미 본 장면이에요. 다시 보아도 보상이나 공정이 중복 생성되지 않아요.",
+      "en": "You have seen this scene before. Replaying it does not grant another reward or construction step.",
+      "de": "Du kennst diese Szene bereits. Beim erneuten Ansehen erhältst du keine weitere Belohnung und keinen zusätzlichen Bauabschnitt."
+    }
+  },
+  "response_conditions": {
+    "assisted": "only after supported task is resolved",
+    "independent": "only if the eligible item met its criteria without model/hint; not all modalities",
+    "resume": "only after original state is actually restored",
+    "revisit": "existing reward owner remains authoritative"
+  },
+  "story": {
+    "lq_id": "LQ-02",
+    "anchor": "창고 착공",
+    "spoiler_guard": "Use only revealed facts. First book has no completed Sarangchae; first 집 remains practice draft until original readiness is confirmed."
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true,
+    "original_review_scope": "existing manuscript reviews and same-byte source; not human/native/device approval"
+  }
+}
