@@ -287,6 +287,7 @@ class ApprovedArtButton extends StatefulWidget {
     this.wrong = false,
     this.faceHeight,
     this.castShadow = true,
+    this.contactShadow,
   });
   final String label, material;
   final Widget child;
@@ -296,6 +297,7 @@ class ApprovedArtButton extends StatefulWidget {
 
   /// Disable when the approved material already includes its contact shadow.
   final bool castShadow;
+  final BoxShadow? contactShadow;
   @override
   State<ApprovedArtButton> createState() => _ApprovedArtButtonState();
 }
@@ -321,6 +323,7 @@ class _ApprovedArtButtonState extends State<ApprovedArtButton> {
     }
 
     final reduced = SoriMotion.reduceMotion(context);
+    final contactShadow = widget.contactShadow;
     return Semantics(
       excludeSemantics: true,
       button: true,
@@ -375,11 +378,16 @@ class _ApprovedArtButtonState extends State<ApprovedArtButton> {
                       borderRadius: BorderRadius.circular(13),
                       boxShadow: widget.castShadow
                           ? [
-                              BoxShadow(
-                                color: const Color(0x61291404),
-                                offset: Offset(0, _pressed ? 1 : 3),
-                                blurRadius: _pressed ? 1 : 3,
-                              ),
+                              if (contactShadow != null)
+                                _pressed
+                                    ? contactShadow.scale(.5)
+                                    : contactShadow
+                              else
+                                BoxShadow(
+                                  color: const Color(0x61291404),
+                                  offset: Offset(0, _pressed ? 1 : 3),
+                                  blurRadius: _pressed ? 1 : 3,
+                                ),
                             ]
                           : const [],
                     ),

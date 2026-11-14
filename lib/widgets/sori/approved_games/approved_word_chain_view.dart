@@ -9,6 +9,13 @@ import '../text_field.dart';
 import '../tts_speed_control.dart';
 import 'approved_game_material.dart';
 
+const _jadeContactShadow = BoxShadow(
+  color: Color(0x48291404),
+  offset: Offset(0, 2),
+  blurRadius: 4,
+  spreadRadius: -2,
+);
+
 /// The approved word-chain chrome keeps the study frame's single exit owner.
 class ApprovedWordChainFrame extends StatelessWidget {
   const ApprovedWordChainFrame({
@@ -198,14 +205,14 @@ class _ApprovedWordChainViewState extends State<ApprovedWordChainView> {
       final turnHeight = math.max(
         42.0,
         math.max(
-          height(widget.turnLabel, 23, 36, math.max(90, turnTextWidth)) + 4,
+          height(widget.turnLabel, 22, 36, math.max(90, turnTextWidth)) + 4,
           height(widget.timerLabel, 25, 34, 85) + 8,
         ),
       );
       final countTop = turnTop + turnHeight + 8 - 6 * compact;
       final countHeight = math.max(
         32.0,
-        height(widget.chainLabel, 20, 32, width - 40, weight: FontWeight.w400),
+        height(widget.chainLabel, 20, 32, width - 40, weight: FontWeight.w600),
       );
       final historyTop =
           countTop +
@@ -401,7 +408,7 @@ class _ApprovedWordChainViewState extends State<ApprovedWordChainView> {
               Positioned(
                 left: 20,
                 right: 20,
-                top: instructionTop,
+                top: instructionTop - 2,
                 height: instructionHeight,
                 child: _label(widget.instruction, 23, 36),
               ),
@@ -439,7 +446,7 @@ class _ApprovedWordChainViewState extends State<ApprovedWordChainView> {
                             Expanded(
                               child: _label(
                                 widget.turnLabel,
-                                23,
+                                22,
                                 36,
                                 align: TextAlign.left,
                               ),
@@ -493,7 +500,8 @@ class _ApprovedWordChainViewState extends State<ApprovedWordChainView> {
                   20,
                   32,
                   align: TextAlign.right,
-                  weight: FontWeight.w400,
+                  weight: FontWeight.w600,
+                  color: const Color(0xff663a1b),
                 ),
               ),
               Positioned(
@@ -593,7 +601,7 @@ class _ApprovedWordChainViewState extends State<ApprovedWordChainView> {
                       child: ApprovedArtButton(
                         label: widget.listenSemantics,
                         material: 'wordChainAction',
-                        castShadow: false,
+                        contactShadow: _jadeContactShadow,
                         onTap: widget.onListen,
                         child: Stack(
                           children: [
@@ -628,7 +636,7 @@ class _ApprovedWordChainViewState extends State<ApprovedWordChainView> {
                             '${AppL10n.of(context).ttsSpeedLabel}: ${widget.speedLabel}',
                         material: 'wordChainAction',
                         onTap: widget.onSpeed,
-                        castShadow: false,
+                        contactShadow: _jadeContactShadow,
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(6, 3, 6, 7),
                           child: _label(
@@ -714,7 +722,7 @@ class _ApprovedWordChainViewState extends State<ApprovedWordChainView> {
                             key: const ValueKey('word-chain-submit'),
                             label: widget.submitLabel,
                             material: 'wordChainAction',
-                            castShadow: false,
+                            contactShadow: _jadeContactShadow,
                             onTap: widget.checkingDictionary
                                 ? null
                                 : widget.onSubmit,
