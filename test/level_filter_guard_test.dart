@@ -48,7 +48,7 @@ void main() {
       }
       for (final path in sheetScreens) {
         final source = File(path).readAsStringSync();
-        if (!source.contains('SoriChromeRow(')) {
+        if (!RegExp(r'SoriChromeRow(?:\.compact)?\(').hasMatch(source)) {
           offenders.add('$path: missing SoriChromeRow');
         }
         if (!source.contains('showSoriLevelFilterSheet(')) {

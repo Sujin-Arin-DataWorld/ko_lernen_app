@@ -2011,6 +2011,18 @@ abstract class AppL10n {
   /// **'Silben-Rätsel'**
   String get screenWordleTitle;
 
+  /// No description provided for @silbenPlaceInstruction.
+  ///
+  /// In de, this message translates to:
+  /// **'Feld wählen · Silbe antippen'**
+  String get silbenPlaceInstruction;
+
+  /// No description provided for @silbenPoolTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Silben'**
+  String get silbenPoolTitle;
+
   /// No description provided for @silbenEmptyBody.
   ///
   /// In de, this message translates to:

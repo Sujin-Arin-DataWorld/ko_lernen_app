@@ -1134,6 +1134,12 @@ class AppL10nDe extends AppL10n {
   String get screenWordleTitle => 'Silben-Rätsel';
 
   @override
+  String get silbenPlaceInstruction => 'Feld wählen · Silbe antippen';
+
+  @override
+  String get silbenPoolTitle => 'Deine Silben';
+
+  @override
   String get silbenEmptyBody =>
       'Für deine Lernstufe sind noch keine Silben-Rätsel vorbereitet.';
 

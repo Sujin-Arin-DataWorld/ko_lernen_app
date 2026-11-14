@@ -1132,6 +1132,12 @@ class AppL10nEn extends AppL10n {
   String get screenWordleTitle => 'Syllable puzzle';
 
   @override
+  String get silbenPlaceInstruction => 'Choose a cell · tap a syllable';
+
+  @override
+  String get silbenPoolTitle => 'Your syllables';
+
+  @override
   String get silbenEmptyBody =>
       'No syllable puzzles are ready for your learning level yet.';
 

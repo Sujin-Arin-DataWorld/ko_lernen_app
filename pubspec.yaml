@@ -279,6 +279,9 @@ flutter:
   # OFL: Paperlogy for interface lettering; Noto Sans KR for learning copy.
   # Both families contain Korean, German and English glyphs (font bundle guard).
   fonts:
+    - family: SilbenPlex
+      fonts:
+        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-Variable.ttf
     - family: Manrope
       fonts:
         - asset: design_assets/fonts/Manrope/Manrope-Variable.ttf

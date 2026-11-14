@@ -522,6 +522,8 @@
   "screenVocabTitle": "Flashcards",
   "screenGrammarTitle": "Grammar",
   "screenWordleTitle": "Syllable puzzle",
+  "silbenPlaceInstruction": "Choose a cell · tap a syllable",
+  "silbenPoolTitle": "Your syllables",
   "silbenEmptyBody": "No syllable puzzles are ready for your learning level yet.",
   "silbenCellPosition": "Row {row}, column {column}",
   "@silbenCellPosition": {

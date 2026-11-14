@@ -24,7 +24,20 @@ class SoriChromeRow extends StatelessWidget {
     this.filterSemanticLabel,
     this.meta,
     this.trailing,
-  });
+  }) : filterControl = null;
+
+  /// The same single chrome row with the level shown on the filter control.
+  /// The custom controls provide their own semantics and minimum target size.
+  const SoriChromeRow.compact({
+    super.key,
+    required Widget this.filterControl,
+    required Widget this.trailing,
+  }) : onFilterTap = null,
+       filterKey = null,
+       filterSemanticLabel = null,
+       meta = null;
+
+  final Widget? filterControl;
 
   /// 탭하면 필터 시트를 여는 콜백(예: `showSoriFilterSheet`). null이면
   /// leading 아이콘 자체를 숨긴다.
@@ -40,6 +53,12 @@ class SoriChromeRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (filterControl case final filter?) {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [filter, const SizedBox(width: 6), trailing!],
+      );
+    }
     return SizedBox(
       height: SoriLayout.chromeRowTouchHeight,
       child: Row(

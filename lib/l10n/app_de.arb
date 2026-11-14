@@ -531,6 +531,8 @@
   "screenVocabTitle": "Karteikarten",
   "screenGrammarTitle": "Grammatik",
   "screenWordleTitle": "Silben-Rätsel",
+  "silbenPlaceInstruction": "Feld wählen · Silbe antippen",
+  "silbenPoolTitle": "Deine Silben",
   "silbenEmptyBody": "Für deine Lernstufe sind noch keine Silben-Rätsel vorbereitet.",
   "silbenCellPosition": "Zeile {row}, Spalte {column}",
   "@silbenCellPosition": {
