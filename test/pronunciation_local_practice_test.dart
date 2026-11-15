@@ -16,6 +16,7 @@ import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/services/pronunciation_phrase_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'support/c_native_capture_assets.dart';
@@ -84,7 +85,7 @@ void main() {
     tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.paused);
     tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
     await tester.pump();
-    expect(tester.widget<InkWell>(model).onTap, isNull);
+    expect(_callback(tester, model), isNull);
     release.complete();
     playback.holdStop = null;
     await tester.pumpAndSettle();
@@ -367,11 +368,10 @@ void main() {
     await _capture(tester);
     await _action(tester, 'pronunciation-replay-action');
     final release = playback.holdStop = Completer<void>();
-    tester
-        .widget<InkWell>(
-          find.byKey(const ValueKey('pronunciation-model-action')),
-        )
-        .onTap!();
+    _callback(
+      tester,
+      find.byKey(const ValueKey('pronunciation-model-action')),
+    )!();
     await tester.pump();
     expect(starts, 0);
     release.complete();
@@ -487,22 +487,16 @@ Future<void> _mount(
   await tester.pumpAndSettle();
 }
 
+VoidCallback? _callback(WidgetTester tester, Finder target) => switch (tester
+    .widget(target)) {
+  SoriButton(:final onTap) => onTap,
+  SoriPressable(:final onTap) => onTap,
+  IconButton(:final onPressed) => onPressed,
+  final widget => throw StateError('Unexpected pronunciation control: $widget'),
+};
+
 Future<void> _action(WidgetTester tester, String key) async {
-  final widget = tester.widget(find.byKey(ValueKey(key)));
-  if (widget is SoriButton) {
-    widget.onTap!();
-  } else if (widget is InkWell) {
-    widget.onTap!();
-  } else {
-    tester
-        .widget<TextButton>(
-          find.descendant(
-            of: find.byKey(ValueKey(key)),
-            matching: find.byType(TextButton),
-          ),
-        )
-        .onPressed!();
-  }
+  _callback(tester, find.byKey(ValueKey(key)))!();
   await tester.pump();
   await tester.pump();
 }
