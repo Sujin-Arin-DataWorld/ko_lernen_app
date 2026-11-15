@@ -14,9 +14,10 @@ import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 
 import '../support/sori_speech_stubs.dart';
+
+import '../support/viewport_pages.dart';
 
 /// C9-T0 (D-5 shell freeze exception, card BACK only): golden for the
 /// expanded "쓰임" (usage note) section on a B1 flip card back at
@@ -198,16 +199,15 @@ void main() {
           // vocab_pack 테스트와 같은 관례).
           tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
           await tester.pump();
-          await tester.pump(const Duration(milliseconds: 400));
+          await tester.pumpAndSettle();
 
-          // "쓰임" 구획을 펼친다.
-          tester
-              .widget<SoriPressable>(
-                find.byKey(const ValueKey('usageNoteHeaderToggle')),
-              )
-              .onTap!();
-          await tester.pump();
-          await tester.pump(const Duration(milliseconds: 200));
+          final card = find.byType(FlipCard);
+          final notes = find.byKey(const ValueKey('usageNoteHeaderToggle'));
+          await showViewportSection(tester, notes, within: card);
+          await tester.tap(notes);
+          await tester.pumpAndSettle();
+          final nuance = find.textContaining('협조 ist ein formelles Wort');
+          await showViewportSection(tester, nuance, within: card);
 
           await expectLater(
             find.byType(MaterialApp),
