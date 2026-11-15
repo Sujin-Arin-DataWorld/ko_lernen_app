@@ -38,7 +38,10 @@ class SoriAdaptiveNavigation extends StatelessWidget {
     required this.selectedIndex,
     required this.onDestinationSelected,
     required this.items,
+    this.expandedArtwork = false,
   }) : assert(items.length >= 2);
+
+  final bool expandedArtwork;
 
   /// 하단 탭 대신 세로 레일을 쓰는지. [AppWindowClass.compact] 를 벗어나는
   /// 순간이 곧 레일 전환점이다 — [kWindowClassMediumMin] 이
@@ -67,6 +70,7 @@ class SoriAdaptiveNavigation extends StatelessWidget {
           selectedIndex: selectedIndex,
           onDestinationSelected: onDestinationSelected,
           labels: [for (final item in items) item.label],
+          expandedArtwork: expandedArtwork,
           assets: [for (final item in items) item.imageAsset!],
         );
       }

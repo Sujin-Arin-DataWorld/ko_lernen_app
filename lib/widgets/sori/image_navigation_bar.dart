@@ -14,6 +14,7 @@ class SoriImageNavigationBar extends StatefulWidget {
     required this.onDestinationSelected,
     required this.labels,
     required this.assets,
+    this.expandedArtwork = false,
   }) : assert(labels.length == 5),
        assert(assets.length == 5);
 
@@ -21,6 +22,7 @@ class SoriImageNavigationBar extends StatefulWidget {
   final ValueChanged<int> onDestinationSelected;
   final List<String> labels;
   final List<String> assets;
+  final bool expandedArtwork;
 
   @override
   State<SoriImageNavigationBar> createState() => _SoriImageNavigationBarState();
@@ -66,7 +68,7 @@ class _SoriImageNavigationBarState extends State<SoriImageNavigationBar>
           surfaceTexture: const CTexture(CMaterial.paper),
           child: NavigationBar(
             key: const ValueKey('sori-image-navigation-bar'),
-            height: 62,
+            height: widget.expandedArtwork ? 74 : 62,
             backgroundColor: Colors.transparent,
             indicatorColor: Colors.transparent,
             labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
@@ -81,6 +83,7 @@ class _SoriImageNavigationBarState extends State<SoriImageNavigationBar>
                   label: widget.labels[index],
                   selected: widget.selectedIndex == index,
                   motionActive: _resumed,
+                  expandedArtwork: widget.expandedArtwork,
                 ),
             ],
           ),
@@ -97,12 +100,14 @@ class _ImageDestination extends StatefulWidget {
     required this.label,
     required this.selected,
     required this.motionActive,
+    required this.expandedArtwork,
   });
 
   final String asset;
   final String label;
   final bool selected;
   final bool motionActive;
+  final bool expandedArtwork;
 
   @override
   State<_ImageDestination> createState() => _ImageDestinationState();
@@ -146,12 +151,14 @@ class _ImageDestinationState extends State<_ImageDestination> {
         selected: widget.selected,
         pressed: _pressed,
         motionActive: widget.motionActive,
+        expandedArtwork: widget.expandedArtwork,
       ),
       selectedIcon: SoriNavigationImage(
         asset: widget.asset,
         selected: widget.selected,
         pressed: _pressed,
         motionActive: widget.motionActive,
+        expandedArtwork: widget.expandedArtwork,
       ),
     ),
   );
@@ -166,12 +173,14 @@ class SoriNavigationImage extends StatelessWidget {
     required this.selected,
     this.pressed = false,
     this.motionActive = true,
+    this.expandedArtwork = false,
   });
 
   final String asset;
   final bool selected;
   final bool pressed;
   final bool motionActive;
+  final bool expandedArtwork;
 
   @override
   Widget build(BuildContext context) {
@@ -188,8 +197,8 @@ class SoriNavigationImage extends StatelessWidget {
         : 0.0;
     final duration = animate ? SoriMotion.fast : Duration.zero;
     return SizedBox(
-      width: 54,
-      height: 54,
+      width: expandedArtwork ? 64 : 54,
+      height: expandedArtwork ? 64 : 54,
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -226,7 +235,10 @@ class SoriNavigationImage extends StatelessWidget {
             tween: Tween(begin: target, end: target),
             duration: duration,
             curve: SoriMotion.gentle,
-            child: ApprovedChromeImage(asset: asset, size: 44),
+            child: ApprovedChromeImage(
+              asset: asset,
+              size: expandedArtwork ? 52 : 44,
+            ),
             builder: (_, value, child) => Transform.translate(
               key: ValueKey('sori-navigation-depth-$asset'),
               offset: Offset(0, -2 * value),

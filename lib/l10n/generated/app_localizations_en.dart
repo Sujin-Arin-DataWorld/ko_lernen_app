@@ -261,6 +261,58 @@ class AppL10nEn extends AppL10n {
   String get reviewHubTitle => 'Review';
 
   @override
+  String get reviewArchiveTab => 'By topic';
+
+  @override
+  String reviewSelectedCount(int count) {
+    return '$count selected';
+  }
+
+  @override
+  String reviewSelectedTopic(String topic) {
+    return 'Selection: $topic';
+  }
+
+  @override
+  String get reviewByDay => 'Find by study day';
+
+  @override
+  String get reviewArchiveTitle => 'Your learning archive';
+
+  @override
+  String get reviewArchiveSubtitle => 'Learned words by level and topic';
+
+  @override
+  String get reviewSelectAll => 'Select all';
+
+  @override
+  String get reviewClearSelection => 'Clear selection';
+
+  @override
+  String get reviewSelectHint => 'Choose words to review.';
+
+  @override
+  String get reviewSearchHint => 'Search words or topics';
+
+  @override
+  String get reviewOwnWords => 'My words & books';
+
+  @override
+  String get reviewArchiveEmpty => 'There are no learned words here yet.';
+
+  @override
+  String get reviewLoadError => 'The words could not be loaded.';
+
+  @override
+  String get reviewRetry => 'Try again';
+
+  @override
+  String get reviewNoTopic => 'More words';
+
+  @override
+  String get reviewPlayAudio => 'Play pronunciation';
+
+  @override
   String get reviewHubTodayHeadline => 'Learned today';
 
   @override
@@ -12541,6 +12593,36 @@ class AppL10nEn extends AppL10n {
   String get wortpaketeTopics => 'Topics';
 
   @override
+  String get wortpaketeGreetingPackGoal => 'Greet, thank and say goodbye';
+
+  @override
+  String get wortpaketeLearnProgressHint => 'Look at and listen to the word';
+
+  @override
+  String get wortpaketeRevealFirst => 'Reveal first, then rate your recall.';
+
+  @override
+  String wortpaketeOpenNumberedPack(int number) {
+    return 'Open pack $number';
+  }
+
+  @override
+  String wortpaketeTopicsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count topics',
+      one: '1 topic',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String wortpaketeAllTopicsCount(int count) {
+    return 'See all $count';
+  }
+
+  @override
   String get wortpaketeAllTopics => 'Show all topics';
 
   @override
@@ -12678,4 +12760,57 @@ class AppL10nEn extends AppL10n {
     });
     return '$_temp0';
   }
+
+  @override
+  String get pronunciationPracticeRhythm => 'Practice sentence rhythm';
+
+  @override
+  String get pronunciationCompareVoices => 'Compare voices';
+
+  @override
+  String get pronunciationModelListen => 'Listen to sentence';
+
+  @override
+  String get pronunciationOriginalListen => 'Listen to original';
+
+  @override
+  String get pronunciationOwnListen => 'Listen to my recording';
+
+  @override
+  String get pronunciationRecordingReady => 'Recording ready';
+
+  @override
+  String get pronunciationNoScoring => 'Without automatic scoring.';
+
+  @override
+  String get pronunciationMaxDuration =>
+      'Max. 10 sec. · Then compare your recording.';
+
+  @override
+  String get pronunciationNextSentence => 'Next sentence';
+
+  @override
+  String get pronunciationFocusConditional =>
+      'Pause briefly after the conditional clause.';
+
+  @override
+  String get pronunciationFocusH => 'Pronunciation of ㅎ';
+
+  @override
+  String get pronunciationFocusNasal => 'Nasalization';
+
+  @override
+  String get pronunciationFocusTense => 'Tense consonants';
+
+  @override
+  String get pronunciationFocusLink => 'Sound linking';
+
+  @override
+  String get pronunciationHeader => 'Pronunciation';
+
+  @override
+  String get pronunciationRecordShort => 'Record';
+
+  @override
+  String get pronunciationRecordAgainShort => 'Record again';
 }

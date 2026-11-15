@@ -12,6 +12,7 @@ class SoriLearningStageNavigation extends StatelessWidget {
   const SoriLearningStageNavigation({
     super.key,
     this.woodenSurface = false,
+    this.expandedArtwork = false,
     this.escape = const SoriHomeEscape(),
     this.onLeave,
     this.canLeave,
@@ -19,6 +20,7 @@ class SoriLearningStageNavigation extends StatelessWidget {
     this.onDestinationSelected,
   });
   final bool woodenSurface;
+  final bool expandedArtwork;
   final SoriHomeEscape escape;
   final VoidCallback? onLeave;
   final bool Function()? canLeave;
@@ -41,6 +43,7 @@ class SoriLearningStageNavigation extends StatelessWidget {
       children: [
         SoriAdaptiveNavigation(
           selectedIndex: 1,
+          expandedArtwork: expandedArtwork,
           onDestinationSelected: (index) async {
             if (!enabled || canLeave?.call() == false) {
               return;

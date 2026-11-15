@@ -17,10 +17,12 @@ import 'package:ko_lernen_app/services/course_mission_navigation.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
+import 'package:ko_lernen_app/services/locale_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
 
 import 'support/c_native_capture_assets.dart';
 import 'support/real_fonts.dart';
@@ -29,6 +31,9 @@ import 'support/sori_speech_stubs.dart';
 const _search = ValueKey('wortpakete-search');
 const _capture = ValueKey('wortpakete-capture');
 const _captureDirectory = String.fromEnvironment('WORTPAKETE_CAPTURE_DIR');
+const _captureSize = bool.fromEnvironment('CAPTURE_402')
+    ? Size(402, 874)
+    : Size(430, 932);
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -161,7 +166,7 @@ void main() {
     await _open(tester, onPack: opened.add);
     await tester.tap(find.text('Erste Gespräche'));
     await tester.pumpAndSettle();
-    final allTopics = find.text('Alle Themen anzeigen');
+    final allTopics = find.text('Alle 45 ansehen');
     await tester.ensureVisible(allTopics);
     await tester.tap(allTopics);
     await tester.pumpAndSettle();
@@ -172,18 +177,19 @@ void main() {
     );
     await tester.tap(find.byType(CloseButton));
     await tester.pumpAndSettle();
-    final choose = find.byTooltip('2 Pakete');
+    expect(find.text('Paket 1 · 12 Wörter'), findsOneWidget);
+    final choose = find.byKey(
+      const ValueKey('wortpakete-select-a1_greetings_2'),
+    );
     await tester.ensureVisible(choose);
     await tester.pumpAndSettle();
     await tester.tap(choose);
     await tester.pumpAndSettle();
-    expect(
-      find.text(
-        '${saved.words.length} / ${saved.words.length} · ${l10n.packStateCleared}',
-      ),
-      findsOneWidget,
-    );
-    await tester.tap(find.text('Begrüßung & Höflichkeit (2)'));
+    expect(find.text('Paket 2 · 13 Wörter'), findsOneWidget);
+    expect(opened, isEmpty);
+    final open = find.byKey(const ValueKey('wortpakete-open-pack'));
+    await tester.ensureVisible(open);
+    await tester.tap(open);
     await tester.pumpAndSettle();
     expect(opened, ['a1_greetings_2']);
   });
@@ -215,15 +221,25 @@ void main() {
   testWidgets('production /vocab route opens the real pack player', (
     tester,
   ) async {
-    tester.view.physicalSize = const Size(430, 932);
+    tester.view.physicalSize = _captureSize;
     tester.view.devicePixelRatio = 1;
+    tester.binding.platformDispatcher.localeTestValue = const Locale('de');
+    addTearDown(tester.binding.platformDispatcher.clearLocaleTestValue);
+    final previousLocale = localeNotifier.value;
+    localeNotifier.value = const Locale('de');
+    addTearDown(() => localeNotifier.value = previousLocale);
+    await Storage.setTutVocabPackSeen();
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
     await tester.runAsync(VocabPackService.loadAll);
+    await _warmCaptureAssets(tester);
     await tester.pumpWidget(
-      KoLernenApp(
-        splashDisplayDuration: Duration.zero,
-        firstRunCoordinator: FirstRunRuntime.createCoordinator(),
+      RepaintBoundary(
+        key: _capture,
+        child: KoLernenApp(
+          splashDisplayDuration: Duration.zero,
+          firstRunCoordinator: FirstRunRuntime.createCoordinator(),
+        ),
       ),
     );
     for (var i = 0; i < 15; i++) {
@@ -248,14 +264,15 @@ void main() {
     expect(player.courseContext, isNull);
     final route = ModalRoute.of(tester.element(find.byType(VocabPackScreen)))!;
     expect(route.transitionDuration, const Duration(milliseconds: 220));
+    await _save(tester, 'player');
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump();
   });
 
-  testWidgets('captures overview and all CEFR levels at 430 × 932', (
+  testWidgets('captures overview and all CEFR levels at the target viewport', (
     tester,
   ) async {
-    await _open(tester);
+    await _open(tester, size: _captureSize);
     await _save(tester, 'overview');
     await tester.tap(find.text('Erste Gespräche'));
     await tester.pumpAndSettle();
@@ -265,6 +282,23 @@ void main() {
       if (level != LearnerLevel.a1) {
         await tester.tap(tab);
         await tester.pumpAndSettle();
+      }
+      await tester.drag(
+        find.byType(CustomScrollView).first,
+        const Offset(0, 1000),
+      );
+      await tester.pumpAndSettle();
+      if (level == LearnerLevel.a1) {
+        final cta = tester.getRect(
+          find.byKey(const ValueKey('wortpakete-open-pack')),
+        );
+        final navigation = tester.getRect(
+          find.byKey(const ValueKey('sori-image-navigation-bar')),
+        );
+        expect(navigation.top - cta.bottom, greaterThanOrEqualTo(16));
+        final goal = tester.getRect(find.text('Essen und Getränke benennen'));
+        final examples = tester.getRect(find.text('커피 · 물'));
+        expect(goal.bottom, lessThanOrEqualTo(examples.top));
       }
       expect(Storage.browseLevelCode ?? 'a1', level.code);
       await _save(tester, level.code);
@@ -284,6 +318,7 @@ Future<void> _open(
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
   await tester.runAsync(VocabPackService.loadAll);
+  await _warmCaptureAssets(tester);
   await tester.pumpWidget(
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -321,10 +356,48 @@ Future<void> _open(
   await tester.pumpAndSettle();
 }
 
+Future<void> _warmCaptureAssets(WidgetTester tester) async {
+  if (_captureDirectory.isEmpty) return;
+  await tester.pumpWidget(const MaterialApp(home: SizedBox()));
+  final context = tester.element(find.byType(SizedBox).first);
+  final paths = <String>[
+    'assets/illustrations/concept_c/material_atlas.png',
+    'design_assets/hoeren/home-c-v1.png',
+    for (final name in ['today', 'learn', 'games', 'hanok', 'gye'])
+      'assets/icons/navigation/$name.png',
+    for (final name in [
+      'topic-fan',
+      'topic-cup',
+      'topic-home',
+      'topic-transport',
+      'jade-book',
+      'folio-card',
+      'folio-preview',
+      'brass-button',
+      'paper',
+      'jade',
+    ])
+      'assets/illustrations/concept_c/lernen_20261110/$name.png',
+    'design_assets/wortpakete/0-0.png',
+    for (var level = 2; level <= 6; level++)
+      for (var index = 0; index < 4; index++)
+        'design_assets/wortpakete/$level-$index.png',
+  ];
+  await tester.runAsync(() async {
+    await Future.wait([
+      for (final path in paths) precacheImage(AssetImage(path), context),
+      CImageCache.load('assets/illustrations/concept_c/material_atlas.png'),
+    ]);
+  });
+  await tester.pump();
+}
+
 Future<void> _save(WidgetTester tester, String name) async {
   if (_captureDirectory.isEmpty) {
     return;
   }
+  await tester.runAsync(() => Future<void>.delayed(const Duration(seconds: 2)));
+  await tester.pump();
   await settleCNativeCaptureAssets(tester);
   final boundary = tester.renderObject<RenderRepaintBoundary>(
     find.byKey(_capture),
@@ -332,7 +405,7 @@ Future<void> _save(WidgetTester tester, String name) async {
   final anchors = <String, Finder>{
     'search': find.byKey(_search),
     'selectedLevel': find.byKey(ValueKey('wortpakete-level-$name')),
-    if (name != 'overview')
+    if (name != 'overview' && name != 'player')
       'firstTopic': find.byWidgetPredicate((widget) {
         final key = widget.key;
         return key is ValueKey<String> &&
