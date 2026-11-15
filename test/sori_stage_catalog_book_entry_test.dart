@@ -4,7 +4,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
-import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/book_capture_screen.dart';
 import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -169,16 +168,6 @@ void main() {
           };
           await tester.tap(_start);
           await pumpSoriStage(tester);
-          final t = AppL10n.of(tester.element(_book));
-          expect(routes, isEmpty);
-          expect(permissionRequests, 0);
-          expect(find.text(t.myWordsPhotoBookOptionSubtitle), findsOneWidget);
-          expect(
-            find.text(t.myWordsPhotoNotebookOptionSubtitle),
-            findsOneWidget,
-          );
-          await tester.tap(find.widgetWithText(SoriButton, t.bookCaptureTitle));
-          await pumpSoriStage(tester);
           expect(routes, ['/book']);
           expect(find.byType(BookCaptureScreen), findsOneWidget);
           expect(find.widgetWithText(SoriButton, 'Camera'), findsOneWidget);
@@ -211,7 +200,7 @@ void main() {
     }
   }
   testWidgets(
-    'catalog photo choice can open a notebook or cancel without writes',
+    'returning from book capture allows it to open again without XP',
     (tester) async {
       final routes = <String?>[];
       await tester.pumpWidget(
@@ -227,20 +216,16 @@ void main() {
       );
       await pumpSoriStage(tester);
       await _showBook(tester);
-      final t = AppL10n.of(tester.element(_book));
-      final prefs = await SharedPreferences.getInstance();
-      final before = {for (final key in prefs.getKeys()) key: prefs.get(key)};
+      final initialXp = Storage.xp;
       await tester.tap(_start);
       await pumpSoriStage(tester);
-      Navigator.of(tester.element(find.text(t.myWordsPhotoSheetTitle))).pop();
+      expect(routes, ['/book']);
+      Navigator.of(tester.element(find.text('/book'))).pop();
       await pumpSoriStage(tester);
-      expect(routes, isEmpty);
       await tester.tap(_start);
       await pumpSoriStage(tester);
-      await tester.tap(find.widgetWithText(SoriButton, t.vocabNotebookTitle));
-      await pumpSoriStage(tester);
-      expect(routes, ['/vocab_notebook']);
-      expect({for (final key in prefs.getKeys()) key: prefs.get(key)}, before);
+      expect(routes, ['/book', '/book']);
+      expect(Storage.xp, initialXp);
       expect(tester.takeException(), isNull);
     },
   );

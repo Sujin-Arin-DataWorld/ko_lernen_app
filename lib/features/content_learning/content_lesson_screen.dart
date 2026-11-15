@@ -22,8 +22,10 @@ import '../../motion/transitions.dart';
 import '../../widgets/app_loading.dart';
 import '../../models/scenario.dart';
 import '../../models/smalltalk.dart';
+import '../../models/smalltalk_context_case.dart';
 import '../../services/scenario_loader.dart';
 import '../../services/smalltalk_loader.dart';
+import '../../services/smalltalk_context_catalog.dart';
 import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/route_observer.dart';
 import '../../widgets/sori/button.dart';
@@ -96,6 +98,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
   Future<List<Grammar>>? _grammar;
   int _audioGeneration = 0;
   List<SmalltalkPhrase> _phrases = [];
+  Map<String, SmalltalkContextCase> _contextCases = const {};
   Scenario? _scenario;
   ContentLessonQuestion? _feedback;
   int _earnedYeopjeon = 0;
@@ -225,6 +228,8 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
         if (_phrases.length != widget.lesson.contentIds.length) {
           throw StateError('missing source');
         }
+        _contextCases = const {};
+        unawaited(_loadLinkedContexts(generation));
       } else {
         final scenarios = widget.scenario == null
             ? await ScenarioLoader.load()
@@ -247,6 +252,22 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
           _loadError = true;
         });
       }
+    }
+  }
+
+  Future<void> _loadLinkedContexts(int generation) async {
+    try {
+      final cases = await SmalltalkContextCatalog.load();
+      if (!mounted || generation != _loadGeneration) return;
+      final ids = widget.lesson.contentIds.toSet();
+      final linked = {
+        for (final scene in cases)
+          for (final id in scene.sourcePhraseIds)
+            if (ids.contains(id)) id: scene,
+      };
+      if (linked.isNotEmpty) setState(() => _contextCases = linked);
+    } catch (_) {
+      // Expressive practice can continue without the optional context links.
     }
   }
 
@@ -1212,6 +1233,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
     final position = (sourceIndex >= 0 ? sourceIndex : _progress.position)
         .clamp(0, count - 1);
     final phrase = _scenario == null ? _phrases[position] : null;
+    final contextCase = _contextCases[phrase?.id];
     final line = _scenario?.dialog[position];
     final ko = phrase?.ko ?? line!.ko;
     return _LessonContent(
@@ -1373,6 +1395,23 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
                 ),
             ],
           ),
+          if (contextCase != null) ...[
+            const SizedBox(height: Spacing.sm),
+            SoriButton.outlined(
+              key: const ValueKey('smalltalk-linked-context'),
+              label: t.practiceToneTitle,
+              fullWidth: true,
+              onTap: _busy
+                  ? null
+                  : () => Navigator.of(context).pushNamed(
+                      '/smalltalk/context',
+                      arguments: SmalltalkContextRequest(
+                        caseId: contextCase.id,
+                        level: contextCase.level,
+                      ),
+                    ),
+            ),
+          ],
         ],
       ],
       actions: [

@@ -12,12 +12,14 @@ class SoriAppBarAppearance {
     required this.foregroundColor,
     required this.titleStyle,
     required this.background,
+    this.centerTitle = true,
   });
 
   final double toolbarHeight;
   final Color foregroundColor;
   final TextStyle titleStyle;
   final Widget background;
+  final bool centerTitle;
 }
 
 /// **SoriAppBar** — 공용 앱바 (2026-08-13 UI 개편 Phase 1).
@@ -182,13 +184,13 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
       return AppBar(
         backgroundColor: Colors.transparent,
         foregroundColor: custom.foregroundColor,
-        centerTitle: true,
+        centerTitle: custom.centerTitle,
         scrolledUnderElevation: 0,
         toolbarHeight: custom.toolbarHeight,
         flexibleSpace: custom.background,
         title: Text(
           title,
-          textAlign: TextAlign.center,
+          textAlign: custom.centerTitle ? TextAlign.center : TextAlign.start,
           style: custom.titleStyle,
         ),
         leading: leading,

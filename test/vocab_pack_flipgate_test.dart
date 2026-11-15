@@ -9,6 +9,8 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
+import 'package:ko_lernen_app/widgets/sori/pressable.dart';
+import 'support/viewport_pages.dart';
 
 /// §P2-6 flipgate 센서: vocab_pack Learn — "앞면(미공개) 드래그 시 SRS·
 /// wrongCount 0 + 진행 불변". 기존 3화면(review·custom·legacy)과 동형 —
@@ -55,8 +57,12 @@ void main() {
     await Storage.setTutPackBossSeen();
   });
 
-  Future<void> pump(WidgetTester tester) async {
-    tester.view.physicalSize = const Size(400, 800);
+  Future<void> pump(
+    WidgetTester tester, {
+    Size size = const Size(400, 800),
+    double scale = 1,
+  }) async {
+    tester.view.physicalSize = size;
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
@@ -68,8 +74,9 @@ void main() {
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
         home: MediaQuery(
-          data: const MediaQueryData(
-            size: Size(400, 800),
+          data: MediaQueryData(
+            size: size,
+            textScaler: TextScaler.linear(scale),
             disableAnimations: true,
           ),
           child: VocabPackScreen(
@@ -98,6 +105,66 @@ void main() {
     expect(Storage.wrongCountOf('나무'), 0);
   });
 
+  testWidgets('visible rating buttons require the reveal action', (
+    tester,
+  ) async {
+    await pump(tester);
+    final t = AppL10n.of(tester.element(find.byType(VocabPackScreen)));
+    Finder pressable(String label) => find
+        .descendant(
+          of: find.byWidgetPredicate(
+            (w) =>
+                w is Semantics &&
+                w.properties.label == label &&
+                (w.properties.button ?? false),
+          ),
+          matching: find.byType(SoriPressable),
+        )
+        .first;
+    expect(
+      tester.widget<SoriPressable>(pressable(t.vocabPackGotIt)).onTap,
+      isNull,
+    );
+    expect(
+      tester.widget<SoriPressable>(pressable(t.vocabPackDontKnow)).onTap,
+      isNull,
+    );
+    await showViewportSection(tester, pressable(t.contentLearningReveal));
+    await tester.tap(pressable(t.contentLearningReveal));
+    await tester.pumpAndSettle();
+    expect(
+      tester.widget<SoriPressable>(pressable(t.vocabPackGotIt)).onTap,
+      isNotNull,
+    );
+    await showViewportSection(tester, pressable(t.vocabPackGotIt));
+    await tester.tap(pressable(t.vocabPackGotIt));
+    await tester.pumpAndSettle();
+    expect(find.text('2 / 3'), findsOneWidget);
+    expect(Storage.srsCard('나무')?.reviewCount, 1);
+  });
+
+  testWidgets('narrow large text and reduced motion retain reachable actions', (
+    tester,
+  ) async {
+    await pump(tester, size: const Size(320, 640), scale: 2);
+    expect(tester.takeException(), isNull, reason: 'initial layout');
+    final t = AppL10n.of(tester.element(find.byType(VocabPackScreen)));
+    final reveal = find.text(t.contentLearningReveal);
+    await showViewportSection(tester, reveal);
+    await tester.pumpAndSettle();
+    await tester.tap(reveal);
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull, reason: 'revealed layout');
+    final rating = find.text(t.vocabPackGotIt);
+    await showViewportSection(tester, rating);
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+    await tester.tap(rating);
+    await tester.pumpAndSettle();
+    expect(find.text('2 / 3'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('앞면 좌측 드래그 → SRS·wrongCount 0 + 진행 불변', (tester) async {
     await pump(tester);
     expect(find.text('나무'), findsOneWidget);
@@ -111,20 +178,24 @@ void main() {
     expect(Storage.wrongCountOf('나무'), 0);
   });
 
-  testWidgets('한 번 답을 본 카드는 앞면으로 돌아와도 좌우 판정 가능', (tester) async {
-    await pump(tester);
+  for (final size in [const Size(400, 800), const Size(430, 932)]) {
+    testWidgets(
+      'revealed card still accepts a swipe after flipping back at $size',
+      (tester) async {
+        await pump(tester, size: size);
 
-    tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
-    await tester.pumpAndSettle();
-    tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
-    await tester.pumpAndSettle();
-    expect(find.text('나무'), findsOneWidget);
+        tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
+        await tester.pumpAndSettle();
+        tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
+        await tester.pumpAndSettle();
+        expect(find.text('나무'), findsOneWidget);
 
-    await tester.drag(find.text('나무'), const Offset(0, -220));
-    await tester.pumpAndSettle();
+        await tester.drag(find.text('나무'), const Offset(0, -220));
+        await tester.pumpAndSettle();
 
-    expect(find.text('2 / 3'), findsOneWidget);
-    expect(Storage.srsCard('나무')?.reviewCount, 1);
-  });
-
+        expect(find.text('2 / 3'), findsOneWidget);
+        expect(Storage.srsCard('나무')?.reviewCount, 1);
+      },
+    );
+  }
 }

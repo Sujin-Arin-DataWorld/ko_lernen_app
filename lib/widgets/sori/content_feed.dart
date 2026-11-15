@@ -58,6 +58,7 @@ class SoriContentFeed extends StatefulWidget {
     this.shareLabel,
     this.bookmarkLabel,
     this.physics = FeedPhysics.legacy,
+    this.actionBuilder,
   });
 
   final Widget child;
@@ -109,6 +110,10 @@ class SoriContentFeed extends StatefulWidget {
   /// 화면 단위로 옵트인한다(검수#1). legacy 삭제는 W5 실기기 QA 통과 후
   /// 별도 PR.
   final FeedPhysics physics;
+
+  /// Optional activity-specific controls. Gesture and like handling remains
+  /// owned by the feed; callers must apply the same judgment gate to controls.
+  final WidgetBuilder? actionBuilder;
 
   @override
   State<SoriContentFeed> createState() => _SoriContentFeedState();
@@ -410,30 +415,33 @@ class _SoriContentFeedState extends State<SoriContentFeed>
             ],
           ),
         ),
-        SoriContentActions(
-          onFlip: widget.onFlip,
-          onShare: widget.onShare,
-          onLike: widget.showLike ? _fireLike : null,
-          onBookmark: widget.onBookmark,
-          onKnow: _gated(widget.onNext),
-          onHard: _gated(widget.onHard),
-          onSkip: widget.skipEnabled ? widget.onSkip : null,
-          liked: widget.liked,
-          bookmarked: widget.bookmarked,
-          bookmarkKey: widget.bookmarkKey,
-          showFlip: widget.showFlip,
-          showShare: widget.showShare,
-          showLike: widget.showLike,
-          showBookmark: widget.showBookmark,
-          judgmentsEnabled: widget.judgmentsEnabled,
-          flipLabel: widget.flipLabel ?? t.contentActionFlip,
-          shareLabel: widget.shareLabel ?? t.contentActionShare,
-          likeLabel: widget.likeLabel ?? t.contentActionLike,
-          bookmarkLabel: widget.bookmarkLabel ?? t.contentActionBookmark,
-          knowLabel: widget.knowLabel,
-          hardLabel: widget.hardLabel,
-          skipLabel: widget.skipLabel,
-        ),
+        if (widget.actionBuilder case final builder?)
+          builder(context)
+        else
+          SoriContentActions(
+            onFlip: widget.onFlip,
+            onShare: widget.onShare,
+            onLike: widget.showLike ? _fireLike : null,
+            onBookmark: widget.onBookmark,
+            onKnow: _gated(widget.onNext),
+            onHard: _gated(widget.onHard),
+            onSkip: widget.skipEnabled ? widget.onSkip : null,
+            liked: widget.liked,
+            bookmarked: widget.bookmarked,
+            bookmarkKey: widget.bookmarkKey,
+            showFlip: widget.showFlip,
+            showShare: widget.showShare,
+            showLike: widget.showLike,
+            showBookmark: widget.showBookmark,
+            judgmentsEnabled: widget.judgmentsEnabled,
+            flipLabel: widget.flipLabel ?? t.contentActionFlip,
+            shareLabel: widget.shareLabel ?? t.contentActionShare,
+            likeLabel: widget.likeLabel ?? t.contentActionLike,
+            bookmarkLabel: widget.bookmarkLabel ?? t.contentActionBookmark,
+            knowLabel: widget.knowLabel,
+            hardLabel: widget.hardLabel,
+            skipLabel: widget.skipLabel,
+          ),
       ],
     );
   }

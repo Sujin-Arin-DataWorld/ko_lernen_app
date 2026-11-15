@@ -261,22 +261,63 @@ class AppL10nEn extends AppL10n {
   String get reviewHubTitle => 'Review';
 
   @override
+  String get reviewArchiveTab => 'By topic';
+
+  @override
+  String reviewSelectedCount(int count) {
+    return '$count selected';
+  }
+
+  @override
+  String reviewSelectedTopic(String topic) {
+    return 'Selection: $topic';
+  }
+
+  @override
+  String get reviewByDay => 'Find by study day';
+
+  @override
+  String get reviewArchiveTitle => 'Your learning archive';
+
+  @override
+  String get reviewArchiveSubtitle => 'Learned words by level and topic';
+
+  @override
+  String get reviewSelectAll => 'Select all';
+
+  @override
+  String get reviewClearSelection => 'Clear selection';
+
+  @override
+  String get reviewSelectHint => 'Choose words to review.';
+
+  @override
+  String get reviewSearchHint => 'Search words or topics';
+
+  @override
+  String get reviewOwnWords => 'My words & books';
+
+  @override
+  String get reviewArchiveEmpty => 'There are no learned words here yet.';
+
+  @override
+  String get reviewLoadError => 'The words could not be loaded.';
+
+  @override
+  String get reviewRetry => 'Try again';
+
+  @override
+  String get reviewNoTopic => 'More words';
+
+  @override
+  String get reviewPlayAudio => 'Play pronunciation';
+
+  @override
   String get reviewHubTodayHeadline => 'Learned today';
 
   @override
   String get reviewHubEmptyToday =>
       'Nothing learned yet today. Start a lesson.';
-
-  @override
-  String reviewHubStartSelected(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: 'Practice $n words',
-      one: 'Practice 1 word',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get reviewHubCalendarTooltip => 'Calendar';
@@ -2245,9 +2286,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get vocabPackFinishSaveError =>
       'Your progress could not be saved. Please try again.';
-
-  @override
-  String get vocabPackLearnHint => 'Tap to flip';
 
   @override
   String get vocabPackDontKnow => 'Don\'t know';
@@ -8510,20 +8548,6 @@ class AppL10nEn extends AppL10n {
   String get pronunciationTitle => 'Pronunciation studio';
 
   @override
-  String get pronunciationEyebrow => 'PRONUNCIATION PRACTICE';
-
-  @override
-  String get pronunciationIntro =>
-      'Listen first. Record up to 10 seconds, then listen to your voice and compare.';
-
-  @override
-  String get pronunciationScoringSoonTitle => 'Automatic scoring is turned off';
-
-  @override
-  String get pronunciationScoringSoonBody =>
-      'You can still listen, record your voice and compare the recordings yourself.';
-
-  @override
   String get pronunciationPhrasesLoading => 'Loading pronunciation practice …';
 
   @override
@@ -8555,9 +8579,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get pronunciationStop => 'Stop recording';
-
-  @override
-  String get pronunciationContinueWithoutScore => 'Continue without a score';
 
   @override
   String get pronunciationNextPhrase => 'Next phrase';
@@ -10208,9 +10229,6 @@ class AppL10nEn extends AppL10n {
       'No English translation is saved yet.';
 
   @override
-  String get pronunciationReplay => 'Listen to my recording';
-
-  @override
   String get flashcardRomanizationFront => 'Show on the front';
 
   @override
@@ -10226,10 +10244,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get ttsUnavailablePlayback =>
       'Audio could not play on this device. Check the volume or connected headphones, then try again.';
-
-  @override
-  String get pronunciationLocalRecordingHint =>
-      'Your recording stays temporarily on this device. It is deleted when you leave this screen.';
 
   @override
   String get pronunciationReplayStop => 'Stop my recording';
@@ -12547,10 +12561,34 @@ class AppL10nEn extends AppL10n {
   String get wortpaketeTopics => 'Topics';
 
   @override
-  String get wortpaketeAllTopics => 'Show all topics';
+  String get wortpaketeGreetingPackGoal => 'Greet, thank and say goodbye';
 
   @override
-  String get wortpaketeOpenPack => 'Open pack';
+  String get wortpaketeLearnProgressHint => 'Look at and listen to the word';
+
+  @override
+  String get wortpaketeRevealFirst => 'Reveal first, then rate your recall.';
+
+  @override
+  String wortpaketeOpenNumberedPack(int number) {
+    return 'Open pack $number';
+  }
+
+  @override
+  String wortpaketeTopicsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count topics',
+      one: '1 topic',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String wortpaketeAllTopicsCount(int count) {
+    return 'See all $count';
+  }
 
   @override
   String get wortpaketeNoResults => 'No matching topics or words';
@@ -12721,4 +12759,57 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get approvedMatchingFound => 'Pair found.';
+
+  @override
+  String get pronunciationPracticeRhythm => 'Practice sentence rhythm';
+
+  @override
+  String get pronunciationCompareVoices => 'Compare voices';
+
+  @override
+  String get pronunciationModelListen => 'Listen to sentence';
+
+  @override
+  String get pronunciationOriginalListen => 'Listen to original';
+
+  @override
+  String get pronunciationOwnListen => 'Listen to my recording';
+
+  @override
+  String get pronunciationRecordingReady => 'Recording ready';
+
+  @override
+  String get pronunciationNoScoring => 'Without automatic scoring.';
+
+  @override
+  String get pronunciationMaxDuration =>
+      'Max. 10 sec. · Then compare your recording.';
+
+  @override
+  String get pronunciationNextSentence => 'Next sentence';
+
+  @override
+  String get pronunciationFocusConditional =>
+      'Pause briefly after the conditional clause.';
+
+  @override
+  String get pronunciationFocusH => 'Pronunciation of ㅎ';
+
+  @override
+  String get pronunciationFocusNasal => 'Nasalization';
+
+  @override
+  String get pronunciationFocusTense => 'Tense consonants';
+
+  @override
+  String get pronunciationFocusLink => 'Sound linking';
+
+  @override
+  String get pronunciationHeader => 'Pronunciation';
+
+  @override
+  String get pronunciationRecordShort => 'Record';
+
+  @override
+  String get pronunciationRecordAgainShort => 'Record again';
 }

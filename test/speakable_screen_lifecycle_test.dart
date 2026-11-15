@@ -37,6 +37,52 @@ void main() {
   setUp(SoriSpeech.resetForTesting);
   tearDown(SoriSpeech.resetForTesting);
 
+  testWidgets('deferred route stop preserves a joined same-word request', (
+    tester,
+  ) async {
+    final pending = Completer<bool>();
+    var stops = 0;
+    SoriSpeech.speakImpl = (text, voice) => pending.future;
+    SoriSpeech.stopImpl = () async {
+      stops++;
+    };
+    await tester.pumpWidget(host());
+    final first = SoriSpeech.speak('학교');
+    final controller = ContentSpeechController();
+    controller.deactivate();
+    final second = SoriSpeech.speak('학교');
+    await tester.pump();
+    expect(stops, 0);
+    pending.complete(true);
+    expect(await first, isTrue);
+    expect(await second, isTrue);
+    controller.dispose();
+  });
+
+  testWidgets('deferred route stop does not cancel newer speech', (
+    tester,
+  ) async {
+    final pending = <String, Completer<bool>>{};
+    var stops = 0;
+    SoriSpeech.speakImpl = (text, voice) =>
+        (pending[text] = Completer<bool>()).future;
+    SoriSpeech.stopImpl = () async {
+      stops++;
+    };
+    await tester.pumpWidget(host());
+    final first = SoriSpeech.speak('학교');
+    final controller = ContentSpeechController();
+    controller.deactivate();
+    final second = SoriSpeech.speak('교실');
+    await tester.pump();
+    expect(stops, 1, reason: 'only the newer speech supersedes the old one');
+    pending['학교']!.complete(false);
+    pending['교실']!.complete(true);
+    await first;
+    await second;
+    controller.dispose();
+  });
+
   test('빠른 새 발화는 진행 중인 이전 발화를 정확히 한 번 취소한다', () async {
     final requests = <String>[];
     final completions = <String, Completer<bool>>{};
