@@ -21,6 +21,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'support/sori_speech_stubs.dart';
 
+import 'support/viewport_pages.dart';
+
 void main() {
   setUp(() async {
     SoriSpeech.resetForTesting();
@@ -176,7 +178,10 @@ void main() {
     expect(Storage.pronunciationConsent, isFalse);
     expect(recorder.permissionRequests, 1);
     expect(gateway.calls, 0);
-    expect(find.text('Listen to my recording'), findsOneWidget);
+    expect(
+      find.byKey(const ValueKey('pronunciation-replay-action')).hitTestable(),
+      findsOneWidget,
+    );
   });
 
   testWidgets('microphone denial does not remove basic practice controls', (
@@ -708,7 +713,7 @@ void main() {
       await tester.pumpAndSettle();
       final score = find.byKey(const ValueKey('pronunciation-assess-action'));
       await _scrollUntilBuilt(tester, score);
-      final oldScore = tester.widget<SoriButton>(score).onTap!;
+      final oldScore = _pronunciationAction(tester, score)!;
       cloudWriteSessionController.acquire('pronunciation-owner-b');
       oldScore();
       await tester.pumpAndSettle();
@@ -889,7 +894,15 @@ Widget _app(
 Future<List<PronunciationPhrase>> _loadTestPhrases() async => _testPhrases;
 
 void _invokeButton(WidgetTester tester, String label) {
-  tester.widget<SoriButton>(find.widgetWithText(SoriButton, label)).onTap!();
+  final button = find.widgetWithText(SoriButton, label);
+  _pronunciationAction(
+    tester,
+    button.evaluate().isNotEmpty
+        ? button
+        : find.byWidgetPredicate(
+            (widget) => widget is IconButton && widget.tooltip == label,
+          ),
+  )!();
 }
 
 Future<void> _captureAndAssess(
@@ -922,23 +935,21 @@ Future<void> _requestScore(WidgetTester tester) async {
   await tester.pump();
   final score = find.byKey(const ValueKey('pronunciation-assess-action'));
   await _scrollUntilBuilt(tester, score);
-  tester.widget<SoriButton>(score).onTap!();
+  _pronunciationAction(tester, score)!();
   await tester.pump();
 }
 
-Future<void> _scrollUntilBuilt(WidgetTester tester, Finder target) async {
-  // W10 T-V3(2026-09-05): 바깥 컨테이너가 ListView → SoriAdaptiveStudyBody
-  // (SingleChildScrollView 로 내려감) 로 바뀌었다 — 스크롤 위젯 타입만 갱신.
-  final scrollable = find.byType(SingleChildScrollView).first;
-  for (var attempt = 0; attempt < 12 && target.evaluate().isEmpty; attempt++) {
-    await tester.drag(scrollable, const Offset(0, -160));
-    await tester.pump();
-  }
-  if (target.evaluate().isNotEmpty) {
-    await tester.ensureVisible(target);
-    await tester.pump();
-  }
-}
+VoidCallback? _pronunciationAction(WidgetTester tester, Finder target) =>
+    switch (tester.widget(target)) {
+      SoriButton(:final onTap) => onTap,
+      IconButton(:final onPressed) => onPressed,
+      final widget => throw StateError(
+        'Unexpected pronunciation control: $widget',
+      ),
+    };
+
+Future<void> _scrollUntilBuilt(WidgetTester tester, Finder target) =>
+    showViewportSection(tester, target);
 
 class _HoldingStopStreamRecorder implements PronunciationRecorder {
   _HoldingStopStreamRecorder() {

@@ -28,6 +28,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/speakable.dart';
+import '../widgets/sori/pressable.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/viewport_pages.dart';
 import '../widgets/sori/tokens.dart';
@@ -70,6 +71,9 @@ class PronunciationStudioScreen extends StatefulWidget {
 class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
     with WidgetsBindingObserver {
   static final math.Random _random = math.Random.secure();
+  static const _compactReviewWidth = 390.0;
+  static const _referenceWidth = 400.0;
+  static const _sideBySideReadingWidth = 354.0;
 
   late final PronunciationRecorder _recorder;
   late final PronunciationAssessmentGateway _gateway;
@@ -982,7 +986,9 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                 final defaultText =
                     MediaQuery.textScalerOf(context).scale(1) <= 1.15;
                 final compactReview =
-                    window.width >= 390 && window.height < 900 && defaultText;
+                    window.width >= _compactReviewWidth &&
+                    window.height < 900 &&
+                    defaultText;
                 final canRecord =
                     !_pausingAudio &&
                     !_preparingRecording &&
@@ -993,17 +999,21 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                   builder: (context, windowBody) {
                     final tight =
                         windowBody.maxHeight < 585 ||
-                        windowBody.maxWidth < 354 ||
+                        windowBody.maxWidth < _sideBySideReadingWidth ||
                         !defaultText;
                     final reference =
-                        !tight && window.width >= 400 && window.height >= 900;
+                        !tight &&
+                        window.width >= _referenceWidth &&
+                        window.height >= 900;
                     final level = Row(
                       children: [
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 8),
                           decoration: BoxDecoration(
                             color: const Color(0xff064537),
-                            borderRadius: BorderRadius.circular(18),
+                            borderRadius: BorderRadius.circular(
+                              SoriRadius.todayTreasure,
+                            ),
                             border: Border.all(
                               color: const Color(0xffc99a4a),
                               width: 2,
@@ -1011,7 +1021,9 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                           ),
                           child: DropdownButtonHideUnderline(
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 7),
+                              padding: const EdgeInsets.symmetric(
+                                vertical: Spacing.tight,
+                              ),
                               child: DropdownButton<LearnerLevel>(
                                 key: const ValueKey('pronunciation-level'),
                                 value: _selectedLevel,
@@ -1023,17 +1035,18 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                                       (level) => Center(
                                         child: Text(
                                           level.display,
-                                          style: TextStyle(
-                                            fontFamily: bodyFont,
-                                            color: const Color(0xffffe3a3),
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                          style: SoriTextTheme.of(context).body
+                                              .copyWith(
+                                                fontFamily: bodyFont,
+                                                color: const Color(0xffffe3a3),
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                         ),
                                       ),
                                     )
                                     .toList(),
-                                style: TextStyle(
+                                style: SoriTextTheme.of(context).body.copyWith(
                                   fontFamily: bodyFont,
                                   color: const Color(0xff073b31),
                                   fontSize: 18,
@@ -1057,7 +1070,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                             ),
                           ),
                         ),
-                        const SizedBox(width: 14),
+                        const SizedBox(width: Spacing.inset),
                         Expanded(
                           child: Text(
                             hasRecording
@@ -1067,12 +1080,15 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                           ),
                         ),
                         if (hasRecording &&
-                            MediaQuery.sizeOf(context).width >= 400 &&
+                            MediaQuery.sizeOf(context).width >=
+                                _referenceWidth &&
                             MediaQuery.textScalerOf(context).scale(1) <= 1.15)
                           DecoratedBox(
                             decoration: BoxDecoration(
                               color: const Color(0xffdce6d8),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(
+                                SoriRadius.xs,
+                              ),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
@@ -1081,7 +1097,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                               ),
                               child: Text(
                                 t.pronunciationRecordingReady,
-                                style: type.bodySmall.copyWith(fontSize: 12),
+                                style: type.bodySmall.copyWith(fontSize: 13),
                               ),
                             ),
                           ),
@@ -1105,7 +1121,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                             trailingIcon: Icons.arrow_forward_rounded,
                             accent: const Color(0xffffd271),
                             fullWidth: true,
-                            textStyle: TextStyle(
+                            textStyle: SoriTextTheme.of(context).body.copyWith(
                               fontFamily: bodyFont,
                               color: const Color(0xff073b31),
                               fontSize: 21,
@@ -1158,7 +1174,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                                 ? Icons.stop_circle_outlined
                                 : Icons.mic_rounded,
                             fullWidth: true,
-                            textStyle: TextStyle(
+                            textStyle: SoriTextTheme.of(context).body.copyWith(
                               fontFamily: bodyFont,
                               color: const Color(0xff073b31),
                               fontSize: 21,
@@ -1286,7 +1302,9 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                               border: Border.all(
                                 color: const Color(0xff97baaa),
                               ),
-                              borderRadius: BorderRadius.circular(18),
+                              borderRadius: BorderRadius.circular(
+                                SoriRadius.todayTreasure,
+                              ),
                               boxShadow: const [
                                 BoxShadow(
                                   color: Color(0x454f3014),
@@ -1324,7 +1342,9 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                                       ),
                                       decoration: BoxDecoration(
                                         color: const Color(0xffeba51f),
-                                        borderRadius: BorderRadius.circular(3),
+                                        borderRadius: BorderRadius.circular(
+                                          SoriRadius.micro,
+                                        ),
                                       ),
                                     ),
                                     Expanded(
@@ -1369,14 +1389,16 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                                   ),
                                   decoration: BoxDecoration(
                                     color: const Color(0xffe4d4bc),
-                                    borderRadius: BorderRadius.circular(3),
+                                    borderRadius: BorderRadius.circular(
+                                      SoriRadius.micro,
+                                    ),
                                   ),
                                   child: Text(
                                     Localizations.localeOf(
                                       context,
                                     ).languageCode.toUpperCase(),
                                     style: type.bodySmall.copyWith(
-                                      fontSize: 12,
+                                      fontSize: 13,
                                       height: 1.1,
                                     ),
                                   ),
@@ -1417,7 +1439,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                           record,
                         ],
                         if (!hasRecording) ...[
-                          const SizedBox(height: 6),
+                          const SizedBox(height: Spacing.compact),
                           Text(
                             t.pronunciationMaxDuration,
                             textAlign: TextAlign.center,
@@ -1497,7 +1519,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                         sections: readingSections(context, body),
                       ),
                     );
-                    if (tight && windowBody.maxHeight < 420 && !defaultText) {
+                    if (tight && windowBody.maxHeight < 420) {
                       return SoriViewportPages(
                         sections: [
                           level,
@@ -1682,7 +1704,7 @@ class _PronunciationHeader extends StatelessWidget
                     title,
                     textAlign: TextAlign.center,
                     maxLines: 2,
-                    style: TextStyle(
+                    style: SoriTextTheme.of(context).body.copyWith(
                       fontFamily: SoriLocaleFonts.of(context).heading,
                       fontWeight: SoriLocaleFonts.of(context).headingWeight,
                       color: const Color(0xfffff8e8),
@@ -1751,11 +1773,13 @@ class _PronunciationAudioPanel extends StatelessWidget {
   });
   final bool compare, disabled, replaying, compact, inline;
   final VoidCallback onModel, onRecording;
+
+  static const _wideAudioControlWidth = 400.0;
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final font = SoriLocaleFonts.of(context).body;
-    final wide = MediaQuery.sizeOf(context).width >= 400;
+    final wide = MediaQuery.sizeOf(context).width >= _wideAudioControlWidth;
     if (inline) {
       Widget play({required bool recording, required String label}) {
         return Expanded(
@@ -1798,10 +1822,10 @@ class _PronunciationAudioPanel extends StatelessWidget {
           ],
           const SizedBox(width: 8),
           TtsSpeedControl(
-            compactBuilder: (context, label, open) => TextButton(
-              onPressed: disabled ? null : open,
-              style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
-              child: Text(label),
+            compactBuilder: (context, label, open) => SoriButton.ghost(
+              label: label,
+              size: SoriButtonSize.md,
+              onTap: disabled ? null : open,
             ),
           ),
         ],
@@ -1814,12 +1838,10 @@ class _PronunciationAudioPanel extends StatelessWidget {
             Expanded(
               child: Material(
                 type: MaterialType.transparency,
-                child: InkWell(
+                child: SoriPressable(
                   key: recording
                       ? const ValueKey('pronunciation-replay-action')
                       : const ValueKey('pronunciation-model-action'),
-                  borderRadius: BorderRadius.circular(12),
-                  overlayColor: const WidgetStatePropertyAll(Color(0x28ffe3a3)),
                   onTap: onTap,
                   child: Semantics(
                     button: true,
@@ -1867,14 +1889,16 @@ class _PronunciationAudioPanel extends StatelessWidget {
                                       border: Border.all(
                                         color: const Color(0xffbc8857),
                                       ),
-                                      borderRadius: BorderRadius.circular(24),
+                                      borderRadius: BorderRadius.circular(
+                                        SoriRadius.xl,
+                                      ),
                                     ),
                               child: Text(
                                 label,
                                 textAlign: compare
                                     ? TextAlign.start
                                     : TextAlign.center,
-                                style: TextStyle(
+                                style: SoriTextTheme.of(context).body.copyWith(
                                   fontFamily: font,
                                   color: Colors.white,
                                   fontSize: 18,
@@ -1891,30 +1915,21 @@ class _PronunciationAudioPanel extends StatelessWidget {
             ),
             if (!recording)
               TtsSpeedControl(
-                compactBuilder: (context, label, open) => TextButton(
-                  onPressed: disabled ? null : open,
-                  style: TextButton.styleFrom(
-                    minimumSize: const Size(48, 48),
-                    backgroundColor: const Color(0x66392210),
-                    side: const BorderSide(color: Color(0xffbc8857)),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        label,
-                        style: TextStyle(
-                          fontFamily: font,
-                          color: Color(0xffffe3a3),
-                          fontSize: 17,
-                        ),
-                      ),
-                      const Icon(
-                        Icons.keyboard_arrow_down,
-                        color: Color(0xffffe3a3),
-                        size: 18,
-                      ),
-                    ],
+                compactBuilder: (context, label, open) => SoriButton.outlined(
+                  label: label,
+                  size: SoriButtonSize.md,
+                  trailingIcon: Icons.keyboard_arrow_down,
+                  accent: const Color(0xffffe3a3),
+                  textStyle: SoriTextTheme.of(
+                    context,
+                  ).body.copyWith(fontFamily: font, fontSize: 17),
+                  onTap: disabled ? null : open,
+                  surfaceBuilder: (_, child) => DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: const Color(0x66392210),
+                      borderRadius: SoriRadius.brSm,
+                    ),
+                    child: child,
                   ),
                 ),
               ),

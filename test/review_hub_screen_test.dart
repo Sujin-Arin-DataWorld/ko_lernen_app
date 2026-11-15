@@ -5,6 +5,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/data/sori_activity_catalog.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
@@ -73,7 +74,7 @@ void main() {
     expect(tester.widget<CheckboxListTile>(second).value, isTrue);
     final t = AppL10n.of(tester.element(find.byType(ReviewHubScreen)));
     expect(
-      find.widgetWithText(TextButton, t.missionHeroReviewTitle(2)),
+      find.widgetWithText(SoriButton, t.missionHeroReviewTitle(2)),
       findsOneWidget,
     );
   });
@@ -84,17 +85,17 @@ void main() {
     await _pumpHub(tester);
     final start = find.byKey(const Key('review-hub-start-selected'));
     await showViewportSection(tester, start);
-    expect(tester.widget<TextButton>(start).onPressed, isNull);
+    expect(tester.widget<SoriButton>(start).onTap, isNull);
     await showViewportSection(tester, find.text('Alle auswählen'));
     await tester.tap(find.text('Alle auswählen'));
     await tester.pump();
     await showViewportSection(tester, start);
-    expect(tester.widget<TextButton>(start).onPressed, isNotNull);
+    expect(tester.widget<SoriButton>(start).onTap, isNotNull);
     await showViewportSection(tester, find.text('Auswahl aufheben'));
     await tester.tap(find.text('Auswahl aufheben'));
     await tester.pump();
     await showViewportSection(tester, start);
-    expect(tester.widget<TextButton>(start).onPressed, isNull);
+    expect(tester.widget<SoriButton>(start).onTap, isNull);
   });
 
   testWidgets('archive searches only learned words within the chosen level', (
@@ -314,7 +315,7 @@ void main() {
 
     final action = find.byKey(const Key('review-hub-calendar'));
     await showViewportSection(tester, action);
-    expect(tester.widget<OutlinedButton>(action).onPressed, isNotNull);
+    expect(tester.widget<SoriButton>(action).onTap, isNotNull);
     await tester.tap(action);
     await tester.pump();
     expect(tester.takeException(), isNull);
@@ -331,7 +332,7 @@ void main() {
     await prefs.remove('kl_study_log_v1_$todayIso');
     await _pumpHub(tester);
     await showViewportSection(tester, action);
-    expect(tester.widget<OutlinedButton>(action).onPressed, isNull);
+    expect(tester.widget<SoriButton>(action).onTap, isNull);
   });
 
   testWidgets('calendar action waits for the reviewable vocabulary loader', (
@@ -350,7 +351,7 @@ void main() {
     completer.complete(_reviewableWords);
     await tester.pumpAndSettle();
     await showViewportSection(tester, action);
-    expect(tester.widget<OutlinedButton>(action).onPressed, isNotNull);
+    expect(tester.widget<SoriButton>(action).onTap, isNotNull);
   });
 
   testWidgets('320dp large-text layout has no overflow or clipping exception', (

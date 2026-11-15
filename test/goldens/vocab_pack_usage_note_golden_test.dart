@@ -82,14 +82,23 @@ void main() {
           },
         ],
         'collocations': [
-          {'ko': '협조 요청', 'de': 'Bitte um Mitwirkung', 'en': 'request for cooperation'},
-          {'ko': '적극적인 협조', 'de': 'aktive Mitwirkung', 'en': 'active cooperation'},
+          {
+            'ko': '협조 요청',
+            'de': 'Bitte um Mitwirkung',
+            'en': 'request for cooperation',
+          },
+          {
+            'ko': '적극적인 협조',
+            'de': 'aktive Mitwirkung',
+            'en': 'active cooperation',
+          },
         ],
         'contrasts': [
           {
             'headword': '협업',
             'vocabId': null,
-            'ko': '협조는 정해진 절차를 따라 달라는 정중한 요청에 가깝고, 협업은 여러 사람이 대등하게 함께 작업하는 것을 가리킨다.',
+            'ko':
+                '협조는 정해진 절차를 따라 달라는 정중한 요청에 가깝고, 협업은 여러 사람이 대등하게 함께 작업하는 것을 가리킨다.',
             'de':
                 '협조 ist eher die höfliche Bitte, ein Verfahren einzuhalten, 협업 meint, dass mehrere Personen gleichberechtigt gemeinsam arbeiten.',
             'en':
@@ -100,8 +109,10 @@ void main() {
         'examples': [
           {
             'ko': '일정 조정에 협조해 주시면 감사하겠습니다.',
-            'de': 'Ich wäre dankbar, wenn Sie bei der Terminanpassung mitwirken könnten.',
-            'en': 'I would appreciate your cooperation with adjusting the schedule.',
+            'de':
+                'Ich wäre dankbar, wenn Sie bei der Terminanpassung mitwirken könnten.',
+            'en':
+                'I would appreciate your cooperation with adjusting the schedule.',
             'register': 'written',
           },
           {
@@ -126,7 +137,10 @@ void main() {
         .setMockMessageHandler('flutter/assets', (message) async {
           final asset = const StringCodec().decodeMessage(message);
           if (asset != 'assets/data/usage_notes.json') {
-            return null;
+            final realAsset = File('build/unit_test_assets/$asset');
+            return realAsset.existsSync()
+                ? ByteData.sublistView(realAsset.readAsBytesSync())
+                : null;
           }
           return ByteData.sublistView(
             Uint8List.fromList(utf8.encode(usageNotesPayload)),

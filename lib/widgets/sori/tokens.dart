@@ -20,6 +20,18 @@ import 'package:flutter/material.dart';
 // SPACING — 8px-grid (modular scale)
 // ─────────────────────────────────────────────────────────────────────────
 class Spacing {
+  static const double hairline = 2;
+  static const double micro = 3;
+  static const double dense = 5;
+  static const double compact = 6;
+  static const double tight = 7;
+  static const double control = 10;
+  static const double inset = 14;
+  static const double comfortable = 18;
+  static const double content = 20;
+  static const double between = 23;
+  static const double section = 27;
+
   static const double xs = 4; // 컴포넌트 내부 미세 간격
   static const double sm = 8; // 작은 갭
   static const double md = 12; // 중간 갭
@@ -205,6 +217,11 @@ class SoriRadius {
   static const double todayTreasureAction = 22;
   static const double c5Tile = 9;
   static const double c5DetailAction = 10;
+  static const double hairline = 2;
+  static const double micro = 3;
+  static const double xxs = 4;
+  static const double tight = 7;
+  static const double ctrl = 11;
   static const double xs = 8;
   static const double sm = 12;
   static const double md = 16; // default card

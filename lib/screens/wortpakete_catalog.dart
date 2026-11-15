@@ -353,7 +353,9 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
                 padding: EdgeInsets.fromLTRB(
                   15,
                   level == null
-                      ? 15
+                      ? (MediaQuery.sizeOf(context).height >= 1100
+                            ? Spacing.xxxl
+                            : 15)
                       : (level.index >= 4 || _shortViewport ? 8 : 18),
                   15,
                   0,
@@ -387,9 +389,9 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
                       ..._searchResults(t, packs, query)
                     else if (level == null) ...[
                       ..._levels(t, all),
-                      TextButton(
-                        onPressed: widget.onDojang,
-                        child: Text(t.dojangTitle),
+                      SoriButton.ghost(
+                        label: t.dojangTitle,
+                        onTap: widget.onDojang,
                       ),
                     ] else
                       ..._detail(t, level, packs),
@@ -482,6 +484,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
         button: true,
         selected: widget.browseLevel == level.display,
         child: SoriPressable(
+          key: ValueKey('wortpakete-overview-level-${level.code}'),
           pressScale: 1,
           onTap: () => _selectLevel(level),
           child: Container(
@@ -635,26 +638,35 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
             _lang(context) == 'de'
         ? 2
         : 1;
+    final topicTitle = Text(
+      t.wortpaketeTopics,
+      style: _type(24, weight: FontWeight.w700),
+    );
+    final allTopicsLabel = t.wortpaketeAllTopicsCount(topics.length);
+    void openTopicPicker() => _pickTopic(t, level, topics);
     return [
-      Row(
-        children: [
-          Expanded(
-            child: Text(
-              t.wortpaketeTopics,
-              style: _type(24, weight: FontWeight.w700),
+      if (MediaQuery.textScalerOf(context).scale(1) > 1.35) ...[
+        Align(alignment: Alignment.centerLeft, child: topicTitle),
+        SoriButton.ghost(
+          label: allTopicsLabel,
+          trailingIcon: Icons.arrow_forward,
+          onTap: openTopicPicker,
+        ),
+      ] else
+        Row(
+          children: [
+            Expanded(child: topicTitle),
+            TextButton.icon(
+              onPressed: openTopicPicker,
+              label: Text(
+                allTopicsLabel,
+                style: _type(16, weight: FontWeight.w700),
+              ),
+              icon: const Icon(Icons.arrow_forward),
+              iconAlignment: IconAlignment.end,
             ),
-          ),
-          TextButton.icon(
-            onPressed: () => _pickTopic(t, level, topics),
-            label: Text(
-              t.wortpaketeAllTopicsCount(topics.length),
-              style: _type(16, weight: FontWeight.w700),
-            ),
-            icon: const Icon(Icons.arrow_forward),
-            iconAlignment: IconAlignment.end,
-          ),
-        ],
-      ),
+          ],
+        ),
       SizedBox(height: _shortViewport ? 3 : _inlineGap),
       for (var first = 0; first < featured.length; first += columns) ...[
         if (first > 0) const SizedBox(height: 8),
@@ -663,7 +675,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
           children: [
             for (final (offset, feature)
                 in featured.skip(first).take(columns).indexed) ...[
-              if (offset > 0) const SizedBox(width: 10),
+              if (offset > 0) const SizedBox(width: Spacing.control),
               Expanded(
                 child: _topicCard(
                   t,
@@ -676,7 +688,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
               ),
             ],
             if (columns == 2 && featured.length - first == 1) ...[
-              const SizedBox(width: 10),
+              const SizedBox(width: Spacing.control),
               const Spacer(),
             ],
           ],
@@ -695,7 +707,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
               ),
             ),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: Spacing.control),
           Expanded(
             child: Text(
               _topicName(selected, short: true),
@@ -725,20 +737,24 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
                                 2 * (selected.packs.length - 1)) /
                             selected.packs.length
                       : null,
-                  child: OutlinedButton(
+                  child: ChoiceChip(
                     key: ValueKey('wortpakete-select-${item.id}'),
-                    style: OutlinedButton.styleFrom(
-                      backgroundColor: item.id == pack.id ? _jade : _paper,
-                      foregroundColor: item.id == pack.id ? _paper : _ink,
-                      minimumSize: const Size.fromHeight(40),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(9),
-                      ),
-                      textStyle: _type(17, weight: FontWeight.w700),
+                    selected: item.id == pack.id,
+                    selectedColor: _jade,
+                    backgroundColor: _paper,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(SoriRadius.c5Tile),
                     ),
-                    onPressed: () => setState(() => _packId = item.id),
-                    child: Text(
+                    materialTapTargetSize: MaterialTapTargetSize.padded,
+                    showCheckmark: false,
+                    onSelected: (_) => setState(() => _packId = item.id),
+                    label: Text(
                       '${t.wortpaketePackNumber(index + 1)} · ${t.wortpaketeWords(item.words.length)}',
+                      style: _type(
+                        17,
+                        weight: FontWeight.w700,
+                        color: item.id == pack.id ? _paper : _ink,
+                      ),
                     ),
                   ),
                 ),
@@ -750,7 +766,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
       _preview(t, selected, pack),
       SizedBox(height: _shortViewport ? 8 : _packActionGap),
       Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 2),
+        padding: const EdgeInsets.symmetric(horizontal: Spacing.hairline),
         child: _goldAction(
           t.wortpaketeOpenNumberedPack(selected.packs.indexOf(pack) + 1),
           () => widget.onPack(pack),
@@ -848,7 +864,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
                       child: DecoratedBox(
                         decoration: BoxDecoration(
                           color: const Color(0xffe2e8d8),
-                          borderRadius: BorderRadius.circular(7),
+                          borderRadius: BorderRadius.circular(SoriRadius.tight),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(

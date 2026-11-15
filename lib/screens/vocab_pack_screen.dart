@@ -1291,7 +1291,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
               ? 48
               : 78,
           foregroundColor: const Color(0xfffff7ec),
-          titleStyle: TextStyle(
+          titleStyle: SoriTextTheme.of(context).body.copyWith(
             fontFamily: SoriLocaleFonts.of(context).heading,
             fontSize: 23,
             color: const Color(0xfffff7ec),
@@ -1377,7 +1377,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
                 alignment: Alignment.centerLeft,
                 child: Text(
                   '${pack.level} · ${t.wortpaketePackNumber(int.tryParse(pack.id.split('_').last) ?? 1)}',
-                  style: TextStyle(
+                  style: SoriTextTheme.of(context).body.copyWith(
                     fontFamily: SoriLocaleFonts.of(context).body,
                     fontSize: 16,
                     color: const Color(0xff56605b),
@@ -1388,7 +1388,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
                 alignment: Alignment.centerLeft,
                 child: Text(
                   VocabPackService.topicLabel(pack.id, lang: lang),
-                  style: TextStyle(
+                  style: SoriTextTheme.of(context).body.copyWith(
                     fontFamily: SoriLocaleFonts.of(context).heading,
                     fontSize: 28,
                     fontWeight: SoriLocaleFonts.of(context).headingWeight,
@@ -1396,10 +1396,10 @@ class _VocabPackScreenState extends State<VocabPackScreen>
                   ),
                 ),
               ),
-              const SizedBox(height: 14),
+              const SizedBox(height: Spacing.inset),
             ],
             _StageBar(stage: _stage),
-            const SizedBox(height: 18),
+            const SizedBox(height: Spacing.comfortable),
           ];
           return LayoutBuilder(
             builder: (context, body) {
@@ -1468,7 +1468,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
               // 분모 = 고유 단어 수(고정). 마지막 고유 카드를 판정하면 바로
               // Quiz/Boss로 넘어가므로 n / n에서 Learn이 멈추지 않는다.
               '${_learnQueue?.servedPosition ?? 1} / ${_learnQueue?.uniqueTotal ?? _learnWords.length}',
-              style: TextStyle(
+              style: SoriTextTheme.of(context).body.copyWith(
                 fontFamily: SoriLocaleFonts.of(context).body,
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
@@ -1487,7 +1487,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
               child: Text(
                 t.wortpaketeLearnProgressHint,
                 textAlign: TextAlign.end,
-                style: TextStyle(
+                style: SoriTextTheme.of(context).body.copyWith(
                   fontFamily: SoriLocaleFonts.of(context).body,
                   fontSize: 16,
                   color: const Color(0xff445059),
@@ -1607,7 +1607,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
 
   List<Widget> _learnActions(AppL10n t, Vocab word, int presentation) {
     final fonts = SoriLocaleFonts.of(context);
-    final style = TextStyle(
+    final style = SoriTextTheme.of(context).body.copyWith(
       fontFamily: fonts.body,
       fontSize: 16,
       color: const Color(0xff092522),
@@ -1617,11 +1617,11 @@ class _VocabPackScreenState extends State<VocabPackScreen>
           onTap: onTap,
           child: Container(
             constraints: const BoxConstraints(minHeight: 60),
-            margin: const EdgeInsets.symmetric(horizontal: 3),
+            margin: const EdgeInsets.symmetric(horizontal: Spacing.micro),
             decoration: BoxDecoration(
               color: const Color(0xffeeeee2),
               border: Border.all(color: const Color(0xffc4c8b6)),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(SoriRadius.sm),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -1649,12 +1649,12 @@ class _VocabPackScreenState extends State<VocabPackScreen>
           onTap: _learnCardRevealed ? onTap : null,
           child: Container(
             constraints: const BoxConstraints(minHeight: 48),
-            margin: const EdgeInsets.symmetric(horizontal: 3),
+            margin: const EdgeInsets.symmetric(horizontal: Spacing.micro),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: const Color(0xfff8f3e9),
               border: Border.all(color: const Color(0xffd8cbbb)),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(SoriRadius.sm),
             ),
             child: Text(
               label,
@@ -1690,12 +1690,12 @@ class _VocabPackScreenState extends State<VocabPackScreen>
                 onTap: open,
                 child: Container(
                   height: 60,
-                  margin: const EdgeInsets.symmetric(horizontal: 3),
+                  margin: const EdgeInsets.symmetric(horizontal: Spacing.micro),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: const Color(0xfff8f3e9),
                     border: Border.all(color: const Color(0xffd8cbbb)),
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(SoriRadius.sm),
                   ),
                   child: Text(label, style: style),
                 ),
@@ -1706,7 +1706,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
           action(t.contentActionShare, Icons.ios_share, _shareCurrent),
         ],
       ),
-      const SizedBox(height: 23),
+      const SizedBox(height: Spacing.between),
       Semantics(
         button: true,
         label: t.contentLearningReveal,
@@ -1741,7 +1741,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
           ),
         ),
       ),
-      const SizedBox(height: 10),
+      const SizedBox(height: Spacing.control),
       Text(t.wortpaketeRevealFirst, style: style.copyWith(fontSize: 14)),
       const SizedBox(height: 4),
       Row(
@@ -1750,15 +1750,11 @@ class _VocabPackScreenState extends State<VocabPackScreen>
           judgment(t.vocabPackGotIt, () => _learnGotIt(presentation)),
         ],
       ),
-      TextButton(
-        onPressed: () => _learnDefer(presentation),
-        style: TextButton.styleFrom(
-          padding: const EdgeInsets.fromLTRB(8, 8, 8, 14),
-        ),
-        child: Text(
-          t.btnSkip,
-          style: style.copyWith(decoration: TextDecoration.underline),
-        ),
+      SoriButton.ghost(
+        label: t.btnSkip,
+        size: SoriButtonSize.md,
+        onTap: () => _learnDefer(presentation),
+        textStyle: style.copyWith(decoration: TextDecoration.underline),
       ),
     ];
   }
@@ -1852,7 +1848,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
                     Text(
                       cur.korean,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: SoriTextTheme.of(context).body.copyWith(
                         fontSize: soriFillSize(h, 0.08, 36, 72),
                         fontWeight: FontWeight.w700,
                         letterSpacing: -0.5,
@@ -1861,7 +1857,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
                     const SizedBox(height: Spacing.xs),
                     Text(
                       '[${cur.romanization}]',
-                      style: TextStyle(
+                      style: SoriTextTheme.of(context).body.copyWith(
                         fontSize: soriFillSize(h, 0.03, 14, 24),
                         color: s.textMuted,
                         fontStyle: FontStyle.italic,
@@ -1939,7 +1935,7 @@ class _StageBar extends StatelessWidget {
         final active = triple.$3 == stage;
         return Expanded(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 2),
+            padding: const EdgeInsets.symmetric(horizontal: Spacing.hairline),
             child: Container(
               constraints: const BoxConstraints(minHeight: 42),
               alignment: Alignment.center,
@@ -1952,12 +1948,12 @@ class _StageBar extends StatelessWidget {
                       ? const Color(0xffb58a40)
                       : const Color(0xffd8cbbb),
                 ),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(SoriRadius.c5DetailAction),
               ),
               child: Text(
                 triple.$2,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: SoriTextTheme.of(context).body.copyWith(
                   fontFamily: SoriLocaleFonts.of(context).body,
                   fontWeight: active ? FontWeight.w700 : FontWeight.w400,
                   color: active ? Colors.white : const Color(0xff555a53),
@@ -2028,7 +2024,7 @@ class _FlipFront extends StatelessWidget {
                           v.korean,
                           textAlign: TextAlign.center,
                           maxLines: 1,
-                          style: TextStyle(
+                          style: SoriTextTheme.of(context).body.copyWith(
                             fontFamily: SoriFonts.korean,
                             fontSize: headlineSize,
                             fontWeight: FontWeight.w700,
@@ -2043,7 +2039,7 @@ class _FlipFront extends StatelessWidget {
                       Text(
                         v.romanization,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: SoriTextTheme.of(context).body.copyWith(
                           fontFamily: fonts.body,
                           fontSize: soriFillSize(h, 0.048, 16, 24),
                           color: const Color(0xff6d6759),
@@ -2051,7 +2047,7 @@ class _FlipFront extends StatelessWidget {
                       ),
                     if (cardHeight >= 165 &&
                         MediaQuery.textScalerOf(context).scale(1) <= 1.2) ...[
-                      const SizedBox(height: 20),
+                      const SizedBox(height: Spacing.content),
                       Text.rich(
                         TextSpan(
                           children: [
@@ -2063,14 +2059,16 @@ class _FlipFront extends StatelessWidget {
                                 color: Color(0xff004536),
                               ),
                             ),
-                            const WidgetSpan(child: SizedBox(width: 7)),
+                            const WidgetSpan(
+                              child: SizedBox(width: Spacing.tight),
+                            ),
                             TextSpan(
                               text: AppL10n.of(context).vocabPackTapToFlip,
                             ),
                           ],
                         ),
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: SoriTextTheme.of(context).body.copyWith(
                           fontFamily: fonts.body,
                           fontSize: 16,
                           color: const Color(0xff585d54),
@@ -2123,7 +2121,7 @@ class _FlipBack extends StatelessWidget {
           Text(
             v.translationFor(lang),
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: SoriTextTheme.of(context).body.copyWith(
               fontSize: soriFillSize(h, 0.085, 24, 38),
               fontWeight: FontWeight.w700,
               height: 1.15,
@@ -2133,7 +2131,7 @@ class _FlipBack extends StatelessWidget {
           Text(
             v.posFor(lang),
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: SoriTextTheme.of(context).body.copyWith(
               fontSize: soriFillSize(h, 0.045, 14, 26),
               color: s.textMuted,
             ),
@@ -2179,12 +2177,12 @@ class _FlipBack extends StatelessWidget {
                         color: SoriColors.primary,
                       ),
                     ),
-                    const WidgetSpan(child: SizedBox(width: 6)),
+                    const WidgetSpan(child: SizedBox(width: Spacing.compact)),
                     TextSpan(text: v.exampleKorean),
                   ],
                 ),
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: SoriTextTheme.of(context).body.copyWith(
                   fontSize: soriFillSize(h, 0.072, 18, 38),
                   fontWeight: FontWeight.w600,
                   height: 1.25,
@@ -2204,7 +2202,7 @@ class _FlipBack extends StatelessWidget {
               Text(
                 v.exampleFor(lang),
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: SoriTextTheme.of(context).body.copyWith(
                   fontSize: soriFillSize(h, 0.048, 14, 28),
                   color: s.textMuted,
                   fontStyle: FontStyle.italic,

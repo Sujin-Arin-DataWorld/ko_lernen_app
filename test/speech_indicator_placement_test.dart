@@ -7,6 +7,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
@@ -124,9 +125,12 @@ void main() {
       await Storage.setTutPackBossSeen();
     });
 
-    testWidgets('SoriSpeechIndicator 가 카드 좌상단에 있다', (tester) async {
+    testWidgets('the word audio is tappable below the flip card', (
+      tester,
+    ) async {
       stubSoriSpeech();
       _setViewport(tester);
+      tester.view.physicalSize = const Size(430, 932);
       const korean = '하나';
       final pack = VocabPack(
         id: 'a1_placement_1',
@@ -164,7 +168,13 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 300));
 
-      expectIndicatorAtCardTopLeft(tester, korean: korean);
+      final face = find.byType(FlipCard);
+      final audio = find.byType(SoriSpeechIndicator);
+      expect(audio.hitTestable(), findsOneWidget);
+      expect(
+        tester.getCenter(audio).dy,
+        greaterThan(tester.getCenter(face).dy),
+      );
       expect(tester.takeException(), isNull);
     });
   });
@@ -421,7 +431,9 @@ void main() {
       await Storage.init();
     });
 
-    testWidgets('SoriSpeechIndicator 가 카드 좌상단에 있다', (tester) async {
+    testWidgets('the model control is tappable below the phrase', (
+      tester,
+    ) async {
       stubSoriSpeech();
       _setViewport(tester);
       const phrase = PronunciationPhrase(
@@ -446,7 +458,13 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expectIndicatorAtCardTopLeft(tester, korean: phrase.ko);
+      final phraseText = find.text(phrase.ko);
+      final audio = find.byKey(const ValueKey('pronunciation-model-action'));
+      expect(audio.hitTestable(), findsOneWidget);
+      expect(
+        tester.getCenter(audio).dy,
+        greaterThan(tester.getCenter(phraseText).dy),
+      );
       expect(tester.takeException(), isNull);
     });
   });

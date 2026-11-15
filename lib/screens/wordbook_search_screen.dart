@@ -161,7 +161,8 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
     final showBook =
         widget.boundNotebook &&
         results.isNotEmpty &&
-        MediaQuery.sizeOf(context).width >= 370 &&
+        MediaQuery.sizeOf(context).width >=
+            SoriBreakpoints.narrowPhone + Spacing.control &&
         MediaQuery.sizeOf(context).height >= 750 &&
         MediaQuery.textScalerOf(context).scale(1) <= 1.35;
 

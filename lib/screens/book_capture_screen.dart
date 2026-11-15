@@ -635,7 +635,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
             : _errorKey != null
             ? 800
             : 596,
-        maxScaleBoost: 1.4,
+        maxScaleBoost: compact ? 2.4 : 1.4,
         child: Padding(
           padding: padding,
           child: Column(
