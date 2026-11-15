@@ -21,17 +21,19 @@
   },
   "research": {
     "approved": false,
-    "fullSarangchaeExpanded": false,
+    "fullSarangchaeReviewCompleted": false,
+    "fullSarangchaeApproved": false,
     "canonicalReplacement": false,
     "remote": "https://github.com/Sujin-Arin-DataWorld/hangulsori-archive.git",
     "branch": "research/r16-numaru-material-light-20261115",
-    "verifiedCommit": "e9625013690376f208abd61144f26a208a2a995e",
+    "verifiedCommit": "30d242ec08984c9895e6b310d8781a81648290e5",
     "verifiedFiles": 295,
     "manifestPath": "manifest.json",
     "restorationInstructions": "README.md",
     "localRoot": "C:/dev/hangulsori/_codex_artifacts/r16-lookdev-20261102/numaru-zone",
     "native": "environment-v1/directional-sky.blend",
-    "board": "C:/dev/hangulsori/_codex_artifacts/r16-lookdev-20261102/figma/numaru-zone-work/compact-reference-baseline-I1.png"
+    "board": "C:/dev/hangulsori/_codex_artifacts/r16-lookdev-20261102/figma/numaru-zone-work/compact-reference-baseline-I1.png",
+    "dependencyNote": "Canonical tool/reference dependencies included for reproducibility retain their original authority; this archive does not downgrade or replace the approved R16 source."
   },
   "selectedArt": [
     {
@@ -81,17 +83,56 @@
       "artApproved": false
     },
     "safetyTests": 5,
-    "retainedToolTests": 10
+    "losslessChunkTests": 4,
+    "retainedToolTests": 10,
+    "afterDeletion": {
+      "phase": "after-deletion",
+      "checkedAtUnix": 1794732602.4747066,
+      "canonicalFiles": 2767,
+      "canonicalBytes": 6492903424,
+      "retainedFiles": 299,
+      "sourceHead": "02fa1a8f2b1894a88db83370ede13f1630e823b6",
+      "stagedPaths": "",
+      "protectedModifiedFiles": 4,
+      "errors": [],
+      "passed": true
+    }
   },
   "retirement": {
-    "status": "archive transfer in progress; original research files not yet deleted",
+    "status": "completed",
     "remote": "https://github.com/Sujin-Arin-DataWorld/hangulsori-archive.git",
     "branch": "archive/r16-retired-lookdev-20261115",
-    "verifiedCommit": "df782463225acb67ec66f7fb4ecbdfebc3dfc7d6",
-    "verifiedFiles": 219,
-    "expectedFiles": 1100,
+    "verifiedCommit": "b33a2b9966fd2732278a436a0c91b5bb16798781",
+    "verifiedFiles": 1111,
+    "expectedFiles": 1111,
+    "deletionSummary": {
+      "candidates": 1162,
+      "bytes": 10602750900,
+      "apply": true,
+      "retiredCommit": "0b37378566cdd641639a7ac73ed3e0a694877863",
+      "researchCommit": "e9625013690376f208abd61144f26a208a2a995e"
+    },
     "generatedCacheFilesDeleted": 3,
-    "generatedCacheBytesDeleted": 813678720
+    "generatedCacheBytesDeleted": 813678720,
+    "previewCacheFilesDeleted": 2059,
+    "previewCacheBytesDeleted": 1199471354,
+    "deletedFileCount": 1162,
+    "deletedFileBytes": 10602750900,
+    "archivedHistoryDeleted": 1111,
+    "rejectedGeneratedAndExactCopiesDeleted": 51,
+    "cleanupSummary": {
+      "originalFilesDeleted": 1162,
+      "originalBytesDeleted": 10602750900,
+      "generatedCacheFilesDeleted": 2073,
+      "generatedCacheBytesDeleted": 2013369602,
+      "totalFilesDeleted": 3235,
+      "totalBytesDeleted": 12616120502,
+      "retiredHistoryFiles": 1111,
+      "rejectedImagesAndExactCopies": 51,
+      "emptyFoldersRemoved": 209,
+      "allRetiredPathsAbsent": true,
+      "diskFreeSpaceDeltaNotUsed": "Other active chats changed free disk space during this task; totals are actual deleted-file logical bytes."
+    }
   },
   "exclusions": [
     "Figma edits",
