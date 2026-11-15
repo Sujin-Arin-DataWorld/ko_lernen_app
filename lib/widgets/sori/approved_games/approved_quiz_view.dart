@@ -7,8 +7,8 @@ import 'approved_game_material.dart';
 /// The approved quiz presentation. All learning state belongs to the caller.
 ///
 /// The three reference compositions are selected by measured content, never by
-/// a level or a word lookup. Larger text/longer content increases the scrollable
-/// canvas while the navigation remains outside this view.
+/// a level or a word lookup. A smaller body uses explicit pages with fixed
+/// audio and continue controls.
 class ApprovedQuizView extends StatelessWidget {
   const ApprovedQuizView({
     super.key,
@@ -227,6 +227,9 @@ class ApprovedQuizView extends StatelessWidget {
           constraints.maxHeight,
           preferredHeight(),
         );
+        if (!referenceType || width < 360 || constraints.maxHeight < 620) {
+          return _pagedQuiz(feedback, width, scaler, direction);
+        }
 
         Widget at(
           double x,
@@ -414,29 +417,7 @@ class ApprovedQuizView extends StatelessWidget {
                             key: ValueKey('approved-quiz-choice-$i'),
                             height: cardHeights[i],
                             width: double.infinity,
-                            child: ApprovedArtButton(
-                              label: options[i],
-                              material: 'quizChoice',
-                              selected: picked == options[i],
-                              matched:
-                                  picked != null && options[i] == correctOption,
-                              wrong:
-                                  picked == options[i] &&
-                                  options[i] != correctOption,
-                              onTap: picked == null
-                                  ? () => onOption(options[i])
-                                  : null,
-                              child: Padding(
-                                padding: const EdgeInsets.fromLTRB(5, 3, 5, 5),
-                                child: Center(
-                                  child: ApprovedGameText(
-                                    options[i],
-                                    size: layout.choiceSize,
-                                    height: 1.08,
-                                  ),
-                                ),
-                              ),
-                            ),
+                            child: _choice(options[i], layout.choiceSize),
                           ),
                           if (i + 1 < options.length) SizedBox(height: rowGap),
                         ],
@@ -469,7 +450,219 @@ class ApprovedQuizView extends StatelessWidget {
       },
     );
   }
+
+  Widget _choice(String option, double size) => ApprovedArtButton(
+    label: option,
+    material: 'quizChoice',
+    selected: picked == option,
+    matched: picked != null && option == correctOption,
+    wrong: picked == option && option != correctOption,
+    onTap: picked == null ? () => onOption(option) : null,
+    child: Padding(
+      padding: const EdgeInsets.fromLTRB(5, 3, 5, 5),
+      child: Center(child: ApprovedGameText(option, size: size, height: 1.08)),
+    ),
+  );
+
+  Widget _pagedQuiz(
+    String feedback,
+    double width,
+    TextScaler scaler,
+    TextDirection direction,
+  ) {
+    final correctIndex = options.indexOf(correctOption);
+    final feedbackKey = const ValueKey('custom-quiz-feedback');
+    final actionHeight = math.max(48.0, scaler.scale(17) * 1.15 + 12);
+    return ApprovedGamePages(
+      title: title,
+      leading: leading,
+      pageKey: ValueKey((korean, progressLabel)),
+      targetSectionKey: picked == null || correctIndex < 0
+          ? null
+          : ValueKey('approved-quiz-choice-$correctIndex'),
+      sections: [
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 10),
+          child: Stack(
+            children: [
+              const Positioned.fill(child: ApprovedMaterial('jadeControl')),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 14,
+                ),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Semantics(
+                    label: korean,
+                    excludeSemantics: true,
+                    child: ApprovedGameText(
+                      _wrapQuizKorean(
+                        korean,
+                        24,
+                        width - 64,
+                        scaler,
+                        direction,
+                      ),
+                      size: 24,
+                      korean: true,
+                      weight: FontWeight.w700,
+                      color: gameCream,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        if (wordImage != null) Center(child: wordImage),
+        for (final (i, option) in options.indexed)
+          Padding(
+            key: ValueKey('approved-quiz-choice-$i'),
+            padding: const EdgeInsets.only(bottom: 8),
+            child: KeyedSubtree(
+              key: i == 0 ? optionsKey : null,
+              child: SizedBox(
+                height: math.max(
+                  48,
+                  _measure(
+                        option,
+                        size: 17,
+                        width: width - 42,
+                        scaler: scaler,
+                        direction: direction,
+                        height: 1.08,
+                      ).height +
+                      12,
+                ),
+                child: _choice(option, 17),
+              ),
+            ),
+          ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Column(
+            children: [
+              ApprovedGameText(topic, size: 15),
+              ApprovedGameText(progressLabel, size: 15),
+              ApprovedGameText(scoreLabel, size: 15),
+              ApprovedGameText(question, size: 16),
+              ApprovedGameText(instruction, size: 16),
+            ],
+          ),
+        ),
+      ],
+      footer: Column(
+        children: [
+          if (picked != null)
+            Semantics(
+              key: feedbackKey,
+              liveRegion: true,
+              label: feedback,
+              excludeSemantics: true,
+              child: ApprovedGameText(
+                feedback,
+                size: 16,
+                color: picked == correctOption
+                    ? gameInk
+                    : const Color(0xff963e2d),
+              ),
+            ),
+          SizedBox(
+            height: actionHeight,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 52,
+                  child: Tooltip(
+                    message: listenLabel,
+                    excludeFromSemantics: true,
+                    child: ApprovedArtButton(
+                      key: const ValueKey('approved-quiz-compact-listen'),
+                      label: listenLabel,
+                      material: 'jadeControl',
+                      onTap: onListen,
+                      child: const Center(
+                        child: SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: GameArtwork('speaker', tint: gameCream),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                SizedBox(
+                  width: 84,
+                  child: identical(speedControl, const ApprovedSpeedControl())
+                      ? const ApprovedSpeedControl(fontSize: 17)
+                      : speedControl,
+                ),
+                if (onNext != null) ...[
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: ApprovedArtButton(
+                      key: const ValueKey('approved-quiz-compact-next'),
+                      label: nextLabel,
+                      material: 'jadeControl',
+                      onTap: onNext,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
+                        child: ApprovedGameText(
+                          nextLabel,
+                          size: 16,
+                          color: gameCream,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
+
+String _wrapQuizKorean(
+  String text,
+  double size,
+  double width,
+  TextScaler scaler,
+  TextDirection direction,
+) => text
+    .split('\n')
+    .map((paragraph) {
+      final lines = <String>[];
+      var line = '';
+      for (final word in paragraph.split(RegExp(r'\s+'))) {
+        final candidate = line.isEmpty ? word : '$line $word';
+        if (line.isNotEmpty &&
+            _measure(
+                  candidate,
+                  size: size,
+                  width: width,
+                  scaler: scaler,
+                  direction: direction,
+                  korean: true,
+                ).lines >
+                1) {
+          lines.add(line);
+          line = word;
+        } else {
+          line = candidate;
+        }
+      }
+      return [...lines, line].join('\n');
+    })
+    .join('\n');
 
 _MeasuredText _measure(
   String text, {
@@ -565,32 +758,13 @@ class _QuizTypography {
         : medium
         ? 21.5
         : 19.8;
-    final koreanText = korean
-        .split('\n')
-        .map((paragraph) {
-          final lines = <String>[];
-          var line = '';
-          for (final word in paragraph.split(RegExp(r'\s+'))) {
-            final candidate = line.isEmpty ? word : '$line $word';
-            if (line.isNotEmpty &&
-                _measure(
-                      candidate,
-                      size: koreanSize,
-                      width: koreanWidth,
-                      scaler: scaler,
-                      direction: direction,
-                      korean: true,
-                    ).lines >
-                    1) {
-              lines.add(line);
-              line = word;
-            } else {
-              line = candidate;
-            }
-          }
-          return [...lines, line].join('\n');
-        })
-        .join('\n');
+    final koreanText = _wrapQuizKorean(
+      korean,
+      koreanSize,
+      koreanWidth,
+      scaler,
+      direction,
+    );
     final koreanHeight = _measure(
       koreanText,
       size: koreanSize,

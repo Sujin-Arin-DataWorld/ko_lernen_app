@@ -5,6 +5,8 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/widgets/sori/approved_games/approved_game_material.dart';
 import 'package:ko_lernen_app/widgets/sori/approved_games/approved_quiz_view.dart';
 
+import 'support/viewport_pages.dart';
+
 const _fixtures = [
   (
     name: 'short',
@@ -90,38 +92,69 @@ void main() {
     );
   }
 
-  testWidgets('320px and 200% keeps every choice reachable and executable', (
-    tester,
-  ) async {
-    await tester.binding.setSurfaceSize(const Size(320, 500));
-    addTearDown(() => tester.binding.setSurfaceSize(null));
-    final fixture = _fixtures.last;
-    String? selected;
-    await tester.pumpWidget(
-      _host(
-        topic: fixture.topic,
-        korean: fixture.korean,
-        options: fixture.meanings,
-        scale: 2,
-        onOption: (value) => selected = value,
-      ),
-    );
-    await tester.pumpAndSettle();
-    expect(tester.takeException(), isNull);
-    expect(
-      tester.getRect(find.text('Wörter-Quiz')).bottom,
-      lessThan(tester.getRect(find.text(fixture.topic)).top),
-    );
-    for (var i = 0; i < fixture.meanings.length; i++) {
-      final choice = find.byKey(ValueKey('approved-quiz-choice-$i'));
-      await tester.ensureVisible(choice);
+  testWidgets(
+    '320dp at 200% keeps audio and answers reachable without scroll',
+    (tester) async {
+      await tester.binding.setSurfaceSize(const Size(320, 640));
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+      tester.view.padding = const FakeViewPadding(top: 24, bottom: 24);
+      tester.view.viewPadding = const FakeViewPadding(top: 24, bottom: 24);
+      addTearDown(tester.view.resetPadding);
+      addTearDown(tester.view.resetViewPadding);
+      final fixture = _fixtures.last;
+      String? selected;
+      var plays = 0;
+      await tester.pumpWidget(
+        _host(
+          topic: fixture.topic,
+          korean: fixture.korean,
+          options: fixture.meanings,
+          scale: 2,
+          onOption: (value) => selected = value,
+          onListen: () => plays++,
+          fullFrame: true,
+        ),
+      );
       await tester.pumpAndSettle();
-      expect(tester.getSize(choice).height, greaterThanOrEqualTo(48));
       expect(tester.takeException(), isNull);
-    }
-    await tester.tap(find.text(fixture.meanings.last));
-    expect(selected, fixture.meanings.last);
-  });
+      expect(find.byType(SingleChildScrollView), findsNothing);
+      expect(
+        find.bySemanticsLabel(fixture.korean).hitTestable(),
+        findsOneWidget,
+      );
+      final listen = find.byKey(const ValueKey('approved-quiz-compact-listen'));
+      expect(listen.hitTestable(), findsOneWidget);
+      await tester.tap(listen);
+      expect(plays, 1);
+      for (var i = 0; i < fixture.meanings.length; i++) {
+        final choice = find.byKey(ValueKey('approved-quiz-choice-$i'));
+        await showViewportSection(tester, choice);
+        expect(listen.hitTestable(), findsOneWidget);
+        expect(tester.getSize(choice).height, greaterThanOrEqualTo(48));
+        expect(tester.takeException(), isNull);
+      }
+      await tester.tap(find.text(fixture.meanings.last));
+      expect(selected, fixture.meanings.last);
+      var advances = 0;
+      await tester.pumpWidget(
+        _host(
+          topic: fixture.topic,
+          korean: fixture.korean,
+          options: fixture.meanings,
+          scale: 2,
+          picked: selected,
+          onNext: () => advances++,
+          fullFrame: true,
+        ),
+      );
+      await tester.pumpAndSettle();
+      final next = find.byKey(const ValueKey('approved-quiz-compact-next'));
+      expect(next.hitTestable(), findsOneWidget);
+      expect(tester.getSize(next).height, greaterThanOrEqualTo(48));
+      await tester.tap(next);
+      expect(advances, 1);
+    },
+  );
 
   testWidgets('revealed answer remains fixed and disables all answer taps', (
     tester,
@@ -224,6 +257,8 @@ Widget _host({
   double scale = 1,
   String? picked,
   ValueChanged<String>? onOption,
+  VoidCallback? onListen,
+  VoidCallback? onNext,
   bool fullFrame = false,
 }) {
   Widget view(Widget leading) => ApprovedQuizView(
@@ -243,7 +278,8 @@ Widget _host({
     nextLabel: 'Weiter',
     leading: leading,
     onOption: onOption ?? (_) {},
-    onListen: () {},
+    onListen: onListen ?? () {},
+    onNext: onNext,
     speedControl: const SizedBox(),
   );
   return MaterialApp(

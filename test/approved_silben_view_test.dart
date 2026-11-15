@@ -23,6 +23,7 @@ import 'package:ko_lernen_app/widgets/sori/route_observer.dart';
 import 'support/real_fonts.dart';
 import 'support/sori_speech_stubs.dart';
 import 'support/sori_stage_pump.dart';
+import 'support/viewport_pages.dart';
 
 const _captureDir = String.fromEnvironment('CAPTURE_APPROVED_SILBEN');
 const _captureKey = ValueKey('silben-capture');
@@ -207,30 +208,41 @@ void main() {
     expect(_semantics(tester, 'silben-cell-2-2').properties.enabled, isFalse);
   });
 
-  for (final id in ['skz_a1_004', 'skz_a2_009']) {
-    testWidgets('$id keeps every control at 320dp and 200% type', (
-      tester,
-    ) async {
-      final puzzle = await open(
-        tester,
-        id,
-        size: const Size(320, 640),
-        scale: 2,
-        language: 'en',
-      );
-      expect(find.text('Choose a cell · tap a syllable'), findsOneWidget);
-      for (final (row, col) in puzzle.solution.keys) {
-        final rect = tester.getRect(_key('silben-cell-$row-$col'));
-        expect(rect.width, greaterThanOrEqualTo(48));
-        expect(rect.left, greaterThanOrEqualTo(0));
-        expect(rect.right, lessThanOrEqualTo(320));
-      }
-      final last = _key('silben-pool-${puzzle.pool.length - 1}');
-      await tester.ensureVisible(last);
-      await tester.pump();
-      expect(last.hitTestable(), findsOneWidget);
-      expect(tester.takeException(), isNull);
-    });
+  for (final id in ['skz_a1_004', 'skz_a2_009', 'skz_c2_007']) {
+    testWidgets(
+      '$id keeps the board, tiles and help reachable without scroll',
+      (tester) async {
+        final puzzle = await open(
+          tester,
+          id,
+          size: const Size(320, 640),
+          scale: 2,
+          language: 'en',
+          safeArea: true,
+        );
+        expect(find.text('Choose a cell · tap a syllable'), findsOneWidget);
+        expect(find.byType(SingleChildScrollView), findsNothing);
+        final hint = _key('dokkaebi-hint');
+        expect(hint.hitTestable(), findsOneWidget);
+        expect(tester.getSize(hint).height, greaterThanOrEqualTo(48));
+        for (final (row, col) in puzzle.solution.keys) {
+          final cell = _key('silben-cell-$row-$col');
+          await showViewportSection(tester, cell);
+          final rect = tester.getRect(cell);
+          expect(rect.width, greaterThanOrEqualTo(48));
+          expect(rect.left, greaterThanOrEqualTo(0));
+          expect(rect.right, lessThanOrEqualTo(320));
+        }
+        final last = _key('silben-pool-${puzzle.pool.length - 1}');
+        await showViewportSection(tester, last);
+        expect(last.hitTestable(), findsOneWidget);
+        expect(hint.hitTestable(), findsOneWidget);
+        await tester.tap(hint);
+        await pumpSoriStage(tester);
+        expect(_key('dokkaebi-word-path').hitTestable(), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      },
+    );
   }
 
   testWidgets('A1 respects safe areas and preserves game state on return', (

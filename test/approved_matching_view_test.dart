@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/widgets/sori/approved_games/approved_game_material
 import 'package:ko_lernen_app/widgets/sori/approved_games/approved_matching_view.dart';
 
 import 'support/real_fonts.dart';
+import 'support/viewport_pages.dart';
 
 const _korean = [
   ['커피', '채소', '물', '과일', '빵', '고기'],
@@ -76,7 +77,14 @@ void main() {
       expect(first.left, closeTo([17.0, 12.0, 9.0][family], .01));
       expect(first.top, closeTo([312.0, 254.0, 237.0][family], .01));
       expect(last.bottom, closeTo([721.0, 733.0, 736.0][family], .01));
-      expect(find.byType(ApprovedArtButton), findsNWidgets(12));
+      for (var index = 0; index < 6; index++) {
+        for (final side in ['left', 'right']) {
+          expect(
+            find.byKey(ValueKey('approved-matching-$side-$index')),
+            findsOneWidget,
+          );
+        }
+      }
       for (var i = 0; i < 6; i++) {
         for (final side in ['left', 'right']) {
           expect(
@@ -92,11 +100,32 @@ void main() {
       await tester.pumpWidget(const SizedBox());
     });
 
-    testWidgets('matching ${'ABC'[family]} reflows fully at 320dp and 200%', (
+    testWidgets('matching ${'ABC'[family]} pages at 320dp and 200%', (
       tester,
     ) async {
-      await _pump(tester, family: family, width: 320, height: 558, scale: 2);
-      expect(find.byType(ApprovedArtButton), findsNWidgets(12));
+      int? tapped;
+      await _pump(
+        tester,
+        family: family,
+        width: 320,
+        height: 640,
+        scale: 2,
+        safeArea: const EdgeInsets.only(top: 24, bottom: 24),
+        fullFrame: true,
+        realControls: true,
+        approvedState: family == 1,
+        onRight: (index) => tapped = index,
+      );
+      for (var i = 0; i < 6; i++) {
+        expect(
+          find.byKey(ValueKey('approved-matching-left-$i')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(ValueKey('approved-matching-right-$i')),
+          findsOneWidget,
+        );
+      }
       for (final text in [..._korean[family], ..._meanings[family]]) {
         expect(
           find.byWidgetPredicate(
@@ -105,10 +134,23 @@ void main() {
           findsOneWidget,
         );
       }
-      await tester.ensureVisible(
-        find.byKey(const ValueKey('approved-matching-right-5')),
+      expect(find.byType(SingleChildScrollView), findsNothing);
+      expect(
+        find.byKey(const ValueKey('approved-matching-left-0')).hitTestable(),
+        findsOneWidget,
       );
-      await tester.pump();
+      final last = find.byKey(const ValueKey('approved-matching-right-5'));
+      await showViewportSection(tester, last);
+      expect(tester.getSize(last).height, greaterThanOrEqualTo(48));
+      expect(
+        find.byKey(const ValueKey('approved-matching-counter')).hitTestable(),
+        findsOneWidget,
+      );
+      if (family == 1) {
+        expect(find.text(_korean[family][1]).hitTestable(), findsOneWidget);
+      }
+      await tester.tap(last);
+      expect(tapped, 5);
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox());
     });
@@ -229,6 +271,7 @@ Future<void> _pump(
   WidgetTester tester, {
   required int family,
   bool approvedState = false,
+  ValueChanged<int>? onRight,
   double width = 402,
   double height = 792,
   double scale = 1,
@@ -291,7 +334,7 @@ Future<void> _pump(
         for (var i = 0; i < 6; i++)
           ApprovedMatchingTile(
             label: _meanings[family][i],
-            onTap: () {},
+            onTap: () => onRight?.call(i),
             matched: approvedState && family == 2 && i == 5,
           ),
       ],

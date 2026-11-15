@@ -22,6 +22,8 @@ import 'package:ko_lernen_app/widgets/sori/approved_games/approved_quiz_view.dar
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
+import 'support/viewport_pages.dart';
+
 const _packId = 'phase-5b-custom-games';
 const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
 
@@ -187,20 +189,21 @@ void main() {
           _expectCloseAction(tester, t.closeActionLabel, minHeight: 48);
           _expectExecutableButton(
             tester,
-            find.bySemanticsLabel(t.approvedGameListen),
+            _gameControlLabel(t.approvedGameListen),
             minHeight: 48,
           );
           final choices = _quizChoices(tester).toList();
           expect(choices, hasLength(4));
           for (final choice in choices) {
+            await _showGamePage(tester, _gameControlLabel(choice.text));
             _expectExecutableButton(
               tester,
-              find.bySemanticsLabel(choice.text),
+              _gameControlLabel(choice.text),
               minHeight: 48,
             );
           }
           final lastChoice = choices.last;
-          final lastChoiceFinder = find.bySemanticsLabel(lastChoice.text);
+          final lastChoiceFinder = _gameControlLabel(lastChoice.text);
           expect(
             find.descendant(
               of: lastChoiceFinder,
@@ -218,6 +221,7 @@ void main() {
             tester,
             lastChoice.isCorrect ? t.statsCorrect : t.statsWrong,
           );
+          await _showGamePage(tester, lastChoiceFinder);
           final revealedChoice = tester
               .getSemantics(lastChoiceFinder)
               .getSemanticsData();
@@ -239,29 +243,32 @@ void main() {
           _expectCloseAction(tester, t.closeActionLabel, minHeight: 48);
           final visibleMatchingWords = _words
               .where(
-                (word) =>
-                    find.bySemanticsLabel(word.korean).evaluate().isNotEmpty,
+                (word) => _gameControlLabel(word.korean).evaluate().isNotEmpty,
               )
               .toList();
           final matchingKorean = visibleMatchingWords.last.korean;
-          final left = find.bySemanticsLabel(matchingKorean);
+          final left = _gameControlLabel(matchingKorean);
+          await _showGamePage(tester, left);
           _expectExecutableButton(tester, left, minHeight: 48);
           _expectApprovedPairMaterial(tester, left);
           final meaning = _word(
             matchingKorean,
           ).translationFor(locale.languageCode);
+          await _showGamePage(tester, _gameControlLabel(meaning));
           final rightData = tester
-              .getSemantics(find.bySemanticsLabel(meaning))
+              .getSemantics(_gameControlLabel(meaning))
               .getSemanticsData();
           expect(rightData.flagsCollection.isButton, isTrue);
           expect(rightData.hasAction(ui.SemanticsAction.tap), isFalse);
           _expectLocaleMeanings(tester, locale, [meaning]);
           await _tapFatal(tester, left);
+          await _showGamePage(tester, left);
           final selectedLeft = tester.getSemantics(left).getSemanticsData();
           expect(selectedLeft.flagsCollection.isSelected, ui.Tristate.isTrue);
-          _expectApprovedPairMaterial(tester, find.bySemanticsLabel(meaning));
-          await _tapFatal(tester, find.bySemanticsLabel(meaning));
+          _expectApprovedPairMaterial(tester, _gameControlLabel(meaning));
+          await _tapFatal(tester, _gameControlLabel(meaning));
           _expectLiveRegion(tester, t.statsCorrect);
+          await _showGamePage(tester, left);
           final matchedLeft = tester.getSemantics(left).getSemanticsData();
           expect(matchedLeft.hasAction(ui.SemanticsAction.tap), isFalse);
           _expectNoException(tester);
@@ -367,7 +374,7 @@ void main() {
     await _pumpUntil(tester, find.byType(ApprovedQuizView));
     expect(_homeEscape(tester).confirmWhen, isFalse);
     final quizChoice = _quizChoices(tester).first;
-    await _tapFatal(tester, find.bySemanticsLabel(quizChoice.text));
+    await _tapFatal(tester, _gameControlLabel(quizChoice.text));
     expect(_homeEscape(tester).confirmWhen, isTrue);
 
     await _pumpGame(
@@ -379,13 +386,12 @@ void main() {
     await _pumpUntil(tester, _firstVisibleKoreanFinder());
     expect(_homeEscape(tester).confirmWhen, isFalse);
     final word = _words.firstWhere(
-      (candidate) =>
-          find.bySemanticsLabel(candidate.korean).evaluate().isNotEmpty,
+      (candidate) => _gameControlLabel(candidate.korean).evaluate().isNotEmpty,
     );
-    await _tapFatal(tester, find.bySemanticsLabel(word.korean));
+    await _tapFatal(tester, _gameControlLabel(word.korean));
     await _tapFatal(
       tester,
-      find.bySemanticsLabel(word.translationFor(locale.languageCode)),
+      _gameControlLabel(word.translationFor(locale.languageCode)),
     );
     expect(_homeEscape(tester).confirmWhen, isTrue);
 
@@ -418,7 +424,7 @@ void main() {
       tester,
     ).singleWhere((choice) => choice.isCorrect);
 
-    await _tapFatal(tester, find.bySemanticsLabel(correct.text));
+    await _tapFatal(tester, _gameControlLabel(correct.text));
 
     expect(_soriButton(t.btnNext), findsNothing);
     expect(find.text(t.scenarioQuestProgress(1, 8)), findsOneWidget);
@@ -454,7 +460,7 @@ void main() {
         if (answered == 0) {
           missedKorean = current;
         }
-        await _tapFatal(tester, find.bySemanticsLabel(choice.text));
+        await _tapFatal(tester, _gameControlLabel(choice.text));
         _expectLiveRegion(
           tester,
           choice.isCorrect ? t.statsCorrect : t.statsWrong,
@@ -495,9 +501,7 @@ void main() {
       await _pumpUntil(tester, _firstVisibleKoreanFinder());
 
       final visibleKorean = _words
-          .where(
-            (word) => find.bySemanticsLabel(word.korean).evaluate().isNotEmpty,
-          )
+          .where((word) => _gameControlLabel(word.korean).evaluate().isNotEmpty)
           .toList();
       expect(visibleKorean, hasLength(6));
       expect(
@@ -505,14 +509,15 @@ void main() {
             .map((word) => word.translationFor('en'))
             .toSet()
             .where(
-              (meaning) => find.bySemanticsLabel(meaning).evaluate().isNotEmpty,
+              (meaning) => _gameControlLabel(meaning).evaluate().isNotEmpty,
             ),
         hasLength(6),
       );
 
       final chosen = visibleKorean.first;
-      final left = find.bySemanticsLabel(chosen.korean);
+      final left = _gameControlLabel(chosen.korean);
       await _tapFatal(tester, left);
+      await _showGamePage(tester, left);
       final selected = tester.getSemantics(left).getSemanticsData();
       expect(selected.flagsCollection.isSelected, ui.Tristate.isTrue);
 
@@ -522,20 +527,22 @@ void main() {
           .firstWhere(
             (meaning) =>
                 meaning != correctMeaning &&
-                find.bySemanticsLabel(meaning).evaluate().isNotEmpty,
+                _gameControlLabel(meaning).evaluate().isNotEmpty,
           );
+      await _showGamePage(tester, _gameControlLabel(wrongMeaning));
       _expectExecutableButton(
         tester,
-        find.bySemanticsLabel(wrongMeaning),
+        _gameControlLabel(wrongMeaning),
         minHeight: 48,
       );
-      await _tapFatal(tester, find.bySemanticsLabel(wrongMeaning));
+      await _tapFatal(tester, _gameControlLabel(wrongMeaning));
       _expectLiveRegion(tester, t.statsWrong);
       expect(Storage.wrongCountOf(chosen.korean), 1);
       await tester.pump(const Duration(milliseconds: 500));
 
-      await _tapFatal(tester, find.bySemanticsLabel(correctMeaning));
+      await _tapFatal(tester, _gameControlLabel(correctMeaning));
       _expectLiveRegion(tester, t.statsCorrect);
+      await _showGamePage(tester, left);
       final matched = tester.getSemantics(left).getSemanticsData();
       expect(matched.value, contains(t.statsCorrect));
       expect(matched.hasAction(ui.SemanticsAction.tap), isFalse);
@@ -636,7 +643,7 @@ void main() {
         expect(find.byType(SoriTextField), findsNothing);
         for (final word in legacyWords) {
           expect(find.text(word.translationDe), findsNothing);
-          expect(find.bySemanticsLabel(word.translationDe), findsNothing);
+          expect(_gameControlLabel(word.translationDe), findsNothing);
         }
         _expectNoException(tester);
       }
@@ -661,7 +668,7 @@ void main() {
     final correctQuizChoice = _quizChoices(
       tester,
     ).singleWhere((choice) => choice.isCorrect);
-    await _tapFatal(tester, find.bySemanticsLabel(correctQuizChoice.text));
+    await _tapFatal(tester, _gameControlLabel(correctQuizChoice.text));
     _expectLiveRegion(tester, de.statsCorrect);
     final quizReviews = Storage.srsCard(quizWord)!.reviewCount;
     quizLocale.value = const Locale('en');
@@ -680,11 +687,11 @@ void main() {
     );
     await _pumpUntil(tester, _firstVisibleKoreanFinder());
     final matchingWord = _visibleKorean();
-    final matchingLeft = find.bySemanticsLabel(matchingWord);
+    final matchingLeft = _gameControlLabel(matchingWord);
     await _tapFatal(tester, matchingLeft);
     await _tapFatal(
       tester,
-      find.bySemanticsLabel(_word(matchingWord).translationDe),
+      _gameControlLabel(_word(matchingWord).translationDe),
     );
     final matchingReviews = Storage.srsCard(matchingWord)!.reviewCount;
     matchingLocale.value = const Locale('en');
@@ -801,7 +808,7 @@ Future<void> _completeQuizRound(WidgetTester tester, AppL10n t) async {
     final choice = _quizChoices(
       tester,
     ).singleWhere((candidate) => candidate.isCorrect);
-    await _tapFatal(tester, find.bySemanticsLabel(choice.text));
+    await _tapFatal(tester, _gameControlLabel(choice.text));
     _expectLiveRegion(tester, t.statsCorrect);
     await _tapFatal(tester, _soriButton(t.btnNext));
     answered++;
@@ -818,10 +825,11 @@ Future<void> _completeMatchingRound(
   while (true) {
     ExtractedWord? next;
     for (final word in _words) {
-      final finder = find.bySemanticsLabel(word.korean);
+      final finder = _gameControlLabel(word.korean);
       if (finder.evaluate().length != 1) {
         continue;
       }
+      await _showGamePage(tester, finder);
       final data = tester.getSemantics(finder).getSemanticsData();
       if (data.hasAction(ui.SemanticsAction.tap)) {
         next = word;
@@ -831,10 +839,10 @@ Future<void> _completeMatchingRound(
     if (next == null) {
       break;
     }
-    await _tapFatal(tester, find.bySemanticsLabel(next.korean));
+    await _tapFatal(tester, _gameControlLabel(next.korean));
     await _tapFatal(
       tester,
-      find.bySemanticsLabel(next.translationFor(languageCode)),
+      _gameControlLabel(next.translationFor(languageCode)),
     );
     matched++;
     expect(matched, lessThanOrEqualTo(6));
@@ -971,9 +979,7 @@ Finder _firstVisibleKoreanFinder() => find.byWidgetPredicate(
 );
 
 String _visibleKorean() => _words
-    .firstWhere(
-      (word) => find.bySemanticsLabel(word.korean).evaluate().isNotEmpty,
-    )
+    .firstWhere((word) => _gameControlLabel(word.korean).evaluate().isNotEmpty)
     .korean;
 
 ExtractedWord _word(String korean) =>
@@ -1069,14 +1075,26 @@ void _expectLiveRegion(WidgetTester tester, String label) {
   expect(data.flagsCollection.isLiveRegion, isTrue);
 }
 
+Finder _gameControlLabel(String label) => find.byWidgetPredicate(
+  (widget) => widget is Semantics && widget.properties.label == label,
+  description: 'game semantics label "$label"',
+);
+
+Future<void> _showGamePage(WidgetTester tester, Finder target) async {
+  if (find.byKey(const ValueKey('sori-viewport-page')).evaluate().isNotEmpty) {
+    await showViewportSection(tester, target);
+  }
+}
+
 Future<void> _tapFatal(WidgetTester tester, Finder finder) async {
+  await tester.pumpAndSettle();
+  await _showGamePage(tester, finder);
   expect(finder, findsOneWidget);
   final pressable = find.descendant(
     of: finder,
     matching: find.byType(GestureDetector),
   );
   final tapTarget = pressable.evaluate().length == 1 ? pressable : finder;
-  await tester.pumpAndSettle();
   await Scrollable.ensureVisible(
     tapTarget.evaluate().single,
     alignment: 0.5,

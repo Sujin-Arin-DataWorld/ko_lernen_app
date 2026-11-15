@@ -13,12 +13,85 @@ import '../sheet.dart';
 import '../study_frame.dart';
 import '../tokens.dart';
 import '../tts_speed_control.dart';
+import '../viewport_pages.dart';
 
 part 'approved_game_material_data.dart';
 
 const gameInk = Color(0xff05130f);
 const gameCream = Color(0xfffff5e5);
 const _artRoot = 'assets/illustrations/approved_games/';
+
+/// Uses the approved game materials around a bounded, button-controlled body.
+/// The caller retains ownership of every game turn and action.
+class ApprovedGamePages extends StatelessWidget {
+  const ApprovedGamePages({
+    super.key,
+    required this.title,
+    required this.leading,
+    required this.sections,
+    required this.footer,
+    this.fabric = false,
+    this.pageKey,
+    this.targetSectionKey,
+  });
+
+  final String title;
+  final Widget leading;
+  final List<Widget> sections;
+  final Widget footer;
+  final bool fabric;
+  final Key? pageKey;
+  final Key? targetSectionKey;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final ink = fabric ? gameCream : gameInk;
+    return LayoutBuilder(
+      builder: (context, bounds) => Stack(
+        fit: StackFit.expand,
+        children: [
+          GameArtwork(fabric ? 'matching_fabric' : 'paper'),
+          Column(
+            children: [
+              ApprovedGameHeader(
+                title: title,
+                leading: leading,
+                compact: true,
+                singleRow: bounds.maxHeight < 360,
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: IconButtonTheme(
+                    data: IconButtonThemeData(
+                      style: IconButton.styleFrom(
+                        foregroundColor: ink,
+                        disabledForegroundColor: ink.withValues(alpha: .4),
+                      ),
+                    ),
+                    child: DefaultTextStyle(
+                      style: theme.textTheme.bodyMedium!.copyWith(color: ink),
+                      child: SoriViewportPages(
+                        key: pageKey,
+                        sections: sections,
+                        targetSectionKey: targetSectionKey,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                child: footer,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 /// Original independent artwork. Normalized source rectangles are measured in
 /// Figma; source files remain byte-for-byte identical to the approved PNGs.
@@ -573,14 +646,16 @@ class ApprovedBrassDivider extends StatelessWidget {
 double approvedGameHeaderHeight(
   BuildContext context,
   String title,
-  double width,
-) {
+  double width, {
+  double titleSize = 36,
+  double titleInset = 32,
+}) {
   final painter = TextPainter(
     text: TextSpan(
       text: title,
-      style: const TextStyle(
+      style: TextStyle(
         fontFamily: 'Lora',
-        fontSize: 36,
+        fontSize: titleSize,
         height: 1.14,
         letterSpacing: 0,
         fontWeight: FontWeight.w700,
@@ -588,7 +663,7 @@ double approvedGameHeaderHeight(
     ),
     textDirection: Directionality.of(context),
     textScaler: MediaQuery.textScalerOf(context),
-  )..layout(maxWidth: math.max(80, width - 64));
+  )..layout(maxWidth: math.max(80, width - 2 * titleInset));
   final height = math.max(104.0, 42 + painter.height + 18);
   painter.dispose();
   return height;
@@ -599,14 +674,66 @@ class ApprovedGameHeader extends StatelessWidget {
     super.key,
     required this.title,
     required this.leading,
+    this.compact = false,
+    this.singleRow = false,
   });
   final String title;
   final Widget leading;
+  final bool compact;
+  final bool singleRow;
+
+  Widget _settings(BuildContext context) => IconButton(
+    tooltip: AppL10n.of(context).navSettings,
+    padding: EdgeInsets.zero,
+    onPressed: () {
+      unawaited(TtsService.stop());
+      unawaited(Navigator.of(context).pushNamed('/settings'));
+    },
+    icon: Transform.translate(
+      offset: const Offset(3, 4),
+      child: const SizedBox(width: 28, height: 28, child: GameArtwork('gear')),
+    ),
+  );
+
   @override
-  Widget build(BuildContext context) => LayoutBuilder(
+  Widget build(BuildContext context) =>
+      singleRow ? _buildSingleRow(context) : _buildFullHeader();
+
+  Widget _buildSingleRow(BuildContext context) => Stack(
+    children: [
+      const Positioned.fill(child: GameArtwork('jade_organic_final')),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Row(
+          children: [
+            SizedBox.square(dimension: 48, child: leading),
+            Expanded(
+              child: ApprovedGameText(
+                title,
+                size: 21,
+                weight: FontWeight.w700,
+                color: gameCream,
+              ),
+            ),
+            SizedBox.square(dimension: 48, child: _settings(context)),
+          ],
+        ),
+      ),
+    ],
+  );
+
+  Widget _buildFullHeader() => LayoutBuilder(
     builder: (context, box) {
       final dx = (box.maxWidth - 402) / 2;
-      final height = approvedGameHeaderHeight(context, title, box.maxWidth);
+      final titleSize = compact ? 22.0 : 36.0;
+      final titleInset = compact ? 16.0 : 32.0;
+      final height = approvedGameHeaderHeight(
+        context,
+        title,
+        box.maxWidth,
+        titleSize: titleSize,
+        titleInset: titleInset,
+      );
       return SizedBox(
         height: height,
         child: ClipRect(
@@ -660,32 +787,17 @@ class ApprovedGameHeader extends StatelessWidget {
                 top: 0,
                 width: 48,
                 height: 48,
-                child: IconButton(
-                  tooltip: AppL10n.of(context).navSettings,
-                  padding: EdgeInsets.zero,
-                  onPressed: () {
-                    unawaited(TtsService.stop());
-                    unawaited(Navigator.of(context).pushNamed('/settings'));
-                  },
-                  icon: Transform.translate(
-                    offset: const Offset(3, 4),
-                    child: const SizedBox(
-                      width: 28,
-                      height: 28,
-                      child: GameArtwork('gear'),
-                    ),
-                  ),
-                ),
+                child: _settings(context),
               ),
               Positioned(
-                left: 32,
-                right: 32,
+                left: titleInset,
+                right: titleInset,
                 top: 42,
                 height: height - 60,
                 child: Center(
                   child: ApprovedGameText(
                     title,
-                    size: 36,
+                    size: titleSize,
                     weight: FontWeight.w700,
                     color: gameCream,
                     shadows: true,

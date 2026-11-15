@@ -70,6 +70,11 @@ class ApprovedMatchingView extends StatelessWidget {
         final headerExtra = headerHeight - 104;
         final scaler = MediaQuery.textScalerOf(context);
         final direction = Directionality.of(context);
+        if (scaler.scale(20) > 20.01 ||
+            width < 360 ||
+            constraints.maxHeight < 620) {
+          return _pagedBoard(width, scaler, direction);
+        }
         final family = _MatchingFamily.forContent(leftTiles, rightTiles);
         final long = family == _MatchingFamily.long;
         final short = family == _MatchingFamily.short;
@@ -459,6 +464,172 @@ class ApprovedMatchingView extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  Widget _pagedBoard(double width, TextScaler scaler, TextDirection direction) {
+    final selected = leftTiles.where((tile) => tile.selected).firstOrNull;
+    final columnWidth = math.max(48.0, (width - 40) / 2);
+    final stackTiles = rightTiles.any((tile) {
+      for (final word in tile.label.split(RegExp(r'\s+'))) {
+        final painter = _measure(
+          word,
+          size: 17,
+          width: double.infinity,
+          scaler: scaler,
+          direction: direction,
+        );
+        final tooWide = painter.width > columnWidth - 10;
+        painter.dispose();
+        if (tooWide) return true;
+      }
+      return false;
+    });
+    final tileWidth = stackTiles ? width - 32 : columnWidth;
+    String koreanDisplay(String label) =>
+        _wrapKoreanWords(label, 20, tileWidth - 10, scaler);
+    double measureTile(String text, {required bool korean}) {
+      final painter = _measure(
+        korean ? koreanDisplay(text) : text,
+        size: korean ? 20 : 17,
+        width: tileWidth - 10,
+        scaler: scaler,
+        direction: direction,
+        korean: korean,
+        height: 1.08,
+      );
+      final height = painter.height;
+      painter.dispose();
+      return height;
+    }
+
+    Widget buildTile(ApprovedMatchingTile tile, String side, int index) {
+      final korean = side == 'left';
+      return KeyedSubtree(
+        key: ValueKey('approved-matching-$side-$index'),
+        child: _MatchingTile(
+          tile: tile,
+          size: korean ? 20 : 17,
+          korean: korean,
+          displayText: korean ? koreanDisplay(tile.label) : null,
+        ),
+      );
+    }
+
+    return ApprovedGamePages(
+      title: title,
+      leading: leading,
+      fabric: true,
+      pageKey: ValueKey(topic),
+      sections: [
+        for (final (i, tile) in leftTiles.indexed) ...[
+          if (stackTiles) ...[
+            Padding(
+              key: i == 0 ? boardKey : null,
+              padding: const EdgeInsets.only(bottom: 8),
+              child: SizedBox(
+                height: math.max(
+                  48,
+                  10 + measureTile(tile.label, korean: true),
+                ),
+                child: buildTile(tile, 'left', i),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: SizedBox(
+                height: math.max(
+                  48,
+                  10 + measureTile(rightTiles[i].label, korean: false),
+                ),
+                child: buildTile(rightTiles[i], 'right', i),
+              ),
+            ),
+          ] else
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: KeyedSubtree(
+                key: i == 0 ? boardKey : null,
+                child: SizedBox(
+                  height: math.max(
+                    48.0,
+                    10 +
+                        math.max(
+                          measureTile(tile.label, korean: true),
+                          measureTile(rightTiles[i].label, korean: false),
+                        ),
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(child: buildTile(tile, 'left', i)),
+                      const SizedBox(width: 8),
+                      Expanded(child: buildTile(rightTiles[i], 'right', i)),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+        ],
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: ApprovedGameText(
+            '$topic\n$koreanLabel → $meaningLabel\n$instruction',
+            size: 16,
+            color: _matchingIvory,
+          ),
+        ),
+      ],
+      footer: Column(
+        children: [
+          if (selected != null || statusMessage != null)
+            Semantics(
+              key: const ValueKey('custom-matching-feedback'),
+              liveRegion: statusMessage != null,
+              label: statusMessage,
+              excludeSemantics: statusMessage != null,
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 8,
+                children: [
+                  if (statusMessage != null)
+                    ApprovedGameText(
+                      statusMessage!,
+                      size: 15,
+                      color: _matchingIvory,
+                    ),
+                  if (selected != null)
+                    ApprovedGameText(
+                      selected.label,
+                      size: 15,
+                      korean: true,
+                      color: _matchingIvory,
+                    ),
+                ],
+              ),
+            ),
+          Row(
+            children: [
+              Expanded(
+                child: Semantics(
+                  key: const ValueKey('approved-matching-counter'),
+                  liveRegion: true,
+                  child: ApprovedGameText(
+                    counter,
+                    size: 15,
+                    color: _matchingIvory,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 8),
+              SizedBox(
+                width: 84,
+                height: math.max(48.0, scaler.scale(17) * 1.15 + 12),
+                child: speedControl ?? const ApprovedSpeedControl(fontSize: 17),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

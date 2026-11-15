@@ -45,6 +45,7 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/viewport_pages.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **Silben-Kreuz** — 음절 크로스워드. Wordle식 6줄 보드를 대체한다
@@ -152,6 +153,8 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   SilbenHelpState _helpState = SilbenHelpState();
   final _helpAnchor = GlobalKey();
   int _hintGesture = 0, _hintPulse = 0;
+  static const _hintPageKey = ValueKey('silben-hint-page');
+  int _hintPageRequest = 0;
   String? _hintWordKey;
   bool _hintPlay = false;
   PracticeAttempt? _historyAttempt;
@@ -697,7 +700,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     });
   }
 
-  void _requestHint(int presentation) {
+  void _requestHint(int presentation, {bool paged = false}) {
     final word = _activeWord;
     final p = _puzzle;
     final cell = _selected;
@@ -717,7 +720,9 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       _helpState.use(p, word, next, cell: cell);
       _hintPulse = 0;
       _hintPlay = false;
+      if (paged) _hintPageRequest++;
     });
+    if (paged) return;
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       final anchor = _helpAnchor.currentContext;
       if (!mounted ||
@@ -755,7 +760,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     });
   }
 
-  Widget _helpPanel(AppL10n t) {
+  Widget _helpPanel(AppL10n t, {bool showAction = true}) {
     final word = _activeWord;
     if (word == null) {
       return const SizedBox.shrink();
@@ -767,11 +772,6 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     final occurrence = silbenWordOccurrence(word);
     final pulse = _hintWordKey == occurrence ? _hintPulse : 0;
     final example = word.exampleFor(_hintLanguage);
-    final actionLabel = switch (level) {
-      0 => t.practiceHintMeaning,
-      1 => t.practiceHintCrossing,
-      _ => t.practiceHintReveal,
-    };
     return PracticeDokkaebiHelp(
       key: ValueKey('dokkaebi-help-$presentation-$occurrence'),
       compact: level == 0,
@@ -868,58 +868,70 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
             ),
             const SizedBox(height: Spacing.md),
           ],
-          LayoutBuilder(
-            builder: (context, constraints) {
-              final style = silbenType(22, color: gameCream);
-              const padding = EdgeInsets.fromLTRB(12, 5, 12, 9);
-              final measure =
-                  TextPainter(
-                    text: TextSpan(text: actionLabel, style: style),
-                    textDirection: Directionality.of(context),
-                    textScaler: MediaQuery.textScalerOf(context),
-                  )..layout(
-                    maxWidth: constraints.maxWidth - padding.horizontal - 44,
-                  );
-              final height = math.max(52.0, measure.height + padding.vertical);
-              measure.dispose();
-              return SizedBox(
-                height: height,
-                child: ApprovedArtButton(
-                  key: const ValueKey('dokkaebi-hint'),
-                  material: 'wordChainAction',
-                  label: actionLabel,
-                  onTap:
-                      _finishing ||
-                          _selected == null ||
-                          _locked.contains(_selected)
-                      ? null
-                      : () => _requestHint(presentation),
-                  child: Padding(
-                    padding: padding,
-                    child: Row(
-                      children: [
-                        const SizedBox(width: 22),
-                        Expanded(
-                          child: Text(
-                            actionLabel,
-                            textAlign: TextAlign.center,
-                            style: style,
-                          ),
-                        ),
-                        const SilbenChevron(SilbenChevronDirection.right),
-                      ],
-                    ),
-                  ),
-                ),
-              );
-            },
-          ),
+          if (showAction) _hintAction(t),
         ],
       ),
     );
   }
 
-  Widget _puzzleBoard(SilbenPuzzle p, SoriSurfaces s, {required bool dense}) {
+  Widget _hintAction(AppL10n t, {bool paged = false}) {
+    final word = _activeWord;
+    if (word == null) return const SizedBox.shrink();
+    final presentation = _presentation;
+    final actionLabel = switch (_helpState.levelFor(word)) {
+      0 => t.practiceHintMeaning,
+      1 => t.practiceHintCrossing,
+      _ => t.practiceHintReveal,
+    };
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final style = silbenType(paged ? 16 : 22, color: gameCream);
+        const padding = EdgeInsets.fromLTRB(12, 5, 12, 9);
+        final measure = TextPainter(
+          text: TextSpan(text: actionLabel, style: style),
+          textDirection: Directionality.of(context),
+          textScaler: MediaQuery.textScalerOf(context),
+        )..layout(maxWidth: constraints.maxWidth - padding.horizontal - 44);
+        final height = math.max(52.0, measure.height + padding.vertical);
+        measure.dispose();
+        return SizedBox(
+          height: height,
+          child: ApprovedArtButton(
+            key: const ValueKey('dokkaebi-hint'),
+            material: 'wordChainAction',
+            label: actionLabel,
+            onTap:
+                _finishing || _selected == null || _locked.contains(_selected)
+                ? null
+                : () => _requestHint(presentation, paged: paged),
+            child: Padding(
+              padding: padding,
+              child: Row(
+                children: [
+                  const SizedBox(width: 22),
+                  Expanded(
+                    child: Text(
+                      actionLabel,
+                      textAlign: TextAlign.center,
+                      style: style,
+                    ),
+                  ),
+                  const SilbenChevron(SilbenChevronDirection.right),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _puzzleBoard(
+    SilbenPuzzle p,
+    SoriSurfaces s, {
+    required bool dense,
+    bool paged = false,
+  }) {
     final word = _activeWord;
     final occurrence = word == null ? null : silbenWordOccurrence(word);
     final gesture = _hintGesture;
@@ -933,7 +945,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
           final sideBySide = p.cols < 5 && width - minGrid - 32 >= 104;
           final stageSize = sideBySide
               ? (width - minGrid - 32).clamp(104.0, 172.0)
-              : math.min(144.0, width - 32);
+              : math.min(paged ? 94.0 : 144.0, width - 32);
           final stageHeight = stageSize / PracticeDokkaebiCanvas.aspectRatio;
           final panelLeft = sideBySide ? stageSize - 7 : 8.0;
           final panelWidth = width - panelLeft - 14;
@@ -1222,6 +1234,10 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         position: DecorationPosition.foreground,
         child: LayoutBuilder(
           builder: (context, bounds) {
+            final paged =
+                MediaQuery.textScalerOf(context).scale(20) > 20.01 ||
+                bounds.maxWidth < 360;
+            if (paged) return _pagedPlayArea(p, s, t);
             final dense =
                 bounds.maxHeight < 690 &&
                 MediaQuery.textScalerOf(context).scale(1) <= 1.01;
@@ -1288,6 +1304,80 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
           },
         ),
       ),
+    );
+  }
+
+  Widget _pagedPlayArea(SilbenPuzzle puzzle, SoriSurfaces surfaces, AppL10n t) {
+    final word = _activeWord;
+    final showHint = !_solved && word != null && _helpState.levelFor(word) > 0;
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        const GameArtwork('paper'),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(7, 8, 7, 16),
+          child: Column(
+            children: [
+              Expanded(
+                child: SoriViewportPages(
+                  key: ValueKey((_presentation, _solved)),
+                  targetSectionKey: showHint ? _hintPageKey : null,
+                  targetRevision: _hintPageRequest,
+                  sections: [
+                    if (_solved) ...[
+                      PracticeMotionSurface(enter: true, child: _solvedCard(t)),
+                      KeyedSubtree(
+                        key: _cluesKey,
+                        child: _clues(puzzle, surfaces),
+                      ),
+                      _puzzleBoard(puzzle, surfaces, dense: true, paged: true),
+                    ] else ...[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Text(
+                          t.silbenPlaceInstruction,
+                          style: silbenType(16),
+                        ),
+                      ),
+                      _puzzleBoard(puzzle, surfaces, dense: true, paged: true),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Text(t.silbenPoolTitle, style: silbenType(17)),
+                      ),
+                      Padding(
+                        key: _poolKey,
+                        padding: const EdgeInsets.fromLTRB(8, 4, 8, 8),
+                        child: _tilePool(puzzle, dense: true),
+                      ),
+                      Padding(
+                        key: _cluesKey,
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: _clues(puzzle, surfaces),
+                      ),
+                      if (showHint)
+                        Padding(
+                          key: _hintPageKey,
+                          padding: const EdgeInsets.symmetric(horizontal: 7),
+                          child: PracticeMotionSurface(
+                            key: ValueKey(_hintPageRequest),
+                            enter: true,
+                            interactive: false,
+                            child: _helpPanel(t, showAction: false),
+                          ),
+                        ),
+                    ],
+                  ],
+                ),
+              ),
+              if (!_solved)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 7),
+                  child: _hintAction(t, paged: true),
+                ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
