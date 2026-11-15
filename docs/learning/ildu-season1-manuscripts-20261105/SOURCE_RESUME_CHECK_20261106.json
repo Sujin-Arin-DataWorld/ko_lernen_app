@@ -1,0 +1,22 @@
+[
+  {
+    "copy": "FOUNDATION.psv",
+    "matchesCurrentSource": true,
+    "sha256": "0d8ec0c9ec89060fd58df92c0ce71cf7b4d63454fef506eafe180386a2796c45"
+  },
+  {
+    "copy": "UNITS.psv",
+    "matchesCurrentSource": true,
+    "sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd"
+  },
+  {
+    "copy": "LEVEL_STORY_100.json",
+    "matchesCurrentSource": true,
+    "sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332"
+  },
+  {
+    "copy": "WORLD_AND_STORY_BIBLE.md",
+    "matchesCurrentSource": true,
+    "sha256": "2ede0beffad74c50716a4e47786747e1513a985f4e938231fc17c1f6e4bb9a43"
+  }
+]
