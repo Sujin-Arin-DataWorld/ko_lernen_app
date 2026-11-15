@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../theme.dart';
 import '../widgets/sori/book_capture_choice.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/learning_stage_navigation.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
@@ -33,90 +35,99 @@ class MyWordsScreen extends StatelessWidget {
     return DefaultTabController(
       length: MyWordsTab.values.length,
       initialIndex: initialTab.index,
-      child: SoriStandardFrame(
-        appBarTitle: t.myWordsTitle,
-        actions: [
-          TextButton.icon(
-            style: TextButton.styleFrom(
-              minimumSize: const Size(48, 48),
-              padding: const EdgeInsets.symmetric(horizontal: Spacing.sm),
+      child: Theme(
+        data: AppTheme.light,
+        child: SoriStandardFrame(
+          appBarTitle: t.myWordsTitle,
+          bottomNavigationBar: const SoriLearningStageNavigation(),
+          cMaterial: true,
+          cPaperBody: true,
+          actions: [
+            TextButton.icon(
+              style: TextButton.styleFrom(
+                minimumSize: const Size(48, 48),
+                padding: const EdgeInsets.symmetric(horizontal: Spacing.sm),
+              ),
+              onPressed: () {
+                // ignore: discarded_futures
+                showBookCaptureChoice(context);
+              },
+              icon: const Icon(Icons.add_a_photo_outlined),
+              label: Text(t.myWordsPhotoAction),
             ),
-            onPressed: () {
-              // ignore: discarded_futures
-              showBookCaptureChoice(context);
-            },
-            icon: const Icon(Icons.add_a_photo_outlined),
-            label: Text(t.myWordsPhotoAction),
-          ),
-        ],
-        maxWidth: SoriMaxWidth.hub,
-        builder: (context, resolvedPadding) {
-          final tabs = DefaultTabController.of(context);
-          final bodyPadding = EdgeInsets.fromLTRB(
-            resolvedPadding.left + Spacing.md,
-            Spacing.md,
-            resolvedPadding.right + Spacing.md,
-            resolvedPadding.bottom + Spacing.xxl,
-          );
-          return FocusTraversalGroup(
-            policy: OrderedTraversalPolicy(),
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(
-                    resolvedPadding.left + Spacing.sm,
-                    Spacing.xs,
-                    resolvedPadding.right + Spacing.sm,
-                    0,
-                  ),
-                  child: Focus(
-                    key: const ValueKey('my-words-tab-focus'),
-                    autofocus: true,
-                    onKeyEvent: (node, event) {
-                      if (event is! KeyDownEvent) {
-                        return KeyEventResult.ignored;
-                      }
-                      final delta = switch (event.logicalKey) {
-                        LogicalKeyboardKey.arrowLeft => -1,
-                        LogicalKeyboardKey.arrowRight => 1,
-                        _ => 0,
-                      };
-                      if (delta == 0) {
-                        return KeyEventResult.ignored;
-                      }
-                      final next = (tabs.index + delta).clamp(
-                        0,
-                        MyWordsTab.values.length - 1,
-                      );
-                      if (next != tabs.index) {
-                        tabs.animateTo(
-                          next,
-                          duration: MediaQuery.disableAnimationsOf(context)
-                              ? Duration.zero
-                              : SoriMotion.fast,
+          ],
+          maxWidth: SoriMaxWidth.hub,
+          builder: (context, resolvedPadding) {
+            final tabs = DefaultTabController.of(context);
+            final bodyPadding = EdgeInsets.fromLTRB(
+              resolvedPadding.left + Spacing.md,
+              Spacing.md,
+              resolvedPadding.right + Spacing.md,
+              resolvedPadding.bottom + Spacing.xxl,
+            );
+            return FocusTraversalGroup(
+              policy: OrderedTraversalPolicy(),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      resolvedPadding.left + Spacing.sm,
+                      Spacing.xs,
+                      resolvedPadding.right + Spacing.sm,
+                      0,
+                    ),
+                    child: Focus(
+                      key: const ValueKey('my-words-tab-focus'),
+                      autofocus: true,
+                      onKeyEvent: (node, event) {
+                        if (event is! KeyDownEvent) {
+                          return KeyEventResult.ignored;
+                        }
+                        final delta = switch (event.logicalKey) {
+                          LogicalKeyboardKey.arrowLeft => -1,
+                          LogicalKeyboardKey.arrowRight => 1,
+                          _ => 0,
+                        };
+                        if (delta == 0) {
+                          return KeyEventResult.ignored;
+                        }
+                        final next = (tabs.index + delta).clamp(
+                          0,
+                          MyWordsTab.values.length - 1,
                         );
-                      }
-                      return KeyEventResult.handled;
-                    },
-                    child: _MyWordsNavigation(controller: tabs),
+                        if (next != tabs.index) {
+                          tabs.animateTo(
+                            next,
+                            duration: MediaQuery.disableAnimationsOf(context)
+                                ? Duration.zero
+                                : SoriMotion.fast,
+                          );
+                        }
+                        return KeyEventResult.handled;
+                      },
+                      child: _MyWordsNavigation(controller: tabs),
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: TabBarView(
-                    children: [
-                      WordbookSearchBody(padding: bodyPadding),
-                      BookshelfBody(
-                        padding: bodyPadding,
-                        showEmbeddedSearchAndPhoto: false,
-                      ),
-                      HardWordsBody(padding: bodyPadding),
-                    ],
+                  Expanded(
+                    child: TabBarView(
+                      children: [
+                        WordbookSearchBody(
+                          padding: bodyPadding,
+                          boundNotebook: true,
+                        ),
+                        BookshelfBody(
+                          padding: bodyPadding,
+                          showEmbeddedSearchAndPhoto: false,
+                        ),
+                        HardWordsBody(padding: bodyPadding),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-          );
-        },
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
