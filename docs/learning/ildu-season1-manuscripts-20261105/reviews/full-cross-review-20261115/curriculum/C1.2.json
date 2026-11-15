@@ -1,0 +1,175 @@
+{
+  "role": "curriculum",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "C1.2-01",
+      "sha256": "a84a2902549f3c1ca9cd2433eae82691b78ae9302f45801cd57c6d8ebf44f8eb",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C12-01"
+      ]
+    },
+    {
+      "unitId": "C1.2-02",
+      "sha256": "bf81df481a6a1ab8ffa8af0e2649e5915aa1770809f9b9d49b2da86f9ec6ae60",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C12-02"
+      ]
+    },
+    {
+      "unitId": "C1.2-03",
+      "sha256": "3d77b54c6e3e8b83ac2413b678156cdc16a6e96e7ed54434857bb35793a1ca5d",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C12-03"
+      ]
+    },
+    {
+      "unitId": "C1.2-04",
+      "sha256": "debcbd7b36c5c7d1f24cfe266d21c9d0cde7b9fbf5b54f48902050c294a2f530",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C12-04"
+      ]
+    },
+    {
+      "unitId": "C1.2-05",
+      "sha256": "270431b24804844ca92cfaf583f6669889e444b300b377ddf685264d8256be98",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C12-05",
+        "CUR-C12-07",
+        "CUR-C12-08"
+      ]
+    },
+    {
+      "unitId": "C1.2-06",
+      "sha256": "384bc94411b0ea80fc02ae4532da1fad693683c6fd7e7aea9405b1373ce20f6b",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C12-06"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "CUR-C12-01",
+      "unitId": "C1.2-01",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 / 독립 자료·과제 바로 뒤의 모델 (C1.2-02: 스몰토크·새 과제)",
+      "problem": "독립/Independent/Ohne Hilfe라고 명시한 산출 과제의 한국어 모범 답과 영·독 번역이 제출 전에 바로 보인다. 현재 페이지로는 도움 없이 만든 답이라는 증거가 되지 않는다.",
+      "proposal": "독립 자료와 질문은 그대로 두고 해당 과제의 KO·EN·DE 모델 전체를 기본 닫힘 <details><summary>답을 쓴 뒤 비교 / Compare after answering / Nach der eigenen Antwort vergleichen</summary> 상자에 넣는다. 그 앞에 '먼저 세 언어의 답·풀이를 모두 닫고 답을 쓴다. 답이나 문형 도움을 열었다면 도움받은 수행으로 표시한다. / Close all answers and explanations in every language before responding. Mark attempts that use answer or form support as supported. / Schließe vor der Antwort alle Lösungen und Erläuterungen in jeder Sprache. Kennzeichne Versuche mit Lösungs- oder Formulierungshilfe als unterstützt.'를 둔다. 자연스러운 다른 답은 유지한다.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C12-02",
+      "unitId": "C1.2-02",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 / 독립 자료·과제 바로 뒤의 모델 (C1.2-02: 스몰토크·새 과제)",
+      "problem": "독립/Independent/Ohne Hilfe라고 명시한 산출 과제의 한국어 모범 답과 영·독 번역이 제출 전에 바로 보인다. 현재 페이지로는 도움 없이 만든 답이라는 증거가 되지 않는다.",
+      "proposal": "독립 자료와 질문은 그대로 두고 해당 과제의 KO·EN·DE 모델 전체를 기본 닫힘 <details><summary>답을 쓴 뒤 비교 / Compare after answering / Nach der eigenen Antwort vergleichen</summary> 상자에 넣는다. 그 앞에 '먼저 세 언어의 답·풀이를 모두 닫고 답을 쓴다. 답이나 문형 도움을 열었다면 도움받은 수행으로 표시한다. / Close all answers and explanations in every language before responding. Mark attempts that use answer or form support as supported. / Schließe vor der Antwort alle Lösungen und Erläuterungen in jeder Sprache. Kennzeichne Versuche mit Lösungs- oder Formulierungshilfe als unterstützt.'를 둔다. 자연스러운 다른 답은 유지한다.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C12-03",
+      "unitId": "C1.2-03",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 / 독립 자료·과제 바로 뒤의 모델 (C1.2-02: 스몰토크·새 과제)",
+      "problem": "독립/Independent/Ohne Hilfe라고 명시한 산출 과제의 한국어 모범 답과 영·독 번역이 제출 전에 바로 보인다. 현재 페이지로는 도움 없이 만든 답이라는 증거가 되지 않는다.",
+      "proposal": "독립 자료와 질문은 그대로 두고 해당 과제의 KO·EN·DE 모델 전체를 기본 닫힘 <details><summary>답을 쓴 뒤 비교 / Compare after answering / Nach der eigenen Antwort vergleichen</summary> 상자에 넣는다. 그 앞에 '먼저 세 언어의 답·풀이를 모두 닫고 답을 쓴다. 답이나 문형 도움을 열었다면 도움받은 수행으로 표시한다. / Close all answers and explanations in every language before responding. Mark attempts that use answer or form support as supported. / Schließe vor der Antwort alle Lösungen und Erläuterungen in jeder Sprache. Kennzeichne Versuche mit Lösungs- oder Formulierungshilfe als unterstützt.'를 둔다. 자연스러운 다른 답은 유지한다.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C12-04",
+      "unitId": "C1.2-04",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 / 독립 자료·과제 바로 뒤의 모델 (C1.2-02: 스몰토크·새 과제)",
+      "problem": "독립/Independent/Ohne Hilfe라고 명시한 산출 과제의 한국어 모범 답과 영·독 번역이 제출 전에 바로 보인다. 현재 페이지로는 도움 없이 만든 답이라는 증거가 되지 않는다.",
+      "proposal": "독립 자료와 질문은 그대로 두고 해당 과제의 KO·EN·DE 모델 전체를 기본 닫힘 <details><summary>답을 쓴 뒤 비교 / Compare after answering / Nach der eigenen Antwort vergleichen</summary> 상자에 넣는다. 그 앞에 '먼저 세 언어의 답·풀이를 모두 닫고 답을 쓴다. 답이나 문형 도움을 열었다면 도움받은 수행으로 표시한다. / Close all answers and explanations in every language before responding. Mark attempts that use answer or form support as supported. / Schließe vor der Antwort alle Lösungen und Erläuterungen in jeder Sprache. Kennzeichne Versuche mit Lösungs- oder Formulierungshilfe als unterstützt.'를 둔다. 자연스러운 다른 답은 유지한다.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C12-05",
+      "unitId": "C1.2-05",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 / 독립 자료·과제 바로 뒤의 모델 (C1.2-02: 스몰토크·새 과제)",
+      "problem": "독립/Independent/Ohne Hilfe라고 명시한 산출 과제의 한국어 모범 답과 영·독 번역이 제출 전에 바로 보인다. 현재 페이지로는 도움 없이 만든 답이라는 증거가 되지 않는다.",
+      "proposal": "독립 자료와 질문은 그대로 두고 해당 과제의 KO·EN·DE 모델 전체를 기본 닫힘 <details><summary>답을 쓴 뒤 비교 / Compare after answering / Nach der eigenen Antwort vergleichen</summary> 상자에 넣는다. 그 앞에 '먼저 세 언어의 답·풀이를 모두 닫고 답을 쓴다. 답이나 문형 도움을 열었다면 도움받은 수행으로 표시한다. / Close all answers and explanations in every language before responding. Mark attempts that use answer or form support as supported. / Schließe vor der Antwort alle Lösungen und Erläuterungen in jeder Sprache. Kennzeichne Versuche mit Lösungs- oder Formulierungshilfe als unterstützt.'를 둔다. 자연스러운 다른 답은 유지한다.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C12-06",
+      "unitId": "C1.2-06",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 / 독립 자료·과제 바로 뒤의 모델 (C1.2-02: 스몰토크·새 과제)",
+      "problem": "독립/Independent/Ohne Hilfe라고 명시한 산출 과제의 한국어 모범 답과 영·독 번역이 제출 전에 바로 보인다. 현재 페이지로는 도움 없이 만든 답이라는 증거가 되지 않는다.",
+      "proposal": "독립 자료와 질문은 그대로 두고 해당 과제의 KO·EN·DE 모델 전체를 기본 닫힘 <details><summary>답을 쓴 뒤 비교 / Compare after answering / Nach der eigenen Antwort vergleichen</summary> 상자에 넣는다. 그 앞에 '먼저 세 언어의 답·풀이를 모두 닫고 답을 쓴다. 답이나 문형 도움을 열었다면 도움받은 수행으로 표시한다. / Close all answers and explanations in every language before responding. Mark attempts that use answer or form support as supported. / Schließe vor der Antwort alle Lösungen und Erläuterungen in jeder Sprache. Kennzeichne Versuche mit Lösungs- oder Formulierungshilfe als unterstützt.'를 둔다. 자연스러운 다른 답은 유지한다.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C12-07",
+      "unitId": "C1.2-05",
+      "severity": "required",
+      "location": "현대 듣기, 병철 마지막 발화: ‘제목·날짜 확인 완료, 본문은 레나가 내일 검토 예정’",
+      "problem": "단원 목표와 연결표 대사는 문체를 줄여도 누가 확인했는지 남기라고 한다. 그런데 성공적인 수정안으로 제시한 최종 공지는 제목·날짜를 확인한 안드레아를 지운다. 본문 담당 레나는 남아 있어 대조가 더 선명하다.",
+      "proposal": "KO: ‘안드레아가 제목·날짜를 확인했고, 본문은 레나가 내일 검토할 예정입니다’라고 쓰면 되겠네요. EN: Then we can write: ‘Andrea checked the title and date; Lena is scheduled to review the body tomorrow.’ DE: Dann können wir schreiben: „Andrea hat Titel und Datum geprüft; Lena wird den Text morgen prüfen.“ 질문·답에도 제목·날짜의 확인자는 안드레아라고 보완한다.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C12-08",
+      "unitId": "C1.2-05",
+      "severity": "optional",
+      "location": "전이 자료 ‘주민이 ... 전했다’ → 채팅 모델 ‘의견을 제가 전했어요’",
+      "problem": "제3자의 자료를 읽는 학습자가 전달한 주민 역할인지 명시되지 않아 1인칭 모델을 그대로 따르면 행위자가 바뀐 것으로 읽힐 수 있다. 행위자 보존을 가르치는 단원이므로 역할을 한 문장으로 정하면 명확하다.",
+      "proposal": "전이 지시 앞에 '의견을 전달한 주민 역할로 쓴다. / Write in the role of the resident who passed on the concern. / Schreibe in der Rolle der Person, die den Hinweis weitergegeben hat.'를 추가한다. 다른 주민을 대신 보고하는 역할이라면 모델을 '한 주민이 계단이 어둡다는 의견을 담당자에게 전했어요'로 바꿔야 한다.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

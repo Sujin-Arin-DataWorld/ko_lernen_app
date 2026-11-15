@@ -10,7 +10,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.1.sound-signs.md",
       "sha256": "b7bb84466a1cde340dd866977556caea08757cf3b680e34efcbc730ca1ea6a52",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.1.above-below",
@@ -20,7 +20,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.1.above-below.md",
       "sha256": "cb6a1d917a5d1cfbd689b34bb905fa9a809d5fd2a6aa3d49acd53a41375f690f",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.1.straight-lines",
@@ -30,7 +30,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.1.straight-lines.md",
       "sha256": "f14d42148bb33bf202c0f7e8a4a4a0feff156f4b43f7916a8a865e3d717c5b4a",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.2.first-names",
@@ -39,8 +39,8 @@
       "storyTitle": "이름 대신 소리표",
       "gate": "none",
       "manuscript": "manuscripts/F0.2.first-names.md",
-      "sha256": "2489adcad9cdc76cc41d2fd8ca8c596594107bd08ebf6031fba9c1a8adc7b869",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "e9b96c43ea7419a7928cadf0211e74b731e586ef9623be384edb0f980d250b74",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.2.two-boxes",
@@ -49,8 +49,8 @@
       "storyTitle": "상자 두 개의 배달 경주",
       "gate": "none",
       "manuscript": "manuscripts/F0.2.two-boxes.md",
-      "sha256": "d593e9ebaa68344f4400f9d26573d86fac759a221b1c2bc157d7e1a40dae23d1",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "3ba06846963b0af2c31f195595e91f359048b478f84e6a1ea6087906ab806135",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.2.ribbon",
@@ -60,7 +60,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.2.ribbon.md",
       "sha256": "838b17518b2b46760c4e6582c319a40234278aed4b230858239e4c3fe82ec60e",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.2.two-tracks",
@@ -69,8 +69,8 @@
       "storyTitle": "조이의 두 줄 선반",
       "gate": "none",
       "manuscript": "manuscripts/F0.2.two-tracks.md",
-      "sha256": "ab166b74708e4a84ec3b8e8c3ab9150e8d8eb6ddd0d80d4a19bc2b384c2e0a8b",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "40f5036c15627daa621e06cc9194edccecc71c1f1c38cfa1c5de70202fd580a4",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.2.warm-breath",
@@ -80,7 +80,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.2.warm-breath.md",
       "sha256": "2dbbd2c63946f3aa083f33acdba7e9e8cdde658dcb4329cbe3c3988fb18f2aeb",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.2.tree-and-hat",
@@ -89,8 +89,8 @@
       "storyTitle": "모자 쓴 나무는 어디에",
       "gate": "none",
       "manuscript": "manuscripts/F0.2.tree-and-hat.md",
-      "sha256": "3a0d2a512b267e600f431c454a17b2d8f7af9bfc921f4de5977f3df98b61d61f",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "fd628358357d569257e75525b2d485d535b17b57c98148720d621a567da5df3a",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.2.sea-and-bridge",
@@ -100,7 +100,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.2.sea-and-bridge.md",
       "sha256": "b0f2567c9aadf8f4fe92ae6edadd173f6a821efc956542d9eb7925bb8fc64795",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.3.double-strokes",
@@ -110,7 +110,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.3.double-strokes.md",
       "sha256": "220cb1f6ac97da085da6d198e5302f89c204edf33e99143d28b05683313a9276",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.3.two-below",
@@ -120,7 +120,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.3.two-below.md",
       "sha256": "3102761f409181dc9b1424d4770b4a101671a9a5fdf4ea296ee3f58909adf3b3",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.3.air-one",
@@ -129,8 +129,8 @@
       "storyTitle": "문 앞 한지 실험",
       "gate": "none",
       "manuscript": "manuscripts/F0.3.air-one.md",
-      "sha256": "01b1a4f3096b87ca0864c4136e1d0dfa551b68a5d02394e30b341768532c468c",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "344ea709700d6ffdfa0b86a5848ad12bdbc83f72fe7142352c65bc2012ddf104",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.3.air-two",
@@ -140,7 +140,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.3.air-two.md",
       "sha256": "6e59e3244675c2e16bf657a3bcb4149857ca4b96d4207f21ff4738a4187ce5ba",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.3.firm-one",
@@ -149,8 +149,8 @@
       "storyTitle": "두 장을 붙인 글자",
       "gate": "none",
       "manuscript": "manuscripts/F0.3.firm-one.md",
-      "sha256": "d972c0ba9c4e0efa26726f63e62b769af0c2b64e3f383f9b731638db1fc508f1",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "0f8f6792ba949da55675519f283accd9804c575764184f4520957aee92519736",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.3.firm-two",
@@ -159,8 +159,8 @@
       "storyTitle": "한 번에 한 서랍",
       "gate": "none",
       "manuscript": "manuscripts/F0.3.firm-two.md",
-      "sha256": "ee97f924c5d35cd622453ab35c913f1227365f5dc08aeac66bba45a1ed3456e6",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "b6e2146b2f82c09c9a13108e191489dbda2bc8ec4dc4b9fe1c254d14ba827ce2",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.3.near-vowels",
@@ -169,8 +169,8 @@
       "storyTitle": "같이 들려도 다른 표기",
       "gate": "none",
       "manuscript": "manuscripts/F0.3.near-vowels.md",
-      "sha256": "d0586c72b381ec7e963c014d9eef3081dc73a4abd16b198a46227166b406a500",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "a8a94842c6804457e936eee41d231d0f4c3ab875b532a6fe132f39a4fc59dce9",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.3.corner-vowels",
@@ -180,7 +180,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.3.corner-vowels.md",
       "sha256": "b29b55296093107d56f627101d6e195770c759a2a2b2fbba7fbedf754fe63fbf",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.3.round-corner",
@@ -190,7 +190,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.3.round-corner.md",
       "sha256": "d734c015f37c93c189d22d08de261a1dc54a2d180c1f51395f931dbb064434e0",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.3.first-finals",
@@ -200,7 +200,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.3.first-finals.md",
       "sha256": "79c7ec4883859024c3d5fee0897bdb51c3db07cd7bbf98047a0644aac049d552",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.3.silent-or-sounding",
@@ -210,7 +210,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.3.silent-or-sounding.md",
       "sha256": "6bb1eeec1af6909a15a3f8a087dbc97561774b6c7fda1a1e02cfd769dcb05260",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.4.closed-endings",
@@ -220,7 +220,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.4.closed-endings.md",
       "sha256": "aca91f2ef20dbcb7bf42015f0c99f7e9cbca641dc220518a7929621d1191f063",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.4.wide-vowels",
@@ -230,7 +230,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.4.wide-vowels.md",
       "sha256": "77a32bf3173897f07553cf5545b7645e3ca9206f27465a044d5c175c5ffd5b82",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.4.small-pair",
@@ -240,7 +240,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.4.small-pair.md",
       "sha256": "cb5c1c09ed47d4a7357c9cd0b7b3e48495eb5ffea68dedad67e99f8f62ddca7d",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.4.last-vowel",
@@ -249,8 +249,8 @@
       "storyTitle": "마지막 모음의 여러 소리",
       "gate": "none",
       "manuscript": "manuscripts/F0.4.last-vowel.md",
-      "sha256": "fc340978d298bd12ff861251e2ac5e477b7ae0578407c7613ca40c9e5a43da98",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "23c024e610906bc4fd23b8af0fa227262e3d5132e12f46ffa9997f6ad0ddaa51",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.4.linked-sounds",
@@ -260,7 +260,7 @@
       "gate": "none",
       "manuscript": "manuscripts/F0.4.linked-sounds.md",
       "sha256": "d623578fcf158ea0ff1aba6da722527f824c118c52d3deea872a73ca8d3379b8",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.4.first-input",
@@ -269,8 +269,8 @@
       "storyTitle": "내 손으로 남긴 집",
       "gate": "none",
       "manuscript": "manuscripts/F0.4.first-input.md",
-      "sha256": "cf1e5d882a4a8aefc3917ca78d198e7415a1b8330b24b89b3bdf2434d1275dac",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "ae9103bd75d924e31251b49fc4c18cc481a0ada641daebe98c84f9ef39dfb4ae",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "F0.4.space-and-place",
@@ -279,8 +279,8 @@
       "storyTitle": "한 칸 띄어 건넨 부탁",
       "gate": "none",
       "manuscript": "manuscripts/F0.4.space-and-place.md",
-      "sha256": "3cba428017571b421185900f09e1e39aca002f83f10ae9b9eba6f63da2d9c632",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "5742678618bae951f342c9edd354f53f22cf00e7a222ef22ef75d11d5f21840f",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A1.1-01",
@@ -290,7 +290,7 @@
       "gate": "none",
       "manuscript": "manuscripts/A1.1-01.md",
       "sha256": "c0d8decedb50dbca3e9ffc0e00b06adb4bb258f34fbf701eca76ba13f5fd35b1",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A1.1-02",
@@ -299,8 +299,8 @@
       "storyTitle": "소개판의 빈 칸 하나",
       "gate": "none",
       "manuscript": "manuscripts/A1.1-02.md",
-      "sha256": "d07f102df60b06ca81a5d5abc265b69aeb18acb84fc83ac04c7a4dcb97e8f6b7",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "8f34fb725b910541d77bce38dcf1523859c0eb37d98ab8aca63119f8ddbb9ce0",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A1.1-03",
@@ -309,8 +309,8 @@
       "storyTitle": "사라진 듯한 모자",
       "gate": "none",
       "manuscript": "manuscripts/A1.1-03.md",
-      "sha256": "ba848d65ceaa010bd28a51bc9569995b88d9e778db3161bc3993ace1dd962f45",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "d50a3110c1b6c46dec64f99612f86f5f9a0951cc2b268502397a0d9f3b50a026",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A1.1-04",
@@ -320,7 +320,7 @@
       "gate": "none",
       "manuscript": "manuscripts/A1.1-04.md",
       "sha256": "c3a31ade3b47cb11e9938394c619948234847b682c8bda8dabaefaad097bd88a",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A1.1-05",
@@ -329,8 +329,8 @@
       "storyTitle": "둘이 왔지만 주인은 한 명",
       "gate": "none",
       "manuscript": "manuscripts/A1.1-05.md",
-      "sha256": "f443e52e0d529a134cea928643fc49874e4d838edee0a4b768bd2db691c932a7",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "863d464b5758898b5e23e22f81f71fcf7680cace631d4a729d267a505a8c7b0f",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A1.1-06",
@@ -339,8 +339,8 @@
       "storyTitle": "아니에요 뒤에 놓인 진짜 모자",
       "gate": "none",
       "manuscript": "manuscripts/A1.1-06.md",
-      "sha256": "e9a372b201990af34514e59af75da77939c078517379129bfe9eb9d91b94e94e",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "c560db41938522ca76eefab96d7652872ff0ef37e20eb79bb3e7ebd182b9c187",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A1.2-01",
@@ -349,8 +349,8 @@
       "storyTitle": "새벽에만 열린 시간표",
       "gate": "none",
       "manuscript": "manuscripts/A1.2-01.md",
-      "sha256": "5a553713b6fb0781afcea961dfa920b01e04b2f08fddf5e3e2a36b574b4e6a6c",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "83b7187c7734314b02057a9eedaad551ae05799adcba615bf9cb6a510ffac429",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A1.2-02",
@@ -359,8 +359,8 @@
       "storyTitle": "맞은편에서 손 흔드는 현아",
       "gate": "none",
       "manuscript": "manuscripts/A1.2-02.md",
-      "sha256": "e704ee40e14ff889a0ac75692eef837c07c95f7c19d5e64a4a449ec0247e215c",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "4eff585534c8fd674d0d42e9ba1ac1ff0a9aae1fd546100e3a02a186d93c7e0b",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A1.2-03",
@@ -369,8 +369,8 @@
       "storyTitle": "어제 사진을 오늘로 보낸 날",
       "gate": "none",
       "manuscript": "manuscripts/A1.2-03.md",
-      "sha256": "161453de0be32bbb6a84558078125f19cb027efac5c74555ac368a47fc268c21",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "9c0b77d5ba66da1574ef12effb0564797ecc0deac780fedff2d7bb64feb3028e",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A1.2-04",
@@ -379,8 +379,8 @@
       "storyTitle": "두 병은 누구에게",
       "gate": "none",
       "manuscript": "manuscripts/A1.2-04.md",
-      "sha256": "f6b5c6dcb3722a5691c1bad445a400f70566332e48d3c8f6f7e8a753fc91718e",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "12e6b91970d0d05d530b685c1deaab3f04d0960f5bab2df8ef677c15eb9855c0",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A1.2-05",
@@ -389,8 +389,8 @@
       "storyTitle": "원하는 사진과 가능한 사진",
       "gate": "none",
       "manuscript": "manuscripts/A1.2-05.md",
-      "sha256": "ce5259976a3f8b0c62fc1f893ad9a1988feb913ff4c82eb3526902af2bc2c84d",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "8b7dce39ffa569ee6604f9f55d7b79e810593e9e71ef3c6265c8ccbdf28d0723",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A1.2-06",
@@ -399,8 +399,8 @@
       "storyTitle": "비가 바꾼 만남",
       "gate": "none",
       "manuscript": "manuscripts/A1.2-06.md",
-      "sha256": "dffc43f6ef1e36c7bbc90121ec348df4935a49b85ed961f5c4c3e50d0bb0c37d",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "f371c6fe5299d12193f0027e3fe8e4640cebb053c6c6f8c1fe7b52c7fb269cbb",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A2.1-01",
@@ -409,8 +409,8 @@
       "storyTitle": "쉴 자리 예약의 조건",
       "gate": "none",
       "manuscript": "manuscripts/A2.1-01.md",
-      "sha256": "209266a0c7bbfa92916c7e928af593c7e1cd78b46adf44a78085e85df1f351af",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "1f98eb4ffec270b660d4e4e82b9a3f735f99b3abef6ae81143b63d00fdea6310",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A2.1-02",
@@ -419,8 +419,8 @@
       "storyTitle": "맞지 않는 모자의 주인",
       "gate": "none",
       "manuscript": "manuscripts/A2.1-02.md",
-      "sha256": "aa49dc356f1eeaf5532f662b403ec2493e092fdd44921376dba6ac54a85d0cdd",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "82dcbd7c7f8ed07a6eb15ab07df99b81c60e1b159abafc0d156e1193e39295b3",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A2.1-03",
@@ -429,8 +429,8 @@
       "storyTitle": "한 시간마다 오는 버스",
       "gate": "none",
       "manuscript": "manuscripts/A2.1-03.md",
-      "sha256": "3de74e41d279b2f7dec71357c99dfe6c352d30a26ea775eec84c25a8c51bc71f",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "2f5100d700871a4a4620359c324e6045595a282146a3c45f95d6c8e467dcbe57",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A2.1-04",
@@ -439,8 +439,8 @@
       "storyTitle": "배탈보다 먼저 묻는 허가",
       "gate": "none",
       "manuscript": "manuscripts/A2.1-04.md",
-      "sha256": "41317dcea06078ddeb0c4c6f344ceb6e62dd5ab297a480711a9e5b17f678e322",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "1b6dd7c5b419d749a43f4db7c304acd48df0afa402e40582d528cc1317594d70",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A2.1-05",
@@ -449,8 +449,8 @@
       "storyTitle": "어제 보낸 사진은 어느 것",
       "gate": "none",
       "manuscript": "manuscripts/A2.1-05.md",
-      "sha256": "3bd4f1cbeca8e0f8917ea5a10c3fa48744cf6ab67e4a7fbeae819bb3e5003871",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "c88b2a67f2410eaf896da19708db87d7d05fb7f21ac10ba5414f61560bb4cec8",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A2.1-06",
@@ -459,8 +459,8 @@
       "storyTitle": "선생님께 건네는 말",
       "gate": "none",
       "manuscript": "manuscripts/A2.1-06.md",
-      "sha256": "bb932913296da1b14b091ef94412fe50d315383550e5104233f32037b60c32e9",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "a3bb877dab6b07d1a6046bca55cfaad2bbcdcd5af8c37f2c917ceaf21981350c",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A2.2-01",
@@ -470,7 +470,7 @@
       "gate": "S1-E06.middle",
       "manuscript": "manuscripts/A2.2-01.md",
       "sha256": "b0af22868ec40e7ccc7156bdafd89d67ca4089a8174c37765778804147d95bea",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A2.2-02",
@@ -479,8 +479,8 @@
       "storyTitle": "사진을 보다가 놓친 이름",
       "gate": "S1-E06.middle",
       "manuscript": "manuscripts/A2.2-02.md",
-      "sha256": "2b91012bb68ae2da690ba6829a02aac746abaef459cf7d7458d5fc988e8b8cd4",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "5b2e3d01882d5684bb19b178725d99a6709bc5859a7f78ad1880fe32e83a8381",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A2.2-03",
@@ -489,8 +489,8 @@
       "storyTitle": "고개를 돌린 도깨비",
       "gate": "S1-E06.middle",
       "manuscript": "manuscripts/A2.2-03.md",
-      "sha256": "f7115a5450ec9cf78cde23df2613ba9c8761334c82d3708ccdda66e17b083c25",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "f4bbed7c9b45d5a4f66736de0f41f57ff707b4d70129cc85a859b3406c551b69",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A2.2-04",
@@ -499,8 +499,8 @@
       "storyTitle": "연락할게요와 연락하고 싶어요",
       "gate": "none",
       "manuscript": "manuscripts/A2.2-04.md",
-      "sha256": "bdcbac9e04d257ffd91798a8fd5dedac31f46a9915ab15d0653cac00dc693e0a",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "837666d6729825c86443092270921c9ec2731bd2b12ed42f2e1952c09466cfa0",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A2.2-05",
@@ -509,8 +509,8 @@
       "storyTitle": "닫힌 문은 빈집인가",
       "gate": "S1-E06.middle",
       "manuscript": "manuscripts/A2.2-05.md",
-      "sha256": "25aa485ca7e41473782733468517ca77f869c93d99a83b5b3bd3d52f3cd8e092",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "6d262434b34a17962fcc1467afc18a4ff02dce24aaf35a54e6fdf11825769293",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "A2.2-06",
@@ -519,8 +519,8 @@
       "storyTitle": "돌려주는 말부터",
       "gate": "S1-E06.middle",
       "manuscript": "manuscripts/A2.2-06.md",
-      "sha256": "ab30fce89aacc349eaf32e9078e57cd519344eb8f3c80ec40130f4c9abe053d0",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "dd339eb1bfea4a780c74028b2fffb3dbd1bab5ac76e86c027ad3cf28480f1abb",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B1.1-01",
@@ -529,8 +529,8 @@
       "storyTitle": "꽃이 없던 자리, 꽃이 핀 자리",
       "gate": "S1-E07",
       "manuscript": "manuscripts/B1.1-01.md",
-      "sha256": "a378bb5c418c3c1f031d28ef89f760cb9298944a0609ea11e7cc755bf0123363",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "3a894afde776f9dcd85c7c01970e58443bc30893b3a2c373a8bac499b0a0ec6f",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B1.1-02",
@@ -539,8 +539,8 @@
       "storyTitle": "꽃보다 먼저 열린 봉투",
       "gate": "S1-E07",
       "manuscript": "manuscripts/B1.1-02.md",
-      "sha256": "263a79f425d13e25103d6e327be52cd5a6085445a03397e8477fb0bb64b77021",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "dd6c26de06bee390e4214191994d8a98431e501656fa8a0b4154dafb1c68b97d",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B1.1-03",
@@ -549,8 +549,8 @@
       "storyTitle": "젖은 우산과 마른 씨앗",
       "gate": "S1-E07",
       "manuscript": "manuscripts/B1.1-03.md",
-      "sha256": "f59c5b79cc072cec6d5cc6132acc1f223af91986a3a2314f07ad99db54d5ef07",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "a3d96cb2d988f645784148e9dfdfa81f63de96af79081bf004f561cbed9f50c4",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B1.1-04",
@@ -559,8 +559,8 @@
       "storyTitle": "친구가 되어도 먼저 묻기",
       "gate": "none",
       "manuscript": "manuscripts/B1.1-04.md",
-      "sha256": "882e7a3a4b51568f2355c7c8879237f58e3242597bb20dc4ca5f48ae69d597f5",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "10eda0dd3606e32d0eb3082e614215cb7c179c3bb54153569bfd2e89bf479c6c",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B1.1-05",
@@ -569,8 +569,8 @@
       "storyTitle": "읽기 쉬운 표가 도움일 때",
       "gate": "none",
       "manuscript": "manuscripts/B1.1-05.md",
-      "sha256": "c1a6e1ec7f5da08f8637d296a01f350202c719d1e6a355e57e929b6619177151",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "062ae0348ae160d4c7a886b3373728eed71b383d9e84cb2acd4dd7d74a891aed",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B1.1-06",
@@ -579,8 +579,8 @@
       "storyTitle": "오늘 돌려주려면",
       "gate": "none",
       "manuscript": "manuscripts/B1.1-06.md",
-      "sha256": "b2c20667875948cee8847a3a0071fa5bf66629291c9c0b801967c46165abce39",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "2f0e761d4c3319bb2799d122c52a033eaaf3524d8a85b519b5220362925e78c9",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B1.2-01",
@@ -589,8 +589,8 @@
       "storyTitle": "누가 한 말이 종이에 남았나",
       "gate": "S1-E07+S1-E08.started",
       "manuscript": "manuscripts/B1.2-01.md",
-      "sha256": "d8f053d9aa8847a75f2514f05882f93389d42dce8b2847dd4f67ccc4ddf8513f",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "09fd34d5f55166110eb2932d775483488fecb72c547e80139018b742229f886b",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B1.2-02",
@@ -599,8 +599,8 @@
       "storyTitle": "닮은 매듭 뒤의 아직",
       "gate": "S1-E07+S1-E08.started",
       "manuscript": "manuscripts/B1.2-02.md",
-      "sha256": "2a785b1bf843b114a7d9680cd405095e7a1a0254fb4a3f1c0cb966a22e27e197",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "690283f9c62dfab65d0755ea436d1e0f7c5929eb5e73674adcfe2d59d1b407c3",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B1.2-03",
@@ -609,8 +609,8 @@
       "storyTitle": "세 장처럼 보이는 한 기록",
       "gate": "S1-E07+S1-E08.started",
       "manuscript": "manuscripts/B1.2-03.md",
-      "sha256": "00395c3fbc7ee1007f233af86a95aab3c07c9cd4f06a7a0b90bca39ffcaf4324",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "b19a01961b14b01b933d53f35987b0b22cad7d6a8841224f2b075b6d6df7b791",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B1.2-04",
@@ -619,8 +619,8 @@
       "storyTitle": "찾기 쉽지만 젖기 쉬운 자리",
       "gate": "S1-E07+S1-E08.started",
       "manuscript": "manuscripts/B1.2-04.md",
-      "sha256": "9192b12917b266a925f23f79589ffb3d0c22aeeee4ec324b847c0b02cf000bc1",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "74826b90f3e426b68f3db39aa59021c2962b63423213a2b274a9751ab6cddf1a",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B1.2-05",
@@ -629,8 +629,8 @@
       "storyTitle": "맡겨졌다는 말의 빈 주어",
       "gate": "S1-E07+S1-E08.started",
       "manuscript": "manuscripts/B1.2-05.md",
-      "sha256": "14e53f08b499e2a53b801217596b9acf8f04521eed71d311201cbe02128b360e",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "5f3b34ab416132081fd67100f55a1a8cfbbcfbc52d4bc441a2704fa28b6c6d35",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B1.2-06",
@@ -639,8 +639,8 @@
       "storyTitle": "훔쳤다에서 맡겼다로",
       "gate": "S1-E07+S1-E08.middle",
       "manuscript": "manuscripts/B1.2-06.md",
-      "sha256": "41aad2aad23519d4be6a465a8666d5edb5adff871311e49fd9cabd6e53a2fff0",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "ccba13da7edea451a455df847474eed27f505e1e3b13727eaaa8101d3e07f6f6",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B2.1-01",
@@ -649,8 +649,8 @@
       "storyTitle": "서로 다른 수를 세는 표",
       "gate": "S1-E08+S1-E09",
       "manuscript": "manuscripts/B2.1-01.md",
-      "sha256": "b2b8ee51732b6a6ee7263f918e82954d68ab5a36173a7fa8de0ea87021b66ea0",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "a3587f10bee3d8638802a3c12acd7cfef0333c2cb96757db3a95765ca66d757f",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B2.1-02",
@@ -659,8 +659,8 @@
       "storyTitle": "비가 왔다고 모두 비 탓인가",
       "gate": "none",
       "manuscript": "manuscripts/B2.1-02.md",
-      "sha256": "9a59de9d090858e70405e623f9f0c19330b67e058442a2d3790530f1a0e60898",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "aa1f0879ee10ba2e09ad9fbc5b9d715d7040c57bc260f7eda3247fb7e7c3cb80",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B2.1-03",
@@ -669,8 +669,8 @@
       "storyTitle": "잠든 날을 버린 날로 쓰지 않기",
       "gate": "S1-E08+S1-E09",
       "manuscript": "manuscripts/B2.1-03.md",
-      "sha256": "3cfb6eecd06c0eac53a33063a1f5655ed236b6b9b2c70e33dcdbf028fe9612c7",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "d33fb50c0e40e63e5ca03428a3a3e81e25a49ddea192202767afd026e9e9d7f5",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B2.1-04",
@@ -679,8 +679,8 @@
       "storyTitle": "설명문은 무엇을 하려는가",
       "gate": "S1-E08+S1-E09",
       "manuscript": "manuscripts/B2.1-04.md",
-      "sha256": "5370c540700db3050006c60f85d4cc89e45fce9aff720e2facd60b46369397fa",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "b62b15998fd51646f66649eb985a190b2d9b0eda8267f23f3670e0b616772739",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B2.1-05",
@@ -689,8 +689,8 @@
       "storyTitle": "이름은커녕, 어디까지 없는가",
       "gate": "S1-E08+S1-E09",
       "manuscript": "manuscripts/B2.1-05.md",
-      "sha256": "b869521bc84b21bf83aa777e2e544020b7ac5b4501da4a770db6bf389babe265",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "4a68e155f28a41e93b8d4a6303ba2dff8481dc2f3b6c5a33649b61247ea27fdc",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B2.1-06",
@@ -699,8 +699,8 @@
       "storyTitle": "아는 만큼만 나란히",
       "gate": "S1-E08+S1-E09",
       "manuscript": "manuscripts/B2.1-06.md",
-      "sha256": "58c20a45b161b4c3b5f491431a751993dd676141241774090d946ca6e9de1abe",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "e5175dc5bac1e61b010f6c0430e42ff3322c9fbe776f371f60fcb00c50bb42e1",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B2.2-01",
@@ -709,8 +709,8 @@
       "storyTitle": "오늘의 발표, 내일의 확인",
       "gate": "S1-E05; E08 전후 분기",
       "manuscript": "manuscripts/B2.2-01.md",
-      "sha256": "eb89ca4bc0c4885dd433e156a38c05737219cc573f01b5a446925d0a429a9ebf",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "8911729d01ad2b9bf200a73115988ba0c8aa4a24ac0a59660904b6402be47a7e",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B2.2-02",
@@ -719,8 +719,8 @@
       "storyTitle": "비가 와도 남는 약속",
       "gate": "S1-E05; E08 전후 분기",
       "manuscript": "manuscripts/B2.2-02.md",
-      "sha256": "b9a3c4ee0900a8f5b0ac9292eace33dd0ea7b8c886a11cd907d3fcb48d459c6a",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "ed7d257c0c600a0793578198395ca0411f51df46b33ba9895949551b1836e2b1",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B2.2-03",
@@ -729,8 +729,8 @@
       "storyTitle": "조이가 들었다는 말",
       "gate": "S1-E05; E08 전후 분기",
       "manuscript": "manuscripts/B2.2-03.md",
-      "sha256": "6ea71b53aa7817a6933427d38d974b403978fe770fd3c4c1dd918bd3c4df1e9f",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "0512d46326b4cfb3ee1f43f8590210c9838440e4dee354bbb6826a87e43b6c42",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B2.2-04",
@@ -739,8 +739,8 @@
       "storyTitle": "좋은 뜻으로 잘못 붙인 이름",
       "gate": "none",
       "manuscript": "manuscripts/B2.2-04.md",
-      "sha256": "aa6015cece468378f7aa36333d66758f607775c4975aa3b3e8f02bbf8014ca7b",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "dc7cc21ca9f3089840bfa75cb95b0ceaad3b5b87f893295f722d87e273816f82",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B2.2-05",
@@ -749,8 +749,8 @@
       "storyTitle": "보관 동의와 공개 동의",
       "gate": "none",
       "manuscript": "manuscripts/B2.2-05.md",
-      "sha256": "d885ecb6646905cdeec6ec21ce2ac74cc727ba72ed6e5096db1d6c31716b309b",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "aa7aa7ca0cbae2e8762da2c58680d70ce174932779653ae4c2bd9a59fa23e539",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "B2.2-06",
@@ -759,8 +759,8 @@
       "storyTitle": "같이 적는 보류 한 줄",
       "gate": "S1-E05; E08 전후 분기",
       "manuscript": "manuscripts/B2.2-06.md",
-      "sha256": "1e4ea260a2dc0f9b3a2bd5002980e74d80ef53b92a1d37f60a8a3daf2d33759c",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "353db80aa6ea4b48c98df1e449c57660c679bfed95ac1a597c76008d18dff720",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C1.1-01",
@@ -769,8 +769,8 @@
       "storyTitle": "같은 계절, 다른 기록 방식",
       "gate": "S1-E08",
       "manuscript": "manuscripts/C1.1-01.md",
-      "sha256": "19ae15ae7c59c693fda54ea5ad7aa2f2778f607eaec73ec0dfed515ba8a788fa",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "4e9ea4058461bbf314a14ddb46da0801379443e2556b2e0c94df9766778333b4",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C1.1-02",
@@ -779,8 +779,8 @@
       "storyTitle": "짧게 쓰다가 바뀐 주인",
       "gate": "S1-E08",
       "manuscript": "manuscripts/C1.1-02.md",
-      "sha256": "fac6d3ba259ffab55ea92f3a7d085dd2451b11b552835d044167ed7d79fc190e",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "fe07efe75d2c6162c2d3edefdf72a536b68788d8abcec0bb6c2aebf9ee285c6a",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C1.1-03",
@@ -789,8 +789,8 @@
       "storyTitle": "희망을 확신으로 쓰지 않기",
       "gate": "S1-E08",
       "manuscript": "manuscripts/C1.1-03.md",
-      "sha256": "9bbe9900eb47e0c787e6a6a407bd288ecd90223a48af9b6c425f3ce460dda7d7",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "4e37661050bbf533d5c192dbbe9438e0a7d3af4dea0f36880356b60ea1978d96",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C1.1-04",
@@ -799,8 +799,8 @@
       "storyTitle": "한 조사, 두 가지 보고",
       "gate": "S1-E08",
       "manuscript": "manuscripts/C1.1-04.md",
-      "sha256": "b4be8a54872e8874f2c1740aad9b2aaade33d94dcc9d30d62c832161dcfd69be",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "a95f0995862b47bdd63659f0c030760face9b5d148780c9a3991d1672289a894",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C1.1-05",
@@ -809,8 +809,8 @@
       "storyTitle": "원본이라는 낯익은 낯선 말",
       "gate": "none",
       "manuscript": "manuscripts/C1.1-05.md",
-      "sha256": "27bfd12e9818aa1ae768e324f75ebe9bb49bb014ae3c7a52527a5400b776bfab",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "fb0817abf3d6ce36a9836e2a03916e87141ab8e9cb396c86a7f77943180656c2",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C1.1-06",
@@ -819,8 +819,8 @@
       "storyTitle": "도깨비의 예고 없는 질문",
       "gate": "S1-E08",
       "manuscript": "manuscripts/C1.1-06.md",
-      "sha256": "a3eeb1decb09e703b0b0706a9a4bdd99ddd8621dd6ca585fe77d712e21225b01",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "dbcbdcd7f7f5236462fccf4a2e9864ecfd9935679639fb0eb08aff21b5eabb97",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C1.2-01",
@@ -829,8 +829,8 @@
       "storyTitle": "사당 앞 같은 부탁 세 번",
       "gate": "S1-E08+S1-E10",
       "manuscript": "manuscripts/C1.2-01.md",
-      "sha256": "a84a2902549f3c1ca9cd2433eae82691b78ae9302f45801cd57c6d8ebf44f8eb",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "2bf39290ccf33f2863c74062d27d11c3a017c39426b340eea6a6017aafc365f3",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C1.2-02",
@@ -839,8 +839,8 @@
       "storyTitle": "편리함이 지우지 못하는 조건",
       "gate": "S1-E08+S1-E10",
       "manuscript": "manuscripts/C1.2-02.md",
-      "sha256": "bf81df481a6a1ab8ffa8af0e2649e5915aa1770809f9b9d49b2da86f9ec6ae60",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "bb3b8de77c681d46f2107bebf18f65a3c25569042773da2e8cd8101b0f0317fd",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C1.2-03",
@@ -849,8 +849,8 @@
       "storyTitle": "괜찮다는 말의 두 거리",
       "gate": "S1-E08+S1-E10",
       "manuscript": "manuscripts/C1.2-03.md",
-      "sha256": "3d77b54c6e3e8b83ac2413b678156cdc16a6e96e7ed54434857bb35793a1ca5d",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "c60c73b07ff4363ca96b9704e3c9b453811591b2f699bf9bbdf8c9ef1d91baab",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C1.2-04",
@@ -859,8 +859,8 @@
       "storyTitle": "누구의 기억을 대신 말하는가",
       "gate": "S1-E08+S1-E10",
       "manuscript": "manuscripts/C1.2-04.md",
-      "sha256": "debcbd7b36c5c7d1f24cfe266d21c9d0cde7b9fbf5b54f48902050c294a2f530",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "5e964f44ae4a603be582b0019fde482a38dd2c4390402ca750a1c30499b55472",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C1.2-05",
@@ -869,8 +869,8 @@
       "storyTitle": "보고서에서 사라진 사람",
       "gate": "none",
       "manuscript": "manuscripts/C1.2-05.md",
-      "sha256": "270431b24804844ca92cfaf583f6669889e444b300b377ddf685264d8256be98",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "93f314254900793c35ea2c7e02153e5eb35277f9abcd58883724c9bf35aa7504",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C1.2-06",
@@ -879,8 +879,8 @@
       "storyTitle": "끝맺음에 남기는 미확인",
       "gate": "S1-E08+S1-E10",
       "manuscript": "manuscripts/C1.2-06.md",
-      "sha256": "384bc94411b0ea80fc02ae4532da1fad693683c6fd7e7aea9405b1373ce20f6b",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "a0e1e132e50fa7b4e1742fd9996b25320ea94ef9c601c6a77f5024719b27499b",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C2.1-01",
@@ -889,8 +889,8 @@
       "storyTitle": "가족이라는 한마디의 여러 결",
       "gate": "S1-E06",
       "manuscript": "manuscripts/C2.1-01.md",
-      "sha256": "85021011eef0214d063ffbf40168b593a59937e06fc63a7e345b5520a7667020",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "46583085084bc964ddc2a2afd3d813b3429b0d5c2f4009d8310374917f22a503",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C2.1-02",
@@ -899,8 +899,8 @@
       "storyTitle": "한 약속으로 모든 기다림을 말할까",
       "gate": "S1-E06",
       "manuscript": "manuscripts/C2.1-02.md",
-      "sha256": "0e992cc786352a1e123044e952e0a16bb74361e0f01f436ec3de13ef5e324206",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "0d590757ff565ee205553ca3c5954c94704aecdac43b6ee477285d2125f07b75",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C2.1-03",
@@ -909,8 +909,8 @@
       "storyTitle": "남겨진 자의 서술",
       "gate": "S1-E06",
       "manuscript": "manuscripts/C2.1-03.md",
-      "sha256": "cddf19d96e3c65b43847dbc63c45f7b343219207a367f33a62d1e20b695ee45b",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "8d0c0571bdaca82e20fa8e5a3871fd08b8b36c317ec9376b292b06ed4f663ba7",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C2.1-04",
@@ -919,8 +919,8 @@
       "storyTitle": "기다림을 의무로 만들지 않기",
       "gate": "S1-E06",
       "manuscript": "manuscripts/C2.1-04.md",
-      "sha256": "97da19d6584b4ffffa9674dd73b7e02c356185d78ed3d5725eb39bed24a20219",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "8ae902b63a53b5a82c338cece179c4f8791fd0bdfa7ea95344856b32423b3ea5",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C2.1-05",
@@ -929,8 +929,8 @@
       "storyTitle": "말한 이, 전한 이, 듣는 이",
       "gate": "S1-E06",
       "manuscript": "manuscripts/C2.1-05.md",
-      "sha256": "af43dda01a6e55b3c8f54795e875cc6dab4a1acd2edbc064419aaaa0f153efce",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "a0af4fc6ca114233f1be1e96cb636b5caeb8239e4990ad1df05edff3a90cf7e0",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C2.1-06",
@@ -939,8 +939,8 @@
       "storyTitle": "펼쳐도 접어도 되는 책갈피",
       "gate": "S1-E06",
       "manuscript": "manuscripts/C2.1-06.md",
-      "sha256": "f2ae8a2c262c070e8b7a688e364980968e35ccc449aa5fce1251504a506c0f66",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "3abaf53c67bb4079fbc749dbf79e1b78c6ae96f7f13f45c2064fc6857d6790be",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C2.2-01",
@@ -949,8 +949,8 @@
       "storyTitle": "결말 뒤에도 자료는 다르게 말한다",
       "gate": "S1-END",
       "manuscript": "manuscripts/C2.2-01.md",
-      "sha256": "231ea76f03e2ac2788710566430e7d40e91994b11e277074da0aabe466555414",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "21b833c3d5680873915d4e142e2141e2fb7cad7c0b224926a834c49c1ca99b17",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C2.2-02",
@@ -959,8 +959,8 @@
       "storyTitle": "기록의 설명과 내가 만든 장면",
       "gate": "S1-END",
       "manuscript": "manuscripts/C2.2-02.md",
-      "sha256": "8ac4917f72e488408cfabe391503ab3a97bdb4059a145a10f5adcadc15cbdb49",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "5f9bca9a86f3146a33d8a17e476d71b6aa3ea5bbd3d44c6155d490b990f7bf64",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C2.2-03",
@@ -969,8 +969,8 @@
       "storyTitle": "다음 사람에게 첫 장부터",
       "gate": "S1-END",
       "manuscript": "manuscripts/C2.2-03.md",
-      "sha256": "6345bbb484b52e271dfb88961247ae812d2d1734d0a55acc099d6c604b53eefa",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "ea71e4ff78b7e2cbbf9579a8ead2f46ef0ae9a1136c7b3bab48b3eb676a359d6",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C2.2-04",
@@ -979,8 +979,8 @@
       "storyTitle": "하나의 결말, 남는 다른 생각",
       "gate": "S1-END",
       "manuscript": "manuscripts/C2.2-04.md",
-      "sha256": "768fee5e332a5cc81f5c361ff08d6199efe649660dd68ab32b92177a77eaeff0",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "8e241c971c14631bf99c86c5b8e287c2c2562badd7705873532b10a4771ab36f",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C2.2-05",
@@ -989,8 +989,8 @@
       "storyTitle": "긴 글에서 짧은 답장으로",
       "gate": "none",
       "manuscript": "manuscripts/C2.2-05.md",
-      "sha256": "b9cf62531eda9b4fe87a7395712e0ed25a5e6d47e323babcf1f277043892cd03",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "547e4f00820f8d230b65de4f941fa6f05bb69edb0ceceb74a7fb23f98ac6031b",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     },
     {
       "unitId": "C2.2-06",
@@ -999,8 +999,8 @@
       "storyTitle": "다음 고택으로 가져갈 방법",
       "gate": "S1-END",
       "manuscript": "manuscripts/C2.2-06.md",
-      "sha256": "92d8befa6f1c0293e7ba21413d11ee0b2f3063b9d2e784a70202c905e91ee4cd",
-      "status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW"
+      "sha256": "0553f902cbd33d4af70ea402e2af4508f00e623c857b33ae87ecea5d9551a068",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
     }
   ]
 }

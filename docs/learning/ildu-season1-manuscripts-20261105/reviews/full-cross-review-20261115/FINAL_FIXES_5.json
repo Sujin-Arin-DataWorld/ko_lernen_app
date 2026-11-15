@@ -1,0 +1,21 @@
+{
+  "status": "frozen_for_final_reread",
+  "supersedes": "FINAL_BATCH_1 for these three units only",
+  "units": [
+    {
+      "unitId": "B1.1-05",
+      "sha256": "062ae0348ae160d4c7a886b3373728eed71b383d9e84cb2acd4dd7d74a891aed",
+      "reason": "DE-FINAL-B115-01"
+    },
+    {
+      "unitId": "B1.1-06",
+      "sha256": "2f0e761d4c3319bb2799d122c52a033eaaf3524d8a85b519b5220362925e78c9",
+      "reason": "DE-FINAL-B116-01"
+    },
+    {
+      "unitId": "A2.1-02",
+      "sha256": "82dcbd7c7f8ed07a6eb15ab07df99b81c60e1b159abafc0d156e1193e39295b3",
+      "reason": "ROOT-FINAL-A212-01"
+    }
+  ]
+}

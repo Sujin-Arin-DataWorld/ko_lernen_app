@@ -1,0 +1,11 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {"unitId":"F0.1.sound-signs","sha256":"b7bb84466a1cde340dd866977556caea08757cf3b680e34efcbc730ca1ea6a52","fullTextRead":true,"tasksSolvedAsText":true,"verdict":"PASS","findingIds":[]},
+    {"unitId":"F0.1.above-below","sha256":"cb6a1d917a5d1cfbd689b34bb905fa9a809d5fd2a6aa3d49acd53a41375f690f","fullTextRead":true,"tasksSolvedAsText":true,"verdict":"PASS","findingIds":[]},
+    {"unitId":"F0.1.straight-lines","sha256":"f14d42148bb33bf202c0f7e8a4a4a0feff156f4b43f7916a8a865e3d717c5b4a","fullTextRead":true,"tasksSolvedAsText":true,"verdict":"PASS","findingIds":[]}
+  ],
+  "findings": []
+}

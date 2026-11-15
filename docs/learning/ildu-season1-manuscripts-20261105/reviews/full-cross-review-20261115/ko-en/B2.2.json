@@ -1,0 +1,120 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "B2.2-01",
+      "sha256": "eb89ca4bc0c4885dd433e156a38c05737219cc573f01b5a446925d0a429a9ebf",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-B22-01"
+      ],
+      "solutions": "§3: Today's ten minutes do not meet the twenty-minute minimum. Tomorrow 18:00–18:20 fits both schedules. Today's note and tomorrow's detailed text remain separate; phone/chat choice permits neither recording nor photos. This is a proposal until accepted.\n§5 가: Maya accepts 메모라도; Lena values her limited contribution with 메모로나마. Fresh exhibit: last time's space for two small works is the minimum; one small wall is acceptable; the friend can help through a brief note. The model invents an offer (EN-B22-01).\n§5 나: Tuesday/Wednesday and phone/chat are free choices, recording excluded. Fresh case: Friday/Saturday at 10:00, library/online, screen/paper, no photos.\n§5 다: 이면 lists schedule/location and photo/drawing categories; 치고 evaluates twenty minutes against Lena's expected hour, and three plans against the learner's expected one, not a universal fact about first meetings.\n§5 라: Shortening/sending materials are proposed, not agreed. Fresh descriptions sent beforehand/read on site remain undecided alternatives.\nScript answers: ten minutes fails the minimum; ‘either’ covers phone/chat only; agreed note today, detailed text before tomorrow's 18:00–18:20 unrecorded call; photos pending. Independent B is 18:30–18:50 unrecorded phone, still only a proposal. Transfer: one small work fits the limit of two; ask layout confirmation; keep online photos pending and distinguish exhibition from publication. Both smalltalk responses fit."
+    },
+    {
+      "unitId": "B2.2-02",
+      "sha256": "b9a3c4ee0900a8f5b0ac9292eace33dd0ea7b8c886a11cd907d3fcb48d459c6a",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-B22-02",
+        "EN-B22-03"
+      ],
+      "solutions": "§3: Return by 17:00 tomorrow and use at 18:00 remain; rain is uncertain and car transport conditional. Agreed handover is 16:30 inside the entrance. Closure requires contact and a newly agreed place, never an unconfirmed outside drop-off.\n§5 가: Assumption is rain; available resources are cover and Daniel's car help. Fresh train case: 기차가 멈춘다면 방문 날짜를 다시 상의할게요. 아직 중단이 확정된 것은 아니에요.\n§5 나: Keep the return promise despite rain; if closed, contact and renegotiate place. Camera model requires the friend's perspective and possible cancellation, not an actual cancelled trip (EN-B22-02).\n§5 다: Only waiting indoors is limited by opening, not the whole return commitment. Fresh workshop: assemble while access lasts, explicitly until 20:00, and leave the remainder until tomorrow.\n§5 라: Receptive meaning is wanting/trying to leave but being unable without the key. Standard paraphrase 출발하려야 출발할 수가 없어요 or 출발하고 싶어도 지금은 못 해요. NIKL's primary answer confirms the standard-form distinction.\nScript: Friday 16:30 return agreed; trip decision waits until Friday morning; call because doorbell is broken; normal buses condition the reassurance about Daniel's journey home, while escort and return are separate promises. Independent B preserves pot return despite cancelled cooking. Transfer: hypothetical guest absence, return Sunday by 11:00, propose direct handover 10:30; unexpected owner absence requires a new location question before 11:00, no invented agreement. Smalltalk depends on relationship, not one fixed answer. E05 mat is a current prop; Joy's gendered English is flagged."
+    },
+    {
+      "unitId": "B2.2-03",
+      "sha256": "6ea71b53aa7817a6933427d38d974b403978fe770fd3c4c1dd918bd3c4df1e9f",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-B22-04"
+      ],
+      "solutions": "§3: Relay Lena's offer through Daniel, ask actual hours and space; no 09:00 confirmation and no inference that boxes mean a suitcase place is ready.\n§5 가: Lena's stated window is 10:00–12:00. Fresh Minho: 민호는 토요일 오후에 만날 수 있대요. / 토요일 오후에 만날 수 있다면서요? 몇 시가 좋으세요? A further valid reported-content check using -는다니 is 금요일에는 못 만난다니 토요일 오후에는 몇 시가 좋으세요?\n§5 나: Daniel visited; Maya did not. Neither may report spaciousness from these data because it was never observed in the record. Fresh café: 창가가 조용하더라; 안쪽은 음악이 크던데 창가에 앉을까? These preserve firsthand source and contrasting conditions.\n§5 다–마: Related informal departure question with -고?, embedded uncertainty about restaurant opening with -나; surprise at sold-out tickets with -다니 plus a question about other performances. Receptive -어라 is a direct command; -게? asks intention, so ‘벌써 나가게?’ is not an order to leave.\nScript: Daniel did not verify the current space; Lena and a friend cleared boxes; arrival 10:00, collection by 11:30. Independent: show starts 15:00, waiting starts 14:30. Transfer must distinguish Jun's arrival paraphrase from Hyuna's original waiting wording, add firsthand observation of two entrances and ask which entrance. Current model mixes those sources (EN-B22-04). Script reading is not an intonation/listening test."
+    },
+    {
+      "unitId": "B2.2-04",
+      "sha256": "aa6015cece468378f7aa36333d66758f607775c4975aa3b3e8f02bbf8014ca7b",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Source correction: the folder label says Lena organised files; confirmed photographer is Maya. Why the folder was labelled that way is unknown. Correct both the original group chat and slides, retaining publication permission as unresolved.\nSupported blanks: 레나가 찍은 사진 / 마야 / 단체 채팅의 설명. Fresh invitation: 준이 주최하는 줄 알았는데, 안내를 보니 주최자는 현아였어요; own the incorrect report and correct it with the friend. Receptive -어야지 answer ② is obligation/emphasis, not a completed check; a cooperative question suits a new colleague.\nScript: initial folder-based assumption omitted the photo-list check; checking has now occurred; correct both channels without inventing deliberate concealment. Smalltalk accepts shared final review rather than an unlimited sole responsibility.\nIndependent: Lena is author, Maya recipient, editor unknown. Own four-sentence fictional transfer: ‘초대장을 보내 주셔서 고마워요. 저는 준 씨가 주최하시는 줄 알았는데 행사 안내에는 현아 씨가 주최자로 되어 있네요. 제가 친구에게 잘못 전해 미안해요. 같은 단체 채팅에 현아 씨가 주최자라고 정정하겠습니다.’ This gives belief, source and correction channel; natural variants accepted. Modern scene is ungated and adds no historical disclosure."
+    },
+    {
+      "unitId": "B2.2-05",
+      "sha256": "d885ecb6646905cdeec6ec21ce2ac74cc727ba72ed6e5096db1d6c31716b309b",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Supported two-sentence correction: identifiable photos only in members' chat; public edit requires Lena's review and separate approval. No reply is not approval. Fresh case: three organisers are permitted, all-members sharing unanswered; ask explicitly and keep to three meanwhile.\nScript: photo posting permission is withdrawn before scheduled posting; private storage of the original remains; the date/place-only revised wording awaits a reply before posting. Smalltalk acknowledges difficulty and offers a photo-free alternative without demanding a personal reason.\nIndependent table: permitted = two interview sentences without Maya's name in members' newsletter; pending = photos and full interview on public website. Explain both statuses in two sentences. Transfer: a member's request for individual survey answers exceeds agreed anonymous aggregate sharing; decline individual records, share the aggregate with the member, ask respondents about a specifically defined additional scope. This is fictional language mediation, not a legal ruling. No new grammar or estate disclosure."
+    },
+    {
+      "unitId": "B2.2-06",
+      "sha256": "1e4ea260a2dc0f9b3a2bd5002980e74d80ef53b92a1d37f60a8a3daf2d33759c",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Supported correction: start 18:20, finish 18:40, no recording; public release remains unresolved. Maya sends the template by Thursday; both send scope preferences by Friday. New box case: public sentence records only Maya→Lena on Monday; internal note keeps first user unknown and Maya's Friday loan-record check future. Script: 10:15 + 25 minutes = 10:40; members only initially, external publication undecided and Lena's objection retained; Maya sends template by Friday; next discussion date unset. Independent notice: 19:00 start agreed, duration not agreed (30 versus 20 minutes), both send possible end times tomorrow. Four-sentence transfer: 18 of 30 respondents want evening reading, not all members; one trial next month starts 18:00 and finishes before 19:00; Maya gathers feedback afterwards; weekly meetings remain for later discussion. Model preserves all five constraints and does not invent a fixed end time or majority of the whole membership. Smalltalk keeps confirmation while shortening readback. E05/E08 branches and E11 exclusions match source."
+    }
+  ],
+  "findings": [
+    {
+      "id": "EN-B22-01",
+      "unitId": "B2.2-01",
+      "severity": "required",
+      "location": "§5 가 새 예 ‘친구가 짧은 배치 메모를 보낼 수 있다’ → model ‘친구는 … 도와주겠다고 했어요’ / EN ‘My friend offered to help’",
+      "problem": "The fresh data establishes ability to send a brief note, not an actual offer or commitment. The model upgrades capability to a reported promise, contrary to this unit's proposal/agreement boundary; EN repeats the upgrade.",
+      "proposal": "Replace third model sentence with KO ‘친구는 짧은 메모로나마 배치를 도와줄 수 있어요.’ EN ‘My friend can help with the layout, even if only through a brief note.’ Align DE to capability (‘kann … helfen’) as well, without inventing an offer.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-B22-02",
+      "unitId": "B2.2-02",
+      "severity": "required",
+      "location": "§5 나 다른 예 EN ‘A friend cancels a weekend trip but promised …’ and first-person model",
+      "problem": "KO ‘취소해도’ leaves cancellation conditional; English presents it as an actual cancellation. The model then switches to first-person borrower without explicitly assigning the learner the friend's voice. This unit's main goal is to keep hypothesis and actual event separate.",
+      "proposal": "KO prompt: ‘친구가 주말 여행을 취소해도 당신에게 빌린 카메라는 월요일 돌려주기로 했다. 친구의 입장에서 여행 취소 가능성과 반환 약속을 구별하는 한 문장을 쓴다.’ EN: ‘Your friend has promised to return your camera on Monday even if the weekend trip is cancelled. Write one sentence from your friend’s perspective separating possible cancellation from the return commitment.’ Keep the conditional first-person model; align DE to a possible cancellation.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-B22-03",
+      "unitId": "B2.2-02",
+      "severity": "required",
+      "location": "§9 EN ‘Joy tilts his head’",
+      "problem": "Joy's sex is not established by the canon. The possessive adds gender absent from the Korean and contradicts the neutral handling requested in this review.",
+      "proposal": "Replace ‘Joy tilts his head:’ with ‘Joy tilts to one side:’ or ‘Joy looks puzzled:’. The former preserves the physical gesture without assigning gender.",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-B22-04",
+      "unitId": "B2.2-03",
+      "severity": "required",
+      "location": "§8 전이 model ‘준에게 두 시 반부터 기다리신다고 들었어요’ / EN ‘Jun said you’d wait from two thirty’",
+      "problem": "The supplied chain explicitly has Jun say ‘현아가 2시 30분에 온대요’ (coming at 2:30), while waiting from 2:30 is Hyuna's original message. The model silently attributes the restored original action to Jun. That is the source mixing this task is meant to teach learners to detect.",
+      "proposal": "Replace the four-sentence model with KO ‘준에게 두 시 반에 오신다고 들었는데, 원래 메시지에는 그때부터 입구에서 기다리신다고 되어 있네요. 공연은 세 시에 시작하는 거죠? 제가 어제 가 보니 입구가 두 개더군요. 어느 입구에서 만날까요?’ EN ‘Jun told me you were coming at two thirty, but your original message says you will be waiting at the entrance from then. The show starts at three, right? I visited yesterday and noticed two entrances. Which entrance shall we meet at?’ Align DE with the same explicit distinction; natural shorter alternatives preserving the two sources are valid.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

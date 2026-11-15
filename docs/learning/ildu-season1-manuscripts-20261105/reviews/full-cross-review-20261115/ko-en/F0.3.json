@@ -1,0 +1,150 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "F0.3.double-strokes",
+      "sha256": "220cb1f6ac97da085da6d198e5302f89c204edf33e99143d28b05683313a9276",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "F0.3.two-below",
+      "sha256": "3102761f409181dc9b1424d4770b4a101671a9a5fdf4ea296ee3f58909adf3b3",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "F0.3.air-one",
+      "sha256": "01b1a4f3096b87ca0864c4136e1d0dfa551b68a5d02394e30b341768532c468c",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-F03-03"
+      ]
+    },
+    {
+      "unitId": "F0.3.air-two",
+      "sha256": "6e59e3244675c2e16bf657a3bcb4149857ca4b96d4207f21ff4738a4187ce5ba",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "F0.3.firm-one",
+      "sha256": "d972c0ba9c4e0efa26726f63e62b769af0c2b64e3f383f9b731638db1fc508f1",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-F03-04"
+      ]
+    },
+    {
+      "unitId": "F0.3.firm-two",
+      "sha256": "ee97f924c5d35cd622453ab35c913f1227365f5dc08aeac66bba45a1ed3456e6",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "EN-F03-02"
+      ]
+    },
+    {
+      "unitId": "F0.3.near-vowels",
+      "sha256": "d0586c72b381ec7e963c014d9eef3081dc73a4abd16b198a46227166b406a500",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-F03-01"
+      ]
+    },
+    {
+      "unitId": "F0.3.corner-vowels",
+      "sha256": "b29b55296093107d56f627101d6e195770c759a2a2b2fbba7fbedf754fe63fbf",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "F0.3.round-corner",
+      "sha256": "d734c015f37c93c189d22d08de261a1dc54a2d180c1f51395f931dbb064434e0",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "F0.3.first-finals",
+      "sha256": "79c7ec4883859024c3d5fee0897bdb51c3db07cd7bbf98047a0644aac049d552",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "F0.3.silent-or-sounding",
+      "sha256": "6bb1eeec1af6909a15a3f8a087dbc97561774b6c7fda1a1e02cfd769dcb05260",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "EN-F03-01",
+      "unitId": "F0.3.near-vowels",
+      "severity": "required",
+      "location": "현대 듣기: Sujin: Yes, it’s a dog / 네, 개예요",
+      "problem": "The question concerns what the written label says; the EN/DE replies identify the pictured animal instead of confirming the inscription.",
+      "proposal": "EN: Sujin: ‘Yes, it says 개.’ She points to the label 개 beside the photo. DE: Sujin: ‘Ja, da steht 개.’ Sie zeigt auf das Schild 개 neben dem Foto. Keep KO and key A.",
+      "affectedLanguages": [
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-F03-02",
+      "unitId": "F0.3.firm-two",
+      "severity": "optional",
+      "location": "현대 듣기와 응답: two unopened seed photos / opens only the first photo",
+      "problem": "Unopened photos is unnatural for the physical-photo scene and can suggest unopened digital files or envelopes.",
+      "proposal": "Sujin and Christian have two seed photos in front of them that they have not looked at yet. They decide how to view them. Use ‘She shows only the first photo’, ‘Sujin puts down the first photo and shows the second’, and ‘Your partner shows the next photo or puts it down to pause.’",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-F03-03",
+      "unitId": "F0.3.air-one",
+      "severity": "required",
+      "location": "중문 앞의 얇은 종이: Joy holds a sheet of hanji in his beak",
+      "problem": "Masculine pronouns assign Joy a sex not fixed by canon.",
+      "proposal": "A sheet of hanji hangs from Joy’s beak, too close to Dokkaebi.",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-F03-04",
+      "unitId": "F0.3.firm-one",
+      "severity": "required",
+      "location": "목표와 장면: Joy quickly spreads his wings",
+      "problem": "Masculine pronouns assign Joy a sex not fixed by canon.",
+      "proposal": "Joy quickly spreads both wings.",
+      "affectedLanguages": [
+        "EN"
+      ]
+    }
+  ]
+}
