@@ -15,10 +15,13 @@ import 'package:ko_lernen_app/features/content_learning/content_lesson_screen.da
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/smalltalk.dart';
+import 'package:ko_lernen_app/models/smalltalk_context_case.dart';
+import 'package:ko_lernen_app/screens/smalltalk_context_screen.dart';
 import 'package:ko_lernen_app/services/audio_policy.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/smalltalk_loader.dart';
+import 'package:ko_lernen_app/services/smalltalk_context_catalog.dart';
 import 'package:ko_lernen_app/services/local_data_lifetime.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
@@ -173,6 +176,58 @@ void main() {
     await AudioPolicy.instance.setChannelOn(SoundChannel.companion, false);
     MascotPreference.load();
   });
+  testWidgets(
+    'linked Small Talk expression opens its authored scene and returns',
+    (tester) async {
+      const sourceId = 'smalltalk_a1_0059';
+      final cases = (await tester.runAsync(SmalltalkContextCatalog.load))!;
+      final linked = cases.singleWhere(
+        (scene) => scene.sourcePhraseIds.contains(sourceId),
+      );
+      final lessons = await ContentLearningCatalog.load(
+        LearningContentKind.smalltalk,
+      );
+      final lesson = lessons.singleWhere(
+        (lesson) => lesson.contentIds.contains(sourceId),
+      );
+      final position = lesson.contentIds.indexOf(sourceId);
+      await ContentLearningService.savePosition(
+        lesson,
+        ContentLessonPhase.learn,
+        position,
+      );
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: const Locale('de'),
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          supportedLocales: AppL10n.supportedLocales,
+          home: ContentLessonScreen(lesson: lesson, scope: [lesson]),
+          onGenerateRoute: (settings) {
+            expect(settings.name, '/smalltalk/context');
+            final request = settings.arguments! as SmalltalkContextRequest;
+            expect(request.caseId, linked.id);
+            expect(request.level, linked.level);
+            return MaterialPageRoute<void>(
+              settings: settings,
+              builder: (_) => SmalltalkContextScreen(
+                request: request,
+                loadCases: () async => cases,
+              ),
+            );
+          },
+        ),
+      );
+      final action = find.byKey(const ValueKey('smalltalk-linked-context'));
+      await tester.pumpAndSettle();
+      await _tap(tester, action);
+      final contextScreen = find.byType(SmalltalkContextScreen);
+      expect(contextScreen, findsOneWidget);
+      Navigator.of(tester.element(contextScreen)).pop();
+      await tester.pumpAndSettle();
+      expect(action, findsOneWidget);
+      expect(ContentLearningService.progress(lesson.id).position, position);
+    },
+  );
   testWidgets('goals are per level and read-only hub does not start a day', (
     tester,
   ) async {

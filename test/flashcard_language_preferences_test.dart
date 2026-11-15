@@ -314,7 +314,7 @@ void main() {
         siblingPacksLoader: (_) async => [pack],
       ),
     );
-    expect(find.text('Greetings & Politeness (1)'), findsOneWidget);
+    expect(find.text('Greetings & Politeness'), findsOneWidget);
     expect(find.text('[annyeonghaseyo]'), findsNothing);
     tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
     await tester.pumpAndSettle();

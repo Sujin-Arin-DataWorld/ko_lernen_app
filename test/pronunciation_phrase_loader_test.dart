@@ -17,6 +17,21 @@ void main() {
       final phrases = await PronunciationPhraseLoader.load();
 
       expect(PronunciationPhraseLoader.lastError, isNull);
+      for (final phrase in phrases) {
+        expect(phrase.localizedFocus('de'), isNotEmpty, reason: phrase.id);
+        expect(phrase.localizedFocus('en'), isNotEmpty, reason: phrase.id);
+      }
+      final request = phrases.firstWhere(
+        (phrase) => phrase.id == 'pronunciation_b1_0001',
+      );
+      expect(
+        request.localizedFocus('de'),
+        'Eine lange Bitte in Sinneinheiten gliedern.',
+      );
+      expect(
+        request.localizedFocus('en'),
+        'Break the long request into meaningful chunks.',
+      );
       final byId = {for (final phrase in phrases) phrase.id: phrase};
       expect(byId['pronunciation_a1_0001']?.ko, '안녕하세요');
       expect(byId['pronunciation_a1_0002']?.ko, '감사합니다');

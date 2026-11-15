@@ -32,6 +32,7 @@ class SoriStandardFrame extends StatelessWidget {
     this.showHome = true,
     this.cMaterial = false,
     this.cPaperBody = false,
+    this.jadeAppBar = false,
     this.headerBuilder,
   });
 
@@ -54,6 +55,7 @@ class SoriStandardFrame extends StatelessWidget {
   final bool showHome;
   final bool cMaterial;
   final bool cPaperBody;
+  final bool jadeAppBar;
   final PreferredSizeWidget Function(
     BuildContext context,
     Widget? leading,
@@ -63,6 +65,7 @@ class SoriStandardFrame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textScale = MediaQuery.textScalerOf(context).scale(1);
     final suppliedActions = actions ?? const <Widget>[];
     final hasHomeAction = suppliedActions.any((a) => a is SoriHomeAction);
     final effectiveActions = <Widget>[
@@ -92,8 +95,24 @@ class SoriStandardFrame extends StatelessWidget {
             actions: effectiveActions.isEmpty ? null : effectiveActions,
             leading: leading,
             automaticallyImplyLeading: automaticallyImplyLeading,
-            textScale: MediaQuery.textScalerOf(context).scale(1),
+            textScale: textScale,
             viewportWidth: MediaQuery.sizeOf(context).width,
+            appearance: jadeAppBar && textScale <= 1.35
+                ? const SoriAppBarAppearance(
+                    toolbarHeight: kToolbarHeight,
+                    centerTitle: false,
+                    foregroundColor: SoriCLearningTokens.paper,
+                    titleStyle: TextStyle(
+                      color: SoriCLearningTokens.paper,
+                      fontFamily: SoriCLearningFonts.heading,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 23,
+                    ),
+                    background: SoriCLearningBackground(
+                      child: SizedBox.expand(),
+                    ),
+                  )
+                : null,
           ),
       body: cMaterial
           ? SoriCLearningBackground(child: pageBody)

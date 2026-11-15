@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/screen_background.dart';
+import 'support/viewport_pages.dart';
 
 const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
 
@@ -115,9 +116,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.byType(SoriAppBar), findsOneWidget);
-    expect(find.byType(SoriScreenBackground), findsOneWidget);
-    _expectAdaptiveTitle(tester, 'Aussprache-Studio');
+    final header = tester.widget<Text>(find.text('Aussprache'));
+    expect(header.maxLines, 2);
 
     final screen = find.byType(PronunciationStudioScreen);
     final t = AppL10n.of(tester.element(screen));
@@ -125,16 +125,19 @@ void main() {
       tester.widget<PronunciationStudioScreen>(screen).cloudAssessmentEnabled,
       isFalse,
     );
-    final introText = tester.widget<Text>(find.text(t.pronunciationIntro));
+    final introText = tester.widget<Text>(find.text(t.pronunciationFocusH));
     expect(introText.maxLines, isNull);
     expect(introText.overflow, isNull);
 
-    final recordAction = find.widgetWithText(SoriButton, t.pronunciationRecord);
-    await _centerInScrollable(tester, recordAction);
+    final recordAction = find.widgetWithText(
+      SoriButton,
+      t.pronunciationRecordShort,
+    );
+    await showViewportSection(tester, recordAction);
     _expectButtonSemantics(tester, recordAction, t.pronunciationRecord);
 
-    final localHint = find.text(t.pronunciationLocalRecordingHint);
-    await _centerInScrollable(tester, localHint);
+    final localHint = find.text(t.pronunciationMaxDuration);
+    await showViewportSection(tester, localHint);
     final hintText = tester.widget<Text>(localHint);
     expect(hintText.maxLines, isNull);
     expect(hintText.overflow, isNull);
@@ -145,13 +148,16 @@ void main() {
 
     final continueAction = find.widgetWithText(
       SoriButton,
-      t.pronunciationContinueWithoutScore,
+      t.pronunciationNextSentence,
     );
-    await _centerInScrollable(tester, continueAction, delta: 240);
-    _expectButtonSemantics(
-      tester,
-      continueAction,
-      t.pronunciationContinueWithoutScore,
+    await showViewportSection(tester, continueAction);
+    _expectButtonSemantics(tester, continueAction, t.pronunciationNextSentence);
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is ScrollView && widget.scrollDirection == Axis.vertical,
+      ),
+      findsNothing,
     );
     expect(tester.takeException(), isNull);
     semantics.dispose();

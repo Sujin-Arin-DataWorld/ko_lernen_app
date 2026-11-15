@@ -40,7 +40,7 @@ void main() {
         find.byKey(const ValueKey('pronunciation-scoring-soon-notice')),
         findsOneWidget,
       );
-      expect(find.text(t.pronunciationScoringSoonTitle), findsOneWidget);
+      expect(find.text(t.pronunciationNoScoring), findsOneWidget);
       expect(find.text(t.pronunciationRequestScore), findsNothing);
     },
   );

@@ -1,6 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+import 'dart:ui' as ui;
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/pronunciation_phrase.dart';
@@ -9,12 +13,18 @@ import 'package:ko_lernen_app/screens/pronunciation_studio_screen.dart';
 import 'package:ko_lernen_app/services/pronunciation_assessment_client.dart';
 import 'package:ko_lernen_app/services/pronunciation_playback.dart';
 import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
+import 'package:ko_lernen_app/services/pronunciation_phrase_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'support/c_native_capture_assets.dart';
+import 'support/real_fonts.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
   setUp(() async {
     SoriSpeech.resetForTesting();
     SoriSpeech.stopImpl = () async {};
@@ -23,6 +33,247 @@ void main() {
     await Storage.init();
   });
   tearDown(SoriSpeech.resetForTesting);
+  testWidgets('paper practice surface stays legible in dark mode', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: ThemeData.dark(),
+        locale: const Locale('en'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: PronunciationStudioScreen(
+          phrases: _phrases,
+          recorder: _Recorder(),
+          playback: _Playback(),
+          gateway: _Gateway(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final focus = find.text('Pronunciation of ㅎ');
+    expect(focus, findsOneWidget);
+    expect(Theme.of(tester.element(focus)).brightness, Brightness.light);
+    expect(tester.takeException(), isNull);
+  });
+  testWidgets('background stops an active microphone', (tester) async {
+    final recorder = _Recorder();
+    await _mount(tester, recorder, _Gateway(), _Playback());
+    await _action(tester, 'pronunciation-record-action');
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.paused);
+    await _drain(tester);
+    expect(recorder.stops, 1);
+    expect(find.text('Stop recording'), findsNothing);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+  });
+  testWidgets('backgrounding during audio handoff releases the controls', (
+    tester,
+  ) async {
+    final playback = _Playback();
+    await _mount(tester, _Recorder(), _Gateway(), playback);
+    final release = playback.holdStop = Completer<void>();
+    final model = find.byKey(const ValueKey('pronunciation-model-action'));
+    var spoken = 0;
+    SoriSpeech.speakImpl = (text, voice) async {
+      spoken++;
+      return true;
+    };
+    await tester.tap(model);
+    await tester.pump();
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.paused);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
+    await tester.pump();
+    expect(_callback(tester, model), isNull);
+    release.complete();
+    playback.holdStop = null;
+    await tester.pumpAndSettle();
+    expect(spoken, 0);
+    await tester.tap(model);
+    await tester.pumpAndSettle();
+    expect(spoken, 1);
+  });
+  testWidgets('microphone denial preserves the practice screen', (
+    tester,
+  ) async {
+    final recorder = _Recorder(permission: false);
+    await _mount(tester, recorder, _Gateway(), _Playback());
+    await _action(tester, 'pronunciation-record-action');
+    expect(recorder.starts, 0);
+    expect(
+      find.textContaining('Microphone access was not granted'),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('pronunciation-model-action')),
+      findsOneWidget,
+    );
+  });
+  testWidgets(
+    'narrow large text and reduced motion keep the recording action reachable',
+    (tester) async {
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = const Size(320, 640);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      addTearDown(tester.view.resetPhysicalSize);
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: const Locale('en'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              textScaler: const TextScaler.linear(1.5),
+              disableAnimations: true,
+            ),
+            child: child!,
+          ),
+          home: PronunciationStudioScreen(
+            phrases: _phrases,
+            recorder: _Recorder(),
+            playback: _Playback(),
+            gateway: _Gateway(),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('pronunciation-record-action')),
+      );
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      await _action(tester, 'pronunciation-record-action');
+      expect(find.text('Stop recording'), findsOneWidget);
+    },
+  );
+  testWidgets(
+    'C2 reference and level selection render real localized content',
+    (tester) async {
+      final phrases = (await tester.runAsync(PronunciationPhraseLoader.load))!;
+      final reference = phrases.singleWhere(
+        (p) => p.id == 'pronunciation_c2_0016',
+      );
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = const bool.fromEnvironment('CAPTURE_402')
+          ? const Size(402, 874)
+          : const Size(430, 932);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      addTearDown(tester.view.resetPhysicalSize);
+      final captureKey = GlobalKey();
+      await tester.pumpWidget(
+        RepaintBoundary(
+          key: captureKey,
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            locale: const Locale('de'),
+            supportedLocales: AppL10n.supportedLocales,
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            home: PronunciationStudioScreen(
+              phrases: phrases,
+              initialPhraseId: reference.id,
+              recorder: _Recorder(),
+              playback: _Playback(),
+              gateway: _Gateway(),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(find.bySemanticsLabel(reference.ko), findsOneWidget);
+      final translation = find.byKey(
+        const ValueKey('pronunciation-translation'),
+      );
+      final germanText = tester.widget<Text>(translation);
+      if (const bool.fromEnvironment('CAPTURE_402')) {
+        expect(
+          germanText.data!.replaceAll(RegExp(r'\s+'), ' '),
+          reference.de.replaceAll(RegExp(r'\s+'), ' '),
+        );
+      } else {
+        expect(germanText.data, reference.deDisplay);
+        expect(germanText.data!.split('\n'), hasLength(5));
+      }
+      expect(germanText.semanticsLabel, reference.de);
+      expect(
+        find.text('Nach dem Bedingungssatz kurz pausieren.'),
+        findsOneWidget,
+      );
+      Future<void> capture(String name) async {
+        final boundary =
+            captureKey.currentContext!.findRenderObject()!
+                as RenderRepaintBoundary;
+        final geometry = {
+          for (final anchor in [
+            'pronunciation-translation',
+            'pronunciation-audio-panel',
+            'pronunciation-model-action',
+            'pronunciation-next-action',
+            'pronunciation-record-action',
+            'sori-image-navigation-bar',
+          ])
+            anchor: tester.getRect(find.byKey(ValueKey(anchor))),
+        };
+        final navigation = geometry['sori-image-navigation-bar']!;
+        final bottomAction = [
+          geometry['pronunciation-next-action']!.bottom,
+          geometry['pronunciation-record-action']!.bottom,
+        ].reduce((a, b) => a > b ? a : b);
+        expect(navigation.top - bottomAction, greaterThanOrEqualTo(16));
+        expect(
+          geometry['pronunciation-model-action']!.size.shortestSide,
+          greaterThanOrEqualTo(48),
+        );
+        const directory = String.fromEnvironment(
+          'PRONUNCIATION_CAPTURE_DIR',
+          defaultValue: '.',
+        );
+        boundary.markNeedsPaint();
+        await tester.pump();
+        await tester.runAsync(() async {
+          final image = await boundary.toImage(pixelRatio: 1);
+          final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
+          await File(
+            '$directory/$name',
+          ).writeAsBytes(bytes!.buffer.asUint8List());
+          await File('$directory/$name.geometry.json').writeAsString(
+            jsonEncode({
+              for (final entry in geometry.entries)
+                entry.key: [
+                  entry.value.left,
+                  entry.value.top,
+                  entry.value.width,
+                  entry.value.height,
+                ],
+            }),
+          );
+          image.dispose();
+        });
+      }
+
+      if (const bool.fromEnvironment('CAPTURE_PRONUNCIATION')) {
+        await settleCNativeCaptureAssets(tester);
+        await capture('flutter-pronunciation-ready.png');
+      }
+      await _capture(tester);
+      if (const bool.fromEnvironment('CAPTURE_PRONUNCIATION')) {
+        await settleCNativeCaptureAssets(tester);
+        await capture('flutter-pronunciation-compare.png');
+      }
+      await tester.tap(find.byKey(const ValueKey('pronunciation-level')));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('A1').last);
+      await tester.pumpAndSettle();
+      expect(
+        find.bySemanticsLabel(
+          phrases.firstWhere((p) => p.level == LearnerLevel.a1).ko,
+        ),
+        findsOneWidget,
+      );
+      expect(find.bySemanticsLabel(reference.ko), findsNothing);
+      expect(tester.takeException(), isNull);
+    },
+  );
   testWidgets('default local recording needs no remote voice consent', (
     tester,
   ) async {
@@ -117,9 +368,10 @@ void main() {
     await _capture(tester);
     await _action(tester, 'pronunciation-replay-action');
     final release = playback.holdStop = Completer<void>();
-    tester
-        .widget<SoriSpeechIndicator>(find.byType(SoriSpeechIndicator))
-        .onTap!();
+    _callback(
+      tester,
+      find.byKey(const ValueKey('pronunciation-model-action')),
+    )!();
     await tester.pump();
     expect(starts, 0);
     release.complete();
@@ -137,9 +389,7 @@ void main() {
     SoriSpeech.stopImpl = () => release.future;
     await _action(tester, 'pronunciation-replay-action');
     tester
-        .widget<SoriButton>(
-          find.widgetWithText(SoriButton, 'Continue without a score'),
-        )
+        .widget<SoriButton>(find.widgetWithText(SoriButton, 'Next sentence'))
         .onTap!();
     await tester.pump();
     expect(find.text('감사합니다'), findsOneWidget);
@@ -189,7 +439,7 @@ const _phrases = [
     ko: '안녕하세요',
     de: 'Guten Tag.',
     en: 'Hello.',
-    focus: 'ㅎ',
+    focus: 'ㅎ 발음',
   ),
   PronunciationPhrase(
     id: 'local-a2',
@@ -237,8 +487,16 @@ Future<void> _mount(
   await tester.pumpAndSettle();
 }
 
+VoidCallback? _callback(WidgetTester tester, Finder target) => switch (tester
+    .widget(target)) {
+  SoriButton(:final onTap) => onTap,
+  SoriPressable(:final onTap) => onTap,
+  IconButton(:final onPressed) => onPressed,
+  final widget => throw StateError('Unexpected pronunciation control: $widget'),
+};
+
 Future<void> _action(WidgetTester tester, String key) async {
-  tester.widget<SoriButton>(find.byKey(ValueKey(key))).onTap!();
+  _callback(tester, find.byKey(ValueKey(key)))!();
   await tester.pump();
   await tester.pump();
 }
@@ -254,14 +512,20 @@ Future<void> _capture(WidgetTester tester) async {
   await _action(tester, 'pronunciation-record-action');
   await _action(tester, 'pronunciation-record-action');
   await _drain(tester);
-  expect(find.text('Listen to my recording'), findsOneWidget);
+  expect(
+    find.byKey(const ValueKey('pronunciation-replay-action')),
+    findsOneWidget,
+  );
 }
 
 class _Recorder implements PronunciationRecorder {
+  _Recorder({this.permission = true});
+  final bool permission;
   int starts = 0;
+  int stops = 0;
   StreamController<Uint8List>? stream;
   @override
-  Future<bool> requestPermission() async => true;
+  Future<bool> requestPermission() async => permission;
   @override
   Future<Stream<Uint8List>> startPcm16Stream() async {
     starts++;
@@ -272,6 +536,7 @@ class _Recorder implements PronunciationRecorder {
 
   @override
   Future<void> stop() async {
+    stops++;
     await stream?.close();
   }
 

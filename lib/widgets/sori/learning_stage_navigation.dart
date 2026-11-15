@@ -5,6 +5,9 @@ import 'approved_chrome_assets.dart';
 import '../../screens/app_shell.dart';
 import 'adaptive_navigation.dart';
 import 'home_action.dart';
+import 'image_navigation_bar.dart';
+
+export 'image_navigation_bar.dart' show SoriLearningNavStyle;
 
 /// Reuses the real shell destinations for the approved mobile learning book.
 /// The existing shell owns state and refresh; this never creates a second shell.
@@ -12,6 +15,8 @@ class SoriLearningStageNavigation extends StatelessWidget {
   const SoriLearningStageNavigation({
     super.key,
     this.woodenSurface = false,
+    this.expandedArtwork = false,
+    this.learningStyle,
     this.escape = const SoriHomeEscape(),
     this.onLeave,
     this.canLeave,
@@ -19,6 +24,8 @@ class SoriLearningStageNavigation extends StatelessWidget {
     this.onDestinationSelected,
   });
   final bool woodenSurface;
+  final bool expandedArtwork;
+  final SoriLearningNavStyle? learningStyle;
   final SoriHomeEscape escape;
   final VoidCallback? onLeave;
   final bool Function()? canLeave;
@@ -41,6 +48,8 @@ class SoriLearningStageNavigation extends StatelessWidget {
       children: [
         SoriAdaptiveNavigation(
           selectedIndex: 1,
+          expandedArtwork: expandedArtwork,
+          learningStyle: learningStyle,
           onDestinationSelected: (index) async {
             if (!enabled || canLeave?.call() == false) {
               return;

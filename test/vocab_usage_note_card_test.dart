@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -57,8 +58,10 @@ void _mockUsageNotesAsset() {
         'level': 'B1',
         'nuance': {
           'ko': '테스트 뉘앙스입니다.',
-          'de': 'Test-Nuance auf Deutsch, die auch bei starker Textskalierung nicht überläuft.',
-          'en': 'Test nuance in English, long enough to check wrapping under a large text scale.',
+          'de':
+              'Test-Nuance auf Deutsch, die auch bei starker Textskalierung nicht überläuft.',
+          'en':
+              'Test nuance in English, long enough to check wrapping under a large text scale.',
         },
         'situation': {
           'ko': '테스트 상황입니다.',
@@ -103,7 +106,10 @@ void _mockUsageNotesAsset() {
       .setMockMessageHandler('flutter/assets', (message) async {
         final asset = const StringCodec().decodeMessage(message);
         if (asset != 'assets/data/usage_notes.json') {
-          return null;
+          final realAsset = File('build/unit_test_assets/$asset');
+          return realAsset.existsSync()
+              ? ByteData.sublistView(realAsset.readAsBytesSync())
+              : null;
         }
         return ByteData.sublistView(Uint8List.fromList(utf8.encode(payload)));
       });
@@ -192,7 +198,7 @@ void main() {
       final t = await AppL10n.delegate.load(const Locale('de'));
       // 접힌 기본 상태: 헤더는 보이지만 본문/재생 버튼은 아직 없다.
       expect(find.text(t.usageNoteTitle), findsOneWidget);
-      expect(find.byType(SoriSpeechIndicator), findsNothing);
+      expect(find.byType(SoriSpeechIndicator), findsOneWidget);
       expect(find.text(t.usageNoteExamples), findsNothing);
 
       await _expandUsageNoteSection(tester);
@@ -207,7 +213,7 @@ void main() {
       expect(find.text('예문 하나 KO'), findsOneWidget);
       expect(find.text('예문 둘 KO'), findsOneWidget);
       // 예문마다 재생 버튼 1개 (기존 example-audio 위젯 재사용).
-      expect(find.byType(SoriSpeechIndicator), findsNWidgets(2));
+      expect(find.byType(SoriSpeechIndicator), findsNWidgets(3));
       expect(tester.takeException(), isNull);
     },
   );
@@ -242,7 +248,7 @@ void main() {
     final t = await AppL10n.delegate.load(const Locale('de'));
     expect(find.text('Grundwort'), findsOneWidget);
     expect(find.text(t.usageNoteTitle), findsNothing);
-    expect(find.byType(SoriSpeechIndicator), findsNothing);
+    expect(find.byType(SoriSpeechIndicator), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 
