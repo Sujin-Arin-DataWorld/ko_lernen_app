@@ -175,7 +175,6 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
   static const _levelHeaderGap = 16.0;
   static const _searchInset = 2.0;
   static const _inlineGap = 6.0;
-  static const _packActionGap = 11.0;
   bool get _shortViewport => MediaQuery.sizeOf(context).height < 900;
   final _search = TextEditingController();
   LearnerLevel? _level;
@@ -278,6 +277,14 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
     final all = _byLevel();
     final query = _search.text.trim().toLowerCase();
     final packs = level == null ? widget.packs : all[level]!;
+    final selected = level == null ? null : _selectedPack(level, packs);
+    final keyboard = MediaQuery.viewInsetsOf(context).bottom > 0;
+    final compactActions = MediaQuery.textScalerOf(context).scale(16) > 22;
+    final openLabel = selected == null
+        ? null
+        : t.wortpaketeOpenNumberedPack(
+            selected.$1.packs.indexOf(selected.$2) + 1,
+          );
     final normalHeader = MediaQuery.textScalerOf(context).scale(23) <= 32;
     final toolbarHeight = normalHeader ? 48.0 : 78.0;
     return PopScope(
@@ -358,41 +365,53 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
                   15,
                   0,
                 ),
-                child: SoriViewportPages(
-                  key: ValueKey(level),
-                  sections: [
-                    if (MediaQuery.viewInsetsOf(context).bottom == 0)
-                      if (level == null)
-                        _overviewHeader(t)
-                      else ...[
-                        _levelHeader(t, level, packs),
-                        SizedBox(height: _shortViewport ? 8 : _levelHeaderGap),
-                        _levelTabs(level),
-                      ],
-                    if (MediaQuery.viewInsetsOf(context).bottom == 0)
-                      SizedBox(
-                        height: level == null ? 27 : (_shortViewport ? 6 : 14),
-                      ),
+                child: Column(
+                  children: [
                     Padding(
-                      key: const ValueKey('wortpakete-search-section'),
                       padding: const EdgeInsets.symmetric(
                         horizontal: _searchInset,
                       ),
                       child: _searchField(t, level),
                     ),
-                    SizedBox(
-                      height: level == null ? 20 : (_shortViewport ? 5 : 10),
-                    ),
-                    if (query.isNotEmpty)
-                      ..._searchResults(t, packs, query)
-                    else if (level == null) ...[
-                      ..._levels(t, all),
-                      TextButton(
-                        onPressed: widget.onDojang,
-                        child: Text(t.dojangTitle),
+                    const SizedBox(height: 6),
+                    Expanded(
+                      child: SoriViewportPages(
+                        key: ValueKey((level, query)),
+                        sections: [
+                          if (query.isNotEmpty)
+                            ..._searchResults(t, packs, query)
+                          else if (level == null) ...[
+                            if (!keyboard) _overviewHeader(t),
+                            ..._levels(t, all),
+                            TextButton(
+                              onPressed: widget.onDojang,
+                              child: Text(t.dojangTitle),
+                            ),
+                          ] else ...[
+                            if (!keyboard) ...[
+                              _levelTabs(level),
+                              SizedBox(
+                                height: _shortViewport ? 6 : _levelHeaderGap,
+                              ),
+                              _levelHeader(t, level, packs),
+                            ],
+                            ..._detail(t, level, packs),
+                          ],
+                        ],
                       ),
-                    ] else
-                      ..._detail(t, level, packs),
+                    ),
+                    if (selected != null && query.isEmpty && !keyboard)
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(2, 4, 2, 16),
+                        child: _goldAction(
+                          compactActions
+                              ? t.scenarioNextRecommendedCta
+                              : openLabel!,
+                          () => widget.onPack(selected.$2),
+                          semanticLabel: openLabel,
+                          fontSize: compactActions ? 16 : 23,
+                        ),
+                      ),
                   ],
                 ),
               ),
@@ -602,6 +621,27 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
     },
   );
 
+  (_PackTopic, VocabPack)? _selectedPack(
+    LearnerLevel level,
+    List<VocabPack> packs,
+  ) {
+    final topics = _topics(packs);
+    if (topics.isEmpty) return null;
+    final featured = _featuredTopics[level.index];
+    final selected =
+        topics.where((topic) => topic.id == _topicId).firstOrNull ??
+        featured
+            .expand(
+              (feature) => topics.where((topic) => topic.id == feature.id),
+            )
+            .firstOrNull ??
+        topics.first;
+    final pack =
+        selected.packs.where((item) => item.id == _packId).firstOrNull ??
+        selected.packs.first;
+    return (selected, pack);
+  }
+
   List<Widget> _detail(AppL10n t, LearnerLevel level, List<VocabPack> packs) {
     final topics = _topics(packs);
     if (topics.isEmpty) {
@@ -621,13 +661,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
         featured.add((topic, index));
       }
     }
-    final selected =
-        topics.where((e) => e.id == _topicId).firstOrNull ??
-        featured.firstOrNull?.$1 ??
-        topics.first;
-    final pack =
-        selected.packs.where((p) => p.id == _packId).firstOrNull ??
-        selected.packs.first;
+    final (selected, pack) = _selectedPack(level, packs)!;
     final columns =
         MediaQuery.sizeOf(context).width - 30 >=
                 SoriAdaptiveWidth.wortpaketeTopicGrid &&
@@ -635,26 +669,38 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
             _lang(context) == 'de'
         ? 2
         : 1;
+    final largeText = MediaQuery.textScalerOf(context).scale(16) > 22;
+    final heading = Text(
+      t.wortpaketeTopics,
+      style: _type(24, weight: FontWeight.w700),
+    );
+    final allTopicsLabel = Text(
+      t.wortpaketeAllTopicsCount(topics.length),
+      textAlign: TextAlign.center,
+      style: _type(16, weight: FontWeight.w700),
+    );
     return [
-      Row(
-        children: [
-          Expanded(
-            child: Text(
-              t.wortpaketeTopics,
-              style: _type(24, weight: FontWeight.w700),
+      if (largeText) ...[
+        heading,
+        TextButton(
+          style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+          onPressed: () => _pickTopic(t, level, topics),
+          child: allTopicsLabel,
+        ),
+      ] else
+        Row(
+          children: [
+            Expanded(child: heading),
+            Flexible(
+              child: TextButton.icon(
+                label: allTopicsLabel,
+                icon: const Icon(Icons.arrow_forward),
+                iconAlignment: IconAlignment.end,
+                onPressed: () => _pickTopic(t, level, topics),
+              ),
             ),
-          ),
-          TextButton.icon(
-            onPressed: () => _pickTopic(t, level, topics),
-            label: Text(
-              t.wortpaketeAllTopicsCount(topics.length),
-              style: _type(16, weight: FontWeight.w700),
-            ),
-            icon: const Icon(Icons.arrow_forward),
-            iconAlignment: IconAlignment.end,
-          ),
-        ],
-      ),
+          ],
+        ),
       SizedBox(height: _shortViewport ? 3 : _inlineGap),
       for (var first = 0; first < featured.length; first += columns) ...[
         if (first > 0) const SizedBox(height: 8),
@@ -683,79 +729,77 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
         ),
       ],
       SizedBox(height: _shortViewport ? 8 : 16),
-      Row(
-        children: [
-          const SizedBox(
-            width: 5,
-            height: 23,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: _jade,
-                borderRadius: BorderRadius.all(Radius.circular(3)),
+      if (largeText) ...[
+        Text(
+          _topicName(selected, short: true),
+          style: _type(21, weight: FontWeight.w700),
+        ),
+        Text(t.wortpaketePacks(selected.packs.length), style: _type(15)),
+      ] else
+        Row(
+          children: [
+            const SizedBox(
+              width: 5,
+              height: 23,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: _jade,
+                  borderRadius: BorderRadius.all(Radius.circular(3)),
+                ),
               ),
             ),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Text(
-              _topicName(selected, short: true),
-              style: _type(21, weight: FontWeight.w700),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                _topicName(selected, short: true),
+                style: _type(21, weight: FontWeight.w700),
+              ),
             ),
-          ),
-          Text(t.wortpaketePacks(selected.packs.length), style: _type(15)),
-        ],
-      ),
+            Text(t.wortpaketePacks(selected.packs.length), style: _type(15)),
+          ],
+        ),
       const SizedBox(height: 8),
-      LayoutBuilder(
-        builder: (context, constraints) => Wrap(
-          spacing: 2,
-          runSpacing: 4,
-          children: [
-            for (final (index, item) in selected.packs.indexed)
-              Semantics(
-                selected: item.id == pack.id,
-                button: true,
-                child: SizedBox(
-                  width:
-                      selected.packs.length <= 2 &&
-                          constraints.maxWidth >=
-                              SoriAdaptiveWidth.wortpaketeTopicGrid &&
-                          MediaQuery.textScalerOf(context).scale(1) <= 1.15
-                      ? (constraints.maxWidth -
-                                2 * (selected.packs.length - 1)) /
-                            selected.packs.length
-                      : null,
-                  child: OutlinedButton(
-                    key: ValueKey('wortpakete-select-${item.id}'),
-                    style: OutlinedButton.styleFrom(
-                      backgroundColor: item.id == pack.id ? _jade : _paper,
-                      foregroundColor: item.id == pack.id ? _paper : _ink,
-                      minimumSize: const Size.fromHeight(40),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(9),
+      for (var start = 0; start < selected.packs.length; start += columns)
+        Padding(
+          padding: const EdgeInsets.only(bottom: 4),
+          child: Row(
+            children: [
+              for (final (offset, item)
+                  in selected.packs.skip(start).take(columns).indexed) ...[
+                if (offset > 0) const SizedBox(width: 6),
+                Expanded(
+                  child: Semantics(
+                    selected: item.id == pack.id,
+                    button: true,
+                    child: OutlinedButton(
+                      key: ValueKey('wortpakete-select-${item.id}'),
+                      style: OutlinedButton.styleFrom(
+                        backgroundColor: item.id == pack.id ? _jade : _paper,
+                        foregroundColor: item.id == pack.id ? _paper : _ink,
+                        minimumSize: const Size.fromHeight(48),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(9),
+                        ),
+                        textStyle: _type(17, weight: FontWeight.w700),
                       ),
-                      textStyle: _type(17, weight: FontWeight.w700),
-                    ),
-                    onPressed: () => setState(() => _packId = item.id),
-                    child: Text(
-                      '${t.wortpaketePackNumber(index + 1)} · ${t.wortpaketeWords(item.words.length)}',
+                      onPressed: () => setState(() => _packId = item.id),
+                      child: Text(
+                        '${t.wortpaketePackNumber(start + offset + 1)} · ${t.wortpaketeWords(item.words.length)}',
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ),
-              ),
-          ],
+              ],
+              if (columns == 2 && selected.packs.length - start == 1) ...[
+                const SizedBox(width: 6),
+                const Spacer(),
+              ],
+            ],
+          ),
         ),
-      ),
       SizedBox(height: _shortViewport ? 7 : 12),
       _preview(t, selected, pack),
-      SizedBox(height: _shortViewport ? 8 : _packActionGap),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 2),
-        child: _goldAction(
-          t.wortpaketeOpenNumberedPack(selected.packs.indexOf(pack) + 1),
-          () => widget.onPack(pack),
-        ),
-      ),
     ];
   }
 
@@ -798,7 +842,21 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
     final titleStyle = _type(18, weight: FontWeight.w700);
     final exampleStyle = _type(15, weight: FontWeight.w700, korean: true);
     final cardHeight = level.index >= 4 ? 150.0 : 123.0;
-    final cardBody = compact
+    final largeText = MediaQuery.textScalerOf(context).scale(16) > 22;
+    final cardBody = largeText
+        ? Container(
+            constraints: const BoxConstraints(minHeight: 48),
+            padding: const EdgeInsets.all(12),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(title, style: titleStyle.copyWith(fontSize: 16)),
+                ),
+                if (selected) const Icon(Icons.check, size: 19, color: _jade),
+              ],
+            ),
+          )
+        : compact
         ? SizedBox(
             height: cardHeight,
             child: LayoutBuilder(
@@ -996,6 +1054,7 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
   }
 
   Widget _preview(AppL10n t, _PackTopic topic, VocabPack pack) {
+    final largeText = MediaQuery.textScalerOf(context).scale(16) > 22;
     final progress = PackProgressService.getAll()[pack.id];
     final goal = topic.id == 'a1_greetings'
         ? t.wortpaketeGreetingPackGoal
@@ -1008,7 +1067,9 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
             child: LernenGeneratedArt(name: 'folio-preview', fit: BoxFit.fill),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(50, 13, 13, 19),
+            padding: largeText
+                ? const EdgeInsets.all(12)
+                : const EdgeInsets.fromLTRB(50, 13, 13, 19),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -1038,11 +1099,12 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  width: 76,
-                  height: 64,
-                  child: LernenGeneratedArt(name: 'jade-book'),
-                ),
+                if (!largeText)
+                  const SizedBox(
+                    width: 76,
+                    height: 64,
+                    child: LernenGeneratedArt(name: 'jade-book'),
+                  ),
               ],
             ),
           ),
@@ -1054,7 +1116,12 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
   String _examples(VocabPack pack) =>
       pack.words.take(2).map((word) => word.korean).join(' · ');
 
-  Widget _goldAction(String label, VoidCallback action) => Semantics(
+  Widget _goldAction(
+    String label,
+    VoidCallback action, {
+    String? semanticLabel,
+    double fontSize = 23,
+  }) => Semantics(
     button: true,
     child: SoriPressable(
       key: const ValueKey('wortpakete-open-pack'),
@@ -1084,10 +1151,9 @@ class _WortpaketeCatalogState extends State<_WortpaketeCatalog> {
             alignment: Alignment.center,
             child: Text(
               label,
+              semanticsLabel: semanticLabel,
               textAlign: TextAlign.center,
-              style: _type(21, weight: FontWeight.w700).copyWith(
-                fontFamily: _lang(context) == 'de' ? SoriFonts.korean : null,
-              ),
+              style: _type(fontSize, weight: FontWeight.w700),
             ),
           ),
         ],

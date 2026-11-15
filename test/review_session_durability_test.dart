@@ -14,7 +14,7 @@ import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
-import 'package:ko_lernen_app/widgets/app_error.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'support/reward_preferences_platform.dart';
@@ -53,12 +53,12 @@ void main() {
       await _flip(tester);
       _feed(tester).onNext!();
       await _settleTransition(tester);
-      expect(find.byType(AppError), findsOneWidget);
+      expect(_saveStatus, findsOneWidget);
       expect(find.text('+2 XP'), findsNothing);
       expect(Storage.xp, 0);
       expect(Storage.srsCard('학교')?.reviewCount ?? 0, 0);
       platform.rejectKey = null;
-      tester.widget<AppError>(find.byType(AppError)).onRetry!();
+      _resultAction(tester).onTap!();
       await _settleTransition(tester);
       expect(find.text('+2 XP'), findsOneWidget);
       expect(Storage.xp, 2);
@@ -75,18 +75,18 @@ void main() {
     _feed(tester).onHard!();
     await _settleTransition(tester);
 
-    expect(find.byType(AppError), findsOneWidget);
+    expect(_saveStatus, findsOneWidget);
     expect(Storage.srsCard('학교')?.reviewCount, 1);
     expect(Storage.wrongCountOf('학교'), 0);
     expect(Storage.xp, 0);
 
     platform.rejectKey = null;
-    final retry = tester.widget<AppError>(find.byType(AppError)).onRetry!;
+    final retry = _resultAction(tester).onTap!;
     retry();
     retry();
     await _settleTransition(tester);
 
-    expect(find.byType(AppError), findsNothing);
+    expect(_saveStatus, findsNothing);
     expect(Storage.srsCard('학교')?.reviewCount, 1);
     expect(Storage.wrongCountOf('학교'), 1);
     expect(platform.writes['kl_wrong_count_v1'], 2);
@@ -106,13 +106,19 @@ void main() {
           await _flip(tester);
           _feed(tester).onNext!();
           await _settleTransition(tester);
-          expect(find.byType(AppError), findsOneWidget);
+          expect(_saveStatus, findsOneWidget);
           expect(find.text('+2 XP'), findsNothing);
-          final error = tester.widget<AppError>(find.byType(AppError));
-          expect(error.messageLiveRegion, isTrue);
-          error.onRetry!();
+          final error = _resultAction(tester);
+          final status = tester.widgetList<Semantics>(
+            find.descendant(of: _saveStatus, matching: find.byType(Semantics)),
+          );
+          expect(
+            status.any((node) => node.properties.liveRegion == true),
+            isTrue,
+          );
+          error.onTap!();
           await _settleTransition(tester);
-          expect(find.byType(AppError), findsOneWidget);
+          expect(_saveStatus, findsOneWidget);
           expect(
             platform.writes[key],
             1,
@@ -121,14 +127,14 @@ void main() {
           platform
             ..unavailable = false
             ..rejectKey = null;
-          tester.widget<AppError>(find.byType(AppError)).onRetry!();
+          _resultAction(tester).onTap!();
           await _settleTransition(tester);
           expect(find.text('+2 XP'), findsOneWidget);
           expect(Storage.srsCard('학교')?.reviewCount, 1);
           expect(Storage.xp, 2);
           expect(Storage.xpToday, 2);
           // Even a retained accessibility callback cannot pay again.
-          error.onRetry!();
+          error.onTap!();
           await _settleTransition(tester);
           expect(Storage.xp, 2);
         },
@@ -150,7 +156,7 @@ void main() {
       await _flip(tester);
       _feed(tester).onNext!();
       await _settleTransition(tester);
-      expect(find.byType(AppError), findsOneWidget);
+      expect(_saveStatus, findsOneWidget);
       expect(find.text('+2 XP'), findsNothing);
       expect(
         Storage.srsCard('학교')?.reviewCount,
@@ -159,7 +165,7 @@ void main() {
       expect(jsonDecode(platform.values['kl_srs_v1']! as String)['학교']['r'], 1);
       expect(Storage.xp, 0);
       platform.rejectKey = null;
-      tester.widget<AppError>(find.byType(AppError)).onRetry!();
+      _resultAction(tester).onTap!();
       await _settleTransition(tester);
       expect(Storage.srsCard('학교')?.reviewCount, 1);
       expect(Storage.studyLogIdsFor(Storage.todayIso()), ['학교']);
@@ -232,9 +238,9 @@ void main() {
       if (reset != null) {
         await reset;
         await _settleTransition(tester);
-        final error = tester.widget<AppError>(find.byType(AppError));
+        final error = _resultAction(tester);
         final t = AppL10n.of(tester.element(find.byType(ReviewSessionScreen)));
-        expect(error.retryLabel, t.btnClose);
+        expect(error.label, t.btnClose);
         expect(Storage.srsCard('학교'), isNull);
       }
       expect(find.text('+2 XP'), findsNothing);
@@ -309,10 +315,10 @@ void main() {
     await _flip(tester);
     _feed(tester).onHard!();
     await _settleTransition(tester);
-    expect(find.byType(AppError), findsOneWidget);
+    expect(_saveStatus, findsOneWidget);
     expect(Storage.wrongCountOf('학교'), 2);
     platform.rejectKey = null;
-    tester.widget<AppError>(find.byType(AppError)).onRetry!();
+    _resultAction(tester).onTap!();
     await _settleTransition(tester);
     expect(Storage.wrongCountOf('학교'), 2);
     expect(Storage.srsCard('학교')?.reviewCount, 1);
@@ -405,3 +411,9 @@ const _deck = <Vocab>[
     topic: 'Bildung',
   ),
 ];
+
+final _saveStatus = find.byKey(const ValueKey('review-session-status'));
+
+SoriButton _resultAction(WidgetTester tester) => tester.widget<SoriButton>(
+  find.byKey(const ValueKey('review-session-result-action')),
+);

@@ -5,6 +5,8 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import 'support/sori_viewport_page.dart';
 import 'package:ko_lernen_app/data/sori_activity_catalog.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
@@ -16,7 +18,6 @@ import 'package:ko_lernen_app/widgets/sori/learning_stage_navigation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'support/real_fonts.dart';
 import 'support/c_native_capture_assets.dart';
-import 'support/viewport_pages.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -59,12 +60,13 @@ void main() {
     expect(tester.widget<CheckboxListTile>(first).value, isFalse);
     expect(tester.widget<CheckboxListTile>(second).value, isFalse);
 
+    await showSoriViewportSection(tester, first);
     await tester.tap(first);
     await tester.pump();
-    await showViewportSection(tester, second);
+    await showSoriViewportSection(tester, second);
     await tester.tap(second);
     await tester.pumpAndSettle();
-    await showViewportSection(
+    await showSoriViewportSection(
       tester,
       find.byKey(const Key('review-hub-start-selected')),
     );
@@ -83,17 +85,17 @@ void main() {
   ) async {
     await _pumpHub(tester);
     final start = find.byKey(const Key('review-hub-start-selected'));
-    await showViewportSection(tester, start);
+    await showSoriViewportSection(tester, start);
     expect(tester.widget<TextButton>(start).onPressed, isNull);
-    await showViewportSection(tester, find.text('Alle auswählen'));
+    await showSoriViewportSection(tester, find.text('Alle auswählen'));
     await tester.tap(find.text('Alle auswählen'));
     await tester.pump();
-    await showViewportSection(tester, start);
+    await showSoriViewportSection(tester, start);
     expect(tester.widget<TextButton>(start).onPressed, isNotNull);
-    await showViewportSection(tester, find.text('Auswahl aufheben'));
+    await showSoriViewportSection(tester, find.text('Auswahl aufheben'));
     await tester.tap(find.text('Auswahl aufheben'));
     await tester.pump();
-    await showViewportSection(tester, start);
+    await showSoriViewportSection(tester, start);
     expect(tester.widget<TextButton>(start).onPressed, isNull);
   });
 
@@ -193,12 +195,13 @@ void main() {
     );
     await tester.tap(find.text('Nach Themen'));
     await tester.pumpAndSettle();
-    await showViewportSection(
+    await showSoriViewportSection(
       tester,
       find.byKey(const Key('review-own-words')),
     );
     await tester.tap(find.byKey(const Key('review-own-words')));
     await tester.pumpAndSettle();
+    await showSoriViewportSection(tester, find.text('Weitere Wörter'));
     await tester.tap(find.text('Weitere Wörter'));
     await tester.pumpAndSettle();
     expect(find.text('책갈피'), findsOneWidget);
@@ -207,10 +210,14 @@ void main() {
 
   testWidgets('selected real deck is passed to the session', (tester) async {
     await _pumpHub(tester);
+    await showSoriViewportSection(
+      tester,
+      find.byKey(const Key('review-hub-select-안녕')),
+    );
     await tester.tap(find.byKey(const Key('review-hub-select-안녕')));
     await tester.pumpAndSettle();
     final start = find.byKey(const Key('review-hub-start-selected'));
-    await showViewportSection(tester, start);
+    await showSoriViewportSection(tester, start);
     await tester.tap(start);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
@@ -290,7 +297,7 @@ void main() {
   ) async {
     await _pumpHub(tester);
 
-    await showViewportSection(
+    await showSoriViewportSection(
       tester,
       find.byKey(const Key('review-hub-calendar')),
     );
@@ -313,7 +320,7 @@ void main() {
     await _pumpHub(tester);
 
     final action = find.byKey(const Key('review-hub-calendar'));
-    await showViewportSection(tester, action);
+    await showSoriViewportSection(tester, action);
     expect(tester.widget<OutlinedButton>(action).onPressed, isNotNull);
     await tester.tap(action);
     await tester.pump();
@@ -330,7 +337,7 @@ void main() {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('kl_study_log_v1_$todayIso');
     await _pumpHub(tester);
-    await showViewportSection(tester, action);
+    await showSoriViewportSection(tester, action);
     expect(tester.widget<OutlinedButton>(action).onPressed, isNull);
   });
 
@@ -349,7 +356,7 @@ void main() {
 
     completer.complete(_reviewableWords);
     await tester.pumpAndSettle();
-    await showViewportSection(tester, action);
+    await showSoriViewportSection(tester, action);
     expect(tester.widget<OutlinedButton>(action).onPressed, isNotNull);
   });
 
@@ -365,12 +372,12 @@ void main() {
 
     final first = find.byKey(const Key('review-hub-select-안녕'));
     final start = find.byKey(const Key('review-hub-start-selected'));
-    await showViewportSection(tester, first);
+    await showSoriViewportSection(tester, first);
     expect(
       tester.getSize(first).height,
       greaterThanOrEqualTo(kMinInteractiveDimension),
     );
-    await showViewportSection(tester, start);
+    await showSoriViewportSection(tester, start);
     expect(
       tester.getSize(start).height,
       greaterThanOrEqualTo(kMinInteractiveDimension),

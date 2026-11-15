@@ -23,6 +23,8 @@ import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
+import 'support/sori_viewport_page.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -73,7 +75,10 @@ void main() {
 
           _expectTextRole(tester, t.pathStoryEyebrow('A1'), type.label);
           _expectTextRole(tester, t.pathStoryTitle, type.h1);
-          _expectTextRole(tester, t.pathStoryBody, type.bodySmall);
+          final body = Theme.of(context).platform == TargetPlatform.iOS
+              ? type.body.copyWith(fontSize: 17)
+              : type.body;
+          _expectTextRole(tester, t.pathStoryBody, body);
 
           for (final id in const ['a1_01', 'a1_02', 'a1_03']) {
             final row = find.byKey(ValueKey('path-course-row-$id'));
@@ -85,12 +90,7 @@ void main() {
           }
 
           final current = find.byKey(const ValueKey('path-current-mission'));
-          await tester.scrollUntilVisible(
-            current,
-            240,
-            scrollable: find.byType(Scrollable).first,
-          );
-          await tester.ensureVisible(current);
+          await showSoriViewportSection(tester, current);
           await tester.pump();
           final currentButton = tester.widget<SoriButton>(current);
           expect(currentButton.label, t.pathOpenCurrentMission);
@@ -100,12 +100,7 @@ void main() {
           final legacy = find.byKey(
             const ValueKey('path-legacy-practice-toggle'),
           );
-          await tester.scrollUntilVisible(
-            legacy,
-            240,
-            scrollable: find.byType(Scrollable).first,
-          );
-          await tester.ensureVisible(legacy);
+          await showSoriViewportSection(tester, legacy);
           await tester.pump();
           final legacyButton = tester.widget<SoriButton>(legacy);
           expect(legacyButton.label, t.pathShowMorePractice);
@@ -131,8 +126,7 @@ void main() {
         final toggle = find.byKey(
           const ValueKey('path-legacy-practice-toggle'),
         );
-        await tester.scrollUntilVisible(toggle, 300);
-        await tester.ensureVisible(toggle);
+        await showSoriViewportSection(tester, toggle);
         await tester.pump();
         await tester.tap(toggle);
         await tester.pump();
@@ -145,9 +139,7 @@ void main() {
     );
   }
 
-  testWidgets('Path jump reveals the current legacy target before scrolling', (
-    tester,
-  ) async {
+  testWidgets('Path jump opens the current legacy pack page', (tester) async {
     _configureView(tester, const Size(390, 844));
     final loaded = await _prewarm(tester);
 
@@ -189,44 +181,43 @@ void main() {
     await _disposeScreen(tester);
   });
 
-  testWidgets('Path route focus reveals and scrolls to the requested pack', (
-    tester,
-  ) async {
-    _configureView(tester, const Size(390, 844));
-    final loaded = await _prewarm(tester);
-    final a1Packs = loaded.packs.where((pack) => pack.level == 'A1').toList();
-    final focused = a1Packs.last;
+  testWidgets(
+    'Path route focus opens the requested pack page without scrolling',
+    (tester) async {
+      _configureView(tester, const Size(390, 844));
+      final loaded = await _prewarm(tester);
+      final a1Packs = loaded.packs.where((pack) => pack.level == 'A1').toList();
+      final focused = a1Packs.last;
 
-    await tester.pumpWidget(
-      _host(
-        locale: const Locale('en'),
-        textScale: 1,
-        routeArguments: focused.id,
-        child: LearningPathScreen(
-          courseSnapshotLoader: () async =>
-              CourseMasteryService(loaded.catalog).readForDisplay(),
+      await tester.pumpWidget(
+        _host(
+          locale: const Locale('en'),
+          textScale: 1,
+          routeArguments: focused.id,
+          child: LearningPathScreen(
+            courseSnapshotLoader: () async =>
+                CourseMasteryService(loaded.catalog).readForDisplay(),
+          ),
         ),
-      ),
-    );
-    final route = ModalRoute.of(
-      tester.element(find.byType(LearningPathScreen)),
-    );
-    expect(route?.settings.arguments, focused.id);
-    await _pumpUntilVisible(
-      tester,
-      find.byKey(const ValueKey('path-legacy-practice-content')),
-    );
-    await tester.pump();
+      );
+      final route = ModalRoute.of(
+        tester.element(find.byType(LearningPathScreen)),
+      );
+      expect(route?.settings.arguments, focused.id);
+      await _pumpUntilVisible(
+        tester,
+        find.byKey(const ValueKey('path-legacy-practice-content')),
+      );
+      await tester.pump();
 
-    final label = VocabPackService.displayLabel(focused.id, lang: 'en');
-    expect(find.text(label), findsOneWidget);
-    final scrollable = tester.state<ScrollableState>(
-      find.byType(Scrollable).first,
-    );
-    expect(scrollable.position.pixels, greaterThan(0));
-    expect(tester.takeException(), isNull);
-    await _disposeScreen(tester);
-  });
+      final label = VocabPackService.displayLabel(focused.id, lang: 'en');
+      expect(find.text(label), findsOneWidget);
+      expect(find.byType(Scrollable), findsNothing);
+      expect(find.text(label).hitTestable(), findsOneWidget);
+      expect(tester.takeException(), isNull);
+      await _disposeScreen(tester);
+    },
+  );
 
   testWidgets('Path coach points to the canonical current course step', (
     tester,

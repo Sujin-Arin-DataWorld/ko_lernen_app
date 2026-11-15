@@ -252,6 +252,55 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
         !_archive && !_compactArtwork && selectedTopics.length == 1
         ? t.reviewSelectedTopic(selectedTopics.single)
         : null;
+    final tabs = DecoratedBox(
+      decoration: BoxDecoration(
+        color: const Color(0x33d3b382),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: const Color(0xffb7894a)),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: _tab(
+              t.reviewHubTodayHeadline,
+              !_archive,
+              () => setState(() => _archive = false),
+            ),
+          ),
+          Expanded(
+            child: _tab(
+              t.reviewArchiveTab,
+              _archive,
+              () => setState(() => _archive = true),
+            ),
+          ),
+        ],
+      ),
+    );
+    final search = TextField(
+      key: const Key('review-archive-search'),
+      style: SoriTextTheme.of(context).body.copyWith(fontSize: 17),
+      decoration: InputDecoration(
+        prefixIcon: const Icon(Icons.search, size: 21),
+        prefixIconConstraints: const BoxConstraints(
+          minWidth: 41,
+          minHeight: 38,
+        ),
+        isDense: true,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 9),
+        fillColor: const Color(0x55fffbf3),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(11)),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(11),
+          borderSide: const BorderSide(color: Color(0xffc9bca7)),
+        ),
+        hintText: _ownWords
+            ? t.reviewSearchHint
+            : t.wortpaketeSearchLevel(_level),
+      ),
+      onChanged: (value) => setState(() => _query = value),
+    );
+    final keyboard = MediaQuery.viewInsetsOf(context).bottom > 0;
     return SoriStudyFrame(
       title: t.reviewHubTitle,
       padding: EdgeInsets.zero,
@@ -312,80 +361,65 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
       ),
       child: Column(
         children: [
+          if (!keyboard)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 10, 16, 4),
+              child: tabs,
+            ),
+          if (_archive && !_loading && !_failed)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+              child: search,
+            ),
           Expanded(
             child: Padding(
               padding: EdgeInsets.fromLTRB(
                 16,
-                _compactArtwork ? 12 : 37,
+                keyboard ? 2 : (_compactArtwork ? 4 : 12),
                 16,
                 _archive ? 4 : 8,
               ),
               child: SoriViewportPages(
-                key: ValueKey((_archive, _level, _ownWords)),
+                key: ValueKey((_archive, _level, _ownWords, _query)),
                 sections: [
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: const Color(0x33d3b382),
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: const Color(0xffb7894a)),
-                    ),
-                    child: Row(
+                  if (!keyboard)
+                    Row(
                       children: [
                         Expanded(
-                          child: _tab(
-                            t.reviewHubTodayHeadline,
-                            !_archive,
-                            () => setState(() => _archive = false),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                _archive
+                                    ? t.reviewArchiveTitle
+                                    : t.reviewHubTodayHeadline,
+                                style: TextStyle(
+                                  fontFamily: SoriLocaleFonts.of(context).body,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: _archive ? 30 : 33,
+                                  height: 1.1,
+                                ),
+                              ),
+                              Text(
+                                _archive
+                                    ? t.reviewArchiveSubtitle
+                                    : '${t.reviewHubDeckLabel(deck.length)} · ${t.reviewSelectedCount(selectedCount)}',
+                                style: SoriTextTheme.of(
+                                  context,
+                                ).body.copyWith(fontSize: 17, height: 1.2),
+                              ),
+                            ],
                           ),
                         ),
-                        Expanded(
-                          child: _tab(
-                            t.reviewArchiveTab,
-                            _archive,
-                            () => setState(() => _archive = true),
+                        SizedBox(
+                          width: _compactArtwork ? 74 : 110,
+                          height: _compactArtwork ? 74 : (_archive ? 78 : 100),
+                          child: const LernenGeneratedArt(
+                            name: 'review-drawer',
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  const SizedBox(height: 12),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              _archive
-                                  ? t.reviewArchiveTitle
-                                  : t.reviewHubTodayHeadline,
-                              style: TextStyle(
-                                fontFamily: language == 'de'
-                                    ? SoriFonts.korean
-                                    : SoriLocaleFonts.of(context).body,
-                                fontWeight: FontWeight.w700,
-                                fontSize: _archive ? 30 : 33,
-                                height: 1.1,
-                              ),
-                            ),
-                            Text(
-                              _archive
-                                  ? t.reviewArchiveSubtitle
-                                  : '${t.reviewHubDeckLabel(deck.length)} · ${t.reviewSelectedCount(selectedCount)}',
-                              style: SoriTextTheme.of(
-                                context,
-                              ).body.copyWith(fontSize: 17, height: 1.2),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: _compactArtwork ? 74 : 110,
-                        height: _compactArtwork ? 74 : (_archive ? 78 : 100),
-                        child: const LernenGeneratedArt(name: 'review-drawer'),
-                      ),
-                    ],
-                  ),
                   const SizedBox(height: 12),
                   if (_loading)
                     const Center(child: CircularProgressIndicator())
@@ -449,40 +483,7 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 4),
-                    TextField(
-                      key: const Key('review-archive-search'),
-                      style: SoriTextTheme.of(
-                        context,
-                      ).body.copyWith(fontSize: 17),
-                      decoration: InputDecoration(
-                        prefixIcon: const Icon(Icons.search, size: 21),
-                        prefixIconConstraints: const BoxConstraints(
-                          minWidth: 41,
-                          minHeight: 38,
-                        ),
-                        isDense: true,
-                        contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 9,
-                        ),
-                        fillColor: const Color(0x55fffbf3),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          borderSide: const BorderSide(
-                            color: Color(0xffc9bca7),
-                          ),
-                        ),
-                        hintText: _ownWords
-                            ? t.reviewSearchHint
-                            : t.wortpaketeSearchLevel(_level),
-                      ),
-                      onChanged: (value) => setState(() => _query = value),
-                    ),
-                    const SizedBox(height: Spacing.md),
+                    const SizedBox(height: Spacing.sm),
                     if (topics.isEmpty) Text(t.reviewArchiveEmpty),
                     for (final entry in topics.entries) ...[
                       SoriCard(
@@ -527,7 +528,7 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
                       ),
                       if (_expandedTopics.contains(entry.key))
                         ..._wordTrayPages(entry.value, language, t),
-                      const SizedBox(height: 4),
+                      const SizedBox(height: Spacing.sm),
                     ],
                     SoriCard(
                       padding: EdgeInsets.zero,
@@ -635,16 +636,9 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
               ),
             ),
           ),
-          if (!_loading && !_failed)
+          if (!_loading && !_failed && !keyboard)
             Padding(
-              padding: EdgeInsets.fromLTRB(
-                16,
-                4,
-                16,
-                _compactArtwork
-                    ? 10
-                    : (_archive ? 30 : (selectionNote == null ? 57 : 32)),
-              ),
+              padding: EdgeInsets.fromLTRB(16, 4, 16, 16),
               child: Column(
                 children: [
                   _startButton(actionDeck, t),
@@ -701,13 +695,8 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
     String language,
     AppL10n t,
   ) sync* {
-    final viewport = MediaQuery.sizeOf(context);
-    final largeText = MediaQuery.textScalerOf(context).scale(1) > 1.15;
-    final perTray = largeText || viewport.height < 650
-        ? 1
-        : (_compactArtwork ? 2 : 3);
-    for (var start = 0; start < words.length; start += perTray) {
-      yield _wordTray(words.skip(start).take(perTray).toList(), language, t);
+    for (final word in words) {
+      yield _wordTray([word], language, t);
     }
   }
 

@@ -32,6 +32,16 @@ class MyWordsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final keyboardOpen = MediaQuery.viewInsetsOf(context).bottom > 0;
+    final compactPhotoAction =
+        MediaQuery.sizeOf(context).width < 360 ||
+        MediaQuery.textScalerOf(context).scale(16) > 24;
+    void showPhotoChoices() {
+      FocusManager.instance.primaryFocus?.unfocus();
+      // ignore: discarded_futures
+      showBookCaptureChoice(context);
+    }
+
     return DefaultTabController(
       length: MyWordsTab.values.length,
       initialIndex: initialTab.index,
@@ -39,27 +49,34 @@ class MyWordsScreen extends StatelessWidget {
         data: AppTheme.light,
         child: SoriStandardFrame(
           appBarTitle: t.myWordsTitle,
-          bottomNavigationBar: const SoriLearningStageNavigation(),
+          bottomNavigationBar: keyboardOpen
+              ? null
+              : const SoriLearningStageNavigation(),
           cMaterial: true,
           cPaperBody: true,
           jadeAppBar: true,
           actions: [
-            TextButton.icon(
-              style: TextButton.styleFrom(
-                minimumSize: const Size(48, 48),
-                foregroundColor:
-                    MediaQuery.textScalerOf(context).scale(1) <= 1.35
-                    ? const Color(0xfff6edde)
-                    : null,
-                padding: const EdgeInsets.symmetric(horizontal: Spacing.sm),
+            if (compactPhotoAction)
+              IconButton(
+                tooltip: t.myWordsPhotoAction,
+                constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+                onPressed: showPhotoChoices,
+                icon: const Icon(Icons.add_a_photo_outlined),
+              )
+            else
+              TextButton.icon(
+                style: TextButton.styleFrom(
+                  minimumSize: const Size(48, 48),
+                  foregroundColor:
+                      MediaQuery.textScalerOf(context).scale(1) <= 1.35
+                      ? const Color(0xfff6edde)
+                      : null,
+                  padding: const EdgeInsets.symmetric(horizontal: Spacing.sm),
+                ),
+                onPressed: showPhotoChoices,
+                icon: const Icon(Icons.add_a_photo_outlined),
+                label: Text(t.myWordsPhotoAction),
               ),
-              onPressed: () {
-                // ignore: discarded_futures
-                showBookCaptureChoice(context);
-              },
-              icon: const Icon(Icons.add_a_photo_outlined),
-              label: Text(t.myWordsPhotoAction),
-            ),
           ],
           maxWidth: SoriMaxWidth.hub,
           builder: (context, resolvedPadding) {
@@ -72,63 +89,72 @@ class MyWordsScreen extends StatelessWidget {
             );
             return FocusTraversalGroup(
               policy: OrderedTraversalPolicy(),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(
-                      resolvedPadding.left + Spacing.sm,
-                      Spacing.xs,
-                      resolvedPadding.right + Spacing.sm,
-                      0,
-                    ),
-                    child: Focus(
-                      key: const ValueKey('my-words-tab-focus'),
-                      autofocus: true,
-                      onKeyEvent: (node, event) {
-                        if (event is! KeyDownEvent) {
-                          return KeyEventResult.ignored;
-                        }
-                        final delta = switch (event.logicalKey) {
-                          LogicalKeyboardKey.arrowLeft => -1,
-                          LogicalKeyboardKey.arrowRight => 1,
-                          _ => 0,
-                        };
-                        if (delta == 0) {
-                          return KeyEventResult.ignored;
-                        }
-                        final next = (tabs.index + delta).clamp(
+              child: LayoutBuilder(
+                builder: (context, body) => Column(
+                  children: [
+                    if (!keyboardOpen)
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(
+                          resolvedPadding.left + Spacing.sm,
+                          Spacing.xs,
+                          resolvedPadding.right + Spacing.sm,
                           0,
-                          MyWordsTab.values.length - 1,
-                        );
-                        if (next != tabs.index) {
-                          tabs.animateTo(
-                            next,
-                            duration: MediaQuery.disableAnimationsOf(context)
-                                ? Duration.zero
-                                : SoriMotion.fast,
-                          );
-                        }
-                        return KeyEventResult.handled;
-                      },
-                      child: _MyWordsNavigation(controller: tabs),
-                    ),
-                  ),
-                  Expanded(
-                    child: TabBarView(
-                      children: [
-                        WordbookSearchBody(
-                          padding: bodyPadding,
-                          boundNotebook: true,
                         ),
-                        BookshelfBody(
-                          padding: bodyPadding,
-                          showEmbeddedSearchAndPhoto: false,
+                        child: Focus(
+                          key: const ValueKey('my-words-tab-focus'),
+                          autofocus: !keyboardOpen,
+                          onKeyEvent: (node, event) {
+                            if (event is! KeyDownEvent) {
+                              return KeyEventResult.ignored;
+                            }
+                            final delta = switch (event.logicalKey) {
+                              LogicalKeyboardKey.arrowLeft => -1,
+                              LogicalKeyboardKey.arrowRight => 1,
+                              _ => 0,
+                            };
+                            if (delta == 0) {
+                              return KeyEventResult.ignored;
+                            }
+                            final next = (tabs.index + delta).clamp(
+                              0,
+                              MyWordsTab.values.length - 1,
+                            );
+                            if (next != tabs.index) {
+                              tabs.animateTo(
+                                next,
+                                duration:
+                                    MediaQuery.disableAnimationsOf(context)
+                                    ? Duration.zero
+                                    : SoriMotion.fast,
+                              );
+                            }
+                            return KeyEventResult.handled;
+                          },
+                          child: _MyWordsNavigation(
+                            controller: tabs,
+                            compact: body.maxHeight < 370,
+                          ),
                         ),
-                        HardWordsBody(padding: bodyPadding),
-                      ],
+                      ),
+                    Expanded(
+                      child: TabBarView(
+                        children: [
+                          WordbookSearchBody(
+                            padding: bodyPadding,
+                            boundNotebook: true,
+                            keyboardOpen: keyboardOpen,
+                          ),
+                          BookshelfBody(
+                            padding: bodyPadding,
+                            showEmbeddedSearchAndPhoto: false,
+                            paged: true,
+                          ),
+                          HardWordsBody(padding: bodyPadding, paged: true),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           },
@@ -142,9 +168,10 @@ class MyWordsScreen extends StatelessWidget {
 /// hiding the last tab beyond a horizontal scroll. The original TabController
 /// still owns aliases, keyboard selection, and swipe navigation.
 class _MyWordsNavigation extends StatelessWidget {
-  const _MyWordsNavigation({required this.controller});
+  const _MyWordsNavigation({required this.controller, required this.compact});
 
   final TabController controller;
+  final bool compact;
 
   @override
   Widget build(BuildContext context) {
@@ -169,7 +196,7 @@ class _MyWordsNavigation extends StatelessWidget {
               SoriCard(
                 key: ValueKey('my-words-tab-${tab.name}'),
                 variant: SoriCardVariant.compact,
-                padding: const EdgeInsets.all(Spacing.sm),
+                padding: EdgeInsets.all(compact ? Spacing.xs : Spacing.sm),
                 selectable: true,
                 selected: controller.index == tab.index,
                 semanticLabel: labels[tab.index],
@@ -191,12 +218,14 @@ class _MyWordsNavigation extends StatelessWidget {
                           color: SoriColors.primary,
                           size: 20,
                         ),
-                        const SizedBox(height: Spacing.xs),
-                        Text(
-                          labels[tab.index],
-                          textAlign: TextAlign.center,
-                          style: SoriTextTheme.of(context).label,
-                        ),
+                        if (!compact) ...[
+                          const SizedBox(height: Spacing.xs),
+                          Text(
+                            labels[tab.index],
+                            textAlign: TextAlign.center,
+                            style: SoriTextTheme.of(context).label,
+                          ),
+                        ],
                       ],
                     ),
                   ),
@@ -205,8 +234,9 @@ class _MyWordsNavigation extends StatelessWidget {
           ];
           final scale = MediaQuery.textScalerOf(context).scale(1);
           final reflow =
+              !compact &&
               (constraints.maxWidth - Spacing.sm * 2) / 3 <
-              SoriAdaptiveWidth.myWordsTabColumn * scale;
+                  SoriAdaptiveWidth.myWordsTabColumn * scale;
           return Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

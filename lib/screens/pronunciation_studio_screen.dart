@@ -992,11 +992,19 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                 return LayoutBuilder(
                   builder: (context, windowBody) {
                     final tight =
-                        windowBody.maxHeight < 585 ||
+                        windowBody.maxHeight < 360 ||
                         windowBody.maxWidth < 354 ||
                         !defaultText;
-                    final reference =
-                        !tight && window.width >= 400 && window.height >= 900;
+                    final pageLevel =
+                        windowBody.maxHeight < 280 ||
+                        MediaQuery.textScalerOf(context).scale(18) > 27;
+                    final ultraShort = windowBody.maxHeight < 220;
+                    final fullFolio =
+                        defaultText &&
+                        windowBody.maxWidth >= 398 &&
+                        windowBody.maxHeight >= 700;
+                    final inlineAudio =
+                        tight || (hasRecording && compactReview);
                     final level = Row(
                       children: [
                         Container(
@@ -1093,7 +1101,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                       disabled: speechDisabled,
                       replaying: _replaying,
                       compact: compactReview,
-                      inline: tight,
+                      inline: inlineAudio,
                       onModel: () => unawaited(_listenToModel()),
                       onRecording: () => unawaited(_listenToRecording()),
                     );
@@ -1108,7 +1116,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                             textStyle: TextStyle(
                               fontFamily: bodyFont,
                               color: const Color(0xff073b31),
-                              fontSize: 21,
+                              fontSize: tight ? 17 : 21,
                               fontWeight: FontWeight.bold,
                             ),
                             surfaceBuilder: _brassSurface,
@@ -1136,8 +1144,12 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                                 : t.pronunciationRecordAgainShort,
                             icon: Icons.mic_rounded,
                             fullWidth: true,
-                            surfaceBuilder: (context, child) =>
-                                _outlineSurface(context, child, inset: 8),
+                            surfaceBuilder: (context, child) => _outlineSurface(
+                              context,
+                              child,
+                              inset: 8,
+                              alignRepeatFace: fullFolio,
+                            ),
                             onTap: canRecord ? _startRecording : null,
                           )
                         : SoriButton.filled(
@@ -1146,13 +1158,17 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                             accent: const Color(0xffffd271),
                             semanticLabel: _recording
                                 ? t.pronunciationStop
-                                : t.pronunciationRecord,
+                                : (_recorderFailed
+                                      ? t.pronunciationRecordAgain
+                                      : t.pronunciationRecord),
                             label: _recording
                                 ? t.pronunciationStop
                                 : (_finishingRecording
                                       ? t.pronunciationFinishingRecording
                                       : _assessing
                                       ? t.pronunciationAssessing
+                                      : _recorderFailed
+                                      ? t.pronunciationRecordAgain
                                       : t.pronunciationRecordShort),
                             icon: _recording
                                 ? Icons.stop_circle_outlined
@@ -1161,10 +1177,16 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                             textStyle: TextStyle(
                               fontFamily: bodyFont,
                               color: const Color(0xff073b31),
-                              fontSize: 21,
+                              fontSize: tight ? 17 : 21,
                               fontWeight: FontWeight.bold,
                             ),
-                            surfaceBuilder: _brassSurface,
+                            surfaceBuilder: (context, child) => _brassSurface(
+                              context,
+                              child,
+                              faceKey: fullFolio
+                                  ? const Key('pronunciation-ready-record-face')
+                                  : null,
+                            ),
                             onTap: canRecord
                                 ? (_recording
                                       ? () => unawaited(_finishRecording())
@@ -1191,411 +1213,450 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
                             PronunciationAssessmentFailureCategory
                                 .invalidRequest;
 
-                    List<Widget> readingSections(
-                      BuildContext context,
-                      BoxConstraints body,
-                    ) {
-                      final locale = Localizations.localeOf(context);
-                      final translation = locale.languageCode == 'de'
-                          ? phrase.de
-                          : phrase.en;
-                      final koreanStyle = type.koDisplay.copyWith(
-                        fontSize: 30,
-                        height: 1.20,
-                        color: const Color(0xff073b31),
-                        fontWeight: FontWeight.bold,
-                      );
-                      final translationStyle = type.body.copyWith(
-                        fontFamily: bodyFont,
-                        fontSize: 17,
-                        height: 1.23,
-                      );
-                      final measureWidth = math.max(1.0, body.maxWidth - 58);
-                      final phraseBudget = math.max(
-                        0.0,
-                        body.maxHeight - SoriViewportPages.controlsHeight,
-                      );
-                      double measure(String text, TextStyle style) {
-                        final painter = TextPainter(
-                          text: TextSpan(text: text, style: style),
-                          locale: locale,
-                          textDirection: Directionality.of(context),
-                          textScaler: MediaQuery.textScalerOf(context),
-                        )..layout(maxWidth: measureWidth);
-                        final height = painter.height;
-                        painter.dispose();
-                        return height;
-                      }
+                    return Column(
+                      children: [
+                        if (!pageLevel) ...[level, const SizedBox(height: 8)],
+                        Expanded(
+                          child: LayoutBuilder(
+                            builder: (context, body) {
+                              final locale = Localizations.localeOf(context);
+                              final translation = locale.languageCode == 'de'
+                                  ? phrase.de
+                                  : phrase.en;
+                              final koreanStyle = type.koDisplay.copyWith(
+                                fontSize: 30,
+                                height: 1.20,
+                                color: const Color(0xff073b31),
+                                fontWeight: FontWeight.bold,
+                              );
+                              final translationStyle = type.body.copyWith(
+                                fontSize: 20,
+                                height: 1.05,
+                              );
+                              final measureWidth = math.max(
+                                1.0,
+                                body.maxWidth - 58,
+                              );
+                              final phraseBudget = math.max(
+                                0.0,
+                                body.maxHeight -
+                                    SoriViewportPages.controlsHeight,
+                              );
+                              double measure(String text, TextStyle style) {
+                                final painter = TextPainter(
+                                  text: TextSpan(text: text, style: style),
+                                  locale: locale,
+                                  textDirection: Directionality.of(context),
+                                  textScaler: MediaQuery.textScalerOf(context),
+                                )..layout(maxWidth: measureWidth);
+                                final height = painter.height;
+                                painter.dispose();
+                                return height;
+                              }
 
-                      final separate =
-                          measure(phrase.ko, koreanStyle) +
-                              measure(translation, translationStyle) +
-                              94 >
-                          body.maxHeight;
+                              final separate =
+                                  measure(phrase.ko, koreanStyle) +
+                                      measure(translation, translationStyle) +
+                                      108 >
+                                  phraseBudget;
 
-                      return [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 6),
-                          child: Text(
-                            phrase.localizedFocus(
-                                  Localizations.localeOf(context).languageCode,
-                                ) ??
-                                _localizedFocus(t, phrase.focus),
-                            style: type.body.copyWith(
-                              fontFamily: bodyFont,
-                              fontSize: 18,
-                              height: 1.2,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: reference ? 17 : (compactReview ? 8 : 12),
-                        ),
-                        if (separate) ...[
-                          ..._phrasePages(
-                            phrase.ko,
-                            koreanStyle,
-                            phraseBudget,
-                            measure,
-                          ),
-                          ..._phrasePages(
-                            translation,
-                            translationStyle,
-                            phraseBudget,
-                            measure,
-                            firstKey: const ValueKey(
-                              'pronunciation-translation',
-                            ),
-                          ),
-                        ] else
-                          Container(
-                            padding: EdgeInsets.fromLTRB(
-                              18,
-                              compactReview ? 14 : 17,
-                              18,
-                              compactReview ? 14 : (hasRecording ? 17 : 26),
-                            ),
-                            decoration: BoxDecoration(
-                              color: const Color(0xfff9f1e5),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  LernenGeneratedArt.assetPath('hanji-refined'),
-                                ),
-                                fit: BoxFit.fill,
-                              ),
-                              border: Border.all(
-                                color: const Color(0xff97baaa),
-                              ),
-                              borderRadius: BorderRadius.circular(18),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Color(0x454f3014),
-                                  offset: Offset(0, 8),
-                                  blurRadius: 4,
-                                ),
-                                BoxShadow(
-                                  color: Color(0xffac8352),
-                                  offset: Offset(0, 7),
-                                  spreadRadius: -2,
-                                ),
-                                BoxShadow(
-                                  color: Color(0xffd4b585),
-                                  offset: Offset(0, 5),
-                                  spreadRadius: -1,
-                                ),
-                                BoxShadow(
-                                  color: Color(0xffefe0c1),
-                                  offset: Offset(0, 2),
-                                ),
-                              ],
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: 4,
-                                      height: 68,
-                                      margin: const EdgeInsets.only(
-                                        right: 14,
-                                        top: 4,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xffeba51f),
-                                        borderRadius: BorderRadius.circular(3),
+                              return SoriViewportPages(
+                                key: ValueKey(phrase.id),
+                                sections: [
+                                  if (pageLevel) level,
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 6),
+                                    child: Text(
+                                      phrase.localizedFocus(
+                                            Localizations.localeOf(
+                                              context,
+                                            ).languageCode,
+                                          ) ??
+                                          _localizedFocus(t, phrase.focus),
+                                      style: type.body.copyWith(
+                                        fontSize: 18,
+                                        height: 1.2,
                                       ),
                                     ),
-                                    Expanded(
-                                      child: Semantics(
-                                        label: phrase.ko,
-                                        child: ExcludeSemantics(
-                                          child: Wrap(
-                                            key: const ValueKey(
-                                              'pronunciation-korean',
-                                            ),
-                                            spacing: 7,
-                                            children: phrase.ko
-                                                .split(' ')
-                                                .map(
-                                                  (word) => Text(
-                                                    word,
-                                                    style: type.koDisplay
-                                                        .copyWith(
-                                                          fontSize: 30,
-                                                          height: 1.20,
-                                                          color: const Color(
-                                                            0xff073b31,
-                                                          ),
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                  ),
+                                  ),
+                                  SizedBox(height: compactReview ? 8 : 12),
+                                  if (separate) ...[
+                                    for (final (text, style) in [
+                                      (phrase.ko, koreanStyle),
+                                      (translation, translationStyle),
+                                    ])
+                                      for (final part in soriViewportTextPages(
+                                        context,
+                                        text,
+                                        style: style,
+                                        width:
+                                            body.maxWidth -
+                                            (ultraShort ? 16 : 32),
+                                        height:
+                                            phraseBudget -
+                                            (ultraShort ? 4 : 32),
+                                      ))
+                                        SoriCard(
+                                          padding: ultraShort
+                                              ? const EdgeInsets.symmetric(
+                                                  horizontal: 8,
+                                                  vertical: 2,
                                                 )
-                                                .toList(),
-                                          ),
+                                              : null,
+                                          child: Text(part, style: style),
                                         ),
+                                  ] else
+                                    Container(
+                                      padding: EdgeInsets.fromLTRB(
+                                        18,
+                                        compactReview ? 14 : 17,
+                                        fullFolio ? 8 : 18,
+                                        compactReview
+                                            ? 14
+                                            : (hasRecording ? 17 : 26),
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xfff9f1e5),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                            LernenGeneratedArt.assetPath(
+                                              'hanji-refined',
+                                            ),
+                                          ),
+                                          fit: BoxFit.fill,
+                                        ),
+                                        border: Border.all(
+                                          color: const Color(0xff97baaa),
+                                        ),
+                                        borderRadius: BorderRadius.circular(18),
+                                        boxShadow: const [
+                                          BoxShadow(
+                                            color: Color(0x55624b2b),
+                                            offset: Offset(0, 9),
+                                            blurRadius: 5,
+                                          ),
+                                          BoxShadow(
+                                            color: Color(0xffac8352),
+                                            offset: Offset(0, 7),
+                                            spreadRadius: -2,
+                                          ),
+                                          BoxShadow(
+                                            color: Color(0xffd4b585),
+                                            offset: Offset(0, 5),
+                                            spreadRadius: -1,
+                                          ),
+                                          BoxShadow(
+                                            color: Color(0xffefe0c1),
+                                            offset: Offset(0, 2),
+                                          ),
+                                        ],
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                width: 4,
+                                                height: 68,
+                                                margin: const EdgeInsets.only(
+                                                  right: 14,
+                                                  top: 4,
+                                                ),
+                                                decoration: BoxDecoration(
+                                                  color: const Color(
+                                                    0xffeba51f,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(3),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Semantics(
+                                                  label: phrase.ko,
+                                                  child: ExcludeSemantics(
+                                                    child: Wrap(
+                                                      key: const ValueKey(
+                                                        'pronunciation-korean',
+                                                      ),
+                                                      spacing: 7,
+                                                      children: phrase.ko
+                                                          .split(' ')
+                                                          .map(
+                                                            (word) => Text(
+                                                              word,
+                                                              style: type
+                                                                  .koDisplay
+                                                                  .copyWith(
+                                                                    fontSize:
+                                                                        30,
+                                                                    height:
+                                                                        1.20,
+                                                                    color: const Color(
+                                                                      0xff073b31,
+                                                                    ),
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                            ),
+                                                          )
+                                                          .toList(),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: compactReview ? 10 : 19,
+                                          ),
+                                          Container(
+                                            margin: const EdgeInsets.only(
+                                              left: 14,
+                                            ),
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 5,
+                                              vertical: 2,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xffe4d4bc),
+                                              borderRadius:
+                                                  BorderRadius.circular(3),
+                                            ),
+                                            child: Text(
+                                              Localizations.localeOf(
+                                                context,
+                                              ).languageCode.toUpperCase(),
+                                              style: type.bodySmall.copyWith(
+                                                fontSize: 12,
+                                                height: 1.1,
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: fullFolio
+                                                ? (hasRecording ? 9 : 13)
+                                                : 4,
+                                          ),
+                                          _PronunciationTranslation(
+                                            phrase: phrase,
+                                            fillWidth: fullFolio,
+                                            style: type.body.copyWith(
+                                              fontSize: 20,
+                                              height: 1.05,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+
+                                  const SizedBox(height: 12),
+                                  if (!hasRecording && !fullFolio) ...[
+                                    const SizedBox(height: 6),
+                                    Text(
+                                      t.pronunciationMaxDuration,
+                                      textAlign: TextAlign.center,
+                                      style: type.bodySmall.copyWith(
+                                        fontSize: 15,
                                       ),
                                     ),
                                   ],
+
+                                  if (!widget.cloudAssessmentEnabled)
+                                    Text(
+                                      t.pronunciationNoScoring,
+                                      key: const ValueKey(
+                                        'pronunciation-scoring-soon-notice',
+                                      ),
+                                      textAlign: TextAlign.center,
+                                      style: type.bodySmall.copyWith(
+                                        fontSize: 16,
+                                        height: 1.16,
+                                      ),
+                                    ),
+
+                                  Column(
+                                    key: const ValueKey(
+                                      'pronunciation-diagnostic-feed',
+                                    ),
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: [
+                                      if (_recording)
+                                        _PronunciationStatusCard(
+                                          label: t.pronunciationRecording,
+                                          progress: true,
+                                        ),
+                                    ],
+                                  ),
+                                  if (_notice case final notice?)
+                                    _PronunciationNoticeCard(notice: notice),
+                                  if (_recorderFailed)
+                                    _PronunciationDiagnosticCard(
+                                      key: const ValueKey(
+                                        'pronunciation-recorder-failure',
+                                      ),
+                                      title:
+                                          t.pronunciationRecorderFailureTitle,
+                                      body: t.pronunciationRecorderFailureBody,
+                                    ),
+                                  if (failure != null)
+                                    _PronunciationDiagnosticCard(
+                                      key: ValueKey(
+                                        'pronunciation-diagnostic-${failure.name}',
+                                      ),
+                                      title: _failureCopy(t, failure).title,
+                                      body: _failureCopy(t, failure).body,
+                                    ),
+                                  if (_result case final result?)
+                                    _ScorePanel(result: result),
+                                  if (ultraShort)
+                                    const TtsSpeedControl(
+                                      minInteractiveHeight: 48,
+                                    ),
+                                ],
+                              );
+                            },
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        if (inlineAudio && !ultraShort)
+                          SizedBox(height: 48, child: audio)
+                        else if (!ultraShort)
+                          audio,
+                        const SizedBox(height: 8),
+                        if (tight)
+                          Row(
+                            children: [
+                              if (ultraShort) ...[
+                                IconButton.filled(
+                                  key: const ValueKey(
+                                    'pronunciation-model-action',
+                                  ),
+                                  tooltip: hasRecording
+                                      ? t.pronunciationOriginalListen
+                                      : t.pronunciationModelListen,
+                                  constraints: const BoxConstraints.tightFor(
+                                    width: 48,
+                                    height: 48,
+                                  ),
+                                  icon: const Icon(Icons.play_arrow_rounded),
+                                  onPressed: speechDisabled
+                                      ? null
+                                      : () => unawaited(_listenToModel()),
                                 ),
-                                SizedBox(height: compactReview ? 10 : 19),
-                                Container(
-                                  margin: const EdgeInsets.only(left: 14),
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 5,
-                                    vertical: 2,
+                                if (hasRecording)
+                                  IconButton.filled(
+                                    key: const ValueKey(
+                                      'pronunciation-replay-action',
+                                    ),
+                                    tooltip: _replaying
+                                        ? t.pronunciationReplayStop
+                                        : t.pronunciationOwnListen,
+                                    constraints: const BoxConstraints.tightFor(
+                                      width: 48,
+                                      height: 48,
+                                    ),
+                                    icon: Icon(
+                                      _replaying
+                                          ? Icons.stop
+                                          : Icons.hearing_rounded,
+                                    ),
+                                    onPressed: speechDisabled
+                                        ? null
+                                        : () => unawaited(_listenToRecording()),
                                   ),
-                                  decoration: BoxDecoration(
-                                    color: const Color(0xffe4d4bc),
-                                    borderRadius: BorderRadius.circular(3),
+                                const SizedBox(width: 4),
+                              ],
+                              Expanded(child: hasRecording ? next : record),
+                              const SizedBox(width: 8),
+                              IconButton.outlined(
+                                key: secondaryKey,
+                                tooltip: secondaryLabel,
+                                constraints: const BoxConstraints.tightFor(
+                                  width: 48,
+                                  height: 48,
+                                ),
+                                icon: Icon(
+                                  hasRecording
+                                      ? Icons.mic_rounded
+                                      : Icons.arrow_forward_rounded,
+                                ),
+                                onPressed: hasRecording
+                                    ? (canRecord ? _startRecording : null)
+                                    : (_phraseChangeBlocked
+                                          ? null
+                                          : _nextPhrase),
+                              ),
+                              if (requestScore || retryScore) ...[
+                                const SizedBox(width: 4),
+                                IconButton.outlined(
+                                  key: const ValueKey(
+                                    'pronunciation-assess-action',
                                   ),
+                                  tooltip: requestScore
+                                      ? t.pronunciationRequestScore
+                                      : t.pronunciationRetrySameRecording,
+                                  constraints: const BoxConstraints.tightFor(
+                                    width: 48,
+                                    height: 48,
+                                  ),
+                                  icon: const Icon(Icons.fact_check_outlined),
+                                  onPressed: speechDisabled
+                                      ? null
+                                      : () => unawaited(_retryAssessment()),
+                                ),
+                              ],
+                            ],
+                          )
+                        else ...[
+                          if (hasRecording) next,
+                          if (hasRecording) const SizedBox(height: 8),
+                          if (fullFolio && !hasRecording)
+                            SizedBox(height: 54, child: record)
+                          else
+                            record,
+                          if (!hasRecording)
+                            if (fullFolio)
+                              SizedBox(
+                                height: 40,
+                                child: Center(
                                   child: Text(
-                                    Localizations.localeOf(
-                                      context,
-                                    ).languageCode.toUpperCase(),
+                                    t.pronunciationMaxDuration,
+                                    textAlign: TextAlign.center,
                                     style: type.bodySmall.copyWith(
-                                      fontSize: 12,
-                                      height: 1.1,
+                                      fontSize: 15,
+                                      height: 1.15,
                                     ),
                                   ),
                                 ),
-                                const SizedBox(height: 4),
-                                _PronunciationTranslation(
-                                  phrase: phrase,
-                                  style: translationStyle,
-                                ),
-                              ],
-                            ),
-                          ),
-
-                        if (reference) ...[
-                          SizedBox(height: hasRecording ? 25 : 37),
-                          audio,
-                          const SizedBox(height: 8),
-                        ],
-                        if (!widget.cloudAssessmentEnabled)
-                          Text(
-                            t.pronunciationNoScoring,
-                            key: const ValueKey(
-                              'pronunciation-scoring-soon-notice',
-                            ),
-                            textAlign: TextAlign.center,
-                            style: type.bodySmall.copyWith(
-                              fontSize: 16,
-                              height: 1.16,
-                            ),
-                          ),
-
-                        if (reference) ...[
-                          SizedBox(height: hasRecording ? 17 : 15),
-                          if (hasRecording) ...[
-                            next,
-                            const SizedBox(height: 8),
-                          ],
-                          record,
-                        ],
-                        if (!hasRecording) ...[
-                          const SizedBox(height: 6),
-                          Text(
-                            t.pronunciationMaxDuration,
-                            textAlign: TextAlign.center,
-                            style: type.bodySmall.copyWith(fontSize: 15),
-                          ),
-                        ],
-
-                        if (reference && !hasRecording) ...[
-                          const SizedBox(height: 16),
-                          Center(
-                            child: FractionallySizedBox(
-                              widthFactor: .62,
-                              child: next,
-                            ),
-                          ),
-                        ],
-                        if (reference && requestScore)
-                          SoriButton.outlined(
-                            key: const ValueKey('pronunciation-assess-action'),
-                            label: t.pronunciationRequestScore,
-                            fullWidth: true,
-                            onTap: speechDisabled
-                                ? null
-                                : () => unawaited(_retryAssessment()),
-                          ),
-                        Column(
-                          key: const ValueKey('pronunciation-diagnostic-feed'),
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            if (_recording)
-                              _PronunciationStatusCard(
-                                label: t.pronunciationRecording,
-                                progress: true,
+                              )
+                            else
+                              const SizedBox(height: 8),
+                          if (!hasRecording)
+                            Center(
+                              child: FractionallySizedBox(
+                                widthFactor: .62,
+                                child: next,
                               ),
-                            if (_notice case final notice?)
-                              _PronunciationNoticeCard(notice: notice),
-                            if (_recorderFailed)
-                              _PronunciationDiagnosticCard(
-                                key: const ValueKey(
-                                  'pronunciation-recorder-failure',
-                                ),
-                                title: t.pronunciationRecorderFailureTitle,
-                                body: t.pronunciationRecorderFailureBody,
-                                actionLabel: t.pronunciationRecordAgain,
-                                onAction: _startRecording,
-                              ),
-                            if (failure != null)
-                              _PronunciationDiagnosticCard(
-                                key: ValueKey(
-                                  'pronunciation-diagnostic-${failure.name}',
-                                ),
-                                title: _failureCopy(t, failure).title,
-                                body: _failureCopy(t, failure).body,
-                                actionLabel:
-                                    failure ==
-                                        PronunciationAssessmentFailureCategory
-                                            .invalidRequest
-                                    ? t.pronunciationRecordAgain
-                                    : t.pronunciationRetrySameRecording,
-                                onAction:
-                                    failure ==
-                                        PronunciationAssessmentFailureCategory
-                                            .invalidRequest
-                                    ? _startRecording
-                                    : _retryAssessment,
-                              ),
-                            if (_result case final result?)
-                              _ScorePanel(result: result),
-                          ],
-                        ),
-                      ];
-                    }
-
-                    final reading = LayoutBuilder(
-                      builder: (context, body) => SoriViewportPages(
-                        key: ValueKey(phrase.id),
-                        sections: readingSections(context, body),
-                      ),
-                    );
-                    if (tight && windowBody.maxHeight < 420 && !defaultText) {
-                      return SoriViewportPages(
-                        sections: [
-                          level,
-                          ...readingSections(context, windowBody),
-                          audio,
-                          record,
-                          next,
-                          if (requestScore)
+                            ),
+                          if (requestScore || retryScore)
                             SoriButton.outlined(
                               key: const ValueKey(
                                 'pronunciation-assess-action',
                               ),
-                              label: t.pronunciationRequestScore,
+                              label: requestScore
+                                  ? t.pronunciationRequestScore
+                                  : t.pronunciationRetrySameRecording,
                               fullWidth: true,
                               onTap: speechDisabled
                                   ? null
                                   : () => unawaited(_retryAssessment()),
                             ),
-                        ],
-                      );
-                    }
-                    return Column(
-                      children: [
-                        level,
-                        SizedBox(height: tight ? 4 : 8),
-                        Expanded(child: reading),
-                        if (!reference) ...[
-                          const SizedBox(height: 4),
-                          audio,
-                          const SizedBox(height: 8),
-                          if (tight)
-                            Row(
-                              children: [
-                                Expanded(child: hasRecording ? next : record),
-                                const SizedBox(width: 8),
-                                IconButton.outlined(
-                                  key: secondaryKey,
-                                  tooltip: secondaryLabel,
-                                  constraints: const BoxConstraints.tightFor(
-                                    width: 48,
-                                    height: 48,
-                                  ),
-                                  icon: Icon(
-                                    hasRecording
-                                        ? Icons.mic_rounded
-                                        : Icons.arrow_forward_rounded,
-                                  ),
-                                  onPressed: hasRecording
-                                      ? (canRecord ? _startRecording : null)
-                                      : (_phraseChangeBlocked
-                                            ? null
-                                            : _nextPhrase),
-                                ),
-                                if (requestScore || retryScore) ...[
-                                  const SizedBox(width: 4),
-                                  IconButton.outlined(
-                                    key: const ValueKey(
-                                      'pronunciation-assess-action',
-                                    ),
-                                    tooltip: requestScore
-                                        ? t.pronunciationRequestScore
-                                        : t.pronunciationRetrySameRecording,
-                                    constraints: const BoxConstraints.tightFor(
-                                      width: 48,
-                                      height: 48,
-                                    ),
-                                    icon: const Icon(Icons.fact_check_outlined),
-                                    onPressed: speechDisabled
-                                        ? null
-                                        : () => unawaited(_retryAssessment()),
-                                  ),
-                                ],
-                              ],
-                            )
-                          else ...[
-                            if (hasRecording) next,
-                            if (hasRecording) const SizedBox(height: 8),
-                            record,
-                            if (!hasRecording) const SizedBox(height: 8),
-                            if (!hasRecording)
-                              Center(
-                                child: FractionallySizedBox(
-                                  widthFactor: .62,
-                                  child: next,
-                                ),
-                              ),
-                            if (requestScore)
-                              SoriButton.outlined(
-                                key: const ValueKey(
-                                  'pronunciation-assess-action',
-                                ),
-                                label: t.pronunciationRequestScore,
-                                fullWidth: true,
-                                onTap: speechDisabled
-                                    ? null
-                                    : () => unawaited(_retryAssessment()),
-                              ),
-                          ],
                         ],
                       ],
                     );
@@ -1606,38 +1667,6 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen>
           );
         },
       ),
-    );
-  }
-}
-
-/// Keep all words available when text size or a long C2 entry exceeds a page.
-Iterable<Widget> _phrasePages(
-  String text,
-  TextStyle style,
-  double budget,
-  double Function(String, TextStyle) measure, {
-  Key? firstKey,
-}) sync* {
-  if (text.trim().isEmpty) {
-    return;
-  }
-  var lines = '';
-  var key = firstKey;
-  for (final word in text.split(RegExp(r'\s+'))) {
-    final candidate = lines.isEmpty ? word : '$lines $word';
-    if (lines.isNotEmpty && measure(candidate, style) + 36 > budget) {
-      yield SoriCard(
-        child: Text(lines, key: key, style: style),
-      );
-      key = null;
-      lines = word;
-    } else {
-      lines = candidate;
-    }
-  }
-  if (lines.isNotEmpty) {
-    yield SoriCard(
-      child: Text(lines, key: key, style: style),
     );
   }
 }
@@ -1664,6 +1693,7 @@ class _PronunciationHeader extends StatelessWidget
   Size get preferredSize => const Size.fromHeight(60);
   @override
   Widget build(BuildContext context) => Material(
+    key: const Key('pronunciation-header'),
     color: const Color(0xff064537),
     child: Stack(
       children: [
@@ -1701,10 +1731,15 @@ class _PronunciationHeader extends StatelessWidget
 }
 
 class _PronunciationTranslation extends StatelessWidget {
-  const _PronunciationTranslation({required this.phrase, required this.style});
+  const _PronunciationTranslation({
+    required this.phrase,
+    required this.style,
+    required this.fillWidth,
+  });
 
   final PronunciationPhrase phrase;
   final TextStyle style;
+  final bool fillWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -1726,12 +1761,15 @@ class _PronunciationTranslation extends StatelessWidget {
             if (!measure.didExceedMaxLines) visible = display;
             measure.dispose();
           }
-          return Text(
+          final copy = Text(
             visible,
             key: const ValueKey('pronunciation-translation'),
             semanticsLabel: text,
             style: style,
           );
+          return fillWidth
+              ? SizedBox(width: double.infinity, child: copy)
+              : copy;
         },
       ),
     );
@@ -1758,15 +1796,34 @@ class _PronunciationAudioPanel extends StatelessWidget {
     final wide = MediaQuery.sizeOf(context).width >= 400;
     if (inline) {
       Widget play({required bool recording, required String label}) {
+        final key = ValueKey(
+          recording
+              ? 'pronunciation-replay-action'
+              : 'pronunciation-model-action',
+        );
+        final action = disabled ? null : (recording ? onRecording : onModel);
+        if (compact) {
+          return Expanded(
+            child: FilledButton(
+              key: key,
+              onPressed: action,
+              style: FilledButton.styleFrom(
+                minimumSize: const Size(48, 48),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+              ),
+              child: Text(
+                label,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 14, height: 1.15),
+              ),
+            ),
+          );
+        }
         return Expanded(
           child: IconButton.filled(
-            key: ValueKey(
-              recording
-                  ? 'pronunciation-replay-action'
-                  : 'pronunciation-model-action',
-            ),
+            key: key,
             tooltip: label,
-            onPressed: disabled ? null : (recording ? onRecording : onModel),
+            onPressed: action,
             constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
             icon: Icon(
               recording && replaying
@@ -1960,16 +2017,20 @@ Widget _outlineSurface(
   BuildContext context,
   Widget child, {
   double inset = 0,
+  bool alignRepeatFace = false,
 }) => Stack(
   alignment: Alignment.center,
   children: [
     Positioned.fill(
       left: inset,
       right: inset,
-      top: 3,
-      bottom: 3,
-      child: const DecoratedBox(
-        decoration: BoxDecoration(
+      top: alignRepeatFace ? 6 : 3,
+      bottom: alignRepeatFace ? 2 : 3,
+      child: DecoratedBox(
+        key: alignRepeatFace
+            ? const Key('pronunciation-repeat-record-face')
+            : null,
+        decoration: const BoxDecoration(
           color: Color(0x66fff9ef),
           border: Border.fromBorderSide(
             BorderSide(color: Color(0xff10493d), width: 1.2),
@@ -1982,17 +2043,22 @@ Widget _outlineSurface(
   ],
 );
 
-Widget _brassSurface(BuildContext context, Widget child) => Stack(
-  alignment: Alignment.center,
-  children: [
-    const Positioned.fill(
-      left: 8,
-      right: 8,
-      child: LernenGeneratedArt(name: "brass-alignment", fit: BoxFit.fill),
-    ),
-    child,
-  ],
-);
+Widget _brassSurface(BuildContext context, Widget child, {Key? faceKey}) =>
+    Stack(
+      alignment: Alignment.center,
+      children: [
+        Positioned.fill(
+          left: 8,
+          right: 8,
+          child: LernenGeneratedArt(
+            key: faceKey,
+            name: 'brass-alignment',
+            fit: BoxFit.fill,
+          ),
+        ),
+        child,
+      ],
+    );
 
 class _PronunciationAttempt {
   const _PronunciationAttempt({
@@ -2097,14 +2163,10 @@ class _PronunciationDiagnosticCard extends StatelessWidget {
     super.key,
     required this.title,
     required this.body,
-    required this.actionLabel,
-    required this.onAction,
   });
 
   final String title;
   final String body;
-  final String actionLabel;
-  final VoidCallback onAction;
 
   @override
   Widget build(BuildContext context) {
@@ -2120,13 +2182,6 @@ class _PronunciationDiagnosticCard extends StatelessWidget {
             Text(title, style: type.h3),
             const SizedBox(height: Spacing.xs),
             Text(body, style: type.body),
-            const SizedBox(height: Spacing.md),
-            SoriButton.outlined(
-              label: actionLabel,
-              fullWidth: true,
-              accent: SoriActivityColors.review,
-              onTap: onAction,
-            ),
           ],
         ),
       ),

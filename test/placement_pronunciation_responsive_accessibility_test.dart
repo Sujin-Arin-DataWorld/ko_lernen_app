@@ -3,6 +3,8 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'support/sori_viewport_page.dart';
+
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/pronunciation_phrase.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
@@ -14,7 +16,6 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/screen_background.dart';
-import 'support/viewport_pages.dart';
 
 const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
 
@@ -129,15 +130,14 @@ void main() {
     expect(introText.maxLines, isNull);
     expect(introText.overflow, isNull);
 
-    final recordAction = find.widgetWithText(
-      SoriButton,
-      t.pronunciationRecordShort,
+    final recordAction = find.byKey(
+      const ValueKey('pronunciation-record-action'),
     );
-    await showViewportSection(tester, recordAction);
+    expect(recordAction.hitTestable(), findsOneWidget);
     _expectButtonSemantics(tester, recordAction, t.pronunciationRecord);
 
     final localHint = find.text(t.pronunciationMaxDuration);
-    await showViewportSection(tester, localHint);
+    await showSoriViewportSection(tester, localHint);
     final hintText = tester.widget<Text>(localHint);
     expect(hintText.maxLines, isNull);
     expect(hintText.overflow, isNull);
@@ -146,19 +146,11 @@ void main() {
       findsNothing,
     );
 
-    final continueAction = find.widgetWithText(
-      SoriButton,
-      t.pronunciationNextSentence,
+    final continueAction = find.byKey(
+      const ValueKey('pronunciation-next-action'),
     );
-    await showViewportSection(tester, continueAction);
-    _expectButtonSemantics(tester, continueAction, t.pronunciationNextSentence);
-    expect(
-      find.byWidgetPredicate(
-        (widget) =>
-            widget is ScrollView && widget.scrollDirection == Axis.vertical,
-      ),
-      findsNothing,
-    );
+    expect(continueAction.hitTestable(), findsOneWidget);
+    expect(find.byTooltip(t.pronunciationNextSentence), findsOneWidget);
     expect(tester.takeException(), isNull);
     semantics.dispose();
   });

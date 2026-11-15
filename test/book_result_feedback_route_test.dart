@@ -179,9 +179,10 @@ void main() {
         <Object?>[
           find.byType(ContentFeedbackCard).evaluate().isNotEmpty,
           _sizedBoxHeight(resultColumn.children[saveIndex - 1]),
-          _sizedBoxHeight(resultColumn.children[saveIndex - 2]),
+          resultColumn.children[saveIndex - 2] is Expanded,
+          saveFinder.hitTestable().evaluate().isNotEmpty,
         ],
-        <Object?>[false, Spacing.md, Spacing.lg],
+        <Object?>[false, Spacing.md, true, true],
       );
     },
   );

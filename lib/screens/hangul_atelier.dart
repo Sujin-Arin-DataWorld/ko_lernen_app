@@ -1,21 +1,24 @@
 part of 'hangul_screen.dart';
 
-// HTML approval: versions/20261010-approved-responsive-settings. Keep the full
+// HTML approval: versions/20261010-approved-responsive-settings. Keep the
 // original PNGs, 4/8/12dp rhythm and source data owners. Latin faces follow
 // the current locale tokens; Korean keeps its learning face.
 Widget _atelierScreen(_HangulScreenState state, BuildContext context) {
   final t = AppL10n.of(context);
   final size = MediaQuery.sizeOf(context);
   final large = MediaQuery.textScalerOf(context).scale(1) >= 1.5;
-  final horizontal = size.width >= CAtelier.wideSurface
+  final compact = size.height < 760 || large;
+  final folio = soriUsesLearningFolio(context);
+  final horizontal = folio
+      ? 15.0
+      : size.width >= CAtelier.wideSurface
       ? 24.0
       : size.width < CAtelier.compactSurface
       ? 10.0
       : 14.0;
   final tabs = CAtelierTabs(
     key: state._tabBarKey,
-    vertical: large,
-    children: _atelierTabs(state, t),
+    children: _atelierTabs(state, t, iconOnly: compact && size.width < 540),
   );
   final locked = StudyBodyInputLock.isLocked(state.context);
   final pages = ExcludeFocus(
@@ -55,72 +58,123 @@ Widget _atelierScreen(_HangulScreenState state, BuildContext context) {
       width: 48,
       height: 48,
       child: Center(
-        child: Text(
-          t.btnPrev,
-          style: CAtelier.text(context, 12, color: CAtelier.paper),
-        ),
+        child: compact || folio
+            ? Icon(
+                folio ? Icons.chevron_left_rounded : Icons.arrow_back_rounded,
+                color: CAtelier.paper,
+              )
+            : Text(
+                t.btnPrev,
+                style: CAtelier.text(context, 12, color: CAtelier.paper),
+              ),
       ),
     ),
     onLeave: state._pause,
-    homeContent: Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        CAtelier.art('cloud', width: 20, height: 20),
-        const SizedBox(width: CAtelierSpacing.relatedGap),
-        Text(
-          'HANGUL SORI',
-          textScaler: TextScaler.noScaling,
-          style: CAtelier.text(
-            context,
-            10,
-            color: const Color(0xffe2c187),
-          ).copyWith(letterSpacing: 2),
-        ),
-      ],
-    ),
+    bottomNavigationBar: folio
+        ? SoriLearningStageNavigation(
+            learningStyle: SoriLearningNavStyle.folio,
+            onLeave: state._pause,
+          )
+        : null,
+    homeContent: compact
+        ? SizedBox.square(
+            dimension: 48,
+            child: Center(child: CAtelier.art('cloud', width: 22, height: 22)),
+          )
+        : Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CAtelier.art('cloud', width: 20, height: 20),
+              const SizedBox(width: CAtelierSpacing.relatedGap),
+              Text(
+                'HANGUL SORI',
+                textScaler: TextScaler.noScaling,
+                style: CAtelier.text(
+                  context,
+                  10,
+                  color: const Color(0xffe2c187),
+                ).copyWith(letterSpacing: 2),
+              ),
+            ],
+          ),
     child: const SizedBox.shrink(),
     surfaceBuilder: (close, home) {
       // Shared escape widgets must keep their existing route/leave owners.
-      final chrome = Builder(
-        builder: (_) => CAtelierSurface(
-          key: const ValueKey('hangul-atelier-header'),
+      final title = Semantics(
+        header: true,
+        namesRoute: true,
+        child: Text(
+          t.screenHangulTitle,
+          style: CAtelier.text(
+            context,
+            folio ? 26 : (compact ? 22 : 30),
+            bold: true,
+            color: CAtelier.paper,
+            height: 1.2,
+          ).copyWith(letterSpacing: -.6),
+        ),
+      );
+      final settings = SizedBox.square(
+        dimension: 48,
+        child: CAtelierButton(
+          key: const Key('hangul-settings'),
+          label: t.settingsTitle,
           face: CAtelierFace.jade,
-          radius: 0,
           depth: false,
-          framed: false,
-          padding: EdgeInsets.fromLTRB(
-            size.width >= CAtelier.wideSurface ? 24 : 16,
-            math.max(12, MediaQuery.paddingOf(context).top),
-            size.width >= CAtelier.wideSurface ? 24 : 16,
-            12,
+          bare: true,
+          onTap: () => unawaited(state._openSettings()),
+          child: CAtelier.art('settings-gear', width: 32, height: 32),
+        ),
+      );
+      final speedLabel = t.ttsSpeedChip(
+        Storage.ttsSpeed.toStringAsFixed(Storage.ttsSpeed % 1 == 0 ? 0 : 2),
+      );
+      final tempo = SizedBox(
+        width: 48,
+        child: Tooltip(
+          message: speedLabel,
+          excludeFromSemantics: true,
+          child: CAtelierButton(
+            key: const Key('hangul-tempo'),
+            label: speedLabel,
+            onTap: () => unawaited(state._openSettings(voice: true)),
+            child: compact
+                ? const Icon(Icons.speed_rounded, color: CAtelier.ink)
+                : null,
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  close,
-                  home,
-                  SizedBox(
-                    width: 48,
-                    height: 48,
-                    child: CAtelierButton(
-                      key: const Key('hangul-settings'),
-                      label: t.settingsTitle,
-                      face: CAtelierFace.jade,
-                      depth: false,
-                      bare: true,
-                      onTap: () => unawaited(state._openSettings()),
-                      child: CAtelier.art(
-                        'settings-gear',
-                        width: 32,
-                        height: 32,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+        ),
+      );
+      final chrome = CAtelierSurface(
+        key: const ValueKey('hangul-atelier-header'),
+        face: CAtelierFace.jade,
+        radius: 0,
+        depth: false,
+        framed: false,
+        padding: EdgeInsets.fromLTRB(
+          folio
+              ? 0
+              : compact
+              ? horizontal
+              : 16,
+          folio
+              ? MediaQuery.paddingOf(context).top + 12
+              : math.max(8, MediaQuery.paddingOf(context).top),
+          compact ? horizontal : 16,
+          compact ? 4 : 12,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                close,
+                if (compact || folio) Expanded(child: title),
+                if (folio) tempo else home,
+                settings,
+              ],
+            ),
+            if (!compact && !folio) ...[
               const SizedBox(height: Spacing.xs),
               Row(
                 children: [
@@ -128,20 +182,7 @@ Widget _atelierScreen(_HangulScreenState state, BuildContext context) {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Semantics(
-                          header: true,
-                          namesRoute: true,
-                          child: Text(
-                            t.screenHangulTitle,
-                            style: CAtelier.text(
-                              context,
-                              30,
-                              bold: true,
-                              color: CAtelier.paper,
-                              height: 1.2,
-                            ).copyWith(letterSpacing: -.6),
-                          ),
-                        ),
+                        title,
                         const SizedBox(height: Spacing.xs),
                         Text(
                           t.atelierSubtitle,
@@ -155,42 +196,37 @@ Widget _atelierScreen(_HangulScreenState state, BuildContext context) {
                     ),
                   ),
                   const SizedBox(width: Spacing.sm),
-                  SizedBox(
-                    width: 48,
-                    child: CAtelierButton(
-                      key: const Key('hangul-tempo'),
-                      label: t.ttsSpeedChip(
-                        Storage.ttsSpeed.toStringAsFixed(
-                          Storage.ttsSpeed % 1 == 0 ? 0 : 2,
-                        ),
-                      ),
-                      fontSize: CAtelierType.controlLabel,
-                      onTap: () => unawaited(state._openSettings(voice: true)),
-                    ),
-                  ),
+                  tempo,
                 ],
               ),
             ],
-          ),
+          ],
         ),
       );
       final content = CAtelierPaper(
         child: Padding(
           padding: EdgeInsets.fromLTRB(
             horizontal,
-            8,
+            folio ? 13 : 8,
             horizontal,
-            math.max(12, MediaQuery.paddingOf(context).bottom),
+            folio ? 24 : 16 + MediaQuery.paddingOf(context).bottom,
           ),
-          child: large
-              ? pages
-              : Column(
+          child: Column(
+            children: [
+              if (compact)
+                Row(
                   children: [
-                    tabs,
-                    const SizedBox(height: Spacing.md),
-                    Expanded(child: pages),
+                    Expanded(child: tabs),
+                    const SizedBox(width: Spacing.sm),
+                    tempo,
                   ],
-                ),
+                )
+              else
+                tabs,
+              SizedBox(height: compact ? Spacing.sm : Spacing.md),
+              Expanded(child: pages),
+            ],
+          ),
         ),
       );
       return ColoredBox(
@@ -198,33 +234,22 @@ Widget _atelierScreen(_HangulScreenState state, BuildContext context) {
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 1100),
-            child: large
-                ? NestedScrollView(
-                    key: const Key('hangul-accessible-page-scroll'),
-                    headerSliverBuilder: (_, _) => [
-                      SliverToBoxAdapter(child: chrome),
-                      SliverToBoxAdapter(
-                        child: CAtelierPaper(
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(
-                              horizontal,
-                              8,
-                              horizontal,
-                              12,
-                            ),
-                            child: tabs,
-                          ),
-                        ),
-                      ),
-                    ],
-                    body: content,
-                  )
-                : Column(
-                    children: [
-                      chrome,
-                      Expanded(child: content),
-                    ],
-                  ),
+            child: SafeArea(
+              top: false,
+              bottom: false,
+              child: Column(
+                children: [
+                  if (folio)
+                    SizedBox(
+                      height: 80 + MediaQuery.paddingOf(context).top,
+                      child: chrome,
+                    )
+                  else
+                    chrome,
+                  Expanded(child: content),
+                ],
+              ),
+            ),
           ),
         ),
       );
@@ -232,7 +257,11 @@ Widget _atelierScreen(_HangulScreenState state, BuildContext context) {
   );
 }
 
-List<Widget> _atelierTabs(_HangulScreenState state, AppL10n t) => [
+List<Widget> _atelierTabs(
+  _HangulScreenState state,
+  AppL10n t, {
+  required bool iconOnly,
+}) => [
   for (final item in [
     t.hangulTabOverview,
     t.hangulTabCards,
@@ -240,22 +269,38 @@ List<Widget> _atelierTabs(_HangulScreenState state, AppL10n t) => [
   ].indexed)
     Padding(
       padding: EdgeInsets.only(right: item.$1 < 2 ? 4 : 0),
-      child: CAtelierButton(
-        key: ValueKey('hangul-tab-${item.$1}'),
-        label: item.$2,
-        fontSize: 14,
-        bold: state._tabIndex == item.$1,
-        bare: state._tabIndex != item.$1,
-        face: state._tabIndex == item.$1
-            ? CAtelierFace.gold
-            : CAtelierFace.jade,
-        selected: state._tabIndex == item.$1,
-        depth: state._tabIndex == item.$1,
-        onTap: () => state._tabs.animateTo(
-          item.$1,
-          duration: SoriMotion.reduceMotion(state.context)
-              ? Duration.zero
-              : const Duration(milliseconds: 180),
+      child: Tooltip(
+        message: item.$2,
+        excludeFromSemantics: true,
+        child: CAtelierButton(
+          key: ValueKey('hangul-tab-${item.$1}'),
+          label: item.$2,
+          fontSize: 14,
+          bold: state._tabIndex == item.$1,
+          bare: state._tabIndex != item.$1,
+          face: state._tabIndex == item.$1
+              ? CAtelierFace.gold
+              : CAtelierFace.jade,
+          selected: state._tabIndex == item.$1,
+          depth: state._tabIndex == item.$1,
+          child: iconOnly
+              ? Icon(
+                  const [
+                    Icons.grid_view_rounded,
+                    Icons.style_outlined,
+                    Icons.brush_outlined,
+                  ][item.$1],
+                  color: state._tabIndex == item.$1
+                      ? CAtelier.ink
+                      : CAtelier.paper,
+                )
+              : null,
+          onTap: () => state._tabs.animateTo(
+            item.$1,
+            duration: SoriMotion.reduceMotion(state.context)
+                ? Duration.zero
+                : const Duration(milliseconds: 180),
+          ),
         ),
       ),
     ),
@@ -264,7 +309,7 @@ List<Widget> _atelierTabs(_HangulScreenState state, AppL10n t) => [
 Future<void> _atelierDialog(
   BuildContext context,
   String title,
-  Widget Function(BuildContext) body,
+  List<Widget> Function(BuildContext, BoxConstraints) sections,
 ) => showSoriDialog<void>(
   context: context,
   builder: (dialogContext) => Dialog(
@@ -275,48 +320,98 @@ Future<void> _atelierDialog(
       borderRadius: BorderRadius.circular(18),
       side: const BorderSide(color: CAtelier.gold),
     ),
-    child: ConstrainedBox(
-      constraints: BoxConstraints(
-        maxWidth: 390,
-        maxHeight: MediaQuery.sizeOf(dialogContext).height * .85,
-      ),
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(18),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Semantics(
-                      header: true,
-                      child: Text(
-                        title,
-                        style: CAtelier.text(context, 21, bold: true),
-                      ),
+    child: SizedBox(
+      width: 390,
+      height: MediaQuery.sizeOf(dialogContext).height * .82,
+      child: Padding(
+        padding: const EdgeInsets.all(Spacing.lg),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Semantics(
+                    header: true,
+                    child: Text(
+                      title,
+                      style: CAtelier.text(dialogContext, 21, bold: true),
                     ),
                   ),
-                  SizedBox(
-                    width: 48,
-                    child: CAtelierButton(
-                      label: AppL10n.of(context).btnClose,
-                      child: const Text('×', style: TextStyle(fontSize: 26)),
-                      onTap: () => Navigator.pop(dialogContext),
-                    ),
+                ),
+                SizedBox(
+                  width: 48,
+                  child: CAtelierButton(
+                    label: AppL10n.of(dialogContext).btnClose,
+                    child: const Icon(Icons.close_rounded),
+                    onTap: () => Navigator.pop(dialogContext),
                   ),
-                ],
+                ),
+              ],
+            ),
+            const SizedBox(height: Spacing.md),
+            Expanded(
+              child: LayoutBuilder(
+                builder: (context, box) =>
+                    SoriViewportPages(sections: sections(context, box)),
               ),
-              const SizedBox(height: Spacing.md),
-              body(dialogContext),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     ),
   ),
 );
+
+double _atelierBodySize(BuildContext context) =>
+    Theme.of(context).platform == TargetPlatform.iOS ? 17 : 16;
+
+List<Widget> _atelierTextSections(
+  BuildContext context,
+  BoxConstraints box,
+  String copy, {
+  Key? firstSectionKey,
+}) {
+  final style = CAtelier.text(context, _atelierBodySize(context));
+  final pages = soriViewportTextPages(
+    context,
+    copy,
+    style: style,
+    width: box.maxWidth,
+    height: box.maxHeight - SoriViewportPages.controlsHeight - Spacing.xs * 2,
+  );
+  return [
+    for (final (index, page) in pages.indexed)
+      Padding(
+        key: index == 0 ? firstSectionKey : null,
+        padding: const EdgeInsets.symmetric(vertical: Spacing.xs),
+        child: Text(page, style: style),
+      ),
+  ];
+}
+
+List<Widget> _atelierGridRows(
+  BoxConstraints box,
+  List<Widget> tiles, {
+  double tileWidth = 54,
+}) {
+  const gap = Spacing.sm;
+  final columns = math.max(1, (box.maxWidth + gap) ~/ (tileWidth + gap));
+  return [
+    for (var start = 0; start < tiles.length; start += columns)
+      Padding(
+        padding: const EdgeInsets.only(bottom: gap),
+        child: Wrap(
+          spacing: gap,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            for (final tile in tiles.skip(start).take(columns))
+              SizedBox(width: tileWidth, child: tile),
+          ],
+        ),
+      ),
+  ];
+}
 
 class _AtelierOverview extends StatefulWidget {
   const _AtelierOverview({required this.speak, required this.speakSyllable});
@@ -330,25 +425,28 @@ class _AtelierOverviewState extends State<_AtelierOverview>
   int _c = 0, _v = 0, _group = 0;
   final _chartOrder = List<int>.generate(consonants.length, (i) => i)
     ..sort((a, b) => consonants[a].letter.compareTo(consonants[b].letter));
-  final _rows = ScrollController();
+  int _chartRow = 0;
+  double _chartDrag = 0;
   bool _playing = false;
   int _speechGeneration = 0;
   @override
   bool get wantKeepAlive => true;
   @override
   void dispose() {
-    _rows.dispose();
     _speechGeneration++;
     super.dispose();
   }
 
   String get _syllable =>
       composeHangulSyllable(consonants[_c].letter, vowels[_v].letter, '')!;
-  void _choose(int c, int v) {
+  void _choose(int c, int v, {bool revealConsonant = false}) {
     setState(() {
       _c = c;
       _v = v;
       _group = v ~/ 4;
+      if (revealConsonant) {
+        _chartRow = _chartOrder.indexOf(c);
+      }
     });
     unawaited(_listen());
   }
@@ -379,28 +477,22 @@ class _AtelierOverviewState extends State<_AtelierOverview>
     await _atelierDialog(
       context,
       '$title (${chars.length})',
-      (dialogContext) => Wrap(
-        spacing: 8,
-        runSpacing: 8,
-        children: [
-          for (final entry in chars.indexed)
-            SizedBox(
-              width: 54,
-              child: CAtelierButton(
-                key: ValueKey('hangul-catalog-${entry.$2.letter}'),
-                label: entry.$2.letter,
-                child: Text(
-                  entry.$2.letter,
-                  style: CAtelier.text(context, 24, korean: true),
-                ),
-                onTap: () {
-                  Navigator.pop(dialogContext);
-                  unawaited(_detail(entry.$2, kind, entry.$1));
-                },
-              ),
+      (dialogContext, box) => _atelierGridRows(box, [
+        for (final entry in chars.indexed)
+          CAtelierButton(
+            key: ValueKey('hangul-catalog-${entry.$2.letter}'),
+            label: entry.$2.letter,
+            child: Text(
+              entry.$2.letter,
+              textScaler: TextScaler.noScaling,
+              style: CAtelier.text(context, 24, korean: true),
             ),
-        ],
-      ),
+            onTap: () {
+              Navigator.pop(dialogContext);
+              unawaited(_detail(entry.$2, kind, entry.$1));
+            },
+          ),
+      ]),
     );
   }
 
@@ -413,55 +505,48 @@ class _AtelierOverviewState extends State<_AtelierOverview>
     await _atelierDialog(
       context,
       c.letter,
-      (dialogContext) => Column(
-        children: [
-          Text(
-            c.letter,
-            style: CAtelier.text(
-              context,
-              60,
-              bold: true,
-              korean: true,
-              color: CAtelier.jade,
-            ),
+      (dialogContext, box) => [
+        Text(
+          c.letter,
+          textScaler: TextScaler.noScaling,
+          textAlign: TextAlign.center,
+          style: CAtelier.text(
+            context,
+            60,
+            bold: true,
+            korean: true,
+            color: CAtelier.jade,
           ),
-          Text(c.romanization, style: CAtelier.text(context, 19)),
-          const SizedBox(height: Spacing.xs),
-          Text(c.descriptionFor(lang), style: CAtelier.text(context, 16)),
-          if (c.exampleWord.isNotEmpty) ...[
-            const SizedBox(height: Spacing.sm),
-            Text(
-              c.exampleWord,
-              style: CAtelier.text(context, 28, korean: true),
-            ),
-            Text(c.exampleFor(lang), style: CAtelier.text(context, 16)),
-          ],
-          const SizedBox(height: Spacing.md),
-          CAtelierButton(
-            label: t.cHangulListen,
-            face: CAtelierFace.jade,
-            onTap: () => unawaited(widget.speak(c.letter)),
-          ),
-          if (kind < 2) ...[
-            const SizedBox(height: Spacing.sm),
-            CAtelierButton(
-              label: t.atelierUseInChart,
-              onTap: () {
-                Navigator.pop(dialogContext);
-                _choose(kind == 0 ? index : _c, kind == 1 ? index : _v);
-                if (_rows.hasClients) {
-                  _rows.jumpTo(
-                    math.min(
-                      _rows.position.maxScrollExtent,
-                      _chartOrder.indexOf(_c) * 52.0,
-                    ),
-                  );
-                }
-              },
-            ),
-          ],
+        ),
+        Text(c.romanization, style: CAtelier.text(context, 19)),
+        const SizedBox(height: Spacing.xs),
+        ..._atelierTextSections(dialogContext, box, c.descriptionFor(lang)),
+        if (c.exampleWord.isNotEmpty) ...[
+          const SizedBox(height: Spacing.sm),
+          Text(c.exampleWord, style: CAtelier.text(context, 28, korean: true)),
+          Text(c.exampleFor(lang), style: CAtelier.text(context, 16)),
         ],
-      ),
+        const SizedBox(height: Spacing.md),
+        CAtelierButton(
+          label: t.cHangulListen,
+          face: CAtelierFace.jade,
+          onTap: () => unawaited(widget.speak(c.letter)),
+        ),
+        if (kind < 2) ...[
+          const SizedBox(height: Spacing.sm),
+          CAtelierButton(
+            label: t.atelierUseInChart,
+            onTap: () {
+              Navigator.pop(dialogContext);
+              _choose(
+                kind == 0 ? index : _c,
+                kind == 1 ? index : _v,
+                revealConsonant: true,
+              );
+            },
+          ),
+        ],
+      ],
     );
   }
 
@@ -471,18 +556,10 @@ class _AtelierOverviewState extends State<_AtelierOverview>
     final t = AppL10n.of(context);
     return LayoutBuilder(
       builder: (context, constraints) {
-        final tablet = MediaQuery.sizeOf(context).width >= CAtelier.wideSurface;
-        final large = MediaQuery.textScalerOf(context).scale(1) >= 1.5;
-        final visibleRows =
-            ((constraints.maxHeight -
-                        (large
-                            ? 390
-                            : tablet
-                            ? 160
-                            : 278)) /
-                    52)
-                .floor()
-                .clamp(3, tablet ? 12 : 5);
+        final tablet = constraints.maxWidth >= 680;
+        final compact =
+            constraints.maxHeight < 510 ||
+            MediaQuery.textScalerOf(context).scale(1) >= 1.5;
         final indices = List.generate(
           math.min(4, vowels.length - _group * 4),
           (i) => _group * 4 + i,
@@ -490,35 +567,38 @@ class _AtelierOverviewState extends State<_AtelierOverview>
         final preview = Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Semantics(
-                    header: true,
-                    child: Text(
-                      t.atelierDiscover,
-                      style: CAtelier.text(
-                        context,
-                        19,
-                        bold: true,
-                        height: 1.35,
+            if (!compact)
+              Row(
+                children: [
+                  Expanded(
+                    child: Semantics(
+                      header: true,
+                      child: Text(
+                        t.atelierDiscover,
+                        style: CAtelier.text(
+                          context,
+                          19,
+                          bold: true,
+                          height: 1.35,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Text(
-                  '19 × 15',
-                  style: CAtelier.text(context, 12, color: CAtelier.muted),
-                ),
-              ],
-            ),
+                  Text(
+                    '19 × 15',
+                    style: CAtelier.text(context, 12, color: CAtelier.muted),
+                  ),
+                ],
+              ),
             const SizedBox(height: Spacing.xs),
             Row(
               children: [
                 Expanded(
                   child: Center(
                     child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 220),
+                      constraints: BoxConstraints(
+                        maxWidth: compact ? 152 : 220,
+                      ),
                       child: LayoutBuilder(
                         builder: (context, box) => SizedBox(
                           height: box.maxWidth * 1024 / 1536 - 47,
@@ -571,23 +651,42 @@ class _AtelierOverviewState extends State<_AtelierOverview>
                 ),
                 const SizedBox(width: Spacing.sm),
                 SizedBox(
-                  width: 72,
-                  child: Column(
-                    children: [
-                      ValueListenableBuilder<TtsSpeechPhase>(
-                        valueListenable: SoriSpeech.phase,
-                        builder: (_, phase, _) => CAtelierSpeaker(
-                          playing: _playing && phase == TtsSpeechPhase.speaking,
+                  width: compact ? 60 : 72,
+                  child: ValueListenableBuilder<TtsSpeechPhase>(
+                    valueListenable: SoriSpeech.phase,
+                    builder: (_, phase, _) {
+                      final speaker = CAtelierSpeaker(
+                        width: compact ? 42 : 64,
+                        height: compact ? 28 : 40,
+                        playing: _playing && phase == TtsSpeechPhase.speaking,
+                      );
+                      return Tooltip(
+                        message: t.cHangulListen,
+                        excludeFromSemantics: true,
+                        child: CAtelierButton(
+                          label: t.cHangulListen,
+                          face: CAtelierFace.jade,
+                          fontSize: CAtelierType.controlLabel,
+                          onTap: () => unawaited(_listen()),
+                          child: compact
+                              ? speaker
+                              : Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    speaker,
+                                    Text(
+                                      t.cHangulListen,
+                                      style: CAtelier.text(
+                                        context,
+                                        12,
+                                        color: CAtelier.paper,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                         ),
-                      ),
-                      const SizedBox(height: Spacing.xs),
-                      CAtelierButton(
-                        label: t.cHangulListen,
-                        face: CAtelierFace.jade,
-                        fontSize: CAtelierType.controlLabel,
-                        onTap: () => unawaited(_listen()),
-                      ),
-                    ],
+                      );
+                    },
                   ),
                 ),
               ],
@@ -607,10 +706,11 @@ class _AtelierOverviewState extends State<_AtelierOverview>
                     ),
                   ),
                 ),
-                Text(
-                  '${consonants[_c].letter} [${consonants[_c].romanization}] · ${vowels[_v].letter} [${vowels[_v].romanization}]',
-                  style: CAtelier.text(context, 12, color: CAtelier.muted),
-                ),
+                if (!compact)
+                  Text(
+                    '${consonants[_c].letter} [${consonants[_c].romanization}] · ${vowels[_v].letter} [${vowels[_v].romanization}]',
+                    style: CAtelier.text(context, 12, color: CAtelier.muted),
+                  ),
               ],
             ),
           ],
@@ -669,133 +769,217 @@ class _AtelierOverviewState extends State<_AtelierOverview>
               ],
             ),
             const SizedBox(height: CAtelierSpacing.relatedGap),
-            Text(t.atelierChartHint, style: CAtelier.text(context, 14)),
-            const SizedBox(height: CAtelierSpacing.relatedGap),
-            Row(
-              children: [
-                const SizedBox(width: Spacing.xxxl),
-                for (final v in indices)
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: Spacing.xs),
-                      child: CAtelierButton(
-                        label: vowels[v].letter,
-                        face: v == _v ? CAtelierFace.jade : CAtelierFace.paper,
-                        selected: v == _v,
-                        child: Text(
-                          vowels[v].letter,
-                          style: CAtelier.text(
-                            context,
-                            23,
-                            korean: true,
-                            height: 1.1,
-                            color: v == _v ? CAtelier.paper : CAtelier.ink,
+            if (!compact) ...[
+              Text(t.atelierChartHint, style: CAtelier.text(context, 14)),
+              const SizedBox(height: CAtelierSpacing.relatedGap),
+            ],
+            if (!compact)
+              Row(
+                children: [
+                  const SizedBox(width: Spacing.xxxl),
+                  for (final v in indices)
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: Spacing.xs),
+                        child: CAtelierButton(
+                          label: vowels[v].letter,
+                          face: v == _v
+                              ? CAtelierFace.jade
+                              : CAtelierFace.paper,
+                          selected: v == _v,
+                          child: Text(
+                            vowels[v].letter,
+                            textScaler: TextScaler.noScaling,
+                            style: CAtelier.text(
+                              context,
+                              23,
+                              korean: true,
+                              height: 1.1,
+                              color: v == _v ? CAtelier.paper : CAtelier.ink,
+                            ),
                           ),
+                          onTap: () => _choose(_c, v),
                         ),
-                        onTap: () => _choose(_c, v),
                       ),
                     ),
-                  ),
-              ],
-            ),
+                ],
+              ),
             const SizedBox(height: Spacing.xs),
-            SizedBox(
-              height: visibleRows * 52.0 - 4,
-              child: Scrollbar(
-                controller: _rows,
-                thumbVisibility: true,
-                child: ListView.separated(
-                  key: const Key('hangul-full-syllable-chart'),
-                  controller: _rows,
-                  itemCount: consonants.length,
-                  padding: EdgeInsets.zero,
-                  separatorBuilder: (_, _) =>
-                      const SizedBox(height: Spacing.xs),
-                  itemBuilder: (context, row) {
-                    final c = _chartOrder[row];
-                    return Row(
-                      children: [
-                        SizedBox(
-                          width: 48,
-                          child: CAtelierButton(
-                            key: ValueKey(
-                              'hangul-consonant-${consonants[c].letter}',
-                            ),
-                            label: consonants[c].letter,
-                            face: c == _c
-                                ? CAtelierFace.jade
-                                : CAtelierFace.paper,
-                            child: Text(
-                              consonants[c].letter,
-                              style: CAtelier.text(
-                                context,
-                                23,
-                                korean: true,
-                                height: 1.1,
-                                color: c == _c ? CAtelier.paper : CAtelier.ink,
-                              ),
-                            ),
-                            onTap: () => _choose(c, _v),
+            Expanded(
+              child: LayoutBuilder(
+                builder: (context, chartBox) {
+                  const rowExtent = 52.0;
+                  final rows = ((chartBox.maxHeight - 48) / rowExtent)
+                      .floor()
+                      .clamp(1, _chartOrder.length);
+                  final count = (_chartOrder.length / rows).ceil();
+                  final page = _chartRow ~/ rows;
+                  final start = page * rows;
+                  final pageRows = _chartOrder.skip(start).take(rows);
+                  final labels = MaterialLocalizations.of(context);
+                  void showPage(int index) => setState(
+                    () => _chartRow = index.clamp(0, count - 1) * rows,
+                  );
+                  return Column(
+                    children: [
+                      Expanded(
+                        child: GestureDetector(
+                          key: const Key('hangul-full-syllable-chart'),
+                          behavior: HitTestBehavior.opaque,
+                          onVerticalDragStart: (_) => _chartDrag = 0,
+                          onVerticalDragUpdate: (details) =>
+                              _chartDrag += details.delta.dy,
+                          onVerticalDragEnd: (_) {
+                            if (_chartDrag.abs() >= 24) {
+                              final pages =
+                                  (_chartDrag.abs() / (rows * rowExtent))
+                                      .round()
+                                      .clamp(1, count);
+                              showPage(
+                                page + (_chartDrag < 0 ? pages : -pages),
+                              );
+                            }
+                          },
+                          child: Column(
+                            children: [
+                              for (final c in pageRows) ...[
+                                Row(
+                                  children: [
+                                    SizedBox(
+                                      width: 48,
+                                      child: CAtelierButton(
+                                        key: ValueKey(
+                                          'hangul-consonant-${consonants[c].letter}',
+                                        ),
+                                        label: consonants[c].letter,
+                                        face: c == _c
+                                            ? CAtelierFace.jade
+                                            : CAtelierFace.paper,
+                                        child: Text(
+                                          consonants[c].letter,
+                                          textScaler: TextScaler.noScaling,
+                                          style: CAtelier.text(
+                                            context,
+                                            23,
+                                            korean: true,
+                                            height: 1.1,
+                                            color: c == _c
+                                                ? CAtelier.paper
+                                                : CAtelier.ink,
+                                          ),
+                                        ),
+                                        onTap: () => _choose(c, _v),
+                                      ),
+                                    ),
+                                    for (final v in indices)
+                                      Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                            left: Spacing.xs,
+                                          ),
+                                          child: CAtelierButton(
+                                            key: ValueKey(
+                                              'hangul-syllable-${composeHangulSyllable(consonants[c].letter, vowels[v].letter, '')!}',
+                                            ),
+                                            label: composeHangulSyllable(
+                                              consonants[c].letter,
+                                              vowels[v].letter,
+                                              '',
+                                            )!,
+                                            face: c == _c && v == _v
+                                                ? CAtelierFace.jade
+                                                : CAtelierFace.paper,
+                                            selected: c == _c && v == _v,
+                                            child: Text(
+                                              composeHangulSyllable(
+                                                consonants[c].letter,
+                                                vowels[v].letter,
+                                                '',
+                                              )!,
+                                              textScaler: TextScaler.noScaling,
+                                              style: CAtelier.text(
+                                                context,
+                                                26,
+                                                korean: true,
+                                                height: 1.2,
+                                                color: c == _c && v == _v
+                                                    ? CAtelier.paper
+                                                    : CAtelier.ink,
+                                              ),
+                                            ),
+                                            onTap: () => _choose(c, v),
+                                          ),
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                                const SizedBox(height: Spacing.xs),
+                              ],
+                            ],
                           ),
                         ),
-                        for (final v in indices)
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: Spacing.xs),
-                              child: CAtelierButton(
-                                key: ValueKey(
-                                  'hangul-syllable-${composeHangulSyllable(consonants[c].letter, vowels[v].letter, '')!}',
-                                ),
-                                label: composeHangulSyllable(
-                                  consonants[c].letter,
-                                  vowels[v].letter,
-                                  '',
-                                )!,
-                                face: c == _c && v == _v
-                                    ? CAtelierFace.jade
-                                    : CAtelierFace.paper,
-                                selected: c == _c && v == _v,
-                                child: Text(
-                                  composeHangulSyllable(
-                                    consonants[c].letter,
-                                    vowels[v].letter,
-                                    '',
-                                  )!,
-                                  style: CAtelier.text(
-                                    context,
-                                    26,
-                                    korean: true,
-                                    height: 1.2,
-                                    color: c == _c && v == _v
-                                        ? CAtelier.paper
-                                        : CAtelier.ink,
-                                  ),
-                                ),
-                                onTap: () => _choose(c, v),
-                              ),
+                      ),
+                      if (count > 1)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                              key: const Key('hangul-chart-previous'),
+                              tooltip: labels.previousPageTooltip,
+                              onPressed: page > 0
+                                  ? () => showPage(page - 1)
+                                  : null,
+                              icon: const BackButtonIcon(),
                             ),
-                          ),
-                      ],
-                    );
-                  },
-                ),
+                            Text(
+                              '${page + 1} / $count',
+                              style: CAtelier.text(context, 12),
+                            ),
+                            IconButton(
+                              key: const Key('hangul-chart-next'),
+                              tooltip: labels.nextPageTooltip,
+                              onPressed: page + 1 < count
+                                  ? () => showPage(page + 1)
+                                  : null,
+                              icon: const Icon(Icons.navigate_next_rounded),
+                            ),
+                          ],
+                        ),
+                    ],
+                  );
+                },
               ),
             ),
-            const SizedBox(height: Spacing.md),
+            const SizedBox(height: Spacing.xs),
             Row(
               children: [
                 for (final label in [
-                  '${t.hangulChipConsonants} · 19',
-                  '${t.hangulChipVowels} · 15',
-                  '${t.atelierStructure} · 16',
+                  ('${t.hangulChipConsonants} · 19', 'ㄱ'),
+                  ('${t.hangulChipVowels} · 15', 'ㅏ'),
+                  ('${t.atelierStructure} · 16', '한'),
                 ].indexed)
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.only(left: label.$1 == 0 ? 0 : 8),
-                      child: CAtelierButton(
-                        label: label.$2,
-                        fontSize: CAtelierType.controlLabel,
-                        onTap: () => unawaited(_catalog(label.$1)),
+                      child: Tooltip(
+                        message: label.$2.$1,
+                        excludeFromSemantics: true,
+                        child: CAtelierButton(
+                          label: label.$2.$1,
+                          fontSize: CAtelierType.controlLabel,
+                          child: compact
+                              ? Text(
+                                  label.$2.$2,
+                                  textScaler: TextScaler.noScaling,
+                                  style: CAtelier.text(
+                                    context,
+                                    22,
+                                    korean: true,
+                                  ),
+                                )
+                              : null,
+                          onTap: () => unawaited(_catalog(label.$1)),
+                        ),
                       ),
                     ),
                   ),
@@ -803,13 +987,22 @@ class _AtelierOverviewState extends State<_AtelierOverview>
             ),
           ],
         );
-        return SingleChildScrollView(
-          child: CAtelierColumns(
-            visual: preview,
-            controls: matrix,
-            tablet: tablet,
-            phoneGap: 6,
-          ),
+        if (tablet) {
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(child: preview),
+              const SizedBox(width: Spacing.lg),
+              Expanded(child: matrix),
+            ],
+          );
+        }
+        return Column(
+          children: [
+            preview,
+            const SizedBox(height: CAtelierSpacing.relatedGap),
+            Expanded(child: matrix),
+          ],
         );
       },
     );
@@ -832,126 +1025,219 @@ Widget _atelierCards(_CardsTabState state, BuildContext context) {
     t.hangulChipVowels,
     t.hangulChipSyllables,
   ][state._mode];
-  final visual = Column(
+  final compact = MediaQuery.sizeOf(context).height < 760 || large;
+  const descriptionKey = Key('hangul-card-description');
+  final socials = [
+    _atelierSocial(
+      context,
+      t.atelierRemember,
+      'social-heart',
+      () => unawaited(state._likeLetter(c.letter, generation)),
+      liked: liked,
+      key: const Key('hangul-card-like'),
+      compact: compact,
+    ),
+    _atelierSocial(
+      context,
+      t.atelierShare,
+      'social-share',
+      () => unawaited(state._shareCurrent()),
+      compact: compact,
+    ),
+    _atelierSocial(
+      context,
+      t.atelierMore,
+      'settings-gear',
+      () => unawaited(state._showCardModeSheet()),
+      compact: compact,
+    ),
+  ];
+  final visual = LayoutBuilder(
+    builder: (context, box) {
+      final width = math.min(
+        math.min(box.maxWidth, box.maxHeight),
+        tablet ? 420.0 : 300.0,
+      );
+      return Center(
+        child: SizedBox(
+          width: compact ? box.maxWidth : width,
+          height: compact ? box.maxHeight : width,
+          child: _AtelierCardGesture(
+            key: ValueKey('atelier-feed-${c.letter}'),
+            active: state.widget.active,
+            onNext: state._next,
+            onPrevious: state._prev,
+            onFlip: state._onFlip,
+            onLike: () => unawaited(
+              state._likeLetter(c.letter, generation, addOnly: true),
+            ),
+            liked: liked,
+            child: FlipCard(
+              key: ValueKey('hangul-card-${c.letter}'),
+              flipped: state._flipped,
+              scrollFace: false,
+              duration: SoriMotion.reduceMotion(context)
+                  ? Duration.zero
+                  : const Duration(milliseconds: 320),
+              front: Center(
+                child: _atelierCardFace(
+                  context,
+                  c,
+                  width,
+                  back: false,
+                  large: large,
+                ),
+              ),
+              back: compact
+                  ? CAtelierSurface(
+                      padding: const EdgeInsets.all(Spacing.sm),
+                      child: LayoutBuilder(
+                        builder: (context, details) => SoriViewportPages(
+                          targetSectionKey: descriptionKey,
+                          sections: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  c.letter,
+                                  style: CAtelier.text(
+                                    context,
+                                    24,
+                                    korean: true,
+                                    bold: true,
+                                  ),
+                                ),
+                                const SizedBox(width: Spacing.sm),
+                                Flexible(
+                                  child: Text(
+                                    '[${c.romanization}]',
+                                    style: CAtelier.text(context, 15),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            ..._atelierTextSections(
+                              context,
+                              details,
+                              c.descriptionFor(lang),
+                              firstSectionKey: descriptionKey,
+                            ),
+                            if (c.exampleWord.isNotEmpty)
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      '${c.exampleWord} · ${c.exampleFor(lang)}',
+                                      style: CAtelier.text(
+                                        context,
+                                        15,
+                                        korean: true,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(width: Spacing.xs),
+                                  CAtelierButton(
+                                    label: t.cHangulListenWord,
+                                    child: const CAtelierSpeaker(
+                                      width: 32,
+                                      height: 24,
+                                    ),
+                                    onTap: () => unawaited(
+                                      SoriSpeech.speak(c.exampleWord),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                          ],
+                        ),
+                      ),
+                    )
+                  : _atelierCardFace(
+                      context,
+                      c,
+                      width,
+                      back: true,
+                      large: large,
+                    ),
+            ),
+          ),
+        ),
+      );
+    },
+  );
+  final flipHint = CAtelier.text(context, 14, color: CAtelier.muted);
+  final position = Text(
+    '${state._idx % pool.length + 1} / ${pool.length}',
+    style: CAtelier.text(context, 14),
+  );
+  final visualPanel = Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [
       Row(
         children: [
-          Expanded(
-            child: Text(
-              t.atelierFlipHint,
-              style: CAtelier.text(context, 14, color: CAtelier.muted),
+          if (!compact)
+            Expanded(child: Text(t.atelierFlipHint, style: flipHint))
+          else ...[
+            IconButton(
+              tooltip: t.atelierFlipHint,
+              onPressed: state.widget.active ? state._onFlip : null,
+              icon: const Icon(Icons.flip_rounded),
             ),
-          ),
-          Text(
-            '${state._idx % pool.length + 1} / ${pool.length}',
-            style: CAtelier.text(context, 14),
-          ),
+            IconButton(
+              tooltip: MaterialLocalizations.of(context).moreButtonTooltip,
+              onPressed: () => unawaited(
+                _atelierDialog(
+                  context,
+                  t.hangulTabCards,
+                  (dialogContext, box) => _atelierTextSections(
+                    dialogContext,
+                    box,
+                    t.atelierFeedHint,
+                  ),
+                ),
+              ),
+              icon: const Icon(Icons.info_outline_rounded),
+            ),
+            Expanded(child: position),
+            for (final social in socials) social,
+          ],
+          if (!compact) position,
         ],
       ),
       const SizedBox(height: CAtelierSpacing.baselineGap),
-      Row(
-        children: [
-          Expanded(
-            child: LayoutBuilder(
-              builder: (context, box) {
-                final width = math.min(box.maxWidth, tablet ? 420.0 : 300.0);
-                return Center(
-                  child: SizedBox(
-                    width: width,
-                    height: width - 14,
-                    child: OverflowBox(
-                      maxHeight: width,
-                      child: _AtelierCardGesture(
-                        key: ValueKey('atelier-feed-${c.letter}'),
-                        active: state.widget.active,
-                        onNext: state._next,
-                        onPrevious: state._prev,
-                        onFlip: state._onFlip,
-                        onLike: () => unawaited(
-                          state._likeLetter(
-                            c.letter,
-                            generation,
-                            addOnly: true,
-                          ),
-                        ),
-                        liked: liked,
-                        child: SizedBox.square(
-                          dimension: width,
-                          child: FlipCard(
-                            key: ValueKey('hangul-card-${c.letter}'),
-                            flipped: state._flipped,
-                            duration: SoriMotion.reduceMotion(context)
-                                ? Duration.zero
-                                : const Duration(milliseconds: 320),
-                            front: _atelierCardFace(
-                              context,
-                              c,
-                              width,
-                              back: false,
-                              large: large,
-                            ),
-                            back: _atelierCardFace(
-                              context,
-                              c,
-                              width,
-                              back: true,
-                              large: large,
-                            ),
-                          ),
-                        ),
-                      ),
+      Expanded(
+        child: compact
+            ? visual
+            : Row(
+                children: [
+                  Expanded(child: visual),
+                  const SizedBox(width: Spacing.sm),
+                  SizedBox(
+                    width: 48,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        for (final social in socials) ...[
+                          social,
+                          const SizedBox(height: Spacing.xs),
+                        ],
+                      ],
                     ),
                   ),
-                );
-              },
-            ),
-          ),
-          const SizedBox(width: Spacing.sm),
-          SizedBox(
-            width: 48,
-            child: Column(
-              children: [
-                _atelierSocial(
-                  context,
-                  t.atelierRemember,
-                  'social-heart',
-                  () => unawaited(state._likeLetter(c.letter, generation)),
-                  liked: liked,
-                  key: const Key('hangul-card-like'),
-                ),
-                const SizedBox(height: Spacing.sm),
-                _atelierSocial(
-                  context,
-                  t.atelierShare,
-                  'social-share',
-                  () => unawaited(state._shareCurrent()),
-                ),
-                const SizedBox(height: Spacing.sm),
-                _atelierSocial(
-                  context,
-                  t.atelierMore,
-                  'settings-gear',
-                  () => unawaited(state._showCardModeSheet()),
-                ),
-              ],
-            ),
-          ),
-        ],
+                ],
+              ),
       ),
     ],
   );
   final controls = Column(
     crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [
-      const SizedBox(height: CAtelierSpacing.relatedGap),
-      Text(
-        t.atelierFeedHint,
-        style: CAtelier.text(context, 14, color: CAtelier.muted),
-      ),
-      const SizedBox(height: Spacing.sm),
-      if (state._flipped) ...[
-        if (large)
-          Text('[${c.romanization}]', style: CAtelier.text(context, 19)),
+      if (!compact) ...[
+        const SizedBox(height: CAtelierSpacing.relatedGap),
+        Text(t.atelierFeedHint, style: flipHint),
+        const SizedBox(height: Spacing.sm),
+      ],
+      if (state._flipped && !compact) ...[
         Text(c.descriptionFor(lang), style: CAtelier.text(context, 14)),
         if (c.exampleWord.isNotEmpty) ...[
           const SizedBox(height: Spacing.xs),
@@ -986,19 +1272,34 @@ Widget _atelierCards(_CardsTabState state, BuildContext context) {
             Expanded(
               child: Padding(
                 padding: EdgeInsets.only(left: action.$1 == 0 ? 0 : 8),
-                child: CAtelierButton(
-                  label: action.$2.$1,
-                  fontSize: CAtelierType.controlLabel,
-                  onTap:
-                      state.widget.active && (state._flipped || action.$1 == 1)
-                      ? () {
-                          if (state.mounted &&
-                              state.widget.active &&
-                              generation == state._likeSourceGeneration) {
-                            action.$2.$2();
+                child: Tooltip(
+                  message: action.$2.$1,
+                  excludeFromSemantics: true,
+                  child: CAtelierButton(
+                    label: action.$2.$1,
+                    fontSize: CAtelierType.controlLabel,
+                    onTap:
+                        state.widget.active &&
+                            (state._flipped || action.$1 == 1)
+                        ? () {
+                            if (state.mounted &&
+                                state.widget.active &&
+                                generation == state._likeSourceGeneration) {
+                              action.$2.$2();
+                            }
                           }
-                        }
-                      : null,
+                        : null,
+                    child: large
+                        ? Icon(
+                            const [
+                              Icons.close_rounded,
+                              Icons.skip_next_rounded,
+                              Icons.check_rounded,
+                            ][action.$1],
+                            color: CAtelier.ink,
+                          )
+                        : null,
+                  ),
                 ),
               ),
             ),
@@ -1013,7 +1314,8 @@ Widget _atelierCards(_CardsTabState state, BuildContext context) {
         ),
         CAtelierButton(
           key: const Key('hangul-finish-cards'),
-          label: t.atelierFinish,
+          label: large ? t.dailyCharFinish : t.atelierFinish,
+          semanticLabel: t.atelierFinish,
           face: CAtelierFace.gold,
           onTap:
               state.widget.active &&
@@ -1025,36 +1327,50 @@ Widget _atelierCards(_CardsTabState state, BuildContext context) {
       ),
     ],
   );
-  return SingleChildScrollView(
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Row(
-          children: [
-            Expanded(
-              child: CAtelierButton(
-                key: const Key('hangul-cards-selection'),
-                label: '$selected · ${pool.length}',
-                fontSize: 13,
-                onTap: () => unawaited(state._showCardModeSheet()),
-              ),
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      Row(
+        children: [
+          Expanded(
+            child: CAtelierButton(
+              key: const Key('hangul-cards-selection'),
+              label: '$selected · ${pool.length}',
+              fontSize: 13,
+              onTap: () => unawaited(state._showCardModeSheet()),
             ),
-            const SizedBox(width: Spacing.sm),
-            SizedBox(
-              width: 102,
-              child: CAtelierButton(
-                key: const Key('hangul-cards-filter'),
-                label: '${t.atelierDifficult} · ${state._hardPool.length}',
-                selected: state._hardOnly && state._hardPool.isNotEmpty,
-                onTap: () => unawaited(state._showCardModeSheet()),
-              ),
+          ),
+          const SizedBox(width: Spacing.sm),
+          SizedBox(
+            width: large ? 48 : 102,
+            child: CAtelierButton(
+              key: const Key('hangul-cards-filter'),
+              label: '${t.atelierDifficult} · ${state._hardPool.length}',
+              selected: state._hardOnly && state._hardPool.isNotEmpty,
+              onTap: () => unawaited(state._showCardModeSheet()),
+              child: large
+                  ? const Icon(Icons.filter_list_rounded, color: CAtelier.ink)
+                  : null,
             ),
-          ],
-        ),
-        const SizedBox(height: Spacing.sm),
-        CAtelierColumns(visual: visual, controls: controls, tablet: tablet),
+          ),
+        ],
+      ),
+      const SizedBox(height: Spacing.xs),
+      if (tablet && !large)
+        Expanded(
+          child: Row(
+            children: [
+              Expanded(flex: 11, child: visualPanel),
+              const SizedBox(width: Spacing.lg),
+              Expanded(flex: 10, child: controls),
+            ],
+          ),
+        )
+      else ...[
+        Expanded(child: visualPanel),
+        controls,
       ],
-    ),
+    ],
   );
 }
 
@@ -1081,7 +1397,7 @@ Widget _atelierCardFace(
               style:
                   CAtelier.text(
                     context,
-                    (width * .28).clamp(84, 126),
+                    (width * .28).clamp(28, 126),
                     bold: true,
                     korean: true,
                     color: CAtelier.jade,
@@ -1113,7 +1429,7 @@ Widget _atelierCardFace(
                 textScaler: TextScaler.noScaling,
                 style: CAtelier.text(
                   context,
-                  42,
+                  (width * .15).clamp(18, 42),
                   korean: true,
                   bold: true,
                   color: CAtelier.jade,
@@ -1132,7 +1448,7 @@ Widget _atelierCardFace(
                   textAlign: TextAlign.center,
                   style: CAtelier.text(
                     context,
-                    32,
+                    (width * .115).clamp(12, 32),
                     korean: true,
                     color: CAtelier.jade,
                     height: 1.2,
@@ -1153,62 +1469,71 @@ Widget _atelierSocial(
   VoidCallback onTap, {
   bool liked = false,
   Key? key,
-}) => CAtelierTouch(
-  key: key,
-  onTap: onTap,
-  child: Semantics(
-    button: true,
-    label: label,
-    selected: liked,
+  bool compact = false,
+}) => Tooltip(
+  message: label,
+  excludeFromSemantics: true,
+  child: CAtelierTouch(
+    key: key,
     onTap: onTap,
-    child: ExcludeSemantics(
-      child: GestureDetector(
-        onTap: onTap,
-        behavior: HitTestBehavior.opaque,
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(minWidth: 48, minHeight: 64),
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Column(
-                children: [
-                  if (image == 'settings-gear')
-                    SizedBox.square(
-                      dimension: 44,
-                      child: Center(
-                        child: Text(
-                          '⋯',
-                          style: CAtelier.text(
-                            context,
-                            28,
-                            bold: true,
-                            korean: true,
+    child: Semantics(
+      button: true,
+      label: label,
+      selected: liked,
+      onTap: onTap,
+      child: ExcludeSemantics(
+        child: GestureDetector(
+          onTap: onTap,
+          behavior: HitTestBehavior.opaque,
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minWidth: 48,
+              minHeight: compact ? 48 : 64,
+            ),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Column(
+                  children: [
+                    if (image == 'settings-gear')
+                      SizedBox.square(
+                        dimension: 44,
+                        child: Center(
+                          child: Text(
+                            '⋯',
+                            style: CAtelier.text(
+                              context,
+                              28,
+                              bold: true,
+                              korean: true,
+                            ),
                           ),
                         ),
+                      )
+                    else
+                      CAtelier.art(image, width: 44, height: 44),
+                    if (!compact)
+                      Text(
+                        label,
+                        style: CAtelier.text(context, 12, height: 1.2),
+                        textAlign: TextAlign.center,
                       ),
-                    )
-                  else
-                    CAtelier.art(image, width: 44, height: 44),
-                  Text(
-                    label,
-                    style: CAtelier.text(context, 12, height: 1.2),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-              if (liked)
-                const Positioned(
-                  top: 3,
-                  right: 3,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: CAtelier.gold,
-                    ),
-                    child: SizedBox.square(dimension: 6),
-                  ),
+                  ],
                 ),
-            ],
+                if (liked)
+                  const Positioned(
+                    top: 3,
+                    right: 3,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: CAtelier.gold,
+                      ),
+                      child: SizedBox.square(dimension: 6),
+                    ),
+                  ),
+              ],
+            ),
           ),
         ),
       ),
@@ -1382,94 +1707,135 @@ Widget _atelierWriting(_WriteTabState state, BuildContext context) {
   final t = AppL10n.of(context);
   final tablet = MediaQuery.sizeOf(context).width >= CAtelier.wideSurface;
   final large = MediaQuery.textScalerOf(context).scale(1) >= 1.5;
+  final folio = soriUsesLearningFolio(context);
+  Widget? compactIcon(IconData icon, {Color color = CAtelier.ink}) =>
+      large ? Icon(icon, color: color) : null;
   final index = state._mode == 0 ? state._idx : consonants.length + state._idx;
-  final width = tablet && !large
-      ? math.min(
-          420.0,
-          math.max(288.0, (MediaQuery.sizeOf(context).height - 268) * .75),
-        )
-      : 288.0;
-  final desk = TickerMode(
-    enabled: state.widget.active && !state._toolsOpen,
-    child: Center(
-      child: SizedBox(
-        width: width,
-        child: AspectRatio(
-          aspectRatio: 1122 / 1402,
-          child: Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Positioned.fill(child: CAtelier.art('ink-desk')),
-              Positioned(
-                left: width * .16,
-                top: width * 1402 / 1122 * .305,
-                width: width * .69,
-                height: width * 1402 / 1122 * .49,
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    const Positioned.fill(
-                      child: CustomPaint(painter: _AtelierWritingGrid()),
-                    ),
-                    Positioned.fill(
-                      child: IgnorePointer(
-                        child: CustomPaint(
-                          key: const Key('hangul-writing-guide'),
-                          painter: _AtelierPracticeGuide(
-                            state._targetStrokes,
-                            state._demonstrating
-                                ? state._demoStep
-                                : state._acceptedStrokes,
-                            !state._letterDone,
-                            CAtelier.text(context, 11, bold: true),
-                          ),
+  final desk = LayoutBuilder(
+    builder: (context, box) {
+      const ratio = 1122 / 1402;
+      final short = box.maxHeight < 310;
+      final width = math.min(
+        math.min(box.maxWidth, tablet && !large ? 420.0 : 288.0),
+        box.maxHeight * ratio / (short ? .66 : 1),
+      );
+      final deskHeight = width / ratio;
+      final shownHeight = math.min(deskHeight, box.maxHeight);
+      return TickerMode(
+        enabled: state.widget.active && !state._toolsOpen,
+        child: Center(
+          child: SizedBox(
+            width: width,
+            height: shownHeight,
+            child: Stack(
+              children: [
+                Positioned(
+                  top: (shownHeight - deskHeight) * .42,
+                  width: width,
+                  height: deskHeight,
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Positioned.fill(child: CAtelier.art('ink-desk')),
+                      Positioned(
+                        left: width * .16,
+                        top: width * 1402 / 1122 * .305,
+                        width: width * .69,
+                        height: width * 1402 / 1122 * .49,
+                        child: Stack(
+                          clipBehavior: Clip.none,
+                          children: [
+                            const Positioned.fill(
+                              child: CustomPaint(
+                                painter: _AtelierWritingGrid(),
+                              ),
+                            ),
+                            if (folio && !state._demonstrating)
+                              Positioned.fill(
+                                child: IgnorePointer(
+                                  child: Center(
+                                    child: SizedBox.square(
+                                      dimension: width / ratio * .49,
+                                      child: StrokeCanvas(
+                                        key: const Key('hangul-writing-guide'),
+                                        letter: state._current.letter,
+                                        color: CAtelier.jade,
+                                        strokes: state._targetStrokes,
+                                        highlightIndex: state._letterDone
+                                            ? null
+                                            : state._acceptedStrokes,
+                                        paperGuide: true,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            else
+                              Positioned.fill(
+                                child: IgnorePointer(
+                                  child: CustomPaint(
+                                    key: const Key('hangul-writing-guide'),
+                                    painter: _AtelierPracticeGuide(
+                                      state._targetStrokes,
+                                      state._demonstrating
+                                          ? state._demoStep
+                                          : state._acceptedStrokes,
+                                      !state._letterDone,
+                                      CAtelier.text(context, 11, bold: true),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            if (state._demonstrating)
+                              Positioned.fill(
+                                child: _AtelierDemonstration(
+                                  key: ValueKey(
+                                    'atelier-demo-${state._current.letter}-${state._demoGeneration}',
+                                  ),
+                                  strokes: state._targetStrokes,
+                                  staticStep: state._demoStep,
+                                  active:
+                                      state.widget.active && !state._toolsOpen,
+                                  onComplete: state._demoComplete,
+                                ),
+                              )
+                            else
+                              Positioned.fill(
+                                child: TraceCanvas(
+                                  controller: state._practiceController,
+                                  ghost: state._current.letter,
+                                  color: CAtelier.jade,
+                                  errorColor: const Color(0xff855232),
+                                  enabled:
+                                      state.widget.active &&
+                                      !state._toolsOpen &&
+                                      !state._letterDone,
+                                  calligraphy: true,
+                                  canonicalCoordinates: true,
+                                  brushScale: 2.8,
+                                  brushAngle: .8,
+                                  parkedBrush: !state._letterDone
+                                      ? _atelierPoints(
+                                          state._targetStrokes[state
+                                              ._acceptedStrokes],
+                                        ).first
+                                      : null,
+                                  onStrokeEnd: state._onStrokeEnd,
+                                  semanticLabel: t.hangulTraceTitle,
+                                ),
+                              ),
+                          ],
                         ),
                       ),
-                    ),
-                    if (state._demonstrating)
-                      Positioned.fill(
-                        child: _AtelierDemonstration(
-                          key: ValueKey(
-                            'atelier-demo-${state._current.letter}-${state._demoGeneration}',
-                          ),
-                          strokes: state._targetStrokes,
-                          staticStep: state._demoStep,
-                          active: state.widget.active && !state._toolsOpen,
-                          onComplete: state._demoComplete,
-                        ),
-                      )
-                    else
-                      Positioned.fill(
-                        child: TraceCanvas(
-                          controller: state._practiceController,
-                          ghost: state._current.letter,
-                          color: CAtelier.jade,
-                          errorColor: const Color(0xff855232),
-                          enabled:
-                              state.widget.active &&
-                              !state._toolsOpen &&
-                              !state._letterDone,
-                          calligraphy: true,
-                          canonicalCoordinates: true,
-                          brushScale: 2.8,
-                          brushAngle: .8,
-                          parkedBrush: !state._letterDone
-                              ? _atelierPoints(
-                                  state._targetStrokes[state._acceptedStrokes],
-                                ).first
-                              : null,
-                          onStrokeEnd: state._onStrokeEnd,
-                          semanticLabel: t.hangulTraceTitle,
-                        ),
-                      ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
-      ),
-    ),
+      );
+    },
   );
   final caption = Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -1494,132 +1860,182 @@ Widget _atelierWriting(_WriteTabState state, BuildContext context) {
       ),
     ],
   );
-  final controls = Column(
-    crossAxisAlignment: CrossAxisAlignment.stretch,
+  final demonstrate = CAtelierButton(
+    key: const Key('hangul-demonstrate'),
+    label: state._demonstrating
+        ? SoriMotion.reduceMotion(context)
+              ? state._demoStep < state._targetStrokes.length - 1
+                    ? t.atelierDemoNext
+                    : t.atelierDemoEnd
+              : t.atelierDemoRestart
+        : t.atelierDemo,
+    fontSize: 14,
+    onTap: state._demonstrateAction,
+    child: compactIcon(
+      state._demonstrating ? Icons.skip_next_rounded : Icons.play_arrow_rounded,
+    ),
+  );
+  final autoAdvance = CAtelierButton(
+    key: const Key('hangul-auto-advance'),
+    label: state._auto ? t.atelierAutoOn : t.atelierAutoOff,
+    face: state._auto ? CAtelierFace.gold : CAtelierFace.paper,
+    selected: state._auto,
+    onTap: state._toggleAuto,
+    child: compactIcon(
+      state._auto ? Icons.repeat_on_outlined : Icons.repeat_rounded,
+    ),
+  );
+  final picker = Row(
     children: [
-      if (tablet && !large) ...[caption, const SizedBox(height: Spacing.md)],
-      _atelierActionPair(
-        CAtelierButton(
-          key: const Key('hangul-demonstrate'),
-          label: state._demonstrating
-              ? SoriMotion.reduceMotion(context)
-                    ? state._demoStep < state._targetStrokes.length - 1
-                          ? t.atelierDemoNext
-                          : t.atelierDemoEnd
-                    : t.atelierDemoRestart
-              : t.atelierDemo,
-          fontSize: 14,
-          onTap: state._demonstrateAction,
-        ),
-        CAtelierButton(
-          key: const Key('hangul-auto-advance'),
-          label: state._auto ? t.atelierAutoOn : t.atelierAutoOff,
-          face: state._auto ? CAtelierFace.gold : CAtelierFace.paper,
-          selected: state._auto,
-          onTap: state._toggleAuto,
+      SizedBox(
+        width: 48,
+        child: CAtelierButton(
+          label: t.btnPrev,
+          onTap: state._mode == 0 && state._idx == 0 ? null : state._prev,
+          child:
+              compactIcon(Icons.chevron_left_rounded) ??
+              const Text('‹', style: TextStyle(fontSize: 26)),
         ),
       ),
-      const SizedBox(height: Spacing.sm),
-      Row(
-        children: [
-          SizedBox(
-            width: 48,
-            child: CAtelierButton(
-              label: t.btnPrev,
-              onTap: state._mode == 0 && state._idx == 0 ? null : state._prev,
-              child: const Text('‹', style: TextStyle(fontSize: 26)),
-            ),
-          ),
-          const SizedBox(width: Spacing.xs),
-          Expanded(
-            child: CAtelierButton(
-              key: const Key('hangul-writing-selection'),
-              label: '${state._current.letter} ▾',
-              child: Row(
-                children: [
-                  Text(
-                    state._current.letter,
-                    style: CAtelier.text(context, 14, korean: true),
-                  ),
-                  const SizedBox(width: Spacing.xs),
-                  Expanded(
-                    child: Text(
-                      '· ${state._current.romanization}',
-                      style: CAtelier.text(context, 14),
-                    ),
-                  ),
-                  const Icon(
-                    Icons.keyboard_arrow_down,
-                    size: 18,
-                    color: CAtelier.ink,
-                  ),
-                ],
+      const SizedBox(width: Spacing.xs),
+      Expanded(
+        child: CAtelierButton(
+          key: const Key('hangul-writing-selection'),
+          label: '${state._current.letter} ▾',
+          semanticLabel:
+              '${state._current.letter} · ${state._current.romanization}',
+          child: Row(
+            children: [
+              Text(
+                state._current.letter,
+                style: CAtelier.text(context, 14, korean: true),
               ),
-              onTap: () => unawaited(state._showLetters()),
-            ),
-          ),
-          const SizedBox(width: Spacing.xs),
-          SizedBox(
-            width: 48,
-            child: CAtelierButton(
-              label: t.btnNext,
-              onTap: state._mode == 1 && state._idx == vowels.length - 1
-                  ? null
-                  : state._next,
-              child: const Text('›', style: TextStyle(fontSize: 26)),
-            ),
-          ),
-          const SizedBox(width: Spacing.xs),
-          SizedBox(
-            width: 48,
-            child: CAtelierButton(
-              label: t.hangulClearBtn,
-              onTap: state._clearPractice,
-              child: const Icon(
-                Icons.delete_outline,
-                color: Color(0xff8a5b3c),
-                size: 23,
+              const SizedBox(width: Spacing.xs),
+              if (!large)
+                Expanded(
+                  child: Text(
+                    '· ${state._current.romanization}',
+                    style: CAtelier.text(context, 14),
+                  ),
+                ),
+              const Icon(
+                Icons.keyboard_arrow_down,
+                size: 18,
+                color: CAtelier.ink,
               ),
-            ),
+            ],
           ),
-          const SizedBox(width: Spacing.xs),
-          SizedBox(
-            width: 48,
-            child: CAtelierButton(
-              label: t.atelierMore,
-              child: const Text('⋯', style: TextStyle(fontSize: 24)),
-              onTap: () => unawaited(state._showWriteSettings()),
-            ),
-          ),
-        ],
-      ),
-      const SizedBox(height: Spacing.sm),
-      _atelierActionPair(
-        CAtelierButton(
-          label: t.cHangulListen,
-          face: CAtelierFace.jade,
-          onTap: state._speakCurrent,
+          onTap: () => unawaited(state._showLetters()),
         ),
-        CAtelierButton(
-          key: const Key('hangul-finish-writing'),
-          label: t.atelierFinish,
-          face: CAtelierFace.gold,
-          onTap:
-              !state.widget.active ||
-                  !state._lifetime.isCurrent ||
-                  state._completedLetters == 0
+      ),
+      const SizedBox(width: Spacing.xs),
+      SizedBox(
+        width: 48,
+        child: CAtelierButton(
+          label: t.btnNext,
+          onTap: state._mode == 1 && state._idx == vowels.length - 1
               ? null
-              : () => unawaited(state._finish()),
+              : state._next,
+          child:
+              compactIcon(Icons.chevron_right_rounded) ??
+              const Text('›', style: TextStyle(fontSize: 26)),
+        ),
+      ),
+      const SizedBox(width: Spacing.xs),
+      SizedBox(
+        width: 48,
+        child: CAtelierButton(
+          label: t.hangulClearBtn,
+          onTap: state._clearPractice,
+          child: const Icon(
+            Icons.delete_outline,
+            color: Color(0xff8a5b3c),
+            size: 23,
+          ),
+        ),
+      ),
+      const SizedBox(width: Spacing.xs),
+      SizedBox(
+        width: 48,
+        child: CAtelierButton(
+          label: t.atelierMore,
+          child:
+              compactIcon(Icons.more_horiz_rounded) ??
+              const Text('⋯', style: TextStyle(fontSize: 24)),
+          onTap: () => unawaited(state._showWriteSettings()),
         ),
       ),
     ],
   );
-  return SingleChildScrollView(
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Row(
-          children: [
+  final listen = CAtelierButton(
+    key: const Key('hangul-writing-listen'),
+    label: t.cHangulListen,
+    face: CAtelierFace.jade,
+    onTap: state._speakCurrent,
+  );
+  final finish = CAtelierButton(
+    key: const Key('hangul-finish-writing'),
+    label: large ? t.dailyCharFinish : t.atelierFinish,
+    semanticLabel: t.atelierFinish,
+    face: CAtelierFace.gold,
+    onTap:
+        !state.widget.active ||
+            !state._lifetime.isCurrent ||
+            state._completedLetters == 0
+        ? null
+        : () => unawaited(state._finish()),
+  );
+  final controls = Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      if (tablet && !large) ...[caption, const SizedBox(height: Spacing.md)],
+      if (folio) ...[
+        picker,
+        const SizedBox(height: 8),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 1),
+          child: SizedBox(
+            height: 51,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(flex: 184, child: demonstrate),
+                const SizedBox(width: 9),
+                Expanded(flex: 177, child: autoAdvance),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 42),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 1),
+          child: SizedBox(
+            height: 51,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(width: 117, child: listen),
+                const SizedBox(width: 12),
+                Expanded(child: finish),
+              ],
+            ),
+          ),
+        ),
+      ] else ...[
+        _atelierActionPair(demonstrate, autoAdvance),
+        const SizedBox(height: Spacing.sm),
+        picker,
+        const SizedBox(height: Spacing.sm),
+        _atelierActionPair(listen, finish),
+      ],
+    ],
+  );
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      Row(
+        children: [
+          if (!large)
             Expanded(
               child: Text(
                 state._demonstrating
@@ -1630,42 +2046,36 @@ Widget _atelierWriting(_WriteTabState state, BuildContext context) {
                 style: CAtelier.text(context, 12, color: state._hintColor()),
               ),
             ),
-            Text(
-              t.hangulStrokeProgress(
-                state._acceptedStrokes,
-                state._targetStrokes.length,
-              ),
-              style: CAtelier.text(context, 12),
+          Text(
+            t.hangulStrokeProgress(
+              state._acceptedStrokes,
+              state._targetStrokes.length,
             ),
-            const SizedBox(width: Spacing.md),
-            Text('${index + 1} / 34', style: CAtelier.text(context, 12)),
-          ],
-        ),
-        const SizedBox(height: Spacing.xs),
-        CAtelierColumns(
-          visual: Column(
+            style: CAtelier.text(context, 12),
+          ),
+          if (large) const Spacer() else const SizedBox(width: Spacing.sm),
+          Text('${index + 1} / 34', style: CAtelier.text(context, 12)),
+        ],
+      ),
+      const SizedBox(height: Spacing.xs),
+      if (tablet && !large)
+        Expanded(
+          child: Row(
             children: [
-              SizedBox(
-                height: width * 1402 / 1122 - 14,
-                child: OverflowBox(
-                  alignment: Alignment.bottomCenter,
-                  maxHeight: width * 1402 / 1122,
-                  child: desk,
-                ),
-              ),
-              if (!tablet || large) ...[
-                const SizedBox(height: Spacing.xs),
-                caption,
-                const SizedBox(height: Spacing.sm),
-              ],
+              Expanded(flex: 11, child: desk),
+              const SizedBox(width: Spacing.lg),
+              Expanded(flex: 10, child: controls),
             ],
           ),
-          controls: controls,
-          tablet: tablet,
-          phoneGap: 0,
-        ),
+        )
+      else ...[
+        Expanded(child: desk),
+        const SizedBox(height: Spacing.xs),
+        caption,
+        const SizedBox(height: Spacing.sm),
+        controls,
       ],
-    ),
+    ],
   );
 }
 
@@ -1796,25 +2206,27 @@ class _AtelierDemonstrationState extends State<_AtelierDemonstration>
       .toList();
   final _ink = <CInkStroke>[];
   int _revision = 0;
-  late final AnimationController _clock =
-      AnimationController(
-          vsync: this,
-          duration: Duration(
-            milliseconds: _paths.fold<int>(
-              0,
-              (sum, points) => sum + 400 + points.length * 18,
-            ),
-          ),
-        )
-        ..addListener(_sample)
-        ..addStatusListener((status) {
-          if (status == AnimationStatus.completed && mounted) {
-            widget.onComplete();
-          }
-        });
+  late final AnimationController _clock;
+
   @override
   void initState() {
     super.initState();
+    _clock =
+        AnimationController(
+            vsync: this,
+            duration: Duration(
+              milliseconds: _paths.fold<int>(
+                0,
+                (sum, points) => sum + 400 + points.length * 18,
+              ),
+            ),
+          )
+          ..addListener(_sample)
+          ..addStatusListener((status) {
+            if (status == AnimationStatus.completed && mounted) {
+              widget.onComplete();
+            }
+          });
   }
 
   @override

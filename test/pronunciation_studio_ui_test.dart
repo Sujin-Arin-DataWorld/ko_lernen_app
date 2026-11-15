@@ -3,6 +3,9 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import 'support/real_fonts.dart';
+import 'support/sori_viewport_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
@@ -32,6 +35,7 @@ const _phrase = PronunciationPhrase(
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(loadSoriRealFonts);
 
   setUp(() async {
     SoriSpeech.resetForTesting();
@@ -87,7 +91,7 @@ void main() {
         );
 
         final phraseFinder = find.text(_phrase.ko);
-        await _scrollUntilBuilt(tester, phraseFinder);
+        await showSoriViewportSection(tester, phraseFinder);
         final phraseText = tester.widget<Text>(phraseFinder);
         final type = SoriTextTheme.of(tester.element(phraseFinder));
         expect(phraseText.maxLines, isNull);
@@ -104,24 +108,21 @@ void main() {
           findsNothing,
         );
 
-        for (final label in [
-          t.pronunciationRecordShort,
-          t.pronunciationNextSentence,
-        ]) {
-          final action = find.widgetWithText(SoriButton, label);
-          await _scrollUntilBuilt(tester, action);
-          expect(action, findsOneWidget);
+        final record = find.byKey(
+          const ValueKey('pronunciation-record-action'),
+        );
+        final next = find.byKey(const ValueKey('pronunciation-next-action'));
+        for (final action in [record, next]) {
+          expect(action.hitTestable(), findsOneWidget);
           final size = tester.getSize(action);
           expect(size.width, greaterThanOrEqualTo(48));
           expect(size.height, greaterThanOrEqualTo(48));
-          final button = tester.widget<SoriButton>(action);
-          expect(button.label, label);
-          expect(button.maxLines, isNull);
-          if (label == t.pronunciationRecordShort) {
-            expect(button.variant, SoriButtonVariant.filled);
-            expect(button.fullWidth, isTrue);
-          }
         }
+        final button = tester.widget<SoriButton>(record);
+        expect(button.label, t.pronunciationRecordShort);
+        expect(button.maxLines, isNull);
+        expect(button.variant, SoriButtonVariant.filled);
+        expect(button.fullWidth, isTrue);
         expect(
           tester.widget<Column>(
             find.byKey(const ValueKey('pronunciation-diagnostic-feed')),
@@ -179,7 +180,7 @@ void main() {
     final requestScore = find.byKey(
       const ValueKey('pronunciation-assess-action'),
     );
-    await _scrollUntilBuilt(tester, requestScore);
+    await showSoriViewportSection(tester, requestScore);
     tester.widget<SoriButton>(requestScore).onTap!();
     await tester.pump();
     final assessing = find.widgetWithText(SoriButton, 'Preparing your score…');
@@ -207,7 +208,7 @@ void main() {
     expect(Storage.pronunciationPassCount, 1);
 
     final scorePanel = find.byKey(const Key('pronunciation-score-panel'));
-    await _scrollUntilBuilt(tester, scorePanel);
+    await showSoriViewportSection(tester, scorePanel);
     expect(scorePanel, findsOneWidget);
     final scoreFinder = find.descendant(
       of: scorePanel,
@@ -232,18 +233,6 @@ void _configureView(WidgetTester tester, Size size) {
   addTearDown(tester.view.resetDevicePixelRatio);
   tester.view.devicePixelRatio = 1;
   tester.view.physicalSize = size;
-}
-
-Future<void> _scrollUntilBuilt(WidgetTester tester, Finder target) async {
-  final scrollable = find.byType(SingleChildScrollView).first;
-  for (var attempt = 0; attempt < 12 && target.evaluate().isEmpty; attempt++) {
-    await tester.drag(scrollable, const Offset(0, -160));
-    await tester.pump();
-  }
-  if (target.evaluate().isNotEmpty) {
-    await tester.ensureVisible(target);
-    await tester.pump();
-  }
 }
 
 Widget _host({

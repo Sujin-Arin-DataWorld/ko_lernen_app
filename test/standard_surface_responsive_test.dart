@@ -44,6 +44,7 @@ import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 import 'support/scenario_stock_fixtures.dart';
+import 'support/sori_viewport_page.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -278,13 +279,17 @@ void main() {
         );
 
         final finalCta = find.text(t.vocabPackResultBackToGrid);
-        await tester.scrollUntilVisible(
-          finalCta,
-          240,
-          scrollable: find.byType(Scrollable).first,
-        );
-        await tester.pump();
-        expect(finalCta, findsOneWidget);
+        final next = find.byKey(const Key('sori-viewport-next')).hitTestable();
+        for (
+          var page = 0;
+          page < 8 && finalCta.hitTestable().evaluate().isEmpty;
+          page++
+        ) {
+          await tester.tap(next);
+          await tester.pumpAndSettle();
+        }
+        expect(finalCta.hitTestable(), findsOneWidget);
+        expect(find.byType(Scrollable), findsNothing);
         expect(
           tester.renderObject<RenderParagraph>(finalCta).didExceedMaxLines,
           isFalse,
@@ -355,13 +360,11 @@ void main() {
 
     final t = AppL10n.of(tester.element(find.byType(VocabPacksScreen)));
     final level = find.text(t.wortpaketeLevelGoalA1);
-    await tester.ensureVisible(level);
-    await tester.pumpAndSettle();
+    await showSoriViewportSection(tester, level);
     await tester.tap(level);
     await tester.pumpAndSettle();
     final card = find.byKey(const ValueKey('wortpakete-topic-a1_greetings'));
-    await tester.ensureVisible(card);
-    await tester.pumpAndSettle();
+    await showSoriViewportSection(tester, card);
     expect(tester.getSize(card).width, greaterThan(250));
     expect(tester.takeException(), isNull);
   });

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,10 +14,10 @@ import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 
 import 'support/sori_speech_stubs.dart';
+import 'support/sori_viewport_page.dart';
 
 /// C9-T0: card-back "쓰임" section (`_UsageNoteExpander` in
 /// vocab_pack_screen.dart). Private classes cannot be imported directly, so
@@ -57,8 +58,10 @@ void _mockUsageNotesAsset() {
         'level': 'B1',
         'nuance': {
           'ko': '테스트 뉘앙스입니다.',
-          'de': 'Test-Nuance auf Deutsch, die auch bei starker Textskalierung nicht überläuft.',
-          'en': 'Test nuance in English, long enough to check wrapping under a large text scale.',
+          'de':
+              'Test-Nuance auf Deutsch, die auch bei starker Textskalierung nicht überläuft.',
+          'en':
+              'Test nuance in English, long enough to check wrapping under a large text scale.',
         },
         'situation': {
           'ko': '테스트 상황입니다.',
@@ -103,7 +106,10 @@ void _mockUsageNotesAsset() {
       .setMockMessageHandler('flutter/assets', (message) async {
         final asset = const StringCodec().decodeMessage(message);
         if (asset != 'assets/data/usage_notes.json') {
-          return null;
+          final testAsset = File('build/unit_test_assets/$asset');
+          return testAsset.existsSync()
+              ? ByteData.sublistView(testAsset.readAsBytesSync())
+              : null;
         }
         return ByteData.sublistView(Uint8List.fromList(utf8.encode(payload)));
       });
@@ -126,17 +132,11 @@ Future<void> _flipToBack(WidgetTester tester) async {
   await tester.pump(const Duration(milliseconds: 400));
 }
 
-/// Invokes the "쓰임" header's onTap directly via its test key rather than
-/// hit-testing a screen coordinate -- at 1.6x text scale (and in general,
-/// same precedent as vocab_pack_flip_spoiler_test.dart's `FlipCard.onTap!()`
-/// call) the taller card can shift other on-screen controls under the tap
-/// point, so this avoids depending on exact layout geometry.
+/// Opens the usage details from the card page that contains its control.
 Future<void> _expandUsageNoteSection(WidgetTester tester) async {
-  tester
-      .widget<SoriPressable>(
-        find.byKey(const ValueKey('usageNoteHeaderToggle')),
-      )
-      .onTap!();
+  final trigger = find.byKey(const ValueKey('usageNoteHeaderToggle'));
+  await showSoriViewportSection(tester, trigger);
+  await tester.tap(trigger);
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 200));
 }
@@ -192,7 +192,7 @@ void main() {
       final t = await AppL10n.delegate.load(const Locale('de'));
       // 접힌 기본 상태: 헤더는 보이지만 본문/재생 버튼은 아직 없다.
       expect(find.text(t.usageNoteTitle), findsOneWidget);
-      expect(find.byType(SoriSpeechIndicator), findsNothing);
+      expect(find.byType(Dialog), findsNothing);
       expect(find.text(t.usageNoteExamples), findsNothing);
 
       await _expandUsageNoteSection(tester);
@@ -207,7 +207,16 @@ void main() {
       expect(find.text('예문 하나 KO'), findsOneWidget);
       expect(find.text('예문 둘 KO'), findsOneWidget);
       // 예문마다 재생 버튼 1개 (기존 example-audio 위젯 재사용).
-      expect(find.byType(SoriSpeechIndicator), findsNWidgets(2));
+      expect(
+        find.descendant(
+          of: find.byType(Dialog),
+          matching: find.byType(SoriSpeechIndicator),
+        ),
+        findsNWidgets(2),
+      );
+      await showSoriViewportSection(tester, find.text('예문 둘 KO'));
+      await tester.tap(find.byKey(const ValueKey('usage-note-close')));
+      await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
     },
   );
@@ -242,7 +251,7 @@ void main() {
     final t = await AppL10n.delegate.load(const Locale('de'));
     expect(find.text('Grundwort'), findsOneWidget);
     expect(find.text(t.usageNoteTitle), findsNothing);
-    expect(find.byType(SoriSpeechIndicator), findsNothing);
+    expect(find.byType(Dialog), findsNothing);
     expect(tester.takeException(), isNull);
   });
 

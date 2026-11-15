@@ -13,7 +13,13 @@ import '../services/daily_char_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_recorded_jamo.dart';
 import '../services/stroke_matcher.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/c_gallery/c_atelier_materials.dart';
+import '../widgets/sori/c_gallery/c_calligraphy_canvas.dart';
+import '../widgets/sori/c_learning_surface.dart';
+import '../widgets/sori/learning_stage_navigation.dart';
+import '../widgets/sori/lernen_generated_art.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/content_feedback_card.dart';
@@ -22,6 +28,7 @@ import '../widgets/sori/sheet.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/viewport_pages.dart';
 import '../widgets/sori/window_class.dart';
 import '../widgets/stroke_canvas.dart';
 import '../widgets/trace_canvas.dart';
@@ -55,31 +62,79 @@ class DailyCalligraphyRouteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final resolvedCharacter = character ?? DailyCharService.today();
-    final hasStrokes =
-        (hangulStrokes[resolvedCharacter] ?? const []).isNotEmpty;
-
-    return SoriStandardPage(
+    final folio = soriUsesLearningFolio(context);
+    return SoriStandardFrame(
       appBarTitle: t.dailyCharTitle,
-      eyebrow: t.soriStageActivityTitle('calligraphy'),
-      headline: resolvedCharacter,
-      description: hasStrokes
-          ? t.dailyCharSubtitle
-          : t.dailyCharFallbackSubtitle,
+      headerBuilder: folio
+          ? (context, leading, actions) => SoriAppBar(
+              title: t.dailyCharTitle,
+              leading: leading,
+              actions: actions,
+              textScale: MediaQuery.textScalerOf(context).scale(1),
+              viewportWidth: MediaQuery.sizeOf(context).width,
+              appearance: const SoriAppBarAppearance(
+                toolbarHeight: 80,
+                centerTitle: false,
+                foregroundColor: SoriCLearningTokens.paper,
+                titleStyle: TextStyle(
+                  fontFamily: SoriCLearningFonts.heading,
+                  fontSize: 26,
+                  fontWeight: FontWeight.w600,
+                  color: SoriCLearningTokens.paper,
+                ),
+                background: SoriCMaterialSurface(
+                  material: SoriCMaterial.jade,
+                  raised: false,
+                  borderRadius: BorderRadius.zero,
+                  child: SizedBox.expand(),
+                ),
+              ),
+            )
+          : null,
+      bottomNavigationBar: folio
+          ? SoriLearningStageNavigation(
+              learningStyle: SoriLearningNavStyle.folio,
+              onLeave: () => unawaited(SoriSpeech.stop()),
+            )
+          : null,
       maxWidth: SoriMaxWidth.form,
-      fill: true,
-      children: [
-        _DailyCharSheet(character: resolvedCharacter, showIntro: false),
-      ],
+      padding: folio
+          ? EdgeInsets.zero
+          : const EdgeInsets.fromLTRB(16, 4, 16, 16),
+      builder: (context, padding) {
+        final sheet = _DailyCharSheet(
+          character: character ?? DailyCharService.today(),
+          showIntro: false,
+          useFolio: folio,
+        );
+        if (!folio) return Padding(padding: padding, child: sheet);
+        return DecoratedBox(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(LernenGeneratedArt.assetPath('hanji-refined')),
+              fit: BoxFit.fill,
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 20),
+            child: sheet,
+          ),
+        );
+      },
     );
   }
 }
 
 class _DailyCharSheet extends StatefulWidget {
-  const _DailyCharSheet({this.character, this.showIntro = true});
+  const _DailyCharSheet({
+    this.character,
+    this.showIntro = true,
+    this.useFolio = false,
+  });
 
   final String? character;
   final bool showIntro;
+  final bool useFolio;
 
   @override
   State<_DailyCharSheet> createState() => _DailyCharSheetState();
@@ -229,104 +284,83 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
     final strokes = _targetStrokes;
     final hasStrokes = strokes.isNotEmpty;
 
-    // 시트 외형(둥근 상단·handle·SafeArea·키보드 inset·스크롤)은 SoriSheet 담당.
-    return Column(
-      key: const Key('daily-calligraphy-content'),
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        if (widget.showIntro) ...[
-          Semantics(
-            header: true,
-            child: Text(
-              t.dailyCharTitle,
-              style: type.label.copyWith(color: SoriColors.primary),
-            ),
-          ),
-          const SizedBox(height: Spacing.xs),
-          Text(
-            hasStrokes ? t.dailyCharSubtitle : t.dailyCharFallbackSubtitle,
-            style: type.caption,
-          ),
-          const SizedBox(height: Spacing.xl),
-        ],
+    final subtitle = hasStrokes
+        ? t.dailyCharSubtitle
+        : t.dailyCharFallbackSubtitle;
+    final completed = _phase == _DailyCharPhase.complete;
 
-        // Appreciation reuses the animated guide. Once it completes, the same
-        // guide stays in place underneath the learner's real trace surface.
-        if (hasStrokes)
-          SoriCard(
-            variant: SoriCardVariant.hero,
-            accent: SoriColors.primary,
-            child: SizedBox(
-              width: 220,
-              height: 220,
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  ExcludeSemantics(
-                    excluding: _phase == _DailyCharPhase.tracing,
-                    child: IgnorePointer(
-                      ignoring: _phase == _DailyCharPhase.tracing,
-                      child: StrokeCanvas(
-                        key: const Key('daily-character-stroke-guide'),
-                        letter: _char,
-                        strokes: strokes,
-                        size: 220,
-                        color: SoriColors.primary,
-                        semanticsLabel: t.hangulStrokeOrderTitle,
-                        highlightIndex:
-                            _phase == _DailyCharPhase.tracing &&
-                                _acceptedStrokes < strokes.length
-                            ? _acceptedStrokes
-                            : null,
-                        onCompleted: _phase == _DailyCharPhase.appreciation
-                            ? _beginTracing
-                            : null,
-                      ),
-                    ),
-                  ),
-                  if (_phase == _DailyCharPhase.tracing)
-                    KeyedSubtree(
-                      key: const Key('daily-character-trace-canvas'),
-                      child: TraceCanvas(
-                        controller: _traceController,
-                        ghost: _char,
-                        color: SoriColors.primary,
-                        errorColor: SoriColors.danger,
-                        enabled: _acceptedStrokes < strokes.length,
-                        onStrokeEnd: _onStrokeEnd,
-                        semanticLabel: t.hangulTraceTitle,
-                      ),
-                    ),
-                ],
-              ),
+    Widget strokeLayers(double side) => Stack(
+      fit: StackFit.expand,
+      children: [
+        ExcludeSemantics(
+          excluding: _phase == _DailyCharPhase.tracing,
+          child: IgnorePointer(
+            ignoring: _phase == _DailyCharPhase.tracing,
+            child: StrokeCanvas(
+              key: const Key('daily-character-stroke-guide'),
+              letter: _char,
+              strokes: strokes,
+              size: side,
+              color: SoriColors.primary,
+              semanticsLabel: t.hangulStrokeOrderTitle,
+              paperGuide: widget.useFolio && _phase == _DailyCharPhase.tracing,
+              highlightIndex:
+                  _phase == _DailyCharPhase.tracing &&
+                      _acceptedStrokes < strokes.length
+                  ? _acceptedStrokes
+                  : null,
+              onCompleted: _phase == _DailyCharPhase.appreciation
+                  ? _beginTracing
+                  : null,
             ),
-          )
-        else
-          // Fallback for syllables without stroke data
-          SoriCard(
-            variant: SoriCardVariant.hero,
-            accent: SoriColors.primary,
-            tinted: true,
-            child: SizedBox(
-              width: 220,
-              height: 220,
-              child: Center(
+          ),
+        ),
+        if (_phase == _DailyCharPhase.tracing)
+          KeyedSubtree(
+            key: const Key('daily-character-trace-canvas'),
+            child: TraceCanvas(
+              controller: _traceController,
+              ghost: _char,
+              color: SoriColors.primary,
+              errorColor: SoriColors.danger,
+              enabled: _acceptedStrokes < strokes.length,
+              onStrokeEnd: _onStrokeEnd,
+              semanticLabel: t.hangulTraceTitle,
+            ),
+          ),
+      ],
+    );
+
+    Widget writingSurface(double side, double inset) => SoriCard(
+      variant: SoriCardVariant.hero,
+      padding: EdgeInsets.all(inset),
+      accent: SoriColors.primary,
+      tinted: !hasStrokes,
+      child: SizedBox.square(
+        dimension: side,
+        // The guide stays below the learner's trace between both phases.
+        child: hasStrokes
+            ? strokeLayers(side)
+            : Center(
                 child: Text(
                   _char,
+                  textScaler: widget.showIntro ? null : TextScaler.noScaling,
                   style: type.koDisplay.copyWith(
-                    fontSize: 140,
+                    fontSize: side * 140 / 220,
                     fontWeight: FontWeight.w700,
                     color: SoriColors.primary,
                     height: 1,
                   ),
                 ),
               ),
-            ),
-          ),
+      ),
+    );
 
-        const SizedBox(height: Spacing.lg),
-
-        if (hasStrokes && _phase != _DailyCharPhase.complete) ...[
+    final actions = Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (hasStrokes &&
+            (widget.showIntro || _phase == _DailyCharPhase.tracing)) ...[
           Text(
             _phase == _DailyCharPhase.appreciation
                 ? t.dailyCharGuideHint
@@ -339,72 +373,294 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
           const SizedBox(height: Spacing.sm),
         ],
 
-        // TTS + Finish
-        if (_phase != _DailyCharPhase.complete) ...[
-          Row(
-            children: [
-              SizedBox(
-                width: 56,
-                height: 56,
-                child: IconButton.filled(
-                  tooltip: t.btnHoeren,
-                  style: IconButton.styleFrom(
-                    backgroundColor: SoriColors.primary.withValues(alpha: 0.12),
-                    foregroundColor: SoriColors.primary,
-                  ),
-                  onPressed: () => unawaited(_speakCurrentChar()),
-                  icon: const Icon(Icons.volume_up_rounded),
+        Row(
+          children: [
+            SizedBox(
+              width: 56,
+              height: 56,
+              child: IconButton.filled(
+                tooltip: t.btnHoeren,
+                style: IconButton.styleFrom(
+                  backgroundColor: SoriColors.primary.withValues(alpha: 0.12),
+                  foregroundColor: SoriColors.primary,
                 ),
+                onPressed: () => unawaited(_speakCurrentChar()),
+                icon: const Icon(Icons.volume_up_rounded),
               ),
-              const SizedBox(width: Spacing.sm),
-              Expanded(
-                child: SoriButton.filled(
-                  label: t.dailyCharFinish,
-                  icon: Icons.check_rounded,
-                  accent: SoriColors.success,
-                  onTap: _finishing || !_canFinish ? null : _finish,
-                ),
+            ),
+            const SizedBox(width: Spacing.sm),
+            Expanded(
+              child: SoriButton.filled(
+                label: t.dailyCharFinish,
+                icon: Icons.check_rounded,
+                accent: SoriColors.success,
+                onTap: _finishing || !_canFinish ? null : _finish,
               ),
-            ],
-          ),
-          const SizedBox(height: Spacing.sm),
+            ),
+          ],
+        ),
+        const SizedBox(height: Spacing.sm),
+        Text(
+          t.dailyCharStreak(Storage.calligraphyTotalDays),
+          textAlign: TextAlign.center,
+          style: type.meta,
+        ),
+      ],
+    );
+
+    final celebration = Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const Mascot.tiger(
+          emotion: MascotEmotion.celebrate,
+          size: 80,
+          animate: true,
+        ),
+        const SizedBox(height: Spacing.sm),
+        if (widget.useFolio)
           Text(
             t.dailyCharStreak(Storage.calligraphyTotalDays),
             style: type.meta,
           ),
-        ] else
-          // Done celebration
-          Column(
-            children: [
-              const Mascot.tiger(
-                emotion: MascotEmotion.celebrate,
-                size: 80,
-                animate: true,
-              ),
-              const SizedBox(height: Spacing.sm),
-              Text(
-                t.dailyCharGreatJob,
-                style: type.h2.copyWith(color: SoriColors.success),
-              ),
-              if (_feedbackCompletion.current != null &&
-                  feedbackScope != null &&
-                  feedbackScope.featureGate.isEnabled) ...[
-                const SizedBox(height: Spacing.lg),
-                ContentFeedbackCard(
-                  feedbackContext: _feedbackCompletion.current!.context,
-                  featureGate: feedbackScope.featureGate,
-                  submitFeedback: feedbackScope.submitFeedback,
-                  completedMissionIds: feedbackScope.completedMissionIds,
+        Text(
+          t.dailyCharGreatJob,
+          textAlign: TextAlign.center,
+          style: type.h2.copyWith(color: SoriColors.success),
+        ),
+        const SizedBox(height: Spacing.lg),
+      ],
+    );
+    final feedback =
+        _feedbackCompletion.current != null &&
+            feedbackScope != null &&
+            feedbackScope.featureGate.isEnabled
+        ? ContentFeedbackCard(
+            feedbackContext: _feedbackCompletion.current!.context,
+            featureGate: feedbackScope.featureGate,
+            submitFeedback: feedbackScope.submitFeedback,
+            completedMissionIds: feedbackScope.completedMissionIds,
+            mascotKind: widget.showIntro ? MascotKind.tiger : null,
+          )
+        : null;
+    final close = SoriButton.filled(
+      label: t.btnClose,
+      fullWidth: true,
+      onTap: () => Navigator.pop(context),
+    );
+    const contentKey = Key('daily-calligraphy-content');
+    if (widget.showIntro) {
+      return Column(
+        key: contentKey,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Semantics(
+            header: true,
+            child: Text(
+              t.dailyCharTitle,
+              style: type.label.copyWith(color: SoriColors.primary),
+            ),
+          ),
+          const SizedBox(height: Spacing.xs),
+          Text(subtitle, style: type.caption),
+          const SizedBox(height: Spacing.xl),
+          writingSurface(220, Spacing.xl),
+          const SizedBox(height: Spacing.lg),
+          if (completed) ...[
+            celebration,
+            if (feedback != null) ...[
+              feedback,
+              const SizedBox(height: Spacing.lg),
+            ],
+            close,
+          ] else
+            actions,
+        ],
+      );
+    }
+
+    if (widget.useFolio && !completed && hasStrokes) {
+      final instruction = type.body.copyWith(
+        fontFamily: SoriCLearningFonts.body,
+        fontSize: 19,
+        fontWeight: FontWeight.w700,
+      );
+      final buttonStyle = instruction.copyWith(
+        fontSize: 16,
+        color: SoriCLearningTokens.paper,
+      );
+      return Column(
+        key: contentKey,
+        children: [
+          Expanded(
+            child: LayoutBuilder(
+              builder: (context, body) {
+                // The ink desk's transparent canvas defines the paper and
+                // guide slots. Scale them together when the available space changes.
+                final scale = math.min(
+                  body.maxWidth / 370,
+                  math.max(0.0, body.maxHeight - 190) / 457,
+                );
+                final deskWidth = 370 * scale;
+                final deskHeight = 457 * scale;
+                final deskLeft = (body.maxWidth - deskWidth) / 2;
+                return Stack(
+                  children: [
+                    Positioned(
+                      top: 29,
+                      width: body.maxWidth,
+                      child: Text(
+                        t.hangulTraceTitle,
+                        textAlign: TextAlign.center,
+                        style: instruction,
+                      ),
+                    ),
+                    Positioned(
+                      left: deskLeft,
+                      top: 65,
+                      width: deskWidth,
+                      height: deskHeight,
+                      child: Image.asset(
+                        '${CAtelier.root}ink-desk.png',
+                        key: const Key('daily-folio-desk'),
+                        fit: BoxFit.fill,
+                        excludeFromSemantics: true,
+                      ),
+                    ),
+                    Positioned(
+                      left: deskLeft + 58 * scale,
+                      top: 65 + 148 * scale,
+                      width: 247 * scale,
+                      height: 247 * scale,
+                      child: strokeLayers(247 * scale),
+                    ),
+                    Positioned(
+                      left: deskLeft + 256 * scale,
+                      top: 65 + 160 * scale,
+                      width: 99 * scale,
+                      height: 220 * scale,
+                      child: IgnorePointer(
+                        key: const Key('daily-folio-brush'),
+                        child: Transform.translate(
+                          offset: Offset(-35 * scale, 9 * scale),
+                          child: FractionallySizedBox(
+                            widthFactor: .67,
+                            heightFactor: .67,
+                            child: Transform.rotate(
+                              angle: .32,
+                              child: Image.asset(
+                                CCalligraphyAssets.brush,
+                                fit: BoxFit.fill,
+                                excludeFromSemantics: true,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 88 + deskHeight,
+                      width: body.maxWidth,
+                      child: Text(
+                        _phase == _DailyCharPhase.appreciation
+                            ? t.dailyCharSubtitle
+                            : _acceptedStrokes == strokes.length
+                            ? t.hangulStrokeLetterDone(_char)
+                            : t.hangulStrokeNextHint(_acceptedStrokes + 1),
+                        textAlign: TextAlign.center,
+                        style: instruction.copyWith(fontSize: 18),
+                      ),
+                    ),
+                    Positioned(
+                      top: 130 + deskHeight,
+                      width: body.maxWidth,
+                      child: Text(
+                        '$_acceptedStrokes / ${strokes.length}',
+                        textAlign: TextAlign.center,
+                        style: instruction.copyWith(fontSize: 17),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+          SizedBox(
+            height: 51,
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 118,
+                  height: double.infinity,
+                  child: Tooltip(
+                    message: t.btnHoeren,
+                    excludeFromSemantics: true,
+                    child: CAtelierButton(
+                      key: const Key('daily-folio-listen'),
+                      label: t.cHangulListen,
+                      face: CAtelierFace.jade,
+                      onTap: () => unawaited(_speakCurrentChar()),
+                      child: Text(t.cHangulListen, style: buttonStyle),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: SizedBox(
+                    height: double.infinity,
+                    child: CAtelierButton(
+                      key: const Key('daily-folio-finish'),
+                      label: t.dailyCharFinish,
+                      face: CAtelierFace.gold,
+                      onTap: _finishing || !_canFinish
+                          ? null
+                          : () => unawaited(_finish()),
+                      child: Text(
+                        t.dailyCharFinish,
+                        style: buttonStyle.copyWith(
+                          color: _canFinish
+                              ? SoriColors.primary
+                              : const Color(0xff69685f),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ],
-              const SizedBox(height: Spacing.lg),
-              SoriButton.filled(
-                label: t.btnClose,
-                fullWidth: true,
-                onTap: () => Navigator.pop(context),
-              ),
-            ],
+            ),
           ),
+        ],
+      );
+    }
+
+    return Column(
+      key: contentKey,
+      children: [
+        if (completed) ...[
+          Expanded(
+            child: feedback == null
+                ? Center(child: celebration)
+                : SoriViewportPages(sections: [celebration, feedback]),
+          ),
+          const SizedBox(height: Spacing.md),
+          close,
+        ] else ...[
+          Text(subtitle, textAlign: TextAlign.center, style: type.caption),
+          const SizedBox(height: Spacing.xs),
+          Expanded(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                final inset = constraints.maxHeight < 150
+                    ? Spacing.xs
+                    : Spacing.sm;
+                final side = (constraints.biggest.shortestSide - inset * 2)
+                    .clamp(0.0, 220.0);
+                return Center(child: writingSurface(side, inset));
+              },
+            ),
+          ),
+          const SizedBox(height: Spacing.sm),
+          actions,
+        ],
       ],
     );
   }

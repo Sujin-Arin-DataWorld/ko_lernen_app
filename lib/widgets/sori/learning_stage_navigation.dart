@@ -9,6 +9,15 @@ import 'image_navigation_bar.dart';
 
 export 'image_navigation_bar.dart' show SoriLearningNavStyle;
 
+/// The phone folio leaves the smaller/large-type layouts their full body area.
+bool soriUsesLearningFolio(BuildContext context) {
+  final size = MediaQuery.sizeOf(context);
+  return size.width >= 390 &&
+      size.width < 540 &&
+      size.height >= 800 &&
+      MediaQuery.textScalerOf(context).scale(17) <= 19.55;
+}
+
 /// Reuses the real shell destinations for the approved mobile learning book.
 /// The existing shell owns state and refresh; this never creates a second shell.
 class SoriLearningStageNavigation extends StatelessWidget {

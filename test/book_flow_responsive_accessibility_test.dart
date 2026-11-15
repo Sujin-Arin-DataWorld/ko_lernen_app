@@ -30,9 +30,7 @@ const _captureDirectory = String.fromEnvironment('BOOK_CAPTURE_DIR');
 
 void main() {
   setUpAll(() async {
-    if (_captureDirectory.isNotEmpty) {
-      await loadSoriRealFonts(materialIcons: true);
-    }
+    await loadSoriRealFonts(materialIcons: true);
     SharedPreferences.setMockInitialValues({'kl_tut_book': true});
     await Storage.init();
   });
@@ -49,12 +47,7 @@ void main() {
 
     for (final label in const ['Kamera', 'Aus Galerie']) {
       final action = find.widgetWithText(SoriButton, label);
-      await tester.scrollUntilVisible(
-        action,
-        220,
-        scrollable: find.byType(Scrollable).first,
-      );
-      expect(action, findsOneWidget);
+      expect(action.hitTestable(), findsOneWidget);
       _expectButtonSemantics(tester, action, label);
     }
     expect(tester.takeException(), isNull);
@@ -172,26 +165,20 @@ void main() {
           );
 
           expect(find.text(testCase.title), findsWidgets);
-          expect(find.textContaining(testCase.description), findsOneWidget);
+          final capturedCopy = tester
+              .widgetList<Text>(find.byKey(const ValueKey('book-capture-copy')))
+              .map((text) => text.data!)
+              .join(' ');
+          expect(capturedCopy, contains(testCase.description));
           for (final label in [testCase.camera, testCase.gallery]) {
             final action = find.widgetWithText(SoriButton, label);
             expect(action, findsOneWidget);
             if (label == testCase.gallery) {
               expect(tester.widget<SoriButton>(action).accent, isNull);
             }
-            await tester.ensureVisible(action);
+            expect(action.hitTestable(), findsOneWidget);
             await tester.pump();
             final semanticAction = _buttonSemanticsFinder(action, label);
-            if (semanticAction.hitTestable().evaluate().isEmpty) {
-              final scrollables = find.byType(Scrollable);
-              expect(scrollables, findsWidgets);
-              await tester.scrollUntilVisible(
-                action,
-                120,
-                scrollable: scrollables.first,
-              );
-              await tester.pump();
-            }
             expect(
               semanticAction.hitTestable(),
               findsOneWidget,
@@ -300,31 +287,36 @@ void main() {
           await tester.pump();
 
           _expectAdaptiveTitle(tester, testCase.title);
-          expect(find.textContaining(testCase.description), findsOneWidget);
-          expect(find.textContaining(testCase.warning), findsOneWidget);
+          await _checkPreviewCopy(
+            tester,
+            testCase.description,
+            testCase.warning,
+          );
           expect(find.byType(SoriTextField), findsOneWidget);
           final field = tester.widget<TextField>(find.byType(TextField));
           expect(field.decoration?.labelText, testCase.editorLabel);
           expect(field.expands, isTrue);
 
-          for (final label in [testCase.primaryAction, testCase.retake]) {
-            final action = find.widgetWithText(SoriButton, label);
-            await tester.scrollUntilVisible(
-              action,
-              240,
-              scrollable: find.byType(Scrollable).first,
-            );
-            await tester.pump();
-            _expectButtonSemantics(tester, action, label);
-          }
-
-          final retake = find.widgetWithText(SoriButton, testCase.retake);
-          expect(tester.widget<SoriButton>(retake).accent, isNull);
-          _expectOutlinedBoundaryContrast(
-            tester,
-            retake,
-            SoriSurfaces.of(tester.element(retake)).bg,
+          final primary = find.widgetWithText(
+            SoriButton,
+            testCase.primaryAction,
           );
+          expect(primary.hitTestable(), findsOneWidget);
+          _expectButtonSemantics(tester, primary, testCase.primaryAction);
+          final retake = find.widgetWithText(SoriButton, testCase.retake);
+          if (retake.evaluate().isNotEmpty) {
+            expect(retake.hitTestable(), findsOneWidget);
+            expect(tester.widget<SoriButton>(retake).accent, isNull);
+            _expectOutlinedBoundaryContrast(
+              tester,
+              retake,
+              SoriSurfaces.of(tester.element(retake)).bg,
+            );
+          } else {
+            final icon = find.byTooltip(testCase.retake).hitTestable();
+            expect(icon, findsOneWidget);
+            expect(tester.getSize(icon).shortestSide, greaterThanOrEqualTo(48));
+          }
           expect(tester.takeException(), isNull);
         }
       }
@@ -367,23 +359,15 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        expect(find.textContaining(testCase.warning), findsOneWidget);
+        await _checkPreviewCopy(tester, null, testCase.warning);
         final primary = find.widgetWithText(SoriButton, testCase.primary);
-        await tester.scrollUntilVisible(
-          primary,
-          240,
-          scrollable: find.byType(Scrollable).first,
-        );
+        expect(primary.hitTestable(), findsOneWidget);
         await tester.pumpAndSettle();
         _expectDisabledButtonSemantics(tester, primary, testCase.primary);
 
         await tester.enterText(find.byType(TextField), '안녕하십니까.');
         await tester.pump();
-        await tester.scrollUntilVisible(
-          primary,
-          240,
-          scrollable: find.byType(Scrollable).first,
-        );
+        expect(primary.hitTestable(), findsOneWidget);
         await tester.pumpAndSettle();
         _expectButtonSemantics(tester, primary, testCase.primary);
         expect(tester.takeException(), isNull);
@@ -391,6 +375,32 @@ void main() {
       },
     );
   }
+
+  testWidgets('OCR editor and its actions remain above the keyboard', (
+    tester,
+  ) async {
+    addTearDown(tester.view.resetViewInsets);
+    await _pumpAccessiblePhone(
+      tester,
+      BookPreviewScreen(
+        args: const {'text': '안녕하세요.', 'blockCount': 1},
+        imageResolver: (_) async => null,
+      ),
+    );
+    final field = find.byType(TextField);
+    await tester.tap(field);
+    tester.view.viewInsets = const FakeViewPadding(bottom: 270);
+    await tester.pumpAndSettle();
+    await tester.enterText(field, '안녕하십니까.');
+    await tester.pumpAndSettle();
+    final analyze = find.widgetWithText(SoriButton, 'Analysieren');
+    final retake = find.byTooltip('Neu aufnehmen');
+    expect(field.hitTestable(), findsOneWidget);
+    expect(analyze.hitTestable(), findsOneWidget);
+    expect(retake.hitTestable(), findsOneWidget);
+    expect(tester.getBottomRight(analyze).dy, lessThan(370));
+    expect(tester.takeException(), isNull);
+  });
 
   testWidgets(
     'book result warning actions remain reachable at 320dp and 200%',
@@ -413,11 +423,7 @@ void main() {
 
       _expectAdaptiveTitle(tester, 'Ergebnis');
       final retake = find.widgetWithText(SoriButton, 'Neu aufnehmen');
-      await tester.scrollUntilVisible(
-        retake,
-        260,
-        scrollable: find.byType(Scrollable).first,
-      );
+      expect(retake.hitTestable(), findsOneWidget);
       _expectButtonSemantics(tester, retake, 'Neu aufnehmen');
       expect(tester.takeException(), isNull);
       semantics.dispose();
@@ -605,6 +611,53 @@ Finder _buttonSemanticsFinder(Finder buttonFinder, String label) =>
         (widget) => widget is Semantics && widget.properties.label == label,
       ),
     );
+
+Future<void> _checkPreviewCopy(
+  WidgetTester tester,
+  String? description,
+  String warning,
+) async {
+  final expected = [warning, if (description != null) description];
+  if (expected.every(
+    (text) => find.textContaining(text).hitTestable().evaluate().isNotEmpty,
+  )) {
+    return;
+  }
+  final context = tester.element(find.byType(BookPreviewScreen));
+  final t = AppL10n.of(context);
+  final photo = find.byTooltip(t.onboardingJourneyPhotoAgain).hitTestable();
+  expect(photo, findsOneWidget);
+  await tester.tap(photo);
+  await tester.pumpAndSettle();
+  final nextLabel = MaterialLocalizations.of(context).nextPageTooltip;
+  final next = find
+      .byWidgetPredicate(
+        (widget) =>
+            widget is IconButton &&
+            widget.tooltip == nextLabel &&
+            widget.onPressed != null,
+      )
+      .hitTestable();
+  final chunks = find.byKey(const ValueKey('book-preview-copy'));
+  final visibleText = <Element>{};
+  while (true) {
+    visibleText.addAll(chunks.hitTestable().evaluate());
+    if (next.evaluate().isEmpty) {
+      break;
+    }
+    await tester.tap(next);
+    await tester.pumpAndSettle();
+  }
+  expect(visibleText, hasLength(chunks.evaluate().length));
+  final copy = visibleText
+      .map((element) => (element.widget as Text).data!)
+      .join(' ');
+  for (final text in expected) {
+    expect(copy, contains(text));
+  }
+  await tester.tap(find.byType(CloseButton));
+  await tester.pumpAndSettle();
+}
 
 Future<void> _pumpAccessiblePhone(
   WidgetTester tester,

@@ -28,21 +28,21 @@ import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/confirmed_choice_action.dart';
+import '../widgets/sori/deck_action_bar.dart';
 import '../widgets/sori/deck_coach.dart';
-import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/content_share_recovery.dart';
 import '../services/liked_content_service.dart';
-import '../widgets/app_error.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
-import '../widgets/sori/scroll_if_needed.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
+import '../widgets/sori/viewport_pages.dart';
 import '../widgets/sori/wordbook_add.dart';
 
 String? unambiguousReviewLevel(Iterable<String> deckLevels) {
@@ -556,6 +556,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       onLeave: () => _leaving = true,
       actions: const [TtsSpeedAction()],
       padding: EdgeInsets.zero,
+      bottomNavigationBar: _resultAction(t),
       // ⚠️ 완료 화면에서는 한지 결을 끈다. `_HanjiPainter` 는 반지름 48~163px
       // 짜리 따뜻한 구름 얼룩(#D4C496 @0.075)을 최대 40개 뿌려 배경을
       // 얼룩덜룩하게 만든다 — 실측 #FAF6EC → #F7F2E6. 그런데 캐릭터 mp4 는
@@ -566,24 +567,13 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       noiseAlpha: _done ? 0 : 0.11,
       child: switch (_loadState) {
         ReviewLoadState.loading => const AppLoading(),
-        ReviewLoadState.error => AppError(
-          message: t.loadErrorTryAgain,
-          onRetry: _load,
-          messageLiveRegion: true,
-        ),
+        ReviewLoadState.error => _statusMessage(t.loadErrorTryAgain),
         ReviewLoadState.empty => _buildEmpty(t),
         ReviewLoadState.ready =>
           _saving
               ? const AppLoading()
               : _saveFailed
-              ? AppError(
-                  message: t.courseCheckpointSaveError,
-                  messageLiveRegion: true,
-                  retryLabel: _sessionExpired ? t.btnClose : t.btnRetry,
-                  onRetry: _sessionExpired
-                      ? () => Navigator.of(context).maybePop()
-                      : () => unawaited(_savePendingJudgment()),
-                )
+              ? _statusMessage(t.courseCheckpointSaveError)
               : _done
               ? _buildDone(t, s)
               : _buildCard(t, s),
@@ -591,151 +581,214 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     );
   }
 
-  Widget _buildEmpty(AppL10n t) => SoriEmptyState(
-    asset: CanonicalCompanionArt.magpieCelebrate,
-    icon: Icons.celebration_rounded,
-    title: t.reviewEmptyTitle,
-    body: t.reviewEmptyBody,
-    ctaLabel: t.btnClose,
-    onCta: () => Navigator.of(context).maybePop(),
+  Widget? _resultAction(AppL10n t) {
+    if (_saving) return null;
+    final close =
+        _done || _loadState == ReviewLoadState.empty || _sessionExpired;
+    final retryLoad = _loadState == ReviewLoadState.error;
+    if (!close && !retryLoad && !_saveFailed) return null;
+    return SoriBottomActionArea(
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SoriButton.filled(
+            key: const ValueKey('review-session-result-action'),
+            label: close ? t.btnClose : t.btnRetry,
+            fullWidth: true,
+            onTap: close
+                ? () => Navigator.of(context).maybePop()
+                : retryLoad
+                ? _load
+                : () => unawaited(_savePendingJudgment()),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _statusMessage(String message) => Padding(
+    key: const ValueKey('review-session-status'),
+    padding: const EdgeInsets.all(Spacing.lg),
+    child: LayoutBuilder(
+      builder: (context, box) => SoriViewportPages(
+        centerContent: true,
+        sections: [
+          for (final text in _textSections(
+            context,
+            box,
+            message,
+            _instructionStyle(context),
+          ))
+            Semantics(liveRegion: true, child: text),
+        ],
+      ),
+    ),
   );
+
+  Widget _buildEmpty(AppL10n t) {
+    final tt = SoriTextTheme.of(context);
+    return Padding(
+      padding: const EdgeInsets.all(Spacing.lg),
+      child: LayoutBuilder(
+        builder: (context, box) => SoriViewportPages(
+          centerContent: true,
+          sections: [
+            Image.asset(
+              CanonicalCompanionArt.magpieCelebrate,
+              height: _artHeight(box),
+              fit: BoxFit.contain,
+              excludeFromSemantics: true,
+            ),
+            ..._textSections(context, box, t.reviewEmptyTitle, tt.h1),
+            ..._textSections(
+              context,
+              box,
+              t.reviewEmptyBody,
+              _instructionStyle(context),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   Widget _buildDone(AppL10n t, SoriSurfaces s) {
     final tt = SoriTextTheme.of(context);
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
-    // 세로 중앙 정렬 — 예전엔 콘텐츠가 상단에 뭉치고 화면 아래 절반이 통째로
-    // 비어서, 축하 문구와 Schließen 이 호랑이 바로 밑에 달라붙은 덩어리로
-    // 보였다(Jin 2026-08-12 "완성도 떨어져"). 콘텐츠가 화면보다 길어지면
-    // SingleChildScrollView 가 그대로 받아 스크롤한다 — 오버플로 계약 유지.
-    return LayoutBuilder(
-      builder: (context, constraints) => SingleChildScrollView(
-        child: ConstrainedBox(
-          constraints: BoxConstraints(minHeight: constraints.maxHeight),
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.xl),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // 세션 완료 = 기지개 클립 (배치 계획 §2-11). 폴백은 기존 celebrate.
-                CompanionBuilder(
+    final bonus = widget.bonusPhrase;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+      child: LayoutBuilder(
+        builder: (context, box) {
+          final artHeight = _artHeight(box);
+          return SoriViewportPages(
+            centerContent: true,
+            sections: [
+              Align(
+                alignment: Alignment.center,
+                child: CompanionBuilder(
                   builder: (context, kind) => CharacterClipPlayer(
                     asset: CharacterClips.sessionCompleteFor(kind),
-                    size: 120,
-                    // The screen uses the HanjiTexture base wash behind the clip.
+                    size: artHeight,
                     blendColor: SoriColors.lightBg,
                     fallbackKind: kind,
                     fallbackEmotion: MascotEmotion.celebrate,
                   ),
-                  noneBuilder: (context) => const Icon(
+                  noneBuilder: (context) => Icon(
                     Icons.celebration_rounded,
-                    size: 104,
+                    size: artHeight,
                     color: SoriColors.success,
                   ),
                 ),
-                const SizedBox(height: Spacing.lg),
-                Text(
-                  t.reviewDoneTitle,
-                  textAlign: TextAlign.center,
-                  style: tt.h1,
-                ),
-                const SizedBox(height: Spacing.sm),
-                Text(
-                  t.reviewDoneBody,
-                  textAlign: TextAlign.center,
-                  style: tt.body.copyWith(color: s.textMuted),
-                ),
-                const SizedBox(height: Spacing.md),
-                if (_rewardPersisted)
-                  LearningRewardPresentation(
-                    attempt: _learningAttempt,
-                    kind: SoriRewardKind.xp,
-                    amount: _reviewed * 2,
-                    presentationComplete: _rewardPersisted,
-                    child: Text(
-                      '+${_reviewed * 2} XP',
-                      // 황은 XP·스트릭 전용이다. 여기는 실제 XP 라 유지한다 —
-                      // 카드 위 장식 금색과는 다른 이야기.
-                      style: tt.h2.copyWith(color: SoriColors.gold),
-                    ),
+              ),
+              ..._textSections(context, box, t.reviewDoneTitle, tt.h1),
+              ..._textSections(
+                context,
+                box,
+                t.reviewDoneBody,
+                _instructionStyle(context).copyWith(color: s.textMuted),
+              ),
+              if (_rewardPersisted)
+                LearningRewardPresentation(
+                  attempt: _learningAttempt,
+                  kind: SoriRewardKind.xp,
+                  amount: _reviewed * 2,
+                  presentationComplete: _rewardPersisted,
+                  child: Text(
+                    '+${_reviewed * 2} XP',
+                    textAlign: TextAlign.center,
+                    style: tt.h2.copyWith(color: SoriColors.gold),
                   ),
-                // M5: "한마디" — interessen-passender Small-talk-Satz als Bonus.
-                if (widget.bonusPhrase != null) ...[
-                  const SizedBox(height: Spacing.xl),
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(Spacing.md),
-                    decoration: BoxDecoration(
-                      color: SoriColors.highlight.withValues(alpha: 0.10),
-                      borderRadius: SoriRadius.brMd,
+                ),
+              if (bonus != null) ...[
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        t.reviewBonusLabel,
+                        style: tt.label.copyWith(color: SoriColors.highlight),
+                      ),
                     ),
-                    child: Column(
-                      children: [
-                        Text(
-                          t.reviewBonusLabel,
-                          style: tt.label.copyWith(color: SoriColors.highlight),
+                    Tooltip(
+                      message: t.ttsListenTarget(bonus.ko),
+                      excludeFromSemantics: true,
+                      child: IconButton(
+                        constraints: const BoxConstraints(
+                          minWidth: 48,
+                          minHeight: 48,
                         ),
-                        const SizedBox(height: 6),
-                        Text(
-                          widget.bonusPhrase!.ko,
-                          textAlign: TextAlign.center,
-                          style: tt.h3,
+                        onPressed: () => TtsService.speak(bonus.ko),
+                        icon: Icon(
+                          Icons.volume_up_rounded,
+                          semanticLabel: t.ttsListenTarget(bonus.ko),
+                          color: SoriColors.highlight,
                         ),
-                        const SizedBox(height: 2),
-                        Text(
-                          widget.bonusPhrase!.translation(
-                            Localizations.localeOf(context).languageCode,
-                          ),
-                          textAlign: TextAlign.center,
-                          style: tt.bodySmall.copyWith(color: s.textMuted),
-                        ),
-                        const SizedBox(height: 8),
-                        Tooltip(
-                          message: t.ttsListenTarget(widget.bonusPhrase!.ko),
-                          excludeFromSemantics: true,
-                          child: IconButton(
-                            constraints: const BoxConstraints(
-                              minWidth: 48,
-                              minHeight: 48,
-                            ),
-                            onPressed: () =>
-                                TtsService.speak(widget.bonusPhrase!.ko),
-                            icon: Icon(
-                              Icons.volume_up_rounded,
-                              semanticLabel: t.ttsListenTarget(
-                                widget.bonusPhrase!.ko,
-                              ),
-                              color: SoriColors.highlight,
-                              size: 22,
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
+                  ],
+                ),
+                ..._textSections(context, box, bonus.ko, tt.h3),
+                ..._textSections(
+                  context,
+                  box,
+                  bonus.translation(
+                    Localizations.localeOf(context).languageCode,
                   ),
-                ],
-                if (_feedbackCompletion.current != null &&
-                    feedbackScope != null &&
-                    feedbackScope.featureGate.isEnabled) ...[
-                  const SizedBox(height: Spacing.xl),
-                  ContentFeedbackCard(
+                  _instructionStyle(context).copyWith(color: s.textMuted),
+                ),
+              ],
+              if (_feedbackCompletion.current != null &&
+                  feedbackScope != null &&
+                  feedbackScope.featureGate.isEnabled)
+                Padding(
+                  padding: const EdgeInsets.only(top: Spacing.md),
+                  child: ContentFeedbackCard(
                     feedbackContext: _feedbackCompletion.current!.context,
                     featureGate: feedbackScope.featureGate,
                     submitFeedback: feedbackScope.submitFeedback,
                     completedMissionIds: feedbackScope.completedMissionIds,
+                    mascotKind: box.maxHeight >= 380 && box.maxWidth >= 340
+                        ? MascotKind.tiger
+                        : null,
                   ),
-                ],
-                const SizedBox(height: Spacing.xl),
-                SoriButton.filled(
-                  label: t.btnClose,
-                  fullWidth: true,
-                  onTap: () => Navigator.of(context).maybePop(),
                 ),
-              ],
-            ),
-          ),
-        ),
+            ],
+          );
+        },
       ),
     );
+  }
+
+  double _artHeight(BoxConstraints box) => (box.maxHeight * .23).clamp(44, 120);
+
+  TextStyle _instructionStyle(BuildContext context) {
+    final body = SoriTextTheme.of(context).body;
+    return Theme.of(context).platform == TargetPlatform.iOS
+        ? body.copyWith(fontSize: 17)
+        : body;
+  }
+
+  Iterable<Widget> _textSections(
+    BuildContext context,
+    BoxConstraints box,
+    String text,
+    TextStyle style,
+  ) sync* {
+    if (text.isEmpty) return;
+    final pages = soriViewportTextPages(
+      context,
+      text,
+      style: style,
+      width: box.maxWidth,
+      height: box.maxHeight - SoriViewportPages.controlsHeight - Spacing.sm,
+    );
+    for (final page in pages) {
+      yield Padding(
+        padding: const EdgeInsets.only(bottom: Spacing.sm),
+        child: Text(page, textAlign: TextAlign.center, style: style),
+      );
+    }
   }
 
   Widget _buildCard(AppL10n t, SoriSurfaces s) {
@@ -801,24 +854,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         ),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(Spacing.lg),
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
             child: LayoutBuilder(
               builder: (context, constraints) {
-                // 카드 크기는 **글자 수와 완전히 무관하게** 기기 화면에만 맞춰
-                // 고정한다:
-                //  · 높이 = 가용 영역의 82% (짧은 단어여도 쪼그라들지 않음, 남는
-                //    상하 여백이 코치마크 말풍선·버튼 공간).
-                //  · 너비 = 가용 너비 가득(`width: double.infinity`). ⚠️ 이 너비
-                //    고정이 없으면 SoriCard 가 세로 스크롤 자식의 콘텐츠 폭에
-                //    맞춰 줄어들어(SingleChildScrollView 는 가로 제약을 그대로
-                //    통과시킴) "단어 길이에 따라 카드가 커졌다 작아졌다" 하는
-                //    회귀가 재발한다. 절대 지우지 말 것.
-                // 가용 폭 자체는 SoriCenterClamp 이 기기별로 최적 클램프하므로
-                // 기기 최적화 + 콘텐츠 불변이 동시에 성립한다.
-                final h = constraints.maxHeight.isFinite
-                    ? constraints.maxHeight
-                    : 360.0;
-                final cardH = h * 0.82;
+                final largeText =
+                    MediaQuery.textScalerOf(context).scale(1) >= 1.6;
+                final compact = constraints.maxHeight < (largeText ? 500 : 340);
                 final next = queue.peekNext;
                 return Semantics(
                   container: true,
@@ -862,7 +903,9 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     onLike: forThisCard(_likeCurrent),
                     onBookmark: forThisCard(_saveCurrent),
                     bookmarkKey: _card.korean,
-                    topAccessory: SoriSpeechIndicator(text: _card.korean),
+                    topAccessory: compact
+                        ? null
+                        : SoriSpeechIndicator(text: card.korean),
                     onShare: forThisCard(_shareCurrent),
                     onFlip: forThisCard(_toggleFlip),
                     liked: LikedContentService.isLiked(
@@ -871,17 +914,25 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     ),
                     underlay: next == null
                         ? null
-                        : SizedBox(
-                            width: double.infinity,
-                            height: cardH,
+                        : SizedBox.expand(
                             child: _heroCardBody(
                               next,
                               s,
                               tt,
                               t,
                               showBack: false,
+                              compact: compact,
                             ),
                           ),
+                    actionBuilder: (context) => _cardActions(
+                      t,
+                      card,
+                      browsingHistory: browsingHistory,
+                      canDefer: queue.canDefer,
+                      hasMultipleCards: total > 1,
+                      compact: compact,
+                      forThisCard: forThisCard,
+                    ),
                     knowLabel: browsingHistory ? null : t.btnGewusst,
                     hardLabel: browsingHistory ? null : t.btnNichtGewusst,
                     skipLabel: browsingHistory ? null : t.btnSkip,
@@ -900,6 +951,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                           tt,
                           t,
                           showBack: _flipped,
+                          compact: compact,
                         ),
                       ),
                     ),
@@ -909,210 +961,239 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
             ),
           ),
         ),
-        const SizedBox(height: Spacing.lg),
+        const SizedBox(height: Spacing.sm),
       ],
     );
   }
 
-  /// 히어로 카드 본문 — 본 카드와 덱 스택 underlay(다음 카드 앞면)가 공유.
-  /// P1 의 덱 공유 균일 헤드라인 계산을 포함해 **본문 그대로** 추출했다.
+  Widget _cardActions(
+    AppL10n t,
+    Vocab card, {
+    required bool browsingHistory,
+    required bool canDefer,
+    required bool hasMultipleCards,
+    required bool compact,
+    required VoidCallback Function(VoidCallback) forThisCard,
+  }) {
+    final canJudge = _cardRevealed;
+    final s = SoriSurfaces.of(context);
+    final labelStyle = SoriTextTheme.of(context).label;
+    final reserveSkipLabel =
+        hasMultipleCards &&
+        !compact &&
+        MediaQuery.sizeOf(context).width >= 390 &&
+        MediaQuery.textScalerOf(context).scale(1) < 1.4;
+    final showSkip = !browsingHistory && canDefer;
+    VoidCallback action(bool gotIt) => forThisCard(
+      canJudge ? () => _answer(gotIt) : () => _flipHintTrigger.value++,
+    );
+    final opacity = canJudge ? 1.0 : 0.56;
+    return Column(
+      key: const ValueKey('review-session-card-actions'),
+      children: [
+        Row(
+          children: [
+            if (compact)
+              Padding(
+                padding: const EdgeInsets.only(top: Spacing.sm),
+                child: SoriSpeechIndicator(text: card.korean),
+              ),
+            Expanded(
+              child: SoriContentActions(
+                onFlip: forThisCard(_toggleFlip),
+                onShare: forThisCard(_shareCurrent),
+                onBookmark: forThisCard(_saveCurrent),
+                bookmarkKey: card.korean,
+                flipLabel: t.contentActionFlip,
+                shareLabel: t.contentActionShare,
+                likeLabel: t.contentActionLike,
+                bookmarkLabel: t.deckActionSave,
+              ),
+            ),
+            if (showSkip && !reserveSkipLabel)
+              Padding(
+                padding: const EdgeInsets.only(top: Spacing.sm),
+                child: IconButton(
+                  key: deckActionKey('skip'),
+                  tooltip: t.btnSkip,
+                  constraints: const BoxConstraints(
+                    minWidth: 48,
+                    minHeight: 48,
+                  ),
+                  icon: const Icon(Icons.skip_next_rounded),
+                  onPressed: forThisCard(_deferCurrent),
+                ),
+              ),
+          ],
+        ),
+        // Card geometry must not move when the last card loses Skip or
+        // history hides ratings. Keep the same label constraints as the deck.
+        Visibility(
+          visible: !browsingHistory,
+          maintainState: true,
+          maintainAnimation: true,
+          maintainSize: true,
+          child: Padding(
+            padding: const EdgeInsets.only(top: Spacing.xs),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Opacity(
+                    opacity: opacity,
+                    child: SoriButton.ghost(
+                      key: deckActionKey('dontknow'),
+                      label: t.btnNichtGewusst,
+                      size: SoriButtonSize.sm,
+                      accent: canJudge ? SoriColors.accent : s.textDim,
+                      textStyle: labelStyle,
+                      onTap: browsingHistory ? null : action(false),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: Spacing.sm),
+                if (reserveSkipLabel) ...[
+                  Expanded(
+                    child: Visibility(
+                      visible: showSkip,
+                      maintainState: true,
+                      maintainAnimation: true,
+                      maintainSize: true,
+                      child: SoriButton.ghost(
+                        key: deckActionKey('skip'),
+                        label: t.btnSkip,
+                        size: SoriButtonSize.sm,
+                        accent: s.textMuted,
+                        textStyle: labelStyle,
+                        onTap: showSkip ? forThisCard(_deferCurrent) : null,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: Spacing.sm),
+                ],
+                Expanded(
+                  child: Opacity(
+                    opacity: opacity,
+                    child: SoriButton.ghost(
+                      key: deckActionKey('know'),
+                      label: t.btnGewusst,
+                      size: SoriButtonSize.sm,
+                      accent: canJudge ? SoriColors.contentCta : s.textDim,
+                      textStyle: labelStyle.copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
+                      onTap: browsingHistory ? null : action(true),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _heroCardBody(
     Vocab card,
     SoriSurfaces s,
     SoriTextTheme tt,
     AppL10n t, {
     required bool showBack,
+    required bool compact,
   }) {
     return SoriCard(
       variant: SoriCardVariant.hero,
       accent: SoriColors.primary,
       tinted: !showBack,
+      padding: EdgeInsets.fromLTRB(12, compact ? 8 : 52, 12, 8),
       child: LayoutBuilder(
-        builder: (context, cc) {
-          // 카드 안쪽 높이를 폰트·간격의 기준으로 삼는다 → 텍스트가 카드
-          // 크기에 비례해 커지고(기기 무관 균일 충전율) 세로는 spaceEvenly 로
-          // 카드를 채운다. 콘텐츠가 카드보다 커지는 드문 경우엔
-          // SingleChildScrollView 가 스크롤로 받아낸다(기존 계약 유지).
-          final ch = cc.maxHeight.isFinite ? cc.maxHeight : 360.0;
-          // P1-2 (2026-08-14, 의도된 시각 변화): 제시어 크기를 per-word
-          // FittedBox 단독에서 **덱 공유 균일값**으로 — 단어마다 글자 크기가
-          // 튀지 않는다 (custom_pack_play 선례 복제). FittedBox 는 실측
-          // 오차용 안전망으로만 남는다.
+        builder: (context, box) {
+          final lang = Localizations.localeOf(context).languageCode;
           final headlineSize = soriUniformFitSize(
             context,
             texts: [for (final v in _deck) v.korean],
-            maxWidth: cc.maxWidth,
-            cap: _sz(ch, 0.155, 38, 72),
-            min: 30,
+            maxWidth: box.maxWidth,
+            cap: _sz(box.maxHeight, .155, compact ? 28 : 38, 72),
+            min: compact ? 20 : 30,
             fontWeight: FontWeight.w700,
             lineHeight: 1.05,
           );
-          return SingleChildScrollView(
-            physics: kSoriCardFacePhysics,
-            child: ConstrainedBox(
-              constraints: BoxConstraints(minHeight: cc.maxHeight),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: showBack
-                    ? _backList(card, s, tt, t, ch)
-                    : _frontList(card, s, tt, t, ch, headlineSize),
+          final headline = TextStyle(
+            fontFamily: SoriFonts.sans,
+            fontSize: showBack
+                ? _sz(box.maxHeight, .125, 28, 54)
+                : headlineSize,
+            fontWeight: FontWeight.w700,
+            height: 1.1,
+          );
+          final body = _instructionStyle(context).copyWith(color: s.textMuted);
+          final example = tt.h3.copyWith(fontFamily: SoriFonts.sans);
+          final note = showBack
+              ? CultureNotesService.noteFor(card.korean)
+              : null;
+          return SoriViewportPages(
+            key: ValueKey((card.korean, showBack, _presentation)),
+            centerContent: true,
+            sections: [
+              ..._textSections(
+                context,
+                box,
+                showBack ? card.translationFor(lang) : card.korean,
+                headline,
               ),
-            ),
+              if (showBack) ...[
+                ..._textSections(context, box, card.exampleKorean, example),
+                if (card.exampleKorean.isNotEmpty)
+                  Center(
+                    child: _SpeakButton(
+                      text: card.exampleKorean,
+                      label: t.ttsListen,
+                    ),
+                  ),
+                ..._textSections(context, box, card.exampleFor(lang), body),
+                if (note != null)
+                  if (MediaQuery.textScalerOf(context).scale(1) <= 1.25 &&
+                      box.maxHeight >= 360)
+                    SizedBox(
+                      width: double.infinity,
+                      child: CultureNoteCard(korean: card.korean),
+                    )
+                  else ...[
+                    ..._textSections(
+                      context,
+                      box,
+                      t.cultureNoteTitle,
+                      tt.label,
+                    ),
+                    ..._textSections(context, box, note.ko, tt.cultureTitle),
+                    ..._textSections(context, box, note.text(lang), body),
+                  ],
+              ] else ...[
+                ..._textSections(context, box, card.romanization, body),
+                ..._textSections(
+                  context,
+                  box,
+                  t.hintTapToFlip,
+                  tt.caption.copyWith(color: s.textDim),
+                ),
+              ],
+            ],
           );
         },
       ),
     );
   }
 
-  // 카드 안쪽 높이 [h] 에 비례한 폰트/간격 크기 — 짧은 값(lo)과 큰 화면 상한(hi)
-  // 사이로 클램프. 카드가 커질수록 텍스트도 커져 충전율이 기기와 무관하게 유지된다.
   static double _sz(double h, double frac, double lo, double hi) =>
       (h * frac).clamp(lo, hi).toDouble();
-
-  List<Widget> _frontList(
-    Vocab v,
-    SoriSurfaces s,
-    SoriTextTheme tt,
-    AppL10n t,
-    double h,
-    double headlineSize,
-  ) => [
-    // 단어 — 카드를 채우는 대형 헤드라인. 크기는 덱 공유값([headlineSize],
-    // soriUniformFitSize) 하나 — 단어 길이에 따라 카드마다 요동치지 않는다
-    // (P1-2, 2026-08-14). FittedBox 는 실측 오차용 안전망일 뿐 정상 경로에서는
-    // 개입하지 않는다.
-    //
-    // 앞/뒷면 크기비는 **의도적으로 1.3 배 안쪽**으로 묶는다. 예전엔 앞면
-    // 0.19(최대 92sp) 대 뒷면 0.11(최대 48sp) = 1.7 배라, 짧은 한국어 단어는
-    // 카드를 꽉 채우고 뒤집으면 독일어가 갑자기 작아져 같은 카드로 안 보였다
-    // (Jin 2026-08-12 "한국어카드일때 글씨 너무 크고 독일어일때 너무 좀…").
-    // 한글은 같은 sp 에서 라틴보다 작게 보이므로 1:1 이 아니라 1.3 배로 둔다.
-    FittedBox(
-      fit: BoxFit.scaleDown,
-      child: Text(
-        v.korean,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontFamily: SoriFonts.sans,
-          fontSize: headlineSize,
-          fontWeight: FontWeight.w700,
-          height: 1.05,
-        ),
-      ),
-    ),
-    // 듣기 버튼 + 로마자를 한 묶음으로(발음 정보끼리 붙어 있게).
-    Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        _SpeakButton(
-          text: v.korean,
-          label: t.ttsListen,
-          size: _sz(h, 0.10, 30, 60),
-        ),
-        if (v.romanization.isNotEmpty) ...[
-          SizedBox(height: _sz(h, 0.03, 8, 20)),
-          Text(
-            v.romanization,
-            textAlign: TextAlign.center,
-            style: tt.body.copyWith(
-              color: s.textMuted,
-              fontSize: _sz(h, 0.052, 16, 30),
-            ),
-          ),
-        ],
-      ],
-    ),
-    Text(
-      t.hintTapToFlip,
-      textAlign: TextAlign.center,
-      style: tt.caption.copyWith(
-        color: s.textDim,
-        fontSize: _sz(h, 0.038, 13, 22),
-      ),
-    ),
-  ];
-
-  List<Widget> _backList(
-    Vocab v,
-    SoriSurfaces s,
-    SoriTextTheme tt,
-    AppL10n t,
-    double h,
-  ) {
-    final lang = Localizations.localeOf(context).languageCode;
-    return [
-      // 뜻 (헤드라인) — 긴 독일어(예: "Entschuldigung (formell)")가 큰 폰트로
-      // 3줄 폭주하지 않도록 FittedBox 로 한 줄에 맞춰 축소한다.
-      FittedBox(
-        fit: BoxFit.scaleDown,
-        child: Text(
-          v.translationFor(lang),
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontFamily: SoriFonts.sans,
-            // 앞면(0.155)의 약 0.8 배 — 위 주석의 1.3 배 계약.
-            fontSize: _sz(h, 0.125, 28, 54),
-            fontWeight: FontWeight.w700,
-            height: 1.1,
-          ),
-        ),
-      ),
-      // 예문(한국어 + 듣기 + 번역)을 한 묶음으로 → spaceEvenly 가 흩뜨리지 않는다.
-      if (v.exampleKorean.isNotEmpty)
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              _noIntraWordBreak(v.exampleKorean),
-              textAlign: TextAlign.center,
-              // 두 줄까지 허용한다. 카드 아래 여백이 넉넉한데 예문만 잘리거나
-              // 쪼그라들 이유가 없다(Jin, 2026-08-12).
-              maxLines: 2,
-              style: TextStyle(
-                fontFamily: SoriFonts.sans,
-                fontSize: _sz(h, 0.068, 20, 34),
-                fontWeight: FontWeight.w600,
-                height: 1.25,
-              ),
-            ),
-            SizedBox(height: _sz(h, 0.03, 8, 20)),
-            _SpeakButton(
-              text: v.exampleKorean,
-              label: t.ttsListen,
-              size: _sz(h, 0.075, 24, 48),
-            ),
-            if (v.exampleFor(lang).isNotEmpty) ...[
-              SizedBox(height: _sz(h, 0.04, 12, 24)),
-              Text(
-                v.exampleFor(lang),
-                textAlign: TextAlign.center,
-                style: tt.bodySmall.copyWith(
-                  color: s.textMuted,
-                  fontSize: _sz(h, 0.055, 16, 30),
-                  height: 1.3,
-                ),
-              ),
-            ],
-          ],
-        ),
-      // K-Culture 노트 — 노트가 있을 때만 슬롯을 만든다. 없는데도 SizedBox.shrink
-      // 를 spaceEvenly 슬롯으로 두면 콘텐츠가 위로 쏠리고 아래가 비어 답답해진다.
-      if (CultureNotesService.noteFor(v.korean) != null)
-        SizedBox(
-          width: double.infinity,
-          child: CultureNoteCard(korean: v.korean),
-        ),
-    ];
-  }
 }
 
 /// 발음 듣기 버튼 — 카드 탭(뒤집기)과 분리되도록 InkWell 이 탭을 소비한다.
-/// 앞면(단어)·뒷면(예문) 양쪽에서 재사용.
+/// 뒷면 예문은 카드 상단의 단어 재생과 별도로 들을 수 있다.
 class _SpeakButton extends StatelessWidget {
   final String text;
   final String label;
-  final double size;
-  const _SpeakButton({required this.text, required this.label, this.size = 28});
+  const _SpeakButton({required this.text, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -1128,12 +1209,12 @@ class _SpeakButton extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
           child: InkWell(
             onTap: () => TtsService.speak(text),
-            child: Padding(
-              padding: const EdgeInsets.all(10),
+            child: const SizedBox.square(
+              dimension: 48,
               child: Icon(
                 Icons.volume_up_rounded,
                 color: SoriColors.primary,
-                size: size,
+                size: 26,
               ),
             ),
           ),
@@ -1142,16 +1223,3 @@ class _SpeakButton extends StatelessWidget {
     );
   }
 }
-
-/// 어절 **안에서는** 줄이 바뀌지 않게 낱글자 사이에 U+2060(WORD JOINER)을 넣는다.
-///
-/// Flutter 는 한국어를 CJK 로 보고 글자 사이 아무 데서나 줄을 바꾼다. 그래서
-/// "안녕하세요, 처음 뵙겠습니다." 가 "안녕하세요, 처음 뵙겠습" / "니다." 처럼
-/// 어절 한복판에서 끊겼다(Jin, 2026-08-12 Heute wiederholen). 공백으로 나뉜
-/// 어절 안쪽만 묶어 주면 줄바꿈은 어절 경계에서만 일어난다.
-///
-/// U+2060 은 폭이 0이고 글리프가 없어 화면에 영향이 없다. 붙이는 대상은 화면에
-/// 그릴 문자열뿐이고, TTS·채점·저장에 쓰는 원본에는 절대 넣지 않는다 — 해시가
-/// 달라져 음성 캐시가 통째로 어긋난다.
-String _noIntraWordBreak(String text) =>
-    text.split(' ').map((word) => word.split('').join('⁠')).join(' ');

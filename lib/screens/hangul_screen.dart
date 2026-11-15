@@ -19,6 +19,8 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/learning_stage_navigation.dart';
+import '../widgets/sori/viewport_pages.dart';
 import '../data/hangul_data.dart';
 import '../data/hangul_strokes.dart';
 import '../services/sound_service.dart';
@@ -26,6 +28,7 @@ import '../services/storage_service.dart';
 import '../services/stroke_matcher.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/trace_canvas.dart';
+import '../widgets/stroke_canvas.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/tts_recorded_jamo.dart';
@@ -290,86 +293,79 @@ class _HangulScreenState extends State<HangulScreen>
     _pause();
     await _atelierDialog(context, AppL10n.of(context).cHangulCompleted, (
       sheetContext,
+      box,
     ) {
       final t = AppL10n.of(sheetContext);
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Semantics(
-            key: const Key('hangul-completion-receipt'),
-            label: summary,
-            child: ExcludeSemantics(
-              child: Column(
-                children: [
-                  Text(
-                    primarySummary ?? summary,
-                    style: CAtelier.text(context, 23, bold: true),
-                    textAlign: TextAlign.center,
-                  ),
-                  if (detailSummary != null)
-                    Text(
-                      detailSummary,
-                      style: CAtelier.text(context, 14),
-                      textAlign: TextAlign.center,
-                    ),
-                ],
-              ),
-            ),
-          ),
-          if (glyphs.isNotEmpty) ...[
-            const SizedBox(height: Spacing.md),
-            Wrap(
-              alignment: WrapAlignment.center,
-              spacing: 8,
+      return [
+        Semantics(
+          key: const Key('hangul-completion-receipt'),
+          label: summary,
+          child: ExcludeSemantics(
+            child: Column(
               children: [
-                for (final glyph in glyphs.toSet())
-                  SizedBox.square(
-                    dimension: 72,
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        CAtelier.art('letter-tile'),
-                        Text(
-                          glyph,
-                          style: CAtelier.text(
-                            context,
-                            28,
-                            korean: true,
-                            color: CAtelier.jade,
-                          ),
-                        ),
-                      ],
-                    ),
+                Text(
+                  primarySummary ?? summary,
+                  style: CAtelier.text(context, 23, bold: true),
+                  textAlign: TextAlign.center,
+                ),
+                if (detailSummary != null)
+                  Text(
+                    detailSummary,
+                    style: CAtelier.text(context, 14),
+                    textAlign: TextAlign.center,
                   ),
               ],
             ),
-          ],
-          if (feedbackScope != null && feedbackScope.featureGate.isEnabled) ...[
-            const SizedBox(height: Spacing.md),
-            ContentFeedbackCard(
-              feedbackContext: completion.context,
-              featureGate: feedbackScope.featureGate,
-              submitFeedback: feedbackScope.submitFeedback,
-              completedMissionIds: feedbackScope.completedMissionIds,
-              mascotKind: null,
-            ),
-          ],
-          const SizedBox(height: Spacing.md),
-          CAtelierButton(
-            key: const Key('hangul-completion-close'),
-            label: t.btnClose,
-            face: CAtelierFace.gold,
-            onTap: () => Navigator.pop(sheetContext),
           ),
-          const SizedBox(height: Spacing.sm),
-          Text(
-            t.cHangulKeepPractising,
-            style: CAtelier.text(context, 14),
-            textAlign: TextAlign.center,
+        ),
+        if (glyphs.isNotEmpty) ...[
+          const SizedBox(height: Spacing.md),
+          ..._atelierGridRows(box, [
+            for (final glyph in glyphs.toSet())
+              SizedBox.square(
+                dimension: 72,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    CAtelier.art('letter-tile'),
+                    Text(
+                      glyph,
+                      style: CAtelier.text(
+                        context,
+                        28,
+                        korean: true,
+                        color: CAtelier.jade,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+          ], tileWidth: 72),
+        ],
+        if (feedbackScope != null && feedbackScope.featureGate.isEnabled) ...[
+          const SizedBox(height: Spacing.md),
+          ContentFeedbackCard(
+            feedbackContext: completion.context,
+            featureGate: feedbackScope.featureGate,
+            submitFeedback: feedbackScope.submitFeedback,
+            completedMissionIds: feedbackScope.completedMissionIds,
+            mascotKind: null,
           ),
         ],
-      );
+        const SizedBox(height: Spacing.md),
+        CAtelierButton(
+          key: const Key('hangul-completion-close'),
+          label: t.btnClose,
+          face: CAtelierFace.gold,
+          onTap: () => Navigator.pop(sheetContext),
+        ),
+        const SizedBox(height: Spacing.sm),
+        Text(
+          t.cHangulKeepPractising,
+          style: CAtelier.text(context, 14),
+          textAlign: TextAlign.center,
+        ),
+      ];
     });
   }
 
@@ -697,47 +693,44 @@ class _CardsTabState extends State<_CardsTab>
     await _atelierDialog(
       context,
       t.cHangulSelectionTitle,
-      (dialogContext) => Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          for (final item in [
-            (0, t.hangulChipConsonants, consonants.length),
-            (1, t.hangulChipVowels, vowels.length),
-            (2, t.hangulChipSyllables, syllables.length),
-          ]) ...[
-            CAtelierButton(
-              key: ValueKey('hangul-cards-mode-${item.$1}'),
-              label: '${item.$2} (${item.$3})',
-              face: _mode == item.$1 ? CAtelierFace.jade : CAtelierFace.paper,
-              onTap: () {
-                _setMode(item.$1);
-                Navigator.pop(dialogContext);
-              },
-            ),
-            const SizedBox(height: Spacing.sm),
-          ],
+      (dialogContext, _) => [
+        for (final item in [
+          (0, t.hangulChipConsonants, consonants.length),
+          (1, t.hangulChipVowels, vowels.length),
+          (2, t.hangulChipSyllables, syllables.length),
+        ]) ...[
           CAtelierButton(
-            key: const Key('hangul-cards-hard-only'),
-            label: '${t.cHangulHardCharacters} (${_hardPool.length})',
-            selected: _hardOnly && _hardPool.isNotEmpty,
-            onTap: _hardPool.isEmpty
-                ? null
-                : () {
-                    _toggleHardOnly();
-                    Navigator.pop(dialogContext);
-                  },
-          ),
-          const SizedBox(height: Spacing.sm),
-          CAtelierButton(
-            key: const Key('hangul-cards-random'),
-            label: t.atelierRandom,
+            key: ValueKey('hangul-cards-mode-${item.$1}'),
+            label: '${item.$2} (${item.$3})',
+            face: _mode == item.$1 ? CAtelierFace.jade : CAtelierFace.paper,
             onTap: () {
-              _random();
+              _setMode(item.$1);
               Navigator.pop(dialogContext);
             },
           ),
+          const SizedBox(height: Spacing.sm),
         ],
-      ),
+        CAtelierButton(
+          key: const Key('hangul-cards-hard-only'),
+          label: '${t.cHangulHardCharacters} (${_hardPool.length})',
+          selected: _hardOnly && _hardPool.isNotEmpty,
+          onTap: _hardPool.isEmpty
+              ? null
+              : () {
+                  _toggleHardOnly();
+                  Navigator.pop(dialogContext);
+                },
+        ),
+        const SizedBox(height: Spacing.sm),
+        CAtelierButton(
+          key: const Key('hangul-cards-random'),
+          label: t.atelierRandom,
+          onTap: () {
+            _random();
+            Navigator.pop(dialogContext);
+          },
+        ),
+      ],
     );
   }
 
@@ -1009,28 +1002,22 @@ class _WriteTabState extends State<_WriteTab>
       await _atelierDialog(
         context,
         t.cHangulSelectionTitle,
-        (dialogContext) => Wrap(
-          spacing: 8,
-          runSpacing: 8,
-          children: [
-            for (final item in chars.indexed)
-              SizedBox(
-                width: 54,
-                child: CAtelierButton(
-                  key: ValueKey('hangul-writing-letter-${item.$2.letter}'),
-                  label: item.$2.letter,
-                  child: Text(
-                    item.$2.letter,
-                    style: CAtelier.text(context, 24, korean: true),
-                  ),
-                  onTap: () {
-                    Navigator.pop(dialogContext);
-                    _selectAbsolute(item.$1);
-                  },
-                ),
+        (dialogContext, box) => _atelierGridRows(box, [
+          for (final item in chars.indexed)
+            CAtelierButton(
+              key: ValueKey('hangul-writing-letter-${item.$2.letter}'),
+              label: item.$2.letter,
+              child: Text(
+                item.$2.letter,
+                textScaler: TextScaler.noScaling,
+                style: CAtelier.text(context, 24, korean: true),
               ),
-          ],
-        ),
+              onTap: () {
+                Navigator.pop(dialogContext);
+                _selectAbsolute(item.$1);
+              },
+            ),
+        ]),
       );
     } finally {
       if (mounted) {
@@ -1047,29 +1034,24 @@ class _WriteTabState extends State<_WriteTab>
       await _atelierDialog(
         context,
         t.hangulCheckModeLabel,
-        (dialogContext) => Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(t.hangulRulesBody, style: CAtelier.text(context, 14)),
-            const SizedBox(height: Spacing.md),
-            for (final item in [
-              (true, t.hangulCheckModeExam),
-              (false, t.hangulCheckModePractice),
-            ]) ...[
-              CAtelierButton(
-                label: item.$2,
-                face: _strict == item.$1
-                    ? CAtelierFace.jade
-                    : CAtelierFace.paper,
-                onTap: () {
-                  unawaited(_savePreference(strict: item.$1));
-                  Navigator.pop(dialogContext);
-                },
-              ),
-              const SizedBox(height: Spacing.sm),
-            ],
+        (dialogContext, box) => [
+          ..._atelierTextSections(dialogContext, box, t.hangulRulesBody),
+          const SizedBox(height: Spacing.md),
+          for (final item in [
+            (true, t.hangulCheckModeExam),
+            (false, t.hangulCheckModePractice),
+          ]) ...[
+            CAtelierButton(
+              label: item.$2,
+              face: _strict == item.$1 ? CAtelierFace.jade : CAtelierFace.paper,
+              onTap: () {
+                unawaited(_savePreference(strict: item.$1));
+                Navigator.pop(dialogContext);
+              },
+            ),
+            const SizedBox(height: Spacing.sm),
           ],
-        ),
+        ],
       );
     } finally {
       if (mounted) {

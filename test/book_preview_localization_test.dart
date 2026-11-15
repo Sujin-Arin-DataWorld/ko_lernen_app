@@ -220,7 +220,21 @@ void main() {
       );
       await tester.pump();
 
-      expect(find.textContaining(entry.$2), findsOneWidget);
+      if (find.textContaining(entry.$2).hitTestable().evaluate().isEmpty) {
+        final context = tester.element(find.byType(BookPreviewScreen));
+        final t = AppL10n.of(context);
+        await tester.tap(find.byTooltip(t.onboardingJourneyPhotoAgain));
+        await tester.pumpAndSettle();
+        final copy = tester
+            .widgetList<Text>(find.byKey(const ValueKey('book-preview-copy')))
+            .map((text) => text.data!)
+            .join(' ');
+        expect(copy, contains(entry.$2));
+        await tester.tap(find.byType(CloseButton));
+        await tester.pumpAndSettle();
+      } else {
+        expect(find.textContaining(entry.$2).hitTestable(), findsOneWidget);
+      }
     }
   });
 

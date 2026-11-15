@@ -1260,6 +1260,9 @@ class _VocabPackScreenState extends State<VocabPackScreen>
 
     final pack = _pack!;
     final lang = Localizations.localeOf(context).languageCode;
+    final compactHeader =
+        MediaQuery.sizeOf(context).height < 700 ||
+        MediaQuery.textScalerOf(context).scale(16) > 24;
     // 현재 보고 있는 단어를 바로 내 단어장에 담기. Learn 단계는 피드 북마크
     // 스탬프(지시서 1.24)가 이미 커버하므로 여기선 quiz/boss 만 —
     // `_currentQuiz` 는 learn 단계에서 항상 null 이라 자연히 게이팅된다.
@@ -1354,8 +1357,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
         if (_stage != _Stage.learn) const TtsSpeedAction(),
       ],
       bottomNavigationBar: SoriLearningStageNavigation(
-        expandedArtwork: true,
-        learningStyle: SoriLearningNavStyle.vocabulary,
+        expandedArtwork: !compactHeader,
         escape: SoriHomeEscape(confirmWhen: _hasSubmittedAssessment),
         canLeave: () =>
             studyEvidenceAcceptsInput && !_finishing && _finishRequest == null,
@@ -1372,7 +1374,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
               ),
               const SizedBox(height: Spacing.sm),
             ],
-            if (_stage == _Stage.learn) ...[
+            if (_stage == _Stage.learn && !compactHeader) ...[
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -1398,8 +1400,8 @@ class _VocabPackScreenState extends State<VocabPackScreen>
               ),
               const SizedBox(height: 14),
             ],
-            _StageBar(stage: _stage),
-            const SizedBox(height: 18),
+            _StageBar(stage: _stage, currentOnly: compactHeader),
+            SizedBox(height: compactHeader ? 4 : 18),
           ];
           return LayoutBuilder(
             builder: (context, body) {
@@ -1456,11 +1458,8 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     return LayoutBuilder(
       builder: (context, viewport) {
         final textScale = MediaQuery.textScalerOf(context).scale(1);
-        final paged =
-            heading.isNotEmpty || viewport.maxHeight < 495 || textScale > 1.3;
-        final screen = MediaQuery.sizeOf(context);
-        final reference =
-            screen.width >= 400 && screen.height >= 900 && textScale <= 1.15;
+        final paged = viewport.maxHeight < 495 || textScale > 1.3;
+        final reference = viewport.maxHeight >= 650 && textScale <= 1.15;
         final lang = Localizations.localeOf(context).languageCode;
         final progress = Row(
           children: [
@@ -1483,17 +1482,18 @@ class _VocabPackScreenState extends State<VocabPackScreen>
             // 않는다 — 화면 콘텐츠를 말줄임으로 숨기지 않는다는 프로젝트
             // 불변식(typography_guard_test.dart) 위반이라 줄바꿈으로 대신
             // 전체를 보여준다.
-            Expanded(
-              child: Text(
-                t.wortpaketeLearnProgressHint,
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                  fontFamily: SoriLocaleFonts.of(context).body,
-                  fontSize: 16,
-                  color: const Color(0xff445059),
+            if (!paged)
+              Expanded(
+                child: Text(
+                  t.wortpaketeLearnProgressHint,
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    fontFamily: SoriLocaleFonts.of(context).body,
+                    fontSize: 16,
+                    color: const Color(0xff445059),
+                  ),
                 ),
               ),
-            ),
           ],
         );
         final feed = LayoutBuilder(
@@ -1555,8 +1555,10 @@ class _VocabPackScreenState extends State<VocabPackScreen>
                       front: _FlipFront(
                         v: cur,
                         h: h,
-                        slotHeight: constraints.maxHeight,
                         headlineSize: headlineSize,
+                        instruction: paged
+                            ? '${VocabPackService.topicLabel(_pack!.id, lang: lang)}\n${t.wortpaketeLearnProgressHint}'
+                            : null,
                         romanizationOnFront: _romanizationOnFront,
                       ),
                       back: _FlipBack(
@@ -1578,21 +1580,23 @@ class _VocabPackScreenState extends State<VocabPackScreen>
           },
         );
         if (paged) {
-          return SoriViewportPages(
-            sections: [
-              ...heading,
+          return Column(
+            children: [
               progress,
-              const SizedBox(height: 8),
-              SizedBox(
-                height: (viewport.maxHeight - 112).clamp(78, 266).toDouble(),
-                child: feed,
+              const SizedBox(height: 6),
+              Expanded(child: feed),
+              ..._learnActions(
+                t,
+                cur,
+                presentation,
+                compact: true,
+                shortBody: viewport.maxHeight < 320,
               ),
-              ..._learnActions(t, cur, presentation),
             ],
           );
         }
         return Padding(
-          padding: EdgeInsets.only(bottom: reference ? 14 : 0),
+          padding: EdgeInsets.only(bottom: reference ? 24 : 0),
           child: Column(
             children: [
               progress,
@@ -1605,33 +1609,48 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     );
   }
 
-  List<Widget> _learnActions(AppL10n t, Vocab word, int presentation) {
+  List<Widget> _learnActions(
+    AppL10n t,
+    Vocab word,
+    int presentation, {
+    bool compact = false,
+    bool shortBody = false,
+  }) {
     final fonts = SoriLocaleFonts.of(context);
     final style = TextStyle(
       fontFamily: fonts.body,
       fontSize: 16,
       color: const Color(0xff092522),
     );
+    final iconJudgments =
+        compact && MediaQuery.textScalerOf(context).scale(16) > 24;
     Widget actionSurface(String label, IconData icon, VoidCallback? onTap) =>
-        SoriPressable(
-          onTap: onTap,
-          child: Container(
-            constraints: const BoxConstraints(minHeight: 60),
-            margin: const EdgeInsets.symmetric(horizontal: 3),
-            decoration: BoxDecoration(
-              color: const Color(0xffeeeee2),
-              border: Border.all(color: const Color(0xffc4c8b6)),
-              borderRadius: BorderRadius.circular(12),
+        compact
+        ? IconButton.outlined(
+            tooltip: label,
+            onPressed: onTap,
+            constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+            icon: Icon(icon),
+          )
+        : SoriPressable(
+            onTap: onTap,
+            child: Container(
+              constraints: const BoxConstraints(minHeight: 60),
+              margin: const EdgeInsets.symmetric(horizontal: 3),
+              decoration: BoxDecoration(
+                color: const Color(0xffeeeee2),
+                border: Border.all(color: const Color(0xffc4c8b6)),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(icon, color: const Color(0xff092522)),
+                  Text(label, style: style, textAlign: TextAlign.center),
+                ],
+              ),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(icon, color: const Color(0xff092522)),
-                Text(label, style: style, textAlign: TextAlign.center),
-              ],
-            ),
-          ),
-        );
+          );
     Widget action(String label, IconData icon, VoidCallback? onTap) => Expanded(
       flex: 5,
       child: Semantics(
@@ -1640,37 +1659,109 @@ class _VocabPackScreenState extends State<VocabPackScreen>
         child: actionSurface(label, icon, onTap),
       ),
     );
-    Widget judgment(String label, VoidCallback onTap) => Expanded(
-      child: Semantics(
-        button: true,
-        enabled: _learnCardRevealed,
-        label: label,
-        child: SoriPressable(
-          onTap: _learnCardRevealed ? onTap : null,
-          child: Container(
-            constraints: const BoxConstraints(minHeight: 48),
-            margin: const EdgeInsets.symmetric(horizontal: 3),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: const Color(0xfff8f3e9),
-              border: Border.all(color: const Color(0xffd8cbbb)),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Text(
-              label,
-              textAlign: TextAlign.center,
-              style: style.copyWith(
-                color: _learnCardRevealed
-                    ? const Color(0xff092522)
-                    : const Color(0xff99958c),
+    Widget judgment(String label, IconData icon, VoidCallback onTap) =>
+        Expanded(
+          child: Semantics(
+            button: true,
+            enabled: _learnCardRevealed,
+            label: label,
+            child: Tooltip(
+              message: label,
+              excludeFromSemantics: true,
+              child: SoriPressable(
+                onTap: _learnCardRevealed ? onTap : null,
+                child: Container(
+                  constraints: const BoxConstraints(minHeight: 48),
+                  margin: const EdgeInsets.symmetric(horizontal: 3),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: const Color(0xfff8f3e9),
+                    border: Border.all(color: const Color(0xffd8cbbb)),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: iconJudgments
+                      ? Icon(icon)
+                      : Text(
+                          label,
+                          textAlign: TextAlign.center,
+                          style: style.copyWith(
+                            color: _learnCardRevealed
+                                ? const Color(0xff092522)
+                                : const Color(0xff99958c),
+                          ),
+                        ),
+                ),
               ),
             ),
+          ),
+        );
+    final reveal = Semantics(
+      button: true,
+      label: t.contentLearningReveal,
+      child: SoriPressable(
+        onTap: () => _toggleLearnFlip(presentation),
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 48),
+          width: double.infinity,
+          child: Stack(
+            children: [
+              const Positioned.fill(
+                child: LernenGeneratedArt(
+                  name: 'brass-alignment',
+                  fit: BoxFit.fill,
+                ),
+              ),
+              ConstrainedBox(
+                constraints: const BoxConstraints(minHeight: 52),
+                child: Center(
+                  child: Text(
+                    t.contentLearningReveal,
+                    textAlign: TextAlign.center,
+                    style: style.copyWith(
+                      fontSize: compact ? 14 : 23,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
     );
+    final skip = Semantics(
+      button: true,
+      label: t.btnSkip,
+      child: Tooltip(
+        message: t.btnSkip,
+        excludeFromSemantics: true,
+        child: SoriPressable(
+          onTap: () => _learnDefer(presentation),
+          child: const SizedBox(
+            width: 48,
+            height: 48,
+            child: Icon(Icons.skip_next_rounded),
+          ),
+        ),
+      ),
+    );
+    final ratings = Row(
+      children: [
+        judgment(
+          t.vocabPackDontKnow,
+          Icons.refresh_rounded,
+          () => _learnDontKnow(presentation),
+        ),
+        judgment(
+          t.vocabPackGotIt,
+          Icons.check_rounded,
+          () => _learnGotIt(presentation),
+        ),
+        if (compact) skip,
+      ],
+    );
     return [
-      const SizedBox(height: 16),
+      SizedBox(height: compact ? 4 : 16),
       Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -1689,7 +1780,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
               compactBuilder: (context, label, open) => SoriPressable(
                 onTap: open,
                 child: Container(
-                  height: 60,
+                  height: compact ? 48 : 60,
                   margin: const EdgeInsets.symmetric(horizontal: 3),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
@@ -1706,60 +1797,39 @@ class _VocabPackScreenState extends State<VocabPackScreen>
           action(t.contentActionShare, Icons.ios_share, _shareCurrent),
         ],
       ),
-      const SizedBox(height: 23),
-      Semantics(
-        button: true,
-        label: t.contentLearningReveal,
-        child: SoriPressable(
-          onTap: () => _toggleLearnFlip(presentation),
-          child: SizedBox(
-            height:
-                52 * MediaQuery.textScalerOf(context).scale(1).clamp(1.0, 2.0),
-            width: double.infinity,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                const LernenGeneratedArt(
-                  name: 'brass-alignment',
-                  fit: BoxFit.fill,
-                ),
-                Center(
-                  child: Text(
-                    t.contentLearningReveal,
-                    style: style.copyWith(
-                      fontSize: 24,
-                      fontFamily:
-                          Localizations.localeOf(context).languageCode == 'de'
-                          ? SoriFonts.korean
-                          : null,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+      SizedBox(height: compact ? 4 : 23),
+      if (shortBody)
+        if (_learnCardRevealed)
+          ratings
+        else
+          Row(
+            children: [
+              Expanded(child: reveal),
+              const SizedBox(width: 4),
+              skip,
+            ],
+          )
+      else ...[
+        reveal,
+
+        if (!compact) ...[
+          const SizedBox(height: 10),
+          Text(t.wortpaketeRevealFirst, style: style.copyWith(fontSize: 14)),
+        ],
+        const SizedBox(height: 4),
+        ratings,
+      ],
+      if (!compact)
+        TextButton(
+          onPressed: () => _learnDefer(presentation),
+          style: TextButton.styleFrom(
+            padding: const EdgeInsets.fromLTRB(8, 8, 8, 14),
+          ),
+          child: Text(
+            t.btnSkip,
+            style: style.copyWith(decoration: TextDecoration.underline),
           ),
         ),
-      ),
-      const SizedBox(height: 10),
-      Text(t.wortpaketeRevealFirst, style: style.copyWith(fontSize: 14)),
-      const SizedBox(height: 4),
-      Row(
-        children: [
-          judgment(t.vocabPackDontKnow, () => _learnDontKnow(presentation)),
-          judgment(t.vocabPackGotIt, () => _learnGotIt(presentation)),
-        ],
-      ),
-      TextButton(
-        onPressed: () => _learnDefer(presentation),
-        style: TextButton.styleFrom(
-          padding: const EdgeInsets.fromLTRB(8, 8, 8, 14),
-        ),
-        child: Text(
-          t.btnSkip,
-          style: style.copyWith(decoration: TextDecoration.underline),
-        ),
-      ),
     ];
   }
 
@@ -1784,7 +1854,6 @@ class _VocabPackScreenState extends State<VocabPackScreen>
           return _FlipFront(
             v: v,
             h: h,
-            slotHeight: slotHeight,
             headlineSize: headlineSize,
             romanizationOnFront: _romanizationOnFront,
           );
@@ -1827,10 +1896,6 @@ class _VocabPackScreenState extends State<VocabPackScreen>
           ],
         ),
         const SizedBox(height: Spacing.md),
-        // 단어 카드 + 4지선다를 남는 세로 공간에 **여유롭게 분산**한다.
-        // 이전엔 카드 바로 밑에 보기를 붙이고(topCenter) 하단이 텅 비었음
-        // (Jin 실기기 반복 지적). cloze/데일리챌린지의 검증된 패턴 재사용 —
-        // spaceEvenly 로 화면을 채우되, 큰 글자에선 스크롤로 안전.
         Expanded(
           child: LayoutBuilder(
             builder: (context, constraints) {
@@ -1853,7 +1918,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
                       cur.korean,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: soriFillSize(h, 0.08, 36, 72),
+                        fontSize: soriFillSize(h, 0.065, 28, 48),
                         fontWeight: FontWeight.w700,
                         letterSpacing: -0.5,
                       ),
@@ -1867,30 +1932,17 @@ class _VocabPackScreenState extends State<VocabPackScreen>
                         fontStyle: FontStyle.italic,
                       ),
                     ),
+
                     // "Erneut anhören" — 퀴즈·보스 둘 다 노출(둘 다 자동 재생 통일).
-                    const SizedBox(height: Spacing.md),
-                    SoriButton(
-                      label: t.vocabPackBossReplayAudio,
-                      icon: Icons.volume_up_rounded,
-                      variant: SoriButtonVariant.outlined,
-                      accent: _stage == _Stage.boss
-                          ? SoriColors.primaryDark
-                          : SoriColors.info,
-                      onTap: () {
-                        // ignore: discarded_futures
-                        SoriSpeech.speak(cur.korean);
-                      },
-                    ),
                   ],
                 ),
               );
-              return SingleChildScrollView(
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
-                  child: IntrinsicHeight(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
+              return Column(
+                children: [
+                  Expanded(
+                    child: SoriViewportPages(
+                      key: ValueKey((_stage, _qIdx)),
+                      sections: [
                         promptCard,
                         for (var i = 0; i < choices.length; i++)
                           Padding(
@@ -1902,8 +1954,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
                               isCorrect: choices[i] == cur.translationFor(lang),
                               isSelected: i == _selectedChoice,
                               revealed: _choiceLocked,
-                              // 넉넉한 화면을 채우도록 보기 박스를 더 크게.
-                              minHeight: 60,
+                              minHeight: 56,
                               onSelected: _choiceLocked || _finishing
                                   ? null
                                   : () => _selectChoice(i, presentation),
@@ -1912,7 +1963,21 @@ class _VocabPackScreenState extends State<VocabPackScreen>
                       ],
                     ),
                   ),
-                ),
+                  const SizedBox(height: 4),
+                  SoriButton(
+                    label: t.vocabPackBossReplayAudio,
+                    icon: Icons.volume_up_rounded,
+                    variant: SoriButtonVariant.outlined,
+                    accent: _stage == _Stage.boss
+                        ? SoriColors.primaryDark
+                        : SoriColors.info,
+                    onTap: () {
+                      // ignore: discarded_futures
+                      SoriSpeech.speak(cur.korean);
+                    },
+                  ),
+                  const SizedBox(height: 8),
+                ],
               );
             },
           ),
@@ -1924,7 +1989,8 @@ class _VocabPackScreenState extends State<VocabPackScreen>
 
 class _StageBar extends StatelessWidget {
   final _Stage stage;
-  const _StageBar({required this.stage});
+  final bool currentOnly;
+  const _StageBar({required this.stage, required this.currentOnly});
 
   @override
   Widget build(BuildContext context) {
@@ -1935,7 +2001,9 @@ class _StageBar extends StatelessWidget {
       ('boss', t.vocabPackStageBoss, _Stage.boss),
     ];
     return Row(
-      children: stages.map((triple) {
+      children: stages.where((entry) => !currentOnly || entry.$3 == stage).map((
+        triple,
+      ) {
         final active = triple.$3 == stage;
         return Expanded(
           child: Padding(
@@ -1961,7 +2029,7 @@ class _StageBar extends StatelessWidget {
                   fontFamily: SoriLocaleFonts.of(context).body,
                   fontWeight: active ? FontWeight.w700 : FontWeight.w400,
                   color: active ? Colors.white : const Color(0xff555a53),
-                  fontSize: 19,
+                  fontSize: currentOnly ? 14 : 19,
                 ),
               ),
             ),
@@ -1973,115 +2041,84 @@ class _StageBar extends StatelessWidget {
 }
 
 class _FlipFront extends StatelessWidget {
-  final Vocab v;
-  final bool romanizationOnFront;
-
-  /// 카드가 놓인 세로 영역의 바운드 높이 — 학습 텍스트를 카드에 비례해 키우는
-  /// 기준. `_buildLearn` 의 LayoutBuilder 가 넘겨준다.
-  final double h;
-  final double slotHeight;
-
-  /// 덱 전체가 공유하는 제시어 크기 ([soriUniformFitSize]) — 단어 길이에 따라
-  /// 카드마다 글씨가 커졌다 작아졌다 하지 않는다.
-  final double headlineSize;
   const _FlipFront({
     required this.v,
     required this.h,
-    required this.slotHeight,
     required this.headlineSize,
     required this.romanizationOnFront,
+    this.instruction,
   });
+
+  final Vocab v;
+  final double h;
+  final double headlineSize;
+  final bool romanizationOnFront;
+  final String? instruction;
 
   @override
   Widget build(BuildContext context) {
     final fonts = SoriLocaleFonts.of(context);
+    final tt = SoriTextTheme.of(context);
+    final korean = tt.koDisplay.copyWith(
+      fontSize: headlineSize,
+      fontWeight: FontWeight.w700,
+      height: 1.05,
+    );
+    final romanization = tt.body.copyWith(
+      fontFamily: fonts.body,
+      fontSize: soriFillSize(h, 0.048, 16, 24),
+      color: const Color(0xff6d6759),
+    );
+    final hint = tt.body.copyWith(fontSize: 16, color: const Color(0xff585d54));
+
     return LayoutBuilder(
-      builder: (context, bounds) {
-        final cardHeight = bounds.hasBoundedHeight
-            ? math.min(slotHeight, bounds.maxHeight)
-            : slotHeight;
-        return SizedBox(
-          height: cardHeight,
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              const LernenGeneratedArt(name: 'folio-card', fit: BoxFit.fill),
-              if (cardHeight >= 175)
-                const Positioned(
-                  top: 10,
-                  right: 18,
-                  width: 76,
-                  height: 70,
-                  child: LernenGeneratedArt(name: 'jade-book'),
-                ),
-              Padding(
-                padding: cardHeight >= 210
-                    ? const EdgeInsets.fromLTRB(52, 38, 20, 25)
-                    : const EdgeInsets.fromLTRB(22, 8, 12, 8),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Flexible(
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          v.korean,
-                          textAlign: TextAlign.center,
-                          maxLines: 1,
-                          style: TextStyle(
-                            fontFamily: SoriFonts.korean,
-                            fontSize: headlineSize,
-                            fontWeight: FontWeight.w700,
-                            height: 1.05,
-                          ),
-                        ),
-                      ),
-                    ),
-                    if (romanizationOnFront &&
-                        v.romanization.isNotEmpty &&
-                        cardHeight >= 95)
-                      Text(
-                        v.romanization,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: fonts.body,
-                          fontSize: soriFillSize(h, 0.048, 16, 24),
-                          color: const Color(0xff6d6759),
-                        ),
-                      ),
-                    if (cardHeight >= 165 &&
-                        MediaQuery.textScalerOf(context).scale(1) <= 1.2) ...[
-                      const SizedBox(height: 20),
-                      Text.rich(
-                        TextSpan(
-                          children: [
-                            const WidgetSpan(
-                              alignment: PlaceholderAlignment.middle,
-                              child: Icon(
-                                Icons.autorenew,
-                                size: 18,
-                                color: Color(0xff004536),
-                              ),
-                            ),
-                            const WidgetSpan(child: SizedBox(width: 7)),
-                            TextSpan(
-                              text: AppL10n.of(context).vocabPackTapToFlip,
-                            ),
-                          ],
-                        ),
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: fonts.body,
-                          fontSize: 16,
-                          color: const Color(0xff585d54),
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
+      builder: (context, slot) {
+        final roomy = slot.maxHeight >= 300;
+        final padding = roomy
+            ? const EdgeInsets.fromLTRB(46, 24, 20, 18)
+            : const EdgeInsets.symmetric(horizontal: 12, vertical: 4);
+        final width = slot.maxWidth - padding.horizontal;
+        final height = slot.maxHeight - padding.vertical;
+        final fields = [
+          (v.korean, korean),
+          if (romanizationOnFront && v.romanization.isNotEmpty)
+            (v.romanization, romanization),
+          if (roomy) (AppL10n.of(context).vocabPackTapToFlip, hint),
+          if (instruction case final message?) (message, hint),
+        ];
+        final textBudget = fields.length > 1
+            ? height - SoriViewportPages.controlsHeight
+            : height;
+        return Stack(
+          fit: StackFit.expand,
+          children: [
+            const LernenGeneratedArt(name: 'folio-card', fit: BoxFit.fill),
+            if (roomy)
+              const Positioned(
+                top: 10,
+                right: 18,
+                width: 76,
+                height: 70,
+                child: LernenGeneratedArt(name: 'jade-book'),
               ),
-            ],
-          ),
+            Padding(
+              padding: padding,
+              child: SoriViewportPages(
+                centerContent: true,
+                sections: [
+                  for (final (text, style) in fields)
+                    for (final part in soriViewportTextPages(
+                      context,
+                      text,
+                      style: style,
+                      width: width,
+                      height: textBudget,
+                    ))
+                      Text(part, textAlign: TextAlign.center, style: style),
+                ],
+              ),
+            ),
+          ],
         );
       },
     );
@@ -2109,9 +2146,87 @@ class _FlipBack extends StatelessWidget {
     this.paged = false,
   });
 
+  Widget _pagedContent(BuildContext context, String lang) {
+    final type = SoriTextTheme.of(context);
+    final surface = SoriSurfaces.of(context);
+    return LayoutBuilder(
+      builder: (context, slot) {
+        final padding = slot.maxHeight >= 230 ? 16.0 : 8.0;
+        final width = slot.maxWidth - padding * 2;
+        final height =
+            slot.maxHeight - padding * 2 - SoriViewportPages.controlsHeight;
+        Iterable<Widget> copy(String value, TextStyle style) sync* {
+          for (final part in soriViewportTextPages(
+            context,
+            value,
+            style: style,
+            width: width,
+            height: height,
+          )) {
+            yield Text(part, style: style, textAlign: TextAlign.center);
+          }
+        }
+
+        return SoriCard(
+          accent: SoriColors.success,
+          tinted: true,
+          padding: EdgeInsets.all(padding),
+          child: SoriViewportPages(
+            centerContent: true,
+            sections: [
+              ...copy(
+                v.translationFor(lang),
+                type.h2.copyWith(fontWeight: FontWeight.w700),
+              ),
+              ...copy(
+                v.posFor(lang),
+                type.body.copyWith(color: surface.textMuted),
+              ),
+              if (!romanizationOnFront && v.romanization.isNotEmpty)
+                ...copy('[${v.romanization}]', type.body),
+              if (v.exampleKorean.isNotEmpty) ...[
+                const SizedBox(height: 8),
+                for (final line in copy(
+                  v.exampleKorean,
+                  type.body.copyWith(fontSize: 18, fontWeight: FontWeight.w600),
+                ))
+                  SoriPressable(
+                    onTap: () {
+                      unawaited(SoriSpeech.speak(v.exampleKorean));
+                    },
+                    onLongPress: () {
+                      unawaited(SoriSpeech.speakSlow(v.exampleKorean));
+                    },
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(minHeight: 48),
+                      child: line,
+                    ),
+                  ),
+                ...copy(
+                  romanizeKorean(v.exampleKorean),
+                  type.body.copyWith(color: surface.textMuted),
+                ),
+                ...copy(
+                  v.exampleFor(lang),
+                  type.body.copyWith(
+                    color: surface.textMuted,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ],
+              if (usageNote != null)
+                _UsageNoteExpander(note: usageNote!, lang: lang),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final lang = Localizations.localeOf(context).languageCode;
+    if (paged) return _pagedContent(context, lang);
     final s = SoriSurfaces.of(context);
     final sections = <Widget>[
       // 뜻(헤드라인) + 품사 — 의미 묶음. 뜻은 **고정 크기 + 줄바꿈**:
@@ -2225,13 +2340,11 @@ class _FlipBack extends StatelessWidget {
       accent: SoriColors.success,
       tinted: true,
       width: double.infinity,
-      child: paged
-          ? SoriViewportPages(sections: sections)
-          : Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: sections,
-            ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: sections,
+      ),
     );
   }
 }
@@ -2239,165 +2352,154 @@ class _FlipBack extends StatelessWidget {
 /// C9-T0 카드 뒷면 접이식 "쓰임" 구획. 기본 접힘 — 기존 카드 첫인상(뜻+예문
 /// 1개)을 그대로 두고, 펼치면 뉘앙스·전형 상황·패턴·연어·대비 1~2개·예문
 /// 2개(재생 버튼 포함)를 보여준다. B1+ 노트가 있는 표제어에서만 만들어진다.
-class _UsageNoteExpander extends StatefulWidget {
+class _UsageNoteExpander extends StatelessWidget {
   final UsageNote note;
   final String lang;
   const _UsageNoteExpander({required this.note, required this.lang});
-
-  @override
-  State<_UsageNoteExpander> createState() => _UsageNoteExpanderState();
-}
-
-class _UsageNoteExpanderState extends State<_UsageNoteExpander> {
-  bool _expanded = false;
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     final tt = SoriTextTheme.of(context);
-    final note = widget.note;
-    final lang = widget.lang;
-    final reduceMotion = SoriMotion.reduceMotion(context);
-    return SoriCard(
-      variant: SoriCardVariant.compact,
-      tinted: true,
-      accent: SoriColors.gold,
-      width: double.infinity,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Semantics(
-            button: true,
-            label: t.usageNoteTitle,
-            expanded: _expanded,
-            child: SoriPressable(
-              // 위젯 테스트(vocab_usage_note_card_test.dart)가 텍스트 스케일에
-              // 따라 움직이는 화면 좌표 대신 이 key로 직접 onTap을 호출한다 —
-              // vocab_pack_flip_spoiler_test.dart의 FlipCard.onTap!() 직접
-              // 호출과 같은 관례.
-              key: const ValueKey('usageNoteHeaderToggle'),
-              haptic: SoriHaptic.light,
-              onTap: () => setState(() => _expanded = !_expanded),
-              child: ExcludeSemantics(
-                child: SizedBox(
-                  height: kMinInteractiveDimension,
-                  child: Row(
+    void open() {
+      unawaited(
+        showDialog<void>(
+          context: context,
+          builder: (context) => Dialog(
+            insetPadding: const EdgeInsets.all(16),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
                     children: [
-                      Icon(
-                        Icons.menu_book_outlined,
-                        size: 18,
-                        color: SoriColors.gold,
-                      ),
-                      const SizedBox(width: Spacing.sm),
-                      Expanded(
-                        child: Text(
-                          t.usageNoteTitle,
-                          style: tt.label.copyWith(color: s.text),
+                      Expanded(child: Text(t.usageNoteTitle, style: tt.h3)),
+                      IconButton(
+                        key: const ValueKey('usage-note-close'),
+                        tooltip: t.btnClose,
+                        constraints: const BoxConstraints.tightFor(
+                          width: 48,
+                          height: 48,
                         ),
-                      ),
-                      AnimatedRotation(
-                        turns: _expanded ? 0.5 : 0,
-                        duration: reduceMotion
-                            ? Duration.zero
-                            : const Duration(milliseconds: 180),
-                        child: Icon(
-                          Icons.expand_more_rounded,
-                          color: s.textMuted,
-                        ),
+                        onPressed: () => Navigator.of(context).pop(),
+                        icon: const Icon(Icons.close),
                       ),
                     ],
                   ),
-                ),
-              ),
-            ),
-          ),
-          if (_expanded)
-            Padding(
-              padding: const EdgeInsets.only(top: Spacing.xs),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  if (note.nuance.forLang(lang).isNotEmpty)
-                    // 시각적으로는 라벨 없이 강조 문장 하나로 두되(첫인상용
-                    // 헤드라인), 스크린리더에는 t.usageNoteNuance를 앞에
-                    // 붙여 다른 항목과 같은 문맥을 준다 — 픽셀은 그대로라
-                    // 커밋된 골든(vocab_pack_usage_note_back_*.png)에
-                    // 영향이 없다.
-                    Semantics(
-                      label: t.usageNoteNuance,
-                      child: _UsageNoteBody(text: note.nuance.forLang(lang)),
-                    ),
-                  if (note.situation.forLang(lang).isNotEmpty)
-                    _UsageNoteEntry(
-                      label: t.usageNoteSituation,
-                      text: note.situation.forLang(lang),
-                    ),
-                  if (note.patterns.isNotEmpty)
-                    _UsageNoteEntry(
-                      label: t.usageNotePatterns,
-                      lines: [
-                        for (final p in note.patterns)
-                          '${p.ko}\n${p.forLang(lang)}',
-                      ],
-                    ),
-                  if (note.collocations.isNotEmpty)
-                    _UsageNoteEntry(
-                      label: t.usageNoteCollocations,
-                      lines: [
-                        for (final c in note.collocations)
-                          '${c.ko}\n${c.forLang(lang)}',
-                      ],
-                    ),
-                  for (final contrast in note.contrasts)
-                    _UsageNoteEntry(
-                      label: '${t.usageNoteContrast} ${contrast.headword}',
-                      text: contrast.forLang(lang),
-                    ),
-                  if (note.examples.isNotEmpty) ...[
-                    Text(
-                      t.usageNoteExamples,
-                      style: tt.label.copyWith(color: s.textMuted),
-                    ),
-                    for (final example in note.examples)
-                      Padding(
-                        padding: const EdgeInsets.only(top: Spacing.xs),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SoriSpeechIndicator(text: example.ko),
-                            Expanded(
-                              child: Column(
+                  Flexible(
+                    child: SoriViewportPages(
+                      sections: [
+                        if (note.nuance.forLang(lang).isNotEmpty)
+                          // 시각적으로는 라벨 없이 강조 문장 하나로 두되(첫인상용
+                          // 헤드라인), 스크린리더에는 t.usageNoteNuance를 앞에
+                          // 붙여 다른 항목과 같은 문맥을 준다 — 픽셀은 그대로라
+                          // 커밋된 골든(vocab_pack_usage_note_back_*.png)에
+                          // 영향이 없다.
+                          Semantics(
+                            label: t.usageNoteNuance,
+                            child: _UsageNoteBody(
+                              text: note.nuance.forLang(lang),
+                            ),
+                          ),
+                        if (note.situation.forLang(lang).isNotEmpty)
+                          _UsageNoteEntry(
+                            label: t.usageNoteSituation,
+                            text: note.situation.forLang(lang),
+                          ),
+                        if (note.patterns.isNotEmpty)
+                          _UsageNoteEntry(
+                            label: t.usageNotePatterns,
+                            lines: [
+                              for (final p in note.patterns)
+                                '${p.ko}\n${p.forLang(lang)}',
+                            ],
+                          ),
+                        if (note.collocations.isNotEmpty)
+                          _UsageNoteEntry(
+                            label: t.usageNoteCollocations,
+                            lines: [
+                              for (final c in note.collocations)
+                                '${c.ko}\n${c.forLang(lang)}',
+                            ],
+                          ),
+                        for (final contrast in note.contrasts)
+                          _UsageNoteEntry(
+                            label:
+                                '${t.usageNoteContrast} ${contrast.headword}',
+                            text: contrast.forLang(lang),
+                          ),
+                        if (note.examples.isNotEmpty) ...[
+                          Text(
+                            t.usageNoteExamples,
+                            style: tt.label.copyWith(color: s.textMuted),
+                          ),
+                          for (final example in note.examples)
+                            Padding(
+                              padding: const EdgeInsets.only(top: Spacing.xs),
+                              child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Text(
-                                    example.ko,
-                                    style: tt.bodySmall.copyWith(
-                                      color: s.text,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  Text(
-                                    example.forLang(lang),
-                                    style: tt.bodySmall.copyWith(
-                                      color: s.textMuted,
-                                      fontStyle: FontStyle.italic,
+                                  SoriSpeechIndicator(text: example.ko),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(
+                                          example.ko,
+                                          style: tt.bodySmall.copyWith(
+                                            color: s.text,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                        Text(
+                                          example.forLang(lang),
+                                          style: tt.bodySmall.copyWith(
+                                            color: s.textMuted,
+                                            fontStyle: FontStyle.italic,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                  ],
+                        ],
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
-        ],
+          ),
+        ),
+      );
+    }
+
+    return SoriPressable(
+      key: const ValueKey('usageNoteHeaderToggle'),
+      haptic: SoriHaptic.light,
+      onTap: open,
+      child: SoriCard(
+        variant: SoriCardVariant.compact,
+        tinted: true,
+        accent: SoriColors.gold,
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 48),
+          child: Row(
+            children: [
+              const Icon(Icons.menu_book_outlined, size: 18),
+              const SizedBox(width: Spacing.sm),
+              Expanded(child: Text(t.usageNoteTitle, style: tt.label)),
+              const Icon(Icons.chevron_right_rounded),
+            ],
+          ),
+        ),
       ),
     );
   }

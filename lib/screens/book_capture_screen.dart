@@ -20,9 +20,9 @@ import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/learning_stage_navigation.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/standard_page.dart';
-import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/viewport_pages.dart';
 import '../widgets/sori/window_class.dart';
 
 const int bookCaptureJpegQuality = 100;
@@ -593,15 +593,12 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
   Widget _buildCapture(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
+    final bodyStyle = Theme.of(context).platform == TargetPlatform.iOS
+        ? text.body.copyWith(fontSize: 17)
+        : text.body;
 
     final isNotebook = widget.captureMode == 'notebook';
     final title = isNotebook ? t.vocabNotebookTitle : t.bookCaptureTitle;
-    final window = MediaQuery.sizeOf(context);
-    final availableHeight =
-        window.height - MediaQuery.paddingOf(context).vertical;
-    final compact =
-        window.height < 750 || MediaQuery.textScalerOf(context).scale(1) > 1.35;
-
     if (_busy) {
       return SoriStandardFrame(
         appBarTitle: title,
@@ -626,76 +623,130 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
           : const SoriLearningStageNavigation(expandedArtwork: true),
       maxWidth: SoriMaxWidth.focus,
       padding: const EdgeInsets.all(Spacing.lg),
-      // §W-A2: 200% 배율에서 부제(긴 독일어 문장, 288dp 폭)가 실측 900px+ 를
-      // 요구해 기본 1.9배로는 부족했다 — 이 화면만 2.4배로 올린다(정상
-      // 세로 390×844 는 minHeight=660 이 그대로 안 넘어 스크롤 없음 유지).
-      builder: (context, padding) => SoriAdaptiveStudyBody(
-        minHeight: isNotebook
-            ? 660
-            : _errorKey != null
-            ? 800
-            : 596,
-        maxScaleBoost: 1.4,
-        child: Padding(
-          padding: padding,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              if (isNotebook) const SizedBox(height: Spacing.lg),
-              ClipRRect(
-                borderRadius: SoriRadius.brMd,
-                child: Image.asset(
-                  isNotebook
-                      ? 'assets/illustrations/book/book_camera_guide.png'
-                      : 'assets/illustrations/book/hanji-scan-desk.png',
-                  key: const ValueKey('book-capture-art'),
-                  height: isNotebook || compact
-                      ? 160
-                      : (availableHeight - 540).clamp(200.0, 388.0),
-                  fit: isNotebook || compact ? BoxFit.contain : BoxFit.cover,
-                  excludeFromSemantics: true,
-                  errorBuilder: (_, __, ___) => const Mascot(
-                    kind: MascotKind.magpie,
-                    emotion: MascotEmotion.smile,
-                    size: 130,
+      builder: (context, padding) => Padding(
+        padding: padding,
+        child: LayoutBuilder(
+          builder: (context, viewport) {
+            final camera = SoriButton(
+              cMaterial: !isNotebook,
+              label: t.bookCaptureCamera,
+              icon: Icons.photo_camera_outlined,
+              variant: SoriButtonVariant.filled,
+              accent: SoriColors.primary,
+              fullWidth: true,
+              onTap: () => _pick(ImageSource.camera),
+            );
+            final gallery = SoriButton(
+              cMaterial: !isNotebook,
+              label: t.bookCaptureGallery,
+              icon: Icons.photo_library_outlined,
+              variant: SoriButtonVariant.outlined,
+              fullWidth: true,
+              onTap: () => _pick(ImageSource.gallery),
+            );
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(
+                  child: LayoutBuilder(
+                    builder: (context, body) {
+                      final compact =
+                          body.maxHeight < 350 ||
+                          MediaQuery.textScalerOf(context).scale(16) > 22;
+                      final heading = Text(
+                        isNotebook ? t.vocabNotebookTitle : t.bookCaptureHero,
+                        textAlign: isNotebook
+                            ? TextAlign.center
+                            : TextAlign.start,
+                        style: text.h2,
+                      );
+                      final description = soriViewportTextPages(
+                        context,
+                        isNotebook
+                            ? t.vocabNotebookDesc
+                            : t.bookCaptureSubtitle,
+                        style: bodyStyle,
+                        width: body.maxWidth,
+                        height:
+                            (body.maxHeight -
+                                    SoriViewportPages.controlsHeight -
+                                    Spacing.sm)
+                                .clamp(1.0, double.infinity),
+                      );
+                      final artwork = Padding(
+                        padding: EdgeInsets.only(
+                          top: compact ? Spacing.md : 0,
+                          bottom: compact ? 0 : Spacing.md,
+                        ),
+                        child: ClipRRect(
+                          borderRadius: SoriRadius.brMd,
+                          child: Image.asset(
+                            isNotebook
+                                ? 'assets/illustrations/book/book_camera_guide.png'
+                                : 'assets/illustrations/book/hanji-scan-desk.png',
+                            key: const ValueKey('book-capture-art'),
+                            height: compact
+                                ? (body.maxHeight * .35).clamp(0.0, 110.0)
+                                : isNotebook
+                                ? 160
+                                : (body.maxHeight * .55).clamp(0.0, 388.0),
+                            fit: isNotebook || compact
+                                ? BoxFit.contain
+                                : BoxFit.cover,
+                            excludeFromSemantics: true,
+                            errorBuilder: (_, __, ___) => const Mascot(
+                              kind: MascotKind.magpie,
+                              emotion: MascotEmotion.smile,
+                              size: 100,
+                            ),
+                          ),
+                        ),
+                      );
+                      return SoriViewportPages(
+                        key: ValueKey(_errorKey),
+                        sections: [
+                          if (_errorKey != null) ...[
+                            _ErrorCard(errorKey: _errorKey!),
+                            const SizedBox(height: Spacing.md),
+                          ],
+                          if (!compact) artwork,
+                          if (!compact || !isNotebook) heading,
+                          for (final copy in description)
+                            Padding(
+                              padding: const EdgeInsets.only(top: Spacing.sm),
+                              child: Text(
+                                copy,
+                                key: const ValueKey('book-capture-copy'),
+                                textAlign: isNotebook
+                                    ? TextAlign.center
+                                    : TextAlign.start,
+                                style: bodyStyle,
+                              ),
+                            ),
+                          if (compact) artwork,
+                        ],
+                      );
+                    },
                   ),
                 ),
-              ),
-              const SizedBox(height: Spacing.md),
-              Text(
-                isNotebook ? t.vocabNotebookTitle : t.bookCaptureHero,
-                textAlign: isNotebook ? TextAlign.center : TextAlign.start,
-                style: text.h2,
-              ),
-              const SizedBox(height: Spacing.sm),
-              Text(
-                isNotebook ? t.vocabNotebookDesc : t.bookCaptureSubtitle,
-                textAlign: isNotebook ? TextAlign.center : TextAlign.start,
-                style: text.bodySmall,
-              ),
-              const Spacer(),
-              if (_errorKey != null) _ErrorCard(errorKey: _errorKey!),
-              if (_errorKey != null) const SizedBox(height: Spacing.md),
-              SoriButton(
-                cMaterial: !isNotebook,
-                label: t.bookCaptureCamera,
-                icon: Icons.photo_camera_outlined,
-                variant: SoriButtonVariant.filled,
-                accent: SoriColors.primary,
-                fullWidth: true,
-                onTap: () => _pick(ImageSource.camera),
-              ),
-              const SizedBox(height: Spacing.sm),
-              SoriButton(
-                cMaterial: !isNotebook,
-                label: t.bookCaptureGallery,
-                icon: Icons.photo_library_outlined,
-                variant: SoriButtonVariant.outlined,
-                fullWidth: true,
-                onTap: () => _pick(ImageSource.gallery),
-              ),
-            ],
-          ),
+                const SizedBox(height: Spacing.md),
+                if (viewport.maxHeight < 430)
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(child: camera),
+                      const SizedBox(width: Spacing.sm),
+                      Expanded(child: gallery),
+                    ],
+                  )
+                else ...[
+                  camera,
+                  const SizedBox(height: Spacing.sm),
+                  gallery,
+                ],
+              ],
+            );
+          },
         ),
       ),
     );

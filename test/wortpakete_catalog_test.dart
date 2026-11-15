@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import 'support/sori_viewport_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/features/onboarding_v2/first_run_runtime.dart';
@@ -85,7 +87,7 @@ void main() {
     await tester.pumpAndSettle();
     final global = find.byKey(const ValueKey('wortpakete-search-a1_food_1'));
     expect(global, findsOneWidget);
-    await showViewportSection(tester, global);
+    await showSoriViewportSection(tester, global);
     await tester.pumpAndSettle();
     await tester.tap(global);
     await tester.pumpAndSettle();
@@ -168,7 +170,7 @@ void main() {
     await tester.tap(find.text('Erste Gespräche'));
     await tester.pumpAndSettle();
     final allTopics = find.text('Alle 45 ansehen');
-    await showViewportSection(tester, allTopics);
+    await showSoriViewportSection(tester, allTopics);
     await tester.tap(allTopics);
     await tester.pumpAndSettle();
     final l10n = AppL10n.of(tester.element(find.byType(VocabPacksScreen)));
@@ -182,14 +184,14 @@ void main() {
     final choose = find.byKey(
       const ValueKey('wortpakete-select-a1_greetings_2'),
     );
-    await showViewportSection(tester, choose);
+    await showSoriViewportSection(tester, choose);
     await tester.pumpAndSettle();
     await tester.tap(choose);
     await tester.pumpAndSettle();
     expect(find.text('Paket 2 · 13 Wörter'), findsOneWidget);
     expect(opened, isEmpty);
     final open = find.byKey(const ValueKey('wortpakete-open-pack'));
-    await showViewportSection(tester, open);
+    await showSoriViewportSection(tester, open);
     await tester.tap(open);
     await tester.pumpAndSettle();
     expect(opened, ['a1_greetings_2']);
@@ -206,12 +208,12 @@ void main() {
       onPack: opened.add,
     );
     final a1 = find.text('Erste Gespräche');
-    await showViewportSection(tester, a1);
+    await showSoriViewportSection(tester, a1);
     await tester.pumpAndSettle();
     await tester.tap(a1);
     await tester.pumpAndSettle();
     final action = find.byKey(const ValueKey('wortpakete-open-pack'));
-    await showViewportSection(tester, action);
+    await showSoriViewportSection(tester, action);
     await tester.pumpAndSettle();
     await tester.tap(action);
     await tester.pumpAndSettle();
@@ -255,7 +257,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 200));
     final cta = find.byKey(const ValueKey('wortpakete-open-pack'));
-    await showViewportSection(tester, cta);
+    await showSoriViewportSection(tester, cta);
     await tester.pump();
     await tester.tap(cta);
     await tester.pump();
@@ -279,12 +281,11 @@ void main() {
     await tester.pumpAndSettle();
     for (final level in LearnerLevel.values) {
       final tab = find.byKey(ValueKey('wortpakete-level-${level.code}'));
-      await showViewportSection(tester, tab);
+      await showSoriViewportSection(tester, tab);
       if (level != LearnerLevel.a1) {
         await tester.tap(tab);
         await tester.pumpAndSettle();
       }
-      expect(find.byType(CustomScrollView), findsNothing);
       if (level == LearnerLevel.a1) {
         final action = find.byKey(const ValueKey('wortpakete-open-pack'));
         if (_captureSize.height >= 900) {

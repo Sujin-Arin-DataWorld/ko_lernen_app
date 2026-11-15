@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' as ui;
 import 'dart:typed_data';
+import 'package:flutter/foundation.dart'
+    show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -20,6 +22,7 @@ import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'support/c_native_capture_assets.dart';
 import 'support/real_fonts.dart';
+import 'support/sori_viewport_page.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +35,86 @@ void main() {
     await Storage.init();
   });
   tearDown(SoriSpeech.resetForTesting);
+  for (final platform in [TargetPlatform.android, TargetPlatform.iOS]) {
+    testWidgets('C2 keeps record and stop available at 200% on $platform', (
+      tester,
+    ) async {
+      debugDefaultTargetPlatformOverride = platform;
+      try {
+        tester.view.devicePixelRatio = 1;
+        tester.view.physicalSize = const Size(320, 640);
+        tester.view.padding = const FakeViewPadding(top: 24, bottom: 24);
+        tester.view.viewPadding = const FakeViewPadding(top: 24, bottom: 24);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetPadding);
+        addTearDown(tester.view.resetViewPadding);
+        final phrases = (await tester.runAsync(
+          PronunciationPhraseLoader.load,
+        ))!;
+        final reference = phrases.firstWhere(
+          (p) => p.id == 'pronunciation_c2_0016',
+        );
+        final recorder = _Recorder();
+        final playback = _Playback();
+        await tester.pumpWidget(
+          MaterialApp(
+            locale: const Locale('de'),
+            supportedLocales: AppL10n.supportedLocales,
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            builder: (context, child) => MediaQuery(
+              data: MediaQuery.of(
+                context,
+              ).copyWith(textScaler: const TextScaler.linear(2)),
+              child: child!,
+            ),
+            home: PronunciationStudioScreen(
+              phrases: phrases,
+              initialPhraseId: reference.id,
+              recorder: recorder,
+              playback: playback,
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(SingleChildScrollView), findsNothing);
+        final record = find.byKey(
+          const ValueKey('pronunciation-record-action'),
+        );
+        expect(record.hitTestable(), findsOneWidget);
+        expect(tester.getSize(record).shortestSide, greaterThanOrEqualTo(48));
+        final lastKorean = reference.ko.split(' ').last;
+        await showSoriViewportSection(tester, find.textContaining(lastKorean));
+        expect(record.hitTestable(), findsOneWidget);
+        await tester.tap(record);
+        await tester.pump();
+        await tester.pump();
+        expect(recorder.starts, 1);
+        expect(record.hitTestable(), findsOneWidget);
+        await tester.tap(record);
+        await tester.pump();
+        expect(recorder.stops, 1);
+        await _drain(tester);
+        final replay = find.byKey(
+          const ValueKey('pronunciation-replay-action'),
+        );
+        final next = find.byKey(const ValueKey('pronunciation-next-action'));
+        expect(replay.hitTestable(), findsOneWidget);
+        expect(next.hitTestable(), findsOneWidget);
+        await tester.tap(replay);
+        await _drain(tester);
+        expect(playback.recordings, hasLength(1));
+        await tester.tap(next);
+        await tester.pumpAndSettle();
+        expect(replay, findsNothing);
+        expect(record.hitTestable(), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      } finally {
+        debugDefaultTargetPlatformOverride = null;
+      }
+    });
+  }
   testWidgets('paper practice surface stays legible in dark mode', (
     tester,
   ) async {
@@ -184,6 +267,7 @@ void main() {
         const ValueKey('pronunciation-translation'),
       );
       final germanText = tester.widget<Text>(translation);
+      const referenceViewport = !bool.fromEnvironment('CAPTURE_402');
       if (const bool.fromEnvironment('CAPTURE_402')) {
         expect(
           germanText.data!.replaceAll(RegExp(r'\s+'), ' '),
@@ -198,6 +282,39 @@ void main() {
         find.text('Nach dem Bedingungssatz kurz pausieren.'),
         findsOneWidget,
       );
+      void compareFigma(String node, String anchor, Rect reference) {
+        final actual = tester.getRect(find.byKey(ValueKey(anchor)));
+        expect(actual.left, closeTo(reference.left, 2), reason: '$node left');
+        expect(actual.top, closeTo(reference.top, 2), reason: '$node top');
+        expect(
+          actual.right,
+          closeTo(reference.right, 2),
+          reason: '$node right',
+        );
+        expect(
+          actual.bottom,
+          closeTo(reference.bottom, 2),
+          reason: '$node bottom',
+        );
+      }
+
+      if (referenceViewport) {
+        compareFigma(
+          '241:940',
+          'pronunciation-header',
+          const Rect.fromLTWH(0, 0, 430, 59.648),
+        );
+        compareFigma(
+          '241:970',
+          'pronunciation-translation',
+          const Rect.fromLTWH(52, 402, 354, 105),
+        );
+        compareFigma(
+          '241:992',
+          'pronunciation-ready-record-face',
+          const Rect.fromLTWH(24.269, 692.272, 382.706, 54.056),
+        );
+      }
       Future<void> capture(String name) async {
         final boundary =
             captureKey.currentContext!.findRenderObject()!
@@ -210,6 +327,12 @@ void main() {
             'pronunciation-next-action',
             'pronunciation-record-action',
             'sori-image-navigation-bar',
+            'pronunciation-header',
+            if (referenceViewport)
+              if (name.contains('ready'))
+                'pronunciation-ready-record-face'
+              else
+                'pronunciation-repeat-record-face',
           ])
             anchor: tester.getRect(find.byKey(ValueKey(anchor))),
         };
@@ -255,6 +378,23 @@ void main() {
         await capture('flutter-pronunciation-ready.png');
       }
       await _capture(tester);
+      if (referenceViewport) {
+        compareFigma(
+          '241:1017',
+          'pronunciation-header',
+          const Rect.fromLTWH(0, 0, 430, 59.648),
+        );
+        compareFigma(
+          '241:1048',
+          'pronunciation-translation',
+          const Rect.fromLTWH(52, 398, 354, 105),
+        );
+        compareFigma(
+          '253:675',
+          'pronunciation-repeat-record-face',
+          const Rect.fromLTWH(24.234, 792.2, 381.532, 39.766),
+        );
+      }
       if (const bool.fromEnvironment('CAPTURE_PRONUNCIATION')) {
         await settleCNativeCaptureAssets(tester);
         await capture('flutter-pronunciation-compare.png');
