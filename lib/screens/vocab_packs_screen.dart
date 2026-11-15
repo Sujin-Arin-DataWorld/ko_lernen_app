@@ -38,6 +38,8 @@ import '../widgets/sori/pressable.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/study_frame.dart';
 
+import '../widgets/sori/viewport_pages.dart';
+
 part 'wortpakete_catalog.dart';
 
 /// **Vocab Packs Screen** — Phase 2 의 새 vocab 진입 화면.

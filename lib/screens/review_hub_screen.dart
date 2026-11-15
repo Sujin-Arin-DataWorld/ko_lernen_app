@@ -10,6 +10,7 @@ import '../services/vocab_pack_service.dart';
 import '../services/word_relation_service.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/viewport_pages.dart';
 import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/approved_chrome_assets.dart';
 import '../widgets/sori/c_learning_surface.dart';
@@ -307,322 +308,331 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
             ),
       bottomNavigationBar: const SoriLearningStageNavigation(
         expandedArtwork: true,
+        learningStyle: SoriLearningNavStyle.review,
       ),
       child: Column(
         children: [
           Expanded(
-            child: ListView(
+            child: Padding(
               padding: EdgeInsets.fromLTRB(
                 16,
                 _compactArtwork ? 12 : 37,
                 16,
-                8,
+                _archive ? 4 : 8,
               ),
-              children: [
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: const Color(0x33d3b382),
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: const Color(0xffb7894a)),
+              child: SoriViewportPages(
+                key: ValueKey((_archive, _level, _ownWords)),
+                sections: [
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: const Color(0x33d3b382),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: const Color(0xffb7894a)),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: _tab(
+                            t.reviewHubTodayHeadline,
+                            !_archive,
+                            () => setState(() => _archive = false),
+                          ),
+                        ),
+                        Expanded(
+                          child: _tab(
+                            t.reviewArchiveTab,
+                            _archive,
+                            () => setState(() => _archive = true),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  child: Row(
+                  const SizedBox(height: 12),
+                  Row(
                     children: [
                       Expanded(
-                        child: _tab(
-                          t.reviewHubTodayHeadline,
-                          !_archive,
-                          () => setState(() => _archive = false),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              _archive
+                                  ? t.reviewArchiveTitle
+                                  : t.reviewHubTodayHeadline,
+                              style: TextStyle(
+                                fontFamily: language == 'de'
+                                    ? SoriFonts.korean
+                                    : SoriLocaleFonts.of(context).body,
+                                fontWeight: FontWeight.w700,
+                                fontSize: _archive ? 30 : 33,
+                                height: 1.1,
+                              ),
+                            ),
+                            Text(
+                              _archive
+                                  ? t.reviewArchiveSubtitle
+                                  : '${t.reviewHubDeckLabel(deck.length)} · ${t.reviewSelectedCount(selectedCount)}',
+                              style: SoriTextTheme.of(
+                                context,
+                              ).body.copyWith(fontSize: 17, height: 1.2),
+                            ),
+                          ],
                         ),
                       ),
-                      Expanded(
-                        child: _tab(
-                          t.reviewArchiveTab,
-                          _archive,
-                          () => setState(() => _archive = true),
-                        ),
+                      SizedBox(
+                        width: _compactArtwork ? 74 : 110,
+                        height: _compactArtwork ? 74 : (_archive ? 78 : 100),
+                        child: const LernenGeneratedArt(name: 'review-drawer'),
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(height: 12),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                  const SizedBox(height: 12),
+                  if (_loading)
+                    const Center(child: CircularProgressIndicator())
+                  else if (_failed) ...[
+                    Text(t.reviewLoadError),
+                    TextButton(onPressed: _load, child: Text(t.reviewRetry)),
+                  ] else if (_archive) ...[
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
                         children: [
-                          Text(
-                            _archive
-                                ? t.reviewArchiveTitle
-                                : t.reviewHubTodayHeadline,
-                            style: TextStyle(
-                              fontFamily: SoriLocaleFonts.of(context).body,
-                              fontWeight: FontWeight.w700,
-                              fontSize: _archive ? 30 : 33,
-                              height: 1.1,
+                          for (final level in [
+                            'A1',
+                            'A2',
+                            'B1',
+                            'B2',
+                            'C1',
+                            'C2',
+                          ])
+                            SizedBox(
+                              width: _compactArtwork
+                                  ? null
+                                  : (MediaQuery.sizeOf(
+                                              context,
+                                            ).width.clamp(0, 460) -
+                                            36) /
+                                        6,
+                              child: ChoiceChip(
+                                key: Key('review-level-$level'),
+                                showCheckmark: false,
+                                materialTapTargetSize:
+                                    MaterialTapTargetSize.padded,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                ),
+                                label: Text(
+                                  level,
+                                  style: SoriTextTheme.of(context).body
+                                      .copyWith(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w600,
+                                        color: !_ownWords && _level == level
+                                            ? Colors.white
+                                            : null,
+                                      ),
+                                ),
+                                selectedColor: const Color(0xff075444),
+                                side: BorderSide(
+                                  color: !_ownWords && _level == level
+                                      ? const Color(0xffb7894a)
+                                      : const Color(0xffd5c7b2),
+                                ),
+                                backgroundColor: const Color(0xfff8f0e1),
+                                selected: !_ownWords && _level == level,
+                                onSelected: (_) => setState(() {
+                                  _level = level;
+                                  _ownWords = false;
+                                }),
+                              ),
                             ),
-                          ),
-                          Text(
-                            _archive
-                                ? t.reviewArchiveSubtitle
-                                : '${t.reviewHubDeckLabel(deck.length)} · ${t.reviewSelectedCount(selectedCount)}',
-                            style: SoriTextTheme.of(
-                              context,
-                            ).body.copyWith(fontSize: 17, height: 1.2),
-                          ),
                         ],
                       ),
                     ),
-                    SizedBox(
-                      width: _compactArtwork ? 74 : 110,
-                      height: _compactArtwork ? 74 : (_archive ? 78 : 100),
-                      child: const LernenGeneratedArt(name: 'review-drawer'),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                if (_loading)
-                  const Center(child: CircularProgressIndicator())
-                else if (_failed) ...[
-                  Text(t.reviewLoadError),
-                  TextButton(onPressed: _load, child: Text(t.reviewRetry)),
-                ] else if (_archive) ...[
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        for (final level in [
-                          'A1',
-                          'A2',
-                          'B1',
-                          'B2',
-                          'C1',
-                          'C2',
-                        ])
-                          SizedBox(
-                            width: _compactArtwork
-                                ? null
-                                : (MediaQuery.sizeOf(
-                                            context,
-                                          ).width.clamp(0, 460) -
-                                          36) /
-                                      6,
-                            child: ChoiceChip(
-                              key: Key('review-level-$level'),
-                              showCheckmark: false,
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.padded,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(9),
-                              ),
-                              label: Text(
-                                level,
-                                style: SoriTextTheme.of(context).body.copyWith(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w600,
-                                  color: !_ownWords && _level == level
-                                      ? Colors.white
-                                      : null,
-                                ),
-                              ),
-                              selectedColor: const Color(0xff075444),
-                              side: BorderSide(
-                                color: !_ownWords && _level == level
-                                    ? const Color(0xffb7894a)
-                                    : const Color(0xffd5c7b2),
-                              ),
-                              backgroundColor: const Color(0xfff8f0e1),
-                              selected: !_ownWords && _level == level,
-                              onSelected: (_) => setState(() {
-                                _level = level;
-                                _ownWords = false;
-                              }),
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  TextField(
-                    key: const Key('review-archive-search'),
-                    style: SoriTextTheme.of(
-                      context,
-                    ).body.copyWith(fontSize: 17),
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.search, size: 21),
-                      prefixIconConstraints: const BoxConstraints(
-                        minWidth: 41,
-                        minHeight: 38,
-                      ),
-                      isDense: true,
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 9,
-                      ),
-                      fillColor: const Color(0x55fffbf3),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(11),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(11),
-                        borderSide: const BorderSide(color: Color(0xffc9bca7)),
-                      ),
-                      hintText: _ownWords
-                          ? t.reviewSearchHint
-                          : t.wortpaketeSearchLevel(_level),
-                    ),
-                    onChanged: (value) => setState(() => _query = value),
-                  ),
-                  const SizedBox(height: Spacing.md),
-                  if (topics.isEmpty) Text(t.reviewArchiveEmpty),
-                  for (final entry in topics.entries)
-                    Column(
-                      children: [
-                        SoriCard(
-                          padding: EdgeInsets.zero,
-                          child: Material(
-                            color: Colors.transparent,
-                            child: ListTile(
-                              dense: true,
-                              key: Key('review-topic-${entry.key}'),
-                              title: Text(
-                                entry.key,
-                                style: SoriTextTheme.of(context).body.copyWith(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                              minTileHeight: 52,
-                              leading: const SizedBox(
-                                width: 9,
-                                height: 34,
-                                child: DecoratedBox(
-                                  decoration: BoxDecoration(
-                                    color: Color(0xffaac3ae),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(3),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              trailing: Icon(
-                                _expandedTopics.contains(entry.key)
-                                    ? Icons.expand_less
-                                    : Icons.expand_more,
-                              ),
-                              onTap: () => setState(() {
-                                if (!_expandedTopics.remove(entry.key)) {
-                                  _expandedTopics.add(entry.key);
-                                }
-                              }),
-                            ),
-                          ),
-                        ),
-                        if (_expandedTopics.contains(entry.key))
-                          _wordTray(entry.value, language, t),
-                        const SizedBox(height: Spacing.sm),
-                      ],
-                    ),
-                  SoriCard(
-                    padding: EdgeInsets.zero,
-                    child: Material(
-                      color: Colors.transparent,
-                      child: ListTile(
-                        dense: true,
-                        key: const Key('review-own-words'),
-                        title: Text(
-                          t.reviewOwnWords,
-                          style: SoriTextTheme.of(context).body.copyWith(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        minTileHeight: 42,
-                        leading: const SizedBox(
-                          width: 38,
-                          height: 34,
-                          child: LernenGeneratedArt(name: 'jade-book'),
-                        ),
-                        selected: _ownWords,
-                        trailing: const Icon(Icons.chevron_right),
-                        onTap: () => setState(() => _ownWords = true),
-                      ),
-                    ),
-                  ),
-                ] else ...[
-                  if (deck.isEmpty)
-                    Text(t.reviewHubEmptyToday)
-                  else ...[
-                    Wrap(
-                      alignment: WrapAlignment.spaceBetween,
-                      spacing: 8,
-                      children: [
-                        TextButton.icon(
-                          onPressed: () => setState(
-                            () => _selected.addAll(deck.map((w) => w.korean)),
-                          ),
-                          icon: const Icon(Icons.check_box_outlined, size: 24),
-                          label: Text(
-                            t.reviewSelectAll,
-                            style: _reviewControlLabel,
-                          ),
-                        ),
-                        TextButton.icon(
-                          onPressed: () => setState(_selected.clear),
-                          icon: const Icon(Icons.restart_alt, size: 24),
-                          label: Text(
-                            t.reviewClearSelection,
-                            style: _reviewControlLabel,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    _wordTray(deck, language, t),
-                    const SizedBox(height: 10),
-                    Text(
-                      t.reviewSelectHint,
+                    const SizedBox(height: 4),
+                    TextField(
+                      key: const Key('review-archive-search'),
                       style: SoriTextTheme.of(
                         context,
-                      ).body.copyWith(fontSize: 15),
-                    ),
-                    const SizedBox(height: Spacing.md),
-                  ],
-                  if (!_loading && !_failed) ...[
-                    OutlinedButton(
-                      key: const Key('review-hub-calendar'),
-                      onPressed: canOpenCalendar ? _openCalendar : null,
-                      style: OutlinedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(55),
-                        alignment: Alignment.centerLeft,
-                        shape: RoundedRectangleBorder(
+                      ).body.copyWith(fontSize: 17),
+                      decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.search, size: 21),
+                        prefixIconConstraints: const BoxConstraints(
+                          minWidth: 41,
+                          minHeight: 38,
+                        ),
+                        isDense: true,
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 9,
+                        ),
+                        fillColor: const Color(0x55fffbf3),
+                        border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(11),
                         ),
-                        backgroundColor: const Color(0x88fff9ef),
-                      ),
-                      child: Row(
-                        children: [
-                          const ApprovedChromeImage(
-                            asset: 'assets/icons/navigation/today.png',
-                            size: 38,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(11),
+                          borderSide: const BorderSide(
+                            color: Color(0xffc9bca7),
                           ),
-                          const SizedBox(width: 14),
-                          Expanded(
-                            child: Text(
-                              t.reviewByDay,
-                              style: _reviewControlLabel.copyWith(
-                                fontSize: 21,
+                        ),
+                        hintText: _ownWords
+                            ? t.reviewSearchHint
+                            : t.wortpaketeSearchLevel(_level),
+                      ),
+                      onChanged: (value) => setState(() => _query = value),
+                    ),
+                    const SizedBox(height: Spacing.md),
+                    if (topics.isEmpty) Text(t.reviewArchiveEmpty),
+                    for (final entry in topics.entries) ...[
+                      SoriCard(
+                        padding: EdgeInsets.zero,
+                        child: Material(
+                          color: Colors.transparent,
+                          child: ListTile(
+                            dense: true,
+                            key: Key('review-topic-${entry.key}'),
+                            title: Text(
+                              entry.key,
+                              style: SoriTextTheme.of(context).body.copyWith(
+                                fontSize: 22,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
+                            minTileHeight: 52,
+                            leading: const SizedBox(
+                              width: 9,
+                              height: 34,
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  color: Color(0xffaac3ae),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(3),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            trailing: Icon(
+                              _expandedTopics.contains(entry.key)
+                                  ? Icons.expand_less
+                                  : Icons.expand_more,
+                            ),
+                            onTap: () => setState(() {
+                              if (!_expandedTopics.remove(entry.key)) {
+                                _expandedTopics.add(entry.key);
+                              }
+                            }),
                           ),
-                          const Icon(Icons.chevron_right, size: 24),
-                        ],
+                        ),
+                      ),
+                      if (_expandedTopics.contains(entry.key))
+                        ..._wordTrayPages(entry.value, language, t),
+                      const SizedBox(height: 4),
+                    ],
+                    SoriCard(
+                      padding: EdgeInsets.zero,
+                      child: Material(
+                        color: Colors.transparent,
+                        child: ListTile(
+                          dense: true,
+                          key: const Key('review-own-words'),
+                          title: Text(
+                            t.reviewOwnWords,
+                            style: SoriTextTheme.of(context).body.copyWith(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          minTileHeight: 42,
+                          leading: const SizedBox(
+                            width: 38,
+                            height: 34,
+                            child: LernenGeneratedArt(name: 'jade-book'),
+                          ),
+                          selected: _ownWords,
+                          trailing: const Icon(Icons.chevron_right),
+                          onTap: () => setState(() => _ownWords = true),
+                        ),
                       ),
                     ),
+                  ] else ...[
+                    if (deck.isEmpty)
+                      Text(t.reviewHubEmptyToday)
+                    else ...[
+                      Wrap(
+                        alignment: WrapAlignment.spaceBetween,
+                        spacing: 8,
+                        children: [
+                          TextButton.icon(
+                            onPressed: () => setState(
+                              () => _selected.addAll(deck.map((w) => w.korean)),
+                            ),
+                            icon: const Icon(
+                              Icons.check_box_outlined,
+                              size: 24,
+                            ),
+                            label: Text(
+                              t.reviewSelectAll,
+                              style: _reviewControlLabel,
+                            ),
+                          ),
+                          TextButton.icon(
+                            onPressed: () => setState(_selected.clear),
+                            icon: const Icon(Icons.restart_alt, size: 24),
+                            label: Text(
+                              t.reviewClearSelection,
+                              style: _reviewControlLabel,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 5),
+                      ..._wordTrayPages(deck, language, t),
+                      const SizedBox(height: 10),
+                      Text(
+                        t.reviewSelectHint,
+                        style: SoriTextTheme.of(
+                          context,
+                        ).body.copyWith(fontSize: 15),
+                      ),
+                      const SizedBox(height: Spacing.md),
+                    ],
+                    if (!_loading && !_failed) ...[
+                      OutlinedButton(
+                        key: const Key('review-hub-calendar'),
+                        onPressed: canOpenCalendar ? _openCalendar : null,
+                        style: OutlinedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(55),
+                          alignment: Alignment.centerLeft,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(11),
+                          ),
+                          backgroundColor: const Color(0x88fff9ef),
+                        ),
+                        child: Row(
+                          children: [
+                            const ApprovedChromeImage(
+                              asset: 'assets/icons/navigation/today.png',
+                              size: 38,
+                            ),
+                            const SizedBox(width: 14),
+                            Expanded(
+                              child: Text(
+                                t.reviewByDay,
+                                style: _reviewControlLabel.copyWith(
+                                  fontSize: 21,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ),
+                            const Icon(Icons.chevron_right, size: 24),
+                          ],
+                        ),
+                      ),
+                    ],
                   ],
                 ],
-              ],
+              ),
             ),
           ),
           if (!_loading && !_failed)
@@ -633,7 +643,7 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
                 16,
                 _compactArtwork
                     ? 10
-                    : (_archive ? 28 : (selectionNote == null ? 57 : 29)),
+                    : (_archive ? 30 : (selectionNote == null ? 57 : 32)),
               ),
               child: Column(
                 children: [
@@ -686,6 +696,21 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
     ),
   );
 
+  Iterable<Widget> _wordTrayPages(
+    List<Vocab> words,
+    String language,
+    AppL10n t,
+  ) sync* {
+    final viewport = MediaQuery.sizeOf(context);
+    final largeText = MediaQuery.textScalerOf(context).scale(1) > 1.15;
+    final perTray = largeText || viewport.height < 650
+        ? 1
+        : (_compactArtwork ? 2 : 3);
+    for (var start = 0; start < words.length; start += perTray) {
+      yield _wordTray(words.skip(start).take(perTray).toList(), language, t);
+    }
+  }
+
   Widget _wordTray(List<Vocab> words, String language, AppL10n t) => Stack(
     children: [
       const Positioned.fill(
@@ -707,8 +732,8 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
                   children: [
                     Material(
                       color: const Color(0xfff8f0e2),
-                      shadowColor: const Color(0x88694425),
-                      elevation: 1.5,
+                      shadowColor: const Color(0xff4f3014),
+                      elevation: 2,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                         side: const BorderSide(color: Color(0xffdbc8ad)),
@@ -839,8 +864,10 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 22,
-                fontFamily: SoriLocaleFonts.of(context).body,
+                fontSize: 23,
+                fontFamily: Localizations.localeOf(context).languageCode == 'de'
+                    ? SoriFonts.korean
+                    : SoriLocaleFonts.of(context).body,
                 color: chosen.isEmpty ? Colors.black45 : Colors.black,
               ),
             ),

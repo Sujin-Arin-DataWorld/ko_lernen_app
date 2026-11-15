@@ -109,42 +109,43 @@ void main() {
       findsOneWidget,
     );
   });
-  testWidgets('narrow large text and reduced motion remain scrollable', (
-    tester,
-  ) async {
-    tester.view.devicePixelRatio = 1;
-    tester.view.physicalSize = const Size(320, 640);
-    addTearDown(tester.view.resetDevicePixelRatio);
-    addTearDown(tester.view.resetPhysicalSize);
-    await tester.pumpWidget(
-      MaterialApp(
-        locale: const Locale('en'),
-        supportedLocales: AppL10n.supportedLocales,
-        localizationsDelegates: AppL10n.localizationsDelegates,
-        builder: (context, child) => MediaQuery(
-          data: MediaQuery.of(context).copyWith(
-            textScaler: const TextScaler.linear(1.5),
-            disableAnimations: true,
+  testWidgets(
+    'narrow large text and reduced motion keep the recording action reachable',
+    (tester) async {
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = const Size(320, 640);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      addTearDown(tester.view.resetPhysicalSize);
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: const Locale('en'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              textScaler: const TextScaler.linear(1.5),
+              disableAnimations: true,
+            ),
+            child: child!,
           ),
-          child: child!,
+          home: PronunciationStudioScreen(
+            phrases: _phrases,
+            recorder: _Recorder(),
+            playback: _Playback(),
+            gateway: _Gateway(),
+          ),
         ),
-        home: PronunciationStudioScreen(
-          phrases: _phrases,
-          recorder: _Recorder(),
-          playback: _Playback(),
-          gateway: _Gateway(),
-        ),
-      ),
-    );
-    await tester.pumpAndSettle();
-    await tester.ensureVisible(
-      find.byKey(const ValueKey('pronunciation-record-action')),
-    );
-    await tester.pumpAndSettle();
-    expect(tester.takeException(), isNull);
-    await _action(tester, 'pronunciation-record-action');
-    expect(find.text('Stop recording'), findsOneWidget);
-  });
+      );
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('pronunciation-record-action')),
+      );
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      await _action(tester, 'pronunciation-record-action');
+      expect(find.text('Stop recording'), findsOneWidget);
+    },
+  );
   testWidgets(
     'C2 reference and level selection render real localized content',
     (tester) async {

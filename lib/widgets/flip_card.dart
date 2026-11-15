@@ -15,6 +15,7 @@ class FlipCard extends StatefulWidget {
   final bool flipped;
   final VoidCallback? onTap;
   final Duration duration;
+  final bool scrollFace;
 
   const FlipCard({
     super.key,
@@ -23,6 +24,7 @@ class FlipCard extends StatefulWidget {
     required this.flipped,
     this.onTap,
     this.duration = const Duration(milliseconds: 380),
+    this.scrollFace = true,
   });
 
   @override
@@ -96,6 +98,9 @@ class _FlipCardState extends State<FlipCard>
   /// 세로 스크롤이라 화면 쪽 좌우 스와이프(다음/이전 카드) 제스처와 축이 겹치지
   /// 않고, `FlipCard` 루트의 탭(뒤집기)도 스크롤뷰가 삼키지 않는다.
   Widget _fitFace(Widget face) {
+    if (!widget.scrollFace) {
+      return SizedBox.expand(child: face);
+    }
     return LayoutBuilder(
       builder: (context, constraints) {
         if (!constraints.maxHeight.isFinite) {

@@ -16,6 +16,7 @@ import 'package:ko_lernen_app/widgets/sori/learning_stage_navigation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'support/real_fonts.dart';
 import 'support/c_native_capture_assets.dart';
+import 'support/viewport_pages.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -60,11 +61,12 @@ void main() {
 
     await tester.tap(first);
     await tester.pump();
+    await showViewportSection(tester, second);
     await tester.tap(second);
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(
+    await showViewportSection(
+      tester,
       find.byKey(const Key('review-hub-start-selected')),
-      150,
     );
 
     expect(tester.widget<CheckboxListTile>(first).value, isTrue);
@@ -81,17 +83,17 @@ void main() {
   ) async {
     await _pumpHub(tester);
     final start = find.byKey(const Key('review-hub-start-selected'));
-    await tester.scrollUntilVisible(start, 150);
+    await showViewportSection(tester, start);
     expect(tester.widget<TextButton>(start).onPressed, isNull);
-    await tester.scrollUntilVisible(find.text('Alle auswählen'), -150);
+    await showViewportSection(tester, find.text('Alle auswählen'));
     await tester.tap(find.text('Alle auswählen'));
     await tester.pump();
-    await tester.scrollUntilVisible(start, 150);
+    await showViewportSection(tester, start);
     expect(tester.widget<TextButton>(start).onPressed, isNotNull);
-    await tester.scrollUntilVisible(find.text('Auswahl aufheben'), -150);
+    await showViewportSection(tester, find.text('Auswahl aufheben'));
     await tester.tap(find.text('Auswahl aufheben'));
     await tester.pump();
-    await tester.scrollUntilVisible(start, 150);
+    await showViewportSection(tester, start);
     expect(tester.widget<TextButton>(start).onPressed, isNull);
   });
 
@@ -191,10 +193,9 @@ void main() {
     );
     await tester.tap(find.text('Nach Themen'));
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(
+    await showViewportSection(
+      tester,
       find.byKey(const Key('review-own-words')),
-      100,
-      scrollable: find.byType(Scrollable).first,
     );
     await tester.tap(find.byKey(const Key('review-own-words')));
     await tester.pumpAndSettle();
@@ -209,7 +210,7 @@ void main() {
     await tester.tap(find.byKey(const Key('review-hub-select-안녕')));
     await tester.pumpAndSettle();
     final start = find.byKey(const Key('review-hub-start-selected'));
-    await tester.scrollUntilVisible(start, 150);
+    await showViewportSection(tester, start);
     await tester.tap(start);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
@@ -289,9 +290,9 @@ void main() {
   ) async {
     await _pumpHub(tester);
 
-    await tester.scrollUntilVisible(
+    await showViewportSection(
+      tester,
       find.byKey(const Key('review-hub-calendar')),
-      150,
     );
     await tester.tap(find.byKey(const Key('review-hub-calendar')));
     await tester.pumpAndSettle();
@@ -312,7 +313,7 @@ void main() {
     await _pumpHub(tester);
 
     final action = find.byKey(const Key('review-hub-calendar'));
-    await tester.scrollUntilVisible(action, 150);
+    await showViewportSection(tester, action);
     expect(tester.widget<OutlinedButton>(action).onPressed, isNotNull);
     await tester.tap(action);
     await tester.pump();
@@ -329,7 +330,7 @@ void main() {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('kl_study_log_v1_$todayIso');
     await _pumpHub(tester);
-    await tester.scrollUntilVisible(action, 150);
+    await showViewportSection(tester, action);
     expect(tester.widget<OutlinedButton>(action).onPressed, isNull);
   });
 
@@ -348,7 +349,7 @@ void main() {
 
     completer.complete(_reviewableWords);
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(action, 150);
+    await showViewportSection(tester, action);
     expect(tester.widget<OutlinedButton>(action).onPressed, isNotNull);
   });
 
@@ -364,13 +365,12 @@ void main() {
 
     final first = find.byKey(const Key('review-hub-select-안녕'));
     final start = find.byKey(const Key('review-hub-start-selected'));
-    final scrollable = find.byType(Scrollable).first;
-    await tester.scrollUntilVisible(first, 200, scrollable: scrollable);
+    await showViewportSection(tester, first);
     expect(
       tester.getSize(first).height,
       greaterThanOrEqualTo(kMinInteractiveDimension),
     );
-    await tester.scrollUntilVisible(start, 200, scrollable: scrollable);
+    await showViewportSection(tester, start);
     expect(
       tester.getSize(start).height,
       greaterThanOrEqualTo(kMinInteractiveDimension),

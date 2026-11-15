@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
+import 'support/viewport_pages.dart';
 
 /// §P2-6 flipgate 센서: vocab_pack Learn — "앞면(미공개) 드래그 시 SRS·
 /// wrongCount 0 + 진행 불변". 기존 3화면(review·custom·legacy)과 동형 —
@@ -128,14 +129,14 @@ void main() {
       tester.widget<SoriPressable>(pressable(t.vocabPackDontKnow)).onTap,
       isNull,
     );
-    await tester.ensureVisible(pressable(t.contentLearningReveal));
+    await showViewportSection(tester, pressable(t.contentLearningReveal));
     await tester.tap(pressable(t.contentLearningReveal));
     await tester.pumpAndSettle();
     expect(
       tester.widget<SoriPressable>(pressable(t.vocabPackGotIt)).onTap,
       isNotNull,
     );
-    await tester.ensureVisible(pressable(t.vocabPackGotIt));
+    await showViewportSection(tester, pressable(t.vocabPackGotIt));
     await tester.tap(pressable(t.vocabPackGotIt));
     await tester.pumpAndSettle();
     expect(find.text('2 / 3'), findsOneWidget);
@@ -149,13 +150,13 @@ void main() {
     expect(tester.takeException(), isNull, reason: 'initial layout');
     final t = AppL10n.of(tester.element(find.byType(VocabPackScreen)));
     final reveal = find.text(t.contentLearningReveal);
-    await tester.ensureVisible(reveal);
+    await showViewportSection(tester, reveal);
     await tester.pumpAndSettle();
     await tester.tap(reveal);
     await tester.pumpAndSettle();
     expect(tester.takeException(), isNull, reason: 'revealed layout');
     final rating = find.text(t.vocabPackGotIt);
-    await tester.ensureVisible(rating);
+    await showViewportSection(tester, rating);
     await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
     await tester.tap(rating);
