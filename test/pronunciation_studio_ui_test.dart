@@ -93,14 +93,11 @@ void main() {
         expect(phraseText.maxLines, isNull);
         expect(phraseText.overflow, isNull);
         expect(phraseText.style?.fontFamily, type.koDisplay.fontFamily);
-        expect(phraseText.style?.fontWeight, type.koDisplay.fontWeight);
+        expect(phraseText.style?.fontWeight, FontWeight.bold);
 
-        expect(find.byType(SoriSpeechIndicator), findsOneWidget);
         expect(
-          tester
-              .widget<SoriSpeechIndicator>(find.byType(SoriSpeechIndicator))
-              .text,
-          _phrase.ko,
+          find.byKey(const ValueKey('pronunciation-model-action')),
+          findsOneWidget,
         );
         expect(
           find.widgetWithText(SoriButton, t.pronunciationListen),
@@ -108,8 +105,8 @@ void main() {
         );
 
         for (final label in [
-          t.pronunciationRecord,
-          t.pronunciationContinueWithoutScore,
+          t.pronunciationRecordShort,
+          t.pronunciationNextSentence,
         ]) {
           final action = find.widgetWithText(SoriButton, label);
           await _scrollUntilBuilt(tester, action);
@@ -120,7 +117,7 @@ void main() {
           final button = tester.widget<SoriButton>(action);
           expect(button.label, label);
           expect(button.maxLines, isNull);
-          if (label == t.pronunciationRecord) {
+          if (label == t.pronunciationRecordShort) {
             expect(button.variant, SoriButtonVariant.filled);
             expect(button.fullWidth, isTrue);
           }
@@ -164,7 +161,7 @@ void main() {
     await tester.pumpAndSettle();
 
     tester
-        .widget<SoriButton>(find.widgetWithText(SoriButton, 'Record my voice'))
+        .widget<SoriButton>(find.widgetWithText(SoriButton, 'Record'))
         .onTap!();
     await tester.pump();
     await tester.pump();
@@ -238,7 +235,7 @@ void _configureView(WidgetTester tester, Size size) {
 }
 
 Future<void> _scrollUntilBuilt(WidgetTester tester, Finder target) async {
-  final scrollable = find.byType(ListView).first;
+  final scrollable = find.byType(SingleChildScrollView).first;
   for (var attempt = 0; attempt < 12 && target.evaluate().isEmpty; attempt++) {
     await tester.drag(scrollable, const Offset(0, -160));
     await tester.pump();

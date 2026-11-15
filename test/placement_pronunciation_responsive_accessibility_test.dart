@@ -115,9 +115,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.byType(SoriAppBar), findsOneWidget);
-    expect(find.byType(SoriScreenBackground), findsOneWidget);
-    _expectAdaptiveTitle(tester, 'Aussprache-Studio');
+    final header = tester.widget<Text>(find.text('Aussprache'));
+    expect(header.maxLines, 2);
 
     final screen = find.byType(PronunciationStudioScreen);
     final t = AppL10n.of(tester.element(screen));
@@ -125,15 +124,18 @@ void main() {
       tester.widget<PronunciationStudioScreen>(screen).cloudAssessmentEnabled,
       isFalse,
     );
-    final introText = tester.widget<Text>(find.text(t.pronunciationIntro));
+    final introText = tester.widget<Text>(find.text(t.pronunciationFocusH));
     expect(introText.maxLines, isNull);
     expect(introText.overflow, isNull);
 
-    final recordAction = find.widgetWithText(SoriButton, t.pronunciationRecord);
+    final recordAction = find.widgetWithText(
+      SoriButton,
+      t.pronunciationRecordShort,
+    );
     await _centerInScrollable(tester, recordAction);
     _expectButtonSemantics(tester, recordAction, t.pronunciationRecord);
 
-    final localHint = find.text(t.pronunciationLocalRecordingHint);
+    final localHint = find.text(t.pronunciationMaxDuration);
     await _centerInScrollable(tester, localHint);
     final hintText = tester.widget<Text>(localHint);
     expect(hintText.maxLines, isNull);
@@ -145,14 +147,10 @@ void main() {
 
     final continueAction = find.widgetWithText(
       SoriButton,
-      t.pronunciationContinueWithoutScore,
+      t.pronunciationNextSentence,
     );
     await _centerInScrollable(tester, continueAction, delta: 240);
-    _expectButtonSemantics(
-      tester,
-      continueAction,
-      t.pronunciationContinueWithoutScore,
-    );
+    _expectButtonSemantics(tester, continueAction, t.pronunciationNextSentence);
     expect(tester.takeException(), isNull);
     semantics.dispose();
   });
