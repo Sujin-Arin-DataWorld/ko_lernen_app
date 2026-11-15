@@ -1,3 +1,5 @@
+import { STORE_LINKS } from "../app/store-links";
+
 type EmailPayload = {
   to: string;
   from: string | { email: string; name?: string };
@@ -28,16 +30,10 @@ const submissionHosts = new Set([
 
 const allowed = {
   locale: new Set<string>(["de", "en", "ko"]),
-  platform: new Set<string>(["android", "ios"]),
   explanationLanguage: new Set<string>(["de", "en"]),
   koreanLevel: new Set<string>(["beginner", "hangul-learning", "hangul-reading", "basic-conversation", "intermediate-plus"]),
   focus: new Set<string>(["hangul-reading", "pronunciation-listening", "everyday-korean", "vocabulary-srs", "games-hanok"]),
 } as const;
-
-const platformLabels: Record<string, string> = {
-  android: "Android",
-  ios: "iPhone / iOS",
-};
 
 const languageLabels: Record<string, string> = {
   de: "German",
@@ -139,17 +135,25 @@ export async function handleTesterApplication(request: Request, env: TesterAppli
 
   let input: Record<string, unknown>;
   try {
-    input = JSON.parse(raw) as Record<string, unknown>;
+    const parsed: unknown = JSON.parse(raw);
+    if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+      return json({ ok: false, error: "invalid_form" }, 400);
+    }
+    input = parsed as Record<string, unknown>;
   } catch {
     return json({ ok: false, error: "invalid_json" }, 400);
   }
 
   if (stringField(input.website, 200)) return json({ ok: true });
 
+  const platform = stringField(input.platform, 16);
+  if (platform === "android") {
+    return json({ ok: false, error: "android_open_test", joinUrl: STORE_LINKS.android }, 409);
+  }
+
   const locale = stringField(input.locale, 2);
   const name = stringField(input.name, 80);
   const email = stringField(input.email, 254).toLowerCase();
-  const platform = stringField(input.platform, 16);
   const device = stringField(input.device, 80);
   const osVersion = stringField(input.osVersion, 40);
   const explanationLanguage = stringField(input.explanationLanguage, 2);
@@ -163,7 +167,7 @@ export async function handleTesterApplication(request: Request, env: TesterAppli
     allowed.locale.has(locale) &&
     name.length >= 2 &&
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) &&
-    allowed.platform.has(platform) &&
+    platform === "ios" &&
     allowed.explanationLanguage.has(explanationLanguage) &&
     allowed.koreanLevel.has(koreanLevel) &&
     focus.length > 0 &&
@@ -187,7 +191,7 @@ export async function handleTesterApplication(request: Request, env: TesterAppli
   const rows = [
     ["Name", name],
     ["Invitation email", email],
-    ["Platform", platformLabels[platform] ?? platform],
+    ["Platform", "iPhone / iOS"],
     ["Device", device || "—"],
     ["OS version", osVersion || "—"],
     ["Explanation language", languageLabels[explanationLanguage] ?? explanationLanguage],
@@ -215,7 +219,7 @@ export async function handleTesterApplication(request: Request, env: TesterAppli
       to: "vjinny2@gmail.com",
       from: { email: "website@hangul-sori.com", name: "Hangul Sori Website" },
       replyTo: email,
-      subject: `Hangul Sori tester application · ${platformLabels[platform] ?? platform} · ${locale.toUpperCase()}`,
+      subject: `Hangul Sori tester application · iPhone / iOS · ${locale.toUpperCase()}`,
       html,
       text,
     });
