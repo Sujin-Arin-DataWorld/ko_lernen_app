@@ -30,8 +30,9 @@ const _captureDirectory = String.fromEnvironment('BOOK_CAPTURE_DIR');
 
 void main() {
   setUpAll(() async {
-    if (_captureDirectory.isNotEmpty)
+    if (_captureDirectory.isNotEmpty) {
       await loadSoriRealFonts(materialIcons: true);
+    }
     SharedPreferences.setMockInitialValues({'kl_tut_book': true});
     await Storage.init();
   });

@@ -42,10 +42,15 @@ class MyWordsScreen extends StatelessWidget {
           bottomNavigationBar: const SoriLearningStageNavigation(),
           cMaterial: true,
           cPaperBody: true,
+          jadeAppBar: true,
           actions: [
             TextButton.icon(
               style: TextButton.styleFrom(
                 minimumSize: const Size(48, 48),
+                foregroundColor:
+                    MediaQuery.textScalerOf(context).scale(1) <= 1.35
+                    ? const Color(0xfff6edde)
+                    : null,
                 padding: const EdgeInsets.symmetric(horizontal: Spacing.sm),
               ),
               onPressed: () {

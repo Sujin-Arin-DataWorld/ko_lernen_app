@@ -607,6 +607,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
         appBarTitle: title,
         cMaterial: !isNotebook,
         cPaperBody: !isNotebook,
+        jadeAppBar: !isNotebook,
         maxWidth: SoriMaxWidth.focus,
         builder: (context, padding) => Padding(
           padding: padding,
@@ -619,6 +620,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
       appBarTitle: title,
       cMaterial: !isNotebook,
       cPaperBody: !isNotebook,
+      jadeAppBar: !isNotebook,
       bottomNavigationBar: isNotebook
           ? null
           : const SoriLearningStageNavigation(expandedArtwork: true),

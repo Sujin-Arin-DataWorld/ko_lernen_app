@@ -209,6 +209,7 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
       appBarTitle: t.bookPreviewTitle,
       cMaterial: bookPaper,
       cPaperBody: bookPaper,
+      jadeAppBar: bookPaper,
       maxWidth: SoriMaxWidth.focus,
       padding: const EdgeInsets.all(Spacing.lg),
       // §W-A2: 200% 배율에서 32px 부족했다(경고 카드+긴 부제) — 기본
