@@ -1,3 +1,5 @@
+export const IOS_TEST_ACCESS_ID = "ios-tester-access";
+
 // Live store / test-track install links.
 // Android open testing is public. iOS still requires an invitation by email.
 export const STORE_LINKS = {
