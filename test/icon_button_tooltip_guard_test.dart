@@ -13,6 +13,37 @@ import 'package:flutter_test/flutter_test.dart';
 /// prove that a dynamic label is nonblank. Widget and device checks cover those
 /// boundaries. Unknown custom content is never guessed to be an icon-only UI.
 void main() {
+  test('above-Navigator TTS dismiss uses complementary accessible labels', () {
+    const source = '''
+      Widget build(BuildContext context) {
+        final hasOverlay = Overlay.maybeOf(context) != null;
+        final closeLabel = MaterialLocalizations.of(context).closeButtonTooltip;
+        return IconButton(
+          key: const Key('tts-unavailable-dismiss'),
+          tooltip: hasOverlay ? closeLabel : null,
+          onPressed: clear,
+          icon: Icon(Icons.close, semanticLabel: hasOverlay ? null : closeLabel),
+        );
+      }
+    ''';
+    const path = 'lib/widgets/sori/tts_unavailable_banner.dart';
+    expect(_audit(source, path: path).issues, isEmpty);
+    expect(_audit(source).issues, isNotEmpty);
+    expect(
+      _audit(
+        source.replaceAll('hasOverlay ? null : closeLabel', 'null'),
+        path: path,
+      ).issues,
+      isNotEmpty,
+    );
+    expect(
+      _audit(
+        source.replaceAll('Overlay.maybeOf(context) != null', 'true'),
+        path: path,
+      ).issues,
+      isNotEmpty,
+    );
+  });
   test('recognizes all Material constructors without parsing nearby text', () {
     final result = _audit('''
       Widget build() => Column(children: [
@@ -410,7 +441,10 @@ _Audit _audit(String source, {String path = 'fixture.dart'}) {
     final wrappers = ancestors
         .takeWhile((parent) => _singleChild.contains(parent.name))
         .toList();
+    final overlayFallback =
+        material && _ttsOverlayFallback(call, visitor.calls, path);
     final tooltip =
+        overlayFallback ||
         _hasText(call.arg('tooltip')) ||
         wrappers.any((w) => w.name == 'Tooltip' && _hasText(w.arg('message')));
     final location =
@@ -449,6 +483,7 @@ _Audit _audit(String source, {String path = 'fixture.dart'}) {
     }
     if (!material || !_hasText(call.arg('tooltip'))) {
       final label =
+          overlayFallback ||
           _hasText(call.arg('label')) ||
           _hasText(visitor.calls[call.arg('icon')]?.arg('semanticLabel')) ||
           wrappers.any(
@@ -464,4 +499,35 @@ _Audit _audit(String source, {String path = 'fixture.dart'}) {
     }
   }
   return result;
+}
+
+/// This banner can live in MaterialApp.builder, above the Navigator. Creating
+/// Tooltip there throws because no Overlay exists. Its existing widget tests
+/// cover both placements and the named dismiss action. Accept only that one
+/// control's complementary branches, never an arbitrary conditional tooltip.
+bool _ttsOverlayFallback(_Call call, Map<AstNode, _Call> calls, String path) {
+  if (path != 'lib/widgets/sori/tts_unavailable_banner.dart' ||
+      call.arg('key')?.toSource() != "const Key('tts-unavailable-dismiss')") {
+    return false;
+  }
+  final tooltip = call.arg('tooltip');
+  final label = calls[call.arg('icon')]?.arg('semanticLabel');
+  if (tooltip is! ConditionalExpression ||
+      label is! ConditionalExpression ||
+      tooltip.condition.toSource() != 'hasOverlay' ||
+      label.condition.toSource() != 'hasOverlay' ||
+      !_hasText(tooltip.thenExpression) ||
+      tooltip.elseExpression is! NullLiteral ||
+      label.thenExpression is! NullLiteral ||
+      tooltip.thenExpression.toSource() != label.elseExpression.toSource()) {
+    return false;
+  }
+  for (AstNode? node = call.node.parent; node != null; node = node.parent) {
+    if (node is MethodDeclaration || node is FunctionDeclaration) {
+      return node.toSource().contains(
+        'final hasOverlay = Overlay.maybeOf(context) != null;',
+      );
+    }
+  }
+  return false;
 }

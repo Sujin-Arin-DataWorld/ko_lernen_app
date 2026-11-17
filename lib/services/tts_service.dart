@@ -15,6 +15,7 @@ import 'audio_policy.dart';
 import 'account/cloud_write_session.dart';
 import 'analytics_service.dart';
 import 'storage_service.dart';
+import 'tts_bundled_introduction.dart';
 import 'tts_bundled_manifest.dart';
 import 'tts_installation_id.dart';
 import 'tts_cache_key.dart';
@@ -1102,6 +1103,10 @@ class TtsService {
       return null;
     }
     final key = TtsCacheKey.forRequest(voice: voice, text: text);
+    final introductionBytes = await TtsBundledIntroduction.bytesFor(key);
+    if (introductionBytes != null) {
+      return TtsAudio.bytes(introductionBytes);
+    }
     var bundleOutcome = 'absent';
 
     // 1. Manifest-declared rootBundle bytes. The manifest loader validates

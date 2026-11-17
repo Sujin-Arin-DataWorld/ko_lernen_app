@@ -89,8 +89,9 @@ function harness({
   const mocks = {
     "firebase-functions/v2/https": { HttpsError, onCall: (_options, handler) => handler },
     "firebase-functions/v2": { setGlobalOptions() {} },
-    "firebase-admin": { initializeApp() {}, firestore: () => db,
-      storage: () => ({ bucket: () => bucket }) },
+    "firebase-admin/app": { initializeApp() {} },
+    "firebase-admin/firestore": { getFirestore: () => db },
+    "firebase-admin/storage": { getStorage: () => ({ bucket: () => bucket }) },
     "@google-cloud/text-to-speech": { TextToSpeechClient: class {
       async synthesizeSpeech() {
         syntheses += 1;

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "character": "taego",
+  "date": "2026-11-03",
+  "package": "20261103-taego-design",
+  "face_authority": "20261103-taego-design/taego-face-design.png",
+  "body_authority": "20261103-taego-design/taego-body-design.png",
+  "expression_sheet": "20261103-taego-design/taego-expressions-8.png",
+  "pose_sheet": "20261103-taego-design/taego-poses-6.png",
+  "original_identity_provenance": "20261102/assets/taego/00-original.png",
+  "registration_authority": "explicit_current_user_request",
+  "scope": "static_design_and_acting_references_for_image_mockups",
+  "runtime_integrated": false,
+  "main_merged": false,
+  "independent_review": "taego_canon_review; qualified pass",
+  "limits": [
+    "E07 requires protective body context",
+    "P04/P06 narrow outer margin",
+    "No exact cm or per-stripe pixel certification"
+  ]
+}

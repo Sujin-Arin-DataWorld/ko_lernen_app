@@ -15,14 +15,20 @@ import 'package:ko_lernen_app/features/content_learning/content_lesson_screen.da
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/smalltalk.dart';
+import 'package:ko_lernen_app/models/smalltalk_context_case.dart';
+import 'package:ko_lernen_app/screens/smalltalk_context_screen.dart';
 import 'package:ko_lernen_app/services/audio_policy.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/smalltalk_loader.dart';
+import 'package:ko_lernen_app/services/smalltalk_context_catalog.dart';
 import 'package:ko_lernen_app/services/local_data_lifetime.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/data/canonical_companion_art.dart';
+import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
+import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/motion.dart';
@@ -170,6 +176,58 @@ void main() {
     await AudioPolicy.instance.setChannelOn(SoundChannel.companion, false);
     MascotPreference.load();
   });
+  testWidgets(
+    'linked Small Talk expression opens its authored scene and returns',
+    (tester) async {
+      const sourceId = 'smalltalk_a1_0059';
+      final cases = (await tester.runAsync(SmalltalkContextCatalog.load))!;
+      final linked = cases.singleWhere(
+        (scene) => scene.sourcePhraseIds.contains(sourceId),
+      );
+      final lessons = await ContentLearningCatalog.load(
+        LearningContentKind.smalltalk,
+      );
+      final lesson = lessons.singleWhere(
+        (lesson) => lesson.contentIds.contains(sourceId),
+      );
+      final position = lesson.contentIds.indexOf(sourceId);
+      await ContentLearningService.savePosition(
+        lesson,
+        ContentLessonPhase.learn,
+        position,
+      );
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: const Locale('de'),
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          supportedLocales: AppL10n.supportedLocales,
+          home: ContentLessonScreen(lesson: lesson, scope: [lesson]),
+          onGenerateRoute: (settings) {
+            expect(settings.name, '/smalltalk/context');
+            final request = settings.arguments! as SmalltalkContextRequest;
+            expect(request.caseId, linked.id);
+            expect(request.level, linked.level);
+            return MaterialPageRoute<void>(
+              settings: settings,
+              builder: (_) => SmalltalkContextScreen(
+                request: request,
+                loadCases: () async => cases,
+              ),
+            );
+          },
+        ),
+      );
+      final action = find.byKey(const ValueKey('smalltalk-linked-context'));
+      await tester.pumpAndSettle();
+      await _tap(tester, action);
+      final contextScreen = find.byType(SmalltalkContextScreen);
+      expect(contextScreen, findsOneWidget);
+      Navigator.of(tester.element(contextScreen)).pop();
+      await tester.pumpAndSettle();
+      expect(action, findsOneWidget);
+      expect(ContentLearningService.progress(lesson.id).position, position);
+    },
+  );
   testWidgets('goals are per level and read-only hub does not start a day', (
     tester,
   ) async {
@@ -473,7 +531,7 @@ void main() {
         tester.widget<SoriProgressMeter>(find.byType(SoriProgressMeter)).filled,
         2,
       );
-      await _tap(tester, find.byKey(const ValueKey('content-learn-sentence')));
+      await _tap(tester, find.byKey(const ValueKey('listening-replay-1')));
       expect(spoken, ['반가워요.']);
       expect(voices, [_scenario.voiceForSpeaker('minsu')]);
       expect(ContentLearningService.progress(_listening.id).completed, isFalse);
@@ -485,6 +543,10 @@ void main() {
       );
       await _tap(tester, find.byKey(const ValueKey('content-learn-next')));
       expect(find.text('Key expressions'), findsWidgets);
+      await _tap(
+        tester,
+        find.byKey(const ValueKey('content-listening-meaning')),
+      );
       expect(
         ContentLearningService.progress(_listening.id).seenIds,
         contains('scene'),
@@ -500,22 +562,52 @@ void main() {
   testWidgets('learn step introduces the companion and reveals usage on tap', (
     tester,
   ) async {
+    final spoken = <String>[];
     await ContentLearningService.startLesson(_lesson, [_lesson]);
     await _pump(
       tester,
-      const ContentLessonScreen(
+      ContentLessonScreen(
         lesson: _lesson,
-        scope: [_lesson],
+        scope: const [_lesson],
         phrases: _phrases,
+        speak: (text, {voice = 'auto'}) async {
+          spoken.add(text);
+          return true;
+        },
       ),
       size: const Size(390, 844),
     );
     await tester.pumpAndSettle();
-    expect(find.byType(Mascot), findsOneWidget);
+    final coach = find.byKey(const ValueKey('content-coach-tiger'));
+    final player = tester.widget<CharacterClipPlayer>(coach);
+    expect(player.asset, CharacterClips.tigerSitting2);
+    expect(player.fallbackKind, MascotKind.tiger);
+    expect(
+      find.descendant(
+        of: coach,
+        matching: find.image(
+          const AssetImage(CanonicalCompanionArt.baekhoSeated),
+        ),
+      ),
+      findsOneWidget,
+    );
     expect(find.text('그렇군요.'), findsOneWidget);
-    expect(find.text('요즘 어떻게 지내세요?'), findsNothing);
+    expect(find.text('오늘 기분이 어때요?'), findsOneWidget);
+    final alternative = find.text('요즘 어떻게 지내세요?');
+    expect(alternative, findsNothing);
+    final beforeUsage = Storage.contentLearningRawJson;
     await _tap(tester, find.text('Usage and alternatives'));
-    expect(find.text('요즘 어떻게 지내세요?'), findsOneWidget);
+    expect(alternative, findsOneWidget);
+    expect(spoken, isEmpty);
+    await _tap(tester, alternative);
+    expect(spoken, ['요즘 어떻게 지내세요?']);
+    expect(Storage.contentLearningRawJson, beforeUsage);
+    final progress = ContentLearningService.progress(_lesson.id);
+    expect(progress.phase, ContentLessonPhase.learn);
+    expect(progress.position, 0);
+    expect(progress.answers, isEmpty);
+    expect(progress.completed, isFalse);
+    expect(tester.takeException(), isNull);
   });
   testWidgets('sentence card reacts while its Korean audio is playing', (
     tester,
@@ -559,10 +651,65 @@ void main() {
     await _tap(tester, find.byKey(const ValueKey('content-learn-next')));
     final stage = find.byKey(const ValueKey('content-practice-question'));
     expect(stage, findsOneWidget);
-    expect(tester.getRect(stage).top, lessThan(280));
-    expect(find.byType(SoriProgressMeter), findsOneWidget);
-    expect(find.byType(Mascot), findsOneWidget);
+    final question = _lesson.questions.first;
+    expect(
+      find.descendant(of: stage, matching: find.text(question.prompt.en)),
+      findsOneWidget,
+    );
+    final stageBounds = tester.getRect(stage);
+    expect(stageBounds.top, inInclusiveRange(0, 280));
+    expect(stageBounds.bottom, lessThanOrEqualTo(844));
+    final meter = tester.widget<SoriProgressMeter>(
+      find.byType(SoriProgressMeter),
+    );
+    expect(meter.filled, 1);
+    expect(meter.total, _lesson.questions.length);
+    final thinking = find.byKey(const ValueKey('content-thinking-tiger'));
+    final player = tester.widget<CharacterClipPlayer>(thinking);
+    expect(player.asset, CharacterClips.tigerThinking);
+    expect(player.fallbackKind, MascotKind.tiger);
+    expect(player.fallbackEmotion, MascotEmotion.thinking);
+    expect(
+      find.descendant(
+        of: thinking,
+        matching: find.image(
+          const AssetImage(CanonicalCompanionArt.baekhoGuide),
+        ),
+      ),
+      findsOneWidget,
+    );
     expect(find.text('Your turn'), findsOneWidget);
+    final check = find.byKey(const ValueKey('content-check'));
+    expect(tester.widget<SoriButton>(check).onTap, isNull);
+    expect(
+      ContentLearningService.progress(_lesson.id).phase,
+      ContentLessonPhase.practice,
+    );
+    final beforeSelection = Storage.contentLearningRawJson;
+    final option = find.byKey(
+      ValueKey('content-option-${question.correctIndex}'),
+    );
+    expect(tester.widget<SoriCard>(option).selected, isFalse);
+    await _tap(tester, option);
+    expect(tester.widget<SoriCard>(option).selected, isTrue);
+    expect(tester.widget<SoriButton>(check).onTap, isNotNull);
+    expect(Storage.contentLearningRawJson, beforeSelection);
+    expect(ContentLearningService.progress(_lesson.id).answers, isEmpty);
+    expect(
+      find.descendant(of: stage, matching: find.text(question.prompt.en)),
+      findsOneWidget,
+    );
+    await _tap(tester, check);
+    expect(
+      find.byKey(const ValueKey('content-feedback-stage')),
+      findsOneWidget,
+    );
+    expect(
+      ContentLearningService.progress(_lesson.id).answers[question.id],
+      isTrue,
+    );
+    expect(ContentLearningService.progress(_lesson.id).completed, isFalse);
+    expect(tester.takeException(), isNull);
   });
   testWidgets('autoplay ignores a late completion after pause', (tester) async {
     await ContentLearningService.startLesson(_listening, [_listening]);
@@ -792,7 +939,7 @@ void main() {
     (size: Size(720, 1024), scale: 1.3, locale: 'de'),
   ]) {
     testWidgets(
-      'chat retains earlier turns and assigned portraits through pause and resume ${chatCase.size} ${chatCase.scale}',
+      'chat retains earlier turns, partner portrait and neutral learner through pause and resume ${chatCase.size} ${chatCase.scale}',
       (tester) async {
         final scene = Scenario.fromJson({
           'id': 'scene',
@@ -835,14 +982,20 @@ void main() {
         await tester.pumpAndSettle();
         expect(find.text(scene.dialog[0].ko), findsOneWidget);
         expect(find.text(scene.dialog[1].ko), findsOneWidget);
-        expect(find.text('Andrea'), findsOneWidget);
-        expect(find.text('You'), findsNothing);
-        expect(find.text('Du'), findsNothing);
+        expect(find.text('Andrea'), findsNothing);
+        expect(
+          find.text(chatCase.locale == 'en' ? 'You' : 'Du'),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const ValueKey('listening-learner-role-1')),
+          findsOneWidget,
+        );
         expect(
           tester
               .widgetList<SoriPersonaPortrait>(find.byType(SoriPersonaPortrait))
               .map((p) => p.characterId),
-          containsAll(['minho', 'andrea']),
+          allOf(contains('minho'), isNot(contains('andrea'))),
         );
         await tester.tap(
           find.byKey(const ValueKey('content-listening-autoplay')),
@@ -868,6 +1021,10 @@ void main() {
         expect(
           ContentLearningService.progress(_listening.id).completed,
           isFalse,
+        );
+        await _tap(
+          tester,
+          find.byKey(const ValueKey('content-listening-meaning')),
         );
         expect(
           find.byKey(const ValueKey('content-start-practice')),
@@ -1147,7 +1304,8 @@ void _expectBalancedAction(WidgetTester tester, String key, Size size) {
     expect(
       scroll.position.maxScrollExtent,
       lessThanOrEqualTo(1),
-      reason: 'Short normal-size content should fit in one viewport.',
+      reason:
+          'Short normal-size content should fit in one viewport. ${scroll.position}',
     );
   }
 }
@@ -1180,7 +1338,13 @@ Future<void> _pump(
       ),
       home: RepaintBoundary(
         key: const ValueKey('evidence'),
-        child: Scaffold(body: child),
+        // Distinct lessons enter distinct routes in the app. Do not retain the
+        // previous lesson State when replacing this test route.
+        child: Scaffold(
+          body: child is ContentLessonScreen
+              ? KeyedSubtree(key: ValueKey(child.lesson.id), child: child)
+              : child,
+        ),
       ),
     ),
   );

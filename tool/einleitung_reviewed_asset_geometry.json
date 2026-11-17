@@ -1,0 +1,433 @@
+{
+  "medals": {
+    "A1": {
+      "file": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-860bc350-ddb4-4d65-9f45-71ae92562742.png",
+      "sha256": "8a407c9af57313a980659d0bc332d20ea45328372695f315a887ff443658df9b",
+      "canvasPx": [
+        1254,
+        1254
+      ],
+      "alpha128Bbox": [
+        101,
+        104,
+        1149,
+        1133
+      ],
+      "bodyPx": [
+        1048,
+        1029
+      ],
+      "scaleForVisibleWidth56": 0.05343511450381679,
+      "wholeImageBoxPx": [
+        67.0076,
+        67.0076
+      ],
+      "offsetRelativeToVisibleTopLeftPx": [
+        -5.3969,
+        -5.5573
+      ],
+      "visibleBodyPx": [
+        56,
+        54.9847
+      ],
+      "canvasOriginForVisibleRectAt37_368": [
+        31.6031,
+        362.4427
+      ]
+    },
+    "A2": {
+      "file": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-06748ff7-bc2a-4723-a775-6fb731b76b42.png",
+      "sha256": "0af3f35bca1e8770fede3e2baa482f60c1ba619474dabfc629ddb0a729813129",
+      "canvasPx": [
+        1254,
+        1254
+      ],
+      "alpha128Bbox": [
+        103,
+        106,
+        1146,
+        1132
+      ],
+      "bodyPx": [
+        1043,
+        1026
+      ],
+      "scaleForVisibleWidth56": 0.053691275167785234,
+      "wholeImageBoxPx": [
+        67.3289,
+        67.3289
+      ],
+      "offsetRelativeToVisibleTopLeftPx": [
+        -5.5302,
+        -5.6913
+      ],
+      "visibleBodyPx": [
+        56,
+        55.0872
+      ],
+      "canvasOriginForVisibleRectAt37_368": [
+        31.4698,
+        362.3087
+      ]
+    },
+    "B1": {
+      "file": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-7713e03d-80a6-4484-a684-95a44dcc52a4.png",
+      "sha256": "48414eb8ab868afe446e0ea33162b126153570475130c9e07a2ea53fd3424778",
+      "canvasPx": [
+        1254,
+        1254
+      ],
+      "alpha128Bbox": [
+        102,
+        104,
+        1148,
+        1133
+      ],
+      "bodyPx": [
+        1046,
+        1029
+      ],
+      "scaleForVisibleWidth56": 0.05353728489483748,
+      "wholeImageBoxPx": [
+        67.1358,
+        67.1358
+      ],
+      "offsetRelativeToVisibleTopLeftPx": [
+        -5.4608,
+        -5.5679
+      ],
+      "visibleBodyPx": [
+        56,
+        55.0899
+      ],
+      "canvasOriginForVisibleRectAt37_368": [
+        31.5392,
+        362.4321
+      ]
+    },
+    "B2": {
+      "file": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-0e8451eb-2fef-4a9d-8f3d-bd8ebcdf299b.png",
+      "sha256": "af8ca4894a9624a7e05b34c3b63c4d9f88174615c2c58358f472d1e1cf0c7ef0",
+      "canvasPx": [
+        1254,
+        1254
+      ],
+      "alpha128Bbox": [
+        102,
+        104,
+        1149,
+        1134
+      ],
+      "bodyPx": [
+        1047,
+        1030
+      ],
+      "scaleForVisibleWidth56": 0.05348615090735435,
+      "wholeImageBoxPx": [
+        67.0716,
+        67.0716
+      ],
+      "offsetRelativeToVisibleTopLeftPx": [
+        -5.4556,
+        -5.5626
+      ],
+      "visibleBodyPx": [
+        56,
+        55.0907
+      ],
+      "canvasOriginForVisibleRectAt37_368": [
+        31.5444,
+        362.4374
+      ]
+    },
+    "C1": {
+      "file": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-5a3956d0-4d15-44a8-be07-edec32302eef.png",
+      "sha256": "03f6dcab2c0c2a41f04b8775efe490e4727e54e49cdee039dd914cd119174590",
+      "canvasPx": [
+        1254,
+        1254
+      ],
+      "alpha128Bbox": [
+        103,
+        104,
+        1147,
+        1134
+      ],
+      "bodyPx": [
+        1044,
+        1030
+      ],
+      "scaleForVisibleWidth56": 0.05363984674329502,
+      "wholeImageBoxPx": [
+        67.2644,
+        67.2644
+      ],
+      "offsetRelativeToVisibleTopLeftPx": [
+        -5.5249,
+        -5.5785
+      ],
+      "visibleBodyPx": [
+        56,
+        55.249
+      ],
+      "canvasOriginForVisibleRectAt37_368": [
+        31.4751,
+        362.4215
+      ]
+    },
+    "C2": {
+      "file": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-92caf85f-552a-4e1c-87b9-bfccf6280682.png",
+      "sha256": "9c099b64ba4c71e0da324b05b37278102492ffce3a1458595244862cbef803ec",
+      "canvasPx": [
+        1254,
+        1254
+      ],
+      "alpha128Bbox": [
+        102,
+        104,
+        1148,
+        1133
+      ],
+      "bodyPx": [
+        1046,
+        1029
+      ],
+      "scaleForVisibleWidth56": 0.05353728489483748,
+      "wholeImageBoxPx": [
+        67.1358,
+        67.1358
+      ],
+      "offsetRelativeToVisibleTopLeftPx": [
+        -5.4608,
+        -5.5679
+      ],
+      "visibleBodyPx": [
+        56,
+        55.0899
+      ],
+      "canvasOriginForVisibleRectAt37_368": [
+        31.5392,
+        362.4321
+      ]
+    },
+    "beginner": {
+      "file": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-9a03a0e6-2434-4dd6-a64b-4cadbb8ad2e6.png",
+      "sha256": "2b96e89161486e4bd1be8b0df55e6a9e2249415b3f3f5b51bd36940464fea474",
+      "canvasPx": [
+        1254,
+        1254
+      ],
+      "alpha128Bbox": [
+        104,
+        103,
+        1146,
+        1133
+      ],
+      "bodyPx": [
+        1042,
+        1030
+      ],
+      "scaleForVisibleWidth56": 0.053742802303262956,
+      "wholeImageBoxPx": [
+        67.3935,
+        67.3935
+      ],
+      "offsetRelativeToVisibleTopLeftPx": [
+        -5.5893,
+        -5.5355
+      ],
+      "visibleBodyPx": [
+        56,
+        55.3551
+      ],
+      "canvasOriginForVisibleRectAt37_368": [
+        31.4107,
+        362.4645
+      ]
+    }
+  },
+  "check": {
+    "canvas": [
+      1254,
+      1254
+    ],
+    "body": [
+      171,
+      169,
+      1079,
+      1071
+    ],
+    "visibleWidth": 34
+  },
+  "gold": {
+    "canvas": [
+      2170,
+      725
+    ],
+    "body": [
+      73,
+      205,
+      2102,
+      491
+    ],
+    "visibleWidth": 370,
+    "visibleHeight": 52.15377033021193
+  },
+  "jadeGlaze": {
+    "color": "#094838",
+    "opacity": 0.6
+  },
+  "cloud": {
+    "canvas": [
+      1254,
+      1254
+    ],
+    "body": [
+      129,
+      349,
+      1182,
+      884
+    ],
+    "wholeFrame": [
+      14,
+      43,
+      55,
+      55
+    ],
+    "alphaThreshold": 128
+  },
+  "chevron": {
+    "canvas": [
+      1254,
+      1254
+    ],
+    "body": [
+      402,
+      251,
+      884,
+      1012
+    ],
+    "visibleWidth": 12,
+    "visibleHeight": 18.946058091286307,
+    "ctaRight": 24,
+    "ctaTop": 16.5,
+    "alphaThreshold": 128
+  },
+  "originalExtractedHeroes": {
+    "05": {
+      "name": "intro-scholar-original-de-hero",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\einleitung5.png",
+      "sourceSha256": "285599737eb0a7bf309748c71987eac6e4c4ad0089ee02cb79872c6cf388f783",
+      "sourceCanvasPx": [
+        853,
+        1844
+      ],
+      "asset": "assets/illustrations/einleitung_generated/intro-scholar-original-de-hero.png",
+      "sha256": "4d87ea16ae81851651a953181d109f8787eca3009596bf50c0f8b58f10214dcc",
+      "canvasPx": [
+        745,
+        1011
+      ],
+      "cropRectPx": [
+        54,
+        278,
+        799,
+        1289
+      ],
+      "cropRectConvention": "left/top inclusive; right/bottom exclusive",
+      "referenceFrame402": [
+        0,
+        122,
+        402,
+        545.5328859060403
+      ],
+      "provenanceKind": "user_authorized_original_extraction",
+      "authorizationDate": "2026-10-29",
+      "pixelEqualityVerified": true,
+      "layoutScope": "German reference layout only; preserve existing native/English/adaptive paths",
+      "referenceFrameConvention": "x,y,width,height after safe top padding; whole extracted PNG drawn with uniform scaling"
+    },
+    "06": {
+      "name": "intro-hanok-original-de-hero",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\einleitung6.png",
+      "sourceSha256": "d7ac0e8deb8039e6d59017e7b0c2c15a82d3b3d5cb523f145479735b8df5de61",
+      "sourceCanvasPx": [
+        853,
+        1844
+      ],
+      "asset": "assets/illustrations/einleitung_generated/intro-hanok-original-de-hero.png",
+      "sha256": "b18933bb3c404dd1aabffeced0c0db7ec988b4ad4e6f956dae47fcd70d5f39a7",
+      "canvasPx": [
+        745,
+        977
+      ],
+      "cropRectPx": [
+        54,
+        278,
+        799,
+        1255
+      ],
+      "cropRectConvention": "left/top inclusive; right/bottom exclusive",
+      "referenceFrame402": [
+        0,
+        122,
+        402,
+        527.186577181208
+      ],
+      "provenanceKind": "user_authorized_original_extraction",
+      "authorizationDate": "2026-10-29",
+      "pixelEqualityVerified": true,
+      "layoutScope": "German reference layout only; preserve existing native/English/adaptive paths",
+      "referenceFrameConvention": "x,y,width,height after safe top padding; whole extracted PNG drawn with uniform scaling"
+    },
+    "03": {
+      "name": "intro-sound-original-de-hero",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\einleitung3.png",
+      "sourceSha256": "dabe8e033784f6239960dd6d216a1cd40c074e8aeaf876dd0d9c28f446af056f",
+      "sourceCanvasPx": [
+        853,
+        1844
+      ],
+      "asset": "assets/illustrations/einleitung_generated/intro-sound-original-de-hero.png",
+      "sha256": "8061c95c316924e6a86092746948be13ae466bf6d171360112dcc907ac7cdf64",
+      "canvasPx": [
+        745,
+        1062
+      ],
+      "cropRectPx": [
+        54,
+        278,
+        799,
+        1340
+      ],
+      "cropRectConvention": "left/top inclusive; right/bottom exclusive",
+      "referenceFrame402": [
+        0,
+        122,
+        402,
+        573.0523489932885
+      ],
+      "provenanceKind": "user_authorized_original_extraction",
+      "authorizationDate": "2026-10-29",
+      "pixelEqualityVerified": true,
+      "referenceHotspots": {
+        "listen": [
+          180.2255,
+          610.874,
+          192.097,
+          63.672
+        ],
+        "speaker": [
+          30.217,
+          568.787,
+          140.295,
+          124.107
+        ]
+      },
+      "referenceContentTop": 706,
+      "storyIndex": 1,
+      "layoutScope": "German reference layout only; preserve existing native/English/adaptive paths",
+      "referenceFrameConvention": "x,y,width,height after safe top padding; whole extracted PNG drawn with uniform scaling"
+    }
+  }
+}

@@ -67,38 +67,45 @@ class _SoriLearningCompanionState extends State<SoriLearningCompanion> {
 
     final isTiger = character == MascotKind.tiger;
     final viewportHeight = isTiger ? sittingViewport : clipSize;
+    final clipAsset = isTiger
+        ? HomeHeroClips.tigerSitting2
+        : HomeHeroClips.magpieWalkingFront;
+    final isCanonicalStill = CharacterClips.retiredStillFor(clipAsset) != null;
     final useStatic =
         widget.forceStatic ||
         _failed ||
         CharacterClipPlayer.videoUnavailable(context);
+    final player = CharacterClipPlayer(
+      key: ValueKey('learning-companion-${character.name}'),
+      asset: clipAsset,
+      size: isCanonicalStill ? viewportHeight : clipSize,
+      loop: true,
+      applyMultiplyFilter: false,
+      staticFallback: CharacterClipPlayer.videoUnavailable(context),
+      fallbackKind: character,
+      onFailure: (_) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted && widget.kind == character) {
+            setState(() => _failed = true);
+          }
+        });
+      },
+    );
     final clip = useStatic
         ? Align(
             alignment: Alignment.bottomCenter,
             child: Mascot(kind: character, size: 84),
           )
+        // The retired sitting movie's empty-matte crop cannot be applied to
+        // the approved PNG. Contain its full pose within the same ground slot.
+        : isCanonicalStill
+        ? Align(alignment: Alignment.bottomCenter, child: player)
         : ClipRect(
             child: OverflowBox(
               alignment: Alignment.topCenter,
               minHeight: clipSize,
               maxHeight: clipSize,
-              child: CharacterClipPlayer(
-                key: ValueKey('learning-companion-${character.name}'),
-                asset: isTiger
-                    ? HomeHeroClips.tigerSitting2
-                    : HomeHeroClips.magpieWalkingFront,
-                size: clipSize,
-                loop: true,
-                applyMultiplyFilter: false,
-                staticFallback: CharacterClipPlayer.videoUnavailable(context),
-                fallbackKind: character,
-                onFailure: (_) {
-                  WidgetsBinding.instance.addPostFrameCallback((_) {
-                    if (mounted && widget.kind == character) {
-                      setState(() => _failed = true);
-                    }
-                  });
-                },
-              ),
+              child: player,
             ),
           );
     return LayoutBuilder(

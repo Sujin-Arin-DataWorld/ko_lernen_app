@@ -1,0 +1,115 @@
+{
+  "states": {
+    "setups": {
+      "Beginner": "127:151",
+      "A1": "127:243",
+      "A2": "127:334",
+      "B1": "127:423",
+      "B2": "127:514",
+      "C1": "127:605",
+      "C2": "127:696"
+    },
+    "overlays": {
+      "Beginner": "127:212",
+      "A1": "127:303",
+      "A2": "127:394",
+      "B1": "127:483",
+      "B2": "127:574",
+      "C1": "127:665",
+      "C2": "127:756"
+    }
+  },
+  "interest": {
+    "componentSet": "127:150",
+    "variable": "VariableID:127:60",
+    "variants": [
+      {
+        "id": "127:61",
+        "name": "Interest=none"
+      },
+      {
+        "id": "127:78",
+        "name": "Interest=lifeTravel"
+      },
+      {
+        "id": "127:96",
+        "name": "Interest=peopleCulture"
+      },
+      {
+        "id": "127:114",
+        "name": "Interest=studyWork"
+      },
+      {
+        "id": "127:132",
+        "name": "Interest=kContent"
+      }
+    ]
+  },
+  "overlayDefaults": [
+    {
+      "level": "Beginner",
+      "position": "CENTER",
+      "background": {
+        "type": "NONE"
+      },
+      "interaction": "NONE"
+    },
+    {
+      "level": "A1",
+      "position": "CENTER",
+      "background": {
+        "type": "NONE"
+      },
+      "interaction": "NONE"
+    },
+    {
+      "level": "A2",
+      "position": "CENTER",
+      "background": {
+        "type": "NONE"
+      },
+      "interaction": "NONE"
+    },
+    {
+      "level": "B1",
+      "position": "CENTER",
+      "background": {
+        "type": "NONE"
+      },
+      "interaction": "NONE"
+    },
+    {
+      "level": "B2",
+      "position": "CENTER",
+      "background": {
+        "type": "NONE"
+      },
+      "interaction": "NONE"
+    },
+    {
+      "level": "C1",
+      "position": "CENTER",
+      "background": {
+        "type": "NONE"
+      },
+      "interaction": "NONE"
+    },
+    {
+      "level": "C2",
+      "position": "CENTER",
+      "background": {
+        "type": "NONE"
+      },
+      "interaction": "NONE"
+    }
+  ],
+  "medalHashes": {
+    "Beginner": "a8994975a7d1572b904ce95226b3f3afad8777b5",
+    "A1": "606701e38f606e537475ffbc3cc2f94e6c7b3bd1",
+    "A2": "4817b4480ee9edbbe66a86d3dfdf9486f93d0578",
+    "B1": "eaba0fc4a4b9d57c95c1e31a3746b60f867ce969",
+    "B2": "1b532a878c8cb6889fb4236a7b327d376c4961f4",
+    "C1": "c046fb4144a1b160614615ef0a87b3af1e4cefb9",
+    "C2": "ffe42b538175619b73480659d891da864fda538c"
+  }
+}

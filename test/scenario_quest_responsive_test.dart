@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'support/real_fonts.dart';
+import 'package:ko_lernen_app/widgets/sori/scenario_c.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 
 const _responsiveScene = Scenario(
   id: 'airport_arrival',
@@ -113,6 +114,7 @@ const _responsiveScene = Scenario(
 );
 
 void main() {
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
   final cases = [
     (const Size(308, 620), 1.0, false),
     (const Size(390, 760), 1.3, false),
@@ -168,7 +170,14 @@ void main() {
     await tester.pump();
     expect(tester.takeException(), isNull);
     expect(find.text('1 of 1'), findsOneWidget);
-    expect(find.text('Build your answer'), findsOneWidget);
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is Semantics &&
+            (widget.properties.label?.contains('Build your answer') ?? false),
+      ),
+      findsOneWidget,
+    );
     expect(find.byKey(const ValueKey('quest-submit')), findsOneWidget);
   });
 
@@ -203,14 +212,16 @@ void main() {
       );
       await tester.pump();
 
-      final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+      final appBar = tester.widget<ScenarioCHeader>(
+        find.byType(ScenarioCHeader),
+      );
       final title = tester.widget<Text>(
         find.descendant(
-          of: find.byType(SoriAppBar),
+          of: find.byType(ScenarioCHeader),
           matching: find.text(appBar.title),
         ),
       );
-      expect(appBar.title, 'Einreise am Flughafen');
+      expect(appBar.title, 'Alltagsszenen · A1');
       // §B2(2026-09-03): the frame-owned close (X) is a Semantics button
       // with a label ("Schließen" in de), not an IconButton with a tooltip.
       // `Icon` itself always wraps in its own unlabeled Semantics, so this
@@ -218,14 +229,14 @@ void main() {
       // icon.
       expect(
         find.descendant(
-          of: find.byType(SoriAppBar),
-          matching: find.byIcon(Icons.close_rounded),
+          of: find.byType(ScenarioCHeader),
+          matching: find.byIcon(Icons.chevron_left),
         ),
         findsOneWidget,
       );
       expect(find.bySemanticsLabel('Schließen'), findsOneWidget);
-      expect(title.maxLines, isNotNull);
-      expect(title.overflow, TextOverflow.clip);
+      expect(title.maxLines, isNull);
+      expect(title.overflow, isNot(TextOverflow.ellipsis));
       expect(find.text('1 von 7'), findsOneWidget);
       expect(find.byKey(const ValueKey('quest-submit')), findsNothing);
       expect(find.byKey(const ValueKey('answer-1')), findsOneWidget);

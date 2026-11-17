@@ -153,7 +153,6 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/accessibility_guideline_test.dart',
   'test/airport_arrival_roleplay_layout_test.dart',
   'test/c0_level_selection_test.dart',
-  'test/circular_feedback_widget_test.dart',
   'test/course_mission_build_activity_test.dart',
   'test/course_practice_screen_test.dart',
   'test/culture_note_loader_lifecycle_test.dart',
@@ -166,9 +165,7 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/flashcard_language_preferences_test.dart',
   'test/grammar_filter_position_test.dart',
   'test/grammar_plan_screen_test.dart',
-  'test/hangul_content_locale_test.dart',
   'test/hangul_hard_filter_test.dart',
-  'test/hangul_interaction_regression_test.dart',
   'test/hangul_swipe_and_prefetch_test.dart',
   'test/hangul_write_gate_test.dart',
   'test/legacy_vocab_flipgate_test.dart',
@@ -205,4 +202,4 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/wordbook_spotlight_coach_test.dart',
 ];
 const int knownUnstubbedCap =
-    53; // 2026-09-23 notebook studio 음성 스텁 도입으로 하향
+    50; // Native Hangul content/interaction and feedback tests stub all speech.

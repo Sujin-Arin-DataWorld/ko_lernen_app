@@ -1,0 +1,3294 @@
+{
+  "version": "1.0-document-only",
+  "items": [
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-P01",
+      "stage": "P",
+      "section": "M01",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "shown_model": "국",
+        "pieces": [
+          "ㄱ",
+          "ㅜ",
+          "ㄱ"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "국",
+        "placement": "ㄱ 위 / ㅜ 그 아래 / 받침 ㄱ 가장 아래"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "정답 모형을 제공한 도움 연습. 입력/필기/독립 숙달 아님.",
+      "feedback": [
+        "H01",
+        "B01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-P02",
+      "stage": "P",
+      "section": "M01",
+      "kind": "audio_text",
+      "stimulus_author_only": {
+        "audio": "국",
+        "no_transcript": true
+      },
+      "options_author_only": [
+        "구",
+        "국"
+      ],
+      "answer_author_only": "국",
+      "prompt": [
+        "소리를 듣고 같은 표기를 골라요.",
+        "Listen and choose the matching written form.",
+        "Hör zu und wähle die passende Schriftform."
+      ],
+      "scope": "뜻과 시범을 먼저 본 낱말의 소리-표기 연결 연습.",
+      "feedback": [
+        "FINAL-H",
+        "A01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-P03",
+      "stage": "P",
+      "section": "M02",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "shown_model": "옷",
+        "pieces": [
+          "ㅅ",
+          "ㅗ",
+          "ㅇ"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "옷",
+        "placement": "ㅇ 위 / ㅗ 그 아래 / 받침 ㅅ 가장 아래"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "정답 모형을 제공한 도움 연습. 입력/필기/독립 숙달 아님.",
+      "feedback": [
+        "H02",
+        "B02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-P04",
+      "stage": "P",
+      "section": "M02",
+      "kind": "audio_text",
+      "stimulus_author_only": {
+        "audio": "옷",
+        "no_transcript": true
+      },
+      "options_author_only": [
+        "옷",
+        "오"
+      ],
+      "answer_author_only": "옷",
+      "prompt": [
+        "소리를 듣고 같은 표기를 골라요.",
+        "Listen and choose the matching written form.",
+        "Hör zu und wähle die passende Schriftform."
+      ],
+      "scope": "뜻과 시범을 먼저 본 낱말의 소리-표기 연결 연습.",
+      "feedback": [
+        "FINAL-H",
+        "A02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-P05",
+      "stage": "P",
+      "section": "M03",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "shown_model": "밥",
+        "pieces": [
+          "ㅂ",
+          "ㅏ",
+          "ㅂ"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "밥",
+        "placement": "ㅂ 왼쪽 / ㅏ 오른쪽 / 받침 ㅂ 가장 아래"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "정답 모형을 제공한 도움 연습. 입력/필기/독립 숙달 아님.",
+      "feedback": [
+        "H03",
+        "B03"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-P06",
+      "stage": "P",
+      "section": "M03",
+      "kind": "audio_text",
+      "stimulus_author_only": {
+        "audio": "밥",
+        "no_transcript": true
+      },
+      "options_author_only": [
+        "바",
+        "밥"
+      ],
+      "answer_author_only": "밥",
+      "prompt": [
+        "소리를 듣고 같은 표기를 골라요.",
+        "Listen and choose the matching written form.",
+        "Hör zu und wähle die passende Schriftform."
+      ],
+      "scope": "뜻과 시범을 먼저 본 낱말의 소리-표기 연결 연습.",
+      "feedback": [
+        "FINAL-H",
+        "A03"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-P07",
+      "stage": "P",
+      "section": "BOOK",
+      "kind": "picture_word",
+      "stimulus_author_only": {
+        "picture": "BOOK-T1",
+        "shown_word": "책",
+        "meaning_supplied": true
+      },
+      "options_author_only": [
+        "밥",
+        "책",
+        "집"
+      ],
+      "answer_author_only": "책",
+      "prompt": [
+        "그림·뜻·낱말 모형을 함께 보고 같은 낱말을 골라요.",
+        "Use the picture, meaning and word example to choose the matching word.",
+        "Wähle mit Bild, Bedeutung und Wortbeispiel das passende Wort."
+      ],
+      "scope": "책 뜻·소리·표기를 함께 지도한 도움 연습.",
+      "feedback": [
+        "BOOK-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-P08",
+      "stage": "P",
+      "section": "BOOK",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "shown_model": "책",
+        "pieces": [
+          "ㄱ",
+          "ㅐ",
+          "ㅊ"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "책",
+        "placement": "ㅊ 왼쪽 / ㅐ 오른쪽 / 받침 ㄱ 가장 아래"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "책의 받침 ㄱ 모형 연습.",
+      "feedback": [
+        "BOOK-B"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-I01",
+      "stage": "I",
+      "section": "M01",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "목",
+        "audio_ui": "A/B/C, 전사 숨김"
+      },
+      "options_author_only": [
+        "모",
+        "몸",
+        "목"
+      ],
+      "answer_author_only": {
+        "button": "C",
+        "transcript_author_only": "목"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "뜻·표기·음성을 지도한 새 낱말의 모형 없는 확인. 사전 노출 없는 새 음절 전이라고 주장하지 않음. 의미 독립 인식/발화와 별도.",
+      "feedback": [
+        "H01",
+        "FINAL-H",
+        "L01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-I02",
+      "stage": "I",
+      "section": "M01",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㄱ",
+          "ㅗ",
+          "ㅁ"
+        ],
+        "no_model": true,
+        "audio": "목"
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "목",
+        "placement": "ㅁ 위 / ㅗ 그 아래 / 받침 ㄱ 가장 아래"
+      },
+      "prompt": [
+        "소리를 듣고 그 낱말을 조각으로 만들어요.",
+        "Listen and build that word from the pieces.",
+        "Hör zu und bilde dieses Wort aus den Teilen."
+      ],
+      "scope": "앞 문항에서 본 조합의 구조 재확인. 1단원은 목표 음성으로 낱말을 분명히 지정. 새 첫 전이로 중복 집계하지 않음.",
+      "feedback": [
+        "B01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-I03",
+      "stage": "I",
+      "section": "M02",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "낮",
+        "audio_ui": "A/B/C, 전사 숨김"
+      },
+      "options_author_only": [
+        "남",
+        "낮",
+        "나"
+      ],
+      "answer_author_only": {
+        "button": "B",
+        "transcript_author_only": "낮"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "뜻·표기·음성을 지도한 새 낱말의 모형 없는 확인. 사전 노출 없는 새 음절 전이라고 주장하지 않음. 의미 독립 인식/발화와 별도.",
+      "feedback": [
+        "H02",
+        "FINAL-H",
+        "L02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-I04",
+      "stage": "I",
+      "section": "M02",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㅈ",
+          "ㅏ",
+          "ㄴ"
+        ],
+        "no_model": true,
+        "audio": "낮"
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "낮",
+        "placement": "ㄴ 왼쪽 / ㅏ 오른쪽 / 받침 ㅈ 가장 아래"
+      },
+      "prompt": [
+        "소리를 듣고 그 낱말을 조각으로 만들어요.",
+        "Listen and build that word from the pieces.",
+        "Hör zu und bilde dieses Wort aus den Teilen."
+      ],
+      "scope": "앞 문항에서 본 조합의 구조 재확인. 1단원은 목표 음성으로 낱말을 분명히 지정. 새 첫 전이로 중복 집계하지 않음.",
+      "feedback": [
+        "B02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-I05",
+      "stage": "I",
+      "section": "M03",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "집",
+        "audio_ui": "A/B/C, 전사 숨김"
+      },
+      "options_author_only": [
+        "집",
+        "지",
+        "짐"
+      ],
+      "answer_author_only": {
+        "button": "A",
+        "transcript_author_only": "집"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "뜻·표기·음성을 지도한 새 낱말의 모형 없는 확인. 사전 노출 없는 새 음절 전이라고 주장하지 않음. 의미 독립 인식/발화와 별도.",
+      "feedback": [
+        "H03",
+        "FINAL-H",
+        "L03"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-I06",
+      "stage": "I",
+      "section": "M03",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㅂ",
+          "ㅣ",
+          "ㅈ"
+        ],
+        "no_model": true,
+        "audio": "집"
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "집",
+        "placement": "ㅈ 왼쪽 / ㅣ 오른쪽 / 받침 ㅂ 가장 아래"
+      },
+      "prompt": [
+        "소리를 듣고 그 낱말을 조각으로 만들어요.",
+        "Listen and build that word from the pieces.",
+        "Hör zu und bilde dieses Wort aus den Teilen."
+      ],
+      "scope": "앞 문항에서 본 조합의 구조 재확인. 1단원은 목표 음성으로 낱말을 분명히 지정. 새 첫 전이로 중복 집계하지 않음.",
+      "feedback": [
+        "B03"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-I07",
+      "stage": "I",
+      "section": "BOOK",
+      "kind": "picture_word",
+      "stimulus_author_only": {
+        "picture": "BOOK-I1"
+      },
+      "options_author_only": [
+        "집",
+        "밥",
+        "책"
+      ],
+      "answer_author_only": "책",
+      "prompt": [
+        "그림에 맞는 낱말을 골라요.",
+        "Choose the word that matches the picture.",
+        "Wähle das Wort, das zum Bild passt."
+      ],
+      "scope": "책 뜻을 지도한 뒤 새 사진에서 표기를 연결.",
+      "feedback": [
+        "BOOK-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-R01",
+      "stage": "R",
+      "section": "M01",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "목",
+        "audio_ui": "A/B/C, 전사 숨김"
+      },
+      "options_author_only": [
+        "목",
+        "몸",
+        "모"
+      ],
+      "answer_author_only": {
+        "button": "A",
+        "transcript_author_only": "목"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "이 낱말 끝소리의 첫 지연 확인 후보. 이전 같은 방식의 독립 근거가 있어야 유지 후보. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "L01",
+        "FINAL-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-R02",
+      "stage": "R",
+      "section": "M02",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "낮",
+        "audio_ui": "A/B/C, 전사 숨김"
+      },
+      "options_author_only": [
+        "나",
+        "낮",
+        "남"
+      ],
+      "answer_author_only": {
+        "button": "B",
+        "transcript_author_only": "낮"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "이 낱말 끝소리의 첫 지연 확인 후보. 이전 같은 방식의 독립 근거가 있어야 유지 후보. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "L02",
+        "FINAL-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-R03",
+      "stage": "R",
+      "section": "M03",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "집",
+        "audio_ui": "A/B/C, 전사 숨김"
+      },
+      "options_author_only": [
+        "짐",
+        "지",
+        "집"
+      ],
+      "answer_author_only": {
+        "button": "C",
+        "transcript_author_only": "집"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "이 낱말 끝소리의 첫 지연 확인 후보. 이전 같은 방식의 독립 근거가 있어야 유지 후보. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "L03",
+        "FINAL-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-R04",
+      "stage": "R",
+      "section": "M01",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㅁ",
+          "ㅗ",
+          "ㄱ"
+        ],
+        "no_model": true,
+        "audio": "목"
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "목",
+        "placement": "ㅁ 위 / ㅗ 그 아래 / 받침 ㄱ 가장 아래"
+      },
+      "prompt": [
+        "소리를 듣고 그 낱말을 조각으로 만들어요.",
+        "Listen and build that word from the pieces.",
+        "Hör zu und bilde dieses Wort aus den Teilen."
+      ],
+      "scope": "같은 R에서 이미 본 목표의 재노출 뒤 조립 연습. 1단원은 이 문항의 목표 음성을 다시 제공. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "B01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-R05",
+      "stage": "R",
+      "section": "M02",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㄴ",
+          "ㅏ",
+          "ㅈ"
+        ],
+        "no_model": true,
+        "audio": "낮"
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "낮",
+        "placement": "ㄴ 왼쪽 / ㅏ 오른쪽 / 받침 ㅈ 가장 아래"
+      },
+      "prompt": [
+        "소리를 듣고 그 낱말을 조각으로 만들어요.",
+        "Listen and build that word from the pieces.",
+        "Hör zu und bilde dieses Wort aus den Teilen."
+      ],
+      "scope": "같은 R에서 이미 본 목표의 재노출 뒤 조립 연습. 1단원은 이 문항의 목표 음성을 다시 제공. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "B02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-R06",
+      "stage": "R",
+      "section": "M03",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㅈ",
+          "ㅣ",
+          "ㅂ"
+        ],
+        "no_model": true,
+        "audio": "집"
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "집",
+        "placement": "ㅈ 왼쪽 / ㅣ 오른쪽 / 받침 ㅂ 가장 아래"
+      },
+      "prompt": [
+        "소리를 듣고 그 낱말을 조각으로 만들어요.",
+        "Listen and build that word from the pieces.",
+        "Hör zu und bilde dieses Wort aus den Teilen."
+      ],
+      "scope": "같은 R에서 이미 본 목표의 재노출 뒤 조립 연습. 1단원은 이 문항의 목표 음성을 다시 제공. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "B03"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-R07",
+      "stage": "R",
+      "section": "BOOK",
+      "kind": "picture_word",
+      "stimulus_author_only": {
+        "picture": "BOOK-R1"
+      },
+      "options_author_only": [
+        "책",
+        "집",
+        "밥"
+      ],
+      "answer_author_only": "책",
+      "prompt": [
+        "그림에 맞는 낱말을 골라요.",
+        "Choose the word that matches the picture.",
+        "Wähle das Wort, das zum Bild passt."
+      ],
+      "scope": "책의 첫 지연 의미 연결 후보. 이전 같은 의미/방식의 독립 근거를 확인. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "BOOK-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "item_id": "D01-R08",
+      "stage": "R",
+      "section": "BOOK",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "책",
+        "audio_ui": "A/B/C, 전사 숨김"
+      },
+      "options_author_only": [
+        "챔",
+        "책",
+        "채"
+      ],
+      "answer_author_only": {
+        "button": "B",
+        "transcript_author_only": "책"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "이미 본 책의 재노출 뒤 소리 확인. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "BOOK-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.wide-vowels",
+      "item_id": "D02-P01",
+      "stage": "P",
+      "section": "M01",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "shown_model": "왜",
+        "pieces": [
+          "ㅙ",
+          "ㅇ"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "왜",
+        "placement": "ㅇ 왼쪽 위 / ㅙ 오른쪽과 아래"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "정답 모형을 제공한 도움 연습. 입력/필기/독립 숙달 아님.",
+      "feedback": [
+        "H01",
+        "B01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.wide-vowels",
+      "item_id": "D02-P02",
+      "stage": "P",
+      "section": "M01",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "왜",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅙ",
+        "ㅘ"
+      ],
+      "answer_author_only": "ㅙ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "표기 형태를 확인하는 도움 연습. 소리만으로 짝을 구별하지 않음.",
+      "feedback": [
+        "H01",
+        "V01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.wide-vowels",
+      "item_id": "D02-P03",
+      "stage": "P",
+      "section": "M02",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "shown_model": "웨",
+        "pieces": [
+          "ㅞ",
+          "ㅇ"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "웨",
+        "placement": "ㅇ 왼쪽 위 / ㅞ 오른쪽과 아래"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "정답 모형을 제공한 도움 연습. 입력/필기/독립 숙달 아님.",
+      "feedback": [
+        "H02",
+        "B02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.wide-vowels",
+      "item_id": "D02-P04",
+      "stage": "P",
+      "section": "M02",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "웨",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅙ",
+        "ㅞ"
+      ],
+      "answer_author_only": "ㅞ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "표기 형태를 확인하는 도움 연습. 소리만으로 짝을 구별하지 않음.",
+      "feedback": [
+        "H02",
+        "V02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.wide-vowels",
+      "item_id": "D02-I01",
+      "stage": "I",
+      "section": "M01",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "괘",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅘ",
+        "ㅙ"
+      ],
+      "answer_author_only": "ㅙ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "새 조합의 모음 형태 확인. 순수 해독/낱말 뜻/청취/발음 성공으로 확대하지 않음.",
+      "feedback": [
+        "H01",
+        "V01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.wide-vowels",
+      "item_id": "D02-I02",
+      "stage": "I",
+      "section": "M01",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㅙ",
+          "ㄱ"
+        ],
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "괘",
+        "placement": "ㄱ 왼쪽 위 / ㅙ 오른쪽과 아래"
+      },
+      "prompt": [
+        "조각을 한 글자로 모아요. 완성 모형은 숨겨져 있어요.",
+        "Put the pieces into one syllable block. The completed example is hidden.",
+        "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+      ],
+      "scope": "앞 문항에서 본 조합의 구조 재확인. 1단원은 목표 음성으로 낱말을 분명히 지정. 새 첫 전이로 중복 집계하지 않음.",
+      "feedback": [
+        "B01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.wide-vowels",
+      "item_id": "D02-I03",
+      "stage": "I",
+      "section": "M02",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "궤",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅞ",
+        "ㅙ"
+      ],
+      "answer_author_only": "ㅞ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "새 조합의 모음 형태 확인. 순수 해독/낱말 뜻/청취/발음 성공으로 확대하지 않음.",
+      "feedback": [
+        "H02",
+        "V02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.wide-vowels",
+      "item_id": "D02-I04",
+      "stage": "I",
+      "section": "M02",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㅞ",
+          "ㄱ"
+        ],
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "궤",
+        "placement": "ㄱ 왼쪽 위 / ㅞ 오른쪽과 아래"
+      },
+      "prompt": [
+        "조각을 한 글자로 모아요. 완성 모형은 숨겨져 있어요.",
+        "Put the pieces into one syllable block. The completed example is hidden.",
+        "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+      ],
+      "scope": "앞 문항에서 본 조합의 구조 재확인. 1단원은 목표 음성으로 낱말을 분명히 지정. 새 첫 전이로 중복 집계하지 않음.",
+      "feedback": [
+        "B02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.wide-vowels",
+      "item_id": "D02-R01",
+      "stage": "R",
+      "section": "M01",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "괘",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅙ",
+        "ㅘ"
+      ],
+      "answer_author_only": "ㅙ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "이 표기 목표의 첫 지연 응답 후보. 이전 같은 표기 확인 근거가 있을 때만 유지 후보. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "V01",
+        "H01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.wide-vowels",
+      "item_id": "D02-R02",
+      "stage": "R",
+      "section": "M02",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "궤",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅙ",
+        "ㅞ"
+      ],
+      "answer_author_only": "ㅞ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "이 표기 목표의 첫 지연 응답 후보. 이전 같은 표기 확인 근거가 있을 때만 유지 후보. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "V02",
+        "H02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.wide-vowels",
+      "item_id": "D02-R03",
+      "stage": "R",
+      "section": "M01",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㄱ",
+          "ㅙ"
+        ],
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "괘",
+        "placement": "ㄱ 왼쪽 위 / ㅙ 오른쪽과 아래"
+      },
+      "prompt": [
+        "조각을 한 글자로 모아요. 완성 모형은 숨겨져 있어요.",
+        "Put the pieces into one syllable block. The completed example is hidden.",
+        "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+      ],
+      "scope": "같은 R에서 이미 본 목표의 재노출 뒤 조립 연습. 1단원은 이 문항의 목표 음성을 다시 제공. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "B01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.wide-vowels",
+      "item_id": "D02-R04",
+      "stage": "R",
+      "section": "M02",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㄱ",
+          "ㅞ"
+        ],
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "궤",
+        "placement": "ㄱ 왼쪽 위 / ㅞ 오른쪽과 아래"
+      },
+      "prompt": [
+        "조각을 한 글자로 모아요. 완성 모형은 숨겨져 있어요.",
+        "Put the pieces into one syllable block. The completed example is hidden.",
+        "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+      ],
+      "scope": "같은 R에서 이미 본 목표의 재노출 뒤 조립 연습. 1단원은 이 문항의 목표 음성을 다시 제공. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "B02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "item_id": "D03-P01",
+      "stage": "P",
+      "section": "M01",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "shown_model": "얘",
+        "pieces": [
+          "ㅒ",
+          "ㅇ"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "얘",
+        "placement": "ㅇ 왼쪽 / ㅒ 오른쪽"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "정답 모형을 제공한 도움 연습. 입력/필기/독립 숙달 아님.",
+      "feedback": [
+        "H01",
+        "B01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "item_id": "D03-P02",
+      "stage": "P",
+      "section": "M01",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "얘",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅒ",
+        "ㅑ"
+      ],
+      "answer_author_only": "ㅒ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "표기 형태를 확인하는 도움 연습. 소리만으로 짝을 구별하지 않음.",
+      "feedback": [
+        "H01",
+        "V01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "item_id": "D03-P03",
+      "stage": "P",
+      "section": "M02",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "shown_model": "예",
+        "pieces": [
+          "ㅖ",
+          "ㅇ"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "예",
+        "placement": "ㅇ 왼쪽 / ㅖ 오른쪽"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "정답 모형을 제공한 도움 연습. 입력/필기/독립 숙달 아님.",
+      "feedback": [
+        "H02",
+        "B02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "item_id": "D03-P04",
+      "stage": "P",
+      "section": "M02",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "예",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅒ",
+        "ㅖ"
+      ],
+      "answer_author_only": "ㅖ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "표기 형태를 확인하는 도움 연습. 소리만으로 짝을 구별하지 않음.",
+      "feedback": [
+        "H02",
+        "V02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "item_id": "D03-P05",
+      "stage": "P",
+      "section": "RELATION",
+      "kind": "referent_choice",
+      "stimulus_author_only": {
+        "example_ko": "두 친한 친구의 학습 예시에서, 한 사람이 자리에 없는 다른 친구를 두고 말해요: 걔는 내 친구야.",
+        "meaning_en": "In this learning example, one close friend speaks about another friend who is not present: That person is my friend.",
+        "meaning_de": "In diesem Lernbeispiel spricht eine befreundete Person über eine andere, die nicht da ist: Diese Person ist mit mir befreundet.",
+        "response_labels": "REF-A/B in manuscript"
+      },
+      "options_author_only": [
+        "A",
+        "B"
+      ],
+      "answer_author_only": "A",
+      "prompt": [
+        "이 예시에서 걔는 누구를 가리키나요? 뜻 안내를 보고 골라요.",
+        "Who does 걔 refer to in this example? Use the meaning guide.",
+        "Wen bezeichnet 걔 in diesem Beispiel? Nutze die Bedeutungshilfe."
+      ],
+      "scope": "친한 관계의 주어진 인용을 설명 언어로 이해. 직접 걔를 쓰게 하거나 낯선 상대에 일반화하지 않음.",
+      "feedback": [
+        "REF-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "item_id": "D03-I01",
+      "stage": "I",
+      "section": "M01",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "걔",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅑ",
+        "ㅒ"
+      ],
+      "answer_author_only": "ㅒ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "새 조합의 모음 형태 확인. 순수 해독/낱말 뜻/청취/발음 성공으로 확대하지 않음.",
+      "feedback": [
+        "H01",
+        "V01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "item_id": "D03-I02",
+      "stage": "I",
+      "section": "M01",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㅒ",
+          "ㄱ"
+        ],
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "걔",
+        "placement": "ㄱ 왼쪽 / ㅒ 오른쪽"
+      },
+      "prompt": [
+        "조각을 한 글자로 모아요. 완성 모형은 숨겨져 있어요.",
+        "Put the pieces into one syllable block. The completed example is hidden.",
+        "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+      ],
+      "scope": "앞 문항에서 본 조합의 구조 재확인. 1단원은 목표 음성으로 낱말을 분명히 지정. 새 첫 전이로 중복 집계하지 않음.",
+      "feedback": [
+        "B01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "item_id": "D03-I03",
+      "stage": "I",
+      "section": "M02",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "계",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅖ",
+        "ㅒ"
+      ],
+      "answer_author_only": "ㅖ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "새 조합의 모음 형태 확인. 순수 해독/낱말 뜻/청취/발음 성공으로 확대하지 않음.",
+      "feedback": [
+        "H02",
+        "V02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "item_id": "D03-I04",
+      "stage": "I",
+      "section": "M02",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㅖ",
+          "ㄱ"
+        ],
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "계",
+        "placement": "ㄱ 왼쪽 / ㅖ 오른쪽"
+      },
+      "prompt": [
+        "조각을 한 글자로 모아요. 완성 모형은 숨겨져 있어요.",
+        "Put the pieces into one syllable block. The completed example is hidden.",
+        "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+      ],
+      "scope": "앞 문항에서 본 조합의 구조 재확인. 1단원은 목표 음성으로 낱말을 분명히 지정. 새 첫 전이로 중복 집계하지 않음.",
+      "feedback": [
+        "B02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "item_id": "D03-R01",
+      "stage": "R",
+      "section": "M01",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "걔",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅒ",
+        "ㅑ"
+      ],
+      "answer_author_only": "ㅒ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "이 표기 목표의 첫 지연 응답 후보. 이전 같은 표기 확인 근거가 있을 때만 유지 후보. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "V01",
+        "H01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "item_id": "D03-R02",
+      "stage": "R",
+      "section": "M02",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "계",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅒ",
+        "ㅖ"
+      ],
+      "answer_author_only": "ㅖ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "이 표기 목표의 첫 지연 응답 후보. 이전 같은 표기 확인 근거가 있을 때만 유지 후보. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "V02",
+        "H02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "item_id": "D03-R03",
+      "stage": "R",
+      "section": "M01",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㄱ",
+          "ㅒ"
+        ],
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "걔",
+        "placement": "ㄱ 왼쪽 / ㅒ 오른쪽"
+      },
+      "prompt": [
+        "조각을 한 글자로 모아요. 완성 모형은 숨겨져 있어요.",
+        "Put the pieces into one syllable block. The completed example is hidden.",
+        "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+      ],
+      "scope": "같은 R에서 이미 본 목표의 재노출 뒤 조립 연습. 1단원은 이 문항의 목표 음성을 다시 제공. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "B01"
+      ]
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "item_id": "D03-R04",
+      "stage": "R",
+      "section": "M02",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㄱ",
+          "ㅖ"
+        ],
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "계",
+        "placement": "ㄱ 왼쪽 / ㅖ 오른쪽"
+      },
+      "prompt": [
+        "조각을 한 글자로 모아요. 완성 모형은 숨겨져 있어요.",
+        "Put the pieces into one syllable block. The completed example is hidden.",
+        "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+      ],
+      "scope": "같은 R에서 이미 본 목표의 재노출 뒤 조립 연습. 1단원은 이 문항의 목표 음성을 다시 제공. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "B02"
+      ]
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "item_id": "D03-R05",
+      "stage": "R",
+      "section": "RELATION",
+      "kind": "referent_choice",
+      "stimulus_author_only": {
+        "example_ko": "두 친한 친구의 학습 예시에서, 한 사람이 자리에 없는 다른 친구를 두고 말해요: 걔는 내 친구야.",
+        "meaning_en": "In this learning example, one close friend speaks about another friend who is not present: That person is my friend.",
+        "meaning_de": "In diesem Lernbeispiel spricht eine befreundete Person über eine andere, die nicht da ist: Diese Person ist mit mir befreundet.",
+        "response_labels": "REF-A/B in manuscript"
+      },
+      "options_author_only": [
+        "B",
+        "A"
+      ],
+      "answer_author_only": "A",
+      "prompt": [
+        "이 예시에서 걔는 누구를 가리키나요? 뜻 안내를 보고 골라요.",
+        "Who does 걔 refer to in this example? Use the meaning guide.",
+        "Wen bezeichnet 걔 in diesem Beispiel? Nutze die Bedeutungshilfe."
+      ],
+      "scope": "같은 인용 상황의 늦은 이해 확인. P 도움만 있었으면 첫 독립 이해 후보이며 확정 유지 아님. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "REF-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-P01",
+      "stage": "P",
+      "section": "UI",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "shown_model": "의",
+        "pieces": [
+          "ㅢ",
+          "ㅇ"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "의",
+        "placement": "ㅇ 왼쪽 위 / ㅢ 오른쪽과 아래"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "ㅢ 표기 시범 도움 연습.",
+      "feedback": [
+        "UI-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-P02",
+      "stage": "P",
+      "section": "UI",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "의"
+      },
+      "options_author_only": [
+        "ㅣ",
+        "ㅢ",
+        "ㅡ"
+      ],
+      "answer_author_only": "ㅢ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "모음 형태 확인. 발음 변이 판정 아님.",
+      "feedback": [
+        "UI-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-P03",
+      "stage": "P",
+      "section": "UI",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "shown_model": "희",
+        "pieces": [
+          "ㅢ",
+          "ㅎ"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "희",
+        "placement": "ㅎ 왼쪽 위 / ㅢ 오른쪽과 아래"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "뜻/인명이 아닌 표기 조각 연습.",
+      "feedback": [
+        "UI-H",
+        "UI-B"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-P04",
+      "stage": "P",
+      "section": "UI",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "shown_model": "늬",
+        "pieces": [
+          "ㅢ",
+          "ㄴ"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "늬",
+        "placement": "ㄴ 왼쪽 위 / ㅢ 오른쪽과 아래"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "뜻/인명이 아닌 표기 조각 연습.",
+      "feedback": [
+        "UI-H",
+        "UI-B"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-P05",
+      "stage": "P",
+      "section": "CHAIR",
+      "kind": "picture_word",
+      "stimulus_author_only": {
+        "picture": "CHAIR-T1",
+        "shown_word": "의자",
+        "meaning_supplied": true
+      },
+      "options_author_only": [
+        "집",
+        "의자",
+        "모자"
+      ],
+      "answer_author_only": "의자",
+      "prompt": [
+        "그림·뜻·낱말 모형을 함께 보고 같은 낱말을 골라요.",
+        "Use the picture, meaning and word example to choose the matching word.",
+        "Wähle mit Bild, Bedeutung und Wortbeispiel das passende Wort."
+      ],
+      "scope": "의자 뜻·실제 음성을 먼저 제공하는 연습.",
+      "feedback": [
+        "CHAIR-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-P06",
+      "stage": "P",
+      "section": "CHAIR",
+      "kind": "word_build",
+      "stimulus_author_only": {
+        "shown_word": "의자",
+        "syllable_pieces": [
+          "자",
+          "의"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": "의자",
+      "prompt": [
+        "음절 조각을 맞는 순서로 놓아요.",
+        "Put the syllable pieces in the correct order.",
+        "Lege die Silbenteile in die richtige Reihenfolge."
+      ],
+      "scope": "모형을 보며 음절 순서 연습.",
+      "feedback": [
+        "CHAIR-H",
+        "CHAIR-B"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-P07",
+      "stage": "P",
+      "section": "CHOSEN",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "chosen_form": "왜",
+        "shown_model": "왜",
+        "pieces": [
+          "ㅙ",
+          "ㅇ"
+        ],
+        "choose_one_branch_only": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "왜",
+        "placement": "ㅇ 왼쪽 위 / ㅙ 오른쪽과 아래"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "선택 회상의 실제 분기. 다섯 개 전부 필수 아님. 선택과 도움 노출을 기록하며 독립/새 공식 단원으로 집계하지 않음.",
+      "feedback": [
+        "CHOSEN-왜"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-P08",
+      "stage": "P",
+      "section": "CHOSEN",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "chosen_form": "웨",
+        "shown_model": "웨",
+        "pieces": [
+          "ㅞ",
+          "ㅇ"
+        ],
+        "choose_one_branch_only": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "웨",
+        "placement": "ㅇ 왼쪽 위 / ㅞ 오른쪽과 아래"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "선택 회상의 실제 분기. 다섯 개 전부 필수 아님. 선택과 도움 노출을 기록하며 독립/새 공식 단원으로 집계하지 않음.",
+      "feedback": [
+        "CHOSEN-웨"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-P09",
+      "stage": "P",
+      "section": "CHOSEN",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "chosen_form": "얘",
+        "shown_model": "얘",
+        "pieces": [
+          "ㅒ",
+          "ㅇ"
+        ],
+        "choose_one_branch_only": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "얘",
+        "placement": "ㅇ 왼쪽 / ㅒ 오른쪽"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "선택 회상의 실제 분기. 다섯 개 전부 필수 아님. 선택과 도움 노출을 기록하며 독립/새 공식 단원으로 집계하지 않음.",
+      "feedback": [
+        "CHOSEN-얘"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-P10",
+      "stage": "P",
+      "section": "CHOSEN",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "chosen_form": "예",
+        "shown_model": "예",
+        "pieces": [
+          "ㅖ",
+          "ㅇ"
+        ],
+        "choose_one_branch_only": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "예",
+        "placement": "ㅇ 왼쪽 / ㅖ 오른쪽"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "선택 회상의 실제 분기. 다섯 개 전부 필수 아님. 선택과 도움 노출을 기록하며 독립/새 공식 단원으로 집계하지 않음.",
+      "feedback": [
+        "CHOSEN-예"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-P11",
+      "stage": "P",
+      "section": "CHOSEN",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "chosen_form": "의",
+        "shown_model": "의",
+        "pieces": [
+          "ㅢ",
+          "ㅇ"
+        ],
+        "choose_one_branch_only": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "의",
+        "placement": "ㅇ 왼쪽 위 / ㅢ 오른쪽과 아래"
+      },
+      "prompt": [
+        "모형을 보며 한 글자로 모아요.",
+        "Use the example to build one syllable block.",
+        "Bilde nach dem Beispiel einen Silbenblock."
+      ],
+      "scope": "선택 회상의 실제 분기. 다섯 개 전부 필수 아님. 선택과 도움 노출을 기록하며 독립/새 공식 단원으로 집계하지 않음.",
+      "feedback": [
+        "CHOSEN-의"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-I01",
+      "stage": "I",
+      "section": "UI",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "희",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅢ",
+        "ㅣ"
+      ],
+      "answer_author_only": "ㅢ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "시범으로 다룬 표기에서 ㅢ를 확인. 인명 발음/낱말 뜻/청각 변별 미평가.",
+      "feedback": [
+        "UI-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-I02",
+      "stage": "I",
+      "section": "UI",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㅢ",
+          "ㅎ"
+        ],
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "희",
+        "placement": "ㅎ 왼쪽 위 / ㅢ 오른쪽과 아래"
+      },
+      "prompt": [
+        "조각을 한 글자로 모아요. 완성 모형은 숨겨져 있어요.",
+        "Put the pieces into one syllable block. The completed example is hidden.",
+        "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+      ],
+      "scope": "앞에서 본 표기의 구조 재확인.",
+      "feedback": [
+        "UI-B"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-I03",
+      "stage": "I",
+      "section": "UI",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "늬",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅣ",
+        "ㅢ"
+      ],
+      "answer_author_only": "ㅢ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "시범으로 다룬 표기에서 ㅢ를 확인. 인명 발음/낱말 뜻/청각 변별 미평가.",
+      "feedback": [
+        "UI-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-I04",
+      "stage": "I",
+      "section": "UI",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㅢ",
+          "ㄴ"
+        ],
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "늬",
+        "placement": "ㄴ 왼쪽 위 / ㅢ 오른쪽과 아래"
+      },
+      "prompt": [
+        "조각을 한 글자로 모아요. 완성 모형은 숨겨져 있어요.",
+        "Put the pieces into one syllable block. The completed example is hidden.",
+        "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+      ],
+      "scope": "앞에서 본 표기의 구조 재확인.",
+      "feedback": [
+        "UI-B"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-R01",
+      "stage": "R",
+      "section": "UI",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "희",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅣ",
+        "ㅢ"
+      ],
+      "answer_author_only": "ㅢ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "ㅢ 표기의 첫 지연 확인 후보. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "UI-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-R02",
+      "stage": "R",
+      "section": "UI",
+      "kind": "vowel_in_block",
+      "stimulus_author_only": {
+        "written": "늬",
+        "no_audio_required": true
+      },
+      "options_author_only": [
+        "ㅢ",
+        "ㅣ"
+      ],
+      "answer_author_only": "ㅢ",
+      "prompt": [
+        "적힌 글자에서 모음 조각을 골라요.",
+        "Choose the vowel piece in the written block.",
+        "Wähle das Vokalzeichen im geschriebenen Block."
+      ],
+      "scope": "기본 순서에서는 R01의 같은 ㅢ 목표를 이미 본 뒤 다른 첫소리 늬에 적용하는 재노출 연습. 별도의 무노출 유지 성공 아님. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "UI-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-R03",
+      "stage": "R",
+      "section": "UI",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㅎ",
+          "ㅢ"
+        ],
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "희",
+        "placement": "ㅎ 왼쪽 위 / ㅢ 오른쪽과 아래"
+      },
+      "prompt": [
+        "조각을 한 글자로 모아요. 완성 모형은 숨겨져 있어요.",
+        "Put the pieces into one syllable block. The completed example is hidden.",
+        "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+      ],
+      "scope": "같은 R에서 이미 본 표기 재노출 뒤 연습. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "UI-B"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-R04",
+      "stage": "R",
+      "section": "UI",
+      "kind": "syllable_build",
+      "stimulus_author_only": {
+        "pieces": [
+          "ㄴ",
+          "ㅢ"
+        ],
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": {
+        "word": "늬",
+        "placement": "ㄴ 왼쪽 위 / ㅢ 오른쪽과 아래"
+      },
+      "prompt": [
+        "조각을 한 글자로 모아요. 완성 모형은 숨겨져 있어요.",
+        "Put the pieces into one syllable block. The completed example is hidden.",
+        "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+      ],
+      "scope": "같은 R에서 이미 본 표기 재노출 뒤 연습. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "UI-B"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-R05",
+      "stage": "R",
+      "section": "CHAIR",
+      "kind": "picture_word",
+      "stimulus_author_only": {
+        "picture": "CHAIR-R1"
+      },
+      "options_author_only": [
+        "의자",
+        "모자",
+        "집"
+      ],
+      "answer_author_only": "의자",
+      "prompt": [
+        "그림에 맞는 낱말을 골라요.",
+        "Choose the word that matches the picture.",
+        "Wähle das Wort, das zum Bild passt."
+      ],
+      "scope": "의자 뜻 연결의 늦은 첫 독립 후보. 이전 도움만으로 유지 확정하지 않음. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "CHAIR-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "item_id": "D04-R06",
+      "stage": "R",
+      "section": "CHAIR",
+      "kind": "word_build",
+      "stimulus_author_only": {
+        "syllable_pieces": [
+          "자",
+          "의"
+        ],
+        "audio": "의자",
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "의자",
+      "prompt": [
+        "소리를 듣고 음절 조각을 그 낱말 순서로 놓아요.",
+        "Listen and put the syllable pieces in the order of that word.",
+        "Hör zu und ordne die Silbenteile zu diesem Wort."
+      ],
+      "scope": "같은 R의 재노출 뒤 재구성. 목표 음성으로 의자를 지정. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "CHAIR-B"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-P01",
+      "stage": "P",
+      "section": "M01",
+      "kind": "audio_text",
+      "stimulus_author_only": {
+        "audio": "문이",
+        "shown_model": "문이"
+      },
+      "options_author_only": [
+        "무리",
+        "문이"
+      ],
+      "answer_author_only": "문이",
+      "prompt": [
+        "소리를 듣고 같은 표기를 골라요.",
+        "Listen and choose the matching written form.",
+        "Hör zu und wähle die passende Schriftform."
+      ],
+      "scope": "연결 소리와 원래 표기를 함께 시범한 도움 연습.",
+      "feedback": [
+        "LINK-H",
+        "LINK-TEXT-문이"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-P02",
+      "stage": "P",
+      "section": "M01",
+      "kind": "word_build",
+      "stimulus_author_only": {
+        "shown_word": "문이",
+        "syllable_pieces": [
+          "이",
+          "문"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": "문이",
+      "prompt": [
+        "음절 조각을 맞는 순서로 놓아요.",
+        "Put the syllable pieces in the correct order.",
+        "Lege die Silbenteile in die richtige Reihenfolge."
+      ],
+      "scope": "들린 대로 철자를 바꾸지 않고 원래 표기의 음절 순서를 익힘.",
+      "feedback": [
+        "LINK-H",
+        "LINK-ORDER-문이"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-P03",
+      "stage": "P",
+      "section": "M02",
+      "kind": "audio_text",
+      "stimulus_author_only": {
+        "audio": "옷이",
+        "shown_model": "옷이"
+      },
+      "options_author_only": [
+        "옷이",
+        "오이"
+      ],
+      "answer_author_only": "옷이",
+      "prompt": [
+        "소리를 듣고 같은 표기를 골라요.",
+        "Listen and choose the matching written form.",
+        "Hör zu und wähle die passende Schriftform."
+      ],
+      "scope": "연결 소리와 원래 표기를 함께 시범한 도움 연습.",
+      "feedback": [
+        "LINK-H",
+        "LINK-TEXT-옷이"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-P04",
+      "stage": "P",
+      "section": "M02",
+      "kind": "word_build",
+      "stimulus_author_only": {
+        "shown_word": "옷이",
+        "syllable_pieces": [
+          "이",
+          "옷"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": "옷이",
+      "prompt": [
+        "음절 조각을 맞는 순서로 놓아요.",
+        "Put the syllable pieces in the correct order.",
+        "Lege die Silbenteile in die richtige Reihenfolge."
+      ],
+      "scope": "들린 대로 철자를 바꾸지 않고 원래 표기의 음절 순서를 익힘.",
+      "feedback": [
+        "LINK-H",
+        "LINK-ORDER-옷이"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-P05",
+      "stage": "P",
+      "section": "REUSE",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "옷이",
+        "reference_pair": [
+          "옷",
+          "옷이"
+        ],
+        "audio_ui": "A/B/C, 전사 숨김"
+      },
+      "options_author_only": [
+        "옷",
+        "옷이",
+        "오이"
+      ],
+      "answer_author_only": {
+        "button": "B",
+        "transcript_author_only": "옷이"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "1단원의 옷과 현재 옷이를 실제로 비교. 도움 연습이며 앞 표기의 재노출.",
+      "feedback": [
+        "LINK-H",
+        "LINK-SOUND-옷이"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-P06",
+      "stage": "P",
+      "section": "NG",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "방에",
+        "reference_pair": [
+          "방",
+          "방에"
+        ],
+        "audio_ui": "A/B/C, 전사 숨김"
+      },
+      "options_author_only": [
+        "바에",
+        "방에",
+        "방"
+      ],
+      "answer_author_only": {
+        "button": "B",
+        "transcript_author_only": "방에"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "입문3 후속 회상. 아래 방/방에 시범 후 ㅇ 소리 유지 확인 연습.",
+      "feedback": [
+        "NG-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-I01",
+      "stage": "I",
+      "section": "M01",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "밥이",
+        "audio_ui": "A/B/C, 전사 숨김",
+        "meaning_supplied": {
+          "ko": "이 예시의 밥/집이라는 대상과 문장 뜻은 설명 언어로 안내",
+          "en": "the rice in this example",
+          "de": "der Reis in diesem Beispiel"
+        }
+      },
+      "options_author_only": [
+        "바이",
+        "밤이",
+        "밥이"
+      ],
+      "answer_author_only": {
+        "button": "C",
+        "transcript_author_only": "밥이"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "익힌 낱말+조사 이/에의 연결 소리 적용. 조사 기능은 뜻 도움으로 제공하고 새 문법 숙달로 기록하지 않음.",
+      "feedback": [
+        "LINK-H",
+        "LINK-SOUND-밥이"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-I02",
+      "stage": "I",
+      "section": "M01",
+      "kind": "word_build",
+      "stimulus_author_only": {
+        "syllable_pieces": [
+          "이",
+          "밥"
+        ],
+        "audio": "밥이",
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "밥이",
+      "prompt": [
+        "소리를 듣고 음절 조각을 그 낱말 순서로 놓아요.",
+        "Listen and put the syllable pieces in the order of that word.",
+        "Hör zu und ordne die Silbenteile zu diesem Wort."
+      ],
+      "scope": "목표 음성을 듣고 앞에서 본 표기를 유지하는 순서 재확인. 새 첫 전이 아님.",
+      "feedback": [
+        "LINK-H",
+        "LINK-ORDER-밥이"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-I03",
+      "stage": "I",
+      "section": "M02",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "집에",
+        "audio_ui": "A/B/C, 전사 숨김",
+        "meaning_supplied": {
+          "ko": "이 예시의 밥/집이라는 대상과 문장 뜻은 설명 언어로 안내",
+          "en": "at the house in this example",
+          "de": "am Haus in diesem Beispiel"
+        }
+      },
+      "options_author_only": [
+        "짐에",
+        "집에",
+        "지에"
+      ],
+      "answer_author_only": {
+        "button": "B",
+        "transcript_author_only": "집에"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "익힌 낱말+조사 이/에의 연결 소리 적용. 조사 기능은 뜻 도움으로 제공하고 새 문법 숙달로 기록하지 않음.",
+      "feedback": [
+        "LINK-H",
+        "LINK-SOUND-집에"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-I04",
+      "stage": "I",
+      "section": "M02",
+      "kind": "word_build",
+      "stimulus_author_only": {
+        "syllable_pieces": [
+          "에",
+          "집"
+        ],
+        "audio": "집에",
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "집에",
+      "prompt": [
+        "소리를 듣고 음절 조각을 그 낱말 순서로 놓아요.",
+        "Listen and put the syllable pieces in the order of that word.",
+        "Hör zu und ordne die Silbenteile zu diesem Wort."
+      ],
+      "scope": "목표 음성을 듣고 앞에서 본 표기를 유지하는 순서 재확인. 새 첫 전이 아님.",
+      "feedback": [
+        "LINK-H",
+        "LINK-ORDER-집에"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-I05",
+      "stage": "I",
+      "section": "LINK-ROLE",
+      "kind": "link_position",
+      "stimulus_author_only": {
+        "written": "밥이",
+        "response_labels": "POS-A/B/C"
+      },
+      "options_author_only": [
+        "B",
+        "A",
+        "C"
+      ],
+      "answer_author_only": "B",
+      "prompt": [
+        "이 표기에서 뒤 모음과 이어져 들리는 받침 위치를 골라요.",
+        "In this spelling, choose the final-consonant position that links to the following vowel.",
+        "Wähle in dieser Schreibung die Endkonsonantenstelle, deren Laut sich mit dem folgenden Vokal verbindet."
+      ],
+      "scope": "글자 표기의 어느 받침이 뒤 모음과 이어지는지 구조 확인. 실제 청취/조사 문법과 별도.",
+      "feedback": [
+        "LINK-H",
+        "LINK-POS-밥이"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-I06",
+      "stage": "I",
+      "section": "LINK-ROLE",
+      "kind": "link_position",
+      "stimulus_author_only": {
+        "written": "집에",
+        "response_labels": "POS-A/B/C"
+      },
+      "options_author_only": [
+        "C",
+        "B",
+        "A"
+      ],
+      "answer_author_only": "B",
+      "prompt": [
+        "이 표기에서 뒤 모음과 이어져 들리는 받침 위치를 골라요.",
+        "In this spelling, choose the final-consonant position that links to the following vowel.",
+        "Wähle in dieser Schreibung die Endkonsonantenstelle, deren Laut sich mit dem folgenden Vokal verbindet."
+      ],
+      "scope": "글자 표기의 어느 받침이 뒤 모음과 이어지는지 구조 확인. 실제 청취/조사 문법과 별도.",
+      "feedback": [
+        "LINK-H",
+        "LINK-POS-집에"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-R01",
+      "stage": "R",
+      "section": "M01",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "밥이",
+        "audio_ui": "A/B/C, 전사 숨김"
+      },
+      "options_author_only": [
+        "밥이",
+        "밤이",
+        "바이"
+      ],
+      "answer_author_only": {
+        "button": "A",
+        "transcript_author_only": "밥이"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "이 연결 소리의 첫 지연 확인 후보. 같은 방식의 이전 독립 근거를 확인. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "LINK-H",
+        "LINK-SOUND-밥이"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-R02",
+      "stage": "R",
+      "section": "M02",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "집에",
+        "audio_ui": "A/B/C, 전사 숨김"
+      },
+      "options_author_only": [
+        "지에",
+        "집에",
+        "짐에"
+      ],
+      "answer_author_only": {
+        "button": "B",
+        "transcript_author_only": "집에"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "이 연결 소리의 첫 지연 확인 후보. 같은 방식의 이전 독립 근거를 확인. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "LINK-H",
+        "LINK-SOUND-집에"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-R03",
+      "stage": "R",
+      "section": "M01",
+      "kind": "word_build",
+      "stimulus_author_only": {
+        "syllable_pieces": [
+          "밥",
+          "이"
+        ],
+        "audio": "밥이",
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "밥이",
+      "prompt": [
+        "소리를 듣고 음절 조각을 그 낱말 순서로 놓아요.",
+        "Listen and put the syllable pieces in the order of that word.",
+        "Hör zu und ordne die Silbenteile zu diesem Wort."
+      ],
+      "scope": "목표 음성으로 낱말을 지정하는 같은 R의 재노출 뒤 표기 순서 연습. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "LINK-H",
+        "LINK-ORDER-밥이"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-R04",
+      "stage": "R",
+      "section": "M02",
+      "kind": "word_build",
+      "stimulus_author_only": {
+        "syllable_pieces": [
+          "집",
+          "에"
+        ],
+        "audio": "집에",
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "집에",
+      "prompt": [
+        "소리를 듣고 음절 조각을 그 낱말 순서로 놓아요.",
+        "Listen and put the syllable pieces in the order of that word.",
+        "Hör zu und ordne die Silbenteile zu diesem Wort."
+      ],
+      "scope": "목표 음성으로 낱말을 지정하는 같은 R의 재노출 뒤 표기 순서 연습. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "LINK-H",
+        "LINK-ORDER-집에"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-R05",
+      "stage": "R",
+      "section": "REUSE",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "옷이",
+        "audio_ui": "A/B/C, 전사 숨김"
+      },
+      "options_author_only": [
+        "오이",
+        "옷",
+        "옷이"
+      ],
+      "answer_author_only": {
+        "button": "C",
+        "transcript_author_only": "옷이"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "옷이의 늦은 첫 독립 확인 후보. 처음에는 도움만 받았다면 유지 확정 아님. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "LINK-H",
+        "LINK-SOUND-옷이"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-R06",
+      "stage": "R",
+      "section": "NG",
+      "kind": "read_audio",
+      "stimulus_author_only": {
+        "written": "방에",
+        "audio_ui": "A/B/C, 전사 숨김"
+      },
+      "options_author_only": [
+        "방에",
+        "방",
+        "바에"
+      ],
+      "answer_author_only": {
+        "button": "A",
+        "transcript_author_only": "방에"
+      },
+      "prompt": [
+        "적힌 글자를 보고 맞는 소리를 골라요.",
+        "Look at the written form and choose its sound.",
+        "Sieh dir die Schriftform an und wähle den passenden Laut."
+      ],
+      "scope": "방에의 ㅇ 유지 확인. 이전 도움만 있었다면 늦은 첫 독립 후보. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "NG-H"
+      ]
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "item_id": "D05-R07",
+      "stage": "R",
+      "section": "LINK-ROLE",
+      "kind": "link_position",
+      "stimulus_author_only": {
+        "written": "밥이",
+        "response_labels": "POS-A/B/C"
+      },
+      "options_author_only": [
+        "A",
+        "C",
+        "B"
+      ],
+      "answer_author_only": "B",
+      "prompt": [
+        "이 표기에서 뒤 모음과 이어져 들리는 받침 위치를 골라요.",
+        "In this spelling, choose the final-consonant position that links to the following vowel.",
+        "Wähle in dieser Schreibung die Endkonsonantenstelle, deren Laut sich mit dem folgenden Vokal verbindet."
+      ],
+      "scope": "이미 읽기에서 본 밥이의 재노출 뒤 구조 확인. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "LINK-H",
+        "LINK-POS-밥이"
+      ]
+    },
+    {
+      "unit_id": "F0.4.first-input",
+      "item_id": "D06-P01",
+      "stage": "P",
+      "section": "FIRST-NOTE-HELP",
+      "kind": "input_copy",
+      "stimulus_author_only": {
+        "allowed_methods": [
+          "DUBEOLSIK",
+          "JAMO_SELECTION"
+        ],
+        "raw_response_preserved": true,
+        "score_only_after_composition_commit": true,
+        "shown_word": "집",
+        "prepared_draft": null,
+        "picture": "HOUSE-T1"
+      },
+      "options_author_only": [],
+      "answer_author_only": "집",
+      "prompt": [
+        "모형을 보고 같은 낱말을 입력하거나 조각으로 만들어요.",
+        "Copy the word by typing or using letter pieces.",
+        "Schreibe das Wort nach dem Beispiel oder bilde es aus Schriftteilen."
+      ],
+      "scope": "모형 제공 도움 입력/수정. 조각 선택을 두벌식 숙달로 기록하지 않고 준비 오타를 학습자의 실제 오류로 오인하지 않음.",
+      "feedback": [
+        "INPUT-H",
+        "INPUT-집"
+      ]
+    },
+    {
+      "unit_id": "F0.4.first-input",
+      "item_id": "D06-P02",
+      "stage": "P",
+      "section": "EDIT",
+      "kind": "input_edit",
+      "stimulus_author_only": {
+        "allowed_methods": [
+          "DUBEOLSIK",
+          "JAMO_SELECTION"
+        ],
+        "raw_response_preserved": true,
+        "score_only_after_composition_commit": true,
+        "shown_word": "집",
+        "prepared_draft": "짐",
+        "picture": "HOUSE-T1"
+      },
+      "options_author_only": [],
+      "answer_author_only": "집",
+      "prompt": [
+        "수진이 준비한 연습 오타예요. 그림에 맞는 배운 낱말로 고쳐요.",
+        "This is a practice typo prepared by Sujin. Correct it to the familiar word for the picture.",
+        "Das ist ein von Sujin vorbereiteter Übungsfehler. Korrigiere ihn zu dem bekannten Wort zum Bild."
+      ],
+      "scope": "모형 제공 도움 입력/수정. 조각 선택을 두벌식 숙달로 기록하지 않고 준비 오타를 학습자의 실제 오류로 오인하지 않음.",
+      "feedback": [
+        "INPUT-H",
+        "INPUT-집"
+      ]
+    },
+    {
+      "unit_id": "F0.4.first-input",
+      "item_id": "D06-P03",
+      "stage": "P",
+      "section": "COPY",
+      "kind": "input_copy",
+      "stimulus_author_only": {
+        "allowed_methods": [
+          "DUBEOLSIK",
+          "JAMO_SELECTION"
+        ],
+        "raw_response_preserved": true,
+        "score_only_after_composition_commit": true,
+        "shown_word": "나무",
+        "prepared_draft": null,
+        "picture": "TREE-T1"
+      },
+      "options_author_only": [],
+      "answer_author_only": "나무",
+      "prompt": [
+        "모형을 보고 같은 낱말을 입력하거나 조각으로 만들어요.",
+        "Copy the word by typing or using letter pieces.",
+        "Schreibe das Wort nach dem Beispiel oder bilde es aus Schriftteilen."
+      ],
+      "scope": "모형 제공 도움 입력/수정. 조각 선택을 두벌식 숙달로 기록하지 않고 준비 오타를 학습자의 실제 오류로 오인하지 않음.",
+      "feedback": [
+        "INPUT-H",
+        "INPUT-나무"
+      ]
+    },
+    {
+      "unit_id": "F0.4.first-input",
+      "item_id": "D06-P04",
+      "stage": "P",
+      "section": "COPY",
+      "kind": "input_copy",
+      "stimulus_author_only": {
+        "allowed_methods": [
+          "DUBEOLSIK",
+          "JAMO_SELECTION"
+        ],
+        "raw_response_preserved": true,
+        "score_only_after_composition_commit": true,
+        "shown_word": "모자",
+        "prepared_draft": null,
+        "picture": "HAT-T1"
+      },
+      "options_author_only": [],
+      "answer_author_only": "모자",
+      "prompt": [
+        "모형을 보고 같은 낱말을 입력하거나 조각으로 만들어요.",
+        "Copy the word by typing or using letter pieces.",
+        "Schreibe das Wort nach dem Beispiel oder bilde es aus Schriftteilen."
+      ],
+      "scope": "모형 제공 도움 입력/수정. 조각 선택을 두벌식 숙달로 기록하지 않고 준비 오타를 학습자의 실제 오류로 오인하지 않음.",
+      "feedback": [
+        "INPUT-H",
+        "INPUT-모자"
+      ]
+    },
+    {
+      "unit_id": "F0.4.first-input",
+      "item_id": "D06-P05",
+      "stage": "P",
+      "section": "EDIT",
+      "kind": "input_edit",
+      "stimulus_author_only": {
+        "allowed_methods": [
+          "DUBEOLSIK",
+          "JAMO_SELECTION"
+        ],
+        "raw_response_preserved": true,
+        "score_only_after_composition_commit": true,
+        "shown_word": "모자",
+        "prepared_draft": "모사",
+        "picture": "HAT-T1"
+      },
+      "options_author_only": [],
+      "answer_author_only": "모자",
+      "prompt": [
+        "수진이 준비한 연습 오타예요. 그림에 맞는 배운 낱말로 고쳐요.",
+        "This is a practice typo prepared by Sujin. Correct it to the familiar word for the picture.",
+        "Das ist ein von Sujin vorbereiteter Übungsfehler. Korrigiere ihn zu dem bekannten Wort zum Bild."
+      ],
+      "scope": "모형 제공 도움 입력/수정. 조각 선택을 두벌식 숙달로 기록하지 않고 준비 오타를 학습자의 실제 오류로 오인하지 않음.",
+      "feedback": [
+        "INPUT-H",
+        "INPUT-모자"
+      ]
+    },
+    {
+      "unit_id": "F0.4.first-input",
+      "item_id": "D06-I01",
+      "stage": "I",
+      "section": "FIRST-NOTE",
+      "kind": "input_recall",
+      "stimulus_author_only": {
+        "allowed_methods": [
+          "DUBEOLSIK",
+          "JAMO_SELECTION"
+        ],
+        "raw_response_preserved": true,
+        "score_only_after_composition_commit": true,
+        "picture": "HOUSE-I1",
+        "no_model": true,
+        "no_romanization": true,
+        "no_key_sequence": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "집",
+      "prompt": [
+        "그림의 대상을 배운 한 낱말로 입력하거나 조각으로 만들어요. 모형은 숨겨져 있어요.",
+        "Enter the familiar word for the picture by typing or using pieces. The example is hidden.",
+        "Gib das bekannte Wort zum Bild ein oder bilde es aus Teilen. Das Beispiel ist verborgen."
+      ],
+      "scope": "모형을 숨긴 익힌 낱말의 제한 회상 입력. 그림 뜻 도움/이전 실제 학습 여부/입력 방법을 별도로 기록. 최초 집 시도는 자판 절차 시범 후 다른 낱말 입력 전에 제공.",
+      "feedback": [
+        "INPUT-H",
+        "INPUT-집"
+      ]
+    },
+    {
+      "unit_id": "F0.4.first-input",
+      "item_id": "D06-I02",
+      "stage": "I",
+      "section": "RECALL",
+      "kind": "input_recall",
+      "stimulus_author_only": {
+        "allowed_methods": [
+          "DUBEOLSIK",
+          "JAMO_SELECTION"
+        ],
+        "raw_response_preserved": true,
+        "score_only_after_composition_commit": true,
+        "picture": "SEA-I1",
+        "no_model": true,
+        "no_romanization": true,
+        "no_key_sequence": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "바다",
+      "prompt": [
+        "그림의 대상을 배운 한 낱말로 입력하거나 조각으로 만들어요. 모형은 숨겨져 있어요.",
+        "Enter the familiar word for the picture by typing or using pieces. The example is hidden.",
+        "Gib das bekannte Wort zum Bild ein oder bilde es aus Teilen. Das Beispiel ist verborgen."
+      ],
+      "scope": "모형을 숨긴 익힌 낱말의 제한 회상 입력. 그림 뜻 도움/이전 실제 학습 여부/입력 방법을 별도로 기록. 최초 집 시도는 자판 절차 시범 후 다른 낱말 입력 전에 제공.",
+      "feedback": [
+        "INPUT-H",
+        "INPUT-바다"
+      ]
+    },
+    {
+      "unit_id": "F0.4.first-input",
+      "item_id": "D06-I03",
+      "stage": "I",
+      "section": "RECALL",
+      "kind": "input_recall",
+      "stimulus_author_only": {
+        "allowed_methods": [
+          "DUBEOLSIK",
+          "JAMO_SELECTION"
+        ],
+        "raw_response_preserved": true,
+        "score_only_after_composition_commit": true,
+        "picture": "BRIDGE-I1",
+        "no_model": true,
+        "no_romanization": true,
+        "no_key_sequence": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "다리",
+      "prompt": [
+        "그림의 대상을 배운 한 낱말로 입력하거나 조각으로 만들어요. 모형은 숨겨져 있어요.",
+        "Enter the familiar word for the picture by typing or using pieces. The example is hidden.",
+        "Gib das bekannte Wort zum Bild ein oder bilde es aus Teilen. Das Beispiel ist verborgen."
+      ],
+      "scope": "모형을 숨긴 익힌 낱말의 제한 회상 입력. 그림 뜻 도움/이전 실제 학습 여부/입력 방법을 별도로 기록. 최초 집 시도는 자판 절차 시범 후 다른 낱말 입력 전에 제공.",
+      "feedback": [
+        "INPUT-H",
+        "INPUT-다리"
+      ]
+    },
+    {
+      "unit_id": "F0.4.first-input",
+      "item_id": "D06-I04",
+      "stage": "I",
+      "section": "EDIT",
+      "kind": "input_edit",
+      "stimulus_author_only": {
+        "allowed_methods": [
+          "DUBEOLSIK",
+          "JAMO_SELECTION"
+        ],
+        "raw_response_preserved": true,
+        "score_only_after_composition_commit": true,
+        "picture": "HOUSE-I1",
+        "prepared_draft": "짐",
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "집",
+      "prompt": [
+        "수진이 준비한 연습 오타예요. 그림에 맞는 배운 낱말로 고쳐요.",
+        "This is a practice typo prepared by Sujin. Correct it to the familiar word for the picture.",
+        "Das ist ein von Sujin vorbereiteter Übungsfehler. Korrigiere ihn zu dem bekannten Wort zum Bild."
+      ],
+      "scope": "주어진 연습 오타 수정. 앞 집 입력의 재노출 뒤이며 새 첫 독립 회상으로 합산하지 않음.",
+      "feedback": [
+        "INPUT-H",
+        "INPUT-집"
+      ]
+    },
+    {
+      "unit_id": "F0.4.first-input",
+      "item_id": "D06-R01",
+      "stage": "R",
+      "section": "RECALL",
+      "kind": "input_recall",
+      "stimulus_author_only": {
+        "allowed_methods": [
+          "DUBEOLSIK",
+          "JAMO_SELECTION"
+        ],
+        "raw_response_preserved": true,
+        "score_only_after_composition_commit": true,
+        "picture": "HOUSE-R1",
+        "no_model": true,
+        "prepared_draft": null,
+        "no_romanization": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "집",
+      "prompt": [
+        "그림의 대상을 배운 한 낱말로 입력하거나 조각으로 만들어요. 모형은 숨겨져 있어요.",
+        "Enter the familiar word for the picture by typing or using pieces. The example is hidden.",
+        "Gib das bekannte Wort zum Bild ein oder bilde es aus Teilen. Das Beispiel ist verborgen."
+      ],
+      "scope": "해당 낱말/입력 방법의 첫 지연 응답 후보. 같은 방식 독립 근거가 없으면 늦은 첫 확인. 의미·운동/자판·회상·수정을 구분. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "INPUT-H",
+        "INPUT-집"
+      ]
+    },
+    {
+      "unit_id": "F0.4.first-input",
+      "item_id": "D06-R02",
+      "stage": "R",
+      "section": "RECALL",
+      "kind": "input_recall",
+      "stimulus_author_only": {
+        "allowed_methods": [
+          "DUBEOLSIK",
+          "JAMO_SELECTION"
+        ],
+        "raw_response_preserved": true,
+        "score_only_after_composition_commit": true,
+        "picture": "SEA-R1",
+        "no_model": true,
+        "prepared_draft": null,
+        "no_romanization": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "바다",
+      "prompt": [
+        "그림의 대상을 배운 한 낱말로 입력하거나 조각으로 만들어요. 모형은 숨겨져 있어요.",
+        "Enter the familiar word for the picture by typing or using pieces. The example is hidden.",
+        "Gib das bekannte Wort zum Bild ein oder bilde es aus Teilen. Das Beispiel ist verborgen."
+      ],
+      "scope": "해당 낱말/입력 방법의 첫 지연 응답 후보. 같은 방식 독립 근거가 없으면 늦은 첫 확인. 의미·운동/자판·회상·수정을 구분. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "INPUT-H",
+        "INPUT-바다"
+      ]
+    },
+    {
+      "unit_id": "F0.4.first-input",
+      "item_id": "D06-R03",
+      "stage": "R",
+      "section": "RECALL",
+      "kind": "input_recall",
+      "stimulus_author_only": {
+        "allowed_methods": [
+          "DUBEOLSIK",
+          "JAMO_SELECTION"
+        ],
+        "raw_response_preserved": true,
+        "score_only_after_composition_commit": true,
+        "picture": "BRIDGE-R1",
+        "no_model": true,
+        "prepared_draft": null,
+        "no_romanization": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "다리",
+      "prompt": [
+        "그림의 대상을 배운 한 낱말로 입력하거나 조각으로 만들어요. 모형은 숨겨져 있어요.",
+        "Enter the familiar word for the picture by typing or using pieces. The example is hidden.",
+        "Gib das bekannte Wort zum Bild ein oder bilde es aus Teilen. Das Beispiel ist verborgen."
+      ],
+      "scope": "해당 낱말/입력 방법의 첫 지연 응답 후보. 같은 방식 독립 근거가 없으면 늦은 첫 확인. 의미·운동/자판·회상·수정을 구분. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "INPUT-H",
+        "INPUT-다리"
+      ]
+    },
+    {
+      "unit_id": "F0.4.first-input",
+      "item_id": "D06-R04",
+      "stage": "R",
+      "section": "EDIT",
+      "kind": "input_edit",
+      "stimulus_author_only": {
+        "allowed_methods": [
+          "DUBEOLSIK",
+          "JAMO_SELECTION"
+        ],
+        "raw_response_preserved": true,
+        "score_only_after_composition_commit": true,
+        "picture": "HAT-R1",
+        "no_model": true,
+        "prepared_draft": "모사",
+        "no_romanization": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "모자",
+      "prompt": [
+        "수진이 준비한 연습 오타예요. 그림에 맞는 배운 낱말로 고쳐요.",
+        "This is a practice typo prepared by Sujin. Correct it to the familiar word for the picture.",
+        "Das ist ein von Sujin vorbereiteter Übungsfehler. Korrigiere ihn zu dem bekannten Wort zum Bild."
+      ],
+      "scope": "해당 낱말/입력 방법의 첫 지연 응답 후보. 같은 방식 독립 근거가 없으면 늦은 첫 확인. 의미·운동/자판·회상·수정을 구분. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "INPUT-H",
+        "INPUT-모자"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-P01",
+      "stage": "P",
+      "section": "SPACE",
+      "kind": "space_choice",
+      "stimulus_author_only": {
+        "shown_model": "이 집",
+        "meaning_supplied": true
+      },
+      "options_author_only": [
+        "이집",
+        "이 집"
+      ],
+      "answer_author_only": "이 집",
+      "prompt": [
+        "뜻에 맞게 낱말 사이를 띄운 표기를 골라요.",
+        "Choose the spelling with the words separated to match the meaning.",
+        "Wähle die Schreibung mit passenden Wortabständen."
+      ],
+      "scope": "뜻·표기·띄어쓰기 모형과 함께 보는 도움 연습.",
+      "feedback": [
+        "SPACE-H",
+        "SPACE-C-이 집"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-P02",
+      "stage": "P",
+      "section": "SPACE",
+      "kind": "space_choice",
+      "stimulus_author_only": {
+        "shown_model": "이 집",
+        "meaning_supplied": true
+      },
+      "options_author_only": [
+        "이 집",
+        "이집"
+      ],
+      "answer_author_only": "이 집",
+      "prompt": [
+        "뜻에 맞게 낱말 사이를 띄운 표기를 골라요.",
+        "Choose the spelling with the words separated to match the meaning.",
+        "Wähle die Schreibung mit passenden Wortabständen."
+      ],
+      "scope": "뜻·표기·띄어쓰기 모형과 함께 보는 도움 연습.",
+      "feedback": [
+        "SPACE-H",
+        "SPACE-C-이 집"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-P03",
+      "stage": "P",
+      "section": "SPACE",
+      "kind": "space_choice",
+      "stimulus_author_only": {
+        "shown_model": "모자 주세요",
+        "meaning_supplied": true
+      },
+      "options_author_only": [
+        "모자주세요",
+        "모자 주세요"
+      ],
+      "answer_author_only": "모자 주세요",
+      "prompt": [
+        "뜻에 맞게 낱말 사이를 띄운 표기를 골라요.",
+        "Choose the spelling with the words separated to match the meaning.",
+        "Wähle die Schreibung mit passenden Wortabständen."
+      ],
+      "scope": "뜻·표기·띄어쓰기 모형과 함께 보는 도움 연습.",
+      "feedback": [
+        "SPACE-H",
+        "SPACE-C-모자 주세요"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-P04",
+      "stage": "P",
+      "section": "SPACE",
+      "kind": "space_choice",
+      "stimulus_author_only": {
+        "shown_model": "물 주세요",
+        "meaning_supplied": true
+      },
+      "options_author_only": [
+        "물 주세요",
+        "물주세요"
+      ],
+      "answer_author_only": "물 주세요",
+      "prompt": [
+        "뜻에 맞게 낱말 사이를 띄운 표기를 골라요.",
+        "Choose the spelling with the words separated to match the meaning.",
+        "Wähle die Schreibung mit passenden Wortabständen."
+      ],
+      "scope": "뜻·표기·띄어쓰기 모형과 함께 보는 도움 연습.",
+      "feedback": [
+        "SPACE-H",
+        "SPACE-C-물 주세요"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-P05",
+      "stage": "P",
+      "section": "SPACE",
+      "kind": "phrase_build",
+      "stimulus_author_only": {
+        "shown_model": "이 집",
+        "word_pieces": [
+          "집",
+          "이"
+        ]
+      },
+      "options_author_only": [],
+      "answer_author_only": "이 집",
+      "prompt": [
+        "뜻에 맞는 짧은 문구를 입력하거나 낱말 조각으로 만들어요.",
+        "Enter the short phrase for the meaning, or make it with word pieces.",
+        "Gib den kurzen Ausdruck zur Bedeutung ein oder bilde ihn aus Wortteilen."
+      ],
+      "scope": "두 낱말의 순서와 경계 도움 연습. 원래 집 쪽지 내용은 변경하지 않음.",
+      "feedback": [
+        "SPACE-H",
+        "SPACE-B-이 집"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-I01",
+      "stage": "I",
+      "section": "THIS-HOUSE",
+      "kind": "phrase_build",
+      "stimulus_author_only": {
+        "picture": "HOUSE-I1",
+        "deictic_point": "nearby house being pointed to",
+        "meaning_en": "this house",
+        "meaning_de": "dieses Haus",
+        "meaning_supplied": true,
+        "word_pieces": [
+          "집",
+          "이"
+        ],
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "이 집",
+      "prompt": [
+        "뜻에 맞는 짧은 문구를 입력하거나 낱말 조각으로 만들어요.",
+        "Enter the short phrase for the meaning, or make it with word pieces.",
+        "Gib den kurzen Ausdruck zur Bedeutung ein oder bilde ihn aus Wortteilen."
+      ],
+      "scope": "이의 가까운 지시 뜻을 가르친 뒤 의미 단서로 익힌 두 낱말을 구성. 자유 작문/독립 사진 인식/소유권/쪽지 덮어쓰기 아님.",
+      "feedback": [
+        "SPACE-H",
+        "SPACE-B-이 집"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-I02",
+      "stage": "I",
+      "section": "SPACE",
+      "kind": "space_choice",
+      "stimulus_author_only": {
+        "unspaced": "이집",
+        "meaning_supplied": true
+      },
+      "options_author_only": [
+        "이집",
+        "이 집"
+      ],
+      "answer_author_only": "이 집",
+      "prompt": [
+        "뜻에 맞게 낱말 사이를 띄운 표기를 골라요.",
+        "Choose the spelling with the words separated to match the meaning.",
+        "Wähle die Schreibung mit passenden Wortabständen."
+      ],
+      "scope": "앞에서 본 문구의 단어 경계 확인.",
+      "feedback": [
+        "SPACE-C-이 집"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-I03",
+      "stage": "I",
+      "section": "REQUEST",
+      "kind": "request_choice",
+      "stimulus_author_only": {
+        "picture": "WATER-I1",
+        "need_en": "The person wants drinking water.",
+        "need_de": "Die Person möchte Trinkwasser.",
+        "meaning_supplied": true
+      },
+      "options_author_only": [
+        "물 주세요",
+        "모자 주세요"
+      ],
+      "answer_author_only": "물 주세요",
+      "prompt": [
+        "이 장면에서 필요한 물건을 부탁하는 말을 골라요.",
+        "Choose the request for the object needed in this scene.",
+        "Wähle die Bitte um den Gegenstand, der in dieser Szene gebraucht wird."
+      ],
+      "scope": "물 뜻·요청 청크 지도 뒤 대상을 맞추는 선택. 순수 사진 인식/전체 요청 문법 숙달 아님.",
+      "feedback": [
+        "REQUEST-WATER"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-I04",
+      "stage": "I",
+      "section": "SPACE",
+      "kind": "spacing_edit",
+      "stimulus_author_only": {
+        "supplied_draft": "물주세요",
+        "meaning_supplied": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "물 주세요",
+      "prompt": [
+        "주어진 문구에서 낱말 사이의 띄어쓰기를 고쳐요.",
+        "Correct the word spacing in the supplied phrase.",
+        "Korrigiere die Wortabstände im vorgegebenen Ausdruck."
+      ],
+      "scope": "준비된 문구의 경계 수정. 방금 본 목표의 재노출 뒤 연습.",
+      "feedback": [
+        "SPACE-H",
+        "SPACE-E-물 주세요"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-I05",
+      "stage": "I",
+      "section": "REQUEST",
+      "kind": "request_choice",
+      "stimulus_author_only": {
+        "picture": "HAT-I1",
+        "need_en": "The person points to a hat and wants that hat.",
+        "need_de": "Die Person zeigt auf einen Hut und möchte diesen Hut."
+      },
+      "options_author_only": [
+        "물 주세요",
+        "모자 주세요"
+      ],
+      "answer_author_only": "모자 주세요",
+      "prompt": [
+        "이 장면에서 필요한 물건을 부탁하는 말을 골라요.",
+        "Choose the request for the object needed in this scene.",
+        "Wähle die Bitte um den Gegenstand, der in dieser Szene gebraucht wird."
+      ],
+      "scope": "기존 모자 주세요 목표를 실제 새 상황에서 회수.",
+      "feedback": [
+        "REQUEST-HAT"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-R01",
+      "stage": "R",
+      "section": "THIS-HOUSE",
+      "kind": "phrase_build",
+      "stimulus_author_only": {
+        "picture": "HOUSE-R1",
+        "deictic_point": "nearby house being pointed to",
+        "meaning_en": "this house",
+        "meaning_de": "dieses Haus",
+        "meaning_supplied": true,
+        "word_pieces": [
+          "집",
+          "이"
+        ],
+        "no_model": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "이 집",
+      "prompt": [
+        "뜻에 맞는 짧은 문구를 입력하거나 낱말 조각으로 만들어요.",
+        "Enter the short phrase for the meaning, or make it with word pieces.",
+        "Gib den kurzen Ausdruck zur Bedeutung ein oder bilde ihn aus Wortteilen."
+      ],
+      "scope": "이 집의 의미 단서에 따른 첫 지연 구성 후보. 원래 쪽지의 집은 미리 자막으로 보여 주지 않음. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "SPACE-H",
+        "SPACE-B-이 집"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-R02",
+      "stage": "R",
+      "section": "REQUEST",
+      "kind": "request_choice",
+      "stimulus_author_only": {
+        "picture": "WATER-R1",
+        "need_en": "Drinking water is wanted.",
+        "need_de": "Trinkwasser wird gewünscht.",
+        "meaning_supplied": true
+      },
+      "options_author_only": [
+        "모자 주세요",
+        "물 주세요"
+      ],
+      "answer_author_only": "물 주세요",
+      "prompt": [
+        "이 장면에서 필요한 물건을 부탁하는 말을 골라요.",
+        "Choose the request for the object needed in this scene.",
+        "Wähle die Bitte um den Gegenstand, der in dieser Szene gebraucht wird."
+      ],
+      "scope": "물 요청의 첫 지연 대응 후보. 뜻 설명이 있는 상황임을 기록. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "REQUEST-WATER"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-R03",
+      "stage": "R",
+      "section": "SPACE",
+      "kind": "spacing_edit",
+      "stimulus_author_only": {
+        "supplied_draft": "물주세요",
+        "meaning_supplied": true
+      },
+      "options_author_only": [],
+      "answer_author_only": "물 주세요",
+      "prompt": [
+        "주어진 문구에서 낱말 사이의 띄어쓰기를 고쳐요.",
+        "Correct the word spacing in the supplied phrase.",
+        "Korrigiere die Wortabstände im vorgegebenen Ausdruck."
+      ],
+      "scope": "같은 R에서 본 요청의 재노출 뒤 경계 연습. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "SPACE-H",
+        "SPACE-E-물 주세요"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-R04",
+      "stage": "R",
+      "section": "REQUEST",
+      "kind": "request_choice",
+      "stimulus_author_only": {
+        "picture": "HAT-R1",
+        "need_en": "The hat is wanted.",
+        "need_de": "Der Hut wird gewünscht."
+      },
+      "options_author_only": [
+        "모자 주세요",
+        "물 주세요"
+      ],
+      "answer_author_only": "모자 주세요",
+      "prompt": [
+        "이 장면에서 필요한 물건을 부탁하는 말을 골라요.",
+        "Choose the request for the object needed in this scene.",
+        "Wähle die Bitte um den Gegenstand, der in dieser Szene gebraucht wird."
+      ],
+      "scope": "기본 순서에서는 R02 보기에서 모자 주세요 표기를 이미 본 뒤의 다른 상황 요청 연습. 별도의 무노출 첫 지연 성공 아님. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "REQUEST-HAT"
+      ]
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "item_id": "D07-R05",
+      "stage": "R",
+      "section": "SPACE",
+      "kind": "space_choice",
+      "stimulus_author_only": {
+        "unspaced": "이집",
+        "meaning_supplied": true
+      },
+      "options_author_only": [
+        "이 집",
+        "이집"
+      ],
+      "answer_author_only": "이 집",
+      "prompt": [
+        "뜻에 맞게 낱말 사이를 띄운 표기를 골라요.",
+        "Choose the spelling with the words separated to match the meaning.",
+        "Wähle die Schreibung mit passenden Wortabständen."
+      ],
+      "scope": "같은 R에서 이미 구성한 이 집의 재노출 뒤 경계 확인. 최초 지도시각과 직전 마지막 관련 노출시각을 분리. 최근 노출24시간 미만은 짧은 간격 연습. 같은 목표 재노출은 새 무노출 유지 성공 아님.",
+      "feedback": [
+        "SPACE-C-이 집"
+      ]
+    }
+  ]
+}

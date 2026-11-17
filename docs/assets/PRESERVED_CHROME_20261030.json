@@ -1,0 +1,44 @@
+{
+  "checkedOn": "2026-10-30",
+  "baseCommit": "8841f12cbbfc9f82dc26efea860d62038ad6eeed",
+  "policy": "Preserve exact existing bytes outside the app bundle; no original image content discarded or edited.",
+  "authority": "Current approved chrome/navigation integration removed the previous icons' production consumers. Move only the two identified unused bundled PNGs; do not remove feature code or user source originals.",
+  "verification": "Before moving, each icon matched its tracked bytes at baseCommit. Each of the four files was copied to the named pre-move backup, hashed, moved, and hashed again; all hashes match.",
+  "backupRoot": "C:/dev/hangulsori/_codex_artifacts/asset-preservation-20261030/pre-move",
+  "images": [
+    {
+      "previousPath": "assets/icons/icon-192.png",
+      "preservedPath": "assets_unused/approved_chrome_20261030/icon-192.png",
+      "sha256": "5f6773061a54c1e99a1a71ea362450b93381713744c9acb21d295968fb18731b",
+      "bytes": 35565,
+      "backupFile": "icon-192.png",
+      "trackedOriginalMatch": true
+    },
+    {
+      "previousPath": "assets/icons/tactile_settings.png",
+      "preservedPath": "assets_unused/approved_chrome_20261030/tactile_settings.png",
+      "sha256": "7db025816a5225d92a58a642f5ecc5085369c0838085173cd54bba0fd9ce59e4",
+      "bytes": 2237722,
+      "backupFile": "tactile_settings.png",
+      "trackedOriginalMatch": true
+    }
+  ],
+  "provenanceDocuments": [
+    {
+      "previousPath": "assets/illustrations/concept_c/spiele_preview/source-manifest.json",
+      "path": "docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json",
+      "sha256": "7570b1751c9e9a9718832244087d90815b9485f957febc136fc70ccce6106603",
+      "backupFile": "spiele-preview-source-manifest.json",
+      "producer": "tool/extract_approved_spiele_preview.py now writes this documentation path directly."
+    },
+    {
+      "previousPath": "assets/illustrations/gye/weekly_lantern/source-manifest.json",
+      "path": "docs/assets/GYE_WEEKLY_LANTERN_20261030.json",
+      "sha256": "0db069aff996ccd426ab4b09dfc70da704def5e4cc33fa07df0c4d5a5aa16df4",
+      "backupFile": "gye-weekly-lantern-source-manifest.json",
+      "producer": "One-time built-in image_gen edit; the prompt and original source paths are preserved in this document."
+    }
+  ],
+  "restore": "Verify the preserved SHA-256, then move the file back to previousPath if a real production consumer requires it. assets/icons/ remains registered; no fake constant or guard exemption was added. The PNGs also remain recoverable byte-for-byte from baseCommit.",
+  "scope": "No pubspec registration, production Dart code, user image source, launcher/PWA icon, runtime content manifest, feature ownership or reward/progress storage was changed. The old optional-image fixture in app_loading_accessibility_test.dart now uses the retained HanLogo.png."
+}

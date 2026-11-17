@@ -1,3 +1,4 @@
+import 'practice_scholar_art.dart';
 import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/smalltalk_context_case.dart';
@@ -17,11 +18,10 @@ class SmalltalkPracticeEntry extends StatelessWidget {
         semanticLabel: AppL10n.of(context).practiceToneTitle,
         child: Row(
           children: [
-            Image.asset(
-              'assets/illustrations/tactile/hahoe_scholar.png',
+            const SizedBox(
               width: 32,
               height: 48,
-              excludeFromSemantics: true,
+              child: PracticeScholarArt(pose: PracticeScholarPose.inviting),
             ),
             const SizedBox(width: Spacing.sm),
             Expanded(

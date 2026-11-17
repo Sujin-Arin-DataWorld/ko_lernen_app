@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 2,
+  "complete": true,
+  "remoteRefVerified": true,
+  "commit": "4f016f35b2e7b90a7dc8e976e4cb4986effeee5d",
+  "ref": "refs/heads/archive/ildu-r12-retirement-20261029",
+  "remote": "https://github.com/Sujin-Arin-DataWorld/hangulsori-archive.git",
+  "manifestSha256": "e5a78950e0eb89db2dab623716f2d58581cd9ca436b92a15a9fa5b867ca8377c",
+  "nativeVariant": "r16-native",
+  "gateVariant": "current-gates",
+  "sourceVariant": "r12-source",
+  "verifiedObjects": 6799,
+  "verifiedBytes": 31022860337,
+  "restoredFiles": 691,
+  "runtimeIntegrated": false,
+  "glbPbrBakeComplete": false,
+  "standaloneRoofs": {
+    "complete": true,
+    "remote": "https://github.com/Sujin-Arin-DataWorld/hangulsori-archive.git",
+    "ref": "refs/heads/archive/ildu-r16-roofs-20261029",
+    "commit": "a3ebf0c614ccec1864324f6e2641c9f895ddaf6f",
+    "manifestSha256": "93fad17a506fb324abf3f340db03da98c5ec87acb568ce9fecd6562c8468f840",
+    "verifiedObjects": 34,
+    "nativeCount": 4,
+    "freshRemoteFetch": true,
+    "restoredRoots": [
+      "roof-native",
+      "roof-source"
+    ],
+    "sourceArchiveUnchanged": "4f016f35b2e7b90a7dc8e976e4cb4986effeee5d",
+    "variants": [
+      "roof-native",
+      "roof-source",
+      "roof-evidence",
+      "roof-tools"
+    ]
+  }
+}

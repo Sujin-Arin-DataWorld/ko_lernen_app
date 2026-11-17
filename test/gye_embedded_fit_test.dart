@@ -66,6 +66,31 @@ void main() {
     // Keep the negative contract without retaining unused production copy.
     expect(find.text('Freiwillige Lerngemeinschaft'), findsNothing);
     expect(find.text('Optional learning community'), findsNothing);
+    final scene = find.byKey(const ValueKey('gye-current-preview'));
+    expect(scene, findsOneWidget);
+    final sceneSize = tester.getSize(scene);
+    expect(sceneSize.width, greaterThanOrEqualTo(330));
+    expect(
+      sceneSize.height,
+      greaterThanOrEqualTo(210),
+      reason:
+          'The approved study scene must remain substantial on a normal phone.',
+    );
+    expect(find.byKey(const ValueKey('gye-continue-solo')), findsOneWidget);
+    final primaryRect = tester.getRect(
+      find.byKey(const ValueKey('gye-empty-start')),
+    );
+    final soloRect = tester.getRect(
+      find.byKey(const ValueKey('gye-continue-solo')),
+    );
+    expect(soloRect.left, closeTo(primaryRect.left, .5));
+    expect(soloRect.right, closeTo(primaryRect.right, .5));
+    expect(soloRect.top - primaryRect.bottom, closeTo(8, .5));
+    expect(
+      find.text(t.gyeMembersN(4)),
+      findsNothing,
+      reason: 'An empty membership must not borrow the board sample group.',
+    );
 
     // CTA 가 스크롤 없이 화면 안에 있다 (±1줄 = 24px 허용).
     final cta = find.text(t.gyeFindOrCreate);

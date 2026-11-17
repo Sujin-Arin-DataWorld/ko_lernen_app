@@ -1,0 +1,16 @@
+{
+  "checkedOn": "2026-10-30",
+  "baseCommit": "8841f12cbbfc9f82dc26efea860d62038ad6eeed",
+  "authority": "Preserve the previous book image unchanged outside the bundle after the latest approved book previews replaced it.",
+  "previousPath": "assets/illustrations/onboarding/book_extract.webp",
+  "preservedPath": "assets_unused/approved_book_20261030/book_extract.webp",
+  "bytes": 1307306,
+  "sha256": "fcc8d3c0d95493b6e8a596c45bf4197dfca9beb046ce3ed84a65e8dbe6a915e8",
+  "trackedOriginalMatch": true,
+  "productionReferencesBeforeMove": 0,
+  "backupPath": "C:/dev/hangulsori/_codex_artifacts/asset-preservation-20261030/pre-move/book_extract.webp",
+  "verification": "Compare current bytes with the Git object at baseCommit, copy to the backup path and compare SHA-256, move to preservedPath and compare SHA-256 again.",
+  "pixelPreservationTest": "test/onboarding_v2_story_milestone_test.dart retains the original dimensions and RGBA digest; only this file's fixture base path changed.",
+  "restore": "Verify the preserved SHA-256, then move it back to previousPath if an actual production consumer needs it. The original bytes also remain in baseCommit; pubspec still registers the original folder.",
+  "scope": "No production source, current approved capture/study book, user image source or pubspec registration changed. No guard exemption or fake reference added."
+}

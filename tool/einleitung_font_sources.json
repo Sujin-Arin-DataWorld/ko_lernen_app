@@ -1,0 +1,38 @@
+[
+  {
+    "path": "assets\\fonts\\Roboto\\Roboto-Variable.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/roboto/Roboto%5Bwdth,wght%5D.ttf",
+    "bytes": 488584,
+    "sha256": "d7598e12c5dbef095ff8272cfc55da0250bd07fbdecbac8a530b9b277872a134"
+  },
+  {
+    "path": "assets\\fonts\\Roboto\\OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/roboto/OFL.txt",
+    "bytes": 4394,
+    "sha256": "061402327a96aadb0bfb694a960ed289ecd38d383e396243831ab81feb109c41"
+  },
+  {
+    "path": "assets\\fonts\\Lora\\Lora-Variable.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/lora/Lora%5Bwght%5D.ttf",
+    "bytes": 212196,
+    "sha256": "822a6621ccbe8d97d20ac88c1c41f5615c9c2c202eaa75f272cd452aac6475a7"
+  },
+  {
+    "path": "assets\\fonts\\Lora\\OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/lora/OFL.txt",
+    "bytes": 4423,
+    "sha256": "1d9a970809ac804b582a6ce7f0ebc4e7fefcbfd7ff6299cad35ee656a21be716"
+  },
+  {
+    "path": "assets\\fonts\\RobotoCondensed\\OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/robotocondensed/OFL.txt",
+    "bytes": 4393,
+    "sha256": "0e4cc6ece88573545be2ed25835363662a6182ba4a4c1b5c8feda52add30e8a6"
+  },
+  {
+    "path": "assets\\fonts\\RobotoCondensed\\RobotoCondensed-Variable.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/robotocondensed/RobotoCondensed%5Bwght%5D.ttf",
+    "bytes": 371616,
+    "sha256": "dace262afcee68a5276f200d8026c57221735c0118ab5fda8c2c0d3dc409a8d0"
+  }
+]

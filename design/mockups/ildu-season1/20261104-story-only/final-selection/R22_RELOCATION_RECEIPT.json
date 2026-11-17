@@ -1,0 +1,90 @@
+{
+  "source_root": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6",
+  "archive_root": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6_archive_20261104",
+  "review_root": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6_story_review_20261104",
+  "entries": [
+    {
+      "version": "v1",
+      "original": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-15fd3137-a56d-44b7-aa05-7a47e87ac774.png",
+      "destination": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6_archive_20261104/exec-15fd3137-a56d-44b7-aa05-7a47e87ac774.png",
+      "sha256": "5cb204346193a50c89987c4a9c5db8c293e0091f17eaf403fb29c0fab85a481b",
+      "bytes": 2622186,
+      "dimensions": [
+        936,
+        1681
+      ],
+      "mode": "RGB",
+      "aspect_relative_error_percent": 20.642474717430105,
+      "prompt_file": "R22_PROMPT.json",
+      "prompt_sha256": "6ffeff99349e74a2962f31e91d8974f259f8943a60e7468666a405a7a07e3fd7",
+      "action": "archive",
+      "status": "rejected_for_delivery_aspect_ratio",
+      "user_approved": false,
+      "runtime_integrated": false,
+      "verified_current_path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6_archive_20261104/exec-15fd3137-a56d-44b7-aa05-7a47e87ac774.png"
+    },
+    {
+      "version": "v2",
+      "original": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-e9e41158-bd7e-4c26-9e7c-964273acb23d.png",
+      "destination": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6_archive_20261104/exec-e9e41158-bd7e-4c26-9e7c-964273acb23d.png",
+      "sha256": "a25710bfd780804625f3229e29fa8d396cf585ee80111ace5bb7a80314ab3b3a",
+      "bytes": 2502401,
+      "dimensions": [
+        891,
+        1765
+      ],
+      "mode": "RGB",
+      "aspect_relative_error_percent": 9.376770538243617,
+      "prompt_file": "R22_PROMPT_V2.json",
+      "prompt_sha256": "c9fbf7707c1367cc4a662feacc5f94c7fe445fd044f0f4d07d1523310b2b27c4",
+      "action": "archive",
+      "status": "rejected_for_delivery_aspect_ratio",
+      "user_approved": false,
+      "runtime_integrated": false,
+      "verified_current_path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6_archive_20261104/exec-e9e41158-bd7e-4c26-9e7c-964273acb23d.png"
+    },
+    {
+      "version": "v3",
+      "original": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-7cea949d-4848-4b10-b2d1-59b7f1f5c90b.png",
+      "destination": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6_archive_20261104/exec-7cea949d-4848-4b10-b2d1-59b7f1f5c90b.png",
+      "sha256": "cfc6f056d91ee779c86a82de0866d0f84744f84e982e324db65e637cc88a3cce",
+      "bytes": 2554049,
+      "dimensions": [
+        934,
+        1684
+      ],
+      "mode": "RGB",
+      "aspect_relative_error_percent": 20.17022961203483,
+      "prompt_file": "R22_PROMPT_V3.json",
+      "prompt_sha256": "3799674f673265b711df9deb3f59f046d53c67ee9d1e7aa8120c781a95dc4bc3",
+      "action": "archive",
+      "status": "rejected_for_delivery_aspect_ratio",
+      "user_approved": false,
+      "runtime_integrated": false,
+      "verified_current_path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6_archive_20261104/exec-7cea949d-4848-4b10-b2d1-59b7f1f5c90b.png"
+    },
+    {
+      "version": "v4",
+      "original": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-1b2908b4-98cf-4287-9ca0-7e26aec82360.png",
+      "destination": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6_story_review_20261104/R22-save-unconfirmed-de.png",
+      "sha256": "841979563167f299c86bc202e65b451b3b520935ff8935f69972fe17ea75f40c",
+      "bytes": 2414846,
+      "dimensions": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "aspect_relative_error_percent": 0.2803400253210242,
+      "prompt_file": "R22_PROMPT_V4.json",
+      "prompt_sha256": "4e00d1249be8186b3e740f23351540e9c3aacc18d8851574cf24bcae8e85f084",
+      "action": "review_candidate",
+      "status": "independent_static_review_pass_pending_user",
+      "user_approved": false,
+      "runtime_integrated": false,
+      "verified_current_path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6_story_review_20261104/R22-save-unconfirmed-de.png"
+    }
+  ],
+  "completed_at": "2026-11-04T06:37:11.282954+01:00",
+  "permanent_deletion": false,
+  "verification": "4 generated PNG moved reversibly; all SHA-256 values verified; 3 aspect failures archived; V4 kept separately as reviewed candidate."
+}

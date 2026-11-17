@@ -36,7 +36,7 @@ void main() {
     }
     expect(unresolved, isEmpty);
     expect(ambiguous, isEmpty);
-    expect(registered, hasLength(86));
+    expect(registered, hasLength(87));
     expect(registered.toSet(), hasLength(registered.length));
 
     final lock = File(_lockPath).readAsStringSync();
@@ -52,7 +52,7 @@ void main() {
       r'^\| `(/[^`]*)` \|',
       multiLine: true,
     ).allMatches(routeInventory).map((match) => match.group(1)!).toList();
-    expect(documented, hasLength(86));
+    expect(documented, hasLength(87));
     expect(documented.toSet(), hasLength(documented.length));
 
     registered.sort();
@@ -110,9 +110,9 @@ void main() {
       }
     }
 
-    // Includes the shared finite-step content layout and Hanok preview owners.
-    expect(seen, hasLength(125));
-    expect(documented, hasLength(125));
+    // Includes the C5 overview, R16 reference and existing indirect owners.
+    expect(seen, hasLength(129));
+    expect(documented, hasLength(129));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });
@@ -152,9 +152,17 @@ void main() {
     // 2026-09-15 (C8): +1 — ai_voice_notice_host joins Study and evidence.
     // 2026-10-03: +3 — persona portrait, scene introduction and touch motion.
     // 2026-10-04: +5 — tactile reveal and auxiliary catalog/settings entrances.
-    expect(actual, hasLength(152));
+    // 2026-10-18: +1 — approved Einleitung reference typography/material roles.
+    // 2026-10-29: +1 — bounded Einleitung contact, selection and scene motion.
+    // 2026-10-30: +1 — user-initiated account progress recovery sheet.
+    // 2026-10-30: +16 — documented approved C chrome/material/ink/Gye owners.
+    // 2026-10-30: +1 — byte-identical shared material asset aliases.
+    // 2026-10-31: +2 — independent C5 scenes and matte-free R16 layer painter.
+    // 2026-10-31: +2 — live Today card and semantic subject-art mapping.
+    // 2026-11-04: +5 — approved grammar, nuance, scenario and stage navigation.
+    expect(actual, hasLength(183));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(152));
+    expect(listed, hasLength(183));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

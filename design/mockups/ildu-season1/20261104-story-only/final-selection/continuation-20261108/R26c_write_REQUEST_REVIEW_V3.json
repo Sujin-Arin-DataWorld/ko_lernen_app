@@ -1,0 +1,20 @@
+{
+  "reviewer": "/root/character_design_guard_v7",
+  "date": "2026-11-08",
+  "id": "R26c_write",
+  "status": "PASS_EXACT_PROMPT_BASE_CROP",
+  "request_sha256": "7a4574f8631f05a7c151a31644a88c031fd3bdf6c555ccf60bc1c3f5bdfa9a31",
+  "prompt_sha256": "f6e13c11e9e99eb39750b2ac1815d9f38f030ade8ae04116b8501b85204b4324",
+  "scene_and_copy_exact_match": true,
+  "refs": [
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-illustration-spec-20261103\\design\\mockups\\ildu-season1\\20261104-story-only\\final-selection\\R22-save-unconfirmed-de.png",
+      "sha256": "841979563167f299c86bc202e65b451b3b520935ff8935f69972fe17ea75f40c",
+      "actual_source_opened_by_reviewer": true
+    }
+  ],
+  "decision": "Tight desk/record crop excludes recognizable building geometry. Face-free player POV, supported hand/brush, exactly 집 on one paper under existing lamp. Review resulting composition before using as identity/continuity reference for d/e/f.",
+  "design_scope": "Static image generation only; one current speaker, KO+DE exact text, one CTA, C materials, no clouds/coins/settings/tabs, no learning UI",
+  "postflight_required": "Anatomy, identity per character, relative scale, gaze/acting, prop support, scene state, exact copy, dimensions/framing all reviewed from actual output",
+  "limits": "No user approval/canon promotion/metric certification/runtime-save/Flutter-device proof"
+}

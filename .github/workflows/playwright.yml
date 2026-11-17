@@ -18,6 +18,8 @@ jobs:
         flutter-version: 3.44.0
         channel: stable
         cache: true
+    - name: Prepare locked Fontshare originals
+      run: python3 tool/prepare_fontshare_fonts.py
     - name: Install Flutter dependencies
       run: flutter pub get
     - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4

@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-03",
+  "baseHead": "36ab45de09b310b88262d8285c057713b1a3baf0",
+  "scope": "Exact existing Spiele runtime PNGs registered for Android install-time delivery; preserves every asset key, reviewed original selection, existing extraction rectangle and file byte.",
+  "authorization": "Existing approved runtime artwork; the current public-testing release task authorizes exact-byte Android delivery relocation.",
+  "sourceReviewRecordHash": "SHA-256 of UTF-8 canonical JSON with sorted keys, ensure_ascii=false and compact separators; binds every original source, source SHA and existing crop record.",
+  "approvalBoundaryPreserved": "Approved source art is distinct from native layout/device acceptance. Full Anlaut, Blitz-Paare and Karten screens are absent from this source folder.",
+  "releaseBlocker": {
+    "runId": 41575365501,
+    "baseDownloadUpperBoundBytes": 490919269,
+    "unchangedBaseReleaseLimitBytes": 490000000,
+    "measurement": "Prior failed signed AAB; new bundletool and exact payload verification remain required before upload."
+  },
+  "sourceFilesVerifiedLocally": true,
+  "newExtractionOrEncoding": false,
+  "runtimeStateOrOwnershipChanges": false,
+  "nativeOrDeviceApproval": false,
+  "assets": [
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/chain_board.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-a58edbd0-463a-4d0b-aa57-97778a772b18.png",
+      "sourceSha256": "903936ed42ca3455fd13c3a20a22d0b5ba95b662e014c57b3245cdec453f689c",
+      "crop": [
+        0,
+        300,
+        850,
+        1148
+      ],
+      "sha256": "b9c14269c2cba0bf9d2974f3d5c64ffb27c4803fe25e097a0ea1cba147feaf3c",
+      "bytes": 1082982,
+      "sourceReviewDocument": "docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json",
+      "sourceReviewSection": "assets",
+      "sourceReviewRecordSha256": "6ed62e34c91ea1ff0f24e6ded74ba44ad6f0914b60c7451b04bd8adbbb3a3877",
+      "reviewedAssetBytesUnchanged": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/chain_submit.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-a58edbd0-463a-4d0b-aa57-97778a772b18.png",
+      "sourceSha256": "903936ed42ca3455fd13c3a20a22d0b5ba95b662e014c57b3245cdec453f689c",
+      "crop": [
+        38,
+        1565,
+        809,
+        1692
+      ],
+      "sha256": "aa08b958ee5e2eb0e1990dedf9bf1a23ad0ce46f6b8ca08c90052569a7026c8e",
+      "bytes": 126249,
+      "sourceReviewDocument": "docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json",
+      "sourceReviewSection": "assets",
+      "sourceReviewRecordSha256": "2b4d72bf575c4d7e906f6c7d29ae8ae39ffd88ddba7fa65051273e02d0664c4b",
+      "reviewedAssetBytesUnchanged": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/daily_board.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-4be90d08-29f5-4cc3-b8e0-589a69113b6f.png",
+      "sourceSha256": "95c5ad8b7d7398c27c0e246e03827b4518e17ba94f523343745c68dd89a80815",
+      "crop": [
+        0,
+        270,
+        850,
+        1850
+      ],
+      "sha256": "518167dd403e9a865da8304747036e44b4f13397504099a5018089c7be659875",
+      "bytes": 1901582,
+      "sourceReviewDocument": "docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json",
+      "sourceReviewSection": "assets",
+      "sourceReviewRecordSha256": "4b318c88d9f0e9e97c08d9fa433c568e969e1eff58dcd8f0ec829b3d746060fb",
+      "reviewedAssetBytesUnchanged": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/daily_header.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-4be90d08-29f5-4cc3-b8e0-589a69113b6f.png",
+      "sourceSha256": "95c5ad8b7d7398c27c0e246e03827b4518e17ba94f523343745c68dd89a80815",
+      "crop": [
+        0,
+        270,
+        850,
+        615
+      ],
+      "sha256": "4aa9bda6b963e29cde03d84245d006bd35d4aee18d594fef9abc1a103be0d1cb",
+      "bytes": 463025,
+      "sourceReviewDocument": "docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json",
+      "sourceReviewSection": "assets",
+      "sourceReviewRecordSha256": "09689627df139e78785e5708d32ddc0d299182c79b848b054fd1ffa7de5cfbcc",
+      "reviewedAssetBytesUnchanged": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/jade.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-0564b871-d2f6-410a-ab29-775cdea4de27.png",
+      "sourceSha256": "bffe176bea99668fdd641b1280c492e273bc81f0445098e1ad2ceab590e3e437",
+      "crop": null,
+      "sha256": "bffe176bea99668fdd641b1280c492e273bc81f0445098e1ad2ceab590e3e437",
+      "bytes": 2379785,
+      "sourceReviewDocument": "docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json",
+      "sourceReviewSection": "assets",
+      "sourceReviewRecordSha256": "3e94f797e1b2ef8b0850479b3e079930a20bd714c6dc8c6649229fbbae8fddcb",
+      "reviewedAssetBytesUnchanged": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/jade_action.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-d7a8c9e2-53f2-4cac-9984-afd5f00888e2.png",
+      "sourceSha256": "9097a6305659f65d339ebc34fd2f92440a8955335577163c9b8c7523be27871a",
+      "crop": [
+        30,
+        40,
+        1230,
+        229
+      ],
+      "sha256": "c81af6ef3fb943470876ff05463f9337ac4b51ab72454072fd3c955be95a0d19",
+      "bytes": 361140,
+      "sourceReviewDocument": "docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json",
+      "sourceReviewSection": "assets",
+      "sourceReviewRecordSha256": "45d7796a1d6c4a10f66533593766fa2d7d1e94291540d5d2462c3d1c648f1e51",
+      "reviewedAssetBytesUnchanged": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/paper.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-5f8a2686-de4b-48bf-bdeb-a15d5f5f0eed.png",
+      "sourceSha256": "354fe58dad64473dc0cf442786bf2efb4fda569d10d3d02d95c922c46b58e0e7",
+      "crop": null,
+      "sha256": "354fe58dad64473dc0cf442786bf2efb4fda569d10d3d02d95c922c46b58e0e7",
+      "bytes": 2331022,
+      "sourceReviewDocument": "docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json",
+      "sourceReviewSection": "assets",
+      "sourceReviewRecordSha256": "a51c9edfccaac4cfe065e62237168b93347995bc95999350272bb62947c82620",
+      "reviewedAssetBytesUnchanged": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/paper_action.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-d7a8c9e2-53f2-4cac-9984-afd5f00888e2.png",
+      "sourceSha256": "9097a6305659f65d339ebc34fd2f92440a8955335577163c9b8c7523be27871a",
+      "crop": [
+        30,
+        415,
+        1230,
+        618
+      ],
+      "sha256": "aa7f617465a9d77df13dbb1dcd6217296c7556cf85bb50fe90b21c81d606cd2d",
+      "bytes": 369407,
+      "sourceReviewDocument": "docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json",
+      "sourceReviewSection": "assets",
+      "sourceReviewRecordSha256": "c89e0a34f6ee36e29b27d3f768fd4d2abf0a1a47100d856108f64c4a1988e11f",
+      "reviewedAssetBytesUnchanged": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/paper_card.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-d518d6fd-36c8-4401-a815-9933dc108d4d.png",
+      "sourceSha256": "4c6757ef74c0ce4efcb7a2519f79e8d81eecd3318ae85a39ae5cd00e6ff22ebe",
+      "crop": [
+        0,
+        17,
+        1750,
+        792
+      ],
+      "sha256": "61ca47118eabc74ab4d034c22fb88ab84ee86c30eecb99c5197b5e34d54ce48f",
+      "bytes": 1685773,
+      "sourceReviewDocument": "docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json",
+      "sourceReviewSection": "assets",
+      "sourceReviewRecordSha256": "8b2c54da8c15dcff66c2c2681ba73b21cfdfee9e9fda8811802b98485308d0e3",
+      "reviewedAssetBytesUnchanged": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/silben_board.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-ed1541c3-53c8-4623-9ca7-fa9967fcdacb.png",
+      "sourceSha256": "7278c1fff5df4579d2ea04af76065af2cb0f5e0aaf77f2ddb4f198d895e9828e",
+      "crop": [
+        26,
+        610,
+        825,
+        1260
+      ],
+      "sha256": "3ab7caeb6b886027e0bc3f05759c78e92b1d4113b66fa39a63af91962b9a6197",
+      "bytes": 798201,
+      "sourceReviewDocument": "docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json",
+      "sourceReviewSection": "assets",
+      "sourceReviewRecordSha256": "5088d9c8a49f059338f0de590a144e9dafd554cda09c2262cc73e639ae9a4c6f",
+      "reviewedAssetBytesUnchanged": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/silben_clue.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-ed1541c3-53c8-4623-9ca7-fa9967fcdacb.png",
+      "sourceSha256": "7278c1fff5df4579d2ea04af76065af2cb0f5e0aaf77f2ddb4f198d895e9828e",
+      "crop": [
+        30,
+        264,
+        824,
+        375
+      ],
+      "sha256": "3be03e2f3876bd38aa3bc895b5564aa4e97e5f2c56d0dd26e2ee30edf5066444",
+      "bytes": 107445,
+      "sourceReviewDocument": "docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json",
+      "sourceReviewSection": "assets",
+      "sourceReviewRecordSha256": "98e00130e0018f109631cf5522d198f0c0dab00f43754e34fccf53d9dda51f45",
+      "reviewedAssetBytesUnchanged": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/silben_tile.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-ed1541c3-53c8-4623-9ca7-fa9967fcdacb.png",
+      "sourceSha256": "7278c1fff5df4579d2ea04af76065af2cb0f5e0aaf77f2ddb4f198d895e9828e",
+      "crop": [
+        58,
+        1280,
+        233,
+        1412
+      ],
+      "sha256": "5c3c5e532561d9b1cf3b77e4a4558cfee5bcd8a37a5096a3450a620d80e67548",
+      "bytes": 27281,
+      "sourceReviewDocument": "docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json",
+      "sourceReviewSection": "assets",
+      "sourceReviewRecordSha256": "d04b300e573af79ebd2a8b5b4740139f539feccad2cc7bad81b1081398078687",
+      "reviewedAssetBytesUnchanged": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/wood_tray.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-7c40205a-853b-4d3b-a129-3b13093d7287.png",
+      "sourceSha256": "edddd6a3ef9dffd44846e337bd2c5c9c231f3f931e78dde64c49c4957170a3c9",
+      "crop": [
+        0,
+        0,
+        1506,
+        992
+      ],
+      "sha256": "087ac4391c0208155a5251f8c84fe3f6e475d4ca8fd11122710bf2bf5c4cfaf5",
+      "bytes": 2117498,
+      "sourceReviewDocument": "docs/assets/APPROVED_SPIELE_PREVIEW_20261029.json",
+      "sourceReviewSection": "assets",
+      "sourceReviewRecordSha256": "2e299b66789c6fbdd3590959b88e7e51530197ef0f7d1aee9b273e9b67f8ea9f",
+      "reviewedAssetBytesUnchanged": true
+    }
+  ]
+}

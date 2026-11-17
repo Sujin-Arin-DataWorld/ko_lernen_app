@@ -32,6 +32,37 @@
       "termIds": [
         "hanji"
       ]
+    },
+    {
+      "scenarioId": "a2_andrea_minho_bojagi_housewarming",
+      "termIds": [
+        "bojagi"
+      ]
+    },
+    {
+      "scenarioId": "b1_minho_christian_hanok_cafe_meeting",
+      "termIds": [
+        "hanok",
+        "madang"
+      ]
+    },
+    {
+      "scenarioId": "a2_lena_maya_buchae_gift_choice",
+      "termIds": [
+        "buchae"
+      ]
+    },
+    {
+      "scenarioId": "b2_maya_daniel_pansori_promo_clip",
+      "termIds": [
+        "pansori"
+      ]
+    },
+    {
+      "scenarioId": "b2_hyuna_daniel_nongak_festival_filming",
+      "termIds": [
+        "nongak"
+      ]
     }
   ]
 }

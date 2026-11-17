@@ -1,0 +1,3409 @@
+[
+  {
+    "label": "",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        "<-",
+        "",
+        "Factor"
+      ],
+      [
+        "Color1",
+        "<-",
+        "R6 unity: shared timber family with intact individual grain",
+        "Color"
+      ],
+      [
+        "Color2",
+        "<-",
+        "R6 unity: shared timber family with intact individual grain",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 Grain seed",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 original component identity",
+        "Factor"
+      ],
+      [
+        "Value",
+        "<-",
+        "R6 original rigid object identity",
+        "Random"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 Original atlas cell",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R6 actual original grain and knot luminance",
+    "type": "RGBTOBW",
+    "inputs": [
+      [
+        "Color",
+        "<-",
+        "R6 bright pine palette; original growth signal retained",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Craft authored relief signal",
+    "type": "RGBTOBW",
+    "inputs": [
+      [
+        "Color",
+        "<-",
+        "Craft authored wood detail",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R3 contact pigment",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        0.30000001192092896
+      ],
+      [
+        "Color1",
+        "<-",
+        "R8 individual timber colour temperature",
+        "Color"
+      ],
+      [
+        "Color2",
+        "<-",
+        "R3 coloured contact gradient",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.009999999776482582
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R6 bright pine palette; original growth signal retained",
+    "type": "VALTORGB",
+    "inputs": [
+      [
+        "Factor",
+        "<-",
+        "Keep original grain luminance; remove mismatched source hues",
+        "Val"
+      ]
+    ],
+    "ramp": [
+      [
+        0.014999999664723873,
+        [
+          0.10499999672174454,
+          0.05299999937415123,
+          0.020999999716877937,
+          1.0
+        ]
+      ],
+      [
+        0.1899999976158142,
+        [
+          0.36500000953674316,
+          0.20499999821186066,
+          0.09000000357627869,
+          1.0
+        ]
+      ],
+      [
+        0.6499999761581421,
+        [
+          0.6600000262260437,
+          0.4449999928474426,
+          0.23499999940395355,
+          1.0
+        ]
+      ]
+    ]
+  },
+  {
+    "label": "R6 unity: shared timber family with intact individual grain",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        1.0
+      ],
+      [
+        "Color1",
+        "<-",
+        "",
+        "Color"
+      ],
+      [
+        "Color2",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 Original atlas cell",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 original grain atlas address",
+        "X"
+      ],
+      [
+        "Value",
+        8.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R6 unity: shared timber family with intact individual grain",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        1.0
+      ],
+      [
+        "Color1",
+        "<-",
+        "",
+        "Color"
+      ],
+      [
+        "Color2",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Craft authored wood detail",
+    "type": "TEX_IMAGE",
+    "inputs": [
+      [
+        "Vector",
+        "<-",
+        "Craft wood panel",
+        "Vector"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R3 coloured contact gradient",
+    "type": "VALTORGB",
+    "inputs": [
+      [
+        "Factor",
+        "<-",
+        "R3 real contact depth",
+        "AO"
+      ]
+    ],
+    "ramp": [
+      [
+        0.07999999821186066,
+        [
+          0.5600000023841858,
+          0.4399999976158142,
+          0.3400000035762787,
+          1.0
+        ]
+      ],
+      [
+        0.8199999928474426,
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ]
+    ]
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "R6 individual grain crop",
+        "Z"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R6 unity: shared timber family with intact individual grain",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        1.0
+      ],
+      [
+        "Color1",
+        "<-",
+        "",
+        "Color"
+      ],
+      [
+        "Color2",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Keep original grain luminance; remove mismatched source hues",
+    "type": "RGBTOBW",
+    "inputs": [
+      [
+        "Color",
+        "<-",
+        "",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "R6 unity: source swatch means, no grain smoothing",
+        "Color"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "",
+    "type": "TEX_IMAGE",
+    "inputs": [
+      [
+        "Vector",
+        "<-",
+        "R6 source swatch with varied knot placement",
+        "Vector"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        "<-",
+        "",
+        "Factor"
+      ],
+      [
+        "Color1",
+        "<-",
+        "",
+        "Normal"
+      ],
+      [
+        "Color2",
+        "<-",
+        "",
+        "Normal"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        0.9800000190734863
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "R6 unity: source swatch means, no grain smoothing",
+        "Color"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.17000000178813934
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R8 individual timber colour temperature",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        0.75
+      ],
+      [
+        "Color1",
+        "<-",
+        "R8 apron light natural timber pigment",
+        "Color"
+      ],
+      [
+        "Color2",
+        "<-",
+        "R8 member honey to sand pigment variation",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.6200000047683716
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.009999999776482582
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.17000000178813934
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.2199999988079071
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "",
+    "type": "TEX_IMAGE",
+    "inputs": [
+      [
+        "Vector",
+        "<-",
+        "R6 source swatch with varied knot placement",
+        "Vector"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 unity: retain actual growth rings and fibres",
+        "Val"
+      ],
+      [
+        "Value",
+        0.00800000037997961
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R5 independent paint alpha",
+    "type": "RGBTOBW",
+    "inputs": [
+      [
+        "Color",
+        "<-",
+        "R5 hand-brush alpha, surface attached",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Craft sampling within authored panel",
+        "Y"
+      ],
+      [
+        "Value",
+        1.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R8 member honey to sand pigment variation",
+    "type": "VALTORGB",
+    "inputs": [
+      [
+        "Factor",
+        "<-",
+        "Illustration constant pigment per member, not surface noise",
+        "Value"
+      ]
+    ],
+    "ramp": [
+      [
+        0.0,
+        [
+          0.9800000190734863,
+          1.024999976158142,
+          1.0800000429153442,
+          1.0
+        ]
+      ],
+      [
+        0.5,
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      [
+        1.0,
+        [
+          1.024999976158142,
+          0.9850000143051147,
+          0.9399999976158142,
+          1.0
+        ]
+      ]
+    ]
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 individual grain crop",
+        "Y"
+      ],
+      [
+        "Value",
+        0.25999999046325684
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "R6 individual grain crop",
+        "Z"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.2199999988079071
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 unity: source swatch means, no grain smoothing",
+        "Color"
+      ],
+      [
+        "Value",
+        0.17000000178813934
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        4.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        1.0
+      ],
+      [
+        "Color1",
+        "<-",
+        "R6 unity: shared timber family with intact individual grain",
+        "Color"
+      ],
+      [
+        "Color2",
+        [
+          0.9200000166893005,
+          0.8500000238418579,
+          0.800000011920929,
+          1.0
+        ]
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.00800000037997961
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R5 hand-brush alpha, surface attached",
+    "type": "TEX_IMAGE",
+    "inputs": [
+      [
+        "Vector",
+        "<-",
+        "Material-specific brush vocabulary",
+        "Vector"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Craft sampling within authored panel",
+        "X"
+      ],
+      [
+        "Value",
+        1.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R8 apron light natural timber pigment",
+    "type": "VALTORGB",
+    "inputs": [
+      [
+        "Factor",
+        "<-",
+        "Building R5 R8 individual board plus grain",
+        "Value"
+      ]
+    ],
+    "ramp": [
+      [
+        0.0,
+        [
+          0.40724021196365356,
+          0.19806931912899017,
+          0.05612849071621895,
+          1.0
+        ]
+      ],
+      [
+        0.4300000071525574,
+        [
+          0.6104955673217773,
+          0.3613067865371704,
+          0.13286831974983215,
+          1.0
+        ]
+      ],
+      [
+        0.9399999976158142,
+        [
+          0.7912979125976562,
+          0.5457244515419006,
+          0.2622506618499756,
+          1.0
+        ]
+      ]
+    ]
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 Original atlas cell",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        0.9800000190734863
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 unity: source swatch means, no grain smoothing",
+        "Color"
+      ],
+      [
+        "Value",
+        0.17000000178813934
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.11796381324529648
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 R8 individual board plus grain",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 R8 retain original broad and fine grain",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 R8 restrained per-board value range",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 Original atlas cell",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.7799999713897705
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R6 unity: source swatch means, no grain smoothing",
+    "type": "VALTORGB",
+    "inputs": [
+      [
+        "Factor",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ]
+    ],
+    "ramp": [
+      [
+        0.0,
+        [
+          0.26350095868110657,
+          0.26350095868110657,
+          0.26350095868110657,
+          1.0
+        ]
+      ],
+      [
+        0.125,
+        [
+          0.3316861093044281,
+          0.3316861093044281,
+          0.3316861093044281,
+          1.0
+        ]
+      ],
+      [
+        0.25,
+        [
+          0.1077931597828865,
+          0.1077931597828865,
+          0.1077931597828865,
+          1.0
+        ]
+      ],
+      [
+        0.375,
+        [
+          0.18876765668392181,
+          0.18876765668392181,
+          0.18876765668392181,
+          1.0
+        ]
+      ],
+      [
+        0.5,
+        [
+          0.13628196716308594,
+          0.13628196716308594,
+          0.13628196716308594,
+          1.0
+        ]
+      ],
+      [
+        0.625,
+        [
+          0.267837256193161,
+          0.267837256193161,
+          0.267837256193161,
+          1.0
+        ]
+      ],
+      [
+        0.75,
+        [
+          0.22860705852508545,
+          0.22860705852508545,
+          0.22860705852508545,
+          1.0
+        ]
+      ],
+      [
+        0.875,
+        [
+          0.0895475521683693,
+          0.0895475521683693,
+          0.0895475521683693,
+          1.0
+        ]
+      ]
+    ]
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "",
+    "type": "TEX_IMAGE",
+    "inputs": [
+      [
+        "Vector",
+        "<-",
+        "R6 shift original longitudinal sample only",
+        "Vector"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 Within swatch detail, not inter-board brightness",
+        "Value"
+      ],
+      [
+        "Value",
+        1.600000023841858
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 R8 retain original broad and fine grain",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R8 original directional grain luminance",
+        "Val"
+      ],
+      [
+        "Value",
+        1.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 Original atlas cell",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 original grain atlas address",
+        "Y"
+      ],
+      [
+        "Value",
+        1.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R6 unity: source swatch means, no grain smoothing",
+    "type": "VALTORGB",
+    "inputs": [
+      [
+        "Factor",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ]
+    ],
+    "ramp": [
+      [
+        0.0,
+        [
+          0.18422281742095947,
+          0.18422281742095947,
+          0.18422281742095947,
+          1.0
+        ]
+      ],
+      [
+        0.0625,
+        [
+          0.11931432038545609,
+          0.11931432038545609,
+          0.11931432038545609,
+          1.0
+        ]
+      ],
+      [
+        0.125,
+        [
+          0.24409624934196472,
+          0.24409624934196472,
+          0.24409624934196472,
+          1.0
+        ]
+      ],
+      [
+        0.1875,
+        [
+          0.17968226969242096,
+          0.17968226969242096,
+          0.17968226969242096,
+          1.0
+        ]
+      ],
+      [
+        0.25,
+        [
+          0.23246677219867706,
+          0.23246677219867706,
+          0.23246677219867706,
+          1.0
+        ]
+      ],
+      [
+        0.3125,
+        [
+          0.14529399573802948,
+          0.14529399573802948,
+          0.14529399573802948,
+          1.0
+        ]
+      ],
+      [
+        0.375,
+        [
+          0.27567195892333984,
+          0.27567195892333984,
+          0.27567195892333984,
+          1.0
+        ]
+      ],
+      [
+        0.4375,
+        [
+          0.15704448521137238,
+          0.15704448521137238,
+          0.15704448521137238,
+          1.0
+        ]
+      ],
+      [
+        0.5,
+        [
+          0.10996205359697342,
+          0.10996205359697342,
+          0.10996205359697342,
+          1.0
+        ]
+      ],
+      [
+        0.5625,
+        [
+          0.2958003878593445,
+          0.2958003878593445,
+          0.2958003878593445,
+          1.0
+        ]
+      ],
+      [
+        0.625,
+        [
+          0.1612945795059204,
+          0.1612945795059204,
+          0.1612945795059204,
+          1.0
+        ]
+      ],
+      [
+        0.6875,
+        [
+          0.2589062750339508,
+          0.2589062750339508,
+          0.2589062750339508,
+          1.0
+        ]
+      ],
+      [
+        0.75,
+        [
+          0.3003823161125183,
+          0.3003823161125183,
+          0.3003823161125183,
+          1.0
+        ]
+      ],
+      [
+        0.8125,
+        [
+          0.14360840618610382,
+          0.14360840618610382,
+          0.14360840618610382,
+          1.0
+        ]
+      ],
+      [
+        0.875,
+        [
+          0.2769818902015686,
+          0.2769818902015686,
+          0.2769818902015686,
+          1.0
+        ]
+      ],
+      [
+        0.9375,
+        [
+          0.18039438128471375,
+          0.18039438128471375,
+          0.18039438128471375,
+          1.0
+        ]
+      ]
+    ]
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 individual grain crop",
+        "X"
+      ],
+      [
+        "Value",
+        0.1599999964237213
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R6 material-specific pigment detail",
+    "type": "RGBTOBW",
+    "inputs": [
+      [
+        "Color",
+        "<-",
+        "R6 longitudinal sides and original cut rings",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        8.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 Within swatch detail, not inter-board brightness",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 unity: retain actual growth rings and fibres",
+        "Val"
+      ],
+      [
+        "Value",
+        0.11796381324529648
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 R8 restrained per-board value range",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 R8 member-centred variation",
+        "Value"
+      ],
+      [
+        "Value",
+        0.47999998927116394
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        8.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        16.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 Original atlas cell",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.009999999776482582
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.11796381324529648
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 R8 member-centred variation",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Illustration constant pigment per member, not surface noise",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 Original atlas cell",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R6 editable brush coverage; zero restores grain",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        0.0
+      ],
+      [
+        "Color1",
+        "<-",
+        "R6 longitudinal sides and original cut rings",
+        "Color"
+      ],
+      [
+        "Color2",
+        "<-",
+        "R6 pigment over intact grain",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "R6 individual grain crop",
+        "Z"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.17000000178813934
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 Original atlas cell",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 original grain atlas address",
+        "X"
+      ],
+      [
+        "Value",
+        4.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        "<-",
+        "",
+        "Factor"
+      ],
+      [
+        "Color1",
+        "<-",
+        "",
+        "Color"
+      ],
+      [
+        "Color2",
+        "<-",
+        "",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "HS2 amber timber through original grain",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        1.0
+      ],
+      [
+        "Color1",
+        "<-",
+        "Protect original endgrain orientation",
+        "Color"
+      ],
+      [
+        "Color2",
+        [
+          1.0499999523162842,
+          0.699999988079071,
+          0.36000001430511475,
+          1.0
+        ]
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R6 pigment over intact grain",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        1.0
+      ],
+      [
+        "Color1",
+        "<-",
+        "R6 longitudinal sides and original cut rings",
+        "Color"
+      ],
+      [
+        "Color2",
+        "<-",
+        "R6 thin broken brush pigment",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        8.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        0.9800000190734863
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.2199999988079071
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 Original member phase",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Stable original object brush phase",
+        "Random"
+      ],
+      [
+        "Value",
+        "<-",
+        "Existing member identity; no mesh attribute added",
+        "Factor"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Illustration original disconnected member",
+        "Random Per Island"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        4.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R6 thin broken brush pigment",
+    "type": "VALTORGB",
+    "inputs": [
+      [
+        "Factor",
+        "<-",
+        "R5 independent paint alpha",
+        "Val"
+      ]
+    ],
+    "ramp": [
+      [
+        0.11999999731779099,
+        [
+          0.8700000047683716,
+          0.8700000047683716,
+          0.8700000047683716,
+          1.0
+        ]
+      ],
+      [
+        0.5,
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      [
+        0.8999999761581421,
+        [
+          1.1299999952316284,
+          1.1299999952316284,
+          1.1299999952316284,
+          1.0
+        ]
+      ]
+    ]
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.6200000047683716
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        0.11796381324529648
+      ],
+      [
+        "Value",
+        0.17000000178813934
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 Original member phase",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Stable original object brush phase",
+        "Random"
+      ],
+      [
+        "Value",
+        "<-",
+        "Existing member identity; no mesh attribute added",
+        "Factor"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Illustration original member identity",
+        "Factor"
+      ],
+      [
+        "Value",
+        "<-",
+        "Illustration original object identity",
+        "Random"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.009999999776482582
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R6 cut wood restrained colour; ring contrast preserved",
+    "type": "HUE_SAT",
+    "inputs": [
+      [
+        "Hue",
+        0.5
+      ],
+      [
+        "Saturation",
+        0.8199999928474426
+      ],
+      [
+        "Value",
+        0.9399999976158142
+      ],
+      [
+        "Factor",
+        1.0
+      ],
+      [
+        "Color",
+        "<-",
+        "Illustration cut wood belongs to brown timber",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        1.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 individual grain crop",
+        "Y"
+      ],
+      [
+        "Value",
+        0.25999999046325684
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R6 unity: retain actual growth rings and fibres",
+    "type": "RGBTOBW",
+    "inputs": [
+      [
+        "Color",
+        "<-",
+        "",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        4.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "R6 individual grain crop",
+        "Z"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "",
+        "Factor"
+      ],
+      [
+        "Value",
+        0.9990000128746033
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R6 original illustrated endgrain",
+    "type": "TEX_IMAGE",
+    "inputs": [
+      [
+        "Vector",
+        "<-",
+        "R6 unchanged original cut atlas address",
+        "Vector"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Protect original endgrain orientation",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        "<-",
+        "Existing real cut faces retain original ring atlas",
+        "Factor"
+      ],
+      [
+        "Color1",
+        "<-",
+        "Craft authored detail with broad quiet planes",
+        "Color"
+      ],
+      [
+        "Color2",
+        "<-",
+        "Approved restrained orange brown direction",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 unity: original atlas cell identity",
+        "Y"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        1.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 Original atlas cell",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        "<-",
+        "",
+        "Value"
+      ],
+      [
+        "Color1",
+        "<-",
+        "",
+        "Color"
+      ],
+      [
+        "Color2",
+        "<-",
+        "Illustration cut wood belongs to brown timber",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        0.9800000190734863
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 unity: original atlas cell identity",
+        "Y"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 Original atlas cell",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.7799999713897705
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R6 longitudinal sides and original cut rings",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        "<-",
+        "R6 only existing real cut faces",
+        "Factor"
+      ],
+      [
+        "Color1",
+        "<-",
+        "Illustration maintained brown timber, original growth signal",
+        "Color"
+      ],
+      [
+        "Color2",
+        "<-",
+        "R6 cut wood restrained colour; ring contrast preserved",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Craft authored detail with broad quiet planes",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        0.3400000035762787
+      ],
+      [
+        "Color1",
+        "<-",
+        "Approved restrained orange brown direction",
+        "Color"
+      ],
+      [
+        "Color2",
+        "<-",
+        "Craft calibrated authored pigment",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        8.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 Original atlas cell",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 original grain atlas address",
+        "Y"
+      ],
+      [
+        "Value",
+        4.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Illustration cut wood belongs to brown timber",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        1.0
+      ],
+      [
+        "Color1",
+        "<-",
+        "R6 original illustrated endgrain",
+        "Color"
+      ],
+      [
+        "Color2",
+        [
+          0.6200000047683716,
+          0.5699999928474426,
+          0.5099999904632568,
+          1.0
+        ]
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "R8 original directional grain luminance",
+    "type": "RGBTOBW",
+    "inputs": [
+      [
+        "Color",
+        "<-",
+        "HS2 amber timber through original grain",
+        "Color"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "",
+    "type": "TEX_IMAGE",
+    "inputs": [
+      [
+        "Vector",
+        "<-",
+        "",
+        "Vector"
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 individual grain crop",
+        "X"
+      ],
+      [
+        "Value",
+        0.1599999964237213
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        4.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 R8 apron finish",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 R8 grain-scale finish variation",
+        "Value"
+      ],
+      [
+        "Value",
+        0.7549999952316284
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Approved restrained orange brown direction",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        1.0
+      ],
+      [
+        "Color1",
+        "<-",
+        "R6 editable brush coverage; zero restores grain",
+        "Color"
+      ],
+      [
+        "Color2",
+        [
+          1.3600000143051147,
+          1.190000057220459,
+          1.0199999809265137,
+          1.0
+        ]
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Illustration cut wood belongs to brown timber",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        1.0
+      ],
+      [
+        "Color1",
+        "<-",
+        "",
+        "Color"
+      ],
+      [
+        "Color2",
+        [
+          0.6200000047683716,
+          0.5699999928474426,
+          0.5099999904632568,
+          1.0
+        ]
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 unity: original atlas cell identity",
+        "X"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 ",
+        "Value"
+      ],
+      [
+        "Value",
+        4.0
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 Island grain seed",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 Grain seed",
+        "Value"
+      ],
+      [
+        "Value",
+        "<-",
+        "R6 disconnected timber identity",
+        "Random Per Island"
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "Building R5 Original atlas cell",
+        "Value"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Building R5 ",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R6 unity: original atlas cell identity",
+        "X"
+      ],
+      [
+        "Value",
+        0.5
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Illustration maintained brown timber, original growth signal",
+    "type": "VALTORGB",
+    "inputs": [
+      [
+        "Factor",
+        "<-",
+        "R6 actual original grain and knot luminance",
+        "Val"
+      ]
+    ],
+    "ramp": [
+      [
+        0.0,
+        [
+          0.008999999612569809,
+          0.006000000052154064,
+          0.004000000189989805,
+          1.0
+        ]
+      ],
+      [
+        0.03500000014901161,
+        [
+          0.03200000151991844,
+          0.01899999938905239,
+          0.012000000104308128,
+          1.0
+        ]
+      ],
+      [
+        0.11999999731779099,
+        [
+          0.11500000208616257,
+          0.06599999964237213,
+          0.039000000804662704,
+          1.0
+        ]
+      ],
+      [
+        0.30000001192092896,
+        [
+          0.24500000476837158,
+          0.15600000321865082,
+          0.09399999678134918,
+          1.0
+        ]
+      ],
+      [
+        0.6499999761581421,
+        [
+          0.4699999988079071,
+          0.33000001311302185,
+          0.2199999988079071,
+          1.0
+        ]
+      ],
+      [
+        1.0,
+        [
+          0.6800000071525574,
+          0.5199999809265137,
+          0.36000001430511475,
+          1.0
+        ]
+      ]
+    ]
+  },
+  {
+    "label": "Building R5 R8 grain-scale finish variation",
+    "type": "MATH",
+    "inputs": [
+      [
+        "Value",
+        "<-",
+        "R8 original directional grain luminance",
+        "Val"
+      ],
+      [
+        "Value",
+        0.10000000149011612
+      ],
+      [
+        "Value",
+        0.5
+      ]
+    ],
+    "ramp": null
+  },
+  {
+    "label": "Craft calibrated authored pigment",
+    "type": "MIX_RGB",
+    "inputs": [
+      [
+        "Factor",
+        1.0
+      ],
+      [
+        "Color1",
+        "<-",
+        "Craft authored wood detail",
+        "Color"
+      ],
+      [
+        "Color2",
+        [
+          1.5984560251235962,
+          1.9898170232772827,
+          1.99303138256073,
+          1.0
+        ]
+      ]
+    ],
+    "ramp": null
+  }
+]

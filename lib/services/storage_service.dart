@@ -13,6 +13,8 @@ import '../models/sori_stage_progression.dart' show SoriStageTab;
 
 import 'account/account_switch_coordinator.dart' show AccountSwitchJournal;
 import 'account/account_transition_journal.dart';
+import 'account/account_reconciliation_field_policy.dart';
+import 'account/reconciliation_errors.dart';
 import 'diagnostics_service.dart';
 import 'account/cloud_write_session.dart';
 import 'catalog_history_lease.dart';
@@ -374,14 +376,15 @@ enum GrammarPlanRestoreResult { written, skippedExisting, skippedRecoveryValue }
 
 enum _ConfirmedChoiceDomain {
   likedContent('kl_liked_content_v1'),
-  vokFavorite('kl_vok_favorites');
+  vokFavorite('kl_vok_favorites'),
+  grammarHard('kl_gram_hard');
 
   const _ConfirmedChoiceDomain(this.preferenceKey);
 
   final String preferenceKey;
 }
 
-/// One explicit add/remove choice for the two learner favorite lists.
+/// One explicit add/remove choice for a confirmed learner preference list.
 ///
 /// The item and desired state are frozen at admission so Retry cannot invert a
 /// choice or accidentally act on a newly rendered card.
@@ -1190,6 +1193,17 @@ class _PronunciationProgressRecord {
 /// Alle Schlüssel mit Präfix `kl_`. iOS und Android automatisch (über
 /// `SharedPreferences`, das auf iOS `NSUserDefaults` nutzt).
 class Storage {
+  static bool get welcomeSeen => _prefs?.getBool('kl_welcome_seen_v1') ?? false;
+  static Future<void> setWelcomeSeen() async {
+    final lifetime = LocalDataLifetime.capture();
+    await _sbStrict(
+      'kl_welcome_seen_v1',
+      true,
+      assertCurrentWrite: lifetime.assertCurrent,
+    );
+    lifetime.assertCurrent();
+  }
+
   static const accountDeletionCheckpointPreferenceKey =
       'kl_account_deletion_journal_v1';
   static const accountDeletionFeedbackActivationCheckpointPreferenceKey =
@@ -1220,6 +1234,8 @@ class Storage {
   static Future<void> _recoveredBookMutation = Future<void>.value();
   static Future<void> _recoveredWordMutation = Future<void>.value();
   static Future<void> _pronunciationProgressMutation = Future<void>.value();
+  static int _pronunciationProgressMutationCount = 0;
+  static int _pronunciationProgressMutationGeneration = 0;
   static Future<void> _catalogHistoryMutation = Future<void>.value();
   static Future<void>? _contentLearningMutation;
   static String? _contentLearningConfirmedRaw;
@@ -1780,6 +1796,9 @@ class Storage {
     if (_vocabProgressMutationCount > 0) {
       drains.add(_vocabProgressMutation);
     }
+    if (_pronunciationProgressMutationCount > 0) {
+      drains.add(_pronunciationProgressMutation);
+    }
     final grammarPlanMutation = _grammarPlanMutation;
     if (_grammarPlanMutationCount > 0 && grammarPlanMutation != null) {
       drains.add(grammarPlanMutation);
@@ -1838,6 +1857,8 @@ class Storage {
     _recoveredBookMutation = Future<void>.value();
     _recoveredWordMutation = Future<void>.value();
     _pronunciationProgressMutation = Future<void>.value();
+    _pronunciationProgressMutationCount = 0;
+    _pronunciationProgressMutationGeneration++;
     _catalogHistoryMutation = Future<void>.value();
     _catalogHistoryMutationCount = 0;
     _catalogHistoryResetting = 0;
@@ -3919,26 +3940,33 @@ class Storage {
   // 좌=모름/우=앎 계약을 따르게 하면서 필요해진 저장소).
   static List<String> get hangulHard => _l('kl_hangul_hard');
 
-  static Future<void> markHangulHard(String letter) async {
+  static Future<void> markHangulHard(
+    String letter, {
+    void Function()? assertCurrentWrite,
+  }) => _writeHangul('kl_hangul_hard', (guard) async {
     final list = hangulHard;
     if (!list.contains(letter)) {
       list.add(letter);
-      await _sl('kl_hangul_hard', list);
     }
-  }
+    await _slStrict('kl_hangul_hard', list, assertCurrentWrite: guard);
+  }, assertCurrentWrite: assertCurrentWrite);
 
-  static Future<void> markHangulEasy(String letter) async {
+  static Future<void> markHangulEasy(
+    String letter, {
+    void Function()? assertCurrentWrite,
+  }) => _writeHangul('kl_hangul_hard', (guard) async {
     final list = hangulHard;
     if (list.contains(letter)) {
       list.remove(letter);
-      await _sl('kl_hangul_hard', list);
     }
-  }
+    await _slStrict('kl_hangul_hard', list, assertCurrentWrite: guard);
+  }, assertCurrentWrite: assertCurrentWrite);
 
   // ───────── Grammatik ─────────
   static int get grammarLastIdx => _i('kl_gram_last_idx');
   static List<String> get grammarSeen => _l('kl_gram_seen');
-  static List<String> get grammarHard => _l('kl_gram_hard');
+  static List<String> get grammarHard =>
+      _confirmedChoiceList(_ConfirmedChoiceDomain.grammarHard);
   static String get grammarPlanRawJson {
     if (_grammarPlanConfirmedViewInitialized) {
       return _confirmedGrammarPlanRaw;
@@ -4335,6 +4363,81 @@ class Storage {
     });
   }
 
+  /// Read-only strict capture; unlike the UI view, malformed/unconfirmed
+  /// native values cannot masquerade as an empty plan during reconciliation.
+  static String captureGrammarPlanRawJsonForReconciliation() {
+    const key = 'kl_gram_plan_v1';
+    if (_learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (_unknownStrictKeys.contains(key) ||
+        _unconfirmedGrammarPlanLevels.isNotEmpty) {
+      throw const LocalReconciliationGenerationConflict();
+    }
+    final _StringPreferenceState state;
+    try {
+      state = _StringPreferenceState.read(_grammarPlanStringStore(), key);
+    } on TypeError {
+      throw const FormatException('Invalid local grammar plan encoding.');
+    } on StateError {
+      throw const FormatException('Invalid local grammar plan encoding.');
+    }
+    final raw = state.value ?? '';
+    if (raw.isEmpty) {
+      return '';
+    }
+    AccountReconciliationFieldPolicy.mergeGrammarPlan(null, raw);
+    return raw;
+  }
+
+  /// Applies an already-committed candidate, never an ordinary remote restore.
+  /// A fresh local extension or changed pace requires a new source snapshot.
+  static Future<void> applyGrammarPlanRawJsonForReconciliation(
+    String raw, {
+    void Function()? assertCurrentWrite,
+  }) {
+    final canonicalTarget = AccountReconciliationFieldPolicy.mergeGrammarPlan(
+      null,
+      raw,
+    );
+    final lifetime = LocalDataLifetime.capture();
+    void assertWritable() {
+      lifetime.assertCurrent();
+      assertCurrentWrite?.call();
+      lifetime.assertCurrent();
+    }
+
+    _captureGrammarPlanConfirmedView();
+    return _enqueueGrammarPlanMutation(() async {
+      const key = 'kl_gram_plan_v1';
+      assertWritable();
+      final store = _grammarPlanStringStore();
+      if (_unknownStrictKeys.contains(key)) {
+        await _refreshUnknownStringKeys(store, [key]);
+      } else {
+        await store.reload();
+      }
+      assertWritable();
+      final before = _StringPreferenceState.read(store, key);
+      final merged = AccountReconciliationFieldPolicy.mergeGrammarPlan(
+        before.value,
+        raw,
+      );
+      if (merged != canonicalTarget) {
+        throw const LocalReconciliationGenerationConflict();
+      }
+      await _ssStrict(
+        key,
+        raw,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: assertWritable,
+      );
+      _unconfirmedGrammarPlanLevels.clear();
+      _confirmedGrammarPlanRaw = raw;
+    });
+  }
+
   static Future<void> setGrammarLastIdx(int v) => _si('kl_gram_last_idx', v);
   static Future<void> addGrammarSeen(String pattern) async {
     final list = grammarSeen;
@@ -4344,20 +4447,21 @@ class Storage {
     }
   }
 
-  static Future<void> markGrammarHard(String pattern) async {
-    final list = grammarHard;
-    if (!list.contains(pattern)) {
-      list.add(pattern);
-      await _sl('kl_gram_hard', list);
-    }
-  }
+  static Future<void> markGrammarHard(String pattern) =>
+      _setGrammarHard(pattern, true);
 
-  static Future<void> markGrammarEasy(String pattern) async {
-    final list = grammarHard;
-    if (list.contains(pattern)) {
-      list.remove(pattern);
-      await _sl('kl_gram_hard', list);
-    }
+  static Future<void> markGrammarEasy(String pattern) =>
+      _setGrammarHard(pattern, false);
+
+  static Future<void> _setGrammarHard(String pattern, bool desired) async {
+    // Share the strict list commit, confirmed cache and per-list queue so a
+    // rejected or unknown native write cannot become a successful no-op retry.
+    await ConfirmedLocalChoiceOperation._(
+      null,
+      itemKey: pattern,
+      desired: desired,
+      domain: _ConfirmedChoiceDomain.grammarHard,
+    ).save();
   }
 
   // ───────── Onboarding ─────────
@@ -4455,7 +4559,10 @@ class Storage {
       }
     }
     if (changed) {
-      await _sl('kl_milestones', list);
+      // Read-only wallet loading can reload the shared preference cache while
+      // the celebration opens. Confirm the persisted list before acknowledging
+      // it so that a stale reload cannot hide an already displayed milestone.
+      await _slStrict('kl_milestones', list);
     }
   }
 
@@ -4554,6 +4661,45 @@ class Storage {
   static Future<void> setStreakDays(int value) => _si('kl_streak_days', value);
   static Future<void> setBestStreak(int value) => _si('kl_best_streak', value);
 
+  /// Applies the committed date/current-streak pair exactly. Ordinary restore
+  /// still uses its max rule; reconciliation must converge after a process
+  /// stops between these two native writes, even if the newer streak is lower.
+  static Future<void> applyAppStreakPairForReconciliation(
+    String dateIso,
+    int currentStreak, {
+    void Function()? assertCurrentWrite,
+  }) async {
+    if (currentStreak < 0 ||
+        (!_isCanonicalStudyLogDate(dateIso) &&
+            !(dateIso.isEmpty && currentStreak == 0))) {
+      throw const FormatException('Invalid committed app streak pair.');
+    }
+    final lifetime = LocalDataLifetime.capture();
+    void assertWritable() {
+      lifetime.assertCurrent();
+      assertCurrentWrite?.call();
+      lifetime.assertCurrent();
+    }
+
+    assertWritable();
+    if (lastOpenDate != dateIso) {
+      await _ssStrict(
+        'kl_last_open_date',
+        dateIso,
+        assertCurrentWrite: assertWritable,
+      );
+    }
+    assertWritable();
+    if (streakDays != currentStreak) {
+      await _siStrict(
+        'kl_streak_days',
+        currentStreak,
+        assertCurrentWrite: assertWritable,
+      );
+    }
+    assertWritable();
+  }
+
   /// §S3: calendar day (yyyy-MM-dd, local) the Gye life-promise projection
   /// backup ([CourseActivityReporter._scheduleLifePromiseProjectionSync])
   /// last ran, so a second passing checkpoint on the same day skips a
@@ -4599,7 +4745,14 @@ class Storage {
     if (last.isNotEmpty) {
       final lastDate = DateTime.tryParse(last);
       if (lastDate != null) {
-        final diff = DateTime.parse(today).difference(lastDate).inDays;
+        // Compare calendar dates: a local day can be 23 or 25 hours at DST.
+        final todayDate = DateTime.parse(today);
+        final diff =
+            DateTime.utc(todayDate.year, todayDate.month, todayDate.day)
+                .difference(
+                  DateTime.utc(lastDate.year, lastDate.month, lastDate.day),
+                )
+                .inDays;
         if (diff == 1) {
           newStreak = streakDays + 1;
         } else if (diff == 2 && freezes > 0) {
@@ -4722,7 +4875,27 @@ class Storage {
     double score, {
     PreferenceStringStore? preferences,
   }) {
-    final operation = _pronunciationProgressMutation.then((_) async {
+    if (_learningResetCount > 0 || _srsResetDrainPending) {
+      return Future<bool>.error(const StaleLocalDataLifetimeException());
+    }
+    final lifetime = LocalDataLifetime.capture();
+    final identity = cloudWriteSessionController.identityEpoch;
+    final generation = _pronunciationProgressMutationGeneration;
+    final idle = _pronunciationProgressMutationCount == 0;
+    final previous = _pronunciationProgressMutation;
+    _pronunciationProgressMutationCount++;
+    void assertCurrentWrite() {
+      if (_learningResetCount > 0 ||
+          _srsResetDrainPending ||
+          generation != _pronunciationProgressMutationGeneration ||
+          identity != cloudWriteSessionController.identityEpoch) {
+        throw const StaleLocalDataLifetimeException();
+      }
+      lifetime.assertCurrent();
+    }
+
+    Future<bool> write() async {
+      assertCurrentWrite();
       final normalizedId = assessmentId.trim();
       if (normalizedId.isEmpty ||
           normalizedId.length > 128 ||
@@ -4736,6 +4909,7 @@ class Storage {
         throw PreferenceWriteException(_pronunciationProgressKey);
       }
       await store.reload();
+      assertCurrentWrite();
       final current = _readPronunciationProgress(preferences: store);
       if (current.assessmentIds.contains(normalizedId) ||
           current.count >= 100) {
@@ -4750,9 +4924,19 @@ class Storage {
         _pronunciationProgressKey,
         jsonEncode(next.toJson()),
         preferences: store,
+        assertCurrentWrite: assertCurrentWrite,
       );
+      assertCurrentWrite();
       return true;
-    });
+    }
+
+    final operation =
+        (idle ? Future<bool>.microtask(write) : previous.then((_) => write()))
+            .whenComplete(() {
+              if (generation == _pronunciationProgressMutationGeneration) {
+                _pronunciationProgressMutationCount--;
+              }
+            });
     _pronunciationProgressMutation = operation.then<void>(
       (_) {},
       onError: (Object _, StackTrace __) {},
@@ -5083,8 +5267,72 @@ class Storage {
   /// (`stroke_matcher.dart` 에 적힌 관대함 논리는 그 모드로 살아남는다).
   static bool get hangulStrictStrokes =>
       _prefs?.getBool('kl_hangul_strict_strokes') ?? true;
-  static Future<void> setHangulStrictStrokes(bool v) =>
-      _sb('kl_hangul_strict_strokes', v);
+  static bool get hangulAutoAdvance => _b('kl_hangul_auto_advance_v1', true);
+
+  static Future<void>? _hangulMutationTail;
+  static Future<void> _writeHangul(
+    String key,
+    Future<void> Function(void Function()) write, {
+    void Function()? assertCurrentWrite,
+  }) {
+    final lifetime = LocalDataLifetime.capture();
+    final identity = cloudWriteSessionController.identityEpoch;
+    void guard() {
+      lifetime.assertCurrent();
+      if (identity != cloudWriteSessionController.identityEpoch) {
+        throw const StaleLocalDataLifetimeException();
+      }
+      assertCurrentWrite?.call();
+    }
+
+    return PackCompletionStorage.trackWrite(key, () {
+      Future<void> run() {
+        guard();
+        return write(guard);
+      }
+
+      final previous = _hangulMutationTail;
+      final result = previous == null
+          ? Future<void>.sync(run)
+          : previous.then((_) => run());
+      late final Future<void> tail;
+      void release() {
+        if (identical(_hangulMutationTail, tail)) {
+          _hangulMutationTail = null;
+        }
+      }
+
+      tail = result.then<void>(
+        (_) => release(),
+        onError: (Object _, StackTrace __) => release(),
+      );
+      _hangulMutationTail = tail;
+      return result;
+    });
+  }
+
+  static Future<void> setHangulStrictStrokes(
+    bool value, {
+    void Function()? assertCurrentWrite,
+  }) => _writeHangul(
+    'kl_hangul_strict_strokes',
+    (guard) =>
+        _sbStrict('kl_hangul_strict_strokes', value, assertCurrentWrite: guard),
+    assertCurrentWrite: assertCurrentWrite,
+  );
+
+  static Future<void> setHangulAutoAdvance(
+    bool value, {
+    void Function()? assertCurrentWrite,
+  }) => _writeHangul(
+    'kl_hangul_auto_advance_v1',
+    (guard) => _sbStrict(
+      'kl_hangul_auto_advance_v1',
+      value,
+      assertCurrentWrite: guard,
+    ),
+    assertCurrentWrite: assertCurrentWrite,
+  );
 
   // ───────── 온보딩 코치마크 1회성 플래그 (Stage 1) ─────────
   // `introSeen` 패턴과 동일. 각각 진입 화면에서 최초 1회 시트 표시.
@@ -5525,6 +5773,122 @@ class Storage {
     }
     final parsed = DateTime.tryParse(dateIso);
     return parsed != null && _today(parsed) == dateIso;
+  }
+
+  /// Synchronous capture for owned preview/source guards. No reload, recovery,
+  /// pruning or migration writes are performed here.
+  static String captureStudyLogRawJsonForReconciliation() {
+    if (_learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (_srsRecoveryClosed) {
+      throw const SrsRecoveryPendingException();
+    }
+    final prefs = _prefs;
+    if (prefs == null) {
+      throw StateError('Storage is not initialized.');
+    }
+    final store =
+        _studyLogStoreForTesting ?? _SharedPreferenceStringListStore(prefs);
+    final history = <String, List<String>>{};
+    for (final key in prefs.getKeys().where(
+      (key) => key.startsWith(_studyLogPrefix),
+    )) {
+      if (_unknownStrictKeys.contains(key)) {
+        throw const LocalReconciliationGenerationConflict();
+      }
+      final date = key.substring(_studyLogPrefix.length);
+      if (!_isCanonicalStudyLogDate(date)) {
+        throw const FormatException('Invalid local study history date.');
+      }
+      final List<String>? value;
+      try {
+        value = _StringListPreferenceState.read(store, key).value;
+      } on TypeError {
+        throw const FormatException('Invalid local study history encoding.');
+      } on StateError {
+        throw const FormatException('Invalid local study history encoding.');
+      }
+      if (value != null && value.isNotEmpty) {
+        history[date] = value;
+      }
+    }
+    return AccountReconciliationFieldPolicy.mergeStudyLog(
+      null,
+      jsonEncode(history),
+    );
+  }
+
+  /// The committed union may extend a nonempty date, unlike ordinary restore.
+  /// The latest local before-view must still be included; never truncate it.
+  static Future<void> applyStudyLogDateForReconciliation(
+    String dateIso,
+    List<String> targetIds, {
+    void Function()? assertCurrentWrite,
+  }) async {
+    final validated =
+        jsonDecode(
+              AccountReconciliationFieldPolicy.mergeStudyLog(
+                null,
+                jsonEncode({dateIso: targetIds}),
+              ),
+            )
+            as Map<String, dynamic>;
+    final target = targetIds.toSet().toList();
+    // Validation/candidate comparison is set-based, but the native ledger
+    // retains the order already committed in the candidate payload.
+    if ((validated[dateIso] as List).length != target.length) {
+      throw const FormatException('Invalid committed study history.');
+    }
+    final lifetime = LocalDataLifetime.capture();
+    void assertWritable() {
+      lifetime.assertCurrent();
+      assertCurrentWrite?.call();
+      lifetime.assertCurrent();
+    }
+
+    final saved = await _enqueueSrsReviewMutation((_) async {
+      assertWritable();
+      if (_srsRecoveryClosed) {
+        throw const SrsRecoveryPendingException();
+      }
+      final key = _studyLogKey(dateIso);
+      final store =
+          _studyLogStoreForTesting ??
+          (_prefs == null ? null : _SharedPreferenceStringListStore(_prefs!));
+      if (store == null) {
+        throw PreferenceWriteException(key);
+      }
+      if (_unknownStrictKeys.contains(key)) {
+        await _refreshUnknownStringListKeys(store, [key]);
+      } else {
+        await store.reload();
+      }
+      assertWritable();
+      final before = _StringListPreferenceState.read(store, key);
+      final merged = AccountReconciliationFieldPolicy.mergeStudyLog(
+        jsonEncode({dateIso: before.value ?? <String>[]}),
+        jsonEncode({dateIso: target}),
+      );
+      final candidate = AccountReconciliationFieldPolicy.mergeStudyLog(
+        null,
+        jsonEncode({dateIso: target}),
+      );
+      if (merged != candidate) {
+        throw const LocalReconciliationGenerationConflict();
+      }
+      await _slStrict(
+        key,
+        target,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: assertWritable,
+      );
+      return true;
+    });
+    if (!saved) {
+      throw const SrsRecoveryPendingException();
+    }
   }
 
   /// Restores one historical ledger entry without changing the SRS deck.
@@ -6174,6 +6538,23 @@ class Storage {
   /// (Onboarding-Trigger).
   static String? get userLevelCode =>
       LearnerLevel.fromCode(_s('kl_user_level'))?.code;
+
+  static String? captureLearnerGoalForReconciliation() {
+    if (_learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (_unknownStrictKeys.contains('kl_user_level')) {
+      throw const LocalReconciliationGenerationConflict();
+    }
+    final prefs = _prefs;
+    if (prefs == null) {
+      throw StateError('Storage is not initialized.');
+    }
+    return AccountReconciliationFieldPolicy.mergeLearnerGoal(
+      prefs.get('kl_user_level'),
+      null,
+    );
+  }
 
   static Future<void> setUserLevelCode(String code) =>
       _ss('kl_user_level', _requiredLearnerLevelCode(code));
@@ -8381,6 +8762,8 @@ class Storage {
           if (_yeopjeonMutationCount > 0) _yeopjeonMutation,
           if (_srsReviewMutationCount > 0) _srsReviewMutation,
           if (_vocabProgressMutationCount > 0) _vocabProgressMutation,
+          if (_pronunciationProgressMutationCount > 0)
+            _pronunciationProgressMutation,
           if (_grammarPlanMutationCount > 0 && _grammarPlanMutation != null)
             _grammarPlanMutation!,
           if (_confirmedChoiceMutationCount > 0)

@@ -7,6 +7,7 @@ import '../services/book_analysis_text.dart';
 import '../services/book_image_service.dart';
 import '../services/book_ocr_document.dart';
 import '../services/vocab_notebook_parser.dart';
+import '../theme.dart';
 import '../widgets/display_sized_file_image.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/standard_page.dart';
@@ -179,7 +180,24 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.args['captureMode'] == 'notebook') {
+      return _buildPreview(context);
+    }
+    return Theme(
+      data: AppTheme.light.copyWith(
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: Color(0xff174d43),
+          selectionColor: Color(0x553c886e),
+          selectionHandleColor: Color(0xff174d43),
+        ),
+      ),
+      child: Builder(builder: _buildPreview),
+    );
+  }
+
+  Widget _buildPreview(BuildContext context) {
     final t = AppL10n.of(context);
+    final bookPaper = widget.args['captureMode'] != 'notebook';
     final blockCount = widget.args['blockCount'] as int? ?? 0;
     final qualityWarnings =
         (widget.args['qualityWarnings'] as List?)
@@ -189,6 +207,9 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
 
     return SoriStandardFrame(
       appBarTitle: t.bookPreviewTitle,
+      cMaterial: bookPaper,
+      cPaperBody: bookPaper,
+      jadeAppBar: bookPaper,
       maxWidth: SoriMaxWidth.focus,
       padding: const EdgeInsets.all(Spacing.lg),
       // §W-A2: 200% 배율에서 32px 부족했다(경고 카드+긴 부제) — 기본
@@ -262,6 +283,7 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
               ),
               const SizedBox(height: Spacing.lg),
               SoriButton(
+                cMaterial: bookPaper,
                 label: _useNotebookPath
                     ? t.vocabNotebookPreviewCta
                     : t.bookPreviewAnalyze,
@@ -275,6 +297,7 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
               ),
               const SizedBox(height: Spacing.sm),
               SoriButton(
+                cMaterial: bookPaper,
                 label: t.bookPreviewRetake,
                 icon: Icons.replay_outlined,
                 variant: SoriButtonVariant.outlined,

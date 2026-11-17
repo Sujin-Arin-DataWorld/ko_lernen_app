@@ -1,0 +1,2224 @@
+{
+  "root": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4",
+  "source": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\building-craft-application-r1\\sarang\\sarang-craft-r1.blend",
+  "objectCount": 711,
+  "objects": [
+    {
+      "name": "Continuity.numaru corner posts",
+      "props": {
+        "geometry_role": "Continuity.numaru corner posts",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction.",
+        "grain_mapping": "Per-member PCA longitudinal axis; cylindrical wrap for round members",
+        "gyeTimberArrisV1": true,
+        "gyeHeritageWoodV1": true,
+        "gyePaintedEstateV2": true,
+        "gyeCaredEstateV52": true
+      },
+      "bounds": [
+        2.8249998092651367,
+        2.869999885559082,
+        1.9200000762939453
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Continuity.numaru front changho.leaf1.hanji backing",
+      "props": {
+        "geometry_role": "Continuity.numaru front changho.leaf1.hanji backing",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction."
+      },
+      "bounds": [
+        1.0275001525878906,
+        0.006000041961669922,
+        1.107800006866455
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Continuity.numaru front changho.leaf1.horizontal band",
+      "props": {
+        "geometry_role": "Continuity.numaru front changho.leaf1.horizontal band",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction.",
+        "grain_mapping": "Per-member PCA longitudinal axis; cylindrical wrap for round members",
+        "gyeHeritageWoodV1": true,
+        "gyePaintedEstateV2": true,
+        "gyeCaredEstateV52": true
+      },
+      "bounds": [
+        1.0275001525878906,
+        0.018000006675720215,
+        1.0646257400512695
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Continuity.numaru front changho.leaf1.lock rail",
+      "props": {
+        "geometry_role": "Continuity.numaru front changho.leaf1.lock rail",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction.",
+        "grain_mapping": "Per-member PCA longitudinal axis; cylindrical wrap for round members",
+        "gyeHeritageWoodV1": true,
+        "gyePaintedEstateV2": true,
+        "gyeCaredEstateV52": true
+      },
+      "bounds": [
+        1.1024999618530273,
+        0.06599998474121094,
+        0.039999961853027344
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Continuity.numaru front changho.leaf1.lower moulding.rail",
+      "props": {
+        "geometry_role": "Continuity.numaru front changho.leaf1.lower moulding.rail",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction.",
+        "grain_mapping": "Per-member PCA longitudinal axis; cylindrical wrap for round members",
+        "gyeHeritageWoodV1": true,
+        "gyePaintedEstateV2": true,
+        "gyeCaredEstateV52": true
+      },
+      "bounds": [
+        0.9995002746582031,
+        0.018000006675720215,
+        0.19920015335083008
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Continuity.numaru front changho.leaf1.lower moulding.stile",
+      "props": {
+        "geometry_role": "Continuity.numaru front changho.leaf1.lower moulding.stile",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction.",
+        "grain_mapping": "Per-member PCA longitudinal axis; cylindrical wrap for round members",
+        "gyeHeritageWoodV1": true,
+        "gyePaintedEstateV2": true,
+        "gyeCaredEstateV52": true
+      },
+      "bounds": [
+        1.0234994888305664,
+        0.018000006675720215,
+        0.19920015335083008
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Continuity.numaru front changho.leaf1.rail",
+      "props": {
+        "geometry_role": "Continuity.numaru front changho.leaf1.rail",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction.",
+        "grain_mapping": "Per-member PCA longitudinal axis; cylindrical wrap for round members",
+        "gyeHeritageWoodV1": true,
+        "gyePaintedEstateV2": true,
+        "gyeCaredEstateV52": true
+      },
+      "bounds": [
+        1.0415000915527344,
+        0.06800007820129395,
+        1.440000057220459
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Continuity.numaru front changho.leaf1.rear paper rail",
+      "props": {
+        "geometry_role": "Continuity.numaru front changho.leaf1.rear paper rail",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction.",
+        "grain_mapping": "Per-member PCA longitudinal axis; cylindrical wrap for round members",
+        "gyeHeritageWoodV1": true,
+        "gyePaintedEstateV2": true,
+        "gyeCaredEstateV52": true
+      },
+      "bounds": [
+        1.0275001525878906,
+        0.018000006675720215,
+        0.9073178768157959
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Continuity.numaru front changho.leaf1.rebated bead.rail",
+      "props": {
+        "geometry_role": "Continuity.numaru front changho.leaf1.rebated bead.rail",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction.",
+        "grain_mapping": "Per-member PCA longitudinal axis; cylindrical wrap for round members",
+        "gyeHeritageWoodV1": true,
+        "gyePaintedEstateV2": true,
+        "gyeCaredEstateV52": true
+      },
+      "bounds": [
+        1.0194997787475586,
+        0.02499997615814209,
+        1.1288001537322998
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Continuity.numaru front changho.leaf1.rebated bead.stile",
+      "props": {
+        "geometry_role": "Continuity.numaru front changho.leaf1.rebated bead.stile",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction.",
+        "grain_mapping": "Per-member PCA longitudinal axis; cylindrical wrap for round members",
+        "gyeHeritageWoodV1": true,
+        "gyePaintedEstateV2": true,
+        "gyeCaredEstateV52": true
+      },
+      "bounds": [
+        1.0434999465942383,
+        0.02499997615814209,
+        1.1288001537322998
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Continuity.numaru front changho.leaf1.recessed lower board",
+      "props": {
+        "geometry_role": "Continuity.numaru front changho.leaf1.recessed lower board",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction.",
+        "grain_mapping": "Per-member PCA longitudinal axis; cylindrical wrap for round members",
+        "gyeHeritageWoodV1": true,
+        "gyePaintedEstateV2": true,
+        "gyeCaredEstateV52": true
+      },
+      "bounds": [
+        1.0415000915527344,
+        0.02499997615814209,
+        0.18519997596740723
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Continuity.numaru front changho.leaf1.stile",
+      "props": {
+        "geometry_role": "Continuity.numaru front changho.leaf1.stile",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction.",
+        "grain_mapping": "Per-member PCA longitudinal axis; cylindrical wrap for round members",
+        "gyeHeritageWoodV1": true,
+        "gyePaintedEstateV2": true,
+        "gyeCaredEstateV52": true
+      },
+      "bounds": [
+        1.1274995803833008,
+        0.06800007820129395,
+        1.440000057220459
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Continuity.numaru front changho.leaf1.vertical sal",
+      "props": {
+        "geometry_role": "Continuity.numaru front changho.leaf1.vertical sal",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction.",
+        "grain_mapping": "Per-member PCA longitudinal axis; cylindrical wrap for round members",
+        "gyeHeritageWoodV1": true,
+        "gyePaintedEstateV2": true,
+        "gyeCaredEstateV52": true
+      },
+      "bounds": [
+        0.9491519927978516,
+        0.02500009536743164,
+        1.107800006866455
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Continuity.numaru front changho.leaf2.hanji backing",
+      "props": {
+        "geometry_role": "Continuity.numaru front changho.leaf2.hanji backing",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction."
+      },
+      "bounds": [
+        1.0275001525878906,
+        0.006000041961669922,
+        1.107800006866455
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "Continuity.numaru front changho.leaf2.horizontal band",
+      "props": {
+        "geometry_role": "Continuity.numaru front changho.leaf2.horizontal band",
+        "evidence": "Room axis x=11.890, passage x=10.575..11.890 from plan004; joinery and vertical opening details are reconstruction.",
+        "grain_mapping": "Per-member PCA longitudinal axis; cylindrical wrap for round members",
+        "gyeHeritageWoodV1": true,
+        "gyePaintedEstateV2": true,
+        "gyeCaredEstateV52": true
+      },
+      "bounds": [
+        1.0275001525878906,
+        0.018000006675720215,
+        1.0646257400512695
+      ],
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "stages": {
+    "None": 710,
+    "14": 1
+  },
+  "propertyKeys": {
+    "geometry_role": 647,
+    "evidence": 265,
+    "grain_mapping": 500,
+    "gyeTimberArrisV1": 61,
+    "gyeHeritageWoodV1": 441,
+    "gyePaintedEstateV2": 498,
+    "gyeCaredEstateV52": 653,
+    "gyeStonePigmentV2": 78,
+    "reference": 23,
+    "accuracy": 15,
+    "interpretation": 25,
+    "construction_building": 37,
+    "construction_first": 37,
+    "construction_last": 37,
+    "gyePlatformStoneV1": 5,
+    "source_object_name": 37,
+    "styleInterpretation": 2,
+    "construction_role": 30,
+    "uncertainty": 5,
+    "dimensions": 8,
+    "reference_detail": 197,
+    "source_path": 16,
+    "source_regions_px": 16,
+    "revision": 64,
+    "surfaceRepairOnly": 1,
+    "sourceObject": 1,
+    "reviewStage": 1,
+    "processId": 1,
+    "purpose": 1
+  },
+  "lights": [
+    {
+      "name": "Broad warm daylight",
+      "type": "AREA",
+      "energy": 3500.0,
+      "color": [
+        1.0,
+        0.9100000262260437,
+        0.7900000214576721
+      ],
+      "location": [
+        -5.0,
+        -8.0,
+        16.0
+      ],
+      "size": 7.0
+    },
+    {
+      "name": "Open front fill",
+      "type": "AREA",
+      "energy": 1250.0,
+      "color": [
+        1.0,
+        0.9800000190734863,
+        0.9100000262260437
+      ],
+      "location": [
+        13.0,
+        -9.0,
+        9.0
+      ],
+      "size": 9.0
+    },
+    {
+      "name": "Soft rear daylight",
+      "type": "AREA",
+      "energy": 1100.0,
+      "color": [
+        0.9100000262260437,
+        0.949999988079071,
+        1.0
+      ],
+      "location": [
+        8.0,
+        10.0,
+        13.0
+      ],
+      "size": 8.0
+    }
+  ],
+  "world": {
+    "name": "Lookdev warm open sky",
+    "nodes": [
+      [
+        "BACKGROUND",
+        "Background"
+      ],
+      [
+        "OUTPUT_WORLD",
+        "World Output"
+      ],
+      [
+        "BACKGROUND",
+        "Warm paper camera backdrop only"
+      ],
+      [
+        "LIGHT_PATH",
+        "Light Path"
+      ],
+      [
+        "MIX_SHADER",
+        "Mix Shader"
+      ]
+    ]
+  },
+  "materials": [
+    {
+      "name": "R6 restored wood | Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 4 v66 posts.002",
+      "role": "wood",
+      "props": {
+        "gyeDirectAlbedoV1": true,
+        "gyeMatteSurfaceV1": "wood",
+        "gyeDirectAlbedoFactor": [
+          0.9660000000000001,
+          0.903,
+          0.861,
+          1.0
+        ],
+        "gyeTimberRegisterV56": true,
+        "gyeBuildingTimberId": "sarang",
+        "gyeMemberTimberRole": "posts",
+        "gyeTimberToneIndex": 4,
+        "gyeTimberMemberRoleV66": true,
+        "pilotSourceMaterial": "Gye cared pine sarang v56 floor tone 4 v66 posts.001",
+        "pilotRole": "wood_floor",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "r6_role": "wood",
+        "r6_source_material": "Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 4 v66 posts.002",
+        "r6_brush_mix": 0.15
+      },
+      "nodes": [
+        {
+          "name": "프린시플드 BSDF",
+          "label": "",
+          "type": "BSDF_PRINCIPLED",
+          "operation": null,
+          "inputs": {
+            "Base Color": "link:R6 editable brush coverage; zero restores grain:Color",
+            "Metallic": 0.0,
+            "Roughness": "link:Building R5 Material upper roughness bound:Value",
+            "IOR": 1.5,
+            "Alpha": 1.0,
+            "Thin Wall": false,
+            "Normal": "link:R6 thin selective paint surface:Normal",
+            "Weight": 0.0,
+            "Diffuse Roughness": 0.0,
+            "Subsurface Weight": 0.0,
+            "Subsurface Radius": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Subsurface Scale": 0.004999999888241291,
+            "Subsurface IOR": 1.399999976158142,
+            "Subsurface Anisotropy": 0.0,
+            "Specular IOR Level": 0.10000000149011612,
+            "Specular Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Anisotropic": 0.0,
+            "Anisotropic Rotation": 0.0,
+            "Tangent": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Transmission Weight": 0.0,
+            "Coat Weight": 0.0,
+            "Coat Roughness": 0.029999999329447746,
+            "Coat IOR": 1.5,
+            "Coat Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Coat Normal": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Sheen Weight": 0.0,
+            "Sheen Roughness": 0.5,
+            "Sheen Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Strength": 0.0,
+            "Thin Film Thickness": 0.0,
+            "Thin Film IOR": 1.3300000429153442
+          }
+        },
+        {
+          "name": "이미지 텍스처",
+          "label": "",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:R6 shift original longitudinal sample only:Vector"
+          }
+        },
+        {
+          "name": "믹스 (레거시)",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link:R6 unity: shared timber family with intact individual grain:Color",
+            "Color2": "<bpy_float[4], NodeSocketColor.default_value>"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R5 hand-brush alpha, surface attached",
+          "label": "R5 hand-brush alpha, surface attached",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:Material-specific brush vocabulary:Vector"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 unity: shared timber family with intact indiv",
+          "label": "R6 unity: shared timber family with intact individual grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link::Color",
+            "Color2": "link:Building R5 :Value"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 longitudinal sides and original cut rings",
+          "label": "R6 longitudinal sides and original cut rings",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": "link:R6 only existing real cut faces:Factor",
+            "Color1": "link:R6 continuous bright pine pigment; no flat planes:Color",
+            "Color2": "link:R6 cut wood restrained colour; ring contrast preserved:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 original illustrated endgrain",
+          "label": "R6 original illustrated endgrain",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:R6 unchanged original cut atlas address:Vector"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 pigment over intact grain",
+          "label": "R6 pigment over intact grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link:R6 longitudinal sides and original cut rings:Color",
+            "Color2": "link:R6 thin broken brush pigment:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 editable brush coverage; zero restores grain",
+          "label": "R6 editable brush coverage; zero restores grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.15000000596046448,
+            "Color1": "link:R6 longitudinal sides and original cut rings:Color",
+            "Color2": "link:R6 pigment over intact grain:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 wood material relief over original normals",
+          "label": "R6 wood material relief over original normals",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.11999999731779099,
+            "Distance": 0.00044999999227002263,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R6 material-specific pigment detail:Val",
+            "Normal": "<bpy_float[3], NodeSocketVector.default_value>"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 thin selective paint surface",
+          "label": "R6 thin selective paint surface",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.03999999910593033,
+            "Distance": 0.0001500000071246177,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R5 independent paint alpha:Val",
+            "Normal": "link:R6 wood material relief over original normals:Normal"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ildu craft paper | R6 restored paper | HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+      "role": "paper",
+      "props": {
+        "craft_detail": "Member grain and uneven patina, preserving original pigment input",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "paper",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Warm hanji in timber lattice",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.paper.Warm hanji in timber lattice",
+        "pilotRole": "paper",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "HSWhiteFamily": "paper",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': 'Principled BSDF', 'precompressionNode': 'Math'}]",
+        "r6_role": "paper",
+        "r6_source_material": "HS white r2 | sarang | paper | Selected timber v2 | sarang | P18 image.sarang.paper.Warm hanji in timber lattice",
+        "r6_brush_mix": 0.035,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "paper",
+        "craft_usage": "paper"
+      },
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "label": "",
+          "type": "BSDF_PRINCIPLED",
+          "operation": null,
+          "inputs": {
+            "Base Color": "link:Illustration quiet warm lime and paper:Color",
+            "Metallic": 0.0,
+            "Roughness": "link:Building R5 Material upper roughness bound:Value",
+            "IOR": 1.5,
+            "Alpha": 1.0,
+            "Thin Wall": false,
+            "Normal": "link:R6 thin selective paint surface:Normal",
+            "Weight": 0.0,
+            "Diffuse Roughness": 0.0,
+            "Subsurface Weight": 0.03500000014901161,
+            "Subsurface Radius": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Subsurface Scale": 0.004999999888241291,
+            "Subsurface IOR": 1.399999976158142,
+            "Subsurface Anisotropy": 0.0,
+            "Specular IOR Level": 0.5,
+            "Specular Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Anisotropic": 0.0,
+            "Anisotropic Rotation": 0.0,
+            "Tangent": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Transmission Weight": 0.0,
+            "Coat Weight": 0.0,
+            "Coat Roughness": 0.029999999329447746,
+            "Coat IOR": 1.5,
+            "Coat Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Coat Normal": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Sheen Weight": 0.0,
+            "Sheen Roughness": 0.5,
+            "Sheen Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Strength": 0.0,
+            "Thin Film Thickness": 0.0,
+            "Thin Film IOR": 1.3300000429153442
+          }
+        },
+        {
+          "name": "이미지 텍스처",
+          "label": "",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link::Vector"
+          }
+        },
+        {
+          "name": "믹스 (레거시)",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.6700000166893005,
+            "Color1": "link::Color",
+            "Color2": "link::Color"
+          }
+        },
+        {
+          "name": "믹스 (레거시).001",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.27000001072883606,
+            "Color1": "link::Color",
+            "Color2": "link::Color"
+          }
+        },
+        {
+          "name": "범프",
+          "label": "",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.08959999680519104,
+            "Distance": 0.002199999988079071,
+            "Filter Width": 0.10000000149011612,
+            "Height": "link::Val",
+            "Normal": "<bpy_float[3], NodeSocketVector.default_value>"
+          }
+        },
+        {
+          "name": "이미지 텍스처.001",
+          "label": "",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link::Vector"
+          }
+        },
+        {
+          "name": "믹스 (레거시).002",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": "link::Factor",
+            "Color1": "link::Color",
+            "Color2": "link::Color"
+          }
+        },
+        {
+          "name": "범프.001",
+          "label": "",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.007000000216066837,
+            "Distance": 9.999999747378752e-05,
+            "Filter Width": 0.10000000149011612,
+            "Height": "link::Color",
+            "Normal": "<bpy_float[3], NodeSocketVector.default_value>"
+          }
+        },
+        {
+          "name": "믹스 (레거시).003",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": "link::Factor",
+            "Color1": "link::Normal",
+            "Color2": "link::Normal"
+          }
+        },
+        {
+          "name": "Mix (Legacy)",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link:Visible orange reduction; preserve grain direction:Color",
+            "Color2": "<bpy_float[4], NodeSocketColor.default_value>"
+          }
+        },
+        {
+          "name": "Mix (Legacy).001",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link::Color",
+            "Color2": "link::Value"
+          }
+        },
+        {
+          "name": "HS white r2 existing hanji fibre density only",
+          "label": "HS white r2 existing hanji fibre density only",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.18000000715255737,
+            "Distance": 5.500000042957254e-05,
+            "Filter Width": 0.10000000149011612,
+            "Height": "link:HS white r2 existing density high:Value",
+            "Normal": "link::Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R5 hand-brush alpha, surface attached",
+          "label": "R5 hand-brush alpha, surface attached",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:Material-specific brush vocabulary:Vector"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 pigment over intact grain",
+          "label": "R6 pigment over intact grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link::Color",
+            "Color2": "link:R6 thin broken brush pigment:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 editable brush coverage; zero restores grain",
+          "label": "R6 editable brush coverage; zero restores grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.0,
+            "Color1": "link::Color",
+            "Color2": "link:R6 pigment over intact grain:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 paper material relief over original normals",
+          "label": "R6 paper material relief over original normals",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.05000000074505806,
+            "Distance": 0.00011999999696854502,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R6 material-specific pigment detail:Val",
+            "Normal": "link:HS white r2 existing hanji fibre density only:Normal"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 thin selective paint surface",
+          "label": "R6 thin selective paint surface",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.03999999910593033,
+            "Distance": 0.0001500000071246177,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R5 independent paint alpha:Val",
+            "Normal": "link:R6 paper material relief over original normals:Normal"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Illustration quiet warm lime and paper",
+          "label": "Illustration quiet warm lime and paper",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.18000000715255737,
+            "Color1": "link:R6 editable brush coverage; zero restores grain:Color",
+            "Color2": "<bpy_float[4], NodeSocketColor.default_value>"
+          }
+        }
+      ]
+    },
+    {
+      "name": "R6 restored lattice | Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 2 v66 joinery.002",
+      "role": "lattice",
+      "props": {
+        "gyeDirectAlbedoV1": true,
+        "gyeMatteSurfaceV1": "wood",
+        "gyeDirectAlbedoFactor": [
+          0.92,
+          0.86,
+          0.82,
+          1.0
+        ],
+        "gyeTimberRegisterV56": true,
+        "gyeBuildingTimberId": "sarang",
+        "gyeMemberTimberRole": "joinery",
+        "gyeTimberToneIndex": 2,
+        "gyeTimberMemberRoleV66": true,
+        "pilotSourceMaterial": "Gye cared pine sarang v56 floor tone 2 v66 joinery.001",
+        "pilotRole": "wood_floor",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "r6_role": "lattice",
+        "r6_source_material": "Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 2 v66 joinery.002",
+        "r6_brush_mix": 0.08
+      },
+      "nodes": [
+        {
+          "name": "프린시플드 BSDF",
+          "label": "",
+          "type": "BSDF_PRINCIPLED",
+          "operation": null,
+          "inputs": {
+            "Base Color": "link:R6 editable brush coverage; zero restores grain:Color",
+            "Metallic": 0.0,
+            "Roughness": "link:Building R5 Material upper roughness bound:Value",
+            "IOR": 1.5,
+            "Alpha": 1.0,
+            "Thin Wall": false,
+            "Normal": "link:R6 thin selective paint surface:Normal",
+            "Weight": 0.0,
+            "Diffuse Roughness": 0.0,
+            "Subsurface Weight": 0.0,
+            "Subsurface Radius": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Subsurface Scale": 0.004999999888241291,
+            "Subsurface IOR": 1.399999976158142,
+            "Subsurface Anisotropy": 0.0,
+            "Specular IOR Level": 0.10000000149011612,
+            "Specular Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Anisotropic": 0.0,
+            "Anisotropic Rotation": 0.0,
+            "Tangent": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Transmission Weight": 0.0,
+            "Coat Weight": 0.0,
+            "Coat Roughness": 0.029999999329447746,
+            "Coat IOR": 1.5,
+            "Coat Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Coat Normal": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Sheen Weight": 0.0,
+            "Sheen Roughness": 0.5,
+            "Sheen Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Strength": 0.0,
+            "Thin Film Thickness": 0.0,
+            "Thin Film IOR": 1.3300000429153442
+          }
+        },
+        {
+          "name": "이미지 텍스처",
+          "label": "",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:R6 shift original longitudinal sample only:Vector"
+          }
+        },
+        {
+          "name": "믹스 (레거시)",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link:R6 unity: shared timber family with intact individual grain:Color",
+            "Color2": "<bpy_float[4], NodeSocketColor.default_value>"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R5 hand-brush alpha, surface attached",
+          "label": "R5 hand-brush alpha, surface attached",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:Material-specific brush vocabulary:Vector"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 unity: shared timber family with intact indiv",
+          "label": "R6 unity: shared timber family with intact individual grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link::Color",
+            "Color2": "link:Building R5 :Value"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 longitudinal sides and original cut rings",
+          "label": "R6 longitudinal sides and original cut rings",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": "link:R6 only existing real cut faces:Factor",
+            "Color1": "link:R6 continuous bright pine pigment; no flat planes:Color",
+            "Color2": "link:R6 cut wood restrained colour; ring contrast preserved:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 original illustrated endgrain",
+          "label": "R6 original illustrated endgrain",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:R6 unchanged original cut atlas address:Vector"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 pigment over intact grain",
+          "label": "R6 pigment over intact grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link:R6 longitudinal sides and original cut rings:Color",
+            "Color2": "link:R6 thin broken brush pigment:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 editable brush coverage; zero restores grain",
+          "label": "R6 editable brush coverage; zero restores grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.07999999821186066,
+            "Color1": "link:R6 longitudinal sides and original cut rings:Color",
+            "Color2": "link:R6 pigment over intact grain:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 lattice material relief over original normals",
+          "label": "R6 lattice material relief over original normals",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.07000000029802322,
+            "Distance": 0.00018000000272877514,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R6 material-specific pigment detail:Val",
+            "Normal": "<bpy_float[3], NodeSocketVector.default_value>"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 thin selective paint surface",
+          "label": "R6 thin selective paint surface",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.03999999910593033,
+            "Distance": 0.0001500000071246177,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R5 independent paint alpha:Val",
+            "Normal": "link:R6 lattice material relief over original normals:Normal"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ildu craft plaster | R6 restored plaster | HS white r2 | sarang | plaster | Selected timber v2 | sarang | P18 image.sarang.plaster.Gye cared limewash v52",
+      "role": "plaster",
+      "props": {
+        "gyeDirectAlbedoV1": true,
+        "gyeMatteSurfaceV1": "plaster",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "plaster",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Gye cared limewash v52",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.plaster.Gye cared limewash v52",
+        "pilotRole": "plaster",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "HSWhiteVersion": "white-surface-r2",
+        "HSWhiteSource": "Selected timber v2 | sarang | P18 image.sarang.plaster.Gye cared limewash v52",
+        "HSWhiteFamily": "plaster",
+        "HSWhiteOwner": "sarang",
+        "HSWhiteDensitySources": "[{'shader': '프린시플드 BSDF', 'precompressionNode': 'Math', 'mappedDensitySource': {'mode': 'direct original limewash brush', 'node': '이미지 텍스처', 'packedSha256': '0f2361a17c270eadb328d3ccc6fae429e8a00be9f7e452a00b1a8a53e486bd33', 'brushNormalizationApplied': True}}]",
+        "r6_role": "plaster",
+        "r6_source_material": "HS white r2 | sarang | plaster | Selected timber v2 | sarang | P18 image.sarang.plaster.Gye cared limewash v52",
+        "r6_brush_mix": 0.07,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "plaster",
+        "craft_usage": "plaster"
+      },
+      "nodes": [
+        {
+          "name": "프린시플드 BSDF",
+          "label": "",
+          "type": "BSDF_PRINCIPLED",
+          "operation": null,
+          "inputs": {
+            "Base Color": "link:Illustration quiet warm lime and paper:Color",
+            "Metallic": 0.0,
+            "Roughness": "link:Building R5 Material upper roughness bound:Value",
+            "IOR": 1.5,
+            "Alpha": 1.0,
+            "Thin Wall": false,
+            "Normal": "link:R6 thin selective paint surface:Normal",
+            "Weight": 0.0,
+            "Diffuse Roughness": 0.0,
+            "Subsurface Weight": 0.0,
+            "Subsurface Radius": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Subsurface Scale": 0.004999999888241291,
+            "Subsurface IOR": 1.399999976158142,
+            "Subsurface Anisotropy": 0.0,
+            "Specular IOR Level": 0.10000000149011612,
+            "Specular Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Anisotropic": 0.0,
+            "Anisotropic Rotation": 0.0,
+            "Tangent": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Transmission Weight": 0.0,
+            "Coat Weight": 0.0,
+            "Coat Roughness": 0.029999999329447746,
+            "Coat IOR": 1.5,
+            "Coat Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Coat Normal": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Sheen Weight": 0.0,
+            "Sheen Roughness": 0.5,
+            "Sheen Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Strength": 0.0,
+            "Thin Film Thickness": 0.0,
+            "Thin Film IOR": 1.3300000429153442
+          }
+        },
+        {
+          "name": "이미지 텍스처",
+          "label": "",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link::UV"
+          }
+        },
+        {
+          "name": "이미지 텍스처.001",
+          "label": "",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link::Vector"
+          }
+        },
+        {
+          "name": "믹스 (레거시)",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": "link::Factor",
+            "Color1": "link::Color",
+            "Color2": "link::Color"
+          }
+        },
+        {
+          "name": "범프",
+          "label": "",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.01119999960064888,
+            "Distance": 0.0003000000142492354,
+            "Filter Width": 0.10000000149011612,
+            "Height": "link::Color",
+            "Normal": "<bpy_float[3], NodeSocketVector.default_value>"
+          }
+        },
+        {
+          "name": "믹스 (레거시).001",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": "link::Factor",
+            "Color1": "link::Normal",
+            "Color2": "link::Normal"
+          }
+        },
+        {
+          "name": "Mix (Legacy)",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link:Visible orange reduction; preserve grain direction:Color",
+            "Color2": "<bpy_float[4], NodeSocketColor.default_value>"
+          }
+        },
+        {
+          "name": "Mix (Legacy).001",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link::Color",
+            "Color2": "link::Value"
+          }
+        },
+        {
+          "name": "HS white r2 broad body independent slope",
+          "label": "HS white r2 broad body independent slope",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.30000001192092896,
+            "Distance": 0.0012000000569969416,
+            "Filter Width": 0.10000000149011612,
+            "Height": "link:HS white r2 bounded shallow trowel face gradients:Color",
+            "Normal": "link::Color"
+          }
+        },
+        {
+          "name": "HS white r2 original brush independent slope",
+          "label": "HS white r2 original brush independent slope",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.25,
+            "Distance": 0.0007999999797903001,
+            "Filter Width": 0.10000000149011612,
+            "Height": "link:HS white r2 bounded original brush face high:Value",
+            "Normal": "link:HS white r2 broad body independent slope:Normal"
+          }
+        },
+        {
+          "name": "HS white r2 shallow trowel facet gradients",
+          "label": "HS white r2 shallow trowel facet gradients",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.6499999761581421,
+            "Distance": 0.002199999988079071,
+            "Filter Width": 0.10000000149011612,
+            "Height": "link:HS white r2 bounded shallow trowel face gradients:Color",
+            "Normal": "link:HS white r2 original brush independent slope:Normal"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R5 hand-brush alpha, surface attached",
+          "label": "R5 hand-brush alpha, surface attached",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:Material-specific brush vocabulary:Vector"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 pigment over intact grain",
+          "label": "R6 pigment over intact grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link::Color",
+            "Color2": "link:R6 thin broken brush pigment:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 editable brush coverage; zero restores grain",
+          "label": "R6 editable brush coverage; zero restores grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.0,
+            "Color1": "link::Color",
+            "Color2": "link:R6 pigment over intact grain:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 plaster material relief over original normals",
+          "label": "R6 plaster material relief over original normals",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.07999999821186066,
+            "Distance": 0.0003000000142492354,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R6 material-specific pigment detail:Val",
+            "Normal": "link:HS white r2 shallow trowel facet gradients:Normal"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 thin selective paint surface",
+          "label": "R6 thin selective paint surface",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.03999999910593033,
+            "Distance": 0.0001500000071246177,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R5 independent paint alpha:Val",
+            "Normal": "link:R6 plaster material relief over original normals:Normal"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Illustration quiet warm lime and paper",
+          "label": "Illustration quiet warm lime and paper",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.18000000715255737,
+            "Color1": "link:R6 editable brush coverage; zero restores grain:Color",
+            "Color2": "<bpy_float[4], NodeSocketColor.default_value>"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ildu craft natural-mineral | R6 restored stone | Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52.001",
+      "role": "stone",
+      "props": {
+        "gyeDirectAlbedoV1": true,
+        "gyeMatteSurfaceV1": "stone",
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "stone",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Gye cared warm fieldstone v52",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.stone.Gye cared warm fieldstone v52",
+        "pilotRole": "stone",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "r6_role": "stone",
+        "r6_source_material": "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52.001",
+        "r6_brush_mix": 0.1,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "stone",
+        "craft_usage": "natural-mineral"
+      },
+      "nodes": [
+        {
+          "name": "프린시플드 BSDF",
+          "label": "",
+          "type": "BSDF_PRINCIPLED",
+          "operation": null,
+          "inputs": {
+            "Base Color": "link:Craft authored detail with broad quiet planes:Color",
+            "Metallic": 0.0,
+            "Roughness": "link:Craft separate roughness natural-mineral:Color",
+            "IOR": 1.5,
+            "Alpha": 1.0,
+            "Thin Wall": false,
+            "Normal": "link:Craft shallow material relief; no displaced silhouette:Normal",
+            "Weight": 0.0,
+            "Diffuse Roughness": 0.0,
+            "Subsurface Weight": 0.0,
+            "Subsurface Radius": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Subsurface Scale": 0.004999999888241291,
+            "Subsurface IOR": 1.399999976158142,
+            "Subsurface Anisotropy": 0.0,
+            "Specular IOR Level": 0.10000000149011612,
+            "Specular Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Anisotropic": 0.0,
+            "Anisotropic Rotation": 0.0,
+            "Tangent": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Transmission Weight": 0.0,
+            "Coat Weight": 0.0,
+            "Coat Roughness": 0.029999999329447746,
+            "Coat IOR": 1.5,
+            "Coat Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Coat Normal": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Sheen Weight": 0.0,
+            "Sheen Roughness": 0.5,
+            "Sheen Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Strength": 0.0,
+            "Thin Film Thickness": 0.0,
+            "Thin Film IOR": 1.3300000429153442
+          }
+        },
+        {
+          "name": "이미지 텍스처",
+          "label": "",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link::UV"
+          }
+        },
+        {
+          "name": "이미지 텍스처.001",
+          "label": "",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link::Vector"
+          }
+        },
+        {
+          "name": "믹스 (레거시)",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": "link::Factor",
+            "Color1": "link::Color",
+            "Color2": "link::Color"
+          }
+        },
+        {
+          "name": "범프",
+          "label": "",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.022540001198649406,
+            "Distance": 0.0013000000035390258,
+            "Filter Width": 0.10000000149011612,
+            "Height": "link::Color",
+            "Normal": "<bpy_float[3], NodeSocketVector.default_value>"
+          }
+        },
+        {
+          "name": "믹스 (레거시).001",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": "link::Factor",
+            "Color1": "link::Normal",
+            "Color2": "link::Normal"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R5 hand-brush alpha, surface attached",
+          "label": "R5 hand-brush alpha, surface attached",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:Material-specific brush vocabulary:Vector"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 pigment over intact grain",
+          "label": "R6 pigment over intact grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link::Color",
+            "Color2": "link:R6 thin broken brush pigment:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 editable brush coverage; zero restores grain",
+          "label": "R6 editable brush coverage; zero restores grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.0,
+            "Color1": "link::Color",
+            "Color2": "link:R6 pigment over intact grain:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 stone material relief over original normals",
+          "label": "R6 stone material relief over original normals",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.09799999743700027,
+            "Distance": 0.0007999999797903001,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R6 material-specific pigment detail:Val",
+            "Normal": "link::Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 thin selective paint surface",
+          "label": "R6 thin selective paint surface",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.0279999990016222,
+            "Distance": 0.0001500000071246177,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R5 independent paint alpha:Val",
+            "Normal": "link:R6 stone material relief over original normals:Normal"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Illustration broad stone planes with retained or",
+          "label": "Illustration broad stone planes with retained original mineral ",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.7200000286102295,
+            "Color1": "link:Illustration broad mineral colour on each existing stone:Color",
+            "Color2": "link:R6 editable brush coverage; zero restores grain:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Craft authored stone detail",
+          "label": "Craft authored stone detail",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:Craft stone panel:Vector"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Craft calibrated authored pigment",
+          "label": "Craft calibrated authored pigment",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link:Craft authored stone detail:Color",
+            "Color2": "<bpy_float[4], NodeSocketColor.default_value>"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Craft authored detail with broad quiet planes",
+          "label": "Craft authored detail with broad quiet planes",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.23999999463558197,
+            "Color1": "link:Illustration broad stone planes with retained original mineral :Color",
+            "Color2": "link:Craft calibrated authored pigment:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Craft shallow material relief; no displaced silh",
+          "label": "Craft shallow material relief; no displaced silhouette",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.12999999523162842,
+            "Distance": 0.0004799999878741801,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:Craft authored relief signal:Val",
+            "Normal": "link:R6 thin selective paint surface:Normal"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ildu craft endgrain | R6 restored endgrain | Selected timber v2 | sarang | Craft rafter end grain.003",
+      "role": "endgrain",
+      "props": {
+        "texture_study": "Well-fired ceramic or dressed clean stone, restrained tonal variation",
+        "pilotSourceMaterial": "Craft rafter end grain.001",
+        "pilotRole": "wood_frame",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "r6_role": "endgrain",
+        "r6_source_material": "Selected timber v2 | sarang | Craft rafter end grain.003",
+        "r6_brush_mix": 0.05,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "endgrain",
+        "craft_usage": "endgrain"
+      },
+      "nodes": [
+        {
+          "name": "프린시플드 BSDF",
+          "label": "",
+          "type": "BSDF_PRINCIPLED",
+          "operation": null,
+          "inputs": {
+            "Base Color": "link:Approved restrained orange brown direction:Color",
+            "Metallic": 0.0,
+            "Roughness": "link:Building R5 Material upper roughness bound:Value",
+            "IOR": 1.5,
+            "Alpha": 1.0,
+            "Thin Wall": false,
+            "Normal": "link:R6 thin selective paint surface:Normal",
+            "Weight": 0.0,
+            "Diffuse Roughness": 0.0,
+            "Subsurface Weight": 0.0,
+            "Subsurface Radius": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Subsurface Scale": 0.004999999888241291,
+            "Subsurface IOR": 1.399999976158142,
+            "Subsurface Anisotropy": 0.0,
+            "Specular IOR Level": 0.23000000417232513,
+            "Specular Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Anisotropic": 0.0,
+            "Anisotropic Rotation": 0.0,
+            "Tangent": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Transmission Weight": 0.0,
+            "Coat Weight": 0.0,
+            "Coat Roughness": 0.029999999329447746,
+            "Coat IOR": 1.5,
+            "Coat Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Coat Normal": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Sheen Weight": 0.0,
+            "Sheen Roughness": 0.5,
+            "Sheen Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Strength": 0.0,
+            "Thin Film Thickness": 0.0,
+            "Thin Film IOR": 1.3300000429153442
+          }
+        },
+        {
+          "name": "범프",
+          "label": "",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.06800000369548798,
+            "Distance": 0.0003499999875202775,
+            "Filter Width": 0.10000000149011612,
+            "Height": "link::Factor",
+            "Normal": "<bpy_float[3], NodeSocketVector.default_value>"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R5 hand-brush alpha, surface attached",
+          "label": "R5 hand-brush alpha, surface attached",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:Material-specific brush vocabulary:Vector"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 original illustrated endgrain",
+          "label": "R6 original illustrated endgrain",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:R6 cap atlas margin:Vector"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 pigment over intact grain",
+          "label": "R6 pigment over intact grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link:R6 cut wood restrained colour; ring contrast preserved:Color",
+            "Color2": "link:R6 thin broken brush pigment:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 editable brush coverage; zero restores grain",
+          "label": "R6 editable brush coverage; zero restores grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.0,
+            "Color1": "link:R6 cut wood restrained colour; ring contrast preserved:Color",
+            "Color2": "link:R6 pigment over intact grain:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 endgrain material relief over original normal",
+          "label": "R6 endgrain material relief over original normals",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.1599999964237213,
+            "Distance": 0.0006000000284984708,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R6 material-specific pigment detail:Val",
+            "Normal": "link::Normal"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 thin selective paint surface",
+          "label": "R6 thin selective paint surface",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.03999999910593033,
+            "Distance": 0.0001500000071246177,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R5 independent paint alpha:Val",
+            "Normal": "link:R6 endgrain material relief over original normals:Normal"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Illustration cut wood belongs to brown timber",
+          "label": "Illustration cut wood belongs to brown timber",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link:R6 original illustrated endgrain:Color",
+            "Color2": "<bpy_float[4], NodeSocketColor.default_value>"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Illustration restrained cut end value",
+          "label": "Illustration restrained cut end value",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link:R6 editable brush coverage; zero restores grain:Color",
+            "Color2": "<bpy_float[4], NodeSocketColor.default_value>"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Approved restrained orange brown direction",
+          "label": "Approved restrained orange brown direction",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link:Illustration restrained cut end value:Color",
+            "Color2": "<bpy_float[4], NodeSocketColor.default_value>"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sarang.dark original plaque original pigment.001",
+      "role": "",
+      "props": {},
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "label": "",
+          "type": "BSDF_PRINCIPLED",
+          "operation": null,
+          "inputs": {
+            "Base Color": "link::Color",
+            "Metallic": 0.0,
+            "Roughness": 0.8999999761581421,
+            "IOR": 1.5,
+            "Alpha": 1.0,
+            "Thin Wall": false,
+            "Normal": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Weight": 0.0,
+            "Diffuse Roughness": 0.0,
+            "Subsurface Weight": 0.0,
+            "Subsurface Radius": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Subsurface Scale": 0.004999999888241291,
+            "Subsurface IOR": 1.399999976158142,
+            "Subsurface Anisotropy": 0.0,
+            "Specular IOR Level": 0.5,
+            "Specular Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Anisotropic": 0.0,
+            "Anisotropic Rotation": 0.0,
+            "Tangent": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Transmission Weight": 0.0,
+            "Coat Weight": 0.0,
+            "Coat Roughness": 0.029999999329447746,
+            "Coat IOR": 1.5,
+            "Coat Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Coat Normal": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Sheen Weight": 0.0,
+            "Sheen Roughness": 0.5,
+            "Sheen Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Strength": 0.0,
+            "Thin Film Thickness": 0.0,
+            "Thin Film IOR": 1.3300000429153442
+          }
+        },
+        {
+          "name": "Image Texture",
+          "label": "",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "<bpy_float[3], NodeSocketVector.default_value>"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001",
+      "role": "tile",
+      "props": {
+        "gyeDirectAlbedoV1": true,
+        "gyeMatteSurfaceV1": "roof",
+        "gyeDirectAlbedoFactor": [
+          0.5,
+          0.56,
+          0.68,
+          1.0
+        ],
+        "gyeRoofRegisterV60": true,
+        "p18ImageMaterialCandidate": true,
+        "p18MaterialFamily": "tile",
+        "p18BuildingProfile": "sarang",
+        "p18VerifiedPBR": false,
+        "p18SourceMaterial": "Gye cared charcoal clay v52",
+        "p18NoProceduralPigment": true,
+        "pilotSourceMaterial": "P18 image.sarang.tile.Gye cared charcoal clay v52",
+        "pilotRole": "tile",
+        "pilotVisualAccepted": false,
+        "pilotPaletteVersion": 2,
+        "reviewBuilding": "sarang",
+        "r6_role": "tile",
+        "r6_source_material": "Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001",
+        "r6_brush_mix": 0.12,
+        "illustrationStudy": 1,
+        "craft_application": "20261023-r1",
+        "craft_role": "tile",
+        "craft_usage": "tile"
+      },
+      "nodes": [
+        {
+          "name": "프린시플드 BSDF",
+          "label": "",
+          "type": "BSDF_PRINCIPLED",
+          "operation": null,
+          "inputs": {
+            "Base Color": "link:Craft authored detail with broad quiet planes:Color",
+            "Metallic": 0.0,
+            "Roughness": "link:Craft separate roughness tile:Color",
+            "IOR": 1.5,
+            "Alpha": 1.0,
+            "Thin Wall": false,
+            "Normal": "link:Craft shallow material relief; no displaced silhouette:Normal",
+            "Weight": 0.0,
+            "Diffuse Roughness": 0.0,
+            "Subsurface Weight": 0.0,
+            "Subsurface Radius": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Subsurface Scale": 0.004999999888241291,
+            "Subsurface IOR": 1.399999976158142,
+            "Subsurface Anisotropy": 0.0,
+            "Specular IOR Level": 0.10000000149011612,
+            "Specular Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Anisotropic": 0.0,
+            "Anisotropic Rotation": 0.0,
+            "Tangent": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Transmission Weight": 0.0,
+            "Coat Weight": 0.0,
+            "Coat Roughness": 0.029999999329447746,
+            "Coat IOR": 1.5,
+            "Coat Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Coat Normal": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Sheen Weight": 0.0,
+            "Sheen Roughness": 0.5,
+            "Sheen Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Strength": 0.0,
+            "Thin Film Thickness": 0.0,
+            "Thin Film IOR": 1.3300000429153442
+          }
+        },
+        {
+          "name": "이미지 텍스처",
+          "label": "",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link::UV"
+          }
+        },
+        {
+          "name": "믹스 (레거시)",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link::Color",
+            "Color2": "<bpy_float[4], NodeSocketColor.default_value>"
+          }
+        },
+        {
+          "name": "이미지 텍스처.001",
+          "label": "",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link::Vector"
+          }
+        },
+        {
+          "name": "믹스 (레거시).001",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": "link::Factor",
+            "Color1": "link::Color",
+            "Color2": "link::Color"
+          }
+        },
+        {
+          "name": "범프",
+          "label": "",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.01889999955892563,
+            "Distance": 0.0005000000237487257,
+            "Filter Width": 0.10000000149011612,
+            "Height": "link::Color",
+            "Normal": "<bpy_float[3], NodeSocketVector.default_value>"
+          }
+        },
+        {
+          "name": "믹스 (레거시).002",
+          "label": "",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": "link::Factor",
+            "Color1": "link::Normal",
+            "Color2": "link::Normal"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R5 hand-brush alpha, surface attached",
+          "label": "R5 hand-brush alpha, surface attached",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:Material-specific brush vocabulary:Vector"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 pigment over intact grain",
+          "label": "R6 pigment over intact grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link::Color",
+            "Color2": "link:R6 thin broken brush pigment:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 editable brush coverage; zero restores grain",
+          "label": "R6 editable brush coverage; zero restores grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.0,
+            "Color1": "link::Color",
+            "Color2": "link:R6 pigment over intact grain:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 tile material relief over original normals",
+          "label": "R6 tile material relief over original normals",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.11699999868869781,
+            "Distance": 0.000699999975040555,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R6 material-specific pigment detail:Val",
+            "Normal": "link::Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 thin selective paint surface",
+          "label": "R6 thin selective paint surface",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.035999998450279236,
+            "Distance": 0.0001500000071246177,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R5 independent paint alpha:Val",
+            "Normal": "link:R6 tile material relief over original normals:Normal"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Illustration ceramic body with retained original",
+          "label": "Illustration ceramic body with retained original firing texture",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.6800000071525574,
+            "Color1": "link:Illustration restrained blue charcoal individual ceramic:Color",
+            "Color2": "link:R6 editable brush coverage; zero restores grain:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Craft authored tile detail",
+          "label": "Craft authored tile detail",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:Craft tile panel:Vector"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Craft calibrated authored pigment",
+          "label": "Craft calibrated authored pigment",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link:Craft authored tile detail:Color",
+            "Color2": "<bpy_float[4], NodeSocketColor.default_value>"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Craft authored detail with broad quiet planes",
+          "label": "Craft authored detail with broad quiet planes",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.18000000715255737,
+            "Color1": "link:Illustration ceramic body with retained original firing texture:Color",
+            "Color2": "link:Craft calibrated authored pigment:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | Craft shallow material relief; no displaced silh",
+          "label": "Craft shallow material relief; no displaced silhouette",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.12999999523162842,
+            "Distance": 0.0002500000118743628,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:Craft authored relief signal:Val",
+            "Normal": "link:R6 thin selective paint surface:Normal"
+          }
+        }
+      ]
+    },
+    {
+      "name": "R6 restored paint | Original Sarang finial pigment.002",
+      "role": "paint",
+      "props": {
+        "r6_role": "paint",
+        "r6_source_material": "Original Sarang finial pigment.002",
+        "r6_brush_mix": 0.025
+      },
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "label": "",
+          "type": "BSDF_PRINCIPLED",
+          "operation": null,
+          "inputs": {
+            "Base Color": "link:R6 editable brush coverage; zero restores grain:Color",
+            "Metallic": 0.0,
+            "Roughness": "link:Building R5 Material upper roughness bound:Value",
+            "IOR": 1.5,
+            "Alpha": 1.0,
+            "Thin Wall": false,
+            "Normal": "link:R6 thin selective paint surface:Normal",
+            "Weight": 0.0,
+            "Diffuse Roughness": 0.0,
+            "Subsurface Weight": 0.0,
+            "Subsurface Radius": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Subsurface Scale": 0.004999999888241291,
+            "Subsurface IOR": 1.399999976158142,
+            "Subsurface Anisotropy": 0.0,
+            "Specular IOR Level": 0.5,
+            "Specular Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Anisotropic": 0.0,
+            "Anisotropic Rotation": 0.0,
+            "Tangent": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Transmission Weight": 0.0,
+            "Coat Weight": 0.0,
+            "Coat Roughness": 0.029999999329447746,
+            "Coat IOR": 1.5,
+            "Coat Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Coat Normal": "<bpy_float[3], NodeSocketVector.default_value>",
+            "Sheen Weight": 0.0,
+            "Sheen Roughness": 0.5,
+            "Sheen Tint": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Color": "<bpy_float[4], NodeSocketColor.default_value>",
+            "Emission Strength": 0.0,
+            "Thin Film Thickness": 0.0,
+            "Thin Film IOR": 1.3300000429153442
+          }
+        },
+        {
+          "name": "Image Texture",
+          "label": "",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "<bpy_float[3], NodeSocketVector.default_value>"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R5 hand-brush alpha, surface attached",
+          "label": "R5 hand-brush alpha, surface attached",
+          "type": "TEX_IMAGE",
+          "operation": null,
+          "inputs": {
+            "Vector": "link:Material-specific brush vocabulary:Vector"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 pigment over intact grain",
+          "label": "R6 pigment over intact grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 1.0,
+            "Color1": "link::Color",
+            "Color2": "link:R6 thin broken brush pigment:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 editable brush coverage; zero restores grain",
+          "label": "R6 editable brush coverage; zero restores grain",
+          "type": "MIX_RGB",
+          "operation": null,
+          "inputs": {
+            "Factor": 0.02500000037252903,
+            "Color1": "link::Color",
+            "Color2": "link:R6 pigment over intact grain:Color"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 paint material relief over original normals",
+          "label": "R6 paint material relief over original normals",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.05000000074505806,
+            "Distance": 0.00018000000272877514,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R6 material-specific pigment detail:Val",
+            "Normal": "<bpy_float[3], NodeSocketVector.default_value>"
+          }
+        },
+        {
+          "name": "Handpaint r2 | R6 thin selective paint surface",
+          "label": "R6 thin selective paint surface",
+          "type": "BUMP",
+          "operation": null,
+          "inputs": {
+            "Strength": 0.03999999910593033,
+            "Distance": 0.0001500000071246177,
+            "Filter Width": 0.029999999329447746,
+            "Height": "link:R5 independent paint alpha:Val",
+            "Normal": "link:R6 paint material relief over original normals:Normal"
+          }
+        }
+      ]
+    }
+  ],
+  "gpu": {
+    "OPTIX": [
+      [
+        "AMD Ryzen 7 5800H",
+        "CPU"
+      ]
+    ],
+    "CUDA": [
+      [
+        "AMD Ryzen 7 5800H",
+        "CPU"
+      ]
+    ],
+    "HIP": [
+      [
+        "AMD Ryzen 7 5800H",
+        "CPU"
+      ]
+    ]
+  }
+}

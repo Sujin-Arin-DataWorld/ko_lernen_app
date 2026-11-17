@@ -5,19 +5,21 @@ import '../../models/gye.dart';
 import '../../models/gye_lantern_progress.dart';
 import '../../models/hanok_stage.dart';
 import 'gye_dedication_layer.dart';
-import 'hanok_header.dart';
 import 'madang_background.dart';
-import 'tiger_video.dart' show TigerStageVideo;
 import 'tokens.dart';
+import 'ildu_r16_estate_artwork.dart';
 
 /// 계가 아직 없을 때 보여 주는 공동마당 완성 예시.
 ///
 /// 진행도용 [GyeHanok] 레이어 8장을 한꺼번에 켜면 서로 다른 원근과 축척이
 /// 완성 종가 배경 위에 겹쳐져 건물이 뭉쳐 보인다. 빈 화면은 진행도 시뮬레이션이
-/// 아니라 영감용 한 장면이므로, 동일한 Faceted Minhwa 세계관의 단일 16:9
-/// courtyard 프레임을 쓴다. 실제 가입한 계의 주간/누적 진행 표현과는 분리한다.
+/// 아니라 완성 참고용 R16 전경이다. 실제 가입한 계의 주간/누적 진행
+/// 표현과는 분리한다. 이전 영상과 원본 그림도 보존한다.
 class GyeShowcaseArtwork extends StatelessWidget {
-  static const String asset =
+  static const String asset = kIlDuR16EstateAsset;
+
+  /// Preserved source for recovery; the R16 completion reference is active.
+  static const String legacyAsset =
       'assets/illustrations/gye/gye_showcase_courtyard.webp';
   static const String videoAsset =
       'assets/video/gye/gye_shared_hanok_build.mp4';
@@ -25,30 +27,8 @@ class GyeShowcaseArtwork extends StatelessWidget {
   const GyeShowcaseArtwork({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final poster = Image.asset(
-      key: const ValueKey('gye-showcase-artwork'),
-      asset,
-      fit: BoxFit.cover,
-      alignment: Alignment.center,
-      gaplessPlayback: true,
-      excludeFromSemantics: true,
-      errorBuilder: (_, __, ___) => const MadangBackground(
-        stage: HanokStage.jongga,
-        child: SizedBox.expand(),
-      ),
-    );
-    if (!TigerStageVideo.videoReady || SoriMotion.reduceMotion(context)) {
-      return poster;
-    }
-    return SoriPosterLoop(
-      key: const ValueKey('gye-showcase-build-video'),
-      videoAsset: videoAsset,
-      poster: poster,
-      fit: BoxFit.cover,
-      loop: false,
-    );
-  }
+  Widget build(BuildContext context) =>
+      const IlDuR16EstateArtwork(key: ValueKey('gye-showcase-artwork'));
 }
 
 /// 계 공동 한옥 — 종갓집 배경 위에 계 추가 요소(gye_* 8장)를 합성. plan §7.5.
@@ -104,6 +84,13 @@ class GyeHanok extends StatefulWidget {
   /// 하므로, 사설 상수를 복제하는 대신 여기서 공개한다.
   static int get elementCount => _elements.length;
 
+  static bool isComplete(GyeMeta meta) =>
+      GyeLanternProgress.fromMeta(
+        meta,
+        elementCount: elementCount,
+      ).permanentElementCount ==
+      elementCount;
+
   @override
   State<GyeHanok> createState() => _GyeHanokState();
 }
@@ -128,7 +115,10 @@ class _GyeHanokState extends State<GyeHanok>
   }
 
   void _syncPulse() {
-    final shouldAnimate = widget.animate && !SoriMotion.reduceMotion(context);
+    final shouldAnimate =
+        widget.animate &&
+        !GyeHanok.isComplete(widget.meta) &&
+        !SoriMotion.reduceMotion(context);
     if (shouldAnimate) {
       if (!_pulse.isAnimating) {
         _pulse.repeat(reverse: true);
@@ -142,7 +132,9 @@ class _GyeHanokState extends State<GyeHanok>
   @override
   void didUpdateWidget(covariant GyeHanok oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.animate != widget.animate) {
+    if (oldWidget.animate != widget.animate ||
+        oldWidget.meta.lifetimeGoalsAchieved !=
+            widget.meta.lifetimeGoalsAchieved) {
       _syncPulse();
     }
   }
@@ -172,6 +164,20 @@ class _GyeHanokState extends State<GyeHanok>
   @override
   Widget build(BuildContext context) {
     final progress = _progress;
+    if (progress.permanentElementCount == GyeHanok.elementCount) {
+      return Center(
+        child: AspectRatio(
+          aspectRatio: 1600 / 1700,
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              const IlDuR16EstateArtwork(),
+              GyeDedicationLayer(dedications: widget.dedications),
+            ],
+          ),
+        ),
+      );
+    }
     // `!widget.animate` is treated exactly like reduce-motion — a static
     // scene either way (§W-G2 item 3).
     final reduce = SoriMotion.reduceMotion(context) || !widget.animate;

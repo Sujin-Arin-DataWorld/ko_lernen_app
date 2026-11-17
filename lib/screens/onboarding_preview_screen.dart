@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/haptic_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -145,8 +146,7 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                     _PreviewPage(
                       index: 2,
                       // 투명 PNG → contain 중앙 + 글로우 (잘림 없음).
-                      imageAsset:
-                          'assets/illustrations/onboarding/tiger_crystal.png',
+                      imageAsset: CanonicalCompanionArt.baekhoStanding,
                       accentColor: SoriColors.tiger,
                       title: t.previewPage3Title,
                       body: t.previewPage3Body,

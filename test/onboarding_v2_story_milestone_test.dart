@@ -4,11 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as img;
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_journey_scenes.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/theme.dart';
 
+import 'support/einleitung_capture_assets.dart';
+
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() async {
+    await loadEinleitungFonts();
+  });
   test('lossless onboarding WebP keeps the approved RGBA pixels', () {
     // Digests were taken from the approved PNGs before their lossless conversion.
     // They include transparent pixels, not just the visible non-alpha area.
@@ -45,7 +52,11 @@ void main() {
       ),
     };
     for (final entry in originals.entries) {
-      final base = 'assets/illustrations/onboarding/${entry.key}';
+      // The former book is preserved outside the bundle after the newly
+      // approved book previews replaced its production consumer.
+      final base = entry.key == 'book_extract'
+          ? 'assets_unused/approved_book_20261030/${entry.key}'
+          : 'assets/illustrations/onboarding/${entry.key}';
       expect(File('$base.png').existsSync(), isFalse, reason: entry.key);
       final image = img.decodeWebP(File('$base.webp').readAsBytesSync())!;
       expect((image.width, image.height), (entry.value.$1, entry.value.$2));
@@ -103,11 +114,20 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
+      final hanok = find.byType(OnboardingHanokScene);
+      expect(hanok, findsNothing);
+      final preview = find.byKey(const ValueKey('c-onboarding-preview-6'));
+      await tester.ensureVisible(preview);
+      await tester.tap(preview);
+      await tester.pumpAndSettle();
+      expect(hanok, findsOneWidget);
       await tester.tap(find.byKey(const ValueKey('onboarding-v3-place-1')));
       await tester.pumpAndSettle();
       expect(find.text('누마루'), findsOneWidget);
       final window = tester
-          .widgetList<ClipPath>(find.byType(ClipPath))
+          .widgetList<ClipPath>(
+            find.descendant(of: hanok, matching: find.byType(ClipPath)),
+          )
           .where((c) => c.clipper != null)
           .last;
       final path = window.clipper!.getClip(const Size(600, 400));
@@ -118,7 +138,9 @@ void main() {
         isTrue,
         reason: 'The view uses a rounded rectangle, not an ellipse.',
       );
-      await tester.tap(find.text('So wächst er'));
+      await tester.tap(
+        find.byKey(const ValueKey('onboarding-v3-hanok-growth')),
+      );
       await tester.pumpAndSettle();
       for (var i = 0; i < 2; i++) {
         await tester.tap(find.byKey(ValueKey('onboarding-v3-growth-$i')));

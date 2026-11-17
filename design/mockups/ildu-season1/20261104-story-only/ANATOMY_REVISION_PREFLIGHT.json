@@ -1,0 +1,13 @@
+{
+  "id": "TAEGO-R21b-ANATOMY-02",
+  "type": "precise-object-edit",
+  "refs": [
+    "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-1ff0958c-5ef0-4394-8620-95ffb5191503.png",
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/canonical/ensemble/20261103-taego-design/taego-body-design.png",
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/canonical/ensemble/20261103-taego-design/taego-face-design.png"
+  ],
+  "reviewer": "/root/character_design_guard",
+  "status": "PREFLIGHT_REVIEWED",
+  "prompt": "Use case: precise-object-edit / identity-preserve.\nEdit reference image 1 into ONE full-body transparent production candidate. Image1 is the EDIT TARGET. Image2 lower-left WELCOME and image3 are canonical structure/material safeguards only.\nEssential correction: give the whole tiger generous TRUE transparent space. Uniformly scale the ENTIRE subject to approximately 76–80 percent of a landscape canvas height; let its width follow the unchanged aspect ratio. Keep at least 8 percent completely transparent margin on EVERY edge including whiskers, ears, four paws and complete tail. Center the tiger; no object may touch a frame edge. Do not stretch, squeeze, change head size or shorten any limb to create margins.\nPreserve the current adult feline face, gentle blue-gray eyes/dark pupils, small open mouth, head angle, ivory directional fur, charcoal stripe map, single LEFT-chest three-curl teal/gold badge, long adult ribcage, tucked waist and separate hindquarters EXACTLY.\nPreserve the identities, number and positions of all FOUR EXISTING LEGS: TWO front legs and TWO hind legs, four independent paws, one complete ringed tail. All paws visible and naturally weight-bearing on one implied flat plane. No floor, pedestals or props.\nNatural overlap of the far hip behind the torso and near haunch is allowed. If needed, clarify ONLY the existing far hind thigh contour where it emerges from that overlap, continuing coherently through its bend, hock and its own paw. Do not expose invisible joints as an X-ray, add a belly attachment, reverse joint bends or append a new foot. Do not force any paw to a fixed screen coordinate. Preserve bone lengths and the WELCOME stance.\nNo other changes. One tiger only, TRUE alpha transparency, NO background scenery, halo, frame, captions, labels or checkerboard.",
+  "transparent": true
+}

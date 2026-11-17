@@ -1,0 +1,260 @@
+{
+  "scope": "Read-only visual review of native R16 rendered material transfers; geometry, names and UV are locked. Visual review does not establish runtime approval or shader audit.",
+  "updated": "2026-10-28",
+  "buildings": {
+    "ansarang": {
+      "image": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/ansarang/full.png",
+      "verdict": "accepted_for_user_review",
+      "woodHierarchy": "Honey-brown posts and frames distinguish warm pale walls; final deck is honey-brown rather than pink/red.",
+      "perMemberVariation": "Visible on exposed floor boards; fine post grain is subdued at overview size.",
+      "mappingArtifacts": "No obvious black artifact or grossly stretched wood mapping in this view.",
+      "concerns": [
+        "Fine post grain and knot fidelity remain overview-limited."
+      ],
+      "blockers": [],
+      "firstPassReview": {
+        "verdict": "accepted_for_user_review_with_concern",
+        "concerns": [
+          "The front deck reads noticeably redder/pinker than the Sarangchae R16 honey-brown floor. Check whether floor role is intentionally darker or missed palette transfer; this image alone does not prove misclassification."
+        ],
+        "blockers": []
+      },
+      "finalSha256": "bb37fc8f3edef54629a6c615a5c6816377b369dfa451b59d03ce8724ea243093",
+      "firstPassImage": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/ansarang/first-pass.png",
+      "firstPassSha256": "b3861fd3d4266ce231d039b4a96bdb94f74e3c1a08178b03b8d70f2d865c89df",
+      "resolvedEvidence": [
+        "Viewed saved first-pass.png and final full.png together: exposed front deck visibly less pink with plank differences retained."
+      ]
+    },
+    "changgo": {
+      "image": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/changgo/full.png",
+      "verdict": "accepted_for_user_review",
+      "woodHierarchy": "Warm golden structural frame and pale gable boards separate from deeper brown timber door leaves.",
+      "perMemberVariation": "Clear amber/brown board differences and length-aligned grain across door leaves; no flat untextured wood mass.",
+      "mappingArtifacts": "No obvious stretched grain or black shader artifact; dark hinges and door gaps read as hardware and joints.",
+      "concerns": [
+        "Dark vertical growth stripes are strong but do not form the previous near-black zebra pattern. Fine knot quality is not established at overview size."
+      ],
+      "blockers": [],
+      "firstPassReview": {
+        "verdict": "accepted_for_user_review",
+        "concerns": [
+          "Dark vertical growth stripes are strong but do not form the previous near-black zebra pattern. Fine knot quality is not established at overview size."
+        ],
+        "blockers": []
+      },
+      "finalSha256": "bc43737a06a606da2940ff920b63aee7d06ca0e25370c155473d893d514b08ad",
+      "firstPassImage": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/changgo/first-pass.png",
+      "firstPassSha256": "885c0966f89c6c765228624f4b9b17b529b22bf50e3b3c77bb59e8415a5c9495",
+      "resolvedEvidence": [
+        "Final unified family-r16 image inspected: wood door leaves retain varied warm brown grain, hardware remains distinct."
+      ]
+    },
+    "gokgan": {
+      "image": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/gokgan/full.png",
+      "verdict": "accepted_for_user_review_with_concern",
+      "woodHierarchy": "Warm medium amber boards, golden frame and pale upper infill are separated; grain follows vertical board direction.",
+      "perMemberVariation": "Board and frame variation is visible. Several dark thin growth figures repeat across facade bays.",
+      "mappingArtifacts": "No grossly stretched wood mapping or black shader artifacts visible.",
+      "concerns": [
+        "Repeated thin dark growth motifs recur at similar bay positions on the long right wall. Less natural than Sarangchae R16; acceptable overview candidate but do not call repetition-free."
+      ],
+      "blockers": [],
+      "firstPassReview": {
+        "verdict": "accepted_for_user_review_with_concern",
+        "concerns": [
+          "Repeated thin dark growth motifs recur at similar bay positions on the long right wall. Less natural than Sarangchae R16; acceptable overview candidate but do not call repetition-free."
+        ],
+        "blockers": []
+      },
+      "finalSha256": "553cd9d3bffb9d2c4ebcdde363c36fb2d719367475a0ccb8f81489ebea98e7ca",
+      "firstPassImage": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/gokgan/first-pass.png",
+      "firstPassSha256": "e2d10bae90aa6341ab8024cb874e411416ee98f19114fdd303340428a0e718cf",
+      "resolvedEvidence": [
+        "Final unified family-r16 image inspected: warm timber hierarchy retained; similar thin growth motifs remain nonblocking."
+      ]
+    },
+    "toilet": {
+      "image": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/toilet/full.png",
+      "verdict": "accepted_for_user_review",
+      "woodHierarchy": "Golden door boards and braces separate from darker brown corner posts and warm pale wall faces.",
+      "perMemberVariation": "Visible long grain on posts and door leaf; structural posts differ naturally in value.",
+      "mappingArtifacts": "No obvious black shader artifacts or grossly stretched wood; roof openings are outside locked wood-material scope.",
+      "concerns": [
+        "Small overview does not establish fine knot quality."
+      ],
+      "blockers": [],
+      "firstPassReview": {
+        "verdict": "accepted_for_user_review",
+        "concerns": [
+          "Small overview does not establish fine knot quality."
+        ],
+        "blockers": []
+      },
+      "finalSha256": "501855821563c63df62c6a368548428789277278097ac2da077e6ad03f8e7432",
+      "firstPassImage": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/toilet/first-pass.png",
+      "firstPassSha256": "8116f0d7238c57291d97230976dd8b83fdec6360969a68ea7022f1b9069dd47f",
+      "resolvedEvidence": [
+        "Final unified family-r16 image inspected: longitudinal corner-post and door grain visible; no new black wood defect."
+      ]
+    },
+    "toilet1": {
+      "image": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/toilet1/full.png",
+      "verdict": "accepted_for_user_review",
+      "woodHierarchy": "Golden door and warm pale walls remain distinct; final corner posts and frame carry subtle vertical tonal grain.",
+      "perMemberVariation": "Final post/frame grain is visible instead of the flat orange impression of the first pass; variation remains deliberately restrained.",
+      "mappingArtifacts": "Previous flat structural-wood flag visually resolved at overview scale; no black wood artifact.",
+      "concerns": [
+        "Fine close-up knot quality is not established at overview size."
+      ],
+      "blockers": [],
+      "firstPassReview": {
+        "verdict": "requires_material_mapping_check",
+        "concerns": [
+          "Check front left and front right corner posts and horizontal wall frame for correct wood-role assignment and retained source grain. Current image alone cannot prove silent misclassification."
+        ],
+        "blockers": [
+          "Do not mark structural-wood transfer fully reviewed until flat-looking post/frame assignments are checked."
+        ]
+      },
+      "finalSha256": "636234a38495152ae563b3eec51e9f9c5f1a4f72eedc7416c068eaf418846a30",
+      "firstPassImage": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/toilet1/first-pass.png",
+      "firstPassSha256": "76afb325482d52b687ca6ecf2b75f538d339eef454fc3ef37c3a5beb7f9f36ac",
+      "resolvedEvidence": [
+        "Viewed saved first-pass.png and final full.png together: corner post/frame has new vertical tonal wood response."
+      ]
+    },
+    "anchae": {
+      "image": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/anchae/full.png",
+      "verdict": "accepted_for_user_review",
+      "woodHierarchy": "Golden posts and frames remain distinct from pale walls; deck is deep reddish brown.",
+      "perMemberVariation": "Final long-side columns read as longitudinal timber; repeated horizontal bands from first pass are no longer visible.",
+      "mappingArtifacts": "Previous obvious cross-axis post grain flag is visually resolved at overview scale; no black wood artifact.",
+      "concerns": [
+        "Fine knot fidelity and every occluded member are not established by this overview."
+      ],
+      "blockers": [],
+      "firstPassReview": {
+        "verdict": "requires_material_mapping_check",
+        "concerns": [
+          "Deck reads redder than Sarangchae R16, similar to Ansarang. Overview does not establish whether this is intended retained source pigment."
+        ],
+        "blockers": [
+          "Check long-side column grain orientation/repeated horizontal bands before marking wood transfer fully reviewed."
+        ]
+      },
+      "finalSha256": "acac274c9646aace4ceca35ce935d6524a0fe6149df178f825f2ebef1955c9f8",
+      "firstPassImage": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/anchae/first-pass.png",
+      "firstPassSha256": "01b060e4c1a5b0edfc2fd36768f3e5162143a33875953c981d1c470f0a08dd8d",
+      "resolvedEvidence": [
+        "Viewed saved first-pass.png and final full.png together: horizontal pole bands removed, support sill coherent, floor less pink."
+      ]
+    },
+    "sadang": {
+      "image": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/sadang/full.png",
+      "verdict": "accepted_for_user_review_protected_painted_timber",
+      "woodHierarchy": "Painted red columns, green doors and polychrome eaves remain differentiated from exposed dark brown floor planks.",
+      "perMemberVariation": "Floor boards show restrained warm-brown value changes; red painted columns should not be judged as failed honey-brown structural wood.",
+      "mappingArtifacts": "No obvious stretched exposed timber grain or black shader artifact.",
+      "concerns": [
+        "Painted timber identity is visually preserved. Do not recolor red/green/dancheong surfaces to the generic wood family.",
+        "Fine exposed timber knot quality is not established at overview size."
+      ],
+      "blockers": [],
+      "firstPassReview": {
+        "verdict": "accepted_for_user_review_protected_painted_timber",
+        "concerns": [
+          "Painted timber identity is visually preserved. Do not recolor red/green/dancheong surfaces to the generic wood family.",
+          "Fine exposed timber knot quality is not established at overview size."
+        ],
+        "blockers": []
+      },
+      "finalSha256": "be2341bf8c3d04fc192862dd03d0a05294af6de36f6ccbd5a83151e18b5ba63b",
+      "firstPassImage": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/sadang/first-pass.png",
+      "firstPassSha256": "e46baf9e62e89605d190bfa2fc79332a79edabc03bd03c0af3164741e9b7bc1a",
+      "resolvedEvidence": [
+        "Final unified family-r16 image inspected: red columns, green doors and dancheong protected; exposed floor remains brown."
+      ]
+    },
+    "jung": {
+      "image": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/jung/full.png",
+      "verdict": "accepted_for_user_review",
+      "woodHierarchy": "Honey structural posts, medium brown board panel and pale plaster separate clearly.",
+      "perMemberVariation": "Exposed end posts and board faces have visible lengthwise grain and moderate member variation.",
+      "mappingArtifacts": "No obvious black wood artifact or gross stretched wood texture.",
+      "concerns": [
+        "Exposed end construction and roof/beam intersections remain original locked geometry and are outside material review.",
+        "Fine knot fidelity remains overview-limited."
+      ],
+      "blockers": [],
+      "firstPassReview": {
+        "verdict": "accepted_for_user_review_with_concern",
+        "concerns": [
+          "Exposed end deck reads redder than Sarangchae R16 and should share the Ansarang floor-role diagnosis.",
+          "Exposed end construction and roof/beam intersections are original locked geometry, outside material review."
+        ],
+        "blockers": []
+      },
+      "finalSha256": "7f0934bfa5aaadf719aa127c53316c98b1d53c941935a1622d2442b5f7016af5",
+      "firstPassImage": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/jung/first-pass.png",
+      "firstPassSha256": "0b713ccc9f7cb15d62391254a27e6a19806b7f9439ef2487672f8f87c62e670a",
+      "resolvedEvidence": [
+        "Final overview shows exposed end deck shifted toward honey-brown; structural grain and board variation retained."
+      ]
+    },
+    "arae": {
+      "image": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/arae/full.png",
+      "verdict": "accepted_for_user_review_with_concern",
+      "woodHierarchy": "Warm honey posts and dark brown window frames separate from pale plaster; deck remains more reddish brown than Sarangchae.",
+      "perMemberVariation": "Visible member variation and lengthwise post grain. Right end post is substantially darker, still in the same brown family.",
+      "mappingArtifacts": "No obvious black wood artifact. Black stove components read as separate objects, not wood errors.",
+      "concerns": [
+        "Right gable wood face retains a large dense dark growth patch, a nonblocking appearance difference from subtle sparse grain.",
+        "Fine knot fidelity remains overview-limited."
+      ],
+      "blockers": [],
+      "firstPassReview": {
+        "verdict": "accepted_for_user_review_with_concern",
+        "concerns": [
+          "Deck belongs to same reddish floor-palette concern as Ansarang/Jung/Anchae.",
+          "Right gable wood face has a large dense dark growth patch; inspect at close range if claiming subtle sparse grain, but this is not a new overview blocker."
+        ],
+        "blockers": []
+      },
+      "finalSha256": "508735ae4f7fe53f9fb75a8520cd4685c135a4a02042cb65a52fadd0f774d1a8",
+      "firstPassImage": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/arae/first-pass.png",
+      "firstPassSha256": "6c6557bff899dd0cbf76d0ce77e0b5a44dc38b62722d1d7fe504a1a5403dbec8",
+      "resolvedEvidence": [
+        "Final overview shows deck shifted toward honey-brown, with member variation retained."
+      ]
+    },
+    "angotgan": {
+      "image": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/angotgan/full.png",
+      "verdict": "accepted_for_user_review",
+      "woodHierarchy": "Golden posts and gable frame, medium brown vertical boards and warm pale infill remain distinct.",
+      "perMemberVariation": "Vertical board variation and wood grain are clearly visible on front face; structural posts carry length-aligned grain.",
+      "mappingArtifacts": "No obvious black shader artifacts or grossly stretched grain in this view.",
+      "concerns": [
+        "The overview cannot establish every far-side board crop or fine knot fidelity."
+      ],
+      "blockers": [],
+      "firstPassReview": {
+        "verdict": "accepted_for_user_review",
+        "concerns": [
+          "The overview cannot establish every far-side board crop or fine knot fidelity."
+        ],
+        "blockers": []
+      },
+      "finalSha256": "0aab4bba93b24fc04f2c65996c8d300b070594a09b851a80eea695a1815d12e4",
+      "firstPassImage": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/angotgan/first-pass.png",
+      "firstPassSha256": "0718545ceab974082b8321df0189318d735d3c67f8b1087a69635997a7b6b4f2",
+      "resolvedEvidence": [
+        "Final unified family-r16 image inspected: vertical board variation and honey structural frame remain visible."
+      ]
+    }
+  },
+  "reviewRevision": "final-material-fixes-native-overviews",
+  "finalVisualReviewComplete": true,
+  "runtimeApproval": false,
+  "exactReferenceParityClaim": false
+}

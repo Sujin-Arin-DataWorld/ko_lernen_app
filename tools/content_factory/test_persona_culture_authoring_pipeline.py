@@ -93,6 +93,76 @@ class PersonaCultureAuthoringPipelineTest(unittest.TestCase):
             checked_pairs,
         )
 
+
+    def test_authoring_brief_allows_one_recurring_persona_plus_existing_support_role(self) -> None:
+        brief = {
+            "schemaVersion": 1,
+            "status": "review_only",
+            "scenes": [
+                {
+                    "scenarioId": "b1_support_role_probe",
+                    "level": "b1",
+                    "playerCharacterId": "jun",
+                    "personaIds": ["jun"],
+                    "supportRoleIds": ["student"],
+                    "realTaskKo": "동아리 선배와 실제 말투를 확인한다.",
+                    "learningIntentKo": "관계와 상황에 맞는 말투를 고른다.",
+                    "cultureTermIds": ["sunbae_hubae"],
+                    "personaBoundaries": ["학생 지원역할은 새로운 recurring persona가 아니다."],
+                }
+            ],
+        }
+        scenario = {
+            "id": "b1_support_role_probe",
+            "level": "b1",
+            "playerCharacterId": "jun",
+            "participantIds": ["jun", "student"],
+        }
+        links = [
+            {
+                "scenarioId": "b1_support_role_probe",
+                "termIds": ["sunbae_hubae"],
+            }
+        ]
+        original_read_json = module._read_json
+
+        def fake_read_json(path: Path, label: str) -> dict:
+            if label == "authoring brief":
+                return brief
+            return original_read_json(path, label)
+
+        with (
+            mock.patch.object(module, "_read_json", side_effect=fake_read_json),
+            mock.patch.object(
+                module,
+                "_profile_map",
+                return_value={
+                    "jun": {
+                        "id": "jun",
+                        "relationships": {},
+                    }
+                },
+            ),
+            mock.patch.object(
+                module,
+                "_known_support_role_ids",
+                return_value={"student"},
+            ),
+            mock.patch.object(
+                module,
+                "_glossary_ids",
+                return_value={"sunbae_hubae"},
+            ),
+        ):
+            result = module._validate_authoring_brief(
+                manifest={"authoringBrief": "unused.json"},
+                scenarios=[scenario],
+                culture_links=links,
+            )
+
+        self.assertEqual(result["sceneCount"], 1)
+        self.assertEqual(result["relationChecks"], [])
+
     def test_pipeline_rejects_an_undeclared_persona_relationship(self) -> None:
         profiles = module._profile_map()
         broken = copy.deepcopy(profiles)

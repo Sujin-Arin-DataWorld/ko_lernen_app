@@ -18,13 +18,30 @@ function accountKind(user) {
 
 // Basic Auth creation events use generation 1. The existing generation-2
 // account endpoints stay unchanged; this observer runs after account creation.
-exports.onAuthAccountCreated = functionsV1
+const observer = functionsV1
   .region("europe-west3")
   .runWith({ memory: "128MB", timeoutSeconds: 30, maxInstances: 2, failurePolicy: false })
-  .auth.user().onCreate((user) => {
+  .auth.user().onCreate(async (user) => {
     // Only bounded categories are logged: never UID, provider attributes,
     // email, phone, tokens, event payloads or per-account metric labels.
     logger.info("Auth account creation observed", {
       event: "auth_account_created", schemaVersion: 1, accountKind: accountKind(user),
     });
   });
+
+// Gen-1 functions deployed through gcloud may omit the legacy project variable.
+// The Auth provider's event context names the project; never infer it from the
+// user record. The SDK needs it before entering the application callback.
+const onAuthAccountCreated = (data, context) => {
+  if (!process.env.GCLOUD_PROJECT) {
+    const resource = typeof context?.resource === "string"
+      ? context.resource : context?.resource?.name;
+    const project = typeof resource === "string"
+      ? /^projects\/([^/]+)$/.exec(resource) : null;
+    if (project) process.env.GCLOUD_PROJECT = project[1];
+  }
+  return observer(data, context);
+};
+// Preserve the SDK's lazy deployment descriptors as well as its test handler.
+Object.defineProperties(onAuthAccountCreated, Object.getOwnPropertyDescriptors(observer));
+exports.onAuthAccountCreated = onAuthAccountCreated;

@@ -425,7 +425,7 @@ void main() {
   );
 
   testWidgets(
-    'people entry and all six levels are visible without horizontal scrolling',
+    'six paper level choices appear first and people remain reachable',
     (tester) async {
       await _pumpScenarios(
         tester,
@@ -437,7 +437,7 @@ void main() {
       await tester.pumpAndSettle();
       final entry = find.byKey(const ValueKey('persona-people-entry'));
       final grid = find.byKey(const ValueKey('scenario-level-grid'));
-      expect(tester.getRect(entry).bottom, lessThan(tester.getRect(grid).top));
+      expect(tester.getRect(grid).top, lessThan(tester.getRect(entry).top));
       final bounds = tester.getRect(grid);
       for (final level in LearnerLevel.values) {
         final rect = tester.getRect(
@@ -458,8 +458,8 @@ void main() {
         find.byKey(const ValueKey('scenario-level-b2')),
       );
       expect(a1.top, b1.top);
-      expect(b2.top, a1.top);
-      expect(a1.width, lessThanOrEqualTo(56));
+      expect(b2.top, greaterThan(a1.top));
+      expect(a1.width, lessThanOrEqualTo(80));
       expect(
         find.byWidgetPredicate(
           (w) =>
@@ -469,6 +469,7 @@ void main() {
         ),
         findsNothing,
       );
+      await _scrollTo(tester, entry);
       await tester.tap(entry);
       await tester.pumpAndSettle();
       expect(find.byType(PersonaPeopleScreen), findsOneWidget);

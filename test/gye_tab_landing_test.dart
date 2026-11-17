@@ -61,10 +61,15 @@ void main() {
     } else {
       expect(find.byType(GyeShowcaseArtwork), findsOneWidget);
       final showcase = tester.widget<Image>(
-        find.byKey(const ValueKey('gye-showcase-artwork')),
+        find
+            .descendant(
+              of: find.byKey(const ValueKey('gye-showcase-artwork')),
+              matching: find.byType(Image),
+            )
+            .first,
       );
       expect(
-        (showcase.image as AssetImage).assetName,
+        ((showcase.image as ResizeImage).imageProvider as AssetImage).assetName,
         GyeShowcaseArtwork.asset,
       );
     }
@@ -121,12 +126,14 @@ void main() {
     semantics.dispose();
   });
 
-  testWidgets('embedded empty Gye landing fills the space above navigation', (
+  testWidgets('embedded empty Gye landing uses one native scrolling surface', (
     tester,
   ) async {
     await _pumpEmbedded(tester, () async => const <GyeMeta>[]);
 
-    expect(find.byType(SliverFillRemaining), findsOneWidget);
+    expect(find.byType(SliverFillRemaining), findsNothing);
+    expect(find.byType(CustomScrollView), findsOneWidget);
+    expect(find.byKey(const ValueKey('c-gye-empty-board')), findsOneWidget);
     expect(find.byKey(const ValueKey('gye-continue-solo')), findsOneWidget);
     expect(tester.takeException(), isNull);
   });

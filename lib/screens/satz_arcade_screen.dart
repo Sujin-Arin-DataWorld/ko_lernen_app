@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
 import 'package:flutter/material.dart';
@@ -341,7 +342,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen>
             Expanded(
               child: Center(
                 child: SoriEmptyState(
-                  asset: 'assets/illustrations/mascot/magpie_encourage.png',
+                  asset: CanonicalCompanionArt.magpieGuide,
                   icon: Icons.reorder_rounded,
                   title: t.satzArcadeTitle,
                   body: t.clozeEmptyBody,

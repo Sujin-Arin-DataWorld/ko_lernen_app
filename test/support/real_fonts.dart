@@ -51,12 +51,27 @@ Future<void> loadSoriRealFonts({bool materialIcons = false}) async {
 
 Future<void> _loadTextFonts() async {
   const families = {
+    'Lora': ['assets/fonts/Lora/Lora-Variable.ttf'],
+    'Manrope': ['design_assets/fonts/Manrope/Manrope-Variable.ttf'],
     'NotoSansKR': ['assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf'],
     'Paperlogy': [
       'assets/fonts/Paperlogy/Paperlogy-Regular.ttf',
       'assets/fonts/Paperlogy/Paperlogy-Medium.ttf',
       'assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf',
       'assets/fonts/Paperlogy/Paperlogy-Bold.ttf',
+    ],
+    'Chubbo': ['assets/fonts/Chubbo/Chubbo-Bold.otf'],
+    'Supreme': [
+      'assets/fonts/Supreme/Supreme-Regular.otf',
+      'assets/fonts/Supreme/Supreme-Medium.otf',
+      'assets/fonts/Supreme/Supreme-Bold.otf',
+    ],
+    'Belgrano': ['assets/fonts/Belgrano/Belgrano-Regular.ttf'],
+    'EncodeSansCondensed': [
+      'assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Regular.ttf',
+      'assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Medium.ttf',
+      'assets/fonts/EncodeSansCondensed/EncodeSansCondensed-SemiBold.ttf',
+      'assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Bold.ttf',
     ],
   };
   for (final family in families.entries) {

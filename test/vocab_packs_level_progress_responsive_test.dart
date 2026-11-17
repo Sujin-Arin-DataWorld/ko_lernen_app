@@ -8,9 +8,6 @@ import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/chip.dart';
-import 'package:ko_lernen_app/widgets/sori/level_filter_bar.dart';
-import 'package:ko_lernen_app/widgets/sori/pack_card.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 void main() {
@@ -37,7 +34,7 @@ void main() {
   for (final level in <String>['a1', 'c2']) {
     for (final viewport in viewports.entries) {
       testWidgets(
-        '${level.toUpperCase()} progress header fits ${viewport.key}',
+        '${level.toUpperCase()} catalog keeps its browse level ${viewport.key}',
         (tester) async {
           tester.view.physicalSize = viewport.value;
           tester.view.devicePixelRatio = 1;
@@ -48,24 +45,21 @@ void main() {
           await tester.runAsync(VocabPackService.loadAll);
           await tester.pumpWidget(_host(const VocabPacksScreen()));
 
-          for (var i = 0; i < 40; i += 1) {
-            await tester.pump(const Duration(milliseconds: 50));
-            if (find.byType(PackCard).evaluate().isNotEmpty) {
-              break;
-            }
-          }
-
-          expect(find.byType(PackCard), findsWidgets);
-          final selectedLevelChips = find.descendant(
-            of: find.byType(SoriLevelFilterBar),
+          await tester.pumpAndSettle();
+          final row = find.ancestor(
+            of: find.text(level.toUpperCase()),
             matching: find.byWidgetPredicate(
-              (widget) => widget is SoriChip && widget.selected,
+              (w) => w is Semantics && w.properties.selected == true,
             ),
           );
-          expect(selectedLevelChips, findsOneWidget);
+          expect(row, findsOneWidget);
+          await tester.ensureVisible(row);
+          await tester.pumpAndSettle();
+          await tester.tap(row);
+          await tester.pumpAndSettle();
           expect(
-            tester.widget<SoriChip>(selectedLevelChips).label,
-            level.toUpperCase(),
+            find.byKey(ValueKey('wortpakete-level-$level')),
+            findsOneWidget,
           );
           expect(tester.takeException(), isNull);
         },

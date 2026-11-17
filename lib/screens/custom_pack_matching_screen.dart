@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/haptic_service.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/game_result_recovery.dart';
@@ -338,7 +339,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         title: t.wbMatching,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CanonicalCompanionArt.baekhoSeated,
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -352,7 +353,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         title: t.wbMatching,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_encourage.png',
+            asset: CanonicalCompanionArt.magpieGuide,
             icon: Icons.grid_view_rounded,
             title: t.wbMatching,
             body: t.wbMatchingNeedMore,

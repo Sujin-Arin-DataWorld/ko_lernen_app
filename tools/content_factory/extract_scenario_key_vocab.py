@@ -101,7 +101,7 @@ def _attested_in_dialog(korean: str, dialog_text: str) -> bool:
     # conjugated surface forms. A narrow stem check avoids flagging ordinary
     # 하다/adjective/verb inflection as unattested without pretending to be a
     # full morphological analyzer.
-    if " " not in korean and korean.endswith("다") and len(korean) > 2:
+    if " " not in korean and korean.endswith("다") and len(korean) >= 2:
         return korean[:-1] in dialog_text
     return False
 

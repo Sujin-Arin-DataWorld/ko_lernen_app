@@ -11,6 +11,7 @@ import 'package:ko_lernen_app/services/tts_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/tts_speed_control.dart';
+import 'package:ko_lernen_app/widgets/sori/scenario_c.dart';
 
 Widget _wrap(Widget child) => MaterialApp(
   debugShowCheckedModeBanner: false,
@@ -100,6 +101,75 @@ void main() {
     await tester.tap(find.text('1.25×'));
     await tester.pump();
     expect(changed, 1.25);
+  });
+
+  testWidgets(
+    'compact artwork keeps the shared sheet, storage and callback owner',
+    (tester) async {
+      final changes = <double>[];
+      await tester.pumpWidget(
+        _wrap(
+          TtsSpeedControl(
+            onChanged: changes.add,
+            compactBuilder: (context, label, openPresetSheet) =>
+                TextButton(onPressed: openPresetSheet, child: Text(label)),
+          ),
+        ),
+      );
+      await tester.tap(find.text('1×'));
+      await tester.pumpAndSettle();
+      final t = await AppL10n.delegate.load(const Locale('de'));
+      expect(find.text(t.ttsSpeedSheetTitle), findsOneWidget);
+      await tester.tap(find.text('0.75×'));
+      await tester.pump();
+      expect(Storage.ttsSpeed, .75);
+      expect(TtsService.speedNotifier.value, .75);
+      expect(changes, [.75]);
+      Navigator.of(tester.element(find.text(t.ttsSpeedSheetTitle))).pop();
+      await tester.pumpAndSettle();
+      expect(find.text('0.75×'), findsOneWidget);
+    },
+  );
+
+  testWidgets('Alltag paper speed uses the same presets and stays 48dp', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+    try {
+      await tester.pumpWidget(
+        _wrap(
+          const Column(children: [ScenarioCSpeedControl(), TtsSpeedControl()]),
+        ),
+      );
+      final paper = find.byType(ScenarioCSpeedControl);
+      expect(tester.getSize(paper).width, greaterThanOrEqualTo(72));
+      expect(tester.getSize(paper).height, greaterThanOrEqualTo(48));
+      final speedText = find.descendant(of: paper, matching: find.text('1×'));
+      expect(
+        tester.getCenter(speedText).dx,
+        closeTo(tester.getCenter(paper).dx, .1),
+      );
+      final l10n = await AppL10n.delegate.load(const Locale('de'));
+      expect(
+        find.bySemanticsLabel('${l10n.ttsSpeedLabel}: 1×'),
+        findsOneWidget,
+      );
+      expect(
+        find.descendant(of: paper, matching: find.byType(SoriChip)),
+        findsNothing,
+      );
+      await tester.tap(paper);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('1.25×'));
+      await tester.pump();
+      expect(Storage.ttsSpeed, 1.25);
+      final t = await AppL10n.delegate.load(const Locale('de'));
+      Navigator.of(tester.element(find.text(t.ttsSpeedSheetTitle))).pop();
+      await tester.pumpAndSettle();
+      expect(find.text('1.25×'), findsNWidgets(2));
+    } finally {
+      semantics.dispose();
+    }
   });
 
   testWidgets('48dp is opt-in and the shared default remains 44dp', (

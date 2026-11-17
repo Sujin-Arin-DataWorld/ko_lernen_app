@@ -23,6 +23,7 @@ import 'package:ko_lernen_app/theme.dart';
 
 import 'support/scenario_stock_fixtures.dart';
 import 'support/scenario_fixtures.dart';
+import 'support/text_paint_evidence.dart';
 
 /// Flutter 공식 접근성 가이드라인 자동 검사.
 ///
@@ -37,7 +38,10 @@ import 'support/scenario_fixtures.dart';
 /// ⚠️ 이 테스트가 **실기기 검사를 대체하지 않는다.** TalkBack·VoiceOver 낭독
 /// 순서, 초점 이동, 색상 반전, Reduce Motion 은 여전히 사람이 봐야 한다
 /// (`docs/store/RELEASE_QA_CHECKLIST.md` §5).
+import 'support/real_fonts.dart';
+
 void main() {
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
@@ -125,7 +129,11 @@ void main() {
     for (final entry in screens.entries) {
       testWidgets(entry.key, (tester) async {
         final handle = await pumpScreen(tester, entry.value());
-        await expectLater(tester, meetsGuideline(textContrastGuideline));
+        await captureTextPaintEvidence(tester, entry.key);
+        await expectLater(
+          tester,
+          meetsGuideline(PaintedTextContrastGuideline(evidenceName: entry.key)),
+        );
         handle.dispose();
       });
     }

@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/data/sticker_catalog.dart';
+import 'package:ko_lernen_app/data/canonical_companion_art.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations_de.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations_en.dart';
 import 'package:ko_lernen_app/l10n/sticker_localizations.dart';
@@ -45,4 +46,42 @@ void main() {
     expect(stickerByCode(0), isNull);
     expect(stickerByCode(31), isNull);
   });
+
+  test(
+    'saved companion sticker identities resolve current approved artwork',
+    () {
+      const slugs = [
+        'tiger_cheer',
+        'tiger_clap',
+        'tiger_surprised',
+        'tiger_sad',
+        'tiger_love',
+        'magpie_dance',
+        'magpie_wave',
+        'magpie_sleep',
+        'magpie_sing',
+        'magpie_encourage',
+      ];
+      const assets = [
+        CanonicalCompanionArt.baekhoStanding,
+        CanonicalCompanionArt.baekhoGuide,
+        CanonicalCompanionArt.baekhoPortrait,
+        CanonicalCompanionArt.baekhoSeated,
+        CanonicalCompanionArt.baekhoPortrait,
+        CanonicalCompanionArt.magpieCelebrate,
+        CanonicalCompanionArt.magpieGuide,
+        CanonicalCompanionArt.magpieStanding,
+        CanonicalCompanionArt.magpieCelebrate,
+        CanonicalCompanionArt.magpieGuide,
+      ];
+      for (var index = 0; index < 10; index++) {
+        final savedSticker = stickerByCode(index + 1)!;
+        expect(savedSticker.slug, slugs[index]);
+        expect(savedSticker.asset, assets[index]);
+      }
+      for (final sticker in kStickers.skip(10)) {
+        expect(sticker.asset, 'assets/stickers/${sticker.slug}.png');
+      }
+    },
+  );
 }

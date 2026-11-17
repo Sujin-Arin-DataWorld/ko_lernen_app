@@ -363,7 +363,11 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
 
   Widget _text(LocalizedText value, {bool korean = false}) => Text(
     korean ? value.ko : value.pick(_lang),
-    style: SoriTextTheme.of(context).body,
+    style: korean
+        ? SoriTextTheme.of(
+            context,
+          ).body.copyWith(fontFamily: SoriFonts.learningKorean)
+        : SoriTextTheme.of(context).body,
   );
   Widget _dialog(LocalizedText value) {
     final profile = ScenarioCharacterCatalog.profileFor(_scene.characterId);
@@ -380,7 +384,12 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
                 style: SoriTextTheme.of(context).eyebrow,
               ),
               const SizedBox(height: Spacing.sm),
-              Text(value.ko, style: SoriTextTheme.of(context).h3),
+              Text(
+                value.ko,
+                style: SoriTextTheme.of(
+                  context,
+                ).h3.copyWith(fontFamily: SoriFonts.learningKorean),
+              ),
               const SizedBox(height: Spacing.sm),
               _text(value),
               const SizedBox(height: Spacing.lg),
@@ -662,7 +671,9 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
                         ] else ...[
                           Text(
                             _expression!.text.ko,
-                            style: SoriTextTheme.of(context).h3,
+                            style: SoriTextTheme.of(
+                              context,
+                            ).h3.copyWith(fontFamily: SoriFonts.learningKorean),
                           ),
                           const SizedBox(height: Spacing.xl),
                           if (_effectVisible)
@@ -696,7 +707,9 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
                                 child: Text(
                                   key: _answerKey,
                                   _selected.map((i) => _pool[i]).join(' '),
-                                  style: SoriTextTheme.of(context).h2,
+                                  style: SoriTextTheme.of(context).h2.copyWith(
+                                    fontFamily: SoriFonts.learningKorean,
+                                  ),
                                 ),
                               ),
                             ),

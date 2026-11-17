@@ -1,0 +1,48 @@
+{
+  "status": "read_only_source_snapshot_design_proposal",
+  "date": "2026-10-28",
+  "head": "6fadd838e2a8ad378b92b38d06d86541782a7db8",
+  "sources": [
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\assets\\data\\lernpfad_foundation.json",
+      "sha256": "e24f08fb79a1518afb8d83088ad527f6e11cc00e199eba4effd4896c02fa6ce0"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\tool\\lernpfad_foundation_content.py",
+      "sha256": "008eeb342721e130d6d3efc1daa201d73ab3ca89a423f733af6d96434dbacbba"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\FOUNDATION.psv",
+      "sha256": "0d8ec0c9ec89060fd58df92c0ce71cf7b4d63454fef506eafe180386a2796c45"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\FIRST_PRODUCTION_PACK.md",
+      "sha256": "91a2aac62ddab82e8092cf51a2f0b83305377f57ead1f3af4043f68b1761f17f"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\ELibrary\\Downloads\\1_v3_5.md",
+      "sha256": "24ec73c1051da05702aac1d0257339cb10059d6cc4ea05cb5c7fb585deb64bcb"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\attachments\\81138600-8859-4780-99da-628eb6a3c9ec\\붙여넣은 텍스트.txt",
+      "sha256": "ac34937bf42248a942cd703e0fe77f969ea854d1e71962d47b0a9d3d4344564e"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\UNIT_CATALOG.json",
+      "sha256": "f4a44642be5b6b2ea6b34be9d1935c11a6d7bc443013f9e1a3680ea9220c89b3"
+    }
+  ],
+  "validation": {
+    "matrix_rows": 28,
+    "existing_foundation_ids_mapped_once": true,
+    "all_foundation_ids_in_100_unit_catalog": true,
+    "independent_builder_review": "complete_no_material_questions_remaining_after_narration_and_building_condition_clarifications",
+    "source_content_changes": [],
+    "not_performed": [
+      "teacher_review",
+      "learner_observation",
+      "media_production",
+      "Flutter_runtime_or_device_QA"
+    ]
+  }
+}

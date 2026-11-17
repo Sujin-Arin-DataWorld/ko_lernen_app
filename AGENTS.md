@@ -1,5 +1,26 @@
 # AGENTS.md — ko_lernen_app (Hangul Sori) · 모든 세션의 단일 진입점(SSoT)
 
+## 2026-10-23 기능 보존 및 워크트리 정리 공통 지침
+
+- 한옥 V1/V2 에셋 퇴역과 초기 V3 확인은 [docs/ops/HANOK_LEGACY_RETIREMENT_20261023.md](docs/ops/HANOK_LEGACY_RETIREMENT_20261023.md)를 따른다. 현재 pubspec·공정 카탈로그가 참조하는 V3와 현재 Blender 텍스처·도구는 유지한다. 진도 마이그레이션 코드는 별개로 보존한다.
+
+- 하회탈/탈선비, 보자기·일반 보상, 엽전, 보물·보석상자/자개함, 도깨비 Silben,
+  붓 한글·음절 기능은 보존 대상이다. 오래된 워크트리라는 이유로 기능을 폐기하지 않는다.
+- 정본 위치·보관 Git 커밋·기준 이력·복원 절차는
+  [docs/ops/FEATURE_PRESERVATION.md](docs/ops/FEATURE_PRESERVATION.md)와
+  [docs/ops/feature_preservation.json](docs/ops/feature_preservation.json)을 먼저 읽는다.
+- 워크트리 전체 유지 대신 기준 Git 커밋과 변경·삭제 목록, 미추적/ignored 원본,
+  테스트·에셋·모션 및 연결 정보를 검증하여 보관한다. 텍스트 diff만으로 보존 완료를 선언하지 않는다.
+- 삭제 전 원격의 보관 ref와 기준 ref, 파일 해시, 현재 HEAD/변경/ignored 자료,
+  활성 세션·프로세스·잠금·안쪽 저장소·연결 폴더를 다시 확인한다.
+  새 변경이 있으면 먼저 새 보관본을 만든다. 브랜치·stash·타 세션 WIP는 지우지 않는다.
+- 현재 Lernen의 assets 연결 대상인 c-app-integration-20261012, Blender/R12의
+  hwalju 텍스처와 warm-stone 도구는 참조 전환과 실제 검증 전까지 유지한다.
+  보관 성공은 Flutter 통합·컴파일·실기기·사용자 승인·배포 완료를 뜻하지 않는다.
+- 원격 main에는 이 지침이 있어도 기존 워크트리의 AGENTS.md는 오래됐을 수 있다.
+  이 범위 작업 전 `git show origin/main:docs/ops/FEATURE_PRESERVATION.md`로 최신 지침을 확인한다.
+
+
 > **⛔⛔ 어떤 AI 에이전트/환경(Codex · Claude Code · Cursor · Gemini 등)이든, 어떤 세션이든 시작 즉시 이 AGENTS.md를 가장 먼저 (상단 개요·파일맵·규칙 위주로) 읽고 시작한다 — 예외 없음.** 이 파일이 프로젝트의 유일한 단일 진실 원천이다. (구 `CLAUDE.md`·`memory/` 내용은 전부 이 파일로 통합됨. `CLAUDE.md`는 이 파일을 가리키는 포인터일 뿐.)
 >
 > **⛔⛔ 세션은 시작 즉시 자기 워킹트리를 파고 거기서만 일한다 — 예외 없음 (2026-08-19 확정).**
@@ -424,6 +445,8 @@ flutter run -d <android-id>   # 안드로이드
 ## 현재 진행 중인 작업 (2026-08-19)
 
 > 미완료 게이트만 적는다. 끝난 항목은 지우며, 이력은 `git log` / PR / `.claude/handoffs/`다.
+
+- [x] **문화세계 현재 인계(2026-10-06)**: 원래 9단계 9/9 + Batch 38/39 정본 승격 + 후속 품질 Stage A/B/C 완료. 현재 live는 **196 scenarios / 609 scenario quests / 10 scenario-culture links / 5 derived story arcs**다. Batch 40은 **review_only_draft**이며 preview만 **201 scenarios / 624 quests**다. 다음 세션은 `docs/plans/2026-10-06-culture-world-current-handoff.md`를 먼저 읽고, 새 문화 subsystem을 만들지 말고 기존 authoring pipeline으로 콘텐츠 확장부터 진행한다. 핵심 편집 원칙은 **자연스러운 한국어 먼저 → 실제 대화에서 핵심어 추출 → CEFR 감사**이며, support role은 기존 generic role만 사용하고 recurring persona 관계 canon을 만들지 않는다. Living Korea 관련 `git log --all` 커밋은 현재 브랜치 정본과 구분해서 검토한다.
 
 - [x] **문화세계 품질 후속 프로그램**: Stage A/B와 Stage C 전체 완료. 명시적 +2 이상 부채(over2/fallback/replacement backlog)는 전 종류 0이고, C-7.3에서 live vocab audit unknown 46건을 실제 task/domain owner 기준으로 모두 검토해 audit-level unknown도 전 종류 0으로 닫았다. C-7.4에서 `만났어요/잤어요/났어요/끝났어요` 같은 fused `ㅆ` polite-past lemma 복원을 좁게 추가해 cloze sentence unknown을 298→282/14,721(2.02%→1.92%, ratchet 1.93%)으로 더 낮췄다. vocab audit unknown ratchet=0, raw `word_grade()` smoke unknown≈0.40%(의도된 multiword/proper-name 12면), Grade 4 coverage missing=1813 유지. Stage C 종료조건(coverage ratchet active, over2/fallback/replacement backlog=0, audit-level unknown=0, residual sentence-token unknown<2%) 충족. 남은 sentence-token unknown은 선택적 morphology/segmentation 품질작업으로만 다루며 종료조건 부채가 아니다. 문화 metadata는 계속 mastery/reward owner가 아니며 TTS는 Jin이 VS Code에서 직접 처리하므로 이 프로그램에서 생성·덮어쓰기하지 않는다. 정본 계획: `docs/plans/2026-10-05-culture-quality-followups.md`.
 

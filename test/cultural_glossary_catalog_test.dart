@@ -41,6 +41,9 @@ void main() {
     'talchum',
     'pansori',
     'nongak',
+    'sunbae_hubae',
+    'jondaetmal_banmal',
+    'hoesik',
   };
   const expectedDecorationLinks = <String, String>{
     'decoration_jangdokdae': 'jangdokdae',
@@ -64,8 +67,8 @@ void main() {
     catalog = CulturalGlossary.fromJsonString(raw);
   });
 
-  test('catalog contains exactly the 33 approved term IDs', () {
-    expect(catalog.entries, hasLength(33));
+  test('catalog contains exactly the 36 approved term IDs', () {
+    expect(catalog.entries, hasLength(36));
     expect(
       catalog.entries.map((entry) => entry.termId).toSet(),
       expectedTermIds,

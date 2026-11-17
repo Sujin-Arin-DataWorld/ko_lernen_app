@@ -12,17 +12,22 @@ import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
+import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/services/yeopjeon_service.dart';
-import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/services/yeopjeon_wallet_notifier.dart';
+import 'package:ko_lernen_app/widgets/sori/top_chrome.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
+import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:ko_lernen_app/widgets/sori/window_class.dart';
+
+import '../support/sori_stage_capture_assets.dart';
 
 /// 폰·태블릿·가로 화면 배치 골든.
 ///
@@ -44,6 +49,8 @@ import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 ///   2. `Regenerate goldens (manual)` 잡의 아티팩트 다운로드
 ///   3. `test/goldens/baselines/` 에 덮어쓰고 커밋
 /// 기준이 없으면 스위트는 skip 된다(빨간 게이트 방지).
+late YeopjeonWalletNotifier _goldenWalletNotifier;
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -51,6 +58,8 @@ void main() {
   final ready =
       autoUpdateGoldenFiles ||
       (baselines.existsSync() && baselines.listSync().isNotEmpty);
+
+  setUpAll(prepareSoriStageCaptureAssets);
 
   setUp(() async {
     Storage.resetForTesting();
@@ -62,6 +71,9 @@ void main() {
     await Storage.init();
     // Match the production bootstrap before mounting the saved-wallet reader.
     await YeopjeonService.loadCurrent();
+    _goldenWalletNotifier = YeopjeonWalletNotifier();
+    await _goldenWalletNotifier.refresh();
+    addTearDown(_goldenWalletNotifier.dispose);
     DataLoader.reset();
     ScenarioLoader.reset();
   });
@@ -127,6 +139,10 @@ void main() {
             addTearDown(tester.view.resetPhysicalSize);
             addTearDown(tester.view.resetDevicePixelRatio);
 
+            if (screen.key == 'vocab_packs') {
+              VocabPackService.reset();
+              await tester.runAsync(VocabPackService.loadAll);
+            }
             await tester.pumpWidget(_wrap(screen.value()));
             await tester.pump();
             if (screen.key == 'settings') {
@@ -146,21 +162,8 @@ void main() {
               await tester.pump();
             }
             if (screen.key == 'vocab_packs') {
-              await tester.runAsync(() async {
-                final context = tester.element(find.byType(VocabPacksScreen));
-                await precacheImage(
-                  const AssetImage(
-                    'assets/illustrations/hanok/study_classroom.png',
-                  ),
-                  context,
-                );
-              });
-              await tester.pump();
               final context = tester.element(find.byType(VocabPacksScreen));
-              // The hero preload above runs outside fake async. Pack artwork
-              // can otherwise win or lose that same decode race, so compact
-              // and medium capture a different subset of visible images.
-              // Await every mounted Image provider before taking the golden.
+              // Await every artwork provider in the level overview.
               final imageProviders = tester
                   .widgetList<Image>(
                     find.descendant(
@@ -187,6 +190,7 @@ void main() {
               await tester.pump();
             }
             if (screen.key == 'sori_today') {
+              await settleSoriStageCaptureAssets(tester);
               await tester.runAsync(() async {
                 final context = tester.element(
                   find.byType(SoriStageTodayScreen),
@@ -200,7 +204,7 @@ void main() {
                   ),
                   precacheImage(
                     const AssetImage(
-                      'assets/illustrations/mascot/tiger_front.png',
+                      'assets/illustrations/companions/baekho/standing.png',
                     ),
                     context,
                   ),
@@ -260,13 +264,16 @@ Widget _scopedToday() {
     ..value = focus
     ..loading = false;
   addTearDown(controller.dispose);
-  return LearningFocusScope(
-    controller: controller,
-    open: (_, _, {focus, activityId}) async {},
-    child: SoriStageTodayScreen(
-      loadSnapshot: () async => snapshot,
-      now: () => DateTime(2026, 8, 14, 9),
-      forceStaticHero: true,
+  return SoriWalletScope(
+    notifier: _goldenWalletNotifier,
+    child: LearningFocusScope(
+      controller: controller,
+      open: (_, _, {focus, activityId}) async {},
+      child: SoriStageTodayScreen(
+        loadSnapshot: () async => snapshot,
+        now: () => DateTime(2026, 8, 14, 9),
+        forceStaticHero: true,
+      ),
     ),
   );
 }

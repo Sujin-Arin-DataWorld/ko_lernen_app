@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 import 'cloud_write_session.dart';
+import 'account_switch_resolution.dart';
 
 enum ReconciliationCheckpoint {
   remoteRead,
@@ -33,6 +34,8 @@ class AccountTransitionJournal {
     this.reconciliationCheckpoint,
     this.remoteRevision,
     this.reconciliationLocalCustomPackBaseIds,
+    this.switchResolutionConsent,
+    this.resolutionRemoteWriteStarted,
     this.replacementProvider,
     this.replacementTargetUid,
     this.replacementRequestKey,
@@ -64,6 +67,8 @@ class AccountTransitionJournal {
   final ReconciliationCheckpoint? reconciliationCheckpoint;
   final int? remoteRevision;
   final Set<String>? reconciliationLocalCustomPackBaseIds;
+  final AccountSwitchResolutionConsent? switchResolutionConsent;
+  final bool? resolutionRemoteWriteStarted;
   final String? replacementProvider;
   final String? replacementTargetUid;
   final String? replacementRequestKey;
@@ -77,6 +82,8 @@ class AccountTransitionJournal {
     ReconciliationCheckpoint? reconciliationCheckpoint,
     int? remoteRevision,
     Set<String>? reconciliationLocalCustomPackBaseIds,
+    AccountSwitchResolutionConsent? switchResolutionConsent,
+    bool? resolutionRemoteWriteStarted,
     String? replacementProvider,
     String? replacementTargetUid,
     String? replacementRequestKey,
@@ -88,6 +95,8 @@ class AccountTransitionJournal {
       version: currentVersion,
       session: session,
       reconciliationOperationId: reconciliationOperationId,
+      switchResolutionConsent: switchResolutionConsent,
+      resolutionRemoteWriteStarted: resolutionRemoteWriteStarted,
       reconciliationCheckpoint: reconciliationCheckpoint,
       remoteRevision: remoteRevision,
       reconciliationLocalCustomPackBaseIds:
@@ -115,6 +124,11 @@ class AccountTransitionJournal {
     final operationId = json['reconciliationOperationId'];
     final checkpoint = json['reconciliationCheckpoint'];
     final remoteRevision = json['remoteRevision'];
+    final resolutionWriteStarted = json['resolutionRemoteWriteStarted'];
+    if (json.containsKey('resolutionRemoteWriteStarted') &&
+        resolutionWriteStarted is! bool) {
+      throw const FormatException('Invalid operation write-attempt latch.');
+    }
     final localCustomPackBaseIds = _parseLocalCustomPackBaseIds(
       json['reconciliationLocalCustomPackBaseIds'],
     );
@@ -200,6 +214,12 @@ class AccountTransitionJournal {
 
     final journal = AccountTransitionJournal(
       version: version,
+      switchResolutionConsent: json.containsKey('switchResolutionConsent')
+          ? AccountSwitchResolutionConsent.fromJson(
+              json['switchResolutionConsent'],
+            )
+          : null,
+      resolutionRemoteWriteStarted: resolutionWriteStarted as bool?,
       session: CloudWriteSession(
         uid: uid,
         epoch: epoch,
@@ -225,16 +245,44 @@ class AccountTransitionJournal {
     ReconciliationCheckpoint? reconciliationCheckpoint,
     int? remoteRevision,
     Set<String>? reconciliationLocalCustomPackBaseIds,
+    AccountSwitchResolutionConsent? switchResolutionConsent,
+    bool? resolutionRemoteWriteStarted,
+    bool clearSwitchResolutionConsent = false,
     CloudWriteSession? session,
     AccountReplacementPhase? replacementPhase,
     String? replacementOperationId,
     int? replacementOperationVersion,
   }) {
+    if (resolutionRemoteWriteStarted == false &&
+        this.resolutionRemoteWriteStarted != false) {
+      throw const FormatException(
+        'Operation write-attempt knowledge cannot be downgraded.',
+      );
+    }
+    if (clearSwitchResolutionConsent &&
+        (switchResolutionConsent != null ||
+            (this.switchResolutionConsent != null &&
+                this.resolutionRemoteWriteStarted != false))) {
+      throw const FormatException(
+        'Attempted or unknown consent cannot be retired.',
+      );
+    }
+    if (switchResolutionConsent != null &&
+        this.switchResolutionConsent != null &&
+        jsonEncode(switchResolutionConsent.toJson()) !=
+            jsonEncode(this.switchResolutionConsent!.toJson())) {
+      throw const FormatException('Confirmed resolution choice is immutable.');
+    }
     final selectedLocalCustomPackBaseIds =
         reconciliationLocalCustomPackBaseIds ??
         this.reconciliationLocalCustomPackBaseIds;
     final journal = AccountTransitionJournal(
       version: version,
+      switchResolutionConsent: clearSwitchResolutionConsent
+          ? null
+          : switchResolutionConsent ?? this.switchResolutionConsent,
+      resolutionRemoteWriteStarted:
+          resolutionRemoteWriteStarted ?? this.resolutionRemoteWriteStarted,
       session: session ?? this.session,
       reconciliationOperationId:
           reconciliationOperationId ?? this.reconciliationOperationId,
@@ -270,6 +318,12 @@ class AccountTransitionJournal {
       'mode': session.mode.name,
     };
     final operationId = reconciliationOperationId;
+    if (resolutionRemoteWriteStarted case final started?) {
+      json['resolutionRemoteWriteStarted'] = started;
+    }
+    if (switchResolutionConsent case final consent?) {
+      json['switchResolutionConsent'] = consent.toJson();
+    }
     final checkpoint = reconciliationCheckpoint;
     final revision = remoteRevision;
     final localCustomPackBaseIds = reconciliationLocalCustomPackBaseIds;
@@ -326,6 +380,12 @@ class AccountTransitionJournal {
         );
       }
     }
+    if (resolutionRemoteWriteStarted != null &&
+        reconciliationOperationId == null) {
+      throw const FormatException(
+        'Write-attempt knowledge requires an operation.',
+      );
+    }
     if (remoteRevision case final revision?) {
       if (revision < 0) {
         throw const FormatException(
@@ -345,6 +405,16 @@ class AccountTransitionJournal {
       replacementOperationId,
       replacementOperationVersion,
     ];
+    if (switchResolutionConsent case final consent?) {
+      consent.validate();
+      if (session.mode != CloudWriteMode.reconciling ||
+          reconciliationOperationId == null ||
+          replacementValues.any((value) => value != null)) {
+        throw const FormatException(
+          'Resolution consent requires its switch owner.',
+        );
+      }
+    }
     if (replacementValues.every((value) => value == null)) return;
     final provider = replacementProvider;
     final targetUid = replacementTargetUid;

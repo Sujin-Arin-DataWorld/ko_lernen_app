@@ -1,0 +1,240 @@
+{
+  "reviewedAt": "2026-10-18",
+  "branch": "session/einleitung-settings-parity-20261018",
+  "baseHead": "2d68784d3b642a14fe174de26d55b0c82209a694",
+  "status": "PASS_WELCOME_FLUTTER_STATIC_MATERIAL_AND_GERMAN_READABILITY",
+  "ownership": [
+    "lib/screens/onboarding_v2/welcome_screen.dart",
+    "lib/screens/onboarding_v2/c_intro_welcome_reference.dart",
+    "test/c_priority_screens_test.dart welcome-related blocks"
+  ],
+  "changes": [
+    {
+      "path": "lib/screens/onboarding_v2/welcome_screen.dart",
+      "sha256": "c8feafb5209800488844cb6b4ba51d974f89ec6659a0d833d29dc6095e88f4ca"
+    },
+    {
+      "path": "lib/screens/onboarding_v2/c_intro_welcome_reference.dart",
+      "sha256": "1e48059df3d56b35d9d357c146587d8689368599f631ecfa3889040eea2a5fc4"
+    },
+    {
+      "path": "test/c_onboarding_welcome_test.dart",
+      "sha256": "cd8fa85d7fb05d1fcfdd8451b2a5a3146097688734881646c7c6987b0e49e1be"
+    },
+    {
+      "path": "test/support/einleitung_capture_assets.dart",
+      "sha256": "c00fc8dba85f856d3d0b8e19630da222b854335dc89f9bfcaa42104369b20e50"
+    }
+  ],
+  "approvedReference": {
+    "figmaFile": "rVlcMLvngw07BYJ7nRT87C",
+    "node": "85:32",
+    "capture": {
+      "path": "docs/screenshots/einleitung-parity-review-20261018/welcome-v8.png",
+      "sha256": "2213454676ca5f7c457a676933d681e601b3e84093ad992c80ba4f5d7730f13b"
+    },
+    "nativeSceneSize": [
+      941,
+      1672
+    ]
+  },
+  "wholeRuntimeAsset": {
+    "path": "assets/illustrations/einleitung_generated/intro-welcome-scene.png",
+    "sha256": "b5082b040b4b976bcdb5f9fdf1c7a553c08509ba1afa54aaa5cfcee3734924a0"
+  },
+  "geometry": {
+    "viewport": [
+      402,
+      934
+    ],
+    "scene": [
+      0,
+      109.85653560042508,
+      402,
+      714.2869287991498
+    ],
+    "sceneFit": "BoxFit.contain; complete independent image, no sourceRect, no screenshot asset, no raster edits",
+    "startLocal": [
+      84.5,
+      601.5,
+      233,
+      50
+    ],
+    "laterLocal": [
+      151,
+      650,
+      100,
+      48
+    ],
+    "brandLocal": [
+      100,
+      40,
+      202,
+      18
+    ],
+    "titleLocal": [
+      65,
+      69,
+      272,
+      68
+    ],
+    "bodyLocal": [
+      75,
+      139,
+      252,
+      33
+    ],
+    "textAlignVertical": "CENTER for title/body/start label, confirmed through live read-only Figma"
+  },
+  "material": {
+    "extension": "native jade gradient #164c48 -> #123e38",
+    "startFace": [
+      "#285953",
+      "#174d48",
+      "#113c39"
+    ],
+    "startGoldRail": [
+      "#ffe4a6",
+      "#d4af66",
+      "#edcd8a"
+    ],
+    "title": "Lora variable wght600,28px,line30.5; weight axis explicit to avoid synthetic bold",
+    "body": "Roboto Regular12.5,line16",
+    "nativeOrnaments": "Three-curl cloud paths; source-positioned outline ornaments and quiet button corners",
+    "interaction": "SoriPressable pressScale .985, surfaceDepth1.5, native arrow and busy spinner, existing reduced-motion support"
+  },
+  "adaptation": {
+    "trigger": "50 * viewportWidth/402 <48, or effective 28px text size >29.4",
+    "layout": "Scrollable native brand/title/body, entire source-aspect scene, error, start, later. No textScaler clamp. At width<360 use22px base title; at200percent this renders44px. Body16px, start20px, later16px.",
+    "smallViewport": [
+      320,
+      740
+    ],
+    "textScale": 2,
+    "targets": "Minimum48dp; use flow before geometry scaling would reduce the source CTA below48dp."
+  },
+  "contractsPreserved": [
+    "_start busy guard and LocalDataLifetime check",
+    "Storage.setWelcomeSeen only on existing start path",
+    "ConsentScreen pushReplacement and FirstRunCoordinator",
+    "AppReviewDemoScreen Later route",
+    "onStart/onLater injection hooks",
+    "_failed live-region retry state",
+    "PopScope cannot pop while busy",
+    "welcome-start and welcome-later keys"
+  ],
+  "validation": {
+    "focusedCommand": "flutter test test/c_onboarding_welcome_test.dart test/c_onboarding_native_test.dart test/c_onboarding_companion_stability_test.dart",
+    "focusedResult": "Parent reports all46 tests passed across the three separated files. Reviewer directly inspected the resulting three Welcome images.",
+    "previousIndependentResult": "Reviewer previously ran the four Welcome tests successfully before final alignment/copy adjustments; final46-run performed by parent.",
+    "latestCaptures": [
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/welcome-402-100.png",
+        "sha256": "540fb80d910ab5232d719788956d9523ee389910a779e882402704053a4e8914",
+        "size": [
+          402,
+          934
+        ]
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/welcome-320-200.png",
+        "sha256": "b2bbccb5f5bf8b5ceb332257c94080b5782a3ed3abdd204f30edb03787c9b035",
+        "size": [
+          320,
+          740
+        ]
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/welcome-320-200-actions.png",
+        "sha256": "9817aef9d033d34ca7e1b7dfcfbafd4491ab97ef08e1ee1ccd99a3d8146e8fd5",
+        "size": [
+          320,
+          740
+        ]
+      }
+    ],
+    "finalCaptureStatus": "Current final captures inspected after title/body/start center alignment and real ARB newline correction.",
+    "normalTitleInkYLocal": {
+      "figmaV8": [
+        77,
+        134
+      ],
+      "flutter": [
+        77,
+        134
+      ],
+      "interpretation": "Native title baseline aligns within platform rasterization tolerance; no clipping or overlap."
+    },
+    "format": "Owned source/test files formatted during implementation.",
+    "analysis": "Parent owns final combined analysis; no analysis or test command was rerun during this visual follow-up."
+  },
+  "remaining": [],
+  "skillApplication": {
+    "frontend-design": "Preserved approved composition, source identity and tactile C material rather than introducing a layout redesign.",
+    "design-system": "Explicit native font axes, reusable reference coordinates, consistent jade/gold/cream tokens.",
+    "frontend-a11y": "Native button semantics and keyboard pressable, meaningful later hint, live-region errors, 48dp targets, scaled text flow and reduced motion."
+  },
+  "officialSources": [
+    {
+      "url": "https://docs.flutter.dev/ui/accessibility/ui-design-and-styling",
+      "checkedAt": "2026-10-18",
+      "applied": "Unclamped text scaling and minimum touch targets, verify small viewport separately."
+    },
+    {
+      "url": "https://api.flutter.dev/flutter/painting/TextStyle/fontVariations.html",
+      "checkedAt": "2026-10-18",
+      "applied": "Set variable Lora wght600 explicitly for the approved semi-bold face."
+    }
+  ],
+  "figmaWrites": false,
+  "assetPixelEdits": false,
+  "commitCreated": false,
+  "approvalLimits": "Scoped static Flutter material/readability approval for German402x934 at100percent and320x740 at200percent, with parent-reported46-test coverage. Does not claim physical-device, release, or exact pixel identity approval.",
+  "reviewHistory": [
+    {
+      "status": "IMPLEMENTED_FOUR_FOCUSED_TESTS_PASSED_FINAL_CAPTURE_PENDING_PARENT_INTEGRATION",
+      "validation": {
+        "focusedCommand": "flutter test test/c_priority_screens_test.dart --no-pub --plain-name welcome --reporter expanded",
+        "focusedResult": "4 PASS",
+        "cases": [
+          "402x934 geometry + both actions",
+          "320x740 200percent scroll + both actions",
+          "failed write retries",
+          "pending start disables both actions"
+        ],
+        "analysis": "Initial native pair analyze passed. Follow-up found only redundant dart:ui import, removed. Final rerun deferred with parent integration.",
+        "format": "dart format on two owned native files passed",
+        "diffCheck": "git diff --check for owned tracked files passed",
+        "latestCaptures": [
+          {
+            "path": "docs/screenshots/c-integration-priority/welcome-402-100.png",
+            "sha256": "fd0dafb3b13437076006e4d707b9850cb18dbd4aa544f0f0dda3fa47a3ee87c1"
+          },
+          {
+            "path": "docs/screenshots/c-integration-priority/welcome-320-200.png",
+            "sha256": "6867e862cc40d5c7f80a83f4abc473dc0ab79c4ad02b4703dbfc5d7f97ec0f25"
+          }
+        ],
+        "captureLimit": "These captures and four-test pass predate the final center alignment adjustment and parent ARB newline fix. Final integrated capture still required. Large-text actions capture was added to the existing test but not run after parent requested test pause."
+      },
+      "remaining": [
+        "Parent corrects ARB literal backslash-n into real newline and regenerates l10n. Reviewer notified exact double-escape finding.",
+        "After shared onboarding source is compilable, rerun four Welcome tests and capture welcome-320-200-actions.",
+        "Compare final normal title/body/button baselines with v8 and inspect large-text action capture.",
+        "Connected full onboarding and physical-device QA remain parent responsibilities."
+      ]
+    }
+  ],
+  "currentHead": "2d68784d3b642a14fe174de26d55b0c82209a694",
+  "materialReadabilityVerdict": {
+    "default402x934": "PASS: complete scene preserved, both wooden posts/foreground characters retained, title and body match intended line structure, jade/gold button relief and cloud ornaments visible, both actions readable and separated.",
+    "small320x740At200percentTop": "PASS: full title words and body readable, no clipped characters or overlapping text; scroll reveals the complete source-aspect artwork.",
+    "small320x740At200percentActions": "PASS: Los geht’s and arrow fit within the raised jade/gold action; Später is fully readable with clear separation and no bottom clipping.",
+    "sourceAspect": "941x1672 independent scene at402x714.2869, centered in934px viewport with extended native jade background. Large-text layout is an explicit accessible adaptation, not a claim of fixed-layout pixel equality.",
+    "residuals": [
+      "Small native font rasterization and cloud stroke differences remain acceptable.",
+      "Extended top/bottom jade background is a native adaptation outside the original714.2869px scene."
+    ]
+  },
+  "nextGate": "No further Welcome material iteration is required. Ready for same-worktree branch isolation; run the integration checks again after isolation onto main dependencies."
+}

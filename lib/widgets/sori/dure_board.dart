@@ -8,6 +8,7 @@ import 'celebration.dart';
 import 'sheet.dart';
 import 'toast.dart';
 import 'tokens.dart';
+import 'dure_weekly_heading.dart';
 
 /// 두레판 — 계 주간 공동 기여를 "함께 채우는" 협력 보드.
 ///
@@ -160,51 +161,7 @@ class DureBoard extends StatelessWidget {
               Text(t.gyeAccountTransitionPaused, textAlign: TextAlign.center),
               const SizedBox(height: Spacing.md),
             ],
-            // 헤더 — 라벨 + 합계(주인공) / 목표
-            Row(
-              children: [
-                Icon(
-                  done ? Icons.local_florist_rounded : Icons.grass_rounded,
-                  size: 16,
-                  color: done ? SoriColors.gold : SoriColors.primary,
-                ),
-                const SizedBox(width: 6),
-                Expanded(
-                  child: Text(
-                    t.gyeDureTitle,
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700,
-                      color: s.text,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(
-                        text: '$total',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          color: done ? SoriColors.gold : SoriColors.primary,
-                        ),
-                      ),
-                      TextSpan(
-                        text: goal > 0 ? ' / $goal' : '',
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w700,
-                          color: s.textMuted,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            DureWeeklyHeading(total: total, goal: goal, done: done),
             const SizedBox(height: 8),
             // 스택 막대 — 하나를 여럿이 색으로 함께 채운다
             ClipRRect(

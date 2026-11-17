@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/data/sticker_catalog.dart';
@@ -28,8 +30,50 @@ void main() {
       expect(image.image, isA<ResizeImage>());
       final resized = image.image as ResizeImage;
       expect(resized.width, 128);
-      expect(resized.height, 128);
+      expect(resized.height, isNull);
       expect(find.bySemanticsLabel('Cheering tiger'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
+    'non-square sticker decode preserves the canonical source ratio',
+    (tester) async {
+      for (final code in [7, 10]) {
+        final spec = stickerByCode(code)!;
+        await tester.pumpWidget(
+          _app(
+            locale: const Locale('en'),
+            child: StickerImage(spec: spec, size: 64),
+          ),
+        );
+        final provider = tester.widget<Image>(find.byType(Image)).image;
+        final decoded = await tester.runAsync(() async {
+          final completer = Completer<Size>();
+          final stream = provider.resolve(const ImageConfiguration());
+          final listener = ImageStreamListener((info, _) {
+            completer.complete(
+              Size(info.image.width.toDouble(), info.image.height.toDouble()),
+            );
+            info.dispose();
+          }, onError: completer.completeError);
+          stream.addListener(listener);
+          try {
+            return await completer.future;
+          } finally {
+            stream.removeListener(listener);
+          }
+        });
+        final source = await rootBundle.load(spec.asset);
+        final ratio = source.getUint32(16) / source.getUint32(20);
+        expect(ratio, isNot(1));
+        expect(
+          decoded!.aspectRatio,
+          closeTo(ratio, 0.02),
+          reason: 'Code $code must keep the original hat/body proportions',
+        );
+        expect(tester.getSize(find.byType(StickerImage)), const Size(64, 64));
+        expect(tester.takeException(), isNull);
+      }
     },
   );
 

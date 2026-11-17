@@ -2,6 +2,8 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'support/real_fonts.dart';
+import 'support/sori_stage_pump.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
@@ -30,6 +32,7 @@ const _viewports = <Size>[
 const _textScales = <double>[1, 1.3, 1.6, 2];
 
 void main() {
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
@@ -187,13 +190,79 @@ void main() {
     expect(find.text('7'), findsOneWidget);
     expect(find.text('Lv 4'), findsOneWidget);
 
-    await tester.tap(find.bySemanticsLabel(RegExp('7 Days')));
+    await tester.tap(find.bySemanticsLabel(RegExp('7 days')));
     await tester.tap(find.bySemanticsLabel(RegExp('Lv 4 · 320 XP')));
     expect(streakTaps, 1);
     expect(statsTaps, 1);
     expect(tester.takeException(), isNull);
     semantics.dispose();
   });
+
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    for (final scale in const [1.0, 2.0]) {
+      testWidgets(
+        'compact wallet header keeps all five actions at ${locale.languageCode} ${scale}x',
+        (tester) async {
+          _setViewport(tester, const Size(320, 640));
+          var weekTaps = 0;
+          var statsTaps = 0;
+          var profileTaps = 0;
+          var walletTaps = 0;
+          await tester.pumpWidget(
+            _responsiveApp(
+              locale: locale,
+              textScale: scale,
+              home: Scaffold(
+                body: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: SoriStatsTopBar(
+                      streak: 365,
+                      level: 120,
+                      xp: 999999,
+                      onStreakTap: () => weekTaps++,
+                      onStatsTap: () => statsTaps++,
+                      onProfileTap: () => profileTaps++,
+                      walletWidth: 150,
+                      wallet: TextButton(
+                        onPressed: () => walletTaps++,
+                        child: const Text('123456789'),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+          await tester.pump();
+          for (final id in const [
+            'week',
+            'stats',
+            'wallet',
+            'profile',
+            'settings',
+          ]) {
+            final action = find.byKey(ValueKey('today-header-$id'));
+            expect(action, findsOneWidget);
+            final size = tester.getSize(action);
+            expect(size.width, greaterThanOrEqualTo(48), reason: id);
+            expect(size.height, greaterThanOrEqualTo(48), reason: id);
+            await tester.ensureVisible(action);
+            await tester.pump();
+            await tester.tap(action);
+            await tester.pump();
+          }
+          await tester.pumpAndSettle();
+          expect(weekTaps, 1);
+          expect(statsTaps, 1);
+          expect(profileTaps, 1);
+          expect(walletTaps, 1);
+          expect(find.text('/settings'), findsOneWidget);
+          expect(tester.takeException(), isNull);
+        },
+      );
+    }
+  }
 
   testWidgets('320dp 200% Bojagi copy and action are not truncated', (
     tester,
@@ -215,11 +284,12 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
+    await openTodayDetails(tester);
     final action = find.byKey(const ValueKey('pending-bojagi-action'));
     await tester.scrollUntilVisible(
       action,
       260,
-      scrollable: find.byType(Scrollable).first,
+      scrollable: todayDetailsScrollable(),
     );
 
     for (final key in const <ValueKey<String>>[
@@ -268,6 +338,7 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 300));
 
+      await openTodayDetails(tester);
       final label = [
         t.soriStageBojagiTitle,
         '1',
@@ -278,7 +349,7 @@ void main() {
       await tester.scrollUntilVisible(
         finder,
         260,
-        scrollable: find.byType(Scrollable).first,
+        scrollable: todayDetailsScrollable(),
       );
 
       final data = tester.getSemantics(finder).getSemanticsData();

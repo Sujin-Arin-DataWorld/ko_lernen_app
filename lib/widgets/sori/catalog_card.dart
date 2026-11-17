@@ -153,7 +153,9 @@ class SoriCatalogCard extends StatelessWidget {
           style: (featured ? type.h2 : type.body).copyWith(
             fontSize: featured ? 26 : 16,
             height: 1.3,
-            fontWeight: FontWeight.w600,
+            fontWeight: featured
+                ? SoriLocaleFonts.of(context).headingWeight
+                : SoriLocaleFonts.of(context).bodyWeight(FontWeight.w600),
             color: ink,
           ),
         ),

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-04",
+  "scope": "static_story_mockup_only",
+  "scene": "R22",
+  "name": "save_unconfirmed_retry",
+  "delivery_file": "R22-save-unconfirmed-de.png",
+  "sha256": "841979563167f299c86bc202e65b451b3b520935ff8935f69972fe17ea75f40c",
+  "bytes": 2414846,
+  "dimensions": [
+    853,
+    1843
+  ],
+  "mode": "RGB",
+  "classification": "independent_AI_design_and_story_review_pass_pending_user",
+  "user_approved": false,
+  "canonical_promoted": false,
+  "runtime_integrated": false,
+  "html_modified": false,
+  "design_review": "R22_DESIGN_POSTFLIGHT_V4.md",
+  "story_review": "R22_STORY_POSTFLIGHT_V4.md",
+  "prompt": "R22_PROMPT_V4.json",
+  "prompt_sha256": "4e00d1249be8186b3e740f23351540e9c3aacc18d8851574cf24bcae8e85f084",
+  "sources": "R22_SOURCES.json",
+  "relocation_receipt": "R22_RELOCATION_RECEIPT.json",
+  "prior_iteration_status": {
+    "v1": "rejected_for_delivery_aspect_ratio",
+    "v2": "rejected_for_delivery_aspect_ratio",
+    "v3": "rejected_for_delivery_aspect_ratio"
+  },
+  "continuity": {
+    "page_left": "아",
+    "page_right": "blank",
+    "save_state": "unconfirmed",
+    "retry_preserves": [
+      "prior_response",
+      "name",
+      "help_state",
+      "dialogue_position",
+      "restored_character"
+    ],
+    "next_scene": "R23 only after actual save confirmation"
+  },
+  "not_completed": [
+    "R21b character scene correction",
+    "R23 and later generation",
+    "user approval",
+    "runtime retry/save verification"
+  ],
+  "measurement_limits": [
+    "Actual output 853x1843, approximately 9:19.5; not mathematically exact 9:19.5.",
+    "Button shadow has visible separation, but exact 55px spacing is not certified.",
+    "No exact dp, touch area, safe-area, device, accessibility or byte-identical UI compositing certification."
+  ]
+}
