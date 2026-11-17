@@ -1,4 +1,5 @@
 import '../data/canonical_companion_art.dart';
+import 'dart:math' as math;
 import '../services/haptic_service.dart';
 import 'package:flutter/material.dart';
 
@@ -32,9 +33,12 @@ import '../widgets/sori/approved_chrome_assets.dart';
 import '../widgets/sori/c_learning_surface.dart';
 import '../widgets/sori/learning_stage_navigation.dart';
 import '../widgets/sori/level_filter_bar.dart';
+import '../widgets/sori/lernen_generated_art.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/study_frame.dart';
+
+import '../widgets/sori/viewport_pages.dart';
 
 part 'wortpakete_catalog.dart';
 
