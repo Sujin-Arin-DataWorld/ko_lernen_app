@@ -90,6 +90,20 @@ SURFACES: tuple[ContentSurface, ...] = (
         "KO/DE/EN pack titles and immutable artwork references; no lesson copy",
     ),
     ContentSurface(
+        "ildu_r16_art_v1.json",
+        "approved R16 presentation artwork catalog",
+        "IlDuR16ArtCatalog / IlDuEstateScreen / IlDuR16ProcessImage",
+        ("buildings",),
+        "Korean architecture labels and immutable artwork references; UI translations live in ARB; no learning or ownership policy",
+    ),
+    ContentSurface(
+        "ildu_r16_sarang_layers_v1.json",
+        "approved R16 standalone presentation layers",
+        "IlDuR16LayerCatalog / IlDuR16LayerArtwork",
+        ("stages",),
+        "Immutable process IDs and foreground/shadow references; no learner prose or progress/ownership policy",
+    ),
+    ContentSurface(
         "sarangchae_construction_v3.json",
         "approved construction lessons",
         "SarangchaeConstruction",

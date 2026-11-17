@@ -1,0 +1,44 @@
+{
+  "schema": "hangulsori/approved-character-art/1",
+  "character": "sujin",
+  "version": "20261031-v3",
+  "status": "USER_APPROVED_CANONICAL_ART",
+  "approval_date_berlin": "2026-10-31",
+  "approval_quote": "오 마음에 들어. 그러면 이제 그걸로 수진 정본 확정하고 커밋한다음에",
+  "approval_scope": "exact three sheets from previous response: front,6expressions,6poses; character visual canon only",
+  "files": [
+    {
+      "file": "01-front.png",
+      "sha256": "2ac6c0b306ec40f4c8a2447f8289f02f7e78142dec3f9b029a2b43c0f4981be9",
+      "size": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "file": "02-expressions-six.png",
+      "sha256": "9870ad3a0063cba595f5355727f09f56215bcc36583a378dbbe49f22ccef491f",
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "file": "03-poses-six.png",
+      "sha256": "1b70463c2d78f2a29608ba68494c66d56251bd61ee33ab3d84133f86a0e8084b",
+      "size": [
+        1536,
+        1024
+      ]
+    }
+  ],
+  "source_reference": "exec-ef31c544-2d88-401a-8b4a-0b49c7664c84.png",
+  "identity": "adult Korean companion Sujin, contemporary short bob,tealblazer; not player avatar",
+  "runtime_asset_replacement": false,
+  "excluded": [
+    "photo likeness v2 candidate",
+    "realistic eye candidate",
+    "earlier baby magpie mockups"
+  ],
+  "permissions": "user explicitly authorized promotion and commit, plus6image mockup production"
+}

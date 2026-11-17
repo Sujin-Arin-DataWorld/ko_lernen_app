@@ -21,6 +21,7 @@ import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
+import 'package:ko_lernen_app/widgets/sori/learning_stage_navigation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 
@@ -98,6 +99,11 @@ void main() {
         pack,
         courseContext: CoursePracticeContext.fromLink(link),
       );
+      final footer = tester.widget<SoriLearningStageNavigation>(
+        find.byType(SoriLearningStageNavigation),
+      );
+      expect(footer.canLeave!(), isTrue);
+      expect(footer.onLeave, isNotNull);
       final t = await AppL10n.delegate.load(const Locale('en'));
       tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
       await tester.pump();
@@ -228,6 +234,7 @@ void main() {
           .onSelected!();
       await _flush(tester);
       expect(find.byType(AppLoading), findsOneWidget);
+      expect(find.byType(SoriLearningStageNavigation), findsNothing);
       expect(platform.writes['kl_srs_v1'], srsWritesBefore + 1);
       expect(
         platform.writes[Storage.courseMasterySnapshotPreferenceKey],

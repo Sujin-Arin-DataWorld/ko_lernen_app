@@ -5,9 +5,12 @@ import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../models/learner_level.dart';
 import '../pack_progress_service.dart';
+import '../local_data_lifetime.dart';
 import 'account_failure_diagnostics.dart';
 import 'account_reconciliation.dart';
+import 'account_switch_resolution.dart';
 import 'account_transition_coordinator.dart' show AccountLinkProvider;
 import 'account_transition_journal.dart';
 import 'cloud_write_session.dart';
@@ -83,21 +86,15 @@ class AccountSwitchJournal {
     }
     final sourceUid = json['sourceUid'];
     if (sourceUid is! String || sourceUid.isEmpty) {
-      throw const FormatException(
-        'Invalid account switch journal sourceUid.',
-      );
+      throw const FormatException('Invalid account switch journal sourceUid.');
     }
     final targetUid = json['targetUid'];
     if (targetUid is! String || targetUid.isEmpty) {
-      throw const FormatException(
-        'Invalid account switch journal targetUid.',
-      );
+      throw const FormatException('Invalid account switch journal targetUid.');
     }
     final provider = json['provider'];
     if (provider is! String || provider.isEmpty) {
-      throw const FormatException(
-        'Invalid account switch journal provider.',
-      );
+      throw const FormatException('Invalid account switch journal provider.');
     }
     final operationId = json['operationId'];
     if (operationId is! String || operationId.isEmpty) {
@@ -152,9 +149,32 @@ abstract interface class AccountSwitchJournalStore {
 
 class SharedPreferencesAccountSwitchJournalStore
     implements AccountSwitchJournalStore {
-  SharedPreferencesAccountSwitchJournalStore(this.preferences);
+  SharedPreferencesAccountSwitchJournalStore(
+    this.preferences, {
+    this.preserveMalformed = false,
+  });
 
   final SharedPreferences preferences;
+  final bool preserveMalformed;
+
+  /// Synchronous guard after the transition store reloads shared preferences.
+  /// It performs no cleanup and rejects malformed or replaced markers.
+  bool isCurrent(AccountSwitchJournal expected) {
+    try {
+      final raw = preferences.getString(AccountSwitchJournal.storageKey);
+      if (raw == null) {
+        return false;
+      }
+      final decoded = jsonDecode(raw);
+      return decoded is Map &&
+          AccountSwitchJournal.fromJson(
+                decoded.map((key, value) => MapEntry(key.toString(), value)),
+              ) ==
+              expected;
+    } catch (_) {
+      return false;
+    }
+  }
 
   @override
   Future<AccountSwitchJournal?> read() async {
@@ -172,6 +192,9 @@ class SharedPreferencesAccountSwitchJournalStore
         decoded.map((key, value) => MapEntry(key.toString(), value)),
       );
     } on FormatException {
+      if (preserveMalformed) {
+        rethrow;
+      }
       await preferences.remove(AccountSwitchJournal.storageKey);
       return null;
     }
@@ -263,6 +286,12 @@ class AccountSwitchCoordinator {
     required this.sessions,
     required this.identity,
     required this.journalStore,
+    this.reconciliationJournalStore,
+    this.readResolutionInputs,
+    this.buildResolutionCandidate,
+    this.readCommitEvidence,
+    this.isSwitchMarkerCurrent,
+    this.resolutionCatalog = const {},
     required this.localPreflight,
     required this.ownershipTransition,
     required this.rebindPush,
@@ -277,6 +306,12 @@ class AccountSwitchCoordinator {
   final CloudWriteSessionController sessions;
   final AccountSwitchIdentity identity;
   final AccountSwitchJournalStore journalStore;
+  final AccountTransitionJournalStore? reconciliationJournalStore;
+  final AccountSwitchResolutionInputsReader? readResolutionInputs;
+  final AccountSwitchResolutionCandidateBuilder? buildResolutionCandidate;
+  final AccountSwitchCommitEvidenceReader? readCommitEvidence;
+  final bool Function(AccountSwitchJournal marker)? isSwitchMarkerCurrent;
+  final Map<String, PackCatalogEntry> resolutionCatalog;
   final AccountSwitchLocalPreflight localPreflight;
   final AccountSwitchOwnershipTransition ownershipTransition;
   final AccountSwitchPushRebind rebindPush;
@@ -286,6 +321,345 @@ class AccountSwitchCoordinator {
 
   final String Function() _newOperationId;
   final int Function() _nowMillis;
+
+  bool _confirmingResolution = false;
+
+  /// Only this explicit user action may retire stale, provably unattempted
+  /// consent. Startup and preview retain their read/resume-only contracts.
+  Future<AccountSwitchResolutionOutcome> resumePendingSwitchResolution() async {
+    final session = sessions.current;
+    final epoch = sessions.identityEpoch;
+    final lifetime = LocalDataLifetime.capture();
+    if (session == null ||
+        session.mode != CloudWriteMode.reconciling ||
+        identity.currentUid != session.uid ||
+        identity.currentIsAnonymous ||
+        reconciliationJournalStore == null) {
+      return AccountSwitchResolutionOutcome.blocked;
+    }
+    bool owned() =>
+        lifetime.isCurrent &&
+        sessions.current == session &&
+        sessions.identityEpoch == epoch &&
+        identity.currentUid == session.uid &&
+        !identity.currentIsAnonymous;
+    try {
+      final marker = await journalStore.read();
+      final journal = await reconciliationJournalStore!.read();
+      if (!owned()) {
+        return AccountSwitchResolutionOutcome.stale;
+      }
+      final consent = journal?.switchResolutionConsent;
+      if (marker == null ||
+          marker.targetUid != session.uid ||
+          journal == null ||
+          journal.session != session ||
+          journal.reconciliationOperationId != marker.operationId ||
+          consent == null ||
+          journal.replacementProvider != null) {
+        return AccountSwitchResolutionOutcome.blocked;
+      }
+      final expectedJournal = jsonEncode(journal.toJson());
+      Future<bool> stillOwned() async =>
+          owned() &&
+          await journalStore.read() == marker &&
+          owned() &&
+          jsonEncode((await reconciliationJournalStore!.read())?.toJson()) ==
+              expectedJournal &&
+          owned();
+      if (!await stillOwned()) {
+        return AccountSwitchResolutionOutcome.stale;
+      }
+      if (journal.resolutionRemoteWriteStarted == false) {
+        if (readResolutionInputs == null ||
+            readCommitEvidence == null ||
+            isSwitchMarkerCurrent == null ||
+            journal.reconciliationCheckpoint ==
+                ReconciliationCheckpoint.remoteWritten ||
+            journal.reconciliationCheckpoint ==
+                ReconciliationCheckpoint.localWritten ||
+            journal.reconciliationCheckpoint ==
+                ReconciliationCheckpoint.completed) {
+          return AccountSwitchResolutionOutcome.blocked;
+        }
+        final inputs = await readResolutionInputs!();
+        if (!await stillOwned()) {
+          return AccountSwitchResolutionOutcome.stale;
+        }
+        final drifted =
+            inputs.catalogFingerprint != consent.catalogFingerprint ||
+            AccountSwitchResolutionFingerprint.snapshot(inputs.device) !=
+                consent.deviceFingerprint ||
+            AccountSwitchResolutionFingerprint.snapshot(inputs.cloud) !=
+                consent.cloudFingerprint ||
+            !mapEquals(
+              AccountSwitchResolutionFingerprint.fences(
+                inputs.cloud,
+                inputs.remoteRevision,
+              ),
+              consent.cloudFences,
+            );
+        if (drifted) {
+          final evidence = await readCommitEvidence!(
+            operationId: marker.operationId,
+          );
+          if (!await stillOwned()) {
+            return AccountSwitchResolutionOutcome.stale;
+          }
+          if (evidence != AccountSwitchCommitEvidence.notObserved) {
+            return AccountSwitchResolutionOutcome.blocked;
+          }
+          final retired = await reconciliationJournalStore!.writeIfCurrent(
+            expected: journal,
+            next: journal.copyWith(clearSwitchResolutionConsent: true),
+            isCurrent: () => owned() && isSwitchMarkerCurrent!(marker),
+          );
+          // Retirement leaves the operation and ready-write fence intact.
+          if (!retired || !owned()) {
+            return AccountSwitchResolutionOutcome.stale;
+          }
+          return AccountSwitchResolutionOutcome.stale;
+        }
+      }
+      // Attempted and legacy-unknown operations only use exact durable resume.
+      if (!await stillOwned()) {
+        return AccountSwitchResolutionOutcome.stale;
+      }
+      final result = await resume(
+        liveUid: session.uid,
+        catalog: resolutionCatalog,
+      );
+      return result.status == AccountSwitchStatus.completed
+          ? AccountSwitchResolutionOutcome.completed
+          : AccountSwitchResolutionOutcome.blocked;
+    } on FormatException {
+      return AccountSwitchResolutionOutcome.blocked;
+    } catch (_) {
+      return AccountSwitchResolutionOutcome.unavailable;
+    }
+  }
+
+  Future<AccountSwitchResolutionPreviewResult>
+  previewPendingSwitchResolution() async {
+    final epoch = sessions.identityEpoch;
+    final session = sessions.current;
+    final lifetime = LocalDataLifetime.capture();
+    bool owned() =>
+        lifetime.isCurrent &&
+        sessions.identityEpoch == epoch &&
+        sessions.current == session &&
+        session != null &&
+        session.mode == CloudWriteMode.reconciling &&
+        identity.currentUid == session.uid &&
+        !identity.currentIsAnonymous;
+    if (!owned() ||
+        readResolutionInputs == null ||
+        buildResolutionCandidate == null) {
+      return const AccountSwitchResolutionPreviewResult(
+        AccountSwitchResolutionPreviewStatus.blocked,
+      );
+    }
+    try {
+      final marker = await journalStore.read();
+      final journal = await reconciliationJournalStore?.read();
+      if (!owned()) {
+        return const AccountSwitchResolutionPreviewResult(
+          AccountSwitchResolutionPreviewStatus.stale,
+        );
+      }
+      if (marker == null ||
+          marker.targetUid != session!.uid ||
+          journal == null ||
+          journal.session != session ||
+          journal.reconciliationOperationId != marker.operationId ||
+          journal.replacementProvider != null) {
+        return const AccountSwitchResolutionPreviewResult(
+          AccountSwitchResolutionPreviewStatus.blocked,
+        );
+      }
+      if (journal.switchResolutionConsent != null) {
+        journal.switchResolutionConsent!.validate();
+        if (await journalStore.read() != marker || !owned()) {
+          return const AccountSwitchResolutionPreviewResult(
+            AccountSwitchResolutionPreviewStatus.stale,
+          );
+        }
+        return const AccountSwitchResolutionPreviewResult(
+          AccountSwitchResolutionPreviewStatus.resumeRequired,
+        );
+      }
+      final inputs = await readResolutionInputs!();
+      if (!owned() ||
+          await journalStore.read() != marker ||
+          !owned() ||
+          jsonEncode((await reconciliationJournalStore!.read())?.toJson()) !=
+              jsonEncode(journal.toJson()) ||
+          !owned()) {
+        return const AccountSwitchResolutionPreviewResult(
+          AccountSwitchResolutionPreviewStatus.stale,
+        );
+      }
+      final deviceLevel = LearnerLevel.fromCode(
+        inputs.device.courseMastery?.placementLevel,
+      );
+      final cloudLevel = LearnerLevel.fromCode(
+        inputs.cloud.courseMastery?.placementLevel,
+      );
+      if (deviceLevel == null ||
+          cloudLevel == null ||
+          deviceLevel == cloudLevel) {
+        return const AccountSwitchResolutionPreviewResult(
+          AccountSwitchResolutionPreviewStatus.blocked,
+        );
+      }
+      final candidates = <AccountSwitchResolutionSide, String>{};
+      for (final side in AccountSwitchResolutionSide.values) {
+        final candidate = buildResolutionCandidate!(inputs: inputs, side: side);
+        if (candidate != null) {
+          candidates[side] = AccountSwitchResolutionFingerprint.snapshot(
+            candidate,
+          );
+        }
+      }
+      if (candidates.isEmpty) {
+        return const AccountSwitchResolutionPreviewResult(
+          AccountSwitchResolutionPreviewStatus.blocked,
+        );
+      }
+      final binding = _ResolutionBinding(
+        owner: this,
+        marker: marker,
+        journal: jsonEncode(journal.toJson()),
+        session: session,
+        identityEpoch: epoch,
+        lifetime: lifetime,
+        exactInputs: AccountSwitchResolutionFingerprint.exact(inputs),
+        candidates: candidates,
+      );
+      final preview = AccountSwitchResolutionPreview(
+        devicePlacementLevel: deviceLevel.code,
+        cloudPlacementLevel: cloudLevel.code,
+        deviceCompletedUnitCount:
+            inputs.device.courseMastery!.completedUnitIds.length,
+        cloudCompletedUnitCount:
+            inputs.cloud.courseMastery!.completedUnitIds.length,
+        canChooseDevice: candidates.containsKey(
+          AccountSwitchResolutionSide.device,
+        ),
+        canChooseCloud: candidates.containsKey(
+          AccountSwitchResolutionSide.cloud,
+        ),
+        binding: binding,
+      );
+      binding.preview = preview;
+      return AccountSwitchResolutionPreviewResult(
+        AccountSwitchResolutionPreviewStatus.ready,
+        preview: preview,
+      );
+    } on FormatException {
+      return const AccountSwitchResolutionPreviewResult(
+        AccountSwitchResolutionPreviewStatus.blocked,
+      );
+    } catch (_) {
+      return const AccountSwitchResolutionPreviewResult(
+        AccountSwitchResolutionPreviewStatus.unavailable,
+      );
+    }
+  }
+
+  Future<AccountSwitchResolutionOutcome> confirmPendingSwitchResolution({
+    required AccountSwitchResolutionPreview preview,
+    required AccountSwitchResolutionSide side,
+  }) async {
+    final binding = preview.binding;
+    if (binding is! _ResolutionBinding ||
+        !identical(binding.owner, this) ||
+        !identical(binding.preview, preview) ||
+        !binding.candidates.containsKey(side)) {
+      return AccountSwitchResolutionOutcome.blocked;
+    }
+    bool owned() =>
+        !binding.consumed &&
+        binding.lifetime.isCurrent &&
+        sessions.identityEpoch == binding.identityEpoch &&
+        sessions.current == binding.session &&
+        identity.currentUid == binding.session.uid &&
+        !identity.currentIsAnonymous;
+    if (_confirmingResolution || !owned()) {
+      return AccountSwitchResolutionOutcome.stale;
+    }
+    _confirmingResolution = true;
+    try {
+      final marker = await journalStore.read();
+      final journal = await reconciliationJournalStore?.read();
+      if (!owned() ||
+          marker != binding.marker ||
+          journal == null ||
+          jsonEncode(journal.toJson()) != binding.journal) {
+        return AccountSwitchResolutionOutcome.stale;
+      }
+      final inputs = await readResolutionInputs!();
+      if (!owned() ||
+          AccountSwitchResolutionFingerprint.exact(inputs) !=
+              binding.exactInputs ||
+          await journalStore.read() != marker ||
+          !owned()) {
+        return AccountSwitchResolutionOutcome.stale;
+      }
+      final candidate = buildResolutionCandidate!(inputs: inputs, side: side);
+      if (candidate == null ||
+          AccountSwitchResolutionFingerprint.snapshot(candidate) !=
+              binding.candidates[side]) {
+        return AccountSwitchResolutionOutcome.stale;
+      }
+      final consent = AccountSwitchResolutionConsent(
+        side: side,
+        selectedPlacementLevel: side == AccountSwitchResolutionSide.device
+            ? preview.devicePlacementLevel
+            : preview.cloudPlacementLevel,
+        catalogFingerprint: inputs.catalogFingerprint,
+        deviceFingerprint: AccountSwitchResolutionFingerprint.snapshot(
+          inputs.device,
+        ),
+        cloudFingerprint: AccountSwitchResolutionFingerprint.snapshot(
+          inputs.cloud,
+        ),
+        candidateFingerprint: binding.candidates[side]!,
+        deviceComponents: AccountSwitchResolutionFingerprint.components(
+          inputs.device,
+        ),
+        cloudComponents: AccountSwitchResolutionFingerprint.components(
+          inputs.cloud,
+        ),
+        candidateComponents: AccountSwitchResolutionFingerprint.components(
+          candidate,
+        ),
+        cloudFences: AccountSwitchResolutionFingerprint.fences(
+          inputs.cloud,
+          inputs.remoteRevision,
+        ),
+      );
+      final written = await reconciliationJournalStore!.writeIfCurrent(
+        expected: journal,
+        next: journal.copyWith(switchResolutionConsent: consent),
+        isCurrent: owned,
+      );
+      if (!written || !owned()) {
+        return AccountSwitchResolutionOutcome.stale;
+      }
+      binding.consumed = true;
+      final result = await _merge(marker!, binding.session, resolutionCatalog);
+      return result.status == AccountSwitchStatus.completed
+          ? AccountSwitchResolutionOutcome.completed
+          : AccountSwitchResolutionOutcome.blocked;
+    } on FormatException {
+      return AccountSwitchResolutionOutcome.blocked;
+    } catch (_) {
+      return AccountSwitchResolutionOutcome.unavailable;
+    } finally {
+      _confirmingResolution = false;
+    }
+  }
 
   Future<AccountSwitchResult> switchToExisting({
     required AccountLinkProvider provider,
@@ -392,6 +766,40 @@ class AccountSwitchCoordinator {
     sessions.acquire(resolvedTargetUid);
     final reconciling = sessions.transition(CloudWriteMode.reconciling);
 
+    // Only this freshly generated operation has proven never-attempted state.
+    // A missing journal for an older operation cannot acquire that knowledge.
+    final reconciliationStore = reconciliationJournalStore;
+    if (reconciliationStore != null) {
+      final identityEpoch = sessions.identityEpoch;
+      final initial = AccountTransitionJournal.fromSession(
+        reconciling,
+        reconciliationOperationId: journal.operationId,
+        resolutionRemoteWriteStarted: false,
+      );
+      try {
+        final recorded = await reconciliationStore.restoreIfAbsent(
+          expected: initial,
+          isCurrent: () =>
+              sessions.current == reconciling &&
+              sessions.identityEpoch == identityEpoch &&
+              identity.currentUid == resolvedTargetUid &&
+              !identity.currentIsAnonymous &&
+              (isSwitchMarkerCurrent?.call(journal) ?? true),
+        );
+        if (!recorded) {
+          return AccountSwitchResult(
+            AccountSwitchStatus.mergeDeferred,
+            targetUid: resolvedTargetUid,
+          );
+        }
+      } catch (_) {
+        return AccountSwitchResult(
+          AccountSwitchStatus.mergeDeferred,
+          targetUid: resolvedTargetUid,
+        );
+      }
+    }
+
     return _merge(journal, reconciling, catalog);
   }
 
@@ -399,17 +807,71 @@ class AccountSwitchCoordinator {
     required String? liveUid,
     required Map<String, PackCatalogEntry> catalog,
   }) async {
-    final journal = await journalStore.read();
-    if (journal == null) {
-      return const AccountSwitchResult(AccountSwitchStatus.failed);
+    final identityEpoch = sessions.identityEpoch;
+    final initialSession = sessions.current;
+    AccountSwitchJournal? journal;
+    AccountTransitionJournal? reconciliationJournal;
+    bool ownsIdentity() =>
+        liveUid != null &&
+        identity.currentUid == liveUid &&
+        !identity.currentIsAnonymous &&
+        sessions.identityEpoch == identityEpoch &&
+        sessions.current == initialSession;
+    try {
+      journal = await journalStore.read();
+      if (journal == null) {
+        return const AccountSwitchResult(AccountSwitchStatus.failed);
+      }
+      if (!ownsIdentity() || liveUid != journal.targetUid) {
+        return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+      }
+      if (!ownsIdentity() ||
+          await journalStore.read() != journal ||
+          !ownsIdentity()) {
+        return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+      }
+      if (initialSession?.mode == CloudWriteMode.ready) {
+        // The pending switch still owns these local payloads. Do not leave an
+        // ordinary-backup lease open while its durable session is unresolved.
+        sessions.transition(CloudWriteMode.blocked);
+        return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+      }
+      reconciliationJournal = await reconciliationJournalStore?.read();
+      if (!ownsIdentity() ||
+          await journalStore.read() != journal ||
+          !ownsIdentity()) {
+        return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+      }
+    } catch (_) {
+      return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
     }
-    if (liveUid == null ||
-        liveUid != journal.targetUid ||
-        identity.currentIsAnonymous) {
-      await clearReconciliationJournal();
-      await journalStore.clear();
-      AccountFailureDiagnostics.log('switch.resume.discarded', null);
-      return const AccountSwitchResult(AccountSwitchStatus.failed);
+    if (reconciliationJournal != null) {
+      final persisted = reconciliationJournal;
+      if (persisted.session.uid != journal.targetUid ||
+          persisted.session.mode != CloudWriteMode.reconciling ||
+          persisted.reconciliationOperationId != journal.operationId ||
+          persisted.replacementProvider != null ||
+          persisted.replacementTargetUid != null ||
+          persisted.replacementRequestKey != null ||
+          persisted.replacementPhase != null ||
+          persisted.replacementOperationId != null ||
+          persisted.replacementOperationVersion != null) {
+        return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+      }
+      try {
+        // Restore only this validated durable operation. The controller rejects
+        // a different current session or an epoch older than its own history.
+        sessions.resume(persisted.session, expectedUid: journal.targetUid);
+        if (sessions.current != persisted.session ||
+            sessions.identityEpoch !=
+                identityEpoch + (initialSession == null ? 1 : 0) ||
+            identity.currentUid != liveUid ||
+            identity.currentIsAnonymous) {
+          return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+        }
+      } catch (_) {
+        return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+      }
     }
 
     final current = sessions.current;
@@ -425,6 +887,11 @@ class AccountSwitchCoordinator {
       reconciling = sessions.transition(CloudWriteMode.reconciling);
     }
 
+    if (sessions.current != reconciling ||
+        identity.currentUid != liveUid ||
+        identity.currentIsAnonymous) {
+      return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+    }
     return _merge(journal, reconciling, catalog);
   }
 
@@ -450,13 +917,12 @@ class AccountSwitchCoordinator {
 
     switch (result.status) {
       case AccountReconciliationStatus.completed:
-      case AccountReconciliationStatus.blocked:
-        if (result.status == AccountReconciliationStatus.blocked) {
-          AccountFailureDiagnostics.log(
-            'switch.mergeBlocked',
-            null,
-            detail: 'conflicts=${result.conflicts.length}',
-          );
+        if (sessions.current != session ||
+            identity.currentUid != journal.targetUid ||
+            identity.currentIsAnonymous ||
+            await journalStore.read() != journal ||
+            sessions.current != session) {
+          return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
         }
         if (sessions.current == session) {
           sessions.transition(CloudWriteMode.ready);
@@ -476,6 +942,17 @@ class AccountSwitchCoordinator {
       case AccountReconciliationStatus.invalid:
       case AccountReconciliationStatus.tooLarge:
       case AccountReconciliationStatus.stale:
+      case AccountReconciliationStatus.blocked:
+        // A blocked merge has not applied a cloud-authoritative snapshot.
+        // Keep recovery authority closed to ordinary backups until a later
+        // reconciliation actually completes.
+        if (result.status == AccountReconciliationStatus.blocked) {
+          AccountFailureDiagnostics.log(
+            'switch.mergeBlocked',
+            null,
+            detail: 'conflicts=${result.conflicts.length}',
+          );
+        }
         AccountFailureDiagnostics.log(
           'switch.mergeDeferred',
           null,
@@ -487,4 +964,27 @@ class AccountSwitchCoordinator {
         );
     }
   }
+}
+
+class _ResolutionBinding {
+  _ResolutionBinding({
+    required this.owner,
+    required this.marker,
+    required this.journal,
+    required this.session,
+    required this.identityEpoch,
+    required this.lifetime,
+    required this.exactInputs,
+    required this.candidates,
+  });
+  final AccountSwitchCoordinator owner;
+  final AccountSwitchJournal marker;
+  final String journal;
+  final CloudWriteSession session;
+  final int identityEpoch;
+  final LocalDataLifetimeLease lifetime;
+  final String exactInputs;
+  final Map<AccountSwitchResolutionSide, String> candidates;
+  AccountSwitchResolutionPreview? preview;
+  bool consumed = false;
 }

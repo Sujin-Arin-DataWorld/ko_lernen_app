@@ -369,7 +369,7 @@ void main() {
       );
       await tester.pump();
 
-      expect(find.text('Alltag & Reisen'), findsWidgets);
+      expect(find.text('Alltag & Reise'), findsWidgets);
       expect(find.text('B1 · Mittelstufe'), findsWidgets);
       expect(find.text('Joy'), findsOneWidget);
       (await _tile(tester, 'profile-learning-goal')).onTap!();

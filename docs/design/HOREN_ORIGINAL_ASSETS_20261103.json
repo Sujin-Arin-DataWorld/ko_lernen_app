@@ -1,0 +1,897 @@
+[
+  {
+    "id": "a1_body",
+    "topics": [
+      "a1_body"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\a1_body.png",
+    "sha256": "1370c4712853be701f7996abda97a08b496bd1d0055b41064849d4d04999ce59",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/a1_body.png",
+    "alphaBounds": [
+      16,
+      28,
+      1238,
+      1254
+    ]
+  },
+  {
+    "id": "a1_counter",
+    "topics": [
+      "a1_counter"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\a1_counter.png",
+    "sha256": "c9311c66b750b930f5c25b8f01760eedba44844785a358b79f3b18a42822d976",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/a1_counter.png",
+    "alphaBounds": [
+      0,
+      19,
+      1236,
+      1254
+    ]
+  },
+  {
+    "id": "a1_home",
+    "topics": [
+      "a1_home"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\a1_home.png",
+    "sha256": "ad92a32607b35137d849b4761f5d797fdcf97d0c4906dac5e70f8b15a80a9678",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/a1_home.png",
+    "alphaBounds": [
+      0,
+      27,
+      1198,
+      1240
+    ]
+  },
+  {
+    "id": "a1_numbers",
+    "topics": [
+      "a1_numbers"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\a1_numbers.png",
+    "sha256": "4a9c7f46a8fb90aa86242dc41b7476dc82ed0d090c77762887d2737c2c0e373b",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/a1_numbers.png",
+    "alphaBounds": [
+      0,
+      47,
+      1228,
+      1254
+    ]
+  },
+  {
+    "id": "a1_repeat",
+    "topics": [
+      "a1_repeat"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\a1_repeat.png",
+    "sha256": "ab9de1314ed8e00ac204a978b260efccda32b5cf95e3c64fc51cd418fcd5b6db",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/a1_repeat.png",
+    "alphaBounds": [
+      0,
+      36,
+      1244,
+      1254
+    ]
+  },
+  {
+    "id": "a1_transit",
+    "topics": [
+      "a1_transit"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\a1_transit.png",
+    "sha256": "b9e42c64f23e941db2ae0b22ff412b8e88d093c18169e309541a33985239f88c",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/a1_transit.png",
+    "alphaBounds": [
+      0,
+      39,
+      1240,
+      1254
+    ]
+  },
+  {
+    "id": "a1_wayfinding",
+    "topics": [
+      "a1_wayfinding"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\a1_wayfinding.png",
+    "sha256": "8d4fec657e2c0e24602c47bd589d248cb2e1c16a5977ee9519377dba68a80884",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/a1_wayfinding.png",
+    "alphaBounds": [
+      0,
+      41,
+      1234,
+      1254
+    ]
+  },
+  {
+    "id": "a2_apt",
+    "topics": [
+      "a2_apt"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\a2_apt.png",
+    "sha256": "3448d8c07d4f64ffe76e9de919f5f720054cf4505d28464426e538be53e65dae",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/a2_apt.png",
+    "alphaBounds": [
+      0,
+      49,
+      1225,
+      1254
+    ]
+  },
+  {
+    "id": "a2_booking",
+    "topics": [
+      "a2_booking"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\a2_booking.png",
+    "sha256": "a1ddfba82c4499d802ae35ea9c2e649035affdf1d331733f71129c09974884f6",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/a2_booking.png",
+    "alphaBounds": [
+      0,
+      31,
+      1238,
+      1254
+    ]
+  },
+  {
+    "id": "a2_enrolment",
+    "topics": [
+      "a2_enrolment"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\a2_enrolment.png",
+    "sha256": "5e9eb3f28769527f3decd0322d4cf43ee9f0d1b8f751caf751903b0da795afb9",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/a2_enrolment.png",
+    "alphaBounds": [
+      0,
+      35,
+      1238,
+      1254
+    ]
+  },
+  {
+    "id": "a2_money",
+    "topics": [
+      "a2_money"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\a2_money.png",
+    "sha256": "08919c4bb49be3590212c7edb1c3bdae7d9b598e17b61fa57e26b609066cdea1",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/a2_money.png",
+    "alphaBounds": [
+      0,
+      109,
+      1232,
+      1254
+    ]
+  },
+  {
+    "id": "a2_move",
+    "topics": [
+      "a2_move"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\a2_move.png",
+    "sha256": "3ab265b771fdc4ec61cfbac78cd98e0b24c6d8188435cb26ed7c05b19803d167",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/a2_move.png",
+    "alphaBounds": [
+      0,
+      67,
+      1222,
+      1254
+    ]
+  },
+  {
+    "id": "a2_partner",
+    "topics": [
+      "a2_partner"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\a2_partner.png",
+    "sha256": "49db6a790d82f97f301be26226bee50572f0c3fe205f5171bdc1b88f0634b651",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/a2_partner.png",
+    "alphaBounds": [
+      0,
+      21,
+      1232,
+      1254
+    ]
+  },
+  {
+    "id": "a2_plan",
+    "topics": [
+      "a2_plan"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\a2_plan.png",
+    "sha256": "1eed99296e696de7fc0e9f4766f8d1ae3383a563080ae66e666bce187271ae0a",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/a2_plan.png",
+    "alphaBounds": [
+      0,
+      31,
+      1242,
+      1254
+    ]
+  },
+  {
+    "id": "b1_bill",
+    "topics": [
+      "b1_bill"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b1_bill.png",
+    "sha256": "5c392a87b0e61d2ef0cadccd13ba4a5c6061747cf62e2aecf22e1b9574240eb8",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b1_bill.png",
+    "alphaBounds": [
+      0,
+      7,
+      1251,
+      1254
+    ]
+  },
+  {
+    "id": "b1_cancellation",
+    "topics": [
+      "b1_cancellation"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b1_cancellation.png",
+    "sha256": "2ef1b8f50382dd343b2ff8ea639cf308936ac6b06ea95e4b58882589b6be14df",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b1_cancellation.png",
+    "alphaBounds": [
+      0,
+      33,
+      1240,
+      1254
+    ]
+  },
+  {
+    "id": "b1_delay",
+    "topics": [
+      "b1_delay"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b1_delay.png",
+    "sha256": "93c0fa67d3f17e656664abef7ce54f1be344b22ac64f4cb0410bde4e898c7b2b",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b1_delay.png",
+    "alphaBounds": [
+      40,
+      84,
+      1220,
+      1254
+    ]
+  },
+  {
+    "id": "b1_feel",
+    "topics": [
+      "b1_feel"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b1_feel.png",
+    "sha256": "448045bb55b488936845ccc3e06f0cd4948f9aed38d1f48b5ef3dcdd215c6f22",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b1_feel.png",
+    "alphaBounds": [
+      0,
+      64,
+      1234,
+      1254
+    ]
+  },
+  {
+    "id": "b1_form",
+    "topics": [
+      "b1_form"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b1_form.png",
+    "sha256": "d269869f7170c3ca397d1df77aa4974a6be832c8b052a1d8963645dad72d994d",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b1_form.png",
+    "alphaBounds": [
+      0,
+      9,
+      1236,
+      1254
+    ]
+  },
+  {
+    "id": "b1_incident",
+    "topics": [
+      "b1_incident"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b1_incident.png",
+    "sha256": "3c77d30694ec627239c9bbe037e8b54e2b1b3627a94bc26e9fe0dac2683c81b7",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b1_incident.png",
+    "alphaBounds": [
+      0,
+      86,
+      1242,
+      1254
+    ]
+  },
+  {
+    "id": "b1_insurance",
+    "topics": [
+      "b1_insurance"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b1_insurance.png",
+    "sha256": "a7303f06a2ad1883f3763aeeb7b1ac4b44980b53c4a52bb298910590a9bb6673",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b1_insurance.png",
+    "alphaBounds": [
+      16,
+      39,
+      1239,
+      1254
+    ]
+  },
+  {
+    "id": "b1_neighbor",
+    "topics": [
+      "b1_neighbor"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b1_neighbor.png",
+    "sha256": "eaeb5c3a3013f92a7f3c2c72973b8b1d7e0c925de154ecc8082b09c8ee30caf8",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b1_neighbor.png",
+    "alphaBounds": [
+      0,
+      20,
+      1230,
+      1254
+    ]
+  },
+  {
+    "id": "b1_partner",
+    "topics": [
+      "b1_partner"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b1_partner.png",
+    "sha256": "a6848fb44e01fd572887642ce5bb7abfaff3f74be4d50826bf9a7777a800a1f4",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b1_partner.png",
+    "alphaBounds": [
+      0,
+      0,
+      1240,
+      1254
+    ]
+  },
+  {
+    "id": "b1_refund",
+    "topics": [
+      "b1_refund"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b1_refund.png",
+    "sha256": "b45e30847abad4e859e2fc52474dbef5b57b02595f74e004fbf8f6d94f13d9f8",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b1_refund.png",
+    "alphaBounds": [
+      0,
+      7,
+      1220,
+      1254
+    ]
+  },
+  {
+    "id": "b1_repair",
+    "topics": [
+      "b1_repair"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b1_repair.png",
+    "sha256": "077aacdae5f66dd33c29d4c562b879054e1bbddff58cd58ca01073286a023501",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b1_repair.png",
+    "alphaBounds": [
+      0,
+      95,
+      1208,
+      1236
+    ]
+  },
+  {
+    "id": "b1_team",
+    "topics": [
+      "b1_team"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b1_team.png",
+    "sha256": "cad772d37ca6294b2e2674b9380eb9b22a138a2e4625eb3dc65881b24825b6d2",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b1_team.png",
+    "alphaBounds": [
+      24,
+      26,
+      1253,
+      1254
+    ]
+  },
+  {
+    "id": "b2_authorities",
+    "topics": [
+      "b2_authorities"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b2_authorities.png",
+    "sha256": "1507e22d91eea5277d7f670ea48a6ad0768270fe63336064a0d2c6ebb113484a",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b2_authorities.png",
+    "alphaBounds": [
+      0,
+      94,
+      1237,
+      1254
+    ]
+  },
+  {
+    "id": "b2_contract",
+    "topics": [
+      "b2_contract"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b2_contract.png",
+    "sha256": "4d021c4132ca2364d98e51e11e3f820a80ac6aa4de7e05433c4482495ed7b1e6",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b2_contract.png",
+    "alphaBounds": [
+      0,
+      39,
+      1235,
+      1207
+    ]
+  },
+  {
+    "id": "b2_evidence",
+    "topics": [
+      "b2_evidence"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b2_evidence.png",
+    "sha256": "08b0fbd10f2073813a525b6686aa05042892d7199700ab8905fd3ffc9c124777",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b2_evidence.png",
+    "alphaBounds": [
+      0,
+      80,
+      1218,
+      1254
+    ]
+  },
+  {
+    "id": "b2_health",
+    "topics": [
+      "b2_health"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b2_health.png",
+    "sha256": "3866075f34a2b3d65915d0e748ffe328eccfef44ac61ad3ac136b296eccb50bb",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b2_health.png",
+    "alphaBounds": [
+      0,
+      0,
+      1239,
+      1254
+    ]
+  },
+  {
+    "id": "b2_hiring",
+    "topics": [
+      "b2_hiring"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b2_hiring.png",
+    "sha256": "c1a803cbafe18958006c99d7e756bf5dd1c67a2f6ce9b9f83c80542eb5a075b4",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b2_hiring.png",
+    "alphaBounds": [
+      0,
+      0,
+      1236,
+      1254
+    ]
+  },
+  {
+    "id": "b2_meeting",
+    "topics": [
+      "b2_meeting"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b2_meeting.png",
+    "sha256": "42cc7443fbd12c6ee37e3f862d48b04c5437c55082ba959015e2060c96c0425b",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b2_meeting.png",
+    "alphaBounds": [
+      0,
+      93,
+      1240,
+      1254
+    ]
+  },
+  {
+    "id": "b2_negotiate",
+    "topics": [
+      "b2_negotiate"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b2_negotiate.png",
+    "sha256": "c81450c30f060470a07816e45cc862cc1f825b2e4fddc8045b692770528ee0a5",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b2_negotiate.png",
+    "alphaBounds": [
+      0,
+      19,
+      1240,
+      1254
+    ]
+  },
+  {
+    "id": "b2_notice",
+    "topics": [
+      "b2_notice"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b2_notice.png",
+    "sha256": "a78d1444bacebbebca6df72e818e2218545ac5c117eb28c046e5f528c8ee43e3",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b2_notice.png",
+    "alphaBounds": [
+      0,
+      17,
+      1234,
+      1254
+    ]
+  },
+  {
+    "id": "b2_partner",
+    "topics": [
+      "b2_partner"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b2_partner.png",
+    "sha256": "f9c8cfbc920f73a4394fca61fd083693b23af2f4be8ff8aa2321ac7fed1212e5",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b2_partner.png",
+    "alphaBounds": [
+      0,
+      130,
+      1223,
+      1254
+    ]
+  },
+  {
+    "id": "b2_privacy",
+    "topics": [
+      "b2_privacy"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b2_privacy.png",
+    "sha256": "f272674564be96dbabce713af672e490057914341a4b891410910baea2f46fdc",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b2_privacy.png",
+    "alphaBounds": [
+      0,
+      37,
+      1218,
+      1254
+    ]
+  },
+  {
+    "id": "b2_public",
+    "topics": [
+      "b2_public"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b2_public.png",
+    "sha256": "0e7e88900841fe3d7da47024c12122b58da33c73affc3a689508b38793310d67",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b2_public.png",
+    "alphaBounds": [
+      0,
+      17,
+      1234,
+      1254
+    ]
+  },
+  {
+    "id": "b2_travel",
+    "topics": [
+      "b2_travel"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\b2_travel.png",
+    "sha256": "f1ac48d15c8772e7b78ee6b5f81e814e1c7a5d20237f6ca3f1440b38ce0264c9",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/b2_travel.png",
+    "alphaBounds": [
+      0,
+      105,
+      1240,
+      1254
+    ]
+  },
+  {
+    "id": "c1_access",
+    "topics": [
+      "c1_access"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\c1_access.png",
+    "sha256": "b45095625ba3929ffb2890bab2e11a6846ae14eb37b3c2d4c0590e6537f839eb",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/c1_access.png",
+    "alphaBounds": [
+      0,
+      23,
+      1240,
+      1254
+    ]
+  },
+  {
+    "id": "c1_clinical",
+    "topics": [
+      "c1_clinical"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\c1_clinical.png",
+    "sha256": "9a97e6a85b40a615ad844ffc8d096c24acc749a135fe4584aebc3cf7a8604523",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/c1_clinical.png",
+    "alphaBounds": [
+      0,
+      37,
+      1230,
+      1254
+    ]
+  },
+  {
+    "id": "c1_conflict_interest",
+    "topics": [
+      "c1_conflict_interest"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\c1_conflict_interest.png",
+    "sha256": "c92e7e4d56ac41c0f1446635371bfdf66268d5d3bf9a8b108faac0402e87e5e6",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/c1_conflict_interest.png",
+    "alphaBounds": [
+      0,
+      0,
+      1237,
+      1220
+    ]
+  },
+  {
+    "id": "c1_facework",
+    "topics": [
+      "c1_facework"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\c1_facework.png",
+    "sha256": "10528f0e9139bdecc28edba354b0056ec114610ffb6a12c63b17c3f449231f38",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/c1_facework.png",
+    "alphaBounds": [
+      0,
+      0,
+      1238,
+      1254
+    ]
+  },
+  {
+    "id": "c1_labor",
+    "topics": [
+      "c1_labor"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\c1_labor.png",
+    "sha256": "62b28a07b7bc1b7b1374d73539e3873a2017991cf7cf8b408eb37c3d3aa4e7f3",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/c1_labor.png",
+    "alphaBounds": [
+      0,
+      25,
+      1222,
+      1254
+    ]
+  },
+  {
+    "id": "c1_mediation",
+    "topics": [
+      "c1_mediation"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\c1_mediation.png",
+    "sha256": "c46cebf2a2d18d9998f70e94642f36627fab951cd277013ba5c030656721288f",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/c1_mediation.png",
+    "alphaBounds": [
+      0,
+      23,
+      1239,
+      1254
+    ]
+  },
+  {
+    "id": "c1_policy",
+    "topics": [
+      "c1_policy"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\c1_policy.png",
+    "sha256": "de33441403076f8d27d90f7a91c9f9d37e17fa4fa9e3c179294485c6cc691ef3",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/c1_policy.png",
+    "alphaBounds": [
+      0,
+      37,
+      1230,
+      1254
+    ]
+  },
+  {
+    "id": "c2_aesthetic",
+    "topics": [
+      "c2_aesthetic"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\c2_aesthetic.png",
+    "sha256": "854f5a31d1ff9c0f4d31ea3be3ee03c8b3ba662603496571219faceb1a95abcc",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/c2_aesthetic.png",
+    "alphaBounds": [
+      16,
+      167,
+      1240,
+      1254
+    ]
+  },
+  {
+    "id": "c2_history",
+    "topics": [
+      "c2_history"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\c2_history.png",
+    "sha256": "093e5646630e7fdc693edebe97ab140d0cf12a8f5fb5b0b4636a554af7f02ec9",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/c2_history.png",
+    "alphaBounds": [
+      28,
+      32,
+      1232,
+      1254
+    ]
+  },
+  {
+    "id": "c2_impact",
+    "topics": [
+      "c2_impact"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\c2_impact.png",
+    "sha256": "2965a8af3a568db9ca4294275654aecf48c3438c42ed3ec76127fe1c18ca04fa",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/c2_impact.png",
+    "alphaBounds": [
+      0,
+      39,
+      1254,
+      1254
+    ]
+  },
+  {
+    "id": "c2_jurisdiction",
+    "topics": [
+      "c2_jurisdiction"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\c2_jurisdiction.png",
+    "sha256": "7f18cd11cb3e2cba62873b42e2375b8c7e342acec3c63811b65cd14d05768d96",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/c2_jurisdiction.png",
+    "alphaBounds": [
+      0,
+      37,
+      1237,
+      1254
+    ]
+  },
+  {
+    "id": "c2_limitation",
+    "topics": [
+      "c2_limitation"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\c2_limitation.png",
+    "sha256": "6a3c5b61b31fa2fa7ce2c1c2abc1a997ca188a493af0331fe1198853e14381a4",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/c2_limitation.png",
+    "alphaBounds": [
+      0,
+      19,
+      1237,
+      1254
+    ]
+  },
+  {
+    "id": "c2_mandate",
+    "topics": [
+      "c2_mandate"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\c2_mandate.png",
+    "sha256": "35bc44832894319933cae0c62fa1e9d9ca3fb45470c1e2a0997bcc8e182ef66e",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/c2_mandate.png",
+    "alphaBounds": [
+      0,
+      0,
+      1244,
+      1254
+    ]
+  },
+  {
+    "id": "c2_representation",
+    "topics": [
+      "c2_representation"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\c2_representation.png",
+    "sha256": "1a0483a0bbfb2e889a04e5a97df5c4af2a4b2fa9da153bc7aff515bfb259974c",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/c2_representation.png",
+    "alphaBounds": [
+      0,
+      0,
+      1251,
+      1254
+    ]
+  },
+  {
+    "id": "social_dating",
+    "topics": [
+      "a1_dating",
+      "a2_dating",
+      "b1_dating",
+      "b2_dating",
+      "c1_dating",
+      "c2_dating"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\social_dating.png",
+    "sha256": "c6e1cc874560841655db03bc6705f01f9d47511771382a5dcef5c55be332ba59",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/social_dating.png",
+    "alphaBounds": [
+      0,
+      19,
+      1214,
+      1254
+    ]
+  },
+  {
+    "id": "social_fandom",
+    "topics": [
+      "a1_fandom",
+      "a2_fandom",
+      "b1_fandom",
+      "b2_fandom",
+      "c1_fandom",
+      "c2_fandom"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\social_fandom.png",
+    "sha256": "22a4b3f3dd3b19808f2ff0069aae6a8b370b4d222db6f9b708233b9d95c3c23e",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/social_fandom.png",
+    "alphaBounds": [
+      40,
+      25,
+      1234,
+      1254
+    ]
+  },
+  {
+    "id": "social_friends",
+    "topics": [
+      "a1_friends",
+      "a2_friends",
+      "b1_friends",
+      "b2_friends",
+      "c1_friends",
+      "c2_friends"
+    ],
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-approved-figma-20261018\\design_assets\\hoeren\\topic-art-candidates\\social_friends.png",
+    "sha256": "717adee4df28515c4880c8d9d84048f38015cb5687a0665101f14fbeef069325",
+    "group": "expansion55",
+    "runtime": "assets/illustrations/c_listening/social_friends.png",
+    "alphaBounds": [
+      0,
+      61,
+      1238,
+      1254
+    ]
+  }
+]

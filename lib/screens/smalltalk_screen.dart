@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/learning_journey.dart';
 import 'dart:async';
 
@@ -431,7 +432,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
           ? AppError(message: t.courseMissionLoadError, onRetry: _retryLoad)
           : _visibleCategories.isEmpty
           ? SoriEmptyState(
-              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              asset: CanonicalCompanionArt.magpieGuide,
               icon: Icons.chat_bubble_outline_rounded,
               title: t.smalltalkTitle,
               body: SmalltalkLoader.lastError ?? t.smalltalkEmpty,

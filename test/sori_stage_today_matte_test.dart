@@ -2,32 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/data/canonical_companion_art.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/quest.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_common.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
+import 'package:ko_lernen_app/screens/sori_stage/c_stage_chrome.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/home_hero.dart';
-import 'package:ko_lernen_app/widgets/sori/learning_companion.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/reward_thumb.dart';
-import 'package:ko_lernen_app/widgets/sori/stats_top_bar.dart';
+import 'package:ko_lernen_app/widgets/sori/approved_chrome_assets.dart';
+import 'package:ko_lernen_app/widgets/sori/settings_button.dart';
+import 'package:ko_lernen_app/widgets/sori/top_chrome.dart';
 
-/// SoriStage Today 의 **매트 배경 계약** (`home_hero_matte_test.dart` 의 화면판).
-///
-/// 히어로 클립은 한지색 매트(#FBF5EB)를 미리 합성한 불투명 mp4 다. Today 의
-/// 라이트 배경이 정확히 그 값의 평면 단색이 아니면 Android 에서 영상 사각형이
-/// 액자처럼 뜬다 (2026-08-12 실기기 실측 — 홈이 네 번 겪은 결함). 이 테스트는
-/// Phase 2b(2026-08-14) 히어로 이식이 그 계약을 지키는지 고정한다.
+import 'support/real_fonts.dart';
+
+/// The approved C5 jade material and transparent canonical companion replace
+/// the retired video-matte composition; interaction/state contracts remain.
 void main() {
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(<String, Object>{
@@ -73,27 +76,65 @@ void main() {
     await tester.pump(const Duration(milliseconds: 400));
   }
 
-  testWidgets('라이트 배경은 히어로 클립 매트와 같은 평면 단색이다', (tester) async {
-    await pumpToday(tester);
+  Future<void> openDetails(WidgetTester tester) async {
+    final details = find.byKey(const ValueKey('today-details'));
+    expect(details, findsOneWidget);
+    await tester.tap(details);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(find.byKey(const ValueKey('c-today-board')), findsOneWidget);
+  }
 
-    final bg = tester.widget<ColoredBox>(
-      find.byKey(const ValueKey('sori-today-bg')),
-    );
-    expect(bg.color, HomeHeroClips.matte);
-    // 토큰 드리프트 가드 — 매트 실측값 자체가 바뀌면 여기서 잡는다.
-    expect(bg.color, const Color(0xFFFBF5EB));
-  });
+  Finder inDetails(Finder target) => find.descendant(
+    of: find.byKey(const ValueKey('c-today-board')),
+    matching: target,
+  );
 
-  testWidgets('마스코트 히어로와 스탯 톱바가 Today 를 이끈다 (RootHeader 부재)', (tester) async {
-    await pumpToday(tester);
+  testWidgets(
+    'Today uses the approved jade material behind its native header',
+    (tester) async {
+      await pumpToday(tester);
 
-    expect(find.byType(SoriLearningCompanion), findsOneWidget);
-    expect(find.byType(SoriStatsTopBar), findsOneWidget);
-    // 2026-08-13 롤백 사유의 수리 증명: 텍스트 RootHeader 는 이 탭에 없다.
-    expect(find.byType(SoriStageRootHeader), findsNothing);
-    // 프로필 진입은 톱바 아이콘으로 유지 (셸 테스트의 byTooltip 계약).
-    expect(find.byTooltip('Profile'), findsOneWidget);
-  });
+      final bg = find.byKey(const ValueKey('sori-today-bg'));
+      expect(tester.widget(bg), isA<CStageBackground>());
+      expect(
+        find.descendant(
+          of: bg,
+          matching: find.byWidgetPredicate(
+            (widget) => widget is ColoredBox && widget.color == CPalette.jade,
+          ),
+        ),
+        findsWidgets,
+      );
+    },
+  );
+
+  testWidgets(
+    'Today keeps canonical companion, brand, wallet and settings chrome',
+    (tester) async {
+      await pumpToday(tester);
+
+      expect(
+        find.byKey(const ValueKey('today-companion-greeting')),
+        findsOneWidget,
+      );
+      expect(find.text('HANGUL SORI'), findsOneWidget);
+      expect(find.byType(SoriWalletBadge), findsOneWidget);
+      expect(find.byType(SoriSettingsButton), findsOneWidget);
+      expect(
+        find.byWidgetPredicate(
+          (widget) =>
+              widget is ApprovedChromeImage &&
+              widget.asset == ApprovedChromeAssets.cloud,
+        ),
+        findsOneWidget,
+      );
+      // 2026-08-13 롤백 사유의 수리 증명: 텍스트 RootHeader 는 이 탭에 없다.
+      expect(find.byType(SoriStageRootHeader), findsNothing);
+      // 프로필 진입은 톱바 아이콘으로 유지 (셸 테스트의 byTooltip 계약).
+      expect(find.byTooltip('Profile'), findsOneWidget);
+    },
+  );
 
   testWidgets(
     'Today adopts the mature textured portrait without legacy video',
@@ -104,29 +145,37 @@ void main() {
       await pumpToday(tester);
 
       expect(find.byType(CharacterClipPlayer), findsNothing);
-      final companion = find.byType(SoriLearningCompanion);
-      expect(
-        tester.widget<SoriLearningCompanion>(companion).forceStatic,
-        isTrue,
-      );
+      final companion = find.byKey(const ValueKey('learning-companion-ground'));
       final portrait = find.descendant(
         of: companion,
-        matching: find.byType(Mascot),
+        matching: find.byType(CAtlasArt),
       );
-      expect(tester.widget<Mascot>(portrait).kind, MascotKind.tiger);
-      expect(tester.widget<Mascot>(portrait).size, 84);
+      expect(
+        tester.widget<CAtlasArt>(portrait).path,
+        CanonicalCompanionArt.baekhoExpressions,
+      );
       final ground = tester.getSize(
         find.byKey(const ValueKey('learning-companion-ground')),
       );
-      expect(ground, const Size(144, 125));
-      expect(tester.widget<Mascot>(portrait).size, lessThan(ground.height));
+      expect([
+        const Size(104, 72),
+        const Size(132, 132),
+        const Size(152, 152),
+      ], contains(ground));
+      expect(tester.widget<CAtlasArt>(portrait).fit, BoxFit.contain);
+      expect(
+        tester.widget<CAtlasArt>(portrait).region,
+        const Rect.fromLTWH(0, 0, .25, .5),
+      );
     },
   );
 
-  testWidgets('까치 홈 히어로는 기존 보행 루프와 하단 기준을 유지한다', (tester) async {
+  testWidgets('까치 홈 히어로는 정본 PNG에 예전 영상 확대를 적용하지 않는다', (tester) async {
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
         home: const Scaffold(
           body: SoriCharacterHero(
             greeting: 'Hello',
@@ -143,17 +192,17 @@ void main() {
       find.byType(CharacterClipPlayer),
     );
     expect(player.asset, HomeHeroClips.magpieWalkingFront);
-    final scale = tester.widget<Transform>(
-      find.byKey(const ValueKey('home_hero_magpie_scale')),
-    );
-    expect(scale.alignment, Alignment.bottomCenter);
+    expect(CharacterClips.retiredStillFor(player.asset), isNotNull);
+    expect(find.byKey(const ValueKey('home_hero_magpie_scale')), findsNothing);
   });
 
-  testWidgets('아침 9시 인사말이 헤더를 대신한다', (tester) async {
+  testWidgets('Today has the approved learning subtitle below its title', (
+    tester,
+  ) async {
     await pumpToday(tester);
 
     final l10n = await AppL10n.delegate.load(const Locale('en'));
-    expect(find.text(l10n.homeHeroGreetingMorning), findsOneWidget);
+    expect(find.text(l10n.todayCompanionSubtitle), findsOneWidget);
   });
 
   // W-C2: q_jangdokdae's QuestDefinition.name.en changed from
@@ -167,20 +216,21 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
 
     await pumpToday(tester, snapshot: _richSnapshot());
+    await openDetails(tester);
 
-    expect(find.text('XP'), findsOneWidget);
-    expect(find.text('Quest'), findsOneWidget);
+    expect(inDetails(find.text('XP')), findsOneWidget);
+    expect(inDetails(find.text('Quest')), findsOneWidget);
 
     await tester.scrollUntilVisible(
-      find.text('Jar terrace'),
+      inDetails(find.text('Jar terrace')),
       260,
-      scrollable: find.byType(Scrollable).first,
+      scrollable: find.byType(Scrollable).last,
     );
     await tester.pump();
 
-    expect(find.byType(SoriRewardThumb), findsOneWidget);
-    expect(find.text('Jar terrace'), findsOneWidget);
-    expect(find.text('3 / 15'), findsOneWidget);
+    expect(inDetails(find.byType(SoriRewardThumb)), findsOneWidget);
+    expect(inDetails(find.text('Jar terrace')), findsOneWidget);
+    expect(inDetails(find.text('3 / 15')), findsOneWidget);
     expect(tester.takeException(), isNull);
 
     // §MOTION-1(J5): reduce-motion (pumpToday sets disableAnimations:
@@ -204,15 +254,19 @@ void main() {
       locale: const Locale('de'),
       textScale: 2,
     );
+    await openDetails(tester);
 
     await tester.scrollUntilVisible(
-      find.text('Verifizierter Hanok-Baufortschritt'),
+      inDetails(find.text('Verifizierter Hanok-Baufortschritt')),
       220,
-      scrollable: find.byType(Scrollable).first,
+      scrollable: find.byType(Scrollable).last,
     );
     await tester.pump();
 
-    expect(find.text('Verifizierter Hanok-Baufortschritt'), findsOneWidget);
+    expect(
+      inDetails(find.text('Verifizierter Hanok-Baufortschritt')),
+      findsOneWidget,
+    );
     expect(tester.takeException(), isNull);
 
     // §MOTION-1(J5) — 위 테스트와 같은 이유로 더 이상 필요 없다.

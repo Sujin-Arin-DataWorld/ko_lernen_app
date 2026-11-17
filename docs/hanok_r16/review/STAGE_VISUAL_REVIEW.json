@@ -1,0 +1,163 @@
+{
+  "reviewType": "Contact-sheet scale visual QA of cumulative native stage renders",
+  "stage128ExactSelectorAndMaterialBindingAudit": "Performed separately by root; this file does not claim per-object machine verification.",
+  "limitations": [
+    "Tiles are about 320px wide; fine knots, small UV seams, all hidden members and precise per-stage differences are not approved.",
+    "Blank first site-preparation tiles show background only in these sheets; this is explicitly recorded, not mistaken for a completed foundation.",
+    "Adjacent stages can appear identical at this view because changes are small or occluded.",
+    "No runtime integration or exact reference parity claim."
+  ],
+  "reviewedSheets": {
+    "sarang": {
+      "sheet": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/analysis/sarang.png",
+      "tiles": 16,
+      "verdict": "contact_scale_pass_with_recorded_limits",
+      "sequence": "Foundation -> posts/frame -> rafters/base -> tiles -> walls/floors/windows -> completed building is broadly cumulative; no later missing building or guardian proxy visible.",
+      "material": "No obvious black material failure at contact scale.",
+      "blankFirstTile": true,
+      "observations": [
+        "Stage 9 label is '마루판' but the conspicuous new visible surface is wood-colored roof decking; flag terminology/content correspondence for root rather than relabeling automatically.",
+        "Stages 2-4, 9-10 and some later pairs look very similar at contact scale; exact selector differences require separate machine audit.",
+        "Stages 9-10 wood-colored joined roof sheet has broad wavy grain more conspicuous than column grain. Record as nonblocking grain-scale quality limit; no per-plank fine-grain approval or geometry correction inferred."
+      ],
+      "sheetSha256": "7d694fa2819360545e81bf2ee1436ab7d655bb415f7dc0f0b495c69111d1a9cd",
+      "blockers": []
+    },
+    "ansarang": {
+      "sheet": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/analysis/ansarang.png",
+      "tiles": 14,
+      "verdict": "contact_scale_pass_with_recorded_limits",
+      "sequence": "Foundation -> posts/frame -> rafters/base -> tiles -> walls/floors/windows -> completed building is broadly cumulative; no later missing building or guardian proxy visible.",
+      "material": "No obvious black material failure at contact scale.",
+      "blankFirstTile": true,
+      "observations": [
+        "Stages 6-7 appear nearly identical at contact scale; roof base difference may be occluded/small."
+      ],
+      "sheetSha256": "0e71bdeb096b88ec5324d8e3bf4b53c346cb3b8b605b4440e32551ec21099cda",
+      "blockers": []
+    },
+    "anchae": {
+      "sheet": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/analysis/anchae.png",
+      "tiles": 14,
+      "verdict": "contact_scale_pass_with_recorded_limits",
+      "sequence": "Foundation -> posts/frame -> rafters/base -> tiles -> walls/floors/windows -> completed building is broadly cumulative; no later missing building or guardian proxy visible.",
+      "material": "No obvious black material failure at contact scale.",
+      "blankFirstTile": true,
+      "observations": [
+        "Stage 7 '지붕 바탕' is a smooth dark roof base before stage 8 tiles; it reads as construction layer, not an early finished tile roof."
+      ],
+      "sheetSha256": "3cc9422be25ea7a17bdaae172ad6e15904d7efc49e05a7313376d298e1e735ab",
+      "blockers": []
+    },
+    "sadang": {
+      "sheet": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/analysis/sadang.png",
+      "tiles": 12,
+      "verdict": "contact_scale_pass_with_recorded_limits",
+      "sequence": "Foundation -> posts/frame -> rafters/base -> tiles -> walls/floors/windows -> completed building is broadly cumulative; no later missing building or guardian proxy visible.",
+      "material": "No obvious black material failure at contact scale.",
+      "blankFirstTile": true,
+      "observations": [
+        "Painted red/green identity persists through cumulative frame and finish stages.",
+        "Stage 5 has a detached thin green horizontal element above the main beam frame; verify expected source/selector ownership if precision is required. No guardian proxy is visible."
+      ],
+      "sheetSha256": "bf98b86e80224b6955dc5067a41027c286c8b620cdb29bc7a9ebb62ea586b31d",
+      "blockers": []
+    },
+    "jung": {
+      "sheet": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/analysis/jung.png",
+      "tiles": 12,
+      "verdict": "contact_scale_pass_with_recorded_limits",
+      "sequence": "Foundation -> posts/frame -> rafters/base -> tiles -> walls/floors/windows -> completed building is broadly cumulative; no later missing building or guardian proxy visible.",
+      "material": "No obvious black material failure at contact scale.",
+      "blankFirstTile": true,
+      "observations": [],
+      "sheetSha256": "190a31697e503af3b472c94599b68af7e406ef0f4dd4946ef826d2c275f6aa62",
+      "blockers": []
+    },
+    "arae": {
+      "sheet": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/analysis/arae.png",
+      "tiles": 12,
+      "verdict": "contact_scale_pass_with_recorded_limits",
+      "sequence": "Foundation -> posts/frame -> rafters/base -> tiles -> walls/floors/windows -> completed building is broadly cumulative; no later missing building or guardian proxy visible.",
+      "material": "No obvious black material failure at contact scale.",
+      "blankFirstTile": true,
+      "observations": [
+        "Stage 6 smooth dark roof base precedes stage 7 tiles; no black shader failure inferred from labeled roof-base state."
+      ],
+      "sheetSha256": "0e1f29bd50b6c12512be406254d35260899b95591ee08320f46800eefb6240a8",
+      "blockers": []
+    },
+    "gokgan": {
+      "sheet": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/analysis/gokgan.png",
+      "tiles": 11,
+      "verdict": "contact_scale_pass_with_recorded_limits",
+      "sequence": "Foundation -> posts/frame -> rafters/base -> tiles -> walls/doors -> final building is broadly cumulative; no later missing building or guardian proxy visible.",
+      "material": "No obvious black material failure at contact scale.",
+      "blankFirstTile": true,
+      "observations": [
+        "Stage 6 smooth dark roof base precedes stage 7 tiles; final late stages show small/occluded changes, not a missing building."
+      ],
+      "sheetSha256": "777b079604e04e7994e0eea9fb87bfdbdf0703cd0942a7d4d8126a16f690a969",
+      "blockers": []
+    },
+    "angotgan": {
+      "sheet": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/analysis/angotgan.png",
+      "tiles": 11,
+      "verdict": "contact_scale_pass_with_recorded_limits",
+      "sequence": "Foundation -> posts/frame -> rafters/base -> tiles -> walls/doors -> final building is broadly cumulative; no later missing building or guardian proxy visible.",
+      "material": "No obvious black material failure at contact scale.",
+      "blankFirstTile": true,
+      "observations": [
+        "Stage 6 roof-base wood has very broad knot figures across the roof plane. This is conspicuous grain scale on a joined roof layer, a nonblocking material-quality limit at contact scale rather than proof of incorrect stage selection."
+      ],
+      "sheetSha256": "7793df754be3360ebdacb89627458d1a085ed833a7a9752bce00a0b7fae7f8bb",
+      "blockers": []
+    },
+    "changgo": {
+      "sheet": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/analysis/changgo.png",
+      "tiles": 8,
+      "verdict": "contact_scale_pass_with_recorded_limits",
+      "sequence": "Foundation -> posts/frame -> rafters/base -> tiles -> walls/doors -> final building is broadly cumulative; no later missing building or guardian proxy visible.",
+      "material": "No obvious black material failure at contact scale.",
+      "blankFirstTile": false,
+      "observations": [
+        "Starts with visible combined site/foundation stage; tile roof first appears at stage 6 after frame/rafters/base."
+      ],
+      "sheetSha256": "1ef8f6eba5ef3bf5fa6c4440ccf0c71477ffb77baa4bc08f8718717f398c4508",
+      "blockers": []
+    },
+    "toilet": {
+      "sheet": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/analysis/toilet.png",
+      "tiles": 9,
+      "verdict": "contact_scale_pass_with_recorded_limits",
+      "sequence": "Foundation -> posts/frame -> rafters/base -> tiles -> walls/doors -> final building is broadly cumulative; no later missing building or guardian proxy visible.",
+      "material": "No obvious black material failure at contact scale.",
+      "blankFirstTile": false,
+      "observations": [
+        "Starts with visible foundation; frame/rafters/base precede roof tiles at stage 6; wall then door appears cumulatively."
+      ],
+      "sheetSha256": "3dc4366359fdb80619a9310626612a1dc725b2843b9dbf6ff66b12894d63cbef",
+      "blockers": []
+    },
+    "toilet1": {
+      "sheet": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-r6/visual-direction-20261023/hanok-style-production-r2/family-r16/analysis/toilet1.png",
+      "tiles": 9,
+      "verdict": "contact_scale_pass_with_recorded_limits",
+      "sequence": "Foundation -> posts/frame -> rafters/base -> tiles -> walls/doors -> final building is broadly cumulative; no later missing building or guardian proxy visible.",
+      "material": "No obvious black material failure at contact scale.",
+      "blankFirstTile": false,
+      "observations": [
+        "Starts with visible foundation; frame/rafters/base precede roof tiles at stage 6; wall then door appears cumulatively."
+      ],
+      "sheetSha256": "25131a2e12ef3c22a33897d390ed555c53a0ef3a2db3233d97324b7667f70373",
+      "blockers": []
+    }
+  },
+  "pending": [],
+  "reviewedBuildingCount": 11,
+  "reviewedNativeStageTileCount": 128,
+  "finalVerdict": "contact_scale_visual_sequence_review_complete_with_recorded_limits",
+  "exactReferenceParityClaim": false,
+  "runtimeApproval": false,
+  "fineGrainStageApproval": false
+}

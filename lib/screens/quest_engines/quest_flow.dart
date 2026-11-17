@@ -8,6 +8,7 @@ import '../../widgets/sori/dancheong_burst.dart';
 import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/scenario_c.dart';
 
 enum SoriAnswerState { idle, selected, correct, wrong }
 
@@ -84,6 +85,13 @@ class SoriAnswerTray extends StatelessWidget {
       );
     } else {
       body = child ?? const SizedBox.shrink();
+    }
+    if (ScenarioCTheme.of(context)) {
+      return ScenarioCAnswerTray(
+        minHeight: minHeight,
+        accent: accent,
+        child: SizedBox(width: double.infinity, child: body),
+      );
     }
     return AnimatedContainer(
       duration: MediaQuery.disableAnimationsOf(context)
@@ -211,6 +219,38 @@ class SoriWordTile extends StatelessWidget {
         '',
       ),
     };
+    if (ScenarioCTheme.of(context)) {
+      final tile = Semantics(
+        button: true,
+        enabled: onTap != null,
+        selected: state == SoriWordTileState.selected,
+        label: status.isEmpty ? label : '$label, $status',
+        excludeSemantics: true,
+        onTap: onTap,
+        child: SoriPressable(
+          onTap: onTap,
+          haptic: null,
+          pressScale: 1,
+          pressOffsetY: 2,
+          child: ScenarioCWordTile(
+            accent: state == SoriWordTileState.idle ? null : border,
+            child: Center(
+              widthFactor: expand ? null : 1,
+              heightFactor: 1,
+              child: Text(
+                label,
+                textAlign: TextAlign.center,
+                style: ScenarioC.korean.copyWith(
+                  fontSize: 21 * scale,
+                  color: foreground,
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+      return expand ? SizedBox.expand(child: tile) : tile;
+    }
     final duration = MediaQuery.disableAnimationsOf(context)
         ? Duration.zero
         : const Duration(milliseconds: 180);
@@ -284,6 +324,7 @@ class SoriPromptCard extends StatelessWidget {
     this.speakText,
     this.voice,
     this.compact = false,
+    this.speaker,
   });
 
   final String sentence;
@@ -291,6 +332,7 @@ class SoriPromptCard extends StatelessWidget {
   final String? speakText;
   final String? voice;
   final bool compact;
+  final String? speaker;
 
   @override
   Widget build(BuildContext context) {
@@ -302,6 +344,43 @@ class SoriPromptCard extends StatelessWidget {
     final label = replayable ? '$sentence ${t.questReplayAudio}' : sentence;
     final fontSize = compact ? 20.0 : 22.0;
 
+    if (ScenarioCTheme.of(context)) {
+      return ScenarioCFold(
+        semanticLabel: label,
+        onTap: replayable
+            ? (usesSpeakable
+                  ? () => SoriSpeech.replay(resolvedSpeakText!, voice: voice)
+                  : onReplay)
+            : null,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (speaker case final name?) ...[
+              ScenarioCSpeakerBadge(name: name),
+              const SizedBox(height: 4),
+            ],
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    sentence,
+                    style: ScenarioC.body.copyWith(
+                      fontSize: compact ? 16 : 18,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                if (replayable)
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8),
+                    child: ScenarioCAudioDisc(),
+                  ),
+              ],
+            ),
+          ],
+        ),
+      );
+    }
     final card = Semantics(
       button: replayable,
       enabled: replayable ? true : null,
@@ -445,6 +524,49 @@ class SoriAnswerTile extends StatelessWidget {
     };
     final emphasized = state != SoriAnswerState.idle;
 
+    if (ScenarioCTheme.of(context)) {
+      return Semantics(
+        button: true,
+        selected: selected,
+        enabled: onTap != null,
+        label: status.isEmpty ? label : '$label, $status',
+        excludeSemantics: true,
+        onTap: onTap,
+        child: SoriPressable(
+          onTap: onTap,
+          haptic: null,
+          pressScale: 1,
+          pressOffsetY: 2,
+          child: ScenarioCFold(
+            minHeight: 64,
+            accent: emphasized ? accent : null,
+            child: Row(
+              children: [
+                Text(
+                  String.fromCharCode(65 + index),
+                  style: ScenarioC.heading.copyWith(
+                    fontSize: 16,
+                    color: ScenarioC.muted,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    label,
+                    style: ScenarioC.body.copyWith(
+                      fontSize: 18,
+                      fontWeight: emphasized
+                          ? FontWeight.w700
+                          : FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
     return Semantics(
       button: true,
       selected: selected,
@@ -552,6 +674,18 @@ class ScenarioQuestAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    Widget primary({
+      required Key key,
+      required String label,
+      required VoidCallback? onTap,
+    }) => ScenarioCTheme.of(context)
+        ? ScenarioCGoldButton(key: key, label: label, onTap: onTap)
+        : SoriButton.filled(
+            key: key,
+            label: label,
+            fullWidth: true,
+            onTap: onTap,
+          );
     final result = resolved;
     if (result == null) {
       final warningForeground =
@@ -588,10 +722,9 @@ class ScenarioQuestAction extends StatelessWidget {
             const SizedBox(height: Spacing.sm),
           ],
           if (onSubmit != null)
-            SoriButton.filled(
+            primary(
               key: const ValueKey('quest-submit'),
               label: t.questCheckAnswer,
-              fullWidth: true,
               onTap: canSubmit ? onSubmit : null,
             ),
           if (onDontKnow != null) ...[
@@ -650,10 +783,9 @@ class ScenarioQuestAction extends StatelessWidget {
                 ),
         ),
         if (!result) const SizedBox(height: Spacing.sm),
-        SoriButton.filled(
+        primary(
           key: const ValueKey('quest-continue'),
           label: isLast ? t.questViewResult : t.questNext,
-          fullWidth: true,
           onTap: onContinue,
         ),
       ],

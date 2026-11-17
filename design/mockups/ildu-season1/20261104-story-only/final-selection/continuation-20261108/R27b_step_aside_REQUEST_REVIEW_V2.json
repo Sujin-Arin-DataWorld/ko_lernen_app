@@ -1,0 +1,38 @@
+{
+  "reviewer": "/root/character_design_guard_v7",
+  "date": "2026-11-08",
+  "id": "R27b_step_aside",
+  "status": "HOLD_ARCHITECTURE_CONTINUITY",
+  "request_source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-completion-20261106\\REQUESTS_20261108.json",
+  "request_sha256": "7a4574f8631f05a7c151a31644a88c031fd3bdf6c555ccf60bc1c3f5bdfa9a31",
+  "prompt_sha256": "0c99623553f52d72d2a85fa08301fe66ff8498429d4d40bd6b6d994ead465709",
+  "embedded_scene_exact_match": true,
+  "copy_exact_match": true,
+  "references": [
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-illustration-spec-20261103\\design\\mockups\\ildu-season1\\20261104-story-only\\final-selection\\R22-save-unconfirmed-de.png",
+      "exists": true,
+      "sha256": "841979563167f299c86bc202e65b451b3b520935ff8935f69972fe17ea75f40c"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-illustration-spec-20261103\\design\\canonical\\ensemble\\20261102\\assets\\dokkaebi\\01-front.png",
+      "exists": true,
+      "sha256": "bb5b2ce4bb2efba994ed8243f56c591b62b8dbafbd8cd1e792e9f9e3d896fa1a"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-illustration-spec-20261103\\design\\canonical\\ensemble\\20261102\\assets\\sujin\\01-b2-selected.png",
+      "exists": true,
+      "sha256": "2f9e367ef657ae82abe3ed0eefdd234cc997c6cdf281c416dbc6103c6d972c33"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-illustration-spec-20261103\\design\\canonical\\ensemble\\20261102\\assets\\props\\dokkaebi-club.png",
+      "exists": true,
+      "sha256": "fabeb8f287f41376bc92f27ecf884aba307dbd7f56200eea842707467d900421"
+    }
+  ],
+  "corrections": "Cast sources correct. Attach reviewed R27a actual gate/club environment as continuity source after its architecture gate passes. Passage visibly opens through body stepping aside, not reconstruction or unlock effect. Keep two feet grounded. Actual ask-and-repeat route only; assistance-only player success not claimed.",
+  "common_wrapper_review": "853x1843, C teal/hanji/gold, exact KO+DE and single CTA, no clouds/settings/coins/tabs, no learning UI, cast-only, static scenario limit all acceptable. Art64/panel36 is a target only; longest copy must fit legibly and feet stay unobscured. Make reference roles explicit rather than calling architecture/prop/identity references immutable in every detail.",
+  "postflight_required": true,
+  "user_approval": false,
+  "runtime_verified": false
+}

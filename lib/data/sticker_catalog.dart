@@ -1,5 +1,7 @@
+import 'canonical_companion_art.dart';
+
 /// 계 스티커 카탈로그 — 30종(코드 1~30, 6 카테고리 × 5). plan §8.2.
-/// 자산: `assets/stickers/{slug}.png`.
+/// Stable slugs preserve stored feed identities; companion art uses the current catalog.
 enum StickerCategory { tiger, magpie, dancheong, hangul, food, stamp }
 
 /// Stable sticker wire identity and asset metadata.
@@ -11,9 +13,11 @@ class StickerSpec {
   final String slug;
   final StickerCategory category;
 
-  const StickerSpec(this.code, this.slug, this.category);
+  final String? assetOverride;
 
-  String get asset => 'assets/stickers/$slug.png';
+  const StickerSpec(this.code, this.slug, this.category, {this.assetOverride});
+
+  String get asset => assetOverride ?? 'assets/stickers/$slug.png';
 }
 
 /// Backwards-compatible name for code that predates the semantic catalog.
@@ -21,16 +25,66 @@ class StickerSpec {
 typedef StickerDef = StickerSpec;
 
 const List<StickerSpec> kStickers = [
-  StickerSpec(1, 'tiger_cheer', StickerCategory.tiger),
-  StickerSpec(2, 'tiger_clap', StickerCategory.tiger),
-  StickerSpec(3, 'tiger_surprised', StickerCategory.tiger),
-  StickerSpec(4, 'tiger_sad', StickerCategory.tiger),
-  StickerSpec(5, 'tiger_love', StickerCategory.tiger),
-  StickerSpec(6, 'magpie_dance', StickerCategory.magpie),
-  StickerSpec(7, 'magpie_wave', StickerCategory.magpie),
-  StickerSpec(8, 'magpie_sleep', StickerCategory.magpie),
-  StickerSpec(9, 'magpie_sing', StickerCategory.magpie),
-  StickerSpec(10, 'magpie_encourage', StickerCategory.magpie),
+  StickerSpec(
+    1,
+    'tiger_cheer',
+    StickerCategory.tiger,
+    assetOverride: CanonicalCompanionArt.baekhoStanding,
+  ),
+  StickerSpec(
+    2,
+    'tiger_clap',
+    StickerCategory.tiger,
+    assetOverride: CanonicalCompanionArt.baekhoGuide,
+  ),
+  StickerSpec(
+    3,
+    'tiger_surprised',
+    StickerCategory.tiger,
+    assetOverride: CanonicalCompanionArt.baekhoPortrait,
+  ),
+  StickerSpec(
+    4,
+    'tiger_sad',
+    StickerCategory.tiger,
+    assetOverride: CanonicalCompanionArt.baekhoSeated,
+  ),
+  StickerSpec(
+    5,
+    'tiger_love',
+    StickerCategory.tiger,
+    assetOverride: CanonicalCompanionArt.baekhoPortrait,
+  ),
+  StickerSpec(
+    6,
+    'magpie_dance',
+    StickerCategory.magpie,
+    assetOverride: CanonicalCompanionArt.magpieCelebrate,
+  ),
+  StickerSpec(
+    7,
+    'magpie_wave',
+    StickerCategory.magpie,
+    assetOverride: CanonicalCompanionArt.magpieGuide,
+  ),
+  StickerSpec(
+    8,
+    'magpie_sleep',
+    StickerCategory.magpie,
+    assetOverride: CanonicalCompanionArt.magpieStanding,
+  ),
+  StickerSpec(
+    9,
+    'magpie_sing',
+    StickerCategory.magpie,
+    assetOverride: CanonicalCompanionArt.magpieCelebrate,
+  ),
+  StickerSpec(
+    10,
+    'magpie_encourage',
+    StickerCategory.magpie,
+    assetOverride: CanonicalCompanionArt.magpieGuide,
+  ),
   StickerSpec(11, 'dancheong_flower', StickerCategory.dancheong),
   StickerSpec(12, 'dancheong_star', StickerCategory.dancheong),
   StickerSpec(13, 'dancheong_cloud', StickerCategory.dancheong),

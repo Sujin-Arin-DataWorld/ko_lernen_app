@@ -1,0 +1,35 @@
+{
+  "reviewer": "/root/character_design_guard_v7",
+  "date": "2026-11-08",
+  "id": "R24a_request",
+  "status": "PASS_EXACT_PROMPT_FOR_GENERATION",
+  "request_sha256": "7a4574f8631f05a7c151a31644a88c031fd3bdf6c555ccf60bc1c3f5bdfa9a31",
+  "prompt_sha256": "7535f1d96920b6020811aaea47b51c2fe6172b3c7df3db263ec75a6a62b5e8a1",
+  "scene_and_copy_exact_match": true,
+  "refs": [
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-illustration-spec-20261103\\design\\mockups\\ildu-season1\\20261104-story-only\\final-selection\\R22-save-unconfirmed-de.png",
+      "sha256": "841979563167f299c86bc202e65b451b3b520935ff8935f69972fe17ea75f40c",
+      "actual_source_opened_by_reviewer": true
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-illustration-spec-20261103\\design\\canonical\\ensemble\\20261102\\assets\\dokkaebi\\01-front.png",
+      "sha256": "bb5b2ce4bb2efba994ed8243f56c591b62b8dbafbd8cd1e792e9f9e3d896fa1a",
+      "actual_source_opened_by_reviewer": true
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-illustration-spec-20261103\\design\\canonical\\ensemble\\20261102\\assets\\sujin\\01-b2-selected.png",
+      "sha256": "2f9e367ef657ae82abe3ed0eefdd234cc997c6cdf281c416dbc6103c6d972c33",
+      "actual_source_opened_by_reviewer": true
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-illustration-spec-20261103\\design\\canonical\\ensemble\\20261102\\assets\\props\\dokkaebi-club.png",
+      "sha256": "fabeb8f287f41376bc92f27ecf884aba307dbd7f56200eea842707467d900421",
+      "actual_source_opened_by_reviewer": true
+    }
+  ],
+  "decision": "Four refs verified: R22 UI only, Dok01, SujinB2, original club. Gaze, support, unsorted timber/tool/maru-photo context and exact copy/CTA match. Show upper narrow club grip with heavy broad end grounded if club included. Material-yard crop must not invent recognizable canonical building. No discovery bag or completed sorting.",
+  "design_scope": "Static image generation only; one current speaker, KO+DE exact text, one CTA, C materials, no clouds/coins/settings/tabs, no learning UI",
+  "postflight_required": "Anatomy, identity per character, relative scale, gaze/acting, prop support, scene state, exact copy, dimensions/framing all reviewed from actual output",
+  "limits": "No user approval/canon promotion/metric certification/runtime-save/Flutter-device proof"
+}

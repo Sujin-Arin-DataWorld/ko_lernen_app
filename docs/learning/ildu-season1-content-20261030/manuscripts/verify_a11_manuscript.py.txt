@@ -1,0 +1,46 @@
+from pathlib import Path
+from collections import Counter
+import csv, hashlib, json
+
+ROOT=Path(__file__).parent/'a1-1-v35'
+source=json.loads((ROOT/'CONTENT_SOURCE.json').read_text(encoding='utf-8'))
+items=json.loads((ROOT/'AUTHORING_ITEMS.json').read_text(encoding='utf-8'))
+contracts=json.loads((ROOT/'SOURCE_UNIT_CONTRACTS.json').read_text(encoding='utf-8'))
+qa=json.loads((ROOT/'SOURCE_AND_QA.json').read_text(encoding='utf-8'))
+checks=[]
+def check(name,result,detail=None):
+    checks.append(dict(name=name,pass_=bool(result),detail=detail))
+check('source six unit IDs exact', [u['id'] for u in source['units']]==[u['id'] for u in contracts['units']])
+ids={x['item_id'] for x in items}
+check('unique item IDs',len(ids)==len(items))
+check('6 units /91 items',len(source['units'])==6 and len(items)==91)
+check('P29 I31 R31',Counter(x['phase'] for x in items)==dict(P=29,I=31,R=31))
+required=['item_id','objective_id','content_revision','taught_by','required_symbols','required_words_and_senses','required_grammar_functions','required_control','modality','relationship','help_policy','accepted_response_policy','evidence_scope','later_probe_id']
+check('all assessment metadata',all(all(k in x for k in required) for x in items))
+tids={f"{u['id']}-T-{z['key']}" for u in source['units'] for z in u['teach']}
+check('all teaching refs exist', all(all(t in tids for t in x['taught_by']) for x in items))
+check('all later probes exist',all((x['later_probe_id'] is None or x['later_probe_id'] in ids) and (x.get('later_unit_probe_id') is None or x['later_unit_probe_id'] in ids) for x in items))
+check('all item trilingual copy',all(set(x[k])=={'ko','en','de'} and all(x[k].values()) for x in items for k in ['context','prompt','wrong_feedback']))
+check('all first help trilingual',all(set(x['help_policy']['level1'])=={'ko','en','de'} for x in items))
+check('word forms and senses explicit',all(all(w.get('form') and w.get('sense_ko') for w in x['required_words_and_senses']) for x in items))
+check('no Korean literacy gate in common item control',all('ORAL-START' in x['required_control'] for x in items))
+protected=[]
+for p in qa['protected_files']:
+    path=Path(p['path']); h=hashlib.sha256(path.read_bytes()).hexdigest() if path.is_file() else None
+    protected.append(dict(path=str(path),unchanged=(h==p['sha256']),current_sha256=h))
+check('all protected source bytes unchanged', all(x['unchanged'] for x in protected),len(protected))
+coverage={1:('A1.1-01-I01','A1.1-01-R01'),2:('A1.1-06-I01','A1.1-06-R01'),3:('A1.1-02-I01','A1.1-05-R07'),4:('A1.1-03-I01','A1.1-06-R06'),5:('A1.1-04-I02','A1.1-04-R02'),6:('A1.1-05-I01','A1.1-05-R01'),7:('A1.1-05-I03','A1.1-05-R03'),8:('A1.1-05-I04','A1.1-05-R04'),9:('A1.1-05-I05','A1.1-05-R05'),10:('A1.1-03-I02','A1.1-03-R02'),11:('A1.1-02-I03','A1.1-02-R03'),12:('A1.1-02-I04','A1.1-02-R04'),22:('A1.1-06-I03','A1.1-06-R03'),23:('A1.1-06-I04','A1.1-06-R04'),32:('A1.1-04-I03','A1.1-04-R03')}
+check('15 grammar rows have concrete I/R',set(coverage)=={int(g['source_row']) for g in contracts['grammar_rows']} and all(i in ids for pair in coverage.values() for i in pair))
+rows=[]
+for g in contracts['grammar_rows']:
+    row=dict(g); row['authored_I_id'],row['authored_R_id']=coverage[int(g['source_row'])]; rows.append(row)
+with (ROOT/'GRAMMAR_COVERAGE.csv').open('w',encoding='utf-8-sig',newline='') as f:
+    w=csv.DictWriter(f,fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
+for uid in ('A1.1-02-I03','A1.1-02-I04','A1.1-05-I03'):
+    x=next(x for x in items if x['item_id']==uid)
+    check(uid+' receptive only',x['modality'] in ('audio-to-selection','text-to-selection') and ('recognition only' in x['evidence_scope'] or 'identification only' in x['evidence_scope']))
+with (ROOT/'ITEM_BANK.csv').open(encoding='utf-8-sig',newline='') as f: csvrows=list(csv.DictReader(f))
+check('CSV IDs match JSON', [x['item_id'] for x in csvrows]==[x['item_id'] for x in items])
+report=dict(status='MODEL_STRUCTURAL_QA_PASS' if all(c['pass_'] for c in checks) else 'REPAIR_REQUIRED',checks=checks,counts=dict(units=len(source['units']),items=len(items),phases=dict(Counter(x['phase'] for x in items)),grammar_rows=len(rows)),protected_source_check=protected,limitations=['structural checks only, not linguistic or human approval','audio, image, timing, learner performance and runtime unverified'])
+(ROOT/'STRUCTURAL_QA.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+print(json.dumps(dict(status=report['status'],checks=len(checks),failed=[x for x in checks if not x['pass_']],counts=report['counts']),ensure_ascii=False))

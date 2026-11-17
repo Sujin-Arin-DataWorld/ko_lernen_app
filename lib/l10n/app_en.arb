@@ -126,16 +126,26 @@
   "reviewDoneBody": "You've reviewed your due cards.",
   "reviewBonusLabel": "Phrase of the day",
   "reviewHubTitle": "Review",
+  "reviewArchiveTab": "By topic",
+  "reviewSelectedCount": "{count} selected",
+  "@reviewSelectedCount": {"placeholders": {"count": {"type": "int"}}},
+  "reviewSelectedTopic": "Selection: {topic}",
+  "@reviewSelectedTopic": {"placeholders": {"topic": {"type": "String"}}},
+  "reviewByDay": "Find by study day",
+  "reviewArchiveTitle": "Your learning archive",
+  "reviewArchiveSubtitle": "Learned words by level and topic",
+  "reviewSelectAll": "Select all",
+  "reviewClearSelection": "Clear selection",
+  "reviewSelectHint": "Choose words to review.",
+  "reviewSearchHint": "Search words or topics",
+  "reviewOwnWords": "My words & books",
+  "reviewArchiveEmpty": "There are no learned words here yet.",
+  "reviewLoadError": "The words could not be loaded.",
+  "reviewRetry": "Try again",
+  "reviewNoTopic": "More words",
+  "reviewPlayAudio": "Play pronunciation",
   "reviewHubTodayHeadline": "Learned today",
   "reviewHubEmptyToday": "Nothing learned yet today. Start a lesson.",
-  "reviewHubStartSelected": "{n, plural, one{Practice 1 word} other{Practice {n} words}}",
-  "@reviewHubStartSelected": {
-    "placeholders": {
-      "n": {
-        "type": "int"
-      }
-    }
-  },
   "reviewHubCalendarTooltip": "Calendar",
   "reviewHubDeckLabel": "{words, plural, one{1 word} other{{words} words}}",
   "@reviewHubDeckLabel": {
@@ -560,23 +570,12 @@
   "hangulTabOverview": "Overview",
   "hangulTabCards": "Cards",
   "hangulTabWrite": "Writing",
-  "hangulConsonantsLabel": "자음 · Consonants",
-  "hangulVowelsLabel": "모음 · Vowels",
-  "hangulSyllableLabel": "🧩 음절 구조 · Syllable composition",
-  "hangulSyllableTableTitle": "Syllable chart",
   "hangulSyllableTableHint": "Tap a syllable to hear it. Swipe sideways for more vowels.",
   "hangulPronounceBtn": "Pronounce",
-  "hangulRulesTitle": "Hangul writing rules",
   "hangulRulesBody": "① Top → Bottom   ② Horizontal → Vertical   ③ Left → Right",
   "hangulStrokeOrderTitle": "📽 Stroke order (tap to replay)",
   "hangulTraceTitle": "Trace with your finger",
   "hangulClearBtn": "Clear",
-  "hangulPronounceLetter": "Pronounce {letter}",
-  "@hangulPronounceLetter": {
-    "placeholders": {
-      "letter": {}
-    }
-  },
   "hangulChipConsonants": "Consonants",
   "hangulChipVowels": "Vowels",
   "hangulChipSyllables": "Syllables",
@@ -636,15 +635,6 @@
   "@hangulStrokeLetterDone": {
     "placeholders": {
       "letter": {}
-    }
-  },
-  "hangulLettersDone": "{count, plural, one{1 letter done} other{{count} letters done}}",
-  "hangulHardOnly": "Difficult only",
-  "@hangulLettersDone": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
     }
   },
   "chosungModeWithVowels": "Initial + vowel",
@@ -1193,7 +1183,6 @@
   "hanokStageJongga": "Jongga complete",
   "vocabPackPlayTitle": "Pack practice",
   "vocabPackFinishSaveError": "Your progress could not be saved. Please try again.",
-  "vocabPackLearnHint": "Tap to flip",
   "vocabPackDontKnow": "Don't know",
   "vocabPackGotIt": "Got it",
   "deckActionSave": "Save",
@@ -1477,7 +1466,6 @@
   "moduleScenariosDesc": "Practice everyday situations: cafés, airports, introductions…",
   "scenarioIntroTitle": "Intro",
   "scenarioVocabTitle": "Vocabulary",
-  "scenarioDialogTitle": "Dialogue",
   "scenarioGrammarTitle": "Grammar",
   "scenarioQuestsTitle": "Mini-quests",
   "scenarioQuestProgress": "{current} of {total}",
@@ -1516,6 +1504,9 @@
   "scenarioSavedReturnHanok": "Back to my Hanok",
   "scenarioSavedRepeat": "Practise this scene again",
   "scenarioResultSaving": "Saving this completed scene…",
+  "scenarioResultSavingTitle": "Your scene is being saved",
+  "scenarioResultSavingAction": "Saving…",
+  "scenarioResultSaveErrorTitle": "Your scene has not been saved yet",
   "scenarioResultSaveRetry": "Try saving again",
   "scenarioStructureChangedTitle": "Your Hanok has changed.",
   "scenarioStructureChangedBody": "New structure: {stage}",
@@ -2665,7 +2656,6 @@
   "grammarPlanLevelLabel": "Level",
   "grammarPlanEditTooltip": "Change level or pace",
   "grammarPlanOnboardingTitle": "How many patterns per day?",
-  "grammarPlanOnboardingBody": "Choose a daily recommendation. You can change the pace and level at the top or browse every pattern at any time.",
   "grammarPlanItemsPerDayOption": "{n} per day",
   "@grammarPlanItemsPerDayOption": {
     "placeholders": {
@@ -3270,7 +3260,6 @@
   "testerFeedbackMissionGames": "Complete a game round",
   "testerFeedbackMissionLanguageForm": "Practise grammar or Hangul",
   "testerFeedbackCompleteGrammar": "Finish grammar practice",
-  "testerFeedbackCompleteHangul": "Finish Hangul practice",
   "testerFeedbackCompleteDailyHangul": "Finish today's character",
   "testerFeedbackPromptScenario": "Did any part feel like something you could really say in this situation?",
   "testerFeedbackPromptWordWork": "Do these words feel useful and memorable?",
@@ -3630,10 +3619,7 @@
   },
   "sarangbangHubDesc": "Continue learning in the Sarangbang.",
   "bojagiTitle": "Bojagi bundle",
-  "bojagiLoading": "Preparing your bundle…",
-  "bojagiOpenHint": "Tap the knot to open the bundle.",
   "bojagiPickTitle": "Pick one",
-  "bojagiPickBody": "Whatever you leave stays in the pool and can turn up in a later bundle.",
   "bojagiChooseDecoration": "Choose {name}",
   "@bojagiChooseDecoration": {
     "placeholders": {
@@ -3642,12 +3628,7 @@
       }
     }
   },
-  "bojagiEmptyTitle": "No bundle waiting",
-  "bojagiEmptyBody": "Finish a quest and you get a bundle for it.",
   "bojagiAllOwnedTitle": "Nothing new inside",
-  "bojagiAllOwnedBody": "You already own all three pieces from this bundle.",
-  "bojagiProblemTitle": "This bundle will not open right now",
-  "bojagiProblemBody": "Try again in a moment. Your bundle is not lost.",
   "bojagiRetry": "Try again",
   "bojagiClaimedTitle": "Got it!",
   "bojagiClaimedAnnouncement": "Got it: {name}",
@@ -3659,10 +3640,7 @@
     }
   },
   "bojagiGoToRoom": "Place it in the room",
-  "bojagiNext": "Open the next bundle",
   "bojagiCollectionCompleteTitle": "Collection complete",
-  "bojagiCollectionCompleteBody": "You already own every room piece. Archive this bundle to continue.",
-  "bojagiArchiveComplete": "Archive bundle",
   "@_hanok_world": {
     "description": "Personal Hanok world — map and place navigation."
   },
@@ -4084,10 +4062,6 @@
   "soriStageGyeFlow": "Mission complete → lantern → shared Hanok progress",
   "soriStageGyeUpdating": "The shared courtyard is being rebuilt.",
   "pronunciationTitle": "Pronunciation studio",
-  "pronunciationEyebrow": "PRONUNCIATION PRACTICE",
-  "pronunciationIntro": "Listen first. Record up to 10 seconds, then listen to your voice and compare.",
-  "pronunciationScoringSoonTitle": "Scoring coming soon",
-  "pronunciationScoringSoonBody": "Automatic pronunciation scoring is not switched on yet. Listening, recording and comparing already work.",
   "pronunciationPhrasesLoading": "Loading pronunciation practice …",
   "pronunciationPhrasesUnavailableTitle": "Pronunciation practice unavailable",
   "pronunciationPhrasesUnavailableBody": "The pronunciation practice could not be loaded. Please try again.",
@@ -4098,7 +4072,6 @@
   "pronunciationRecording": "Recording…",
   "pronunciationAssessing": "Preparing your score…",
   "pronunciationStop": "Stop recording",
-  "pronunciationContinueWithoutScore": "Continue without a score",
   "pronunciationNextPhrase": "Next phrase",
   "pronunciationConsentTitle": "Use your voice for an assessment?",
   "pronunciationConsentBody": "With your separate consent, a recording of up to 10 seconds and the shown Korean phrase are sent securely to Microsoft Azure Speech in Germany West Central. Hangul Sori does not store the recording or phrase on its server. Only the scores and a duplicate-prevention ID are saved on this device. You can practise without assessment and withdraw consent in Settings.",
@@ -4145,7 +4118,7 @@
       }
     }
   },
-  "soriStageActivityDescription": "{activityId, select, course{Your guided path through real situations.} hangul{Build syllables and read with confidence.} calligraphy{Discover one character every day.} pronunciation{Listen, repeat, and optionally assess. Scoring comes later.} vocab_packs{Learn words by everyday topic.} srs{Refresh words at just the right moment.} hard_words{Focus on the words that trip you up.} word_web{Synonyms, opposites and expressions for your words.} grammar{Understand patterns and use them right away.} listening{Recognize short natural phrases.} scenarios{Practice cafés, transport, and conversations.} smalltalk{Connect short conversations naturally.} book_capture{Bring words in from your own material.} vocab_notebook{Photograph your notebook and practice those exact words.} bookshelf{Manage your pages and word lists.} word_search{Find a word and its learning paths.} my_words{Search, shelf, and difficult words in one place.} daily_game{A short mix for today.} chosung{Recognize words from their first sounds.} syllable_cross{Combine syllables and find words.} cloze{Recall the right word in a sentence.} speed_match{Match meanings quickly and accurately.} sentence_arcade{Build sentences under time pressure.} kkeunmari{Play a word chain against the tiger.} custom_practice{Quiz, matching and typing with your saved words.} other{Continue learning.}}}",
+  "soriStageActivityDescription": "{activityId, select, course{Your guided path through real situations.} hangul{Build syllables and read with confidence.} calligraphy{Discover one character every day.} pronunciation{Listen, record, and compare.} vocab_packs{Learn words by everyday topic.} srs{Refresh words at just the right moment.} hard_words{Focus on the words that trip you up.} word_web{Synonyms, opposites and expressions for your words.} grammar{Understand patterns and use them right away.} listening{Recognize short natural phrases.} scenarios{Practice cafés, transport, and conversations.} smalltalk{Connect short conversations naturally.} book_capture{Bring words in from your own material.} vocab_notebook{Photograph your notebook and practice those exact words.} bookshelf{Manage your pages and word lists.} word_search{Find a word and its learning paths.} my_words{Search, shelf, and difficult words in one place.} daily_game{A short mix for today.} chosung{Recognize words from their first sounds.} syllable_cross{Combine syllables and find words.} cloze{Recall the right word in a sentence.} speed_match{Match meanings quickly and accurately.} sentence_arcade{Build sentences under time pressure.} kkeunmari{Play a word chain against the tiger.} custom_practice{Quiz, matching and typing with your saved words.} other{Continue learning.}}}",
   "@soriStageActivityDescription": {
     "placeholders": {
       "activityId": {
@@ -4787,13 +4760,11 @@
   "savedOriginalMeaning": "Original saved meaning",
   "pronunciationRequestScore": "Get a score",
   "savedTranslationUnavailable": "No English translation is saved yet.",
-  "pronunciationReplay": "Listen to my recording",
   "flashcardRomanizationFront": "Show on the front",
   "pronunciationFinishingRecording": "Finishing recording…",
   "pronunciationReplayUnavailable": "Your recording could not play. Try again or make a new recording.",
   "flashcardRomanizationBack": "Show on the back",
   "ttsUnavailablePlayback": "Audio could not play on this device. Check the volume or connected headphones, then try again.",
-  "pronunciationLocalRecordingHint": "Your recording stays temporarily on this device. It is deleted when you leave this screen.",
   "pronunciationReplayStop": "Stop my recording",
   "flashcardRomanization": "Romanization",
   "onboardingV2ComposeGa": "Combine",
@@ -5035,26 +5006,8 @@
   "onboardingDemoDuck": "duck",
   "onboardingDemoSound": "Sound",
   "onboardingDemoWord": "Word",
-  "onboardingDemoInitials": "First sounds",
-  "onboardingDemoCross": "Syllable cross",
-  "onboardingDemoCloze": "Fill the gap",
-  "onboardingDemoPairs": "Word pairs",
-  "onboardingDemoSentence": "Build a sentence",
-  "onboardingDemoChain": "Word chain",
-  "onboardingDemoExample": "Show example",
   "onboardingJourneyStartTitle": "Your Korean.\nYour rhythm.",
-  "onboardingJourneyNew": "I am completely new",
-  "onboardingJourneyNewHint": "Begin with letters and sounds.",
-  "onboardingJourneyReturning": "I have learned some Korean",
   "onboardingJourneyReturningHint": "Start from what you know.",
-  "onboardingJourneyExperience": "Your experience",
-  "onboardingJourneyPathTitle": "A clear path.\nYour next step.",
-  "onboardingJourneyLettersTitle": "Letters become\nyour words.",
-  "onboardingJourneyLearnTitle": "From understanding\nto speaking.",
-  "onboardingJourneyGamesTitle": "Play is part\nof learning.",
-  "onboardingJourneyBookTitle": "Your book.\nNow part of your learning.",
-  "onboardingJourneyHanokTitle": "Your Korean grows.\nYour hanok comes alive.",
-  "onboardingJourneyCompanionTitle": "A learning path.\nA friend by your side.",
   "onboardingJourneyStartWith": "Begin with {name}",
   "onboardingJourneyMethod": "The structure",
   "onboardingJourneyMethodBody": "Learning goals, vocabulary and grammar build on one another. Korean curricula and the European reference framework inform the structure. A1 to C2 identify the learning stages in this app.",
@@ -5090,14 +5043,6 @@
       }
     }
   },
-  "onboardingJourneyStartShort": "Your start",
-  "onboardingJourneyPathShort": "Your learning path",
-  "onboardingJourneyLettersShort": "Letters & sounds",
-  "onboardingJourneyLearnShort": "Your words",
-  "onboardingJourneyGamesShort": "Learn through play",
-  "onboardingJourneyBookShort": "Your book",
-  "onboardingJourneyHanokShort": "Your hanok",
-  "onboardingJourneyCompanionShort": "Your companion",
   "questUnavailableTitle": "This exercise is unavailable",
   "questUnavailableBody": "Go back and choose another exercise.",
   "contentLearningGoals": "Topic learning goals",
@@ -5545,5 +5490,426 @@
         "type": "int"
       }
     }
-  }
+  },
+  "introGreetingTranslation": "Hello",
+  "welcomeTitle": "Welcome to\nHangul Sori.",
+  "welcomeBody": "Discover Korean, culture and your growing Hanok adventure.",
+  "welcomeStart": "Let’s begin",
+  "welcomeLater": "Later",
+  "welcomeLaterHint": "Try a preview, then set things up.",
+  "welcomeCharacters": "Baekho and the new magpie welcome you to the Hanok.",
+  "onboardingCBookBody": "Discover words in context. TalSunbi helps you understand them.",
+  "onboardingCBookSummary": "Learn from your books.",
+  "onboardingCChange": "Change",
+  "onboardingCGamesBody": "Practise with your saved words. Discover rewards for your progress.",
+  "onboardingCGamesSummary": "8 games. Plenty of discoveries.",
+  "onboardingCGyeBody": "Find your learning group later. You can start on your own.",
+  "onboardingCGyeTitle": "Learn together: Gye",
+  "onboardingCHanokBody": "Stamp book & Dancheong Studio. Your artwork for the Sarangbang.",
+  "onboardingCHanokSummary": "Your Hanok grows with Yeopjeon.",
+  "onboardingCInterest": "What matters to you?",
+  "onboardingCJoyRole": "Your curious companion",
+  "onboardingCLater": "You can change this later.",
+  "introLevelLater": "You can change this later.",
+  "onboardingJourneyStartWhere": "Where would you like to start?",
+  "onboardingJourneyBeginnerHint": "I'm starting from scratch",
+  "onboardingCLevelRange": "Brand new or A1 to C2.",
+  "onboardingCPathBody": "From your first sounds to a real conversation.",
+  "onboardingCPathSummary": "A clear learning path.",
+  "onboardingCSoundBody": "Listen, connect, and try.",
+  "onboardingCSoundSummary": "Two letters. One sound.",
+  "onboardingCStartLevel": "Your starting level",
+  "onboardingCTaegoRole": "Your calm companion",
+  "onboardingCtaGames": "Explore the games",
+  "onboardingCtaTry": "Try a short lesson",
+  "onboardingCBrand": "INTRODUCTION",
+  "introNew": "Completely new",
+  "introNewHint": "Start with Hangul",
+  "introA2Hint": "You know the basics.",
+  "introChooseLevel": "Choose your starting level",
+  "introApplyLevel": "Use this level",
+  "introNextPath": "Next: Your learning path.",
+  "introNextSample": "Next: A short learning sample.",
+  "introTwelveTools": "12 learning tools for your everyday life.",
+  "onboardingCPathTitle": "A path that fits you.",
+  "onboardingCSoundTitle": "Your first sound.",
+  "onboardingCGamesTitle": "Remember more through play.",
+  "onboardingCBookTitle": "Your book joins in.",
+  "onboardingCHanokTitle": "See your learning grow.",
+  "onboardingCCompanionTitle": "A friend by your side.",
+  "onboardingCDiscover": "Discover",
+  "onboardingCPractice": "Practise",
+  "onboardingCRetain": "Remember",
+  "onboardingCPhoto": "Photo",
+  "onboardingCUnderstand": "Understand",
+  "onboardingCRemember": "Remember",
+  "onboardingCBuild": "Build",
+  "onboardingCCollect": "Collect",
+  "onboardingCCreate": "Create",
+  "grammarBookExample": "Example",
+  "atelierAutoOff": "Auto advance: Off",
+  "atelierAutoOn": "Auto advance: On",
+  "atelierChartHint": "Tap to listen. All 19 consonants are available below.",
+  "atelierDemo": "Demonstrate",
+  "atelierDemoEnd": "Finish demonstration",
+  "atelierDemoNext": "Next stroke",
+  "atelierDemoPhase": "Demonstration",
+  "atelierDemoRestart": "Show again",
+  "atelierDifficult": "Difficult",
+  "atelierDiscover": "Discover syllables",
+  "atelierDonePhase": "Complete",
+  "atelierFeedHint": "Swipe up: next card · Swipe down: previous\nDouble tap to like",
+  "atelierFinish": "Finish practice",
+  "atelierFlipHint": "Tap to flip",
+  "atelierKnown": "Known",
+  "atelierMore": "More",
+  "atelierNotYet": "Not yet",
+  "atelierPracticePhase": "Your turn",
+  "atelierRandom": "Random card",
+  "atelierRemember": "Like",
+  "atelierSaveFailed": "Not saved yet. Please try again.",
+  "atelierShare": "Share",
+  "atelierSkip": "Skip",
+  "atelierStructure": "Syllable building",
+  "atelierSubtitle": "Script. Sound. Meaning.",
+  "atelierUseInChart": "Select in the syllable chart",
+  "atelierWatchBrush": "Watch the brush first.",
+  "cHangulCardsReceipt": "{count, plural, =1{1 card action in this practice} other{{count} card actions in this practice}}",
+  "@cHangulCardsReceipt": {
+    "description": "C internal learning screen; counts are actual activity state.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cHangulCompleted": "Hangul practice complete",
+  "cHangulHardCharacters": "Difficult letters only",
+  "cHangulKeepPractising": "You can keep practising any time.",
+  "cHangulListen": "Listen",
+  "cHangulListenWord": "Hear word",
+  "cHangulSelectionTitle": "Card selection",
+  "cHangulWritingLettersReceipt": "{letters, plural, =1{1 letter practised} other{{letters} letters practised}}",
+  "@cHangulWritingLettersReceipt": {
+    "placeholders": {
+      "letters": {
+        "type": "int"
+      }
+    }
+  },
+  "cHangulWritingReceipt": "{letters, plural, =1{1 letter practised} other{{letters} letters practised}} · {strokes, plural, =1{1 stroke attempt} other{{strokes} stroke attempts}} · {mode}",
+  "@cHangulWritingReceipt": {
+    "description": "C internal learning screen; counts are actual activity state.",
+    "placeholders": {
+      "letters": {
+        "type": "int"
+      },
+      "strokes": {
+        "type": "int"
+      },
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "cHangulWritingStrokesReceipt": "{strokes, plural, =1{1 stroke attempt} other{{strokes} stroke attempts}} · {mode}",
+  "@cHangulWritingStrokesReceipt": {
+    "placeholders": {
+      "strokes": {
+        "type": "int"
+      },
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "c5AllLearningActivities": "All learning activities",
+  "c5AllGames": "All games",
+  "onboardingHangulEquationSemantics": "{title}. ㄱ + ㅏ = 가. 가 · ga. {previewLabel}",
+  "@onboardingHangulEquationSemantics": {
+    "description": "Accessible native Hangul equation with localized section and preview labels. Korean lesson glyphs remain Korean.",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "previewLabel": {
+        "type": "String"
+      }
+    }
+  },
+  "ilduR16Title": "Ildu Hanok",
+  "ilduR16Explore": "Discover Ildu Hanok",
+  "ilduR16Reference": "Completed estate · architecture reference",
+  "ilduR16ReferenceBody": "Explore the buildings and their cultural context. This reference view is separate from your construction progress.",
+  "ilduR16Enlarge": "Enlarge the estate",
+  "ilduR16Building": "Choose a building",
+  "ilduR16AboutSpace": "The space and its story",
+  "ilduR16Practice": "Review what you learned",
+  "ilduR16Sarangchae": "Sarangchae · Guest quarters",
+  "ilduR16Changgo": "Changgo · Storehouse",
+  "ilduR16Jungmunganchae": "Jungmunganchae · Inner gate",
+  "ilduR16Araechae": "Araechae · Lower quarters",
+  "ilduR16SouthToilet": "South toilet",
+  "ilduR16Anchae": "Anchae · Inner quarters",
+  "ilduR16AnchaeStore": "Anchae storeroom",
+  "ilduR16NorthToilet": "North toilet",
+  "ilduR16Gokgan": "Gokgan · Grain store",
+  "ilduR16Ansarang": "Ansarangchae · Inner guest quarters",
+  "ilduR16Sadang": "Sadang · Ancestral shrine",
+  "accountRecoveryTitle": "Where would you like to continue?",
+  "accountRecoveryBody": "Saved practice from both sets of progress will be kept. You choose the starting point for your learning path.",
+  "accountRecoveryDevice": "This device",
+  "accountRecoveryCloud": "Cloud",
+  "accountRecoveryCompletedUnits": "{count, plural, =0{No completed units yet} =1{1 completed unit} other{{count} completed units}}",
+  "@accountRecoveryCompletedUnits": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "accountRecoveryUnavailableChoice": "This starting point does not fit your saved completions.",
+  "accountRecoveryUnknownLevel": "Starting point unavailable",
+  "accountRecoveryCountUnavailable": "Saved unit count unavailable",
+  "accountRecoveryConfirm": "Use selection",
+  "accountRecoveryReview": "Review progress",
+  "accountRecoveryPendingTitle": "Your backup needs attention",
+  "accountRecoveryPendingBody": "Your latest progress could not be connected safely yet. Review the saved starting points.",
+  "accountRecoveryWorking": "Checking progress …",
+  "accountRecoveryUnavailable": "Your progress cannot be reviewed right now. Try again.",
+  "accountRecoveryBlocked": "Your saved progress needs another review. It remains preserved.",
+  "accountRecoveryStale": "Your progress has changed. Review it again before continuing.",
+  "accountRecoveryReady": "Your progress is connected. You can back it up now.",
+  "accountRecoveryBackupWaiting": "Connected; backup awaiting review",
+  "accountRecoveryResumeTitle": "Continue your confirmed choice?",
+  "accountRecoveryResumeBody": "Your choice is already saved. You can continue the same operation without choosing a new starting point.",
+  "accountRecoveryResumeConfirm": "Continue confirmed choice",
+  "todayFirstSyllable": "Your first syllable",
+  "todayFirstSyllableBody": "Listen and combine two letters.",
+  "todayStartHangul": "Start Hangul",
+  "todayStartReview": "Start review",
+  "todayYourHanok": "Your Hanok",
+  "todayDetails": "Your day at a glance",
+  "todayProgress": "Learning progress",
+  "najeonChestTitle": "Treasure chest",
+  "najeonChestLoading": "Preparing your treasure chest…",
+  "najeonChestOpenHint": "Tap the chest to open it.",
+  "najeonChestOpen": "Open chest",
+  "najeonChestPickBody": "Choose one piece for your room. The other pieces can appear in a later treasure chest.",
+  "najeonChestEmptyTitle": "No treasure chest waiting",
+  "najeonChestEmptyBody": "Finish a quest to receive a treasure chest.",
+  "najeonChestAllOwnedBody": "You already own all three pieces from this treasure chest.",
+  "najeonChestProblemTitle": "This treasure chest will not open right now",
+  "najeonChestProblemBody": "Try again in a moment. Your treasure chest is not lost.",
+  "najeonChestNext": "Open the next chest",
+  "najeonChestCollectionCompleteBody": "You already own every room piece. Archive this treasure chest to continue.",
+  "najeonChestArchive": "Archive chest",
+  "najeonChestHelpTitle": "Najeon · 나전",
+  "najeonChestHelpBody": "Najeon uses thin pieces of shell cut into patterns and inlaid into a lacquered surface. The shimmering shell material is called mother-of-pearl.",
+  "todayCompanionSubtitle": "Your Korean is growing.",
+  "todayNextStage": "Your next step",
+  "todayTreasureTitle": "Your treasure chest",
+  "todayTreasureReady": "{count, plural, one{1 ready to open} other{{count} ready to open}}",
+  "todayTreasureCollection": "My collection",
+  "todayExploreGames": "Explore games",
+  "todayMissionGreetingTitle": "Your first hello",
+  "todayMissionGreetingBody": "Greet someone and ask a short question.",
+  "todayMissionPlansTitle": "Make a plan together",
+  "todayMissionPlansBody": "Suggest a meeting and change the time.",
+  "todayMissionRequestsTitle": "Make the terms clear",
+  "todayMissionRequestsBody": "Make a request and negotiate a solution.",
+  "todayMissionPolicyTitle": "Shape the rules together",
+  "todayMissionPolicyBody": "Weigh different views and support a proposal.",
+  "todayMissionAuthorityTitle": "Where authority ends",
+  "todayMissionAuthorityBody": "Examine mandates and distinguish their limits.",
+  "todayMissionReviewTitle": "Keep it with you",
+  "todayResumeStage": "Continue",
+  "@todayTreasureReady": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "todayTreasureOpen": "Open",
+  "todayBeginStage": "Let’s begin",
+  "listeningShelfPhone": "Calls",
+  "listeningFlowFollow": "Back to the current message",
+  "listeningShelfShopping": "Shopping",
+  "listeningFlowResult": "Result",
+  "listeningShelfFamily": "First visit",
+  "listeningShelfArrival": "Arrival",
+  "listeningShelfEthics": "Research ethics",
+  "listeningShelfExplore": "Explore",
+  "listeningShelfUncertainty": "Uncertainty",
+  "listeningShelfRestaurant": "Restaurant",
+  "listeningShelfPrompt": "Choose your next conversation.",
+  "listeningShelfDiscourse": "Assumptions",
+  "listeningShelfSources": "Quotes & sources",
+  "listeningShelfMemory": "Memory",
+  "listeningShelfFocus": "IN FOCUS",
+  "listeningShelfGreeting": "Greetings",
+  "listeningFlowChoose": "YOUR LESSON",
+  "listeningShelfHealth": "Health & sport",
+  "listeningShelfCritique": "Art criticism",
+  "listeningShelfRecord": "Missing records",
+  "listeningShelfWork": "At work",
+  "listeningShelfMethod": "Methods",
+  "listeningFlowUnderstand": "Understand",
+  "listeningRecoverySaving": "Saving …",
+  "listeningRecoverySaveFailed": "Not saved yet.",
+  "listeningServiceRole": "Staff",
+  "listeningRecoveryDone": "Lesson complete",
+  "listeningRecoverySavingBody": "Your answers stay unchanged. Please wait.",
+  "listeningRecoverySaveBody": "Your answers are still here. Please try again.",
+  "listeningRecoverySaved": "Answers saved.",
+  "listeningRecoveryAnswers": "Your answers",
+  "listeningRecoveryScore": "{correct} of {total} correct",
+  "listeningRecoverySaveRetry": "Save again",
+  "listeningRecoveryWait": "Please wait",
+  "listeningRecoveryStay": "Stay here",
+  "listeningRecoveryAudioFailed": "Audio is unavailable right now.",
+  "listeningRecoveryAudioBody": "Try again or keep reading.",
+  "listeningRecoveryAudioRetry": "Retry audio",
+  "listeningRecoveryRead": "Keep reading",
+  "listeningRecoveryPractice": "Practise again",
+  "listeningRecoveryTopics": "Back to topics",
+  "listeningRecoveryMore": "Explore further",
+  "@listeningRecoveryScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "listeningRecoveryRemaining": "{count, plural, one {One answer still needs practice.} other {{count} answers still need practice.}}",
+  "@listeningRecoveryRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanTitle": "Your\ngrammar plan",
+  "grammarPlanSetupHint": "Choose your level and daily pace.",
+  "grammarPlanPatternsPerDayLabel": "Patterns per day",
+  "grammarPlanDailyPreview": "{n} patterns per day",
+  "grammarPlanPaceChangeHint": "You can change your pace at any time.",
+  "grammarPlanLevelCount": "{level} · {count} patterns",
+  "@grammarPlanDailyPreview": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@grammarPlanLevelCount": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanSaveErrorTitle": "Progress not saved",
+  "grammarPlanSelectionRetained": "Your selection is kept.",
+  "wordWebCloseConfirmBody": "Your progress in this round will be lost if you return to the word list.",
+  "wordWebCloseConfirmLeave": "Back to word list",
+  "wortpaketeOverview": "Your vocabulary",
+  "wortpaketeChooseLevel": "Choose a level",
+  "wortpaketeSearchAll": "Search for a topic or word",
+  "wortpaketeSearchLevel": "Search {level}",
+  "@wortpaketeSearchLevel": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "wortpaketeTopics": "Topics",
+  "wortpaketeGreetingPackGoal": "Greet, thank and say goodbye",
+  "wortpaketeLearnProgressHint": "Look at and listen to the word",
+  "wortpaketeRevealFirst": "Reveal first, then rate your recall.",
+  "wortpaketeOpenNumberedPack": "Open pack {number}",
+  "@wortpaketeOpenNumberedPack": {"placeholders": {"number": {"type": "int"}}},
+  "wortpaketeTopicsCount": "{count, plural, one{1 topic} other{{count} topics}}",
+  "@wortpaketeTopicsCount": {"placeholders": {"count": {"type": "int"}}},
+  "wortpaketeAllTopicsCount": "See all {count}",
+  "@wortpaketeAllTopicsCount": {"placeholders": {"count": {"type": "int"}}},
+  "wortpaketeNoResults": "No matching topics or words",
+  "wortpaketePacks": "{count, plural, one{1 pack} other{{count} packs}}",
+  "@wortpaketePacks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wortpaketeWords": "{count, plural, one{1 word} other{{count} words}}",
+  "@wortpaketeWords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wortpaketeSearchClear": "Clear search",
+  "wortpaketePackNumber": "Pack {number}",
+  "@wortpaketePackNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "wortpaketeLevelGoalA1": "First conversations",
+  "wortpaketeLevelGoalA2": "Handle daily life",
+  "wortpaketeLevelGoalB1": "Share experiences",
+  "wortpaketeLevelGoalB2": "Explain and discuss",
+  "wortpaketeLevelGoalC1": "Argue precisely",
+  "wortpaketeLevelGoalC2": "Distinguish meanings",
+  "wortpaketeLevelHintA1": "Greetings · Food · Daily life",
+  "wortpaketeLevelHintA2": "Home · Clothing · Work",
+  "wortpaketeLevelHintB1": "Work · Media · Society",
+  "wortpaketeLevelHintB2": "Society · Environment · Ideas",
+  "wortpaketeLevelHintC1": "Research · Risk · Participation",
+  "wortpaketeLevelHintC2": "Interpretation · Memory · Ethics",
+  "wortpaketeTopicName": "{topic, select, a1_greetings{Greetings & politeness} a1_food{Food & drink} a1_home_daily{Home & daily life} a1_transport{Transport} a2_home{Home} a2_clothing{Clothing} a2_restaurant{At the restaurant} a2_work{Work} b1_work_career{Career & office} b1_media_culture{Media & culture} b1_tech_society{Technology & society} b1_city_places{City & places} b2_society{Society} b2_thinking{Reasoning} b2_environment{Environment} b2_work{Work} c1_evidence_reasoning{Research & evidence} c1_accessible_participation{Participation} c1_risk_communication{Risk communication} c1_sustainable_tradeoffs{Sustainability} c2_language_framing{Language & framing} c2_narrative_perspective{Narrative perspective} c2_institutional_mediation{Mediation} c2_technology_ethics{Technology ethics} other{}}",
+  "@wortpaketeTopicName": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "wortpaketeTopicGoal": "{topic, select, a1_greetings{Greet and thank} a1_food{Name food and drinks} a1_home_daily{Talk about daily life} a1_transport{Name means of transport} a2_home{Describe rooms} a2_clothing{Name clothing} a2_restaurant{Talk about ingredients} a2_work{Discuss work schedules} b1_work_career{Describe work experience} b1_media_culture{Describe media content} b1_tech_society{Talk about posts} b1_city_places{Describe places} b2_society{Put conflicts in context} b2_thinking{Justify viewpoints} b2_environment{Discuss environmental impacts} b2_work{Discuss contracts} c1_evidence_reasoning{Evaluate studies} c1_accessible_participation{Identify barriers to access} c1_risk_communication{Express uncertainty} c1_sustainable_tradeoffs{Weigh downstream costs} c2_language_framing{Recognize framing} c2_narrative_perspective{Reflect on memory} c2_institutional_mediation{Negotiate interests} c2_technology_ethics{Assess decisions} other{}}",
+  "@wortpaketeTopicGoal": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "pronunciationPracticeRhythm": "Practice sentence rhythm",
+  "pronunciationCompareVoices": "Compare voices",
+  "pronunciationModelListen": "Listen to sentence",
+  "pronunciationOriginalListen": "Listen to original",
+  "pronunciationOwnListen": "Listen to my recording",
+  "pronunciationRecordingReady": "Recording ready",
+  "pronunciationNoScoring": "Without automatic scoring.",
+  "pronunciationMaxDuration": "Max. 10 sec. · Then compare your recording.",
+  "pronunciationNextSentence": "Next sentence",
+  "pronunciationFocusConditional": "Pause briefly after the conditional clause.",
+  "pronunciationFocusH": "Pronunciation of ㅎ",
+  "pronunciationFocusNasal": "Nasalization",
+  "pronunciationFocusTense": "Tense consonants",
+  "pronunciationFocusLink": "Sound linking",
+  "pronunciationHeader": "Pronunciation",
+  "pronunciationRecordShort": "Record",
+  "pronunciationRecordAgainShort": "Record again"
 }

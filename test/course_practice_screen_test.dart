@@ -20,7 +20,7 @@ import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
-import 'package:ko_lernen_app/widgets/sori/sheet.dart';
+import 'package:ko_lernen_app/widgets/sori/grammar_c.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 void main() {
@@ -164,9 +164,12 @@ void main() {
       await tester.pump();
       expect(calls, 1);
 
-      Navigator.of(tester.element(find.byType(SoriSheetShell))).pop();
+      final checkpointContext = tester.element(correctChoice);
+      final checkpointRoute = ModalRoute.of(checkpointContext)!;
+      Navigator.of(checkpointContext).pop();
       await tester.pumpAndSettle();
-      expect(find.byType(SoriSheetShell), findsNothing);
+      expect(checkpointRoute.isActive, isFalse);
+      expect(find.widgetWithText(SoriButton, 'V-았/었더라면'), findsNothing);
       recorder.complete();
       await tester.pumpAndSettle();
 
@@ -394,7 +397,7 @@ void main() {
         expect(counter, findsOneWidget);
         expect(
           tester.widget<Text>(counter).style,
-          text.meta.copyWith(fontWeight: FontWeight.w700),
+          GrammarC.body.copyWith(fontSize: 13),
         );
 
         expect(find.byIcon(Icons.tune_rounded), findsOneWidget);

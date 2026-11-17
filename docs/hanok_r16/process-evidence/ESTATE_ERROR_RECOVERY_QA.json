@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "fixture": "actual viewer with missing image, repaired before real retry click",
+  "failureBeforeModuleSetupDetected": true,
+  "retryHitTestPassed": true,
+  "retryReloadRecovered": {
+    "errorHidden": true,
+    "loaded": true,
+    "src": "complete.png"
+  },
+  "progressRewardWrites": false
+}

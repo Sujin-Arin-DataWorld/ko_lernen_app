@@ -46,3 +46,8 @@ docs/data/review_packets/*.md text eol=lf
 hangul-sori-site-local/public/hanok/construction/*.js text eol=lf
 hangul-sori-site-local/public/hanok/construction/*.css text eol=lf
 hangul-sori-site-local/public/hanok/construction/*.html text eol=lf
+
+# R16 preservation records and frozen production sources retain their exact bytes.
+# New contracts are UTF-8 LF; historical CRLF receipts remain archival evidence.
+docs/hanok_r16/** -text
+tool/hanok_scene/r16/** -text

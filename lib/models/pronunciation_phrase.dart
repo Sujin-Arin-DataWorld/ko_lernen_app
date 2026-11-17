@@ -14,14 +14,28 @@ class PronunciationPhrase {
     required this.de,
     required this.en,
     required this.focus,
+    this.deDisplay,
+    this.focusDe,
+    this.focusEn,
   });
 
   final String id;
   final LearnerLevel level;
   final String ko;
   final String de;
+
+  /// Optional line breaks for the printed translation, with identical wording.
+  final String? deDisplay;
   final String en;
   final String focus;
+  final String? focusDe;
+  final String? focusEn;
+
+  String? localizedFocus(String languageCode) => switch (languageCode) {
+    'de' => focusDe,
+    'en' => focusEn,
+    _ => null,
+  };
 
   factory PronunciationPhrase.fromJson(Map<String, dynamic> json) {
     final levelCode = _requiredString(json, 'level');
@@ -43,13 +57,30 @@ class PronunciationPhrase {
       );
     }
 
+    final de = _requiredString(json, 'de');
+    final deDisplay = json['deDisplay'] == null
+        ? null
+        : _requiredString(json, 'deDisplay');
+    if (deDisplay != null && deDisplay.split('\n').join(' ') != de) {
+      throw FormatException(
+        'The display translation must match the German text: $id',
+      );
+    }
+
     return PronunciationPhrase(
       id: id,
       level: level,
       ko: _requiredString(json, 'ko'),
-      de: _requiredString(json, 'de'),
+      de: de,
+      deDisplay: deDisplay,
       en: _requiredString(json, 'en'),
       focus: _requiredString(json, 'focus'),
+      focusDe: json['focusDe'] == null
+          ? null
+          : _requiredString(json, 'focusDe'),
+      focusEn: json['focusEn'] == null
+          ? null
+          : _requiredString(json, 'focusEn'),
     );
   }
 

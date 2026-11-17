@@ -5,12 +5,12 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/ildu_construction_art.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
-import '../widgets/hanok_asset_image.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
+import '../widgets/sori/ildu_r16_process_image.dart';
 
 /// Approved construction lessons, with saved building purchases in the wallet.
 class IlDuConstructionScreen extends StatefulWidget {
@@ -366,8 +366,9 @@ class _ConstructionImageState extends State<_ConstructionImage> {
             .clamp(1, stage.width);
         return SizedBox(
           height: height,
-          child: HanokAssetImage(
-            stage.asset,
+          child: IlDuR16ProcessImage(
+            processId: 'ildu.${stage.id}',
+            fallbackAsset: stage.asset,
             key: ValueKey('${stage.id}-asset-$_retry'),
             cacheWidth: decodeWidth,
             fit: BoxFit.contain,

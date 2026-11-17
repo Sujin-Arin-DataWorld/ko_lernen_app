@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  const inlineScreens = <String>{'lib/screens/vocab_packs_screen.dart'};
+  const inlineScreens = <String>{'lib/screens/wortpakete_catalog.dart'};
   const sheetScreens = <String>{
     'lib/screens/chosung_quiz_screen.dart',
     'lib/screens/cloze_game_screen.dart',

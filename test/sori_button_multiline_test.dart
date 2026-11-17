@@ -1,12 +1,50 @@
 import 'dart:ui' show SemanticsAction;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 
 void main() {
+  testWidgets(
+    'artwork text action keeps one announcement and keyboard activation',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      var activations = 0;
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: SoriTextAction(
+              label: 'Lernziel bearbeiten',
+              onPressed: () => activations++,
+              child: const Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [Text('5 Themen'), Text('Bearbeiten')],
+              ),
+            ),
+          ),
+        ),
+      );
+      final button = find.byType(TextButton);
+      final data = tester.getSemantics(button).getSemanticsData();
+      expect(data.label, 'Lernziel bearbeiten');
+      expect(data.hasAction(SemanticsAction.tap), isTrue);
+      expect(find.bySemanticsLabel('5 Themen'), findsNothing);
+      expect(tester.getSize(button).height, greaterThanOrEqualTo(48));
+      expect(tester.getSize(button).width, greaterThanOrEqualTo(48));
+      await tester.tap(button);
+      expect(activations, 1);
+      await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pump();
+      expect(activations, 2);
+      semantics.dispose();
+    },
+  );
+
   testWidgets('explicit button label is announced once with a tap action', (
     tester,
   ) async {

@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-23",
+  "archiveRepository": "https://github.com/Sujin-Arin-DataWorld/hangulsori-archive",
+  "archiveRef": "refs/heads/archive/hanok-v2-leftovers-20261023",
+  "archiveCommit": "00ecce35d3735838e59c947b8fa56e712b9bc866",
+  "remoteArchiveAndBaseRefsVerified": true,
+  "remoteReadback": {
+    "remoteCommit": "00ecce35d3735838e59c947b8fa56e712b9bc866",
+    "manifestMatches": true,
+    "samplesVerified": 3
+  },
+  "retiredWorktrees": [
+    {
+      "name": "free-access-20260905",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\free-access-20260905",
+      "head": "3a4bc9bc936450cf0dc2d78801dd2bde9db5adb1",
+      "archiveProof": {
+        "ref": "refs/heads/archive/hanok-v2-leftovers-20261023",
+        "commit": "00ecce35d3735838e59c947b8fa56e712b9bc866",
+        "baseRef": "refs/heads/preserved-bases/free-access-20260905",
+        "baseCommit": "3a4bc9bc936450cf0dc2d78801dd2bde9db5adb1"
+      },
+      "fileCount": 50284,
+      "logicalBytes": 3586709274,
+      "verifiedArchiveFiles": 80,
+      "time": 1792780876.7033832,
+      "freeBefore": 111702671360,
+      "removed": true,
+      "freeAfter": 115385729024,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    },
+    {
+      "name": "scenario-persona-repair",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\scenario-persona-repair",
+      "head": "c89907e64bd8d3702f185799eb0e25ba7968148d",
+      "archiveProof": {
+        "ref": "refs/heads/archive/hanok-v2-leftovers-20261023",
+        "commit": "00ecce35d3735838e59c947b8fa56e712b9bc866",
+        "baseRef": "refs/heads/preserved-bases/scenario-persona-repair",
+        "baseCommit": "c89907e64bd8d3702f185799eb0e25ba7968148d"
+      },
+      "fileCount": 6462,
+      "logicalBytes": 1530994565,
+      "verifiedArchiveFiles": 1092,
+      "time": 1792780909.0240347,
+      "freeBefore": 115385724928,
+      "removed": true,
+      "freeAfter": 116932603904,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    }
+  ],
+  "removedRejectedImage": {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\rejected\\personal_hanok_v2\\estate_v2_trials\\estate_v2_complete_structure_refined_03_jungmun_passage_REJECTED.png",
+    "bytes": 7271956,
+    "sha256": "32f042ddc0c46f0dd723e2e9c4a83c3a0955a035d2b42294980201b560fe2e17",
+    "archiveRef": "refs/heads/archive/hanok-v2-leftovers-20261023",
+    "archiveCommit": "00ecce35d3735838e59c947b8fa56e712b9bc866",
+    "removed": true,
+    "primaryStatusAndIndexUnchanged": true,
+    "freeBefore": 116932603904,
+    "freeAfter": 116939878400,
+    "time": 1792780913.3568401
+  },
+  "removedLogicalBytes": 5124975795,
+  "observedFreeSpaceIncreaseBytes": 5237207040,
+  "registeredWorktreesAfter": 26,
+  "v1v2RemainingAssetFoldersInCheckedScopes": [],
+  "checkedScopes": [
+    "assets/illustrations/personal_hanok_v{1,2}",
+    "assets_unused/pending_review/personal_hanok_v{1,2}",
+    "assets_unused/rejected/personal_hanok_v{1,2}"
+  ],
+  "earlyNative3DFilesInHwaljuWarmStone": [],
+  "previousObsoleteMediaListFilesNowAbsent": 8755,
+  "previousSupersededNativeListFilesNowAbsent": 987,
+  "retainedCurrentAppV3": {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app\\assets\\illustrations\\personal_hanok_v3",
+    "files": 283,
+    "bytes": 371983995,
+    "reason": "Current pubspec and construction/turntable/world catalogs reference this asset family."
+  },
+  "preservedDependencies": [
+    "Current Blender/R12 artifact workspace",
+    "c-app-integration-20261012",
+    "hanok-hwalju-20260928 textures",
+    "hanok-warm-stone-20260923 source tools"
+  ],
+  "mainHeadIndexAnd630StagedChangesUnchanged": true,
+  "existingSourceBranchesAndStashesUnchanged": true,
+  "scopeWarning": "V1/V2 visual asset retirement does not authorize deleting progress migration/compatibility code. v3-three-session-release is mixed character/reward WIP, not the old Hanok 3D source."
+}

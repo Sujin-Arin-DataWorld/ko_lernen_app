@@ -7,7 +7,7 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../l10n/sticker_localizations.dart';
 import 'tokens.dart';
 
-/// Shared, memory-bounded renderer for the 1254px sticker source images.
+/// Shared, memory-bounded renderer that preserves each sticker's source ratio.
 ///
 /// [semantic] defaults to the catalog's localized name. Pass an empty string
 /// only when an accessible parent already owns the label (for example, the
@@ -41,7 +41,6 @@ class StickerImage extends StatelessWidget {
         fit: fit,
         filterQuality: FilterQuality.medium,
         cacheWidth: decodeDimension,
-        cacheHeight: decodeDimension,
         excludeFromSemantics: true,
         errorBuilder: (_, __, ___) => Icon(
           Icons.emoji_emotions_outlined,

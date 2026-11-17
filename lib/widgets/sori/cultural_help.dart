@@ -6,6 +6,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 
 import 'sheet.dart';
 import 'tokens.dart';
+import 'ildu_r16_estate_artwork.dart';
 
 typedef CulturalGlossaryWidgetBuilder =
     Widget Function(BuildContext context, CulturalGlossary? glossary);
@@ -259,6 +260,17 @@ class CulturalTermEntryContent extends StatelessWidget {
             height: 1.5,
           ),
         ),
+        if (const {
+              'hanok',
+              'gye',
+              'sarangchae',
+              'anchae',
+              'sadang',
+            }.contains(entry.termId) &&
+            ModalRoute.of(context)?.settings.name != '/hanok/estate') ...[
+          const SizedBox(height: Spacing.lg),
+          const IlDuR16EstateEntry(),
+        ],
       ],
     );
   }

@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "approvalDate": "2026-11-04",
+  "source": "Approved image-first Grammatik plan v2 and Nuancen boards01-04",
+  "assets": [
+    {
+      "runtime": "design_assets/grammar/level-tray.png",
+      "sha256": "78299a75afd66d6a468d8e5cee4e72cee1d1581dff7dd4e2a66e1520b65e0efb",
+      "figmaImageHash": "3d03ef0781eb5a8614ae24ba51075ecfff4ab691"
+    },
+    {
+      "runtime": "design_assets/nuancen/relation-frame.png",
+      "sha256": "cc0c624fddc0a458c6d8bf8382e7efbc35ff9148e54d23bb8cd3a9490a4fe23f",
+      "figmaImageHash": "44cce2227c4dc6940343e68aa91cdd0495367392"
+    },
+    {
+      "runtime": "design_assets/grammar/amount-tile.png",
+      "sha256": "aaa30c3416d4ceaf2d11887011e3021951888440db41700f5ee3fff0d34ef82e",
+      "figmaImageHash": "d8d3c1cefc1ec277db2593f55ec5cb13505ba0b9"
+    },
+    {
+      "runtime": "design_assets/grammar/daily-card.png",
+      "sha256": "025871b820e5e4ba1432614c9d23f02d1d5d185abac063244c0fc13a64be2eb5",
+      "figmaImageHash": "c35d39e02c27858f8a23b1462e546f234a6ffc04"
+    },
+    {
+      "runtime": "design_assets/nuancen/knot-hub.png",
+      "sha256": "4a93e78aaae063df82b45ae5ecc14441b74bae06af73dadb49016388cd54ca89",
+      "figmaImageHash": "29943a2910432800d49191af6dce6754f6797a04"
+    },
+    {
+      "runtime": "design_assets/nuancen/relation-cord.png",
+      "sha256": "36b7841a819e74c0f0b5ae5312d9500817730cbb8fe54ed3cdbe8c2a72f59580",
+      "figmaImageHash": "84796544600730e27d062822ea7d68c841c431d0"
+    }
+  ]
+}

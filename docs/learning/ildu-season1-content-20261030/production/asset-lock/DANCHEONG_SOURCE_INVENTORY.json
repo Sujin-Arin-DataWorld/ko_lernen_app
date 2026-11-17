@@ -1,0 +1,199 @@
+{
+  "verifiedAtUtc": "2026-10-30T00:16:30.713519+00:00",
+  "sourceDirectory": "C:\\Users\\vjinn\\.codex\\generated_images\\단청",
+  "files": [
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-0144981b-002b-49ea-8314-cbf746ae0577.png",
+      "sha256": "528eb84909e8fb53029de5e46bc2264153535449ac72bd30d67aca7c01d0fbb8",
+      "bytes": 2633709,
+      "registryImageId": "I1312",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-02f2b2d1-f338-43fa-9770-cb89e027c8c5.png",
+      "sha256": "ab25d925843b33e8fc8cc728d24193fed7ffdea838aed7d01bd0a84411b8e3df",
+      "bytes": 1215928,
+      "registryImageId": "I1335",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-0431c631-1c0e-4db6-acb3-7a762cddab1b.png",
+      "sha256": "97918a2d2285b99400d7ab5143136e346853e4c3d469fd26bc2144283607f11b",
+      "bytes": 2522073,
+      "registryImageId": "I1333",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-0c0e2973-e5ae-47fa-b84e-0b6438a65135.png",
+      "sha256": "0c54b46bb641428e6de7cdffbdecacad0056b891d0d0a17beaa3099f8206ad9e",
+      "bytes": 1441814,
+      "registryImageId": "I1316",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-365785c5-dc5c-4205-9148-13540d0f30e9.png",
+      "sha256": "a8bde89563fbf6145be8f5d6456c852d77b7d3ba2eea0baddb5dc8c70a703e89",
+      "bytes": 1367816,
+      "registryImageId": "I1299",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-385184aa-77ab-4bbc-837b-3be328e8fa38.png",
+      "sha256": "bb91a35d18f28672ff04534e4e0592472cd360008ee72cf2d5a730f221558f14",
+      "bytes": 2741165,
+      "registryImageId": "I1305",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-3d886c4e-8323-4970-af73-e3ac0f97fdc1.png",
+      "sha256": "591f49d5864beb60805dcf6fcdb2a574a0b129be5a51a5ffd3e41bed29fa70b4",
+      "bytes": 1371380,
+      "registryImageId": "I1315",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-496d32e9-ae35-40c0-8a9d-3fb696f4d9d6.png",
+      "sha256": "fde5b562cb1766275d31172d4b07a8c9232e177a0c7f094c79b8375c1f8199c3",
+      "bytes": 1251898,
+      "registryImageId": "I1338",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-50aa473d-d1c7-4eff-9dd5-101f97c0ddd9.png",
+      "sha256": "e41f805d755af3d764898807f1e1d6eef8f4f3ede4da12ffa79a0a04c66df702",
+      "bytes": 1487110,
+      "registryImageId": "I1304",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-5b0d125c-6606-46ec-9ddc-65f56e864c80.png",
+      "sha256": "4917bbd6a1469bb6783f1873b0f4540559dc4521465e94b2ec77ed14ee214a66",
+      "bytes": 2680871,
+      "registryImageId": "I1331",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-5e4301fa-5654-4044-88ce-151ff7b18ebf.png",
+      "sha256": "20221978afa2327299a3834aaddb3ae825ff94347b2cc376db36b2f3ad59b72b",
+      "bytes": 1163350,
+      "registryImageId": "I1302",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-74ba0c12-06b8-4771-8a0e-23221d51df40.png",
+      "sha256": "9a78241a1e9912f3d31cc7d77012b4c102b5ed9a349ce1bcf66abf3cd8802a59",
+      "bytes": 1443243,
+      "registryImageId": "I1303",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-7ef43f1e-296f-4624-84d7-bf3340db474d.png",
+      "sha256": "26e56733b6413503e3f5de6ba726dbf8fd019ce1fda81d1cae265484a0223e93",
+      "bytes": 112428,
+      "registryImageId": "I1314",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-893d3be0-eb31-46af-b427-b70657c514df.png",
+      "sha256": "f816844ccfd9e2ba19c36ab0014669fae168f2dc9b318799a78aa3d39b0368da",
+      "bytes": 1176637,
+      "registryImageId": "I1311",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-8f6a9fe2-6034-4d34-9ef9-a4285a9c2fea.png",
+      "sha256": "f5391a4144a0c4dd8dc1ccf6867184d20eed14cf13fcff2fbb2bdc28d71be2c9",
+      "bytes": 1237435,
+      "registryImageId": "I1334",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-9cc75a1d-1259-475b-9086-7cbb13255888.png",
+      "sha256": "f3962b607ae44ac6b41adcf19c0edc3a4aad5e5c57787f04b7e578c67a5ceccc",
+      "bytes": 1183783,
+      "registryImageId": "I1300",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-a23e8238-1638-430a-be76-d449628ba58b.png",
+      "sha256": "81da721f0fbaafeb3330dffb12aa50f886ec7e1806dd5adff8bdc8bc0185c238",
+      "bytes": 2752730,
+      "registryImageId": "I1330",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-a4f053cb-2c25-48b1-9679-f11de04c29a3.png",
+      "sha256": "41081bb189c9230fa80adf13fe5dfcf1d26f72555548cd3a8ca71388a37c3ab1",
+      "bytes": 267440,
+      "registryImageId": "I1318",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-a63a7e86-f67c-48db-961e-73f0145e2500.png",
+      "sha256": "aba65c61c1bb64fcbec2ca6555a914561d598e63ed87affed8cb4ac3b281b589",
+      "bytes": 226552,
+      "registryImageId": "I1319",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-a92af2e6-e336-4a35-b963-1f0a488c3a61.png",
+      "sha256": "9f2001e3a558c672af5be432aefc4710cdb6f443b8d2a516d157c92724c3c8e8",
+      "bytes": 960564,
+      "registryImageId": "I1306",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-ac331683-aefa-4c5c-808d-e5d07b3305b5.png",
+      "sha256": "d0b277f697aef6ef0433b854cb39bc058da759d0847c22e6533124d3e6a7af55",
+      "bytes": 1305337,
+      "registryImageId": "I1309",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-b20905c3-f303-49c6-aec7-7fde7cfb5a8d.png",
+      "sha256": "ac687ff219772b1b9822dbc87887736890f2902f8d1cc269ac653137d2798420",
+      "bytes": 323699,
+      "registryImageId": "I1317",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-d7b33eaf-fcd3-4466-802a-5ab77cabd3dd.png",
+      "sha256": "b1c43ec4ce91580c780ffda64d5627948ca37671c9089d1f9be60a20ac9f0d2a",
+      "bytes": 1922888,
+      "registryImageId": "I1320",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\단청\\exec-f50190cf-82e2-44ca-aca3-b14053dcdc18.png",
+      "sha256": "4c120d31ea18f6ced8f7507089a98a59d143df74bbfcc58f52af6adff35b032c",
+      "bytes": 2633983,
+      "registryImageId": "I1332",
+      "registryHashMatch": true,
+      "roleStatus": "DIRECTORY_SOURCE_ONLY_NO_EVENT_PROMOTION"
+    }
+  ],
+  "limits": "Original directory inventory only. Do not paste every ornament into Ildu buildings or treat folder membership as approved scene assignment. F-A furniture and R16 building materials retain separate source contracts."
+}

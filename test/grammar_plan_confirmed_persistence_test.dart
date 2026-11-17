@@ -197,6 +197,8 @@ void main() {
     );
     await _pumpGrammar(tester);
 
+    await tester.ensureVisible(find.byKey(const Key('grammar-plan-items-3')));
+
     await tester.tap(find.byKey(const Key('grammar-plan-items-3')));
     await tester.pump();
     _tapStart(tester);
@@ -252,6 +254,10 @@ void main() {
               : _NativeWriteOutcome.throwUncommittedReloadUnavailable,
         );
         await _pumpGrammar(tester);
+
+        await tester.ensureVisible(
+          find.byKey(const Key('grammar-plan-items-3')),
+        );
 
         await tester.tap(find.byKey(const Key('grammar-plan-items-3')));
         await tester.pump();
@@ -546,6 +552,7 @@ void main() {
     );
     platform.enqueue('kl_gram_plan_v1', _NativeWriteOutcome.delayedSuccess);
     await _pumpGrammar(tester);
+    await tester.ensureVisible(find.byKey(const Key('grammar-plan-items-3')));
     await tester.tap(find.byKey(const Key('grammar-plan-items-3')));
     await tester.pump();
     _tapStart(tester);
@@ -861,6 +868,7 @@ void main() {
         originalPlatform: originalPlatform,
       );
       await _pumpGrammar(tester);
+      await tester.ensureVisible(find.byKey(const Key('grammar-plan-items-3')));
       await tester.tap(find.byKey(const Key('grammar-plan-items-3')));
       await tester.pump();
       _tapStart(tester);

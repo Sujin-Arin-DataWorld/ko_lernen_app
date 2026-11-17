@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-18",
+  "reviewer": "ux_state_designer",
+  "verdict": "PASS",
+  "approvalScope": "First-unit Figma state and flow: setup 01, staged level sheet, interest selection, and 02 return. Visual material approval is owned by the visual designers.",
+  "workspace": "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018",
+  "inspectedHead": "2d68784d3b642a14fe174de26d55b0c82209a694",
+  "figma": {
+    "fileKey": "rVlcMLvngw07BYJ7nRT87C",
+    "page": "77:2",
+    "logicalViewport": [
+      402,
+      934
+    ],
+    "language": "de",
+    "textScalePercent": 100,
+    "browser": "Chrome / Figma Play",
+    "presentation": "scale-down; screenshot frame approximately 82-88% of logical size. This is interaction evidence, not a native 402x934 raster parity claim."
+  },
+  "frames": {
+    "fresh": "133:164",
+    "emptyOverlay": "133:212",
+    "return02": "133:241",
+    "returnBack": "133:287",
+    "setups": {
+      "Beginner": "127:151",
+      "A1": "127:243",
+      "A2": "127:334",
+      "B1": "127:423",
+      "B2": "127:514",
+      "C1": "127:605",
+      "C2": "127:696"
+    },
+    "overlays": {
+      "Beginner": "127:212",
+      "A1": "127:303",
+      "A2": "127:394",
+      "B1": "127:483",
+      "B2": "127:574",
+      "C1": "127:665",
+      "C2": "127:756"
+    },
+    "interestComponentSet": "127:150",
+    "purposeVariable": "VariableID:127:60",
+    "originalComparisonFramesPreserved": [
+      "80:336",
+      "80:569"
+    ]
+  },
+  "stateOwnership": {
+    "committedLevel": [
+      "none",
+      "Beginner",
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "purpose": [
+      "none",
+      "lifeTravel",
+      "peopleCulture",
+      "studyWork",
+      "kContent"
+    ],
+    "draftLevel": "Overlay selection only. The underlying committed setup is retained until Apply.",
+    "beginner": "A1 with beginner=true; distinct from ordinary A1 and from unselected/null.",
+    "purposeStorage": "One shared prototype string variable bound to the Interest variant in all eight setup instances.",
+    "laterRuntime": "Figma variables/history demonstrate session behavior. They do not establish persisted Flutter state or backend writes."
+  },
+  "flowMatrix": [
+    {
+      "from": "Fresh setup; level=none",
+      "action": "Continue",
+      "expected": "Disabled and inert. Purpose remains optional.",
+      "result": "PASS actual Play"
+    },
+    {
+      "from": "Any setup",
+      "action": "Open level sheet",
+      "expected": "Draft starts at committed level; null shows no selected card.",
+      "result": "PASS actual Play for all eight values"
+    },
+    {
+      "from": "Open sheet",
+      "action": "Choose a level",
+      "expected": "One draft check; committed background and interest remain unchanged.",
+      "result": "PASS actual Play across all seven choices"
+    },
+    {
+      "from": "Draft differs from committed",
+      "action": "Close caption / above-caption hit area / backdrop / Escape / handle tap",
+      "expected": "Close without committing; reopen initializes from committed level.",
+      "result": "PASS actual Play; physical drag is excluded"
+    },
+    {
+      "from": "Empty sheet; draft=none",
+      "action": "Apply / sheet title / explanation / gaps",
+      "expected": "Stay open without selecting, committing or dismissing.",
+      "result": "PASS actual Play after hit-scope repair"
+    },
+    {
+      "from": "Draft is a non-null level",
+      "action": "Apply",
+      "expected": "Commit correct medal, code and explanation; preserve purpose.",
+      "result": "PASS actual Play for all seven levels"
+    },
+    {
+      "from": "Any setup",
+      "action": "Choose one of four interests",
+      "expected": "Exactly one green border and provided check; previous selection clears.",
+      "result": "PASS actual Play for all four purposes"
+    },
+    {
+      "from": "Committed non-null setup",
+      "action": "Continue to 02, then Back",
+      "expected": "Return to exact entered level and current purpose.",
+      "result": "PASS actual Play for all seven levels"
+    }
+  ],
+  "acceptanceGates": [
+    {
+      "gate": "Committed Beginner with draft A2 matches source state ownership",
+      "status": "PASS",
+      "evidence": "play-beginner-draft-a2.png"
+    },
+    {
+      "gate": "Fresh install and null-level disabled actions",
+      "status": "PASS",
+      "evidence": "play-fresh-disabled-continue.png; play-repaired-disabled-apply-stays-open.png"
+    },
+    {
+      "gate": "Seven level apply and re-entry; correct single check",
+      "status": "PASS",
+      "evidence": "play-applied-*.png; play-reopened-a1-checked.png"
+    },
+    {
+      "gate": "Four interest variants; single selection and preserved ownership",
+      "status": "PASS",
+      "evidence": "play-interest-study.png; play-interest-kcontent.png; play-cancel-preserves-purpose.png"
+    },
+    {
+      "gate": "02 return preserves entered setup for all seven levels",
+      "status": "PASS",
+      "evidence": "play-02-back-preserves-*.png; Beginner observed live"
+    },
+    {
+      "gate": "Close and Back hit targets at least 48 logical pixels",
+      "status": "PASS",
+      "evidence": "API: Close 79x48; Back 122x48; handle 64x48. Above-caption close tested in Play."
+    },
+    {
+      "gate": "No dismissal or underlying interest activation through inert sheet content",
+      "status": "PASS",
+      "evidence": "API and actual Play after hit-scope repair on all eight overlays"
+    },
+    {
+      "gate": "DE100 text wrapping, CTA hierarchy, selected check and caption legibility",
+      "status": "PASS within UX review scope",
+      "evidence": "Observed Play at logical 402x934; fresh prompt fits, primary Apply/Continue visible, checks do not obscure labels."
+    }
+  ],
+  "actualPlayReturnCoverage": [
+    {
+      "level": "Beginner",
+      "purpose": "none",
+      "result": "PASS"
+    },
+    {
+      "level": "A1",
+      "purpose": "kContent",
+      "result": "PASS"
+    },
+    {
+      "level": "A2",
+      "purpose": "peopleCulture",
+      "result": "PASS"
+    },
+    {
+      "level": "B1",
+      "purpose": "peopleCulture",
+      "result": "PASS"
+    },
+    {
+      "level": "B2",
+      "purpose": "peopleCulture",
+      "result": "PASS"
+    },
+    {
+      "level": "C1",
+      "purpose": "peopleCulture",
+      "result": "PASS"
+    },
+    {
+      "level": "C2",
+      "purpose": "peopleCulture",
+      "result": "PASS"
+    }
+  ],
+  "resolvedDefect": {
+    "description": "The full-viewport Modal dim CLOSE reaction received taps through inert sheet content, including disabled Apply. It could dismiss unexpectedly and expose the underlying interest grid.",
+    "reproducedInActualPlay": true,
+    "fix": "Clear dim reactions; put CLOSE only on a transparent 402x414 backdrop above the sheet. Keep the full 402x934 dim artwork.",
+    "repairScript": "tool/patch_einleitung_overlay_hit_scope.js",
+    "affectedOverlays": 8,
+    "verifiedInActualPlay": [
+      "Disabled Apply stays open",
+      "Sheet title, explanatory text and gaps stay open",
+      "Visible backdrop closes without commit",
+      "C1 committed / A1 draft handle tap returns C1 plus peopleCulture",
+      "Apply, reopen, Continue and Back still work"
+    ],
+    "structuralVerification": "All eight dim nodes have no reactions; all eight backdrop nodes are 402x414 and ON_CLICK CLOSE."
+  },
+  "replay": {
+    "order": [
+      "tool/patch_einleitung_level_interactions.js",
+      "tool/patch_einleitung_entry_return.js",
+      "tool/patch_einleitung_overlay_hit_scope.js"
+    ],
+    "warning": "Run hit-scope repair last. Replaying earlier scripts restores their original full-viewport dim reactions.",
+    "executionOwner": "Root agent executed Figma writes; reviewer prepared scripts and performed read-only structural queries plus Play interaction."
+  },
+  "limitations": [
+    "ON_DRAG+CLOSE was rejected by Figma reaction validation. The handle uses ON_CLICK+CLOSE as a cancellation demonstration. Direction, threshold, sheet tracking and physical drag are not represented or approved.",
+    "All seven Apply and 02 Back paths and all four purpose selections were exercised. The entire 28 level-by-purpose cross-product was not individually clicked; all eight purpose bindings were verified through the API.",
+    "02 Back requires entry through a setup frame; opening 02 directly has no relevant navigation history.",
+    "Later onboarding steps after 02 and their return ownership are outside this first unit.",
+    "No native Flutter, device, persistence, screen-reader, keyboard focus, reduced-motion or 200% text-scale completion claim. These remain separate implementation/adaptation checks and do not block this scoped Figma approval.",
+    "Figma Play screen-reader support was off in the inspected viewer; this review therefore makes no semantic accessibility claim.",
+    "Further art replacement is outside this state/flow snapshot. Recheck any changed visual material with the responsible designer."
+  ],
+  "screenshotDirectory": "docs/screenshots/einleitung-parity-review-20261018",
+  "primaryEvidence": [
+    "play-beginner-draft-a2.png",
+    "play-cancel-preserves-purpose.png",
+    "play-fresh-disabled-continue.png",
+    "play-repaired-disabled-apply-stays-open.png",
+    "play-applied-beginner-no-purpose.png",
+    "play-applied-a1.png",
+    "play-applied-a2-purpose-preserved.png",
+    "play-applied-b1.png",
+    "play-applied-b2.png",
+    "play-applied-c1.png",
+    "play-applied-c2.png",
+    "play-02-back-preserves-a1-kcontent.png",
+    "play-02-back-preserves-a2-people.png",
+    "play-02-back-preserves-b1-people.png",
+    "play-02-back-preserves-b2-people.png",
+    "play-02-back-preserves-c1-people.png",
+    "play-02-back-preserves-c2-people.png",
+    "play-close-hit-target-preserves-c2.png",
+    "play-repaired-handle-tap-cancels-a1-preserves-c1-people.png",
+    "play-reopened-a1-checked.png"
+  ],
+  "excludedEvidence": [
+    {
+      "file": "play-interrupted-session-not-approval-evidence.png",
+      "reason": "An unrelated step 04 appeared during concurrent Figma changes. Excluded from approval."
+    },
+    {
+      "file": "play-fresh-sheet-disabled-apply.png",
+      "reason": "Pre-repair capture; not evidence that disabled Apply is inert."
+    },
+    {
+      "file": "play-fresh-cancel-preserves-purpose.png",
+      "reason": "Pre-repair run included pass-through behavior; not evidence of original purpose preservation."
+    }
+  ],
+  "sourceContractEvidence": [
+    "lib/screens/onboarding_v2/c_onboarding.dart:809 (disabled Continue), picker near 822 (local draft/apply)",
+    "onboarding_journey_state.dart:148,152 (null initial level/purpose)",
+    "first_run_coordinator.dart:422,442,454,474 (Back, purpose draft, level draft, Continue)",
+    "tool/einleitung_reference_spec.json",
+    "docs/superpowers/plans/2026-10-18-einleitung-reference-parity.md"
+  ],
+  "officialPrototypeReferences": [
+    "https://developers.figma.com/docs/plugins/api/Action/",
+    "https://help.figma.com/hc/en-us/articles/360039818254-Create-overlays-in-your-prototypes",
+    "https://developers.figma.com/docs/plugins/working-with-variables/",
+    "https://help.figma.com/hc/en-us/articles/14506587589399-Use-variables-in-prototypes"
+  ]
+}

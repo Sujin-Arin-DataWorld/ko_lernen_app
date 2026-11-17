@@ -8,7 +8,13 @@ import 'package:ko_lernen_app/screens/splash_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/einleitung_capture_assets.dart';
+
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() async {
+    await loadEinleitungFonts();
+  });
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(const {});

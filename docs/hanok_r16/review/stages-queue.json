@@ -1,0 +1,87 @@
+{
+  "mode": "stages",
+  "keys": [
+    "sarang",
+    "ansarang",
+    "anchae",
+    "sadang",
+    "jung",
+    "arae",
+    "gokgan",
+    "angotgan",
+    "changgo",
+    "toilet",
+    "toilet1"
+  ],
+  "completed": [
+    {
+      "key": "sarang",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\sarang\\stages-console.log",
+      "finished": 1793220719.6016853
+    },
+    {
+      "key": "ansarang",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\ansarang\\stages-console.log",
+      "finished": 1793220727.3540163
+    },
+    {
+      "key": "sadang",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\sadang\\stages-console.log",
+      "finished": 1793221028.6934783
+    },
+    {
+      "key": "jung",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\jung\\stages-console.log",
+      "finished": 1793221361.2588637
+    },
+    {
+      "key": "arae",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\arae\\stages-console.log",
+      "finished": 1793221714.5430264
+    },
+    {
+      "key": "anchae",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\anchae\\stages-console.log",
+      "finished": 1793221731.06264
+    },
+    {
+      "key": "angotgan",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\angotgan\\stages-console.log",
+      "finished": 1793221926.167913
+    },
+    {
+      "key": "gokgan",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\gokgan\\stages-console.log",
+      "finished": 1793221965.9168975
+    },
+    {
+      "key": "changgo",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\changgo\\stages-console.log",
+      "finished": 1793222095.5713804
+    },
+    {
+      "key": "toilet",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\toilet\\stages-console.log",
+      "finished": 1793222102.1604156
+    },
+    {
+      "key": "toilet1",
+      "exitCode": 0,
+      "log": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\toilet1\\stages-console.log",
+      "finished": 1793222171.8147542
+    }
+  ],
+  "running": false,
+  "started": 1793220302.127931,
+  "finished": 1793222171.8191414
+}

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-30",
+  "baselineCommit": "2ac799eb0bfa507f72e7eb3e5bcbb78f8a77cbed",
+  "scope": "Bundle exclusions and byte-identical runtime aliases only; no pixel, layout, font, motion, state, TTS, video or Android change.",
+  "archived": [
+    {
+      "name": "intro-interest-kcontent",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-4cb45d7f-3958-4b29-9d64-2ddaf5c2eb3c.png",
+      "asset": "assets_unused/approved_bundle_size_20261030/intro-interest-kcontent.png",
+      "sha256": "b1142b8f1311980024294f4676947bd2720dbc4715c7203c45d96f1747045ef5",
+      "supersededBy": "intro-interest-kcontent-approved",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified",
+      "originalAsset": "assets/illustrations/einleitung_generated/intro-interest-kcontent.png",
+      "runtimeReplacement": "assets/illustrations/einleitung_generated/intro-interest-kcontent-approved.jpg",
+      "preservation": "Byte-identical original retained outside the app bundle; no encoding or pixel changes."
+    },
+    {
+      "name": "intro-cloud-mark",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-d84fefd7-5e20-4733-8c02-fe24e9b76956.png",
+      "asset": "assets_unused/approved_bundle_size_20261030/intro-cloud-mark.png",
+      "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+      "generation": "User-provided original whole PNG; no crop, resize, recolor or regeneration",
+      "designReview": "2026-10-29 exact original and optical geometry verified; Figma first, runtime review pending",
+      "originalAsset": "assets/illustrations/einleitung_generated/intro-cloud-mark.png",
+      "runtimeReplacement": "assets/icons/chrome/cloud.png",
+      "preservation": "Byte-identical original retained outside the app bundle; no encoding or pixel changes."
+    }
+  ],
+  "sharedAliases": [
+    {
+      "originalAsset": "assets/illustrations/concept_c/hangul_atelier/paper-atlas.png",
+      "runtimeAsset": "assets/illustrations/concept_c/material_atlas.png",
+      "sha256": "de51969fdc7fbd7f2f4c0c87acbe5061afdaf799b9a90937c5abbf2b6570e464",
+      "bytes": 2505375,
+      "originalRetainedAtSamePath": true,
+      "originalBundled": false
+    },
+    {
+      "originalAsset": "assets/illustrations/c_learning/paper-atlas.png",
+      "runtimeAsset": "assets/illustrations/concept_c/material_atlas.png",
+      "sha256": "de51969fdc7fbd7f2f4c0c87acbe5061afdaf799b9a90937c5abbf2b6570e464",
+      "bytes": 2505375,
+      "originalRetainedAtSamePath": true,
+      "originalBundled": false
+    },
+    {
+      "originalAsset": "assets/illustrations/c_learning/jade.png",
+      "runtimeAsset": "assets/illustrations/concept_c/hangul_atelier/jade.png",
+      "sha256": "88bd3a7d543ac5fb7b7436c892b174ec977bc717520f218699fc137c255c77fe",
+      "bytes": 2366263,
+      "originalRetainedAtSamePath": true,
+      "originalBundled": false
+    }
+  ],
+  "unbundledTurnarounds": [
+    {
+      "asset": "assets/illustrations/personal_hanok_v3/turnarounds/사랑채",
+      "sha256": "3a7234b6841f850d0a96c650fc9eea318ddac27872b4fbfd15c0b2f9f99df93a",
+      "bytes": 2302201,
+      "originalRetainedAtSamePath": true,
+      "originalBundled": false
+    },
+    {
+      "asset": "assets/illustrations/personal_hanok_v3/turnarounds/솟을대문.png",
+      "sha256": "089bc9b1c63373bb9c60750d4239a1166985e176ed2023fe1c086b032a03c501",
+      "bytes": 1704844,
+      "originalRetainedAtSamePath": true,
+      "originalBundled": false
+    },
+    {
+      "asset": "assets/illustrations/personal_hanok_v3/turnarounds/솟을대문6.png",
+      "sha256": "943c3baf16f4d8129bbae09f0443c17ee69dd82653b9a228c79e90889977d1a6",
+      "bytes": 1665696,
+      "originalRetainedAtSamePath": true,
+      "originalBundled": false
+    },
+    {
+      "asset": "assets/illustrations/personal_hanok_v3/turnarounds/솟을대문2.png",
+      "sha256": "85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44",
+      "bytes": 1594929,
+      "originalRetainedAtSamePath": true,
+      "originalBundled": false
+    },
+    {
+      "asset": "assets/illustrations/personal_hanok_v3/turnarounds/솟을대문8.png",
+      "sha256": "9d032f469b0902358eebcf7fdc894b3a300e53e091adf9c6102e4baf5a3ad6bd",
+      "bytes": 1521771,
+      "originalRetainedAtSamePath": true,
+      "originalBundled": false
+    },
+    {
+      "asset": "assets/illustrations/personal_hanok_v3/turnarounds/솟을대문1.png",
+      "sha256": "8a9ace584e291fb8df1cff9870751bdc2964bb273cd0f4c687a16c07aa99af0d",
+      "bytes": 1447310,
+      "originalRetainedAtSamePath": true,
+      "originalBundled": false
+    },
+    {
+      "asset": "assets/illustrations/personal_hanok_v3/turnarounds/changgo_relocation.png",
+      "sha256": "fdcbe4a9dc7a33e879a82f7f949acfc1625dd7d7994f6cf51900096d275bc45c",
+      "bytes": 1190209,
+      "originalRetainedAtSamePath": true,
+      "originalBundled": false
+    }
+  ],
+  "removedRawBytes": 21528161,
+  "prior8036RemovedZipCompressedBytes": 21154001,
+  "sizeNote": "Previous AAB entry savings, not a Play per-device download estimate."
+}

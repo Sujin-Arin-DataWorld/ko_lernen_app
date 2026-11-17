@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-18",
+  "mode": "Built-in image_gen; precise-object-edit; references inspected with view_image before editing",
+  "scope": "Delegated scholarTextFree, hanok and hanokTools. No Figma writes or native app edits by this reviewer.",
+  "sourceBrief": "tool/einleitung_story_art_review.json",
+  "mastersPreserved": true,
+  "existingRuntimeFilesOverwritten": false,
+  "generationStopped": true,
+  "stoppingInstruction": "Parent requested last precise Hanok correction followed by no further generation. Fulfilled.",
+  "results": [
+    {
+      "key": "scholarTextFree",
+      "verdict": "PASS_TEXT_REMOVAL_AND_IDENTITY; FRESH_COMPOSITION_REVIEW_PENDING",
+      "sourceMaster": "exec-e91ebda6-90e1-449d-a484-32b4a6bb10c8.png",
+      "master": "C:/Users/vjinn/.codex/generated_images/01a14ebd-78e5-7e91-b475-afb8a438d696/exec-3f7646ad-ac49-49a2-a169-daeada34dee5.png",
+      "workspaceFile": "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018/assets/illustrations/einleitung_generated/intro-scholar-textfree-v2.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "sha256": "1c69acca1e44b4bcecc4a8b3c7a9ddac385f7b627e7931126a3c6fd2c25f1f26",
+      "byteIdenticalCopy": true,
+      "prompt": "Edit this supplied whole TalSunbi master only to remove learner-facing words. Preserve the exact mask face, hat, hand positions, folded fan, clothing, camera, card geometry and open book. Make the example card blank ivory with its corners/ornamental marks intact: remove 안녕하세요, annyeonghaseyo and Guten Tag. Remove 안녕하세요 from the left open-book page while keeping page material, borders and the right-page floral painting. Do not add Beispiel or any replacement lettering; all content will be native text. Do not change composition or add/remove any object. Retain the whole2:3 canvas without cropping.",
+      "inspection": "Example card and left page are blank ivory with ornamental corners intact. Recognizable wooden mask, gat, face/hand/fan positions, clothing and right-page floral painting retained. Whole2:3canvas; no UI added.",
+      "nativeTextRequired": {
+        "card": [
+          "Beispiel",
+          "안녕하세요",
+          "annyeonghaseyo",
+          "Guten Tag"
+        ],
+        "book": "안녕하세요",
+        "cardLayerRect": [
+          77,
+          286,
+          138,
+          121
+        ],
+        "cardRotationDegrees": 8.5,
+        "bookLayerRect": [
+          84,
+          476,
+          144,
+          36
+        ],
+        "bookRotationDegrees": 5
+      }
+    },
+    {
+      "key": "hanok",
+      "verdict": "PASS_IDENTITY_AND_MAJOR_OBJECTS; FAIL_STRICT_NUMERICAL_COMPOSITION",
+      "sourceMaster": "exec-af2a7de6-2349-45ae-a14f-f61637b31fa4.png",
+      "master": "C:/Users/vjinn/.codex/generated_images/01a14ebd-78e5-7e91-b475-afb8a438d696/exec-49e625e0-4fd1-43e7-bd36-bfb5defce134.png",
+      "workspaceFile": "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018/assets/illustrations/einleitung_generated/intro-hanok-recomposed-v3.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "sha256": "68621abea34a66b0cb1a1dc8d4f56568616c41c676b9183213886c563a116501",
+      "byteIdenticalCopy": true,
+      "finalPrompt": "Use case: precise-object-edit. Final narrow correction of this existing1024x1536 Hanok artwork. Preserve every design, object, material and architectural detail. The recent edit moved the building and main still-life too far DOWN. Move the entire building, pine, courtyard, coin, lotus stampbook, two-crane painting and horizontal brush UP about80pixels relative to their positions in this supplied image; leave the canvas1024x1536, filling background smoothly. Do not change their scale, appearance or camera. Separately RESTORE the original tall front faces of the three wooden bases: keep all three base bottoms fixed at y1528 and raise their top edges to y1357, yielding about171px tall base faces. They must remain three complete blank wooden rectangles, all inside the canvas. Retain only about8pixels of unused foreground below them. The desired upper roof peak should now be near y438 (not530), book top near y965 (not1050), horizontal brush around y1285, base fronts y1357..1528. These coordinates are guides, do not render numbers or guides. Crucially keep the two existing architectural plaques and their ornamental calligraphy, the book cover 한글 lettering, the engraved square-hole coin, exactly two white cranes, warm wood roof geometry and all stairs unchanged. No UI, labels, new icons, phone, extra people or other additions. This is a local positional/wood-base correction of the same scene; preserve all major objects whole, no crop, no framing change.",
+      "inspection": "Architecture, roof/eaves, two original sign plaques/calligraphy, stairs, one coin, lotus stampbook, exactly two cranes, one horizontal brush and three blank bases are all present. Foreground space is reduced, but bases became taller than the brief; upper building/book remain about20px higher than the approximate source landmarks at0,43,402,603.",
+      "layoutStatus": "Do not automatically label the full reference composition PASS. Visual reviewer/root must judge fresh composite and may choose the retained original or this candidate. No further regeneration performed.",
+      "retainedCandidates": [
+        {
+          "master": "C:/Users/vjinn/.codex/generated_images/01a14ebd-78e5-7e91-b475-afb8a438d696/exec-8940d182-cc42-47ff-b72d-21db97c4b406.png",
+          "verdict": "REJECTED",
+          "reason": "No sufficient layout reflow and architectural plaques removed."
+        },
+        {
+          "master": "C:/Users/vjinn/.codex/generated_images/01a14ebd-78e5-7e91-b475-afb8a438d696/exec-edd95cbb-9afe-4f98-9946-fbfbeda1fe43.png",
+          "verdict": "REJECTED_LAYOUT",
+          "reason": "Preserved plaques and reduced foreground, but main scene moved roughly30px too low and bases became too short."
+        }
+      ]
+    },
+    {
+      "key": "hanokTools",
+      "verdict": "PASS_IDENTITY_ALPHA_AND_SIZE_REDUCTION; STRICT_POSITION_AND_SIZE_RESIDUAL",
+      "sourceMaster": "exec-263e24aa-5bba-4602-92ee-8df5196acf49.png",
+      "master": "C:/Users/vjinn/.codex/generated_images/01a14ebd-78e5-7e91-b475-afb8a438d696/exec-26c09b49-56ca-4f4e-89df-433b88e7c308.png",
+      "workspaceFile": "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018/assets/illustrations/einleitung_generated/intro-hanok-tools-v3.png",
+      "size": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "7047197f66f974126a732e1dd1e1c8364a882206e6671e4c175ebd64e1606657",
+      "byteIdenticalCopy": true,
+      "finalPrompt": "Correct ONLY size and positions of the existing three isolated gold icons on transparent2172x724. Shrink each to about65percent of previous dimensions. Pavilion center411,272 and visible bbox288..534,185..360. Lotus center1086,272 and bbox956..1216,178..366. Brush center1767,272 and bbox1656..1878,174..371. Keep proportions, exact identities/order/materials; very large transparent gaps and transparent bottom half. No crop/slice, labels, wood, circles, guides or UI.",
+      "alphaThreshold": 128,
+      "alphaBboxes": [
+        [
+          328,
+          240,
+          575,
+          422
+        ],
+        [
+          942,
+          234,
+          1230,
+          443
+        ],
+        [
+          1598,
+          223,
+          1832,
+          435
+        ]
+      ],
+      "recommendedWholeImageRect": [
+        3.122533918,
+        527,
+        397.091950497,
+        132.363983499
+      ],
+      "fit": "FIT, uniform, complete image",
+      "nativeVisibleCentersX": [
+        85.667200423,
+        201.668509166,
+        316.664290411
+      ],
+      "nativeVisibleWidths": [
+        45.157325862,
+        52.653076309,
+        42.780624501
+      ],
+      "nativeVisibleTopBottom": [
+        [
+          570.877563591,
+          604.151382648
+        ],
+        [
+          569.780624501,
+          607.990669461
+        ],
+        [
+          567.769569503,
+          606.528084008
+        ]
+      ],
+      "labelInkTop": 613,
+      "minimumIconToLabelGap": 5.009330539,
+      "whyAdjustedRect": "A single complete image scale/translation aligns all three centers within0.67px. Moving full strip up11.23px from prior suggestion avoids icon/label collision. No pixel slicing, cropping or individual raster stretching.",
+      "residual": "Lotus is2.65px wider than the approximate50px maximum; icons are7–11px above the original approximate visible top579. These residuals require final composite judgment; strict numerical match is not claimed.",
+      "retainedCandidate": {
+        "master": "C:/Users/vjinn/.codex/generated_images/01a14ebd-78e5-7e91-b475-afb8a438d696/exec-1725ac2e-826c-4dc5-a16d-1a3b3f398ba7.png",
+        "verdict": "REJECTED_SIZE",
+        "nativeWidthsAt370": [
+          64.3923,
+          67.9696,
+          57.919
+        ],
+        "reason": "Still oversized at required strip width."
+      }
+    }
+  ],
+  "firstUnitFlutterReview": {
+    "status": "WAITING_FOR_PARENT_NOTIFICATION_OF_NEW_CAPTURES",
+    "files": [
+      "docs/screenshots/einleitung-generated-20261018/intro-01-de-402-934-1x.png",
+      "docs/screenshots/einleitung-generated-20261018/intro-level-de-402-934-1x.png"
+    ],
+    "reason": "Parent reported pending fresh captures after card gold border, handle, CTA bevel and image filtering updates. Old files not re-approved."
+  },
+  "limits": [
+    "Workspace copies are new candidate filenames; consumers/manifest changes remain root-owned.",
+    "Image identity/material checks do not imply full Figma or Flutter parity.",
+    "No exact raster identity, device approval or user approval claimed."
+  ]
+}

@@ -5,6 +5,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/viewport_pages.dart';
+
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/data/quest_catalog.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
@@ -37,7 +39,6 @@ import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'package:ko_lernen_app/widgets/sori/illustrated_card.dart';
 import 'package:ko_lernen_app/widgets/sori/level_filter_bar.dart';
-import 'package:ko_lernen_app/widgets/sori/pack_card.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
@@ -309,41 +310,58 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
 
-    final list = find.byType(ListView).first;
-    for (var i = 0; i < 5; i += 1) {
-      await tester.drag(list, const Offset(0, -240));
-      await tester.pump();
-      expect(tester.takeException(), isNull);
-    }
-
+    final topic = find.byKey(const ValueKey('scenario-category-a1_friends'));
+    await tester.scrollUntilVisible(
+      topic,
+      160,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await Scrollable.ensureVisible(tester.element(topic), alignment: .5);
+    await tester.pump();
+    expect(topic.hitTestable(), findsOneWidget);
+    await tester.tap(topic);
+    await tester.pump();
+    final title = find.text(_scenarioFixture.title.de).first;
+    await tester.scrollUntilVisible(
+      title,
+      160,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(
+      tester.renderObject<RenderParagraph>(title).didExceedMaxLines,
+      isFalse,
+    );
     expect(find.text(_scenarioFixture.title.de), findsWidgets);
     final t = AppL10n.of(tester.element(find.byType(ScenariosListScreen)));
-    expect(find.text(t.scenariosPathStartCta), findsOneWidget);
+    final start = find.text(t.scenariosPathStartCta);
+    await tester.scrollUntilVisible(
+      start,
+      160,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(start, findsOneWidget);
+    expect(
+      tester.renderObject<RenderParagraph>(start).didExceedMaxLines,
+      isFalse,
+    );
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('vocab pack cards use a measured one-column grid at 200%', (
+  testWidgets('vocabulary topic cards use a single column at 200%', (
     tester,
   ) async {
     await tester.runAsync(() => VocabPackService.loadAll());
     await _configurePhone(tester);
     await tester.pumpWidget(_host(const VocabPacksScreen()));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
-    final scrollView = find.byType(CustomScrollView);
-    for (
-      var i = 0;
-      i < 20 && find.byType(PackCard).evaluate().isEmpty;
-      i += 1
-    ) {
-      await tester.pump(const Duration(milliseconds: 50));
-      if (scrollView.evaluate().isNotEmpty) {
-        await tester.drag(scrollView, const Offset(0, -120));
-      }
-    }
-
-    expect(find.byType(PackCard), findsWidgets);
-    expect(tester.getSize(find.byType(PackCard).first).width, greaterThan(250));
+    final level = find.byKey(const ValueKey('wortpakete-overview-level-a1'));
+    await showViewportSection(tester, level);
+    await tester.tap(level);
+    await tester.pumpAndSettle();
+    final card = find.byKey(const ValueKey('wortpakete-topic-a1_greetings'));
+    await showViewportSection(tester, card);
+    expect(tester.getSize(card).width, greaterThan(250));
     expect(tester.takeException(), isNull);
   });
 

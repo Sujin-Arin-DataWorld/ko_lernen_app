@@ -9,7 +9,8 @@ import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/card.dart';
+import 'package:ko_lernen_app/widgets/sori/grammar_c.dart';
+import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'support/scenario_stock_fixtures.dart';
 
@@ -47,16 +48,30 @@ void main() {
       await tester.pump(const Duration(milliseconds: 100));
       await tester.pump(const Duration(milliseconds: 2000));
 
-      final pattern = find.text('N은/는');
-      final card = find.ancestor(of: pattern, matching: find.byType(SoriCard));
-
-      expect(pattern, findsOneWidget);
-      expect(card, findsOneWidget);
-
-      final patternRect = tester.getRect(pattern);
+      final card = find.byType(FlipCard);
+      final rail = find.descendant(
+        of: card,
+        matching: find.byType(GrammarCRail),
+      );
+      final patterns = find.descendant(of: card, matching: find.text('N은/는'));
+      expect(
+        patterns,
+        findsNWidgets(2),
+        reason: 'C front has a title and a rail pattern',
+      );
+      expect(rail, findsOneWidget);
+      final titleRect = tester.getRect(patterns.first);
       final cardRect = tester.getRect(card);
-      expect(cardRect.contains(patternRect.topLeft), isTrue);
-      expect(cardRect.contains(patternRect.bottomRight), isTrue);
+      _expectContained(titleRect, cardRect);
+      final railPattern = find.descendant(
+        of: rail,
+        matching: find.text('N은/는'),
+      );
+      await tester.ensureVisible(railPattern);
+      await tester.pump();
+      final patternRect = tester.getRect(railPattern);
+      final railRect = tester.getRect(rail);
+      _expectContained(patternRect, railRect);
       expect(tester.takeException(), isNull);
     },
   );
@@ -86,6 +101,13 @@ void main() {
       expect(tester.takeException(), isNull);
     },
   );
+}
+
+void _expectContained(Rect content, Rect container) {
+  expect(content.left, greaterThanOrEqualTo(container.left));
+  expect(content.top, greaterThanOrEqualTo(container.top));
+  expect(content.right, lessThanOrEqualTo(container.right));
+  expect(content.bottom, lessThanOrEqualTo(container.bottom));
 }
 
 const _scenarioFixture = Scenario(

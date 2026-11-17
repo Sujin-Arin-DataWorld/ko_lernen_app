@@ -11,12 +11,12 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 
-import 'support/real_fonts.dart';
+import 'support/einleitung_capture_assets.dart';
 import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(() => loadSoriRealFonts(materialIcons: true));
+  setUpAll(loadEinleitungFonts);
   setUp(() => SharedPreferences.setMockInitialValues({'existing_xp': 42}));
 
   for (final locale in ['de', 'en']) {

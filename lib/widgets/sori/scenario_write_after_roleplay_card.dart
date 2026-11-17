@@ -6,10 +6,10 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../services/korean_proofreading_service.dart';
 import '../../services/scenario_writing_check_service.dart';
 import 'button.dart';
-import 'card.dart';
 import 'mascot.dart';
 import 'mascot_preference.dart';
 import 'tokens.dart';
+import 'scenario_c.dart';
 
 /// Optional, unscored writing practice shown after a role-play is complete.
 ///
@@ -23,9 +23,13 @@ class ScenarioWriteAfterRoleplayCard extends StatefulWidget {
     required this.evidence,
     this.service,
     this.previewCompanion,
+    this.promptSpeaker,
+    this.promptTranslation,
   });
 
   final String promptKo;
+  final String? promptSpeaker;
+  final String? promptTranslation;
   final ScenarioWritingEvidence evidence;
 
   /// Test/integration seam. An injected service remains owned by the caller.
@@ -137,122 +141,159 @@ class _ScenarioWriteAfterRoleplayCardState
       );
     }
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     final outcome = _outcome;
     final canCheck = !_busy && _controller.text.trim().isNotEmpty;
-
-    return SoriCard(
+    final meaning =
+        widget.promptTranslation ??
+        widget.evidence.references
+            .where((reference) => reference.korean == widget.promptKo.trim())
+            .firstOrNull
+            ?.localizedMeaning;
+    return Column(
       key: const ValueKey<String>('scenario-write-after-roleplay-card'),
-      accent: SoriColors.highlight,
-      tinted: true,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Text(
-            t.scenarioWriteAfterRoleplayTitle,
-            style: SoriTextTheme.of(context).h3,
-          ),
-          const SizedBox(height: Spacing.xs),
-          Text(
-            t.scenarioWriteAfterRoleplayBody,
-            style: SoriTextTheme.of(
-              context,
-            ).bodySmall.copyWith(color: s.textMuted),
-          ),
-          const SizedBox(height: Spacing.md),
-          Container(
-            key: const ValueKey<String>('scenario-write-prompt'),
-            padding: const EdgeInsets.symmetric(
-              horizontal: Spacing.md,
-              vertical: Spacing.sm,
-            ),
-            decoration: BoxDecoration(
-              color: s.surface,
-              borderRadius: BorderRadius.circular(SoriRadius.sm),
-              border: Border.all(
-                color: SoriColors.highlight.withValues(alpha: 0.32),
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        ScenarioCFold(
+          padding: const EdgeInsets.fromLTRB(18, 10, 18, 32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                t.scenarioWriteAfterRoleplayTitle,
+                style: ScenarioC.body.copyWith(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
-            child: Text(
-              widget.promptKo,
-              textAlign: TextAlign.center,
-              style: SoriTextTheme.of(context).h3,
-            ),
-          ),
-          const SizedBox(height: Spacing.md),
-          TextField(
-            key: const ValueKey<String>('scenario-write-input'),
-            controller: _controller,
-            enabled: !_busy,
-            minLines: 2,
-            maxLines: 4,
-            maxLength: KoreanProofreadingService.maxInputCodePoints,
-            textInputAction: TextInputAction.done,
-            decoration: InputDecoration(
-              labelText: t.scenarioWriteAfterRoleplayInputLabel,
-              hintText: t.scenarioWriteAfterRoleplayInputHint,
-              alignLabelWithHint: true,
-            ),
-            onSubmitted: canCheck ? (_) => _check() : null,
-          ),
-          const SizedBox(height: Spacing.md),
-          SoriButton.filled(
-            key: const ValueKey<String>('scenario-write-check'),
-            label: _checking
-                ? t.scenarioWriteAfterRoleplayChecking
-                : t.scenarioWriteAfterRoleplayCheck,
-            icon: Icons.spellcheck_rounded,
-            onTap: canCheck ? _check : null,
-            size: SoriButtonSize.md,
-            fullWidth: true,
-          ),
-          const SizedBox(height: Spacing.xs),
-          SoriButton.ghost(
-            key: const ValueKey<String>('scenario-write-skip'),
-            label: t.btnSkip,
-            onTap: _busy ? null : () => setState(() => _skipped = true),
-            size: SoriButtonSize.md,
-            fullWidth: true,
-          ),
-          if (outcome != null) ...<Widget>[
-            const SizedBox(height: Spacing.lg),
-            _OutcomeContent(outcome: outcome),
-            if (outcome.status == KoreanProofreadingStatus.downloadable) ...[
-              const SizedBox(height: Spacing.md),
-              SoriButton.outlined(
-                key: const ValueKey<String>('scenario-write-download'),
-                label: _downloading
-                    ? t.scenarioWriteAfterRoleplayDownloading
-                    : t.scenarioWriteAfterRoleplayDownload,
-                icon: Icons.download_rounded,
-                onTap: _downloading ? null : _download,
-                fullWidth: true,
-                maxLines: 2,
+              const SizedBox(height: 4),
+              Text(
+                t.scenarioWriteAfterRoleplayBody,
+                style: ScenarioC.body.copyWith(fontSize: 14),
               ),
             ],
-            if (outcome.facts.evidence.grammar != null) ...<Widget>[
-              const SizedBox(height: Spacing.md),
-              SoriButton.ghost(
-                key: const ValueKey<String>('scenario-write-ask-companion'),
-                label: t.scenarioWriteAfterRoleplayAskCompanion,
-                icon: Icons.question_answer_outlined,
-                onTap: () => setState(() {
-                  _showCompanion = !_showCompanion;
-                }),
-                fullWidth: true,
-                maxLines: 2,
-              ),
-              if (_showCompanion) ...<Widget>[
-                const SizedBox(height: Spacing.sm),
-                _CompanionExplanation(
-                  facts: outcome.facts,
-                  previewPreference: widget.previewCompanion,
+          ),
+        ),
+        const SizedBox(height: 8),
+        ScenarioCFold(
+          key: const ValueKey<String>('scenario-write-prompt'),
+          padding: const EdgeInsets.fromLTRB(18, 10, 18, 32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (widget.promptSpeaker case final speaker?)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 4),
+                  child: ScenarioCSpeakerBadge(name: speaker),
                 ),
+              Text(
+                widget.promptKo,
+                style: ScenarioC.korean.copyWith(fontSize: 21),
+              ),
+              if (meaning != null && meaning.isNotEmpty) ...[
+                const SizedBox(height: Spacing.sm),
+                Text(meaning, style: ScenarioC.body.copyWith(fontSize: 14)),
               ],
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
+        ScenarioCWritingBoard(
+          key: const ValueKey<String>('scenario-write-board'),
+          child: CustomPaint(
+            painter: const ScenarioCWritingLines(),
+            child: TextField(
+              key: const ValueKey<String>('scenario-write-input'),
+              controller: _controller,
+              enabled: !_busy,
+              minLines: 3,
+              maxLines: 5,
+              style: ScenarioC.korean.copyWith(
+                fontSize: 20,
+                height: 1.45,
+                fontWeight: FontWeight.w400,
+              ),
+              maxLength: KoreanProofreadingService.maxInputCodePoints,
+              textInputAction: TextInputAction.done,
+              decoration: InputDecoration(
+                labelText: t.scenarioWriteAfterRoleplayInputLabel,
+                hintText: t.scenarioWriteAfterRoleplayInputHint,
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+                labelStyle: ScenarioC.heading.copyWith(fontSize: 18),
+                hintStyle: ScenarioC.body.copyWith(fontSize: 14),
+                counterStyle: ScenarioC.body.copyWith(fontSize: 13),
+                filled: false,
+                border: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                contentPadding: const EdgeInsets.only(
+                  top: Spacing.lg,
+                  bottom: Spacing.sm,
+                ),
+                alignLabelWithHint: true,
+              ),
+              onSubmitted: canCheck ? (_) => _check() : null,
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        ScenarioCGoldButton(
+          key: const ValueKey<String>('scenario-write-check'),
+          label: _checking
+              ? t.scenarioWriteAfterRoleplayChecking
+              : t.scenarioWriteAfterRoleplayCheck,
+          onTap: canCheck ? _check : null,
+        ),
+        const SizedBox(height: 8),
+        ScenarioCFold(
+          key: const ValueKey<String>('scenario-write-skip'),
+          minHeight: 48,
+          onTap: _busy ? null : () => setState(() => _skipped = true),
+          semanticLabel: t.btnSkip,
+          child: Center(
+            child: Text(
+              t.btnSkip,
+              style: ScenarioC.body.copyWith(fontWeight: FontWeight.w700),
+            ),
+          ),
+        ),
+        if (outcome != null) ...<Widget>[
+          const SizedBox(height: Spacing.lg),
+          _OutcomeContent(outcome: outcome),
+          if (outcome.status == KoreanProofreadingStatus.downloadable) ...[
+            const SizedBox(height: Spacing.md),
+            SoriButton.outlined(
+              key: const ValueKey<String>('scenario-write-download'),
+              label: _downloading
+                  ? t.scenarioWriteAfterRoleplayDownloading
+                  : t.scenarioWriteAfterRoleplayDownload,
+              icon: Icons.download_rounded,
+              onTap: _downloading ? null : _download,
+              fullWidth: true,
+              maxLines: 2,
+            ),
+          ],
+          if (outcome.facts.evidence.grammar != null) ...<Widget>[
+            const SizedBox(height: Spacing.md),
+            SoriButton.ghost(
+              key: const ValueKey<String>('scenario-write-ask-companion'),
+              label: t.scenarioWriteAfterRoleplayAskCompanion,
+              icon: Icons.question_answer_outlined,
+              onTap: () => setState(() {
+                _showCompanion = !_showCompanion;
+              }),
+              fullWidth: true,
+              maxLines: 2,
+            ),
+            if (_showCompanion) ...<Widget>[
+              const SizedBox(height: Spacing.sm),
+              _CompanionExplanation(
+                facts: outcome.facts,
+                previewPreference: widget.previewCompanion,
+              ),
             ],
           ],
         ],
-      ),
+      ],
     );
   }
 }
@@ -678,7 +719,7 @@ class _CompanionExplanationContent extends StatelessWidget {
                           : '$name · ${t.scenarioWriteAfterRoleplayCompanionTitle}',
                       style: SoriTextTheme.of(context).h3,
                     ),
-                    const SizedBox(height: 2),
+                    const SizedBox(height: Spacing.xs),
                     Text(intro, style: SoriTextTheme.of(context).bodySmall),
                   ],
                 ),

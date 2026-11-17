@@ -1,0 +1,27 @@
+{
+  "base_sha": "646c4658e70f594ab234a172679e29122d0f0e66",
+  "runtime_modified": false,
+  "patches": [
+    {
+      "id": "integration-vocab-a1-0759-sense",
+      "source_path": "assets/data/korean_vocab.csv",
+      "content_id": "vocab_a1_0759",
+      "field": "german",
+      "source_value": "nicht Student/in sein",
+      "proposed_value": "nicht … sein (bei Nomen)",
+      "reason_ko": "아니다의 일반 명사 부정을 학생이 아님으로 좁힌 번역을 보완한다. 런타임 CSV는 수정하지 않는다.",
+      "status": "proposed_authoring_override_not_runtime"
+    },
+    {
+      "id": "integration-vocab-a2-0264-sense",
+      "source_path": "assets/data/korean_vocab.csv",
+      "content_id": "vocab_a2_0264",
+      "field": "german",
+      "source_value": "hängen (dauern)",
+      "proposed_value": "hängen (hier: angebracht sein)",
+      "reason_ko": "이번 걸리다는 걸려 있는 상태이다. 시간을 뜻하는 dauern을 같은 뜻의 괄호로 제시하지 않는다. 런타임 CSV는 수정하지 않는다.",
+      "status": "proposed_authoring_override_not_runtime"
+    }
+  ],
+  "new_and_inherited_copy_review": "reviews/ROOT_COPY_REVIEW.md; peer-review files and corrections apply to authoring packets only"
+}

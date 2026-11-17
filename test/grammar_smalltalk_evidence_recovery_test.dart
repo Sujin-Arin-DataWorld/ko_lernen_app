@@ -27,7 +27,6 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/level_filter_bar.dart';
-import 'package:ko_lernen_app/widgets/sori/sheet.dart';
 
 import 'support/reward_preferences_platform.dart';
 import 'support/sori_speech_stubs.dart';
@@ -102,7 +101,7 @@ void main() {
       final choices = tester
           .widgetList<SoriButton>(
             find.descendant(
-              of: find.byType(SoriSheetShell),
+              of: find.byType(BottomSheet),
               matching: find.byType(SoriButton),
             ),
           )
@@ -261,7 +260,7 @@ void main() {
         findsOneWidget,
       );
 
-      Navigator.of(tester.element(find.byType(SoriSheetShell))).pop();
+      Navigator.of(tester.element(find.byType(BottomSheet))).pop();
       await tester.pump(const Duration(milliseconds: 400));
       await tester.tap(find.byType(FlipCard));
       await tester.pump(const Duration(milliseconds: 400));
@@ -346,10 +345,10 @@ void main() {
       );
       await tester.tap(find.byKey(const Key('grammar-checkpoint-retry')));
       await _settle(tester);
-      expect(find.byType(SoriSheetShell), findsNothing);
+      expect(find.byType(BottomSheet), findsNothing);
       await tester.tap(find.byType(FlipCard));
       await tester.pump(const Duration(milliseconds: 400));
-      expect(find.byType(SoriSheetShell), findsNothing);
+      expect(find.byType(BottomSheet), findsNothing);
       expect(recorderCalls, 1);
       expect(
         platform.writes[Storage.courseMasterySnapshotPreferenceKey],
@@ -704,7 +703,7 @@ void main() {
       wrong.onTap!();
       await tester.pump();
       await writeEntered.future;
-      Navigator.of(tester.element(find.byType(SoriSheetShell))).pop();
+      Navigator.of(tester.element(find.byType(BottomSheet))).pop();
       await tester.pump(const Duration(milliseconds: 400));
       Navigator.of(tester.element(find.byType(GrammarScreen))).pop();
       await tester.pump(const Duration(milliseconds: 400));
@@ -879,7 +878,7 @@ void main() {
       await _settle(tester);
       platform.writes.clear();
 
-      final sheet = find.byType(SoriSheetShell);
+      final sheet = find.byType(BottomSheet);
       if (sheet.evaluate().isNotEmpty) {
         final answer = tester
             .widgetList<SoriButton>(
@@ -1077,7 +1076,7 @@ _openGrammarFixture(
   final choices = tester
       .widgetList<SoriButton>(
         find.descendant(
-          of: find.byType(SoriSheetShell),
+          of: find.byType(BottomSheet),
           matching: find.byType(SoriButton),
         ),
       )
@@ -1128,7 +1127,7 @@ Future<void> _grammarUnknownFirstAnswer(
   final choices = tester
       .widgetList<SoriButton>(
         find.descendant(
-          of: find.byType(SoriSheetShell),
+          of: find.byType(BottomSheet),
           matching: find.byType(SoriButton),
         ),
       )

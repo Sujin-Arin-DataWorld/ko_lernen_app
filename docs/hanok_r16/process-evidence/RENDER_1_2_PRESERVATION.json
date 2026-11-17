@@ -1,0 +1,54 @@
+{
+  "userInstruction": "Preserve render 1 and 2 original files",
+  "files": {
+    "sarang-material-rebuild-r1": [
+      {
+        "file": "material-profiles.json",
+        "bytes": 318229,
+        "sha256": "35cec38cc6a6bc40a7e8f7ce4f993ed55e1122cf3e59f6f93c67b696d135e40b"
+      },
+      {
+        "file": "preview.json",
+        "bytes": 196,
+        "sha256": "47152af5cc046b7f906a6531669b2892dd2a5a7a22ff49f0c5554ddf630c5495"
+      },
+      {
+        "file": "preview.png",
+        "bytes": 1238221,
+        "sha256": "2ce89ffea9c9fdc5221394656735971058dff8dfea82b7c69979aaa36dbec8c4"
+      },
+      {
+        "file": "sarang-material-rebuild.blend",
+        "bytes": 121871515,
+        "sha256": "89e72f021ba6567b6660f9d2ccddef16edae6cf68eb687a1dfbc3f50457185a0"
+      },
+      {
+        "file": "verification.json",
+        "bytes": 1219,
+        "sha256": "2004e6ab8f1518523fa0a76fe577336ec321857b45e0f4550bd88718cd11f474"
+      }
+    ],
+    "sarang-material-rebuild-r2": [
+      {
+        "file": "preview.json",
+        "bytes": 196,
+        "sha256": "5911ff1a6bff179caacb7a1c9e692fdc81a540ae2f6c2622869034a50324fba8"
+      },
+      {
+        "file": "preview.png",
+        "bytes": 1200832,
+        "sha256": "f5c65c42955656506553478da5144bcda6800b5161b6434f4d2fe47695465b39"
+      },
+      {
+        "file": "sarang-material-rebuild.blend",
+        "bytes": 121977860,
+        "sha256": "7d02c2ee16125966c650982bf8e7d0016c9018e1b87dfcb95f23842c6d7fb192"
+      },
+      {
+        "file": "verification.json",
+        "bytes": 1565,
+        "sha256": "425745ba357643bd4033f6c566d4bd278c69a35cb026b695780b7e7c722db992"
+      }
+    ]
+  }
+}

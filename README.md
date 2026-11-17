@@ -4,6 +4,16 @@ Persönlicher Koreanisch-Trainer · A1→C2
 
 ## Getting Started
 
+Prepare the local Fontshare inputs before Flutter tests or builds:
+
+```sh
+python3 tool/prepare_fontshare_fonts.py
+```
+
+On Windows, use `python` if that is the installed command. The app bundles
+these fonts for offline use; their raw files stay outside this public Git
+repository. See [font setup, official sources and license conditions](assets/fonts/README.md).
+
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:

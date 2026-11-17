@@ -275,18 +275,18 @@ void main() {
         await pumpSoriStage(tester, frames: 4);
         final t = lookupAppL10n(Locale(locale));
         final focusCard = find
-            .byKey(const ValueKey('learning-focus-surface'))
+            .byKey(const ValueKey('today-learning-card'))
             .first;
         expect(
           find.descendant(
             of: focusCard,
-            matching: find.text(t.screenHangulTitle),
+            matching: find.text(t.todayFirstSyllable),
           ),
           findsOneWidget,
         );
         final start = find.descendant(
           of: focusCard,
-          matching: find.text(t.learningFocusStart),
+          matching: find.text(t.todayStartHangul),
         );
         await tester.ensureVisible(start);
         await tester.tap(start);

@@ -1,0 +1,30 @@
+{
+  "reviewer": "/root/character_design_guard_v7",
+  "date": "2026-11-08",
+  "id": "R25_labels",
+  "status": "HOLD_CANONICAL_GATE_GUIDE_EVIDENCE",
+  "request_sha256": "7a4574f8631f05a7c151a31644a88c031fd3bdf6c555ccf60bc1c3f5bdfa9a31",
+  "prompt_sha256": "106116887e8220c5980efdf0224007d746d99aa5a312aef97d6caf17a3840455",
+  "scene_and_copy_exact_match": true,
+  "refs": [
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-illustration-spec-20261103\\design\\mockups\\ildu-season1\\20261104-story-only\\final-selection\\R22-save-unconfirmed-de.png",
+      "sha256": "841979563167f299c86bc202e65b451b3b520935ff8935f69972fe17ea75f40c",
+      "actual_source_opened_by_reviewer": true
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-illustration-spec-20261103\\design\\canonical\\ensemble\\20261102\\assets\\talsunbi\\01-original-character-sheet.png",
+      "sha256": "0f846e66da68f11106a60bad24f38bf4a45d6eec7525778bfe3c80745d8185ed",
+      "actual_source_opened_by_reviewer": true
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-illustration-spec-20261103\\design\\canonical\\ensemble\\20261102\\assets\\sujin\\01-b2-selected.png",
+      "sha256": "2f9e367ef657ae82abe3ed0eefdd234cc997c6cdf281c416dbc6103c6d972c33",
+      "actual_source_opened_by_reviewer": true
+    }
+  ],
+  "decision": "Cast/copy refs correct but actual canonical partially built second gate and existing guide/minimap still unsourced. Need those sources or explicit tight guide/characters framing that excludes recognizable gate architecture and does not certify canonical map geometry. Do not invent gate facade or permanent plaques.",
+  "design_scope": "Static image generation only; one current speaker, KO+DE exact text, one CTA, C materials, no clouds/coins/settings/tabs, no learning UI",
+  "postflight_required": "Anatomy, identity per character, relative scale, gaze/acting, prop support, scene state, exact copy, dimensions/framing all reviewed from actual output",
+  "limits": "No user approval/canon promotion/metric certification/runtime-save/Flutter-device proof"
+}

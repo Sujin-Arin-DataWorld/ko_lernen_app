@@ -17,6 +17,7 @@ import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart'
 import 'package:ko_lernen_app/widgets/sori/catalog_card.dart';
 import 'package:ko_lernen_app/widgets/sori/adaptive_navigation.dart';
 import 'package:ko_lernen_app/widgets/sori/activity_illustration.dart';
+import 'package:ko_lernen_app/widgets/sori/approved_figma_scene.dart';
 import 'package:ko_lernen_app/widgets/sori/sheet.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'support/catalog_test_support.dart';
@@ -26,6 +27,9 @@ void main() {
   late LearningFocus focus;
   setUpAll(() async {
     await loadSoriRealFonts(materialIcons: true);
+    await ApprovedFigmaScene.load('lernen-65.json');
+    await ApprovedFigmaScene.load('spiele-65.json');
+    await ApprovedFigmaScene.load('figma-assets.json');
     focus = await loadFirstCatalogFocus();
     expect(focus.ready, isTrue);
   });
@@ -99,7 +103,7 @@ void main() {
 
   for (final language in ['de', 'en']) {
     for (final tab in [SoriStageTab.learn, SoriStageTab.games]) {
-      testWidgets('${tab.name} $language real catalog first row fits at390x844', (
+      testWidgets('${tab.name} $language C5 primary action fits at390x844', (
         tester,
       ) async {
         await viewport(tester, const Size(390, 844));
@@ -112,19 +116,18 @@ void main() {
             child: catalogTestApp(
               tab: tab,
               locale: language,
+              showAll: false,
               controller: controller,
             ),
           ),
         );
         await tester.pumpAndSettle();
         final navTop = tester.getTopLeft(find.byType(NavigationBar)).dy;
-        final ids = tab == SoriStageTab.learn
-            ? ['listening', 'scenarios', 'vocab_packs', 'grammar']
-            : ['daily_game', 'chosung', 'syllable_cross', 'cloze'];
-        for (final id in ids) {
-          final rect = tester.getRect(
-            find.byKey(ValueKey('catalog-quick-$id')),
-          );
+        final primaryKeys = tab == SoriStageTab.learn
+            ? ['c5-course-start']
+            : ['c5-game-start'];
+        for (final id in primaryKeys) {
+          final rect = tester.getRect(find.byKey(ValueKey(id)));
           expect(
             rect.bottom,
             lessThanOrEqualTo(navTop),
@@ -134,21 +137,10 @@ void main() {
         if (tab == SoriStageTab.learn) {
           expect(
             find.text(focus.brief!.unit.title.pick(language)),
-            findsOneWidget,
-          );
-          expect(
-            tester
-                .getRect(find.byKey(const ValueKey('learning-focus-surface')))
-                .bottom,
-            lessThan(
-              tester
-                  .getTopLeft(
-                    find.byKey(const ValueKey('catalog-card-vocab_packs')),
-                  )
-                  .dy,
-            ),
+            findsWidgets,
           );
         }
+        expect(find.byKey(const ValueKey('c5-catalog-all')), findsOneWidget);
         expect(tester.takeException(), isNull);
         if (const bool.fromEnvironment('CAPTURE_CATALOG_COMPOSITION')) {
           await tester.runAsync(() async {
@@ -293,7 +285,7 @@ void main() {
           }
           for (final section in SoriLearnSection.values) {
             final chip = find.byKey(ValueKey('learn-category-${section.name}'));
-            await Scrollable.ensureVisible(tester.element(chip), alignment: .5);
+            await Scrollable.ensureVisible(tester.element(chip), alignment: .9);
             await tester.pumpAndSettle();
             await tester.tap(chip);
             await tester.pumpAndSettle();

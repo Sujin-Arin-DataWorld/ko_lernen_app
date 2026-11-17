@@ -1,0 +1,24 @@
+{
+  "reviewer": "/root/character_design_guard_v7",
+  "date": "2026-11-08",
+  "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-9e833d4a-315a-4f6c-96e1-dbeaa12e2e04.png",
+  "sha256": "a5402496abc71155721ada7b0fbdbc5faf9d35a9b12dea90afbeb289cb5a6834",
+  "mode": "RGB",
+  "width": 935,
+  "height": 1682,
+  "status": "HOLD_PACKAGING_AND_FRAMING",
+  "pass_observations": [
+    "Dokkaebi face/two horns/floral headband/garments retained in visible scope",
+    "Recognizable building facade removed to dark plain bokeh",
+    "Same wooden hanji floral lantern and carved desk family as reviewed c; open door reveals lit wick before formal note",
+    "Hands support lantern door and desk naturally; no note/player hands leaked backward",
+    "Speaker 도깨비 and exact KO/DE/Weiter present"
+  ],
+  "fail_observations": [
+    "935x1682 aspect differs from agreed tall853x1843 canvas",
+    "Topknot/hair meets upper art crop",
+    "Lantern extends beyond left frame; no full useful prop clearance"
+  ],
+  "bounded_fix": "Preserve successful identities/lamp/desk/support/copy, restore tall canvas through framing only, uniformly pull character and lamp into art region until full topknot/lantern margins; no distortion or facade added. Do not derive as final b continuity reference until actual output passes.",
+  "limits": "Static design review only; no user approval, canon promotion, exact mesh or native/save proof"
+}

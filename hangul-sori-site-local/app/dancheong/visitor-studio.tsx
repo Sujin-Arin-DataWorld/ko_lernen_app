@@ -3,7 +3,7 @@ import {useEffect,useRef,useState} from 'react';
 import type {Border,Template} from './public-contract';
 import {parseVisitorDraft} from './visitor-contract';
 import {renderVisitor} from './visitor-renderer';
-import {STORE_LINKS} from '../store-links';
+import {IOS_TEST_ACCESS_ID, STORE_LINKS} from '../store-links';
 import './studio.css';
 const storageKey='hs_dancheong_visitor_v1';
 export function VisitorStudio({initialTemplate,language}:{initialTemplate:Template;language:'de'|'en'}){
@@ -61,6 +61,6 @@ export function VisitorStudio({initialTemplate,language}:{initialTemplate:Templa
   </section>
   <p>{de?'Lerne in der App weiter. Öffne danach Hanok → Dancheong-Atelier und wähle dieselbe Komposition. Dieses Probe-Werk vergibt keine Lernbelohnungen.':'Continue learning in the app. Then open Hanok → Dancheong Studio and choose the same composition. This trial artwork does not award learning rewards.'}</p>
   <a className="dancheong-primary" href={STORE_LINKS.android}>{de?'Hangul Sori für Android öffnen':'Open Hangul Sori for Android'}</a>
-  <a className="dancheong-secondary" href={`/${language}#tester-access`}>{de?'iOS-Testzugang anfragen':'Request iOS test access'}</a>
+  <a className="dancheong-secondary" href={`/${language}#${IOS_TEST_ACCESS_ID}`}>{de?'iOS-Testzugang anfragen':'Request iOS test access'}</a>
  </main>;
 }

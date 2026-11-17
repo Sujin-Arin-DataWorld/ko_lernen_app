@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -152,7 +153,7 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
           padding: resolvedPadding,
           child: Center(
             child: SoriEmptyState(
-              asset: 'assets/illustrations/mascot/tiger_front.png',
+              asset: CanonicalCompanionArt.baekhoSeated,
               icon: Icons.help_outline,
               title: t.customPackNotFoundTitle,
               body: t.customPackNotFoundBody,

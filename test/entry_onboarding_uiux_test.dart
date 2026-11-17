@@ -9,6 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/features/onboarding_v2/first_run_coordinator.dart';
+import 'package:ko_lernen_app/data/canonical_companion_art.dart';
 import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_repository.dart';
 import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_state.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
@@ -20,6 +21,7 @@ import 'package:ko_lernen_app/screens/first_voice_success_screen.dart';
 import 'package:ko_lernen_app/screens/intro_gate_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_preview_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_journey_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/welcome_screen.dart';
 import 'package:ko_lernen_app/screens/placement_diagnostic_screen.dart';
 import 'package:ko_lernen_app/screens/splash_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -28,7 +30,7 @@ import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
-import 'support/real_fonts.dart';
+import 'support/einleitung_capture_assets.dart';
 
 const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
 
@@ -54,7 +56,9 @@ typedef _EntryFixture = ({
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(() => loadSoriRealFonts(materialIcons: true));
+  setUpAll(() async {
+    await loadEinleitungFonts();
+  });
 
   setUp(() async {
     TigerStageVideo.videoReady = false;
@@ -178,6 +182,49 @@ void main() {
     semantics.dispose();
   });
 
+  testWidgets('completed V2 entry removes stale first-run routes below it', (
+    tester,
+  ) async {
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final repository = _MemoryJourneyRepository(
+      _gateState().copyWith(phase: OnboardingPhase.complete),
+    );
+    final coordinator = _coordinator(repository: repository);
+    await _pumpEntry(
+      tester,
+      Builder(
+        builder: (context) => Scaffold(
+          body: TextButton(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (_) =>
+                    OnboardingV2JourneyScreen(firstRunCoordinator: coordinator),
+              ),
+            ),
+            child: const Text('Old first-run route'),
+          ),
+        ),
+      ),
+      locale: const Locale('en'),
+      viewport: const (size: Size(402, 934), textScale: 1),
+    );
+    await tester.tap(find.text('Old first-run route'));
+    await _pumpUntilFound(tester, find.byType(AppShell));
+    await tester.pump(const Duration(seconds: 1));
+    expect(find.byType(AppShell), findsOneWidget);
+    expect(find.text('Old first-run route', skipOffstage: false), findsNothing);
+    final navigator = tester.state<NavigatorState>(
+      find.byType(Navigator).first,
+    );
+    expect(navigator.canPop(), isFalse);
+    navigator.popUntil((route) => route.isFirst);
+    await tester.pump();
+    expect(find.byType(AppShell), findsOneWidget);
+    expect(tester.takeException(), isNull);
+    await _disposeEntry(tester);
+  });
+
   testWidgets('V2 final commit never exposes the generic guide loading state', (
     tester,
   ) async {
@@ -268,12 +315,19 @@ void main() {
       expect(tester.getSemantics(retry).getSemanticsData().label, t.btnRetry);
 
       await _tapPointerOwned(tester, retry);
+      final chooseLevel = find.byKey(
+        const ValueKey('c-onboarding-change-level'),
+      );
+      await _pumpUntilFound(tester, chooseLevel);
+      expect(error, findsNothing);
+      expect(chooseLevel, findsOneWidget);
+      expect(repository.state?.phase, OnboardingPhase.setup);
+      await _tapPointerOwned(tester, chooseLevel);
       await _pumpUntilFound(
         tester,
         find.byKey(const ValueKey('onboarding-v3-new')),
       );
 
-      expect(error, findsNothing);
       expect(find.byKey(const ValueKey('onboarding-v3-new')), findsOneWidget);
       expect(repository.state?.phase, OnboardingPhase.setup);
       expect(tester.takeException(), isNull);
@@ -379,33 +433,61 @@ void main() {
   testWidgets('splash resolves fresh and legacy V2 destinations', (
     tester,
   ) async {
-    final cases = <({LegacyOnboardingSnapshot legacy, Type destination})>[
-      (
-        legacy: const LegacyOnboardingSnapshot(
-          consentAccepted: false,
-          hasCompletedOnboarding: false,
-        ),
-        destination: ConsentScreen,
-      ),
-      (
-        legacy: const LegacyOnboardingSnapshot(
-          consentAccepted: true,
-          hasCompletedOnboarding: false,
-        ),
-        destination: OnboardingV2JourneyScreen,
-      ),
-      (
-        legacy: const LegacyOnboardingSnapshot(
-          consentAccepted: true,
-          hasCompletedOnboarding: true,
-          userLevel: LearnerLevel.a1,
-        ),
-        destination: AppShell,
-      ),
-    ];
+    final cases =
+        <
+          ({
+            LegacyOnboardingSnapshot legacy,
+            bool welcomeSeen,
+            Type destination,
+          })
+        >[
+          (
+            legacy: const LegacyOnboardingSnapshot(
+              consentAccepted: false,
+              hasCompletedOnboarding: false,
+            ),
+            welcomeSeen: false,
+            destination: WelcomeScreen,
+          ),
+          (
+            legacy: const LegacyOnboardingSnapshot(
+              consentAccepted: false,
+              hasCompletedOnboarding: false,
+            ),
+            welcomeSeen: true,
+            destination: ConsentScreen,
+          ),
+          (
+            legacy: const LegacyOnboardingSnapshot(
+              consentAccepted: true,
+              hasCompletedOnboarding: false,
+            ),
+            welcomeSeen: true,
+            destination: OnboardingV2JourneyScreen,
+          ),
+          (
+            legacy: const LegacyOnboardingSnapshot(
+              consentAccepted: true,
+              hasCompletedOnboarding: true,
+              userLevel: LearnerLevel.a1,
+            ),
+            welcomeSeen: true,
+            destination: AppShell,
+          ),
+        ];
 
     for (final entry in cases) {
-      final coordinator = _coordinator(legacy: entry.legacy);
+      Storage.resetForTesting();
+      SharedPreferences.setMockInitialValues({
+        'kl_consent_accepted': entry.legacy.consentAccepted,
+        'kl_welcome_seen_v1': entry.welcomeSeen,
+      });
+      await Storage.init();
+      final repository = _MemoryJourneyRepository();
+      final coordinator = _coordinator(
+        legacy: entry.legacy,
+        repository: repository,
+      );
       await _pumpEntry(
         tester,
         SplashScreen(
@@ -418,6 +500,10 @@ void main() {
 
       await _pumpUntilFound(tester, find.byType(entry.destination));
       expect(find.byType(entry.destination), findsOneWidget);
+      if (!entry.legacy.consentAccepted) {
+        expect(Storage.consentAccepted, isFalse);
+        expect(repository.state, isNull);
+      }
       expect(tester.takeException(), isNull);
       await _disposeEntry(tester);
     }
@@ -447,6 +533,64 @@ void main() {
     expect(tester.takeException(), isNull);
     await _disposeEntry(tester);
   });
+
+  for (final failPortrait in [false, true]) {
+    testWidgets('code gate keeps skip usable after companion image failure '
+        '(portrait also missing: $failPortrait)', (tester) async {
+      PaintingBinding.instance.imageCache.clear();
+      PaintingBinding.instance.imageCache.clearLiveImages();
+      final repository = _MemoryJourneyRepository(_gateState());
+      final bundle = _MissingGateCompanionBundle(failPortrait: failPortrait);
+      await _pumpEntry(
+        tester,
+        DefaultAssetBundle(
+          bundle: bundle,
+          child: IntroGateScreen(
+            firstRunCoordinator: _coordinator(repository: repository),
+          ),
+        ),
+        locale: const Locale('en'),
+        viewport: (size: const Size(390, 844), textScale: 1),
+        disableAnimations: false,
+      );
+      await _pumpUntilFound(tester, find.byKey(const ValueKey('intro-skip')));
+      await tester.pump(const Duration(milliseconds: 1600));
+      for (var frame = 0; frame < 6; frame++) {
+        await tester.pump();
+      }
+      expect(bundle.attemptedCompanions, [
+        CanonicalCompanionArt.magpieStanding,
+        CanonicalCompanionArt.magpiePortrait,
+      ]);
+      final portrait = find.image(
+        const AssetImage(CanonicalCompanionArt.magpiePortrait),
+      );
+      expect(portrait, findsOneWidget);
+      expect(
+        find.descendant(of: portrait, matching: find.byType(RawImage)),
+        failPortrait ? findsNothing : findsOneWidget,
+      );
+      if (failPortrait) {
+        expect(
+          find.descendant(
+            of: portrait,
+            matching: find.byWidgetPredicate(
+              (widget) =>
+                  widget is SizedBox && widget.width == 0 && widget.height == 0,
+            ),
+          ),
+          findsOneWidget,
+        );
+      }
+      expect(repository.state!.gateIntroConsumed, isFalse);
+      expect(tester.takeException(), isNull);
+      await _tapPointerOwned(tester, find.byKey(const ValueKey('intro-skip')));
+      await _pumpUntilFound(tester, find.byType(AppShell));
+      expect(repository.state!.phase, OnboardingPhase.complete);
+      expect(tester.takeException(), isNull);
+      await _disposeEntry(tester);
+    });
+  }
 
   testWidgets(
     'gate skip surface accepts Enter Space and Escape across presentation states',
@@ -963,6 +1107,24 @@ OnboardingJourneyState _gateState() {
     companionDraft: OnboardingCompanion.taego,
     commitStage: OnboardingCommitStage.completed,
   );
+}
+
+class _MissingGateCompanionBundle extends CachingAssetBundle {
+  _MissingGateCompanionBundle({required this.failPortrait});
+  final bool failPortrait;
+  final attemptedCompanions = <String>[];
+
+  @override
+  Future<ByteData> load(String key) {
+    if (key == CanonicalCompanionArt.magpieStanding ||
+        key == CanonicalCompanionArt.magpiePortrait) {
+      attemptedCompanions.add(key);
+      if (key == CanonicalCompanionArt.magpieStanding || failPortrait) {
+        return Future.error(StateError('Missing test companion asset: $key'));
+      }
+    }
+    return rootBundle.load(key);
+  }
 }
 
 class _MemoryJourneyRepository implements OnboardingJourneyRepository {

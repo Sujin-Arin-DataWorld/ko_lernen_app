@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'tokens.dart';
 
-/// Keeps unfinished Hanok/Gye visuals behind the static preview notice.
-/// Personal Hanok routes use the approved V3 preview; retired V1 maps are
-/// no longer a fallback when this flag changes.
-const bool kHanokWorldUpdating = true;
+/// R16 raster references are connected; existing personal and group progress
+/// still owns their corresponding views. Retired V1 maps remain unavailable.
+const bool kHanokWorldUpdating = false;
 
 /// **SoriUpdatingScene** — 재작업 중인 시각 자산을 가리는 표준 베일.
 ///

@@ -77,7 +77,10 @@ void main() {
               .evaluate()
               .map((e) => tester.getRect(find.byWidget(e.widget)).bottom)
               .reduce((a, b) => a > b ? a : b);
-          final scrollable = find.byType(Scrollable).first;
+          final scrollable = find.descendant(
+            of: find.byType(CustomScrollView),
+            matching: find.byType(Scrollable),
+          );
           final bottom =
               tester.getTopLeft(scrollable).dy +
               scroll.position.viewportDimension;

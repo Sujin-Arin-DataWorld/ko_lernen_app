@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
@@ -469,13 +470,16 @@ class _IntroGateScreenState extends State<IntroGateScreen>
       child: Transform.rotate(
         angle: -0.25 + flap * 0.28,
         child: Image.asset(
-          flap > 0.5
-              ? 'assets/illustrations/mascot/magpie_wingup.png'
-              : 'assets/illustrations/mascot/magpie_wingdown.png',
+          CanonicalCompanionArt.magpieStanding,
           fit: BoxFit.contain,
           filterQuality: FilterQuality.medium,
-          errorBuilder: (_, __, ___) =>
-              CustomPaint(painter: _MagpiePainter(flap: flap)),
+          errorBuilder: (_, __, ___) => Image.asset(
+            CanonicalCompanionArt.magpiePortrait,
+            fit: BoxFit.contain,
+            filterQuality: FilterQuality.medium,
+            excludeFromSemantics: true,
+            errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+          ),
         ),
       ),
     );
@@ -813,89 +817,4 @@ class _Vignette extends StatelessWidget {
       ),
     );
   }
-}
-
-// ════════════════════════════════════════════════════════════════════════
-// 까치 — 갓 쓴 작은 까치 실루엣 (날갯짓, PNG 로드 실패 시 fallback)
-// ════════════════════════════════════════════════════════════════════════
-class _MagpiePainter extends CustomPainter {
-  final double flap;
-  _MagpiePainter({required this.flap});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final w = size.width;
-    final h = size.height;
-    final black = Paint()..color = SoriColors.darkBg;
-
-    // 꼬리
-    canvas.drawPath(
-      Path()
-        ..moveTo(w * 0.32, h * 0.54)
-        ..lineTo(w * 0.04, h * 0.44)
-        ..lineTo(w * 0.10, h * 0.68)
-        ..close(),
-      black,
-    );
-
-    // 날개 (flap)
-    canvas.save();
-    canvas.translate(w * 0.46, h * 0.50);
-    canvas.rotate(-0.4 - flap * 1.0);
-    canvas.drawOval(
-      Rect.fromCenter(
-        center: Offset(0, -h * 0.13),
-        width: w * 0.28,
-        height: h * 0.34,
-      ),
-      black,
-    );
-    canvas.restore();
-
-    // 몸통
-    canvas.drawOval(
-      Rect.fromCenter(
-        center: Offset(w * 0.52, h * 0.58),
-        width: w * 0.42,
-        height: h * 0.34,
-      ),
-      black,
-    );
-    // 흰 배
-    canvas.drawOval(
-      Rect.fromCenter(
-        center: Offset(w * 0.54, h * 0.62),
-        width: w * 0.20,
-        height: h * 0.17,
-      ),
-      Paint()..color = SoriColors.lightBg,
-    );
-    // 머리
-    canvas.drawCircle(Offset(w * 0.67, h * 0.44), w * 0.13, black);
-    // 갓 — 챙 + 모자
-    canvas.drawLine(
-      Offset(w * 0.54, h * 0.33),
-      Offset(w * 0.82, h * 0.33),
-      Paint()
-        ..color = SoriColors.darkBg
-        ..strokeWidth = w * 0.05
-        ..strokeCap = StrokeCap.round,
-    );
-    canvas.drawRect(
-      Rect.fromLTRB(w * 0.61, h * 0.20, w * 0.74, h * 0.33),
-      black,
-    );
-    // 부리
-    canvas.drawPath(
-      Path()
-        ..moveTo(w * 0.79, h * 0.43)
-        ..lineTo(w * 0.93, h * 0.46)
-        ..lineTo(w * 0.79, h * 0.49)
-        ..close(),
-      Paint()..color = HanokColors.hwang,
-    );
-  }
-
-  @override
-  bool shouldRepaint(_MagpiePainter old) => old.flap != flap;
 }

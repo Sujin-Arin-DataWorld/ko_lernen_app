@@ -174,8 +174,8 @@ void main() {
 
       expect(find.byType(QuizChoice), findsWidgets);
       expect(find.byType(SoriHomeAction), findsOneWidget);
-      // §B2(2026-09-03): the frame-owned close icon is close_rounded.
-      expect(find.byIcon(Icons.close_rounded), findsOneWidget);
+      // The approved chevron still belongs to the frame's exit action.
+      expect(find.byIcon(Icons.chevron_left), findsOneWidget);
       expect(
         tester
             .widget<SoriHomeAction>(find.byType(SoriHomeAction))

@@ -118,12 +118,21 @@ class VocabPackService {
   /// 독일어를 쓰고 있었다 (2026-08-18 l10n 스윕). required 로 두면 새 호출부도
   /// 컴파일 단계에서 걸린다.
   static String displayLabel(String packId, {required String lang}) {
-    final base = _baseId(packId);
+    final base = topicId(packId);
     final pair = packDisplayMap[base];
     if (pair == null) return packId;
     final label = lang == 'en' ? pair.$2 : pair.$1;
     final sub = _subIndex(packId);
     return sub == null ? label : '$label ($sub)';
+  }
+
+  static String topicLabel(String packId, {required String lang}) {
+    final id = topicId(packId);
+    final label = packDisplayMap[id];
+    if (label == null) {
+      return displayLabel(packId, lang: lang);
+    }
+    return lang == 'en' ? label.$2 : label.$1;
   }
 
   /// 캐시 무효화 (테스트 / 핫리로드 후).
@@ -137,8 +146,8 @@ class VocabPackService {
   static int _packComparator(VocabPack a, VocabPack b) {
     final lvlCmp = a.level.compareTo(b.level);
     if (lvlCmp != 0) return lvlCmp;
-    final aBase = _baseId(a.id);
-    final bBase = _baseId(b.id);
+    final aBase = topicId(a.id);
+    final bBase = topicId(b.id);
     final aOrd = packOrderInLevel[aBase] ?? 99;
     final bOrd = packOrderInLevel[bBase] ?? 99;
     if (aOrd != bOrd) return aOrd.compareTo(bOrd);
@@ -147,7 +156,8 @@ class VocabPackService {
     return aSub.compareTo(bSub);
   }
 
-  static String _baseId(String packId) {
+  /// Stable topic identity shared by numbered packs.
+  static String topicId(String packId) {
     final parts = packId.split('_');
     if (parts.isNotEmpty && int.tryParse(parts.last) != null) {
       return parts.sublist(0, parts.length - 1).join('_');

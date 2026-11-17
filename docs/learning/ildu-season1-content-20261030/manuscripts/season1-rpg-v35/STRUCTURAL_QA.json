@@ -1,0 +1,188 @@
+{
+  "status": "MODEL_STRUCTURAL_QA_PASS",
+  "checks": [
+    {
+      "name": "100 unique units match exact source IDs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "original titles and can-dos preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "16 bands and99required1optional",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all100 have story action/consequence/hook",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all100 NPC trilingual",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no newclue in100",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "11 buildings128uniqueprocessId",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact process labels sequences buildings legacyarrays",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "4act36/35/31/26",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "33basic hooks",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all128 distinct authored microbeats",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all128 NPC trilingual",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no newclue in128",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no early Yeoni name in NPC KO EN DE",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "LQ05midgate noE04grant",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "two canon answers and homecoming preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "canonAP1andcookievariant distinguished",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "six timeline shots",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "canon SHA unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "R16contract SHA unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "entrypoint local links resolve",
+      "passed": true,
+      "detail": [
+        [
+          "README.md",
+          "STORY_MANAGER_GUIDE.md",
+          true
+        ],
+        [
+          "README.md",
+          "../a1-1-v35/README.md",
+          true
+        ],
+        [
+          "README.md",
+          "LEVEL_STORY_100.md",
+          true
+        ],
+        [
+          "README.md",
+          "STAGE_STORY_128.md",
+          true
+        ],
+        [
+          "README.md",
+          "EPILOGUES_10S.md",
+          true
+        ],
+        [
+          "README.md",
+          "LEVEL_STORY_100.json",
+          true
+        ],
+        [
+          "README.md",
+          "STAGE_STORY_128.json",
+          true
+        ],
+        [
+          "README.md",
+          "EPILOGUE_TIMELINE.csv",
+          true
+        ],
+        [
+          "README.md",
+          "QA_REVIEW.md",
+          true
+        ],
+        [
+          "README.md",
+          "STRUCTURAL_QA.json",
+          true
+        ],
+        [
+          "README.md",
+          "../a1-1-v35/A11_INDEPENDENT_REVIEW.md",
+          true
+        ],
+        [
+          "README.md",
+          "EPILOGUE_QA.md",
+          true
+        ],
+        [
+          "STORY_MANAGER_GUIDE.md",
+          "EPILOGUES_10S.md",
+          true
+        ]
+      ]
+    }
+  ],
+  "counts": {
+    "units": 100,
+    "buildings": 11,
+    "stages": 128,
+    "basicHooks": 33,
+    "epilogueShots": 6
+  },
+  "limits": [
+    "structural identity and manuscript checks, not native speaker or teacher approval",
+    "actual audio timing and render unverified",
+    "runtime construction policy and evidence/persistence unmodified"
+  ]
+}

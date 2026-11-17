@@ -18,6 +18,13 @@ import 'tokens.dart';
 ///   바텀시트로 프리셋 행을 연다. 헤더가 좁은 학습 화면용.
 enum TtsSpeedControlMode { row, compact }
 
+typedef TtsSpeedCompactBuilder =
+    Widget Function(
+      BuildContext context,
+      String label,
+      VoidCallback openPresetSheet,
+    );
+
 /// `AppBar.actions` 슬롯용 compact 칩 래퍼 — 음성이 나오는 화면들의 표준 배치.
 class TtsSpeedAction extends StatelessWidget {
   const TtsSpeedAction({super.key});
@@ -41,11 +48,15 @@ class TtsSpeedControl extends StatelessWidget {
   /// 값 변경 직후 호출 (설정 화면의 '안녕하세요' 미리듣기 등).
   final ValueChanged<double>? onChanged;
 
+  /// Optional compact artwork. Speed state and the preset sheet stay here.
+  final TtsSpeedCompactBuilder? compactBuilder;
+
   const TtsSpeedControl({
     super.key,
     this.mode = TtsSpeedControlMode.compact,
     this.minInteractiveHeight = 44,
     this.onChanged,
+    this.compactBuilder,
   }) : assert(minInteractiveHeight >= 44);
 
   @override
@@ -109,44 +120,50 @@ class TtsSpeedControl extends StatelessWidget {
 
   Widget _buildCompact(BuildContext context, double speed) {
     final t = AppL10n.of(context);
+    void openPresetSheet() {
+      // ignore: discarded_futures
+      showSoriSheet<void>(
+        context: context,
+        builder: (ctx) => Padding(
+          padding: const EdgeInsets.fromLTRB(
+            Spacing.lg,
+            Spacing.sm,
+            Spacing.lg,
+            Spacing.lg,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                AppL10n.of(ctx).ttsSpeedSheetTitle,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              const SizedBox(height: Spacing.md),
+              TtsSpeedControl(
+                mode: TtsSpeedControlMode.row,
+                minInteractiveHeight: minInteractiveHeight,
+                onChanged: onChanged,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    final label = t.ttsSpeedChip(_fmt(speed));
+    if (compactBuilder case final builder?) {
+      return builder(context, label, openPresetSheet);
+    }
     return SoriChip(
       icon: Icons.speed_rounded,
-      label: t.ttsSpeedChip(_fmt(speed)),
+      label: label,
       accent: SoriColors.info,
       minInteractiveHeight: minInteractiveHeight,
-      onTap: () {
-        // ignore: discarded_futures
-        showSoriSheet<void>(
-          context: context,
-          builder: (ctx) => Padding(
-            padding: const EdgeInsets.fromLTRB(
-              Spacing.lg,
-              Spacing.sm,
-              Spacing.lg,
-              Spacing.lg,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  AppL10n.of(ctx).ttsSpeedSheetTitle,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                const SizedBox(height: Spacing.md),
-                TtsSpeedControl(
-                  mode: TtsSpeedControlMode.row,
-                  minInteractiveHeight: minInteractiveHeight,
-                  onChanged: onChanged,
-                ),
-              ],
-            ),
-          ),
-        );
-      },
+      onTap: openPresetSheet,
     );
   }
 }

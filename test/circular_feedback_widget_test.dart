@@ -11,6 +11,8 @@ import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/daily_char_sheet.dart';
 import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
+import 'package:ko_lernen_app/models/guide_contract.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_atelier_materials.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/services/content_feedback_service.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
@@ -25,12 +27,13 @@ import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
 import 'package:ko_lernen_app/widgets/trace_canvas.dart';
 
-import 'helpers/deck_actions.dart';
+import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    stubSoriSpeech();
     SharedPreferences.setMockInitialValues({
       'kl_user_level': 'a1',
       'kl_tut_chosung': true,
@@ -39,6 +42,7 @@ void main() {
       'kl_tut_grammar': true,
       'kl_tut_hangul': true,
       'kl_tut_hangulWriteRules': true,
+      'kl_hangul_auto_advance_v1': false,
       // 4방향 덱 코치는 전체 화면 스포트라이트라 탭을 삼킨다. 이 파일은
       // 피드백 수집 계약을 보는 곳이라 코치를 이미 본 사용자로 시작한다.
       'kl_tut_soriDeck': true,
@@ -403,21 +407,27 @@ void main() {
   ) async {
     await _setLargeView(tester);
     await tester.pumpWidget(
-      _wrap(HangulScreen(cardsRandom: _SameIndexRandom())),
+      _wrap(
+        HangulScreen(
+          initialTarget: HangulTarget.cards,
+          cardsRandom: _SameIndexRandom(),
+          textPrefetcher: (_) async {},
+        ),
+      ),
     );
-    tester.widget<TabBar>(find.byType(TabBar)).controller!.index = 1;
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
 
-    // Sori Deck 3.0(2026-08-18): 전폭 버튼 5단이 원형 판정 바 + 44dp 보조
-    // 아이콘 행으로 바뀌었다. Zufällig 는 이제 아이콘 버튼이다.
+    // The native mode sheet retains the same random-source callback.
+    await tester.tap(find.byKey(const Key('hangul-cards-selection')));
+    await tester.pumpAndSettle();
     tester
-        .widget<IconButton>(find.byKey(const Key('hangul-cards-random')))
-        .onPressed!();
+        .widget<CAtelierButton>(find.byKey(const Key('hangul-cards-random')))
+        .onTap!();
     await tester.pump();
 
-    final finish = tester.widget<SoriButton>(
-      find.byKey(const Key('hangul-cards-finish')),
+    final finish = tester.widget<CAtelierButton>(
+      find.byKey(const Key('hangul-finish-cards')),
     );
     expect(finish.onTap, isNull);
   });
@@ -426,25 +436,32 @@ void main() {
     tester,
   ) async {
     await _setLargeView(tester);
-    await tester.pumpWidget(_wrap(const HangulScreen()));
-    tester.widget<TabBar>(find.byType(TabBar)).controller!.index = 1;
+    await tester.pumpWidget(
+      _wrap(
+        HangulScreen(
+          initialTarget: HangulTarget.cards,
+          textPrefetcher: (_) async {},
+        ),
+      ),
+    );
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
 
-    var finish = tester.widget<SoriButton>(
-      find.byKey(const Key('hangul-cards-finish')),
+    var finish = tester.widget<CAtelierButton>(
+      find.byKey(const Key('hangul-finish-cards')),
     );
     expect(finish.onTap, isNull);
     expect(find.byType(ContentFeedbackCard), findsNothing);
 
     await tester.tap(find.byType(FlipCard));
-    await tester.pump();
-    finish = tester.widget<SoriButton>(
-      find.byKey(const Key('hangul-cards-finish')),
+    // A single tap waits for the native double-tap like window to close.
+    await tester.pump(const Duration(milliseconds: 350));
+    finish = tester.widget<CAtelierButton>(
+      find.byKey(const Key('hangul-finish-cards')),
     );
     expect(finish.onTap, isNotNull);
 
-    await tester.tap(find.byKey(const Key('hangul-cards-finish')));
+    await tester.tap(find.byKey(const Key('hangul-finish-cards')));
     await tester.pump(const Duration(milliseconds: 500));
     final card = tester.widget<ContentFeedbackCard>(
       find.byType(ContentFeedbackCard),
@@ -454,20 +471,31 @@ void main() {
 
     final firstCompletionId = card.feedbackContext.completionId;
     await _closeFeedbackResult(tester);
-    finish = tester.widget<SoriButton>(
-      find.byKey(const Key('hangul-cards-finish')),
+    finish = tester.widget<CAtelierButton>(
+      find.byKey(const Key('hangul-finish-cards')),
     );
     expect(finish.onTap, isNull);
     expect(find.byType(ContentFeedbackCard), findsNothing);
 
     // 'Weiter' 전폭 버튼은 덱 바의 ↓(넘어가기)로 흡수됐다 — 같은 `_next`.
-    tapDeckAction(tester, 'Skip');
+    tester
+        .widget<CAtelierButton>(
+          find.byWidgetPredicate(
+            (w) =>
+                w is CAtelierButton &&
+                w.label ==
+                    AppL10n.of(
+                      tester.element(find.byType(HangulScreen)),
+                    ).atelierSkip,
+          ),
+        )
+        .onTap!();
     await tester.pump();
-    finish = tester.widget<SoriButton>(
-      find.byKey(const Key('hangul-cards-finish')),
+    finish = tester.widget<CAtelierButton>(
+      find.byKey(const Key('hangul-finish-cards')),
     );
     expect(finish.onTap, isNotNull);
-    await tester.tap(find.byKey(const Key('hangul-cards-finish')));
+    await tester.tap(find.byKey(const Key('hangul-finish-cards')));
     await tester.pump(const Duration(milliseconds: 500));
     final secondCard = tester.widget<ContentFeedbackCard>(
       find.byType(ContentFeedbackCard),
@@ -483,27 +511,31 @@ void main() {
     tester,
   ) async {
     await _setLargeView(tester);
-    await tester.pumpWidget(_wrap(const HangulScreen()));
-    tester.widget<TabBar>(find.byType(TabBar)).controller!.index = 2;
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 500));
+    await tester.pumpWidget(
+      _wrap(
+        HangulScreen(
+          initialTarget: HangulTarget.write,
+          textPrefetcher: (_) async {},
+        ),
+      ),
+    );
+    // The finite native stroke demonstration finishes before input begins.
+    await tester.pumpAndSettle();
 
-    // 2026-08-18: Finish 는 글자를 정확히 완성하기 전엔 **아예 렌더되지
-    // 않는다**(비활성 자리만 차지하던 죽은 공간을 없애 캔버스에 세로 공간을
-    // 넘겼다). 그래서 "비활성" 이 아니라 "부재" 를 단언한다.
-    expect(_hangulFinish, findsNothing);
+    // The approved material button stays present and disabled until real work.
+    expect(tester.widget<CAtelierButton>(_hangulFinish).onTap, isNull);
     expect(find.byType(ContentFeedbackCard), findsNothing);
 
     // 아무 낙서로는 열리지 않는다.
     await _scribbleHangul(tester);
-    expect(_hangulFinish, findsNothing);
+    expect(tester.widget<CAtelierButton>(_hangulFinish).onTap, isNull);
 
     await _traceHangulLetter(tester, 'ㄱ');
 
     expect(_hangulFinish, findsOneWidget);
-    expect(tester.widget<SoriButton>(_hangulFinish).onTap, isNotNull);
+    expect(tester.widget<CAtelierButton>(_hangulFinish).onTap, isNotNull);
 
-    await tester.tap(find.byKey(const Key('hangul-writing-finish')));
+    await tester.tap(find.byKey(const Key('hangul-finish-writing')));
     await tester.pump(const Duration(milliseconds: 500));
     final card = tester.widget<ContentFeedbackCard>(
       find.byType(ContentFeedbackCard),
@@ -517,12 +549,12 @@ void main() {
 
     final firstCompletionId = card.feedbackContext.completionId;
     await _closeFeedbackResult(tester);
-    expect(_hangulFinish, findsNothing);
+    expect(tester.widget<CAtelierButton>(_hangulFinish).onTap, isNull);
     expect(find.byType(ContentFeedbackCard), findsNothing);
 
     await _traceHangulLetter(tester, 'ㄱ');
     expect(_hangulFinish, findsOneWidget);
-    await tester.tap(find.byKey(const Key('hangul-writing-finish')));
+    await tester.tap(find.byKey(const Key('hangul-finish-writing')));
     await tester.pump(const Duration(milliseconds: 500));
     final secondCard = tester.widget<ContentFeedbackCard>(
       find.byType(ContentFeedbackCard),
@@ -531,22 +563,23 @@ void main() {
   });
 }
 
-final Finder _hangulFinish = find.byKey(const Key('hangul-writing-finish'));
+final Finder _hangulFinish = find.byKey(const Key('hangul-finish-writing'));
 
 Future<void> _closeFeedbackResult(WidgetTester tester) async {
-  tester
-      .widget<SoriButton>(
-        find.byWidgetPredicate(
-          (widget) => widget is SoriButton && widget.label == 'Close',
-        ),
-      )
-      .onTap!();
+  final close = find.byKey(const Key('hangul-completion-close'));
+  expect(close, findsOneWidget);
+  expect(tester.widget<CAtelierButton>(close).onTap, isNotNull);
+  expect(tester.getSize(close).height, greaterThanOrEqualTo(48));
+  await tester.ensureVisible(close);
   await tester.pumpAndSettle();
+  await tester.tap(close);
+  await tester.pumpAndSettle();
+  expect(find.byKey(const Key('hangul-completion-receipt')), findsNothing);
 }
 
 /// 획순과 상관없는 낙서 — 판정에서 떨어져야 한다.
 Future<void> _scribbleHangul(WidgetTester tester) async {
-  final canvas = find.byKey(const Key('hangul-practice-canvas'));
+  final canvas = find.byKey(const Key('trace-canvas'));
   await tester.ensureVisible(canvas);
   await tester.pump();
   final bounds = tester.getRect(canvas);
@@ -560,14 +593,13 @@ Future<void> _scribbleHangul(WidgetTester tester) async {
 
 /// [letter] 의 기준 획을 순서대로, 실제 좌표로 따라 그린다.
 Future<void> _traceHangulLetter(WidgetTester tester, String letter) async {
-  final canvas = find.byKey(const Key('hangul-practice-canvas'));
+  final canvas = find.byKey(const Key('trace-canvas'));
   await tester.ensureVisible(canvas);
   await tester.pump();
   final bounds = tester.getRect(canvas);
-  final scaleX = bounds.width / strokeCanvas.width;
-  final scaleY = bounds.height / strokeCanvas.height;
-  Offset at(Offset p) =>
-      Offset(bounds.left + p.dx * scaleX, bounds.top + p.dy * scaleY);
+  final scale = bounds.shortestSide / 220;
+  final origin = bounds.center - Offset(110 * scale, 110 * scale);
+  Offset at(Offset p) => origin + p * scale;
 
   for (final stroke in hangulStrokes[letter]!) {
     final points = switch (stroke) {

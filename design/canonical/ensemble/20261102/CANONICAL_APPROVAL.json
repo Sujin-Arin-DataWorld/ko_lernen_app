@@ -1,0 +1,15 @@
+{
+  "status": "USER_APPROVED_CHARACTER_DESIGN_CANON",
+  "approval": {
+    "date_berlin": "2026-11-02",
+    "quote": "수진은 이걸로 확정하고 다른 캐릭터들 이미지,제작치수 제안 전부 정본으로 올리고 커밋",
+    "scope": "Current corrected character references and all proposed production dimensions/scales. Known rejected three-wing/short-wing exploration and drifting mockup characters are excluded.",
+    "individual_generated_pose_can_still_fail_geometry_or_identity_qa": true
+  },
+  "user_sujin_attachment_sha256": "2f9e367ef657ae82abe3ed0eefdd234cc997c6cdf281c416dbc6103c6d972c33",
+  "profile_sha256": "a96860295a1fc161c3028524faa38eab0103a3d7fcb1253ae633bc597c2c7701",
+  "images": 27,
+  "runtime_integrated": false,
+  "pixel_scale_measured": false,
+  "newly_generated_mockup_count": 0
+}

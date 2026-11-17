@@ -1,0 +1,322 @@
+{
+  "schema": "independent-static-story-final-recheck-v1",
+  "recorded_utc": "2026-11-08T16:42:38.232816+00:00",
+  "reviewer": "/root/story_completion_review_v2",
+  "verdict": "PASS_15_STATIC_STORY_STATES_ONLY",
+  "new_state_image_count": 14,
+  "existing_r22_count": 1,
+  "total_state_image_count": 15,
+  "source_recheck": {
+    "canon": {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-integration-20261102/docs/learning/ildu-season1-content-20261030/reference/STORY_V3_5.md",
+      "expected_sha256": "24ec73c1051da05702aac1d0257339cb10059d6cc4ea05cb5c7fb585deb64bcb",
+      "actual_sha256": "24ec73c1051da05702aac1d0257339cb10059d6cc4ea05cb5c7fb585deb64bcb",
+      "match": true
+    },
+    "first_book": {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-integration-20261102/docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/01_FIRST_SOUND.md",
+      "expected_sha256": "961bc75ab7241e89792f6ed260d7a7c55e17b07d5f6b56ce1502fddf32fe5f02",
+      "actual_sha256": "961bc75ab7241e89792f6ed260d7a7c55e17b07d5f6b56ce1502fddf32fe5f02",
+      "match": true
+    },
+    "common": {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-integration-20261102/docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/README.md",
+      "expected_sha256": "f39cf6e56e0115e8095e1057a2485ddecade03e384f9ad0119316cbf0bd1aa74",
+      "actual_sha256": "f39cf6e56e0115e8095e1057a2485ddecade03e384f9ad0119316cbf0bd1aa74",
+      "match": true
+    },
+    "storeroom_contract": {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-integration-20261102/docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/README.md",
+      "expected_sha256": "e891b83567da7b36efb3ae86f9218d5a11be27223da78a7f0813f27ddee86782",
+      "actual_sha256": "e891b83567da7b36efb3ae86f9218d5a11be27223da78a7f0813f27ddee86782",
+      "match": true
+    },
+    "storeroom": {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-integration-20261102/docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/07_PHOTO_CARDS_AND_LABELS.md",
+      "expected_sha256": "3c880d1dfed9372866ef4a9768f7a00c0a4c6a5bbf94ef9b738b1af1512923d7",
+      "actual_sha256": "3c880d1dfed9372866ef4a9768f7a00c0a4c6a5bbf94ef9b738b1af1512923d7",
+      "match": true
+    },
+    "gate_contract": {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-integration-20261102/docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/README.md",
+      "expected_sha256": "fea1bd28b3c21a869016d015aacaae3b80c395d129a5c265bec7c5497ac7a22d",
+      "actual_sha256": "fea1bd28b3c21a869016d015aacaae3b80c395d129a5c265bec7c5497ac7a22d",
+      "match": true
+    },
+    "gate": {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-integration-20261102/docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/11_INITIAL_FINAL_NG_MAP.md",
+      "expected_sha256": "10f9d1cf6bd490f6e31d467d4191200e7bfc084e936c9ee4a0e1c701379959c8",
+      "actual_sha256": "10f9d1cf6bd490f6e31d467d4191200e7bfc084e936c9ee4a0e1c701379959c8",
+      "match": true
+    },
+    "note_contract": {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-integration-20261102/docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/README.md",
+      "expected_sha256": "d90d86a5e9e2830c66e62bbb91181926e7837d7048d3fca7ffc5ceb71dbd2f2d",
+      "actual_sha256": "d90d86a5e9e2830c66e62bbb91181926e7837d7048d3fca7ffc5ceb71dbd2f2d",
+      "match": true
+    },
+    "note": {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-integration-20261102/docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/06_FIRST_NOTE_INPUT.md",
+      "expected_sha256": "59ec7e468ccc1af10efef3600c204b0b77072d33c1063cca521a77b3b29e720c",
+      "actual_sha256": "59ec7e468ccc1af10efef3600c204b0b77072d33c1063cca521a77b3b29e720c",
+      "match": true
+    },
+    "gatekeeper": {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-content-integration-20261102/docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/LQ05_GATEKEEPER.md",
+      "expected_sha256": "c4aa900747ff925f54643496f16fb94046b40bd1bddee480b32eb3111df5b104",
+      "actual_sha256": "c4aa900747ff925f54643496f16fb94046b40bd1bddee480b32eb3111df5b104",
+      "match": true
+    },
+    "scope": {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/mockups/ildu-season1/20261104-story-only/SCOPE.md",
+      "expected_sha256": "02bd3ce7102c0ac475f1fc509e3a0dd8cabbee6c8c3ead4cc7cfd10ffe1b1d60",
+      "actual_sha256": "02bd3ce7102c0ac475f1fc509e3a0dd8cabbee6c8c3ead4cc7cfd10ffe1b1d60",
+      "match": true
+    },
+    "final_readme": {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/mockups/ildu-season1/20261104-story-only/final-selection/README.md",
+      "expected_sha256": "538db1700528a4b1732849b1b49f9f94ff39987d0ce192aa5130338b4998809d",
+      "actual_sha256": "97eb8fb3f0c822682399ddf9942f461e09c300870f85465b5f11070743e3f51a",
+      "match": false,
+      "drift_review": "Reviewed live diff from initial HEAD to ba96c866d2e50b07d22b7de23a62f2f812b6c3eb: adds current continuation status and links for 4 selected images; historical November4 text unchanged. No manuscript/story-contract change; this is progress-document drift, not source-copy drift. Snapshot may advance again during parent packaging.",
+      "drift_verdict": "ACCEPTED_PROGRESS_DOCUMENT_CHANGE_NOT_A_STORY_SOURCE_CHANGE"
+    }
+  },
+  "all_source_hashes_match": false,
+  "gitstate": {
+    "design": {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-illustration-spec-20261103",
+      "head": "ba96c866d2e50b07d22b7de23a62f2f812b6c3eb",
+      "status_porcelain": ""
+    },
+    "content": {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-integration-20261102",
+      "head": "e5f77c9440d8d10d74c3ae1780cc0c94897c39d1",
+      "status_porcelain": ""
+    }
+  },
+  "images": [
+    {
+      "image_key": "R21b",
+      "version": "V8",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-9cf5ab89-4dee-4969-bac0-9f8d94826f61.png",
+      "sha256": "b4ce9c4a42a650cf6ff8e63872f7fb901b66e59e83f671290375e8a2a907fd44",
+      "dimensions": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    },
+    {
+      "image_key": "R22",
+      "version": "V4-existing",
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/mockups/ildu-season1/20261104-story-only/final-selection/R22-save-unconfirmed-de.png",
+      "sha256": "841979563167f299c86bc202e65b451b3b520935ff8935f69972fe17ea75f40c",
+      "dimensions": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    },
+    {
+      "image_key": "R23",
+      "version": "V4",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-a57dade5-b7ad-45cd-a072-1c0cdd2883ae.png",
+      "sha256": "862e06705554751acb99c27ecd48b325e2f2e053cf4cdeba125e11e333fe3957",
+      "dimensions": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    },
+    {
+      "image_key": "R24a_request",
+      "version": "V4",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-ccab549a-ecdf-47cd-8ac2-71bc63b18d50.png",
+      "sha256": "592353791c1f68a43e6b9a059181a16da10bb0daf4d33efb441541efb55a0877",
+      "dimensions": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    },
+    {
+      "image_key": "R24b_discovery",
+      "version": "V2",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-6306b6ba-7eb0-4f3b-9572-02887b73ed31.png",
+      "sha256": "cf139e83e1fe9722a5b4d67916236bc37d6f7bab18d35de0c2bdab7eceb17b36",
+      "dimensions": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    },
+    {
+      "image_key": "R25_labels",
+      "version": "V2",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-a04133cd-4425-4e9d-b4c1-7d6632728e9a.png",
+      "sha256": "5e1e2e55db2bc614c4ba63d5b574e2b7e5e921bdfd3d740b75002a8d08b7150f",
+      "dimensions": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    },
+    {
+      "image_key": "R26a_draft_wait",
+      "version": "V2",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-7aa1c9d8-9bca-4613-b3cf-708935382c65.png",
+      "sha256": "7488735ab99e45f95b62af4c744bc12d26b00fac9771632e3e656ead360bf88b",
+      "dimensions": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    },
+    {
+      "image_key": "R26b_lamp",
+      "version": "V7",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-b8c231f4-8bae-4602-a74b-a6050799db22.png",
+      "sha256": "cc6616f5287f813b0a5172b97bf10606238689b100a01cc504fe3294ce2ae5f1",
+      "dimensions": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    },
+    {
+      "image_key": "R26c_write",
+      "version": "V1",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-f5b38c4e-47eb-4475-85ec-a207969afd6b.png",
+      "sha256": "c85e31a090e3977eba884703885c27c235bd7d9e55b252c4a55f6c437690c0ce",
+      "dimensions": [
+        853,
+        1844
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    },
+    {
+      "image_key": "R26d_pending",
+      "version": "V1",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-0bff9f3f-8131-4d91-8da1-032d93072dbc.png",
+      "sha256": "247c684c6dad9ce84a376e0003d61a3f04faf68e700198f04fda213c4b427f73",
+      "dimensions": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    },
+    {
+      "image_key": "R26e_kept",
+      "version": "V1",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-b55492fb-ecbb-45f3-9825-9b72d44d6add.png",
+      "sha256": "549033e86922d0c7484d65e717bf057c2ee24887d339279df881d5da4445e6c5",
+      "dimensions": [
+        853,
+        1844
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    },
+    {
+      "image_key": "R26f_bookmark",
+      "version": "V1",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-a68bb969-2d09-49f4-9196-7035020b59d0.png",
+      "sha256": "800fcbe4dac3d28b6d8081362dcc8c8210030293f1fc6549ed0e7fe351efec39",
+      "dimensions": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    },
+    {
+      "image_key": "R26g_pause",
+      "version": "V1",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-bb3250f3-46b0-423e-97b3-f873c973966a.png",
+      "sha256": "f5f0180fbe0f3463b95f5a5b93fa01e074ab3ca755c4ba4fb6b32e984418b5a8",
+      "dimensions": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    },
+    {
+      "image_key": "R27a_entry",
+      "version": "V1",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-7a2fef7d-3a36-4303-9782-6993548871f7.png",
+      "sha256": "c648a6b8f70559753a9f1a859422d9cc5ae8a2f8805635d0112e8e321f14cf6e",
+      "dimensions": [
+        853,
+        1843
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    },
+    {
+      "image_key": "R27b_step_aside",
+      "version": "V1",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-9c4f4042-a7bd-4635-b70e-6cf654b4052f.png",
+      "sha256": "5c1da8e3f745a2ebf2220079fdd165c26ed2bc735bbf71bc663285a26cbd55a7",
+      "dimensions": [
+        852,
+        1846
+      ],
+      "mode": "RGB",
+      "story_copy_state_postflight": "PASS",
+      "independently_opened": true,
+      "scope": "static_story_only_not_user_approval_runtime_or_character_design"
+    }
+  ],
+  "limitations": [
+    "No all-52-lessons or all-dialogue PNG claim",
+    "Actual runtime save/build/repeat conditions remain prerequisites; images do not execute them",
+    "R26c/e actual853x1844 documented internal1px tolerance; R27b actual852x1846 documented internal0.28percent aspect tolerance",
+    "R24b DE is new faithful localization candidate, not human-approved canon translation",
+    "Character/anatomy/design independent review still controls its own gates",
+    "No user image approval, Flutter/device/accessibility or release proof"
+  ],
+  "full_observation_report": "C:/dev/hangulsori/_codex_artifacts/season1-completion-20261106/review/STORY_RECHECK_20261108.md",
+  "all_ten_manuscript_hashes_match": true,
+  "all_story_scope_hashes_match": true,
+  "scope_limit": "15 representative story states only; not entire Season1 narrative or52lessons or all utterances"
+}

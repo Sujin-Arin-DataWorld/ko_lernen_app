@@ -56,6 +56,42 @@ ContentLink _link(String id, CurriculumContentKind kind) => ContentLink(
 );
 
 void main() {
+  test('resume belongs to the selected mission, not previous completion', () {
+    final link = _link('listen', CurriculumContentKind.vocab);
+    CourseMissionBrief brief(CourseMasterySnapshot snapshot) =>
+        CourseMissionBrief.from(
+          unit: _unit,
+          links: [link],
+          scenarios: const [],
+          isCurrent: true,
+          snapshot: snapshot,
+        );
+    expect(
+      brief(
+        const CourseMasterySnapshot(completedUnitIds: ['earlier-unit']),
+      ).hasStarted,
+      isFalse,
+    );
+    MasteryEvidence attempt(String unitId) => MasteryEvidence(
+      conceptId: 'concept-food',
+      contentKind: link.contentKind,
+      contentId: link.contentId,
+      courseUnitId: unitId,
+      missionContentLinkId: link.id,
+      isCorrect: false,
+      occurredAt: DateTime.utc(2026, 11, 2),
+    );
+    expect(
+      brief(
+        CourseMasterySnapshot(evidence: [attempt('other-unit')]),
+      ).hasStarted,
+      isFalse,
+    );
+    expect(
+      brief(CourseMasterySnapshot(evidence: [attempt(_unit.id)])).hasStarted,
+      isTrue,
+    );
+  });
   test(
     'brief keeps displayed order, time, and first action on one contract',
     () {

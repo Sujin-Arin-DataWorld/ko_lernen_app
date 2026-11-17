@@ -1,0 +1,656 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "unit_id": "A1.2-01",
+  "band": "A1.2",
+  "title": {
+    "ko": "몇 시부터 몇 시까지",
+    "en": "From what time to what time?",
+    "de": "Von wann bis wann?"
+  },
+  "goal": {
+    "ko": "시간·날짜·시작과 끝을 확인한다.",
+    "en": "Check dates, times, and the start and end of a slot.",
+    "de": "Datum, Uhrzeit sowie Beginn und Ende eines Zeitraums klären."
+  },
+  "prerequisites": [
+    "A1.1-01",
+    "A1.1-02"
+  ],
+  "teach_targets": {
+    "vocab": [
+      {
+        "ko": "시",
+        "en": "hour / o’clock",
+        "de": "Uhr / Stunde"
+      },
+      {
+        "ko": "분",
+        "en": "minute",
+        "de": "Minute"
+      },
+      {
+        "ko": "오늘",
+        "en": "today",
+        "de": "heute"
+      },
+      {
+        "ko": "내일",
+        "en": "tomorrow",
+        "de": "morgen"
+      },
+      {
+        "ko": "부터",
+        "en": "from / starting at",
+        "de": "ab / von"
+      },
+      {
+        "ko": "까지",
+        "en": "until",
+        "de": "bis"
+      }
+    ],
+    "grammar": [
+      "에(시간)",
+      "부터",
+      "까지"
+    ]
+  },
+  "non_assessed": [
+    "요일은 확인 문맥에서 지원 어휘로 제공하며 한자 날짜 전체 암기나 실음성 청취는 이 패킷만으로 평가하지 않는다."
+  ],
+  "source": {
+    "contract_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/UNITS.psv",
+    "contract_sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+    "story_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+    "story_sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332",
+    "base_sha": "646c4658e70f594ab234a172679e29122d0f0e66"
+  },
+  "story": {
+    "lq_id": "LQ-06",
+    "building_id": "araechae",
+    "anchor": "아랫채 착공 / 도깨비 공사 시간표. 학습 연결이며 실제 공정 시작·소유·해금을 판정하지 않는다.",
+    "spoiler_guard": "기존 이야기 공개 상태를 따른다. 새 단서·지워진 이름·떠난 이유·미래 진실을 공개하지 않는다. 미공개 시 고택 대사를 건너뛰고 정본 인물의 현대 생활 모의 과제로 같은 목표를 연습한다. R/T는 이야기 잠금 없이 이용하는 별도 연습이다."
+  },
+  "dialogue": [
+    {
+      "id": "A1.2-01-D01",
+      "speaker": "dokkaebi",
+      "phase": "entry",
+      "ko": "해 뜨기 전에 만나면 어떠냐?",
+      "en": "How about meeting before sunrise?",
+      "de": "Wie wäre es mit einem Treffen vor Sonnenaufgang?"
+    },
+    {
+      "id": "A1.2-01-D02",
+      "speaker": "sujin",
+      "phase": "request",
+      "ko": "저는 그 시간에 못 와요. 몇 시부터 몇 시까지예요?",
+      "en": "I can’t come at that time. What time does it start and finish?",
+      "de": "Zu der Zeit kann ich nicht kommen. Von wann bis wann geht es?"
+    },
+    {
+      "id": "A1.2-01-D03",
+      "speaker": "dokkaebi",
+      "phase": "model",
+      "ko": "내일 다섯 시부터 여섯 시까지다.",
+      "en": "Tomorrow, from five to six.",
+      "de": "Morgen von fünf bis sechs Uhr."
+    },
+    {
+      "id": "A1.2-01-D04",
+      "speaker": "sujin",
+      "phase": "model",
+      "ko": "저는 내일 세 시부터 네 시까지 가능해요.",
+      "en": "I’m available tomorrow from three to four.",
+      "de": "Ich habe morgen von drei bis vier Uhr Zeit."
+    },
+    {
+      "id": "A1.2-01-D05",
+      "speaker": "player",
+      "phase": "practice",
+      "ko": "세 시부터예요? 다시 말해 주세요.",
+      "en": "From three? Please say it again.",
+      "de": "Ab drei Uhr? Bitte sag es noch einmal."
+    },
+    {
+      "id": "A1.2-01-D06",
+      "speaker": "sujin",
+      "phase": "result",
+      "ko": "네, 세 시에 만나고 네 시까지예요.",
+      "en": "Yes. We meet at three and finish at four.",
+      "de": "Ja. Wir treffen uns um drei und sind um vier fertig."
+    },
+    {
+      "id": "A1.2-01-D07",
+      "speaker": "dokkaebi",
+      "phase": "return",
+      "ko": "그럼 이 두 시간 카드를 나란히 놓자.",
+      "en": "Then let’s put these two time cards side by side.",
+      "de": "Dann legen wir diese beiden Zeitkarten nebeneinander."
+    },
+    {
+      "id": "A1.2-01-D08",
+      "speaker": "sujin",
+      "phase": "next",
+      "ko": "시간은 확인했어요. 이제 만날 장소를 물어봐요.",
+      "en": "We’ve checked the time. Now let’s ask where to meet.",
+      "de": "Die Zeit ist geklärt. Jetzt fragen wir nach dem Treffpunkt."
+    }
+  ],
+  "items": [
+    {
+      "id": "A1.2-01-P01",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "시와 분의 서로 다른 수 읽기",
+      "prompt": {
+        "ko": "시계 읽기 시범을 보고 3:15를 골라요.",
+        "en": "Use the clock-reading example to choose 3:15.",
+        "de": "Wähle nach dem Beispiel die Uhrzeit 3:15."
+      },
+      "material": {
+        "situation": {
+          "ko": "시범: 2:10 → 두 시 십 분. 시는 한·두·세…, 분은 일·이·삼…을 써요.",
+          "en": "Example: 2:10 → 두 시 십 분. Hours use 한, 두, 세…; minutes use 일, 이, 삼….",
+          "de": "Beispiel: 2:10 → 두 시 십 분. Für Stunden stehen 한, 두, 세…; für Minuten 일, 이, 삼…."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "삼 시 십오 분",
+          "en": "three fifteen",
+          "de": "drei Uhr fünfzehn"
+        },
+        {
+          "id": "2",
+          "ko": "세 시 오십 분",
+          "en": "three fifty",
+          "de": "drei Uhr fünfzig"
+        },
+        {
+          "id": "3",
+          "ko": "세 시 십오 분",
+          "en": "three fifteen",
+          "de": "drei Uhr fünfzehn"
+        }
+      ],
+      "accepted_answers": [
+        "3"
+      ],
+      "feedback_correct": {
+        "ko": "시 3은 세 시, 분 15는 십오 분이에요.",
+        "en": "Hour 3 is 세 시; minute 15 is 십오 분.",
+        "de": "Die Stunde 3 heißt 세 시, die Minute 15 십오 분."
+      },
+      "feedback_wrong": {
+        "ko": "시와 분을 따로 봐요. 삼 시가 아니라 세 시예요. 십오는 15, 오십은 50이에요.",
+        "en": "Check hours and minutes separately: 세 시, not 삼 시. 십오 is 15; 오십 is 50.",
+        "de": "Prüfe Stunden und Minuten getrennt: 세 시 statt 삼 시. 십오 ist 15, 오십 ist 50."
+      },
+      "help": {
+        "ko": "두 시 → 세 시. 십 분 → 십오 분. 두 숫자를 따로 읽고 붙여 보세요.",
+        "en": "Move from 두 시 to 세 시, and 십 분 to 십오 분, then combine them.",
+        "de": "Lies erst 두 시 → 세 시 und 십 분 → 십오 분. Setze beides dann zusammen."
+      },
+      "scoring": "structured",
+      "evidence_limit": "시범 뒤 시각 표기 인식. 자발적 듣기·말하기 증거 아님."
+    },
+    {
+      "id": "A1.2-01-P02",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "부터·까지로 시작과 끝 구분",
+      "prompt": {
+        "ko": "수진이 가능한 시간을 말한 문장을 골라요.",
+        "en": "Choose the sentence giving Sujin’s available time.",
+        "de": "Wähle den Satz zu Sujins verfügbarer Zeit."
+      },
+      "material": {
+        "situation": {
+          "ko": "수진의 내일 일정: 가능 15:00–16:00. 시범: 14:00–15:00 → 두 시부터 세 시까지예요.",
+          "en": "Sujin is available tomorrow from 15:00 to 16:00. Example: 14:00–15:00 → 두 시부터 세 시까지예요.",
+          "de": "Sujin hat morgen von 15:00 bis 16:00 Uhr Zeit. Beispiel: 14:00–15:00 → 두 시부터 세 시까지예요."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "오늘 세 시부터 네 시까지예요.",
+          "en": "Today, from three to four.",
+          "de": "Heute von drei bis vier Uhr."
+        },
+        {
+          "id": "2",
+          "ko": "내일 세 시부터 네 시까지예요.",
+          "en": "Tomorrow, from three to four.",
+          "de": "Morgen von drei bis vier Uhr."
+        },
+        {
+          "id": "3",
+          "ko": "내일 네 시부터 세 시까지예요.",
+          "en": "Tomorrow, from four to three.",
+          "de": "Morgen von vier bis drei Uhr."
+        }
+      ],
+      "accepted_answers": [
+        "2"
+      ],
+      "feedback_correct": {
+        "ko": "내일과 시작 3시, 끝 4시가 모두 맞아요.",
+        "en": "The day, start at three, and end at four all match.",
+        "de": "Tag, Beginn um drei und Ende um vier stimmen."
+      },
+      "feedback_wrong": {
+        "ko": "날짜를 먼저 보고 시작에는 부터, 끝에는 까지를 붙여요.",
+        "en": "Check the day, then attach 부터 to the start and 까지 to the end.",
+        "de": "Prüfe zuerst den Tag. 부터 steht am Beginn, 까지 am Ende."
+      },
+      "help": {
+        "ko": "내일 / 세 시부터 / 네 시까지예요 순서로 확인해요.",
+        "en": "Check these parts: 내일 / 세 시부터 / 네 시까지예요.",
+        "de": "Prüfe die Teile 내일 / 세 시부터 / 네 시까지예요."
+      },
+      "scoring": "structured",
+      "evidence_limit": "공개 시범을 이용한 범위 문장 선택."
+    },
+    {
+      "id": "A1.2-01-P03",
+      "mode": "P",
+      "kind": "short",
+      "objective": "만남 한 시점에 에 쓰기",
+      "prompt": {
+        "ko": "빈칸에 조사 한 글자를 써요: 네 시 __ 만나요.",
+        "en": "Fill the gap with one particle: 네 시 __ 만나요.",
+        "de": "Ergänze eine Partikel: 네 시 __ 만나요."
+      },
+      "material": {
+        "situation": {
+          "ko": "만남 16:00. 시범: 세 시에 만나요. 범위가 아니라 한 시각이에요.",
+          "en": "Meeting: 16:00. Example: 세 시에 만나요. This is one time, not a range.",
+          "de": "Treffen: 16:00 Uhr. Beispiel: 세 시에 만나요. Gemeint ist eine Uhrzeit, kein Zeitraum."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Form mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "에"
+      ],
+      "feedback_correct": {
+        "ko": "한 만남 시각에 에를 붙였어요.",
+        "en": "You used 에 for a specific meeting time.",
+        "de": "Du hast 에 für einen festen Treffzeitpunkt eingesetzt."
+      },
+      "feedback_wrong": {
+        "ko": "부터·까지는 범위예요. 여기서는 한 시각 뒤에 에를 써요.",
+        "en": "부터 and 까지 mark a range. Use 에 after this one time.",
+        "de": "부터 und 까지 bilden einen Zeitraum. Hinter dieser einzelnen Uhrzeit steht 에."
+      },
+      "help": {
+        "ko": "네 시 + 에 → 네 시에.",
+        "en": "네 시 + 에 → 네 시에.",
+        "de": "네 시 + 에 → 네 시에."
+      },
+      "scoring": "structured",
+      "evidence_limit": "조사 한 글자의 제한된 형태 회상."
+    },
+    {
+      "id": "A1.2-01-I01",
+      "mode": "I",
+      "kind": "short",
+      "objective": "새 일정의 시작·끝 산출",
+      "prompt": {
+        "ko": "수진의 내일 가능한 시간을 한 문장으로 써요. 시간은 한글로 쓰고 까지예요로 마쳐요.",
+        "en": "Write one sentence giving Sujin’s available time tomorrow. Spell out the times in Korean and finish with 까지예요.",
+        "de": "Schreibe in einem Satz, wann Sujin morgen Zeit hat. Schreibe die Uhrzeiten auf Koreanisch aus und ende mit 까지예요."
+      },
+      "material": {
+        "situation": {
+          "ko": "내일: 가능 14:10–15:20. 다른 일정: 13:00–14:00.",
+          "en": "Tomorrow: available 14:10–15:20. Another appointment: 13:00–14:00.",
+          "de": "Morgen: Zeit von 14:10 bis 15:20 Uhr. Anderer Termin: 13:00–14:00 Uhr."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 문장 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form sentence practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Satzform mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "내일 두 시 십 분부터 세 시 이십 분까지예요.",
+        "내일 두 시 십 분부터 세 시 이십 분까지예요",
+        "두 시 십 분부터 세 시 이십 분까지예요.",
+        "두 시 십 분부터 세 시 이십 분까지예요"
+      ],
+      "feedback_correct": {
+        "ko": "가능한 구간의 시작과 끝을 정확히 말했어요.",
+        "en": "You gave the available start and end times accurately.",
+        "de": "Du hast Beginn und Ende der freien Zeit richtig angegeben."
+      },
+      "feedback_wrong": {
+        "ko": "가능 칸은 14:10–15:20이에요. 두 시 십 분과 세 시 이십 분을 부터·까지로 이어요.",
+        "en": "The available slot is 14:10–15:20. Link 두 시 십 분 and 세 시 이십 분 with 부터 and 까지.",
+        "de": "Frei ist 14:10–15:20 Uhr. Verbinde 두 시 십 분 und 세 시 이십 분 mit 부터 und 까지."
+      },
+      "help": {
+        "ko": "시와 분을 따로 읽은 뒤 시작에는 부터, 끝에는 까지예요를 붙여요.",
+        "en": "Read hours and minutes separately; mark the start with 부터 and the end with 까지예요.",
+        "de": "Lies Stunden und Minuten getrennt. Markiere den Beginn mit 부터 und das Ende mit 까지예요."
+      },
+      "scoring": "structured",
+      "evidence_limit": "모형 없는 제한 문장 입력. 선언한 표면형만 비교하며 다른 자연스러운 답의 의미 채점은 하지 않음. 도움을 열면 독립 증거 제외."
+    },
+    {
+      "id": "A1.2-01-I02",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "불확실한 숫자를 재요청",
+      "prompt": {
+        "ko": "시작 시각을 놓쳤어요. 추측하지 않고 다시 묻는 답을 골라요.",
+        "en": "You missed the start time. Choose a reply that asks again rather than guessing.",
+        "de": "Du hast die Anfangszeit nicht verstanden. Wähle eine Rückfrage."
+      },
+      "material": {
+        "situation": {
+          "ko": "도깨비의 시간 설명에서 끝 16:00만 확인했어요. 시작은 들리지 않았어요.",
+          "en": "You caught only the end time, 16:00, in Dokkaebi’s explanation. You missed the start.",
+          "de": "Von Dokkaebis Erklärung hast du nur das Ende um 16:00 Uhr verstanden. Der Beginn ist unklar."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "오늘은 안 만나요.",
+          "en": "We aren’t meeting today.",
+          "de": "Heute treffen wir uns nicht."
+        },
+        {
+          "id": "2",
+          "ko": "몇 시부터예요? 다시 말해 주세요.",
+          "en": "What time does it start? Please say it again.",
+          "de": "Ab wie viel Uhr? Bitte sag es noch einmal."
+        },
+        {
+          "id": "3",
+          "ko": "네 시까지예요. 알겠어요.",
+          "en": "Until four. I understand.",
+          "de": "Bis vier Uhr. Verstanden."
+        }
+      ],
+      "accepted_answers": [
+        "2"
+      ],
+      "feedback_correct": {
+        "ko": "모르는 시작 시각을 정확히 다시 물었어요.",
+        "en": "You asked specifically for the missing start time.",
+        "de": "Du hast gezielt nach der fehlenden Anfangszeit gefragt."
+      },
+      "feedback_wrong": {
+        "ko": "끝 시각은 알아요. 필요한 정보는 시작이므로 몇 시부터인지 물어요.",
+        "en": "You know the end. Ask 몇 시부터 for the missing start.",
+        "de": "Das Ende kennst du. Frage mit 몇 시부터 nach dem Beginn."
+      },
+      "help": {
+        "ko": "몇 시부터예요?는 시작을 묻고, 다시 말해 주세요는 반복을 부탁해요.",
+        "en": "몇 시부터예요? asks for the start; 다시 말해 주세요 requests repetition.",
+        "de": "몇 시부터예요? fragt nach dem Beginn; 다시 말해 주세요 bittet um Wiederholung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "재요청 화행 인식. 실제 음성 이해나 숫자 청취 성공 주장 아님."
+    },
+    {
+      "id": "A1.2-01-I03",
+      "mode": "I",
+      "kind": "short",
+      "objective": "에와 새 만남 시각",
+      "prompt": {
+        "ko": "오늘 만나는 시각을 한 문장으로 써요. 한글 숫자를 써요.",
+        "en": "Write one sentence giving today’s meeting time. Use Korean number words.",
+        "de": "Schreibe den Treffzeitpunkt für heute in einem Satz mit koreanischen Zahlwörtern."
+      },
+      "material": {
+        "situation": {
+          "ko": "오늘 만남: 17:30. 끝 시각은 아직 정하지 않았어요.",
+          "en": "Today’s meeting: 17:30. No end time has been set.",
+          "de": "Treffen heute: 17:30 Uhr. Ein Ende ist noch nicht festgelegt."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 문장 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form sentence practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Satzform mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "오늘 다섯 시 삼십 분에 만나요.",
+        "오늘 다섯 시 삼십 분에 만나요",
+        "다섯 시 삼십 분에 만나요.",
+        "다섯 시 삼십 분에 만나요"
+      ],
+      "feedback_correct": {
+        "ko": "만남 한 시각을 에로 표시했어요.",
+        "en": "You marked a single meeting time with 에.",
+        "de": "Du hast den Treffzeitpunkt mit 에 markiert."
+      },
+      "feedback_wrong": {
+        "ko": "17시는 다섯 시, 30분은 삼십 분이에요. 만남 시각 뒤에는 에예요.",
+        "en": "17:00 is 다섯 시 and 30 minutes is 삼십 분. Add 에 to the meeting time.",
+        "de": "17 Uhr heißt 다섯 시, 30 Minuten 삼십 분. An den Treffzeitpunkt kommt 에."
+      },
+      "help": {
+        "ko": "한 시각을 말할 때는 시각 + 에 + 만나요예요.",
+        "en": "For one meeting time, use time + 에 + 만나요.",
+        "de": "Für einen Treffzeitpunkt verwendest du Uhrzeit + 에 + 만나요."
+      },
+      "scoring": "structured",
+      "evidence_limit": "제한된 시각 문장 입력. 실제 일정 예약·저장 아님."
+    },
+    {
+      "id": "A1.2-01-R01",
+      "mode": "R",
+      "kind": "short",
+      "objective": "다른 날 새 시간 범위 회상",
+      "prompt": {
+        "ko": "다음 날의 새 연습이에요. 오늘 가능한 시간을 한글로 쓰고 까지예요로 마쳐요.",
+        "en": "This is a new practice situation on the next day. Write today’s available slot in Korean words and finish with 까지예요.",
+        "de": "Neue Übung am nächsten Tag: Schreibe die heute freie Zeit mit koreanischen Zahlwörtern und ende mit 까지예요."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 모임 연습 메모: 오늘 가능 10:05–11:25. 내일 가능 13:00–14:00.",
+          "en": "Modern meeting practice note: available today 10:05–11:25; tomorrow 13:00–14:00.",
+          "de": "Übungsnotiz für ein heutiges Treffen: heute frei 10:05–11:25 Uhr; morgen 13:00–14:00 Uhr."
+        },
+        "model_visible": false,
+        "context_type": "next_day_new_modern_practice",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 문장 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form sentence practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Satzform mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "오늘 열 시 오 분부터 열한 시 이십오 분까지예요.",
+        "오늘 열 시 오 분부터 열한 시 이십오 분까지예요",
+        "열 시 오 분부터 열한 시 이십오 분까지예요.",
+        "열 시 오 분부터 열한 시 이십오 분까지예요"
+      ],
+      "feedback_correct": {
+        "ko": "새 구간에서도 시작·끝을 구별했어요.",
+        "en": "You distinguished the start and end in a new slot.",
+        "de": "Auch beim neuen Zeitraum hast du Beginn und Ende unterschieden."
+      },
+      "feedback_wrong": {
+        "ko": "오늘 칸의 10:05와 11:25를 읽어요. 열 시 오 분부터 열한 시 이십오 분까지예요.",
+        "en": "Read 10:05 and 11:25 in today’s row: 열 시 오 분부터 열한 시 이십오 분까지예요.",
+        "de": "Lies 10:05 und 11:25 Uhr in der heutigen Zeile: 열 시 오 분부터 열한 시 이십오 분까지예요."
+      },
+      "help": {
+        "ko": "오늘과 내일을 먼저 나누고 시·분을 읽어요.",
+        "en": "Separate today from tomorrow before reading hours and minutes.",
+        "de": "Trenne zuerst heute und morgen, dann lies Stunden und Minuten."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 자극의 제한 회상. 실제 지연 간격·유지 성공은 런타임에서 별도 확인."
+    },
+    {
+      "id": "A1.2-01-R02",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "새 날짜와 확인 질문",
+      "prompt": {
+        "ko": "화요일 일정만 확인하는 질문을 골라요.",
+        "en": "Choose the question checking only Tuesday’s schedule.",
+        "de": "Wähle die Rückfrage zum Dienstag."
+      },
+      "material": {
+        "situation": {
+          "ko": "현아의 현대 연습 메시지: 월요일 14:00, 화요일 14:40. 너는 화요일 숫자를 다시 확인하려고 해요.",
+          "en": "Hyuna’s modern practice message: Monday 14:00; Tuesday 14:40. You want to verify Tuesday’s time.",
+          "de": "Hyunas Übungsnachricht: Montag 14:00 Uhr; Dienstag 14:40 Uhr. Du möchtest die Uhrzeit am Dienstag prüfen."
+        },
+        "model_visible": false,
+        "context_type": "next_day_new_modern_practice"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "화요일 두 시 십사 분에 만나요?",
+          "en": "Are we meeting Tuesday at two fourteen?",
+          "de": "Treffen wir uns am Dienstag um 14:14 Uhr?"
+        },
+        {
+          "id": "2",
+          "ko": "화요일 두 시 사십 분에 만나요?",
+          "en": "Are we meeting Tuesday at two forty?",
+          "de": "Treffen wir uns am Dienstag um zwanzig vor drei?"
+        },
+        {
+          "id": "3",
+          "ko": "월요일 두 시 사십 분에 만나요?",
+          "en": "Are we meeting Monday at two forty?",
+          "de": "Treffen wir uns am Montag um zwanzig vor drei?"
+        }
+      ],
+      "accepted_answers": [
+        "2"
+      ],
+      "feedback_correct": {
+        "ko": "요일과 사십 분을 함께 확인했어요.",
+        "en": "You checked both the day and forty minutes.",
+        "de": "Du hast den Wochentag und die vierzig Minuten richtig geprüft."
+      },
+      "feedback_wrong": {
+        "ko": "화요일은 14:40이에요. 사십은 40, 십사는 14예요.",
+        "en": "Tuesday is 14:40. 사십 is 40; 십사 is 14.",
+        "de": "Dienstag ist 14:40 Uhr gemeint. 사십 ist 40, 십사 ist 14."
+      },
+      "help": {
+        "ko": "요일과 시·분을 한 부분씩 비교해요.",
+        "en": "Compare day, hour, and minute one part at a time.",
+        "de": "Vergleiche Wochentag, Stunde und Minute einzeln."
+      },
+      "scoring": "structured",
+      "evidence_limit": "새 메시지에 대한 확인 질문 선택. 독립 발화 능력 아님."
+    },
+    {
+      "id": "A1.2-01-T01",
+      "mode": "T",
+      "kind": "roleplay",
+      "objective": "새 일정에서 가능 시간 제안과 재확인",
+      "prompt": {
+        "ko": "현아와 새 약속을 잡아 봐요. 가능한 시간 하나를 말하고 만남 시각을 확인해요. 못 들은 숫자는 다시 물어도 돼요.",
+        "en": "Arrange a new meeting with Hyuna. Give one available slot and check the meeting time. Ask again if you miss a number.",
+        "de": "Vereinbare mit Hyuna einen neuen Termin. Nenne einen freien Zeitraum und bestätige die Treffzeit. Bei einer unklaren Zahl kannst du nachfragen."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 생활 모의 카드. 네 일정: 토요일 11:10–12:00 또는 16:20–17:00 가능. 현아: 토요일 16:30 가능. 채널: 정중한 짧은 메시지. 이야기 장면 불필요.",
+          "en": "Modern-life role card. You are free Saturday 11:10–12:00 or 16:20–17:00. Hyuna is free Saturday at 16:30. Use a short polite message. No story scene is needed.",
+          "de": "Rollenspiel im heutigen Alltag. Du hast Samstag 11:10–12:00 oder 16:20–17:00 Uhr Zeit. Hyuna kann Samstag um 16:30 Uhr. Schreibe eine kurze höfliche Nachricht. Die Geschichtenszene wird nicht benötigt."
+        },
+        "model_visible": false,
+        "context_type": "modern_transfer"
+      },
+      "options": [],
+      "accepted_answers": [],
+      "feedback_correct": {
+        "ko": "자유 답장을 확인해요: 토요일, 겹치는 구간, 만남 시각이 전달됐나요?",
+        "en": "Review your reply: did you convey Saturday, the shared slot, and the meeting time?",
+        "de": "Prüfe deine Antwort: Sind Samstag, der gemeinsame Zeitraum und die Treffzeit klar?"
+      },
+      "feedback_wrong": {
+        "ko": "자동 오답 판정은 하지 않아요. 날짜나 시작·끝이 빠졌다면 그 부분부터 보충해요.",
+        "en": "This reply is not marked automatically. Add any missing day, start, or end first.",
+        "de": "Es gibt keine automatische Fehlerwertung. Ergänze bei Bedarf zuerst Tag, Beginn oder Ende."
+      },
+      "help": {
+        "ko": "먼저 두 사람의 일정이 겹치는 구간을 찾고 짧게 시간 하나를 제안해요.",
+        "en": "First find the overlapping slot, then suggest one meeting time.",
+        "de": "Suche zuerst die gemeinsame freie Zeit und schlage dann einen Treffzeitpunkt vor."
+      },
+      "scoring": "unscored",
+      "evidence_limit": "자유 언어는 무채점. 의미·발음·실제 약속 성립은 자동 판정하지 않음."
+    }
+  ],
+  "responses": {
+    "assisted": {
+      "ko": "도움을 보고 이어 갔어요. 이 시도는 도움을 받은 연습으로 구분해요.",
+      "en": "You continued with help. Keep this attempt separate from independent work.",
+      "de": "Du hast mit Hilfe weitergemacht. Dieser Versuch zählt als Übung mit Hilfe."
+    },
+    "independent": {
+      "ko": "이 문항은 모형이나 도움 없이 풀었어요. 자유 대화 능력 전체를 뜻하지는 않아요.",
+      "en": "You answered this item without a model or help. This does not establish your overall conversation ability.",
+      "de": "Du hast diese Aufgabe ohne Muster oder Hilfe gelöst. Das sagt noch nichts über deine gesamte Gesprächsfähigkeit aus."
+    },
+    "audio_unavailable": {
+      "ko": "소리를 사용할 수 없어요. 글로 이어 갈 수 있어요. 듣기·말하기 확인은 나중에 해요.",
+      "en": "Audio is unavailable. You can continue with the text; listening and speaking remain unchecked.",
+      "de": "Ton ist gerade nicht verfügbar. Du kannst mit dem Text weitermachen; Hören und Sprechen bleiben ungeprüft."
+    },
+    "pause": {
+      "ko": "여기에서 쉬어도 괜찮아요. 다시 시작할 때 현재 문항을 확인해요.",
+      "en": "You can pause here. Check the current item when you return.",
+      "de": "Du kannst hier pausieren. Schau dir beim Fortsetzen die aktuelle Aufgabe an."
+    },
+    "resume": {
+      "ko": "현재 문항부터 이어 가요. 도움을 봤다면 도움 연습으로 이어 가요.",
+      "en": "Continue from the current item. If you used help, continue as assisted practice.",
+      "de": "Mach mit der aktuellen Aufgabe weiter. Wenn du Hilfe genutzt hast, bleibt es eine Übung mit Hilfe."
+    },
+    "save_failed": {
+      "ko": "저장이 확인되지 않았어요. 답을 확인하고 다시 시도해요.",
+      "en": "Saving has not been confirmed. Check your answer and try saving again.",
+      "de": "Das Speichern wurde nicht bestätigt. Prüfe deine Antwort und versuche es erneut."
+    },
+    "revisit": {
+      "ko": "다른 날 새 상황으로 다시 해 봐요. 이야기 장면을 열지 않아도 연습할 수 있어요.",
+      "en": "Try a new situation on another day. You can practise without opening the story scene.",
+      "de": "Übe an einem anderen Tag mit einer neuen Situation. Dafür musst du die Geschichtenszene nicht öffnen."
+    }
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true
+  }
+}

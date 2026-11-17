@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-02",
+  "baseHead": "bba1164f21cceb3882d0297d08daa6345f680341",
+  "scope": "Only the exact user-selected closed/open Najeon chest originals, unchanged; Android delivery registration does not change reward state or ownership.",
+  "authorization": "User requested the exact selected Najeon originals for the reward flow; current task explicitly authorizes managed Android delivery of these two existing files.",
+  "sourceReceipt": "C:/dev/hangulsori/_codex_artifacts/today-game-ui-mockup-20261102/native-reward/najeon-native-evidence.json",
+  "sourceFilesVerifiedLocally": true,
+  "nativeOrDeviceApproval": false,
+  "differentPr447ArtworkSubstituted": false,
+  "rewardProgressOrOwnershipChanges": false,
+  "assets": [
+    {
+      "asset": "assets/illustrations/rewards/najeon/najeon_chest_closed.png",
+      "sha256": "1eabfc6400d3fea373027eb2c6b3183c5aa90e2c7f9e12b44a81cf50b0ea0dcd",
+      "bytes": 2674205,
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\보자기후보\\exec-47c09768-89b5-4510-b783-36af01b83b6b.png",
+      "sourceSha256": "1eabfc6400d3fea373027eb2c6b3183c5aa90e2c7f9e12b44a81cf50b0ea0dcd",
+      "copiedByteIdentical": true,
+      "state": "closed",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "asset": "assets/illustrations/rewards/najeon/najeon_chest_open.png",
+      "sha256": "b5c2e2ce3f2603a38b982934853e9029839e0d30026206e98c0d25d22e46da38",
+      "bytes": 2410008,
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\보자기후보\\exec-a26c2094-9d42-4bfb-acf6-0c80058f978a.png",
+      "sourceSha256": "b5c2e2ce3f2603a38b982934853e9029839e0d30026206e98c0d25d22e46da38",
+      "copiedByteIdentical": true,
+      "state": "open",
+      "dimensions": [
+        1230,
+        1278
+      ]
+    }
+  ]
+}

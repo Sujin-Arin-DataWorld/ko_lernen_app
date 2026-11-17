@@ -28,6 +28,13 @@ class SoriPressable extends StatefulWidget {
   /// 0.0 — 1.0. Default 0.96.
   final double pressScale;
 
+  /// Opt-in face translation without adding an edge or hover elevation.
+  final double pressOffsetY;
+  final Duration pressDuration;
+  final Duration releaseDuration;
+  final Curve pressCurve;
+  final Curve releaseCurve;
+
   /// 햅틱 타입. null이면 햅틱 없음.
   final SoriHaptic? haptic;
 
@@ -55,6 +62,11 @@ class SoriPressable extends StatefulWidget {
     this.onTap,
     this.onLongPress,
     this.pressScale = SoriMotion.pressScale,
+    this.pressOffsetY = 0,
+    this.pressDuration = SoriMotion.fast,
+    this.releaseDuration = SoriMotion.medium,
+    this.pressCurve = SoriMotion.press,
+    this.releaseCurve = SoriMotion.release,
     this.haptic = SoriHaptic.selection,
     this.behavior = HitTestBehavior.opaque,
     this.alignment = Alignment.center,
@@ -84,8 +96,8 @@ class _SoriPressableState extends State<SoriPressable>
     super.initState();
     _ctrl = AnimationController(
       vsync: this,
-      duration: SoriMotion.fast,
-      lowerBound: widget.pressScale,
+      duration: widget.pressDuration,
+      lowerBound: widget.pressScale == 1 ? 0 : widget.pressScale,
       upperBound: 1.0,
       value: 1.0,
     );
@@ -108,9 +120,9 @@ class _SoriPressableState extends State<SoriPressable>
       return;
     }
     _ctrl.animateTo(
-      widget.pressScale,
-      duration: SoriMotion.fast,
-      curve: SoriMotion.press,
+      _ctrl.lowerBound,
+      duration: widget.pressDuration,
+      curve: widget.pressCurve,
     );
   }
 
@@ -131,19 +143,19 @@ class _SoriPressableState extends State<SoriPressable>
       }
       _ctrl.animateTo(
         1.0,
-        duration: SoriMotion.medium,
-        curve: SoriMotion.release,
+        duration: widget.releaseDuration,
+        curve: widget.releaseCurve,
       );
     }
 
     if (!cancel &&
-        _ctrl.value > widget.pressScale + (1 - widget.pressScale) * .25) {
+        _ctrl.value > _ctrl.lowerBound + (1 - _ctrl.lowerBound) * .25) {
       // Even a quick tap gets one visible press; the action is never delayed.
       _ctrl
           .animateTo(
-            widget.pressScale,
-            duration: SoriMotion.fast,
-            curve: SoriMotion.press,
+            _ctrl.lowerBound,
+            duration: widget.pressDuration,
+            curve: widget.pressCurve,
           )
           .whenCompleteOrCancel(settle);
     } else {
@@ -306,25 +318,30 @@ class _SoriPressableState extends State<SoriPressable>
                   animation: _ctrl,
                   builder: (_, child) {
                     final reduced = SoriMotion.reduceMotion(context);
-                    final pressure = widget.pressScale == 1
-                        ? 0.0
-                        : ((1 - _ctrl.value) / (1 - widget.pressScale)).clamp(
-                            0.0,
-                            1.0,
-                          );
+                    final pressure =
+                        ((1 - _ctrl.value) / (1 - _ctrl.lowerBound)).clamp(
+                          0.0,
+                          1.0,
+                        );
+                    final scale = widget.pressScale == 1 ? 1.0 : _ctrl.value;
                     final depth = widget.surfaceDepth;
                     final matrix = Matrix4.identity();
                     if (!reduced && pressure > 0) {
                       matrix
                         ..setEntry(3, 2, .001)
-                        ..translateByDouble(0, depth * .75 * pressure, 0, 1)
+                        ..translateByDouble(
+                          0,
+                          (depth * .75 + widget.pressOffsetY) * pressure,
+                          0,
+                          1,
+                        )
                         ..rotateX(
                           widget.tactileTilt ? -_tilt.dy * .025 * pressure : 0,
                         )
                         ..rotateY(
                           widget.tactileTilt ? _tilt.dx * .025 * pressure : 0,
                         )
-                        ..scaleByDouble(_ctrl.value, _ctrl.value, 1, 1);
+                        ..scaleByDouble(scale, scale, 1, 1);
                     }
                     final surface = depth > 0
                         ? DecoratedBox(
@@ -370,8 +387,15 @@ class _SoriPressableState extends State<SoriPressable>
                               child: surface,
                             ),
                           )
+                        : widget.pressOffsetY != 0
+                        ? Transform(
+                            key: const ValueKey('sori-press-offset-transform'),
+                            alignment: widget.alignment,
+                            transform: matrix,
+                            child: surface,
+                          )
                         : Transform.scale(
-                            scale: _ctrl.value,
+                            scale: scale,
                             alignment: widget.alignment,
                             child: surface,
                           );

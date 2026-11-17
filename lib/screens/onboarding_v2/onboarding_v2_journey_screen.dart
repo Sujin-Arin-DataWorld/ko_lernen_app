@@ -11,6 +11,7 @@ import '../../motion/transitions.dart';
 import '../../services/analytics_service.dart';
 import '../../widgets/app_loading.dart';
 import '../../widgets/sori/button.dart';
+import '../../widgets/sori/intro_motion.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/toast.dart';
 import '../app_shell.dart';
@@ -49,7 +50,9 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
   bool _loadInFlight = false;
   bool _busy = false;
   final Stopwatch _journeyStopwatch = Stopwatch();
-  final Set<OnboardingPurpose> _pendingPurposes = {};
+  OnboardingPurpose? _purposeIntent;
+  int _purposeIntentRevision = 0;
+  Future<bool> _purposeSave = Future.value(true);
   ({LearnerLevel level, bool beginner})? _levelIntent;
   int _levelIntentRevision = 0;
   Future<bool> _levelSave = Future.value(true);
@@ -129,9 +132,13 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
 
   void _replace(Widget screen) {
     _recordStoryExit(OnboardingStoryExit.dropped);
-    Navigator.of(
-      context,
-    ).pushReplacement(SoriTransitions.firstRun(context, (_) => screen));
+    // Completing first run must remove older first-run routes underneath it.
+    // The gate remains the next route when required by the durable journal;
+    // its eventual AppShell replacement must not reveal a stale draft on Back.
+    Navigator.of(context).pushAndRemoveUntil(
+      SoriTransitions.firstRun(context, (_) => screen),
+      (_) => false,
+    );
   }
 
   void _applyState(
@@ -192,21 +199,27 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
     );
   }
 
-  Future<void> _updateDraft(
-    Future<OnboardingJourneyState> Function() action, {
-    VoidCallback? onSaved,
-    VoidCallback? onFinished,
-  }) async {
+  Future<bool> _savePurposeIntent(OnboardingPurpose purpose) async {
+    final revision = ++_purposeIntentRevision;
+    setState(() => _purposeIntent = purpose);
     try {
-      final next = await action();
-      onSaved?.call();
+      // Preserve A -> B -> A while the coordinator serializes durable writes.
+      final next = await _coordinator.savePurposeDraft(purpose);
+      unawaited(Analytics.onboardingPurposeSelectedV2(purpose));
       if (mounted) {
         _applyState(next);
       }
+      return true;
     } catch (_) {
       _showSaveError();
+      return false;
     } finally {
-      onFinished?.call();
+      if (mounted && revision == _purposeIntentRevision) {
+        // A later explicit Continue can use the restored optional choice.
+        // An already waiting Continue still receives this attempt's result.
+        _purposeSave = Future.value(true);
+        setState(() => _purposeIntent = null);
+      }
     }
   }
 
@@ -372,7 +385,7 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
       ),
       OnboardingPhase.setup => OnboardingSetupScreen(
         copy: copy,
-        selectedPurposeId: _purposeId(state.purposeDraft),
+        selectedPurposeId: _purposeId(_purposeIntent ?? state.purposeDraft),
         selectedLevelCode: (_levelIntent?.level ?? state.levelDraft)?.display,
         beginnerSelected: _levelIntent?.beginner ?? state.beginnerDraft,
         onBeginnerSelected: () {
@@ -386,17 +399,10 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
             return;
           }
           final purpose = _purposeForId(id);
-          if (purpose == state.purposeDraft || !_pendingPurposes.add(purpose)) {
+          if (purpose == (_purposeIntent ?? _state?.purposeDraft)) {
             return;
           }
-          unawaited(
-            _updateDraft(
-              () => _coordinator.savePurposeDraft(purpose),
-              onSaved: () =>
-                  unawaited(Analytics.onboardingPurposeSelectedV2(purpose)),
-              onFinished: () => _pendingPurposes.remove(purpose),
-            ),
-          );
+          _purposeSave = _savePurposeIntent(purpose);
         },
         onLevelChanged: (code) {
           if (_busy) {
@@ -411,7 +417,7 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
         onContinue: (_) {
           unawaited(
             _runTransition(() async {
-              if (!await _levelSave) {
+              if (!await _purposeSave || !await _levelSave) {
                 return _state!;
               }
               return _coordinator.continueFromSetup();
@@ -458,7 +464,16 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
 
     return Stack(
       children: [
-        AbsorbPointer(absorbing: _busy, child: content),
+        IntroSceneTransition(
+          sceneId: switch (state.phase) {
+            OnboardingPhase.story => state.storyPage,
+            OnboardingPhase.companion ||
+            OnboardingPhase.confirmation ||
+            OnboardingPhase.committing => OnboardingPhase.companion,
+            _ => state.phase,
+          },
+          child: AbsorbPointer(absorbing: _busy, child: content),
+        ),
         if (_busy)
           Positioned(
             top: 0,

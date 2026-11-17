@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "presentationOnly": true,
+  "sourceCatalogSha256": "f0dfbb6fd210e32fe4b5771f58c2dbeebfb3d0e27aa5c85158cc531f98152859",
+  "canonicalPromotionSha256": "384b07d14464a86dc02bc274d6a50336f356ad7b4b7ecc7027e8825021480865",
+  "sourceDeliverySha256": "8d9ac12234f6e294422e8e9e35056ae58a707c3022ad1e20bd62ce851e35ee01",
+  "shadowOperation": "multiply-then-foreground-source-over",
+  "progressOrOwnershipMigrationIncluded": false,
+  "emptyStagePolicy": "ildu.sarangchae-site has zero meshes; draw neither foreground nor shadow",
+  "stages": [
+    {
+      "processId": "ildu.sarangchae-site",
+      "sequence": 1,
+      "sourceImageSha256": "807955c2c5609e638c834314b3dd8e27b392355e57db61f09345a720e7e13676",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/8dc5b45405e82d65ffc88fe755d16079deb42d5adc02ae35d1c2fb9c216d147b.png",
+        "sha256": "8dc5b45405e82d65ffc88fe755d16079deb42d5adc02ae35d1c2fb9c216d147b",
+        "bytes": 462605,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/75bb8d389bf9d377c198435c6e8984c5a6f23bee3931839b8317addb5b52fa4a.webp",
+        "sha256": "75bb8d389bf9d377c198435c6e8984c5a6f23bee3931839b8317addb5b52fa4a",
+        "bytes": 1098,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 0,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-foundation",
+      "sequence": 2,
+      "sourceImageSha256": "dd4da94f78d1d89a96b7c1d5c501359e51f438e491306cc2aee94d201b85bf0d",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/f7a3bcedf472109c33504b56e4eebb37108b634bde0d0317fff5ceee77bf6a12.png",
+        "sha256": "f7a3bcedf472109c33504b56e4eebb37108b634bde0d0317fff5ceee77bf6a12",
+        "bytes": 1138434,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/af6131c47e31c6f8a55b364e7df90258dc90375560f5377c6d78075ccf69ef17.webp",
+        "sha256": "af6131c47e31c6f8a55b364e7df90258dc90375560f5377c6d78075ccf69ef17",
+        "bytes": 297308,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 239,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-choseok",
+      "sequence": 3,
+      "sourceImageSha256": "007a0dfeb2a9cad423901727e3a842eb8d120b391590f7d7009531f44fea10f5",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/62376b33e9ce1cdfa59323460aa755820ed15c561c58a8c47ed88035927626ab.png",
+        "sha256": "62376b33e9ce1cdfa59323460aa755820ed15c561c58a8c47ed88035927626ab",
+        "bytes": 1160836,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607.webp",
+        "sha256": "2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607",
+        "bytes": 300736,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 249,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-fitting",
+      "sequence": 4,
+      "sourceImageSha256": "007a0dfeb2a9cad423901727e3a842eb8d120b391590f7d7009531f44fea10f5",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/840225967e9911537f79e9f1e9275e23abf7b5fc554e3ae30f99e05d7fb765e3.png",
+        "sha256": "840225967e9911537f79e9f1e9275e23abf7b5fc554e3ae30f99e05d7fb765e3",
+        "bytes": 1160836,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607.webp",
+        "sha256": "2175b8c1954fd1ae5d5adca7bd09bd2ec554e1fa7450872a5ba462f56ad29607",
+        "bytes": 300736,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 249,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-columns",
+      "sequence": 5,
+      "sourceImageSha256": "f9b402f19eadf88db8e2f3ae3333bb91e8060a7f699f309ea43efd33ca8890ad",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/bfdf7418975f907c3ff1686d4ab051ae9f5e978420228685698ba20647a474b1.png",
+        "sha256": "bfdf7418975f907c3ff1686d4ab051ae9f5e978420228685698ba20647a474b1",
+        "bytes": 1384675,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/f8fb31432ef30f35622154f9f9a5cf31caf88e457ae68fbe39cf1196f33900f0.webp",
+        "sha256": "f8fb31432ef30f35622154f9f9a5cf31caf88e457ae68fbe39cf1196f33900f0",
+        "bytes": 466240,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 267,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-beams",
+      "sequence": 6,
+      "sourceImageSha256": "bf45488f40dfc74daabf7446ae4124025e79957756e91cfed290cf81f81e11a9",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/21da05dede8f88538e6d14a8db1eeaa24e478adb6ca97e9053af093187ad1148.png",
+        "sha256": "21da05dede8f88538e6d14a8db1eeaa24e478adb6ca97e9053af093187ad1148",
+        "bytes": 1710677,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/2eb151473608a5fdab232bdc4e62674fbe1cb247a6ba0e2c80b8674954c8a278.webp",
+        "sha256": "2eb151473608a5fdab232bdc4e62674fbe1cb247a6ba0e2c80b8674954c8a278",
+        "bytes": 611528,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 296,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-purlins",
+      "sequence": 7,
+      "sourceImageSha256": "3299f9c428d8a44546908b022d665d2f37a93e572402e683d3ae489cc9ab2ea2",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/9051a7f1c277f5b017edc5a57d99a2629cecf76ba34a37d207a79eb3ea3f0271.png",
+        "sha256": "9051a7f1c277f5b017edc5a57d99a2629cecf76ba34a37d207a79eb3ea3f0271",
+        "bytes": 1749655,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/fbd0d881f9353bebc4db172bc3c5685515923d4ee6a3a12699035388bef621cc.webp",
+        "sha256": "fbd0d881f9353bebc4db172bc3c5685515923d4ee6a3a12699035388bef621cc",
+        "bytes": 614478,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 297,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-rafters",
+      "sequence": 8,
+      "sourceImageSha256": "d6bb3deb613c9b2160be57c5a0d2f5e1740b0493e8c92896b260f54a12517fb8",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/7a710b233c9786647b9ec8d1b34c2113b5bbfc9cba3cbf31b298088f02d9b4d0.png",
+        "sha256": "7a710b233c9786647b9ec8d1b34c2113b5bbfc9cba3cbf31b298088f02d9b4d0",
+        "bytes": 2002718,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/f395d3dfef32907bd9538122b9cf68d3fefa35aee66f3db8f4b2d6047d605acf.webp",
+        "sha256": "f395d3dfef32907bd9538122b9cf68d3fefa35aee66f3db8f4b2d6047d605acf",
+        "bytes": 633568,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 417,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-decking",
+      "sequence": 9,
+      "sourceImageSha256": "54dc7fb3e3dd5b6ec26c55bdd2f3501ac2427fa235d9967a0b363b2618aa08ff",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/02c949261de229fb82f3a14a53bf234583757bcbc44175e009f29e53be583a25.png",
+        "sha256": "02c949261de229fb82f3a14a53bf234583757bcbc44175e009f29e53be583a25",
+        "bytes": 1947927,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/a18d38c8100e575b1dc794226e4ce22ea2c9af90f0f41244d723ab6ed58b4eb8.webp",
+        "sha256": "a18d38c8100e575b1dc794226e4ce22ea2c9af90f0f41244d723ab6ed58b4eb8",
+        "bytes": 505754,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 422,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-earth-roof",
+      "sequence": 10,
+      "sourceImageSha256": "b182d0922c645ea4c8ad6afe5be6778d707e4d2d74c879da8a06f6e6beff9d17",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/f349146bab2da2887a6ae6d94297668d2df142335bc3876c0f80e2a110f2177f.png",
+        "sha256": "f349146bab2da2887a6ae6d94297668d2df142335bc3876c0f80e2a110f2177f",
+        "bytes": 1947870,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/6e953047edc5609623359349d13d8bf8fa8db5f944e2a24367a89848b765eb4b.webp",
+        "sha256": "6e953047edc5609623359349d13d8bf8fa8db5f944e2a24367a89848b765eb4b",
+        "bytes": 505786,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 422,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-tiles",
+      "sequence": 11,
+      "sourceImageSha256": "0cadfde292f15eec3022eb513c47e72f7c88dd9d5df2f146be52005cc5eba80c",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/56d4df2634c5c0f6e1b459b25f0984be99598cdac5a5c994e36a95835256cc32.png",
+        "sha256": "56d4df2634c5c0f6e1b459b25f0984be99598cdac5a5c994e36a95835256cc32",
+        "bytes": 2146743,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/a2467fb72e89865445f3387c741d3724279368b2fe5452dd375592786dfaca9d.webp",
+        "sha256": "a2467fb72e89865445f3387c741d3724279368b2fe5452dd375592786dfaca9d",
+        "bytes": 528002,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 476,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-walls",
+      "sequence": 12,
+      "sourceImageSha256": "dbbb41af4a2498741efa9b36747065cd745a189bf0ee8e0b32e33543d682a2f5",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/a9391f799e2815338300e7317aacff28e3c2506b6377a3f8f0877c296a0252d2.png",
+        "sha256": "a9391f799e2815338300e7317aacff28e3c2506b6377a3f8f0877c296a0252d2",
+        "bytes": 2158712,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/43ea508d510296d7ea6f37be3b1ec1a1950dd17d1feba5f446a15c139060aa04.webp",
+        "sha256": "43ea508d510296d7ea6f37be3b1ec1a1950dd17d1feba5f446a15c139060aa04",
+        "bytes": 514648,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 536,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-ondol",
+      "sequence": 13,
+      "sourceImageSha256": "310a1541083908ffb8722a2f1d4e213cbb959303bcfb8c4d773f95ebc817b734",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/f680ff2f191431fe1f6ecd542761a734945bc9032e6dba9f09e821064d50a2a3.png",
+        "sha256": "f680ff2f191431fe1f6ecd542761a734945bc9032e6dba9f09e821064d50a2a3",
+        "bytes": 2167800,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/4606c369b5708765a60cd05638950bb8541b7248ec6f879119c89d0729e53b73.webp",
+        "sha256": "4606c369b5708765a60cd05638950bb8541b7248ec6f879119c89d0729e53b73",
+        "bytes": 512856,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 546,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-maru",
+      "sequence": 14,
+      "sourceImageSha256": "bc94a188d33003d0a0e738b634104958b84c24d3a1c083a2e16e4e1ccfdd61af",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/01b432d7420aad48da38e1222f269d916ab54c1b2484e3899676b2784d825db1.png",
+        "sha256": "01b432d7420aad48da38e1222f269d916ab54c1b2484e3899676b2784d825db1",
+        "bytes": 2197164,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/7d291b54cf2be4f02798b89800cc229c818cec5fe06d0cf839e812c5862133a6.webp",
+        "sha256": "7d291b54cf2be4f02798b89800cc229c818cec5fe06d0cf839e812c5862133a6",
+        "bytes": 522574,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 681,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-changho",
+      "sequence": 15,
+      "sourceImageSha256": "d6c87211bb4fe11c451bfec2607857299d5214d440e169c078dcee97b6d1877b",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/bac6d3b46fb01b2eb521c9fb9bfbcb0431e84ecc64d200e7697d84e0d0becaea.png",
+        "sha256": "bac6d3b46fb01b2eb521c9fb9bfbcb0431e84ecc64d200e7697d84e0d0becaea",
+        "bytes": 2215213,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/be78c771be2b39c6359b1e208920629e56a6560e83485c8c26027dde8ad6d39d.webp",
+        "sha256": "be78c771be2b39c6359b1e208920629e56a6560e83485c8c26027dde8ad6d39d",
+        "bytes": 555026,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 983,
+      "renderShadowInEmptyArchitectureState": false
+    },
+    {
+      "processId": "ildu.sarangchae-complete",
+      "sequence": 16,
+      "sourceImageSha256": "60a4efe311f40de1bfadb61c017021effffe4a13e3d2bd191ffb2de9f10cd901",
+      "foreground": {
+        "asset": "assets/illustrations/ildu_r16_layers/1fbc7e9cb972395493d6d1c62b195ecef2042eb84196e0d5b32361dab2afcacf.png",
+        "sha256": "1fbc7e9cb972395493d6d1c62b195ecef2042eb84196e0d5b32361dab2afcacf",
+        "bytes": 2219814,
+        "width": 1800,
+        "height": 1200
+      },
+      "shadow": {
+        "asset": "assets/illustrations/ildu_r16_layers/0da7f78eb52ffef358b309a2da966bc3a461669a552ceb3dfab3b92f55ce2056.webp",
+        "sha256": "0da7f78eb52ffef358b309a2da966bc3a461669a552ceb3dfab3b92f55ce2056",
+        "bytes": 555554,
+        "width": 1800,
+        "height": 1200
+      },
+      "foregroundMeshCount": 998,
+      "renderShadowInEmptyArchitectureState": false
+    }
+  ]
+}

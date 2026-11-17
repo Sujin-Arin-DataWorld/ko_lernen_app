@@ -1,0 +1,1538 @@
+{
+  "base_sha": "646c4658e70f594ab234a172679e29122d0f0e66",
+  "status": "authored_candidate_not_runtime",
+  "source_path": "assets/data/grammar.csv",
+  "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+  "source_read_method": "git show 646c4658e70f594ab234a172679e29122d0f0e66:assets/data/grammar.csv; sparse checkout의 에셋 파일을 복원하지 않고 커밋 원문 바이트를 조회",
+  "selection_policy": "입문28은 not_applicable. 회화24는 단원별 실제 카드1~4개를 기능·뜻으로 선정한다. 264개 전체 연결을 목표로 하지 않으며 id 접두사의 level을 실제 level로 추정하지 않는다. 원문 설명·예문은 변경하지 않는다.",
+  "source_card_count": 264,
+  "units": [
+    {
+      "unit_id": "F0.1.sound-signs",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.1.above-below",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.1.straight-lines",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.2.first-names",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.2.two-boxes",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.2.ribbon",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.2.two-tracks",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.2.warm-breath",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.2.tree-and-hat",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.2.sea-and-bridge",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.3.double-strokes",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.3.two-below",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.3.air-one",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.3.air-two",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.3.firm-one",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.3.firm-two",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.3.near-vowels",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.3.corner-vowels",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.3.round-corner",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.3.first-finals",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.3.silent-or-sounding",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.4.closed-endings",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.4.wide-vowels",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.4.small-pair",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.4.last-vowel",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.4.linked-sounds",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.4.first-input",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "F0.4.space-and-place",
+      "state": "not_applicable",
+      "cards": [],
+      "unlinked_targets": [],
+      "reason_ko": "입문 소리·음절 조립·기초 읽기/입력은 해당 입문 원고에서 다룬다. grammar.csv 설명 카드의 문장 문법 수행으로 대체하지 않는다."
+    },
+    {
+      "unit_id": "A1.1-01",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a1_copula_polite",
+          "pattern": "N이에요/예요",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "명사 뒤 이에요/예요로 이름·정체를 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 학생이라는 정체를 학습자에게 부여하지 않으며 인사·재요청 전체를 가르친 카드라고 간주하지 않는다.",
+          "reason_ko": "유일한 배정형 이다의 공손한 명사 서술과 맞는다. 학생 예문은 이름 소개의 형태 참고다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "인사·못 들은 말 다시 요청",
+          "function_ko": "인사와 대화 복구 표현",
+          "reason_code": "authored_function_not_covered",
+          "reason_ko": "이다 카드와는 다른 화행이다. 기존 원고의 인사·회복 덩어리 시범과 수행을 유지한다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.1-01.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A1.1-02",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a1_topic_particle",
+          "pattern": "N은/는",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "소개할 사람을 화제로 삼기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 대조 기능 전체나 원하지 않는 개인정보 공개를 요구하지 않는다.",
+          "reason_ko": "배정 은/는의 화제 기능을 먼저 보여 주는 기존 카드다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_formal_statement",
+          "pattern": "V-습니다/-ㅂ니다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "격식 있는 소개 말끝 이해",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 공식 말끝은 이해 참고이며 필수 독립 생산으로 승격하지 않는다.",
+          "reason_ko": "-습니다/-ㅂ니다 배정의 수용 범위와 맞고 소개 예문이 있다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_formal_question",
+          "pattern": "V-습니까?/-ㅂ니까?",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "격식 있는 질문 말끝 이해",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드 예문은 역 확인 질문이므로 개인정보 소개와 내용이 같다고 보지 않는다.",
+          "reason_ko": "-습니까/-ㅂ니까 배정의 수용 범위와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "선택적 자기소개",
+          "function_ko": "이름·출신·사용 언어 중 공개할 정보 고르기",
+          "reason_code": "authored_function_not_covered",
+          "reason_ko": "공개 선택과 사생활 경계는 문법 카드가 아닌 원고의 역할 카드·대화가 담당한다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.1-02.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A1.1-03",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a1_subject_particle",
+          "pattern": "N이/가",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "누가·무엇이 해당하는지 이/가로 표시하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 친구가 오는 예문은 물건 존재문의 정보구조 전체를 대신하지 않는다.",
+          "reason_ko": "배정 주격 조사와 일치한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_polite_present",
+          "pattern": "V-아/어요",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "상태를 해요체로 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 먹어요 예문으로 있다·없다의 의미나 활용을 모두 배웠다고 보지 않는다.",
+          "reason_ko": "배정 -아/어요의 공손한 말끝을 읽는 참고다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_service_location_question",
+          "pattern": "N은/는 어디에 있어요?",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "익힌 물건·장소의 위치 묻기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 배정 핵심은 이/가인데 이 카드 질문은 은/는을 쓴다. 복습용 위치 질문으로만 범위를 한정한다.",
+          "reason_ko": "단원 Can-do의 짧은 위치 질문과 직접 맞는 기존 카드다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "있다·없다",
+          "function_ko": "익힌 물건의 유무 확인",
+          "reason_code": "authored_function_not_covered",
+          "reason_ko": "선정된 위치 질문은 존재/부재 대비 전체를 다루지 않는다. 각 의미와 시범은 원고로 유지한다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.1-03.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A1.1-04",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a1_object_particle",
+          "pattern": "N을/를",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "행동 대상을 을/를로 표시하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 밥 먹기 예문은 요청 화행이 아니므로 요청 설명과 분리해 읽는다.",
+          "reason_ko": "배정 목적격 조사와 일치한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_polite_request",
+          "pattern": "V-(으)세요",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "정중한 부탁·안내 이해",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 앉으세요는 안내 예문이다. 주세요의 모든 활용과 같은 시범으로 합치지 않는다.",
+          "reason_ko": "배정 -(으)세요의 기능과 일치한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_service_request",
+          "pattern": "N을/를 V-아/어 주세요",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "필요한 물건을 주세요로 요청하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 영수증은 원고에서 익힌 물건으로 자동 간주하지 않는다.",
+          "reason_ko": "영수증을 주세요라는 실제 예문이 물건 요청 덩어리의 기능에 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "감사·요청 부담 조절",
+          "function_ko": "부탁 뒤 감사하고 상대 반응에 이어 가기",
+          "reason_code": "authored_function_not_covered",
+          "reason_ko": "상호작용 순서는 기존 요청 원고가 담당한다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.1-04.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A1.1-05",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a1_possessive_particle",
+          "pattern": "N의",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "물건의 소유·소속 관계 표시",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 친구의 이름 예문은 물건 주인 확인을 실제로 완료했다는 뜻이 아니다.",
+          "reason_ko": "배정 의와 직접 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_with_connector",
+          "pattern": "N과/와 / N(이)랑 / N하고",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "명사 연결과 함께 있는 사람 표현",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 과/와는 수용 대비부터, 이랑/하고는 대화 사용으로 분리한다. 세 형태를 동시에 생산 평가하지 않는다.",
+          "reason_ko": "과/와·(이)랑·하고 세 배정 기능을 한 실제 카드가 설명한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "물건 소유자 확인",
+          "function_ko": "소유를 추정하지 않고 상대에게 확인",
+          "reason_code": "authored_function_not_covered",
+          "reason_ko": "조사 설명만으로 소유 확인 사건을 완료하지 않는다. 원고의 소유 카드가 기준이다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.1-05.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A1.1-06",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a1_copula_negation",
+          "pattern": "N이/가 아니에요",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "잘못 알려진 이름·물건 정체를 정정하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 존재 부정 없어요와 구별한다.",
+          "reason_ko": "배정 이/가 아니다에 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_also_particle",
+          "pattern": "N도",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "앞 사람과 같은 사실에 나도 더하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 도의 첨가 기능과 일치한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_only_particle",
+          "pattern": "N만",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "필요한 대상을 만으로 제한하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 만과 원고의 물만 요청 기능에 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "소유 정정의 대화 복구",
+          "function_ko": "정정·사과·필요 범위를 상대와 확인",
+          "reason_code": "authored_function_not_covered",
+          "reason_ko": "세 카드의 형태 인식만으로 대화 복구 성공을 인증하지 않는다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.1-06.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A1.2-01",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a1_direction_time_particle",
+          "pattern": "N에",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "시간 에로 시각 표시",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드의 학교에 가요는 목적지 예문이다. 시간 의미 시범은 원고에서 따로 한다.",
+          "reason_ko": "배정 에 가운데 시간 기능 참고다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_from_until",
+          "pattern": "N부터 N까지",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "부터·까지로 시작과 끝 확인",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "실제 카드가 시간 범위와 시작·끝을 함께 설명한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "시·분·날짜 수 체계",
+          "function_ko": "시각과 날짜 읽기·듣기",
+          "reason_code": "authored_function_not_covered",
+          "reason_ko": "조사 카드는 고유어 시와 한자어 분·날짜를 가르친 것으로 대체하지 않는다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.2-01.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A1.2-02",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a1_action_location_particle",
+          "pattern": "N에서",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "에서로 행동 장소 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 장소 에서와 일치한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_direction_means",
+          "pattern": "N(으)로",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "(으)로로 수단·방향 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드가 예시하는 지하철 어휘를 원고에서 학습했는지 확인한다.",
+          "reason_ko": "배정 이동 수단·방향 기능에 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_direction_time_particle",
+          "pattern": "N에",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "에로 목적지 확인",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 여기서는 시간 기능을 새 평가 목표로 추가하지 않는다.",
+          "reason_ko": "원고의 선수 복습 목적지 에와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_in_front",
+          "pattern": "N앞에(서)",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "앞에/앞에서의 공간 위치",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드의 기다려 주세요는 미학습 요청 형태일 수 있다.",
+          "reason_ko": "원고 어휘 앞과 구체적 위치 확인을 보조한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "오다·가다의 화자 위치",
+          "function_ko": "화자의 현재 위치에 따른 방향 선택",
+          "reason_code": "authored_function_not_covered",
+          "reason_ko": "목적지·수단 조사는 화자 직시를 전부 설명하지 않는다. 원고의 위치 그림과 대화로 유지한다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.2-02.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A1.2-03",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a1_polite_past",
+          "pattern": "V-았/었어요",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "지난 완료 행동을 공손하게 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -았/었-의 핵심 형태에 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_sequence_connector",
+          "pattern": "V-고",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "두 행동을 -고로 연결하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드는 순서를 강조한다. 모든 -고가 필수 선후 관계라는 규칙으로 확대하지 않는다.",
+          "reason_ko": "배정 행동 나열/연결 참고다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_long_negation",
+          "pattern": "V-지 않아요",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "-지 않다로 하지 않은 행동 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 긴 부정과 일치한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_inability",
+          "pattern": "V-지 못하다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "능력·사정 때문에 못 한 일 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 안/못은 서로 다른 의미이므로 바꿔 쓰기 정답을 만들지 않는다.",
+          "reason_ko": "배정 -지 못하다와 일치한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "-고 있다",
+          "function_ko": "현재 진행과 과거·부정 구별",
+          "reason_code": "selection_budget",
+          "reason_ko": "맞는 기존 progressive 카드도 있으나 네 카드 제한으로 여기서는 선정하지 않는다. 현재 진행 시범·점검은 원고가 담당한다.",
+          "delivery": "authored_unit_packet"
+        },
+        {
+          "target": "안 / 못 짧은 부정",
+          "function_ko": "안 한 일과 못 한 일 구별",
+          "reason_code": "selection_budget",
+          "reason_ko": "짧은 부정 카드는 별도로 존재하나 네 카드 제한 때문에 원고의 대비를 유지한다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.2-03.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A1.2-04",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a2_dative_person",
+          "pattern": "N한테/에게",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "에게·한테로 받는 사람 표시",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드는 행동 상대 전반도 설명하므로 여기서는 주다의 받는 사람으로 한정한다.",
+          "reason_ko": "배정 전달 대상 기능에 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_spoken_dative",
+          "pattern": "N한테",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "대화에서 한테 사용 이해",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 원문 예문은 주소를 묻는 질문 상대다. 전달받는 사람과 같은 사건이라고 바꾸지 않는다.",
+          "reason_ko": "말할 때의 받는 사람 기능을 보조한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "수량·가격",
+          "function_ko": "한·두·세·네 + 세는 말, 한자어 수 + 원",
+          "reason_code": "authored_function_not_covered",
+          "reason_ko": "선정 카드에는 수량·가격 체계가 없다. 새 카드 ID를 만들지 않고 원고의 수량·가격 자료를 사용한다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.2-04.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A1.2-05",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a1_want",
+          "pattern": "V-고 싶다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "원하는 활동 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -고 싶다와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_ability",
+          "pattern": "V-(으)ㄹ 수 있다/없다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "가능·능력 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 허가 여부와 능력을 같은 것으로 보지 않는다.",
+          "reason_ko": "배정 -(으)ㄹ 수 있다/없다와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_motion_purpose",
+          "pattern": "V-(으)러",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "이동의 목적 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -(으)러의 이동 목적과 일치한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_b1_intention",
+          "pattern": "V-(으)려고",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "행동의 목적·의도 설명",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. ID의 b1을 학습자 등급이나 새 해금 조건으로 쓰지 않는다. 실제 source_level은 A1이다.",
+          "reason_ko": "배정 -(으)려고의 목적 기능과 일치한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "불규칙 활용",
+          "function_ko": "이 단원에 실제 쓰인 동사의 활용",
+          "reason_code": "authored_function_not_covered",
+          "reason_ko": "카드의 일반 형태를 모든 불규칙 동사 산출 인증으로 확대하지 않는다. 원고의 한정 동사 시범으로 남긴다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.2-05.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A1.2-06",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a2_cause_sequence",
+          "pattern": "V-아/어서",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "일정 변경 이유 설명",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드는 이유/순서 둘을 다루며 note의 포괄적인 시제 설명을 단원 전체 규칙으로 확대하지 않는다.",
+          "reason_ko": "배정 -아/어서 중 이유 기능에 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_contrast",
+          "pattern": "V-지만",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "서로 다른 사정 연결",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -지만과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_polite_proposal",
+          "pattern": "V-(으)ㄹ까요?",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "상대 의향을 물으며 변경 제안",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드의 불확실성 용법까지 같은 평가로 합치지 않는다.",
+          "reason_ko": "배정 -(으)ㄹ까요의 제안 기능과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_b1_before",
+          "pattern": "V-기 전에",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "다른 행동 전의 시점 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -기 전에의 순서 기능을 보조한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "-겠- 의지와 추측",
+          "function_ko": "약속 의지와 날씨 추측 구별",
+          "reason_code": "selection_budget",
+          "reason_ko": "기존 의지/추측 카드의 범위가 넓고 네 카드 제한도 있어 원고의 두 시범과 새 자료 대비를 유지한다.",
+          "delivery": "authored_unit_packet"
+        },
+        {
+          "target": "-(으)ㄴ 후에·보다·-고요·-(으)ㅂ시다·계획 보충",
+          "function_ko": "이후 순서·비교·추가 사정·제안 이해·계획",
+          "reason_code": "selection_budget",
+          "reason_ko": "일부 정확한 카드가 존재하나 전체를 링크하면 네 카드 제한과 선수 범위를 넘는다. 이 단원의 상세 원고로 다룬다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.2-06.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A2.1-01",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a2_conditional",
+          "pattern": "V-(으)면",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "가능한 조건을 확인하고 요청하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 조건 발화만으로 예약 변경 완료를 선언하지 않는다.",
+          "reason_ko": "배정 -(으)면과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_or_verbs",
+          "pattern": "V-거나",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "변경·취소 등 행동 대안 제시",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -거나와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_or_particle",
+          "pattern": "N(이)나",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "날짜 명사 대안 제시",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드 예문 드세요의 높임은 날짜 선택의 새 생산 목표가 아니다.",
+          "reason_ko": "배정 (이)나의 선택 기능과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_b1_decision",
+          "pattern": "V-기로 하다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "확인된 결정·합의 정리",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드의 개인 결정 설명만으로 상대 동의를 추정하지 않는다. 상대의 확인은 원고에서 요구한다.",
+          "reason_ko": "배정 -기로 하다에 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.1-01.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A2.1-02",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a2_only_negative",
+          "pattern": "N밖에",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "부정과 함께 남은 범위 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드의 기대보다 적음 설명은 모든 장면의 필수 감정으로 강요하지 않는다.",
+          "reason_ko": "배정 밖에와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_like",
+          "pattern": "N처럼/같이",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "사진과 비슷한 특징 비교",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 같이의 동행 뜻을 같은 목표로 추가하지 않는다.",
+          "reason_ko": "배정 처럼과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_favor",
+          "pattern": "V-아/어 주다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "교환·살펴보기 도움 요청",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -아/어 주다와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_present_modifier",
+          "pattern": "V-는 N",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "현재 행동으로 사람·물건 특정",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 완료 뒤 유지되는 착용 상태를 현재 -는의 유일한 답으로 강제하지 않는다.",
+          "reason_ko": "배정 현재 관형절과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "형용사 -(으)ㄴ",
+          "function_ko": "작은·큰 등 성질·상태 수식",
+          "reason_code": "scope_mismatch_or_partial",
+          "reason_ko": "past_modifier 카드의 주 대상은 지난 동작이며 형용사는 note에서만 언급된다. 네 카드 제한 안에서 직접 성질 수식을 가르친 것처럼 연결하지 않는다.",
+          "delivery": "authored_unit_packet"
+        },
+        {
+          "target": "에다가/에다",
+          "function_ko": "놓을 장소 구체화",
+          "reason_code": "selection_budget",
+          "reason_ko": "정확한 additive_location 카드는 존재하지만 네 카드 제한으로 선정하지 않았다. 원고의 위치 과제를 사용한다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.1-02.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A2.1-03",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a2_each",
+          "pattern": "N마다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "운행 주기 설명",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 나라마다라는 문화 예문을 실제 버스 주기로 변경하지 않는다.",
+          "reason_ko": "배정 마다의 반복 단위 기능에 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_from_person",
+          "pattern": "N한테서/에게서",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "정보를 준 사람 출처 표시",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 출처와 받는 사람·이동 방향을 구별한다.",
+          "reason_ko": "에게서·한테서 두 배정형을 한 카드가 다룬다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_toward_person",
+          "pattern": "N에게로",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "사람 쪽 이동 방향 이해",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 사람 방향 이해만 참고하며 생산을 필수로 바꾸지 않는다.",
+          "reason_ko": "배정 에게로의 수용 기능과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_starting_point",
+          "pattern": "N에서부터 / N서부터",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "경로의 출발점 이해",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 시간 범위 부터를 새 공간 출발점 설명으로 혼합하지 않는다.",
+          "reason_ko": "배정 에서부터/서부터와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.1-03.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A2.1-04",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a2_permission",
+          "pattern": "V-아/어도 되다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "행동 허가를 묻거나 이해하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -아/어도 되다와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_b1_obligation",
+          "pattern": "V-아/어야 하다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "필요·의무 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 해야 해요와 해야 돼요의 관련 의미 참고이며 단원 정답 표면형을 임의로 교체하지 않는다.",
+          "reason_ko": "원고 배정 -아/어야 되다의 유의형 -아/어야 하다 카드다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_polite_prohibition",
+          "pattern": "V-지 마세요",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "하지 말라는 요청 이해·전달",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -지 말다의 공손한 활용과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_formal_command",
+          "pattern": "V-(으)십시오",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "공식 안내의 지시 이해",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 원문도 인식 필요성을 설명한다. 공지 문체의 생산을 필수로 하지 않는다.",
+          "reason_ko": "배정 -(으)십시오 수용 목표와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "-아/어 보다",
+          "function_ko": "한번 시도하도록 권하기",
+          "reason_code": "selection_budget",
+          "reason_ko": "try_experience/recommendation 카드가 있지만 네 카드 제한으로 이 단원 원고에 남긴다. 의학 조언·복용 안내로 사용하지 않는다.",
+          "delivery": "authored_unit_packet"
+        },
+        {
+          "target": "증상 언어·도움 요청",
+          "function_ko": "배가 아프다는 허구 발화와 도움 요청",
+          "reason_code": "authored_function_not_covered",
+          "reason_ko": "문법 카드로 진단·치료·건강 행동을 정답화하지 않는다. 고정 서사의 언어 상황만 사용한다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.1-04.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A2.1-05",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a1_past_modifier",
+          "pattern": "V-(으)ㄴ N",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "지난 행동으로 사진 구별",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 형용사 현재 수식에 대한 note는 여기의 지난 동작 기능과 구분한다.",
+          "reason_ko": "배정 지난 관형절과 직접 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_future_modifier",
+          "pattern": "V-(으)ㄹ N",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "예정 행동으로 할 일 구별",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드의 추정 가능성은 이 단원 예정 행동과 별도다.",
+          "reason_ko": "배정 예정 관형절과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_b1_nominalization",
+          "pattern": "V-는 것",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "행동·사실을 -는 것으로 대상화",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 명사절과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_b1_nominalizer_gi",
+          "pattern": "V-기",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "활동 목록 제목 만들기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드의 추상/일반 구분을 모든 문맥의 교체 가능성 규칙으로 확대하지 않는다.",
+          "reason_ko": "배정 -기와 원고의 짧은 활동 목록에 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "목적 V-게",
+          "function_ko": "뒤 행동이 이루려는 목적 표현",
+          "reason_code": "function_mismatch",
+          "reason_ko": "grammar_a2_adverbial은 A-게의 방식·상태 수식 카드다. 같은 글자 게라는 이유로 목적 V-게에 연결하지 않는다. 정확한 기능 설명은 원고에 남긴다.",
+          "delivery": "authored_unit_packet"
+        },
+        {
+          "target": "현재 -는",
+          "function_ko": "지난·예정과 대비하는 선수 복습",
+          "reason_code": "selection_budget",
+          "reason_ko": "present_modifier 카드는 A2.1-02에서 참고하도록 두고 여기의 네 카드 제한 때문에 중복 선정하지 않는다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.1-05.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A2.1-06",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_b1_honorific_si",
+          "pattern": "V-(으)시-",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "문장의 행동 주체 높이기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 요의 청자 대우와 시의 주체 높임을 구별한다. 특수 동사 계시다는 단원 시범을 따른다.",
+          "reason_ko": "배정 -(으)시-와 정확히 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_honorific_kke",
+          "pattern": "N께",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "높이는 받는 사람 표시",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 원문 장인어른·과일·드렸어요의 선수 어휘를 반드시 확인한다. 께 카드나 benefactive 드리다 카드로 독립 어휘 드리다 전체를 배웠다고 주장하지 않는다.",
+          "reason_ko": "배정 께와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_nominalizer_eum",
+          "pattern": "V/A-음",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "짧은 공지의 사실 이해",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드 예문은 채팅/메모체다. 명사형이 언제나 공적인 존댓말이라는 규칙을 만들지 않는다.",
+          "reason_ko": "배정 -(으)ㅁ의 수용 목표와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_written_directive",
+          "pattern": "V-(으)ㄹ 것",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "공지의 축약 지시 읽기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 명사절 -는 것이나 미래 예정과 구별하고 생산을 필수로 강요하지 않는다.",
+          "reason_ko": "배정 -(으)ㄹ 것 지시 기능과 직접 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "께서",
+          "function_ko": "높이는 제3자 주어 이해",
+          "reason_code": "selection_budget",
+          "reason_ko": "정확한 honorific_subject_kkeyseo 카드가 있으나 네 카드 제한으로 별도 선정하지 않는다. 원고의 주체/수신자 대비를 유지한다.",
+          "delivery": "authored_unit_packet"
+        },
+        {
+          "target": "독립 어휘 드리다·성함",
+          "function_ko": "사진 전달 제안과 이름 높임말 이해",
+          "reason_code": "function_mismatch",
+          "reason_ko": "V-아/어 드리다의 수혜 행동 보조용언 카드와 독립 동사 드리다를 같은 기능으로 연결하지 않는다. 원고의 어휘·제안 문맥이 담당한다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.1-06.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A2.2-01",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_b1_experience",
+          "pattern": "V-(으)ㄴ 적이 있다/없다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "해 본 적의 유무 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 경험 유무 기능과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_b1_since",
+          "pattern": "V-(으)ㄴ 지",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "시작 뒤 흐른 기간 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -(으)ㄴ 지와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_b1_duration",
+          "pattern": "V-는 동안에",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "행동이 이어지는 기간 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -는 동안과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_progressive",
+          "pattern": "V-고 있다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "지금 진행하는 행동 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 현재 하고 있다는 사실로 장기간 계속 학습했다고 자동 추정하지 않는다.",
+          "reason_ko": "경험·지속 기간과 현재 진행을 대비하는 배정 기능과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "-(으)ㄹ 때",
+          "function_ko": "행동과 관련된 시점 말하기",
+          "reason_code": "selection_budget",
+          "reason_ko": "정확한 when 카드가 존재하나 네 카드 제한으로 원고의 시점 시범·점검에 남긴다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.2-01.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A2.2-02",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a2_simultaneous",
+          "pattern": "V-(으)면서",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "같은 사람이 동시에 하는 두 행동",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -(으)면서와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_interrupted_action",
+          "pattern": "V-다가",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "행동 도중의 전환·중단",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드는 같은 주어의 두 행동을 설명한다. 단원 원고의 버스·타이어 같은 외부 사건 주어까지 무조건 같은 주어여야 한다고 일반화하지 않는다.",
+          "reason_ko": "배정 -다가의 기본 사건 연결과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_change",
+          "pattern": "V-게 되다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "상황 변화로 생긴 결과 설명",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 바뀐 결과가 언제나 우연·비희망이라는 전제를 만들지 않는다.",
+          "reason_ko": "배정 -게 되다의 결과 기능과 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.2-02.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A2.2-03",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_b1_background_contrast",
+          "pattern": "V-는데",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "다음 말의 배경 제시",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드의 약한 대조 기능과 감탄 말끝 -는데요는 다른 범위다.",
+          "reason_ko": "배정 배경 -는데와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_reason_because",
+          "pattern": "V-기 때문에",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "명시한 이유와 결과 연결",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 알려지지 않은 감정 원인을 새로 만들어 넣지 않는다.",
+          "reason_ko": "배정 -기 때문에와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_exclamation",
+          "pattern": "V-네요",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "방금 알아차린 사실에 반응",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드의 네요/군요 설명을 출처 유형의 절대 규칙으로 확대하지 않는다.",
+          "reason_ko": "배정 -네요와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_b1_realization",
+          "pattern": "V-군요/는군요",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "새 깨달음의 -군요 이해",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 필수 독립 산출이나 모든 높임 활용 전체를 요구하지 않는다.",
+          "reason_ko": "배정 -군요의 수용 목표와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "감탄 -는데요",
+          "function_ko": "새 인상에 놀라움·감탄으로 반응",
+          "reason_code": "function_mismatch",
+          "reason_ko": "background_contrast 카드의 배경·대조 설명은 이 말끝 기능과 같지 않다. 원고의 이해용 시범으로 남긴다.",
+          "delivery": "authored_unit_packet"
+        },
+        {
+          "target": "공감·미확인 이유 묻기",
+          "function_ko": "감정에 공감하며 추측과 사실 구분",
+          "reason_code": "authored_function_not_covered",
+          "reason_ko": "형태 설명만으로 공감의 관계·근거·선택권을 평가하지 않는다. 원고의 메시지·답장 과제를 유지한다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.2-03.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A2.2-04",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a2_promise",
+          "pattern": "V-(으)ㄹ게요",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "상대를 고려한 자신의 실행 약속",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 자기 의향만으로 두 사람의 공동 일정 합의가 생겼다고 보지 않는다.",
+          "reason_ko": "배정 -(으)ㄹ게요와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_preference_question",
+          "pattern": "V-(으)ㄹ래요",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "자신의 의향·상대 선택 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -(으)ㄹ래요와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_tentative_intention",
+          "pattern": "V-을까 보다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "아직 확정 전인 의도 말하기",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 걱정 뜻의 grammar_b2_worry와 혼동하지 않는다.",
+          "reason_ko": "정확한 잠정 의도 -(으)ㄹ까 보다 카드다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_contrast",
+          "pattern": "V-지만",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "다른 사정을 인정하며 일정 조정",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -지만의 조정 기능 참고다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "-고요",
+          "function_ko": "이전 말에 사정을 덧붙여 조정 준비",
+          "reason_code": "function_mismatch",
+          "reason_ko": "sequence_connector의 V-고 순서 설명과 담화 말끝 -고요를 같은 기능으로 취급하지 않는다. 원고의 추가 사정 시범을 쓴다.",
+          "delivery": "authored_unit_packet"
+        },
+        {
+          "target": "-아/어서 이유",
+          "function_ko": "선택 여지를 남기는 일정 변경 이유",
+          "reason_code": "selection_budget",
+          "reason_ko": "정확한 cause_sequence 카드가 있으나 네 카드 제한으로 이 단원 원고와 선수 A1.2-06의 참고에 남긴다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.2-04.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A2.2-05",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a2_probability",
+          "pattern": "V-(으)ㄴ/는/(으)ㄹ 것 같다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "확신을 낮춘 추측 표현",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 카드 예문은 미래 비 추측이다. 단원의 현재 부재 추측은 단원 원고에서 별도 시범하며 확인 전 사실로 강화하지 않는다.",
+          "reason_ko": "배정 것 같다와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_b1_resultant_state",
+          "pattern": "V-아/어 있다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "행동 뒤 유지되는 결과 상태",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다.",
+          "reason_ko": "배정 -아/어 있다와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_progressive",
+          "pattern": "V-고 있다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "진행 중인 동작과 결과 상태 대비",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 이 카드는 진행 동작을 설명한다. 결과 상태 기능 전체를 같은 카드 한 장으로 인증하지 않는다.",
+          "reason_ko": "배정 -고 있다의 진행 기능 참고다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.2-05.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    },
+    {
+      "unit_id": "A2.2-06",
+      "state": "references_selected",
+      "cards": [
+        {
+          "id": "grammar_a2_no_choice_but",
+          "pattern": "V-을 수밖에 없다",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "실제 다른 선택이 없는 제약 설명",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 선호를 불가피함으로 바꾸지 않는다.",
+          "reason_ko": "배정 -(으)ㄹ 수밖에 없다와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_tag_confirmation",
+          "pattern": "A/V-지 / -지요(-죠)",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A2",
+          "function_ko": "공유한 정보를 -지요로 확인",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 존재하지 않는 약속·소유·선물 전제를 새로 만들지 않는다.",
+          "reason_ko": "배정 -지요/-죠와 맞는다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a1_copula_negation",
+          "pattern": "N이/가 아니에요",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "잘못한 소유·정체 주장을 정정",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 배정 새 형태가 아니라 기존 대화 복구에 쓰는 복습 참조다.",
+          "reason_ko": "원고에서 허용하는 쉬운 아니다 정정의 선수 복습이다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        },
+        {
+          "id": "grammar_a2_cause_sequence",
+          "pattern": "V-아/어서",
+          "source_path": "assets/data/grammar.csv",
+          "source_sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+          "source_level": "A1",
+          "function_ko": "빌린 관계·반환 제약의 이유 설명",
+          "reuse_scope": "기존 설명·예문 읽기 참고만 한다. 원문은 그대로 유지한다. 미학습 어휘·선수 형태·관계·quiz 선택지를 사전 확인해야 하며, 이 참조로 카드 퀴즈·단원·서사·건축·보상을 자동 해금하지 않는다. 단원 새로운 배정 형태로 추가하지 않으며 사정의 진위를 카드로 자동 판정하지 않는다.",
+          "reason_ko": "원고의 사과·거절에서 이유를 잇는 선수 복습을 보조한다.",
+          "quiz_binding": "not_bound_requires_separate_review"
+        }
+      ],
+      "unlinked_targets": [
+        {
+          "target": "-줄 알았어요·사과·반환 합의",
+          "function_ko": "오해를 정정하고 가능한 반환 계획 확인",
+          "reason_code": "authored_function_not_covered",
+          "reason_ko": "어려운 고정 표현의 이해 도움과 상호작용은 원고가 담당한다. 문법 카드 열람을 소유 확인·반환 완료로 처리하지 않는다.",
+          "delivery": "authored_unit_packet"
+        }
+      ],
+      "packet_path": "docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.2-06.json",
+      "completion_scope": "카드 참조는 단원 기능 일부의 설명 읽기다. 실제 대화·도움·독립 수행·지연 회상·열린 전이는 단원 원고가 담당하며 카드 열람을 그 수행으로 합산하지 않는다."
+    }
+  ],
+  "counts": {
+    "units": 52,
+    "foundation_not_applicable": 28,
+    "conversation_with_references": 24,
+    "card_references": 81,
+    "unique_cards": 76,
+    "unselected_source_cards": 188
+  }
+}
