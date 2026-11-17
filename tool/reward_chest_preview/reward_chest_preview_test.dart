@@ -8,6 +8,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 
+import 'preview_l10n.dart';
 import 'reward_chest_screen.dart';
 import 'reward_chest_prelude.dart';
 import 'reward_chest_guide.dart';

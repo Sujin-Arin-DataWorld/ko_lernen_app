@@ -5,6 +5,8 @@ import 'package:intl/intl.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
+import 'preview_l10n.dart';
+
 double _phase(double s, double a, double b, [Curve curve = Curves.linear]) =>
     curve.transform(((s - a) / (b - a)).clamp(0.0, 1.0));
 

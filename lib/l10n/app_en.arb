@@ -5899,12 +5899,5 @@
   "pronunciationFocusLink": "Sound linking",
   "pronunciationHeader": "Pronunciation",
   "pronunciationRecordShort": "Record",
-  "pronunciationRecordAgainShort": "Record again",
-  "rewardChestNewDecoration": "New decoration",
-  "rewardChestLearningXp": "Your learning XP",
-  "rewardChestCulturalStory": "The story behind it",
-  "rewardChestPlaceSarangbang": "Place in Sarangbang",
-  "rewardChestPreviewTitle": "Mother-of-pearl chest · Preview",
-  "rewardChestReplay": "Watch again",
-  "rewardChestPreviewPlacement": "Preview: In the app, you can place this piece in your Sarangbang."
+  "pronunciationRecordAgainShort": "Record again"
 }

@@ -5,6 +5,7 @@ import 'package:ko_lernen_app/widgets/sori/cultural_help.dart';
 import 'package:ko_lernen_app/widgets/sori/placed_decoration.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
+import 'preview_l10n.dart';
 import 'reward_chest_screen.dart';
 
 void main() => runApp(const RewardChestPreviewApp());

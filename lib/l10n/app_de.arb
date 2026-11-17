@@ -6081,14 +6081,5 @@
   "pronunciationFocusLink": "Lautverbindung",
   "pronunciationHeader": "Aussprache",
   "pronunciationRecordShort": "Aufnehmen",
-  "pronunciationRecordAgainShort": "Erneut aufnehmen",
-  "rewardChestNewDecoration": "Neue Dekoration",
-  "@rewardChestNewDecoration": {"description": "Eyebrow above a newly unlocked decoration."},
-  "rewardChestLearningXp": "Deine Lern-XP",
-  "@rewardChestLearningXp": {"description": "Current learning XP total, not an additional reward from opening a chest."},
-  "rewardChestCulturalStory": "Die Geschichte dahinter",
-  "rewardChestPlaceSarangbang": "Im Sarangbang platzieren",
-  "rewardChestPreviewTitle": "Perlmutt-Truhe · Vorschau",
-  "rewardChestReplay": "Noch einmal ansehen",
-  "rewardChestPreviewPlacement": "Vorschau: In der App platzierst du dieses Stück in deinem Sarangbang."
+  "pronunciationRecordAgainShort": "Erneut aufnehmen"
 }

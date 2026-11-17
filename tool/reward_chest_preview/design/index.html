@@ -84,7 +84,7 @@ function fit(b){
 async function render(){
  const run=++version,shape=el('object-select').value,copy=ui[lang];
  document.documentElement.lang=lang;
- arb=await(await fetch(`/lib/l10n/app_${lang}.arb`,{cache:'no-store'})).json();
+ arb={...await(await fetch(`/lib/l10n/app_${lang}.arb`,{cache:'no-store'})).json(),...(await(await fetch('/tool/reward_chest_preview/design/preview_strings.json',{cache:'no-store'})).json())[lang]};
  if(run!==version)return;
  document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
  el('study-label').textContent=copy.study;

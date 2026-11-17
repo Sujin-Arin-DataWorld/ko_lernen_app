@@ -21,6 +21,7 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
+import 'preview_l10n.dart';
 import 'reward_chest_prelude.dart';
 import 'reward_chest_guide.dart';
 
