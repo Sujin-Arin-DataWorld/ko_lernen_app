@@ -54,11 +54,11 @@ dependencies:
   # stable across Android, iOS, and Web.
   google_sign_in:          ^6.3.0
   cloud_firestore:         ^6.10.2
-  firebase_remote_config:  ^6.5.6   # v6.0 palette kill-switch (dancheong ↔ teal)
+  firebase_remote_config:  ^6.7.1   # v6.0 palette kill-switch (dancheong ↔ teal)
   firebase_analytics: ^12.6.1
-  firebase_crashlytics: ^5.2.7
-  firebase_messaging: ^16.5.0   # Phase 7 — 계 피드 푸시(목표 달성). ⚠️ iOS APNs 필요
-  firebase_storage: ^13.4.6     # 고품질 TTS mp3 (사전생성 + 동적 CF 캐시). auth-gated read.
+  firebase_crashlytics: ^5.4.1
+  firebase_messaging: ^16.7.1   # Phase 7 — 계 피드 푸시(목표 달성). ⚠️ iOS APNs 필요
+  firebase_storage: ^13.6.1     # 고품질 TTS mp3 (사전생성 + 동적 CF 캐시). auth-gated read.
 
   # ── Phase 5 (stately-rising-jongga) — 책 한 컷 ───────────
   # OCR: ML Kit (on-device, 무료, 한국어 지원)
@@ -95,7 +95,7 @@ dependencies:
   crypto: ^3.0.7
   video_player: ^2.11.1
   flutter_native_splash: ^2.4.2
-  cloud_functions: ^6.3.6
+  cloud_functions: ^6.5.1
   firebase_app_check: ^0.4.9
   firebase_app_check_platform_interface: ^0.4.2
   flutter_secure_storage: ^10.3.1
