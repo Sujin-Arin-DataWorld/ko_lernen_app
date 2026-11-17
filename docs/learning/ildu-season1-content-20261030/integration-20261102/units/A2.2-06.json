@@ -1,0 +1,820 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "unit_id": "A2.2-06",
+  "band": "A2.2",
+  "title": {
+    "ko": "오해를 풀고 돌려주기",
+    "en": "Correcting a misunderstanding and returning an item",
+    "de": "Missverständnisse klären und etwas zurückgeben"
+  },
+  "goal": {
+    "ko": "경험·관계·제약을 설명하고 사과·거절·정정을 수행한다",
+    "en": "Describe experiences, relationships, and constraints while apologizing, declining, and correcting.",
+    "de": "Beschreibe Erfahrungen, Beziehungen und Einschränkungen und entschuldige dich, lehne ab und korrigiere."
+  },
+  "prerequisites": [
+    "A1.1-06",
+    "A2.2-03",
+    "A2.2-04",
+    "A2.2-05"
+  ],
+  "teach_targets": {
+    "vocab": [
+      {
+        "ko": "빌리다",
+        "en": "borrow",
+        "de": "ausleihen"
+      },
+      {
+        "ko": "돌려주다",
+        "en": "return an item",
+        "de": "zurückgeben"
+      },
+      {
+        "ko": "미안하다",
+        "en": "be sorry",
+        "de": "leidtun"
+      },
+      {
+        "ko": "오해",
+        "en": "misunderstanding",
+        "de": "Missverständnis"
+      },
+      {
+        "ko": "사정",
+        "en": "circumstances",
+        "de": "Umstände"
+      }
+    ],
+    "grammar": [
+      "-(으)ㄹ 수밖에 없다",
+      "-지요/-죠",
+      "-이/가 아니에요(복습)",
+      "-아/어서(이유 복습)"
+    ]
+  },
+  "non_assessed": [
+    "제 우산인 줄 알았어요는 이해 도움이며 필수 독립 산출형이 아니다.",
+    "소유 확인·반환 합의는 모의 물건에 한정한다. 실제 에셋 소유·선물·재화·본편 화해 조건을 만들지 않는다.",
+    "수밖에 없다는 실제 대안이 없는 자료에서만 사용한다. 지요는 실제 공유된 정보에서만 확인한다."
+  ],
+  "source": {
+    "contract_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/UNITS.psv",
+    "contract_sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+    "story_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+    "story_sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332",
+    "base_sha": "646c4658e70f594ab234a172679e29122d0f0e66"
+  },
+  "story": {
+    "lq_id": "LQ-08",
+    "building_id": "anchae",
+    "anchor": "안채 중간 / v3.5 §6 06·§8.1; 이 패킷의 보이는 장면은 2026년 현대 역할 카드",
+    "spoiler_guard": {
+      "canonical_gate": "S1-E06.middle",
+      "visible_variant": "modern_role_card_no_story_gate",
+      "if_unmet": "이 패킷의 현대 모의 대화와 새 자극만 제공한다. 고택의 기억·이름·가족 약속·물건·대사를 선공개하지 않는다.",
+      "if_met": "이미 공개된 본편 자료로 돌아가는 선택만 제공한다. 이 패킷은 새 가족 사실이나 후속 진실을 추가하지 않는다.",
+      "gate_owner": "기존 본편 공개 상태; 학습 수준·정답률·지연 복습·건축률로 대체하지 않는다.",
+      "new_clue": 0,
+      "new_resident_npc": 0,
+      "ownership_or_reward_grant": false
+    }
+  },
+  "dialogue": [
+    {
+      "id": "A2.2-06-D01",
+      "speaker": "sujin",
+      "phase": "entry",
+      "ko": "현대 물건 카드로 오해를 고치는 말을 연습하자.",
+      "en": "Let’s practice correcting a misunderstanding with a modern item card.",
+      "de": "Üben wir mit einer modernen Gegenstandskarte, einen Irrtum zu korrigieren."
+    },
+    {
+      "id": "A2.2-06-D02",
+      "speaker": "christian",
+      "phase": "request",
+      "ko": "이 파란 우산이 제 것이라고 생각했는데 이름표가 다르네요.",
+      "en": "I thought this blue umbrella was mine, but the label has another name.",
+      "de": "Ich dachte, dieser blaue Schirm gehöre mir, aber das Namensschild ist anders."
+    },
+    {
+      "id": "A2.2-06-D03",
+      "speaker": "sujin",
+      "phase": "model",
+      "ko": "제 우산이 아니에요. 미안해요, 이렇게 짧게 고쳐도 돼.",
+      "en": "You can simply correct it: This is not my umbrella. I am sorry.",
+      "de": "Du kannst kurz korrigieren: Das ist nicht mein Schirm. Es tut mir leid."
+    },
+    {
+      "id": "A2.2-06-D04",
+      "speaker": "sujin",
+      "phase": "practice",
+      "ko": "주인을 확인하고 돌려줄 시간을 함께 정하자. 모르면 이름을 만들지 않아.",
+      "en": "Check the owner and agree on a return time. If the owner is unknown, do not invent a name.",
+      "de": "Prüfe das Eigentum und vereinbare die Rückgabe. Ist die Person unbekannt, erfinde keinen Namen."
+    },
+    {
+      "id": "A2.2-06-D05",
+      "speaker": "sujin",
+      "phase": "model",
+      "ko": "다른 방법이 없을 때만 수밖에 없어요, 함께 아는 약속만 지요로 확인해.",
+      "en": "Use “no choice” only when alternatives are absent, and 지요 only for an agreement both people know.",
+      "de": "Verwende „keine andere Möglichkeit“ nur ohne Alternativen und 지요 nur für beiden bekannte Absprachen."
+    },
+    {
+      "id": "A2.2-06-D06",
+      "speaker": "sujin",
+      "phase": "use",
+      "ko": "새 요청을 받으면 빌린 관계와 가능한 반환 시간을 지켜 봐.",
+      "en": "For a new request, preserve the borrowing relationship and feasible return times.",
+      "de": "Behalte bei der neuen Bitte das Leihverhältnis und mögliche Rückgabezeiten bei."
+    },
+    {
+      "id": "A2.2-06-D07",
+      "speaker": "christian",
+      "phase": "result",
+      "ko": "틀린 소유 주장은 고치고, 실제 반환은 확인 뒤에 할 수 있겠어요.",
+      "en": "We can correct the ownership claim and arrange the actual return after checking.",
+      "de": "Wir können den Eigentumsirrtum korrigieren und die Rückgabe nach der Prüfung vereinbaren."
+    },
+    {
+      "id": "A2.2-06-D08",
+      "speaker": "sujin",
+      "phase": "return",
+      "ko": "본편의 공개된 장면으로 돌아가자. 이 사과가 본편의 진실이나 관계의 결론을 대신하지는 않아.",
+      "en": "Let’s return to an available story scene. This apology does not establish the story’s truth or decide its relationships.",
+      "de": "Kehren wir zu einer zugänglichen Geschichtsszene zurück. Diese Entschuldigung klärt weder die Wahrheit noch die Beziehungen der Geschichte."
+    },
+    {
+      "id": "A2.2-06-D09",
+      "speaker": "sujin",
+      "phase": "next",
+      "ko": "내일은 새 물건으로 성급한 소유 추정을 다시 고쳐 보자.",
+      "en": "Tomorrow, correct a hasty ownership assumption about a new item.",
+      "de": "Morgen korrigieren wir eine vorschnelle Eigentumsannahme bei einem neuen Gegenstand."
+    }
+  ],
+  "items": [
+    {
+      "id": "A2.2-06-P01",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "잘못된 소유 추정을 사과하고 정정한다",
+      "prompt": {
+        "ko": "확인된 소유 정보에 맞는 정정을 골라요.",
+        "en": "Choose the correction matching the confirmed ownership.",
+        "de": "Wähle die Korrektur nach der bestätigten Eigentumsangabe."
+      },
+      "material": {
+        "context": {
+          "ko": "현대 모의 카드: 여행자가 자기 것인 줄 알고 파란 우산을 가져옴. 이름표와 상대 확인 결과 다른 사람 것. 시범: 제 우산이 아니에요. 미안해요. 제 우산인 줄 알았어요는 번역 지원용 이해 표현이다.",
+          "en": "Modern simulated card: the traveler brought a blue umbrella thinking it was theirs; label and owner check confirm it belongs to another person. Model: This is not my umbrella. I am sorry. “I thought it was mine” is supported comprehension language.",
+          "de": "Moderne Rollenkarte: Die reisende Person nahm einen blauen Schirm im Glauben mit, er gehöre ihr. Namensschild und Rückfrage bestätigen fremdes Eigentum. Beispiel: Das ist nicht mein Schirm. Es tut mir leid. „Ich dachte, es sei meiner“ wird als Verstehenshilfe angeboten."
+        }
+      },
+      "options": [
+        {
+          "id": "correct",
+          "ko": "제 우산이 아니에요. 미안해요. 돌려줄게요.",
+          "en": "This is not my umbrella. I am sorry. I will return it.",
+          "de": "Das ist nicht mein Schirm. Es tut mir leid. Ich gebe ihn zurück."
+        },
+        {
+          "id": "claim",
+          "ko": "제가 가져왔으니까 이제 제 거예요.",
+          "en": "I brought it, so it is mine now.",
+          "de": "Ich habe ihn mitgebracht, also gehört er jetzt mir."
+        },
+        {
+          "id": "blame",
+          "ko": "다른 사람이 제 우산을 훔쳤어요.",
+          "en": "Someone stole my umbrella.",
+          "de": "Jemand hat meinen Schirm gestohlen."
+        }
+      ],
+      "accepted_answers": [
+        "correct"
+      ],
+      "feedback_correct": {
+        "ko": "잘못된 소유를 고치고 사과와 반환 행동을 이었어요.",
+        "en": "You corrected the ownership and connected the apology to returning it.",
+        "de": "Du hast die Eigentumsangabe korrigiert und Entschuldigung und Rückgabe verbunden."
+      },
+      "feedback_wrong": {
+        "ko": "가져온 행동은 소유권이 되지 않고, 도난 근거도 없어요.",
+        "en": "Bringing an item does not create ownership, and there is no theft evidence.",
+        "de": "Mitbringen begründet kein Eigentum; für Diebstahl gibt es keinen Beleg."
+      },
+      "help": {
+        "ko": "어려운 줄 알았어요 없이도 아니에요와 미안해요로 정정할 수 있어요.",
+        "en": "You can correct the error with 아니에요 and 미안해요 without the harder 줄 알았어요.",
+        "de": "Du kannst mit 아니에요 und 미안해요 korrigieren, ohne die schwierigere Form 줄 알았어요 zu bilden."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-06-P02",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "실제 선택지가 없을 때만 제약을 설명한다",
+      "prompt": {
+        "ko": "다른 방법이 없다는 카드에 맞는 설명을 골라요.",
+        "en": "Choose the explanation for a card with no alternative.",
+        "de": "Wähle die Erklärung für eine Karte ohne andere Möglichkeit."
+      },
+      "material": {
+        "context": {
+          "ko": "역할 카드: 물건을 돌려주러 갈 수 있는 길은 한 개뿐. 버스 운행 종료, 택시 없음, 자전거 사용 불가. 걸어서 10분. 시범: 지금은 걸어갈 수밖에 없어요.",
+          "en": "Role card: only one way to get to the return meeting. Buses have stopped, no taxi available, bicycle unavailable. Ten minutes on foot. Model: I have no choice but to walk now.",
+          "de": "Rollenkarte: Zum Rückgabetreffen gibt es nur eine Möglichkeit. Keine Busse mehr, kein Taxi, Fahrrad nicht nutzbar; zehn Minuten zu Fuß. Beispiel: Jetzt bleibt mir nur, zu Fuß zu gehen."
+        }
+      },
+      "options": [
+        {
+          "id": "only",
+          "ko": "지금은 걸어갈 수밖에 없어요.",
+          "en": "I have no choice but to walk now.",
+          "de": "Jetzt bleibt mir nur, zu Fuß zu gehen."
+        },
+        {
+          "id": "many",
+          "ko": "버스와 택시 중에서 고를 수 있어요.",
+          "en": "I can choose between a bus and a taxi.",
+          "de": "Ich kann zwischen Bus und Taxi wählen."
+        },
+        {
+          "id": "want",
+          "ko": "걷기 싫어서 절대 안 갈 거예요.",
+          "en": "I do not want to walk, so I will never go.",
+          "de": "Ich möchte nicht gehen und werde deshalb auf keinen Fall kommen."
+        }
+      ],
+      "accepted_answers": [
+        "only"
+      ],
+      "feedback_correct": {
+        "ko": "다른 이동 선택지가 없다는 제약을 말했어요.",
+        "en": "You stated the lack of other transport options.",
+        "de": "Du hast das Fehlen anderer Verkehrsmöglichkeiten beschrieben."
+      },
+      "feedback_wrong": {
+        "ko": "카드에 없는 교통편을 만들지 말고, 걷기 싫다는 새 의향도 더하지 말아요. 지금 실제로 남은 이동 방법을 설명해요.",
+        "en": "Do not invent transport options or add a new preference against walking. Describe the transport option actually remaining now.",
+        "de": "Erfinde weder Verkehrsmittel noch eine neue Abneigung gegen das Gehen. Beschreibe die jetzt tatsächlich verbleibende Möglichkeit."
+      },
+      "help": {
+        "ko": "-수밖에 없어요는 선택지가 실제로 없는 카드에서 써요.",
+        "en": "Use -수밖에 없어요 here because the card really rules out alternatives.",
+        "de": "Hier passt -수밖에 없어요, weil die Karte andere Möglichkeiten tatsächlich ausschließt."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-06-P03",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "공유 정보를 -지요로 확인한다",
+      "prompt": {
+        "ko": "함께 정한 약속을 다시 확인하는 말을 골라요.",
+        "en": "Choose the check of a previously shared agreement.",
+        "de": "Wähle die Rückfrage zu einer gemeinsam getroffenen Absprache."
+      },
+      "material": {
+        "context": {
+          "ko": "앞선 모의 채팅에서 두 사람이 오늘 세 시, 도서관 입구 반환에 모두 동의함. 시범: 오늘 세 시에 도서관 입구에서 만나기로 했지요? 처음 듣는 사람에게 공유 지식을 강요하는 말로 쓰지 않는다.",
+          "en": "Both participants previously agreed in a simulated chat to return the item at three today by the library entrance. Model: We agreed to meet at three by the entrance, right? Do not impose shared knowledge on someone hearing it for the first time.",
+          "de": "Beide haben im simulierten Chat der Rückgabe heute um 15 Uhr am Bibliothekseingang zugestimmt. Beispiel: Wir hatten uns für heute um 15 Uhr am Eingang verabredet, richtig? Verwende die Form nicht, um unbekanntes Wissen als gemeinsam vorauszusetzen."
+        }
+      },
+      "options": [
+        {
+          "id": "shared",
+          "ko": "오늘 세 시에 도서관 입구에서 만나기로 했지요?",
+          "en": "We agreed to meet at three today by the library entrance, right?",
+          "de": "Wir hatten vereinbart, uns heute um 15 Uhr am Bibliothekseingang zu treffen, richtig?"
+        },
+        {
+          "id": "wrong",
+          "ko": "오늘 두 시에 카페에서 만나기로 했지요?",
+          "en": "We agreed to meet at two today at the café, right?",
+          "de": "Wir hatten vereinbart, uns heute um 14 Uhr im Café zu treffen, richtig?"
+        },
+        {
+          "id": "new",
+          "ko": "당연히 그 물건을 제게 선물하기로 했지요?",
+          "en": "Of course we agreed you would give me the item, right?",
+          "de": "Wir hatten doch selbstverständlich vereinbart, dass Sie mir den Gegenstand schenken, richtig?"
+        }
+      ],
+      "accepted_answers": [
+        "shared"
+      ],
+      "feedback_correct": {
+        "ko": "실제 함께 확인한 장소와 시간만 다시 물었어요.",
+        "en": "You checked only the place and time actually agreed by both people.",
+        "de": "Du hast nur den von beiden bestätigten Ort und Zeitpunkt nachgefragt."
+      },
+      "feedback_wrong": {
+        "ko": "확인 말끝으로 장소·시간·선물 합의를 새로 만들지 않아요.",
+        "en": "A checking ending cannot create a new place, time, or gift agreement.",
+        "de": "Eine Rückfrageform erzeugt keine neue Orts-, Zeit- oder Geschenkabsprache."
+      },
+      "help": {
+        "ko": "지요 앞에 놓일 정보가 두 사람에게 이미 알려졌는지 봐요.",
+        "en": "Check whether the information before 지요 is already shared.",
+        "de": "Prüfe, ob die Information vor 지요 beiden schon bekannt ist."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-06-P04",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "돌려줄 물건의 새 대여를 거절한다",
+      "prompt": {
+        "ko": "확인된 반환 사정을 지키는 거절을 골라요.",
+        "en": "Choose the refusal preserving the agreed return.",
+        "de": "Wähle die Ablehnung, die die vereinbarte Rückgabe einhält."
+      },
+      "material": {
+        "context": {
+          "ko": "다른 사람에게 빌린 책을 오늘 돌려주기로 이미 약속함. 제삼자의 익명 역할이 내일까지 빌려 달라고 요청. 허락받지 않은 재대여 불가. 시범: 미안해요. 오늘 돌려줘야 해서 빌려줄 수 없어요.",
+          "en": "A borrowed book is already promised back today. An unnamed third-person role asks to borrow it until tomorrow. No permission to lend it onward. Model: Sorry, I cannot lend it because I need to return it today.",
+          "de": "Ein geliehenes Buch soll wie vereinbart heute zurückgegeben werden. Eine unbenannte dritte Rolle möchte es bis morgen ausleihen. Keine Erlaubnis zum Weiterverleihen. Beispiel: Tut mir leid, ich kann es nicht verleihen, weil ich es heute zurückgeben muss."
+        }
+      },
+      "options": [
+        {
+          "id": "refuse",
+          "ko": "미안해요. 제 책이 아니고 오늘 돌려줘야 해서 빌려줄 수 없어요.",
+          "en": "Sorry, it is not my book and I need to return it today, so I cannot lend it.",
+          "de": "Tut mir leid, es ist nicht mein Buch und ich muss es heute zurückgeben. Deshalb kann ich es nicht verleihen."
+        },
+        {
+          "id": "lend",
+          "ko": "네, 내일까지 쓰세요. 주인에게는 말하지 않을게요.",
+          "en": "Yes, keep it until tomorrow. I will not tell the owner.",
+          "de": "Ja, behalten Sie es bis morgen. Ich sage der besitzenden Person nichts."
+        },
+        {
+          "id": "gift",
+          "ko": "이제 제 책이니까 가져도 돼요.",
+          "en": "It is mine now, so you can keep it.",
+          "de": "Es gehört jetzt mir, Sie können es behalten."
+        }
+      ],
+      "accepted_answers": [
+        "refuse"
+      ],
+      "feedback_correct": {
+        "ko": "상대의 요청을 거절하면서 빌린 관계와 반환 제약을 설명했어요.",
+        "en": "You declined while explaining the borrowing relationship and return constraint.",
+        "de": "Du hast abgelehnt und dabei Leihverhältnis und Rückgabefrist erklärt."
+      },
+      "feedback_wrong": {
+        "ko": "빌린 물건을 선물하거나 허락 없이 재대여하지 않아요.",
+        "en": "Do not gift a borrowed item or lend it onward without permission.",
+        "de": "Verschenke keinen geliehenen Gegenstand und verleihe ihn nicht ohne Erlaubnis weiter."
+      },
+      "help": {
+        "ko": "무엇이 내 것이 아닌지와 오늘 해야 할 일을 함께 봐요.",
+        "en": "Check both what is not yours and what must happen today.",
+        "de": "Beachte, was dir nicht gehört und was heute geschehen muss."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-06-I01",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 물건의 소유 오해를 정정한다",
+      "prompt": {
+        "ko": "확인 결과에 맞춰 말을 고쳐요.",
+        "en": "Correct the claim after the check.",
+        "de": "Korrigiere die Aussage nach der Prüfung."
+      },
+      "material": {
+        "context": {
+          "ko": "새 카드: 여행자가 검은 가방을 제 것이라고 말함. 안쪽 이름표를 함께 확인하니 다른 사람 것. 내 가방은 파란색이라고 역할 카드에 명시.",
+          "en": "New card: traveler claimed a black bag. A joint check of the inner label shows another owner. The role card says the traveler’s own bag is blue.",
+          "de": "Neue Karte: Die reisende Person beansprucht eine schwarze Tasche. Das gemeinsam geprüfte Innenschild zeigt fremdes Eigentum. Die eigene Tasche ist laut Rollenkarte blau."
+        }
+      },
+      "options": [
+        {
+          "id": "repair",
+          "ko": "이 가방은 제 것이 아니에요. 제 가방은 파란색이에요. 잘못 말해서 미안해요.",
+          "en": "This is not my bag. Mine is blue. I am sorry I said the wrong thing.",
+          "de": "Diese Tasche gehört mir nicht. Meine ist blau. Es tut mir leid, dass ich mich geirrt habe."
+        },
+        {
+          "id": "keep",
+          "ko": "이름은 다르지만 제가 먼저 봤으니까 제 거예요.",
+          "en": "The name is different, but I saw it first, so it is mine.",
+          "de": "Der Name ist anders, aber ich habe sie zuerst gesehen, also gehört sie mir."
+        },
+        {
+          "id": "accuse",
+          "ko": "이름표를 바꿔서 제 가방을 가져갔지요?",
+          "en": "You changed the label and took my bag, right?",
+          "de": "Sie haben das Schild geändert und meine Tasche genommen, richtig?"
+        }
+      ],
+      "accepted_answers": [
+        "repair"
+      ],
+      "feedback_correct": {
+        "ko": "다른 소유를 인정하고 내 가방 정보로 정정했어요.",
+        "en": "You acknowledged the other owner and corrected the claim using your own bag’s details.",
+        "de": "Du hast fremdes Eigentum anerkannt und mit den Angaben zur eigenen Tasche korrigiert."
+      },
+      "feedback_wrong": {
+        "ko": "먼저 본 순서나 이름표 조작이라는 새 주장은 소유 증거가 아니에요.",
+        "en": "Seeing it first or inventing label tampering is not ownership evidence.",
+        "de": "Zuerstsehen oder erfundene Schildmanipulation belegt kein Eigentum."
+      },
+      "help": {
+        "ko": "현재 이름표와 내 가방 색의 차이에만 근거해요.",
+        "en": "Use only the current label and the difference in your bag’s color.",
+        "de": "Stütze dich nur auf das Namensschild und die andere Farbe deiner Tasche."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-06-I02",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 제약에서 반환 계획을 합의한다",
+      "prompt": {
+        "ko": "양쪽 사정에 맞는 반환 제안을 골라요.",
+        "en": "Choose a return proposal fitting both people’s constraints.",
+        "de": "Wähle den Rückgabevorschlag, der zu beiden Seiten passt."
+      },
+      "material": {
+        "context": {
+          "ko": "소유 확인된 빌린 우산. 내 역할: 오늘 저녁 일곱 시까지 근무; 상대는 오늘 여섯 시까지만 가능. 둘 다 내일 오전 아홉 시 도서관 입구 가능. 아직 새 시간 합의 전.",
+          "en": "Borrowed umbrella with ownership confirmed. Your role: working until seven tonight; owner available only until six today. Both free tomorrow at nine by the library entrance. New time not yet agreed.",
+          "de": "Geliehener Schirm, Eigentum bestätigt. Deine Rolle: heute Arbeit bis 19 Uhr; Gegenrolle heute nur bis 18 Uhr erreichbar. Beide morgen um 9 Uhr am Bibliothekseingang frei. Neue Uhrzeit noch nicht vereinbart."
+        }
+      },
+      "options": [
+        {
+          "id": "ask",
+          "ko": "오늘은 시간이 안 맞아서 어려워요. 내일 아홉 시에 도서관 입구에서 돌려줘도 괜찮아요?",
+          "en": "Our times do not match today. Would it be okay to return it tomorrow at nine by the library entrance?",
+          "de": "Heute passen unsere Zeiten nicht zusammen. Wäre die Rückgabe morgen um neun am Bibliothekseingang in Ordnung?"
+        },
+        {
+          "id": "assume",
+          "ko": "오늘 여덟 시에 문 앞에 둘게요. 확인은 필요 없어요.",
+          "en": "I will leave it at the door at eight today. No need to check.",
+          "de": "Ich lege ihn heute um acht vor die Tür. Eine Bestätigung ist nicht nötig."
+        },
+        {
+          "id": "keep",
+          "ko": "시간이 안 맞으니까 그냥 제가 가질게요.",
+          "en": "Our times do not match, so I will keep it.",
+          "de": "Unsere Zeiten passen nicht, also behalte ich ihn."
+        }
+      ],
+      "accepted_answers": [
+        "ask"
+      ],
+      "feedback_correct": {
+        "ko": "가능한 새 시간과 장소를 제안하고 상대 확인을 남겼어요.",
+        "en": "You proposed a feasible time and place while leaving confirmation to the other person.",
+        "de": "Du hast eine mögliche Zeit und einen Ort vorgeschlagen und die Zustimmung offengelassen."
+      },
+      "feedback_wrong": {
+        "ko": "미합의 장소 방치나 소유 변경으로 시간 문제를 해결하지 않아요.",
+        "en": "Do not solve a scheduling problem by abandoning the item or changing ownership.",
+        "de": "Löse das Zeitproblem weder durch unvereinbartes Ablegen noch durch einen Eigentumswechsel."
+      },
+      "help": {
+        "ko": "둘의 가능 시간이 겹치는 칸을 먼저 찾고 질문으로 제안해요.",
+        "en": "Find the overlap in availability, then propose it as a question.",
+        "de": "Finde zuerst die gemeinsame freie Zeit und schlage sie als Frage vor."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-06-I03",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "실제 대안이 있을 때 불가피함을 과장하지 않는다",
+      "prompt": {
+        "ko": "대안을 지우지 않는 설명을 골라요.",
+        "en": "Choose the explanation that keeps the alternative available.",
+        "de": "Wähle die Erklärung, die die Alternative erhält."
+      },
+      "material": {
+        "context": {
+          "ko": "새 역할 카드: 오늘 직접 반환 불가. 상대가 내일 직접 만나거나 오늘 허락된 택배 반환 중 고르라고 제안함. 여행자는 내일 만남을 선호함.",
+          "en": "New role card: in-person return impossible today. Owner offers either meeting tomorrow or approved delivery today. Traveler prefers meeting tomorrow.",
+          "de": "Neue Rollenkarte: Heute keine persönliche Rückgabe möglich. Die Gegenrolle bietet Treffen morgen oder genehmigten Versand heute an. Die reisende Person bevorzugt morgen."
+        }
+      },
+      "options": [
+        {
+          "id": "choice",
+          "ko": "오늘 택배로 보낼 수도 있지만 내일 직접 돌려주고 싶어요.",
+          "en": "I could send it today, but I would prefer returning it in person tomorrow.",
+          "de": "Ich könnte es heute verschicken, würde es aber lieber morgen persönlich zurückgeben."
+        },
+        {
+          "id": "forced",
+          "ko": "다른 방법이 없어서 내일 만날 수밖에 없어요.",
+          "en": "There is no other option, so I have no choice but to meet tomorrow.",
+          "de": "Es gibt keine andere Möglichkeit, wir müssen uns morgen treffen."
+        },
+        {
+          "id": "done",
+          "ko": "이미 오늘 택배로 보냈어요.",
+          "en": "I have already sent it today.",
+          "de": "Ich habe es heute schon verschickt."
+        }
+      ],
+      "accepted_answers": [
+        "choice"
+      ],
+      "feedback_correct": {
+        "ko": "택배 대안을 남기고 내 선호만 말했어요.",
+        "en": "You preserved delivery as an option and stated only your preference.",
+        "de": "Du hast den Versand als Möglichkeit belassen und nur deinen Wunsch genannt."
+      },
+      "feedback_wrong": {
+        "ko": "다른 방법이 있는데 수밖에 없다고 하면 선택 여지를 지워요.",
+        "en": "Using “no choice” when an alternative exists erases that choice.",
+        "de": "„Keine andere Möglichkeit“ würde eine vorhandene Wahlmöglichkeit streichen."
+      },
+      "help": {
+        "ko": "할 수 있는 방법의 수와 원하는 방법을 따로 봐요.",
+        "en": "Separate the number of feasible methods from the preferred one.",
+        "de": "Trenne mögliche Wege vom bevorzugten Weg."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-06-I04",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "이미 합의한 반환 정보를 확인한다",
+      "prompt": {
+        "ko": "공유 지식을 지키는 확인을 골라요.",
+        "en": "Choose the check that preserves shared information.",
+        "de": "Wähle die Rückfrage, die das gemeinsame Wissen erhält."
+      },
+      "material": {
+        "context": {
+          "ko": "새 모의 채팅 두 줄: 여행자 “내일 열 시, 역 입구 괜찮아요?” 상대 “네, 내일 열 시에 역 입구에서 만나요.” 다른 합의 없음.",
+          "en": "New simulated chat: traveler asks about tomorrow at ten by the station entrance; partner confirms exactly that. No other agreement.",
+          "de": "Neuer Übungschat: Morgen 10 Uhr am Bahnhofseingang wird vorgeschlagen und ausdrücklich bestätigt. Keine weitere Absprache."
+        }
+      },
+      "options": [
+        {
+          "id": "confirm",
+          "ko": "내일 열 시에 역 입구에서 만나지요?",
+          "en": "We are meeting tomorrow at ten by the station entrance, right?",
+          "de": "Wir treffen uns morgen um zehn am Bahnhofseingang, richtig?"
+        },
+        {
+          "id": "change",
+          "ko": "오늘 열 시에 집에서 만나지요?",
+          "en": "We are meeting at home at ten today, right?",
+          "de": "Wir treffen uns heute um zehn zu Hause, richtig?"
+        },
+        {
+          "id": "gift",
+          "ko": "돌려주지 않아도 된다고 했지요?",
+          "en": "You said I do not have to return it, right?",
+          "de": "Sie sagten, ich müsse es nicht zurückgeben, richtig?"
+        }
+      ],
+      "accepted_answers": [
+        "confirm"
+      ],
+      "feedback_correct": {
+        "ko": "두 사람이 이미 맞춘 시간과 장소만 확인했어요.",
+        "en": "You checked only the time and place both people already agreed.",
+        "de": "Du hast nur die bereits gemeinsam bestätigte Zeit und den Ort nachgefragt."
+      },
+      "feedback_wrong": {
+        "ko": "지요가 붙어도 이전 대화에 없는 합의는 생기지 않아요.",
+        "en": "Adding 지요 does not create an agreement absent from the previous dialogue.",
+        "de": "지요 erzeugt keine im vorherigen Gespräch fehlende Absprache."
+      },
+      "help": {
+        "ko": "앞선 두 줄에서 같은 정보가 반복되는지 비교해요.",
+        "en": "Compare whether the same information appears in both earlier lines.",
+        "de": "Vergleiche, welche Angaben in beiden vorherigen Zeilen übereinstimmen."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-06-R01",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "다음 날 새 분실물 소유 추정을 정정한다",
+      "prompt": {
+        "ko": "새 확인 결과에 맞는 안내를 골라요.",
+        "en": "Choose the notice matching the new check.",
+        "de": "Wähle die Mitteilung nach der neuen Prüfung."
+      },
+      "material": {
+        "context": {
+          "ko": "다음 날 새 분실물 카드: 빨간 장갑을 내 것이라고 착각. 내 장갑은 두 개 모두 가방에서 발견. 빨간 장갑 주인은 아직 모름. 이전 문장 숨김.",
+          "en": "Next-day new lost-item card: red gloves were mistaken for yours. Both your own gloves are found in your bag. Owner of the red gloves still unknown. Previous wording hidden.",
+          "de": "Neue Fundsachenkarte am nächsten Tag: Rote Handschuhe wurden für die eigenen gehalten. Die eigenen beiden liegen in der Tasche. Eigentum der roten weiterhin unbekannt. Frühere Formulierungen verborgen."
+        },
+        "delay": "next_day"
+      },
+      "options": [
+        {
+          "id": "unknown",
+          "ko": "이 장갑은 제 것이 아니에요. 주인은 아직 몰라요. 잘못 말해서 미안해요.",
+          "en": "These gloves are not mine. I do not know the owner yet. I am sorry for the mistake.",
+          "de": "Diese Handschuhe gehören mir nicht. Wem sie gehören, weiß ich noch nicht. Mein Irrtum tut mir leid."
+        },
+        {
+          "id": "name",
+          "ko": "이 장갑은 수진 거예요.",
+          "en": "These are Sujin’s gloves.",
+          "de": "Diese Handschuhe gehören Sujin."
+        },
+        {
+          "id": "own",
+          "ko": "주인이 없으니까 제 것으로 할게요.",
+          "en": "There is no owner, so I will make them mine.",
+          "de": "Sie gehören niemandem, also nehme ich sie als meine."
+        }
+      ],
+      "accepted_answers": [
+        "unknown"
+      ],
+      "feedback_correct": {
+        "ko": "내 것 아님은 정정하고 미확인 주인은 비워 두었어요.",
+        "en": "You corrected “mine” while leaving the unknown owner unspecified.",
+        "de": "Du hast „meine“ korrigiert und die unbekannte besitzende Person offengelassen."
+      },
+      "feedback_wrong": {
+        "ko": "주인을 모르는 것과 주인이 없는 것은 달라요.",
+        "en": "Not knowing the owner is different from there being no owner.",
+        "de": "Nicht zu wissen, wem etwas gehört, bedeutet nicht, dass es niemandem gehört."
+      },
+      "help": {
+        "ko": "내 장갑을 찾았다는 사실만으로 알 수 있는 범위를 봐요.",
+        "en": "Check what finding your own gloves actually establishes.",
+        "de": "Prüfe, was das Wiederfinden der eigenen Handschuhe tatsächlich belegt."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 자료의 선택 이해만 확인한다. 도움·정답 공개 전후를 구분하며 보존 성공·독립 발화·이야기 해금 증거로 확대하지 않는다."
+    },
+    {
+      "id": "A2.2-06-R02",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "다음 날 새 거절에서 제약과 반환을 유지한다",
+      "prompt": {
+        "ko": "빌린 관계와 약속을 지키는 답을 골라요.",
+        "en": "Choose the reply preserving the borrowing relationship and agreement.",
+        "de": "Wähle die Antwort, die Leihverhältnis und Absprache einhält."
+      },
+      "material": {
+        "context": {
+          "ko": "다음 날 새 역할 카드: 수진에게 빌린 충전기를 오후 세 시에 돌려주기로 합의. 익명 상대가 저녁까지 빌려 달라고 함. 충전기 소유자의 재대여 허락 없음. 이전 답 숨김.",
+          "en": "Next-day new role card: Sujin’s charger borrowed with return agreed at three. An unnamed partner asks to borrow it until evening. No owner permission to lend onward. Previous answers hidden.",
+          "de": "Neue Rollenkarte am nächsten Tag: Sujins Ladegerät geliehen; Rückgabe um 15 Uhr vereinbart. Eine unbenannte Gegenrolle möchte es bis abends ausleihen. Keine Erlaubnis zum Weiterverleihen. Frühere Antworten verborgen."
+        },
+        "delay": "next_day"
+      },
+      "options": [
+        {
+          "id": "decline",
+          "ko": "미안해요. 수진에게 빌린 거라서 오늘 세 시에 돌려줘야 해요. 저녁까지 빌려줄 수 없어요.",
+          "en": "Sorry, I borrowed it from Sujin and need to return it at three today. I cannot lend it until evening.",
+          "de": "Tut mir leid, es ist von Sujin geliehen und muss heute um drei zurück. Ich kann es nicht bis abends verleihen."
+        },
+        {
+          "id": "allow",
+          "ko": "저녁까지 가져가세요. 제 것이니까 괜찮아요.",
+          "en": "Take it until evening. It is mine, so it is fine.",
+          "de": "Nehmen Sie es bis abends. Es gehört mir, also ist das in Ordnung."
+        },
+        {
+          "id": "new",
+          "ko": "내일 돌려주기로 했으니까 저녁까지 써요.",
+          "en": "We agreed to return it tomorrow, so use it until evening.",
+          "de": "Die Rückgabe ist für morgen vereinbart, benutzen Sie es bis abends."
+        }
+      ],
+      "accepted_answers": [
+        "decline"
+      ],
+      "feedback_correct": {
+        "ko": "새 물건에서도 소유 관계와 오늘의 반환 약속을 지켰어요.",
+        "en": "You preserved ownership and today’s return commitment for a new item.",
+        "de": "Auch beim neuen Gegenstand hast du Eigentum und heutige Rückgabezusage erhalten."
+      },
+      "feedback_wrong": {
+        "ko": "빌린 것을 내 것으로 바꾸거나 반환일을 뒤로 옮기지 말아요.",
+        "en": "Do not claim the borrowed item or move the return date.",
+        "de": "Erkläre Geliehenes nicht zu deinem Eigentum und verschiebe das Rückgabedatum nicht."
+      },
+      "help": {
+        "ko": "누구에게 빌렸는지, 언제 돌려줄지부터 확인해요.",
+        "en": "Check who lent it and when it must be returned.",
+        "de": "Prüfe zuerst, von wem es geliehen ist und wann es zurückmuss."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 자료의 선택 이해만 확인한다. 도움·정답 공개 전후를 구분하며 보존 성공·독립 발화·이야기 해금 증거로 확대하지 않는다."
+    },
+    {
+      "id": "A2.2-06-T01",
+      "mode": "T",
+      "kind": "roleplay",
+      "objective": "새 분실물 사건을 정정하고 안내·반환 계획을 쓴다",
+      "prompt": {
+        "ko": "사과·정정·확인 질문을 담은 짧은 안내를 써 보세요.",
+        "en": "Write a short notice with an apology, correction, and checking question.",
+        "de": "Schreibe eine kurze Mitteilung mit Entschuldigung, Korrektur und Rückfrage."
+      },
+      "material": {
+        "context": {
+          "ko": "새 현대 모의 분실물: 연습 모임에서 검은 물병을 내 것이라 말했지만 내 물병은 집에 있음을 확인. 검은 물병의 주인은 아직 미확인. 물병은 모임 탁자에 그대로 있음. 나는 오늘 오후 여섯 시, 내일 오전 열 시에만 만날 수 있음. 주인을 지목하거나 반환 완료라고 쓰지 않고, 내 것 아님을 고치고 확인 후 가능한 반환 시간을 제안한다.",
+          "en": "New modern lost-item simulation: at a practice gathering, you claimed a black bottle but checked that yours is at home. Owner of the black bottle unknown; it remains on the gathering table. You can meet only today at six or tomorrow at ten. Correct the ownership, apologize, ask for verification, and propose a possible return time without naming an owner or claiming return is complete.",
+          "de": "Neue moderne Fundsachenübung: Beim Übungstreffen hast du eine schwarze Trinkflasche für deine gehalten; deine steht nachweislich zu Hause. Eigentum der schwarzen Flasche unbekannt; sie bleibt auf dem Gruppentisch. Treffen möglich heute um 18 Uhr oder morgen um 10 Uhr. Korrigiere, entschuldige dich, bitte um Prüfung und schlage eine mögliche Rückgabezeit vor. Nenne keine unbestätigte besitzende Person und behaupte keine abgeschlossene Rückgabe."
+        }
+      },
+      "options": [],
+      "accepted_answers": [],
+      "feedback_correct": {
+        "ko": "소유 정정과 미확인 주인, 가능한 다음 행동을 구분했는지 함께 살펴봐요.",
+        "en": "Review whether the correction, unknown owner, and feasible next action remain separate.",
+        "de": "Prüfe, ob Korrektur, unbekanntes Eigentum und möglicher nächster Schritt getrennt bleiben."
+      },
+      "feedback_wrong": {
+        "ko": "없던 이름·절차·반환 완료를 더하지 말고 빠진 확인 질문만 보완해요.",
+        "en": "Add a missing checking question without inventing names, procedures, or completed return.",
+        "de": "Ergänze eine fehlende Rückfrage, ohne Namen, Verfahren oder erledigte Rückgabe zu erfinden."
+      },
+      "help": {
+        "ko": "내 것 아님→사과→주인 확인→가능 시간 제안 순서로 메모해요. -줄 알았어요를 꼭 쓸 필요는 없어요.",
+        "en": "Plan: not mine, apology, owner check, possible time. The harder -줄 알았어요 is optional.",
+        "de": "Notiere: nicht meine, Entschuldigung, Eigentum prüfen, mögliche Zeit. Die schwierigere Form -줄 알았어요 ist freiwillig."
+      },
+      "scoring": "unscored",
+      "evidence_limit": "열린 역할 수행은 자동 채점하지 않는다. 의미·화행·사실·관계의 충족 여부를 본인 또는 별도 검토자가 살핀다. 독립 발화·발음·실생활 전이는 이 문항만으로 인증하지 않는다."
+    }
+  ],
+  "responses": {
+    "assisted": {
+      "ko": "도움을 보고 이어 갔어요. 이번 시도는 도움 사용으로 구분해요.",
+      "en": "You continued with help. Keep this attempt separate from work done independently.",
+      "de": "Du hast mit Hilfe weitergemacht. Dieser Versuch zählt getrennt von selbstständiger Arbeit."
+    },
+    "independent": {
+      "ko": "정답 시범 없이 선택했어요. 선택 이해와 직접 말하기는 따로 확인해요.",
+      "en": "You chose without an answer model. Choosing an answer and producing your own speech are checked separately.",
+      "de": "Du hast ohne Lösungsvorlage gewählt. Antworten auszuwählen und selbst zu sprechen wird getrennt geprüft."
+    },
+    "audio_unavailable": {
+      "ko": "소리를 재생할 수 없어요. 글과 상황 카드로 계속하고, 듣기·발음 확인은 나중에 해요.",
+      "en": "Audio is unavailable. Continue with the text and situation cards; check listening and pronunciation later.",
+      "de": "Der Ton ist nicht verfügbar. Mach mit Text und Situationskarten weiter; Hören und Aussprache prüfst du später."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 돼요. 이야기나 건축 진행을 되돌리는 조건은 없어요.",
+      "en": "You can pause here. Pausing does not undo story or construction progress.",
+      "de": "Du kannst hier pausieren. Dadurch gehen weder Geschichte noch Baufortschritt zurück."
+    },
+    "resume": {
+      "ko": "현재 상황과 입력을 다시 보고 이어 가요. 도움을 본 시도는 그대로 구분해요.",
+      "en": "Review the current situation and input, then continue. Attempts made with help stay separate.",
+      "de": "Sieh dir die aktuelle Situation und deine Eingabe an und mach weiter. Versuche mit Hilfe bleiben getrennt."
+    },
+    "save_failed": {
+      "ko": "저장을 확인하지 못했어요. 현재 입력을 유지한 채 다시 시도해요. 저장 완료로 표시하지 않아요.",
+      "en": "Saving could not be confirmed. Keep the current input and try again; do not mark it as saved.",
+      "de": "Das Speichern konnte nicht bestätigt werden. Behalte deine Eingabe und versuche es erneut; sie gilt noch nicht als gespeichert."
+    },
+    "revisit": {
+      "ko": "다음 날에는 새 상황으로 다시 해 봐요. 놓쳐도 본편은 계속할 수 있어요.",
+      "en": "Try a new situation the next day. Missing the review does not block the story.",
+      "de": "Versuche es am nächsten Tag mit einer neuen Situation. Auch ohne diese Wiederholung geht die Geschichte weiter."
+    }
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true
+  }
+}

@@ -1,0 +1,980 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "record_type": "inherited_detailed_with_integration_overlay",
+  "unit_id": "A1.1-01",
+  "band": "A1.1",
+  "title": {
+    "ko": "처음 만난 사람과 다시 묻기",
+    "en": "Meeting someone and asking again",
+    "de": "Begrüßen und nachfragen"
+  },
+  "goal": {
+    "ko": "인사하고 이름을 말하며 못 들은 말을 다시 요청한다",
+    "en": "Greet someone, give a name, and ask someone to repeat what you did not hear.",
+    "de": "Begrüße jemanden, nenne einen Namen und bitte um Wiederholung, wenn du etwas nicht gehört hast."
+  },
+  "prerequisites": [
+    "ORAL-START"
+  ],
+  "base_manuscript": {
+    "path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/01_A1.1-01.md",
+    "sha256": "d1ed5c13abab0d968f7c9287f9a1ceb3d3dca5ed2f2d5d3fe64b99bde7ff0136",
+    "inheritance": "full dialogue, teaching, P/I/R items, answer criteria, help and feedback retained verbatim; overlay is additive"
+  },
+  "source_contract": {
+    "id": "A1.1-01",
+    "title": "처음 만난 사람과 다시 묻기",
+    "can_do": "인사하고 이름을 말하며 못 들은 말을 다시 요청한다",
+    "lexis": "안녕하세요,이름,다시,네",
+    "model": "안녕하세요. 수진이에요. / 다시 말해 주세요.",
+    "teach": "인사의 기능을 번역과 시범으로 먼저 보이고 이름 뒤 예요·이에요를 나누어 시범; 회복 표현은 통째로 익힘",
+    "practice": "이름을 일부러 놓친 대화에서 다시 듣기를 요청하고 들은 이름을 확인",
+    "transfer": "새 상대가 다른 이름을 말할 때 인사·자기 이름·재요청 중 필요한 행동 선택",
+    "prerequisites": "ORAL-START",
+    "review_in": "A1.1-02,A1.2-06",
+    "grammar_rows": "1"
+  },
+  "inherited_content": {
+    "items": [
+      {
+        "item_id": "A1.1-01-P01",
+        "unit_id": "A1.1-01",
+        "phase": "P",
+        "objective_id": "A1.1-01.identity",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-01-T-identity"
+        ],
+        "context": {
+          "ko": "연습 이름 카드: 민수. 실제 개인정보가 아니에요.",
+          "en": "Practice name card: 민수. This is not personal data.",
+          "de": "Übungsnamenskarte: 민수. Das sind keine persönlichen Daten."
+        },
+        "prompt": {
+          "ko": "도깨비에게 인사하고 카드의 이름을 소개해요.",
+          "en": "Greet the gatekeeper and introduce yourself using the card.",
+          "de": "Begrüße den Torwächter und stelle dich mit dem Namen auf der Karte vor."
+        },
+        "model_or_answer": "안녕하세요. 민수예요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "민수",
+            "sense_ko": "임시 역할 이름, 모음으로 끝나는 감수용 한글 표기"
+          },
+          {
+            "form": "안녕하세요",
+            "sense_ko": "공손한 만남 인사"
+          },
+          {
+            "form": "예요/이에요",
+            "sense_ko": "배운 명사 정체 서술형; 받침별 이름 시범"
+          }
+        ],
+        "required_grammar_functions": [
+          "이다: identity 예요/이에요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "인사 뒤에 카드의 이름을 말해요.",
+            "en": "Say the card’s name after your greeting.",
+            "de": "Nenne nach der Begrüßung den Namen auf der Karte."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "안녕하세요. 민수예요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "다른 이름이 나왔어요. 카드의 이름을 다시 확인해요. 말이 통했다면 어미는 별도로 살펴봐요.",
+          "en": "That was a different name. Check the card again. If your meaning was clear, we’ll check the ending separately.",
+          "de": "Das war ein anderer Name. Schau noch einmal auf die Karte. Wenn deine Aussage verständlich war, prüfen wir die Endung getrennt."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 저는/저 optional, name+예요/이에요 and appropriate identity alternatives. 입니다 achieves identity but not target ending. Declining disclosure is a preference; offer role card, no error or identity credit.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-01-R01",
+        "leak_keys": [
+          "identity",
+          "이다: identity 예요/이에요"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-02-I05",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-01-P02",
+        "unit_id": "A1.1-01",
+        "phase": "P",
+        "objective_id": "A1.1-01.identity",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-01-T-identity"
+        ],
+        "context": {
+          "ko": "새 역할 카드의 음성만 먼저 들어요. 이름 카드에는 읽기 대신 미리 익힌 음성 이름도 있어요.",
+          "en": "First hear the voice of a new role card. Each name card also has a previously introduced audio label.",
+          "de": "Hör zuerst die Stimme einer neuen Rollenkarte. Jede Namenskarte hat auch eine zuvor eingeführte Audiobeschriftung."
+        },
+        "prompt": {
+          "ko": "들은 이름의 카드를 골라요.",
+          "en": "Choose the card with the name you heard.",
+          "de": "Wähle die Karte mit dem Namen, den du gehört hast."
+        },
+        "model_or_answer": "민수",
+        "choices": [
+          "민수",
+          "하린"
+        ],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "민수",
+            "sense_ko": "임시 역할 이름, 모음으로 끝나는 감수용 한글 표기"
+          },
+          {
+            "form": "하린",
+            "sense_ko": "임시 역할 이름, 받침으로 끝나는 감수용 한글 표기"
+          }
+        ],
+        "required_grammar_functions": [],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "audio-to-selection",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "같은 음성을 다시 들을 수 있어요.",
+            "en": "You can replay the same audio.",
+            "de": "Du kannst dieselbe Aufnahme noch einmal hören."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "민수",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "이름이 달라요. 같은 녹음을 한 번 더 듣고 두 이름을 비교해요.",
+          "en": "That is a different name. Hear the same recording again and compare the two names.",
+          "de": "Das ist ein anderer Name. Hör dieselbe Aufnahme noch einmal und vergleiche die beiden Namen."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Audio asset says 민수예요.; exact matching learned name card required. Name-card audio help logs response support; no reading/speech inference.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-01-R02",
+        "leak_keys": [
+          "identity"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-02-I05",
+        "choice_labels": [
+          {
+            "ko": "민수",
+            "en": "민수 (practice name)",
+            "de": "민수 (Übungsname)"
+          },
+          {
+            "ko": "하린",
+            "en": "하린 (practice name)",
+            "de": "하린 (Übungsname)"
+          }
+        ]
+      },
+      {
+        "item_id": "A1.1-01-P03",
+        "unit_id": "A1.1-01",
+        "phase": "P",
+        "objective_id": "A1.1-01.repair",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-01-T-repair"
+        ],
+        "context": {
+          "ko": "상대가 이름을 말할 때 이야기 속 바람 소리 때문에 마지막 말을 놓쳤어요. 재생 오류를 학습자 탓으로 돌리지 않아요.",
+          "en": "In the story, wind covered the end of the partner’s name. A playback fault is not a learner error.",
+          "de": "In der Geschichte hat Wind das Ende des Namens übertönt. Ein Wiedergabefehler ist kein Lernfehler."
+        },
+        "prompt": {
+          "ko": "상대에게 같은 말을 다시 부탁해요.",
+          "en": "Ask the partner to say the same thing again.",
+          "de": "Bitte die andere Person, dasselbe noch einmal zu sagen."
+        },
+        "model_or_answer": "다시 말해 주세요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "다시 말해 주세요",
+            "sense_ko": "상대의 같은 발화를 다시 요청"
+          }
+        ],
+        "required_grammar_functions": [
+          "repair chunk"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "이름을 추측하지 말고 반복을 부탁해요.",
+            "en": "Ask for repetition instead of guessing the name.",
+            "de": "Bitte um Wiederholung, statt den Namen zu erraten."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "다시 말해 주세요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "지금 필요한 것은 새 소개가 아니라 같은 말을 다시 듣는 일이에요.",
+          "en": "You need to hear the same words again here.",
+          "de": "Hier brauchst du dieselben Worte noch einmal."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 다시 말해 주세요 / 한 번 더 말해 주세요 / appropriate repeat request. Optional selection records recognition only. After request, exact previous full name recording replays, then acknowledgment.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-01-R03",
+        "leak_keys": [
+          "repair",
+          "repair chunk"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-04-I04",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-01-P04",
+        "unit_id": "A1.1-01",
+        "phase": "P",
+        "objective_id": "A1.1-01.identity",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-01-T-identity"
+        ],
+        "context": {
+          "ko": "이번에는 문지기 역할의 상대가 자기 이름을 말할 차례예요.",
+          "en": "Now it is the gatekeeper’s turn to introduce himself.",
+          "de": "Jetzt ist der Torwächter mit seiner Vorstellung dran."
+        },
+        "prompt": {
+          "ko": "누구인지 공손하게 물어요.",
+          "en": "Politely ask who he is.",
+          "de": "Frage höflich, wer er ist."
+        },
+        "model_or_answer": "누구예요?",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "누구예요?",
+            "sense_ko": "사람의 이름·정체를 묻는 전체 표현"
+          }
+        ],
+        "required_grammar_functions": [
+          "이다: identity 예요/이에요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "누구인지 묻는 전체 표현을 떠올려요.",
+            "en": "Recall the whole expression for asking who someone is.",
+            "de": "Erinnere dich an den ganzen Ausdruck, mit dem du nach einer Person fragst."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "누구예요?",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "이름을 말하는 답과 이름을 묻는 질문은 역할이 달라요. 질문을 해 봐요.",
+          "en": "Giving a name and asking for one have different jobs. Try the question.",
+          "de": "Einen Namen nennen und danach fragen sind verschiedene Handlungen. Probiere die Frage."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 누구예요? / 이름이 뭐예요? in polite roleplay. Dokk replies 도깨비예요 as translated story line, not required vocabulary recall. Real known relationship is unchanged.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-01-R04",
+        "leak_keys": [
+          "identity",
+          "이다: identity 예요/이에요"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-02-I05",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-01-I01",
+        "unit_id": "A1.1-01",
+        "phase": "I",
+        "objective_id": "A1.1-01.identity",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-01-T-identity"
+        ],
+        "context": {
+          "ko": "연습 이름 카드: 하린. 실제 개인정보가 아니에요.",
+          "en": "Practice name card: 하린. This is not personal data.",
+          "de": "Übungsnamenskarte: 하린. Das sind keine persönlichen Daten."
+        },
+        "prompt": {
+          "ko": "도깨비에게 인사하고 카드의 이름을 소개해요.",
+          "en": "Greet the gatekeeper and introduce yourself using the card.",
+          "de": "Begrüße den Torwächter und stelle dich mit dem Namen auf der Karte vor."
+        },
+        "model_or_answer": "안녕하세요. 하린이에요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "하린",
+            "sense_ko": "임시 역할 이름, 받침으로 끝나는 감수용 한글 표기"
+          },
+          {
+            "form": "안녕하세요",
+            "sense_ko": "공손한 만남 인사"
+          },
+          {
+            "form": "예요/이에요",
+            "sense_ko": "배운 명사 정체 서술형; 받침별 이름 시범"
+          }
+        ],
+        "required_grammar_functions": [
+          "이다: identity 예요/이에요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "인사 뒤에 카드의 이름을 말해요.",
+            "en": "Say the card’s name after your greeting.",
+            "de": "Nenne nach der Begrüßung den Namen auf der Karte."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "안녕하세요. 하린이에요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "다른 이름이 나왔어요. 카드의 이름을 다시 확인해요. 말이 통했다면 어미는 별도로 살펴봐요.",
+          "en": "That was a different name. Check the card again. If your meaning was clear, we’ll check the ending separately.",
+          "de": "Das war ein anderer Name. Schau noch einmal auf die Karte. Wenn deine Aussage verständlich war, prüfen wir die Endung getrennt."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 저는/저 optional, name+예요/이에요 and appropriate identity alternatives. 입니다 achieves identity but not target ending. Declining disclosure is a preference; offer role card, no error or identity credit.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-01-R01",
+        "leak_keys": [
+          "identity",
+          "이다: identity 예요/이에요"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-02-I05",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-01-I02",
+        "unit_id": "A1.1-01",
+        "phase": "I",
+        "objective_id": "A1.1-01.identity",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-01-T-identity"
+        ],
+        "context": {
+          "ko": "새 역할 카드의 음성만 먼저 들어요. 이름 카드에는 읽기 대신 미리 익힌 음성 이름도 있어요.",
+          "en": "First hear the voice of a new role card. Each name card also has a previously introduced audio label.",
+          "de": "Hör zuerst die Stimme einer neuen Rollenkarte. Jede Namenskarte hat auch eine zuvor eingeführte Audiobeschriftung."
+        },
+        "prompt": {
+          "ko": "들은 이름의 카드를 골라요.",
+          "en": "Choose the card with the name you heard.",
+          "de": "Wähle die Karte mit dem Namen, den du gehört hast."
+        },
+        "model_or_answer": "민수",
+        "choices": [
+          "민수",
+          "하린"
+        ],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "민수",
+            "sense_ko": "임시 역할 이름, 모음으로 끝나는 감수용 한글 표기"
+          },
+          {
+            "form": "하린",
+            "sense_ko": "임시 역할 이름, 받침으로 끝나는 감수용 한글 표기"
+          }
+        ],
+        "required_grammar_functions": [],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "audio-to-selection",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "같은 음성을 다시 들을 수 있어요.",
+            "en": "You can replay the same audio.",
+            "de": "Du kannst dieselbe Aufnahme noch einmal hören."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "민수",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "이름이 달라요. 같은 녹음을 한 번 더 듣고 두 이름을 비교해요.",
+          "en": "That is a different name. Hear the same recording again and compare the two names.",
+          "de": "Das ist ein anderer Name. Hör dieselbe Aufnahme noch einmal und vergleiche die beiden Namen."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Audio asset says 민수예요.; exact matching learned name card required. Name-card audio help logs response support; no reading/speech inference.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "listening identification only; no speech credit",
+        "later_probe_id": "A1.1-01-R02",
+        "leak_keys": [
+          "identity"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-02-I05",
+        "choice_labels": [
+          {
+            "ko": "민수",
+            "en": "민수 (practice name)",
+            "de": "민수 (Übungsname)"
+          },
+          {
+            "ko": "하린",
+            "en": "하린 (practice name)",
+            "de": "하린 (Übungsname)"
+          }
+        ]
+      },
+      {
+        "item_id": "A1.1-01-I03",
+        "unit_id": "A1.1-01",
+        "phase": "I",
+        "objective_id": "A1.1-01.repair",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-01-T-repair"
+        ],
+        "context": {
+          "ko": "상대가 이름을 말할 때 이야기 속 바람 소리 때문에 마지막 말을 놓쳤어요. 재생 오류를 학습자 탓으로 돌리지 않아요.",
+          "en": "In the story, wind covered the end of the partner’s name. A playback fault is not a learner error.",
+          "de": "In der Geschichte hat Wind das Ende des Namens übertönt. Ein Wiedergabefehler ist kein Lernfehler."
+        },
+        "prompt": {
+          "ko": "상대에게 같은 말을 다시 부탁해요.",
+          "en": "Ask the partner to say the same thing again.",
+          "de": "Bitte die andere Person, dasselbe noch einmal zu sagen."
+        },
+        "model_or_answer": "다시 말해 주세요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "다시 말해 주세요",
+            "sense_ko": "상대의 같은 발화를 다시 요청"
+          }
+        ],
+        "required_grammar_functions": [
+          "repair chunk"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "이름을 추측하지 말고 반복을 부탁해요.",
+            "en": "Ask for repetition instead of guessing the name.",
+            "de": "Bitte um Wiederholung, statt den Namen zu erraten."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "다시 말해 주세요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "지금 필요한 것은 새 소개가 아니라 같은 말을 다시 듣는 일이에요.",
+          "en": "You need to hear the same words again here.",
+          "de": "Hier brauchst du dieselben Worte noch einmal."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 다시 말해 주세요 / 한 번 더 말해 주세요 / appropriate repeat request. Optional selection records recognition only. After request, exact previous full name recording replays, then acknowledgment.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-01-R03",
+        "leak_keys": [
+          "repair",
+          "repair chunk"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-04-I04",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-01-I04",
+        "unit_id": "A1.1-01",
+        "phase": "I",
+        "objective_id": "A1.1-01.identity",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-01-T-identity"
+        ],
+        "context": {
+          "ko": "이번에는 문지기 역할의 상대가 자기 이름을 말할 차례예요.",
+          "en": "Now it is the gatekeeper’s turn to introduce himself.",
+          "de": "Jetzt ist der Torwächter mit seiner Vorstellung dran."
+        },
+        "prompt": {
+          "ko": "누구인지 공손하게 물어요.",
+          "en": "Politely ask who he is.",
+          "de": "Frage höflich, wer er ist."
+        },
+        "model_or_answer": "누구예요?",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "누구예요?",
+            "sense_ko": "사람의 이름·정체를 묻는 전체 표현"
+          }
+        ],
+        "required_grammar_functions": [
+          "이다: identity 예요/이에요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "누구인지 묻는 전체 표현을 떠올려요.",
+            "en": "Recall the whole expression for asking who someone is.",
+            "de": "Erinnere dich an den ganzen Ausdruck, mit dem du nach einer Person fragst."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "누구예요?",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "이름을 말하는 답과 이름을 묻는 질문은 역할이 달라요. 질문을 해 봐요.",
+          "en": "Giving a name and asking for one have different jobs. Try the question.",
+          "de": "Einen Namen nennen und danach fragen sind verschiedene Handlungen. Probiere die Frage."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 누구예요? / 이름이 뭐예요? in polite roleplay. Dokk replies 도깨비예요 as translated story line, not required vocabulary recall. Real known relationship is unchanged.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-01-R04",
+        "leak_keys": [
+          "identity",
+          "이다: identity 예요/이에요"
+        ],
+        "delay_policy": null,
+        "later_unit_probe_id": "A1.1-02-I05",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-01-R01",
+        "unit_id": "A1.1-01",
+        "phase": "R",
+        "objective_id": "A1.1-01.identity",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-01-T-identity"
+        ],
+        "context": {
+          "ko": "연습 이름 카드: 민수. 실제 개인정보가 아니에요.",
+          "en": "Practice name card: 민수. This is not personal data.",
+          "de": "Übungsnamenskarte: 민수. Das sind keine persönlichen Daten."
+        },
+        "prompt": {
+          "ko": "도깨비에게 인사하고 카드의 이름을 소개해요.",
+          "en": "Greet the gatekeeper and introduce yourself using the card.",
+          "de": "Begrüße den Torwächter und stelle dich mit dem Namen auf der Karte vor."
+        },
+        "model_or_answer": "안녕하세요. 민수예요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "민수",
+            "sense_ko": "임시 역할 이름, 모음으로 끝나는 감수용 한글 표기"
+          },
+          {
+            "form": "안녕하세요",
+            "sense_ko": "공손한 만남 인사"
+          },
+          {
+            "form": "예요/이에요",
+            "sense_ko": "배운 명사 정체 서술형; 받침별 이름 시범"
+          }
+        ],
+        "required_grammar_functions": [
+          "이다: identity 예요/이에요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "인사 뒤에 카드의 이름을 말해요.",
+            "en": "Say the card’s name after your greeting.",
+            "de": "Nenne nach der Begrüßung den Namen auf der Karte."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "안녕하세요. 민수예요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "다른 이름이 나왔어요. 카드의 이름을 다시 확인해요. 말이 통했다면 어미는 별도로 살펴봐요.",
+          "en": "That was a different name. Check the card again. If your meaning was clear, we’ll check the ending separately.",
+          "de": "Das war ein anderer Name. Schau noch einmal auf die Karte. Wenn deine Aussage verständlich war, prüfen wir die Endung getrennt."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 저는/저 optional, name+예요/이에요 and appropriate identity alternatives. 입니다 achieves identity but not target ending. Declining disclosure is a preference; offer role card, no error or identity credit.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "identity",
+          "이다: identity 예요/이에요"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "later_unit_probe_id": "A1.1-02-I05",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-01-R02",
+        "unit_id": "A1.1-01",
+        "phase": "R",
+        "objective_id": "A1.1-01.identity",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-01-T-identity"
+        ],
+        "context": {
+          "ko": "새 역할 카드의 음성만 먼저 들어요. 이름 카드에는 읽기 대신 미리 익힌 음성 이름도 있어요.",
+          "en": "First hear the voice of a new role card. Each name card also has a previously introduced audio label.",
+          "de": "Hör zuerst die Stimme einer neuen Rollenkarte. Jede Namenskarte hat auch eine zuvor eingeführte Audiobeschriftung."
+        },
+        "prompt": {
+          "ko": "들은 이름의 카드를 골라요.",
+          "en": "Choose the card with the name you heard.",
+          "de": "Wähle die Karte mit dem Namen, den du gehört hast."
+        },
+        "model_or_answer": "하린",
+        "choices": [
+          "민수",
+          "하린"
+        ],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "민수",
+            "sense_ko": "임시 역할 이름, 모음으로 끝나는 감수용 한글 표기"
+          },
+          {
+            "form": "하린",
+            "sense_ko": "임시 역할 이름, 받침으로 끝나는 감수용 한글 표기"
+          }
+        ],
+        "required_grammar_functions": [],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "audio-to-selection",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "같은 음성을 다시 들을 수 있어요.",
+            "en": "You can replay the same audio.",
+            "de": "Du kannst dieselbe Aufnahme noch einmal hören."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "하린",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "이름이 달라요. 같은 녹음을 한 번 더 듣고 두 이름을 비교해요.",
+          "en": "That is a different name. Hear the same recording again and compare the two names.",
+          "de": "Das ist ein anderer Name. Hör dieselbe Aufnahme noch einmal und vergleiche die beiden Namen."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Audio asset says 하린이에요.; exact matching learned name card required. Name-card audio help logs response support; no reading/speech inference.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "listening identification only; no speech credit",
+        "later_probe_id": null,
+        "leak_keys": [
+          "identity"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "later_unit_probe_id": "A1.1-02-I05",
+        "choice_labels": [
+          {
+            "ko": "민수",
+            "en": "민수 (practice name)",
+            "de": "민수 (Übungsname)"
+          },
+          {
+            "ko": "하린",
+            "en": "하린 (practice name)",
+            "de": "하린 (Übungsname)"
+          }
+        ]
+      },
+      {
+        "item_id": "A1.1-01-R03",
+        "unit_id": "A1.1-01",
+        "phase": "R",
+        "objective_id": "A1.1-01.repair",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-01-T-repair"
+        ],
+        "context": {
+          "ko": "상대가 이름을 말할 때 이야기 속 바람 소리 때문에 마지막 말을 놓쳤어요. 재생 오류를 학습자 탓으로 돌리지 않아요.",
+          "en": "In the story, wind covered the end of the partner’s name. A playback fault is not a learner error.",
+          "de": "In der Geschichte hat Wind das Ende des Namens übertönt. Ein Wiedergabefehler ist kein Lernfehler."
+        },
+        "prompt": {
+          "ko": "상대에게 같은 말을 다시 부탁해요.",
+          "en": "Ask the partner to say the same thing again.",
+          "de": "Bitte die andere Person, dasselbe noch einmal zu sagen."
+        },
+        "model_or_answer": "다시 말해 주세요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "다시 말해 주세요",
+            "sense_ko": "상대의 같은 발화를 다시 요청"
+          }
+        ],
+        "required_grammar_functions": [
+          "repair chunk"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "이름을 추측하지 말고 반복을 부탁해요.",
+            "en": "Ask for repetition instead of guessing the name.",
+            "de": "Bitte um Wiederholung, statt den Namen zu erraten."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "다시 말해 주세요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "지금 필요한 것은 새 소개가 아니라 같은 말을 다시 듣는 일이에요.",
+          "en": "You need to hear the same words again here.",
+          "de": "Hier brauchst du dieselben Worte noch einmal."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 다시 말해 주세요 / 한 번 더 말해 주세요 / appropriate repeat request. Optional selection records recognition only. After request, exact previous full name recording replays, then acknowledgment.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "repair",
+          "repair chunk"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "later_unit_probe_id": "A1.1-04-I04",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-01-R04",
+        "unit_id": "A1.1-01",
+        "phase": "R",
+        "objective_id": "A1.1-01.identity",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-01-T-identity"
+        ],
+        "context": {
+          "ko": "이번에는 문지기 역할의 상대가 자기 이름을 말할 차례예요.",
+          "en": "Now it is the gatekeeper’s turn to introduce himself.",
+          "de": "Jetzt ist der Torwächter mit seiner Vorstellung dran."
+        },
+        "prompt": {
+          "ko": "누구인지 공손하게 물어요.",
+          "en": "Politely ask who he is.",
+          "de": "Frage höflich, wer er ist."
+        },
+        "model_or_answer": "누구예요?",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "누구예요?",
+            "sense_ko": "사람의 이름·정체를 묻는 전체 표현"
+          }
+        ],
+        "required_grammar_functions": [
+          "이다: identity 예요/이에요"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "누구인지 묻는 전체 표현을 떠올려요.",
+            "en": "Recall the whole expression for asking who someone is.",
+            "de": "Erinnere dich an den ganzen Ausdruck, mit dem du nach einer Person fragst."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "누구예요?",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "이름을 말하는 답과 이름을 묻는 질문은 역할이 달라요. 질문을 해 봐요.",
+          "en": "Giving a name and asking for one have different jobs. Try the question.",
+          "de": "Einen Namen nennen und danach fragen sind verschiedene Handlungen. Probiere die Frage."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 누구예요? / 이름이 뭐예요? in polite roleplay. Dokk replies 도깨비예요 as translated story line, not required vocabulary recall. Real known relationship is unchanged.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "identity",
+          "이다: identity 예요/이에요"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "later_unit_probe_id": "A1.1-02-I05",
+        "choice_labels": []
+      }
+    ]
+  },
+  "responses": {
+    "assisted": {
+      "ko": "도움을 받아 이 활동을 함께 마쳤어요. 다른 예는 준비되면 해 봐요.",
+      "en": "You completed this activity with support. Try another example when you are ready.",
+      "de": "Du hast diese Aufgabe mit Hilfe abgeschlossen. Probiere ein weiteres Beispiel, wenn du bereit bist."
+    },
+    "independent": {
+      "ko": "이 예는 시범 없이 확인했어요. 다른 날 새로운 상황에서도 다시 해 봐요.",
+      "en": "You checked this example without a model. Try it in a new setting another day.",
+      "de": "Du hast dieses Beispiel ohne Vorlage bearbeitet. Probiere es an einem anderen Tag in einer neuen Situation."
+    },
+    "audio_unavailable": {
+      "ko": "지금은 소리를 재생할 수 없어요. 글과 그림으로 계속하거나 나중에 다시 들어요.",
+      "en": "Audio is unavailable right now. Continue with text and pictures, or listen later.",
+      "de": "Der Ton ist gerade nicht verfügbar. Mach mit Text und Bildern weiter oder höre später noch einmal zu."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 괜찮아요. 돌아오면 같은 차례에서 이어가요.",
+      "en": "You can take a break here. When you return, continue from the same turn.",
+      "de": "Du kannst hier eine Pause machen. Wenn du zurückkommst, geht es an derselben Stelle weiter."
+    },
+    "resume": {
+      "ko": "돌아왔네요. 놓아 둔 답과 도움 상태를 확인하고 이어가요.",
+      "en": "Welcome back. Check your previous response and any help you used, then continue.",
+      "de": "Willkommen zurück. Sieh dir deine bisherige Antwort und die verwendete Hilfe an und mach dann weiter."
+    },
+    "save_failed": {
+      "ko": "아직 저장을 확인하지 못했어요. 지금 답은 유지한 채 다시 시도해요.",
+      "en": "Saving has not been confirmed yet. Keep your response and try again.",
+      "de": "Das Speichern ist noch nicht bestätigt. Deine Antwort bleibt stehen; versuche es erneut."
+    },
+    "revisit": {
+      "ko": "이미 본 장면이에요. 다시 보아도 보상이나 공정이 중복 생성되지 않아요.",
+      "en": "You have seen this scene before. Replaying it does not grant another reward or construction step.",
+      "de": "Du kennst diese Szene bereits. Beim erneuten Ansehen erhältst du keine weitere Belohnung und keinen zusätzlichen Bauabschnitt."
+    }
+  },
+  "response_conditions": {
+    "assisted": "only after supported task is resolved",
+    "independent": "only if the eligible item met its criteria without model/hint; not all modalities",
+    "resume": "only after original state is actually restored",
+    "revisit": "existing reward owner remains authoritative"
+  },
+  "story": {
+    "lq_id": "LQ-05",
+    "anchor": "중문간채 중간",
+    "spoiler_guard": "Use only revealed facts. First book has no completed Sarangchae; first 집 remains practice draft until original readiness is confirmed."
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true,
+    "original_review_scope": "existing manuscript reviews and same-byte source; not human/native/device approval"
+  }
+}
