@@ -43,6 +43,7 @@ void main() {
     'lib/screens/smalltalk_screen.dart',
     'lib/screens/smalltalk_context_screen.dart',
     'lib/screens/speed_match_screen.dart',
+    'lib/screens/review_hub_screen.dart',
     'lib/screens/vocab_nuance_screen.dart',
     'lib/screens/vocab_pack_recall_screen.dart',
     'lib/screens/vocab_pack_result_screen.dart',
@@ -105,6 +106,7 @@ void main() {
     'lib/screens/hangul_atelier.dart',
     'lib/screens/legacy_vocab_screen.dart',
     'lib/screens/listening_play_screen.dart',
+    'lib/screens/review_hub_screen.dart',
     'lib/screens/smalltalk_screen.dart',
     'lib/screens/vocab_pack_result_screen.dart',
     'lib/screens/word_web_screen.dart',
@@ -134,7 +136,7 @@ void main() {
 
     expect(actual.intersection(bespokeStudyScreens), isEmpty);
     expect({...actual, ...bespokeStudyScreens}, expectedStudyFrameScreens);
-    expect(expectedStudyFrameScreens, hasLength(35));
+    expect(expectedStudyFrameScreens, hasLength(36));
   });
 
   test('embedded scenario keeps one header-owned home with cleanup', () {
@@ -382,7 +384,7 @@ void main() {
       contains(
         _normalizeWhitespace(
           'bool get _captureBusy => '
-          '_preparingRecording || _recording || _finishingRecording;',
+          '_preparingRecording || _recording || _finishingRecording || _pausingAudio;',
         ),
       ),
     );

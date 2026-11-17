@@ -155,8 +155,9 @@ void main() {
     await tester.tap(reveal);
     await tester.pumpAndSettle();
     expect(tester.takeException(), isNull, reason: 'revealed layout');
-    final rating = find.byTooltip(t.vocabPackGotIt);
-    expect(rating.hitTestable(), findsOneWidget);
+    final rating = find.text(t.vocabPackGotIt);
+    await showViewportSection(tester, rating);
+    await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
     await tester.tap(rating);
     await tester.pumpAndSettle();

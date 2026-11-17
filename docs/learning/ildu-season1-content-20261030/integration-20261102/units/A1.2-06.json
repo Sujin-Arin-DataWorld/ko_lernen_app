@@ -1,0 +1,1358 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "unit_id": "A1.2-06",
+  "band": "A1.2",
+  "title": {
+    "ko": "약속이 달라졌어요",
+    "en": "The plan has changed",
+    "de": "Der Termin hat sich geändert"
+  },
+  "goal": {
+    "ko": "이유를 짧게 말하고 시간·장소·다음 행동을 다시 합의한다.",
+    "en": "Give a brief reason and agree again on time, place, and next action.",
+    "de": "Einen Grund kurz nennen und Zeit, Ort sowie nächsten Schritt neu vereinbaren."
+  },
+  "prerequisites": [
+    "A1.1-06",
+    "A1.2-01",
+    "A1.2-02",
+    "A1.2-05"
+  ],
+  "teach_targets": {
+    "vocab": [
+      {
+        "ko": "비",
+        "en": "rain",
+        "de": "Regen"
+      },
+      {
+        "ko": "늦다",
+        "en": "be late",
+        "de": "zu spät sein"
+      },
+      {
+        "ko": "먼저",
+        "en": "first",
+        "de": "zuerst"
+      },
+      {
+        "ko": "나중에",
+        "en": "later",
+        "de": "später"
+      },
+      {
+        "ko": "만나다",
+        "en": "meet",
+        "de": "sich treffen"
+      }
+    ],
+    "grammar": [
+      "-겠-(의지)",
+      "-(으)ㄹ까요",
+      "-(으)ㅂ시다(이해)",
+      "-아서/어서",
+      "-(으)니까",
+      "-지만",
+      "보다(비교)",
+      "-고요(추가 설명)",
+      "-기 전에",
+      "-(으)ㄴ 후에",
+      "-겠-(추측)",
+      "-(으)ㄹ 거예요(계획 보충)"
+    ]
+  },
+  "non_assessed": [
+    "-(으)ㅂ시다는 제안 의미 이해만 필수이며 독립 생산을 강요하지 않는다. 계획 -(으)ㄹ 거예요는 보충 목표다.",
+    "날씨 문장은 가상 단서에 대한 추측과 확인의 차이만 다룬다. 실제 예보·교통·시설 정책을 만들지 않는다.",
+    "이유·도움·오답·복습 여부가 본편·건축·보상 상태를 바꾸거나 지운다고 말하지 않는다."
+  ],
+  "source": {
+    "contract_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/UNITS.psv",
+    "contract_sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+    "story_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+    "story_sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332",
+    "base_sha": "646c4658e70f594ab234a172679e29122d0f0e66"
+  },
+  "story": {
+    "lq_id": "LQ-06",
+    "building_id": "araechae",
+    "anchor": "아랫채 착공 / 도깨비 공사 시간표. 학습 연결이며 실제 공정 시작·소유·해금을 판정하지 않는다.",
+    "spoiler_guard": "기존 이야기 공개 상태를 따른다. 새 단서·지워진 이름·떠난 이유·미래 진실을 공개하지 않는다. 미공개 시 고택 대사를 건너뛰고 정본 인물의 현대 생활 모의 과제로 같은 목표를 연습한다. R/T는 이야기 잠금 없이 이용하는 별도 연습이다."
+  },
+  "dialogue": [
+    {
+      "id": "A1.2-06-D01",
+      "speaker": "hyuna",
+      "phase": "entry",
+      "ko": "비가 와요. 만날 곳을 다시 정할까요?",
+      "en": "It’s raining. Shall we choose another meeting place?",
+      "de": "Es regnet. Legen wir den Treffpunkt neu fest?"
+    },
+    {
+      "id": "A1.2-06-D02",
+      "speaker": "player",
+      "phase": "request",
+      "ko": "저는 세 시에는 못 만나요. 네 시는 어때요?",
+      "en": "I can’t meet at three. How about four?",
+      "de": "Um drei kann ich nicht. Wie wäre es um vier?"
+    },
+    {
+      "id": "A1.2-06-D03",
+      "speaker": "hyuna",
+      "phase": "model",
+      "ko": "비가 와서 장소를 바꿨어요. 비가 오니까 카페에서 만날까요?",
+      "en": "I changed the place because of the rain. Since it’s raining, shall we meet at the café?",
+      "de": "Wegen des Regens habe ich den Ort geändert. Wollen wir uns deshalb im Café treffen?"
+    },
+    {
+      "id": "A1.2-06-D04",
+      "speaker": "player",
+      "phase": "model",
+      "ko": "카페가 공원보다 가깝지만 네 시에만 갈 수 있어요. 네 시에 가능하고요, 버스로 갈 거예요.",
+      "en": "The café is closer than the park, but I can only go at four. I’m available at four, and I plan to go by bus.",
+      "de": "Das Café ist näher als der Park, aber ich kann nur um vier hin. Um vier kann ich, und ich werde mit dem Bus fahren."
+    },
+    {
+      "id": "A1.2-06-D05",
+      "speaker": "hyuna",
+      "phase": "practice",
+      "ko": "그럼 네 시에 카페에서 만납시다. 같이 만나자는 제안이에요.",
+      "en": "Then let’s meet at four at the café. That is a suggestion to meet together.",
+      "de": "Dann treffen wir uns um vier im Café. Das ist ein Vorschlag für ein gemeinsames Treffen."
+    },
+    {
+      "id": "A1.2-06-D06",
+      "speaker": "player",
+      "phase": "use",
+      "ko": "네 시에 카페에서 만나요. 출발하기 전에 연락하겠어요. 만난 후에 사진을 봐요.",
+      "en": "Let’s meet at four at the café. I’ll contact you before leaving. We’ll look at photos after meeting.",
+      "de": "Treffen wir uns um vier im Café. Ich melde mich vor dem Losgehen. Nach dem Treffen sehen wir Fotos an."
+    },
+    {
+      "id": "A1.2-06-D07",
+      "speaker": "hyuna",
+      "phase": "model",
+      "ko": "흐린 하늘을 보고 비가 오겠어요라고 하면 추측이에요. 연락하겠어요는 자기 행동의 의지예요.",
+      "en": "Saying 비가 오겠어요 from a cloudy sky is a guess. 연락하겠어요 commits to your own action.",
+      "de": "비가 오겠어요 beim Blick auf einen bewölkten Himmel ist eine Vermutung. 연락하겠어요 sagt eine eigene Handlung zu."
+    },
+    {
+      "id": "A1.2-06-D08",
+      "speaker": "player",
+      "phase": "result",
+      "ko": "시간과 장소를 확인했어요. 먼저 연락하고 나중에 만나요.",
+      "en": "We’ve checked the time and place. I’ll contact you first, and we’ll meet later.",
+      "de": "Zeit und Ort sind geklärt. Ich melde mich zuerst, dann treffen wir uns."
+    },
+    {
+      "id": "A1.2-06-D09",
+      "speaker": "hyuna",
+      "phase": "return",
+      "ko": "네, 같은 약속이에요. 다음 행동도 확인했어요.",
+      "en": "Yes, we agree on the same appointment and the next step.",
+      "de": "Ja, wir meinen denselben Termin. Der nächste Schritt ist auch geklärt."
+    },
+    {
+      "id": "A1.2-06-D10",
+      "speaker": "hyuna",
+      "phase": "next",
+      "ko": "다음에는 새 일정표에서도 가능한 시간을 찾아봐요.",
+      "en": "Next, let’s find a workable time on a new schedule too.",
+      "de": "Als Nächstes suchen wir auch in einem neuen Plan nach einer passenden Zeit."
+    }
+  ],
+  "items": [
+    {
+      "id": "A1.2-06-P01",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "-아서/어서로 변경 이유 설명",
+      "prompt": {
+        "ko": "장소를 바꾼 이유를 설명한 문장을 골라요.",
+        "en": "Choose the sentence explaining why the meeting place changed.",
+        "de": "Wähle den Satz, der den Grund für den Ortswechsel erklärt."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 모임 연습. 비가 옴→장소를 카페로 바꿈. 시범: 늦었어요 + 연락했어요 → 늦어서 연락했어요. 비가 와요 + 장소를 바꿨어요 → 비가 와서 장소를 바꿨어요.",
+          "en": "Modern meeting practice. Rain→changed the venue to a café. Example: 늦었어요 + 연락했어요 → 늦어서 연락했어요. 비가 와요 + 장소를 바꿨어요 → 비가 와서 장소를 바꿨어요.",
+          "de": "Heutige Terminübung: Regen→Treffpunkt ins Café verlegt. Beispiel: 늦었어요 + 연락했어요 → 늦어서 연락했어요. 비가 와요 + 장소를 바꿨어요 → 비가 와서 장소를 바꿨어요."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "장소를 바꿔서 비가 왔어요.",
+          "en": "It rained because we changed the place.",
+          "de": "Es hat geregnet, weil wir den Ort geändert haben."
+        },
+        {
+          "id": "2",
+          "ko": "비가 안 와서 장소를 바꿨어요.",
+          "en": "We changed the place because it wasn’t raining.",
+          "de": "Wir haben den Ort geändert, weil es nicht geregnet hat."
+        },
+        {
+          "id": "3",
+          "ko": "비가 와서 장소를 바꿨어요.",
+          "en": "We changed the place because it was raining.",
+          "de": "Wir haben den Ort geändert, weil es geregnet hat."
+        }
+      ],
+      "accepted_answers": [
+        "3"
+      ],
+      "feedback_correct": {
+        "ko": "비가 이유이고 장소 변경이 결과예요.",
+        "en": "Rain is the reason; the change of place is the result.",
+        "de": "Der Regen ist der Grund, der Ortswechsel die Folge."
+      },
+      "feedback_wrong": {
+        "ko": "원인과 결과의 순서를 확인해요. 장소 변경이 비를 만든 것은 아니에요.",
+        "en": "Check cause and result. Changing the place did not cause the rain.",
+        "de": "Prüfe Grund und Folge. Der Ortswechsel hat den Regen nicht verursacht."
+      },
+      "help": {
+        "ko": "이유 + 아서/어서 + 결과로 나눠요.",
+        "en": "Separate reason + 아서/어서 + result.",
+        "de": "Trenne Grund + 아서/어서 + Folge."
+      },
+      "scoring": "structured",
+      "evidence_limit": "모형 뒤 인과 방향 인식."
+    },
+    {
+      "id": "A1.2-06-P02",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "-(으)니까 이유에 근거한 제안",
+      "prompt": {
+        "ko": "비를 이유로 새 장소를 제안한 말을 골라요.",
+        "en": "Choose the proposal for a new place based on the rain.",
+        "de": "Wähle den Vorschlag für einen neuen Ort wegen des Regens."
+      },
+      "material": {
+        "situation": {
+          "ko": "시범: 비가 오니까 카페에서 만날까요? 오다→오니까, 늦다→늦으니까. 이유를 말한 다음 상대 의향을 물어요.",
+          "en": "Example: 비가 오니까 카페에서 만날까요? 오다→오니까; 늦다→늦으니까. State a reason, then ask the other person’s preference.",
+          "de": "Beispiel: 비가 오니까 카페에서 만날까요? 오다→오니까, 늦다→늦으니까. Nenne den Grund und frage dann nach dem Einverständnis."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "비가 오니까 카페에서 안 만나요.",
+          "en": "Since it’s raining, we aren’t meeting at the café.",
+          "de": "Weil es regnet, treffen wir uns nicht im Café."
+        },
+        {
+          "id": "2",
+          "ko": "비가 오니까 카페에서 만날까요?",
+          "en": "Since it’s raining, shall we meet at the café?",
+          "de": "Es regnet. Wollen wir uns deshalb im Café treffen?"
+        },
+        {
+          "id": "3",
+          "ko": "비가 오니까 카페에서 만났어요.",
+          "en": "Since it was raining, we met at the café.",
+          "de": "Weil es geregnet hat, haben wir uns im Café getroffen."
+        }
+      ],
+      "accepted_answers": [
+        "2"
+      ],
+      "feedback_correct": {
+        "ko": "이유를 제시하고 만날까요로 선택을 열어 두었어요.",
+        "en": "You gave a reason and kept the choice open with 만날까요.",
+        "de": "Du hast den Grund genannt und mit 만날까요 die Entscheidung offengelassen."
+      },
+      "feedback_wrong": {
+        "ko": "과거 결과나 부정이 아니라 새 제안이 필요해요. 만날까요를 찾아요.",
+        "en": "A new proposal is needed, not a past result or a refusal. Look for 만날까요.",
+        "de": "Gefragt ist ein neuer Vorschlag, kein vergangenes Ergebnis und keine Absage. Achte auf 만날까요."
+      },
+      "help": {
+        "ko": "오니까는 이유, 만날까요는 함께 정하는 제안이에요.",
+        "en": "오니까 gives the reason; 만날까요 invites a joint decision.",
+        "de": "오니까 nennt den Grund, 만날까요 lädt zur gemeinsamen Entscheidung ein."
+      },
+      "scoring": "structured",
+      "evidence_limit": "공개 모형 뒤 제안 화행 인식."
+    },
+    {
+      "id": "A1.2-06-P03",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "-지만 대조와 보다 비교",
+      "prompt": {
+        "ko": "두 정보를 그대로 보존한 말을 골라요.",
+        "en": "Choose the reply preserving both pieces of information.",
+        "de": "Wähle die Antwort, die beide Angaben erhält."
+      },
+      "material": {
+        "situation": {
+          "ko": "카드: 카페는 공원보다 가까움. 하지만 만날 수 있는 시각은 16:00뿐. 시범: 카페가 공원보다 가깝지만 네 시에만 만날 수 있어요.",
+          "en": "Card: the café is closer than the park, but four is the only possible meeting time. Example: 카페가 공원보다 가깝지만 네 시에만 만날 수 있어요.",
+          "de": "Karte: Das Café ist näher als der Park, aber nur vier Uhr ist als Treffzeit möglich. Beispiel: 카페가 공원보다 가깝지만 네 시에만 만날 수 있어요."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "카페가 공원보다 가깝지만 네 시에만 만날 수 있어요.",
+          "en": "The café is closer than the park, but I can only meet at four.",
+          "de": "Das Café ist näher als der Park, aber ich kann mich nur um vier treffen."
+        },
+        {
+          "id": "2",
+          "ko": "공원이 카페보다 가깝지만 네 시에만 만날 수 있어요.",
+          "en": "The park is closer than the café, but I can only meet at four.",
+          "de": "Der Park ist näher als das Café, aber ich kann mich nur um vier treffen."
+        },
+        {
+          "id": "3",
+          "ko": "카페가 공원보다 가깝고 세 시에 만날 수 있어요.",
+          "en": "The café is closer than the park, and I can meet at three.",
+          "de": "Das Café ist näher als der Park, und ich kann mich um drei treffen."
+        }
+      ],
+      "accepted_answers": [
+        "1"
+      ],
+      "feedback_correct": {
+        "ko": "비교 기준 공원과 제한 시각 네 시를 지켰어요.",
+        "en": "You preserved the park as comparison and four as the available time.",
+        "de": "Du hast den Park als Vergleich und vier Uhr als mögliche Zeit beibehalten."
+      },
+      "feedback_wrong": {
+        "ko": "가까운 곳과 비교 기준을 바꾸지 말아요. 가능한 시각은 네 시예요.",
+        "en": "Do not reverse the closer place and comparison point. The available time is four.",
+        "de": "Vertausche den näheren Ort und den Vergleichsort nicht. Möglich ist vier Uhr."
+      },
+      "help": {
+        "ko": "공원보다=공원과 비교하면. 지만 뒤에는 대조되는 제한이 와요.",
+        "en": "공원보다 means compared with the park; 지만 introduces the contrasting constraint.",
+        "de": "공원보다 heißt im Vergleich zum Park. Nach 지만 folgt die entgegenstehende Einschränkung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "비교·대조 모형 인식. 비교 수치의 실제 거리 사실을 만들지 않음."
+    },
+    {
+      "id": "A1.2-06-P04",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "-기 전에·-(으)ㄴ 후에 순서",
+      "prompt": {
+        "ko": "계획의 순서와 맞는 문장을 골라요.",
+        "en": "Choose the sentence matching the planned order.",
+        "de": "Wähle den Satz zur geplanten Reihenfolge."
+      },
+      "material": {
+        "situation": {
+          "ko": "계획 카드: ① 연락 ② 출발 ③ 만남 ④ 사진 보기. 시범: 출발하기 전에 연락해요. 만난 후에 사진을 봐요.",
+          "en": "Plan card: 1 contact, 2 leave, 3 meet, 4 look at photos. Example: 출발하기 전에 연락해요. 만난 후에 사진을 봐요.",
+          "de": "Plan: 1 Nachricht schicken, 2 losgehen, 3 treffen, 4 Fotos ansehen. Beispiel: 출발하기 전에 연락해요. 만난 후에 사진을 봐요."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "출발한 후에 연락하고 만나기 전에 사진을 봐요.",
+          "en": "I contact you after leaving and look at photos before meeting.",
+          "de": "Ich melde mich nach dem Losgehen und sehe vor dem Treffen Fotos an."
+        },
+        {
+          "id": "2",
+          "ko": "연락하기 전에 출발하고 사진을 본 후에 만나요.",
+          "en": "I leave before contacting you and meet after looking at photos.",
+          "de": "Ich gehe vor der Nachricht los und treffe mich nach dem Fotoansehen."
+        },
+        {
+          "id": "3",
+          "ko": "출발하기 전에 연락하고 만난 후에 사진을 봐요.",
+          "en": "I contact you before leaving and look at photos after meeting.",
+          "de": "Ich melde mich vor dem Losgehen und sehe nach dem Treffen Fotos an."
+        }
+      ],
+      "accepted_answers": [
+        "3"
+      ],
+      "feedback_correct": {
+        "ko": "연락은 출발 전, 사진 보기는 만남 뒤예요.",
+        "en": "Contact comes before leaving; photos come after meeting.",
+        "de": "Die Nachricht kommt vor dem Losgehen, die Fotos nach dem Treffen."
+      },
+      "feedback_wrong": {
+        "ko": "네 행동의 순서를 카드와 하나씩 비교해요. 전에 앞, 후에 뒤예요.",
+        "en": "Compare the four actions in order. 전에 is before; 후에 is after.",
+        "de": "Vergleiche die vier Schritte einzeln. 전에 heißt vorher, 후에 nachher."
+      },
+      "help": {
+        "ko": "먼저 연락→출발, 먼저 만남→사진 보기 두 쌍으로 나눠요.",
+        "en": "Use two pairs: contact→leave and meet→photos.",
+        "de": "Bilde zwei Paare: Nachricht→losgehen und treffen→Fotos ansehen."
+      },
+      "scoring": "structured",
+      "evidence_limit": "명시된 순서의 인식."
+    },
+    {
+      "id": "A1.2-06-P05",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "-고요로 추가 설명",
+      "prompt": {
+        "ko": "시간을 말한 뒤 장소를 덧붙인 답을 골라요.",
+        "en": "Choose the reply adding the place after the time.",
+        "de": "Wähle die Antwort, die nach der Uhrzeit den Ort ergänzt."
+      },
+      "material": {
+        "situation": {
+          "ko": "시범 답장: 네 시에 가능하고요, 장소는 카페예요. 고요는 말을 끝내지 않고 관련 설명을 더 붙여요. 카드: 가능 16:00, 장소 카페.",
+          "en": "Example reply: 네 시에 가능하고요, 장소는 카페예요. 고요 adds connected information. Card: available 16:00; place=café.",
+          "de": "Beispielantwort: 네 시에 가능하고요, 장소는 카페예요. 고요 ergänzt zusammenhängende Angaben. Karte: frei um 16:00 Uhr, Ort=Café."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "네 시에 가능하고요, 장소는 공원이에요.",
+          "en": "I’m available at four, and the place is the park.",
+          "de": "Um vier kann ich, und der Treffpunkt ist der Park."
+        },
+        {
+          "id": "2",
+          "ko": "네 시에 가능하고요, 장소는 카페예요.",
+          "en": "I’m available at four, and the place is the café.",
+          "de": "Um vier kann ich, und der Treffpunkt ist das Café."
+        },
+        {
+          "id": "3",
+          "ko": "세 시에 가능하고요, 장소는 카페예요.",
+          "en": "I’m available at three, and the place is the café.",
+          "de": "Um drei kann ich, und der Treffpunkt ist das Café."
+        }
+      ],
+      "accepted_answers": [
+        "2"
+      ],
+      "feedback_correct": {
+        "ko": "시간과 추가 장소 정보가 모두 카드에 맞아요.",
+        "en": "The time and added place both match the card.",
+        "de": "Uhrzeit und ergänzter Ort passen beide zur Karte."
+      },
+      "feedback_wrong": {
+        "ko": "고요 뒤의 추가 정보까지 확인해요. 시간은 네 시, 장소는 카페예요.",
+        "en": "Check the information after 고요 too. Time=four; place=café.",
+        "de": "Prüfe auch die Angabe nach 고요. Zeit=vier Uhr, Ort=Café."
+      },
+      "help": {
+        "ko": "첫 정보 + 고요, 추가 정보로 읽어요.",
+        "en": "Read first fact + 고요, then the added fact.",
+        "de": "Lies erste Angabe + 고요 und danach die Ergänzung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "공개 모형 뒤 추가 설명 인식."
+    },
+    {
+      "id": "A1.2-06-P06",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "-겠-의 의지·추측 구분",
+      "prompt": {
+        "ko": "자기가 할 일을 약속하는 말을 골라요.",
+        "en": "Choose the statement committing to the speaker’s own action.",
+        "de": "Wähle die Aussage, mit der die sprechende Person ihr eigenes Handeln zusagt."
+      },
+      "material": {
+        "situation": {
+          "ko": "시범 두 칸: 하늘이 흐려요→비가 오겠어요(날씨 추측). 제가 먼저 연락하겠어요(내 행동의 의지). 추측은 확정 예보가 아니에요.",
+          "en": "Two examples: cloudy sky→비가 오겠어요 (weather guess). 제가 먼저 연락하겠어요 (commitment to one’s own action). A guess is not a confirmed forecast.",
+          "de": "Zwei Beispiele: bewölkter Himmel→비가 오겠어요 (Vermutung zum Wetter). 제가 먼저 연락하겠어요 (Zusage eigenen Handelns). Eine Vermutung ist keine bestätigte Vorhersage."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "제가 먼저 연락하겠어요.",
+          "en": "I’ll contact you first.",
+          "de": "Ich werde mich zuerst melden."
+        },
+        {
+          "id": "2",
+          "ko": "비가 오겠어요.",
+          "en": "It looks as though it will rain.",
+          "de": "Es wird wohl regnen."
+        },
+        {
+          "id": "3",
+          "ko": "카페가 가깝겠어요.",
+          "en": "The café is probably close.",
+          "de": "Das Café ist wohl nah."
+        }
+      ],
+      "accepted_answers": [
+        "1"
+      ],
+      "feedback_correct": {
+        "ko": "자기 연락 행동의 의지를 말한 문장이에요.",
+        "en": "This sentence expresses a commitment to contact the other person.",
+        "de": "Der Satz sagt das eigene Melden zu."
+      },
+      "feedback_wrong": {
+        "ko": "같은 겠이라도 날씨나 거리의 추측과 내 행동의 약속은 달라요.",
+        "en": "The same 겠 can mark a guess about weather or distance, or a commitment to one’s action.",
+        "de": "Dasselbe 겠 kann Wetter oder Entfernung vermuten oder eigenes Handeln zusagen."
+      },
+      "help": {
+        "ko": "제가 + 할 행동인지, 밖의 상황에 대한 추측인지 구분해요.",
+        "en": "Distinguish 제가 plus my action from a guess about an outside situation.",
+        "de": "Unterscheide 제가 mit einer eigenen Handlung von einer Vermutung über die Umgebung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "문맥별 의지·추측 인식. 실제 날씨 정보 아님."
+    },
+    {
+      "id": "A1.2-06-P07",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "-ㅂ시다 제안 이해와 계획 -(으)ㄹ 거예요",
+      "prompt": {
+        "ko": "제안과 개인 계획의 차이에 맞는 설명을 골라요.",
+        "en": "Choose the explanation distinguishing a suggestion from a personal plan.",
+        "de": "Wähle die Erklärung zum Unterschied zwischen Vorschlag und persönlichem Plan."
+      },
+      "material": {
+        "situation": {
+          "ko": "시범: 네 시에 만납시다=함께 만나자는 제안. 저는 버스로 갈 거예요=내 이동 계획. 만납시다는 이해만 하고, 답장에는 만날까요 같은 배운 제안을 써도 돼요.",
+          "en": "Example: 네 시에 만납시다 proposes meeting together. 저는 버스로 갈 거예요 states a personal travel plan. You only need to understand 만납시다; you may reply with another learned suggestion.",
+          "de": "Beispiel: 네 시에 만납시다 schlägt ein gemeinsames Treffen vor. 저는 버스로 갈 거예요 nennt den eigenen Fahrtplan. 만납시다 musst du nur verstehen; in der Antwort ist auch eine andere gelernte Vorschlagsform möglich."
+        },
+        "model_visible": true,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "만납시다는 이미 만났다는 뜻이에요.",
+          "en": "만납시다 means we already met.",
+          "de": "만납시다 bedeutet, dass das Treffen schon stattgefunden hat."
+        },
+        {
+          "id": "2",
+          "ko": "갈 거예요는 이동이 불가능하다는 뜻이에요.",
+          "en": "갈 거예요 means travel is impossible.",
+          "de": "갈 거예요 bedeutet, dass die Fahrt unmöglich ist."
+        },
+        {
+          "id": "3",
+          "ko": "만납시다는 함께할 제안이고, 갈 거예요는 개인 계획이에요.",
+          "en": "만납시다 is a joint suggestion; 갈 거예요 is a personal plan.",
+          "de": "만납시다 ist ein gemeinsamer Vorschlag, 갈 거예요 ein persönlicher Plan."
+        }
+      ],
+      "accepted_answers": [
+        "3"
+      ],
+      "feedback_correct": {
+        "ko": "제안과 계획을 구분했어요. 만납시다의 생산을 강요하지 않아요.",
+        "en": "You distinguished suggestion and plan. Producing 만납시다 is not required.",
+        "de": "Du hast Vorschlag und Plan unterschieden. 만납시다 musst du nicht selbst verwenden."
+      },
+      "feedback_wrong": {
+        "ko": "만납시다는 과거가 아니고, 갈 거예요는 불가능이 아니라 계획이에요.",
+        "en": "만납시다 is not past; 갈 거예요 is a plan, not inability.",
+        "de": "만납시다 ist keine Vergangenheit. 갈 거예요 ist ein Plan, keine Unmöglichkeit."
+      },
+      "help": {
+        "ko": "같이 할까요와 내 계획이에요 두 의미 칸으로 나눠요.",
+        "en": "Use two meaning boxes: shall we do it together, and my plan.",
+        "de": "Trenne zwei Bedeutungen: gemeinsam vorschlagen und den eigenen Plan nennen."
+      },
+      "scoring": "structured",
+      "evidence_limit": "-(으)ㅂ시다 수용만 점검. 계획은 보충 시범."
+    },
+    {
+      "id": "A1.2-06-I01",
+      "mode": "I",
+      "kind": "short",
+      "objective": "새 변경 이유 -어서",
+      "prompt": {
+        "ko": "두 사건을 원인→결과 순서의 한 문장으로 이어요.",
+        "en": "Join the two events into one sentence in cause→result order.",
+        "de": "Verbinde die beiden Ereignisse in einem Satz mit Grund und Folge."
+      },
+      "material": {
+        "situation": {
+          "ko": "새 메시지 카드: 원인=늦다. 결과=연락하다(완료). 이유 연결 -어서를 사용해요.",
+          "en": "New message card: reason=be late; result=contacted, completed. Use the reason link -어서.",
+          "de": "Neue Nachrichtenkarte: Grund=zu spät sein, Folge=sich gemeldet haben. Verbinde mit -어서."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Form mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "늦어서 연락했어요.",
+        "늦어서 연락했어요"
+      ],
+      "feedback_correct": {
+        "ko": "늦음이 연락의 이유로 연결됐어요.",
+        "en": "You made lateness the reason for contacting.",
+        "de": "Du hast das Zuspätsein als Grund für die Nachricht verbunden."
+      },
+      "feedback_wrong": {
+        "ko": "연락이 늦음을 만든 게 아니에요. 늦어서를 먼저 쓰고 연락했어요를 이어요.",
+        "en": "Contacting did not cause the lateness. Start with 늦어서, then 연락했어요.",
+        "de": "Die Nachricht hat das Zuspätsein nicht verursacht. Beginne mit 늦어서 und ergänze 연락했어요."
+      },
+      "help": {
+        "ko": "늦다 → 늦어서 + 연락했어요.",
+        "en": "늦다 → 늦어서 + 연락했어요.",
+        "de": "늦다 → 늦어서 + 연락했어요."
+      },
+      "scoring": "structured",
+      "evidence_limit": "제한된 이유 문장 입력."
+    },
+    {
+      "id": "A1.2-06-I02",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "이유·가능 시간·장소 재제안",
+      "prompt": {
+        "ko": "세 조건을 모두 지키는 새 제안을 골라요.",
+        "en": "Choose the new proposal satisfying all three conditions.",
+        "de": "Wähle den neuen Vorschlag, der alle drei Bedingungen erfüllt."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 메시지: 비가 옴. 너는 16:00 가능. 현아는 카페에서 16:00 가능. 원래 계획은 공원 15:00.",
+          "en": "Modern message: raining; you are free at 16:00; Hyuna is free at the café at 16:00. Original plan: park at 15:00.",
+          "de": "Heutige Nachricht: Regen; du kannst um 16:00 Uhr; Hyuna kann um 16:00 Uhr im Café. Alter Plan: Park um 15:00 Uhr."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "비가 오니까 네 시에 공원에서 만날까요?",
+          "en": "Since it’s raining, shall we meet at four in the park?",
+          "de": "Es regnet. Wollen wir uns um vier im Park treffen?"
+        },
+        {
+          "id": "2",
+          "ko": "비가 오니까 네 시에 카페에서 만날까요?",
+          "en": "Since it’s raining, shall we meet at four at the café?",
+          "de": "Es regnet. Wollen wir uns um vier im Café treffen?"
+        },
+        {
+          "id": "3",
+          "ko": "비가 오니까 세 시에 카페에서 만날까요?",
+          "en": "Since it’s raining, shall we meet at three at the café?",
+          "de": "Es regnet. Wollen wir uns um drei im Café treffen?"
+        }
+      ],
+      "accepted_answers": [
+        "2"
+      ],
+      "feedback_correct": {
+        "ko": "이유와 두 사람의 가능한 시간·장소를 함께 반영했어요.",
+        "en": "You included the reason and the shared time and place.",
+        "de": "Du hast Grund sowie gemeinsame Zeit und gemeinsamen Ort berücksichtigt."
+      },
+      "feedback_wrong": {
+        "ko": "바뀐 시간은 네 시, 장소는 카페예요. 원래 약속과 섞지 않아요.",
+        "en": "The revised time is four and place is the café. Keep them separate from the old plan.",
+        "de": "Neu sind vier Uhr und das Café. Vermische das nicht mit dem alten Plan."
+      },
+      "help": {
+        "ko": "원래 약속과 새 약속을 두 줄로 나눠 비교해요.",
+        "en": "Compare old and new appointments on separate lines.",
+        "de": "Vergleiche alten und neuen Termin in getrennten Zeilen."
+      },
+      "scoring": "structured",
+      "evidence_limit": "모형 없는 변경안 선택. 실제 상호 합의 성립은 아님."
+    },
+    {
+      "id": "A1.2-06-I03",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 제약의 -지만",
+      "prompt": {
+        "ko": "가까움과 불가능 시각을 대조한 답을 골라요.",
+        "en": "Choose the reply contrasting closeness with an unavailable time.",
+        "de": "Wähle die Antwort, die Nähe und unpassende Uhrzeit gegenüberstellt."
+      },
+      "material": {
+        "situation": {
+          "ko": "새 카드: 카페가 가까움. 15:00에는 만날 수 없음. 16:00 가능.",
+          "en": "New card: café is close; meeting at 15:00 is not possible; 16:00 is possible.",
+          "de": "Neue Karte: Café nah; Treffen um 15:00 Uhr nicht möglich; 16:00 Uhr möglich."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "카페가 가깝지만 세 시에는 못 만나요.",
+          "en": "The café is close, but I can’t meet at three.",
+          "de": "Das Café ist nah, aber um drei kann ich mich nicht treffen."
+        },
+        {
+          "id": "2",
+          "ko": "카페가 가깝지만 네 시에는 못 만나요.",
+          "en": "The café is close, but I can’t meet at four.",
+          "de": "Das Café ist nah, aber um vier kann ich mich nicht treffen."
+        },
+        {
+          "id": "3",
+          "ko": "카페가 멀지만 세 시에 만날 수 있어요.",
+          "en": "The café is far, but I can meet at three.",
+          "de": "Das Café ist weit weg, aber um drei kann ich mich treffen."
+        }
+      ],
+      "accepted_answers": [
+        "1"
+      ],
+      "feedback_correct": {
+        "ko": "가까워도 세 시에는 불가능하다는 대조를 지켰어요.",
+        "en": "You preserved the contrast: close, but unavailable at three.",
+        "de": "Du hast den Gegensatz erhalten: nah, aber um drei nicht möglich."
+      },
+      "feedback_wrong": {
+        "ko": "가깝다는 사실과 세 시 불가능을 동시에 확인해요.",
+        "en": "Check both closeness and unavailability at three.",
+        "de": "Prüfe beides: nah und um drei nicht möglich."
+      },
+      "help": {
+        "ko": "지만 앞뒤의 두 정보가 각각 카드에 맞아야 해요.",
+        "en": "Both facts on either side of 지만 must match.",
+        "de": "Beide Angaben vor und nach 지만 müssen zur Karte passen."
+      },
+      "scoring": "structured",
+      "evidence_limit": "새 제약 대조 선택."
+    },
+    {
+      "id": "A1.2-06-I04",
+      "mode": "I",
+      "kind": "short",
+      "objective": "보다 비교 기준 제한 산출",
+      "prompt": {
+        "ko": "비교 카드를 한 문장으로 써요.",
+        "en": "Write one sentence for the comparison card.",
+        "de": "Schreibe einen Satz zur Vergleichskarte."
+      },
+      "material": {
+        "situation": {
+          "ko": "너에게서 거리: 카페 200m, 공원 800m. 비교 기준=공원. 형용사=가깝다. 모든 거리는 가상 연습 값.",
+          "en": "Distance from you: café 200m, park 800m. Comparison point=park; adjective=close. All distances are fictional practice values.",
+          "de": "Entfernung von dir: Café 200 m, Park 800 m. Vergleichsort=Park, Adjektiv=nah. Alle Entfernungen sind fiktive Übungswerte."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 문장 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form sentence practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Satzform mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "카페가 공원보다 가까워요.",
+        "카페가 공원보다 가까워요"
+      ],
+      "feedback_correct": {
+        "ko": "공원을 기준으로 카페가 가깝다는 비교를 했어요.",
+        "en": "You used the park as the comparison point for the closer café.",
+        "de": "Du hast das Café im Vergleich zum Park als näher beschrieben."
+      },
+      "feedback_wrong": {
+        "ko": "800m 공원을 기준으로 200m 카페가 가까워요. 보다 뒤가 아니라 앞에 기준 명사 공원이 와요.",
+        "en": "Compared with the park at 800m, the café at 200m is closer. Put the comparison noun 공원 before 보다.",
+        "de": "Gegenüber dem Park in 800 m ist das Café in 200 m näher. Das Vergleichswort 공원 steht vor 보다."
+      },
+      "help": {
+        "ko": "더 가까운 곳 + 가 + 기준 + 보다 + 가까워요.",
+        "en": "Use closer place + 가 + comparison point + 보다 + 가까워요.",
+        "de": "Verwende näherer Ort + 가 + Vergleichsort + 보다 + 가까워요."
+      },
+      "scoring": "structured",
+      "evidence_limit": "명시적 가상 거리의 비교 제한 산출."
+    },
+    {
+      "id": "A1.2-06-I05",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 계획의 전후 순서",
+      "prompt": {
+        "ko": "새 순서를 보존한 답을 골라요.",
+        "en": "Choose the reply preserving the new order.",
+        "de": "Wähle die Antwort mit der neuen Reihenfolge."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 약속 카드: ① 현아에게 연락 ② 버스 타기 ③ 카페 도착 ④ 사진 보기. 사진은 도착 뒤에만 보려고 해요.",
+          "en": "Modern appointment card: 1 contact Hyuna, 2 take bus, 3 arrive café, 4 look at photos. Photos are planned only after arrival.",
+          "de": "Terminkarte: 1 Hyuna schreiben, 2 Bus nehmen, 3 am Café ankommen, 4 Fotos ansehen. Fotos sind erst nach der Ankunft geplant."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "사진을 본 후에 연락하고 버스를 타기 전에 도착해요.",
+          "en": "I contact you after the photos and arrive before taking the bus.",
+          "de": "Ich melde mich nach den Fotos und komme vor der Busfahrt an."
+        },
+        {
+          "id": "2",
+          "ko": "버스를 타기 전에 연락하고 도착한 후에 사진을 봐요.",
+          "en": "I contact you before taking the bus and look at photos after arriving.",
+          "de": "Ich melde mich vor der Busfahrt und sehe nach der Ankunft Fotos an."
+        },
+        {
+          "id": "3",
+          "ko": "버스를 탄 후에 연락하고 도착하기 전에 사진을 봐요.",
+          "en": "I contact you after taking the bus and look at photos before arriving.",
+          "de": "Ich melde mich nach der Busfahrt und sehe vor der Ankunft Fotos an."
+        }
+      ],
+      "accepted_answers": [
+        "2"
+      ],
+      "feedback_correct": {
+        "ko": "버스 전 연락과 도착 후 사진 보기를 구분했어요.",
+        "en": "You kept contact before the bus and photos after arrival.",
+        "de": "Du hast Nachricht vor der Busfahrt und Fotos nach der Ankunft unterschieden."
+      },
+      "feedback_wrong": {
+        "ko": "전에·후에가 어떤 행동에 붙었는지 확인해요.",
+        "en": "Check which action each 전에 and 후에 is attached to.",
+        "de": "Prüfe, zu welcher Handlung 전에 und 후에 gehören."
+      },
+      "help": {
+        "ko": "버스 타기보다 먼저 연락, 도착보다 나중에 사진 보기예요.",
+        "en": "Contact precedes the bus; photos follow arrival.",
+        "de": "Die Nachricht kommt vor der Busfahrt, die Fotos nach der Ankunft."
+      },
+      "scoring": "structured",
+      "evidence_limit": "새 일정 순서 인식."
+    },
+    {
+      "id": "A1.2-06-I06",
+      "mode": "I",
+      "kind": "short",
+      "objective": "-고요 추가 설명 형태",
+      "prompt": {
+        "ko": "빈칸만 써요: 다섯 시에 __, 장소는 도서관이에요.",
+        "en": "Fill only the gap: 다섯 시에 __, 장소는 도서관이에요.",
+        "de": "Ergänze nur die Lücke: 다섯 시에 __, 장소는 도서관이에요."
+      },
+      "material": {
+        "situation": {
+          "ko": "새 답장 카드: 가능하다. 뒤에 장소 설명을 덧붙여요. -고요를 사용해요.",
+          "en": "New reply card: 가능하다. Add a place explanation after it, using -고요.",
+          "de": "Neue Antwortkarte: 가능하다. Ergänze danach den Ort und verwende -고요."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Form mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "가능하고요"
+      ],
+      "feedback_correct": {
+        "ko": "가능하고요로 첫 정보를 열고 장소를 덧붙였어요.",
+        "en": "가능하고요 leads into the additional place information.",
+        "de": "가능하고요 leitet die ergänzende Ortsangabe ein."
+      },
+      "feedback_wrong": {
+        "ko": "가능해요에서 문장을 끝내지 않고 가능하고요로 이어요.",
+        "en": "Instead of ending at 가능해요, link with 가능하고요.",
+        "de": "Beende nicht mit 가능해요, sondern verbinde mit 가능하고요."
+      },
+      "help": {
+        "ko": "가능하다 → 가능하 + 고요.",
+        "en": "가능하다 → 가능하 + 고요.",
+        "de": "가능하다 → 가능하 + 고요."
+      },
+      "scoring": "structured",
+      "evidence_limit": "추가 설명 형태 한정 입력."
+    },
+    {
+      "id": "A1.2-06-I07",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 문맥에서 추측 겠 인식",
+      "prompt": {
+        "ko": "지금 눈으로 본 하늘에서 추측하는 말을 골라요.",
+        "en": "Choose the guess based on the sky you can see now.",
+        "de": "Wähle die Vermutung anhand des Himmels, den du gerade siehst."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 연습 그림 설명: 하늘이 흐림. 비가 오는지는 아직 확인 안 됨. 너는 날씨를 확정하거나 자기 행동을 약속하지 않아요.",
+          "en": "Modern practice image description: cloudy sky. Rain has not been confirmed. You are neither confirming weather nor committing to an action.",
+          "de": "Bildbeschreibung für die Übung: bewölkter Himmel. Regen ist nicht bestätigt. Du bestätigst das Wetter nicht und sagst auch keine eigene Handlung zu."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "제가 먼저 연락하겠어요.",
+          "en": "I’ll contact you first.",
+          "de": "Ich werde mich zuerst melden."
+        },
+        {
+          "id": "2",
+          "ko": "지금 비가 와요. 확인했어요.",
+          "en": "It is raining now. I checked.",
+          "de": "Es regnet jetzt. Ich habe es geprüft."
+        },
+        {
+          "id": "3",
+          "ko": "비가 오겠어요.",
+          "en": "It looks as though it will rain.",
+          "de": "Es wird wohl regnen."
+        }
+      ],
+      "accepted_answers": [
+        "3"
+      ],
+      "feedback_correct": {
+        "ko": "오겠어요를 확정이 아닌 추측으로 읽었어요.",
+        "en": "You read 오겠어요 as a guess rather than confirmation.",
+        "de": "Du hast 오겠어요 als Vermutung statt als Bestätigung verstanden."
+      },
+      "feedback_wrong": {
+        "ko": "그림은 흐림만 보여 줘요. 비를 확인했다거나 연락을 약속했다고 말하지 않아요.",
+        "en": "The picture shows clouds only. Do not claim confirmed rain or a promise to contact.",
+        "de": "Das Bild zeigt nur Wolken. Behaupte weder bestätigten Regen noch eine Zusage, dich zu melden."
+      },
+      "help": {
+        "ko": "날씨에 대한 겠은 이 문맥에서 추측이에요.",
+        "en": "In this context, 겠 about weather marks a guess.",
+        "de": "In diesem Wetterkontext markiert 겠 eine Vermutung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "추측·확정·의지의 제한 인식. 실예보 생성 아님."
+    },
+    {
+      "id": "A1.2-06-I08",
+      "mode": "I",
+      "kind": "short",
+      "objective": "새 개인 이동 계획",
+      "prompt": {
+        "ko": "개인 계획을 한 문장으로 써요.",
+        "en": "Write your personal travel plan in one sentence.",
+        "de": "Schreibe deinen eigenen Fahrtplan in einem Satz."
+      },
+      "material": {
+        "situation": {
+          "ko": "계획 카드: 나 / 내일 / 버스로 가다. -(으)ㄹ 거예요를 사용해요. 이미 간 일은 아니에요.",
+          "en": "Plan card: I / tomorrow / go by bus. Use -(으)ㄹ 거예요. The journey has not happened.",
+          "de": "Plankarte: ich / morgen / mit dem Bus fahren. Verwende -(으)ㄹ 거예요. Die Fahrt hat noch nicht stattgefunden."
+        },
+        "model_visible": false,
+        "context_type": "authored_learning_scene",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 문장 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form sentence practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Satzform mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "내일 버스로 갈 거예요.",
+        "내일 버스로 갈 거예요",
+        "저는 내일 버스로 갈 거예요.",
+        "저는 내일 버스로 갈 거예요"
+      ],
+      "feedback_correct": {
+        "ko": "내일의 이동 계획을 갈 거예요로 말했어요.",
+        "en": "You used 갈 거예요 for tomorrow’s travel plan.",
+        "de": "Mit 갈 거예요 hast du den Fahrtplan für morgen genannt."
+      },
+      "feedback_wrong": {
+        "ko": "갔어요는 과거예요. 내일 계획은 갈 거예요로 표현해요.",
+        "en": "갔어요 is past. Express tomorrow’s plan with 갈 거예요.",
+        "de": "갔어요 ist Vergangenheit. Den Plan für morgen drückst du mit 갈 거예요 aus."
+      },
+      "help": {
+        "ko": "가다 → 갈 거예요. 수단은 버스로예요.",
+        "en": "가다 → 갈 거예요. The transport is 버스로.",
+        "de": "가다 → 갈 거예요. Das Verkehrsmittel steht in 버스로."
+      },
+      "scoring": "structured",
+      "evidence_limit": "계획 보충 형태 제한 산출. 실제 이동·약속 이행 증거 아님."
+    },
+    {
+      "id": "A1.2-06-R01",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "다음 날 새 일정 충돌 해결",
+      "prompt": {
+        "ko": "다음 날 새 메시지예요. 함께 가능한 변경 제안을 골라요.",
+        "en": "Next day, new message: choose a revised proposal both can accept.",
+        "de": "Neue Nachricht am nächsten Tag: Wähle den Änderungsvorschlag, der für beide möglich ist."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 연습: 원래 금요일 14:00 공원. 수진은 14:00 불가, 15:30 도서관 가능. 너도 15:30 도서관 가능. 비는 오지 않아요. 없는 이유는 만들지 않아요.",
+          "en": "Modern practice: original plan Friday 14:00 park. Sujin cannot do 14:00 but can do 15:30 library. You can too. It is not raining; add no invented reason.",
+          "de": "Alltagsübung: alter Plan Freitag 14:00 Uhr im Park. Sujin kann um 14:00 Uhr nicht, um 15:30 Uhr in der Bibliothek aber schon. Du auch. Es regnet nicht; erfinde keinen Grund."
+        },
+        "model_visible": false,
+        "context_type": "next_day_new_modern_practice"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "비가 오니까 두 시에 공원에서 만날까요?",
+          "en": "Since it’s raining, shall we meet at two in the park?",
+          "de": "Weil es regnet, wollen wir uns um zwei im Park treffen?"
+        },
+        {
+          "id": "2",
+          "ko": "두 시에는 못 만나지만 세 시에 카페에서 만날까요?",
+          "en": "I can’t meet at two, but shall we meet at three at the café?",
+          "de": "Um zwei geht es nicht, aber wollen wir uns um drei im Café treffen?"
+        },
+        {
+          "id": "3",
+          "ko": "두 시에는 못 만나지만 세 시 삼십 분에 도서관에서 만날까요?",
+          "en": "I can’t meet at two, but shall we meet at three thirty at the library?",
+          "de": "Um zwei geht es nicht, aber wollen wir uns um halb vier in der Bibliothek treffen?"
+        }
+      ],
+      "accepted_answers": [
+        "3"
+      ],
+      "feedback_correct": {
+        "ko": "새 공통 시간과 장소를 쓰고 없는 비 이유는 만들지 않았어요.",
+        "en": "You used the new shared time and place without inventing rain.",
+        "de": "Du hast neue gemeinsame Zeit und neuen Ort verwendet, ohne Regen zu erfinden."
+      },
+      "feedback_wrong": {
+        "ko": "가능한 변경은 15:30 도서관이에요. 새 이유나 15:00 카페를 더하지 않아요.",
+        "en": "The workable change is 15:30 at the library. Do not add a new reason or a 15:00 café meeting.",
+        "de": "Möglich ist 15:30 Uhr in der Bibliothek. Erfinde keinen Grund und keinen Cafétermin um 15:00 Uhr."
+      },
+      "help": {
+        "ko": "처음 약속 / 불가능 / 새 공통 가능을 각각 확인해요.",
+        "en": "Check original plan, unavailable option, and new shared option separately.",
+        "de": "Prüfe alten Plan, Unmögliches und neue gemeinsame Möglichkeit getrennt."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 처음 보는 충돌의 구조화 선택. 이야기 잠금 없음."
+    },
+    {
+      "id": "A1.2-06-R02",
+      "mode": "R",
+      "kind": "short",
+      "objective": "새 다음 행동의 전후 순서 회상",
+      "prompt": {
+        "ko": "출발 전에 수진에게 연락하는 계획을 한 문장으로 써요.",
+        "en": "Write the plan to contact Sujin before leaving.",
+        "de": "Schreibe den Plan, Sujin vor dem Losgehen zu kontaktieren."
+      },
+      "material": {
+        "situation": {
+          "ko": "다른 날 현대 카드: ① 수진 씨한테 연락하다 ② 출발하다. -기 전에를 사용해요.",
+          "en": "Modern card on another day: 1 contact Sujin, 2 leave. Use -기 전에.",
+          "de": "Neue Alltagskarte: 1 Sujin kontaktieren, 2 losgehen. Verwende -기 전에."
+        },
+        "model_visible": false,
+        "context_type": "next_day_new_modern_practice",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 문장 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form sentence practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Satzform mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "출발하기 전에 수진 씨한테 연락해요.",
+        "출발하기 전에 수진 씨한테 연락해요",
+        "출발하기 전에 수진 씨에게 연락해요.",
+        "출발하기 전에 수진 씨에게 연락해요"
+      ],
+      "feedback_correct": {
+        "ko": "연락을 출발보다 앞에 놓았어요.",
+        "en": "You placed contacting before leaving.",
+        "de": "Du hast das Melden vor dem Losgehen eingeordnet."
+      },
+      "feedback_wrong": {
+        "ko": "출발한 후에가 아니라 출발하기 전에예요.",
+        "en": "Use 출발하기 전에, not 출발한 후에.",
+        "de": "Verwende 출발하기 전에 statt 출발한 후에."
+      },
+      "help": {
+        "ko": "나중 행동 출발하다에 기 전에를 붙여 앞선 연락을 이어요.",
+        "en": "Attach 기 전에 to the later action 출발하다, then add the earlier contacting action.",
+        "de": "Hänge 기 전에 an die spätere Handlung 출발하다 und ergänze dann die frühere Nachricht."
+      },
+      "scoring": "structured",
+      "evidence_limit": "새 다음 행동의 제한 순서 회상."
+    },
+    {
+      "id": "A1.2-06-R03",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "새 상황의 의지 겠 회상",
+      "prompt": {
+        "ko": "날씨 추측 대신 자기 다음 행동을 약속하는 답을 골라요.",
+        "en": "Choose a commitment to your own next action rather than a weather guess.",
+        "de": "Wähle eine Zusage für deine nächste Handlung statt einer Wettervermutung."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 모임 연습: 현아가 변경된 장소를 아직 몰라요. 네가 먼저 연락하는 일을 맡겠다고 답하려고 해요.",
+          "en": "Modern meeting practice: Hyuna does not yet know the changed place. You want to say you will take responsibility for contacting first.",
+          "de": "Alltagsübung: Hyuna kennt den neuen Treffpunkt noch nicht. Du möchtest zusagen, dich zuerst zu melden."
+        },
+        "model_visible": false,
+        "context_type": "next_day_new_modern_practice"
+      },
+      "options": [
+        {
+          "id": "1",
+          "ko": "제가 먼저 연락하겠어요.",
+          "en": "I’ll contact Hyuna first.",
+          "de": "Ich werde mich zuerst melden."
+        },
+        {
+          "id": "2",
+          "ko": "비가 오겠어요.",
+          "en": "It looks as though it will rain.",
+          "de": "Es wird wohl regnen."
+        },
+        {
+          "id": "3",
+          "ko": "먼저 연락하지 못했어요.",
+          "en": "I couldn’t contact first.",
+          "de": "Ich konnte mich nicht zuerst melden."
+        }
+      ],
+      "accepted_answers": [
+        "1"
+      ],
+      "feedback_correct": {
+        "ko": "새 연락 행동에 대한 의지를 골랐어요.",
+        "en": "You selected a commitment to the new contacting action.",
+        "de": "Du hast die Zusage für die neue Kontaktaufnahme gewählt."
+      },
+      "feedback_wrong": {
+        "ko": "아직 하지 않은 자기 행동을 맡는 말이에요. 추측이나 지난 실패가 아니에요.",
+        "en": "The reply commits to an action not yet done, rather than a guess or a past inability.",
+        "de": "Die Antwort sagt eine noch ausstehende eigene Handlung zu, keine Vermutung und kein früheres Nichtkönnen."
+      },
+      "help": {
+        "ko": "제가와 앞으로 할 행동이 함께 있는 답을 찾아요.",
+        "en": "Look for 제가 with the speaker’s upcoming action.",
+        "de": "Suche 제가 zusammen mit einer kommenden eigenen Handlung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "새 문맥에서 의지·추측·과거 구분 회상."
+    },
+    {
+      "id": "A1.2-06-R04",
+      "mode": "R",
+      "kind": "short",
+      "objective": "새 만남 이후 행동 회상",
+      "prompt": {
+        "ko": "만남 뒤에 책을 본다는 문장을 써요.",
+        "en": "Write that you look at the book after meeting.",
+        "de": "Schreibe, dass du das Buch nach dem Treffen ansiehst."
+      },
+      "material": {
+        "situation": {
+          "ko": "새 현대 연습: ① 만나다 ② 책을 보다. -(으)ㄴ 후에로 이어요. 과거 사건 보고가 아니라 다음 행동 순서예요.",
+          "en": "New modern practice: 1 meet, 2 look at a book. Link with -(으)ㄴ 후에. This is the order of upcoming actions, not a past report.",
+          "de": "Neue Alltagsübung: 1 treffen, 2 ein Buch ansehen. Verbinde mit -(으)ㄴ 후에. Es geht um die Reihenfolge kommender Handlungen, nicht um einen Vergangenheitsbericht."
+        },
+        "model_visible": false,
+        "context_type": "next_day_new_modern_practice",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Form mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "만난 후에 책을 봐요.",
+        "만난 후에 책을 봐요"
+      ],
+      "feedback_correct": {
+        "ko": "만난 후에로 만남 뒤 행동을 말했어요.",
+        "en": "만난 후에 places the action after the meeting.",
+        "de": "만난 후에 ordnet die Handlung nach dem Treffen ein."
+      },
+      "feedback_wrong": {
+        "ko": "만나기 전에는 반대 순서예요. 만난 후에를 사용해요.",
+        "en": "만나기 전에 would reverse the order. Use 만난 후에.",
+        "de": "만나기 전에 wäre die umgekehrte Reihenfolge. Verwende 만난 후에."
+      },
+      "help": {
+        "ko": "만나다 → 만난 후에 + 책을 봐요.",
+        "en": "만나다 → 만난 후에 + 책을 봐요.",
+        "de": "만나다 → 만난 후에 + 책을 봐요."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 전후 연결 형태 회상."
+    },
+    {
+      "id": "A1.2-06-R05",
+      "mode": "R",
+      "kind": "short",
+      "objective": "새 시간·장소 추가 설명 회상",
+      "prompt": {
+        "ko": "빈칸만 써요: 열 시에 __, 장소는 공원이에요.",
+        "en": "Fill only the gap: 열 시에 __, 장소는 공원이에요.",
+        "de": "Ergänze nur die Lücke: 열 시에 __, 장소는 공원이에요."
+      },
+      "material": {
+        "situation": {
+          "ko": "다른 날 새 카드: 가능하다 + 장소 덧붙이기. -고요를 사용해요.",
+          "en": "New card on another day: 가능하다 + add the place. Use -고요.",
+          "de": "Neue Karte an einem anderen Tag: 가능하다 + Ort ergänzen. Verwende -고요."
+        },
+        "model_visible": false,
+        "context_type": "next_day_new_modern_practice",
+        "response_scope": {
+          "ko": "카드의 단어와 지정 문법을 쓰는 고정형 연습이에요. 다른 단어로 바꾼 자유 표현은 자유 말하기에서 따로 확인해요.",
+          "en": "This is fixed-form practice using the card’s words and the stated grammar. Check paraphrases with different wording separately in free practice.",
+          "de": "Hier übst du eine festgelegte Form mit den Wörtern der Karte und der genannten Grammatik. Andere Formulierungen prüfst du getrennt in der freien Übung."
+        }
+      },
+      "options": [],
+      "accepted_answers": [
+        "가능하고요"
+      ],
+      "feedback_correct": {
+        "ko": "새 정보도 고요로 자연스럽게 덧붙였어요.",
+        "en": "You used 고요 to add the new information.",
+        "de": "Du hast die neue Angabe mit 고요 ergänzt."
+      },
+      "feedback_wrong": {
+        "ko": "시간 정보 뒤에 이어 말하므로 가능하고요를 써요.",
+        "en": "Use 가능하고요 to continue from the time information.",
+        "de": "Verwende 가능하고요, um an die Zeitangabe anzuschließen."
+      },
+      "help": {
+        "ko": "가능하 + 고요를 떠올려요.",
+        "en": "Recall 가능하 + 고요.",
+        "de": "Denk an 가능하 + 고요."
+      },
+      "scoring": "structured",
+      "evidence_limit": "새 시간·장소의 추가 연결 형태 회상."
+    },
+    {
+      "id": "A1.2-06-T01",
+      "mode": "T",
+      "kind": "roleplay",
+      "objective": "새 약속 충돌을 다양한 짧은 표현으로 해결",
+      "prompt": {
+        "ko": "현아에게 바꿀 이유를 짧게 말하고 가능한 시간·장소를 제안해요. 답을 받은 뒤 만남과 다음 행동을 다시 확인해요. 한 표현만 고집하지 않아도 돼요.",
+        "en": "Briefly tell Hyuna why the plan needs changing and propose an available time and place. After the reply, confirm the meeting and next action. You may use different expressions.",
+        "de": "Nenne Hyuna kurz den Änderungsgrund und schlage eine passende Zeit und einen Ort vor. Bestätige nach der Antwort Termin und nächsten Schritt. Verschiedene Formulierungen sind möglich."
+      },
+      "material": {
+        "situation": {
+          "ko": "현대 생활 모의: 원래 토요일 10:00 공원. 네 버스가 늦음→10:00 불가. 너와 현아 모두 10:40 카페 가능. 카페가 공원보다 네 출발점에서 가까움(가상 조건). 현아의 답: 네, 그때 거기에서 만나요. 너는 출발 전에 연락하고 만난 후에 사진을 보고 싶음. 실제 시간표·날씨·정책 정보 아님.",
+          "en": "Modern-life role card: original Saturday 10:00 park. Your bus is late, so 10:00 is impossible. Both can meet at 10:40 at the café. From your starting point, the café is closer than the park (fictional condition). Hyuna replies: Yes, let’s meet there then. You want to contact before leaving and look at photos after meeting. No real timetable, weather, or policy information.",
+          "de": "Heutiges Rollenspiel: ursprünglich Samstag 10:00 Uhr im Park. Dein Bus verspätet sich, daher geht 10:00 Uhr nicht. Ihr könnt beide um 10:40 Uhr im Café. Von deinem Startpunkt ist das Café näher als der Park (fiktive Bedingung). Hyuna antwortet: Ja, treffen wir uns dann dort. Du möchtest dich vor dem Losgehen melden und nach dem Treffen Fotos ansehen. Keine echten Fahrplan-, Wetter- oder Regelangaben."
+        },
+        "model_visible": false,
+        "context_type": "modern_transfer"
+      },
+      "options": [],
+      "accepted_answers": [],
+      "feedback_correct": {
+        "ko": "자유 대화를 확인해요. 이유·새 시간·장소·상대의 동의·다음 행동이 이어졌나요?",
+        "en": "Review the conversation: are reason, new time, place, agreement, and next action connected?",
+        "de": "Prüfe das Gespräch: Hängen Grund, neue Zeit, Ort, Einverständnis und nächster Schritt zusammen?"
+      },
+      "feedback_wrong": {
+        "ko": "자동 의미 채점은 없어요. 이유만 보내고 끝났다면 가능한 시간과 장소를 보충하고 상대 답을 확인해요.",
+        "en": "There is no automatic meaning score. If you sent only a reason, add a possible time and place and check the reply.",
+        "de": "Die Bedeutung wird nicht automatisch bewertet. Wenn du nur den Grund genannt hast, ergänze Zeit und Ort und prüfe die Antwort."
+      },
+      "help": {
+        "ko": "짧게 이유→제안→동의 확인→다음 행동 순서로 연습해요. 겠의 추측을 확정 사실로 쓰지 않아요.",
+        "en": "Practise short steps: reason→proposal→confirm agreement→next action. Do not turn a guess with 겠 into certainty.",
+        "de": "Übe kurze Schritte: Grund→Vorschlag→Einverständnis bestätigen→nächster Schritt. Stelle eine Vermutung mit 겠 nicht als Gewissheit dar."
+      },
+      "scoring": "unscored",
+      "evidence_limit": "자유 메시지·대화 무채점. 한 문법 형태 강요 없음. 실제 예약·합의 이행·음성·저장 성능은 별도 검증."
+    }
+  ],
+  "responses": {
+    "assisted": {
+      "ko": "도움을 보고 이어 갔어요. 이 시도는 도움을 받은 연습으로 구분해요.",
+      "en": "You continued with help. Keep this attempt separate from independent work.",
+      "de": "Du hast mit Hilfe weitergemacht. Dieser Versuch zählt als Übung mit Hilfe."
+    },
+    "independent": {
+      "ko": "이 문항은 모형이나 도움 없이 풀었어요. 자유 대화 능력 전체를 뜻하지는 않아요.",
+      "en": "You answered this item without a model or help. This does not establish your overall conversation ability.",
+      "de": "Du hast diese Aufgabe ohne Muster oder Hilfe gelöst. Das sagt noch nichts über deine gesamte Gesprächsfähigkeit aus."
+    },
+    "audio_unavailable": {
+      "ko": "소리를 사용할 수 없어요. 글로 이어 갈 수 있어요. 듣기·말하기 확인은 나중에 해요.",
+      "en": "Audio is unavailable. You can continue with the text; listening and speaking remain unchecked.",
+      "de": "Ton ist gerade nicht verfügbar. Du kannst mit dem Text weitermachen; Hören und Sprechen bleiben ungeprüft."
+    },
+    "pause": {
+      "ko": "여기에서 쉬어도 괜찮아요. 다시 시작할 때 현재 문항을 확인해요.",
+      "en": "You can pause here. Check the current item when you return.",
+      "de": "Du kannst hier pausieren. Schau dir beim Fortsetzen die aktuelle Aufgabe an."
+    },
+    "resume": {
+      "ko": "현재 문항부터 이어 가요. 도움을 봤다면 도움 연습으로 이어 가요.",
+      "en": "Continue from the current item. If you used help, continue as assisted practice.",
+      "de": "Mach mit der aktuellen Aufgabe weiter. Wenn du Hilfe genutzt hast, bleibt es eine Übung mit Hilfe."
+    },
+    "save_failed": {
+      "ko": "저장이 확인되지 않았어요. 답을 확인하고 다시 시도해요.",
+      "en": "Saving has not been confirmed. Check your answer and try saving again.",
+      "de": "Das Speichern wurde nicht bestätigt. Prüfe deine Antwort und versuche es erneut."
+    },
+    "revisit": {
+      "ko": "다른 날 새 상황으로 다시 해 봐요. 이야기 장면을 열지 않아도 연습할 수 있어요.",
+      "en": "Try a new situation on another day. You can practise without opening the story scene.",
+      "de": "Übe an einem anderen Tag mit einer neuen Situation. Dafür musst du die Geschichtenszene nicht öffnen."
+    }
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true
+  }
+}

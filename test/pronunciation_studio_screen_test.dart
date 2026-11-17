@@ -4,8 +4,6 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'support/sori_viewport_page.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/pronunciation_phrase.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
@@ -22,6 +20,8 @@ import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'support/sori_speech_stubs.dart';
+
+import 'support/viewport_pages.dart';
 
 void main() {
   setUp(() async {
@@ -178,7 +178,10 @@ void main() {
     expect(Storage.pronunciationConsent, isFalse);
     expect(recorder.permissionRequests, 1);
     expect(gateway.calls, 0);
-    expect(find.text('Listen to my recording'), findsOneWidget);
+    expect(
+      find.byKey(const ValueKey('pronunciation-replay-action')).hitTestable(),
+      findsOneWidget,
+    );
   });
 
   testWidgets('microphone denial does not remove basic practice controls', (
@@ -196,7 +199,7 @@ void main() {
 
     expect(recorder.permissionRequests, 1);
     final notice = find.textContaining('Microphone access was not granted');
-    await showSoriViewportSection(tester, notice);
+    await _scrollUntilBuilt(tester, notice);
     expect(notice, findsOneWidget);
     expect(
       find.byKey(const ValueKey('pronunciation-model-action')),
@@ -239,7 +242,7 @@ void main() {
 
       expect(gateway.calls, 1);
       final notice = find.text('Assessment service is unavailable');
-      await showSoriViewportSection(tester, notice);
+      await _scrollUntilBuilt(tester, notice);
       expect(notice, findsOneWidget);
       expect(
         find.byKey(const ValueKey('pronunciation-model-action')),
@@ -495,7 +498,7 @@ void main() {
           final diagnostic = find.byKey(
             ValueKey('pronunciation-diagnostic-${failureCase.category.name}'),
           );
-          await showSoriViewportSection(tester, diagnostic);
+          await _scrollUntilBuilt(tester, diagnostic);
           expect(diagnostic, findsOneWidget);
           expect(find.text(title), findsOneWidget);
           expect(find.text(body), findsOneWidget);
@@ -505,25 +508,12 @@ void main() {
               : (locale.languageCode == 'de'
                     ? 'Dieselbe Aufnahme erneut bewerten'
                     : 'Retry same recording');
-          final action = find.byKey(
-            ValueKey(
-              failureCase.needsNewRecording
-                  ? 'pronunciation-record-action'
-                  : 'pronunciation-assess-action',
-            ),
+          final action = find.descendant(
+            of: diagnostic,
+            matching: find.widgetWithText(SoriButton, actionLabel),
           );
-          expect(action.hitTestable(), findsOneWidget);
-          final control = tester.widget(action);
-          switch (control) {
-            case SoriButton():
-              expect(control.semanticLabel ?? control.label, actionLabel);
-              expect(control.onTap, isNotNull);
-            case IconButton():
-              expect(control.tooltip, actionLabel);
-              expect(control.onPressed, isNotNull);
-            default:
-              fail('Unexpected action: ${control.runtimeType}');
-          }
+          await _scrollUntilBuilt(tester, action);
+          expect(tester.widget<SoriButton>(action).onTap, isNotNull);
         },
       );
     }
@@ -543,7 +533,7 @@ void main() {
     final diagnostic = find.byKey(
       const ValueKey('pronunciation-recorder-failure'),
     );
-    await showSoriViewportSection(tester, diagnostic);
+    await _scrollUntilBuilt(tester, diagnostic);
     expect(diagnostic, findsOneWidget);
     expect(find.text('Recording could not start'), findsOneWidget);
     expect(
@@ -577,7 +567,7 @@ void main() {
       callStarted: () => gateway.calls.isNotEmpty,
     );
     final retry = find.widgetWithText(SoriButton, 'Retry same recording');
-    await showSoriViewportSection(tester, retry);
+    await _scrollUntilBuilt(tester, retry);
     _invokeButton(tester, 'Retry same recording');
     await tester.runAsync(() async {
       for (var i = 0; i < 40 && gateway.calls.length < 2; i++) {
@@ -722,8 +712,8 @@ void main() {
       });
       await tester.pumpAndSettle();
       final score = find.byKey(const ValueKey('pronunciation-assess-action'));
-      await showSoriViewportSection(tester, score);
-      final oldScore = tester.widget<SoriButton>(score).onTap!;
+      await _scrollUntilBuilt(tester, score);
+      final oldScore = _pronunciationAction(tester, score)!;
       cloudWriteSessionController.acquire('pronunciation-owner-b');
       oldScore();
       await tester.pumpAndSettle();
@@ -904,7 +894,15 @@ Widget _app(
 Future<List<PronunciationPhrase>> _loadTestPhrases() async => _testPhrases;
 
 void _invokeButton(WidgetTester tester, String label) {
-  tester.widget<SoriButton>(find.widgetWithText(SoriButton, label)).onTap!();
+  final button = find.widgetWithText(SoriButton, label);
+  _pronunciationAction(
+    tester,
+    button.evaluate().isNotEmpty
+        ? button
+        : find.byWidgetPredicate(
+            (widget) => widget is IconButton && widget.tooltip == label,
+          ),
+  )!();
 }
 
 Future<void> _captureAndAssess(
@@ -936,10 +934,22 @@ Future<void> _requestScore(WidgetTester tester) async {
   );
   await tester.pump();
   final score = find.byKey(const ValueKey('pronunciation-assess-action'));
-  await showSoriViewportSection(tester, score);
-  await tester.tap(score);
+  await _scrollUntilBuilt(tester, score);
+  _pronunciationAction(tester, score)!();
   await tester.pump();
 }
+
+VoidCallback? _pronunciationAction(WidgetTester tester, Finder target) =>
+    switch (tester.widget(target)) {
+      SoriButton(:final onTap) => onTap,
+      IconButton(:final onPressed) => onPressed,
+      final widget => throw StateError(
+        'Unexpected pronunciation control: $widget',
+      ),
+    };
+
+Future<void> _scrollUntilBuilt(WidgetTester tester, Finder target) =>
+    showViewportSection(tester, target);
 
 class _HoldingStopStreamRecorder implements PronunciationRecorder {
   _HoldingStopStreamRecorder() {

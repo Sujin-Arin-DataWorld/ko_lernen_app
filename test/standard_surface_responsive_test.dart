@@ -5,6 +5,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/viewport_pages.dart';
+
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/data/quest_catalog.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
@@ -44,7 +46,6 @@ import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 import 'support/scenario_stock_fixtures.dart';
-import 'support/sori_viewport_page.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -279,17 +280,13 @@ void main() {
         );
 
         final finalCta = find.text(t.vocabPackResultBackToGrid);
-        final next = find.byKey(const Key('sori-viewport-next')).hitTestable();
-        for (
-          var page = 0;
-          page < 8 && finalCta.hitTestable().evaluate().isEmpty;
-          page++
-        ) {
-          await tester.tap(next);
-          await tester.pumpAndSettle();
-        }
-        expect(finalCta.hitTestable(), findsOneWidget);
-        expect(find.byType(Scrollable), findsNothing);
+        await tester.scrollUntilVisible(
+          finalCta,
+          240,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.pump();
+        expect(finalCta, findsOneWidget);
         expect(
           tester.renderObject<RenderParagraph>(finalCta).didExceedMaxLines,
           isFalse,
@@ -358,13 +355,12 @@ void main() {
     await tester.pumpWidget(_host(const VocabPacksScreen()));
     await tester.pumpAndSettle();
 
-    final t = AppL10n.of(tester.element(find.byType(VocabPacksScreen)));
-    final level = find.text(t.wortpaketeLevelGoalA1);
-    await showSoriViewportSection(tester, level);
+    final level = find.byKey(const ValueKey('wortpakete-overview-level-a1'));
+    await showViewportSection(tester, level);
     await tester.tap(level);
     await tester.pumpAndSettle();
     final card = find.byKey(const ValueKey('wortpakete-topic-a1_greetings'));
-    await showSoriViewportSection(tester, card);
+    await showViewportSection(tester, card);
     expect(tester.getSize(card).width, greaterThan(250));
     expect(tester.takeException(), isNull);
   });

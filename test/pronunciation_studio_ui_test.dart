@@ -3,9 +3,6 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'support/real_fonts.dart';
-import 'support/sori_viewport_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
@@ -24,6 +21,8 @@ import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
+import 'support/viewport_pages.dart';
+
 const _phrase = PronunciationPhrase(
   id: 'pronunciation_ui_a1',
   level: LearnerLevel.a1,
@@ -35,7 +34,6 @@ const _phrase = PronunciationPhrase(
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(loadSoriRealFonts);
 
   setUp(() async {
     SoriSpeech.resetForTesting();
@@ -91,7 +89,7 @@ void main() {
         );
 
         final phraseFinder = find.text(_phrase.ko);
-        await showSoriViewportSection(tester, phraseFinder);
+        await _scrollUntilBuilt(tester, phraseFinder);
         final phraseText = tester.widget<Text>(phraseFinder);
         final type = SoriTextTheme.of(tester.element(phraseFinder));
         expect(phraseText.maxLines, isNull);
@@ -108,21 +106,30 @@ void main() {
           findsNothing,
         );
 
-        final record = find.byKey(
-          const ValueKey('pronunciation-record-action'),
-        );
-        final next = find.byKey(const ValueKey('pronunciation-next-action'));
-        for (final action in [record, next]) {
+        for (final (key, label) in [
+          ('pronunciation-record-action', t.pronunciationRecordShort),
+          ('pronunciation-next-action', t.pronunciationNextSentence),
+        ]) {
+          final action = find.byKey(ValueKey(key));
+          await _scrollUntilBuilt(tester, action);
           expect(action.hitTestable(), findsOneWidget);
           final size = tester.getSize(action);
           expect(size.width, greaterThanOrEqualTo(48));
           expect(size.height, greaterThanOrEqualTo(48));
+          switch (tester.widget(action)) {
+            case SoriButton button:
+              expect(button.label, label);
+              expect(button.maxLines, isNull);
+              if (key == 'pronunciation-record-action') {
+                expect(button.variant, SoriButtonVariant.filled);
+                expect(button.fullWidth, isTrue);
+              }
+            case IconButton button:
+              expect(button.tooltip, label);
+            case final widget:
+              fail('Unexpected pronunciation control: $widget');
+          }
         }
-        final button = tester.widget<SoriButton>(record);
-        expect(button.label, t.pronunciationRecordShort);
-        expect(button.maxLines, isNull);
-        expect(button.variant, SoriButtonVariant.filled);
-        expect(button.fullWidth, isTrue);
         expect(
           tester.widget<Column>(
             find.byKey(const ValueKey('pronunciation-diagnostic-feed')),
@@ -180,8 +187,8 @@ void main() {
     final requestScore = find.byKey(
       const ValueKey('pronunciation-assess-action'),
     );
-    await showSoriViewportSection(tester, requestScore);
-    tester.widget<SoriButton>(requestScore).onTap!();
+    await _scrollUntilBuilt(tester, requestScore);
+    await tester.tap(requestScore);
     await tester.pump();
     final assessing = find.widgetWithText(SoriButton, 'Preparing your score…');
     expect(assessing, findsOneWidget);
@@ -208,7 +215,7 @@ void main() {
     expect(Storage.pronunciationPassCount, 1);
 
     final scorePanel = find.byKey(const Key('pronunciation-score-panel'));
-    await showSoriViewportSection(tester, scorePanel);
+    await _scrollUntilBuilt(tester, scorePanel);
     expect(scorePanel, findsOneWidget);
     final scoreFinder = find.descendant(
       of: scorePanel,
@@ -234,6 +241,9 @@ void _configureView(WidgetTester tester, Size size) {
   tester.view.devicePixelRatio = 1;
   tester.view.physicalSize = size;
 }
+
+Future<void> _scrollUntilBuilt(WidgetTester tester, Finder target) =>
+    showViewportSection(tester, target);
 
 Widget _host({
   required Locale locale,

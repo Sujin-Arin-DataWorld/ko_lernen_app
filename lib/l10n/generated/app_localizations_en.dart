@@ -320,17 +320,6 @@ class AppL10nEn extends AppL10n {
       'Nothing learned yet today. Start a lesson.';
 
   @override
-  String reviewHubStartSelected(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: 'Practice $n words',
-      one: 'Practice 1 word',
-    );
-    return '$_temp0';
-  }
-
-  @override
   String get reviewHubCalendarTooltip => 'Calendar';
 
   @override
@@ -2291,9 +2280,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get vocabPackFinishSaveError =>
       'Your progress could not be saved. Please try again.';
-
-  @override
-  String get vocabPackLearnHint => 'Tap to flip';
 
   @override
   String get vocabPackDontKnow => 'Don\'t know';
@@ -8556,20 +8542,6 @@ class AppL10nEn extends AppL10n {
   String get pronunciationTitle => 'Pronunciation studio';
 
   @override
-  String get pronunciationEyebrow => 'PRONUNCIATION PRACTICE';
-
-  @override
-  String get pronunciationIntro =>
-      'Listen first. Record up to 10 seconds, then listen to your voice and compare.';
-
-  @override
-  String get pronunciationScoringSoonTitle => 'Automatic scoring is turned off';
-
-  @override
-  String get pronunciationScoringSoonBody =>
-      'You can still listen, record your voice and compare the recordings yourself.';
-
-  @override
   String get pronunciationPhrasesLoading => 'Loading pronunciation practice …';
 
   @override
@@ -8601,9 +8573,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get pronunciationStop => 'Stop recording';
-
-  @override
-  String get pronunciationContinueWithoutScore => 'Continue without a score';
 
   @override
   String get pronunciationNextPhrase => 'Next phrase';
@@ -10254,9 +10223,6 @@ class AppL10nEn extends AppL10n {
       'No English translation is saved yet.';
 
   @override
-  String get pronunciationReplay => 'Listen to my recording';
-
-  @override
   String get flashcardRomanizationFront => 'Show on the front';
 
   @override
@@ -10272,10 +10238,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get ttsUnavailablePlayback =>
       'Audio could not play on this device. Check the volume or connected headphones, then try again.';
-
-  @override
-  String get pronunciationLocalRecordingHint =>
-      'Your recording stays temporarily on this device. It is deleted when you leave this screen.';
 
   @override
   String get pronunciationReplayStop => 'Stop my recording';
@@ -12621,12 +12583,6 @@ class AppL10nEn extends AppL10n {
   String wortpaketeAllTopicsCount(int count) {
     return 'See all $count';
   }
-
-  @override
-  String get wortpaketeAllTopics => 'Show all topics';
-
-  @override
-  String get wortpaketeOpenPack => 'Open pack';
 
   @override
   String get wortpaketeNoResults => 'No matching topics or words';

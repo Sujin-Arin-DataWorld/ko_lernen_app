@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+import '../models/learner_level.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/vocab.dart';
 import '../motion/transitions.dart';
@@ -17,6 +18,7 @@ import '../widgets/sori/c_learning_surface.dart';
 import '../widgets/sori/learning_stage_navigation.dart';
 import '../widgets/sori/lernen_generated_art.dart';
 import '../widgets/sori/speakable.dart';
+import '../widgets/sori/button.dart';
 import '../widgets/sori/tokens.dart';
 import 'review_session_screen.dart';
 
@@ -38,7 +40,7 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
   bool _failed = false;
   bool _archive = false;
   bool _ownWords = false;
-  String _level = 'A1';
+  LearnerLevel _level = LearnerLevel.a1;
   String _query = '';
   final Set<String> _expandedTopics = <String>{};
   List<Vocab> _allReviewable = const [];
@@ -221,7 +223,9 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
     final language = Localizations.localeOf(context).languageCode;
     final filtered = learned.where((word) {
       final own = word.level == ReviewDeckService.customLevelTag;
-      if (_ownWords ? !own : own || word.level.toUpperCase() != _level) {
+      if (_ownWords
+          ? !own
+          : own || LearnerLevel.fromCode(word.level) != _level) {
         return false;
       }
       final q = _query.trim().toLowerCase();
@@ -252,55 +256,6 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
         !_archive && !_compactArtwork && selectedTopics.length == 1
         ? t.reviewSelectedTopic(selectedTopics.single)
         : null;
-    final tabs = DecoratedBox(
-      decoration: BoxDecoration(
-        color: const Color(0x33d3b382),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: const Color(0xffb7894a)),
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: _tab(
-              t.reviewHubTodayHeadline,
-              !_archive,
-              () => setState(() => _archive = false),
-            ),
-          ),
-          Expanded(
-            child: _tab(
-              t.reviewArchiveTab,
-              _archive,
-              () => setState(() => _archive = true),
-            ),
-          ),
-        ],
-      ),
-    );
-    final search = TextField(
-      key: const Key('review-archive-search'),
-      style: SoriTextTheme.of(context).body.copyWith(fontSize: 17),
-      decoration: InputDecoration(
-        prefixIcon: const Icon(Icons.search, size: 21),
-        prefixIconConstraints: const BoxConstraints(
-          minWidth: 41,
-          minHeight: 38,
-        ),
-        isDense: true,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 9),
-        fillColor: const Color(0x55fffbf3),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(11)),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(11),
-          borderSide: const BorderSide(color: Color(0xffc9bca7)),
-        ),
-        hintText: _ownWords
-            ? t.reviewSearchHint
-            : t.wortpaketeSearchLevel(_level),
-      ),
-      onChanged: (value) => setState(() => _query = value),
-    );
-    final keyboard = MediaQuery.viewInsetsOf(context).bottom > 0;
     return SoriStudyFrame(
       title: t.reviewHubTitle,
       padding: EdgeInsets.zero,
@@ -361,84 +316,92 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
       ),
       child: Column(
         children: [
-          if (!keyboard)
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 10, 16, 4),
-              child: tabs,
-            ),
-          if (_archive && !_loading && !_failed)
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-              child: search,
-            ),
           Expanded(
             child: Padding(
               padding: EdgeInsets.fromLTRB(
                 16,
-                keyboard ? 2 : (_compactArtwork ? 4 : 12),
+                _compactArtwork ? 12 : 37,
                 16,
                 _archive ? 4 : 8,
               ),
               child: SoriViewportPages(
-                key: ValueKey((_archive, _level, _ownWords, _query)),
+                key: ValueKey((_archive, _level, _ownWords)),
                 sections: [
-                  if (!keyboard)
-                    Row(
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: const Color(0x33d3b382),
+                      borderRadius: BorderRadius.circular(SoriRadius.sm),
+                      border: Border.all(color: const Color(0xffb7894a)),
+                    ),
+                    child: Row(
                       children: [
                         Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                _archive
-                                    ? t.reviewArchiveTitle
-                                    : t.reviewHubTodayHeadline,
-                                style: TextStyle(
-                                  fontFamily: SoriLocaleFonts.of(context).body,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: _archive ? 30 : 33,
-                                  height: 1.1,
-                                ),
-                              ),
-                              Text(
-                                _archive
-                                    ? t.reviewArchiveSubtitle
-                                    : '${t.reviewHubDeckLabel(deck.length)} · ${t.reviewSelectedCount(selectedCount)}',
-                                style: SoriTextTheme.of(
-                                  context,
-                                ).body.copyWith(fontSize: 17, height: 1.2),
-                              ),
-                            ],
+                          child: _tab(
+                            t.reviewHubTodayHeadline,
+                            !_archive,
+                            () => setState(() => _archive = false),
                           ),
                         ),
-                        SizedBox(
-                          width: _compactArtwork ? 74 : 110,
-                          height: _compactArtwork ? 74 : (_archive ? 78 : 100),
-                          child: const LernenGeneratedArt(
-                            name: 'review-drawer',
+                        Expanded(
+                          child: _tab(
+                            t.reviewArchiveTab,
+                            _archive,
+                            () => setState(() => _archive = true),
                           ),
                         ),
                       ],
                     ),
+                  ),
+                  const SizedBox(height: 12),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              _archive
+                                  ? t.reviewArchiveTitle
+                                  : t.reviewHubTodayHeadline,
+                              style: SoriTextTheme.of(context).body.copyWith(
+                                fontFamily: language == 'de'
+                                    ? SoriFonts.korean
+                                    : SoriLocaleFonts.of(context).body,
+                                fontWeight: FontWeight.w700,
+                                fontSize: _archive ? 30 : 33,
+                                height: 1.1,
+                              ),
+                            ),
+                            Text(
+                              _archive
+                                  ? t.reviewArchiveSubtitle
+                                  : '${t.reviewHubDeckLabel(deck.length)} · ${t.reviewSelectedCount(selectedCount)}',
+                              style: SoriTextTheme.of(
+                                context,
+                              ).body.copyWith(fontSize: 17, height: 1.2),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: _compactArtwork ? 74 : 110,
+                        height: _compactArtwork ? 74 : (_archive ? 78 : 100),
+                        child: const LernenGeneratedArt(name: 'review-drawer'),
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 12),
                   if (_loading)
                     const Center(child: CircularProgressIndicator())
                   else if (_failed) ...[
                     Text(t.reviewLoadError),
-                    TextButton(onPressed: _load, child: Text(t.reviewRetry)),
+                    SoriButton.ghost(label: t.reviewRetry, onTap: _load),
                   ] else if (_archive) ...[
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          for (final level in [
-                            'A1',
-                            'A2',
-                            'B1',
-                            'B2',
-                            'C1',
-                            'C2',
-                          ])
+                          for (final level in LearnerLevel.values)
                             SizedBox(
                               width: _compactArtwork
                                   ? null
@@ -448,15 +411,17 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
                                             36) /
                                         6,
                               child: ChoiceChip(
-                                key: Key('review-level-$level'),
+                                key: Key('review-level-${level.display}'),
                                 showCheckmark: false,
                                 materialTapTargetSize:
                                     MaterialTapTargetSize.padded,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(9),
+                                  borderRadius: BorderRadius.circular(
+                                    SoriRadius.c5Tile,
+                                  ),
                                 ),
                                 label: Text(
-                                  level,
+                                  level.display,
                                   style: SoriTextTheme.of(context).body
                                       .copyWith(
                                         fontSize: 17,
@@ -483,7 +448,40 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: Spacing.sm),
+                    const SizedBox(height: 4),
+                    TextField(
+                      key: const Key('review-archive-search'),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).body.copyWith(fontSize: 17),
+                      decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.search, size: 21),
+                        prefixIconConstraints: const BoxConstraints(
+                          minWidth: 41,
+                          minHeight: 38,
+                        ),
+                        isDense: true,
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 9,
+                        ),
+                        fillColor: const Color(0x55fffbf3),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(SoriRadius.ctrl),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(SoriRadius.ctrl),
+                          borderSide: const BorderSide(
+                            color: Color(0xffc9bca7),
+                          ),
+                        ),
+                        hintText: _ownWords
+                            ? t.reviewSearchHint
+                            : t.wortpaketeSearchLevel(_level.display),
+                      ),
+                      onChanged: (value) => setState(() => _query = value),
+                    ),
+                    const SizedBox(height: Spacing.md),
                     if (topics.isEmpty) Text(t.reviewArchiveEmpty),
                     for (final entry in topics.entries) ...[
                       SoriCard(
@@ -528,7 +526,7 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
                       ),
                       if (_expandedTopics.contains(entry.key))
                         ..._wordTrayPages(entry.value, language, t),
-                      const SizedBox(height: Spacing.sm),
+                      const SizedBox(height: 4),
                     ],
                     SoriCard(
                       padding: EdgeInsets.zero,
@@ -587,9 +585,9 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 5),
+                      const SizedBox(height: Spacing.dense),
                       ..._wordTrayPages(deck, language, t),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: Spacing.control),
                       Text(
                         t.reviewSelectHint,
                         style: SoriTextTheme.of(
@@ -599,36 +597,19 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
                       const SizedBox(height: Spacing.md),
                     ],
                     if (!_loading && !_failed) ...[
-                      OutlinedButton(
+                      SoriButton.outlined(
                         key: const Key('review-hub-calendar'),
-                        onPressed: canOpenCalendar ? _openCalendar : null,
-                        style: OutlinedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(55),
-                          alignment: Alignment.centerLeft,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(11),
-                          ),
-                          backgroundColor: const Color(0x88fff9ef),
+                        label: t.reviewByDay,
+                        semanticLabel: t.reviewHubCalendarTooltip,
+                        illustrationAsset: 'assets/icons/navigation/today.png',
+                        trailingIcon: Icons.chevron_right,
+                        fullWidth: true,
+                        accent: const Color(0xff075444),
+                        textStyle: _reviewControlLabel.copyWith(
+                          fontSize: 21,
+                          fontWeight: FontWeight.w700,
                         ),
-                        child: Row(
-                          children: [
-                            const ApprovedChromeImage(
-                              asset: 'assets/icons/navigation/today.png',
-                              size: 38,
-                            ),
-                            const SizedBox(width: 14),
-                            Expanded(
-                              child: Text(
-                                t.reviewByDay,
-                                style: _reviewControlLabel.copyWith(
-                                  fontSize: 21,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                            ),
-                            const Icon(Icons.chevron_right, size: 24),
-                          ],
-                        ),
+                        onTap: canOpenCalendar ? _openCalendar : null,
                       ),
                     ],
                   ],
@@ -636,9 +617,16 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
               ),
             ),
           ),
-          if (!_loading && !_failed && !keyboard)
+          if (!_loading && !_failed)
             Padding(
-              padding: EdgeInsets.fromLTRB(16, 4, 16, 16),
+              padding: EdgeInsets.fromLTRB(
+                16,
+                4,
+                16,
+                _compactArtwork
+                    ? 10
+                    : (_archive ? 30 : (selectionNote == null ? 57 : 32)),
+              ),
               child: Column(
                 children: [
                   _startButton(actionDeck, t),
@@ -663,22 +651,12 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
       MediaQuery.textScalerOf(context).scale(1) > 1.15;
 
   TextStyle get _reviewControlLabel =>
-      TextStyle(fontFamily: SoriLocaleFonts.of(context).body, fontSize: 16);
+      SoriTextTheme.of(context).body.copyWith(fontSize: 16);
 
   Widget _tab(String label, bool active, VoidCallback onTap) => Padding(
     padding: const EdgeInsets.all(1),
-    child: OutlinedButton(
-      onPressed: onTap,
-      style: OutlinedButton.styleFrom(
-        backgroundColor: active ? const Color(0xff075444) : null,
-        foregroundColor: active ? Colors.white : null,
-        minimumSize: const Size.fromHeight(44),
-        side: active
-            ? const BorderSide(color: Color(0xffb7894a))
-            : BorderSide.none,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(11)),
-      ),
-      child: Text(
+    child: ChoiceChip(
+      label: Text(
         label,
         textAlign: TextAlign.center,
         style: SoriTextTheme.of(context).body.copyWith(
@@ -687,6 +665,17 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
           color: active ? const Color(0xfffff7ec) : null,
         ),
       ),
+      showCheckmark: false,
+      selected: active,
+      selectedColor: const Color(0xff075444),
+      materialTapTargetSize: MaterialTapTargetSize.padded,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(SoriRadius.ctrl),
+      ),
+      side: active
+          ? const BorderSide(color: Color(0xffb7894a))
+          : BorderSide.none,
+      onSelected: (_) => onTap(),
     ),
   );
 
@@ -695,8 +684,13 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
     String language,
     AppL10n t,
   ) sync* {
-    for (final word in words) {
-      yield _wordTray([word], language, t);
+    final viewport = MediaQuery.sizeOf(context);
+    final largeText = MediaQuery.textScalerOf(context).scale(1) > 1.15;
+    final perTray = largeText || viewport.height < 650
+        ? 1
+        : (_compactArtwork ? 2 : 3);
+    for (var start = 0; start < words.length; start += perTray) {
+      yield _wordTray(words.skip(start).take(perTray).toList(), language, t);
     }
   }
 
@@ -716,7 +710,7 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
           children: [
             for (final word in words)
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 2),
+                padding: const EdgeInsets.symmetric(vertical: Spacing.hairline),
                 child: Stack(
                   children: [
                     Material(
@@ -724,7 +718,9 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
                       shadowColor: const Color(0xff4f3014),
                       elevation: 2,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(
+                          SoriRadius.c5DetailAction,
+                        ),
                         side: const BorderSide(color: Color(0xffdbc8ad)),
                       ),
                       child: ConstrainedBox(
@@ -750,7 +746,9 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
                                 value: _selected.contains(word.korean),
                                 activeColor: const Color(0xff0d5a48),
                                 checkboxShape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(4),
+                                  borderRadius: BorderRadius.circular(
+                                    SoriRadius.xxs,
+                                  ),
                                 ),
                                 onChanged: (_) => _toggle(word.korean),
                                 controlAffinity:
@@ -786,7 +784,9 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
                                   ),
                                   foregroundColor: const Color(0xff17312c),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(9),
+                                    borderRadius: BorderRadius.circular(
+                                      SoriRadius.c5Tile,
+                                    ),
                                   ),
                                   minimumSize: const Size(48, 48),
                                 ),
@@ -817,7 +817,9 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
                             color: _selected.contains(word.korean)
                                 ? const Color(0xff0d5a48)
                                 : const Color(0xff739f85),
-                            borderRadius: BorderRadius.circular(2),
+                            borderRadius: BorderRadius.circular(
+                              SoriRadius.hairline,
+                            ),
                             border: Border.all(color: const Color(0xff346a54)),
                           ),
                         ),
@@ -843,22 +845,20 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
         fit: StackFit.expand,
         children: [
           const LernenGeneratedArt(name: 'brass-alignment', fit: BoxFit.fill),
-          TextButton(
+          SoriButton.ghost(
             key: const Key('review-hub-start-selected'),
-            onPressed: chosen.isEmpty
+            label: t.missionHeroReviewTitle(chosen.length),
+            accent: const Color(0xff111915),
+            onTap: chosen.isEmpty
                 ? null
                 : () => _openDeck(chosen, t.reviewHubTodayHeadline),
-            child: Text(
-              t.missionHeroReviewTitle(chosen.length),
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 23,
-                fontFamily: Localizations.localeOf(context).languageCode == 'de'
-                    ? SoriFonts.korean
-                    : SoriLocaleFonts.of(context).body,
-                color: chosen.isEmpty ? Colors.black45 : Colors.black,
-              ),
+            textStyle: SoriTextTheme.of(context).body.copyWith(
+              fontWeight: FontWeight.bold,
+              fontSize: 23,
+              fontFamily: Localizations.localeOf(context).languageCode == 'de'
+                  ? SoriFonts.korean
+                  : SoriLocaleFonts.of(context).body,
+              color: chosen.isEmpty ? Colors.black45 : Colors.black,
             ),
           ),
         ],

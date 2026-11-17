@@ -61,9 +61,9 @@ List<String> soriViewportTextPages(
   }
 }
 
-/// Fits consecutive content sections into the measured body. All sections must
-/// be bounded individually, so callers split lists, long copy and dense groups
-/// at the points where a learner can comfortably continue on another page.
+/// Fits consecutive content sections into the measured body. Callers give
+/// separate sections at meaningful reading or action boundaries. At unusually
+/// large text sizes a single section can span multiple explicit pages.
 class SoriViewportPages extends StatefulWidget {
   const SoriViewportPages({
     super.key,
@@ -101,12 +101,11 @@ class _SoriViewportPagesState extends State<SoriViewportPages> {
       final layout = _pendingLayout!;
       _pendingLayout = null;
       if (mounted && layout != (_page, _count, _firstSection, _endSection)) {
-        final (page, count, first, end) = layout;
         setState(() {
-          _page = page;
-          _count = count;
-          _firstSection = first;
-          _endSection = end;
+          _page = layout.$1;
+          _count = layout.$2;
+          _firstSection = layout.$3;
+          _endSection = layout.$4;
         });
       }
     });
@@ -223,7 +222,9 @@ class _PageContent extends MultiChildRenderObjectWidget {
 }
 
 class _SectionData extends ContainerBoxParentData<RenderBox> {
-  int page = 0;
+  int firstPage = 0;
+  int lastPage = 0;
+  double top = 0;
 }
 
 class _RenderPageContent extends RenderBox
@@ -291,6 +292,8 @@ class _RenderPageContent extends RenderBox
         : math.max(0, size.height - SoriViewportPages.controlsHeight);
     var pageIndex = 0;
     var top = 0.0;
+    // A little overlap keeps the last text line available on both pages.
+    final stride = math.max(1.0, _bodyHeight - 24);
     for (final child in children) {
       if (top > 0 && top + child.size.height > _bodyHeight) {
         pageIndex++;
@@ -298,33 +301,59 @@ class _RenderPageContent extends RenderBox
       }
       final data = child.parentData! as _SectionData;
       data
-        ..offset = Offset(0, top)
-        ..page = pageIndex;
-      top += child.size.height;
+        ..firstPage = pageIndex
+        ..top = top;
+      if (_bodyHeight > 0 && child.size.height > _bodyHeight) {
+        pageIndex += ((child.size.height - _bodyHeight) / stride).ceil();
+        top = _bodyHeight;
+      } else {
+        top += child.size.height;
+      }
+      data.lastPage = pageIndex;
     }
     _visiblePage = math.min(_page, pageIndex);
     final targetIndex = _anchor.$3;
     if (_anchorPending && targetIndex >= 0 && targetIndex < children.length) {
-      _visiblePage = (children[targetIndex].parentData! as _SectionData).page;
+      _visiblePage =
+          (children[targetIndex].parentData! as _SectionData).firstPage;
+    }
+    for (final child in children) {
+      final data = child.parentData! as _SectionData;
+      final distance = math.max(0, _visiblePage - data.firstPage) * stride;
+      final maxDistance = math.max(0.0, child.size.height - _bodyHeight);
+      data.offset = Offset(0, data.top - math.min(distance, maxDistance));
     }
     _anchorPending = false;
     final first = children.indexWhere(_isVisible);
     final end = children.lastIndexWhere(_isVisible) + 1;
-    if (_centerContent && end > 0) {
+    // Centring applies only to a page whose sections all fit; a section that
+    // spans pages at large text sizes keeps its scrolled offset.
+    if (_centerContent && end > 0 && first >= 0) {
       final last = children[end - 1];
-      final lastOffset = (last.parentData! as _SectionData).offset;
-      final space = math.max(0, _bodyHeight - lastOffset.dy - last.size.height);
-      for (var index = first; index < end; index++) {
-        final data = children[index].parentData! as _SectionData;
-        data.offset += Offset(0, space / 2);
+      final lastData = last.parentData! as _SectionData;
+      if (lastData.firstPage == lastData.lastPage) {
+        final space = math.max(
+          0.0,
+          _bodyHeight - lastData.offset.dy - last.size.height,
+        );
+        for (var index = first; index < end; index++) {
+          final data = children[index].parentData! as _SectionData;
+          data.offset += Offset(0, space / 2);
+        }
       }
     }
     onLayout(_visiblePage, pageIndex + 1, math.max(first, 0), end);
     markNeedsSemanticsUpdate();
   }
 
-  bool _isVisible(RenderBox child) =>
-      (child.parentData! as _SectionData).page == _visiblePage;
+  bool _isVisible(RenderBox child) {
+    final data = child.parentData! as _SectionData;
+    return data.firstPage <= _visiblePage && _visiblePage <= data.lastPage;
+  }
+
+  @override
+  Rect describeApproximatePaintClip(RenderObject child) =>
+      Rect.fromLTWH(0, 0, size.width, _bodyHeight);
 
   Iterable<RenderBox> get _visibleChildren =>
       getChildrenAsList().where(_isVisible);

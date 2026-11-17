@@ -607,12 +607,6 @@ abstract class AppL10n {
   /// **'Heute noch nichts gelernt? Starte eine Lektion.'**
   String get reviewHubEmptyToday;
 
-  /// No description provided for @reviewHubStartSelected.
-  ///
-  /// In de, this message translates to:
-  /// **'{n, plural, one{1 Wort üben} other{{n} Wörter üben}}'**
-  String reviewHubStartSelected(int n);
-
   /// No description provided for @reviewHubCalendarTooltip.
   ///
   /// In de, this message translates to:
@@ -3954,12 +3948,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Dein Fortschritt konnte nicht gespeichert werden. Bitte versuche es erneut.'**
   String get vocabPackFinishSaveError;
-
-  /// No description provided for @vocabPackLearnHint.
-  ///
-  /// In de, this message translates to:
-  /// **'Tippen zum Umdrehen'**
-  String get vocabPackLearnHint;
 
   /// No description provided for @vocabPackDontKnow.
   ///
@@ -14898,30 +14886,6 @@ abstract class AppL10n {
   /// **'Aussprache-Studio'**
   String get pronunciationTitle;
 
-  /// No description provided for @pronunciationEyebrow.
-  ///
-  /// In de, this message translates to:
-  /// **'AUSSPRACHE ÜBEN'**
-  String get pronunciationEyebrow;
-
-  /// No description provided for @pronunciationIntro.
-  ///
-  /// In de, this message translates to:
-  /// **'Höre zuerst zu. Nimm bis zu 10 Sekunden auf und vergleiche deine Stimme mit dem Beispiel.'**
-  String get pronunciationIntro;
-
-  /// No description provided for @pronunciationScoringSoonTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Automatische Bewertung ist deaktiviert'**
-  String get pronunciationScoringSoonTitle;
-
-  /// No description provided for @pronunciationScoringSoonBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Du kannst weiterhin zuhören, deine Stimme aufnehmen und die Aufnahmen selbst vergleichen.'**
-  String get pronunciationScoringSoonBody;
-
   /// No description provided for @pronunciationPhrasesLoading.
   ///
   /// In de, this message translates to:
@@ -14981,12 +14945,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Aufnahme stoppen'**
   String get pronunciationStop;
-
-  /// No description provided for @pronunciationContinueWithoutScore.
-  ///
-  /// In de, this message translates to:
-  /// **'Ohne Bewertung weiter'**
-  String get pronunciationContinueWithoutScore;
 
   /// No description provided for @pronunciationNextPhrase.
   ///
@@ -17436,12 +17394,6 @@ abstract class AppL10n {
   /// **'Noch keine deutsche Übersetzung gespeichert.'**
   String get savedTranslationUnavailable;
 
-  /// No description provided for @pronunciationReplay.
-  ///
-  /// In de, this message translates to:
-  /// **'Meine Aufnahme anhören'**
-  String get pronunciationReplay;
-
   /// No description provided for @flashcardRomanizationFront.
   ///
   /// In de, this message translates to:
@@ -17471,12 +17423,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Der Ton konnte auf diesem Gerät nicht abgespielt werden. Prüfe die Lautstärke oder verbundene Kopfhörer und versuche es erneut.'**
   String get ttsUnavailablePlayback;
-
-  /// No description provided for @pronunciationLocalRecordingHint.
-  ///
-  /// In de, this message translates to:
-  /// **'Deine Aufnahme bleibt vorübergehend auf diesem Gerät. Wenn du diesen Bildschirm verlässt, wird sie gelöscht.'**
-  String get pronunciationLocalRecordingHint;
 
   /// No description provided for @pronunciationReplayStop.
   ///
@@ -21497,18 +21443,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Alle {count} ansehen'**
   String wortpaketeAllTopicsCount(int count);
-
-  /// No description provided for @wortpaketeAllTopics.
-  ///
-  /// In de, this message translates to:
-  /// **'Alle Themen anzeigen'**
-  String get wortpaketeAllTopics;
-
-  /// No description provided for @wortpaketeOpenPack.
-  ///
-  /// In de, this message translates to:
-  /// **'Paket öffnen'**
-  String get wortpaketeOpenPack;
 
   /// No description provided for @wortpaketeNoResults.
   ///

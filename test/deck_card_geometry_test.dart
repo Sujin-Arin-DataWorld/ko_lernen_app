@@ -136,18 +136,7 @@ void main() {
       tapDeckAction(tester, t.vocabPackGotIt);
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 450));
-      final renderedHeadword = tester
-          .widgetList<Text>(
-            find.descendant(
-              of: find.byKey(const ValueKey('deck-card-slot')),
-              matching: find.byType(Text),
-            ),
-          )
-          .map((node) => node.data)
-          .whereType<String>()
-          .where((copy) => copy.isNotEmpty && longKo.contains(copy))
-          .join();
-      expect(renderedHeadword, longKo);
+      expect(find.text(longKo), findsOneWidget);
       // ① 서로 다른 단어에서 rect 완전 동일.
       expectSameRect(front1, slotRect(tester), '짧은/긴 단어 슬롯 rect 동일');
       expect(tester.takeException(), isNull);

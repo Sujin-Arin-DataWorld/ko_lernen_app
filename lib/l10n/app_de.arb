@@ -146,14 +146,6 @@
   "reviewPlayAudio": "Aussprache anhören",
   "reviewHubTodayHeadline": "Heute gelernt",
   "reviewHubEmptyToday": "Heute noch nichts gelernt? Starte eine Lektion.",
-  "reviewHubStartSelected": "{n, plural, one{1 Wort üben} other{{n} Wörter üben}}",
-  "@reviewHubStartSelected": {
-    "placeholders": {
-      "n": {
-        "type": "int"
-      }
-    }
-  },
   "reviewHubCalendarTooltip": "Kalender",
   "reviewHubDeckLabel": "{words, plural, one{1 Wort} other{{words} Wörter}}",
   "@reviewHubDeckLabel": {
@@ -1207,7 +1199,6 @@
   "hanokStageJongga": "Jongga vollendet",
   "vocabPackPlayTitle": "Paket-Übung",
   "vocabPackFinishSaveError": "Dein Fortschritt konnte nicht gespeichert werden. Bitte versuche es erneut.",
-  "vocabPackLearnHint": "Tippen zum Umdrehen",
   "vocabPackDontKnow": "Weiß ich nicht",
   "vocabPackGotIt": "Gewusst",
   "deckActionSave": "Merken",
@@ -4240,10 +4231,6 @@
   "soriStageGyeFlow": "Mission abschließen → Laterne → gemeinsame Hanok",
   "soriStageGyeUpdating": "Der gemeinsame Hof wird gerade erneuert.",
   "pronunciationTitle": "Aussprache-Studio",
-  "pronunciationEyebrow": "AUSSPRACHE ÜBEN",
-  "pronunciationIntro": "Höre zuerst zu. Nimm bis zu 10 Sekunden auf und vergleiche deine Stimme mit dem Beispiel.",
-  "pronunciationScoringSoonTitle": "Automatische Bewertung ist deaktiviert",
-  "pronunciationScoringSoonBody": "Du kannst weiterhin zuhören, deine Stimme aufnehmen und die Aufnahmen selbst vergleichen.",
   "pronunciationPhrasesLoading": "Ausspracheübungen werden geladen …",
   "pronunciationPhrasesUnavailableTitle": "Ausspracheübungen nicht verfügbar",
   "pronunciationPhrasesUnavailableBody": "Die Ausspracheübungen konnten nicht geladen werden. Bitte versuche es noch einmal.",
@@ -4254,7 +4241,6 @@
   "pronunciationRecording": "Aufnahme läuft…",
   "pronunciationAssessing": "Bewertung wird erstellt…",
   "pronunciationStop": "Aufnahme stoppen",
-  "pronunciationContinueWithoutScore": "Ohne Bewertung weiter",
   "pronunciationNextPhrase": "Nächster Satz",
   "pronunciationConsentTitle": "Deine Stimme bewerten lassen?",
   "pronunciationConsentBody": "Mit deiner gesonderten Einwilligung werden eine Aufnahme von höchstens 10 Sekunden und der angezeigte koreanische Satz sicher an Microsoft Azure Speech in der Region Deutschland West-Mitte gesendet. Hangul Sori speichert weder Aufnahme noch Satz auf seinem Server. Nur die Bewertungen und eine ID gegen Doppelzählung werden auf diesem Gerät gespeichert. Du kannst ohne Bewertung üben und die Einwilligung in den Einstellungen widerrufen.",
@@ -4944,13 +4930,11 @@
   "savedOriginalMeaning": "Ursprünglich gespeicherte Bedeutung",
   "pronunciationRequestScore": "Bewertung anfordern",
   "savedTranslationUnavailable": "Noch keine deutsche Übersetzung gespeichert.",
-  "pronunciationReplay": "Meine Aufnahme anhören",
   "flashcardRomanizationFront": "Auf der Vorderseite anzeigen",
   "pronunciationFinishingRecording": "Aufnahme wird beendet…",
   "pronunciationReplayUnavailable": "Deine Aufnahme konnte nicht abgespielt werden. Versuche es erneut oder nimm sie neu auf.",
   "flashcardRomanizationBack": "Auf der Rückseite anzeigen",
   "ttsUnavailablePlayback": "Der Ton konnte auf diesem Gerät nicht abgespielt werden. Prüfe die Lautstärke oder verbundene Kopfhörer und versuche es erneut.",
-  "pronunciationLocalRecordingHint": "Deine Aufnahme bleibt vorübergehend auf diesem Gerät. Wenn du diesen Bildschirm verlässt, wird sie gelöscht.",
   "pronunciationReplayStop": "Meine Aufnahme stoppen",
   "flashcardRomanization": "Umschrift",
   "onboardingV2ComposeGa": "Verbinden",
@@ -6027,8 +6011,6 @@
   "@wortpaketeTopicsCount": {"placeholders": {"count": {"type": "int"}}},
   "wortpaketeAllTopicsCount": "Alle {count} ansehen",
   "@wortpaketeAllTopicsCount": {"placeholders": {"count": {"type": "int"}}},
-  "wortpaketeAllTopics": "Alle Themen anzeigen",
-  "wortpaketeOpenPack": "Paket öffnen",
   "wortpaketeNoResults": "Keine passenden Themen oder Wörter",
   "wortpaketePacks": "{count, plural, one{1 Paket} other{{count} Pakete}}",
   "@wortpaketePacks": {

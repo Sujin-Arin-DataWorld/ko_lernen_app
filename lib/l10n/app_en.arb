@@ -146,14 +146,6 @@
   "reviewPlayAudio": "Play pronunciation",
   "reviewHubTodayHeadline": "Learned today",
   "reviewHubEmptyToday": "Nothing learned yet today. Start a lesson.",
-  "reviewHubStartSelected": "{n, plural, one{Practice 1 word} other{Practice {n} words}}",
-  "@reviewHubStartSelected": {
-    "placeholders": {
-      "n": {
-        "type": "int"
-      }
-    }
-  },
   "reviewHubCalendarTooltip": "Calendar",
   "reviewHubDeckLabel": "{words, plural, one{1 word} other{{words} words}}",
   "@reviewHubDeckLabel": {
@@ -1191,7 +1183,6 @@
   "hanokStageJongga": "Jongga complete",
   "vocabPackPlayTitle": "Pack practice",
   "vocabPackFinishSaveError": "Your progress could not be saved. Please try again.",
-  "vocabPackLearnHint": "Tap to flip",
   "vocabPackDontKnow": "Don't know",
   "vocabPackGotIt": "Got it",
   "deckActionSave": "Save",
@@ -4059,10 +4050,6 @@
   "soriStageGyeFlow": "Mission complete → lantern → shared Hanok progress",
   "soriStageGyeUpdating": "The shared courtyard is being rebuilt.",
   "pronunciationTitle": "Pronunciation studio",
-  "pronunciationEyebrow": "PRONUNCIATION PRACTICE",
-  "pronunciationIntro": "Listen first. Record up to 10 seconds, then listen to your voice and compare.",
-  "pronunciationScoringSoonTitle": "Automatic scoring is turned off",
-  "pronunciationScoringSoonBody": "You can still listen, record your voice and compare the recordings yourself.",
   "pronunciationPhrasesLoading": "Loading pronunciation practice …",
   "pronunciationPhrasesUnavailableTitle": "Pronunciation practice unavailable",
   "pronunciationPhrasesUnavailableBody": "The pronunciation practice could not be loaded. Please try again.",
@@ -4073,7 +4060,6 @@
   "pronunciationRecording": "Recording…",
   "pronunciationAssessing": "Preparing your score…",
   "pronunciationStop": "Stop recording",
-  "pronunciationContinueWithoutScore": "Continue without a score",
   "pronunciationNextPhrase": "Next phrase",
   "pronunciationConsentTitle": "Use your voice for an assessment?",
   "pronunciationConsentBody": "With your separate consent, a recording of up to 10 seconds and the shown Korean phrase are sent securely to Microsoft Azure Speech in Germany West Central. Hangul Sori does not store the recording or phrase on its server. Only the scores and a duplicate-prevention ID are saved on this device. You can practise without assessment and withdraw consent in Settings.",
@@ -4762,13 +4748,11 @@
   "savedOriginalMeaning": "Original saved meaning",
   "pronunciationRequestScore": "Get a score",
   "savedTranslationUnavailable": "No English translation is saved yet.",
-  "pronunciationReplay": "Listen to my recording",
   "flashcardRomanizationFront": "Show on the front",
   "pronunciationFinishingRecording": "Finishing recording…",
   "pronunciationReplayUnavailable": "Your recording could not play. Try again or make a new recording.",
   "flashcardRomanizationBack": "Show on the back",
   "ttsUnavailablePlayback": "Audio could not play on this device. Check the volume or connected headphones, then try again.",
-  "pronunciationLocalRecordingHint": "Your recording stays temporarily on this device. It is deleted when you leave this screen.",
   "pronunciationReplayStop": "Stop my recording",
   "flashcardRomanization": "Romanization",
   "onboardingV2ComposeGa": "Combine",
@@ -5845,8 +5829,6 @@
   "@wortpaketeTopicsCount": {"placeholders": {"count": {"type": "int"}}},
   "wortpaketeAllTopicsCount": "See all {count}",
   "@wortpaketeAllTopicsCount": {"placeholders": {"count": {"type": "int"}}},
-  "wortpaketeAllTopics": "Show all topics",
-  "wortpaketeOpenPack": "Open pack",
   "wortpaketeNoResults": "No matching topics or words",
   "wortpaketePacks": "{count, plural, one{1 pack} other{{count} packs}}",
   "@wortpaketePacks": {

@@ -1,0 +1,642 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "record_type": "inherited_detailed_with_integration_overlay",
+  "unit_id": "F0.4.last-vowel",
+  "band": "F0.4",
+  "title": {
+    "ko": "ㅢ 표기와 의의 소리를 문맥별로 경험한다",
+    "en": "The last vowel",
+    "de": "Der letzte Vokal"
+  },
+  "goal": {
+    "ko": "ㅢ 표기와 의의 소리를 문맥별로 경험한다",
+    "en": "Explore ㅢ and the pronunciation of 의 in context.",
+    "de": "Lerne ㅢ und die Aussprache von 의 im jeweiligen Zusammenhang kennen."
+  },
+  "prerequisites": [],
+  "base_manuscript": {
+    "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/04_UI_AND_CHOSEN_REVIEW.md",
+    "sha256": "2f7806ac078163a7adbba807c1e1933b3874c8dff7d9b5e8614de85f5395eb8f",
+    "inheritance": "full dialogue, teaching, P/I/R items, answer criteria, help and feedback retained verbatim; overlay is additive"
+  },
+  "source_contract": {
+    "id": "F0.4.last-vowel",
+    "goal": "ㅢ 표기와 의의 소리를 문맥별로 경험한다",
+    "teach_targets": "의",
+    "check_targets": "희,늬",
+    "meaning_or_oral": "의자의 뜻과 실제 소리는 도움 제공; 모든 의 발음 규칙 평가 안 함",
+    "transfer_task": "희·늬는 조각 연습으로만 제시; 실제 의미 없는 조합은 명시",
+    "review_in": "A1.1-05",
+    "review_prompt": "의의 소유 기능은 새로 가르치고 글자 인식과 구별",
+    "evidence_limit": "실제 인명·어휘의 발음은 감수된 음성에 근거"
+  },
+  "inherited_content": {
+    "selected_feedback_refs": [
+      "UI-H"
+    ],
+    "feedback_rows": [
+      {
+        "key": "CHOSEN-왜·왜",
+        "en": "The written form is 왜. Revisit the example with ㅇ · ㅙ and try the same form again.",
+        "de": "Geschrieben steht 왜. Sieh dir das Beispiel mit ㅇ · ㅙ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "CHOSEN-웨·웨",
+        "en": "The written form is 웨. Revisit the example with ㅇ · ㅞ and try the same form again.",
+        "de": "Geschrieben steht 웨. Sieh dir das Beispiel mit ㅇ · ㅞ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "CHOSEN-얘·얘",
+        "en": "The written form is 얘. Revisit the example with ㅇ · ㅒ and try the same form again.",
+        "de": "Geschrieben steht 얘. Sieh dir das Beispiel mit ㅇ · ㅒ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "CHOSEN-예·예",
+        "en": "The written form is 예. Revisit the example with ㅇ · ㅖ and try the same form again.",
+        "de": "Geschrieben steht 예. Sieh dir das Beispiel mit ㅇ · ㅖ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "CHOSEN-의·의",
+        "en": "The written form is 의. Revisit the example with ㅇ · ㅢ and try the same form again.",
+        "de": "Geschrieben steht 의. Sieh dir das Beispiel mit ㅇ · ㅢ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "UI-H·ㅢ 도움",
+        "en": "ㅢ has the written parts ㅡ and ㅣ. Here, look again at the written vowel rather than inferring spelling from sound.",
+        "de": "ㅢ enthält die Schriftteile ㅡ und ㅣ. Sieh hier erneut auf den geschriebenen Vokal, statt die Schreibung aus dem Klang abzuleiten."
+      },
+      {
+        "key": "UI-B·의",
+        "en": "The written form is 의. Revisit the example with ㅇ · ㅢ and try the same form again.",
+        "de": "Geschrieben steht 의. Sieh dir das Beispiel mit ㅇ · ㅢ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "UI-B·희",
+        "en": "The written form is 희. Revisit the example with ㅎ · ㅢ and try the same form again.",
+        "de": "Geschrieben steht 희. Sieh dir das Beispiel mit ㅎ · ㅢ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "UI-B·늬",
+        "en": "The written form is 늬. Revisit the example with ㄴ · ㅢ and try the same form again.",
+        "de": "Geschrieben steht 늬. Sieh dir das Beispiel mit ㄴ · ㅢ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "CHAIR-H·뜻 도움",
+        "en": "의자 is a chair for sitting on. Look at the word and listen to its actual sound.",
+        "de": "의자 ist ein Stuhl zum Sitzen. Sieh dir das Wort an und hör auf seinen tatsächlichen Klang."
+      },
+      {
+        "key": "CHAIR-B·순서",
+        "en": "In 의자, 의 comes before 자. Revisit the example and sound and put the pieces in that order.",
+        "de": "In 의자 steht 의 vor 자. Sieh und hör dir das Beispiel an und ordne die Teile so an."
+      },
+      {
+        "key": "OK·현재 범위",
+        "en": "That matches the current target. Take your time with the next one too.",
+        "de": "Das passt zum aktuellen Ziel. Nimm dir auch für die nächste Aufgabe Zeit."
+      }
+    ],
+    "practice_task_ids": [
+      "D04-P01",
+      "D04-P02",
+      "D04-P03",
+      "D04-P04",
+      "D04-P05",
+      "D04-P06",
+      "D04-P07",
+      "D04-P08",
+      "D04-P09",
+      "D04-P10",
+      "D04-P11"
+    ],
+    "independent_task_ids": [
+      "D04-I01",
+      "D04-I02",
+      "D04-I03",
+      "D04-I04"
+    ],
+    "next_day_task_ids": [
+      "D04-R01",
+      "D04-R02",
+      "D04-R03",
+      "D04-R04",
+      "D04-R05",
+      "D04-R06"
+    ],
+    "common_copy_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-4-v35\\COMMON_COPY.md",
+    "readme_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-4-v35\\README.md",
+    "task_bindings": [
+      {
+        "task_id": "D04-P01",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to build one syllable block.",
+          "de": "Bilde nach dem Beispiel einen Silbenblock."
+        },
+        "target": "의",
+        "feedback_refs": [
+          "UI-H"
+        ],
+        "material": {
+          "shown_model": "의",
+          "pieces": [
+            "ㅢ",
+            "ㅇ"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-P02",
+        "kind": "P",
+        "prompt": {
+          "en": "Choose the vowel piece in the written block.",
+          "de": "Wähle das Vokalzeichen im geschriebenen Block."
+        },
+        "target": "ㅢ",
+        "feedback_refs": [
+          "UI-H"
+        ],
+        "material": {
+          "written": "의"
+        },
+        "choices": [
+          "ㅣ",
+          "ㅢ",
+          "ㅡ"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-P03",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to build one syllable block.",
+          "de": "Bilde nach dem Beispiel einen Silbenblock."
+        },
+        "target": "희",
+        "feedback_refs": [
+          "UI-H",
+          "UI-B"
+        ],
+        "material": {
+          "shown_model": "희",
+          "pieces": [
+            "ㅢ",
+            "ㅎ"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-P04",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to build one syllable block.",
+          "de": "Bilde nach dem Beispiel einen Silbenblock."
+        },
+        "target": "늬",
+        "feedback_refs": [
+          "UI-H",
+          "UI-B"
+        ],
+        "material": {
+          "shown_model": "늬",
+          "pieces": [
+            "ㅢ",
+            "ㄴ"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-I01",
+        "kind": "I",
+        "prompt": {
+          "en": "Choose the vowel piece in the written block.",
+          "de": "Wähle das Vokalzeichen im geschriebenen Block."
+        },
+        "target": "ㅢ",
+        "feedback_refs": [
+          "UI-H"
+        ],
+        "material": {
+          "written": "희",
+          "no_audio_required": true
+        },
+        "choices": [
+          "ㅢ",
+          "ㅣ"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-I02",
+        "kind": "I",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+        },
+        "target": "희",
+        "feedback_refs": [
+          "UI-B"
+        ],
+        "material": {
+          "pieces": [
+            "ㅢ",
+            "ㅎ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-I03",
+        "kind": "I",
+        "prompt": {
+          "en": "Choose the vowel piece in the written block.",
+          "de": "Wähle das Vokalzeichen im geschriebenen Block."
+        },
+        "target": "ㅢ",
+        "feedback_refs": [
+          "UI-H"
+        ],
+        "material": {
+          "written": "늬",
+          "no_audio_required": true
+        },
+        "choices": [
+          "ㅣ",
+          "ㅢ"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-I04",
+        "kind": "I",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+        },
+        "target": "늬",
+        "feedback_refs": [
+          "UI-B"
+        ],
+        "material": {
+          "pieces": [
+            "ㅢ",
+            "ㄴ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-P05",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the picture, meaning and word example to choose the matching word.",
+          "de": "Wähle mit Bild, Bedeutung und Wortbeispiel das passende Wort."
+        },
+        "target": "의자",
+        "feedback_refs": [
+          "CHAIR-H"
+        ],
+        "material": {
+          "picture": "CHAIR-T1",
+          "shown_word": "의자",
+          "meaning_supplied": true
+        },
+        "choices": [
+          "집",
+          "의자",
+          "모자"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-P06",
+        "kind": "P",
+        "prompt": {
+          "en": "Put the syllable pieces in the correct order.",
+          "de": "Lege die Silbenteile in die richtige Reihenfolge."
+        },
+        "target": "의자",
+        "feedback_refs": [
+          "CHAIR-H",
+          "CHAIR-B"
+        ],
+        "material": {
+          "shown_word": "의자",
+          "syllable_pieces": [
+            "자",
+            "의"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-P07",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to build one syllable block.",
+          "de": "Bilde nach dem Beispiel einen Silbenblock."
+        },
+        "target": "왜",
+        "feedback_refs": [
+          "CHOSEN-왜"
+        ],
+        "material": {
+          "chosen_form": "왜",
+          "shown_model": "왜",
+          "pieces": [
+            "ㅙ",
+            "ㅇ"
+          ],
+          "choose_one_branch_only": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-P08",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to build one syllable block.",
+          "de": "Bilde nach dem Beispiel einen Silbenblock."
+        },
+        "target": "웨",
+        "feedback_refs": [
+          "CHOSEN-웨"
+        ],
+        "material": {
+          "chosen_form": "웨",
+          "shown_model": "웨",
+          "pieces": [
+            "ㅞ",
+            "ㅇ"
+          ],
+          "choose_one_branch_only": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-P09",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to build one syllable block.",
+          "de": "Bilde nach dem Beispiel einen Silbenblock."
+        },
+        "target": "얘",
+        "feedback_refs": [
+          "CHOSEN-얘"
+        ],
+        "material": {
+          "chosen_form": "얘",
+          "shown_model": "얘",
+          "pieces": [
+            "ㅒ",
+            "ㅇ"
+          ],
+          "choose_one_branch_only": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-P10",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to build one syllable block.",
+          "de": "Bilde nach dem Beispiel einen Silbenblock."
+        },
+        "target": "예",
+        "feedback_refs": [
+          "CHOSEN-예"
+        ],
+        "material": {
+          "chosen_form": "예",
+          "shown_model": "예",
+          "pieces": [
+            "ㅖ",
+            "ㅇ"
+          ],
+          "choose_one_branch_only": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-P11",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to build one syllable block.",
+          "de": "Bilde nach dem Beispiel einen Silbenblock."
+        },
+        "target": "의",
+        "feedback_refs": [
+          "CHOSEN-의"
+        ],
+        "material": {
+          "chosen_form": "의",
+          "shown_model": "의",
+          "pieces": [
+            "ㅢ",
+            "ㅇ"
+          ],
+          "choose_one_branch_only": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-R01",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the vowel piece in the written block.",
+          "de": "Wähle das Vokalzeichen im geschriebenen Block."
+        },
+        "target": "ㅢ",
+        "feedback_refs": [
+          "UI-H"
+        ],
+        "material": {
+          "written": "희",
+          "no_audio_required": true
+        },
+        "choices": [
+          "ㅣ",
+          "ㅢ"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-R02",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the vowel piece in the written block.",
+          "de": "Wähle das Vokalzeichen im geschriebenen Block."
+        },
+        "target": "ㅢ",
+        "feedback_refs": [
+          "UI-H"
+        ],
+        "material": {
+          "written": "늬",
+          "no_audio_required": true
+        },
+        "choices": [
+          "ㅢ",
+          "ㅣ"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-R03",
+        "kind": "R",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+        },
+        "target": "희",
+        "feedback_refs": [
+          "UI-B"
+        ],
+        "material": {
+          "pieces": [
+            "ㅎ",
+            "ㅢ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-R04",
+        "kind": "R",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist verborgen."
+        },
+        "target": "늬",
+        "feedback_refs": [
+          "UI-B"
+        ],
+        "material": {
+          "pieces": [
+            "ㄴ",
+            "ㅢ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-R05",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the word that matches the picture.",
+          "de": "Wähle das Wort, das zum Bild passt."
+        },
+        "target": "의자",
+        "feedback_refs": [
+          "CHAIR-H"
+        ],
+        "material": {
+          "picture": "CHAIR-R1"
+        },
+        "choices": [
+          "의자",
+          "모자",
+          "집"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D04-R06",
+        "kind": "R",
+        "prompt": {
+          "en": "Listen and put the syllable pieces in the order of that word.",
+          "de": "Hör zu und ordne die Silbenteile zu diesem Wort."
+        },
+        "target": "의자",
+        "feedback_refs": [
+          "CHAIR-B"
+        ],
+        "material": {
+          "syllable_pieces": [
+            "자",
+            "의"
+          ],
+          "audio": "의자",
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      }
+    ]
+  },
+  "responses": {
+    "assisted": {
+      "ko": "도움을 받아 이 활동을 함께 마쳤어요. 다른 예는 준비되면 해 봐요.",
+      "en": "You completed this activity with support. Try another example when you are ready.",
+      "de": "Du hast diese Aufgabe mit Hilfe abgeschlossen. Probiere ein weiteres Beispiel, wenn du bereit bist."
+    },
+    "independent": {
+      "ko": "이 예는 시범 없이 확인했어요. 다른 날 새로운 상황에서도 다시 해 봐요.",
+      "en": "You checked this example without a model. Try it in a new setting another day.",
+      "de": "Du hast dieses Beispiel ohne Vorlage bearbeitet. Probiere es an einem anderen Tag in einer neuen Situation."
+    },
+    "audio_unavailable": {
+      "ko": "지금은 소리를 재생할 수 없어요. 글과 그림으로 계속하거나 나중에 다시 들어요.",
+      "en": "Audio is unavailable right now. Continue with text and pictures, or listen later.",
+      "de": "Der Ton ist gerade nicht verfügbar. Mach mit Text und Bildern weiter oder höre später noch einmal zu."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 괜찮아요. 돌아오면 같은 차례에서 이어가요.",
+      "en": "You can take a break here. When you return, continue from the same turn.",
+      "de": "Du kannst hier eine Pause machen. Wenn du zurückkommst, geht es an derselben Stelle weiter."
+    },
+    "resume": {
+      "ko": "돌아왔네요. 놓아 둔 답과 도움 상태를 확인하고 이어가요.",
+      "en": "Welcome back. Check your previous response and any help you used, then continue.",
+      "de": "Willkommen zurück. Sieh dir deine bisherige Antwort und die verwendete Hilfe an und mach dann weiter."
+    },
+    "save_failed": {
+      "ko": "아직 저장을 확인하지 못했어요. 지금 답은 유지한 채 다시 시도해요.",
+      "en": "Saving has not been confirmed yet. Keep your response and try again.",
+      "de": "Das Speichern ist noch nicht bestätigt. Deine Antwort bleibt stehen; versuche es erneut."
+    },
+    "revisit": {
+      "ko": "이미 본 장면이에요. 다시 보아도 보상이나 공정이 중복 생성되지 않아요.",
+      "en": "You have seen this scene before. Replaying it does not grant another reward or construction step.",
+      "de": "Du kennst diese Szene bereits. Beim erneuten Ansehen erhältst du keine weitere Belohnung und keinen zusätzlichen Bauabschnitt."
+    }
+  },
+  "response_conditions": {
+    "assisted": "only after supported task is resolved",
+    "independent": "only if the eligible item met its criteria without model/hint; not all modalities",
+    "resume": "only after original state is actually restored",
+    "revisit": "existing reward owner remains authoritative"
+  },
+  "story": {
+    "lq_id": "LQ-04",
+    "anchor": "사랑채 완공·재방문",
+    "spoiler_guard": "Use only revealed facts. First book has no completed Sarangchae; first 집 remains practice draft until original readiness is confirmed."
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true,
+    "original_review_scope": "existing manuscript reviews and same-byte source; not human/native/device approval"
+  }
+}

@@ -1,0 +1,746 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "record_type": "inherited_detailed_with_integration_overlay",
+  "unit_id": "F0.4.closed-endings",
+  "band": "F0.4",
+  "title": {
+    "ko": "ㄱ·ㄷ·ㅂ 계열 기본 받침의 닫힘을 경험한다",
+    "en": "Sounds at the end",
+    "de": "Laute am Silbenende"
+  },
+  "goal": {
+    "ko": "ㄱ·ㄷ·ㅂ 계열 기본 받침의 닫힘을 경험한다",
+    "en": "Explore closure in simple final consonants from the ㄱ, ㄷ and ㅂ groups.",
+    "de": "Lerne den Verschluss bei einfachen Endkonsonanten aus der ㄱ-, ㄷ- und ㅂ-Gruppe kennen."
+  },
+  "prerequisites": [],
+  "base_manuscript": {
+    "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/01_CLOSED_FINALS.md",
+    "sha256": "699c4c1a460b64f403bc1b2a693ff1fd272f9d8d97541bbc8102895de7e7d4a8",
+    "inheritance": "full dialogue, teaching, P/I/R items, answer criteria, help and feedback retained verbatim; overlay is additive"
+  },
+  "source_contract": {
+    "id": "F0.4.closed-endings",
+    "goal": "ㄱ·ㄷ·ㅂ 계열 기본 받침의 닫힘을 경험한다",
+    "teach_targets": "국,옷,밥",
+    "check_targets": "목,낮,집",
+    "meaning_or_oral": "국·옷·밥의 뜻을 먼저; 대표 받침 소리와 표기의 차이 시범",
+    "transfer_task": "목·낮·집을 새 낱말로 제시해 뜻은 알려 주고 배운 끝소리 적용",
+    "review_in": "F0.4.linked-sounds",
+    "review_prompt": "옷과 옷이의 실제 소리 차이를 시범 후 확인",
+    "evidence_limit": "겹받침·모든 음운 규칙 숙달 요구 안 함"
+  },
+  "inherited_content": {
+    "selected_feedback_refs": [
+      "H01",
+      "B01"
+    ],
+    "feedback_rows": [
+      {
+        "key": "H01·시범 도움",
+        "en": "국 is soup. Listen to how it closes with ㄱ, without adding a vowel such as 으. Learn the meaning of 목 from its photo too.",
+        "de": "국 bedeutet Suppe. Hör, wie die Silbe mit ㄱ endet, ohne einen Vokal wie 으 anzuhängen. Lerne auch die Bedeutung von 목 anhand des Fotos kennen."
+      },
+      {
+        "key": "B01·국",
+        "en": "The written form is 국. Revisit the example with ㄱ · ㅜ · ㄱ and try the same form again.",
+        "de": "Geschrieben steht 국. Sieh dir das Beispiel mit ㄱ · ㅜ · ㄱ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "B01·목",
+        "en": "The written form is 목. Revisit the example with ㅁ · ㅗ · ㄱ and try the same form again.",
+        "de": "Geschrieben steht 목. Sieh dir das Beispiel mit ㅁ · ㅗ · ㄱ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "A01·듣고 표기",
+        "en": "The sound was 국. Revisit it with the spelling 국, then choose again.",
+        "de": "Der Laut war 국. Hör ihn mit der Schreibung 국 noch einmal und wähle erneut."
+      },
+      {
+        "key": "L01·읽고 소리",
+        "en": "The written word is 목. Listen to the whole word with its final sound, then choose its sound again.",
+        "de": "Geschrieben steht 목. Hör das ganze Wort mit dem Endlaut und wähle seinen Klang erneut."
+      },
+      {
+        "key": "H02·시범 도움",
+        "en": "옷 means clothes. It is written with final ㅅ, but at the end of this word the sound closes as ㄷ. Word-final ㅅ, ㅈ and ㅊ can close this way. 낮 means daytime. Keep the spellings 옷 and 낮; don't replace them with pronunciation spellings.",
+        "de": "옷 bedeutet Kleidung. Geschrieben wird es mit ㅅ am Ende, doch am Wortende klingt der Abschluss wie ㄷ. So können auch ㅈ und ㅊ am Wortende klingen. 낮 bedeutet die Tageszeit bei Licht. Die Schreibweisen 옷 und 낮 bleiben erhalten; ersetze sie nicht durch Lautschreibungen."
+      },
+      {
+        "key": "B02·옷",
+        "en": "The written form is 옷. Revisit the example with ㅇ · ㅗ · ㅅ and try the same form again.",
+        "de": "Geschrieben steht 옷. Sieh dir das Beispiel mit ㅇ · ㅗ · ㅅ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "B02·낮",
+        "en": "The written form is 낮. Revisit the example with ㄴ · ㅏ · ㅈ and try the same form again.",
+        "de": "Geschrieben steht 낮. Sieh dir das Beispiel mit ㄴ · ㅏ · ㅈ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "A02·듣고 표기",
+        "en": "The sound was 옷. Revisit it with the spelling 옷, then choose again.",
+        "de": "Der Laut war 옷. Hör ihn mit der Schreibung 옷 noch einmal und wähle erneut."
+      },
+      {
+        "key": "L02·읽고 소리",
+        "en": "The written word is 낮. Listen to the whole word with its final sound, then choose its sound again.",
+        "de": "Geschrieben steht 낮. Hör das ganze Wort mit dem Endlaut und wähle seinen Klang erneut."
+      },
+      {
+        "key": "H03·시범 도움",
+        "en": "밥 is cooked rice in this photo. Listen to its closing ㅂ sound. 집 means the house where people live in the other photo. Connect final ㅂ with the whole sound of each word.",
+        "de": "밥 bezeichnet hier gekochten Reis. Hör auf den Abschluss mit ㅂ. 집 bezeichnet das Haus auf dem anderen Foto, in dem Menschen wohnen. Verbinde das ㅂ am Ende mit dem Klang des ganzen Wortes."
+      },
+      {
+        "key": "B03·밥",
+        "en": "The written form is 밥. Revisit the example with ㅂ · ㅏ · ㅂ and try the same form again.",
+        "de": "Geschrieben steht 밥. Sieh dir das Beispiel mit ㅂ · ㅏ · ㅂ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "B03·집",
+        "en": "The written form is 집. Revisit the example with ㅈ · ㅣ · ㅂ and try the same form again.",
+        "de": "Geschrieben steht 집. Sieh dir das Beispiel mit ㅈ · ㅣ · ㅂ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "A03·듣고 표기",
+        "en": "The sound was 밥. Revisit it with the spelling 밥, then choose again.",
+        "de": "Der Laut war 밥. Hör ihn mit der Schreibung 밥 noch einmal und wähle erneut."
+      },
+      {
+        "key": "L03·읽고 소리",
+        "en": "The written word is 집. Listen to the whole word with its final sound, then choose its sound again.",
+        "de": "Geschrieben steht 집. Hör das ganze Wort mit dem Endlaut und wähle seinen Klang erneut."
+      },
+      {
+        "key": "FINAL-H·끝소리 도움",
+        "en": "Listen to the closing sound in these words. Keep the spelling and do not add another vowel.",
+        "de": "Hör auf den Abschluss dieser Wörter. Behalte die Schreibung bei und hänge keinen weiteren Vokal an."
+      },
+      {
+        "key": "BOOK-H·책 뜻/소리 도움",
+        "en": "책 means a book. Revisit its picture, spelling and whole sound together.",
+        "de": "책 bedeutet Buch. Sieh und hör dir Bild, Schreibung und ganzen Klang noch einmal an."
+      },
+      {
+        "key": "BOOK-B·책",
+        "en": "The written form is 책. Revisit the example with ㅊ · ㅐ · ㄱ and try the same form again.",
+        "de": "Geschrieben steht 책. Sieh dir das Beispiel mit ㅊ · ㅐ · ㄱ noch einmal an und versuch dieselbe Form erneut."
+      },
+      {
+        "key": "OK·현재 범위",
+        "en": "That matches the current target. Take your time with the next one too.",
+        "de": "Das passt zum aktuellen Ziel. Nimm dir auch für die nächste Aufgabe Zeit."
+      }
+    ],
+    "practice_task_ids": [
+      "D01-P01",
+      "D01-P02",
+      "D01-P03",
+      "D01-P04",
+      "D01-P05",
+      "D01-P06",
+      "D01-P07",
+      "D01-P08"
+    ],
+    "independent_task_ids": [
+      "D01-I01",
+      "D01-I02",
+      "D01-I03",
+      "D01-I04",
+      "D01-I05",
+      "D01-I06",
+      "D01-I07"
+    ],
+    "next_day_task_ids": [
+      "D01-R01",
+      "D01-R02",
+      "D01-R03",
+      "D01-R04",
+      "D01-R05",
+      "D01-R06",
+      "D01-R07",
+      "D01-R08"
+    ],
+    "common_copy_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-4-v35\\COMMON_COPY.md",
+    "readme_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-4-v35\\README.md",
+    "task_bindings": [
+      {
+        "task_id": "D01-P01",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to build one syllable block.",
+          "de": "Bilde nach dem Beispiel einen Silbenblock."
+        },
+        "target": "국",
+        "feedback_refs": [
+          "H01",
+          "B01"
+        ],
+        "material": {
+          "shown_model": "국",
+          "pieces": [
+            "ㄱ",
+            "ㅜ",
+            "ㄱ"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-P02",
+        "kind": "P",
+        "prompt": {
+          "en": "Listen and choose the matching written form.",
+          "de": "Hör zu und wähle die passende Schriftform."
+        },
+        "target": "국",
+        "feedback_refs": [
+          "FINAL-H",
+          "A01"
+        ],
+        "material": {
+          "audio": "국",
+          "no_transcript": true
+        },
+        "choices": [
+          "구",
+          "국"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-I01",
+        "kind": "I",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "목",
+        "feedback_refs": [
+          "H01",
+          "FINAL-H",
+          "L01"
+        ],
+        "material": {
+          "written": "목",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "모",
+          "몸",
+          "목"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-I02",
+        "kind": "I",
+        "prompt": {
+          "en": "Listen and build that word from the pieces.",
+          "de": "Hör zu und bilde dieses Wort aus den Teilen."
+        },
+        "target": "목",
+        "feedback_refs": [
+          "B01"
+        ],
+        "material": {
+          "pieces": [
+            "ㄱ",
+            "ㅗ",
+            "ㅁ"
+          ],
+          "no_model": true,
+          "audio": "목"
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-P03",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to build one syllable block.",
+          "de": "Bilde nach dem Beispiel einen Silbenblock."
+        },
+        "target": "옷",
+        "feedback_refs": [
+          "H02",
+          "B02"
+        ],
+        "material": {
+          "shown_model": "옷",
+          "pieces": [
+            "ㅅ",
+            "ㅗ",
+            "ㅇ"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-P04",
+        "kind": "P",
+        "prompt": {
+          "en": "Listen and choose the matching written form.",
+          "de": "Hör zu und wähle die passende Schriftform."
+        },
+        "target": "옷",
+        "feedback_refs": [
+          "FINAL-H",
+          "A02"
+        ],
+        "material": {
+          "audio": "옷",
+          "no_transcript": true
+        },
+        "choices": [
+          "옷",
+          "오"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-I03",
+        "kind": "I",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "낮",
+        "feedback_refs": [
+          "H02",
+          "FINAL-H",
+          "L02"
+        ],
+        "material": {
+          "written": "낮",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "남",
+          "낮",
+          "나"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-I04",
+        "kind": "I",
+        "prompt": {
+          "en": "Listen and build that word from the pieces.",
+          "de": "Hör zu und bilde dieses Wort aus den Teilen."
+        },
+        "target": "낮",
+        "feedback_refs": [
+          "B02"
+        ],
+        "material": {
+          "pieces": [
+            "ㅈ",
+            "ㅏ",
+            "ㄴ"
+          ],
+          "no_model": true,
+          "audio": "낮"
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-P05",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to build one syllable block.",
+          "de": "Bilde nach dem Beispiel einen Silbenblock."
+        },
+        "target": "밥",
+        "feedback_refs": [
+          "H03",
+          "B03"
+        ],
+        "material": {
+          "shown_model": "밥",
+          "pieces": [
+            "ㅂ",
+            "ㅏ",
+            "ㅂ"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-P06",
+        "kind": "P",
+        "prompt": {
+          "en": "Listen and choose the matching written form.",
+          "de": "Hör zu und wähle die passende Schriftform."
+        },
+        "target": "밥",
+        "feedback_refs": [
+          "FINAL-H",
+          "A03"
+        ],
+        "material": {
+          "audio": "밥",
+          "no_transcript": true
+        },
+        "choices": [
+          "바",
+          "밥"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-I05",
+        "kind": "I",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "집",
+        "feedback_refs": [
+          "H03",
+          "FINAL-H",
+          "L03"
+        ],
+        "material": {
+          "written": "집",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "집",
+          "지",
+          "짐"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-I06",
+        "kind": "I",
+        "prompt": {
+          "en": "Listen and build that word from the pieces.",
+          "de": "Hör zu und bilde dieses Wort aus den Teilen."
+        },
+        "target": "집",
+        "feedback_refs": [
+          "B03"
+        ],
+        "material": {
+          "pieces": [
+            "ㅂ",
+            "ㅣ",
+            "ㅈ"
+          ],
+          "no_model": true,
+          "audio": "집"
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-P07",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the picture, meaning and word example to choose the matching word.",
+          "de": "Wähle mit Bild, Bedeutung und Wortbeispiel das passende Wort."
+        },
+        "target": "책",
+        "feedback_refs": [
+          "BOOK-H"
+        ],
+        "material": {
+          "picture": "BOOK-T1",
+          "shown_word": "책",
+          "meaning_supplied": true
+        },
+        "choices": [
+          "밥",
+          "책",
+          "집"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-P08",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to build one syllable block.",
+          "de": "Bilde nach dem Beispiel einen Silbenblock."
+        },
+        "target": "책",
+        "feedback_refs": [
+          "BOOK-B"
+        ],
+        "material": {
+          "shown_model": "책",
+          "pieces": [
+            "ㄱ",
+            "ㅐ",
+            "ㅊ"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-I07",
+        "kind": "I",
+        "prompt": {
+          "en": "Choose the word that matches the picture.",
+          "de": "Wähle das Wort, das zum Bild passt."
+        },
+        "target": "책",
+        "feedback_refs": [
+          "BOOK-H"
+        ],
+        "material": {
+          "picture": "BOOK-I1"
+        },
+        "choices": [
+          "집",
+          "밥",
+          "책"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-R01",
+        "kind": "R",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "목",
+        "feedback_refs": [
+          "L01",
+          "FINAL-H"
+        ],
+        "material": {
+          "written": "목",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "목",
+          "몸",
+          "모"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-R02",
+        "kind": "R",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "낮",
+        "feedback_refs": [
+          "L02",
+          "FINAL-H"
+        ],
+        "material": {
+          "written": "낮",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "나",
+          "낮",
+          "남"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-R03",
+        "kind": "R",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "집",
+        "feedback_refs": [
+          "L03",
+          "FINAL-H"
+        ],
+        "material": {
+          "written": "집",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "짐",
+          "지",
+          "집"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-R04",
+        "kind": "R",
+        "prompt": {
+          "en": "Listen and build that word from the pieces.",
+          "de": "Hör zu und bilde dieses Wort aus den Teilen."
+        },
+        "target": "목",
+        "feedback_refs": [
+          "B01"
+        ],
+        "material": {
+          "pieces": [
+            "ㅁ",
+            "ㅗ",
+            "ㄱ"
+          ],
+          "no_model": true,
+          "audio": "목"
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-R05",
+        "kind": "R",
+        "prompt": {
+          "en": "Listen and build that word from the pieces.",
+          "de": "Hör zu und bilde dieses Wort aus den Teilen."
+        },
+        "target": "낮",
+        "feedback_refs": [
+          "B02"
+        ],
+        "material": {
+          "pieces": [
+            "ㄴ",
+            "ㅏ",
+            "ㅈ"
+          ],
+          "no_model": true,
+          "audio": "낮"
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-R06",
+        "kind": "R",
+        "prompt": {
+          "en": "Listen and build that word from the pieces.",
+          "de": "Hör zu und bilde dieses Wort aus den Teilen."
+        },
+        "target": "집",
+        "feedback_refs": [
+          "B03"
+        ],
+        "material": {
+          "pieces": [
+            "ㅈ",
+            "ㅣ",
+            "ㅂ"
+          ],
+          "no_model": true,
+          "audio": "집"
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-R07",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the word that matches the picture.",
+          "de": "Wähle das Wort, das zum Bild passt."
+        },
+        "target": "책",
+        "feedback_refs": [
+          "BOOK-H"
+        ],
+        "material": {
+          "picture": "BOOK-R1"
+        },
+        "choices": [
+          "책",
+          "집",
+          "밥"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D01-R08",
+        "kind": "R",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "책",
+        "feedback_refs": [
+          "BOOK-H"
+        ],
+        "material": {
+          "written": "책",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "챔",
+          "책",
+          "채"
+        ],
+        "source_row": null
+      }
+    ]
+  },
+  "responses": {
+    "assisted": {
+      "ko": "도움을 받아 이 활동을 함께 마쳤어요. 다른 예는 준비되면 해 봐요.",
+      "en": "You completed this activity with support. Try another example when you are ready.",
+      "de": "Du hast diese Aufgabe mit Hilfe abgeschlossen. Probiere ein weiteres Beispiel, wenn du bereit bist."
+    },
+    "independent": {
+      "ko": "이 예는 시범 없이 확인했어요. 다른 날 새로운 상황에서도 다시 해 봐요.",
+      "en": "You checked this example without a model. Try it in a new setting another day.",
+      "de": "Du hast dieses Beispiel ohne Vorlage bearbeitet. Probiere es an einem anderen Tag in einer neuen Situation."
+    },
+    "audio_unavailable": {
+      "ko": "지금은 소리를 재생할 수 없어요. 글과 그림으로 계속하거나 나중에 다시 들어요.",
+      "en": "Audio is unavailable right now. Continue with text and pictures, or listen later.",
+      "de": "Der Ton ist gerade nicht verfügbar. Mach mit Text und Bildern weiter oder höre später noch einmal zu."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 괜찮아요. 돌아오면 같은 차례에서 이어가요.",
+      "en": "You can take a break here. When you return, continue from the same turn.",
+      "de": "Du kannst hier eine Pause machen. Wenn du zurückkommst, geht es an derselben Stelle weiter."
+    },
+    "resume": {
+      "ko": "돌아왔네요. 놓아 둔 답과 도움 상태를 확인하고 이어가요.",
+      "en": "Welcome back. Check your previous response and any help you used, then continue.",
+      "de": "Willkommen zurück. Sieh dir deine bisherige Antwort und die verwendete Hilfe an und mach dann weiter."
+    },
+    "save_failed": {
+      "ko": "아직 저장을 확인하지 못했어요. 지금 답은 유지한 채 다시 시도해요.",
+      "en": "Saving has not been confirmed yet. Keep your response and try again.",
+      "de": "Das Speichern ist noch nicht bestätigt. Deine Antwort bleibt stehen; versuche es erneut."
+    },
+    "revisit": {
+      "ko": "이미 본 장면이에요. 다시 보아도 보상이나 공정이 중복 생성되지 않아요.",
+      "en": "You have seen this scene before. Replaying it does not grant another reward or construction step.",
+      "de": "Du kennst diese Szene bereits. Beim erneuten Ansehen erhältst du keine weitere Belohnung und keinen zusätzlichen Bauabschnitt."
+    }
+  },
+  "response_conditions": {
+    "assisted": "only after supported task is resolved",
+    "independent": "only if the eligible item met its criteria without model/hint; not all modalities",
+    "resume": "only after original state is actually restored",
+    "revisit": "existing reward owner remains authoritative"
+  },
+  "story": {
+    "lq_id": "LQ-04",
+    "anchor": "사랑채 완공·재방문",
+    "spoiler_guard": "Use only revealed facts. First book has no completed Sarangchae; first 집 remains practice draft until original readiness is confirmed."
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true,
+    "original_review_scope": "existing manuscript reviews and same-byte source; not human/native/device approval"
+  }
+}
