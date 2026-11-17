@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "targets": {
+    "hanok-r16-estate": {
+      "targetKind": "new-ui",
+      "projectId": "8608c2a3-5e4d-43c0-93a7-0b55d8a18362",
+      "activeDraftId": "fea98902-7f2d-4067-bee4-095353a237d0",
+      "designSystemPath": ".superdesign/design-system.md",
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        "docs/hanok_r16/ESTATE_SCREEN_DESIGN.md",
+        ".superdesign/init/layouts.md"
+      ],
+      "referenceIds": [
+        "e64c48e4-4372-47af-86c1-47d2f0a0b92a",
+        "estate-assets-settings-gold.png",
+        "estate-assets-cloud-ivory.png"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "8c8f673b782de47c4eb2082cbb4ddf9c940e9c7dc3f1e3923b19c784ad807a74",
+        "docs/hanok_r16/ESTATE_SCREEN_DESIGN.md": "e763c586de811ed961e1ac4966b0a5eefc61a049efa3d165c529013167178778",
+        ".superdesign/init/layouts.md": "1306f7be12485365f25e51e7aeb5632735c78d5117c528154b41c5662c029f68"
+      },
+      "drafts": {
+        "fea98902-7f2d-4067-bee4-095353a237d0": {
+          "title": "Ildu Estate R16 Art Review Screen",
+          "visualDirection": "C material, actual surveyed R16 estate, review layout only",
+          "currentVersion": 2
+        }
+      },
+      "updatedAt": "2026-10-29T03:34:13.500729+00:00"
+    }
+  }
+}

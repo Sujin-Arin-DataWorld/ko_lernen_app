@@ -1,0 +1,311 @@
+{
+  "status": "USER_APPROVED_ACTING_REFERENCE_SHEETS",
+  "characters": {
+    "joy": {
+      "sheets": {
+        "model": {
+          "path": "assets/joy/model.png",
+          "sha256": "4fa1685ca2c8b1c780d59786723fae12ba6d3117a81cbd93825da4881d653777",
+          "role": "secondary model/style reference; identity and numeric targets retain authority",
+          "status": "USER_APPROVED_MODEL_STYLE_REFERENCE"
+        },
+        "expressions": {
+          "path": "assets/joy/expressions.png",
+          "sha256": "5b978e09cacc01c3f8563a918711d215ee74418e4d80371a5b55cd5e0b382f9e",
+          "role": "approved acting reference sheet; not independent runtime sprites",
+          "status": "USER_APPROVED_ACTING_REFERENCE"
+        },
+        "poses": {
+          "path": "assets/joy/poses.png",
+          "sha256": "43f8f5db45f061d617b747f87458c2ae5b73ef3eef94670ea75a60bb17671a56",
+          "role": "approved acting reference sheet; not independent runtime sprites",
+          "status": "USER_APPROVED_ACTING_REFERENCE"
+        }
+      },
+      "expression_grid": {
+        "columns": 4,
+        "rows": 2,
+        "reading_order": "left-to-right, top-to-bottom"
+      },
+      "pose_grid": {
+        "columns": 3,
+        "rows": 2,
+        "reading_order": "left-to-right, top-to-bottom"
+      },
+      "expressions": [
+        {
+          "id": "J-E01",
+          "meaning": "calm-curiosity"
+        },
+        {
+          "id": "J-E02",
+          "meaning": "discovery"
+        },
+        {
+          "id": "J-E03",
+          "meaning": "thinking-together"
+        },
+        {
+          "id": "J-E04",
+          "meaning": "playful-welcome"
+        },
+        {
+          "id": "J-E05",
+          "meaning": "concern-vigilance"
+        },
+        {
+          "id": "J-E06",
+          "meaning": "gratitude-relief"
+        },
+        {
+          "id": "J-E07",
+          "meaning": "patient-encouragement"
+        },
+        {
+          "id": "J-E08",
+          "meaning": "resolved-guide"
+        }
+      ],
+      "poses": [
+        {
+          "id": "J-P01",
+          "meaning": "standing"
+        },
+        {
+          "id": "J-P02",
+          "meaning": "lean-investigate"
+        },
+        {
+          "id": "J-P03",
+          "meaning": "one-wing-guide"
+        },
+        {
+          "id": "J-P04",
+          "meaning": "two-wing-flight"
+        },
+        {
+          "id": "J-P05",
+          "meaning": "landing"
+        },
+        {
+          "id": "J-P06",
+          "meaning": "two-wing-shelter"
+        }
+      ],
+      "individual_sprite_exported": false,
+      "identity_pixel_exactness_verified": false,
+      "metric_compliance_verified": false
+    },
+    "taego": {
+      "sheets": {
+        "model": {
+          "path": "assets/taego/model.png",
+          "sha256": "974dd07573e46a805b34689afbb8c65b18da1402ea46785d2108d9b5073b25ab",
+          "role": "secondary model/style reference; identity and numeric targets retain authority",
+          "status": "USER_APPROVED_MODEL_STYLE_REFERENCE"
+        },
+        "expressions": {
+          "path": "assets/taego/expressions.png",
+          "sha256": "5fd44f94d862553ec12f27590bbe0412dc33b7aabfbcf462a184e72219fcad06",
+          "role": "approved acting reference sheet; not independent runtime sprites",
+          "status": "USER_APPROVED_ACTING_REFERENCE"
+        },
+        "poses": {
+          "path": "assets/taego/poses.png",
+          "sha256": "404cafd263e4d369c7d26148e192502deb55aa250004abe228271fbd400e2a28",
+          "role": "approved acting reference sheet; not independent runtime sprites",
+          "status": "USER_APPROVED_ACTING_REFERENCE"
+        }
+      },
+      "expression_grid": {
+        "columns": 4,
+        "rows": 2,
+        "reading_order": "left-to-right, top-to-bottom"
+      },
+      "pose_grid": {
+        "columns": 3,
+        "rows": 2,
+        "reading_order": "left-to-right, top-to-bottom"
+      },
+      "expressions": [
+        {
+          "id": "T-E01",
+          "meaning": "calm-companion"
+        },
+        {
+          "id": "T-E02",
+          "meaning": "attentive-listening"
+        },
+        {
+          "id": "T-E03",
+          "meaning": "warm-approval"
+        },
+        {
+          "id": "T-E04",
+          "meaning": "curiosity"
+        },
+        {
+          "id": "T-E05",
+          "meaning": "concern-for-friend"
+        },
+        {
+          "id": "T-E06",
+          "meaning": "painful-memory"
+        },
+        {
+          "id": "T-E07",
+          "meaning": "protective-resolve"
+        },
+        {
+          "id": "T-E08",
+          "meaning": "reunion-relief"
+        }
+      ],
+      "poses": [
+        {
+          "id": "T-P01",
+          "meaning": "seated-companion"
+        },
+        {
+          "id": "T-P02",
+          "meaning": "lower-head-listen"
+        },
+        {
+          "id": "T-P03",
+          "meaning": "inspect-clue"
+        },
+        {
+          "id": "T-P04",
+          "meaning": "guide-path"
+        },
+        {
+          "id": "T-P05",
+          "meaning": "quiet-protection"
+        },
+        {
+          "id": "T-P06",
+          "meaning": "chin-on-paws-rest"
+        }
+      ],
+      "individual_sprite_exported": false,
+      "identity_pixel_exactness_verified": false,
+      "metric_compliance_verified": false
+    },
+    "dokkaebi": {
+      "sheets": {
+        "model": {
+          "path": "assets/dokkaebi/model.png",
+          "sha256": "b03e289e8f95842c2adee1795400dcc05dd1e08b8ec9e90a41c2e8d7cc053592",
+          "role": "secondary model/style reference; identity and numeric targets retain authority",
+          "status": "USER_APPROVED_MODEL_STYLE_REFERENCE"
+        },
+        "expressions": {
+          "path": "assets/dokkaebi/expressions.png",
+          "sha256": "5d620366eed0500298e7a94012f458bd5b9191f1ee97fdb87901c4ad0fd9ba74",
+          "role": "approved acting reference sheet; not independent runtime sprites",
+          "status": "USER_APPROVED_ACTING_REFERENCE"
+        },
+        "poses": {
+          "path": "assets/dokkaebi/poses.png",
+          "sha256": "223f050b9af92f8fec056870c864df5bc0b2fae38e52f6067697949d0aa2887c",
+          "role": "approved acting reference sheet; not independent runtime sprites",
+          "status": "USER_APPROVED_ACTING_REFERENCE"
+        }
+      },
+      "expression_grid": {
+        "columns": 4,
+        "rows": 2,
+        "reading_order": "left-to-right, top-to-bottom"
+      },
+      "pose_grid": {
+        "columns": 3,
+        "rows": 2,
+        "reading_order": "left-to-right, top-to-bottom"
+      },
+      "expressions": [
+        {
+          "id": "D-E01",
+          "meaning": "curious-anticipation"
+        },
+        {
+          "id": "D-E02",
+          "meaning": "playful-gatekeeper"
+        },
+        {
+          "id": "D-E03",
+          "meaning": "hesitation"
+        },
+        {
+          "id": "D-E04",
+          "meaning": "surprise"
+        },
+        {
+          "id": "D-E05",
+          "meaning": "gruff-fond-reunion"
+        },
+        {
+          "id": "D-E06",
+          "meaning": "loneliness"
+        },
+        {
+          "id": "D-E07",
+          "meaning": "gratitude"
+        },
+        {
+          "id": "D-E08",
+          "meaning": "resolved-invitation"
+        }
+      ],
+      "poses": [
+        {
+          "id": "D-P01",
+          "meaning": "relaxed-listening"
+        },
+        {
+          "id": "D-P02",
+          "meaning": "crouch-investigate"
+        },
+        {
+          "id": "D-P03",
+          "meaning": "open-palm-request"
+        },
+        {
+          "id": "D-P04",
+          "meaning": "gatekeeper"
+        },
+        {
+          "id": "D-P05",
+          "meaning": "relaxed-reunion"
+        },
+        {
+          "id": "D-P06",
+          "meaning": "step-aside-invite"
+        }
+      ],
+      "individual_sprite_exported": false,
+      "identity_pixel_exactness_verified": false,
+      "metric_compliance_verified": false
+    }
+  },
+  "runtime_integrated": false,
+  "source_support": [
+    {
+      "path": "assets/taego/source-support/portrait-front.png",
+      "sha256": "8d7137edfe97df4c63b5048962c6660e189c9ad37b6031799b152abf38065479",
+      "role": "adult face close-up support; primary original remains identity authority",
+      "status": "EDITOR_SELECTED_USER_AUTHORIZED_SUPPORT_REFERENCE"
+    },
+    {
+      "path": "assets/taego/source-support/seated.png",
+      "sha256": "c773821852d1be537a7e714af0f9e90dee8a20e1c87ae6a755f9458d7357a6f2",
+      "role": "seated adult posture support",
+      "status": "EDITOR_SELECTED_USER_AUTHORIZED_SUPPORT_REFERENCE"
+    },
+    {
+      "path": "assets/taego/source-support/standing.png",
+      "sha256": "9dd03e4c62fb4513b5c97f788d48189bce939e510d39a1b34a2bd9b0415bfbe2",
+      "role": "transparent standing posture support",
+      "status": "EDITOR_SELECTED_USER_AUTHORIZED_SUPPORT_REFERENCE"
+    }
+  ]
+}

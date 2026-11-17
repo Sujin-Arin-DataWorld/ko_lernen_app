@@ -12,6 +12,17 @@ class SoriTypeScale extends StatelessWidget {
   const SoriTypeScale({super.key, required this.child});
   final Widget child;
 
+  /// Replaces only our window-width comfort factor for a constrained pane.
+  /// The original OS/custom scaler is retained, including nonlinear scaling.
+  static TextScaler forViewport(TextScaler ambient, double viewportWidth) {
+    var base = ambient;
+    while (base is SoriComfortTextScaler) {
+      base = base._base;
+    }
+    final comfort = soriComfortScale(viewportWidth);
+    return comfort <= 1 ? base : SoriComfortTextScaler(base, comfort);
+  }
+
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
@@ -26,6 +37,30 @@ class SoriTypeScale extends StatelessWidget {
       child: child,
     );
   }
+}
+
+/// Use inside a width-constrained surface, including a modal route whose
+/// inherited MediaQuery still describes the full app window.
+/// Ordinary screens keep the app-level [SoriTypeScale] unchanged.
+class SoriViewportTypeScale extends StatelessWidget {
+  const SoriViewportTypeScale({super.key, required this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, constraints) {
+      final media = MediaQuery.of(context);
+      final width = constraints.hasBoundedWidth
+          ? constraints.maxWidth
+          : media.size.width;
+      return MediaQuery(
+        data: media.copyWith(
+          textScaler: SoriTypeScale.forViewport(media.textScaler, width),
+        ),
+        child: child,
+      );
+    },
+  );
 }
 
 /// ambient [TextScaler] 에 상수 배율을 곱한다(OS 배율과 합성, 대체 아님).

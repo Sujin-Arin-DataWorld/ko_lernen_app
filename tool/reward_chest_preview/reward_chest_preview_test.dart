@@ -32,8 +32,8 @@ void main() {
     await tester.runAsync(
       () => Future.wait([
         for (final asset in [
-          'assets/illustrations/reward/najeon_chest_closed.png',
-          'assets/illustrations/reward/najeon_chest_open.png',
+          'assets/illustrations/rewards/najeon/najeon_chest_closed.png',
+          'assets/illustrations/rewards/najeon/najeon_chest_open.png',
           'assets/illustrations/decorations/decoration_jagae_mungap.png',
         ])
           precacheImage(AssetImage(asset), context),

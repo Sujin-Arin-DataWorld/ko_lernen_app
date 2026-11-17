@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/route_observer.dart';
 import 'package:ko_lernen_app/widgets/sori/video_lease.dart';
@@ -631,6 +632,8 @@ void main() {
     Future<void> pump({required bool visible}) {
       return tester.pumpWidget(
         MaterialApp(
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
           navigatorObservers: [soriRouteObserver],
           home: TickerMode(
             enabled: visible,
@@ -664,6 +667,8 @@ void main() {
     final navigatorKey = GlobalKey<NavigatorState>();
     await tester.pumpWidget(
       MaterialApp(
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
         navigatorKey: navigatorKey,
         navigatorObservers: [soriRouteObserver],
         home: Builder(
@@ -700,6 +705,8 @@ void main() {
     var callbacks = 0;
     await tester.pumpWidget(
       MaterialApp(
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
         navigatorObservers: [soriRouteObserver],
         home: CharacterClipPlayer(
           asset: 'assets/video/character/tiger_rest.mp4',

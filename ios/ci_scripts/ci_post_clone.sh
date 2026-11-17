@@ -32,6 +32,7 @@ flutterfire --version
 
 echo "▸ flutter pub get (generates ios/Flutter/Generated.xcconfig)"
 cd "${CI_PRIMARY_REPOSITORY_PATH}"
+python3 tool/prepare_fontshare_fonts.py
 flutter pub get
 
 echo "▸ pod install"

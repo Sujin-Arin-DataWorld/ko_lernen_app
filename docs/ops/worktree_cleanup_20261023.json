@@ -1,0 +1,296 @@
+{
+  "date": "2026-10-23",
+  "removedCount": 10,
+  "removedLogicalBytes": 61695905646,
+  "observedFreeSpaceIncreaseBytes": 61930901504,
+  "measurementNote": "Observed C: change during this cleanup; concurrent archive object writes/renders affect free space. Logical checkout size is separate.",
+  "removed": [
+    {
+      "name": "c-hangul-silben-native-20261008",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-hangul-silben-native-20261008",
+      "head": "618129e40f139c806307fd55ea2e6db1337994c6",
+      "archiveProof": {
+        "ref": "refs/heads/archive/preserved-learning-rewards-20261023-192613",
+        "commit": "623c67a5dddd6038ba6cfe85d9b65b58ac57a0d3",
+        "baseRef": "refs/heads/preserved-bases/c-hangul-silben-native-20261008",
+        "baseCommit": "618129e40f139c806307fd55ea2e6db1337994c6"
+      },
+      "fileCount": 23479,
+      "logicalBytes": 10451007217,
+      "verifiedArchiveFiles": 9832,
+      "time": 1792779448.2024143,
+      "freeBefore": 60775813120,
+      "removed": true,
+      "freeAfter": 71276212224,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    },
+    {
+      "name": "canonical-reward-onboarding-20261004",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004",
+      "head": "618129e40f139c806307fd55ea2e6db1337994c6",
+      "archiveProof": {
+        "ref": "refs/heads/archive/preserved-learning-rewards-20261023-192613",
+        "commit": "623c67a5dddd6038ba6cfe85d9b65b58ac57a0d3",
+        "baseRef": "refs/heads/preserved-bases/canonical-reward-onboarding-20261004",
+        "baseCommit": "618129e40f139c806307fd55ea2e6db1337994c6"
+      },
+      "fileCount": 17146,
+      "logicalBytes": 7321165216,
+      "verifiedArchiveFiles": 6617,
+      "time": 1792779602.640364,
+      "freeBefore": 82053185536,
+      "removed": true,
+      "freeAfter": 89415041024,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    },
+    {
+      "name": "character-c-main-20261010",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\character-c-main-20261010",
+      "head": "44727c1921b4b7f40748ac0d210d0ca62a094028",
+      "archiveProof": {
+        "ref": "refs/heads/archive/preserved-learning-rewards-20261023-192613",
+        "commit": "623c67a5dddd6038ba6cfe85d9b65b58ac57a0d3",
+        "baseRef": "refs/heads/preserved-bases/character-c-main-20261010",
+        "baseCommit": "44727c1921b4b7f40748ac0d210d0ca62a094028"
+      },
+      "fileCount": 22320,
+      "logicalBytes": 6801625044,
+      "verifiedArchiveFiles": 9543,
+      "time": 1792779751.1855457,
+      "freeBefore": 97660289024,
+      "removed": true,
+      "freeAfter": 104507207680,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    },
+    {
+      "name": "cp2026-b3-reasons-metrics-20260917",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\cp2026-b3-reasons-metrics-20260917",
+      "head": "4a6c9a6d8d2887245ff0d01a9c64ceb3ae24cab6",
+      "archiveProof": {
+        "ref": "refs/heads/archive/cleanup-overlays-20261023",
+        "commit": "20968c866e8139224f00d88f078afab487664715",
+        "baseRef": "refs/heads/preserved-bases/cp2026-b3-reasons-metrics-20260917",
+        "baseCommit": "4a6c9a6d8d2887245ff0d01a9c64ceb3ae24cab6"
+      },
+      "fileCount": 41928,
+      "logicalBytes": 3331073053,
+      "verifiedArchiveFiles": 36,
+      "time": 1792778511.1321712,
+      "freeBefore": 49399808000,
+      "removed": true,
+      "freeAfter": 52829855744,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    },
+    {
+      "name": "dokkaebi-c-parity-20261009",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dokkaebi-c-parity-20261009",
+      "head": "618129e40f139c806307fd55ea2e6db1337994c6",
+      "archiveProof": {
+        "ref": "refs/heads/archive/preserved-learning-rewards-20261023-192613",
+        "commit": "623c67a5dddd6038ba6cfe85d9b65b58ac57a0d3",
+        "baseRef": "refs/heads/preserved-bases/dokkaebi-c-parity-20261009",
+        "baseCommit": "618129e40f139c806307fd55ea2e6db1337994c6"
+      },
+      "fileCount": 24845,
+      "logicalBytes": 10792102562,
+      "verifiedArchiveFiles": 10189,
+      "time": 1792779531.3865075,
+      "freeBefore": 71264477184,
+      "removed": true,
+      "freeAfter": 82116829184,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    },
+    {
+      "name": "hahoe-dokkaebi-practice-20261003",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hahoe-dokkaebi-practice-20261003",
+      "head": "34f1b0ca51de4f9b69db7d499b74fc17844dd878",
+      "archiveProof": {
+        "ref": "refs/heads/archive/preserved-learning-rewards-20261023-192613",
+        "commit": "623c67a5dddd6038ba6cfe85d9b65b58ac57a0d3",
+        "baseRef": "refs/heads/preserved-bases/hahoe-dokkaebi-practice-20261003",
+        "baseCommit": "34f1b0ca51de4f9b69db7d499b74fc17844dd878"
+      },
+      "fileCount": 23459,
+      "logicalBytes": 8240236308,
+      "verifiedArchiveFiles": 10683,
+      "time": 1792779677.572581,
+      "freeBefore": 89402609664,
+      "removed": true,
+      "freeAfter": 97692930048,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    },
+    {
+      "name": "main-wip-before-pull-20260915",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\main-wip-before-pull-20260915",
+      "head": "3b59048c1d819b9024a1e1d3d1d1d203a18adfc9",
+      "archiveProof": {
+        "ref": "refs/heads/archive/cleanup-overlays-20261023",
+        "commit": "20968c866e8139224f00d88f078afab487664715",
+        "baseRef": "refs/heads/preserved-bases/main-wip-before-pull-20260915",
+        "baseCommit": "3b59048c1d819b9024a1e1d3d1d1d203a18adfc9"
+      },
+      "fileCount": 9206,
+      "logicalBytes": 2450227177,
+      "verifiedArchiveFiles": 27,
+      "time": 1792778532.5912976,
+      "freeBefore": 52829851648,
+      "removed": true,
+      "freeAfter": 55302057984,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    },
+    {
+      "name": "release-ui-audit-20261006",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\release-ui-audit-20261006",
+      "head": "27f7e00e70498ea6fe5b6ad2a64c4a1e4280f080",
+      "archiveProof": {
+        "ref": "refs/heads/archive/cleanup-overlays-20261023",
+        "commit": "60393ab8816a782aa1219ccf9b9886664855b195",
+        "baseRef": "refs/heads/preserved-bases/release-ui-audit-20261006",
+        "baseCommit": "27f7e00e70498ea6fe5b6ad2a64c4a1e4280f080"
+      },
+      "fileCount": 11644,
+      "logicalBytes": 3161631366,
+      "verifiedArchiveFiles": 20,
+      "time": 1792778609.2226403,
+      "freeBefore": 57641648128,
+      "removed": true,
+      "freeAfter": 60831264768,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    },
+    {
+      "name": "scene-assets-live-20260830",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\scene-assets-live-20260830",
+      "head": "f394e7c30138733a0104ef369e01f8b6f6d2d9df",
+      "archiveProof": {
+        "ref": "refs/heads/archive/cleanup-overlays-20261023",
+        "commit": "20968c866e8139224f00d88f078afab487664715",
+        "baseRef": "refs/heads/preserved-bases/scene-assets-live-20260830",
+        "baseCommit": "f394e7c30138733a0104ef369e01f8b6f6d2d9df"
+      },
+      "fileCount": 7197,
+      "logicalBytes": 2324325353,
+      "verifiedArchiveFiles": 24,
+      "time": 1792778538.791798,
+      "freeBefore": 55302057984,
+      "removed": true,
+      "freeAfter": 57644859392,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    },
+    {
+      "name": "tactile-settings-integration-20261002",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\tactile-settings-integration-20261002",
+      "head": "2257583bd376ea7be6b8bd0d6ca102b7d242c91e",
+      "archiveProof": {
+        "ref": "refs/heads/archive/preserved-learning-rewards-20261023-192613",
+        "commit": "623c67a5dddd6038ba6cfe85d9b65b58ac57a0d3",
+        "baseRef": "refs/heads/preserved-bases/tactile-settings-integration-20261002",
+        "baseCommit": "2257583bd376ea7be6b8bd0d6ca102b7d242c91e"
+      },
+      "fileCount": 21973,
+      "logicalBytes": 6822512350,
+      "verifiedArchiveFiles": 9382,
+      "time": 1792779830.089715,
+      "freeBefore": 104463716352,
+      "removed": true,
+      "freeAfter": 111330709504,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    }
+  ],
+  "protectedDependencies": {
+    "c-app-integration-20261012": "Lernen assets junction target",
+    "hanok-hwalju-20260928": "7 external Blender textures",
+    "hanok-warm-stone-20260923": "R12 mapping uses 103 Python source tools"
+  },
+  "preservedLocalPrimaryHead": "afd4c4dc524d89c316b23fd001dac37e087796cd",
+  "primaryStagedChangesLeftUntouched": 630,
+  "previousRetirements": {
+    "count": 17,
+    "lastApprovedEightObservedGainGiB": 12.5,
+    "recovery": "Earlier per-file receipts and content-addressed vault remain at local _codex_artifacts/worktree-retirement-20261023. These are separate from the feature remote archive."
+  },
+  "sourceBranchesAndStashes": "Preserved; no history rewrite, branch deletion or stash removal.",
+  "conversationTotalOldWorktreesRemoved": 29,
+  "verification": {
+    "removedCount": 10,
+    "registrationsBefore": 38,
+    "registrationsAfter": 28,
+    "removedPathsAndRegistrationsAbsent": true,
+    "otherRegistrationsUnchanged": true,
+    "primaryHeadUnchanged": "afd4c4dc524d89c316b23fd001dac37e087796cd",
+    "primaryStatusUnchanged": true,
+    "primaryIndexSha256Unchanged": "447cfaca5c6685e2c300229cecce67ad546d57c1258735f1156d7f0eea6b3597",
+    "existingStagedChanges": 630,
+    "sourceBranchesUnchanged": true,
+    "stashesUnchanged": true,
+    "protectedDirectoriesPresent": {
+      "c-app-integration-20261012": true,
+      "hanok-hwalju-20260928": true,
+      "hanok-warm-stone-20260923": true,
+      "lernen-approved-figma-20261018": true,
+      "spiele-approved-native-20261018": true,
+      "lernpfad-v2-20261023": true
+    },
+    "lernenAssetsJunctionTarget": "\\\\?\\C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012\\assets",
+    "globalNotice": "C:/dev/AGENTS.md"
+  },
+  "publicationCiEvidence": {
+    "commit": "3f4f957b67f2b760dd30a12e14392969ac0f518e",
+    "runUrl": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/40000612165",
+    "status": "completed",
+    "conclusion": "failure",
+    "jobs": [
+      {
+        "name": "Select required checks",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Workflow action pins",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Analyze & Build",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Asset pipeline gates",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Content validator (full content_factory suite)",
+        "status": "completed",
+        "conclusion": "failure"
+      }
+    ],
+    "knownFailure": {
+      "job": "Content validator (full content_factory suite)",
+      "contentTests": "1361 tests passed, 20 skipped",
+      "failure": "Post-job setup-python pip cache save failed because /home/runner/.cache/pip does not exist",
+      "pipelineChanged": false
+    }
+  },
+  "temporaryPolicyCheckout": {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023",
+    "cleanupGate": "Remove after publication and exact-main required checks; preserve source branch. Final local receipt records whether it was removed."
+  },
+  "followUpHanokV2Retirement": {
+    "worktrees": 2,
+    "removedRejectedImages": 1,
+    "removedLogicalBytes": 5124975795,
+    "observedFreeSpaceIncreaseBytes": 5237207040,
+    "details": "hanok_legacy_retirement_20261023.json"
+  }
+}

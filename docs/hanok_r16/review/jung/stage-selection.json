@@ -1,0 +1,4750 @@
+{
+  "key": "jung",
+  "buildingId": "jungmunganchae",
+  "name": "중문간채",
+  "selectorAuthority": "canonical-review catalog and preserved GLB/native explicit reviewStage",
+  "canonicalCatalogSha256": "4f511d3c06b1dcc995cdf94f578b70f400f0ca96bc14fcf65e689eacaec9c6d1",
+  "steps": [
+    {
+      "sequence": 1,
+      "processId": "ildu.jungmunganchae-site-route",
+      "label": "터와 통로",
+      "isFinal": false,
+      "visibleObjects": [],
+      "visibleOriginals": [],
+      "visibleProxies": [],
+      "newMembers": 0,
+      "newOriginalMembers": 0,
+      "visibleMembers": 0,
+      "visibleSetSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "noNewGeometry": true
+    },
+    {
+      "sequence": 2,
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "label": "돌기단",
+      "isFinal": false,
+      "visibleObjects": [
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.plinth cap",
+        "Jung.registered post.stone foot",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003"
+      ],
+      "visibleOriginals": [
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.plinth cap",
+        "Jung.registered post.stone foot",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003"
+      ],
+      "visibleProxies": [],
+      "newMembers": 41,
+      "newOriginalMembers": 41,
+      "visibleMembers": 41,
+      "visibleSetSha256": "223b0e41296651478e0bc8d3f46120d8c5dbc299d05ab574727519170a363f4a",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 3,
+      "processId": "ildu.jungmunganchae-posts",
+      "label": "기둥",
+      "isFinal": false,
+      "visibleObjects": [
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.plinth cap",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003"
+      ],
+      "visibleOriginals": [
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.plinth cap",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003"
+      ],
+      "visibleProxies": [],
+      "newMembers": 1,
+      "newOriginalMembers": 1,
+      "visibleMembers": 42,
+      "visibleSetSha256": "48122225d0badde7a71ed687627061b36f39b6f4e905d3eddc8b7160fd5eefeb",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 4,
+      "processId": "ildu.jungmunganchae-beams-purlins",
+      "label": "보와 도리",
+      "isFinal": false,
+      "visibleObjects": [
+        "Jung.attic strut",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.maru floor beam",
+        "Jung.plinth cap",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003"
+      ],
+      "visibleOriginals": [
+        "Jung.attic strut",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.maru floor beam",
+        "Jung.plinth cap",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003"
+      ],
+      "visibleProxies": [],
+      "newMembers": 6,
+      "newOriginalMembers": 6,
+      "visibleMembers": 48,
+      "visibleSetSha256": "9dbf1582b0f4c261bfaf5cbda3c3d99614a3a45b345cc55ac78b2ccb83de95bd",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 5,
+      "processId": "ildu.jungmunganchae-rafters-eaves",
+      "label": "서까래와 처마",
+      "isFinal": false,
+      "visibleObjects": [
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.maru floor beam",
+        "Jung.plinth cap",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung.main roof.eave beam.square fascia"
+      ],
+      "visibleOriginals": [
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.maru floor beam",
+        "Jung.plinth cap",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung.main roof.eave beam.square fascia"
+      ],
+      "visibleProxies": [],
+      "newMembers": 4,
+      "newOriginalMembers": 4,
+      "visibleMembers": 52,
+      "visibleSetSha256": "1ac2a5ccdd53faedeecfeedc4fcedf904b8926114f59f0637c21690d8f18dbe6",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 6,
+      "processId": "ildu.jungmunganchae-roof-bed",
+      "label": "지붕 바탕",
+      "isFinal": false,
+      "visibleObjects": [
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.maru floor beam",
+        "Jung.plinth cap",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "PhotoRepair.jung.roof lime backing",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung.main roof.eave beam.square fascia"
+      ],
+      "visibleOriginals": [
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.maru floor beam",
+        "Jung.plinth cap",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "PhotoRepair.jung.roof lime backing",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung.main roof.eave beam.square fascia"
+      ],
+      "visibleProxies": [],
+      "newMembers": 1,
+      "newOriginalMembers": 1,
+      "visibleMembers": 53,
+      "visibleSetSha256": "ccaa4b0d9522b528ca5bdd0a56c3cb6f84cca1219fb6d972617a82cb9fc92800",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 7,
+      "processId": "ildu.jungmunganchae-tiles",
+      "label": "기와",
+      "isFinal": false,
+      "visibleObjects": [
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof",
+        "Jung.main roof.001",
+        "Jung.main roof.002",
+        "Jung.main roof.003",
+        "Jung.main roof.004",
+        "Jung.main roof.005",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.main roof.ridge stack",
+        "Jung.main roof.ridge stack.001",
+        "Jung.main roof.ridge stack.002",
+        "Jung.main roof.ridge stack.003",
+        "Jung.main roof.round tile ends",
+        "Jung.maru floor beam",
+        "Jung.plinth cap",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "PhotoRepair.jung.roof lime backing",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung.main roof.eave beam.square fascia"
+      ],
+      "visibleOriginals": [
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof",
+        "Jung.main roof.001",
+        "Jung.main roof.002",
+        "Jung.main roof.003",
+        "Jung.main roof.004",
+        "Jung.main roof.005",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.main roof.ridge stack",
+        "Jung.main roof.ridge stack.001",
+        "Jung.main roof.ridge stack.002",
+        "Jung.main roof.ridge stack.003",
+        "Jung.main roof.round tile ends",
+        "Jung.maru floor beam",
+        "Jung.plinth cap",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "PhotoRepair.jung.roof lime backing",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung.main roof.eave beam.square fascia"
+      ],
+      "visibleProxies": [],
+      "newMembers": 11,
+      "newOriginalMembers": 11,
+      "visibleMembers": 64,
+      "visibleSetSha256": "4b9a1c7fafebc60662886233e957915a6bee1bea58f810985fb7330112d0c85b",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 8,
+      "processId": "ildu.jungmunganchae-room-walls",
+      "label": "방 벽체",
+      "isFinal": false,
+      "visibleObjects": [
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.ban-chim labelled cabinet",
+        "Jung.ban-chim recess face",
+        "Jung.ban-chim unresolved closed face",
+        "Jung.ban-chim unresolved closed face.001",
+        "Jung.ban-chim unresolved closed face.002",
+        "Jung.ban-chim unresolved closed face.003",
+        "Jung.ban-chim unresolved closed face.rail",
+        "Jung.ban-chim unresolved closed face.recessed backing",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof",
+        "Jung.main roof.001",
+        "Jung.main roof.002",
+        "Jung.main roof.003",
+        "Jung.main roof.004",
+        "Jung.main roof.005",
+        "Jung.main roof.gable timber",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.main roof.ridge stack",
+        "Jung.main roof.ridge stack.001",
+        "Jung.main roof.ridge stack.002",
+        "Jung.main roof.ridge stack.003",
+        "Jung.main roof.round tile ends",
+        "Jung.maru floor beam",
+        "Jung.plinth cap",
+        "Jung.rear attachment board panels",
+        "Jung.rear attachment board panels.001",
+        "Jung.rear attachment board panels.002",
+        "Jung.rear attachment board panels.003",
+        "Jung.rear attachment board panels.rail",
+        "Jung.rear attachment board panels.recessed backing",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "PhotoRepair.jung.roof lime backing",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung interior ceiling batten",
+        "Ref.Jung interior ceiling boards",
+        "Ref.Jung.main roof.eave beam.square fascia",
+        "V26.Jung.gate end wall boards",
+        "V26.Jung.gate end wall middle band",
+        "V26.Jung.gate end wall upper"
+      ],
+      "visibleOriginals": [
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.ban-chim labelled cabinet",
+        "Jung.ban-chim recess face",
+        "Jung.ban-chim unresolved closed face",
+        "Jung.ban-chim unresolved closed face.001",
+        "Jung.ban-chim unresolved closed face.002",
+        "Jung.ban-chim unresolved closed face.003",
+        "Jung.ban-chim unresolved closed face.rail",
+        "Jung.ban-chim unresolved closed face.recessed backing",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof",
+        "Jung.main roof.001",
+        "Jung.main roof.002",
+        "Jung.main roof.003",
+        "Jung.main roof.004",
+        "Jung.main roof.005",
+        "Jung.main roof.gable timber",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.main roof.ridge stack",
+        "Jung.main roof.ridge stack.001",
+        "Jung.main roof.ridge stack.002",
+        "Jung.main roof.ridge stack.003",
+        "Jung.main roof.round tile ends",
+        "Jung.maru floor beam",
+        "Jung.plinth cap",
+        "Jung.rear attachment board panels",
+        "Jung.rear attachment board panels.001",
+        "Jung.rear attachment board panels.002",
+        "Jung.rear attachment board panels.003",
+        "Jung.rear attachment board panels.rail",
+        "Jung.rear attachment board panels.recessed backing",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "PhotoRepair.jung.roof lime backing",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung interior ceiling batten",
+        "Ref.Jung interior ceiling boards",
+        "Ref.Jung.main roof.eave beam.square fascia",
+        "V26.Jung.gate end wall boards",
+        "V26.Jung.gate end wall middle band",
+        "V26.Jung.gate end wall upper"
+      ],
+      "visibleProxies": [],
+      "newMembers": 20,
+      "newOriginalMembers": 20,
+      "visibleMembers": 84,
+      "visibleSetSha256": "447a5b8d646435ac2f262b31917158426e3fd07ba64e2f21e2d308cfa1fc02b6",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 9,
+      "processId": "ildu.jungmunganchae-ondol-floors",
+      "label": "온돌과 바닥",
+      "isFinal": false,
+      "visibleObjects": [
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.ban-chim labelled cabinet",
+        "Jung.ban-chim recess face",
+        "Jung.ban-chim unresolved closed face",
+        "Jung.ban-chim unresolved closed face.001",
+        "Jung.ban-chim unresolved closed face.002",
+        "Jung.ban-chim unresolved closed face.003",
+        "Jung.ban-chim unresolved closed face.rail",
+        "Jung.ban-chim unresolved closed face.recessed backing",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof",
+        "Jung.main roof.001",
+        "Jung.main roof.002",
+        "Jung.main roof.003",
+        "Jung.main roof.004",
+        "Jung.main roof.005",
+        "Jung.main roof.gable timber",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.main roof.ridge stack",
+        "Jung.main roof.ridge stack.001",
+        "Jung.main roof.ridge stack.002",
+        "Jung.main roof.ridge stack.003",
+        "Jung.main roof.round tile ends",
+        "Jung.maru floor beam",
+        "Jung.plinth cap",
+        "Jung.rear attachment board panels",
+        "Jung.rear attachment board panels.001",
+        "Jung.rear attachment board panels.002",
+        "Jung.rear attachment board panels.003",
+        "Jung.rear attachment board panels.rail",
+        "Jung.rear attachment board panels.recessed backing",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "Jung.room subfloor infill",
+        "Jung.room1 floor",
+        "Jung.room2 floor",
+        "PhotoRepair.jung.roof lime backing",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung interior ceiling batten",
+        "Ref.Jung interior ceiling boards",
+        "Ref.Jung.main roof.eave beam.square fascia",
+        "V26.Jung.gate end wall boards",
+        "V26.Jung.gate end wall middle band",
+        "V26.Jung.gate end wall upper"
+      ],
+      "visibleOriginals": [
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.ban-chim labelled cabinet",
+        "Jung.ban-chim recess face",
+        "Jung.ban-chim unresolved closed face",
+        "Jung.ban-chim unresolved closed face.001",
+        "Jung.ban-chim unresolved closed face.002",
+        "Jung.ban-chim unresolved closed face.003",
+        "Jung.ban-chim unresolved closed face.rail",
+        "Jung.ban-chim unresolved closed face.recessed backing",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof",
+        "Jung.main roof.001",
+        "Jung.main roof.002",
+        "Jung.main roof.003",
+        "Jung.main roof.004",
+        "Jung.main roof.005",
+        "Jung.main roof.gable timber",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.main roof.ridge stack",
+        "Jung.main roof.ridge stack.001",
+        "Jung.main roof.ridge stack.002",
+        "Jung.main roof.ridge stack.003",
+        "Jung.main roof.round tile ends",
+        "Jung.maru floor beam",
+        "Jung.plinth cap",
+        "Jung.rear attachment board panels",
+        "Jung.rear attachment board panels.001",
+        "Jung.rear attachment board panels.002",
+        "Jung.rear attachment board panels.003",
+        "Jung.rear attachment board panels.rail",
+        "Jung.rear attachment board panels.recessed backing",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "Jung.room subfloor infill",
+        "Jung.room1 floor",
+        "Jung.room2 floor",
+        "PhotoRepair.jung.roof lime backing",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung interior ceiling batten",
+        "Ref.Jung interior ceiling boards",
+        "Ref.Jung.main roof.eave beam.square fascia",
+        "V26.Jung.gate end wall boards",
+        "V26.Jung.gate end wall middle band",
+        "V26.Jung.gate end wall upper"
+      ],
+      "visibleProxies": [],
+      "newMembers": 3,
+      "newOriginalMembers": 3,
+      "visibleMembers": 87,
+      "visibleSetSha256": "a909fa6b0cdc7fbd964e2cfb45b38f04de7b80557845294ffd2c4115eafe1474",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 10,
+      "processId": "ildu.jungmunganchae-open-maru",
+      "label": "열린 마루",
+      "isFinal": false,
+      "visibleObjects": [
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.ban-chim labelled cabinet",
+        "Jung.ban-chim recess face",
+        "Jung.ban-chim unresolved closed face",
+        "Jung.ban-chim unresolved closed face.001",
+        "Jung.ban-chim unresolved closed face.002",
+        "Jung.ban-chim unresolved closed face.003",
+        "Jung.ban-chim unresolved closed face.rail",
+        "Jung.ban-chim unresolved closed face.recessed backing",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof",
+        "Jung.main roof.001",
+        "Jung.main roof.002",
+        "Jung.main roof.003",
+        "Jung.main roof.004",
+        "Jung.main roof.005",
+        "Jung.main roof.gable timber",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.main roof.ridge stack",
+        "Jung.main roof.ridge stack.001",
+        "Jung.main roof.ridge stack.002",
+        "Jung.main roof.ridge stack.003",
+        "Jung.main roof.round tile ends",
+        "Jung.maru bearer",
+        "Jung.maru floor",
+        "Jung.maru floor beam",
+        "Jung.maru floor.001",
+        "Jung.maru floor.002",
+        "Jung.maru floor.003",
+        "Jung.plinth cap",
+        "Jung.rear attachment board panels",
+        "Jung.rear attachment board panels.001",
+        "Jung.rear attachment board panels.002",
+        "Jung.rear attachment board panels.003",
+        "Jung.rear attachment board panels.rail",
+        "Jung.rear attachment board panels.recessed backing",
+        "Jung.rear maru panel band",
+        "Jung.rear maru white panel",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "Jung.room subfloor infill",
+        "Jung.room1 floor",
+        "Jung.room2 floor",
+        "PhotoRepair.jung.roof lime backing",
+        "Ref.Jung exposed floor joists",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung interior ceiling batten",
+        "Ref.Jung interior ceiling boards",
+        "Ref.Jung.main roof.eave beam.square fascia",
+        "V26.Jung.gate end wall boards",
+        "V26.Jung.gate end wall middle band",
+        "V26.Jung.gate end wall upper"
+      ],
+      "visibleOriginals": [
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.ban-chim labelled cabinet",
+        "Jung.ban-chim recess face",
+        "Jung.ban-chim unresolved closed face",
+        "Jung.ban-chim unresolved closed face.001",
+        "Jung.ban-chim unresolved closed face.002",
+        "Jung.ban-chim unresolved closed face.003",
+        "Jung.ban-chim unresolved closed face.rail",
+        "Jung.ban-chim unresolved closed face.recessed backing",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof",
+        "Jung.main roof.001",
+        "Jung.main roof.002",
+        "Jung.main roof.003",
+        "Jung.main roof.004",
+        "Jung.main roof.005",
+        "Jung.main roof.gable timber",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.main roof.ridge stack",
+        "Jung.main roof.ridge stack.001",
+        "Jung.main roof.ridge stack.002",
+        "Jung.main roof.ridge stack.003",
+        "Jung.main roof.round tile ends",
+        "Jung.maru bearer",
+        "Jung.maru floor",
+        "Jung.maru floor beam",
+        "Jung.maru floor.001",
+        "Jung.maru floor.002",
+        "Jung.maru floor.003",
+        "Jung.plinth cap",
+        "Jung.rear attachment board panels",
+        "Jung.rear attachment board panels.001",
+        "Jung.rear attachment board panels.002",
+        "Jung.rear attachment board panels.003",
+        "Jung.rear attachment board panels.rail",
+        "Jung.rear attachment board panels.recessed backing",
+        "Jung.rear maru panel band",
+        "Jung.rear maru white panel",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "Jung.room subfloor infill",
+        "Jung.room1 floor",
+        "Jung.room2 floor",
+        "PhotoRepair.jung.roof lime backing",
+        "Ref.Jung exposed floor joists",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung interior ceiling batten",
+        "Ref.Jung interior ceiling boards",
+        "Ref.Jung.main roof.eave beam.square fascia",
+        "V26.Jung.gate end wall boards",
+        "V26.Jung.gate end wall middle band",
+        "V26.Jung.gate end wall upper"
+      ],
+      "visibleProxies": [],
+      "newMembers": 8,
+      "newOriginalMembers": 8,
+      "visibleMembers": 95,
+      "visibleSetSha256": "e526e3b555ba2acb270c93ddfa2cf861a30c42882d7012859aeae9c84f02346a",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 11,
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "label": "문과 창호",
+      "isFinal": false,
+      "visibleObjects": [
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.ban-chim labelled cabinet",
+        "Jung.ban-chim recess face",
+        "Jung.ban-chim unresolved closed face",
+        "Jung.ban-chim unresolved closed face.001",
+        "Jung.ban-chim unresolved closed face.002",
+        "Jung.ban-chim unresolved closed face.003",
+        "Jung.ban-chim unresolved closed face.rail",
+        "Jung.ban-chim unresolved closed face.recessed backing",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof",
+        "Jung.main roof.001",
+        "Jung.main roof.002",
+        "Jung.main roof.003",
+        "Jung.main roof.004",
+        "Jung.main roof.005",
+        "Jung.main roof.gable timber",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.main roof.ridge stack",
+        "Jung.main roof.ridge stack.001",
+        "Jung.main roof.ridge stack.002",
+        "Jung.main roof.ridge stack.003",
+        "Jung.main roof.round tile ends",
+        "Jung.maru bearer",
+        "Jung.maru floor",
+        "Jung.maru floor beam",
+        "Jung.maru floor.001",
+        "Jung.maru floor.002",
+        "Jung.maru floor.003",
+        "Jung.plinth cap",
+        "Jung.rear attachment board panels",
+        "Jung.rear attachment board panels.001",
+        "Jung.rear attachment board panels.002",
+        "Jung.rear attachment board panels.003",
+        "Jung.rear attachment board panels.rail",
+        "Jung.rear attachment board panels.recessed backing",
+        "Jung.rear maru panel band",
+        "Jung.rear maru white panel",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "Jung.room subfloor infill",
+        "Jung.room1 floor",
+        "Jung.room2 floor",
+        "PhotoRepair.jung.curved threshold",
+        "PhotoRepair.jung.passage outer jamb",
+        "PhotoRepair.jung.passage outer lintel",
+        "PhotoRepair.jung.roof lime backing",
+        "PhotoRepair.jung.wooden pivot peg",
+        "Ref.Jung exposed floor joists",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung interior ceiling batten",
+        "Ref.Jung interior ceiling boards",
+        "Ref.Jung.main roof.eave beam.square fascia",
+        "V26.Jung.WD01 door.leaf1.back rail",
+        "V26.Jung.WD01 door.leaf1.iron pull",
+        "V26.Jung.WD01 door.leaf1.plank",
+        "V26.Jung.WD01 door.leaf2.back rail",
+        "V26.Jung.WD01 door.leaf2.iron pull",
+        "V26.Jung.WD01 door.leaf2.plank",
+        "V26.Jung.WD01 gate jamb",
+        "V26.Jung.WD01 gate lintel",
+        "V26.Jung.WD01 gate upper closure",
+        "V26.Jung.WD02 door.leaf1.hanji backing",
+        "V26.Jung.WD02 door.leaf1.horizontal band",
+        "V26.Jung.WD02 door.leaf1.lock rail",
+        "V26.Jung.WD02 door.leaf1.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf1.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf1.rail",
+        "V26.Jung.WD02 door.leaf1.rear paper rail",
+        "V26.Jung.WD02 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf1.recessed lower board",
+        "V26.Jung.WD02 door.leaf1.stile",
+        "V26.Jung.WD02 door.leaf1.vertical sal",
+        "V26.Jung.WD02 door.leaf2.hanji backing",
+        "V26.Jung.WD02 door.leaf2.horizontal band",
+        "V26.Jung.WD02 door.leaf2.lock rail",
+        "V26.Jung.WD02 door.leaf2.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf2.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf2.rail",
+        "V26.Jung.WD02 door.leaf2.rear paper rail",
+        "V26.Jung.WD02 door.leaf2.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf2.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf2.recessed lower board",
+        "V26.Jung.WD02 door.leaf2.stile",
+        "V26.Jung.WD02 door.leaf2.vertical sal",
+        "V26.Jung.WD02 door.leaf3.hanji backing",
+        "V26.Jung.WD02 door.leaf3.horizontal band",
+        "V26.Jung.WD02 door.leaf3.lock rail",
+        "V26.Jung.WD02 door.leaf3.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf3.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf3.rail",
+        "V26.Jung.WD02 door.leaf3.rear paper rail",
+        "V26.Jung.WD02 door.leaf3.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf3.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf3.recessed lower board",
+        "V26.Jung.WD02 door.leaf3.stile",
+        "V26.Jung.WD02 door.leaf3.vertical sal",
+        "V26.Jung.WD02 door.leaf4.hanji backing",
+        "V26.Jung.WD02 door.leaf4.horizontal band",
+        "V26.Jung.WD02 door.leaf4.lock rail",
+        "V26.Jung.WD02 door.leaf4.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf4.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf4.rail",
+        "V26.Jung.WD02 door.leaf4.rear paper rail",
+        "V26.Jung.WD02 door.leaf4.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf4.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf4.recessed lower board",
+        "V26.Jung.WD02 door.leaf4.stile",
+        "V26.Jung.WD02 door.leaf4.vertical sal",
+        "V26.Jung.WD02 partition wall",
+        "V26.Jung.WD02 partition wall.head/sill",
+        "V26.Jung.WD02 partition wall.jamb",
+        "V26.Jung.WD03 door.leaf1.hanji backing",
+        "V26.Jung.WD03 door.leaf1.horizontal band",
+        "V26.Jung.WD03 door.leaf1.rail",
+        "V26.Jung.WD03 door.leaf1.rear paper rail",
+        "V26.Jung.WD03 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD03 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD03 door.leaf1.stile",
+        "V26.Jung.WD03 door.leaf1.vertical sal",
+        "V26.Jung.WD03 door.leaf2.hanji backing",
+        "V26.Jung.WD03 door.leaf2.horizontal band",
+        "V26.Jung.WD03 door.leaf2.rail",
+        "V26.Jung.WD03 door.leaf2.rear paper rail",
+        "V26.Jung.WD03 door.leaf2.rebated bead.rail",
+        "V26.Jung.WD03 door.leaf2.rebated bead.stile",
+        "V26.Jung.WD03 door.leaf2.stile",
+        "V26.Jung.WD03 door.leaf2.vertical sal",
+        "V26.Jung.WD03 rear room1 wall",
+        "V26.Jung.WD03 rear room1 wall.head/sill",
+        "V26.Jung.WD03 rear room1 wall.jamb",
+        "V26.Jung.WD04 door.leaf1.hanji backing",
+        "V26.Jung.WD04 door.leaf1.horizontal band",
+        "V26.Jung.WD04 door.leaf1.rail",
+        "V26.Jung.WD04 door.leaf1.rear paper rail",
+        "V26.Jung.WD04 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD04 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD04 door.leaf1.stile",
+        "V26.Jung.WD04 door.leaf1.vertical sal",
+        "V26.Jung.WD04 door.leaf2.hanji backing",
+        "V26.Jung.WD04 door.leaf2.horizontal band",
+        "V26.Jung.WD04 door.leaf2.rail",
+        "V26.Jung.WD04 door.leaf2.rear paper rail",
+        "V26.Jung.WD04 door.leaf2.rebated bead.rail",
+        "V26.Jung.WD04 door.leaf2.rebated bead.stile",
+        "V26.Jung.WD04 door.leaf2.stile",
+        "V26.Jung.WD04 door.leaf2.vertical sal",
+        "V26.Jung.WD04 front room1 wall",
+        "V26.Jung.WD04 front room1 wall.head/sill",
+        "V26.Jung.WD04 front room1 wall.jamb",
+        "V26.Jung.WD05 door.leaf1.hanji backing",
+        "V26.Jung.WD05 door.leaf1.horizontal band",
+        "V26.Jung.WD05 door.leaf1.rail",
+        "V26.Jung.WD05 door.leaf1.rear paper rail",
+        "V26.Jung.WD05 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD05 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD05 door.leaf1.stile",
+        "V26.Jung.WD05 door.leaf1.vertical sal",
+        "V26.Jung.WD05 partition wall",
+        "V26.Jung.WD05 partition wall.head/sill",
+        "V26.Jung.WD05 partition wall.jamb",
+        "V26.Jung.WD06 door.leaf1.boards",
+        "V26.Jung.WD06 door.leaf1.rail",
+        "V26.Jung.WD06 door.leaf1.stile",
+        "V26.Jung.WD06 partition wall",
+        "V26.Jung.WD06 partition wall.head/sill",
+        "V26.Jung.WD06 partition wall.jamb",
+        "V26.Jung.WD07 door.leaf1.hanji backing",
+        "V26.Jung.WD07 door.leaf1.horizontal band",
+        "V26.Jung.WD07 door.leaf1.rail",
+        "V26.Jung.WD07 door.leaf1.rear paper rail",
+        "V26.Jung.WD07 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD07 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD07 door.leaf1.stile",
+        "V26.Jung.WD07 door.leaf1.vertical sal",
+        "V26.Jung.WD07 rear room2 wall",
+        "V26.Jung.WD07 rear room2 wall.head/sill",
+        "V26.Jung.WD07 rear room2 wall.jamb",
+        "V26.Jung.WW01 front room2 wall",
+        "V26.Jung.WW01 front room2 wall.head/sill",
+        "V26.Jung.WW01 front room2 wall.jamb",
+        "V26.Jung.WW01 window bars",
+        "V26.Jung.WW01 window paper",
+        "V26.Jung.WW01 window.rail",
+        "V26.Jung.WW01 window.stile",
+        "V26.Jung.gate end wall boards",
+        "V26.Jung.gate end wall middle band",
+        "V26.Jung.gate end wall upper"
+      ],
+      "visibleOriginals": [
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.ban-chim labelled cabinet",
+        "Jung.ban-chim recess face",
+        "Jung.ban-chim unresolved closed face",
+        "Jung.ban-chim unresolved closed face.001",
+        "Jung.ban-chim unresolved closed face.002",
+        "Jung.ban-chim unresolved closed face.003",
+        "Jung.ban-chim unresolved closed face.rail",
+        "Jung.ban-chim unresolved closed face.recessed backing",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof",
+        "Jung.main roof.001",
+        "Jung.main roof.002",
+        "Jung.main roof.003",
+        "Jung.main roof.004",
+        "Jung.main roof.005",
+        "Jung.main roof.gable timber",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.main roof.ridge stack",
+        "Jung.main roof.ridge stack.001",
+        "Jung.main roof.ridge stack.002",
+        "Jung.main roof.ridge stack.003",
+        "Jung.main roof.round tile ends",
+        "Jung.maru bearer",
+        "Jung.maru floor",
+        "Jung.maru floor beam",
+        "Jung.maru floor.001",
+        "Jung.maru floor.002",
+        "Jung.maru floor.003",
+        "Jung.plinth cap",
+        "Jung.rear attachment board panels",
+        "Jung.rear attachment board panels.001",
+        "Jung.rear attachment board panels.002",
+        "Jung.rear attachment board panels.003",
+        "Jung.rear attachment board panels.rail",
+        "Jung.rear attachment board panels.recessed backing",
+        "Jung.rear maru panel band",
+        "Jung.rear maru white panel",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "Jung.room subfloor infill",
+        "Jung.room1 floor",
+        "Jung.room2 floor",
+        "PhotoRepair.jung.curved threshold",
+        "PhotoRepair.jung.passage outer jamb",
+        "PhotoRepair.jung.passage outer lintel",
+        "PhotoRepair.jung.roof lime backing",
+        "PhotoRepair.jung.wooden pivot peg",
+        "Ref.Jung exposed floor joists",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung interior ceiling batten",
+        "Ref.Jung interior ceiling boards",
+        "Ref.Jung.main roof.eave beam.square fascia",
+        "V26.Jung.WD01 door.leaf1.back rail",
+        "V26.Jung.WD01 door.leaf1.iron pull",
+        "V26.Jung.WD01 door.leaf1.plank",
+        "V26.Jung.WD01 door.leaf2.back rail",
+        "V26.Jung.WD01 door.leaf2.iron pull",
+        "V26.Jung.WD01 door.leaf2.plank",
+        "V26.Jung.WD01 gate jamb",
+        "V26.Jung.WD01 gate lintel",
+        "V26.Jung.WD01 gate upper closure",
+        "V26.Jung.WD02 door.leaf1.hanji backing",
+        "V26.Jung.WD02 door.leaf1.horizontal band",
+        "V26.Jung.WD02 door.leaf1.lock rail",
+        "V26.Jung.WD02 door.leaf1.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf1.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf1.rail",
+        "V26.Jung.WD02 door.leaf1.rear paper rail",
+        "V26.Jung.WD02 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf1.recessed lower board",
+        "V26.Jung.WD02 door.leaf1.stile",
+        "V26.Jung.WD02 door.leaf1.vertical sal",
+        "V26.Jung.WD02 door.leaf2.hanji backing",
+        "V26.Jung.WD02 door.leaf2.horizontal band",
+        "V26.Jung.WD02 door.leaf2.lock rail",
+        "V26.Jung.WD02 door.leaf2.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf2.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf2.rail",
+        "V26.Jung.WD02 door.leaf2.rear paper rail",
+        "V26.Jung.WD02 door.leaf2.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf2.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf2.recessed lower board",
+        "V26.Jung.WD02 door.leaf2.stile",
+        "V26.Jung.WD02 door.leaf2.vertical sal",
+        "V26.Jung.WD02 door.leaf3.hanji backing",
+        "V26.Jung.WD02 door.leaf3.horizontal band",
+        "V26.Jung.WD02 door.leaf3.lock rail",
+        "V26.Jung.WD02 door.leaf3.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf3.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf3.rail",
+        "V26.Jung.WD02 door.leaf3.rear paper rail",
+        "V26.Jung.WD02 door.leaf3.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf3.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf3.recessed lower board",
+        "V26.Jung.WD02 door.leaf3.stile",
+        "V26.Jung.WD02 door.leaf3.vertical sal",
+        "V26.Jung.WD02 door.leaf4.hanji backing",
+        "V26.Jung.WD02 door.leaf4.horizontal band",
+        "V26.Jung.WD02 door.leaf4.lock rail",
+        "V26.Jung.WD02 door.leaf4.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf4.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf4.rail",
+        "V26.Jung.WD02 door.leaf4.rear paper rail",
+        "V26.Jung.WD02 door.leaf4.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf4.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf4.recessed lower board",
+        "V26.Jung.WD02 door.leaf4.stile",
+        "V26.Jung.WD02 door.leaf4.vertical sal",
+        "V26.Jung.WD02 partition wall",
+        "V26.Jung.WD02 partition wall.head/sill",
+        "V26.Jung.WD02 partition wall.jamb",
+        "V26.Jung.WD03 door.leaf1.hanji backing",
+        "V26.Jung.WD03 door.leaf1.horizontal band",
+        "V26.Jung.WD03 door.leaf1.rail",
+        "V26.Jung.WD03 door.leaf1.rear paper rail",
+        "V26.Jung.WD03 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD03 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD03 door.leaf1.stile",
+        "V26.Jung.WD03 door.leaf1.vertical sal",
+        "V26.Jung.WD03 door.leaf2.hanji backing",
+        "V26.Jung.WD03 door.leaf2.horizontal band",
+        "V26.Jung.WD03 door.leaf2.rail",
+        "V26.Jung.WD03 door.leaf2.rear paper rail",
+        "V26.Jung.WD03 door.leaf2.rebated bead.rail",
+        "V26.Jung.WD03 door.leaf2.rebated bead.stile",
+        "V26.Jung.WD03 door.leaf2.stile",
+        "V26.Jung.WD03 door.leaf2.vertical sal",
+        "V26.Jung.WD03 rear room1 wall",
+        "V26.Jung.WD03 rear room1 wall.head/sill",
+        "V26.Jung.WD03 rear room1 wall.jamb",
+        "V26.Jung.WD04 door.leaf1.hanji backing",
+        "V26.Jung.WD04 door.leaf1.horizontal band",
+        "V26.Jung.WD04 door.leaf1.rail",
+        "V26.Jung.WD04 door.leaf1.rear paper rail",
+        "V26.Jung.WD04 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD04 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD04 door.leaf1.stile",
+        "V26.Jung.WD04 door.leaf1.vertical sal",
+        "V26.Jung.WD04 door.leaf2.hanji backing",
+        "V26.Jung.WD04 door.leaf2.horizontal band",
+        "V26.Jung.WD04 door.leaf2.rail",
+        "V26.Jung.WD04 door.leaf2.rear paper rail",
+        "V26.Jung.WD04 door.leaf2.rebated bead.rail",
+        "V26.Jung.WD04 door.leaf2.rebated bead.stile",
+        "V26.Jung.WD04 door.leaf2.stile",
+        "V26.Jung.WD04 door.leaf2.vertical sal",
+        "V26.Jung.WD04 front room1 wall",
+        "V26.Jung.WD04 front room1 wall.head/sill",
+        "V26.Jung.WD04 front room1 wall.jamb",
+        "V26.Jung.WD05 door.leaf1.hanji backing",
+        "V26.Jung.WD05 door.leaf1.horizontal band",
+        "V26.Jung.WD05 door.leaf1.rail",
+        "V26.Jung.WD05 door.leaf1.rear paper rail",
+        "V26.Jung.WD05 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD05 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD05 door.leaf1.stile",
+        "V26.Jung.WD05 door.leaf1.vertical sal",
+        "V26.Jung.WD05 partition wall",
+        "V26.Jung.WD05 partition wall.head/sill",
+        "V26.Jung.WD05 partition wall.jamb",
+        "V26.Jung.WD06 door.leaf1.boards",
+        "V26.Jung.WD06 door.leaf1.rail",
+        "V26.Jung.WD06 door.leaf1.stile",
+        "V26.Jung.WD06 partition wall",
+        "V26.Jung.WD06 partition wall.head/sill",
+        "V26.Jung.WD06 partition wall.jamb",
+        "V26.Jung.WD07 door.leaf1.hanji backing",
+        "V26.Jung.WD07 door.leaf1.horizontal band",
+        "V26.Jung.WD07 door.leaf1.rail",
+        "V26.Jung.WD07 door.leaf1.rear paper rail",
+        "V26.Jung.WD07 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD07 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD07 door.leaf1.stile",
+        "V26.Jung.WD07 door.leaf1.vertical sal",
+        "V26.Jung.WD07 rear room2 wall",
+        "V26.Jung.WD07 rear room2 wall.head/sill",
+        "V26.Jung.WD07 rear room2 wall.jamb",
+        "V26.Jung.WW01 front room2 wall",
+        "V26.Jung.WW01 front room2 wall.head/sill",
+        "V26.Jung.WW01 front room2 wall.jamb",
+        "V26.Jung.WW01 window bars",
+        "V26.Jung.WW01 window paper",
+        "V26.Jung.WW01 window.rail",
+        "V26.Jung.WW01 window.stile",
+        "V26.Jung.gate end wall boards",
+        "V26.Jung.gate end wall middle band",
+        "V26.Jung.gate end wall upper"
+      ],
+      "visibleProxies": [],
+      "newMembers": 137,
+      "newOriginalMembers": 137,
+      "visibleMembers": 232,
+      "visibleSetSha256": "84a606cb00fb9a5c6929a5aa9fd904841b0c6f7bb4cd268862c4774ab14cf09f",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 12,
+      "processId": "ildu.jungmunganchae-complete-use",
+      "label": "완성 · 사용",
+      "isFinal": true,
+      "visibleObjects": [
+        "GyeCraft.jung.irregular paving 0",
+        "GyeCraft.jung.irregular paving 1",
+        "GyeCraft.jung.irregular paving 2",
+        "GyeCraft.jung.irregular paving 3",
+        "GyeCraft.jung.irregular paving 4",
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.ban-chim labelled cabinet",
+        "Jung.ban-chim recess face",
+        "Jung.ban-chim unresolved closed face",
+        "Jung.ban-chim unresolved closed face.001",
+        "Jung.ban-chim unresolved closed face.002",
+        "Jung.ban-chim unresolved closed face.003",
+        "Jung.ban-chim unresolved closed face.rail",
+        "Jung.ban-chim unresolved closed face.recessed backing",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof",
+        "Jung.main roof.001",
+        "Jung.main roof.002",
+        "Jung.main roof.003",
+        "Jung.main roof.004",
+        "Jung.main roof.005",
+        "Jung.main roof.gable timber",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.main roof.ridge stack",
+        "Jung.main roof.ridge stack.001",
+        "Jung.main roof.ridge stack.002",
+        "Jung.main roof.ridge stack.003",
+        "Jung.main roof.round tile ends",
+        "Jung.maru bearer",
+        "Jung.maru floor",
+        "Jung.maru floor beam",
+        "Jung.maru floor.001",
+        "Jung.maru floor.002",
+        "Jung.maru floor.003",
+        "Jung.plinth cap",
+        "Jung.rear attachment board panels",
+        "Jung.rear attachment board panels.001",
+        "Jung.rear attachment board panels.002",
+        "Jung.rear attachment board panels.003",
+        "Jung.rear attachment board panels.rail",
+        "Jung.rear attachment board panels.recessed backing",
+        "Jung.rear maru panel band",
+        "Jung.rear maru white panel",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "Jung.room subfloor infill",
+        "Jung.room1 floor",
+        "Jung.room2 floor",
+        "PhotoRepair.jung.curved threshold",
+        "PhotoRepair.jung.passage earth",
+        "PhotoRepair.jung.passage outer jamb",
+        "PhotoRepair.jung.passage outer lintel",
+        "PhotoRepair.jung.roof lime backing",
+        "PhotoRepair.jung.wooden pivot peg",
+        "Ref.Jung exposed floor joists",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung interior ceiling batten",
+        "Ref.Jung interior ceiling boards",
+        "Ref.Jung stored solid tiles",
+        "Ref.Jung stored solid tiles.001",
+        "Ref.Jung stored solid tiles.002",
+        "Ref.Jung stored solid tiles.003",
+        "Ref.Jung stored solid tiles.004",
+        "Ref.Jung stored solid tiles.005",
+        "Ref.Jung.main roof.eave beam.square fascia",
+        "V26.Jung.WD01 door.leaf1.back rail",
+        "V26.Jung.WD01 door.leaf1.iron pull",
+        "V26.Jung.WD01 door.leaf1.plank",
+        "V26.Jung.WD01 door.leaf2.back rail",
+        "V26.Jung.WD01 door.leaf2.iron pull",
+        "V26.Jung.WD01 door.leaf2.plank",
+        "V26.Jung.WD01 gate jamb",
+        "V26.Jung.WD01 gate lintel",
+        "V26.Jung.WD01 gate upper closure",
+        "V26.Jung.WD02 door.leaf1.hanji backing",
+        "V26.Jung.WD02 door.leaf1.horizontal band",
+        "V26.Jung.WD02 door.leaf1.lock rail",
+        "V26.Jung.WD02 door.leaf1.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf1.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf1.rail",
+        "V26.Jung.WD02 door.leaf1.rear paper rail",
+        "V26.Jung.WD02 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf1.recessed lower board",
+        "V26.Jung.WD02 door.leaf1.stile",
+        "V26.Jung.WD02 door.leaf1.vertical sal",
+        "V26.Jung.WD02 door.leaf2.hanji backing",
+        "V26.Jung.WD02 door.leaf2.horizontal band",
+        "V26.Jung.WD02 door.leaf2.lock rail",
+        "V26.Jung.WD02 door.leaf2.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf2.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf2.rail",
+        "V26.Jung.WD02 door.leaf2.rear paper rail",
+        "V26.Jung.WD02 door.leaf2.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf2.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf2.recessed lower board",
+        "V26.Jung.WD02 door.leaf2.stile",
+        "V26.Jung.WD02 door.leaf2.vertical sal",
+        "V26.Jung.WD02 door.leaf3.hanji backing",
+        "V26.Jung.WD02 door.leaf3.horizontal band",
+        "V26.Jung.WD02 door.leaf3.lock rail",
+        "V26.Jung.WD02 door.leaf3.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf3.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf3.rail",
+        "V26.Jung.WD02 door.leaf3.rear paper rail",
+        "V26.Jung.WD02 door.leaf3.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf3.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf3.recessed lower board",
+        "V26.Jung.WD02 door.leaf3.stile",
+        "V26.Jung.WD02 door.leaf3.vertical sal",
+        "V26.Jung.WD02 door.leaf4.hanji backing",
+        "V26.Jung.WD02 door.leaf4.horizontal band",
+        "V26.Jung.WD02 door.leaf4.lock rail",
+        "V26.Jung.WD02 door.leaf4.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf4.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf4.rail",
+        "V26.Jung.WD02 door.leaf4.rear paper rail",
+        "V26.Jung.WD02 door.leaf4.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf4.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf4.recessed lower board",
+        "V26.Jung.WD02 door.leaf4.stile",
+        "V26.Jung.WD02 door.leaf4.vertical sal",
+        "V26.Jung.WD02 partition wall",
+        "V26.Jung.WD02 partition wall.head/sill",
+        "V26.Jung.WD02 partition wall.jamb",
+        "V26.Jung.WD03 door.leaf1.hanji backing",
+        "V26.Jung.WD03 door.leaf1.horizontal band",
+        "V26.Jung.WD03 door.leaf1.rail",
+        "V26.Jung.WD03 door.leaf1.rear paper rail",
+        "V26.Jung.WD03 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD03 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD03 door.leaf1.stile",
+        "V26.Jung.WD03 door.leaf1.vertical sal",
+        "V26.Jung.WD03 door.leaf2.hanji backing",
+        "V26.Jung.WD03 door.leaf2.horizontal band",
+        "V26.Jung.WD03 door.leaf2.rail",
+        "V26.Jung.WD03 door.leaf2.rear paper rail",
+        "V26.Jung.WD03 door.leaf2.rebated bead.rail",
+        "V26.Jung.WD03 door.leaf2.rebated bead.stile",
+        "V26.Jung.WD03 door.leaf2.stile",
+        "V26.Jung.WD03 door.leaf2.vertical sal",
+        "V26.Jung.WD03 rear room1 wall",
+        "V26.Jung.WD03 rear room1 wall.head/sill",
+        "V26.Jung.WD03 rear room1 wall.jamb",
+        "V26.Jung.WD04 door.leaf1.hanji backing",
+        "V26.Jung.WD04 door.leaf1.horizontal band",
+        "V26.Jung.WD04 door.leaf1.rail",
+        "V26.Jung.WD04 door.leaf1.rear paper rail",
+        "V26.Jung.WD04 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD04 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD04 door.leaf1.stile",
+        "V26.Jung.WD04 door.leaf1.vertical sal",
+        "V26.Jung.WD04 door.leaf2.hanji backing",
+        "V26.Jung.WD04 door.leaf2.horizontal band",
+        "V26.Jung.WD04 door.leaf2.rail",
+        "V26.Jung.WD04 door.leaf2.rear paper rail",
+        "V26.Jung.WD04 door.leaf2.rebated bead.rail",
+        "V26.Jung.WD04 door.leaf2.rebated bead.stile",
+        "V26.Jung.WD04 door.leaf2.stile",
+        "V26.Jung.WD04 door.leaf2.vertical sal",
+        "V26.Jung.WD04 front room1 wall",
+        "V26.Jung.WD04 front room1 wall.head/sill",
+        "V26.Jung.WD04 front room1 wall.jamb",
+        "V26.Jung.WD05 door.leaf1.hanji backing",
+        "V26.Jung.WD05 door.leaf1.horizontal band",
+        "V26.Jung.WD05 door.leaf1.rail",
+        "V26.Jung.WD05 door.leaf1.rear paper rail",
+        "V26.Jung.WD05 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD05 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD05 door.leaf1.stile",
+        "V26.Jung.WD05 door.leaf1.vertical sal",
+        "V26.Jung.WD05 partition wall",
+        "V26.Jung.WD05 partition wall.head/sill",
+        "V26.Jung.WD05 partition wall.jamb",
+        "V26.Jung.WD06 door.leaf1.boards",
+        "V26.Jung.WD06 door.leaf1.rail",
+        "V26.Jung.WD06 door.leaf1.stile",
+        "V26.Jung.WD06 partition wall",
+        "V26.Jung.WD06 partition wall.head/sill",
+        "V26.Jung.WD06 partition wall.jamb",
+        "V26.Jung.WD07 door.leaf1.hanji backing",
+        "V26.Jung.WD07 door.leaf1.horizontal band",
+        "V26.Jung.WD07 door.leaf1.rail",
+        "V26.Jung.WD07 door.leaf1.rear paper rail",
+        "V26.Jung.WD07 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD07 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD07 door.leaf1.stile",
+        "V26.Jung.WD07 door.leaf1.vertical sal",
+        "V26.Jung.WD07 rear room2 wall",
+        "V26.Jung.WD07 rear room2 wall.head/sill",
+        "V26.Jung.WD07 rear room2 wall.jamb",
+        "V26.Jung.WW01 front room2 wall",
+        "V26.Jung.WW01 front room2 wall.head/sill",
+        "V26.Jung.WW01 front room2 wall.jamb",
+        "V26.Jung.WW01 window bars",
+        "V26.Jung.WW01 window paper",
+        "V26.Jung.WW01 window.rail",
+        "V26.Jung.WW01 window.stile",
+        "V26.Jung.gate end wall boards",
+        "V26.Jung.gate end wall middle band",
+        "V26.Jung.gate end wall upper"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.jung.irregular paving 0",
+        "GyeCraft.jung.irregular paving 1",
+        "GyeCraft.jung.irregular paving 2",
+        "GyeCraft.jung.irregular paving 3",
+        "GyeCraft.jung.irregular paving 4",
+        "Jung.attic rafter",
+        "Jung.attic strut",
+        "Jung.ban-chim labelled cabinet",
+        "Jung.ban-chim recess face",
+        "Jung.ban-chim unresolved closed face",
+        "Jung.ban-chim unresolved closed face.001",
+        "Jung.ban-chim unresolved closed face.002",
+        "Jung.ban-chim unresolved closed face.003",
+        "Jung.ban-chim unresolved closed face.rail",
+        "Jung.ban-chim unresolved closed face.recessed backing",
+        "Jung.cross beam",
+        "Jung.foundation core",
+        "Jung.front gate stone stairs.core",
+        "Jung.front gate stone stairs.core.001",
+        "Jung.front gate stone stairs.core.002",
+        "Jung.front gate stone stairs.core.003",
+        "Jung.front gate stone stairs.core.004",
+        "Jung.front gate stone stairs.worn tread",
+        "Jung.front gate stone stairs.worn tread.001",
+        "Jung.front gate stone stairs.worn tread.002",
+        "Jung.front gate stone stairs.worn tread.003",
+        "Jung.front gate stone stairs.worn tread.004",
+        "Jung.front maru stone stairs.core",
+        "Jung.front maru stone stairs.core.001",
+        "Jung.front maru stone stairs.core.002",
+        "Jung.front maru stone stairs.core.003",
+        "Jung.front maru stone stairs.worn tread",
+        "Jung.front maru stone stairs.worn tread.001",
+        "Jung.front maru stone stairs.worn tread.002",
+        "Jung.front maru stone stairs.worn tread.003",
+        "Jung.front maru stone stairs.worn tread.004",
+        "Jung.longitudinal beam",
+        "Jung.main roof",
+        "Jung.main roof.001",
+        "Jung.main roof.002",
+        "Jung.main roof.003",
+        "Jung.main roof.004",
+        "Jung.main roof.005",
+        "Jung.main roof.gable timber",
+        "Jung.main roof.lower exposed rafters",
+        "Jung.main roof.rafters",
+        "Jung.main roof.ridge stack",
+        "Jung.main roof.ridge stack.001",
+        "Jung.main roof.ridge stack.002",
+        "Jung.main roof.ridge stack.003",
+        "Jung.main roof.round tile ends",
+        "Jung.maru bearer",
+        "Jung.maru floor",
+        "Jung.maru floor beam",
+        "Jung.maru floor.001",
+        "Jung.maru floor.002",
+        "Jung.maru floor.003",
+        "Jung.plinth cap",
+        "Jung.rear attachment board panels",
+        "Jung.rear attachment board panels.001",
+        "Jung.rear attachment board panels.002",
+        "Jung.rear attachment board panels.003",
+        "Jung.rear attachment board panels.rail",
+        "Jung.rear attachment board panels.recessed backing",
+        "Jung.rear maru panel band",
+        "Jung.rear maru white panel",
+        "Jung.registered post.capital",
+        "Jung.registered post.capital tongue",
+        "Jung.registered post.stone foot",
+        "Jung.registered post.wood",
+        "Jung.room subfloor infill",
+        "Jung.room1 floor",
+        "Jung.room2 floor",
+        "PhotoRepair.jung.curved threshold",
+        "PhotoRepair.jung.passage earth",
+        "PhotoRepair.jung.passage outer jamb",
+        "PhotoRepair.jung.passage outer lintel",
+        "PhotoRepair.jung.roof lime backing",
+        "PhotoRepair.jung.wooden pivot peg",
+        "Ref.Jung exposed floor joists",
+        "Ref.Jung fieldstone plinth.face0",
+        "Ref.Jung fieldstone plinth.face0.001",
+        "Ref.Jung fieldstone plinth.face0.002",
+        "Ref.Jung fieldstone plinth.face0.003",
+        "Ref.Jung fieldstone plinth.face0.004",
+        "Ref.Jung fieldstone plinth.face1",
+        "Ref.Jung fieldstone plinth.face1.001",
+        "Ref.Jung fieldstone plinth.face1.002",
+        "Ref.Jung fieldstone plinth.face1.003",
+        "Ref.Jung fieldstone plinth.face1.004",
+        "Ref.Jung fieldstone plinth.face2",
+        "Ref.Jung fieldstone plinth.face2.001",
+        "Ref.Jung fieldstone plinth.face2.002",
+        "Ref.Jung fieldstone plinth.face2.003",
+        "Ref.Jung fieldstone plinth.face2.004",
+        "Ref.Jung fieldstone plinth.face3",
+        "Ref.Jung fieldstone plinth.face3.001",
+        "Ref.Jung fieldstone plinth.face3.002",
+        "Ref.Jung fieldstone plinth.face3.003",
+        "Ref.Jung interior ceiling batten",
+        "Ref.Jung interior ceiling boards",
+        "Ref.Jung stored solid tiles",
+        "Ref.Jung stored solid tiles.001",
+        "Ref.Jung stored solid tiles.002",
+        "Ref.Jung stored solid tiles.003",
+        "Ref.Jung stored solid tiles.004",
+        "Ref.Jung stored solid tiles.005",
+        "Ref.Jung.main roof.eave beam.square fascia",
+        "V26.Jung.WD01 door.leaf1.back rail",
+        "V26.Jung.WD01 door.leaf1.iron pull",
+        "V26.Jung.WD01 door.leaf1.plank",
+        "V26.Jung.WD01 door.leaf2.back rail",
+        "V26.Jung.WD01 door.leaf2.iron pull",
+        "V26.Jung.WD01 door.leaf2.plank",
+        "V26.Jung.WD01 gate jamb",
+        "V26.Jung.WD01 gate lintel",
+        "V26.Jung.WD01 gate upper closure",
+        "V26.Jung.WD02 door.leaf1.hanji backing",
+        "V26.Jung.WD02 door.leaf1.horizontal band",
+        "V26.Jung.WD02 door.leaf1.lock rail",
+        "V26.Jung.WD02 door.leaf1.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf1.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf1.rail",
+        "V26.Jung.WD02 door.leaf1.rear paper rail",
+        "V26.Jung.WD02 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf1.recessed lower board",
+        "V26.Jung.WD02 door.leaf1.stile",
+        "V26.Jung.WD02 door.leaf1.vertical sal",
+        "V26.Jung.WD02 door.leaf2.hanji backing",
+        "V26.Jung.WD02 door.leaf2.horizontal band",
+        "V26.Jung.WD02 door.leaf2.lock rail",
+        "V26.Jung.WD02 door.leaf2.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf2.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf2.rail",
+        "V26.Jung.WD02 door.leaf2.rear paper rail",
+        "V26.Jung.WD02 door.leaf2.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf2.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf2.recessed lower board",
+        "V26.Jung.WD02 door.leaf2.stile",
+        "V26.Jung.WD02 door.leaf2.vertical sal",
+        "V26.Jung.WD02 door.leaf3.hanji backing",
+        "V26.Jung.WD02 door.leaf3.horizontal band",
+        "V26.Jung.WD02 door.leaf3.lock rail",
+        "V26.Jung.WD02 door.leaf3.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf3.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf3.rail",
+        "V26.Jung.WD02 door.leaf3.rear paper rail",
+        "V26.Jung.WD02 door.leaf3.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf3.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf3.recessed lower board",
+        "V26.Jung.WD02 door.leaf3.stile",
+        "V26.Jung.WD02 door.leaf3.vertical sal",
+        "V26.Jung.WD02 door.leaf4.hanji backing",
+        "V26.Jung.WD02 door.leaf4.horizontal band",
+        "V26.Jung.WD02 door.leaf4.lock rail",
+        "V26.Jung.WD02 door.leaf4.lower moulding.rail",
+        "V26.Jung.WD02 door.leaf4.lower moulding.stile",
+        "V26.Jung.WD02 door.leaf4.rail",
+        "V26.Jung.WD02 door.leaf4.rear paper rail",
+        "V26.Jung.WD02 door.leaf4.rebated bead.rail",
+        "V26.Jung.WD02 door.leaf4.rebated bead.stile",
+        "V26.Jung.WD02 door.leaf4.recessed lower board",
+        "V26.Jung.WD02 door.leaf4.stile",
+        "V26.Jung.WD02 door.leaf4.vertical sal",
+        "V26.Jung.WD02 partition wall",
+        "V26.Jung.WD02 partition wall.head/sill",
+        "V26.Jung.WD02 partition wall.jamb",
+        "V26.Jung.WD03 door.leaf1.hanji backing",
+        "V26.Jung.WD03 door.leaf1.horizontal band",
+        "V26.Jung.WD03 door.leaf1.rail",
+        "V26.Jung.WD03 door.leaf1.rear paper rail",
+        "V26.Jung.WD03 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD03 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD03 door.leaf1.stile",
+        "V26.Jung.WD03 door.leaf1.vertical sal",
+        "V26.Jung.WD03 door.leaf2.hanji backing",
+        "V26.Jung.WD03 door.leaf2.horizontal band",
+        "V26.Jung.WD03 door.leaf2.rail",
+        "V26.Jung.WD03 door.leaf2.rear paper rail",
+        "V26.Jung.WD03 door.leaf2.rebated bead.rail",
+        "V26.Jung.WD03 door.leaf2.rebated bead.stile",
+        "V26.Jung.WD03 door.leaf2.stile",
+        "V26.Jung.WD03 door.leaf2.vertical sal",
+        "V26.Jung.WD03 rear room1 wall",
+        "V26.Jung.WD03 rear room1 wall.head/sill",
+        "V26.Jung.WD03 rear room1 wall.jamb",
+        "V26.Jung.WD04 door.leaf1.hanji backing",
+        "V26.Jung.WD04 door.leaf1.horizontal band",
+        "V26.Jung.WD04 door.leaf1.rail",
+        "V26.Jung.WD04 door.leaf1.rear paper rail",
+        "V26.Jung.WD04 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD04 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD04 door.leaf1.stile",
+        "V26.Jung.WD04 door.leaf1.vertical sal",
+        "V26.Jung.WD04 door.leaf2.hanji backing",
+        "V26.Jung.WD04 door.leaf2.horizontal band",
+        "V26.Jung.WD04 door.leaf2.rail",
+        "V26.Jung.WD04 door.leaf2.rear paper rail",
+        "V26.Jung.WD04 door.leaf2.rebated bead.rail",
+        "V26.Jung.WD04 door.leaf2.rebated bead.stile",
+        "V26.Jung.WD04 door.leaf2.stile",
+        "V26.Jung.WD04 door.leaf2.vertical sal",
+        "V26.Jung.WD04 front room1 wall",
+        "V26.Jung.WD04 front room1 wall.head/sill",
+        "V26.Jung.WD04 front room1 wall.jamb",
+        "V26.Jung.WD05 door.leaf1.hanji backing",
+        "V26.Jung.WD05 door.leaf1.horizontal band",
+        "V26.Jung.WD05 door.leaf1.rail",
+        "V26.Jung.WD05 door.leaf1.rear paper rail",
+        "V26.Jung.WD05 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD05 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD05 door.leaf1.stile",
+        "V26.Jung.WD05 door.leaf1.vertical sal",
+        "V26.Jung.WD05 partition wall",
+        "V26.Jung.WD05 partition wall.head/sill",
+        "V26.Jung.WD05 partition wall.jamb",
+        "V26.Jung.WD06 door.leaf1.boards",
+        "V26.Jung.WD06 door.leaf1.rail",
+        "V26.Jung.WD06 door.leaf1.stile",
+        "V26.Jung.WD06 partition wall",
+        "V26.Jung.WD06 partition wall.head/sill",
+        "V26.Jung.WD06 partition wall.jamb",
+        "V26.Jung.WD07 door.leaf1.hanji backing",
+        "V26.Jung.WD07 door.leaf1.horizontal band",
+        "V26.Jung.WD07 door.leaf1.rail",
+        "V26.Jung.WD07 door.leaf1.rear paper rail",
+        "V26.Jung.WD07 door.leaf1.rebated bead.rail",
+        "V26.Jung.WD07 door.leaf1.rebated bead.stile",
+        "V26.Jung.WD07 door.leaf1.stile",
+        "V26.Jung.WD07 door.leaf1.vertical sal",
+        "V26.Jung.WD07 rear room2 wall",
+        "V26.Jung.WD07 rear room2 wall.head/sill",
+        "V26.Jung.WD07 rear room2 wall.jamb",
+        "V26.Jung.WW01 front room2 wall",
+        "V26.Jung.WW01 front room2 wall.head/sill",
+        "V26.Jung.WW01 front room2 wall.jamb",
+        "V26.Jung.WW01 window bars",
+        "V26.Jung.WW01 window paper",
+        "V26.Jung.WW01 window.rail",
+        "V26.Jung.WW01 window.stile",
+        "V26.Jung.gate end wall boards",
+        "V26.Jung.gate end wall middle band",
+        "V26.Jung.gate end wall upper"
+      ],
+      "visibleProxies": [],
+      "newMembers": 12,
+      "newOriginalMembers": 12,
+      "visibleMembers": 244,
+      "visibleSetSha256": "ff6d2e8b0e99e12d8b05535aea28c118f64d1de71519dfb33207fc46035d385d",
+      "noNewGeometry": false
+    }
+  ],
+  "originalObjectCount": 244,
+  "proxyObjectCount": 0,
+  "baseline": {
+    "GyeCraft.jung.irregular paving 0": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.jung.irregular paving 1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.jung.irregular paving 2": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.jung.irregular paving 3": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.jung.irregular paving 4": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.attic rafter": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.attic strut": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.ban-chim labelled cabinet": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.ban-chim recess face": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.ban-chim unresolved closed face": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.ban-chim unresolved closed face.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.ban-chim unresolved closed face.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.ban-chim unresolved closed face.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.ban-chim unresolved closed face.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.ban-chim unresolved closed face.recessed backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.cross beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.foundation core": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front gate stone stairs.core": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front gate stone stairs.core.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front gate stone stairs.core.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front gate stone stairs.core.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front gate stone stairs.core.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front gate stone stairs.worn tread": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front gate stone stairs.worn tread.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front gate stone stairs.worn tread.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front gate stone stairs.worn tread.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front gate stone stairs.worn tread.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front maru stone stairs.core": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front maru stone stairs.core.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front maru stone stairs.core.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front maru stone stairs.core.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front maru stone stairs.worn tread": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front maru stone stairs.worn tread.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front maru stone stairs.worn tread.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front maru stone stairs.worn tread.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.front maru stone stairs.worn tread.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.longitudinal beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.main roof": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.main roof.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.main roof.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.main roof.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.main roof.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.main roof.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.main roof.gable timber": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.main roof.lower exposed rafters": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.main roof.rafters": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.main roof.ridge stack": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.main roof.ridge stack.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.main roof.ridge stack.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.main roof.ridge stack.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.main roof.round tile ends": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.maru bearer": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.maru floor": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.maru floor beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.maru floor.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.maru floor.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.maru floor.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.plinth cap": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.rear attachment board panels": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.rear attachment board panels.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.rear attachment board panels.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.rear attachment board panels.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.rear attachment board panels.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.rear attachment board panels.recessed backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.rear maru panel band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.rear maru white panel": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.registered post.capital": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.registered post.capital tongue": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.registered post.stone foot": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.registered post.wood": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.room subfloor infill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.room1 floor": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Jung.room2 floor": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "PhotoRepair.jung.curved threshold": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "PhotoRepair.jung.passage earth": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "PhotoRepair.jung.passage outer jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "PhotoRepair.jung.passage outer lintel": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "PhotoRepair.jung.roof lime backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "PhotoRepair.jung.wooden pivot peg": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung exposed floor joists": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face0": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face0.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face0.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face0.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face0.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face1.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face1.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face1.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face1.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face2": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face2.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face2.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face2.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face2.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face3": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face3.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face3.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung fieldstone plinth.face3.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung interior ceiling batten": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung interior ceiling boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung stored solid tiles": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung stored solid tiles.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung stored solid tiles.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung stored solid tiles.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung stored solid tiles.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung stored solid tiles.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Ref.Jung.main roof.eave beam.square fascia": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD01 door.leaf1.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD01 door.leaf1.iron pull": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD01 door.leaf1.plank": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD01 door.leaf2.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD01 door.leaf2.iron pull": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD01 door.leaf2.plank": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD01 gate jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD01 gate lintel": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD01 gate upper closure": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf1.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf1.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf1.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf1.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf1.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf1.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf1.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf1.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf1.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf1.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf2.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf2.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf2.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf2.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf2.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf2.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf2.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf2.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf2.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf2.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf2.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf2.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf3.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf3.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf3.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf3.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf3.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf3.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf3.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf3.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf3.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf3.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf3.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf3.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf4.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf4.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf4.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf4.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf4.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf4.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf4.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf4.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf4.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf4.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf4.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 door.leaf4.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 partition wall": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 partition wall.head/sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD02 partition wall.jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf1.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf1.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf1.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf1.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf1.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf1.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf2.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf2.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf2.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf2.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf2.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf2.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf2.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 door.leaf2.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 rear room1 wall": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 rear room1 wall.head/sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD03 rear room1 wall.jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf1.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf1.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf1.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf1.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf1.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf1.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf2.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf2.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf2.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf2.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf2.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf2.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf2.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 door.leaf2.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 front room1 wall": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 front room1 wall.head/sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD04 front room1 wall.jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD05 door.leaf1.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD05 door.leaf1.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD05 door.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD05 door.leaf1.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD05 door.leaf1.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD05 door.leaf1.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD05 door.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD05 door.leaf1.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD05 partition wall": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD05 partition wall.head/sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD05 partition wall.jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD06 door.leaf1.boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD06 door.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD06 door.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD06 partition wall": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD06 partition wall.head/sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD06 partition wall.jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD07 door.leaf1.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD07 door.leaf1.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD07 door.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD07 door.leaf1.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD07 door.leaf1.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD07 door.leaf1.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD07 door.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD07 door.leaf1.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD07 rear room2 wall": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD07 rear room2 wall.head/sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WD07 rear room2 wall.jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WW01 front room2 wall": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WW01 front room2 wall.head/sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WW01 front room2 wall.jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WW01 window bars": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WW01 window paper": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WW01 window.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.WW01 window.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.gate end wall boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.gate end wall middle band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V26.Jung.gate end wall upper": {
+      "hideRender": false,
+      "hideViewport": false
+    }
+  },
+  "requiredStage": {
+    "GyeCraft.jung.irregular paving 0": 12,
+    "GyeCraft.jung.irregular paving 1": 12,
+    "GyeCraft.jung.irregular paving 2": 12,
+    "GyeCraft.jung.irregular paving 3": 12,
+    "GyeCraft.jung.irregular paving 4": 12,
+    "Jung.attic rafter": 5,
+    "Jung.attic strut": 4,
+    "Jung.ban-chim labelled cabinet": 8,
+    "Jung.ban-chim recess face": 8,
+    "Jung.ban-chim unresolved closed face": 8,
+    "Jung.ban-chim unresolved closed face.001": 8,
+    "Jung.ban-chim unresolved closed face.002": 8,
+    "Jung.ban-chim unresolved closed face.003": 8,
+    "Jung.ban-chim unresolved closed face.rail": 8,
+    "Jung.ban-chim unresolved closed face.recessed backing": 8,
+    "Jung.cross beam": 4,
+    "Jung.foundation core": 2,
+    "Jung.front gate stone stairs.core": 2,
+    "Jung.front gate stone stairs.core.001": 2,
+    "Jung.front gate stone stairs.core.002": 2,
+    "Jung.front gate stone stairs.core.003": 2,
+    "Jung.front gate stone stairs.core.004": 2,
+    "Jung.front gate stone stairs.worn tread": 2,
+    "Jung.front gate stone stairs.worn tread.001": 2,
+    "Jung.front gate stone stairs.worn tread.002": 2,
+    "Jung.front gate stone stairs.worn tread.003": 2,
+    "Jung.front gate stone stairs.worn tread.004": 2,
+    "Jung.front maru stone stairs.core": 2,
+    "Jung.front maru stone stairs.core.001": 2,
+    "Jung.front maru stone stairs.core.002": 2,
+    "Jung.front maru stone stairs.core.003": 2,
+    "Jung.front maru stone stairs.worn tread": 2,
+    "Jung.front maru stone stairs.worn tread.001": 2,
+    "Jung.front maru stone stairs.worn tread.002": 2,
+    "Jung.front maru stone stairs.worn tread.003": 2,
+    "Jung.front maru stone stairs.worn tread.004": 2,
+    "Jung.longitudinal beam": 4,
+    "Jung.main roof": 7,
+    "Jung.main roof.001": 7,
+    "Jung.main roof.002": 7,
+    "Jung.main roof.003": 7,
+    "Jung.main roof.004": 7,
+    "Jung.main roof.005": 7,
+    "Jung.main roof.gable timber": 8,
+    "Jung.main roof.lower exposed rafters": 5,
+    "Jung.main roof.rafters": 5,
+    "Jung.main roof.ridge stack": 7,
+    "Jung.main roof.ridge stack.001": 7,
+    "Jung.main roof.ridge stack.002": 7,
+    "Jung.main roof.ridge stack.003": 7,
+    "Jung.main roof.round tile ends": 7,
+    "Jung.maru bearer": 10,
+    "Jung.maru floor": 10,
+    "Jung.maru floor beam": 4,
+    "Jung.maru floor.001": 10,
+    "Jung.maru floor.002": 10,
+    "Jung.maru floor.003": 10,
+    "Jung.plinth cap": 2,
+    "Jung.rear attachment board panels": 8,
+    "Jung.rear attachment board panels.001": 8,
+    "Jung.rear attachment board panels.002": 8,
+    "Jung.rear attachment board panels.003": 8,
+    "Jung.rear attachment board panels.rail": 8,
+    "Jung.rear attachment board panels.recessed backing": 8,
+    "Jung.rear maru panel band": 10,
+    "Jung.rear maru white panel": 10,
+    "Jung.registered post.capital": 4,
+    "Jung.registered post.capital tongue": 4,
+    "Jung.registered post.stone foot": 2,
+    "Jung.registered post.wood": 3,
+    "Jung.room subfloor infill": 9,
+    "Jung.room1 floor": 9,
+    "Jung.room2 floor": 9,
+    "PhotoRepair.jung.curved threshold": 11,
+    "PhotoRepair.jung.passage earth": 12,
+    "PhotoRepair.jung.passage outer jamb": 11,
+    "PhotoRepair.jung.passage outer lintel": 11,
+    "PhotoRepair.jung.roof lime backing": 6,
+    "PhotoRepair.jung.wooden pivot peg": 11,
+    "Ref.Jung exposed floor joists": 10,
+    "Ref.Jung fieldstone plinth.face0": 2,
+    "Ref.Jung fieldstone plinth.face0.001": 2,
+    "Ref.Jung fieldstone plinth.face0.002": 2,
+    "Ref.Jung fieldstone plinth.face0.003": 2,
+    "Ref.Jung fieldstone plinth.face0.004": 2,
+    "Ref.Jung fieldstone plinth.face1": 2,
+    "Ref.Jung fieldstone plinth.face1.001": 2,
+    "Ref.Jung fieldstone plinth.face1.002": 2,
+    "Ref.Jung fieldstone plinth.face1.003": 2,
+    "Ref.Jung fieldstone plinth.face1.004": 2,
+    "Ref.Jung fieldstone plinth.face2": 2,
+    "Ref.Jung fieldstone plinth.face2.001": 2,
+    "Ref.Jung fieldstone plinth.face2.002": 2,
+    "Ref.Jung fieldstone plinth.face2.003": 2,
+    "Ref.Jung fieldstone plinth.face2.004": 2,
+    "Ref.Jung fieldstone plinth.face3": 2,
+    "Ref.Jung fieldstone plinth.face3.001": 2,
+    "Ref.Jung fieldstone plinth.face3.002": 2,
+    "Ref.Jung fieldstone plinth.face3.003": 2,
+    "Ref.Jung interior ceiling batten": 8,
+    "Ref.Jung interior ceiling boards": 8,
+    "Ref.Jung stored solid tiles": 12,
+    "Ref.Jung stored solid tiles.001": 12,
+    "Ref.Jung stored solid tiles.002": 12,
+    "Ref.Jung stored solid tiles.003": 12,
+    "Ref.Jung stored solid tiles.004": 12,
+    "Ref.Jung stored solid tiles.005": 12,
+    "Ref.Jung.main roof.eave beam.square fascia": 5,
+    "V26.Jung.WD01 door.leaf1.back rail": 11,
+    "V26.Jung.WD01 door.leaf1.iron pull": 11,
+    "V26.Jung.WD01 door.leaf1.plank": 11,
+    "V26.Jung.WD01 door.leaf2.back rail": 11,
+    "V26.Jung.WD01 door.leaf2.iron pull": 11,
+    "V26.Jung.WD01 door.leaf2.plank": 11,
+    "V26.Jung.WD01 gate jamb": 11,
+    "V26.Jung.WD01 gate lintel": 11,
+    "V26.Jung.WD01 gate upper closure": 11,
+    "V26.Jung.WD02 door.leaf1.hanji backing": 11,
+    "V26.Jung.WD02 door.leaf1.horizontal band": 11,
+    "V26.Jung.WD02 door.leaf1.lock rail": 11,
+    "V26.Jung.WD02 door.leaf1.lower moulding.rail": 11,
+    "V26.Jung.WD02 door.leaf1.lower moulding.stile": 11,
+    "V26.Jung.WD02 door.leaf1.rail": 11,
+    "V26.Jung.WD02 door.leaf1.rear paper rail": 11,
+    "V26.Jung.WD02 door.leaf1.rebated bead.rail": 11,
+    "V26.Jung.WD02 door.leaf1.rebated bead.stile": 11,
+    "V26.Jung.WD02 door.leaf1.recessed lower board": 11,
+    "V26.Jung.WD02 door.leaf1.stile": 11,
+    "V26.Jung.WD02 door.leaf1.vertical sal": 11,
+    "V26.Jung.WD02 door.leaf2.hanji backing": 11,
+    "V26.Jung.WD02 door.leaf2.horizontal band": 11,
+    "V26.Jung.WD02 door.leaf2.lock rail": 11,
+    "V26.Jung.WD02 door.leaf2.lower moulding.rail": 11,
+    "V26.Jung.WD02 door.leaf2.lower moulding.stile": 11,
+    "V26.Jung.WD02 door.leaf2.rail": 11,
+    "V26.Jung.WD02 door.leaf2.rear paper rail": 11,
+    "V26.Jung.WD02 door.leaf2.rebated bead.rail": 11,
+    "V26.Jung.WD02 door.leaf2.rebated bead.stile": 11,
+    "V26.Jung.WD02 door.leaf2.recessed lower board": 11,
+    "V26.Jung.WD02 door.leaf2.stile": 11,
+    "V26.Jung.WD02 door.leaf2.vertical sal": 11,
+    "V26.Jung.WD02 door.leaf3.hanji backing": 11,
+    "V26.Jung.WD02 door.leaf3.horizontal band": 11,
+    "V26.Jung.WD02 door.leaf3.lock rail": 11,
+    "V26.Jung.WD02 door.leaf3.lower moulding.rail": 11,
+    "V26.Jung.WD02 door.leaf3.lower moulding.stile": 11,
+    "V26.Jung.WD02 door.leaf3.rail": 11,
+    "V26.Jung.WD02 door.leaf3.rear paper rail": 11,
+    "V26.Jung.WD02 door.leaf3.rebated bead.rail": 11,
+    "V26.Jung.WD02 door.leaf3.rebated bead.stile": 11,
+    "V26.Jung.WD02 door.leaf3.recessed lower board": 11,
+    "V26.Jung.WD02 door.leaf3.stile": 11,
+    "V26.Jung.WD02 door.leaf3.vertical sal": 11,
+    "V26.Jung.WD02 door.leaf4.hanji backing": 11,
+    "V26.Jung.WD02 door.leaf4.horizontal band": 11,
+    "V26.Jung.WD02 door.leaf4.lock rail": 11,
+    "V26.Jung.WD02 door.leaf4.lower moulding.rail": 11,
+    "V26.Jung.WD02 door.leaf4.lower moulding.stile": 11,
+    "V26.Jung.WD02 door.leaf4.rail": 11,
+    "V26.Jung.WD02 door.leaf4.rear paper rail": 11,
+    "V26.Jung.WD02 door.leaf4.rebated bead.rail": 11,
+    "V26.Jung.WD02 door.leaf4.rebated bead.stile": 11,
+    "V26.Jung.WD02 door.leaf4.recessed lower board": 11,
+    "V26.Jung.WD02 door.leaf4.stile": 11,
+    "V26.Jung.WD02 door.leaf4.vertical sal": 11,
+    "V26.Jung.WD02 partition wall": 11,
+    "V26.Jung.WD02 partition wall.head/sill": 11,
+    "V26.Jung.WD02 partition wall.jamb": 11,
+    "V26.Jung.WD03 door.leaf1.hanji backing": 11,
+    "V26.Jung.WD03 door.leaf1.horizontal band": 11,
+    "V26.Jung.WD03 door.leaf1.rail": 11,
+    "V26.Jung.WD03 door.leaf1.rear paper rail": 11,
+    "V26.Jung.WD03 door.leaf1.rebated bead.rail": 11,
+    "V26.Jung.WD03 door.leaf1.rebated bead.stile": 11,
+    "V26.Jung.WD03 door.leaf1.stile": 11,
+    "V26.Jung.WD03 door.leaf1.vertical sal": 11,
+    "V26.Jung.WD03 door.leaf2.hanji backing": 11,
+    "V26.Jung.WD03 door.leaf2.horizontal band": 11,
+    "V26.Jung.WD03 door.leaf2.rail": 11,
+    "V26.Jung.WD03 door.leaf2.rear paper rail": 11,
+    "V26.Jung.WD03 door.leaf2.rebated bead.rail": 11,
+    "V26.Jung.WD03 door.leaf2.rebated bead.stile": 11,
+    "V26.Jung.WD03 door.leaf2.stile": 11,
+    "V26.Jung.WD03 door.leaf2.vertical sal": 11,
+    "V26.Jung.WD03 rear room1 wall": 11,
+    "V26.Jung.WD03 rear room1 wall.head/sill": 11,
+    "V26.Jung.WD03 rear room1 wall.jamb": 11,
+    "V26.Jung.WD04 door.leaf1.hanji backing": 11,
+    "V26.Jung.WD04 door.leaf1.horizontal band": 11,
+    "V26.Jung.WD04 door.leaf1.rail": 11,
+    "V26.Jung.WD04 door.leaf1.rear paper rail": 11,
+    "V26.Jung.WD04 door.leaf1.rebated bead.rail": 11,
+    "V26.Jung.WD04 door.leaf1.rebated bead.stile": 11,
+    "V26.Jung.WD04 door.leaf1.stile": 11,
+    "V26.Jung.WD04 door.leaf1.vertical sal": 11,
+    "V26.Jung.WD04 door.leaf2.hanji backing": 11,
+    "V26.Jung.WD04 door.leaf2.horizontal band": 11,
+    "V26.Jung.WD04 door.leaf2.rail": 11,
+    "V26.Jung.WD04 door.leaf2.rear paper rail": 11,
+    "V26.Jung.WD04 door.leaf2.rebated bead.rail": 11,
+    "V26.Jung.WD04 door.leaf2.rebated bead.stile": 11,
+    "V26.Jung.WD04 door.leaf2.stile": 11,
+    "V26.Jung.WD04 door.leaf2.vertical sal": 11,
+    "V26.Jung.WD04 front room1 wall": 11,
+    "V26.Jung.WD04 front room1 wall.head/sill": 11,
+    "V26.Jung.WD04 front room1 wall.jamb": 11,
+    "V26.Jung.WD05 door.leaf1.hanji backing": 11,
+    "V26.Jung.WD05 door.leaf1.horizontal band": 11,
+    "V26.Jung.WD05 door.leaf1.rail": 11,
+    "V26.Jung.WD05 door.leaf1.rear paper rail": 11,
+    "V26.Jung.WD05 door.leaf1.rebated bead.rail": 11,
+    "V26.Jung.WD05 door.leaf1.rebated bead.stile": 11,
+    "V26.Jung.WD05 door.leaf1.stile": 11,
+    "V26.Jung.WD05 door.leaf1.vertical sal": 11,
+    "V26.Jung.WD05 partition wall": 11,
+    "V26.Jung.WD05 partition wall.head/sill": 11,
+    "V26.Jung.WD05 partition wall.jamb": 11,
+    "V26.Jung.WD06 door.leaf1.boards": 11,
+    "V26.Jung.WD06 door.leaf1.rail": 11,
+    "V26.Jung.WD06 door.leaf1.stile": 11,
+    "V26.Jung.WD06 partition wall": 11,
+    "V26.Jung.WD06 partition wall.head/sill": 11,
+    "V26.Jung.WD06 partition wall.jamb": 11,
+    "V26.Jung.WD07 door.leaf1.hanji backing": 11,
+    "V26.Jung.WD07 door.leaf1.horizontal band": 11,
+    "V26.Jung.WD07 door.leaf1.rail": 11,
+    "V26.Jung.WD07 door.leaf1.rear paper rail": 11,
+    "V26.Jung.WD07 door.leaf1.rebated bead.rail": 11,
+    "V26.Jung.WD07 door.leaf1.rebated bead.stile": 11,
+    "V26.Jung.WD07 door.leaf1.stile": 11,
+    "V26.Jung.WD07 door.leaf1.vertical sal": 11,
+    "V26.Jung.WD07 rear room2 wall": 11,
+    "V26.Jung.WD07 rear room2 wall.head/sill": 11,
+    "V26.Jung.WD07 rear room2 wall.jamb": 11,
+    "V26.Jung.WW01 front room2 wall": 11,
+    "V26.Jung.WW01 front room2 wall.head/sill": 11,
+    "V26.Jung.WW01 front room2 wall.jamb": 11,
+    "V26.Jung.WW01 window bars": 11,
+    "V26.Jung.WW01 window paper": 11,
+    "V26.Jung.WW01 window.rail": 11,
+    "V26.Jung.WW01 window.stile": 11,
+    "V26.Jung.gate end wall boards": 8,
+    "V26.Jung.gate end wall middle band": 8,
+    "V26.Jung.gate end wall upper": 8
+  },
+  "lineage": {
+    "GyeCraft.jung.irregular paving 0": {
+      "sourceObject": "GyeCraft.jung.irregular paving 0",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.jung.irregular paving 1": {
+      "sourceObject": "GyeCraft.jung.irregular paving 1",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.jung.irregular paving 2": {
+      "sourceObject": "GyeCraft.jung.irregular paving 2",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.jung.irregular paving 3": {
+      "sourceObject": "GyeCraft.jung.irregular paving 3",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.jung.irregular paving 4": {
+      "sourceObject": "GyeCraft.jung.irregular paving 4",
+      "processId": null,
+      "original": true
+    },
+    "Jung.attic rafter": {
+      "sourceObject": "Jung.attic rafter",
+      "processId": "ildu.jungmunganchae-rafters-eaves",
+      "original": true
+    },
+    "Jung.attic strut": {
+      "sourceObject": "Jung.attic strut",
+      "processId": "ildu.jungmunganchae-beams-purlins",
+      "original": true
+    },
+    "Jung.ban-chim labelled cabinet": {
+      "sourceObject": "Jung.ban-chim labelled cabinet",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.ban-chim recess face": {
+      "sourceObject": "Jung.ban-chim recess face",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.ban-chim unresolved closed face": {
+      "sourceObject": "Jung.ban-chim unresolved closed face",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.ban-chim unresolved closed face.001": {
+      "sourceObject": "Jung.ban-chim unresolved closed face.001",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.ban-chim unresolved closed face.002": {
+      "sourceObject": "Jung.ban-chim unresolved closed face.002",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.ban-chim unresolved closed face.003": {
+      "sourceObject": "Jung.ban-chim unresolved closed face.003",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.ban-chim unresolved closed face.rail": {
+      "sourceObject": "Jung.ban-chim unresolved closed face.rail",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.ban-chim unresolved closed face.recessed backing": {
+      "sourceObject": "Jung.ban-chim unresolved closed face.recessed backing",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.cross beam": {
+      "sourceObject": "Jung.cross beam",
+      "processId": "ildu.jungmunganchae-beams-purlins",
+      "original": true
+    },
+    "Jung.foundation core": {
+      "sourceObject": "Jung.foundation core",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front gate stone stairs.core": {
+      "sourceObject": "Jung.front gate stone stairs.core",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front gate stone stairs.core.001": {
+      "sourceObject": "Jung.front gate stone stairs.core.001",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front gate stone stairs.core.002": {
+      "sourceObject": "Jung.front gate stone stairs.core.002",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front gate stone stairs.core.003": {
+      "sourceObject": "Jung.front gate stone stairs.core.003",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front gate stone stairs.core.004": {
+      "sourceObject": "Jung.front gate stone stairs.core.004",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front gate stone stairs.worn tread": {
+      "sourceObject": "Jung.front gate stone stairs.worn tread",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front gate stone stairs.worn tread.001": {
+      "sourceObject": "Jung.front gate stone stairs.worn tread.001",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front gate stone stairs.worn tread.002": {
+      "sourceObject": "Jung.front gate stone stairs.worn tread.002",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front gate stone stairs.worn tread.003": {
+      "sourceObject": "Jung.front gate stone stairs.worn tread.003",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front gate stone stairs.worn tread.004": {
+      "sourceObject": "Jung.front gate stone stairs.worn tread.004",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front maru stone stairs.core": {
+      "sourceObject": "Jung.front maru stone stairs.core",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front maru stone stairs.core.001": {
+      "sourceObject": "Jung.front maru stone stairs.core.001",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front maru stone stairs.core.002": {
+      "sourceObject": "Jung.front maru stone stairs.core.002",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front maru stone stairs.core.003": {
+      "sourceObject": "Jung.front maru stone stairs.core.003",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front maru stone stairs.worn tread": {
+      "sourceObject": "Jung.front maru stone stairs.worn tread",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front maru stone stairs.worn tread.001": {
+      "sourceObject": "Jung.front maru stone stairs.worn tread.001",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front maru stone stairs.worn tread.002": {
+      "sourceObject": "Jung.front maru stone stairs.worn tread.002",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front maru stone stairs.worn tread.003": {
+      "sourceObject": "Jung.front maru stone stairs.worn tread.003",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.front maru stone stairs.worn tread.004": {
+      "sourceObject": "Jung.front maru stone stairs.worn tread.004",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.longitudinal beam": {
+      "sourceObject": "Jung.longitudinal beam",
+      "processId": "ildu.jungmunganchae-beams-purlins",
+      "original": true
+    },
+    "Jung.main roof": {
+      "sourceObject": "Jung.main roof",
+      "processId": "ildu.jungmunganchae-tiles",
+      "original": true
+    },
+    "Jung.main roof.001": {
+      "sourceObject": "Jung.main roof.001",
+      "processId": "ildu.jungmunganchae-tiles",
+      "original": true
+    },
+    "Jung.main roof.002": {
+      "sourceObject": "Jung.main roof.002",
+      "processId": "ildu.jungmunganchae-tiles",
+      "original": true
+    },
+    "Jung.main roof.003": {
+      "sourceObject": "Jung.main roof.003",
+      "processId": "ildu.jungmunganchae-tiles",
+      "original": true
+    },
+    "Jung.main roof.004": {
+      "sourceObject": "Jung.main roof.004",
+      "processId": "ildu.jungmunganchae-tiles",
+      "original": true
+    },
+    "Jung.main roof.005": {
+      "sourceObject": "Jung.main roof.005",
+      "processId": "ildu.jungmunganchae-tiles",
+      "original": true
+    },
+    "Jung.main roof.gable timber": {
+      "sourceObject": "Jung.main roof.gable timber",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.main roof.lower exposed rafters": {
+      "sourceObject": "Jung.main roof.lower exposed rafters",
+      "processId": "ildu.jungmunganchae-rafters-eaves",
+      "original": true
+    },
+    "Jung.main roof.rafters": {
+      "sourceObject": "Jung.main roof.rafters",
+      "processId": "ildu.jungmunganchae-rafters-eaves",
+      "original": true
+    },
+    "Jung.main roof.ridge stack": {
+      "sourceObject": "Jung.main roof.ridge stack",
+      "processId": "ildu.jungmunganchae-tiles",
+      "original": true
+    },
+    "Jung.main roof.ridge stack.001": {
+      "sourceObject": "Jung.main roof.ridge stack.001",
+      "processId": "ildu.jungmunganchae-tiles",
+      "original": true
+    },
+    "Jung.main roof.ridge stack.002": {
+      "sourceObject": "Jung.main roof.ridge stack.002",
+      "processId": "ildu.jungmunganchae-tiles",
+      "original": true
+    },
+    "Jung.main roof.ridge stack.003": {
+      "sourceObject": "Jung.main roof.ridge stack.003",
+      "processId": "ildu.jungmunganchae-tiles",
+      "original": true
+    },
+    "Jung.main roof.round tile ends": {
+      "sourceObject": "Jung.main roof.round tile ends",
+      "processId": "ildu.jungmunganchae-tiles",
+      "original": true
+    },
+    "Jung.maru bearer": {
+      "sourceObject": "Jung.maru bearer",
+      "processId": "ildu.jungmunganchae-open-maru",
+      "original": true
+    },
+    "Jung.maru floor": {
+      "sourceObject": "Jung.maru floor",
+      "processId": "ildu.jungmunganchae-open-maru",
+      "original": true
+    },
+    "Jung.maru floor beam": {
+      "sourceObject": "Jung.maru floor beam",
+      "processId": "ildu.jungmunganchae-beams-purlins",
+      "original": true
+    },
+    "Jung.maru floor.001": {
+      "sourceObject": "Jung.maru floor.001",
+      "processId": "ildu.jungmunganchae-open-maru",
+      "original": true
+    },
+    "Jung.maru floor.002": {
+      "sourceObject": "Jung.maru floor.002",
+      "processId": "ildu.jungmunganchae-open-maru",
+      "original": true
+    },
+    "Jung.maru floor.003": {
+      "sourceObject": "Jung.maru floor.003",
+      "processId": "ildu.jungmunganchae-open-maru",
+      "original": true
+    },
+    "Jung.plinth cap": {
+      "sourceObject": "Jung.plinth cap",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.rear attachment board panels": {
+      "sourceObject": "Jung.rear attachment board panels",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.rear attachment board panels.001": {
+      "sourceObject": "Jung.rear attachment board panels.001",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.rear attachment board panels.002": {
+      "sourceObject": "Jung.rear attachment board panels.002",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.rear attachment board panels.003": {
+      "sourceObject": "Jung.rear attachment board panels.003",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.rear attachment board panels.rail": {
+      "sourceObject": "Jung.rear attachment board panels.rail",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.rear attachment board panels.recessed backing": {
+      "sourceObject": "Jung.rear attachment board panels.recessed backing",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Jung.rear maru panel band": {
+      "sourceObject": "Jung.rear maru panel band",
+      "processId": "ildu.jungmunganchae-open-maru",
+      "original": true
+    },
+    "Jung.rear maru white panel": {
+      "sourceObject": "Jung.rear maru white panel",
+      "processId": "ildu.jungmunganchae-open-maru",
+      "original": true
+    },
+    "Jung.registered post.capital": {
+      "sourceObject": "Jung.registered post.capital",
+      "processId": "ildu.jungmunganchae-beams-purlins",
+      "original": true
+    },
+    "Jung.registered post.capital tongue": {
+      "sourceObject": "Jung.registered post.capital tongue",
+      "processId": "ildu.jungmunganchae-beams-purlins",
+      "original": true
+    },
+    "Jung.registered post.stone foot": {
+      "sourceObject": "Jung.registered post.stone foot",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Jung.registered post.wood": {
+      "sourceObject": "Jung.registered post.wood",
+      "processId": "ildu.jungmunganchae-posts",
+      "original": true
+    },
+    "Jung.room subfloor infill": {
+      "sourceObject": "Jung.room subfloor infill",
+      "processId": "ildu.jungmunganchae-ondol-floors",
+      "original": true
+    },
+    "Jung.room1 floor": {
+      "sourceObject": "Jung.room1 floor",
+      "processId": "ildu.jungmunganchae-ondol-floors",
+      "original": true
+    },
+    "Jung.room2 floor": {
+      "sourceObject": "Jung.room2 floor",
+      "processId": "ildu.jungmunganchae-ondol-floors",
+      "original": true
+    },
+    "PhotoRepair.jung.curved threshold": {
+      "sourceObject": "PhotoRepair.jung.curved threshold",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "PhotoRepair.jung.passage earth": {
+      "sourceObject": "PhotoRepair.jung.passage earth",
+      "processId": null,
+      "original": true
+    },
+    "PhotoRepair.jung.passage outer jamb": {
+      "sourceObject": "PhotoRepair.jung.passage outer jamb",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "PhotoRepair.jung.passage outer lintel": {
+      "sourceObject": "PhotoRepair.jung.passage outer lintel",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "PhotoRepair.jung.roof lime backing": {
+      "sourceObject": "PhotoRepair.jung.roof lime backing",
+      "processId": "ildu.jungmunganchae-roof-bed",
+      "original": true
+    },
+    "PhotoRepair.jung.wooden pivot peg": {
+      "sourceObject": "PhotoRepair.jung.wooden pivot peg",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "Ref.Jung exposed floor joists": {
+      "sourceObject": "Ref.Jung exposed floor joists",
+      "processId": "ildu.jungmunganchae-open-maru",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face0": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face0",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face0.001": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face0.001",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face0.002": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face0.002",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face0.003": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face0.003",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face0.004": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face0.004",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face1": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face1",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face1.001": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face1.001",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face1.002": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face1.002",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face1.003": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face1.003",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face1.004": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face1.004",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face2": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face2",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face2.001": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face2.001",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face2.002": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face2.002",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face2.003": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face2.003",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face2.004": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face2.004",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face3": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face3",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face3.001": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face3.001",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face3.002": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face3.002",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung fieldstone plinth.face3.003": {
+      "sourceObject": "Ref.Jung fieldstone plinth.face3.003",
+      "processId": "ildu.jungmunganchae-stone-foundation",
+      "original": true
+    },
+    "Ref.Jung interior ceiling batten": {
+      "sourceObject": "Ref.Jung interior ceiling batten",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Ref.Jung interior ceiling boards": {
+      "sourceObject": "Ref.Jung interior ceiling boards",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "Ref.Jung stored solid tiles": {
+      "sourceObject": "Ref.Jung stored solid tiles",
+      "processId": "ildu.jungmunganchae-complete-use",
+      "original": true
+    },
+    "Ref.Jung stored solid tiles.001": {
+      "sourceObject": "Ref.Jung stored solid tiles.001",
+      "processId": "ildu.jungmunganchae-complete-use",
+      "original": true
+    },
+    "Ref.Jung stored solid tiles.002": {
+      "sourceObject": "Ref.Jung stored solid tiles.002",
+      "processId": "ildu.jungmunganchae-complete-use",
+      "original": true
+    },
+    "Ref.Jung stored solid tiles.003": {
+      "sourceObject": "Ref.Jung stored solid tiles.003",
+      "processId": "ildu.jungmunganchae-complete-use",
+      "original": true
+    },
+    "Ref.Jung stored solid tiles.004": {
+      "sourceObject": "Ref.Jung stored solid tiles.004",
+      "processId": "ildu.jungmunganchae-complete-use",
+      "original": true
+    },
+    "Ref.Jung stored solid tiles.005": {
+      "sourceObject": "Ref.Jung stored solid tiles.005",
+      "processId": "ildu.jungmunganchae-complete-use",
+      "original": true
+    },
+    "Ref.Jung.main roof.eave beam.square fascia": {
+      "sourceObject": "Ref.Jung.main roof.eave beam.square fascia",
+      "processId": "ildu.jungmunganchae-rafters-eaves",
+      "original": true
+    },
+    "V26.Jung.WD01 door.leaf1.back rail": {
+      "sourceObject": "V26.Jung.WD01 door.leaf1.back rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD01 door.leaf1.iron pull": {
+      "sourceObject": "V26.Jung.WD01 door.leaf1.iron pull",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD01 door.leaf1.plank": {
+      "sourceObject": "V26.Jung.WD01 door.leaf1.plank",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD01 door.leaf2.back rail": {
+      "sourceObject": "V26.Jung.WD01 door.leaf2.back rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD01 door.leaf2.iron pull": {
+      "sourceObject": "V26.Jung.WD01 door.leaf2.iron pull",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD01 door.leaf2.plank": {
+      "sourceObject": "V26.Jung.WD01 door.leaf2.plank",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD01 gate jamb": {
+      "sourceObject": "V26.Jung.WD01 gate jamb",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD01 gate lintel": {
+      "sourceObject": "V26.Jung.WD01 gate lintel",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD01 gate upper closure": {
+      "sourceObject": "V26.Jung.WD01 gate upper closure",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf1.hanji backing": {
+      "sourceObject": "V26.Jung.WD02 door.leaf1.hanji backing",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf1.horizontal band": {
+      "sourceObject": "V26.Jung.WD02 door.leaf1.horizontal band",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf1.lock rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf1.lock rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf1.lower moulding.rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf1.lower moulding.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf1.lower moulding.stile": {
+      "sourceObject": "V26.Jung.WD02 door.leaf1.lower moulding.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf1.rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf1.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf1.rear paper rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf1.rear paper rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf1.rebated bead.rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf1.rebated bead.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf1.rebated bead.stile": {
+      "sourceObject": "V26.Jung.WD02 door.leaf1.rebated bead.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf1.recessed lower board": {
+      "sourceObject": "V26.Jung.WD02 door.leaf1.recessed lower board",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf1.stile": {
+      "sourceObject": "V26.Jung.WD02 door.leaf1.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf1.vertical sal": {
+      "sourceObject": "V26.Jung.WD02 door.leaf1.vertical sal",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf2.hanji backing": {
+      "sourceObject": "V26.Jung.WD02 door.leaf2.hanji backing",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf2.horizontal band": {
+      "sourceObject": "V26.Jung.WD02 door.leaf2.horizontal band",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf2.lock rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf2.lock rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf2.lower moulding.rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf2.lower moulding.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf2.lower moulding.stile": {
+      "sourceObject": "V26.Jung.WD02 door.leaf2.lower moulding.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf2.rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf2.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf2.rear paper rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf2.rear paper rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf2.rebated bead.rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf2.rebated bead.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf2.rebated bead.stile": {
+      "sourceObject": "V26.Jung.WD02 door.leaf2.rebated bead.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf2.recessed lower board": {
+      "sourceObject": "V26.Jung.WD02 door.leaf2.recessed lower board",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf2.stile": {
+      "sourceObject": "V26.Jung.WD02 door.leaf2.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf2.vertical sal": {
+      "sourceObject": "V26.Jung.WD02 door.leaf2.vertical sal",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf3.hanji backing": {
+      "sourceObject": "V26.Jung.WD02 door.leaf3.hanji backing",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf3.horizontal band": {
+      "sourceObject": "V26.Jung.WD02 door.leaf3.horizontal band",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf3.lock rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf3.lock rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf3.lower moulding.rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf3.lower moulding.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf3.lower moulding.stile": {
+      "sourceObject": "V26.Jung.WD02 door.leaf3.lower moulding.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf3.rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf3.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf3.rear paper rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf3.rear paper rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf3.rebated bead.rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf3.rebated bead.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf3.rebated bead.stile": {
+      "sourceObject": "V26.Jung.WD02 door.leaf3.rebated bead.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf3.recessed lower board": {
+      "sourceObject": "V26.Jung.WD02 door.leaf3.recessed lower board",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf3.stile": {
+      "sourceObject": "V26.Jung.WD02 door.leaf3.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf3.vertical sal": {
+      "sourceObject": "V26.Jung.WD02 door.leaf3.vertical sal",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf4.hanji backing": {
+      "sourceObject": "V26.Jung.WD02 door.leaf4.hanji backing",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf4.horizontal band": {
+      "sourceObject": "V26.Jung.WD02 door.leaf4.horizontal band",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf4.lock rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf4.lock rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf4.lower moulding.rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf4.lower moulding.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf4.lower moulding.stile": {
+      "sourceObject": "V26.Jung.WD02 door.leaf4.lower moulding.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf4.rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf4.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf4.rear paper rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf4.rear paper rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf4.rebated bead.rail": {
+      "sourceObject": "V26.Jung.WD02 door.leaf4.rebated bead.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf4.rebated bead.stile": {
+      "sourceObject": "V26.Jung.WD02 door.leaf4.rebated bead.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf4.recessed lower board": {
+      "sourceObject": "V26.Jung.WD02 door.leaf4.recessed lower board",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf4.stile": {
+      "sourceObject": "V26.Jung.WD02 door.leaf4.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 door.leaf4.vertical sal": {
+      "sourceObject": "V26.Jung.WD02 door.leaf4.vertical sal",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 partition wall": {
+      "sourceObject": "V26.Jung.WD02 partition wall",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 partition wall.head/sill": {
+      "sourceObject": "V26.Jung.WD02 partition wall.head/sill",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD02 partition wall.jamb": {
+      "sourceObject": "V26.Jung.WD02 partition wall.jamb",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf1.hanji backing": {
+      "sourceObject": "V26.Jung.WD03 door.leaf1.hanji backing",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf1.horizontal band": {
+      "sourceObject": "V26.Jung.WD03 door.leaf1.horizontal band",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf1.rail": {
+      "sourceObject": "V26.Jung.WD03 door.leaf1.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf1.rear paper rail": {
+      "sourceObject": "V26.Jung.WD03 door.leaf1.rear paper rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf1.rebated bead.rail": {
+      "sourceObject": "V26.Jung.WD03 door.leaf1.rebated bead.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf1.rebated bead.stile": {
+      "sourceObject": "V26.Jung.WD03 door.leaf1.rebated bead.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf1.stile": {
+      "sourceObject": "V26.Jung.WD03 door.leaf1.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf1.vertical sal": {
+      "sourceObject": "V26.Jung.WD03 door.leaf1.vertical sal",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf2.hanji backing": {
+      "sourceObject": "V26.Jung.WD03 door.leaf2.hanji backing",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf2.horizontal band": {
+      "sourceObject": "V26.Jung.WD03 door.leaf2.horizontal band",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf2.rail": {
+      "sourceObject": "V26.Jung.WD03 door.leaf2.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf2.rear paper rail": {
+      "sourceObject": "V26.Jung.WD03 door.leaf2.rear paper rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf2.rebated bead.rail": {
+      "sourceObject": "V26.Jung.WD03 door.leaf2.rebated bead.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf2.rebated bead.stile": {
+      "sourceObject": "V26.Jung.WD03 door.leaf2.rebated bead.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf2.stile": {
+      "sourceObject": "V26.Jung.WD03 door.leaf2.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 door.leaf2.vertical sal": {
+      "sourceObject": "V26.Jung.WD03 door.leaf2.vertical sal",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 rear room1 wall": {
+      "sourceObject": "V26.Jung.WD03 rear room1 wall",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 rear room1 wall.head/sill": {
+      "sourceObject": "V26.Jung.WD03 rear room1 wall.head/sill",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD03 rear room1 wall.jamb": {
+      "sourceObject": "V26.Jung.WD03 rear room1 wall.jamb",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf1.hanji backing": {
+      "sourceObject": "V26.Jung.WD04 door.leaf1.hanji backing",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf1.horizontal band": {
+      "sourceObject": "V26.Jung.WD04 door.leaf1.horizontal band",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf1.rail": {
+      "sourceObject": "V26.Jung.WD04 door.leaf1.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf1.rear paper rail": {
+      "sourceObject": "V26.Jung.WD04 door.leaf1.rear paper rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf1.rebated bead.rail": {
+      "sourceObject": "V26.Jung.WD04 door.leaf1.rebated bead.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf1.rebated bead.stile": {
+      "sourceObject": "V26.Jung.WD04 door.leaf1.rebated bead.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf1.stile": {
+      "sourceObject": "V26.Jung.WD04 door.leaf1.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf1.vertical sal": {
+      "sourceObject": "V26.Jung.WD04 door.leaf1.vertical sal",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf2.hanji backing": {
+      "sourceObject": "V26.Jung.WD04 door.leaf2.hanji backing",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf2.horizontal band": {
+      "sourceObject": "V26.Jung.WD04 door.leaf2.horizontal band",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf2.rail": {
+      "sourceObject": "V26.Jung.WD04 door.leaf2.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf2.rear paper rail": {
+      "sourceObject": "V26.Jung.WD04 door.leaf2.rear paper rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf2.rebated bead.rail": {
+      "sourceObject": "V26.Jung.WD04 door.leaf2.rebated bead.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf2.rebated bead.stile": {
+      "sourceObject": "V26.Jung.WD04 door.leaf2.rebated bead.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf2.stile": {
+      "sourceObject": "V26.Jung.WD04 door.leaf2.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 door.leaf2.vertical sal": {
+      "sourceObject": "V26.Jung.WD04 door.leaf2.vertical sal",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 front room1 wall": {
+      "sourceObject": "V26.Jung.WD04 front room1 wall",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 front room1 wall.head/sill": {
+      "sourceObject": "V26.Jung.WD04 front room1 wall.head/sill",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD04 front room1 wall.jamb": {
+      "sourceObject": "V26.Jung.WD04 front room1 wall.jamb",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD05 door.leaf1.hanji backing": {
+      "sourceObject": "V26.Jung.WD05 door.leaf1.hanji backing",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD05 door.leaf1.horizontal band": {
+      "sourceObject": "V26.Jung.WD05 door.leaf1.horizontal band",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD05 door.leaf1.rail": {
+      "sourceObject": "V26.Jung.WD05 door.leaf1.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD05 door.leaf1.rear paper rail": {
+      "sourceObject": "V26.Jung.WD05 door.leaf1.rear paper rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD05 door.leaf1.rebated bead.rail": {
+      "sourceObject": "V26.Jung.WD05 door.leaf1.rebated bead.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD05 door.leaf1.rebated bead.stile": {
+      "sourceObject": "V26.Jung.WD05 door.leaf1.rebated bead.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD05 door.leaf1.stile": {
+      "sourceObject": "V26.Jung.WD05 door.leaf1.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD05 door.leaf1.vertical sal": {
+      "sourceObject": "V26.Jung.WD05 door.leaf1.vertical sal",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD05 partition wall": {
+      "sourceObject": "V26.Jung.WD05 partition wall",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD05 partition wall.head/sill": {
+      "sourceObject": "V26.Jung.WD05 partition wall.head/sill",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD05 partition wall.jamb": {
+      "sourceObject": "V26.Jung.WD05 partition wall.jamb",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD06 door.leaf1.boards": {
+      "sourceObject": "V26.Jung.WD06 door.leaf1.boards",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD06 door.leaf1.rail": {
+      "sourceObject": "V26.Jung.WD06 door.leaf1.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD06 door.leaf1.stile": {
+      "sourceObject": "V26.Jung.WD06 door.leaf1.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD06 partition wall": {
+      "sourceObject": "V26.Jung.WD06 partition wall",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD06 partition wall.head/sill": {
+      "sourceObject": "V26.Jung.WD06 partition wall.head/sill",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD06 partition wall.jamb": {
+      "sourceObject": "V26.Jung.WD06 partition wall.jamb",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD07 door.leaf1.hanji backing": {
+      "sourceObject": "V26.Jung.WD07 door.leaf1.hanji backing",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD07 door.leaf1.horizontal band": {
+      "sourceObject": "V26.Jung.WD07 door.leaf1.horizontal band",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD07 door.leaf1.rail": {
+      "sourceObject": "V26.Jung.WD07 door.leaf1.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD07 door.leaf1.rear paper rail": {
+      "sourceObject": "V26.Jung.WD07 door.leaf1.rear paper rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD07 door.leaf1.rebated bead.rail": {
+      "sourceObject": "V26.Jung.WD07 door.leaf1.rebated bead.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD07 door.leaf1.rebated bead.stile": {
+      "sourceObject": "V26.Jung.WD07 door.leaf1.rebated bead.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD07 door.leaf1.stile": {
+      "sourceObject": "V26.Jung.WD07 door.leaf1.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD07 door.leaf1.vertical sal": {
+      "sourceObject": "V26.Jung.WD07 door.leaf1.vertical sal",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD07 rear room2 wall": {
+      "sourceObject": "V26.Jung.WD07 rear room2 wall",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD07 rear room2 wall.head/sill": {
+      "sourceObject": "V26.Jung.WD07 rear room2 wall.head/sill",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WD07 rear room2 wall.jamb": {
+      "sourceObject": "V26.Jung.WD07 rear room2 wall.jamb",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WW01 front room2 wall": {
+      "sourceObject": "V26.Jung.WW01 front room2 wall",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WW01 front room2 wall.head/sill": {
+      "sourceObject": "V26.Jung.WW01 front room2 wall.head/sill",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WW01 front room2 wall.jamb": {
+      "sourceObject": "V26.Jung.WW01 front room2 wall.jamb",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WW01 window bars": {
+      "sourceObject": "V26.Jung.WW01 window bars",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WW01 window paper": {
+      "sourceObject": "V26.Jung.WW01 window paper",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WW01 window.rail": {
+      "sourceObject": "V26.Jung.WW01 window.rail",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.WW01 window.stile": {
+      "sourceObject": "V26.Jung.WW01 window.stile",
+      "processId": "ildu.jungmunganchae-gate-changho",
+      "original": true
+    },
+    "V26.Jung.gate end wall boards": {
+      "sourceObject": "V26.Jung.gate end wall boards",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "V26.Jung.gate end wall middle band": {
+      "sourceObject": "V26.Jung.gate end wall middle band",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    },
+    "V26.Jung.gate end wall upper": {
+      "sourceObject": "V26.Jung.gate end wall upper",
+      "processId": "ildu.jungmunganchae-room-walls",
+      "original": true
+    }
+  },
+  "nullProcessOriginals": [
+    "GyeCraft.jung.irregular paving 0",
+    "GyeCraft.jung.irregular paving 1",
+    "GyeCraft.jung.irregular paving 2",
+    "GyeCraft.jung.irregular paving 3",
+    "GyeCraft.jung.irregular paving 4",
+    "PhotoRepair.jung.passage earth"
+  ],
+  "legacyDisplayPolicyDifferences": [
+    {
+      "key": "jung",
+      "processId": "ildu.jungmunganchae-site-route",
+      "noNewCanonicalGLBGeometry": true,
+      "policyNoNewGeometry": false
+    }
+  ],
+  "legacyPolicyUnmodified": true,
+  "processIdsAndOrderPreserved": true,
+  "sourceDataEdited": false
+}

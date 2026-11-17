@@ -24,7 +24,7 @@ import 'package:ko_lernen_app/services/liked_content_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/confirmed_choice_action.dart';
-import 'package:ko_lernen_app/widgets/sori/chip.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_atelier_materials.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 
 import 'support/reward_preferences_platform.dart';
@@ -432,18 +432,14 @@ void main() {
         textPrefetcher: (_) async {},
       ),
     );
-    await _pumpUntil(
-      tester,
-      () => find.byType(SoriContentFeed).evaluate().isNotEmpty,
-    );
-    final oldLike = tester
-        .widget<SoriContentFeed>(find.byType(SoriContentFeed))
-        .onLike!;
-    await tester.tap(find.byKey(const Key('hangul-cards-mode-selector')));
+    final like = find.byKey(const Key('hangul-card-like'));
+    await _pumpUntil(tester, () => like.evaluate().isNotEmpty);
+    final oldLike = tester.widget<CAtelierTouch>(like).onTap;
+    await tester.tap(find.byKey(const Key('hangul-cards-selection')));
     await tester.pump();
-    tester
-        .widget<SoriChip>(find.byKey(const Key('hangul-cards-hard-only')))
-        .onTap!();
+    final filter = find.byKey(const Key('hangul-cards-hard-only'));
+    expect(tester.widget<CAtelierButton>(filter).onTap, isNotNull);
+    await tester.tap(filter);
     await _flush(tester);
 
     oldLike();

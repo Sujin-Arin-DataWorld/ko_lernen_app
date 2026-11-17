@@ -1,0 +1,161 @@
+{
+  "prompts": [
+    {
+      "output_sha256": "974dd07573e46a805b34689afbb8c65b18da1402ea46785d2108d9b5073b25ab",
+      "prompt": "Use case: stylized-concept. Asset type: character design reference for a Korean-learning mobile story RPG, NOT a UI screenshot. Premium sculpted 3D storybook rendering, soft neutral warm studio key light, material-specific detail. TRUE transparent RGBA background, no backdrop, no floor, no contact shadow plate, no checkerboard drawn into pixels, no captions, no text, no borders. Each view isolated with generous transparent gaps, no overlap, fully visible extremities. Same individual in every panel; never redesign identity. This is a production target reference, not proof of a measured 3D mesh. Create one WIDE reference sheet with THREE full-body views of TAEGO, the SAME mature white tiger: front standing, left side standing, three-quarter standing. Images1-2 control same adult face, blue eyes, pink-brown nose, white fur/charcoal stripe pattern; image3 exact THREE-curl teal/gold badge on same anatomical chest side. Same rounded sculpted fur clumps, no different stripe character from panel to panel, not a cub, not muscular photoreal wildlife. Base targets withers80cm, nose-rump120cm, tail85cm, preserve adult silhouette. Four legs and one long tail each. Slightly softened attentive eyes with living gaze, NOT identical vacant glare, no human smile, teeth, eyebrows, horns, wings, mane, aura or weapons. Body dimensions same in all three views; preserve badge position anatomically, do not mirror stripes.",
+      "tool": "built-in image_gen",
+      "transparent_background": true,
+      "references": [
+        {
+          "source_label": "00-original.png",
+          "sha256": "1a8d0bb2e3e11a39c6b055ac2736cc43222006d266ac35a80685f00d45a23e34"
+        },
+        {
+          "source_label": "01-fullbody-threequarter.png",
+          "sha256": "b75f7420670ad057daec1d21fc4e5bb5f5580f61b21e9db9dcc01403a79325e7"
+        },
+        {
+          "source_label": "guardian-emblem.png",
+          "sha256": "e341e9ede04c27594c1142d611371c904238b7ecd6082dd088841488fbeeb48f"
+        }
+      ]
+    },
+    {
+      "output_sha256": "b03e289e8f95842c2adee1795400dcc05dd1e08b8ec9e90a41c2e8d7cc053592",
+      "prompt": "Use case: stylized-concept. Asset type: character design reference for a Korean-learning mobile story RPG, NOT a UI screenshot. Premium sculpted 3D storybook rendering, soft neutral warm studio key light, material-specific detail. TRUE transparent RGBA background, no backdrop, no floor, no contact shadow plate, no checkerboard drawn into pixels, no captions, no text, no borders. Each view isolated with generous transparent gaps, no overlap, fully visible extremities. Same individual in every panel; never redesign identity. This is a production target reference, not proof of a measured 3D mesh. Create one WIDE model sheet with THREE full-body views of the SAME Dokkaebi: neutral FRONT empty hands, SIDE empty hands, three-quarter relaxed holding his club safely resting DOWN by his side. First image controls identity and costume, second is same-character neutral front support, third controls exact carved wooden club with teal/ivory curls, rope grip and navy/red tassels. One separate club only in final view. Approved body crown height120cm excluding hair/horns, head33.3cm (~3.6heads tall), shoulder39cm, inseam51cm, topknot adds18cm, EACH horn6cm. EXACTLY TWO ivory horns: one above left temple and one above right temple, smooth CENTER FOREHEAD BETWEEN them, NO center horn. Two pointed ears with gold hoop earrings, thick eyebrows, white sclera and dark brown irises, dark brown high tied topknot red tie, floral ivory headband. Cream textured jeogori, rust-orange waistcoat with teal/ivory curls and pale gold edging, navy rope belt/wristwraps, teal baggy trousers, ankle wraps, straw sandals. Keep hand anatomy natural. Each view exactly2arms2legs2horns. The side view can occlude far horn but never invent a third one. No magic aura, no flames, no human teen proportions.",
+      "tool": "built-in image_gen",
+      "transparent_background": true,
+      "references": [
+        {
+          "source_label": "전통 의상의 도깨비 전사-3.png",
+          "sha256": "087daa0348ffceb92209cda7aae2f2ba907c86ed799d63500ba9299085a211c3"
+        },
+        {
+          "source_label": "01-front.png",
+          "sha256": "bb5b2ce4bb2efba994ed8243f56c591b62b8dbafbd8cd1e792e9f9e3d896fa1a"
+        },
+        {
+          "source_label": "dokkaebi-club.png",
+          "sha256": "fabeb8f287f41376bc92f27ecf884aba307dbd7f56200eea842707467d900421"
+        }
+      ]
+    },
+    {
+      "output_sha256": "5fd44f94d862553ec12f27590bbe0412dc33b7aabfbcf462a184e72219fcad06",
+      "prompt": "Use case: stylized-concept. Asset type: character design reference for a Korean-learning mobile story RPG, NOT a UI screenshot. Premium sculpted 3D storybook rendering, soft neutral warm studio key light, material-specific detail. TRUE transparent RGBA background, no backdrop, no floor, no contact shadow plate, no checkerboard drawn into pixels, no captions, no text, no borders. Each view isolated with generous transparent gaps, no overlap, fully visible extremities. Same individual in every panel; never redesign identity. This is a production target reference, not proof of a measured 3D mesh. Create an exactly EIGHT-expression sheet, FOUR COLUMNS by TWO ROWS, same head scale and shoulders/chest crop in each cell, full head/ears/hat or topknot inside every cell, all margins clear. No numbered labels. Clear expression silhouette at 96px portrait size. Keep fixed skull, muzzle, eyes and costume; vary only eyelids, gaze, ears, beak/mouth, neck angle and emotion. TAEGO mature white tiger, same approved adult face, charcoal forehead/cheek stripes and blue eyes from inputs. Four expression cells per row, reading order: 1 calm companion, relaxed eyelids; 2 listening with gaze to lower left and head lowered; 3 warm approval, soft squint and relaxed muzzle; 4 curious head tilt with ears forward; 5 worry for a friend, ears slightly sideways and gaze offscreen; 6 grief at a memory, downcast eyes and lowered neck; 7 protective resolve looking toward the path, focused gaze and stable head; 8 reunion relief, eyes gently closed and tension released. Make all eight unmistakably different, not eight identical stares. Preserve white fur, original face stripe map, pink-brown nose and natural whiskers. No human eyebrows, human lips, tears, speech bubbles, cartoon grins, exposed teeth, predatory snarls, aura or color changes. No added horns/wings/mane. Badge can be below crop, do not invent a partial two-curl badge.",
+      "tool": "built-in image_gen",
+      "transparent_background": true,
+      "references": [
+        {
+          "source_label": "00-original.png",
+          "sha256": "1a8d0bb2e3e11a39c6b055ac2736cc43222006d266ac35a80685f00d45a23e34"
+        },
+        {
+          "source_label": "01-fullbody-threequarter.png",
+          "sha256": "b75f7420670ad057daec1d21fc4e5bb5f5580f61b21e9db9dcc01403a79325e7"
+        }
+      ]
+    },
+    {
+      "output_sha256": "5d620366eed0500298e7a94012f458bd5b9191f1ee97fdb87901c4ad0fd9ba74",
+      "prompt": "Use case: stylized-concept. Asset type: character design reference for a Korean-learning mobile story RPG, NOT a UI screenshot. Premium sculpted 3D storybook rendering, soft neutral warm studio key light, material-specific detail. TRUE transparent RGBA background, no backdrop, no floor, no contact shadow plate, no checkerboard drawn into pixels, no captions, no text, no borders. Each view isolated with generous transparent gaps, no overlap, fully visible extremities. Same individual in every panel; never redesign identity. This is a production target reference, not proof of a measured 3D mesh. Create an exactly EIGHT-expression sheet, FOUR COLUMNS by TWO ROWS, same head scale and shoulders/chest crop in each cell, full head/ears/hat or topknot inside every cell, all margins clear. No numbered labels. Clear expression silhouette at 96px portrait size. Keep fixed skull, muzzle, eyes and costume; vary only eyelids, gaze, ears, beak/mouth, neck angle and emotion. DOKKAEBI same exact boylike house-guardian from input1 with support input2. In EVERY cell EXACTLY TWO ivory horns, one over each temple, bare smooth center forehead BETWEEN the pair; never center third horn. Preserve dark brown tied topknot and red tie, floral ivory headband, pointed ears, gold hoop earrings, thick dark brows, white sclera and dark-brown eyes, warm skin, cream jeogori and rust cloud vest. Reading order: 1 curious anticipation at book; 2 mischievous playful gatekeeper smirk, one brow mildly raised; 3 thoughtful hesitant, closed mouth and side gaze; 4 sudden surprised awakening, open eyes and small open mouth; 5 gruff fond reunion, shy side glance small restrained smile; 6 lonely vulnerability, smile gone and eyes lowered, no tears; 7 relieved gratitude, warm small smile and softened eyes toward friend; 8 resolved invitation, steady friendly direct eyes. Same face/skull/eye size across all8, not8different boys. Maintain subtle expression, no huge exaggerated human teeth, no horns hidden by crop, no flames, club, aura, extra jewelry or costume.",
+      "tool": "built-in image_gen",
+      "transparent_background": true,
+      "references": [
+        {
+          "source_label": "전통 의상의 도깨비 전사-3.png",
+          "sha256": "087daa0348ffceb92209cda7aae2f2ba907c86ed799d63500ba9299085a211c3"
+        },
+        {
+          "source_label": "01-front.png",
+          "sha256": "bb5b2ce4bb2efba994ed8243f56c591b62b8dbafbd8cd1e792e9f9e3d896fa1a"
+        }
+      ]
+    },
+    {
+      "output_sha256": "223f050b9af92f8fec056870c864df5bc0b2fae38e52f6067697949d0aa2887c",
+      "prompt": "Use case: stylized-concept. Asset type: character design reference for a Korean-learning mobile story RPG, NOT a UI screenshot. Premium sculpted 3D storybook rendering, soft neutral warm studio key light, material-specific detail. TRUE transparent RGBA background, no backdrop, no floor, no contact shadow plate, no checkerboard drawn into pixels, no captions, no text, no borders. Each view isolated with generous transparent gaps, no overlap, fully visible extremities. Same individual in every panel; never redesign identity. This is a production target reference, not proof of a measured 3D mesh. Create exactly SIX different FULL-BODY poses in a roomy THREE-COLUMN TWO-ROW sheet. Every sprite isolated, at least 5% transparent padding inside each cell. Frame complete tails/wings/feet/hair in ALL cells. No props or other characters unless explicitly specified. These are six story acting keys, NOT animation frames. SAME DOKKAEBI guardian: input1 controls face/costume,2 neutral support,3 carved wooden club prop. Crown120cm without hair/horns, head33.3cm (~3.6heads), shoulders39cm, inseam51cm, topknot18cmabove crown, horns6cm. Two temple horns ONLY, NO center horn. Preserve floral headband, dark topknot, gold hoop pointed ears, cream jeogori, rust teal-cloud vest, navy rope belt, teal baggy pants, straw sandals. Reading order: 1 relaxed listening with club resting safely downward at side; 2 naturally crouching to examine book position below, empty relaxed hands, NO actual book; 3 friendly open-palm request, free other hand lowered; 4 playful gatekeeper upright with both hands comfortably at hips, NO door; 5 softened reunion, hands lowered and shoulders loosened, looking aside; 6 stepping aside inviting user through, one hand open toward path, no door. Calm anatomical gestures with natural shoulders/elbows/wrists/fingers, no body twisting or attacking. Exactly2horns2arms2legs each. Club only pose1, exact reference not huge fantasy weapon, no duplicated floating clubs. Complete silhouette and hair visible all6. No blue flames/aura.",
+      "tool": "built-in image_gen",
+      "transparent_background": true,
+      "references": [
+        {
+          "source_label": "전통 의상의 도깨비 전사-3.png",
+          "sha256": "087daa0348ffceb92209cda7aae2f2ba907c86ed799d63500ba9299085a211c3"
+        },
+        {
+          "source_label": "01-front.png",
+          "sha256": "bb5b2ce4bb2efba994ed8243f56c591b62b8dbafbd8cd1e792e9f9e3d896fa1a"
+        },
+        {
+          "source_label": "dokkaebi-club.png",
+          "sha256": "fabeb8f287f41376bc92f27ecf884aba307dbd7f56200eea842707467d900421"
+        }
+      ]
+    },
+    {
+      "output_sha256": "4fa1685ca2c8b1c780d59786723fae12ba6d3117a81cbd93825da4881d653777",
+      "prompt": "Use case: precise-object-edit. Image1 edit target: existing JOY model sheet, image2 EXACT approved chest badge. Preserve same THREE views, same mature magpie face, amber eyes, black gat/tan cord, feather patterns, body, TWO wings TWO legs ONE tail. Make ONLY these corrections: give all three birds ample clear transparent outer margins, especially both outstretched wing tips, by reducing layout scale; no cut feathers at canvas boundary. In BOTH front/side views replace the simplified chest insignia with exact image2 badge: THREE spiral centers arranged TRIANGULARLY (large LOWER LEFT, large UPPER MIDDLE, smaller LOWER RIGHT) connected teal enameled body and polished gold outline, pointed tail left. Badge on chest torso, not wing. Rear view has no badge. Keep full long wings/tail. Actual TRANSPARENT RGBA background, no floor/shadow/backdrop/checkerboard/text. Preserve sculpted 3D materials and identity, do not change expressions or invent extra wings.",
+      "tool": "built-in image_gen",
+      "transparent_background": true,
+      "references": [
+        {
+          "source_label": "joy-model.png",
+          "sha256": "d6307811af14fcac26db72aef1e3ab6c2b74e8d20a05fe962c65ec77b9d112aa"
+        },
+        {
+          "source_label": "guardian-emblem.png",
+          "sha256": "e341e9ede04c27594c1142d611371c904238b7ecd6082dd088841488fbeeb48f"
+        }
+      ]
+    },
+    {
+      "output_sha256": "5b978e09cacc01c3f8563a918711d215ee74418e4d80371a5b55cd5e0b382f9e",
+      "prompt": "Use case: precise-object-edit. Image1 edit target existing JOY EIGHT-expression sheet, image2 identity reference only. Preserve EIGHT facial expressions and order, same adult face/amber eyes/gat/tan cord/feather material. Fix portrait framing for app dialogue portraits: ALL eight portraits consist ONLY of complete hat, head and NECK cropped ABOVE chest badge location. Thus NO chest badge and NO chest/wing fragments in these head portraits. Remove the BOOK entirely from third portrait: no props anywhere. Scale portraits down within each FOUR-COLUMN TWO-ROW cell so ENTIRE black gat including top and brim has transparent margin, never clipped at top or sides. Eight distinctly readable moods as existing, same identity; no new baby proportions, human brows or teeth. Genuine transparent RGBA, no colored backdrop or painted checkerboard, no floor or labels.",
+      "tool": "built-in image_gen",
+      "transparent_background": true,
+      "references": [
+        {
+          "source_label": "joy-expressions.png",
+          "sha256": "ea7136eecf519bbc3014f410fca8c5b258e33c8e2086cb08548bfbf8443492b2"
+        },
+        {
+          "source_label": "00-original.png",
+          "sha256": "c1d79c59ea954d2bacee01abe48d4283d6e8ee7dc3fd47a9a30d80b58742a588"
+        }
+      ]
+    },
+    {
+      "output_sha256": "43f8f5db45f061d617b747f87458c2ae5b73ef3eef94670ea75a60bb17671a56",
+      "prompt": "Use case: precise-object-edit. Image1 edit target JOY SIX-pose sheet, image2 approved badge, image3 LONG-WING anatomy reference. Keep SIX poses and same adult face, hat, feather colors and mood. Correct EACH chest badge to EXACT image2, THREE SPIRALS arranged triangle (large lower-left curl, large upper-middle curl, small lower-right curl), not two horizontally aligned curls. Attach small badge ONLY to TORSO (chest near neck), never wing even when wings spread. Enforce exactly TWO wings: when spread no residual folded wing panels on body. Maintain LONG adult primary feathers and ONE long tail distinct from wings, foldedwing/trunk1.67, spreadwing/trunk2.5, tail/trunk2.25. Increase all outer and inter-cell transparent margins so complete wing tips and tail visible. Preserve poses 1 neutral,2investigate,3one wing guide/opposite folded,4two spread flight,5two raised landing,6two sheltering. Actual TRANSPARENT RGBA: no studio background, shadows, checkerboard or captions. Do not change other identity/gesture details.",
+      "tool": "built-in image_gen",
+      "transparent_background": true,
+      "references": [
+        {
+          "source_label": "joy-poses.png",
+          "sha256": "b683a633c932a322cf6567c2d3f1a248ce9ac8dd4c0882ff475239fec617192d"
+        },
+        {
+          "source_label": "guardian-emblem.png",
+          "sha256": "e341e9ede04c27594c1142d611371c904238b7ecd6082dd088841488fbeeb48f"
+        },
+        {
+          "source_label": "04-long-wing-reference.png",
+          "sha256": "bbab560ed9274ca3a95a24f08abd9c1cfe5d36c1b0579c94ae1f6e11548613fe"
+        }
+      ]
+    },
+    {
+      "output_sha256": "404cafd263e4d369c7d26148e192502deb55aa250004abe228271fbd400e2a28",
+      "prompt": "Use case: precise-object-edit. Edit this existing six-pose TAEGO sheet. Preserve EXACT SAME SIX tiger bodies, adult faces, blue eyes, fur, stripe patterns, poses, spacing, expressions and soft lighting. Only ONE local correction: the LOWER LEFT walking tiger faces screen-right, so the canonical badge on his anatomical LEFT chest is on the far side and should be OCCLUDED. REMOVE the visible gold/teal badge from ONLY that lower-left walking tiger and replace its pixels with continuous matching natural white fur/charcoal stripes. All other five tiger badges stay unchanged, all other pixels/details remain as close as possible. No replacement badge on his near shoulder; do not mirror or recolor a badge. Preserve four legs and one tail in each pose. TRUE TRANSPARENT RGBA background, alpha zero between sprites; no studio backdrop, shadow plates, checkerboard, text, objects or characters. Keep full tails/paws and roomy margins.",
+      "tool": "built-in image_gen",
+      "transparent_background": true,
+      "references": [
+        {
+          "source_label": "taego-poses.png",
+          "sha256": "27934b25c62ed9900f517e4d51d818ca3a86e3e64b3de7bab24fd520d18ccfd9"
+        }
+      ]
+    }
+  ],
+  "note": "Original tool outputs copied byte-for-byte. Prior attempts remain local review history, not approved canon."
+}

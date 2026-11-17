@@ -40,6 +40,9 @@ enum SoundChannel {
 ///         : 0.0
 /// ```
 class AudioPolicy extends ChangeNotifier {
+  /// Explanation gestures carry no speech or feedback audio, in every mode.
+  static const double silentGestureVolume = 0;
+
   AudioPolicy._();
 
   static final AudioPolicy instance = AudioPolicy._();

@@ -16,7 +16,6 @@ import 'package:ko_lernen_app/widgets/sori/can_do_result_card.dart';
 
 import 'support/scenario_stock_fixtures.dart';
 
-
 const _unit = CourseUnit(
   id: 'a1_01',
   level: 'a1',
@@ -153,7 +152,13 @@ void main() {
     expect(exitCalls, 1);
     expect(find.byType(ScenarioPlayerScreen), findsOneWidget);
 
-    await tester.tap(find.byIcon(Icons.close_rounded));
+    await tester.tap(
+      find.byTooltip(
+        AppL10n.of(
+          tester.element(find.byType(ScenarioPlayerScreen)),
+        ).closeActionLabel,
+      ),
+    );
     await tester.pump();
     expect(exitCalls, 1);
   });

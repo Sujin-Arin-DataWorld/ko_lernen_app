@@ -8,7 +8,7 @@ export function assertStoreAccessCtas(html, url) {
   assert.ok(storeCtas.length >= 2, `${url} must retain the store CTAs`);
 
   const iosCtas = storeCtas.filter((cta) =>
-    /href=["']#tester-access["']/i.test(cta),
+    /href=["']#ios-tester-access["']/i.test(cta),
   );
   const androidCtas = storeCtas.filter((cta) =>
     cta.includes(`href="${ANDROID_OPEN_TEST}"`) ||

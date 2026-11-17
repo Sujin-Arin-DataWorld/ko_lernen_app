@@ -5,11 +5,9 @@ import 'package:cloud_functions/cloud_functions.dart';
 
 import 'pronunciation_progress_service.dart';
 
-/// Independent of curriculum/beta unlocks: local practice never needs this.
-const bool freePronunciationAssessmentEnabled = bool.fromEnvironment(
-  'ENABLE_FREE_PRONUNCIATION_ASSESSMENT',
-  defaultValue: false,
-);
+/// Cloud scoring is paused until subscription launch and server entitlements.
+/// The old free-beta build define must not reopen it. Local practice is separate.
+const bool freePronunciationAssessmentEnabled = false;
 
 enum PronunciationAssessmentFailureCategory {
   invalidRequest,

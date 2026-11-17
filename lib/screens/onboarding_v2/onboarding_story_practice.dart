@@ -345,6 +345,7 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
                         child: SoriButton.outlined(
                           key: ValueKey('onboarding-v2-answer-$syllable'),
                           label: syllable,
+                          textRole: SoriButtonTextRole.learning,
                           onTap: () => _answer(syllable),
                         ),
                       ),

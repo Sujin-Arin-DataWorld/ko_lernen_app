@@ -1,0 +1,974 @@
+{
+  "GyeCraft.angotgan.irregular paving 0": {
+    "memberId": "ildu.anchae-store.part.87f949a4949babf2be3f",
+    "sourceObject": "GyeCraft.angotgan.irregular paving 0",
+    "reviewStage": 11,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.angotgan.irregular paving 1": {
+    "memberId": "ildu.anchae-store.part.98edd72bd6c823bdd729",
+    "sourceObject": "GyeCraft.angotgan.irregular paving 1",
+    "reviewStage": 11,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.angotgan.irregular paving 2": {
+    "memberId": "ildu.anchae-store.part.4b46615be548468e0231",
+    "sourceObject": "GyeCraft.angotgan.irregular paving 2",
+    "reviewStage": 11,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.angotgan.irregular paving 3": {
+    "memberId": "ildu.anchae-store.part.919afdc46e07e0df6470",
+    "sourceObject": "GyeCraft.angotgan.irregular paving 3",
+    "reviewStage": 11,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.angotgan.irregular paving 4": {
+    "memberId": "ildu.anchae-store.part.2f19a2d164dc4ce32ae8",
+    "sourceObject": "GyeCraft.angotgan.irregular paving 4",
+    "reviewStage": 11,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "North.angotgan.foundation": {
+    "memberId": "ildu.anchae-store.part.c8720fb685a90d0a78f2",
+    "sourceObject": "North.angotgan.foundation",
+    "reviewStage": 2,
+    "processId": "ildu.anchae-store-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "North.angotgan.foundation earth top": {
+    "memberId": "ildu.anchae-store.part.7da6e86b4eea2a918cdb",
+    "sourceObject": "North.angotgan.foundation earth top",
+    "reviewStage": 2,
+    "processId": "ildu.anchae-store-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "North.angotgan.foundation individual plinth": {
+    "memberId": "ildu.anchae-store.part.2b1f95dc4fce3796c7c8",
+    "sourceObject": "North.angotgan.foundation individual plinth",
+    "reviewStage": 2,
+    "processId": "ildu.anchae-store-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "North.angotgan.foundation.recessed earth mortar": {
+    "memberId": "ildu.anchae-store.part.1fa4af1afac6223c17c5",
+    "sourceObject": "North.angotgan.foundation.recessed earth mortar",
+    "reviewStage": 2,
+    "processId": "ildu.anchae-store-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "North.angotgan.frame longitudinal beam": {
+    "memberId": "ildu.anchae-store.part.80e5671c488a1d5e8273",
+    "sourceObject": "North.angotgan.frame longitudinal beam",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.angotgan.frame mortise peg": {
+    "memberId": "ildu.anchae-store.part.9efe93625f9f992f41e1",
+    "sourceObject": "North.angotgan.frame mortise peg",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.angotgan.frame square post": {
+    "memberId": "ildu.anchae-store.part.a249e8a4ef756f29e10f",
+    "sourceObject": "North.angotgan.frame square post",
+    "reviewStage": 3,
+    "processId": "ildu.anchae-store-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "North.angotgan.frame transverse beam.survey v73": {
+    "memberId": "ildu.anchae-store.part.853715152a927c4f179e",
+    "sourceObject": "North.angotgan.frame transverse beam.survey v73",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.angotgan.front WD1 0.leaf1.forged hinge": {
+    "memberId": "ildu.anchae-store.part.7603d02c42c910a4057a",
+    "sourceObject": "North.angotgan.front WD1 0.leaf1.forged hinge",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 0.leaf1.iron ring": {
+    "memberId": "ildu.anchae-store.part.7ce285c966f3277c84b5",
+    "sourceObject": "North.angotgan.front WD1 0.leaf1.iron ring",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 0.leaf1.nail": {
+    "memberId": "ildu.anchae-store.part.919ef6ffc41bb051e86a",
+    "sourceObject": "North.angotgan.front WD1 0.leaf1.nail",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 0.leaf1.rear rail": {
+    "memberId": "ildu.anchae-store.part.0fda6805d3009f9953b1",
+    "sourceObject": "North.angotgan.front WD1 0.leaf1.rear rail",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 0.leaf1.solid board": {
+    "memberId": "ildu.anchae-store.part.a2d661fcbb25923a00dc",
+    "sourceObject": "North.angotgan.front WD1 0.leaf1.solid board",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 0.leaf2.forged hinge": {
+    "memberId": "ildu.anchae-store.part.170a06dc73e3324c45b1",
+    "sourceObject": "North.angotgan.front WD1 0.leaf2.forged hinge",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 0.leaf2.iron ring": {
+    "memberId": "ildu.anchae-store.part.6319f80bf5e8dafaf1c6",
+    "sourceObject": "North.angotgan.front WD1 0.leaf2.iron ring",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 0.leaf2.nail": {
+    "memberId": "ildu.anchae-store.part.035eda8c5556b9a21494",
+    "sourceObject": "North.angotgan.front WD1 0.leaf2.nail",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 0.leaf2.rear rail": {
+    "memberId": "ildu.anchae-store.part.4688051764e7dabc5046",
+    "sourceObject": "North.angotgan.front WD1 0.leaf2.rear rail",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 0.leaf2.solid board": {
+    "memberId": "ildu.anchae-store.part.e5707a937fb8327aef98",
+    "sourceObject": "North.angotgan.front WD1 0.leaf2.solid board",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 2.leaf1.forged hinge": {
+    "memberId": "ildu.anchae-store.part.6272a0e6076d4539108d",
+    "sourceObject": "North.angotgan.front WD1 2.leaf1.forged hinge",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 2.leaf1.iron ring": {
+    "memberId": "ildu.anchae-store.part.290fb4f214b3b45d4ac1",
+    "sourceObject": "North.angotgan.front WD1 2.leaf1.iron ring",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 2.leaf1.nail": {
+    "memberId": "ildu.anchae-store.part.a01521b8d6a3b9485161",
+    "sourceObject": "North.angotgan.front WD1 2.leaf1.nail",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 2.leaf1.rear rail": {
+    "memberId": "ildu.anchae-store.part.6a7b2884c11e1a65ec6d",
+    "sourceObject": "North.angotgan.front WD1 2.leaf1.rear rail",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 2.leaf1.solid board": {
+    "memberId": "ildu.anchae-store.part.45e7e6c21357b59e3a8b",
+    "sourceObject": "North.angotgan.front WD1 2.leaf1.solid board",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 2.leaf2.forged hinge": {
+    "memberId": "ildu.anchae-store.part.29242805b91a028effe3",
+    "sourceObject": "North.angotgan.front WD1 2.leaf2.forged hinge",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 2.leaf2.iron ring": {
+    "memberId": "ildu.anchae-store.part.d366bfd6a0c27f208f72",
+    "sourceObject": "North.angotgan.front WD1 2.leaf2.iron ring",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 2.leaf2.nail": {
+    "memberId": "ildu.anchae-store.part.c328e332060d0e66f14b",
+    "sourceObject": "North.angotgan.front WD1 2.leaf2.nail",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 2.leaf2.rear rail": {
+    "memberId": "ildu.anchae-store.part.49eb21ba8d528708e2f9",
+    "sourceObject": "North.angotgan.front WD1 2.leaf2.rear rail",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 2.leaf2.solid board": {
+    "memberId": "ildu.anchae-store.part.e20d044e53a72124336a",
+    "sourceObject": "North.angotgan.front WD1 2.leaf2.solid board",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 3.leaf1.forged hinge": {
+    "memberId": "ildu.anchae-store.part.75537a54a830c9f52fb9",
+    "sourceObject": "North.angotgan.front WD1 3.leaf1.forged hinge",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 3.leaf1.iron ring": {
+    "memberId": "ildu.anchae-store.part.0ee2060360227989b863",
+    "sourceObject": "North.angotgan.front WD1 3.leaf1.iron ring",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 3.leaf1.nail": {
+    "memberId": "ildu.anchae-store.part.47149221dc4fd90b8c4c",
+    "sourceObject": "North.angotgan.front WD1 3.leaf1.nail",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 3.leaf1.rear rail": {
+    "memberId": "ildu.anchae-store.part.a822bb4b492c2ee832b9",
+    "sourceObject": "North.angotgan.front WD1 3.leaf1.rear rail",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 3.leaf1.solid board": {
+    "memberId": "ildu.anchae-store.part.e2e93d3c47019bea6788",
+    "sourceObject": "North.angotgan.front WD1 3.leaf1.solid board",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 3.leaf2.forged hinge": {
+    "memberId": "ildu.anchae-store.part.fbde67b29cea1ba561cf",
+    "sourceObject": "North.angotgan.front WD1 3.leaf2.forged hinge",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 3.leaf2.iron ring": {
+    "memberId": "ildu.anchae-store.part.24dbe6831087e932ccf2",
+    "sourceObject": "North.angotgan.front WD1 3.leaf2.iron ring",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 3.leaf2.nail": {
+    "memberId": "ildu.anchae-store.part.89c58b53f1584b756010",
+    "sourceObject": "North.angotgan.front WD1 3.leaf2.nail",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 3.leaf2.rear rail": {
+    "memberId": "ildu.anchae-store.part.925f30a3b8677a810001",
+    "sourceObject": "North.angotgan.front WD1 3.leaf2.rear rail",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front WD1 3.leaf2.solid board": {
+    "memberId": "ildu.anchae-store.part.d7d0cb7dbb697c425798",
+    "sourceObject": "North.angotgan.front WD1 3.leaf2.solid board",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.front plank wall": {
+    "memberId": "ildu.anchae-store.part.a1d0c23e0dbf6cf3fdb8",
+    "sourceObject": "North.angotgan.front plank wall",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.interior two storage rooms": {
+    "memberId": "ildu.anchae-store.part.2ab40b18de11fa464c51",
+    "sourceObject": "North.angotgan.interior two storage rooms",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.rear WW3 black void": {
+    "memberId": "ildu.anchae-store.part.859aedb978a169932231",
+    "sourceObject": "North.angotgan.rear WW3 black void",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.rear WW3 three horizontal bars": {
+    "memberId": "ildu.anchae-store.part.59681efcbfee519dcb2f",
+    "sourceObject": "North.angotgan.rear WW3 three horizontal bars",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.rear WW3.rail": {
+    "memberId": "ildu.anchae-store.part.c308221e759859d9a376",
+    "sourceObject": "North.angotgan.rear WW3.rail",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.rear WW3.stile": {
+    "memberId": "ildu.anchae-store.part.22fa6292f59a5c611a94",
+    "sourceObject": "North.angotgan.rear WW3.stile",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.rear or closed bay plank wall": {
+    "memberId": "ildu.anchae-store.part.5c0a8a761635267be781",
+    "sourceObject": "North.angotgan.rear or closed bay plank wall",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.side measured vent black void": {
+    "memberId": "ildu.anchae-store.part.ba3c9a8c02a91f110519",
+    "sourceObject": "North.angotgan.side measured vent black void",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.side measured vent three horizontal bars": {
+    "memberId": "ildu.anchae-store.part.7a2347d3b5e063a45ec5",
+    "sourceObject": "North.angotgan.side measured vent three horizontal bars",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.side measured vent.rail": {
+    "memberId": "ildu.anchae-store.part.1c801dcc41bb051751c4",
+    "sourceObject": "North.angotgan.side measured vent.rail",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.side measured vent.stile": {
+    "memberId": "ildu.anchae-store.part.06096efec98df392a19e",
+    "sourceObject": "North.angotgan.side measured vent.stile",
+    "reviewStage": 10,
+    "processId": "ildu.anchae-store-doors-vents",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.angotgan.side plank wall": {
+    "memberId": "ildu.anchae-store.part.660f53d01fa5c1f6796e",
+    "sourceObject": "North.angotgan.side plank wall",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.side upper plaster": {
+    "memberId": "ildu.anchae-store.part.1331b353bb6eef27572b",
+    "sourceObject": "North.angotgan.side upper plaster",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.side upper plaster.head/sill": {
+    "memberId": "ildu.anchae-store.part.adba35f58c741289390d",
+    "sourceObject": "North.angotgan.side upper plaster.head/sill",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.side upper plaster.jamb": {
+    "memberId": "ildu.anchae-store.part.4693ca4b9f525b98a413",
+    "sourceObject": "North.angotgan.side upper plaster.jamb",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.survey v73 180mm eave purlin -1.35": {
+    "memberId": "ildu.anchae-store.part.d39c42148b0d5156a023",
+    "sourceObject": "North.angotgan.survey v73 180mm eave purlin -1.35",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "purlins"
+  },
+  "North.angotgan.survey v73 180mm eave purlin 1.35": {
+    "memberId": "ildu.anchae-store.part.8f22d8aefb92599dcb64",
+    "sourceObject": "North.angotgan.survey v73 180mm eave purlin 1.35",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "purlins"
+  },
+  "North.angotgan.survey v73 180mm ridge purlin": {
+    "memberId": "ildu.anchae-store.part.c21ba1fb94c77ca88d63",
+    "sourceObject": "North.angotgan.survey v73 180mm ridge purlin",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "purlins"
+  },
+  "North.angotgan.survey v73 90mm kingpost -0.18": {
+    "memberId": "ildu.anchae-store.part.e95ba6dc0860eb2147ab",
+    "sourceObject": "North.angotgan.survey v73 90mm kingpost -0.18",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "purlins"
+  },
+  "North.angotgan.survey v73 90mm kingpost -2.43": {
+    "memberId": "ildu.anchae-store.part.22bf0fcde2b7efb460cd",
+    "sourceObject": "North.angotgan.survey v73 90mm kingpost -2.43",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "purlins"
+  },
+  "North.angotgan.survey v73 90mm kingpost -4.68": {
+    "memberId": "ildu.anchae-store.part.71073d864cbae3faa49b",
+    "sourceObject": "North.angotgan.survey v73 90mm kingpost -4.68",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "purlins"
+  },
+  "North.angotgan.survey v73 90mm kingpost 2.25": {
+    "memberId": "ildu.anchae-store.part.b7bc6a5326293e355bd4",
+    "sourceObject": "North.angotgan.survey v73 90mm kingpost 2.25",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "purlins"
+  },
+  "North.angotgan.survey v73 90mm kingpost 4.68": {
+    "memberId": "ildu.anchae-store.part.80b774f2b816804d15b9",
+    "sourceObject": "North.angotgan.survey v73 90mm kingpost 4.68",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "purlins"
+  },
+  "North.angotgan.survey v73 bearing block (-0.18, -1.35)": {
+    "memberId": "ildu.anchae-store.part.86074f54918a1b67d0ce",
+    "sourceObject": "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.angotgan.survey v73 bearing block (-0.18, 1.35)": {
+    "memberId": "ildu.anchae-store.part.23585c0bdc1cf298f9dc",
+    "sourceObject": "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.angotgan.survey v73 bearing block (-2.43, -1.35)": {
+    "memberId": "ildu.anchae-store.part.572695a0b64a0b833665",
+    "sourceObject": "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.angotgan.survey v73 bearing block (-2.43, 1.35)": {
+    "memberId": "ildu.anchae-store.part.0cd4ffd4b71a363e6125",
+    "sourceObject": "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.angotgan.survey v73 bearing block (-4.68, -1.35)": {
+    "memberId": "ildu.anchae-store.part.692cc6f24fb45eb7165e",
+    "sourceObject": "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.angotgan.survey v73 bearing block (-4.68, 1.35)": {
+    "memberId": "ildu.anchae-store.part.24912086e57314b67d00",
+    "sourceObject": "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.angotgan.survey v73 bearing block (2.25, -1.35)": {
+    "memberId": "ildu.anchae-store.part.04b4a8f5d1122787f14b",
+    "sourceObject": "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.angotgan.survey v73 bearing block (2.25, 1.35)": {
+    "memberId": "ildu.anchae-store.part.4e7cc2a0be3b197f2bef",
+    "sourceObject": "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.angotgan.survey v73 bearing block (4.68, -1.35)": {
+    "memberId": "ildu.anchae-store.part.fcdd1c1eb9b3b8b48c06",
+    "sourceObject": "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.angotgan.survey v73 bearing block (4.68, 1.35)": {
+    "memberId": "ildu.anchae-store.part.2620cdc109e9be49a870",
+    "sourceObject": "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+    "reviewStage": 4,
+    "processId": "ildu.anchae-store-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.angotgan.survey v73 continuous round rafters": {
+    "memberId": "ildu.anchae-store.part.d2034b5dfbc85a110317",
+    "sourceObject": "North.angotgan.survey v73 continuous round rafters",
+    "reviewStage": 5,
+    "processId": "ildu.anchae-store-rafters-eaves",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "North.angotgan.survey v73 roof": {
+    "memberId": "ildu.anchae-store.part.872d11c9142c73b5232c",
+    "sourceObject": "North.angotgan.survey v73 roof",
+    "reviewStage": 7,
+    "processId": "ildu.anchae-store-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.angotgan.survey v73 roof.001": {
+    "memberId": "ildu.anchae-store.part.28e752d782594a36a885",
+    "sourceObject": "North.angotgan.survey v73 roof.001",
+    "reviewStage": 7,
+    "processId": "ildu.anchae-store-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.angotgan.survey v73 roof.002": {
+    "memberId": "ildu.anchae-store.part.7e76f8976f3a9a3c7641",
+    "sourceObject": "North.angotgan.survey v73 roof.002",
+    "reviewStage": 7,
+    "processId": "ildu.anchae-store-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.angotgan.survey v73 roof.003": {
+    "memberId": "ildu.anchae-store.part.06780a763b963a0d12c0",
+    "sourceObject": "North.angotgan.survey v73 roof.003",
+    "reviewStage": 7,
+    "processId": "ildu.anchae-store-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.angotgan.survey v73 roof.004": {
+    "memberId": "ildu.anchae-store.part.c0601845a85ed77fb152",
+    "sourceObject": "North.angotgan.survey v73 roof.004",
+    "reviewStage": 7,
+    "processId": "ildu.anchae-store-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.angotgan.survey v73 roof.005": {
+    "memberId": "ildu.anchae-store.part.ff060eaba13d775389ec",
+    "sourceObject": "North.angotgan.survey v73 roof.005",
+    "reviewStage": 7,
+    "processId": "ildu.anchae-store-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.angotgan.survey v73 roof.eave beam": {
+    "memberId": "ildu.anchae-store.part.8251dca67d295c288990",
+    "sourceObject": "North.angotgan.survey v73 roof.eave beam",
+    "reviewStage": 5,
+    "processId": "ildu.anchae-store-rafters-eaves",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "North.angotgan.survey v73 roof.ridge stack": {
+    "memberId": "ildu.anchae-store.part.9f327b560e5a9c430638",
+    "sourceObject": "North.angotgan.survey v73 roof.ridge stack",
+    "reviewStage": 7,
+    "processId": "ildu.anchae-store-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.angotgan.survey v73 roof.ridge stack.001": {
+    "memberId": "ildu.anchae-store.part.d78bb120c93c75b8dc5a",
+    "sourceObject": "North.angotgan.survey v73 roof.ridge stack.001",
+    "reviewStage": 7,
+    "processId": "ildu.anchae-store-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.angotgan.survey v73 roof.ridge stack.002": {
+    "memberId": "ildu.anchae-store.part.d6cddfc30b41f2565e6d",
+    "sourceObject": "North.angotgan.survey v73 roof.ridge stack.002",
+    "reviewStage": 7,
+    "processId": "ildu.anchae-store-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.angotgan.survey v73 roof.ridge stack.003": {
+    "memberId": "ildu.anchae-store.part.fc738974401d63bcefad",
+    "sourceObject": "North.angotgan.survey v73 roof.ridge stack.003",
+    "reviewStage": 7,
+    "processId": "ildu.anchae-store-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.angotgan.survey v73 roof.ridge stack.004": {
+    "memberId": "ildu.anchae-store.part.e6995cec07f868271f21",
+    "sourceObject": "North.angotgan.survey v73 roof.ridge stack.004",
+    "reviewStage": 7,
+    "processId": "ildu.anchae-store-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.angotgan.survey v73 roof.round tile ends": {
+    "memberId": "ildu.anchae-store.part.c2f8bebd3d75926745ef",
+    "sourceObject": "North.angotgan.survey v73 roof.round tile ends",
+    "reviewStage": 7,
+    "processId": "ildu.anchae-store-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.angotgan.survey v73 solid roof bed": {
+    "memberId": "ildu.anchae-store.part.cbbf4dc2dcff78b437f2",
+    "sourceObject": "North.angotgan.survey v73 solid roof bed",
+    "reviewStage": 6,
+    "processId": "ildu.anchae-store-roof-bed",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_earth"
+  },
+  "North.angotgan.survey v73 upper lime closure (0, -1.35)": {
+    "memberId": "ildu.anchae-store.part.339aed3b01dcaf7573b2",
+    "sourceObject": "North.angotgan.survey v73 upper lime closure (0, -1.35)",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.survey v73 upper lime closure (0, 1.35)": {
+    "memberId": "ildu.anchae-store.part.8a9b5221790f24a603fe",
+    "sourceObject": "North.angotgan.survey v73 upper lime closure (0, 1.35)",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.survey v73 upper lime closure (1, -1.35)": {
+    "memberId": "ildu.anchae-store.part.2e2fbd81be2af4b726d0",
+    "sourceObject": "North.angotgan.survey v73 upper lime closure (1, -1.35)",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.survey v73 upper lime closure (1, 1.35)": {
+    "memberId": "ildu.anchae-store.part.0ed67822b9cc87166446",
+    "sourceObject": "North.angotgan.survey v73 upper lime closure (1, 1.35)",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.survey v73 upper lime closure (2, -1.35)": {
+    "memberId": "ildu.anchae-store.part.b2a039af40889c3b2fdc",
+    "sourceObject": "North.angotgan.survey v73 upper lime closure (2, -1.35)",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.survey v73 upper lime closure (2, 1.35)": {
+    "memberId": "ildu.anchae-store.part.b855c72ed1ed4efbab8c",
+    "sourceObject": "North.angotgan.survey v73 upper lime closure (2, 1.35)",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.survey v73 upper lime closure (3, -1.35)": {
+    "memberId": "ildu.anchae-store.part.8859180dcf727e36c917",
+    "sourceObject": "North.angotgan.survey v73 upper lime closure (3, -1.35)",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.survey v73 upper lime closure (3, 1.35)": {
+    "memberId": "ildu.anchae-store.part.742b5f3d75196a3de708",
+    "sourceObject": "North.angotgan.survey v73 upper lime closure (3, 1.35)",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.upper lime strip": {
+    "memberId": "ildu.anchae-store.part.4d64be4174216d8ba6b2",
+    "sourceObject": "North.angotgan.upper lime strip",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.upper lime strip.head/sill": {
+    "memberId": "ildu.anchae-store.part.5094947d090597ae82a4",
+    "sourceObject": "North.angotgan.upper lime strip.head/sill",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.upper lime strip.jamb": {
+    "memberId": "ildu.anchae-store.part.bdf80fd2e069c72bc6e0",
+    "sourceObject": "North.angotgan.upper lime strip.jamb",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.v74 45x300 barge board -1": {
+    "memberId": "ildu.anchae-store.part.17a63c153a51bb3b1943",
+    "sourceObject": "North.angotgan.v74 45x300 barge board -1",
+    "reviewStage": 11,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "barge_board"
+  },
+  "North.angotgan.v74 45x300 barge board 1": {
+    "memberId": "ildu.anchae-store.part.2b572d08669e469c08dc",
+    "sourceObject": "North.angotgan.v74 45x300 barge board 1",
+    "reviewStage": 11,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "barge_board"
+  },
+  "North.angotgan.v74 continuous plaster gable -1": {
+    "memberId": "ildu.anchae-store.part.eba05371e8c161883f13",
+    "sourceObject": "North.angotgan.v74 continuous plaster gable -1",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.v74 continuous plaster gable 1": {
+    "memberId": "ildu.anchae-store.part.8b224edba621cb373d3e",
+    "sourceObject": "North.angotgan.v74 continuous plaster gable 1",
+    "reviewStage": 9,
+    "processId": "ildu.anchae-store-walls-partition",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.angotgan.v74 three barge ceramic courses -1": {
+    "memberId": "ildu.anchae-store.part.0ea3e7119804883ef497",
+    "sourceObject": "North.angotgan.v74 three barge ceramic courses -1",
+    "reviewStage": 7,
+    "processId": "ildu.anchae-store-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.angotgan.v74 three barge ceramic courses 1": {
+    "memberId": "ildu.anchae-store.part.f36191b72fc8020b8c4d",
+    "sourceObject": "North.angotgan.v74 three barge ceramic courses 1",
+    "reviewStage": 7,
+    "processId": "ildu.anchae-store-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  }
+}

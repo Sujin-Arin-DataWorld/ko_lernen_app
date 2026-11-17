@@ -1,0 +1,153 @@
+{
+  "status": "STATIC_DELIVERY_QA_PASS",
+  "dateUtc": "2026-10-31T00:58:04.736688+00:00",
+  "scope": "Two scene mockups in EN and DE, actual TTF typesetting, direct locked R16/character insert for gate. No app code or deployment work.",
+  "inputs": [
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-451c0b11-343f-4c03-b351-a12fb47ce3a6.png",
+      "sha256": "fbb3b4e24f1a754cd8edd7f0a8a1f6ab555dd432a3c6078b1e934598fb6c6c24"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-abd28a20-d1b4-454d-8def-91b78f694e83.png",
+      "sha256": "b9f33984ba3257abca128582f42d2eafc20443a1986813e32a2ef99800be0776"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-0f3acd56-4bc8-4231-a043-66219cc3e7eb.png",
+      "sha256": "ea66946b4af3ffec9594b267f35030b08aeeeed042faafc12088756e57a83f28"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-r16-source-update-20261031\\references\\jung-stage06-original.webp",
+      "sha256": "235db45c7b1fbc12d26ded670107514a5ca22dfe2663e96b95ea33666db7506a"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\1.도깨비다른포즈.png",
+      "sha256": "2e1c3fd6f47b0930233c70a7b9e2f93dd2d374d404136e28480dd4ddc74b8202"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-r16-source-update-20261031\\R16_PRESENTATION_SOURCE_LOCK.json",
+      "sha256": "6cee65fef347c6e24cbd781702fc063df5100d37e7eff4ec244771ef797dd137"
+    }
+  ],
+  "fonts": [
+    {
+      "id": "lora500",
+      "weight": 500,
+      "family": "Lora",
+      "sha256": "84f1a8995440f942ae9d82fb2bc7174fdb9487417dab0a8c8b0ac68ea65fe549",
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-type-review-20261030\\fonts\\lora500.ttf"
+    },
+    {
+      "id": "source400",
+      "weight": 400,
+      "family": "Source Sans 3",
+      "sha256": "e184c1b7f400a8a814a508341ad7630a4da7da114afd9737166f4c9e2806813c",
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-type-review-20261030\\fonts\\source400.ttf"
+    },
+    {
+      "id": "source600",
+      "weight": 600,
+      "family": "Source Sans 3",
+      "sha256": "99ec7bd86db938f268b99261f042d3651f77bd179ee574faaf33517a8d589b0b",
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-type-review-20261030\\fonts\\source600.ttf"
+    }
+  ],
+  "outputs": [
+    {
+      "file": "book-en.png",
+      "sha256": "dd5731adcfc7eeb9bd75d44b23bab9b2571a4a9ac7c5ceabdaa947928b321b74",
+      "language": "en",
+      "scene": "book",
+      "size": [
+        887,
+        1774
+      ],
+      "protectedScenePixelsUnchangedByText": true
+    },
+    {
+      "file": "book-de.png",
+      "sha256": "f068c199b70f2ff33671c43902f2562d1e4da3e8eef3df49bd6dbab2e69a5ef3",
+      "language": "de",
+      "scene": "book",
+      "size": [
+        887,
+        1774
+      ],
+      "protectedScenePixelsUnchangedByText": true
+    },
+    {
+      "file": "gate-en.png",
+      "sha256": "f05025bbcbe476fd7aa7c684a9bcb28e0b496ecc528f0bb2eed302b68ba34d23",
+      "language": "en",
+      "scene": "gate",
+      "size": [
+        887,
+        1774
+      ],
+      "protectedScenePixelsUnchangedByText": true
+    },
+    {
+      "file": "gate-de.png",
+      "sha256": "fb2f16e46fe79b0b77b1f30bc8f74d92395d30a99e306a01513793a559fff961",
+      "language": "de",
+      "scene": "gate",
+      "size": [
+        887,
+        1774
+      ],
+      "protectedScenePixelsUnchangedByText": true
+    }
+  ],
+  "gateSourceComposition": {
+    "building": {
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-r16-source-update-20261031\\references\\jung-stage06-original.webp",
+      "sha256": "235db45c7b1fbc12d26ded670107514a5ca22dfe2663e96b95ea33666db7506a",
+      "catalogProcessId": "ildu.jungmunganchae-roof-bed",
+      "destination": [
+        322,
+        480,
+        498,
+        332
+      ],
+      "wholeCanvas": true,
+      "uniformScaleOnly": true,
+      "displayLayerPixelSha256": "38736b78365a90d08a224537257ab2e1ec2a36c18033a4fb7d4c270ada164348",
+      "visiblePixelsMatchSourceResample": true
+    },
+    "character": {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\1.도깨비다른포즈.png",
+      "sha256": "2e1c3fd6f47b0930233c70a7b9e2f93dd2d374d404136e28480dd4ddc74b8202",
+      "destination": [
+        48,
+        445,
+        348,
+        464
+      ],
+      "wholeCanvas": true,
+      "uniformScaleOnly": true,
+      "displayLayerPixelSha256": "a7c97d1a3835a6784a4d1b24e52f272cb49efb445527130338abc08565a24cf2",
+      "repainted": false
+    },
+    "sourceCatalogSha256": "f0dfbb6fd210e32fe4b5771f58c2dbeebfb3d0e27aa5c85158cc531f98152859",
+    "sourceStoryMidpointMappingImplemented": false,
+    "stage6IsCompositionReferenceOnly": true
+  },
+  "checks": {
+    "fourOutputs": true,
+    "inputsUnchanged": true,
+    "allTextFitsReservations": true,
+    "allGlyphsFromNamedTTF": true,
+    "GermanExtendedGlyphsPresent": true,
+    "KoreanUiTextCount": 0,
+    "imageGenRenderedLettersUsed": false,
+    "heroPreservedDuringTypesetting": true,
+    "R16SourceActuallyComposited": true,
+    "noAutoStageOrRewardGranted": true
+  },
+  "boundaries": [
+    "Static screens only; not app interactions, device, 320px reflow or 200% accessibility QA.",
+    "Book scene retains user-approved illustrated candidate; it is not claimed as a canonical R16 interior.",
+    "Sarangchae transparent layers are retained for later Sarangchae scenes; this middle-gate scene uses exact Jung source, without substituting another building.",
+    "Whole R16 source camera/canvas is kept. Matte background and existing source shadow are part of the Jung image.",
+    "UI background erasure plate is generated; character and architecture in final gate are direct original raster inserts."
+  ]
+}

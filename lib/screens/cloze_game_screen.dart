@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'dart:async';
 
 import '../widgets/sori/game_result_recovery.dart';
@@ -574,7 +575,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
             Expanded(
               child: Center(
                 child: SoriEmptyState(
-                  asset: 'assets/illustrations/mascot/magpie_encourage.png',
+                  asset: CanonicalCompanionArt.magpieGuide,
                   icon: Icons.menu_book_outlined,
                   title: selectedGroup == null
                       ? t.clozeTitle

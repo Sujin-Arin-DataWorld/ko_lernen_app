@@ -12,10 +12,12 @@ import '../services/crop_recovery_service.dart';
 import '../services/picker_recovery_service.dart';
 import '../services/snap_ocr_service.dart';
 import '../services/storage_service.dart';
+import '../theme.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/feature_coach.dart';
+import '../widgets/sori/learning_stage_navigation.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/study_frame.dart';
@@ -581,16 +583,31 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => widget.captureMode == 'notebook'
+      ? _buildCapture(context)
+      : Theme(
+          data: AppTheme.light,
+          child: Builder(builder: _buildCapture),
+        );
+
+  Widget _buildCapture(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
 
     final isNotebook = widget.captureMode == 'notebook';
     final title = isNotebook ? t.vocabNotebookTitle : t.bookCaptureTitle;
+    final window = MediaQuery.sizeOf(context);
+    final availableHeight =
+        window.height - MediaQuery.paddingOf(context).vertical;
+    final compact =
+        window.height < 750 || MediaQuery.textScalerOf(context).scale(1) > 1.35;
 
     if (_busy) {
       return SoriStandardFrame(
         appBarTitle: title,
+        cMaterial: !isNotebook,
+        cPaperBody: !isNotebook,
+        jadeAppBar: !isNotebook,
         maxWidth: SoriMaxWidth.focus,
         builder: (context, padding) => Padding(
           padding: padding,
@@ -601,25 +618,42 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
 
     return SoriStandardFrame(
       appBarTitle: title,
+      cMaterial: !isNotebook,
+      cPaperBody: !isNotebook,
+      jadeAppBar: !isNotebook,
+      bottomNavigationBar: isNotebook
+          ? null
+          : const SoriLearningStageNavigation(expandedArtwork: true),
       maxWidth: SoriMaxWidth.focus,
       padding: const EdgeInsets.all(Spacing.lg),
       // §W-A2: 200% 배율에서 부제(긴 독일어 문장, 288dp 폭)가 실측 900px+ 를
       // 요구해 기본 1.9배로는 부족했다 — 이 화면만 2.4배로 올린다(정상
       // 세로 390×844 는 minHeight=660 이 그대로 안 넘어 스크롤 없음 유지).
       builder: (context, padding) => SoriAdaptiveStudyBody(
-        minHeight: 660,
-        maxScaleBoost: 1.4,
+        minHeight: isNotebook
+            ? 660
+            : _errorKey != null
+            ? 800
+            : 596,
+        maxScaleBoost: compact ? 2.4 : 1.4,
         child: Padding(
           padding: padding,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: Spacing.lg),
-              Center(
+              if (isNotebook) const SizedBox(height: Spacing.lg),
+              ClipRRect(
+                borderRadius: SoriRadius.brMd,
                 child: Image.asset(
-                  'assets/illustrations/book/book_camera_guide.png',
-                  height: 160,
-                  fit: BoxFit.contain,
+                  isNotebook
+                      ? 'assets/illustrations/book/book_camera_guide.png'
+                      : 'assets/illustrations/book/hanji-scan-desk.png',
+                  key: const ValueKey('book-capture-art'),
+                  height: isNotebook || compact
+                      ? 160
+                      : (availableHeight - 540).clamp(200.0, 388.0),
+                  fit: isNotebook || compact ? BoxFit.contain : BoxFit.cover,
+                  excludeFromSemantics: true,
                   errorBuilder: (_, __, ___) => const Mascot(
                     kind: MascotKind.magpie,
                     emotion: MascotEmotion.smile,
@@ -630,19 +664,20 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
               const SizedBox(height: Spacing.md),
               Text(
                 isNotebook ? t.vocabNotebookTitle : t.bookCaptureHero,
-                textAlign: TextAlign.center,
+                textAlign: isNotebook ? TextAlign.center : TextAlign.start,
                 style: text.h2,
               ),
               const SizedBox(height: Spacing.sm),
               Text(
                 isNotebook ? t.vocabNotebookDesc : t.bookCaptureSubtitle,
-                textAlign: TextAlign.center,
+                textAlign: isNotebook ? TextAlign.center : TextAlign.start,
                 style: text.bodySmall,
               ),
               const Spacer(),
               if (_errorKey != null) _ErrorCard(errorKey: _errorKey!),
               if (_errorKey != null) const SizedBox(height: Spacing.md),
               SoriButton(
+                cMaterial: !isNotebook,
                 label: t.bookCaptureCamera,
                 icon: Icons.photo_camera_outlined,
                 variant: SoriButtonVariant.filled,
@@ -652,6 +687,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
               ),
               const SizedBox(height: Spacing.sm),
               SoriButton(
+                cMaterial: !isNotebook,
                 label: t.bookCaptureGallery,
                 icon: Icons.photo_library_outlined,
                 variant: SoriButtonVariant.outlined,

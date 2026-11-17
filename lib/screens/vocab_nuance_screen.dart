@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -104,7 +105,7 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
         title: t.vocabNotebookNuanceTitle,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CanonicalCompanionArt.baekhoSeated,
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -117,7 +118,7 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
         title: t.vocabNotebookNuanceTitle,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CanonicalCompanionArt.baekhoSeated,
             icon: Icons.compare_arrows_rounded,
             title: t.vocabNotebookNuanceEmptyTitle,
             body: t.vocabNotebookNuanceEmptyBody,

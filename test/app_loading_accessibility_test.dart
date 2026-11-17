@@ -55,7 +55,7 @@ void main() {
         _localizedHost(
           AppLoading(
             message: de.pronunciationPhrasesLoading,
-            asset: 'assets/icons/icon-192.png',
+            asset: 'assets/icons/HanLogo.png',
           ),
           textScaler: const TextScaler.linear(2),
         ),

@@ -4,7 +4,7 @@
  *
  * 사용:
  *   export GOOGLE_APPLICATION_CREDENTIALS=/경로/serviceAccountKey.json
- *   cd functions/gye && npm install && node smoke_test.js   (또는 npm run smoke)
+ *   GCLOUD_PROJECT=ko-lernen-app npm run smoke -- --allow-production-smoke
  *
  * 무엇을 검증하나 (배포된 함수가 실제로 도는지):
  *   1) on_pack_cleared  — 멤버가 팩 클리어 → 계 weeklyGoalProgress +1 + feed pack_cleared
@@ -17,10 +17,17 @@
  * 테스트 데이터는 `SMOKE…` 프리픽스로 만들고 끝나면 recursiveDelete 로 정리한다.
  * admin SDK 는 rules 를 우회하므로 임의 doc id 사용 가능.
  */
+// Broad node --test discovery also picks up this legacy filename. Refuse
+// before loading the SDK, even if a parent shell already has credentials.
+if (process.env.NODE_TEST_CONTEXT || !process.env.GCLOUD_PROJECT ||
+    !process.argv.includes("--allow-production-smoke")) {
+  throw new Error("Production smoke requires explicit GCLOUD_PROJECT and --allow-production-smoke outside node --test.");
+}
+
 const { initializeApp } = require("firebase-admin/app");
 const { FieldValue, getFirestore } = require("firebase-admin/firestore");
 
-initializeApp({ projectId: process.env.GCLOUD_PROJECT || "ko-lernen-app" });
+initializeApp({ projectId: process.env.GCLOUD_PROJECT });
 const db = getFirestore();
 const TS = FieldValue.serverTimestamp();
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

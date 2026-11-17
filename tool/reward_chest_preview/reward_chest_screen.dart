@@ -81,8 +81,9 @@ class _RewardChestScreenState extends State<RewardChestScreen>
     with TickerProviderStateMixin {
   // ---- 에셋 경로 (pubspec.yaml에 등록 필요) ----
   static const _closedAsset =
-      'assets/illustrations/reward/najeon_chest_closed.png';
-  static const _openAsset = 'assets/illustrations/reward/najeon_chest_open.png';
+      'assets/illustrations/rewards/najeon/najeon_chest_closed.png';
+  static const _openAsset =
+      'assets/illustrations/rewards/najeon/najeon_chest_open.png';
   // audioplayers의 AssetSource는 assets/ 아래 경로를 씁니다.
   static const _sfxWood = 'sfx/chest_open.mp3';
   static const _sfxGaya = 'sfx/gayageum_gliss.mp3';

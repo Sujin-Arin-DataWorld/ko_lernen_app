@@ -1,0 +1,820 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "unit_id": "A2.2-04",
+  "band": "A2.2",
+  "title": {
+    "ko": "약속과 의향을 조정하기",
+    "en": "Adjusting plans and commitments",
+    "de": "Absichten und Verabredungen abstimmen"
+  },
+  "goal": {
+    "ko": "약속·의향·잠정 생각을 구분하고 상대와 일정을 조정한다",
+    "en": "Distinguish commitments, choices, and tentative intentions while adjusting plans with another person.",
+    "de": "Unterscheide Zusagen, eigene Wünsche und vorläufige Absichten und stimme Termine gemeinsam ab."
+  },
+  "prerequisites": [
+    "A1.2-06",
+    "A2.1-01",
+    "A2.2-03"
+  ],
+  "teach_targets": {
+    "vocab": [
+      {
+        "ko": "연락",
+        "en": "contact; update",
+        "de": "Rückmeldung; Kontakt"
+      },
+      {
+        "ko": "약속",
+        "en": "appointment; commitment",
+        "de": "Verabredung; Zusage"
+      },
+      {
+        "ko": "미루다",
+        "en": "postpone",
+        "de": "verschieben"
+      },
+      {
+        "ko": "대신",
+        "en": "instead",
+        "de": "stattdessen"
+      },
+      {
+        "ko": "정하다",
+        "en": "decide; set",
+        "de": "festlegen"
+      }
+    ],
+    "grammar": [
+      "-(으)ㄹ게요",
+      "-(으)ㄹ래요",
+      "-(으)ㄹ까 봐요(잠정 의도)",
+      "-고요(사정 덧붙이기)",
+      "-아/어서(이유)",
+      "-지만"
+    ]
+  },
+  "non_assessed": [
+    "할까 봐요는 이 단원의 잠정 의도 맥락으로 한정한다. 걱정·우려의 다른 뜻 전체를 평가하지 않는다.",
+    "모의 일정표의 합의는 실제 캘린더 저장이나 본편 가족 약속을 만들지 않는다."
+  ],
+  "source": {
+    "contract_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/UNITS.psv",
+    "contract_sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+    "story_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+    "story_sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332",
+    "base_sha": "646c4658e70f594ab234a172679e29122d0f0e66"
+  },
+  "story": {
+    "lq_id": "LQ-08",
+    "building_id": "anchae",
+    "anchor": "안채 중간 / v3.5 §6 06·§8.1; 이 패킷의 보이는 장면은 2026년 현대 역할 카드",
+    "spoiler_guard": {
+      "canonical_gate": "S1-E06.middle",
+      "visible_variant": "modern_role_card_no_story_gate",
+      "if_unmet": "이 패킷의 현대 모의 대화와 새 자극만 제공한다. 고택의 기억·이름·가족 약속·물건·대사를 선공개하지 않는다.",
+      "if_met": "이미 공개된 본편 자료로 돌아가는 선택만 제공한다. 이 패킷은 새 가족 사실이나 후속 진실을 추가하지 않는다.",
+      "gate_owner": "기존 본편 공개 상태; 학습 수준·정답률·지연 복습·건축률로 대체하지 않는다.",
+      "new_clue": 0,
+      "new_resident_npc": 0,
+      "ownership_or_reward_grant": false
+    }
+  },
+  "dialogue": [
+    {
+      "id": "A2.2-04-D01",
+      "speaker": "sujin",
+      "phase": "entry",
+      "ko": "현대 모의 일정에서 원하는 일과 맡은 일을 나눠 보자.",
+      "en": "In this modern simulated schedule, separate what you want from what you undertake.",
+      "de": "Trennen wir im modernen Übungskalender Wunsch und Zusage."
+    },
+    {
+      "id": "A2.2-04-D02",
+      "speaker": "christian",
+      "phase": "request",
+      "ko": "가고 싶다는 말이 확정 약속인 줄 알았어요.",
+      "en": "I thought wanting to go meant it was a confirmed plan.",
+      "de": "Ich hatte den Wunsch mitzukommen als feste Zusage verstanden."
+    },
+    {
+      "id": "A2.2-04-D03",
+      "speaker": "sujin",
+      "phase": "model",
+      "ko": "갈래요는 내 의향, 갈까 봐요는 이 카드의 잠정 생각이야.",
+      "en": "갈래요 expresses your inclination; 갈까 봐요 is a tentative idea on this card.",
+      "de": "갈래요 nennt den eigenen Wunsch; 갈까 봐요 steht auf dieser Karte für eine vorläufige Überlegung."
+    },
+    {
+      "id": "A2.2-04-D04",
+      "speaker": "traveler_role_model",
+      "phase": "model",
+      "ko": "오늘은 일이 있어서 못 가요. 대신 내일 연락할게요.",
+      "en": "I cannot go today because of work. I will contact you tomorrow instead.",
+      "de": "Heute kann ich wegen der Arbeit nicht. Ich melde mich stattdessen morgen bei Ihnen."
+    },
+    {
+      "id": "A2.2-04-D05",
+      "speaker": "sujin",
+      "phase": "practice",
+      "ko": "사정을 더할 때 고요, 다른 바람과 제약을 이을 때 지만도 써 보자.",
+      "en": "Try 고요 for another constraint and 지만 to link a wish with a limitation.",
+      "de": "Verwende 고요 für einen weiteren Umstand und 지만, um Wunsch und Einschränkung zu verbinden."
+    },
+    {
+      "id": "A2.2-04-D06",
+      "speaker": "sujin",
+      "phase": "use",
+      "ko": "새 변경 요청에서는 가능한 시간만 약속해. 모르는 장소는 확인할 일로 남겨.",
+      "en": "For a new change request, promise only available times. Leave an unknown location to be checked.",
+      "de": "Sage bei der neuen Änderungsbitte nur mögliche Zeiten zu. Ein unbekannter Ort bleibt zu prüfen."
+    },
+    {
+      "id": "A2.2-04-D07",
+      "speaker": "christian",
+      "phase": "result",
+      "ko": "이제 연락 약속과 아직 미정인 활동을 따로 적을 수 있겠어요.",
+      "en": "Now we can record the contact commitment separately from the undecided activity.",
+      "de": "Jetzt können wir Rückmeldezusage und noch offene Aktivität getrennt festhalten."
+    },
+    {
+      "id": "A2.2-04-D08",
+      "speaker": "sujin",
+      "phase": "return",
+      "ko": "이 현대 대화는 선택 연습이야. 본편 공개 상태와 건축 진행은 따로 유지해.",
+      "en": "This modern dialogue is optional practice. Story access and construction progress remain separate.",
+      "de": "Dieser moderne Dialog ist eine freiwillige Übung. Geschichtenstand und Baufortschritt bleiben davon getrennt."
+    },
+    {
+      "id": "A2.2-04-D09",
+      "speaker": "sujin",
+      "phase": "next",
+      "ko": "내일은 새 부탁에 답하며 지킬 수 있는 약속을 골라 보자.",
+      "en": "Tomorrow, choose a commitment you can keep in a new request.",
+      "de": "Morgen wählen wir bei einer neuen Bitte eine einhaltbare Zusage."
+    }
+  ],
+  "items": [
+    {
+      "id": "A2.2-04-P01",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "상대에게 실행할 약속을 구분한다",
+      "prompt": {
+        "ko": "상대가 기다리는 연락을 맡겠다는 말을 골라요.",
+        "en": "Choose the undertaking to contact the person waiting for an update.",
+        "de": "Wähle die Zusage, die erwartete Rückmeldung zu übernehmen."
+      },
+      "material": {
+        "context": {
+          "ko": "현대 역할 카드. 크리스티안은 내일 오전에 결과를 기다린다. 여행자는 내일 오전 연락 가능. 시범: 제가 내일 오전에 연락할게요.",
+          "en": "Modern role card. Christian is waiting for an update tomorrow morning. The traveler is available to contact him then. Model: I will contact you tomorrow morning.",
+          "de": "Moderne Rollenkarte. Christian wartet morgen Vormittag auf eine Rückmeldung. Die reisende Person kann sich dann melden. Beispiel: Ich melde mich morgen Vormittag bei Ihnen."
+        }
+      },
+      "options": [
+        {
+          "id": "promise",
+          "ko": "제가 내일 오전에 연락할게요.",
+          "en": "I will contact you tomorrow morning.",
+          "de": "Ich melde mich morgen Vormittag bei Ihnen."
+        },
+        {
+          "id": "tentative",
+          "ko": "내일 연락할까 봐요. 아직 정하지 않았어요.",
+          "en": "I am thinking of contacting you tomorrow, but have not decided.",
+          "de": "Vielleicht melde ich mich morgen, entschieden ist es noch nicht."
+        },
+        {
+          "id": "wish",
+          "ko": "연락하고 싶지만 못 해요.",
+          "en": "I would like to contact you, but cannot.",
+          "de": "Ich würde mich gern melden, kann aber nicht."
+        }
+      ],
+      "accepted_answers": [
+        "promise"
+      ],
+      "feedback_correct": {
+        "ko": "상대의 기다림을 고려해 가능한 행동을 맡았어요.",
+        "en": "You undertook an action you can do, taking the other person’s wait into account.",
+        "de": "Du hast unter Berücksichtigung der wartenden Person eine mögliche Handlung zugesagt."
+      },
+      "feedback_wrong": {
+        "ko": "잠정 생각이나 할 수 없는 바람을 약속으로 대신하지 말아요.",
+        "en": "Do not substitute a tentative thought or impossible wish for a commitment.",
+        "de": "Ersetze eine Zusage nicht durch einen vorläufigen Gedanken oder unerfüllbaren Wunsch."
+      },
+      "help": {
+        "ko": "-ㄹ게요는 여기서 상대에게 내가 할 일을 맡는 말이에요.",
+        "en": "Here -ㄹ게요 undertakes an action for the listener.",
+        "de": "-ㄹ게요 ist hier die Zusage einer eigenen Handlung gegenüber der anderen Person."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-04-P02",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "자신의 의향과 상대 선택을 구분한다",
+      "prompt": {
+        "ko": "자신의 선택을 말하되 둘의 약속을 확정하지 않는 답을 골라요.",
+        "en": "Choose a personal preference that does not confirm a shared appointment.",
+        "de": "Wähle eine eigene Entscheidung, die noch keinen gemeinsamen Termin festlegt."
+      },
+      "material": {
+        "context": {
+          "ko": "수진의 선택 질문: 버스로 갈래요, 걸어갈래요? 각자 이동 방법만 정하는 역할 카드. 시범: 저는 걸어갈래요.",
+          "en": "Sujin asks for a choice: bus or walking? On this role card, each person chooses only their own transport. Model: I would like to walk.",
+          "de": "Sujin fragt nach einer Wahl: Bus oder zu Fuß? Auf dieser Rollenkarte wählt jede Person nur den eigenen Weg. Beispiel: Ich möchte zu Fuß gehen."
+        }
+      },
+      "options": [
+        {
+          "id": "will",
+          "ko": "저는 걸어갈래요.",
+          "en": "I would like to walk.",
+          "de": "Ich möchte zu Fuß gehen."
+        },
+        {
+          "id": "both",
+          "ko": "그럼 우리 둘 다 내일 두 시에 만나요.",
+          "en": "Then we will both meet tomorrow at two.",
+          "de": "Dann treffen wir uns beide morgen um zwei."
+        },
+        {
+          "id": "force",
+          "ko": "모두 버스로 가야 해요.",
+          "en": "Everyone has to take the bus.",
+          "de": "Alle müssen den Bus nehmen."
+        }
+      ],
+      "accepted_answers": [
+        "will"
+      ],
+      "feedback_correct": {
+        "ko": "내 의향만 말했고 시간 약속이나 타인의 의무는 더하지 않았어요.",
+        "en": "You stated your own preference without adding an appointment or an obligation for others.",
+        "de": "Du hast nur deinen Wunsch geäußert und weder einen Termin noch eine Pflicht für andere ergänzt."
+      },
+      "feedback_wrong": {
+        "ko": "이동 선택에 없는 공동 일정이나 강제를 만들지 않아요.",
+        "en": "Do not create a shared schedule or compulsion from a transport choice.",
+        "de": "Mache aus der Verkehrsmittelwahl weder einen gemeinsamen Termin noch einen Zwang."
+      },
+      "help": {
+        "ko": "-ㄹ래요는 이 질문에서 내가 원하는 선택을 답해요.",
+        "en": "In this question, -ㄹ래요 answers with the choice you want.",
+        "de": "In dieser Frage nennt -ㄹ래요 die eigene gewünschte Wahl."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-04-P03",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "잠정 생각을 확정 약속과 구별한다",
+      "prompt": {
+        "ko": "아직 결정 전인 생각을 고르세요.",
+        "en": "Choose the thought that remains undecided.",
+        "de": "Wähle den noch offenen Gedanken."
+      },
+      "material": {
+        "context": {
+          "ko": "여행자는 주말에 전시를 볼지 고민 중. 표도 시간도 정하지 않음. 시범: 주말에 전시를 볼까 봐요. 아직 정하지 않았어요.",
+          "en": "The traveler is considering an exhibition this weekend. No ticket or time chosen. Model: I am thinking of visiting the exhibition, but I have not decided.",
+          "de": "Die reisende Person überlegt, am Wochenende eine Ausstellung zu besuchen. Weder Karte noch Uhrzeit stehen fest. Beispiel: Ich überlege, die Ausstellung zu besuchen. Entschieden habe ich mich noch nicht."
+        }
+      },
+      "options": [
+        {
+          "id": "tentative",
+          "ko": "주말에 전시를 볼까 봐요. 아직 정하지 않았어요.",
+          "en": "I am thinking of seeing the exhibition this weekend; I have not decided.",
+          "de": "Ich überlege, am Wochenende die Ausstellung zu besuchen. Es steht noch nicht fest."
+        },
+        {
+          "id": "promise",
+          "ko": "토요일 두 시에 꼭 같이 갈게요.",
+          "en": "I will definitely go with you on Saturday at two.",
+          "de": "Ich komme am Samstag um zwei auf jeden Fall mit."
+        },
+        {
+          "id": "confirmed",
+          "ko": "표를 샀고 시간도 정했어요.",
+          "en": "I bought the ticket and set the time.",
+          "de": "Ich habe die Karte gekauft und die Uhrzeit festgelegt."
+        }
+      ],
+      "accepted_answers": [
+        "tentative"
+      ],
+      "feedback_correct": {
+        "ko": "잠정 생각과 미정을 그대로 남겼어요.",
+        "en": "You kept both the tentative intention and the undecided status.",
+        "de": "Du hast den vorläufigen Gedanken und die offene Entscheidung erhalten."
+      },
+      "feedback_wrong": {
+        "ko": "표·시간·동행 확정은 주어진 정보보다 강한 약속이에요.",
+        "en": "Tickets, times, or a confirmed companion add a stronger commitment than the stimulus gives.",
+        "de": "Karte, Uhrzeit oder feste Begleitung würden die Aussage zur verbindlichen Zusage verstärken."
+      },
+      "help": {
+        "ko": "-ㄹ까 봐요를 이 카드에서는 해 볼 생각으로 읽어요. 뒤의 미정 설명도 함께 봐요.",
+        "en": "Here -ㄹ까 봐요 expresses a tentative idea; use the following statement that it is undecided.",
+        "de": "Hier drückt -ㄹ까 봐요 eine vorläufige Absicht aus. Beachte auch den folgenden Hinweis, dass nichts feststeht."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-04-P04",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "사과·이유·덧붙임·대안으로 일정을 조정한다",
+      "prompt": {
+        "ko": "두 사정을 모두 반영한 조정 답장을 골라요.",
+        "en": "Choose the adjustment that includes both constraints.",
+        "de": "Wähle die Terminänderung, die beide Umstände berücksichtigt."
+      },
+      "material": {
+        "context": {
+          "ko": "크리스티안의 제안: 오늘 저녁 여섯 시. 여행자: 오늘 일 때문에 불가; 내일 오전도 진료 예약; 내일 오후 세 시 가능. 시범: 미안해요. 오늘은 일이 있어서 어려워요. 내일 오전에도 예약이 있고요. 만나고 싶지만 오늘은 못 가요. 대신 내일 오후 세 시는 어때요?",
+          "en": "Christian proposes six this evening. Traveler: work prevents today; medical appointment tomorrow morning; free tomorrow at three in the afternoon. Model: Sorry, work prevents today, and I also have an appointment tomorrow morning. I would like to meet, but cannot today. How about tomorrow at three instead?",
+          "de": "Christian schlägt heute 18 Uhr vor. Rollenkarte: heute wegen Arbeit verhindert; morgen Vormittag Arzttermin; morgen 15 Uhr möglich. Beispiel: Tut mir leid, heute geht es wegen der Arbeit nicht. Morgen Vormittag habe ich außerdem einen Termin. Ich würde Sie gern treffen, kann aber heute nicht. Wie wäre es stattdessen morgen um 15 Uhr?"
+        }
+      },
+      "options": [
+        {
+          "id": "adjust",
+          "ko": "미안해요. 오늘은 일이 있어서 못 가요. 내일 오전에도 예약이 있고요. 만나고 싶지만 오늘은 어려워요. 대신 내일 오후 세 시는 어때요?",
+          "en": "Sorry, work prevents me from coming today. I also have an appointment tomorrow morning. I would like to meet, but today is difficult. How about tomorrow at three instead?",
+          "de": "Tut mir leid, heute kann ich wegen der Arbeit nicht. Morgen Vormittag habe ich außerdem einen Termin. Ich würde Sie gern treffen, aber heute geht es nicht. Wie wäre es stattdessen morgen um 15 Uhr?"
+        },
+        {
+          "id": "over",
+          "ko": "네, 오늘 여섯 시에 갈게요. 내일 오전에도 만나요.",
+          "en": "Yes, I will come at six today. Let us also meet tomorrow morning.",
+          "de": "Ja, ich komme heute um 18 Uhr. Treffen wir uns auch morgen Vormittag."
+        },
+        {
+          "id": "force",
+          "ko": "저는 내일 세 시만 가능하니까 무조건 그때 오세요.",
+          "en": "I am only free at three tomorrow, so you must come then.",
+          "de": "Ich kann nur morgen um 15 Uhr, also kommen Sie unbedingt dann."
+        }
+      ],
+      "accepted_answers": [
+        "adjust"
+      ],
+      "feedback_correct": {
+        "ko": "어서의 이유·고요의 추가 사정·지만의 대비 뒤에 열린 대안을 냈어요.",
+        "en": "You used a reason, an added constraint, and a contrast before offering an open alternative.",
+        "de": "Nach Begründung, zusätzlichem Umstand und Gegensatz hast du eine offene Alternative angeboten."
+      },
+      "feedback_wrong": {
+        "ko": "불가능한 시간을 약속하거나 상대에게 내 시간을 강요하지 말아요.",
+        "en": "Do not promise unavailable times or force your time on the other person.",
+        "de": "Versprich keine unmöglichen Zeiten und zwinge der anderen Person deinen Termin nicht auf."
+      },
+      "help": {
+        "ko": "불가 두 칸과 가능 한 칸을 확인한 뒤, 사과→사정→대안 순서로 읽어요.",
+        "en": "Check both unavailable slots and the available one; then read apology, constraints, alternative.",
+        "de": "Prüfe die zwei belegten und den einen freien Zeitraum. Lies dann Entschuldigung, Umstände und Alternative."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-04-I01",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 연락 요청에 가능한 약속만 한다",
+      "prompt": {
+        "ko": "할 수 있는 연락 약속만 담은 답을 골라요.",
+        "en": "Choose the reply containing only a contact commitment you can keep.",
+        "de": "Wähle die Rückmeldung, die du tatsächlich zusagen kannst."
+      },
+      "material": {
+        "context": {
+          "ko": "크리스티안: 오늘 안에 결과를 알려 줄 수 있어요? 역할 카드: 오늘 결과 미정; 내일 오전 열 시 확인 가능. 상대는 그때 연락도 가능.",
+          "en": "Christian: Can you let me know the result today? Role card: result unknown today; can check tomorrow at ten; the other person can receive an update then.",
+          "de": "Christian: Können Sie mir das Ergebnis noch heute sagen? Rollenkarte: Ergebnis heute offen; morgen um 10 Uhr prüfbar; die andere Person ist dann erreichbar."
+        }
+      },
+      "options": [
+        {
+          "id": "bounded",
+          "ko": "미안해요. 아직 결과를 몰라요. 내일 열 시에 확인하고 연락할게요.",
+          "en": "Sorry, I do not know the result yet. I will check and contact you tomorrow at ten.",
+          "de": "Tut mir leid, ich kenne das Ergebnis noch nicht. Ich prüfe es morgen um zehn und melde mich bei Ihnen."
+        },
+        {
+          "id": "false",
+          "ko": "오늘 다 확인했어요. 지금 알려 드릴게요.",
+          "en": "I have checked everything today. I will tell you now.",
+          "de": "Ich habe heute alles geprüft. Ich sage es Ihnen jetzt."
+        },
+        {
+          "id": "vague",
+          "ko": "연락할까 봐요. 기다리세요.",
+          "en": "I might contact you. Wait.",
+          "de": "Vielleicht melde ich mich. Warten Sie."
+        }
+      ],
+      "accepted_answers": [
+        "bounded"
+      ],
+      "feedback_correct": {
+        "ko": "결과를 아는 척하지 않고 확인 가능한 시점의 연락만 약속했어요.",
+        "en": "You promised an update at a checkable time without pretending to know the result.",
+        "de": "Du hast eine Rückmeldung zum prüfbaren Zeitpunkt zugesagt, ohne das Ergebnis vorzutäuschen."
+      },
+      "feedback_wrong": {
+        "ko": "결과 미정과 내일의 확인 가능 시간을 둘 다 지켜요.",
+        "en": "Keep both the unknown result and tomorrow’s checking time.",
+        "de": "Behalte das offene Ergebnis und den morgigen Prüfzeitpunkt bei."
+      },
+      "help": {
+        "ko": "오늘 가능한 사실과 내일 할 행동을 분리해요.",
+        "en": "Separate today’s facts from the action you can take tomorrow.",
+        "de": "Trenne den heutigen Sachstand von der morgen möglichen Handlung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-04-I02",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 선택 질문에서 의향을 말한다",
+      "prompt": {
+        "ko": "질문 범위에 맞는 의향을 골라요.",
+        "en": "Choose a preference within the scope of the question.",
+        "de": "Wähle einen Wunsch im Rahmen der Frage."
+      },
+      "material": {
+        "context": {
+          "ko": "크리스티안: 지금 차 마실래요, 물 마실래요? 내 역할 카드: 물을 원함. 다른 일정 합의 없음.",
+          "en": "Christian: Would you like tea or water now? Your role card: you want water. No other plans have been agreed.",
+          "de": "Christian: Möchten Sie jetzt Tee oder Wasser? Deine Rollenkarte: Wasser gewünscht. Weitere Absprachen gibt es nicht."
+        }
+      },
+      "options": [
+        {
+          "id": "water",
+          "ko": "저는 물 마실래요.",
+          "en": "I would like water.",
+          "de": "Ich möchte Wasser."
+        },
+        {
+          "id": "tea",
+          "ko": "저는 차 마실래요.",
+          "en": "I would like tea.",
+          "de": "Ich möchte Tee."
+        },
+        {
+          "id": "plan",
+          "ko": "내일 꼭 차를 마시러 올게요.",
+          "en": "I will definitely come for tea tomorrow.",
+          "de": "Ich komme morgen auf jeden Fall zum Tee."
+        }
+      ],
+      "accepted_answers": [
+        "water"
+      ],
+      "feedback_correct": {
+        "ko": "지금 원하는 것을 말했고 새 일정은 만들지 않았어요.",
+        "en": "You stated your current choice without creating a new plan.",
+        "de": "Du hast deinen jetzigen Wunsch genannt, ohne einen neuen Termin zu erfinden."
+      },
+      "feedback_wrong": {
+        "ko": "원하는 음료는 물이고, 내일 방문 약속은 없어요.",
+        "en": "Water is the preferred drink; no visit tomorrow has been arranged.",
+        "de": "Gewünscht ist Wasser; ein Besuch morgen wurde nicht vereinbart."
+      },
+      "help": {
+        "ko": "선택 대상과 지금이라는 시간을 확인해요.",
+        "en": "Check the available choice and the present time.",
+        "de": "Prüfe, worüber entschieden wird und dass es um jetzt geht."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-04-I03",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 잠정 생각을 일정표에 확정으로 적지 않는다",
+      "prompt": {
+        "ko": "메시지의 확정 상태를 정확히 고르세요.",
+        "en": "Choose the correct commitment status of the message.",
+        "de": "Wähle den richtigen Verbindlichkeitsgrad der Nachricht."
+      },
+      "material": {
+        "context": {
+          "ko": "새 메시지: 다음 주에 수영을 배울까 봐요. 아직 강좌를 정하지 않았어요. 상대와 만날 약속은 없음.",
+          "en": "New message: I am thinking of learning to swim next week. I have not chosen a course yet. No appointment with the listener.",
+          "de": "Neue Nachricht: Ich überlege, nächste Woche Schwimmen zu lernen. Einen Kurs habe ich noch nicht ausgesucht. Mit der zuhörenden Person ist nichts verabredet."
+        }
+      },
+      "options": [
+        {
+          "id": "tentative",
+          "ko": "잠정 생각. 강좌와 약속은 아직 미정이에요.",
+          "en": "Tentative idea; course and appointment remain undecided.",
+          "de": "Vorläufige Überlegung; Kurs und Termin stehen nicht fest."
+        },
+        {
+          "id": "booked",
+          "ko": "강좌 예약과 동행 약속이 확정됐어요.",
+          "en": "The course booking and shared visit are confirmed.",
+          "de": "Kursbuchung und gemeinsame Teilnahme sind bestätigt."
+        },
+        {
+          "id": "reject",
+          "ko": "수영을 절대 배우지 않겠다는 거절이에요.",
+          "en": "It is a refusal ever to learn swimming.",
+          "de": "Es ist die Absage, jemals Schwimmen zu lernen."
+        }
+      ],
+      "accepted_answers": [
+        "tentative"
+      ],
+      "feedback_correct": {
+        "ko": "생각을 확정 예약이나 거절로 바꾸지 않았어요.",
+        "en": "You did not turn a thought into a booking or refusal.",
+        "de": "Du hast aus einer Überlegung weder eine Buchung noch eine Ablehnung gemacht."
+      },
+      "feedback_wrong": {
+        "ko": "아직 정하지 않았다는 뒷말을 일정표에도 남겨요.",
+        "en": "Preserve “not decided yet” in the schedule status too.",
+        "de": "Behalte auch im Terminstatus bei, dass noch nichts entschieden ist."
+      },
+      "help": {
+        "ko": "실행 의무나 예약 사실이 실제로 있는지 찾아봐요.",
+        "en": "Check whether any commitment or booking is actually stated.",
+        "de": "Prüfe, ob wirklich eine Zusage oder Buchung genannt ist."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-04-I04",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 변경 요청에 사정과 대안을 조정한다",
+      "prompt": {
+        "ko": "상대 요청과 내 사정을 함께 지키는 답장을 골라요.",
+        "en": "Choose the reply that respects both the request and your constraints.",
+        "de": "Wähle die Antwort, die Bitte und eigene Umstände berücksichtigt."
+      },
+      "material": {
+        "context": {
+          "ko": "새로 알게 된 친구와 해요체로 말하는 모의 채팅. 상대: 금요일 약속을 토요일 오전으로 미룰 수 있어요? 내 카드: 금요일 가능; 토요일 오전 근무; 토요일 오후 네 시 가능.",
+          "en": "Simulated polite Korean chat with a new friend. Friend: Could we move Friday’s meeting to Saturday morning? Your card: Friday possible; working Saturday morning; free Saturday at four in the afternoon.",
+          "de": "Simulierter Chat mit einer neuen befreundeten Person; koreanisch wird 해요체 verwendet. Frage: Können wir Freitag auf Samstagvormittag verschieben? Deine Karte: Freitag möglich; Samstagvormittag Arbeit; Samstag 16 Uhr frei."
+        }
+      },
+      "options": [
+        {
+          "id": "alternative",
+          "ko": "금요일도 좋지만 토요일 오전은 일이 있어서 어려워요. 대신 토요일 오후 네 시는 어때요?",
+          "en": "Friday works, but work makes Saturday morning difficult. How about Saturday at four instead?",
+          "de": "Freitag passt mir, aber Samstagvormittag muss ich arbeiten. Wie wäre es stattdessen am Samstag um 16 Uhr?"
+        },
+        {
+          "id": "accept",
+          "ko": "토요일 오전에 꼭 만나요. 일은 없어요.",
+          "en": "Let us definitely meet Saturday morning. I have no work.",
+          "de": "Treffen wir uns auf jeden Fall Samstagvormittag. Ich muss nicht arbeiten."
+        },
+        {
+          "id": "rejectall",
+          "ko": "저는 아무 때도 안 돼요. 약속을 취소해요.",
+          "en": "I am never available. Let us cancel.",
+          "de": "Ich kann zu keiner Zeit. Sagen wir ab."
+        }
+      ],
+      "accepted_answers": [
+        "alternative"
+      ],
+      "feedback_correct": {
+        "ko": "상대 변경 요청을 받고 내 제약과 가능한 대안을 함께 전했어요.",
+        "en": "You acknowledged the change request and gave both your constraint and a possible alternative.",
+        "de": "Du hast die Änderungsbitte aufgenommen und sowohl Einschränkung als auch mögliche Alternative genannt."
+      },
+      "feedback_wrong": {
+        "ko": "근무를 지우거나 가능한 시간을 모두 불가로 바꾸지 말아요.",
+        "en": "Do not erase work or turn available times into total unavailability.",
+        "de": "Streiche weder die Arbeit noch mache aus freien Zeiten völlige Unverfügbarkeit."
+      },
+      "help": {
+        "ko": "지만으로 다른 사정을 잇고, 어서로 이유를 말한 뒤 질문으로 대안을 열어요.",
+        "en": "Use a contrast, give the reason, and leave the alternative open as a question.",
+        "de": "Verbinde die unterschiedlichen Umstände, nenne den Grund und stelle die Alternative als Frage."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-04-R01",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "다음 날 새 연락 약속을 조정한다",
+      "prompt": {
+        "ko": "새 요청에서 지킬 수 있는 약속을 골라요.",
+        "en": "Choose a commitment you can keep in the new request.",
+        "de": "Wähle für die neue Bitte eine einhaltbare Zusage."
+      },
+      "material": {
+        "context": {
+          "ko": "다음 날 새 자극: 일요일까지 사진 전송 요청. 내 역할: 토요일 밤까지 집 밖, 일요일 오전에만 파일 확인·전송 가능. 이전 모델 숨김.",
+          "en": "Next-day new stimulus: photos requested by Sunday. Your role: away until Saturday night; can check and send files only Sunday morning. Previous models hidden.",
+          "de": "Neuer Impuls am nächsten Tag: Fotos sollen bis Sonntag geschickt werden. Deine Rolle: bis Samstagabend unterwegs; Dateien erst Sonntagvormittag prüfbar und versendbar. Frühere Vorlagen sind verborgen."
+        },
+        "delay": "next_day"
+      },
+      "options": [
+        {
+          "id": "possible",
+          "ko": "토요일에는 집에 없어서 어려워요. 일요일 오전에 확인하고 보내 줄게요.",
+          "en": "Saturday is difficult because I will be away. I will check and send them Sunday morning.",
+          "de": "Samstag geht es nicht, weil ich nicht zu Hause bin. Ich prüfe sie Sonntagvormittag und schicke sie dir."
+        },
+        {
+          "id": "impossible",
+          "ko": "토요일 오전에 다 보낼게요.",
+          "en": "I will send everything Saturday morning.",
+          "de": "Ich schicke alles am Samstagvormittag."
+        },
+        {
+          "id": "tent",
+          "ko": "보낼까 봐요. 날짜는 정하지 않았어요.",
+          "en": "I might send them; I have not set a date.",
+          "de": "Vielleicht schicke ich sie, ein Datum steht noch nicht fest."
+        }
+      ],
+      "accepted_answers": [
+        "possible"
+      ],
+      "feedback_correct": {
+        "ko": "새 자료에서 가능한 시점만 약속했어요.",
+        "en": "You committed only to an available time in the new stimulus.",
+        "de": "Du hast nur einen laut neuer Karte möglichen Zeitpunkt zugesagt."
+      },
+      "feedback_wrong": {
+        "ko": "외출 중인 토요일 전송은 불가능하고 날짜 미정은 요청에 답하지 못해요.",
+        "en": "Saturday is unavailable; leaving the date open does not answer the request.",
+        "de": "Samstag ist nicht möglich; ein offenes Datum beantwortet die Bitte nicht."
+      },
+      "help": {
+        "ko": "마감과 내 가능 시간의 겹치는 부분을 찾아요.",
+        "en": "Find where the deadline and your availability overlap.",
+        "de": "Finde den Zeitraum, der Frist und eigener Verfügbarkeit entspricht."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 자료의 선택 이해만 확인한다. 도움·정답 공개 전후를 구분하며 보존 성공·독립 발화·이야기 해금 증거로 확대하지 않는다."
+    },
+    {
+      "id": "A2.2-04-R02",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "다음 날 의향과 잠정 생각을 약속과 구분한다",
+      "prompt": {
+        "ko": "확정 약속으로 기록할 수 있는 말만 골라요.",
+        "en": "Choose the statement that can be recorded as a commitment.",
+        "de": "Wähle nur die Aussage, die als Zusage festgehalten werden kann."
+      },
+      "material": {
+        "context": {
+          "ko": "다음 날 새 상황: 독서 모임 안내 연락을 기다리는 상대. 세 답변의 행동은 모두 가능하다. 확정적으로 자신이 연락을 맡는 말을 찾는다. 이전 예문 숨김.",
+          "en": "Next-day new context: someone is waiting for a reading-group update. All three actions are possible. Find the statement firmly taking responsibility for contacting them. Previous examples hidden.",
+          "de": "Neuer Kontext am nächsten Tag: Eine Person wartet auf eine Rückmeldung zum Lesekreis. Alle drei Handlungen wären möglich. Gesucht ist die feste Zusage, sich selbst zu melden. Frühere Beispiele sind verborgen."
+        },
+        "delay": "next_day"
+      },
+      "options": [
+        {
+          "id": "commit",
+          "ko": "제가 모임 시간을 확인해서 오늘 저녁에 연락할게요.",
+          "en": "I will check the meeting time and contact you this evening.",
+          "de": "Ich prüfe die Uhrzeit des Treffens und melde mich heute Abend."
+        },
+        {
+          "id": "maybe",
+          "ko": "오늘 저녁에 연락할까 봐요. 아직 생각 중이에요.",
+          "en": "I am thinking of contacting you tonight; I am still considering it.",
+          "de": "Vielleicht melde ich mich heute Abend; ich überlege noch."
+        },
+        {
+          "id": "wish",
+          "ko": "그 모임에 가고 싶어요.",
+          "en": "I would like to go to that group.",
+          "de": "Ich würde gern zu diesem Treffen gehen."
+        }
+      ],
+      "accepted_answers": [
+        "commit"
+      ],
+      "feedback_correct": {
+        "ko": "할게요의 실행 약속을 생각·바람과 구분했어요.",
+        "en": "You distinguished the undertaking in 할게요 from an idea or wish.",
+        "de": "Du hast die Zusage mit 할게요 von Überlegung und Wunsch unterschieden."
+      },
+      "feedback_wrong": {
+        "ko": "갈 마음이나 연락할 생각만으로 연락 약속을 대신하지 않아요.",
+        "en": "A wish to attend or a thought of calling is not yet a commitment to contact.",
+        "de": "Der Wunsch mitzukommen oder der Gedanke an eine Rückmeldung ist noch keine Zusage."
+      },
+      "help": {
+        "ko": "상대가 실제로 기다려도 되는 행동과 시점이 있는지 봐요.",
+        "en": "Check whether the listener has an action and time they can actually rely on.",
+        "de": "Prüfe, ob eine Handlung mit Zeitpunkt genannt wird, auf die die Person sich verlassen kann."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 자료의 선택 이해만 확인한다. 도움·정답 공개 전후를 구분하며 보존 성공·독립 발화·이야기 해금 증거로 확대하지 않는다."
+    },
+    {
+      "id": "A2.2-04-T01",
+      "mode": "T",
+      "kind": "roleplay",
+      "objective": "새 친구 변경 요청에 확인 메시지를 작성한다",
+      "prompt": {
+        "ko": "가능한 대안과 연락 약속을 담은 짧은 답장을 써 보세요.",
+        "en": "Write a short reply with an available alternative and a contact commitment.",
+        "de": "Schreibe eine kurze Antwort mit einer möglichen Alternative und einer Rückmeldezusage."
+      },
+      "material": {
+        "context": {
+          "ko": "새 친구와 해요체로 말하는 모의 채팅. 상대: 내일 산책을 오전으로 바꿀 수 있어요? 내 카드: 오전 수업, 오후 두 시 가능; 장소는 아직 확인 전, 오늘 저녁 확인 가능. 사과·이유·대안 질문을 쓰고 실제로 가능한 확인 연락만 약속한다.",
+          "en": "Simulated polite Korean chat with a new friend. Friend: Could we move tomorrow’s walk to the morning? Your card: class in the morning; available at two in the afternoon; location unconfirmed, can check tonight. Include apology, reason, alternative question, and only a feasible promise to check and contact.",
+          "de": "Simulierter Chat mit einer neuen befreundeten Person, koreanisch 해요체. Frage: Können wir den Spaziergang morgen auf den Vormittag verschieben? Deine Karte: vormittags Unterricht; 14 Uhr frei; Ort noch offen, heute Abend prüfbar. Formuliere Entschuldigung, Grund, Alternativfrage und nur eine einhaltbare Rückmeldezusage."
+        }
+      },
+      "options": [],
+      "accepted_answers": [],
+      "feedback_correct": {
+        "ko": "가능 시간·미정 장소·실행할 연락을 구분했는지 살펴봐요.",
+        "en": "Check that availability, unconfirmed place, and the promised contact remain distinct.",
+        "de": "Prüfe, ob freie Zeit, offener Ort und zugesagte Rückmeldung getrennt bleiben."
+      },
+      "feedback_wrong": {
+        "ko": "약속 장소를 이미 확정했다거나 오전에 갈 수 있다고 바꾸지 말아요.",
+        "en": "Do not claim the place is confirmed or that you can attend in the morning.",
+        "de": "Behaupte weder einen bestätigten Treffpunkt noch freie Zeit am Vormittag."
+      },
+      "help": {
+        "ko": "불가 이유→가능 대안→상대 확인→내 연락 행동 순서로 메모해요.",
+        "en": "Note the constraint, available alternative, request for confirmation, and your own contact action.",
+        "de": "Notiere Einschränkung, mögliche Alternative, Rückfrage und eigene Rückmeldung."
+      },
+      "scoring": "unscored",
+      "evidence_limit": "열린 역할 수행은 자동 채점하지 않는다. 의미·화행·사실·관계의 충족 여부를 본인 또는 별도 검토자가 살핀다. 독립 발화·발음·실생활 전이는 이 문항만으로 인증하지 않는다."
+    }
+  ],
+  "responses": {
+    "assisted": {
+      "ko": "도움을 보고 이어 갔어요. 이번 시도는 도움 사용으로 구분해요.",
+      "en": "You continued with help. Keep this attempt separate from work done independently.",
+      "de": "Du hast mit Hilfe weitergemacht. Dieser Versuch zählt getrennt von selbstständiger Arbeit."
+    },
+    "independent": {
+      "ko": "정답 시범 없이 선택했어요. 선택 이해와 직접 말하기는 따로 확인해요.",
+      "en": "You chose without an answer model. Choosing an answer and producing your own speech are checked separately.",
+      "de": "Du hast ohne Lösungsvorlage gewählt. Antworten auszuwählen und selbst zu sprechen wird getrennt geprüft."
+    },
+    "audio_unavailable": {
+      "ko": "소리를 재생할 수 없어요. 글과 상황 카드로 계속하고, 듣기·발음 확인은 나중에 해요.",
+      "en": "Audio is unavailable. Continue with the text and situation cards; check listening and pronunciation later.",
+      "de": "Der Ton ist nicht verfügbar. Mach mit Text und Situationskarten weiter; Hören und Aussprache prüfst du später."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 돼요. 이야기나 건축 진행을 되돌리는 조건은 없어요.",
+      "en": "You can pause here. Pausing does not undo story or construction progress.",
+      "de": "Du kannst hier pausieren. Dadurch gehen weder Geschichte noch Baufortschritt zurück."
+    },
+    "resume": {
+      "ko": "현재 상황과 입력을 다시 보고 이어 가요. 도움을 본 시도는 그대로 구분해요.",
+      "en": "Review the current situation and input, then continue. Attempts made with help stay separate.",
+      "de": "Sieh dir die aktuelle Situation und deine Eingabe an und mach weiter. Versuche mit Hilfe bleiben getrennt."
+    },
+    "save_failed": {
+      "ko": "저장을 확인하지 못했어요. 현재 입력을 유지한 채 다시 시도해요. 저장 완료로 표시하지 않아요.",
+      "en": "Saving could not be confirmed. Keep the current input and try again; do not mark it as saved.",
+      "de": "Das Speichern konnte nicht bestätigt werden. Behalte deine Eingabe und versuche es erneut; sie gilt noch nicht als gespeichert."
+    },
+    "revisit": {
+      "ko": "다음 날에는 새 상황으로 다시 해 봐요. 놓쳐도 본편은 계속할 수 있어요.",
+      "en": "Try a new situation the next day. Missing the review does not block the story.",
+      "de": "Versuche es am nächsten Tag mit einer neuen Situation. Auch ohne diese Wiederholung geht die Geschichte weiter."
+    }
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true
+  }
+}

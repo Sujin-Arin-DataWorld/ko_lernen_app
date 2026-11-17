@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 2,
+  "preparedAt": "2026-10-18T19:44:35+00:00",
+  "status": "07_SCOPED_REVIEW_RETAINED_FINAL_BROWSER_AND_DELIVERY_PENDING",
+  "workspace": "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018",
+  "branch": "session/einleitung-reviewed-main-20261018",
+  "head": "44727c1921b4b7f40748ac0d210d0ca62a094028",
+  "ownership": {
+    "inScope": [
+      "07 same-screen companion selection, scroll stability, native controls and regression checks",
+      "Cross-screen shared typography and final in-scope browser verification"
+    ],
+    "excluded": {
+      "destination": "EXCLUDED",
+      "owner": "User-designated separate chat: Spiele 앱 구현 계획 세우기",
+      "preserved": "Existing Vorschau entry hook and at least 48 logical pixels of touch area.",
+      "excludedFromThisApproval": [
+        "Destination UI, game logic and data changes",
+        "Destination visual or interaction approval",
+        "Destination implementation work"
+      ],
+      "rule": "Do not use historical destination screenshots or handoff notes as completion evidence for this task."
+    }
+  },
+  "companion": {
+    "status": "SCOPED_STATIC_AND_WIDGET_UX_PASS_AT_RECORDED_EVIDENCE",
+    "implementationReview": "tool/einleitung_companion_ux_review.json",
+    "staticReview": "tool/einleitung_story_art_review.json",
+    "preserved": [
+      "Joy/Taego updates selection, check and CTA on the same screen",
+      "Stable ScrollPosition, focus and minimum 48px targets",
+      "Serialized durable draft writes and failure recovery",
+      "Companion selection does not issue rewards or invoke product completion",
+      "Main IntroGate/coordinator owns completion and re-entry"
+    ],
+    "figma": "Reviewed single-screen variable-driven selection is retained; old whole-frame navigation findings are historical resolved findings.",
+    "nativeScope": "Recorded static captures and six dedicated stability widget tests support this scope. They do not establish the still-pending final desktop browser or physical-device gate."
+  },
+  "excludedPreviewReadOnlyHandoff": {
+    "status": "SUPERSEDED_BY_COMPLETE_DESTINATION_EXCLUSION",
+    "currentBoundary": {
+      "destination": "EXCLUDED",
+      "owner": "User-designated separate chat: Spiele 앱 구현 계획 세우기",
+      "preserved": "Existing Vorschau entry hook and at least 48 logical pixels of touch area.",
+      "excludedFromThisApproval": [
+        "Destination UI, game logic and data changes",
+        "Destination visual or interaction approval",
+        "Destination implementation work"
+      ],
+      "rule": "Do not use historical destination screenshots or handoff notes as completion evidence for this task."
+    },
+    "note": "Prior destination inventories are historical context only and are not a request to implement, review or approve the other chat destination."
+  },
+  "officialSourcesChecked": {
+    "date": "2026-10-18",
+    "urls": [
+      "https://api.flutter.dev/flutter/widgets/AnimatedSwitcher-class.html",
+      "https://api.flutter.dev/flutter/widgets/SingleChildScrollView-class.html",
+      "https://api.flutter.dev/flutter/widgets/Transform-class.html",
+      "https://developers.figma.com/docs/plugins/working-with-variables/"
+    ]
+  },
+  "skillApplication": "Previously read user-flows/mobile-app-ui/frontend-a11y applied to state ownership, fixed touch areas and separate enlarged-text QA. motion-foundations was inspected but its React-only implementation rules are not applicable to Flutter.",
+  "evidence": {
+    "staticCaptures": "docs/screenshots/einleitung-generated-20261018/",
+    "figmaCaptures": "docs/screenshots/einleitung-parity-review-20261018/",
+    "referenceSpec": "tool/einleitung_reference_spec.json",
+    "storyReview": "tool/einleitung_story_art_review.json",
+    "companionReview": "tool/einleitung_companion_ux_review.json",
+    "historicalEvidence": "Versioned Figma intermediates remain historical; only hashes explicitly linked by a scoped review support that review.",
+    "obsoleteProofCleanup": {
+      "status": "EXCLUDED_FROM_PENDING_DELIVERY_BY_ROOT",
+      "files": [
+        "docs/screenshots/einleitung-parity-review-20261018/level-figma-v2.png",
+        "docs/screenshots/einleitung-generated-20261018/live-complete-heute-402-934.png",
+        "docs/screenshots/einleitung-generated-20261018/live-hanok-402-934.png",
+        "docs/screenshots/einleitung-generated-20261018/live-welcome-desktop.png"
+      ],
+      "backup": "Root verified exact bytes in preserved stash f66e8f1a70da76af2a98a3870605b8f1be70d086^3 before removing the four obsolete files.",
+      "currentZeroBytePngCount": 0,
+      "rule": "Exclude zero-byte or superseded browser proofs from current approval evidence; this documentation cleanup deleted no files."
+    }
+  },
+  "tests": {
+    "status": "PREVIOUSLY_PASS_FINAL_TARGETED_RERUN_PENDING",
+    "source": "Root-reported completed runs before the in-flight desktop typography correction.",
+    "groups": [
+      {
+        "group": "new UI",
+        "passed": 54
+      },
+      {
+        "group": "entry and state contracts",
+        "passed": 55
+      },
+      {
+        "group": "existing wrappers",
+        "passed": 84
+      },
+      {
+        "group": "typography",
+        "passed": 10
+      },
+      {
+        "group": "ARB and asset contracts",
+        "passed": 12
+      },
+      {
+        "group": "locale",
+        "passed": 5
+      }
+    ],
+    "uniqueTotalClaimed": false,
+    "fullRepositorySuiteRun": false,
+    "pending": "Rerun checks affected by the SoriTypeScale fixed 402px pane correction; record the final tested source revision."
+  },
+  "gates": {
+    "staticFigma": "SCOPED_PASS",
+    "nativeWidgetCaptures": "SCOPED_PASS_AT_RECORDED_HASHES",
+    "assetManifest": "PASS_32_FILES_CURRENT_BYTES",
+    "httpAssetDelivery": "PASS_32_FILES_AT_RECORDED_BUILD",
+    "finalDesktopTypography": "IN_PROGRESS",
+    "finalActualBrowser": "PENDING",
+    "commit": "PENDING",
+    "push": "PENDING",
+    "exactCommitCI": "PENDING",
+    "merge": "PENDING",
+    "exactMainCI": "PENDING",
+    "physicalDevice": "UNVERIFIED",
+    "storeDelivery": "NOT_PERFORMED",
+    "overallCompletion": false
+  },
+  "remainingWork": [
+    "Finish the fixed-pane SoriTypeScale correction and affected tests.",
+    "Review fresh final actual-browser captures, selection, navigation, completion and re-entry against current main contracts.",
+    "Commit/push and verify exact-commit CI, then merge and verify exact-main CI under root ownership."
+  ],
+  "sourceReadLimit": "This cleanup records current local manifest bytes and parent-reported completed test/source review evidence. It does not claim a final browser, device or release verification."
+}

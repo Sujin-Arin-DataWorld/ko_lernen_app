@@ -1,0 +1,4372 @@
+{
+  "key": "sadang",
+  "buildingId": "sadang",
+  "name": "사당",
+  "selectorAuthority": "canonical-review catalog and preserved GLB/native explicit reviewStage",
+  "canonicalCatalogSha256": "4f511d3c06b1dcc995cdf94f578b70f400f0ca96bc14fcf65e689eacaec9c6d1",
+  "steps": [
+    {
+      "sequence": 1,
+      "processId": "ildu.sadang-site",
+      "label": "터 닦기",
+      "isFinal": false,
+      "visibleObjects": [],
+      "visibleOriginals": [],
+      "visibleProxies": [],
+      "newMembers": 0,
+      "newOriginalMembers": 0,
+      "visibleMembers": 0,
+      "visibleSetSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "noNewGeometry": true
+    },
+    {
+      "sequence": 2,
+      "processId": "ildu.sadang-foundation",
+      "label": "기단",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.granite step"
+      ],
+      "visibleOriginals": [
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.granite step"
+      ],
+      "visibleProxies": [],
+      "newMembers": 4,
+      "newOriginalMembers": 4,
+      "visibleMembers": 4,
+      "visibleSetSha256": "51d96b284eb0e37b3df9447e725c2c9e9de360c3839898c1f75644b7157dce73",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 3,
+      "processId": "ildu.sadang-padstones",
+      "label": "초석",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.granite step",
+        "North.sadang.round stone plinth"
+      ],
+      "visibleOriginals": [
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.granite step",
+        "North.sadang.round stone plinth"
+      ],
+      "visibleProxies": [],
+      "newMembers": 2,
+      "newOriginalMembers": 2,
+      "visibleMembers": 6,
+      "visibleSetSha256": "cf6e045598e9f0f75cc476d9f69cca8da03f98154236ffcadacdb80487052200",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 4,
+      "processId": "ildu.sadang-posts",
+      "label": "기둥",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.granite step",
+        "North.sadang.round stone plinth",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003"
+      ],
+      "visibleOriginals": [
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.granite step",
+        "North.sadang.round stone plinth",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003"
+      ],
+      "visibleProxies": [],
+      "newMembers": 6,
+      "newOriginalMembers": 6,
+      "visibleMembers": 12,
+      "visibleSetSha256": "ef014003132a27c88578f282677fba16600732c56fd6d503de8bcd6628b544db",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 5,
+      "processId": "ildu.sadang-brackets",
+      "label": "공포",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo side red beam",
+        "North.sadang.roof.eave binding",
+        "North.sadang.round stone plinth",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid"
+      ],
+      "visibleOriginals": [
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo side red beam",
+        "North.sadang.roof.eave binding",
+        "North.sadang.round stone plinth",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid"
+      ],
+      "visibleProxies": [],
+      "newMembers": 11,
+      "newOriginalMembers": 11,
+      "visibleMembers": 23,
+      "visibleSetSha256": "5ab1b52ac35b970a0ee0fd22b2b59b14a905bec95faf0f74a499f713db2bd931",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 6,
+      "processId": "ildu.sadang-rafters",
+      "label": "서까래",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.double eave square buyeon",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.painted rafter end",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo painted rafter collar",
+        "North.sadang.photo painted rafter collar.001",
+        "North.sadang.photo painted rafter collar.002",
+        "North.sadang.photo painted rafter collar.003",
+        "North.sadang.photo side red beam",
+        "North.sadang.roof.eave binding",
+        "North.sadang.roof.lower exposed rafters",
+        "North.sadang.round stone plinth",
+        "Sep29.sadang.interior green rafter",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid"
+      ],
+      "visibleOriginals": [
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.double eave square buyeon",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.painted rafter end",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo painted rafter collar",
+        "North.sadang.photo painted rafter collar.001",
+        "North.sadang.photo painted rafter collar.002",
+        "North.sadang.photo painted rafter collar.003",
+        "North.sadang.photo side red beam",
+        "North.sadang.roof.eave binding",
+        "North.sadang.roof.lower exposed rafters",
+        "North.sadang.round stone plinth",
+        "Sep29.sadang.interior green rafter",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid"
+      ],
+      "visibleProxies": [],
+      "newMembers": 8,
+      "newOriginalMembers": 8,
+      "visibleMembers": 31,
+      "visibleSetSha256": "55ce8009f53309c35b5be0e69d687bac4c10f0a60536b93d919de2fe8db8f31f",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 7,
+      "processId": "ildu.sadang-roof_bed",
+      "label": "지붕 바탕",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.double eave square buyeon",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.packed ridge core",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.joinery.solid roof bedding",
+        "North.sadang.painted rafter end",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo painted rafter collar",
+        "North.sadang.photo painted rafter collar.001",
+        "North.sadang.photo painted rafter collar.002",
+        "North.sadang.photo painted rafter collar.003",
+        "North.sadang.photo side red beam",
+        "North.sadang.roof.descending packed core",
+        "North.sadang.roof.eave binding",
+        "North.sadang.roof.gable earthen bedding",
+        "North.sadang.roof.lower exposed rafters",
+        "North.sadang.roof.side lime plugs",
+        "North.sadang.round stone plinth",
+        "Sep29.sadang.interior green rafter",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid"
+      ],
+      "visibleOriginals": [
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.double eave square buyeon",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.packed ridge core",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.joinery.solid roof bedding",
+        "North.sadang.painted rafter end",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo painted rafter collar",
+        "North.sadang.photo painted rafter collar.001",
+        "North.sadang.photo painted rafter collar.002",
+        "North.sadang.photo painted rafter collar.003",
+        "North.sadang.photo side red beam",
+        "North.sadang.roof.descending packed core",
+        "North.sadang.roof.eave binding",
+        "North.sadang.roof.gable earthen bedding",
+        "North.sadang.roof.lower exposed rafters",
+        "North.sadang.roof.side lime plugs",
+        "North.sadang.round stone plinth",
+        "Sep29.sadang.interior green rafter",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid"
+      ],
+      "visibleProxies": [],
+      "newMembers": 5,
+      "newOriginalMembers": 5,
+      "visibleMembers": 36,
+      "visibleSetSha256": "aeae73170e2bfa0d33dee5f69af81221db21d2ec85a29396599be94a10446c3f",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 8,
+      "processId": "ildu.sadang-tiles",
+      "label": "기와",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.double eave square buyeon",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.packed ridge core",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.joinery.solid roof bedding",
+        "North.sadang.painted rafter end",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo painted rafter collar",
+        "North.sadang.photo painted rafter collar.001",
+        "North.sadang.photo painted rafter collar.002",
+        "North.sadang.photo painted rafter collar.003",
+        "North.sadang.photo side red beam",
+        "North.sadang.roof",
+        "North.sadang.roof.001",
+        "North.sadang.roof.002",
+        "North.sadang.roof.003",
+        "North.sadang.roof.004",
+        "North.sadang.roof.005",
+        "North.sadang.roof.descending course 1",
+        "North.sadang.roof.descending course 2",
+        "North.sadang.roof.descending course 3",
+        "North.sadang.roof.descending packed core",
+        "North.sadang.roof.eave binding",
+        "North.sadang.roof.gable earthen bedding",
+        "North.sadang.roof.lower exposed rafters",
+        "North.sadang.roof.ridge chaggo",
+        "North.sadang.roof.ridge chaggo.001",
+        "North.sadang.roof.ridge chaggo.002",
+        "North.sadang.roof.ridge chaggo.003",
+        "North.sadang.roof.ridge chaggo.004",
+        "North.sadang.roof.ridge chaggo.005",
+        "North.sadang.roof.ridge course 1",
+        "North.sadang.roof.ridge course 1.001",
+        "North.sadang.roof.ridge course 1.002",
+        "North.sadang.roof.ridge course 1.003",
+        "North.sadang.roof.ridge course 1.004",
+        "North.sadang.roof.ridge course 1.005",
+        "North.sadang.roof.ridge course 2",
+        "North.sadang.roof.ridge course 2.001",
+        "North.sadang.roof.ridge course 2.002",
+        "North.sadang.roof.ridge course 2.003",
+        "North.sadang.roof.ridge course 2.004",
+        "North.sadang.roof.ridge course 2.005",
+        "North.sadang.roof.ridge course 3",
+        "North.sadang.roof.ridge course 3.001",
+        "North.sadang.roof.ridge course 3.002",
+        "North.sadang.roof.ridge course 3.003",
+        "North.sadang.roof.ridge course 3.004",
+        "North.sadang.roof.ridge course 3.005",
+        "North.sadang.roof.ridge course 4",
+        "North.sadang.roof.ridge course 4.001",
+        "North.sadang.roof.ridge course 4.002",
+        "North.sadang.roof.ridge course 4.003",
+        "North.sadang.roof.ridge course 4.004",
+        "North.sadang.roof.ridge course 4.005",
+        "North.sadang.roof.ridge course 5",
+        "North.sadang.roof.ridge course 5.001",
+        "North.sadang.roof.ridge course 5.002",
+        "North.sadang.roof.ridge course 5.003",
+        "North.sadang.roof.ridge course 5.004",
+        "North.sadang.roof.ridge course 5.005",
+        "North.sadang.roof.round tile ends",
+        "North.sadang.roof.side laid covers",
+        "North.sadang.roof.side laid covers.001",
+        "North.sadang.roof.side laid covers.002",
+        "North.sadang.roof.side laid covers.003",
+        "North.sadang.roof.side laid covers.004",
+        "North.sadang.roof.side laid covers.005",
+        "North.sadang.roof.side laid pans",
+        "North.sadang.roof.side laid pans.001",
+        "North.sadang.roof.side laid pans.002",
+        "North.sadang.roof.side laid pans.003",
+        "North.sadang.roof.side laid pans.004",
+        "North.sadang.roof.side laid pans.005",
+        "North.sadang.roof.side lime plugs",
+        "North.sadang.roof.upright end cap",
+        "North.sadang.round stone plinth",
+        "Sep29.sadang.interior green rafter",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid"
+      ],
+      "visibleOriginals": [
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.double eave square buyeon",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.packed ridge core",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.joinery.solid roof bedding",
+        "North.sadang.painted rafter end",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo painted rafter collar",
+        "North.sadang.photo painted rafter collar.001",
+        "North.sadang.photo painted rafter collar.002",
+        "North.sadang.photo painted rafter collar.003",
+        "North.sadang.photo side red beam",
+        "North.sadang.roof",
+        "North.sadang.roof.001",
+        "North.sadang.roof.002",
+        "North.sadang.roof.003",
+        "North.sadang.roof.004",
+        "North.sadang.roof.005",
+        "North.sadang.roof.descending course 1",
+        "North.sadang.roof.descending course 2",
+        "North.sadang.roof.descending course 3",
+        "North.sadang.roof.descending packed core",
+        "North.sadang.roof.eave binding",
+        "North.sadang.roof.gable earthen bedding",
+        "North.sadang.roof.lower exposed rafters",
+        "North.sadang.roof.ridge chaggo",
+        "North.sadang.roof.ridge chaggo.001",
+        "North.sadang.roof.ridge chaggo.002",
+        "North.sadang.roof.ridge chaggo.003",
+        "North.sadang.roof.ridge chaggo.004",
+        "North.sadang.roof.ridge chaggo.005",
+        "North.sadang.roof.ridge course 1",
+        "North.sadang.roof.ridge course 1.001",
+        "North.sadang.roof.ridge course 1.002",
+        "North.sadang.roof.ridge course 1.003",
+        "North.sadang.roof.ridge course 1.004",
+        "North.sadang.roof.ridge course 1.005",
+        "North.sadang.roof.ridge course 2",
+        "North.sadang.roof.ridge course 2.001",
+        "North.sadang.roof.ridge course 2.002",
+        "North.sadang.roof.ridge course 2.003",
+        "North.sadang.roof.ridge course 2.004",
+        "North.sadang.roof.ridge course 2.005",
+        "North.sadang.roof.ridge course 3",
+        "North.sadang.roof.ridge course 3.001",
+        "North.sadang.roof.ridge course 3.002",
+        "North.sadang.roof.ridge course 3.003",
+        "North.sadang.roof.ridge course 3.004",
+        "North.sadang.roof.ridge course 3.005",
+        "North.sadang.roof.ridge course 4",
+        "North.sadang.roof.ridge course 4.001",
+        "North.sadang.roof.ridge course 4.002",
+        "North.sadang.roof.ridge course 4.003",
+        "North.sadang.roof.ridge course 4.004",
+        "North.sadang.roof.ridge course 4.005",
+        "North.sadang.roof.ridge course 5",
+        "North.sadang.roof.ridge course 5.001",
+        "North.sadang.roof.ridge course 5.002",
+        "North.sadang.roof.ridge course 5.003",
+        "North.sadang.roof.ridge course 5.004",
+        "North.sadang.roof.ridge course 5.005",
+        "North.sadang.roof.round tile ends",
+        "North.sadang.roof.side laid covers",
+        "North.sadang.roof.side laid covers.001",
+        "North.sadang.roof.side laid covers.002",
+        "North.sadang.roof.side laid covers.003",
+        "North.sadang.roof.side laid covers.004",
+        "North.sadang.roof.side laid covers.005",
+        "North.sadang.roof.side laid pans",
+        "North.sadang.roof.side laid pans.001",
+        "North.sadang.roof.side laid pans.002",
+        "North.sadang.roof.side laid pans.003",
+        "North.sadang.roof.side laid pans.004",
+        "North.sadang.roof.side laid pans.005",
+        "North.sadang.roof.side lime plugs",
+        "North.sadang.roof.upright end cap",
+        "North.sadang.round stone plinth",
+        "Sep29.sadang.interior green rafter",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid"
+      ],
+      "visibleProxies": [],
+      "newMembers": 59,
+      "newOriginalMembers": 59,
+      "visibleMembers": 95,
+      "visibleSetSha256": "bae2805a5efffadd7b34227ab84741c1ed732fd258bb9dfae2f1cf3ee130077c",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 9,
+      "processId": "ildu.sadang-maru_interior",
+      "label": "마루 내부",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.double eave square buyeon",
+        "North.sadang.floor individual boards",
+        "North.sadang.floor under joists",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.packed ridge core",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.joinery.solid roof bedding",
+        "North.sadang.measured porch donggwiteul",
+        "North.sadang.measured porch janggwiteul",
+        "North.sadang.painted rafter end",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo painted rafter collar",
+        "North.sadang.photo painted rafter collar.001",
+        "North.sadang.photo painted rafter collar.002",
+        "North.sadang.photo painted rafter collar.003",
+        "North.sadang.photo side red beam",
+        "North.sadang.roof",
+        "North.sadang.roof.001",
+        "North.sadang.roof.002",
+        "North.sadang.roof.003",
+        "North.sadang.roof.004",
+        "North.sadang.roof.005",
+        "North.sadang.roof.descending course 1",
+        "North.sadang.roof.descending course 2",
+        "North.sadang.roof.descending course 3",
+        "North.sadang.roof.descending packed core",
+        "North.sadang.roof.eave binding",
+        "North.sadang.roof.gable earthen bedding",
+        "North.sadang.roof.lower exposed rafters",
+        "North.sadang.roof.ridge chaggo",
+        "North.sadang.roof.ridge chaggo.001",
+        "North.sadang.roof.ridge chaggo.002",
+        "North.sadang.roof.ridge chaggo.003",
+        "North.sadang.roof.ridge chaggo.004",
+        "North.sadang.roof.ridge chaggo.005",
+        "North.sadang.roof.ridge course 1",
+        "North.sadang.roof.ridge course 1.001",
+        "North.sadang.roof.ridge course 1.002",
+        "North.sadang.roof.ridge course 1.003",
+        "North.sadang.roof.ridge course 1.004",
+        "North.sadang.roof.ridge course 1.005",
+        "North.sadang.roof.ridge course 2",
+        "North.sadang.roof.ridge course 2.001",
+        "North.sadang.roof.ridge course 2.002",
+        "North.sadang.roof.ridge course 2.003",
+        "North.sadang.roof.ridge course 2.004",
+        "North.sadang.roof.ridge course 2.005",
+        "North.sadang.roof.ridge course 3",
+        "North.sadang.roof.ridge course 3.001",
+        "North.sadang.roof.ridge course 3.002",
+        "North.sadang.roof.ridge course 3.003",
+        "North.sadang.roof.ridge course 3.004",
+        "North.sadang.roof.ridge course 3.005",
+        "North.sadang.roof.ridge course 4",
+        "North.sadang.roof.ridge course 4.001",
+        "North.sadang.roof.ridge course 4.002",
+        "North.sadang.roof.ridge course 4.003",
+        "North.sadang.roof.ridge course 4.004",
+        "North.sadang.roof.ridge course 4.005",
+        "North.sadang.roof.ridge course 5",
+        "North.sadang.roof.ridge course 5.001",
+        "North.sadang.roof.ridge course 5.002",
+        "North.sadang.roof.ridge course 5.003",
+        "North.sadang.roof.ridge course 5.004",
+        "North.sadang.roof.ridge course 5.005",
+        "North.sadang.roof.round tile ends",
+        "North.sadang.roof.side laid covers",
+        "North.sadang.roof.side laid covers.001",
+        "North.sadang.roof.side laid covers.002",
+        "North.sadang.roof.side laid covers.003",
+        "North.sadang.roof.side laid covers.004",
+        "North.sadang.roof.side laid covers.005",
+        "North.sadang.roof.side laid pans",
+        "North.sadang.roof.side laid pans.001",
+        "North.sadang.roof.side laid pans.002",
+        "North.sadang.roof.side laid pans.003",
+        "North.sadang.roof.side laid pans.004",
+        "North.sadang.roof.side laid pans.005",
+        "North.sadang.roof.side lime plugs",
+        "North.sadang.roof.upright end cap",
+        "North.sadang.round stone plinth",
+        "Sep29.sadang.interior green rafter",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid"
+      ],
+      "visibleOriginals": [
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.double eave square buyeon",
+        "North.sadang.floor individual boards",
+        "North.sadang.floor under joists",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.packed ridge core",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.joinery.solid roof bedding",
+        "North.sadang.measured porch donggwiteul",
+        "North.sadang.measured porch janggwiteul",
+        "North.sadang.painted rafter end",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo painted rafter collar",
+        "North.sadang.photo painted rafter collar.001",
+        "North.sadang.photo painted rafter collar.002",
+        "North.sadang.photo painted rafter collar.003",
+        "North.sadang.photo side red beam",
+        "North.sadang.roof",
+        "North.sadang.roof.001",
+        "North.sadang.roof.002",
+        "North.sadang.roof.003",
+        "North.sadang.roof.004",
+        "North.sadang.roof.005",
+        "North.sadang.roof.descending course 1",
+        "North.sadang.roof.descending course 2",
+        "North.sadang.roof.descending course 3",
+        "North.sadang.roof.descending packed core",
+        "North.sadang.roof.eave binding",
+        "North.sadang.roof.gable earthen bedding",
+        "North.sadang.roof.lower exposed rafters",
+        "North.sadang.roof.ridge chaggo",
+        "North.sadang.roof.ridge chaggo.001",
+        "North.sadang.roof.ridge chaggo.002",
+        "North.sadang.roof.ridge chaggo.003",
+        "North.sadang.roof.ridge chaggo.004",
+        "North.sadang.roof.ridge chaggo.005",
+        "North.sadang.roof.ridge course 1",
+        "North.sadang.roof.ridge course 1.001",
+        "North.sadang.roof.ridge course 1.002",
+        "North.sadang.roof.ridge course 1.003",
+        "North.sadang.roof.ridge course 1.004",
+        "North.sadang.roof.ridge course 1.005",
+        "North.sadang.roof.ridge course 2",
+        "North.sadang.roof.ridge course 2.001",
+        "North.sadang.roof.ridge course 2.002",
+        "North.sadang.roof.ridge course 2.003",
+        "North.sadang.roof.ridge course 2.004",
+        "North.sadang.roof.ridge course 2.005",
+        "North.sadang.roof.ridge course 3",
+        "North.sadang.roof.ridge course 3.001",
+        "North.sadang.roof.ridge course 3.002",
+        "North.sadang.roof.ridge course 3.003",
+        "North.sadang.roof.ridge course 3.004",
+        "North.sadang.roof.ridge course 3.005",
+        "North.sadang.roof.ridge course 4",
+        "North.sadang.roof.ridge course 4.001",
+        "North.sadang.roof.ridge course 4.002",
+        "North.sadang.roof.ridge course 4.003",
+        "North.sadang.roof.ridge course 4.004",
+        "North.sadang.roof.ridge course 4.005",
+        "North.sadang.roof.ridge course 5",
+        "North.sadang.roof.ridge course 5.001",
+        "North.sadang.roof.ridge course 5.002",
+        "North.sadang.roof.ridge course 5.003",
+        "North.sadang.roof.ridge course 5.004",
+        "North.sadang.roof.ridge course 5.005",
+        "North.sadang.roof.round tile ends",
+        "North.sadang.roof.side laid covers",
+        "North.sadang.roof.side laid covers.001",
+        "North.sadang.roof.side laid covers.002",
+        "North.sadang.roof.side laid covers.003",
+        "North.sadang.roof.side laid covers.004",
+        "North.sadang.roof.side laid covers.005",
+        "North.sadang.roof.side laid pans",
+        "North.sadang.roof.side laid pans.001",
+        "North.sadang.roof.side laid pans.002",
+        "North.sadang.roof.side laid pans.003",
+        "North.sadang.roof.side laid pans.004",
+        "North.sadang.roof.side laid pans.005",
+        "North.sadang.roof.side lime plugs",
+        "North.sadang.roof.upright end cap",
+        "North.sadang.round stone plinth",
+        "Sep29.sadang.interior green rafter",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid"
+      ],
+      "visibleProxies": [],
+      "newMembers": 4,
+      "newOriginalMembers": 4,
+      "visibleMembers": 99,
+      "visibleSetSha256": "20c199976222b72832c810f4312829b0108ff5eb252c234700e8b2c40b7cf0a2",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 10,
+      "processId": "ildu.sadang-walls",
+      "label": "벽체",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.double eave square buyeon",
+        "North.sadang.floor individual boards",
+        "North.sadang.floor under joists",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.gable 45x27 cover batten",
+        "North.sadang.joinery.gable thirty millimetre planks",
+        "North.sadang.joinery.packed ridge core",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.joinery.solid roof bedding",
+        "North.sadang.left sanctuary plaster",
+        "North.sadang.measured porch donggwiteul",
+        "North.sadang.measured porch janggwiteul",
+        "North.sadang.painted rafter end",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo painted rafter collar",
+        "North.sadang.photo painted rafter collar.001",
+        "North.sadang.photo painted rafter collar.002",
+        "North.sadang.photo painted rafter collar.003",
+        "North.sadang.photo side red beam",
+        "North.sadang.photo ventilated earth apron",
+        "North.sadang.photo ventilation bore",
+        "North.sadang.rear sanctuary plaster",
+        "North.sadang.right sanctuary plaster",
+        "North.sadang.roof",
+        "North.sadang.roof.001",
+        "North.sadang.roof.002",
+        "North.sadang.roof.003",
+        "North.sadang.roof.004",
+        "North.sadang.roof.005",
+        "North.sadang.roof.descending course 1",
+        "North.sadang.roof.descending course 2",
+        "North.sadang.roof.descending course 3",
+        "North.sadang.roof.descending packed core",
+        "North.sadang.roof.eave binding",
+        "North.sadang.roof.gable earthen bedding",
+        "North.sadang.roof.lower exposed rafters",
+        "North.sadang.roof.ridge chaggo",
+        "North.sadang.roof.ridge chaggo.001",
+        "North.sadang.roof.ridge chaggo.002",
+        "North.sadang.roof.ridge chaggo.003",
+        "North.sadang.roof.ridge chaggo.004",
+        "North.sadang.roof.ridge chaggo.005",
+        "North.sadang.roof.ridge course 1",
+        "North.sadang.roof.ridge course 1.001",
+        "North.sadang.roof.ridge course 1.002",
+        "North.sadang.roof.ridge course 1.003",
+        "North.sadang.roof.ridge course 1.004",
+        "North.sadang.roof.ridge course 1.005",
+        "North.sadang.roof.ridge course 2",
+        "North.sadang.roof.ridge course 2.001",
+        "North.sadang.roof.ridge course 2.002",
+        "North.sadang.roof.ridge course 2.003",
+        "North.sadang.roof.ridge course 2.004",
+        "North.sadang.roof.ridge course 2.005",
+        "North.sadang.roof.ridge course 3",
+        "North.sadang.roof.ridge course 3.001",
+        "North.sadang.roof.ridge course 3.002",
+        "North.sadang.roof.ridge course 3.003",
+        "North.sadang.roof.ridge course 3.004",
+        "North.sadang.roof.ridge course 3.005",
+        "North.sadang.roof.ridge course 4",
+        "North.sadang.roof.ridge course 4.001",
+        "North.sadang.roof.ridge course 4.002",
+        "North.sadang.roof.ridge course 4.003",
+        "North.sadang.roof.ridge course 4.004",
+        "North.sadang.roof.ridge course 4.005",
+        "North.sadang.roof.ridge course 5",
+        "North.sadang.roof.ridge course 5.001",
+        "North.sadang.roof.ridge course 5.002",
+        "North.sadang.roof.ridge course 5.003",
+        "North.sadang.roof.ridge course 5.004",
+        "North.sadang.roof.ridge course 5.005",
+        "North.sadang.roof.round tile ends",
+        "North.sadang.roof.side laid covers",
+        "North.sadang.roof.side laid covers.001",
+        "North.sadang.roof.side laid covers.002",
+        "North.sadang.roof.side laid covers.003",
+        "North.sadang.roof.side laid covers.004",
+        "North.sadang.roof.side laid covers.005",
+        "North.sadang.roof.side laid pans",
+        "North.sadang.roof.side laid pans.001",
+        "North.sadang.roof.side laid pans.002",
+        "North.sadang.roof.side laid pans.003",
+        "North.sadang.roof.side laid pans.004",
+        "North.sadang.roof.side laid pans.005",
+        "North.sadang.roof.side lime plugs",
+        "North.sadang.roof.upright end cap",
+        "North.sadang.round stone plinth",
+        "North.sadang.survey sanctuary 0.infill",
+        "North.sadang.survey sanctuary 0.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 0.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 0.leaf1.iron ring",
+        "North.sadang.survey sanctuary 0.leaf1.lock rail",
+        "North.sadang.survey sanctuary 0.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 0.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 0.leaf1.rail",
+        "North.sadang.survey sanctuary 0.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 0.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 0.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 0.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 0.leaf1.stile",
+        "North.sadang.survey sanctuary 0.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 0.measured head and sill",
+        "North.sadang.survey sanctuary 0.measured jamb",
+        "North.sadang.survey sanctuary 1.infill",
+        "North.sadang.survey sanctuary 1.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 1.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 1.leaf1.iron ring",
+        "North.sadang.survey sanctuary 1.leaf1.lock rail",
+        "North.sadang.survey sanctuary 1.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 1.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 1.leaf1.rail",
+        "North.sadang.survey sanctuary 1.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 1.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 1.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 1.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 1.leaf1.stile",
+        "North.sadang.survey sanctuary 1.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 1.leaf2.hanji backing",
+        "North.sadang.survey sanctuary 1.leaf2.horizontal band",
+        "North.sadang.survey sanctuary 1.leaf2.iron ring",
+        "North.sadang.survey sanctuary 1.leaf2.lock rail",
+        "North.sadang.survey sanctuary 1.leaf2.lower moulding.rail",
+        "North.sadang.survey sanctuary 1.leaf2.lower moulding.stile",
+        "North.sadang.survey sanctuary 1.leaf2.rail",
+        "North.sadang.survey sanctuary 1.leaf2.rear paper rail",
+        "North.sadang.survey sanctuary 1.leaf2.rebated bead.rail",
+        "North.sadang.survey sanctuary 1.leaf2.rebated bead.stile",
+        "North.sadang.survey sanctuary 1.leaf2.recessed lower board",
+        "North.sadang.survey sanctuary 1.leaf2.stile",
+        "North.sadang.survey sanctuary 1.leaf2.vertical sal",
+        "North.sadang.survey sanctuary 1.measured head and sill",
+        "North.sadang.survey sanctuary 1.measured jamb",
+        "North.sadang.survey sanctuary 2.infill",
+        "North.sadang.survey sanctuary 2.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 2.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 2.leaf1.iron ring",
+        "North.sadang.survey sanctuary 2.leaf1.lock rail",
+        "North.sadang.survey sanctuary 2.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 2.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 2.leaf1.rail",
+        "North.sadang.survey sanctuary 2.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 2.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 2.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 2.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 2.leaf1.stile",
+        "North.sadang.survey sanctuary 2.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 2.measured head and sill",
+        "North.sadang.survey sanctuary 2.measured jamb",
+        "Sep29.sadang.interior green rafter",
+        "Sep29.sadang.interior rear rail",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid",
+        "Sep29.sadang.side horizontal red rail",
+        "Sep29.sadang.side lower red sill"
+      ],
+      "visibleOriginals": [
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.double eave square buyeon",
+        "North.sadang.floor individual boards",
+        "North.sadang.floor under joists",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.gable 45x27 cover batten",
+        "North.sadang.joinery.gable thirty millimetre planks",
+        "North.sadang.joinery.packed ridge core",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.joinery.solid roof bedding",
+        "North.sadang.left sanctuary plaster",
+        "North.sadang.measured porch donggwiteul",
+        "North.sadang.measured porch janggwiteul",
+        "North.sadang.painted rafter end",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo painted rafter collar",
+        "North.sadang.photo painted rafter collar.001",
+        "North.sadang.photo painted rafter collar.002",
+        "North.sadang.photo painted rafter collar.003",
+        "North.sadang.photo side red beam",
+        "North.sadang.photo ventilated earth apron",
+        "North.sadang.photo ventilation bore",
+        "North.sadang.rear sanctuary plaster",
+        "North.sadang.right sanctuary plaster",
+        "North.sadang.roof",
+        "North.sadang.roof.001",
+        "North.sadang.roof.002",
+        "North.sadang.roof.003",
+        "North.sadang.roof.004",
+        "North.sadang.roof.005",
+        "North.sadang.roof.descending course 1",
+        "North.sadang.roof.descending course 2",
+        "North.sadang.roof.descending course 3",
+        "North.sadang.roof.descending packed core",
+        "North.sadang.roof.eave binding",
+        "North.sadang.roof.gable earthen bedding",
+        "North.sadang.roof.lower exposed rafters",
+        "North.sadang.roof.ridge chaggo",
+        "North.sadang.roof.ridge chaggo.001",
+        "North.sadang.roof.ridge chaggo.002",
+        "North.sadang.roof.ridge chaggo.003",
+        "North.sadang.roof.ridge chaggo.004",
+        "North.sadang.roof.ridge chaggo.005",
+        "North.sadang.roof.ridge course 1",
+        "North.sadang.roof.ridge course 1.001",
+        "North.sadang.roof.ridge course 1.002",
+        "North.sadang.roof.ridge course 1.003",
+        "North.sadang.roof.ridge course 1.004",
+        "North.sadang.roof.ridge course 1.005",
+        "North.sadang.roof.ridge course 2",
+        "North.sadang.roof.ridge course 2.001",
+        "North.sadang.roof.ridge course 2.002",
+        "North.sadang.roof.ridge course 2.003",
+        "North.sadang.roof.ridge course 2.004",
+        "North.sadang.roof.ridge course 2.005",
+        "North.sadang.roof.ridge course 3",
+        "North.sadang.roof.ridge course 3.001",
+        "North.sadang.roof.ridge course 3.002",
+        "North.sadang.roof.ridge course 3.003",
+        "North.sadang.roof.ridge course 3.004",
+        "North.sadang.roof.ridge course 3.005",
+        "North.sadang.roof.ridge course 4",
+        "North.sadang.roof.ridge course 4.001",
+        "North.sadang.roof.ridge course 4.002",
+        "North.sadang.roof.ridge course 4.003",
+        "North.sadang.roof.ridge course 4.004",
+        "North.sadang.roof.ridge course 4.005",
+        "North.sadang.roof.ridge course 5",
+        "North.sadang.roof.ridge course 5.001",
+        "North.sadang.roof.ridge course 5.002",
+        "North.sadang.roof.ridge course 5.003",
+        "North.sadang.roof.ridge course 5.004",
+        "North.sadang.roof.ridge course 5.005",
+        "North.sadang.roof.round tile ends",
+        "North.sadang.roof.side laid covers",
+        "North.sadang.roof.side laid covers.001",
+        "North.sadang.roof.side laid covers.002",
+        "North.sadang.roof.side laid covers.003",
+        "North.sadang.roof.side laid covers.004",
+        "North.sadang.roof.side laid covers.005",
+        "North.sadang.roof.side laid pans",
+        "North.sadang.roof.side laid pans.001",
+        "North.sadang.roof.side laid pans.002",
+        "North.sadang.roof.side laid pans.003",
+        "North.sadang.roof.side laid pans.004",
+        "North.sadang.roof.side laid pans.005",
+        "North.sadang.roof.side lime plugs",
+        "North.sadang.roof.upright end cap",
+        "North.sadang.round stone plinth",
+        "North.sadang.survey sanctuary 0.infill",
+        "North.sadang.survey sanctuary 0.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 0.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 0.leaf1.iron ring",
+        "North.sadang.survey sanctuary 0.leaf1.lock rail",
+        "North.sadang.survey sanctuary 0.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 0.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 0.leaf1.rail",
+        "North.sadang.survey sanctuary 0.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 0.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 0.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 0.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 0.leaf1.stile",
+        "North.sadang.survey sanctuary 0.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 0.measured head and sill",
+        "North.sadang.survey sanctuary 0.measured jamb",
+        "North.sadang.survey sanctuary 1.infill",
+        "North.sadang.survey sanctuary 1.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 1.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 1.leaf1.iron ring",
+        "North.sadang.survey sanctuary 1.leaf1.lock rail",
+        "North.sadang.survey sanctuary 1.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 1.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 1.leaf1.rail",
+        "North.sadang.survey sanctuary 1.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 1.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 1.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 1.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 1.leaf1.stile",
+        "North.sadang.survey sanctuary 1.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 1.leaf2.hanji backing",
+        "North.sadang.survey sanctuary 1.leaf2.horizontal band",
+        "North.sadang.survey sanctuary 1.leaf2.iron ring",
+        "North.sadang.survey sanctuary 1.leaf2.lock rail",
+        "North.sadang.survey sanctuary 1.leaf2.lower moulding.rail",
+        "North.sadang.survey sanctuary 1.leaf2.lower moulding.stile",
+        "North.sadang.survey sanctuary 1.leaf2.rail",
+        "North.sadang.survey sanctuary 1.leaf2.rear paper rail",
+        "North.sadang.survey sanctuary 1.leaf2.rebated bead.rail",
+        "North.sadang.survey sanctuary 1.leaf2.rebated bead.stile",
+        "North.sadang.survey sanctuary 1.leaf2.recessed lower board",
+        "North.sadang.survey sanctuary 1.leaf2.stile",
+        "North.sadang.survey sanctuary 1.leaf2.vertical sal",
+        "North.sadang.survey sanctuary 1.measured head and sill",
+        "North.sadang.survey sanctuary 1.measured jamb",
+        "North.sadang.survey sanctuary 2.infill",
+        "North.sadang.survey sanctuary 2.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 2.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 2.leaf1.iron ring",
+        "North.sadang.survey sanctuary 2.leaf1.lock rail",
+        "North.sadang.survey sanctuary 2.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 2.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 2.leaf1.rail",
+        "North.sadang.survey sanctuary 2.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 2.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 2.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 2.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 2.leaf1.stile",
+        "North.sadang.survey sanctuary 2.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 2.measured head and sill",
+        "North.sadang.survey sanctuary 2.measured jamb",
+        "Sep29.sadang.interior green rafter",
+        "Sep29.sadang.interior rear rail",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid",
+        "Sep29.sadang.side horizontal red rail",
+        "Sep29.sadang.side lower red sill"
+      ],
+      "visibleProxies": [],
+      "newMembers": 71,
+      "newOriginalMembers": 71,
+      "visibleMembers": 170,
+      "visibleSetSha256": "126b21202dc2817988f3644fc927235a5292bcfe8f6a6e8fc20d3e5499e669d7",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 11,
+      "processId": "ildu.sadang-finish",
+      "label": "마감",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong floral panel",
+        "North.sadang.dancheong flower petal",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.dancheong red flower eye",
+        "North.sadang.double eave square buyeon",
+        "North.sadang.floor individual boards",
+        "North.sadang.floor under joists",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.bracket painted cream contour",
+        "North.sadang.joinery.bracket painted ochre hairline",
+        "North.sadang.joinery.bracket painted vermilion contour",
+        "North.sadang.joinery.gable 45x27 cover batten",
+        "North.sadang.joinery.gable thirty millimetre planks",
+        "North.sadang.joinery.packed ridge core",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.joinery.solid roof bedding",
+        "North.sadang.left sanctuary plaster",
+        "North.sadang.measured porch donggwiteul",
+        "North.sadang.measured porch janggwiteul",
+        "North.sadang.painted rafter end",
+        "North.sadang.photo beam fine painted border",
+        "North.sadang.photo bracket ochre contour",
+        "North.sadang.photo canonical dancheong frieze",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo column lotus green outline",
+        "North.sadang.photo column lotus ground",
+        "North.sadang.photo column lotus ochre eye",
+        "North.sadang.photo column lotus petal",
+        "North.sadang.photo column painted collar",
+        "North.sadang.photo column painted collar.001",
+        "North.sadang.photo column painted collar.002",
+        "North.sadang.photo column painted collar.003",
+        "North.sadang.photo painted rafter collar",
+        "North.sadang.photo painted rafter collar.001",
+        "North.sadang.photo painted rafter collar.002",
+        "North.sadang.photo painted rafter collar.003",
+        "North.sadang.photo rafter rosette green outline",
+        "North.sadang.photo rafter rosette ground",
+        "North.sadang.photo rafter rosette ochre eye",
+        "North.sadang.photo rafter rosette petal",
+        "North.sadang.photo side red beam",
+        "North.sadang.photo ventilated earth apron",
+        "North.sadang.photo ventilation bore",
+        "North.sadang.rear sanctuary plaster",
+        "North.sadang.right sanctuary plaster",
+        "North.sadang.roof",
+        "North.sadang.roof.001",
+        "North.sadang.roof.002",
+        "North.sadang.roof.003",
+        "North.sadang.roof.004",
+        "North.sadang.roof.005",
+        "North.sadang.roof.descending course 1",
+        "North.sadang.roof.descending course 2",
+        "North.sadang.roof.descending course 3",
+        "North.sadang.roof.descending packed core",
+        "North.sadang.roof.eave binding",
+        "North.sadang.roof.gable earthen bedding",
+        "North.sadang.roof.lower exposed rafters",
+        "North.sadang.roof.ridge chaggo",
+        "North.sadang.roof.ridge chaggo.001",
+        "North.sadang.roof.ridge chaggo.002",
+        "North.sadang.roof.ridge chaggo.003",
+        "North.sadang.roof.ridge chaggo.004",
+        "North.sadang.roof.ridge chaggo.005",
+        "North.sadang.roof.ridge course 1",
+        "North.sadang.roof.ridge course 1.001",
+        "North.sadang.roof.ridge course 1.002",
+        "North.sadang.roof.ridge course 1.003",
+        "North.sadang.roof.ridge course 1.004",
+        "North.sadang.roof.ridge course 1.005",
+        "North.sadang.roof.ridge course 2",
+        "North.sadang.roof.ridge course 2.001",
+        "North.sadang.roof.ridge course 2.002",
+        "North.sadang.roof.ridge course 2.003",
+        "North.sadang.roof.ridge course 2.004",
+        "North.sadang.roof.ridge course 2.005",
+        "North.sadang.roof.ridge course 3",
+        "North.sadang.roof.ridge course 3.001",
+        "North.sadang.roof.ridge course 3.002",
+        "North.sadang.roof.ridge course 3.003",
+        "North.sadang.roof.ridge course 3.004",
+        "North.sadang.roof.ridge course 3.005",
+        "North.sadang.roof.ridge course 4",
+        "North.sadang.roof.ridge course 4.001",
+        "North.sadang.roof.ridge course 4.002",
+        "North.sadang.roof.ridge course 4.003",
+        "North.sadang.roof.ridge course 4.004",
+        "North.sadang.roof.ridge course 4.005",
+        "North.sadang.roof.ridge course 5",
+        "North.sadang.roof.ridge course 5.001",
+        "North.sadang.roof.ridge course 5.002",
+        "North.sadang.roof.ridge course 5.003",
+        "North.sadang.roof.ridge course 5.004",
+        "North.sadang.roof.ridge course 5.005",
+        "North.sadang.roof.round tile ends",
+        "North.sadang.roof.side laid covers",
+        "North.sadang.roof.side laid covers.001",
+        "North.sadang.roof.side laid covers.002",
+        "North.sadang.roof.side laid covers.003",
+        "North.sadang.roof.side laid covers.004",
+        "North.sadang.roof.side laid covers.005",
+        "North.sadang.roof.side laid pans",
+        "North.sadang.roof.side laid pans.001",
+        "North.sadang.roof.side laid pans.002",
+        "North.sadang.roof.side laid pans.003",
+        "North.sadang.roof.side laid pans.004",
+        "North.sadang.roof.side laid pans.005",
+        "North.sadang.roof.side lime plugs",
+        "North.sadang.roof.upright end cap",
+        "North.sadang.round stone plinth",
+        "North.sadang.survey sanctuary 0.infill",
+        "North.sadang.survey sanctuary 0.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 0.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 0.leaf1.iron ring",
+        "North.sadang.survey sanctuary 0.leaf1.lock rail",
+        "North.sadang.survey sanctuary 0.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 0.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 0.leaf1.rail",
+        "North.sadang.survey sanctuary 0.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 0.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 0.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 0.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 0.leaf1.stile",
+        "North.sadang.survey sanctuary 0.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 0.measured head and sill",
+        "North.sadang.survey sanctuary 0.measured jamb",
+        "North.sadang.survey sanctuary 1.infill",
+        "North.sadang.survey sanctuary 1.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 1.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 1.leaf1.iron ring",
+        "North.sadang.survey sanctuary 1.leaf1.lock rail",
+        "North.sadang.survey sanctuary 1.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 1.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 1.leaf1.rail",
+        "North.sadang.survey sanctuary 1.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 1.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 1.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 1.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 1.leaf1.stile",
+        "North.sadang.survey sanctuary 1.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 1.leaf2.hanji backing",
+        "North.sadang.survey sanctuary 1.leaf2.horizontal band",
+        "North.sadang.survey sanctuary 1.leaf2.iron ring",
+        "North.sadang.survey sanctuary 1.leaf2.lock rail",
+        "North.sadang.survey sanctuary 1.leaf2.lower moulding.rail",
+        "North.sadang.survey sanctuary 1.leaf2.lower moulding.stile",
+        "North.sadang.survey sanctuary 1.leaf2.rail",
+        "North.sadang.survey sanctuary 1.leaf2.rear paper rail",
+        "North.sadang.survey sanctuary 1.leaf2.rebated bead.rail",
+        "North.sadang.survey sanctuary 1.leaf2.rebated bead.stile",
+        "North.sadang.survey sanctuary 1.leaf2.recessed lower board",
+        "North.sadang.survey sanctuary 1.leaf2.stile",
+        "North.sadang.survey sanctuary 1.leaf2.vertical sal",
+        "North.sadang.survey sanctuary 1.measured head and sill",
+        "North.sadang.survey sanctuary 1.measured jamb",
+        "North.sadang.survey sanctuary 2.infill",
+        "North.sadang.survey sanctuary 2.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 2.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 2.leaf1.iron ring",
+        "North.sadang.survey sanctuary 2.leaf1.lock rail",
+        "North.sadang.survey sanctuary 2.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 2.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 2.leaf1.rail",
+        "North.sadang.survey sanctuary 2.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 2.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 2.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 2.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 2.leaf1.stile",
+        "North.sadang.survey sanctuary 2.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 2.measured head and sill",
+        "North.sadang.survey sanctuary 2.measured jamb",
+        "Sep29.sadang.altar carved timber apron",
+        "Sep29.sadang.altar moulded rim",
+        "Sep29.sadang.altar rear stretcher",
+        "Sep29.sadang.altar side stretcher",
+        "Sep29.sadang.altar timber leg",
+        "Sep29.sadang.altar timber top",
+        "Sep29.sadang.brass candle stand",
+        "Sep29.sadang.brass incense bowl",
+        "Sep29.sadang.cabinet brass fittings",
+        "Sep29.sadang.cabinet brass pulls",
+        "Sep29.sadang.cabinet timber back",
+        "Sep29.sadang.cabinet timber base",
+        "Sep29.sadang.cabinet timber lattice",
+        "Sep29.sadang.cabinet timber pediment",
+        "Sep29.sadang.cabinet timber rail",
+        "Sep29.sadang.cabinet timber side",
+        "Sep29.sadang.cabinet timber stile",
+        "Sep29.sadang.drawer brass pull",
+        "Sep29.sadang.interior green rafter",
+        "Sep29.sadang.interior rear rail",
+        "Sep29.sadang.ivory candle",
+        "Sep29.sadang.lotus circular field",
+        "Sep29.sadang.lotus ochre centre",
+        "Sep29.sadang.lotus painted petal",
+        "Sep29.sadang.lotus petal outline",
+        "Sep29.sadang.mat indigo hem",
+        "Sep29.sadang.mat woven reed",
+        "Sep29.sadang.offering timber drawer",
+        "Sep29.sadang.offering timber leg",
+        "Sep29.sadang.offering timber top",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid",
+        "Sep29.sadang.scroll painted contour",
+        "Sep29.sadang.scroll painted contour.001",
+        "Sep29.sadang.scroll painted contour.002",
+        "Sep29.sadang.side horizontal red rail",
+        "Sep29.sadang.side lower red sill",
+        "Sep29.sadang.woven straw mat"
+      ],
+      "visibleOriginals": [
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong floral panel",
+        "North.sadang.dancheong flower petal",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.dancheong red flower eye",
+        "North.sadang.double eave square buyeon",
+        "North.sadang.floor individual boards",
+        "North.sadang.floor under joists",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.bracket painted cream contour",
+        "North.sadang.joinery.bracket painted ochre hairline",
+        "North.sadang.joinery.bracket painted vermilion contour",
+        "North.sadang.joinery.gable 45x27 cover batten",
+        "North.sadang.joinery.gable thirty millimetre planks",
+        "North.sadang.joinery.packed ridge core",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.joinery.solid roof bedding",
+        "North.sadang.left sanctuary plaster",
+        "North.sadang.measured porch donggwiteul",
+        "North.sadang.measured porch janggwiteul",
+        "North.sadang.painted rafter end",
+        "North.sadang.photo beam fine painted border",
+        "North.sadang.photo bracket ochre contour",
+        "North.sadang.photo canonical dancheong frieze",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo column lotus green outline",
+        "North.sadang.photo column lotus ground",
+        "North.sadang.photo column lotus ochre eye",
+        "North.sadang.photo column lotus petal",
+        "North.sadang.photo column painted collar",
+        "North.sadang.photo column painted collar.001",
+        "North.sadang.photo column painted collar.002",
+        "North.sadang.photo column painted collar.003",
+        "North.sadang.photo painted rafter collar",
+        "North.sadang.photo painted rafter collar.001",
+        "North.sadang.photo painted rafter collar.002",
+        "North.sadang.photo painted rafter collar.003",
+        "North.sadang.photo rafter rosette green outline",
+        "North.sadang.photo rafter rosette ground",
+        "North.sadang.photo rafter rosette ochre eye",
+        "North.sadang.photo rafter rosette petal",
+        "North.sadang.photo side red beam",
+        "North.sadang.photo ventilated earth apron",
+        "North.sadang.photo ventilation bore",
+        "North.sadang.rear sanctuary plaster",
+        "North.sadang.right sanctuary plaster",
+        "North.sadang.roof",
+        "North.sadang.roof.001",
+        "North.sadang.roof.002",
+        "North.sadang.roof.003",
+        "North.sadang.roof.004",
+        "North.sadang.roof.005",
+        "North.sadang.roof.descending course 1",
+        "North.sadang.roof.descending course 2",
+        "North.sadang.roof.descending course 3",
+        "North.sadang.roof.descending packed core",
+        "North.sadang.roof.eave binding",
+        "North.sadang.roof.gable earthen bedding",
+        "North.sadang.roof.lower exposed rafters",
+        "North.sadang.roof.ridge chaggo",
+        "North.sadang.roof.ridge chaggo.001",
+        "North.sadang.roof.ridge chaggo.002",
+        "North.sadang.roof.ridge chaggo.003",
+        "North.sadang.roof.ridge chaggo.004",
+        "North.sadang.roof.ridge chaggo.005",
+        "North.sadang.roof.ridge course 1",
+        "North.sadang.roof.ridge course 1.001",
+        "North.sadang.roof.ridge course 1.002",
+        "North.sadang.roof.ridge course 1.003",
+        "North.sadang.roof.ridge course 1.004",
+        "North.sadang.roof.ridge course 1.005",
+        "North.sadang.roof.ridge course 2",
+        "North.sadang.roof.ridge course 2.001",
+        "North.sadang.roof.ridge course 2.002",
+        "North.sadang.roof.ridge course 2.003",
+        "North.sadang.roof.ridge course 2.004",
+        "North.sadang.roof.ridge course 2.005",
+        "North.sadang.roof.ridge course 3",
+        "North.sadang.roof.ridge course 3.001",
+        "North.sadang.roof.ridge course 3.002",
+        "North.sadang.roof.ridge course 3.003",
+        "North.sadang.roof.ridge course 3.004",
+        "North.sadang.roof.ridge course 3.005",
+        "North.sadang.roof.ridge course 4",
+        "North.sadang.roof.ridge course 4.001",
+        "North.sadang.roof.ridge course 4.002",
+        "North.sadang.roof.ridge course 4.003",
+        "North.sadang.roof.ridge course 4.004",
+        "North.sadang.roof.ridge course 4.005",
+        "North.sadang.roof.ridge course 5",
+        "North.sadang.roof.ridge course 5.001",
+        "North.sadang.roof.ridge course 5.002",
+        "North.sadang.roof.ridge course 5.003",
+        "North.sadang.roof.ridge course 5.004",
+        "North.sadang.roof.ridge course 5.005",
+        "North.sadang.roof.round tile ends",
+        "North.sadang.roof.side laid covers",
+        "North.sadang.roof.side laid covers.001",
+        "North.sadang.roof.side laid covers.002",
+        "North.sadang.roof.side laid covers.003",
+        "North.sadang.roof.side laid covers.004",
+        "North.sadang.roof.side laid covers.005",
+        "North.sadang.roof.side laid pans",
+        "North.sadang.roof.side laid pans.001",
+        "North.sadang.roof.side laid pans.002",
+        "North.sadang.roof.side laid pans.003",
+        "North.sadang.roof.side laid pans.004",
+        "North.sadang.roof.side laid pans.005",
+        "North.sadang.roof.side lime plugs",
+        "North.sadang.roof.upright end cap",
+        "North.sadang.round stone plinth",
+        "North.sadang.survey sanctuary 0.infill",
+        "North.sadang.survey sanctuary 0.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 0.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 0.leaf1.iron ring",
+        "North.sadang.survey sanctuary 0.leaf1.lock rail",
+        "North.sadang.survey sanctuary 0.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 0.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 0.leaf1.rail",
+        "North.sadang.survey sanctuary 0.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 0.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 0.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 0.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 0.leaf1.stile",
+        "North.sadang.survey sanctuary 0.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 0.measured head and sill",
+        "North.sadang.survey sanctuary 0.measured jamb",
+        "North.sadang.survey sanctuary 1.infill",
+        "North.sadang.survey sanctuary 1.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 1.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 1.leaf1.iron ring",
+        "North.sadang.survey sanctuary 1.leaf1.lock rail",
+        "North.sadang.survey sanctuary 1.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 1.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 1.leaf1.rail",
+        "North.sadang.survey sanctuary 1.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 1.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 1.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 1.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 1.leaf1.stile",
+        "North.sadang.survey sanctuary 1.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 1.leaf2.hanji backing",
+        "North.sadang.survey sanctuary 1.leaf2.horizontal band",
+        "North.sadang.survey sanctuary 1.leaf2.iron ring",
+        "North.sadang.survey sanctuary 1.leaf2.lock rail",
+        "North.sadang.survey sanctuary 1.leaf2.lower moulding.rail",
+        "North.sadang.survey sanctuary 1.leaf2.lower moulding.stile",
+        "North.sadang.survey sanctuary 1.leaf2.rail",
+        "North.sadang.survey sanctuary 1.leaf2.rear paper rail",
+        "North.sadang.survey sanctuary 1.leaf2.rebated bead.rail",
+        "North.sadang.survey sanctuary 1.leaf2.rebated bead.stile",
+        "North.sadang.survey sanctuary 1.leaf2.recessed lower board",
+        "North.sadang.survey sanctuary 1.leaf2.stile",
+        "North.sadang.survey sanctuary 1.leaf2.vertical sal",
+        "North.sadang.survey sanctuary 1.measured head and sill",
+        "North.sadang.survey sanctuary 1.measured jamb",
+        "North.sadang.survey sanctuary 2.infill",
+        "North.sadang.survey sanctuary 2.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 2.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 2.leaf1.iron ring",
+        "North.sadang.survey sanctuary 2.leaf1.lock rail",
+        "North.sadang.survey sanctuary 2.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 2.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 2.leaf1.rail",
+        "North.sadang.survey sanctuary 2.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 2.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 2.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 2.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 2.leaf1.stile",
+        "North.sadang.survey sanctuary 2.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 2.measured head and sill",
+        "North.sadang.survey sanctuary 2.measured jamb",
+        "Sep29.sadang.altar carved timber apron",
+        "Sep29.sadang.altar moulded rim",
+        "Sep29.sadang.altar rear stretcher",
+        "Sep29.sadang.altar side stretcher",
+        "Sep29.sadang.altar timber leg",
+        "Sep29.sadang.altar timber top",
+        "Sep29.sadang.brass candle stand",
+        "Sep29.sadang.brass incense bowl",
+        "Sep29.sadang.cabinet brass fittings",
+        "Sep29.sadang.cabinet brass pulls",
+        "Sep29.sadang.cabinet timber back",
+        "Sep29.sadang.cabinet timber base",
+        "Sep29.sadang.cabinet timber lattice",
+        "Sep29.sadang.cabinet timber pediment",
+        "Sep29.sadang.cabinet timber rail",
+        "Sep29.sadang.cabinet timber side",
+        "Sep29.sadang.cabinet timber stile",
+        "Sep29.sadang.drawer brass pull",
+        "Sep29.sadang.interior green rafter",
+        "Sep29.sadang.interior rear rail",
+        "Sep29.sadang.ivory candle",
+        "Sep29.sadang.lotus circular field",
+        "Sep29.sadang.lotus ochre centre",
+        "Sep29.sadang.lotus painted petal",
+        "Sep29.sadang.lotus petal outline",
+        "Sep29.sadang.mat indigo hem",
+        "Sep29.sadang.mat woven reed",
+        "Sep29.sadang.offering timber drawer",
+        "Sep29.sadang.offering timber leg",
+        "Sep29.sadang.offering timber top",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid",
+        "Sep29.sadang.scroll painted contour",
+        "Sep29.sadang.scroll painted contour.001",
+        "Sep29.sadang.scroll painted contour.002",
+        "Sep29.sadang.side horizontal red rail",
+        "Sep29.sadang.side lower red sill",
+        "Sep29.sadang.woven straw mat"
+      ],
+      "visibleProxies": [],
+      "newMembers": 53,
+      "newOriginalMembers": 53,
+      "visibleMembers": 223,
+      "visibleSetSha256": "023fba61af7fd9a0ace9e837bbc5bdd783838f6a11ba6d2ce00c019b0aaa34d5",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 12,
+      "processId": "ildu.sadang-complete",
+      "label": "완성",
+      "isFinal": true,
+      "visibleObjects": [
+        "GyeCraft.sadang.irregular paving 0",
+        "GyeCraft.sadang.irregular paving 1",
+        "GyeCraft.sadang.irregular paving 2",
+        "GyeCraft.sadang.irregular paving 3",
+        "GyeCraft.sadang.irregular paving 4",
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong floral panel",
+        "North.sadang.dancheong flower petal",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.dancheong red flower eye",
+        "North.sadang.double eave square buyeon",
+        "North.sadang.floor individual boards",
+        "North.sadang.floor under joists",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.bracket painted cream contour",
+        "North.sadang.joinery.bracket painted ochre hairline",
+        "North.sadang.joinery.bracket painted vermilion contour",
+        "North.sadang.joinery.gable 45x27 cover batten",
+        "North.sadang.joinery.gable thirty millimetre planks",
+        "North.sadang.joinery.packed ridge core",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.joinery.solid roof bedding",
+        "North.sadang.left sanctuary plaster",
+        "North.sadang.measured porch donggwiteul",
+        "North.sadang.measured porch janggwiteul",
+        "North.sadang.painted rafter end",
+        "North.sadang.photo beam fine painted border",
+        "North.sadang.photo bracket ochre contour",
+        "North.sadang.photo canonical dancheong frieze",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo column lotus green outline",
+        "North.sadang.photo column lotus ground",
+        "North.sadang.photo column lotus ochre eye",
+        "North.sadang.photo column lotus petal",
+        "North.sadang.photo column painted collar",
+        "North.sadang.photo column painted collar.001",
+        "North.sadang.photo column painted collar.002",
+        "North.sadang.photo column painted collar.003",
+        "North.sadang.photo painted rafter collar",
+        "North.sadang.photo painted rafter collar.001",
+        "North.sadang.photo painted rafter collar.002",
+        "North.sadang.photo painted rafter collar.003",
+        "North.sadang.photo rafter rosette green outline",
+        "North.sadang.photo rafter rosette ground",
+        "North.sadang.photo rafter rosette ochre eye",
+        "North.sadang.photo rafter rosette petal",
+        "North.sadang.photo side red beam",
+        "North.sadang.photo ventilated earth apron",
+        "North.sadang.photo ventilation bore",
+        "North.sadang.rear sanctuary plaster",
+        "North.sadang.right sanctuary plaster",
+        "North.sadang.roof",
+        "North.sadang.roof.001",
+        "North.sadang.roof.002",
+        "North.sadang.roof.003",
+        "North.sadang.roof.004",
+        "North.sadang.roof.005",
+        "North.sadang.roof.T45 W320 bargeboard",
+        "North.sadang.roof.descending course 1",
+        "North.sadang.roof.descending course 2",
+        "North.sadang.roof.descending course 3",
+        "North.sadang.roof.descending packed core",
+        "North.sadang.roof.eave binding",
+        "North.sadang.roof.gable earthen bedding",
+        "North.sadang.roof.lower exposed rafters",
+        "North.sadang.roof.ridge chaggo",
+        "North.sadang.roof.ridge chaggo.001",
+        "North.sadang.roof.ridge chaggo.002",
+        "North.sadang.roof.ridge chaggo.003",
+        "North.sadang.roof.ridge chaggo.004",
+        "North.sadang.roof.ridge chaggo.005",
+        "North.sadang.roof.ridge course 1",
+        "North.sadang.roof.ridge course 1.001",
+        "North.sadang.roof.ridge course 1.002",
+        "North.sadang.roof.ridge course 1.003",
+        "North.sadang.roof.ridge course 1.004",
+        "North.sadang.roof.ridge course 1.005",
+        "North.sadang.roof.ridge course 2",
+        "North.sadang.roof.ridge course 2.001",
+        "North.sadang.roof.ridge course 2.002",
+        "North.sadang.roof.ridge course 2.003",
+        "North.sadang.roof.ridge course 2.004",
+        "North.sadang.roof.ridge course 2.005",
+        "North.sadang.roof.ridge course 3",
+        "North.sadang.roof.ridge course 3.001",
+        "North.sadang.roof.ridge course 3.002",
+        "North.sadang.roof.ridge course 3.003",
+        "North.sadang.roof.ridge course 3.004",
+        "North.sadang.roof.ridge course 3.005",
+        "North.sadang.roof.ridge course 4",
+        "North.sadang.roof.ridge course 4.001",
+        "North.sadang.roof.ridge course 4.002",
+        "North.sadang.roof.ridge course 4.003",
+        "North.sadang.roof.ridge course 4.004",
+        "North.sadang.roof.ridge course 4.005",
+        "North.sadang.roof.ridge course 5",
+        "North.sadang.roof.ridge course 5.001",
+        "North.sadang.roof.ridge course 5.002",
+        "North.sadang.roof.ridge course 5.003",
+        "North.sadang.roof.ridge course 5.004",
+        "North.sadang.roof.ridge course 5.005",
+        "North.sadang.roof.round tile ends",
+        "North.sadang.roof.side laid covers",
+        "North.sadang.roof.side laid covers.001",
+        "North.sadang.roof.side laid covers.002",
+        "North.sadang.roof.side laid covers.003",
+        "North.sadang.roof.side laid covers.004",
+        "North.sadang.roof.side laid covers.005",
+        "North.sadang.roof.side laid pans",
+        "North.sadang.roof.side laid pans.001",
+        "North.sadang.roof.side laid pans.002",
+        "North.sadang.roof.side laid pans.003",
+        "North.sadang.roof.side laid pans.004",
+        "North.sadang.roof.side laid pans.005",
+        "North.sadang.roof.side lime plugs",
+        "North.sadang.roof.upright end cap",
+        "North.sadang.round stone plinth",
+        "North.sadang.survey sanctuary 0.infill",
+        "North.sadang.survey sanctuary 0.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 0.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 0.leaf1.iron ring",
+        "North.sadang.survey sanctuary 0.leaf1.lock rail",
+        "North.sadang.survey sanctuary 0.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 0.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 0.leaf1.rail",
+        "North.sadang.survey sanctuary 0.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 0.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 0.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 0.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 0.leaf1.stile",
+        "North.sadang.survey sanctuary 0.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 0.measured head and sill",
+        "North.sadang.survey sanctuary 0.measured jamb",
+        "North.sadang.survey sanctuary 1.infill",
+        "North.sadang.survey sanctuary 1.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 1.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 1.leaf1.iron ring",
+        "North.sadang.survey sanctuary 1.leaf1.lock rail",
+        "North.sadang.survey sanctuary 1.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 1.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 1.leaf1.rail",
+        "North.sadang.survey sanctuary 1.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 1.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 1.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 1.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 1.leaf1.stile",
+        "North.sadang.survey sanctuary 1.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 1.leaf2.hanji backing",
+        "North.sadang.survey sanctuary 1.leaf2.horizontal band",
+        "North.sadang.survey sanctuary 1.leaf2.iron ring",
+        "North.sadang.survey sanctuary 1.leaf2.lock rail",
+        "North.sadang.survey sanctuary 1.leaf2.lower moulding.rail",
+        "North.sadang.survey sanctuary 1.leaf2.lower moulding.stile",
+        "North.sadang.survey sanctuary 1.leaf2.rail",
+        "North.sadang.survey sanctuary 1.leaf2.rear paper rail",
+        "North.sadang.survey sanctuary 1.leaf2.rebated bead.rail",
+        "North.sadang.survey sanctuary 1.leaf2.rebated bead.stile",
+        "North.sadang.survey sanctuary 1.leaf2.recessed lower board",
+        "North.sadang.survey sanctuary 1.leaf2.stile",
+        "North.sadang.survey sanctuary 1.leaf2.vertical sal",
+        "North.sadang.survey sanctuary 1.measured head and sill",
+        "North.sadang.survey sanctuary 1.measured jamb",
+        "North.sadang.survey sanctuary 2.infill",
+        "North.sadang.survey sanctuary 2.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 2.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 2.leaf1.iron ring",
+        "North.sadang.survey sanctuary 2.leaf1.lock rail",
+        "North.sadang.survey sanctuary 2.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 2.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 2.leaf1.rail",
+        "North.sadang.survey sanctuary 2.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 2.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 2.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 2.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 2.leaf1.stile",
+        "North.sadang.survey sanctuary 2.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 2.measured head and sill",
+        "North.sadang.survey sanctuary 2.measured jamb",
+        "Sep29.sadang.altar carved timber apron",
+        "Sep29.sadang.altar moulded rim",
+        "Sep29.sadang.altar rear stretcher",
+        "Sep29.sadang.altar side stretcher",
+        "Sep29.sadang.altar timber leg",
+        "Sep29.sadang.altar timber top",
+        "Sep29.sadang.brass candle stand",
+        "Sep29.sadang.brass incense bowl",
+        "Sep29.sadang.cabinet brass fittings",
+        "Sep29.sadang.cabinet brass pulls",
+        "Sep29.sadang.cabinet timber back",
+        "Sep29.sadang.cabinet timber base",
+        "Sep29.sadang.cabinet timber lattice",
+        "Sep29.sadang.cabinet timber pediment",
+        "Sep29.sadang.cabinet timber rail",
+        "Sep29.sadang.cabinet timber side",
+        "Sep29.sadang.cabinet timber stile",
+        "Sep29.sadang.drawer brass pull",
+        "Sep29.sadang.interior green rafter",
+        "Sep29.sadang.interior rear rail",
+        "Sep29.sadang.ivory candle",
+        "Sep29.sadang.lotus circular field",
+        "Sep29.sadang.lotus ochre centre",
+        "Sep29.sadang.lotus painted petal",
+        "Sep29.sadang.lotus petal outline",
+        "Sep29.sadang.mat indigo hem",
+        "Sep29.sadang.mat woven reed",
+        "Sep29.sadang.offering timber drawer",
+        "Sep29.sadang.offering timber leg",
+        "Sep29.sadang.offering timber top",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid",
+        "Sep29.sadang.scroll painted contour",
+        "Sep29.sadang.scroll painted contour.001",
+        "Sep29.sadang.scroll painted contour.002",
+        "Sep29.sadang.side horizontal red rail",
+        "Sep29.sadang.side lower red sill",
+        "Sep29.sadang.woven straw mat"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.sadang.irregular paving 0",
+        "GyeCraft.sadang.irregular paving 1",
+        "GyeCraft.sadang.irregular paving 2",
+        "GyeCraft.sadang.irregular paving 3",
+        "GyeCraft.sadang.irregular paving 4",
+        "North.sadang.dancheong carved bracket.lower seating block",
+        "North.sadang.dancheong carved bracket.upper bearing",
+        "North.sadang.dancheong floral panel",
+        "North.sadang.dancheong flower petal",
+        "North.sadang.dancheong painted beam",
+        "North.sadang.dancheong red flower eye",
+        "North.sadang.double eave square buyeon",
+        "North.sadang.floor individual boards",
+        "North.sadang.floor under joists",
+        "North.sadang.foundation",
+        "North.sadang.foundation earth top",
+        "North.sadang.foundation individual plinth",
+        "North.sadang.foundation.recessed earth mortar",
+        "North.sadang.frame longitudinal beam",
+        "North.sadang.frame mortise peg",
+        "North.sadang.frame round red column",
+        "North.sadang.frame square post",
+        "North.sadang.frame transverse beam",
+        "North.sadang.granite step",
+        "North.sadang.joinery.bracket painted cream contour",
+        "North.sadang.joinery.bracket painted ochre hairline",
+        "North.sadang.joinery.bracket painted vermilion contour",
+        "North.sadang.joinery.gable 45x27 cover batten",
+        "North.sadang.joinery.gable thirty millimetre planks",
+        "North.sadang.joinery.packed ridge core",
+        "North.sadang.joinery.sculpted bracket shoulder",
+        "North.sadang.joinery.solid roof bedding",
+        "North.sadang.left sanctuary plaster",
+        "North.sadang.measured porch donggwiteul",
+        "North.sadang.measured porch janggwiteul",
+        "North.sadang.painted rafter end",
+        "North.sadang.photo beam fine painted border",
+        "North.sadang.photo bracket ochre contour",
+        "North.sadang.photo canonical dancheong frieze",
+        "North.sadang.photo carved wing bracket",
+        "North.sadang.photo column lotus green outline",
+        "North.sadang.photo column lotus ground",
+        "North.sadang.photo column lotus ochre eye",
+        "North.sadang.photo column lotus petal",
+        "North.sadang.photo column painted collar",
+        "North.sadang.photo column painted collar.001",
+        "North.sadang.photo column painted collar.002",
+        "North.sadang.photo column painted collar.003",
+        "North.sadang.photo painted rafter collar",
+        "North.sadang.photo painted rafter collar.001",
+        "North.sadang.photo painted rafter collar.002",
+        "North.sadang.photo painted rafter collar.003",
+        "North.sadang.photo rafter rosette green outline",
+        "North.sadang.photo rafter rosette ground",
+        "North.sadang.photo rafter rosette ochre eye",
+        "North.sadang.photo rafter rosette petal",
+        "North.sadang.photo side red beam",
+        "North.sadang.photo ventilated earth apron",
+        "North.sadang.photo ventilation bore",
+        "North.sadang.rear sanctuary plaster",
+        "North.sadang.right sanctuary plaster",
+        "North.sadang.roof",
+        "North.sadang.roof.001",
+        "North.sadang.roof.002",
+        "North.sadang.roof.003",
+        "North.sadang.roof.004",
+        "North.sadang.roof.005",
+        "North.sadang.roof.T45 W320 bargeboard",
+        "North.sadang.roof.descending course 1",
+        "North.sadang.roof.descending course 2",
+        "North.sadang.roof.descending course 3",
+        "North.sadang.roof.descending packed core",
+        "North.sadang.roof.eave binding",
+        "North.sadang.roof.gable earthen bedding",
+        "North.sadang.roof.lower exposed rafters",
+        "North.sadang.roof.ridge chaggo",
+        "North.sadang.roof.ridge chaggo.001",
+        "North.sadang.roof.ridge chaggo.002",
+        "North.sadang.roof.ridge chaggo.003",
+        "North.sadang.roof.ridge chaggo.004",
+        "North.sadang.roof.ridge chaggo.005",
+        "North.sadang.roof.ridge course 1",
+        "North.sadang.roof.ridge course 1.001",
+        "North.sadang.roof.ridge course 1.002",
+        "North.sadang.roof.ridge course 1.003",
+        "North.sadang.roof.ridge course 1.004",
+        "North.sadang.roof.ridge course 1.005",
+        "North.sadang.roof.ridge course 2",
+        "North.sadang.roof.ridge course 2.001",
+        "North.sadang.roof.ridge course 2.002",
+        "North.sadang.roof.ridge course 2.003",
+        "North.sadang.roof.ridge course 2.004",
+        "North.sadang.roof.ridge course 2.005",
+        "North.sadang.roof.ridge course 3",
+        "North.sadang.roof.ridge course 3.001",
+        "North.sadang.roof.ridge course 3.002",
+        "North.sadang.roof.ridge course 3.003",
+        "North.sadang.roof.ridge course 3.004",
+        "North.sadang.roof.ridge course 3.005",
+        "North.sadang.roof.ridge course 4",
+        "North.sadang.roof.ridge course 4.001",
+        "North.sadang.roof.ridge course 4.002",
+        "North.sadang.roof.ridge course 4.003",
+        "North.sadang.roof.ridge course 4.004",
+        "North.sadang.roof.ridge course 4.005",
+        "North.sadang.roof.ridge course 5",
+        "North.sadang.roof.ridge course 5.001",
+        "North.sadang.roof.ridge course 5.002",
+        "North.sadang.roof.ridge course 5.003",
+        "North.sadang.roof.ridge course 5.004",
+        "North.sadang.roof.ridge course 5.005",
+        "North.sadang.roof.round tile ends",
+        "North.sadang.roof.side laid covers",
+        "North.sadang.roof.side laid covers.001",
+        "North.sadang.roof.side laid covers.002",
+        "North.sadang.roof.side laid covers.003",
+        "North.sadang.roof.side laid covers.004",
+        "North.sadang.roof.side laid covers.005",
+        "North.sadang.roof.side laid pans",
+        "North.sadang.roof.side laid pans.001",
+        "North.sadang.roof.side laid pans.002",
+        "North.sadang.roof.side laid pans.003",
+        "North.sadang.roof.side laid pans.004",
+        "North.sadang.roof.side laid pans.005",
+        "North.sadang.roof.side lime plugs",
+        "North.sadang.roof.upright end cap",
+        "North.sadang.round stone plinth",
+        "North.sadang.survey sanctuary 0.infill",
+        "North.sadang.survey sanctuary 0.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 0.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 0.leaf1.iron ring",
+        "North.sadang.survey sanctuary 0.leaf1.lock rail",
+        "North.sadang.survey sanctuary 0.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 0.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 0.leaf1.rail",
+        "North.sadang.survey sanctuary 0.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 0.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 0.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 0.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 0.leaf1.stile",
+        "North.sadang.survey sanctuary 0.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 0.measured head and sill",
+        "North.sadang.survey sanctuary 0.measured jamb",
+        "North.sadang.survey sanctuary 1.infill",
+        "North.sadang.survey sanctuary 1.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 1.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 1.leaf1.iron ring",
+        "North.sadang.survey sanctuary 1.leaf1.lock rail",
+        "North.sadang.survey sanctuary 1.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 1.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 1.leaf1.rail",
+        "North.sadang.survey sanctuary 1.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 1.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 1.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 1.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 1.leaf1.stile",
+        "North.sadang.survey sanctuary 1.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 1.leaf2.hanji backing",
+        "North.sadang.survey sanctuary 1.leaf2.horizontal band",
+        "North.sadang.survey sanctuary 1.leaf2.iron ring",
+        "North.sadang.survey sanctuary 1.leaf2.lock rail",
+        "North.sadang.survey sanctuary 1.leaf2.lower moulding.rail",
+        "North.sadang.survey sanctuary 1.leaf2.lower moulding.stile",
+        "North.sadang.survey sanctuary 1.leaf2.rail",
+        "North.sadang.survey sanctuary 1.leaf2.rear paper rail",
+        "North.sadang.survey sanctuary 1.leaf2.rebated bead.rail",
+        "North.sadang.survey sanctuary 1.leaf2.rebated bead.stile",
+        "North.sadang.survey sanctuary 1.leaf2.recessed lower board",
+        "North.sadang.survey sanctuary 1.leaf2.stile",
+        "North.sadang.survey sanctuary 1.leaf2.vertical sal",
+        "North.sadang.survey sanctuary 1.measured head and sill",
+        "North.sadang.survey sanctuary 1.measured jamb",
+        "North.sadang.survey sanctuary 2.infill",
+        "North.sadang.survey sanctuary 2.leaf1.hanji backing",
+        "North.sadang.survey sanctuary 2.leaf1.horizontal band",
+        "North.sadang.survey sanctuary 2.leaf1.iron ring",
+        "North.sadang.survey sanctuary 2.leaf1.lock rail",
+        "North.sadang.survey sanctuary 2.leaf1.lower moulding.rail",
+        "North.sadang.survey sanctuary 2.leaf1.lower moulding.stile",
+        "North.sadang.survey sanctuary 2.leaf1.rail",
+        "North.sadang.survey sanctuary 2.leaf1.rear paper rail",
+        "North.sadang.survey sanctuary 2.leaf1.rebated bead.rail",
+        "North.sadang.survey sanctuary 2.leaf1.rebated bead.stile",
+        "North.sadang.survey sanctuary 2.leaf1.recessed lower board",
+        "North.sadang.survey sanctuary 2.leaf1.stile",
+        "North.sadang.survey sanctuary 2.leaf1.vertical sal",
+        "North.sadang.survey sanctuary 2.measured head and sill",
+        "North.sadang.survey sanctuary 2.measured jamb",
+        "Sep29.sadang.altar carved timber apron",
+        "Sep29.sadang.altar moulded rim",
+        "Sep29.sadang.altar rear stretcher",
+        "Sep29.sadang.altar side stretcher",
+        "Sep29.sadang.altar timber leg",
+        "Sep29.sadang.altar timber top",
+        "Sep29.sadang.brass candle stand",
+        "Sep29.sadang.brass incense bowl",
+        "Sep29.sadang.cabinet brass fittings",
+        "Sep29.sadang.cabinet brass pulls",
+        "Sep29.sadang.cabinet timber back",
+        "Sep29.sadang.cabinet timber base",
+        "Sep29.sadang.cabinet timber lattice",
+        "Sep29.sadang.cabinet timber pediment",
+        "Sep29.sadang.cabinet timber rail",
+        "Sep29.sadang.cabinet timber side",
+        "Sep29.sadang.cabinet timber stile",
+        "Sep29.sadang.drawer brass pull",
+        "Sep29.sadang.interior green rafter",
+        "Sep29.sadang.interior rear rail",
+        "Sep29.sadang.ivory candle",
+        "Sep29.sadang.lotus circular field",
+        "Sep29.sadang.lotus ochre centre",
+        "Sep29.sadang.lotus painted petal",
+        "Sep29.sadang.lotus petal outline",
+        "Sep29.sadang.mat indigo hem",
+        "Sep29.sadang.mat woven reed",
+        "Sep29.sadang.offering timber drawer",
+        "Sep29.sadang.offering timber leg",
+        "Sep29.sadang.offering timber top",
+        "Sep29.sadang.painted column band",
+        "Sep29.sadang.painted column band.001",
+        "Sep29.sadang.painted column band.002",
+        "Sep29.sadang.painted column band.003",
+        "Sep29.sadang.scroll bracket solid",
+        "Sep29.sadang.scroll painted contour",
+        "Sep29.sadang.scroll painted contour.001",
+        "Sep29.sadang.scroll painted contour.002",
+        "Sep29.sadang.side horizontal red rail",
+        "Sep29.sadang.side lower red sill",
+        "Sep29.sadang.woven straw mat"
+      ],
+      "visibleProxies": [],
+      "newMembers": 6,
+      "newOriginalMembers": 6,
+      "visibleMembers": 229,
+      "visibleSetSha256": "8ac756ebce3adfec827990a6ef2586f30c5e1cc8b4a27afc177be7295f23c0ed",
+      "noNewGeometry": false
+    }
+  ],
+  "originalObjectCount": 229,
+  "proxyObjectCount": 0,
+  "baseline": {
+    "GyeCraft.sadang.irregular paving 0": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.sadang.irregular paving 1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.sadang.irregular paving 2": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.sadang.irregular paving 3": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.sadang.irregular paving 4": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.dancheong carved bracket.lower seating block": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.dancheong carved bracket.upper bearing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.dancheong floral panel": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.dancheong flower petal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.dancheong painted beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.dancheong red flower eye": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.double eave square buyeon": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.floor individual boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.floor under joists": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.foundation": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.foundation earth top": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.foundation individual plinth": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.foundation.recessed earth mortar": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.frame longitudinal beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.frame mortise peg": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.frame round red column": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.frame square post": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.frame transverse beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.granite step": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.joinery.bracket painted cream contour": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.joinery.bracket painted ochre hairline": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.joinery.bracket painted vermilion contour": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.joinery.gable 45x27 cover batten": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.joinery.gable thirty millimetre planks": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.joinery.packed ridge core": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.joinery.sculpted bracket shoulder": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.joinery.solid roof bedding": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.left sanctuary plaster": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.measured porch donggwiteul": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.measured porch janggwiteul": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.painted rafter end": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo beam fine painted border": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo bracket ochre contour": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo canonical dancheong frieze": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo carved wing bracket": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo column lotus green outline": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo column lotus ground": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo column lotus ochre eye": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo column lotus petal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo column painted collar": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo column painted collar.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo column painted collar.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo column painted collar.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo painted rafter collar": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo painted rafter collar.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo painted rafter collar.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo painted rafter collar.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo rafter rosette green outline": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo rafter rosette ground": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo rafter rosette ochre eye": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo rafter rosette petal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo side red beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo ventilated earth apron": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.photo ventilation bore": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.rear sanctuary plaster": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.right sanctuary plaster": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.T45 W320 bargeboard": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.descending course 1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.descending course 2": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.descending course 3": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.descending packed core": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.eave binding": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.gable earthen bedding": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.lower exposed rafters": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge chaggo": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge chaggo.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge chaggo.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge chaggo.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge chaggo.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge chaggo.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 1.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 1.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 1.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 1.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 1.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 2": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 2.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 2.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 2.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 2.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 2.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 3": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 3.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 3.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 3.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 3.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 3.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 4": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 4.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 4.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 4.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 4.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 4.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 5": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 5.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 5.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 5.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 5.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.ridge course 5.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.round tile ends": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.side laid covers": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.side laid covers.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.side laid covers.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.side laid covers.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.side laid covers.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.side laid covers.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.side laid pans": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.side laid pans.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.side laid pans.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.side laid pans.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.side laid pans.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.side laid pans.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.side lime plugs": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.roof.upright end cap": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.round stone plinth": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.infill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.leaf1.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.leaf1.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.leaf1.iron ring": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.leaf1.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.leaf1.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.leaf1.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.leaf1.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.leaf1.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.leaf1.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.leaf1.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.leaf1.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.measured head and sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 0.measured jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.infill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf1.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf1.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf1.iron ring": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf1.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf1.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf1.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf1.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf1.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf1.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf1.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf1.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf2.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf2.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf2.iron ring": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf2.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf2.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf2.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf2.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf2.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf2.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf2.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf2.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf2.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.leaf2.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.measured head and sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 1.measured jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.infill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.leaf1.hanji backing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.leaf1.horizontal band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.leaf1.iron ring": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.leaf1.lock rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.leaf1.lower moulding.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.leaf1.lower moulding.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.leaf1.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.leaf1.rear paper rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.leaf1.rebated bead.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.leaf1.rebated bead.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.leaf1.recessed lower board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.leaf1.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.leaf1.vertical sal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.measured head and sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.sadang.survey sanctuary 2.measured jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.altar carved timber apron": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.altar moulded rim": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.altar rear stretcher": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.altar side stretcher": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.altar timber leg": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.altar timber top": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.brass candle stand": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.brass incense bowl": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.cabinet brass fittings": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.cabinet brass pulls": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.cabinet timber back": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.cabinet timber base": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.cabinet timber lattice": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.cabinet timber pediment": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.cabinet timber rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.cabinet timber side": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.cabinet timber stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.drawer brass pull": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.interior green rafter": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.interior rear rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.ivory candle": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.lotus circular field": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.lotus ochre centre": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.lotus painted petal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.lotus petal outline": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.mat indigo hem": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.mat woven reed": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.offering timber drawer": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.offering timber leg": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.offering timber top": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.painted column band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.painted column band.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.painted column band.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.painted column band.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.scroll bracket solid": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.scroll painted contour": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.scroll painted contour.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.scroll painted contour.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.side horizontal red rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.side lower red sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "Sep29.sadang.woven straw mat": {
+      "hideRender": false,
+      "hideViewport": false
+    }
+  },
+  "requiredStage": {
+    "GyeCraft.sadang.irregular paving 0": 12,
+    "GyeCraft.sadang.irregular paving 1": 12,
+    "GyeCraft.sadang.irregular paving 2": 12,
+    "GyeCraft.sadang.irregular paving 3": 12,
+    "GyeCraft.sadang.irregular paving 4": 12,
+    "North.sadang.dancheong carved bracket.lower seating block": 5,
+    "North.sadang.dancheong carved bracket.upper bearing": 5,
+    "North.sadang.dancheong floral panel": 11,
+    "North.sadang.dancheong flower petal": 11,
+    "North.sadang.dancheong painted beam": 5,
+    "North.sadang.dancheong red flower eye": 11,
+    "North.sadang.double eave square buyeon": 6,
+    "North.sadang.floor individual boards": 9,
+    "North.sadang.floor under joists": 9,
+    "North.sadang.foundation": 2,
+    "North.sadang.foundation earth top": 2,
+    "North.sadang.foundation individual plinth": 3,
+    "North.sadang.foundation.recessed earth mortar": 2,
+    "North.sadang.frame longitudinal beam": 5,
+    "North.sadang.frame mortise peg": 5,
+    "North.sadang.frame round red column": 4,
+    "North.sadang.frame square post": 4,
+    "North.sadang.frame transverse beam": 5,
+    "North.sadang.granite step": 2,
+    "North.sadang.joinery.bracket painted cream contour": 11,
+    "North.sadang.joinery.bracket painted ochre hairline": 11,
+    "North.sadang.joinery.bracket painted vermilion contour": 11,
+    "North.sadang.joinery.gable 45x27 cover batten": 10,
+    "North.sadang.joinery.gable thirty millimetre planks": 10,
+    "North.sadang.joinery.packed ridge core": 7,
+    "North.sadang.joinery.sculpted bracket shoulder": 5,
+    "North.sadang.joinery.solid roof bedding": 7,
+    "North.sadang.left sanctuary plaster": 10,
+    "North.sadang.measured porch donggwiteul": 9,
+    "North.sadang.measured porch janggwiteul": 9,
+    "North.sadang.painted rafter end": 6,
+    "North.sadang.photo beam fine painted border": 11,
+    "North.sadang.photo bracket ochre contour": 11,
+    "North.sadang.photo canonical dancheong frieze": 11,
+    "North.sadang.photo carved wing bracket": 5,
+    "North.sadang.photo column lotus green outline": 11,
+    "North.sadang.photo column lotus ground": 11,
+    "North.sadang.photo column lotus ochre eye": 11,
+    "North.sadang.photo column lotus petal": 11,
+    "North.sadang.photo column painted collar": 11,
+    "North.sadang.photo column painted collar.001": 11,
+    "North.sadang.photo column painted collar.002": 11,
+    "North.sadang.photo column painted collar.003": 11,
+    "North.sadang.photo painted rafter collar": 6,
+    "North.sadang.photo painted rafter collar.001": 6,
+    "North.sadang.photo painted rafter collar.002": 6,
+    "North.sadang.photo painted rafter collar.003": 6,
+    "North.sadang.photo rafter rosette green outline": 11,
+    "North.sadang.photo rafter rosette ground": 11,
+    "North.sadang.photo rafter rosette ochre eye": 11,
+    "North.sadang.photo rafter rosette petal": 11,
+    "North.sadang.photo side red beam": 5,
+    "North.sadang.photo ventilated earth apron": 10,
+    "North.sadang.photo ventilation bore": 10,
+    "North.sadang.rear sanctuary plaster": 10,
+    "North.sadang.right sanctuary plaster": 10,
+    "North.sadang.roof": 8,
+    "North.sadang.roof.001": 8,
+    "North.sadang.roof.002": 8,
+    "North.sadang.roof.003": 8,
+    "North.sadang.roof.004": 8,
+    "North.sadang.roof.005": 8,
+    "North.sadang.roof.T45 W320 bargeboard": 12,
+    "North.sadang.roof.descending course 1": 8,
+    "North.sadang.roof.descending course 2": 8,
+    "North.sadang.roof.descending course 3": 8,
+    "North.sadang.roof.descending packed core": 7,
+    "North.sadang.roof.eave binding": 5,
+    "North.sadang.roof.gable earthen bedding": 7,
+    "North.sadang.roof.lower exposed rafters": 6,
+    "North.sadang.roof.ridge chaggo": 8,
+    "North.sadang.roof.ridge chaggo.001": 8,
+    "North.sadang.roof.ridge chaggo.002": 8,
+    "North.sadang.roof.ridge chaggo.003": 8,
+    "North.sadang.roof.ridge chaggo.004": 8,
+    "North.sadang.roof.ridge chaggo.005": 8,
+    "North.sadang.roof.ridge course 1": 8,
+    "North.sadang.roof.ridge course 1.001": 8,
+    "North.sadang.roof.ridge course 1.002": 8,
+    "North.sadang.roof.ridge course 1.003": 8,
+    "North.sadang.roof.ridge course 1.004": 8,
+    "North.sadang.roof.ridge course 1.005": 8,
+    "North.sadang.roof.ridge course 2": 8,
+    "North.sadang.roof.ridge course 2.001": 8,
+    "North.sadang.roof.ridge course 2.002": 8,
+    "North.sadang.roof.ridge course 2.003": 8,
+    "North.sadang.roof.ridge course 2.004": 8,
+    "North.sadang.roof.ridge course 2.005": 8,
+    "North.sadang.roof.ridge course 3": 8,
+    "North.sadang.roof.ridge course 3.001": 8,
+    "North.sadang.roof.ridge course 3.002": 8,
+    "North.sadang.roof.ridge course 3.003": 8,
+    "North.sadang.roof.ridge course 3.004": 8,
+    "North.sadang.roof.ridge course 3.005": 8,
+    "North.sadang.roof.ridge course 4": 8,
+    "North.sadang.roof.ridge course 4.001": 8,
+    "North.sadang.roof.ridge course 4.002": 8,
+    "North.sadang.roof.ridge course 4.003": 8,
+    "North.sadang.roof.ridge course 4.004": 8,
+    "North.sadang.roof.ridge course 4.005": 8,
+    "North.sadang.roof.ridge course 5": 8,
+    "North.sadang.roof.ridge course 5.001": 8,
+    "North.sadang.roof.ridge course 5.002": 8,
+    "North.sadang.roof.ridge course 5.003": 8,
+    "North.sadang.roof.ridge course 5.004": 8,
+    "North.sadang.roof.ridge course 5.005": 8,
+    "North.sadang.roof.round tile ends": 8,
+    "North.sadang.roof.side laid covers": 8,
+    "North.sadang.roof.side laid covers.001": 8,
+    "North.sadang.roof.side laid covers.002": 8,
+    "North.sadang.roof.side laid covers.003": 8,
+    "North.sadang.roof.side laid covers.004": 8,
+    "North.sadang.roof.side laid covers.005": 8,
+    "North.sadang.roof.side laid pans": 8,
+    "North.sadang.roof.side laid pans.001": 8,
+    "North.sadang.roof.side laid pans.002": 8,
+    "North.sadang.roof.side laid pans.003": 8,
+    "North.sadang.roof.side laid pans.004": 8,
+    "North.sadang.roof.side laid pans.005": 8,
+    "North.sadang.roof.side lime plugs": 7,
+    "North.sadang.roof.upright end cap": 8,
+    "North.sadang.round stone plinth": 3,
+    "North.sadang.survey sanctuary 0.infill": 10,
+    "North.sadang.survey sanctuary 0.leaf1.hanji backing": 10,
+    "North.sadang.survey sanctuary 0.leaf1.horizontal band": 10,
+    "North.sadang.survey sanctuary 0.leaf1.iron ring": 10,
+    "North.sadang.survey sanctuary 0.leaf1.lock rail": 10,
+    "North.sadang.survey sanctuary 0.leaf1.lower moulding.rail": 10,
+    "North.sadang.survey sanctuary 0.leaf1.lower moulding.stile": 10,
+    "North.sadang.survey sanctuary 0.leaf1.rail": 10,
+    "North.sadang.survey sanctuary 0.leaf1.rear paper rail": 10,
+    "North.sadang.survey sanctuary 0.leaf1.rebated bead.rail": 10,
+    "North.sadang.survey sanctuary 0.leaf1.rebated bead.stile": 10,
+    "North.sadang.survey sanctuary 0.leaf1.recessed lower board": 10,
+    "North.sadang.survey sanctuary 0.leaf1.stile": 10,
+    "North.sadang.survey sanctuary 0.leaf1.vertical sal": 10,
+    "North.sadang.survey sanctuary 0.measured head and sill": 10,
+    "North.sadang.survey sanctuary 0.measured jamb": 10,
+    "North.sadang.survey sanctuary 1.infill": 10,
+    "North.sadang.survey sanctuary 1.leaf1.hanji backing": 10,
+    "North.sadang.survey sanctuary 1.leaf1.horizontal band": 10,
+    "North.sadang.survey sanctuary 1.leaf1.iron ring": 10,
+    "North.sadang.survey sanctuary 1.leaf1.lock rail": 10,
+    "North.sadang.survey sanctuary 1.leaf1.lower moulding.rail": 10,
+    "North.sadang.survey sanctuary 1.leaf1.lower moulding.stile": 10,
+    "North.sadang.survey sanctuary 1.leaf1.rail": 10,
+    "North.sadang.survey sanctuary 1.leaf1.rear paper rail": 10,
+    "North.sadang.survey sanctuary 1.leaf1.rebated bead.rail": 10,
+    "North.sadang.survey sanctuary 1.leaf1.rebated bead.stile": 10,
+    "North.sadang.survey sanctuary 1.leaf1.recessed lower board": 10,
+    "North.sadang.survey sanctuary 1.leaf1.stile": 10,
+    "North.sadang.survey sanctuary 1.leaf1.vertical sal": 10,
+    "North.sadang.survey sanctuary 1.leaf2.hanji backing": 10,
+    "North.sadang.survey sanctuary 1.leaf2.horizontal band": 10,
+    "North.sadang.survey sanctuary 1.leaf2.iron ring": 10,
+    "North.sadang.survey sanctuary 1.leaf2.lock rail": 10,
+    "North.sadang.survey sanctuary 1.leaf2.lower moulding.rail": 10,
+    "North.sadang.survey sanctuary 1.leaf2.lower moulding.stile": 10,
+    "North.sadang.survey sanctuary 1.leaf2.rail": 10,
+    "North.sadang.survey sanctuary 1.leaf2.rear paper rail": 10,
+    "North.sadang.survey sanctuary 1.leaf2.rebated bead.rail": 10,
+    "North.sadang.survey sanctuary 1.leaf2.rebated bead.stile": 10,
+    "North.sadang.survey sanctuary 1.leaf2.recessed lower board": 10,
+    "North.sadang.survey sanctuary 1.leaf2.stile": 10,
+    "North.sadang.survey sanctuary 1.leaf2.vertical sal": 10,
+    "North.sadang.survey sanctuary 1.measured head and sill": 10,
+    "North.sadang.survey sanctuary 1.measured jamb": 10,
+    "North.sadang.survey sanctuary 2.infill": 10,
+    "North.sadang.survey sanctuary 2.leaf1.hanji backing": 10,
+    "North.sadang.survey sanctuary 2.leaf1.horizontal band": 10,
+    "North.sadang.survey sanctuary 2.leaf1.iron ring": 10,
+    "North.sadang.survey sanctuary 2.leaf1.lock rail": 10,
+    "North.sadang.survey sanctuary 2.leaf1.lower moulding.rail": 10,
+    "North.sadang.survey sanctuary 2.leaf1.lower moulding.stile": 10,
+    "North.sadang.survey sanctuary 2.leaf1.rail": 10,
+    "North.sadang.survey sanctuary 2.leaf1.rear paper rail": 10,
+    "North.sadang.survey sanctuary 2.leaf1.rebated bead.rail": 10,
+    "North.sadang.survey sanctuary 2.leaf1.rebated bead.stile": 10,
+    "North.sadang.survey sanctuary 2.leaf1.recessed lower board": 10,
+    "North.sadang.survey sanctuary 2.leaf1.stile": 10,
+    "North.sadang.survey sanctuary 2.leaf1.vertical sal": 10,
+    "North.sadang.survey sanctuary 2.measured head and sill": 10,
+    "North.sadang.survey sanctuary 2.measured jamb": 10,
+    "Sep29.sadang.altar carved timber apron": 11,
+    "Sep29.sadang.altar moulded rim": 11,
+    "Sep29.sadang.altar rear stretcher": 11,
+    "Sep29.sadang.altar side stretcher": 11,
+    "Sep29.sadang.altar timber leg": 11,
+    "Sep29.sadang.altar timber top": 11,
+    "Sep29.sadang.brass candle stand": 11,
+    "Sep29.sadang.brass incense bowl": 11,
+    "Sep29.sadang.cabinet brass fittings": 11,
+    "Sep29.sadang.cabinet brass pulls": 11,
+    "Sep29.sadang.cabinet timber back": 11,
+    "Sep29.sadang.cabinet timber base": 11,
+    "Sep29.sadang.cabinet timber lattice": 11,
+    "Sep29.sadang.cabinet timber pediment": 11,
+    "Sep29.sadang.cabinet timber rail": 11,
+    "Sep29.sadang.cabinet timber side": 11,
+    "Sep29.sadang.cabinet timber stile": 11,
+    "Sep29.sadang.drawer brass pull": 11,
+    "Sep29.sadang.interior green rafter": 6,
+    "Sep29.sadang.interior rear rail": 10,
+    "Sep29.sadang.ivory candle": 11,
+    "Sep29.sadang.lotus circular field": 11,
+    "Sep29.sadang.lotus ochre centre": 11,
+    "Sep29.sadang.lotus painted petal": 11,
+    "Sep29.sadang.lotus petal outline": 11,
+    "Sep29.sadang.mat indigo hem": 11,
+    "Sep29.sadang.mat woven reed": 11,
+    "Sep29.sadang.offering timber drawer": 11,
+    "Sep29.sadang.offering timber leg": 11,
+    "Sep29.sadang.offering timber top": 11,
+    "Sep29.sadang.painted column band": 4,
+    "Sep29.sadang.painted column band.001": 4,
+    "Sep29.sadang.painted column band.002": 4,
+    "Sep29.sadang.painted column band.003": 4,
+    "Sep29.sadang.scroll bracket solid": 5,
+    "Sep29.sadang.scroll painted contour": 11,
+    "Sep29.sadang.scroll painted contour.001": 11,
+    "Sep29.sadang.scroll painted contour.002": 11,
+    "Sep29.sadang.side horizontal red rail": 10,
+    "Sep29.sadang.side lower red sill": 10,
+    "Sep29.sadang.woven straw mat": 11
+  },
+  "lineage": {
+    "GyeCraft.sadang.irregular paving 0": {
+      "sourceObject": "GyeCraft.sadang.irregular paving 0",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.sadang.irregular paving 1": {
+      "sourceObject": "GyeCraft.sadang.irregular paving 1",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.sadang.irregular paving 2": {
+      "sourceObject": "GyeCraft.sadang.irregular paving 2",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.sadang.irregular paving 3": {
+      "sourceObject": "GyeCraft.sadang.irregular paving 3",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.sadang.irregular paving 4": {
+      "sourceObject": "GyeCraft.sadang.irregular paving 4",
+      "processId": null,
+      "original": true
+    },
+    "North.sadang.dancheong carved bracket.lower seating block": {
+      "sourceObject": "North.sadang.dancheong carved bracket.lower seating block",
+      "processId": "ildu.sadang-brackets",
+      "original": true
+    },
+    "North.sadang.dancheong carved bracket.upper bearing": {
+      "sourceObject": "North.sadang.dancheong carved bracket.upper bearing",
+      "processId": "ildu.sadang-brackets",
+      "original": true
+    },
+    "North.sadang.dancheong floral panel": {
+      "sourceObject": "North.sadang.dancheong floral panel",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.dancheong flower petal": {
+      "sourceObject": "North.sadang.dancheong flower petal",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.dancheong painted beam": {
+      "sourceObject": "North.sadang.dancheong painted beam",
+      "processId": "ildu.sadang-brackets",
+      "original": true
+    },
+    "North.sadang.dancheong red flower eye": {
+      "sourceObject": "North.sadang.dancheong red flower eye",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.double eave square buyeon": {
+      "sourceObject": "North.sadang.double eave square buyeon",
+      "processId": "ildu.sadang-rafters",
+      "original": true
+    },
+    "North.sadang.floor individual boards": {
+      "sourceObject": "North.sadang.floor individual boards",
+      "processId": "ildu.sadang-maru_interior",
+      "original": true
+    },
+    "North.sadang.floor under joists": {
+      "sourceObject": "North.sadang.floor under joists",
+      "processId": "ildu.sadang-maru_interior",
+      "original": true
+    },
+    "North.sadang.foundation": {
+      "sourceObject": "North.sadang.foundation",
+      "processId": "ildu.sadang-foundation",
+      "original": true
+    },
+    "North.sadang.foundation earth top": {
+      "sourceObject": "North.sadang.foundation earth top",
+      "processId": "ildu.sadang-foundation",
+      "original": true
+    },
+    "North.sadang.foundation individual plinth": {
+      "sourceObject": "North.sadang.foundation individual plinth",
+      "processId": "ildu.sadang-padstones",
+      "original": true
+    },
+    "North.sadang.foundation.recessed earth mortar": {
+      "sourceObject": "North.sadang.foundation.recessed earth mortar",
+      "processId": "ildu.sadang-foundation",
+      "original": true
+    },
+    "North.sadang.frame longitudinal beam": {
+      "sourceObject": "North.sadang.frame longitudinal beam",
+      "processId": "ildu.sadang-brackets",
+      "original": true
+    },
+    "North.sadang.frame mortise peg": {
+      "sourceObject": "North.sadang.frame mortise peg",
+      "processId": "ildu.sadang-brackets",
+      "original": true
+    },
+    "North.sadang.frame round red column": {
+      "sourceObject": "North.sadang.frame round red column",
+      "processId": "ildu.sadang-posts",
+      "original": true
+    },
+    "North.sadang.frame square post": {
+      "sourceObject": "North.sadang.frame square post",
+      "processId": "ildu.sadang-posts",
+      "original": true
+    },
+    "North.sadang.frame transverse beam": {
+      "sourceObject": "North.sadang.frame transverse beam",
+      "processId": "ildu.sadang-brackets",
+      "original": true
+    },
+    "North.sadang.granite step": {
+      "sourceObject": "North.sadang.granite step",
+      "processId": "ildu.sadang-foundation",
+      "original": true
+    },
+    "North.sadang.joinery.bracket painted cream contour": {
+      "sourceObject": "North.sadang.joinery.bracket painted cream contour",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.joinery.bracket painted ochre hairline": {
+      "sourceObject": "North.sadang.joinery.bracket painted ochre hairline",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.joinery.bracket painted vermilion contour": {
+      "sourceObject": "North.sadang.joinery.bracket painted vermilion contour",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.joinery.gable 45x27 cover batten": {
+      "sourceObject": "North.sadang.joinery.gable 45x27 cover batten",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.joinery.gable thirty millimetre planks": {
+      "sourceObject": "North.sadang.joinery.gable thirty millimetre planks",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.joinery.packed ridge core": {
+      "sourceObject": "North.sadang.joinery.packed ridge core",
+      "processId": "ildu.sadang-roof_bed",
+      "original": true
+    },
+    "North.sadang.joinery.sculpted bracket shoulder": {
+      "sourceObject": "North.sadang.joinery.sculpted bracket shoulder",
+      "processId": "ildu.sadang-brackets",
+      "original": true
+    },
+    "North.sadang.joinery.solid roof bedding": {
+      "sourceObject": "North.sadang.joinery.solid roof bedding",
+      "processId": "ildu.sadang-roof_bed",
+      "original": true
+    },
+    "North.sadang.left sanctuary plaster": {
+      "sourceObject": "North.sadang.left sanctuary plaster",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.measured porch donggwiteul": {
+      "sourceObject": "North.sadang.measured porch donggwiteul",
+      "processId": "ildu.sadang-maru_interior",
+      "original": true
+    },
+    "North.sadang.measured porch janggwiteul": {
+      "sourceObject": "North.sadang.measured porch janggwiteul",
+      "processId": "ildu.sadang-maru_interior",
+      "original": true
+    },
+    "North.sadang.painted rafter end": {
+      "sourceObject": "North.sadang.painted rafter end",
+      "processId": "ildu.sadang-rafters",
+      "original": true
+    },
+    "North.sadang.photo beam fine painted border": {
+      "sourceObject": "North.sadang.photo beam fine painted border",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo bracket ochre contour": {
+      "sourceObject": "North.sadang.photo bracket ochre contour",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo canonical dancheong frieze": {
+      "sourceObject": "North.sadang.photo canonical dancheong frieze",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo carved wing bracket": {
+      "sourceObject": "North.sadang.photo carved wing bracket",
+      "processId": "ildu.sadang-brackets",
+      "original": true
+    },
+    "North.sadang.photo column lotus green outline": {
+      "sourceObject": "North.sadang.photo column lotus green outline",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo column lotus ground": {
+      "sourceObject": "North.sadang.photo column lotus ground",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo column lotus ochre eye": {
+      "sourceObject": "North.sadang.photo column lotus ochre eye",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo column lotus petal": {
+      "sourceObject": "North.sadang.photo column lotus petal",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo column painted collar": {
+      "sourceObject": "North.sadang.photo column painted collar",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo column painted collar.001": {
+      "sourceObject": "North.sadang.photo column painted collar.001",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo column painted collar.002": {
+      "sourceObject": "North.sadang.photo column painted collar.002",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo column painted collar.003": {
+      "sourceObject": "North.sadang.photo column painted collar.003",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo painted rafter collar": {
+      "sourceObject": "North.sadang.photo painted rafter collar",
+      "processId": "ildu.sadang-rafters",
+      "original": true
+    },
+    "North.sadang.photo painted rafter collar.001": {
+      "sourceObject": "North.sadang.photo painted rafter collar.001",
+      "processId": "ildu.sadang-rafters",
+      "original": true
+    },
+    "North.sadang.photo painted rafter collar.002": {
+      "sourceObject": "North.sadang.photo painted rafter collar.002",
+      "processId": "ildu.sadang-rafters",
+      "original": true
+    },
+    "North.sadang.photo painted rafter collar.003": {
+      "sourceObject": "North.sadang.photo painted rafter collar.003",
+      "processId": "ildu.sadang-rafters",
+      "original": true
+    },
+    "North.sadang.photo rafter rosette green outline": {
+      "sourceObject": "North.sadang.photo rafter rosette green outline",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo rafter rosette ground": {
+      "sourceObject": "North.sadang.photo rafter rosette ground",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo rafter rosette ochre eye": {
+      "sourceObject": "North.sadang.photo rafter rosette ochre eye",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo rafter rosette petal": {
+      "sourceObject": "North.sadang.photo rafter rosette petal",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "North.sadang.photo side red beam": {
+      "sourceObject": "North.sadang.photo side red beam",
+      "processId": "ildu.sadang-brackets",
+      "original": true
+    },
+    "North.sadang.photo ventilated earth apron": {
+      "sourceObject": "North.sadang.photo ventilated earth apron",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.photo ventilation bore": {
+      "sourceObject": "North.sadang.photo ventilation bore",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.rear sanctuary plaster": {
+      "sourceObject": "North.sadang.rear sanctuary plaster",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.right sanctuary plaster": {
+      "sourceObject": "North.sadang.right sanctuary plaster",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.roof": {
+      "sourceObject": "North.sadang.roof",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.001": {
+      "sourceObject": "North.sadang.roof.001",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.002": {
+      "sourceObject": "North.sadang.roof.002",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.003": {
+      "sourceObject": "North.sadang.roof.003",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.004": {
+      "sourceObject": "North.sadang.roof.004",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.005": {
+      "sourceObject": "North.sadang.roof.005",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.T45 W320 bargeboard": {
+      "sourceObject": "North.sadang.roof.T45 W320 bargeboard",
+      "processId": null,
+      "original": true
+    },
+    "North.sadang.roof.descending course 1": {
+      "sourceObject": "North.sadang.roof.descending course 1",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.descending course 2": {
+      "sourceObject": "North.sadang.roof.descending course 2",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.descending course 3": {
+      "sourceObject": "North.sadang.roof.descending course 3",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.descending packed core": {
+      "sourceObject": "North.sadang.roof.descending packed core",
+      "processId": "ildu.sadang-roof_bed",
+      "original": true
+    },
+    "North.sadang.roof.eave binding": {
+      "sourceObject": "North.sadang.roof.eave binding",
+      "processId": "ildu.sadang-brackets",
+      "original": true
+    },
+    "North.sadang.roof.gable earthen bedding": {
+      "sourceObject": "North.sadang.roof.gable earthen bedding",
+      "processId": "ildu.sadang-roof_bed",
+      "original": true
+    },
+    "North.sadang.roof.lower exposed rafters": {
+      "sourceObject": "North.sadang.roof.lower exposed rafters",
+      "processId": "ildu.sadang-rafters",
+      "original": true
+    },
+    "North.sadang.roof.ridge chaggo": {
+      "sourceObject": "North.sadang.roof.ridge chaggo",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge chaggo.001": {
+      "sourceObject": "North.sadang.roof.ridge chaggo.001",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge chaggo.002": {
+      "sourceObject": "North.sadang.roof.ridge chaggo.002",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge chaggo.003": {
+      "sourceObject": "North.sadang.roof.ridge chaggo.003",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge chaggo.004": {
+      "sourceObject": "North.sadang.roof.ridge chaggo.004",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge chaggo.005": {
+      "sourceObject": "North.sadang.roof.ridge chaggo.005",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 1": {
+      "sourceObject": "North.sadang.roof.ridge course 1",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 1.001": {
+      "sourceObject": "North.sadang.roof.ridge course 1.001",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 1.002": {
+      "sourceObject": "North.sadang.roof.ridge course 1.002",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 1.003": {
+      "sourceObject": "North.sadang.roof.ridge course 1.003",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 1.004": {
+      "sourceObject": "North.sadang.roof.ridge course 1.004",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 1.005": {
+      "sourceObject": "North.sadang.roof.ridge course 1.005",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 2": {
+      "sourceObject": "North.sadang.roof.ridge course 2",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 2.001": {
+      "sourceObject": "North.sadang.roof.ridge course 2.001",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 2.002": {
+      "sourceObject": "North.sadang.roof.ridge course 2.002",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 2.003": {
+      "sourceObject": "North.sadang.roof.ridge course 2.003",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 2.004": {
+      "sourceObject": "North.sadang.roof.ridge course 2.004",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 2.005": {
+      "sourceObject": "North.sadang.roof.ridge course 2.005",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 3": {
+      "sourceObject": "North.sadang.roof.ridge course 3",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 3.001": {
+      "sourceObject": "North.sadang.roof.ridge course 3.001",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 3.002": {
+      "sourceObject": "North.sadang.roof.ridge course 3.002",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 3.003": {
+      "sourceObject": "North.sadang.roof.ridge course 3.003",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 3.004": {
+      "sourceObject": "North.sadang.roof.ridge course 3.004",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 3.005": {
+      "sourceObject": "North.sadang.roof.ridge course 3.005",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 4": {
+      "sourceObject": "North.sadang.roof.ridge course 4",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 4.001": {
+      "sourceObject": "North.sadang.roof.ridge course 4.001",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 4.002": {
+      "sourceObject": "North.sadang.roof.ridge course 4.002",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 4.003": {
+      "sourceObject": "North.sadang.roof.ridge course 4.003",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 4.004": {
+      "sourceObject": "North.sadang.roof.ridge course 4.004",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 4.005": {
+      "sourceObject": "North.sadang.roof.ridge course 4.005",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 5": {
+      "sourceObject": "North.sadang.roof.ridge course 5",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 5.001": {
+      "sourceObject": "North.sadang.roof.ridge course 5.001",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 5.002": {
+      "sourceObject": "North.sadang.roof.ridge course 5.002",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 5.003": {
+      "sourceObject": "North.sadang.roof.ridge course 5.003",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 5.004": {
+      "sourceObject": "North.sadang.roof.ridge course 5.004",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.ridge course 5.005": {
+      "sourceObject": "North.sadang.roof.ridge course 5.005",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.round tile ends": {
+      "sourceObject": "North.sadang.roof.round tile ends",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.side laid covers": {
+      "sourceObject": "North.sadang.roof.side laid covers",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.side laid covers.001": {
+      "sourceObject": "North.sadang.roof.side laid covers.001",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.side laid covers.002": {
+      "sourceObject": "North.sadang.roof.side laid covers.002",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.side laid covers.003": {
+      "sourceObject": "North.sadang.roof.side laid covers.003",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.side laid covers.004": {
+      "sourceObject": "North.sadang.roof.side laid covers.004",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.side laid covers.005": {
+      "sourceObject": "North.sadang.roof.side laid covers.005",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.side laid pans": {
+      "sourceObject": "North.sadang.roof.side laid pans",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.side laid pans.001": {
+      "sourceObject": "North.sadang.roof.side laid pans.001",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.side laid pans.002": {
+      "sourceObject": "North.sadang.roof.side laid pans.002",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.side laid pans.003": {
+      "sourceObject": "North.sadang.roof.side laid pans.003",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.side laid pans.004": {
+      "sourceObject": "North.sadang.roof.side laid pans.004",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.side laid pans.005": {
+      "sourceObject": "North.sadang.roof.side laid pans.005",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.roof.side lime plugs": {
+      "sourceObject": "North.sadang.roof.side lime plugs",
+      "processId": "ildu.sadang-roof_bed",
+      "original": true
+    },
+    "North.sadang.roof.upright end cap": {
+      "sourceObject": "North.sadang.roof.upright end cap",
+      "processId": "ildu.sadang-tiles",
+      "original": true
+    },
+    "North.sadang.round stone plinth": {
+      "sourceObject": "North.sadang.round stone plinth",
+      "processId": "ildu.sadang-padstones",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.infill": {
+      "sourceObject": "North.sadang.survey sanctuary 0.infill",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.leaf1.hanji backing": {
+      "sourceObject": "North.sadang.survey sanctuary 0.leaf1.hanji backing",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.leaf1.horizontal band": {
+      "sourceObject": "North.sadang.survey sanctuary 0.leaf1.horizontal band",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.leaf1.iron ring": {
+      "sourceObject": "North.sadang.survey sanctuary 0.leaf1.iron ring",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.leaf1.lock rail": {
+      "sourceObject": "North.sadang.survey sanctuary 0.leaf1.lock rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.leaf1.lower moulding.rail": {
+      "sourceObject": "North.sadang.survey sanctuary 0.leaf1.lower moulding.rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.leaf1.lower moulding.stile": {
+      "sourceObject": "North.sadang.survey sanctuary 0.leaf1.lower moulding.stile",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.leaf1.rail": {
+      "sourceObject": "North.sadang.survey sanctuary 0.leaf1.rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.leaf1.rear paper rail": {
+      "sourceObject": "North.sadang.survey sanctuary 0.leaf1.rear paper rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.leaf1.rebated bead.rail": {
+      "sourceObject": "North.sadang.survey sanctuary 0.leaf1.rebated bead.rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.leaf1.rebated bead.stile": {
+      "sourceObject": "North.sadang.survey sanctuary 0.leaf1.rebated bead.stile",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.leaf1.recessed lower board": {
+      "sourceObject": "North.sadang.survey sanctuary 0.leaf1.recessed lower board",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.leaf1.stile": {
+      "sourceObject": "North.sadang.survey sanctuary 0.leaf1.stile",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.leaf1.vertical sal": {
+      "sourceObject": "North.sadang.survey sanctuary 0.leaf1.vertical sal",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.measured head and sill": {
+      "sourceObject": "North.sadang.survey sanctuary 0.measured head and sill",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 0.measured jamb": {
+      "sourceObject": "North.sadang.survey sanctuary 0.measured jamb",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.infill": {
+      "sourceObject": "North.sadang.survey sanctuary 1.infill",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf1.hanji backing": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf1.hanji backing",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf1.horizontal band": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf1.horizontal band",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf1.iron ring": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf1.iron ring",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf1.lock rail": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf1.lock rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf1.lower moulding.rail": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf1.lower moulding.rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf1.lower moulding.stile": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf1.lower moulding.stile",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf1.rail": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf1.rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf1.rear paper rail": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf1.rear paper rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf1.rebated bead.rail": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf1.rebated bead.rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf1.rebated bead.stile": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf1.rebated bead.stile",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf1.recessed lower board": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf1.recessed lower board",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf1.stile": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf1.stile",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf1.vertical sal": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf1.vertical sal",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf2.hanji backing": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf2.hanji backing",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf2.horizontal band": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf2.horizontal band",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf2.iron ring": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf2.iron ring",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf2.lock rail": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf2.lock rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf2.lower moulding.rail": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf2.lower moulding.rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf2.lower moulding.stile": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf2.lower moulding.stile",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf2.rail": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf2.rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf2.rear paper rail": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf2.rear paper rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf2.rebated bead.rail": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf2.rebated bead.rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf2.rebated bead.stile": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf2.rebated bead.stile",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf2.recessed lower board": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf2.recessed lower board",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf2.stile": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf2.stile",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.leaf2.vertical sal": {
+      "sourceObject": "North.sadang.survey sanctuary 1.leaf2.vertical sal",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.measured head and sill": {
+      "sourceObject": "North.sadang.survey sanctuary 1.measured head and sill",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 1.measured jamb": {
+      "sourceObject": "North.sadang.survey sanctuary 1.measured jamb",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.infill": {
+      "sourceObject": "North.sadang.survey sanctuary 2.infill",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.leaf1.hanji backing": {
+      "sourceObject": "North.sadang.survey sanctuary 2.leaf1.hanji backing",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.leaf1.horizontal band": {
+      "sourceObject": "North.sadang.survey sanctuary 2.leaf1.horizontal band",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.leaf1.iron ring": {
+      "sourceObject": "North.sadang.survey sanctuary 2.leaf1.iron ring",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.leaf1.lock rail": {
+      "sourceObject": "North.sadang.survey sanctuary 2.leaf1.lock rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.leaf1.lower moulding.rail": {
+      "sourceObject": "North.sadang.survey sanctuary 2.leaf1.lower moulding.rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.leaf1.lower moulding.stile": {
+      "sourceObject": "North.sadang.survey sanctuary 2.leaf1.lower moulding.stile",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.leaf1.rail": {
+      "sourceObject": "North.sadang.survey sanctuary 2.leaf1.rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.leaf1.rear paper rail": {
+      "sourceObject": "North.sadang.survey sanctuary 2.leaf1.rear paper rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.leaf1.rebated bead.rail": {
+      "sourceObject": "North.sadang.survey sanctuary 2.leaf1.rebated bead.rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.leaf1.rebated bead.stile": {
+      "sourceObject": "North.sadang.survey sanctuary 2.leaf1.rebated bead.stile",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.leaf1.recessed lower board": {
+      "sourceObject": "North.sadang.survey sanctuary 2.leaf1.recessed lower board",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.leaf1.stile": {
+      "sourceObject": "North.sadang.survey sanctuary 2.leaf1.stile",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.leaf1.vertical sal": {
+      "sourceObject": "North.sadang.survey sanctuary 2.leaf1.vertical sal",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.measured head and sill": {
+      "sourceObject": "North.sadang.survey sanctuary 2.measured head and sill",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "North.sadang.survey sanctuary 2.measured jamb": {
+      "sourceObject": "North.sadang.survey sanctuary 2.measured jamb",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "Sep29.sadang.altar carved timber apron": {
+      "sourceObject": "Sep29.sadang.altar carved timber apron",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.altar moulded rim": {
+      "sourceObject": "Sep29.sadang.altar moulded rim",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.altar rear stretcher": {
+      "sourceObject": "Sep29.sadang.altar rear stretcher",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.altar side stretcher": {
+      "sourceObject": "Sep29.sadang.altar side stretcher",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.altar timber leg": {
+      "sourceObject": "Sep29.sadang.altar timber leg",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.altar timber top": {
+      "sourceObject": "Sep29.sadang.altar timber top",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.brass candle stand": {
+      "sourceObject": "Sep29.sadang.brass candle stand",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.brass incense bowl": {
+      "sourceObject": "Sep29.sadang.brass incense bowl",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.cabinet brass fittings": {
+      "sourceObject": "Sep29.sadang.cabinet brass fittings",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.cabinet brass pulls": {
+      "sourceObject": "Sep29.sadang.cabinet brass pulls",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.cabinet timber back": {
+      "sourceObject": "Sep29.sadang.cabinet timber back",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.cabinet timber base": {
+      "sourceObject": "Sep29.sadang.cabinet timber base",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.cabinet timber lattice": {
+      "sourceObject": "Sep29.sadang.cabinet timber lattice",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.cabinet timber pediment": {
+      "sourceObject": "Sep29.sadang.cabinet timber pediment",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.cabinet timber rail": {
+      "sourceObject": "Sep29.sadang.cabinet timber rail",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.cabinet timber side": {
+      "sourceObject": "Sep29.sadang.cabinet timber side",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.cabinet timber stile": {
+      "sourceObject": "Sep29.sadang.cabinet timber stile",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.drawer brass pull": {
+      "sourceObject": "Sep29.sadang.drawer brass pull",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.interior green rafter": {
+      "sourceObject": "Sep29.sadang.interior green rafter",
+      "processId": "ildu.sadang-rafters",
+      "original": true
+    },
+    "Sep29.sadang.interior rear rail": {
+      "sourceObject": "Sep29.sadang.interior rear rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "Sep29.sadang.ivory candle": {
+      "sourceObject": "Sep29.sadang.ivory candle",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.lotus circular field": {
+      "sourceObject": "Sep29.sadang.lotus circular field",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.lotus ochre centre": {
+      "sourceObject": "Sep29.sadang.lotus ochre centre",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.lotus painted petal": {
+      "sourceObject": "Sep29.sadang.lotus painted petal",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.lotus petal outline": {
+      "sourceObject": "Sep29.sadang.lotus petal outline",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.mat indigo hem": {
+      "sourceObject": "Sep29.sadang.mat indigo hem",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.mat woven reed": {
+      "sourceObject": "Sep29.sadang.mat woven reed",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.offering timber drawer": {
+      "sourceObject": "Sep29.sadang.offering timber drawer",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.offering timber leg": {
+      "sourceObject": "Sep29.sadang.offering timber leg",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.offering timber top": {
+      "sourceObject": "Sep29.sadang.offering timber top",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.painted column band": {
+      "sourceObject": "Sep29.sadang.painted column band",
+      "processId": "ildu.sadang-posts",
+      "original": true
+    },
+    "Sep29.sadang.painted column band.001": {
+      "sourceObject": "Sep29.sadang.painted column band.001",
+      "processId": "ildu.sadang-posts",
+      "original": true
+    },
+    "Sep29.sadang.painted column band.002": {
+      "sourceObject": "Sep29.sadang.painted column band.002",
+      "processId": "ildu.sadang-posts",
+      "original": true
+    },
+    "Sep29.sadang.painted column band.003": {
+      "sourceObject": "Sep29.sadang.painted column band.003",
+      "processId": "ildu.sadang-posts",
+      "original": true
+    },
+    "Sep29.sadang.scroll bracket solid": {
+      "sourceObject": "Sep29.sadang.scroll bracket solid",
+      "processId": "ildu.sadang-brackets",
+      "original": true
+    },
+    "Sep29.sadang.scroll painted contour": {
+      "sourceObject": "Sep29.sadang.scroll painted contour",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.scroll painted contour.001": {
+      "sourceObject": "Sep29.sadang.scroll painted contour.001",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.scroll painted contour.002": {
+      "sourceObject": "Sep29.sadang.scroll painted contour.002",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    },
+    "Sep29.sadang.side horizontal red rail": {
+      "sourceObject": "Sep29.sadang.side horizontal red rail",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "Sep29.sadang.side lower red sill": {
+      "sourceObject": "Sep29.sadang.side lower red sill",
+      "processId": "ildu.sadang-walls",
+      "original": true
+    },
+    "Sep29.sadang.woven straw mat": {
+      "sourceObject": "Sep29.sadang.woven straw mat",
+      "processId": "ildu.sadang-finish",
+      "original": true
+    }
+  },
+  "nullProcessOriginals": [
+    "GyeCraft.sadang.irregular paving 0",
+    "GyeCraft.sadang.irregular paving 1",
+    "GyeCraft.sadang.irregular paving 2",
+    "GyeCraft.sadang.irregular paving 3",
+    "GyeCraft.sadang.irregular paving 4",
+    "North.sadang.roof.T45 W320 bargeboard"
+  ],
+  "legacyDisplayPolicyDifferences": [
+    {
+      "key": "sadang",
+      "processId": "ildu.sadang-complete",
+      "noNewCanonicalGLBGeometry": false,
+      "policyNoNewGeometry": true
+    }
+  ],
+  "legacyPolicyUnmodified": true,
+  "processIdsAndOrderPreserved": true,
+  "sourceDataEdited": false
+}

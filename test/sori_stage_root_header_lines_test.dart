@@ -35,7 +35,7 @@ const _heroStyle = TextStyle(
   height: 1.08,
 );
 final _chromeTitleStyle = TextStyle(
-  fontFamily: SoriFonts.sans,
+  fontFamily: SoriFonts.interface,
   fontFamilyFallback: SoriFonts.fallback,
   fontSize: SoriTypeSpecs.chromeTitle.size,
   fontWeight: SoriTypeSpecs.chromeTitle.weight,

@@ -261,22 +261,63 @@ class AppL10nEn extends AppL10n {
   String get reviewHubTitle => 'Review';
 
   @override
+  String get reviewArchiveTab => 'By topic';
+
+  @override
+  String reviewSelectedCount(int count) {
+    return '$count selected';
+  }
+
+  @override
+  String reviewSelectedTopic(String topic) {
+    return 'Selection: $topic';
+  }
+
+  @override
+  String get reviewByDay => 'Find by study day';
+
+  @override
+  String get reviewArchiveTitle => 'Your learning archive';
+
+  @override
+  String get reviewArchiveSubtitle => 'Learned words by level and topic';
+
+  @override
+  String get reviewSelectAll => 'Select all';
+
+  @override
+  String get reviewClearSelection => 'Clear selection';
+
+  @override
+  String get reviewSelectHint => 'Choose words to review.';
+
+  @override
+  String get reviewSearchHint => 'Search words or topics';
+
+  @override
+  String get reviewOwnWords => 'My words & books';
+
+  @override
+  String get reviewArchiveEmpty => 'There are no learned words here yet.';
+
+  @override
+  String get reviewLoadError => 'The words could not be loaded.';
+
+  @override
+  String get reviewRetry => 'Try again';
+
+  @override
+  String get reviewNoTopic => 'More words';
+
+  @override
+  String get reviewPlayAudio => 'Play pronunciation';
+
+  @override
   String get reviewHubTodayHeadline => 'Learned today';
 
   @override
   String get reviewHubEmptyToday =>
       'Nothing learned yet today. Start a lesson.';
-
-  @override
-  String reviewHubStartSelected(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: 'Practice $n words',
-      one: 'Practice 1 word',
-    );
-    return '$_temp0';
-  }
 
   @override
   String get reviewHubCalendarTooltip => 'Calendar';
@@ -1181,26 +1222,11 @@ class AppL10nEn extends AppL10n {
   String get hangulTabWrite => 'Writing';
 
   @override
-  String get hangulConsonantsLabel => '자음 · Consonants';
-
-  @override
-  String get hangulVowelsLabel => '모음 · Vowels';
-
-  @override
-  String get hangulSyllableLabel => '🧩 음절 구조 · Syllable composition';
-
-  @override
-  String get hangulSyllableTableTitle => 'Syllable chart';
-
-  @override
   String get hangulSyllableTableHint =>
       'Tap a syllable to hear it. Swipe sideways for more vowels.';
 
   @override
   String get hangulPronounceBtn => 'Pronounce';
-
-  @override
-  String get hangulRulesTitle => 'Hangul writing rules';
 
   @override
   String get hangulRulesBody =>
@@ -1214,11 +1240,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get hangulClearBtn => 'Clear';
-
-  @override
-  String hangulPronounceLetter(Object letter) {
-    return 'Pronounce $letter';
-  }
 
   @override
   String get hangulChipConsonants => 'Consonants';
@@ -1279,20 +1300,6 @@ class AppL10nEn extends AppL10n {
   String hangulStrokeLetterDone(Object letter) {
     return '$letter is done! On to the next one.';
   }
-
-  @override
-  String hangulLettersDone(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count letters done',
-      one: '1 letter done',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get hangulHardOnly => 'Difficult only';
 
   @override
   String get chosungModeWithVowels => 'Initial + vowel';
@@ -2275,9 +2282,6 @@ class AppL10nEn extends AppL10n {
       'Your progress could not be saved. Please try again.';
 
   @override
-  String get vocabPackLearnHint => 'Tap to flip';
-
-  @override
   String get vocabPackDontKnow => 'Don\'t know';
 
   @override
@@ -2943,9 +2947,6 @@ class AppL10nEn extends AppL10n {
   String get scenarioVocabTitle => 'Vocabulary';
 
   @override
-  String get scenarioDialogTitle => 'Dialogue';
-
-  @override
   String get scenarioGrammarTitle => 'Grammar';
 
   @override
@@ -2995,6 +2996,16 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get scenarioResultSaving => 'Saving this completed scene…';
+
+  @override
+  String get scenarioResultSavingTitle => 'Your scene is being saved';
+
+  @override
+  String get scenarioResultSavingAction => 'Saving…';
+
+  @override
+  String get scenarioResultSaveErrorTitle =>
+      'Your scene has not been saved yet';
 
   @override
   String get scenarioResultSaveRetry => 'Try saving again';
@@ -5324,10 +5335,6 @@ class AppL10nEn extends AppL10n {
   String get grammarPlanOnboardingTitle => 'How many patterns per day?';
 
   @override
-  String get grammarPlanOnboardingBody =>
-      'Choose a daily recommendation. You can change the pace and level at the top or browse every pattern at any time.';
-
-  @override
   String grammarPlanItemsPerDayOption(int n) {
     return '$n per day';
   }
@@ -6817,9 +6824,6 @@ class AppL10nEn extends AppL10n {
   String get testerFeedbackCompleteGrammar => 'Finish grammar practice';
 
   @override
-  String get testerFeedbackCompleteHangul => 'Finish Hangul practice';
-
-  @override
   String get testerFeedbackCompleteDailyHangul => 'Finish today\'s character';
 
   @override
@@ -7548,17 +7552,7 @@ class AppL10nEn extends AppL10n {
   String get bojagiTitle => 'Bojagi bundle';
 
   @override
-  String get bojagiLoading => 'Preparing your bundle…';
-
-  @override
-  String get bojagiOpenHint => 'Tap the knot to open the bundle.';
-
-  @override
   String get bojagiPickTitle => 'Pick one';
-
-  @override
-  String get bojagiPickBody =>
-      'Whatever you leave stays in the pool and can turn up in a later bundle.';
 
   @override
   String bojagiChooseDecoration(String name) {
@@ -7566,24 +7560,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get bojagiEmptyTitle => 'No bundle waiting';
-
-  @override
-  String get bojagiEmptyBody => 'Finish a quest and you get a bundle for it.';
-
-  @override
   String get bojagiAllOwnedTitle => 'Nothing new inside';
-
-  @override
-  String get bojagiAllOwnedBody =>
-      'You already own all three pieces from this bundle.';
-
-  @override
-  String get bojagiProblemTitle => 'This bundle will not open right now';
-
-  @override
-  String get bojagiProblemBody =>
-      'Try again in a moment. Your bundle is not lost.';
 
   @override
   String get bojagiRetry => 'Try again';
@@ -7600,17 +7577,7 @@ class AppL10nEn extends AppL10n {
   String get bojagiGoToRoom => 'Place it in the room';
 
   @override
-  String get bojagiNext => 'Open the next bundle';
-
-  @override
   String get bojagiCollectionCompleteTitle => 'Collection complete';
-
-  @override
-  String get bojagiCollectionCompleteBody =>
-      'You already own every room piece. Archive this bundle to continue.';
-
-  @override
-  String get bojagiArchiveComplete => 'Archive bundle';
 
   @override
   String get hanokWorldTitle => 'My Hanok world';
@@ -8575,20 +8542,6 @@ class AppL10nEn extends AppL10n {
   String get pronunciationTitle => 'Pronunciation studio';
 
   @override
-  String get pronunciationEyebrow => 'PRONUNCIATION PRACTICE';
-
-  @override
-  String get pronunciationIntro =>
-      'Listen first. Record up to 10 seconds, then listen to your voice and compare.';
-
-  @override
-  String get pronunciationScoringSoonTitle => 'Scoring coming soon';
-
-  @override
-  String get pronunciationScoringSoonBody =>
-      'Automatic pronunciation scoring is not switched on yet. Listening, recording and comparing already work.';
-
-  @override
   String get pronunciationPhrasesLoading => 'Loading pronunciation practice …';
 
   @override
@@ -8620,9 +8573,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get pronunciationStop => 'Stop recording';
-
-  @override
-  String get pronunciationContinueWithoutScore => 'Continue without a score';
 
   @override
   String get pronunciationNextPhrase => 'Next phrase';
@@ -8794,8 +8744,7 @@ class AppL10nEn extends AppL10n {
       'course': 'Your guided path through real situations.',
       'hangul': 'Build syllables and read with confidence.',
       'calligraphy': 'Discover one character every day.',
-      'pronunciation':
-          'Listen, repeat, and optionally assess. Scoring comes later.',
+      'pronunciation': 'Listen, record, and compare.',
       'vocab_packs': 'Learn words by everyday topic.',
       'srs': 'Refresh words at just the right moment.',
       'hard_words': 'Focus on the words that trip you up.',
@@ -10274,9 +10223,6 @@ class AppL10nEn extends AppL10n {
       'No English translation is saved yet.';
 
   @override
-  String get pronunciationReplay => 'Listen to my recording';
-
-  @override
   String get flashcardRomanizationFront => 'Show on the front';
 
   @override
@@ -10292,10 +10238,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get ttsUnavailablePlayback =>
       'Audio could not play on this device. Check the volume or connected headphones, then try again.';
-
-  @override
-  String get pronunciationLocalRecordingHint =>
-      'Your recording stays temporarily on this device. It is deleted when you leave this screen.';
 
   @override
   String get pronunciationReplayStop => 'Stop my recording';
@@ -10758,67 +10700,10 @@ class AppL10nEn extends AppL10n {
   String get onboardingDemoWord => 'Word';
 
   @override
-  String get onboardingDemoInitials => 'First sounds';
-
-  @override
-  String get onboardingDemoCross => 'Syllable cross';
-
-  @override
-  String get onboardingDemoCloze => 'Fill the gap';
-
-  @override
-  String get onboardingDemoPairs => 'Word pairs';
-
-  @override
-  String get onboardingDemoSentence => 'Build a sentence';
-
-  @override
-  String get onboardingDemoChain => 'Word chain';
-
-  @override
-  String get onboardingDemoExample => 'Show example';
-
-  @override
   String get onboardingJourneyStartTitle => 'Your Korean.\nYour rhythm.';
 
   @override
-  String get onboardingJourneyNew => 'I am completely new';
-
-  @override
-  String get onboardingJourneyNewHint => 'Begin with letters and sounds.';
-
-  @override
-  String get onboardingJourneyReturning => 'I have learned some Korean';
-
-  @override
   String get onboardingJourneyReturningHint => 'Start from what you know.';
-
-  @override
-  String get onboardingJourneyExperience => 'Your experience';
-
-  @override
-  String get onboardingJourneyPathTitle => 'A clear path.\nYour next step.';
-
-  @override
-  String get onboardingJourneyLettersTitle => 'Letters become\nyour words.';
-
-  @override
-  String get onboardingJourneyLearnTitle => 'From understanding\nto speaking.';
-
-  @override
-  String get onboardingJourneyGamesTitle => 'Play is part\nof learning.';
-
-  @override
-  String get onboardingJourneyBookTitle =>
-      'Your book.\nNow part of your learning.';
-
-  @override
-  String get onboardingJourneyHanokTitle =>
-      'Your Korean grows.\nYour hanok comes alive.';
-
-  @override
-  String get onboardingJourneyCompanionTitle =>
-      'A learning path.\nA friend by your side.';
 
   @override
   String onboardingJourneyStartWith(String name) {
@@ -10910,30 +10795,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get onboardingJourneyGrowthLink =>
       'As you reach learning goals, your hanok grows.';
-
-  @override
-  String get onboardingJourneyStartShort => 'Your start';
-
-  @override
-  String get onboardingJourneyPathShort => 'Your learning path';
-
-  @override
-  String get onboardingJourneyLettersShort => 'Letters & sounds';
-
-  @override
-  String get onboardingJourneyLearnShort => 'Your words';
-
-  @override
-  String get onboardingJourneyGamesShort => 'Learn through play';
-
-  @override
-  String get onboardingJourneyBookShort => 'Your book';
-
-  @override
-  String get onboardingJourneyHanokShort => 'Your hanok';
-
-  @override
-  String get onboardingJourneyCompanionShort => 'Your companion';
 
   @override
   String get questUnavailableTitle => 'This exercise is unavailable';
@@ -11312,14 +11173,13 @@ class AppL10nEn extends AppL10n {
   String get practiceEffect => 'How it may come across';
 
   @override
-  String get practiceGrammarCorrect =>
-      'The grammar is correct. The effect depends on the context and tone.';
+  String get practiceGrammarCorrect => 'Grammatically correct.';
 
   @override
   String get practiceAssemble => 'Build your next reply';
 
   @override
-  String get practiceShowEffect => 'View the explanation for help';
+  String get practiceShowEffect => 'See how your answer comes across';
 
   @override
   String get practiceReset => 'Put the words back';
@@ -11384,20 +11244,17 @@ class AppL10nEn extends AppL10n {
   String get practiceChooseAgain => 'Choose your intention again';
 
   @override
-  String get practiceHintTitle => 'A hint from Dokkaebi';
-
-  @override
-  String get practiceHintMeaning => 'View meaning and direction';
+  String get practiceHintMeaning => 'See a sentence clue';
 
   @override
   String get practiceHintCrossing => 'View crossing cells';
 
   @override
-  String get practiceHintReveal => 'Reveal one syllable · direct help';
+  String get practiceHintReveal => 'Reveal a syllable · direct help';
 
   @override
   String get practiceHintPlace =>
-      'The syllable is shown. Place the matching tile on the selected cell yourself.';
+      'Place the matching syllable in the marked cell yourself.';
 
   @override
   String get practiceHintNoCrossing => 'This word has no crossing cell.';
@@ -11795,6 +11652,1123 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get settingsGroupHelp => 'Help & app information';
+
+  @override
+  String get practiceReplayGesture => 'Replay the fan gesture';
+
+  @override
+  String get practiceDokkaebiMeet => 'Meet the Dokkaebi';
+
+  @override
+  String get practiceDokkaebiAbout => 'Your puzzle companion';
+
+  @override
+  String get practiceDokkaebiGesture => 'See the swing';
+
+  @override
+  String get practiceDokkaebiReturn => 'Back to the puzzle';
+
+  @override
+  String get practiceDokkaebiTopicTales => 'Tales';
+
+  @override
+  String get practiceDokkaebiTopicHome => 'Home & luck';
+
+  @override
+  String get practiceDokkaebiTopicLearning => 'Learning pal';
+
+  @override
+  String get practiceDokkaebiTalesTitle => 'Magic, mischief and a bridge';
+
+  @override
+  String get practiceDokkaebiTalesBody =>
+      'In Korean tales, the Dokkaebi brings wealth, challenges people to wrestle, or repairs a bridge at night. Helpful, playful, and sometimes easily outwitted.';
+
+  @override
+  String get practiceDokkaebiHomeTitle => 'A guardian? Sometimes, yes.';
+
+  @override
+  String get practiceDokkaebiHomeBody =>
+      'In some traditions on Jeju, the Dokkaebi was also worshipped as a household guardian. Its role varies by region and story.';
+
+  @override
+  String get practiceDokkaebiLearningTitle => 'Let’s puzzle it out together';
+
+  @override
+  String get practiceDokkaebiLearningBody =>
+      'Sentence clue → crossing cells → one syllable. You place the tiles yourself. Hints are free.';
+
+  @override
+  String get practiceDokkaebiLearningNote =>
+      'Practise on your own later in the Sarangbang. We celebrate your saved achievements together.';
+
+  @override
+  String get practiceDokkaebiAppStory => 'A new role in Hangul Sori.';
+
+  @override
+  String get practiceDokkaebiFireAction => 'Discover 도깨비불';
+
+  @override
+  String get practiceDokkaebiFireWord => '도깨비불 · Dokkaebi fire';
+
+  @override
+  String get practiceDokkaebiRoofAction => 'What about the roof tiles?';
+
+  @override
+  String get practiceDokkaebiRoofBody =>
+      'These roof tiles bear an expressive face. The motif represents warding off harmful influences. It is not necessarily a depiction of a Dokkaebi.';
+
+  @override
+  String get practiceDokkaebiFolkloreSource => 'Source: 한국민족문화대백과사전';
+
+  @override
+  String get practiceDokkaebiMuseumSource => 'Source: 국립중앙박물관';
+
+  @override
+  String get practiceDokkaebiFormAction => 'See another form';
+
+  @override
+  String get practiceDokkaebiFormReturn => 'Back to the friendly form';
+
+  @override
+  String get practiceDokkaebiFormNote =>
+      'A fantasy form created for Hangul Sori.';
+
+  @override
+  String practiceHintWordPath(int count, int row, int column) {
+    return '$count syllables · Start: row $row, column $column';
+  }
+
+  @override
+  String get welcomeTitle => 'Welcome to\nHangul Sori.';
+
+  @override
+  String get welcomeBody =>
+      'Discover Korean, culture and your growing Hanok adventure.';
+
+  @override
+  String get welcomeStart => 'Let’s begin';
+
+  @override
+  String get welcomeLater => 'Later';
+
+  @override
+  String get welcomeLaterHint => 'Try a preview, then set things up.';
+
+  @override
+  String get welcomeCharacters =>
+      'Baekho and the new magpie welcome you to the Hanok.';
+
+  @override
+  String get onboardingCBookBody =>
+      'Discover words in context. TalSunbi helps you understand them.';
+
+  @override
+  String get onboardingCBookSummary => 'Learn from your books.';
+
+  @override
+  String get onboardingCChange => 'Change';
+
+  @override
+  String get onboardingCGamesBody =>
+      'Practise with your saved words. Discover rewards for your progress.';
+
+  @override
+  String get onboardingCGamesSummary => '8 games. Plenty of discoveries.';
+
+  @override
+  String get onboardingCGyeBody =>
+      'Find your learning group later. You can start on your own.';
+
+  @override
+  String get onboardingCGyeTitle => 'Learn together: Gye';
+
+  @override
+  String get onboardingCHanokBody =>
+      'Stamp book & Dancheong Studio. Your artwork for the Sarangbang.';
+
+  @override
+  String get onboardingCHanokSummary => 'Your Hanok grows with Yeopjeon.';
+
+  @override
+  String get onboardingCInterest => 'What matters to you?';
+
+  @override
+  String get onboardingCJoyRole => 'Your curious companion';
+
+  @override
+  String get onboardingCLater => 'You can change this later.';
+
+  @override
+  String get introLevelLater => 'You can change this later.';
+
+  @override
+  String get onboardingJourneyStartWhere => 'Where would you like to start?';
+
+  @override
+  String get onboardingJourneyBeginnerHint => 'I\'m starting from scratch';
+
+  @override
+  String get onboardingCLevelRange => 'Brand new or A1 to C2.';
+
+  @override
+  String get onboardingCPathBody =>
+      'From your first sounds to a real conversation.';
+
+  @override
+  String get onboardingCPathSummary => 'A clear learning path.';
+
+  @override
+  String get onboardingCSoundBody => 'Listen, connect, and try.';
+
+  @override
+  String get onboardingCSoundSummary => 'Two letters. One sound.';
+
+  @override
+  String get onboardingCStartLevel => 'Your starting level';
+
+  @override
+  String get onboardingCTaegoRole => 'Your calm companion';
+
+  @override
+  String get onboardingCtaGames => 'Explore the games';
+
+  @override
+  String get onboardingCtaTry => 'Try a short lesson';
+
+  @override
+  String get onboardingCBrand => 'INTRODUCTION';
+
+  @override
+  String get onboardingCPathTitle => 'A path that fits you.';
+
+  @override
+  String get onboardingCSoundTitle => 'Your first sound.';
+
+  @override
+  String get onboardingCGamesTitle => 'Remember more through play.';
+
+  @override
+  String get onboardingCBookTitle => 'Your book joins in.';
+
+  @override
+  String get onboardingCHanokTitle => 'See your learning grow.';
+
+  @override
+  String get onboardingCCompanionTitle => 'A friend by your side.';
+
+  @override
+  String get introNew => 'Completely new';
+
+  @override
+  String get introNewHint => 'Start with Hangul';
+
+  @override
+  String get introA2Hint => 'You know the basics.';
+
+  @override
+  String get introChooseLevel => 'Choose your starting level';
+
+  @override
+  String get introApplyLevel => 'Use this level';
+
+  @override
+  String get introNextPath => 'Next: Your learning path.';
+
+  @override
+  String get introNextSample => 'Next: A short learning sample.';
+
+  @override
+  String get introTwelveTools => '12 learning tools for your everyday life.';
+
+  @override
+  String get introGreetingTranslation => 'Hello';
+
+  @override
+  String get onboardingCDiscover => 'Discover';
+
+  @override
+  String get onboardingCPractice => 'Practise';
+
+  @override
+  String get onboardingCRetain => 'Remember';
+
+  @override
+  String get onboardingCPhoto => 'Photo';
+
+  @override
+  String get onboardingCUnderstand => 'Understand';
+
+  @override
+  String get onboardingCRemember => 'Remember';
+
+  @override
+  String get onboardingCBuild => 'Build';
+
+  @override
+  String get onboardingCCollect => 'Collect';
+
+  @override
+  String get onboardingCCreate => 'Create';
+
+  @override
+  String get grammarBookExample => 'Example';
+
+  @override
+  String get atelierAutoOff => 'Auto advance: Off';
+
+  @override
+  String get atelierAutoOn => 'Auto advance: On';
+
+  @override
+  String get atelierChartHint =>
+      'Tap to listen. All 19 consonants are available below.';
+
+  @override
+  String get atelierDemo => 'Demonstrate';
+
+  @override
+  String get atelierDemoEnd => 'Finish demonstration';
+
+  @override
+  String get atelierDemoNext => 'Next stroke';
+
+  @override
+  String get atelierDemoPhase => 'Demonstration';
+
+  @override
+  String get atelierDemoRestart => 'Show again';
+
+  @override
+  String get atelierDifficult => 'Difficult';
+
+  @override
+  String get atelierDiscover => 'Discover syllables';
+
+  @override
+  String get atelierDonePhase => 'Complete';
+
+  @override
+  String get atelierFeedHint =>
+      'Swipe up: next card · Swipe down: previous\nDouble tap to like';
+
+  @override
+  String get atelierFinish => 'Finish practice';
+
+  @override
+  String get atelierFlipHint => 'Tap to flip';
+
+  @override
+  String get atelierKnown => 'Known';
+
+  @override
+  String get atelierMore => 'More';
+
+  @override
+  String get atelierNotYet => 'Not yet';
+
+  @override
+  String get atelierPracticePhase => 'Your turn';
+
+  @override
+  String get atelierRandom => 'Random card';
+
+  @override
+  String get atelierRemember => 'Like';
+
+  @override
+  String get atelierSaveFailed => 'Not saved yet. Please try again.';
+
+  @override
+  String get atelierShare => 'Share';
+
+  @override
+  String get atelierSkip => 'Skip';
+
+  @override
+  String get atelierStructure => 'Syllable building';
+
+  @override
+  String get atelierSubtitle => 'Script. Sound. Meaning.';
+
+  @override
+  String get atelierUseInChart => 'Select in the syllable chart';
+
+  @override
+  String get atelierWatchBrush => 'Watch the brush first.';
+
+  @override
+  String cHangulCardsReceipt(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count card actions in this practice',
+      one: '1 card action in this practice',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get cHangulCompleted => 'Hangul practice complete';
+
+  @override
+  String get cHangulHardCharacters => 'Difficult letters only';
+
+  @override
+  String get cHangulKeepPractising => 'You can keep practising any time.';
+
+  @override
+  String get cHangulListen => 'Listen';
+
+  @override
+  String get cHangulListenWord => 'Hear word';
+
+  @override
+  String get cHangulSelectionTitle => 'Card selection';
+
+  @override
+  String cHangulWritingLettersReceipt(int letters) {
+    String _temp0 = intl.Intl.pluralLogic(
+      letters,
+      locale: localeName,
+      other: '$letters letters practised',
+      one: '1 letter practised',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String cHangulWritingReceipt(int letters, int strokes, String mode) {
+    String _temp0 = intl.Intl.pluralLogic(
+      letters,
+      locale: localeName,
+      other: '$letters letters practised',
+      one: '1 letter practised',
+    );
+    String _temp1 = intl.Intl.pluralLogic(
+      strokes,
+      locale: localeName,
+      other: '$strokes stroke attempts',
+      one: '1 stroke attempt',
+    );
+    return '$_temp0 · $_temp1 · $mode';
+  }
+
+  @override
+  String cHangulWritingStrokesReceipt(int strokes, String mode) {
+    String _temp0 = intl.Intl.pluralLogic(
+      strokes,
+      locale: localeName,
+      other: '$strokes stroke attempts',
+      one: '1 stroke attempt',
+    );
+    return '$_temp0 · $mode';
+  }
+
+  @override
+  String get c5AllLearningActivities => 'All learning activities';
+
+  @override
+  String get c5AllGames => 'All games';
+
+  @override
+  String onboardingHangulEquationSemantics(String title, String previewLabel) {
+    return '$title. ㄱ + ㅏ = 가. 가 · ga. $previewLabel';
+  }
+
+  @override
+  String get ilduR16Title => 'Ildu Hanok';
+
+  @override
+  String get ilduR16Explore => 'Discover Ildu Hanok';
+
+  @override
+  String get ilduR16Reference => 'Completed estate · architecture reference';
+
+  @override
+  String get ilduR16ReferenceBody =>
+      'Explore the buildings and their cultural context. This reference view is separate from your construction progress.';
+
+  @override
+  String get ilduR16Enlarge => 'Enlarge the estate';
+
+  @override
+  String get ilduR16Building => 'Choose a building';
+
+  @override
+  String get ilduR16AboutSpace => 'The space and its story';
+
+  @override
+  String get ilduR16Practice => 'Review what you learned';
+
+  @override
+  String get ilduR16Sarangchae => 'Sarangchae · Guest quarters';
+
+  @override
+  String get ilduR16Changgo => 'Changgo · Storehouse';
+
+  @override
+  String get ilduR16Jungmunganchae => 'Jungmunganchae · Inner gate';
+
+  @override
+  String get ilduR16Araechae => 'Araechae · Lower quarters';
+
+  @override
+  String get ilduR16SouthToilet => 'South toilet';
+
+  @override
+  String get ilduR16Anchae => 'Anchae · Inner quarters';
+
+  @override
+  String get ilduR16AnchaeStore => 'Anchae storeroom';
+
+  @override
+  String get ilduR16NorthToilet => 'North toilet';
+
+  @override
+  String get ilduR16Gokgan => 'Gokgan · Grain store';
+
+  @override
+  String get ilduR16Ansarang => 'Ansarangchae · Inner guest quarters';
+
+  @override
+  String get ilduR16Sadang => 'Sadang · Ancestral shrine';
+
+  @override
+  String get accountRecoveryTitle => 'Where would you like to continue?';
+
+  @override
+  String get accountRecoveryBody =>
+      'Saved practice from both sets of progress will be kept. You choose the starting point for your learning path.';
+
+  @override
+  String get accountRecoveryDevice => 'This device';
+
+  @override
+  String get accountRecoveryCloud => 'Cloud';
+
+  @override
+  String accountRecoveryCompletedUnits(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count completed units',
+      one: '1 completed unit',
+      zero: 'No completed units yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get accountRecoveryUnavailableChoice =>
+      'This starting point does not fit your saved completions.';
+
+  @override
+  String get accountRecoveryUnknownLevel => 'Starting point unavailable';
+
+  @override
+  String get accountRecoveryCountUnavailable => 'Saved unit count unavailable';
+
+  @override
+  String get accountRecoveryConfirm => 'Use selection';
+
+  @override
+  String get accountRecoveryReview => 'Review progress';
+
+  @override
+  String get accountRecoveryPendingTitle => 'Your backup needs attention';
+
+  @override
+  String get accountRecoveryPendingBody =>
+      'Your latest progress could not be connected safely yet. Review the saved starting points.';
+
+  @override
+  String get accountRecoveryWorking => 'Checking progress …';
+
+  @override
+  String get accountRecoveryUnavailable =>
+      'Your progress cannot be reviewed right now. Try again.';
+
+  @override
+  String get accountRecoveryBlocked =>
+      'Your saved progress needs another review. It remains preserved.';
+
+  @override
+  String get accountRecoveryStale =>
+      'Your progress has changed. Review it again before continuing.';
+
+  @override
+  String get accountRecoveryReady =>
+      'Your progress is connected. You can back it up now.';
+
+  @override
+  String get accountRecoveryBackupWaiting =>
+      'Connected; backup awaiting review';
+
+  @override
+  String get accountRecoveryResumeTitle => 'Continue your confirmed choice?';
+
+  @override
+  String get accountRecoveryResumeBody =>
+      'Your choice is already saved. You can continue the same operation without choosing a new starting point.';
+
+  @override
+  String get accountRecoveryResumeConfirm => 'Continue confirmed choice';
+
+  @override
+  String get todayFirstSyllable => 'Your first syllable';
+
+  @override
+  String get todayFirstSyllableBody => 'Listen and combine two letters.';
+
+  @override
+  String get todayStartHangul => 'Start Hangul';
+
+  @override
+  String get todayStartReview => 'Start review';
+
+  @override
+  String get todayYourHanok => 'Your Hanok';
+
+  @override
+  String get todayDetails => 'Your day at a glance';
+
+  @override
+  String get todayProgress => 'Learning progress';
+
+  @override
+  String get najeonChestTitle => 'Treasure chest';
+
+  @override
+  String get najeonChestLoading => 'Preparing your treasure chest…';
+
+  @override
+  String get najeonChestOpenHint => 'Tap the chest to open it.';
+
+  @override
+  String get najeonChestOpen => 'Open chest';
+
+  @override
+  String get najeonChestPickBody =>
+      'Choose one piece for your room. The other pieces can appear in a later treasure chest.';
+
+  @override
+  String get najeonChestEmptyTitle => 'No treasure chest waiting';
+
+  @override
+  String get najeonChestEmptyBody =>
+      'Finish a quest to receive a treasure chest.';
+
+  @override
+  String get najeonChestAllOwnedBody =>
+      'You already own all three pieces from this treasure chest.';
+
+  @override
+  String get najeonChestProblemTitle =>
+      'This treasure chest will not open right now';
+
+  @override
+  String get najeonChestProblemBody =>
+      'Try again in a moment. Your treasure chest is not lost.';
+
+  @override
+  String get najeonChestNext => 'Open the next chest';
+
+  @override
+  String get najeonChestCollectionCompleteBody =>
+      'You already own every room piece. Archive this treasure chest to continue.';
+
+  @override
+  String get najeonChestArchive => 'Archive chest';
+
+  @override
+  String get najeonChestHelpTitle => 'Najeon · 나전';
+
+  @override
+  String get najeonChestHelpBody =>
+      'Najeon uses thin pieces of shell cut into patterns and inlaid into a lacquered surface. The shimmering shell material is called mother-of-pearl.';
+
+  @override
+  String get todayCompanionSubtitle => 'Your Korean is growing.';
+
+  @override
+  String get todayNextStage => 'Your next step';
+
+  @override
+  String get todayTreasureTitle => 'Your treasure chest';
+
+  @override
+  String todayTreasureReady(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ready to open',
+      one: '1 ready to open',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get todayTreasureCollection => 'My collection';
+
+  @override
+  String get todayExploreGames => 'Explore games';
+
+  @override
+  String get todayMissionGreetingTitle => 'Your first hello';
+
+  @override
+  String get todayMissionGreetingBody =>
+      'Greet someone and ask a short question.';
+
+  @override
+  String get todayMissionPlansTitle => 'Make a plan together';
+
+  @override
+  String get todayMissionPlansBody => 'Suggest a meeting and change the time.';
+
+  @override
+  String get todayMissionRequestsTitle => 'Make the terms clear';
+
+  @override
+  String get todayMissionRequestsBody =>
+      'Make a request and negotiate a solution.';
+
+  @override
+  String get todayMissionPolicyTitle => 'Shape the rules together';
+
+  @override
+  String get todayMissionPolicyBody =>
+      'Weigh different views and support a proposal.';
+
+  @override
+  String get todayMissionAuthorityTitle => 'Where authority ends';
+
+  @override
+  String get todayMissionAuthorityBody =>
+      'Examine mandates and distinguish their limits.';
+
+  @override
+  String get todayMissionReviewTitle => 'Keep it with you';
+
+  @override
+  String get todayResumeStage => 'Continue';
+
+  @override
+  String get todayTreasureOpen => 'Open';
+
+  @override
+  String get todayBeginStage => 'Let’s begin';
+
+  @override
+  String get listeningShelfPhone => 'Calls';
+
+  @override
+  String get listeningFlowFollow => 'Back to the current message';
+
+  @override
+  String get listeningShelfShopping => 'Shopping';
+
+  @override
+  String get listeningFlowResult => 'Result';
+
+  @override
+  String get listeningShelfFamily => 'First visit';
+
+  @override
+  String get listeningShelfArrival => 'Arrival';
+
+  @override
+  String get listeningShelfEthics => 'Research ethics';
+
+  @override
+  String get listeningShelfExplore => 'Explore';
+
+  @override
+  String get listeningShelfUncertainty => 'Uncertainty';
+
+  @override
+  String get listeningShelfRestaurant => 'Restaurant';
+
+  @override
+  String get listeningShelfPrompt => 'Choose your next conversation.';
+
+  @override
+  String get listeningShelfDiscourse => 'Assumptions';
+
+  @override
+  String get listeningShelfSources => 'Quotes & sources';
+
+  @override
+  String get listeningShelfMemory => 'Memory';
+
+  @override
+  String get listeningShelfFocus => 'IN FOCUS';
+
+  @override
+  String get listeningShelfGreeting => 'Greetings';
+
+  @override
+  String get listeningFlowChoose => 'YOUR LESSON';
+
+  @override
+  String get listeningShelfHealth => 'Health & sport';
+
+  @override
+  String get listeningShelfCritique => 'Art criticism';
+
+  @override
+  String get listeningShelfRecord => 'Missing records';
+
+  @override
+  String get listeningShelfWork => 'At work';
+
+  @override
+  String get listeningShelfMethod => 'Methods';
+
+  @override
+  String get listeningFlowUnderstand => 'Understand';
+
+  @override
+  String get listeningRecoverySaving => 'Saving …';
+
+  @override
+  String get listeningRecoverySaveFailed => 'Not saved yet.';
+
+  @override
+  String get listeningServiceRole => 'Staff';
+
+  @override
+  String get listeningRecoveryDone => 'Lesson complete';
+
+  @override
+  String get listeningRecoverySavingBody =>
+      'Your answers stay unchanged. Please wait.';
+
+  @override
+  String get listeningRecoverySaveBody =>
+      'Your answers are still here. Please try again.';
+
+  @override
+  String get listeningRecoverySaved => 'Answers saved.';
+
+  @override
+  String get listeningRecoveryAnswers => 'Your answers';
+
+  @override
+  String listeningRecoveryScore(int correct, int total) {
+    return '$correct of $total correct';
+  }
+
+  @override
+  String get listeningRecoverySaveRetry => 'Save again';
+
+  @override
+  String get listeningRecoveryWait => 'Please wait';
+
+  @override
+  String get listeningRecoveryStay => 'Stay here';
+
+  @override
+  String get listeningRecoveryAudioFailed => 'Audio is unavailable right now.';
+
+  @override
+  String get listeningRecoveryAudioBody => 'Try again or keep reading.';
+
+  @override
+  String get listeningRecoveryAudioRetry => 'Retry audio';
+
+  @override
+  String get listeningRecoveryRead => 'Keep reading';
+
+  @override
+  String get listeningRecoveryPractice => 'Practise again';
+
+  @override
+  String get listeningRecoveryTopics => 'Back to topics';
+
+  @override
+  String get listeningRecoveryMore => 'Explore further';
+
+  @override
+  String listeningRecoveryRemaining(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count answers still need practice.',
+      one: 'One answer still needs practice.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get grammarPlanTitle => 'Your\ngrammar plan';
+
+  @override
+  String get grammarPlanSetupHint => 'Choose your level and daily pace.';
+
+  @override
+  String get grammarPlanPatternsPerDayLabel => 'Patterns per day';
+
+  @override
+  String grammarPlanDailyPreview(int n) {
+    return '$n patterns per day';
+  }
+
+  @override
+  String get grammarPlanPaceChangeHint =>
+      'You can change your pace at any time.';
+
+  @override
+  String grammarPlanLevelCount(String level, int count) {
+    return '$level · $count patterns';
+  }
+
+  @override
+  String get grammarPlanSaveErrorTitle => 'Progress not saved';
+
+  @override
+  String get grammarPlanSelectionRetained => 'Your selection is kept.';
+
+  @override
+  String get wordWebCloseConfirmBody =>
+      'Your progress in this round will be lost if you return to the word list.';
+
+  @override
+  String get wordWebCloseConfirmLeave => 'Back to word list';
+
+  @override
+  String get wortpaketeOverview => 'Your vocabulary';
+
+  @override
+  String get wortpaketeChooseLevel => 'Choose a level';
+
+  @override
+  String get wortpaketeSearchAll => 'Search for a topic or word';
+
+  @override
+  String wortpaketeSearchLevel(String level) {
+    return 'Search $level';
+  }
+
+  @override
+  String get wortpaketeTopics => 'Topics';
+
+  @override
+  String get wortpaketeGreetingPackGoal => 'Greet, thank and say goodbye';
+
+  @override
+  String get wortpaketeLearnProgressHint => 'Look at and listen to the word';
+
+  @override
+  String get wortpaketeRevealFirst => 'Reveal first, then rate your recall.';
+
+  @override
+  String wortpaketeOpenNumberedPack(int number) {
+    return 'Open pack $number';
+  }
+
+  @override
+  String wortpaketeTopicsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count topics',
+      one: '1 topic',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String wortpaketeAllTopicsCount(int count) {
+    return 'See all $count';
+  }
+
+  @override
+  String get wortpaketeNoResults => 'No matching topics or words';
+
+  @override
+  String wortpaketePacks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count packs',
+      one: '1 pack',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String wortpaketeWords(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count words',
+      one: '1 word',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get wortpaketeSearchClear => 'Clear search';
+
+  @override
+  String wortpaketePackNumber(int number) {
+    return 'Pack $number';
+  }
+
+  @override
+  String get wortpaketeLevelGoalA1 => 'First conversations';
+
+  @override
+  String get wortpaketeLevelGoalA2 => 'Handle daily life';
+
+  @override
+  String get wortpaketeLevelGoalB1 => 'Share experiences';
+
+  @override
+  String get wortpaketeLevelGoalB2 => 'Explain and discuss';
+
+  @override
+  String get wortpaketeLevelGoalC1 => 'Argue precisely';
+
+  @override
+  String get wortpaketeLevelGoalC2 => 'Distinguish meanings';
+
+  @override
+  String get wortpaketeLevelHintA1 => 'Greetings · Food · Daily life';
+
+  @override
+  String get wortpaketeLevelHintA2 => 'Home · Clothing · Work';
+
+  @override
+  String get wortpaketeLevelHintB1 => 'Work · Media · Society';
+
+  @override
+  String get wortpaketeLevelHintB2 => 'Society · Environment · Ideas';
+
+  @override
+  String get wortpaketeLevelHintC1 => 'Research · Risk · Participation';
+
+  @override
+  String get wortpaketeLevelHintC2 => 'Interpretation · Memory · Ethics';
+
+  @override
+  String wortpaketeTopicName(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'a1_greetings': 'Greetings & politeness',
+      'a1_food': 'Food & drink',
+      'a1_home_daily': 'Home & daily life',
+      'a1_transport': 'Transport',
+      'a2_home': 'Home',
+      'a2_clothing': 'Clothing',
+      'a2_restaurant': 'At the restaurant',
+      'a2_work': 'Work',
+      'b1_work_career': 'Career & office',
+      'b1_media_culture': 'Media & culture',
+      'b1_tech_society': 'Technology & society',
+      'b1_city_places': 'City & places',
+      'b2_society': 'Society',
+      'b2_thinking': 'Reasoning',
+      'b2_environment': 'Environment',
+      'b2_work': 'Work',
+      'c1_evidence_reasoning': 'Research & evidence',
+      'c1_accessible_participation': 'Participation',
+      'c1_risk_communication': 'Risk communication',
+      'c1_sustainable_tradeoffs': 'Sustainability',
+      'c2_language_framing': 'Language & framing',
+      'c2_narrative_perspective': 'Narrative perspective',
+      'c2_institutional_mediation': 'Mediation',
+      'c2_technology_ethics': 'Technology ethics',
+      'other': '',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String wortpaketeTopicGoal(String topic) {
+    String _temp0 = intl.Intl.selectLogic(topic, {
+      'a1_greetings': 'Greet and thank',
+      'a1_food': 'Name food and drinks',
+      'a1_home_daily': 'Talk about daily life',
+      'a1_transport': 'Name means of transport',
+      'a2_home': 'Describe rooms',
+      'a2_clothing': 'Name clothing',
+      'a2_restaurant': 'Talk about ingredients',
+      'a2_work': 'Discuss work schedules',
+      'b1_work_career': 'Describe work experience',
+      'b1_media_culture': 'Describe media content',
+      'b1_tech_society': 'Talk about posts',
+      'b1_city_places': 'Describe places',
+      'b2_society': 'Put conflicts in context',
+      'b2_thinking': 'Justify viewpoints',
+      'b2_environment': 'Discuss environmental impacts',
+      'b2_work': 'Discuss contracts',
+      'c1_evidence_reasoning': 'Evaluate studies',
+      'c1_accessible_participation': 'Identify barriers to access',
+      'c1_risk_communication': 'Express uncertainty',
+      'c1_sustainable_tradeoffs': 'Weigh downstream costs',
+      'c2_language_framing': 'Recognize framing',
+      'c2_narrative_perspective': 'Reflect on memory',
+      'c2_institutional_mediation': 'Negotiate interests',
+      'c2_technology_ethics': 'Assess decisions',
+      'other': '',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get pronunciationPracticeRhythm => 'Practice sentence rhythm';
+
+  @override
+  String get pronunciationCompareVoices => 'Compare voices';
+
+  @override
+  String get pronunciationModelListen => 'Listen to sentence';
+
+  @override
+  String get pronunciationOriginalListen => 'Listen to original';
+
+  @override
+  String get pronunciationOwnListen => 'Listen to my recording';
+
+  @override
+  String get pronunciationRecordingReady => 'Recording ready';
+
+  @override
+  String get pronunciationNoScoring => 'Without automatic scoring.';
+
+  @override
+  String get pronunciationMaxDuration =>
+      'Max. 10 sec. · Then compare your recording.';
+
+  @override
+  String get pronunciationNextSentence => 'Next sentence';
+
+  @override
+  String get pronunciationFocusConditional =>
+      'Pause briefly after the conditional clause.';
+
+  @override
+  String get pronunciationFocusH => 'Pronunciation of ㅎ';
+
+  @override
+  String get pronunciationFocusNasal => 'Nasalization';
+
+  @override
+  String get pronunciationFocusTense => 'Tense consonants';
+
+  @override
+  String get pronunciationFocusLink => 'Sound linking';
+
+  @override
+  String get pronunciationHeader => 'Pronunciation';
+
+  @override
+  String get pronunciationRecordShort => 'Record';
+
+  @override
+  String get pronunciationRecordAgainShort => 'Record again';
 
   @override
   String get rewardChestNewDecoration => 'New decoration';

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/course_mission_brief.dart';
+import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
@@ -10,6 +11,8 @@ import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/services/palette_service.dart';
+import 'package:ko_lernen_app/widgets/sori/approved_chrome_assets.dart';
 import 'package:ko_lernen_app/widgets/sori/adaptive_navigation.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
 
@@ -31,9 +34,14 @@ SoriStageProgressionSnapshot catalogSnapshot({
 
 /// Actual bundled curriculum/link resolution; account state is explicitly
 /// seeded as a first unit with no completions, not claimed as a live account.
-Future<LearningFocus> loadFirstCatalogFocus() async {
+Future<LearningFocus> loadFirstCatalogFocus({
+  String? unitId,
+  CourseMasterySnapshot snapshot = const CourseMasterySnapshot.empty(),
+}) async {
   final catalog = await CurriculumCatalog.load();
-  final unit = catalog.courseUnits.first;
+  final unit = unitId == null
+      ? catalog.courseUnits.first
+      : catalog.courseUnits.firstWhere((unit) => unit.id == unitId);
   return LearningFocus.load(
     loadToday: () async => TodayLearningSnapshot(
       pick: CoursePick(
@@ -49,6 +57,7 @@ Future<LearningFocus> loadFirstCatalogFocus() async {
       links: catalog.linksForCourseUnit(unit.id),
       scenarios: const [],
       isCurrent: true,
+      snapshot: snapshot,
     ),
   );
 }
@@ -57,6 +66,7 @@ Widget catalogTestApp({
   SoriStageTab tab = SoriStageTab.learn,
   String locale = 'en',
   double scale = 1,
+  bool showAll = true,
   ThemeData? theme,
   LearningFocusController? controller,
   FutureOr<void> Function(TodayLearningDestination destination, String? id)?
@@ -66,7 +76,9 @@ Widget catalogTestApp({
   RouteFactory? onGenerateRoute,
 }) => MaterialApp(
   debugShowCheckedModeBanner: false,
-  theme: theme ?? AppTheme.light,
+  theme:
+      theme ??
+      AppTheme.lightFor(PaletteVariant.dancheong, locale: Locale(locale)),
   locale: Locale(locale),
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
@@ -76,6 +88,7 @@ Widget catalogTestApp({
       final t = AppL10n.of(context);
       Widget catalog = SoriStageCatalogScreen(
         tab: tab,
+        initialShowAll: showAll,
         loadSnapshot: loadSnapshot ?? () async => catalogSnapshot(),
       );
       if (scrollController != null) {
@@ -98,26 +111,31 @@ Widget catalogTestApp({
         items: [
           SoriAdaptiveNavigationItem(
             label: t.soriStageNavToday,
+            imageAsset: ApprovedChromeAssets.today,
             icon: Icons.today_outlined,
             selectedIcon: Icons.today_rounded,
           ),
           SoriAdaptiveNavigationItem(
             label: t.soriStageNavLearn,
+            imageAsset: ApprovedChromeAssets.learn,
             icon: Icons.school_outlined,
             selectedIcon: Icons.school_rounded,
           ),
           SoriAdaptiveNavigationItem(
             label: t.soriStageNavGames,
+            imageAsset: ApprovedChromeAssets.games,
             icon: Icons.sports_esports_outlined,
             selectedIcon: Icons.sports_esports_rounded,
           ),
           SoriAdaptiveNavigationItem(
             label: t.soriStageNavHanok,
+            imageAsset: ApprovedChromeAssets.hanok,
             icon: Icons.home_work_outlined,
             selectedIcon: Icons.home_work_rounded,
           ),
           SoriAdaptiveNavigationItem(
             label: t.soriStageNavGye,
+            imageAsset: ApprovedChromeAssets.gye,
             icon: Icons.groups_2_outlined,
             selectedIcon: Icons.groups_2_rounded,
           ),

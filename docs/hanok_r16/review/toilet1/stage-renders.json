@@ -1,0 +1,294 @@
+{
+  "key": "toilet1",
+  "source": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\toilet1\\toilet1.blend",
+  "sourceSha256": "03c988df620c26d6fbf79ad50bdff544dba146f9c1a1651271800d2904a561e1",
+  "native": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\toilet1\\stage.blend",
+  "nativeSha256": "57a34cdd81edd3c1717b18bb03c6cb3da0cf80124cfa40aed0df3bf64b864dcf",
+  "architecture": {
+    "stateSha256": "284c96dfb9be21dacbac60c220e1bd39e9ab045df3776a7e6b4857bbb27d1c40",
+    "normalsSha256": "2bf2fa223659e1ae825c15f6fba7b62756186ab2f21f1f92f599f0b7000ac364",
+    "meshCount": 83
+  },
+  "materialBindingSha256": "6a57b6caedfe8a7244bd541a8fd7e680152a57d0b41f00b430a6321e066aeb6b",
+  "selection": "stage-selection.json",
+  "stageCount": 9,
+  "steps": [
+    {
+      "sequence": 1,
+      "processId": "ildu.toilet-south-foundation",
+      "label": "기단",
+      "isFinal": false,
+      "visibleMembers": 22,
+      "visibleSetSha256": "285412e08f85272179d3597e640de16ed6eaa1fe3503c9474ae834432e40a240",
+      "materialBindingSha256": "6a57b6caedfe8a7244bd541a8fd7e680152a57d0b41f00b430a6321e066aeb6b",
+      "camera": {
+        "position": [
+          40.481689453125,
+          -48.23086929321289,
+          44.472557067871094
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -6.993990098180802e-08,
+          0.6146630644798279
+        ],
+        "ortho": 7.654770374298096,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/01.png",
+      "sha256": "8455b33011937205d785066c254cb71899166741ee1fa738db0b78858dd2ad48",
+      "seconds": 5.62,
+      "samples": 16
+    },
+    {
+      "sequence": 2,
+      "processId": "ildu.toilet-south-posts",
+      "label": "기둥",
+      "isFinal": false,
+      "visibleMembers": 23,
+      "visibleSetSha256": "a30bfaef67a97c41284d82faa303d3c971245836c24979490514d81b1888d605",
+      "materialBindingSha256": "6a57b6caedfe8a7244bd541a8fd7e680152a57d0b41f00b430a6321e066aeb6b",
+      "camera": {
+        "position": [
+          40.481689453125,
+          -48.23086929321289,
+          44.472557067871094
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -6.993990098180802e-08,
+          0.6146630644798279
+        ],
+        "ortho": 7.654770374298096,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/02.png",
+      "sha256": "ee946738fe23db6508d9bf01d074a151bcd0ebadfcd2dbbf248b4d1b9cd1c318",
+      "seconds": 6.07,
+      "samples": 16
+    },
+    {
+      "sequence": 3,
+      "processId": "ildu.toilet-south-beams",
+      "label": "보",
+      "isFinal": false,
+      "visibleMembers": 29,
+      "visibleSetSha256": "282ef75b8213d3242503ea3dd40552c83d2a34b7a25107aa6026ade3c12c70cc",
+      "materialBindingSha256": "6a57b6caedfe8a7244bd541a8fd7e680152a57d0b41f00b430a6321e066aeb6b",
+      "camera": {
+        "position": [
+          40.481689453125,
+          -48.23086929321289,
+          44.472557067871094
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -6.993990098180802e-08,
+          0.6146630644798279
+        ],
+        "ortho": 7.654770374298096,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/03.png",
+      "sha256": "c068a027ac72a5f7f554266d223eaec9373d72880dc8f0834011f5990bfb664d",
+      "seconds": 6.38,
+      "samples": 16
+    },
+    {
+      "sequence": 4,
+      "processId": "ildu.toilet-south-rafters",
+      "label": "서까래",
+      "isFinal": false,
+      "visibleMembers": 37,
+      "visibleSetSha256": "690b7d85f23c3942954f1f3804ecc8bc0a220cc92ad8eded76df4d014b7dbed5",
+      "materialBindingSha256": "6a57b6caedfe8a7244bd541a8fd7e680152a57d0b41f00b430a6321e066aeb6b",
+      "camera": {
+        "position": [
+          40.481689453125,
+          -48.23086929321289,
+          44.472557067871094
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -6.993990098180802e-08,
+          0.6146630644798279
+        ],
+        "ortho": 7.654770374298096,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/04.png",
+      "sha256": "0f070bdf042170c2aca664aa92b7e657fc25f4cb3323e0d460823467082e4ac3",
+      "seconds": 7.69,
+      "samples": 16
+    },
+    {
+      "sequence": 5,
+      "processId": "ildu.toilet-south-roof-bed",
+      "label": "지붕 바탕",
+      "isFinal": false,
+      "visibleMembers": 38,
+      "visibleSetSha256": "5a552b71fe5aec6f94eac9245852c22062fee91c8f708bd97589fee609036d63",
+      "materialBindingSha256": "6a57b6caedfe8a7244bd541a8fd7e680152a57d0b41f00b430a6321e066aeb6b",
+      "camera": {
+        "position": [
+          40.481689453125,
+          -48.23086929321289,
+          44.472557067871094
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -6.993990098180802e-08,
+          0.6146630644798279
+        ],
+        "ortho": 7.654770374298096,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/05.png",
+      "sha256": "c8dcb43ade650cd9eb9dbfb949edc52131bf6b446b3adea3971669bf280d22b5",
+      "seconds": 7.39,
+      "samples": 16
+    },
+    {
+      "sequence": 6,
+      "processId": "ildu.toilet-south-tiles",
+      "label": "기와",
+      "isFinal": false,
+      "visibleMembers": 55,
+      "visibleSetSha256": "1791a8525c06724cbca8655ac7b2687c18fa1e7b11f2eac23efa5b551db0947f",
+      "materialBindingSha256": "6a57b6caedfe8a7244bd541a8fd7e680152a57d0b41f00b430a6321e066aeb6b",
+      "camera": {
+        "position": [
+          40.481689453125,
+          -48.23086929321289,
+          44.472557067871094
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -6.993990098180802e-08,
+          0.6146630644798279
+        ],
+        "ortho": 7.654770374298096,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/06.png",
+      "sha256": "977d519c56c6b2295afe190b1fe0dc34a8c5926c9c817259cfc3c5b0b3938c8a",
+      "seconds": 8.57,
+      "samples": 16
+    },
+    {
+      "sequence": 7,
+      "processId": "ildu.toilet-south-walls",
+      "label": "벽체",
+      "isFinal": false,
+      "visibleMembers": 65,
+      "visibleSetSha256": "9086dee20be88929c10e2836595a68fc2a2f73356a526f758a11360592a86ba0",
+      "materialBindingSha256": "6a57b6caedfe8a7244bd541a8fd7e680152a57d0b41f00b430a6321e066aeb6b",
+      "camera": {
+        "position": [
+          40.481689453125,
+          -48.23086929321289,
+          44.472557067871094
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -6.993990098180802e-08,
+          0.6146630644798279
+        ],
+        "ortho": 7.654770374298096,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/07.png",
+      "sha256": "1a1b579942ad238ce8d38472cd0006f1bc5d39e490c6987830633f66c664c937",
+      "seconds": 8.92,
+      "samples": 16
+    },
+    {
+      "sequence": 8,
+      "processId": "ildu.toilet-south-doors",
+      "label": "문",
+      "isFinal": false,
+      "visibleMembers": 76,
+      "visibleSetSha256": "4dab35994267c4b09c70d3bd8fbbb0c5c5f201f920714806f53b979cced226bc",
+      "materialBindingSha256": "6a57b6caedfe8a7244bd541a8fd7e680152a57d0b41f00b430a6321e066aeb6b",
+      "camera": {
+        "position": [
+          40.481689453125,
+          -48.23086929321289,
+          44.472557067871094
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -6.993990098180802e-08,
+          0.6146630644798279
+        ],
+        "ortho": 7.654770374298096,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/08.png",
+      "sha256": "b72bd23f0776ee298074a88e5daee06162211d37dcc55e1f079aa13d31cc0ac5",
+      "seconds": 8.3,
+      "samples": 16
+    },
+    {
+      "sequence": 9,
+      "processId": "ildu.toilet-south-care",
+      "label": "돌봄",
+      "isFinal": true,
+      "visibleMembers": 83,
+      "visibleSetSha256": "1e939491af2e07710dec3902be51bf6c95df98458bb051ef72910a881b885aa4",
+      "materialBindingSha256": "6a57b6caedfe8a7244bd541a8fd7e680152a57d0b41f00b430a6321e066aeb6b",
+      "camera": {
+        "position": [
+          40.481689453125,
+          -48.23086929321289,
+          44.472557067871094
+        ],
+        "rotation": [
+          1.1425163745880127,
+          -6.993990098180802e-08,
+          0.6146630644798279
+        ],
+        "ortho": 7.654770374298096,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/09.png",
+      "sha256": "5e90f9db529345ccf02595caf2270284b78ddaa855739a57fb8a26a7550a2e8d",
+      "seconds": 8.92,
+      "samples": 16
+    }
+  ],
+  "renderComplete": true,
+  "userApproved": false,
+  "runtimeIntegrated": false,
+  "reopenedNativeVerified": true,
+  "allStageMaterialsIdenticalToSavedNative": true,
+  "allStageVisibilityVerified": true,
+  "sourceFilePreserved": true
+}

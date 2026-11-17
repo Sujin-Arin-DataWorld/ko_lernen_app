@@ -1,0 +1,40 @@
+{
+  "status": "GENERATED_REVIEW_CANDIDATES_NOT_APPROVED",
+  "generationTool": "built_in_image_gen",
+  "outputs": [
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-1f90da30-6914-467c-8c4f-c3bc4576690b.png",
+      "saved": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-mockups-20261030\\01_first_book.png",
+      "sha256": "d7fdb768e034b02d27cce6d8753521cb3ef7013b274356aa316448d5ebc9f076"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-e8300348-256c-4a7e-b929-9c99ec18b322.png",
+      "saved": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-scene-mockups-20261030\\02_middle_gatekeeper.png",
+      "sha256": "81e7e5a4dc8f6e386234829a6240df6e5036d4cb97bb0ef0ff6caabbbcc19c69"
+    }
+  ],
+  "inputReferences": [
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\05_style\\hanok_direction_N0020.png",
+      "sha256": "6c92da83a99236ec9d99ca06dd01c06f2da92846da045f7a1561c0d3f9d0e7c7"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\01_core\\character_sujin.png",
+      "sha256": "60b0f18338a6efc940377d725ab41ecac9ebb1365b094e9f63fa58d71459015c"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\07_role_pending\\book_existing_tactile.png",
+      "sha256": "58b15aa67c40c541124425d3b750fc59990664b4ee4e2f16f5d82b17966d6696"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\01_core\\character_dokkaebi.png",
+      "sha256": "2e1c3fd6f47b0930233c70a7b9e2f93dd2d374d404136e28480dd4ddc74b8202"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\asset-lock-reference-pack\\03_buildings\\jung_stage06_identity_only.png",
+      "sha256": "c9219cefe65eb6c0e8a1fc5225d7d4c13121888f11977d22055fd1312cf7323e"
+    }
+  ],
+  "applicationCodeChanged": false,
+  "pixelIdenticalOriginalReuseVerified": false
+}

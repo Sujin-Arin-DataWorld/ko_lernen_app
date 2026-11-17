@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'dart:convert';
 import 'dart:io';
 
@@ -277,7 +278,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
           padding: resolvedPadding,
           child: Center(
             child: SoriEmptyState(
-              asset: 'assets/illustrations/mascot/tiger_front.png',
+              asset: CanonicalCompanionArt.baekhoSeated,
               icon: Icons.help_outline,
               title: t.customPackNotFoundTitle,
               body: t.customPackNotFoundBody,
@@ -454,7 +455,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
               constraints: const BoxConstraints(minHeight: 240),
               child: Center(
                 child: SoriEmptyState(
-                  asset: 'assets/illustrations/mascot/magpie_wave.png',
+                  asset: CanonicalCompanionArt.magpieGuide,
                   icon: Icons.playlist_add,
                   title: t.wbEmptyTitle,
                   body: t.wbEmptyBody,

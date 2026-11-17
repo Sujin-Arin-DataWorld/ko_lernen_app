@@ -7,7 +7,9 @@
       "ko": "안녕하세요",
       "de": "Hallo.",
       "en": "Hello.",
-      "focus": "ㅎ 발음"
+      "focus": "ㅎ 발음",
+      "focusDe": "Aussprache von ㅎ",
+      "focusEn": "Pronunciation of ㅎ"
     },
     {
       "id": "pronunciation_a1_0002",
@@ -15,7 +17,9 @@
       "ko": "감사합니다",
       "de": "Danke.",
       "en": "Thank you.",
-      "focus": "비음화"
+      "focus": "비음화",
+      "focusDe": "Nasalisierung",
+      "focusEn": "Nasal assimilation"
     },
     {
       "id": "pronunciation_a2_0001",
@@ -23,7 +27,9 @@
       "ko": "덜 맵게 해 주세요",
       "de": "Bitte weniger scharf.",
       "en": "Please make it less spicy.",
-      "focus": "경음화"
+      "focus": "경음화",
+      "focusDe": "Verstärkung zum gespannten Konsonanten",
+      "focusEn": "Consonant tensification"
     },
     {
       "id": "pronunciation_a2_0002",
@@ -31,7 +37,9 @@
       "ko": "지하철역이 어디예요?",
       "de": "Wo ist die U-Bahn-Station?",
       "en": "Where is the subway station?",
-      "focus": "연음"
+      "focus": "연음",
+      "focusDe": "Lautverbindung",
+      "focusEn": "Sound linking"
     },
     {
       "id": "pronunciation_b1_0001",
@@ -40,6 +48,8 @@
       "de": "Wenn möglich, wäre es hilfreich, wenn Sie mir noch heute die Besuchszeit und die voraussichtlichen Reparaturkosten mitteilen könnten.",
       "en": "If possible, I would appreciate it if you could tell me the visit time and estimated repair cost today.",
       "focus": "긴 요청의 의미 단위 끊기",
+      "focusDe": "Eine lange Bitte in Sinneinheiten gliedern.",
+      "focusEn": "Break the long request into meaningful chunks.",
       "sourceSeedId": "seed_b1_repair_followup",
       "courseUnitId": "b1_05_complaint_resolution",
       "conceptIds": [
@@ -54,6 +64,8 @@
       "de": "Wenn das Wasserleck erneut auftritt, mache ich ein Foto und melde mich sofort.",
       "en": "If the leak happens again, I will take a photo and contact you immediately.",
       "focus": "받침 뒤 연음",
+      "focusDe": "Den Silbenauslaut mit dem folgenden Vokal verbinden.",
+      "focusEn": "Link the final consonant to the following vowel.",
       "sourceSeedId": "seed_b1_repair_followup",
       "courseUnitId": "b1_05_complaint_resolution",
       "conceptIds": [
@@ -67,6 +79,8 @@
       "de": "Ich habe die Heizungsprüfung für morgen Vormittag vereinbart.",
       "en": "I scheduled the heating inspection for tomorrow morning.",
       "focus": "비음화와 받침 연결",
+      "focusDe": "Auf Nasalisierung und verbundene Silbenauslaute achten.",
+      "focusEn": "Listen for nasal assimilation and linked final consonants.",
       "sourceSeedId": "seed_b1_repair_followup",
       "courseUnitId": "b1_05_complaint_resolution",
       "conceptIds": [
@@ -80,6 +94,8 @@
       "de": "Es wäre hilfreich, wenn Sie mir auch die Reparaturkosten nennen könnten.",
       "en": "I would appreciate it if you could also tell me the repair cost.",
       "focus": "정중한 요청 억양",
+      "focusDe": "Die Bitte mit höflicher Satzmelodie sprechen.",
+      "focusEn": "Use the intonation of a polite request.",
       "sourceSeedId": "seed_b1_repair_followup",
       "courseUnitId": "b1_05_complaint_resolution",
       "conceptIds": [
@@ -93,6 +109,8 @@
       "de": "Bitte teilen Sie uns die Prüfergebnisse und Folgemaßnahmen bis morgen schriftlich mit.",
       "en": "Please provide the inspection results and follow-up action in writing by tomorrow.",
       "focus": "공식 요청문의 의미 단위",
+      "focusDe": "Die formelle Bitte in Sinneinheiten sprechen.",
+      "focusEn": "Group the formal request into meaningful chunks.",
       "sourceSeedId": "seed_b2_device_escalation",
       "courseUnitId": "b2_04_complaint_resolution",
       "conceptIds": [
@@ -107,6 +125,8 @@
       "de": "Derselbe Mangel ist bereits viermal aufgetreten.",
       "en": "The same defect has recurred four times.",
       "focus": "받침과 조사 연결",
+      "focusDe": "Den Silbenauslaut mit der Partikel verbinden.",
+      "focusEn": "Link the final consonant to the particle.",
       "sourceSeedId": "seed_b2_device_escalation",
       "courseUnitId": "b2_04_complaint_resolution",
       "conceptIds": [
@@ -120,6 +140,8 @@
       "de": "Bitte unterscheiden Sie zwischen dem Eingangsprotokoll und der tatsächlichen Bearbeitungsdauer.",
       "en": "Please distinguish the intake record from the actual processing time.",
       "focus": "경음화와 연음, 요청문의 문장 끝 억양",
+      "focusDe": "Auf gespannte Konsonanten, Lautverbindungen und die Satzmelodie am Ende der Bitte achten.",
+      "focusEn": "Listen for tense consonants, sound linking, and the intonation at the end of the request.",
       "sourceSeedId": "seed_b2_device_escalation",
       "courseUnitId": "b2_04_complaint_resolution",
       "conceptIds": [
@@ -133,6 +155,8 @@
       "de": "Wenn eine Gefahr festgestellt wird, muss die Nutzung sofort eingestellt werden.",
       "en": "If a risk is confirmed, the equipment must be taken out of use immediately.",
       "focus": "조건절 뒤 짧은 쉼",
+      "focusDe": "Nach dem Bedingungssatz kurz pausieren.",
+      "focusEn": "Pause briefly after the conditional clause.",
       "sourceSeedId": "seed_b2_device_escalation",
       "courseUnitId": "b2_04_complaint_resolution",
       "conceptIds": [
@@ -146,6 +170,8 @@
       "de": "Auf Grundlage der aktuellen Daten lässt sich der Ausbau noch nicht verbindlich beschließen; nach einer weiteren Untersuchung besteht jedoch Spielraum für eine erneute Prüfung.",
       "en": "The current data are not enough to commit to the expansion, but further research could leave room to reconsider it.",
       "focus": "대조와 조건의 논리적 끊기",
+      "focusDe": "Gegensatz und Bedingung durch Sprechpausen gliedern.",
+      "focusEn": "Use pauses to mark the contrast and the condition.",
       "sourceSeedId": "seed_c1_survey_limits",
       "courseUnitId": "c1_01_evidence_public_reasoning",
       "conceptIds": [
@@ -160,6 +186,8 @@
       "de": "Die Stichprobe ist verzerrt, daher lässt sich das Ergebnis nur schwer auf die Gesamtgruppe verallgemeinern.",
       "en": "The sample is skewed, so the result is difficult to generalize to the whole group.",
       "focus": "연음과 평서문 마무리",
+      "focusDe": "Die Laute verbinden und den Aussagesatz klar abschließen.",
+      "focusEn": "Link the sounds and finish the statement clearly.",
       "sourceSeedId": "seed_c1_survey_limits",
       "courseUnitId": "c1_01_evidence_public_reasoning",
       "conceptIds": [
@@ -173,6 +201,8 @@
       "de": "Eine Korrelation darf nicht vorschnell als Beleg für einen ursächlichen Zusammenhang gelten.",
       "en": "A correlation must not be treated as proof of causation.",
       "focus": "긴 명사구의 받침 연결",
+      "focusDe": "Die Silbenauslaute in der langen Nominalgruppe verbinden.",
+      "focusEn": "Link final consonants within the long noun phrase.",
       "sourceSeedId": "seed_c1_survey_limits",
       "courseUnitId": "c1_01_evidence_public_reasoning",
       "conceptIds": [
@@ -186,6 +216,8 @@
       "de": "Ich werde die Unsicherheit nennen und die bestätigte Tendenz gesondert erläutern.",
       "en": "I will state the uncertainty and explain the confirmed trend separately.",
       "focus": "양보 연결어미 뒤 호흡",
+      "focusDe": "Nach der konzessiven Verbendung kurz Luft holen.",
+      "focusEn": "Take a short breath after the concessive verb ending.",
       "sourceSeedId": "seed_c1_survey_limits",
       "courseUnitId": "c1_01_evidence_public_reasoning",
       "conceptIds": [
@@ -199,6 +231,8 @@
       "de": "Selbst wenn wir eine hohe Bearbeitungsgeschwindigkeit annehmen, müssen ein Einspruchsverfahren und eine menschliche Überprüfung gewährleistet sein.",
       "en": "Even assuming fast processing, an appeal process and human review must be guaranteed.",
       "focus": "양보절과 핵심 주장 분리",
+      "focusDe": "Den einräumenden Nebensatz mit einer Pause von der Hauptaussage absetzen.",
+      "focusEn": "Use a pause to separate the concessive clause from the main claim.",
       "sourceSeedId": "seed_c2_automated_appeal",
       "courseUnitId": "c2_02_technology_public_ethics",
       "conceptIds": [
@@ -213,6 +247,8 @@
       "de": "Die Herkunft der Daten muss nachvollziehbar dargelegt werden können.",
       "en": "It must be possible to account for the source of the data.",
       "focus": "격식 있는 문장 억양",
+      "focusDe": "Auf die Satzmelodie im formellen Sprachstil achten.",
+      "focusEn": "Use a formal speaking intonation.",
       "sourceSeedId": "seed_c2_automated_appeal",
       "courseUnitId": "c2_02_technology_public_ethics",
       "conceptIds": [
@@ -226,6 +262,8 @@
       "de": "Ausnahmefälle müssen von einer Person erneut beurteilt werden.",
       "en": "Exceptional cases must be reconsidered by a human reviewer.",
       "focus": "복합 명사와 조사 연결",
+      "focusDe": "Das zusammengesetzte Nomen flüssig mit der Partikel verbinden.",
+      "focusEn": "Link the compound noun smoothly to its particle.",
       "sourceSeedId": "seed_c2_automated_appeal",
       "courseUnitId": "c2_02_technology_public_ethics",
       "conceptIds": [
@@ -239,6 +277,8 @@
       "de": "Der Entscheidungsprozess muss nachverfolgt und regelmäßig überprüft werden.",
       "en": "The decision-making process must be tracked and verified regularly.",
       "focus": "연결어미와 문장 강세",
+      "focusDe": "Auf verbindende Verbendungen und Satzbetonung achten.",
+      "focusEn": "Pay attention to connective verb endings and sentence stress.",
       "sourceSeedId": "seed_c2_automated_appeal",
       "courseUnitId": "c2_02_technology_public_ethics",
       "conceptIds": [
@@ -252,6 +292,8 @@
       "de": "Gemessen an der aktuellen Miete und den Nebenkosten liegen die monatlichen Wohnkosten für diese Wohnung über dem Budget.",
       "en": "Judging by the current rent and service charges, the monthly housing costs for this flat exceed the budget.",
       "focus": "근거 구절 뒤 끊기와 주거비 판단의 핵심어 강조",
+      "focusDe": "Nach der Begründung pausieren und bei der Einschätzung der Wohnkosten die Schlüsselwörter betonen.",
+      "focusEn": "Pause after the evidence and stress the key words in the housing-cost assessment.",
       "sourceSeedId": "seed_batch17_b2_housing",
       "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
@@ -266,6 +308,8 @@
       "de": "Auch bei niedriger Miete können die gesamten Wohnkosten einschließlich Heizkosten hoch sein.",
       "en": "Even if the rent is low, adding heating costs can make total housing costs high.",
       "focus": "조건절과 결과절의 대비",
+      "focusDe": "Bedingung und Folge mit der Satzmelodie voneinander abheben.",
+      "focusEn": "Use intonation to distinguish the condition from the result.",
       "sourceSeedId": "seed_batch17_b2_housing",
       "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
@@ -280,6 +324,8 @@
       "de": "Bitte lassen Sie sich die Zusatzkosten vor Vertragsabschluss schriftlich bestätigen.",
       "en": "Please confirm the additional costs in writing before signing.",
       "focus": "공식 요청의 문장 끝 억양",
+      "focusDe": "Auf die Satzmelodie am Ende der formellen Bitte achten.",
+      "focusEn": "Focus on the intonation at the end of the formal request.",
       "sourceSeedId": "seed_batch17_b2_housing",
       "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
@@ -294,6 +340,8 @@
       "de": "Ein niedriger automatischer Wert bedeutet nicht zwangsläufig fehlende Kompetenz.",
       "en": "A low automated score does not necessarily mean a lack of ability.",
       "focus": "인정과 반박의 억양 분리",
+      "focusDe": "Das Zugeständnis und den Einwand mit unterschiedlicher Satzmelodie sprechen.",
+      "focusEn": "Use different intonation for the concession and the rebuttal.",
       "sourceSeedId": "seed_batch17_b2_work_ai",
       "courseUnitId": "b2_05_interview",
       "conceptIds": [
@@ -308,6 +356,8 @@
       "de": "Erfahrungen, die nicht in standardisierte Kategorien passen, müssen mit ihrem Kontext und der jeweiligen Rolle erläutert werden.",
       "en": "Experience that does not fit standard categories needs to be explained with its context and the role involved.",
       "focus": "병렬 명사구의 리듬",
+      "focusDe": "Die gleichrangigen Nominalgruppen in einem gleichmäßigen Rhythmus sprechen.",
+      "focusEn": "Keep a steady rhythm across the parallel noun phrases.",
       "sourceSeedId": "seed_batch17_b2_work_ai",
       "courseUnitId": "b2_05_interview",
       "conceptIds": [
@@ -322,6 +372,8 @@
       "de": "Bewerbende sollten eine menschliche Nachprüfung verlangen können.",
       "en": "Applicants should be able to request human review.",
       "focus": "긴 목적어 뒤 호흡",
+      "focusDe": "Nach dem langen Objekt kurz Luft holen.",
+      "focusEn": "Take a short breath after the long object.",
       "sourceSeedId": "seed_batch17_b2_work_ai",
       "courseUnitId": "b2_05_interview",
       "conceptIds": [
@@ -336,6 +388,8 @@
       "de": "Da die Lebenslagen verschieden sind, kann die nötige Unterstützung nicht identisch sein.",
       "en": "Because situations differ, the support needed cannot be identical.",
       "focus": "이유와 결론의 연결",
+      "focusDe": "Begründung und Schlussfolgerung flüssig miteinander verbinden.",
+      "focusEn": "Link the reason smoothly to the conclusion.",
       "sourceSeedId": "seed_batch17_b2_migration_demography",
       "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
@@ -350,6 +404,8 @@
       "de": "Wohnungsmangel und Unterstützung beim Ankommen hängen zusammen, sind aber nicht dasselbe Problem.",
       "en": "Housing shortages and settlement support are connected but are not the same issue.",
       "focus": "대조 접속의 짧은 쉼",
+      "focusDe": "Beim Übergang zum Gegensatz kurz pausieren.",
+      "focusEn": "Pause briefly at the transition to the contrast.",
       "sourceSeedId": "seed_batch17_b2_migration_demography",
       "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
@@ -364,6 +420,8 @@
       "de": "Wer das Anerkennungsverfahren kennt, findet leichter eine Stelle passend zur Erfahrung.",
       "en": "Knowing the recognition process makes it easier to find work that matches one's experience.",
       "focus": "연속 받침과 조사 연결",
+      "focusDe": "Bei aufeinanderfolgenden Silbenauslauten auf die Verbindung mit der Partikel achten.",
+      "focusEn": "Link the particle smoothly where syllable-final consonants occur in succession.",
       "sourceSeedId": "seed_batch17_b2_migration_demography",
       "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
@@ -378,6 +436,8 @@
       "de": "Das Programm wird insofern zugänglicher, als auch Neulinge teilnehmen können.",
       "en": "The program becomes more accessible in that newcomers can participate too.",
       "focus": "평가 근거를 강조하는 리듬",
+      "focusDe": "Mit dem Sprechrhythmus den Grund für die Bewertung hervorheben.",
+      "focusEn": "Use rhythm to highlight the reason for the evaluation.",
       "sourceSeedId": "seed_batch17_b2_k_culture",
       "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
@@ -392,6 +452,8 @@
       "de": "Viele Aufrufe eines Kurzvideos garantieren nicht automatisch echte Teilnahme.",
       "en": "High short-form views do not automatically guarantee participation at the event.",
       "focus": "긴 주어와 서술어의 균형",
+      "focusDe": "Das lange Subjekt und das Prädikat im Sprechrhythmus ausbalancieren.",
+      "focusEn": "Balance the long subject and the predicate when speaking.",
       "sourceSeedId": "seed_batch17_b2_k_culture",
       "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
@@ -406,6 +468,8 @@
       "de": "Freiwillige Fanarbeit bleibt tragbar, wenn Zeit und Rollen vorher verteilt werden.",
       "en": "Fan volunteering stays sustainable when time and roles are divided in advance.",
       "focus": "병렬어와 조건절 끊기",
+      "focusDe": "Die parallelen Ausdrücke und den Bedingungssatz durch Pausen gliedern.",
+      "focusEn": "Use pauses to group the parallel expressions and the conditional clause.",
       "sourceSeedId": "seed_batch17_b2_k_culture",
       "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
@@ -420,6 +484,8 @@
       "de": "Neuverträge sind gesondert zu betrachten, während zugleich die Belastung im Verhältnis zum Einkommen verglichen werden muss.",
       "en": "We need to examine new leases separately while also comparing housing costs with income.",
       "focus": "두 평가축 사이의 균형",
+      "focusDe": "Beide Bewertungskriterien gleichmäßig betonen.",
+      "focusEn": "Give both criteria equal emphasis.",
       "sourceSeedId": "seed_batch17_c1_housing",
       "courseUnitId": "c1_02_inclusive_sustainable_systems",
       "conceptIds": [
@@ -434,6 +500,8 @@
       "de": "Auch bei gleicher Kaltmiete verändert sich die tatsächliche Belastung mit den Energiekosten.",
       "en": "Even at the same base rent, the real burden changes with energy costs.",
       "focus": "삽입된 조건 뒤 초점 회복",
+      "focusDe": "Nach der eingeschobenen Bedingung die Hauptaussage wieder betonen.",
+      "focusEn": "Return the emphasis to the main point after the inserted condition.",
       "sourceSeedId": "seed_batch17_c1_housing",
       "courseUnitId": "c1_02_inclusive_sustainable_systems",
       "conceptIds": [
@@ -448,6 +516,8 @@
       "de": "Förderwirkung und Verwaltungsaufwand des Antrags müssen gemeinsam bewertet werden.",
       "en": "The effect of support and the administrative burden of applying must be evaluated together.",
       "focus": "병렬 목적어의 명료한 발음",
+      "focusDe": "Die gleichrangigen Objekte deutlich aussprechen.",
+      "focusEn": "Articulate the parallel objects clearly.",
       "sourceSeedId": "seed_batch17_c1_housing",
       "courseUnitId": "c1_02_inclusive_sustainable_systems",
       "conceptIds": [
@@ -462,6 +532,8 @@
       "de": "Angesichts der kleinen Stichproben für die einzelnen Berufsgruppen muss die Schlussfolgerung vorerst offenbleiben.",
       "en": "Given the small samples for each job type, we need to withhold a conclusion for now.",
       "focus": "긴 고려 조건 뒤 결론 강조",
+      "focusDe": "Nach der ausführlichen Bedingung die Schlussfolgerung betonen.",
+      "focusEn": "Emphasize the conclusion after the extended condition.",
       "sourceSeedId": "seed_batch17_c1_work_ai",
       "courseUnitId": "c1_01_evidence_public_reasoning",
       "conceptIds": [
@@ -476,6 +548,8 @@
       "de": "Kürzere Bearbeitungszeit und Fairness müssen mit getrennten Indikatoren geprüft werden.",
       "en": "Reduced processing time and fairness need to be verified using separate indicators.",
       "focus": "병렬 개념의 대조",
+      "focusDe": "Die parallel genannten Begriffe durch Betonung voneinander abheben.",
+      "focusEn": "Use stress to distinguish the parallel concepts.",
       "sourceSeedId": "seed_batch17_c1_work_ai",
       "courseUnitId": "c1_01_evidence_public_reasoning",
       "conceptIds": [
@@ -490,6 +564,8 @@
       "de": "Erst mit der Quote geänderter Ergebnisse lässt sich das Prüfverfahren bewerten.",
       "en": "The review process can only be evaluated if the rate of changed outcomes is disclosed.",
       "focus": "관형절이 긴 목적어 읽기",
+      "focusDe": "Das Objekt mit seinem langen Attribut als zusammenhängende Einheit lesen.",
+      "focusEn": "Read the object and its long modifying clause as one unit.",
       "sourceSeedId": "seed_batch17_c1_work_ai",
       "courseUnitId": "c1_01_evidence_public_reasoning",
       "conceptIds": [
@@ -504,6 +580,8 @@
       "de": "Mehr Einreisen bedeuten nicht automatisch, dass der Arbeitskräftemangel gelöst ist.",
       "en": "More arrivals do not automatically mean the workforce shortage is solved.",
       "focus": "관찰과 잘못된 결론 분리",
+      "focusDe": "Die Beobachtung von der fehlerhaften Schlussfolgerung hörbar absetzen.",
+      "focusEn": "Make the boundary between the observation and the mistaken conclusion audible.",
       "sourceSeedId": "seed_batch17_c1_migration_demography",
       "courseUnitId": "c1_02_inclusive_sustainable_systems",
       "conceptIds": [
@@ -518,6 +596,8 @@
       "de": "Bei später Anerkennung und Wohnhilfe lässt sich vorhandene Erfahrung schwer nutzen.",
       "en": "When recognition and housing support are delayed, existing experience is hard to use.",
       "focus": "조건절 뒤 논리적 초점",
+      "focusDe": "Nach dem Bedingungssatz den entscheidenden Punkt betonen.",
+      "focusEn": "Emphasize the key point after the conditional clause.",
       "sourceSeedId": "seed_batch17_c1_migration_demography",
       "courseUnitId": "c1_02_inclusive_sustainable_systems",
       "conceptIds": [
@@ -532,6 +612,8 @@
       "de": "Eine realistische Planung für das Ankommen muss sowohl regionale Beschäftigungsmöglichkeiten als auch die verfügbare Unterstützung berücksichtigen.",
       "en": "A settlement plan is realistic only when regional jobs and support capacity are considered together.",
       "focus": "복합 명사구의 경계",
+      "focusDe": "Die Grenzen innerhalb der komplexen Nominalgruppe hörbar machen.",
+      "focusEn": "Mark the boundaries within the complex noun phrase.",
       "sourceSeedId": "seed_batch17_c1_migration_demography",
       "courseUnitId": "c1_02_inclusive_sustainable_systems",
       "conceptIds": [
@@ -546,6 +628,8 @@
       "de": "Da Empfehlungsalgorithmen die Sichtbarkeit prägen, lässt sich Vorliebe nicht aus Aufrufen allein ableiten.",
       "en": "Given that recommendation algorithms shape exposure, views alone cannot establish preference.",
       "focus": "상황 전제와 판단의 긴 호흡",
+      "focusDe": "Die Ausgangslage und die Bewertung in langen, ruhigen Sinneinheiten sprechen.",
+      "focusEn": "Speak the premise and the judgment in long, steady chunks.",
       "sourceSeedId": "seed_batch17_c1_k_culture",
       "courseUnitId": "c1_05_fan_labor_sustainability",
       "conceptIds": [
@@ -560,6 +644,8 @@
       "de": "Wird die Untertitelarbeit von Fans nur als kostenlose Werbung gewertet, bleiben die geleistete Arbeit und die damit verbundene Verantwortung unsichtbar.",
       "en": "When fans' subtitle work is counted only as free promotion, the labor involved and the associated responsibility are overlooked.",
       "focus": "대조되는 평가어 강조",
+      "focusDe": "Die gegensätzlichen wertenden Ausdrücke betonen.",
+      "focusEn": "Stress the contrasting evaluative expressions.",
       "sourceSeedId": "seed_batch17_c1_k_culture",
       "courseUnitId": "c1_05_fan_labor_sustainability",
       "conceptIds": [
@@ -574,6 +660,8 @@
       "de": "Reichweite und nachhaltige Beteiligung brauchen unterschiedliche Kennzahlen.",
       "en": "Scale of reach and sustainable participation need different indicators.",
       "focus": "추상 명사구를 또렷하게 읽기",
+      "focusDe": "Die abstrakte Nominalgruppe deutlich sprechen.",
+      "focusEn": "Articulate the abstract noun phrase clearly.",
       "sourceSeedId": "seed_batch17_c1_k_culture",
       "courseUnitId": "c1_05_fan_labor_sustainability",
       "conceptIds": [
@@ -588,6 +676,8 @@
       "de": "Bezahlbares Wohnen ist als Zustand definiert, der den Grundbedarf nicht verdrängt.",
       "en": "Affordable housing is defined as a condition that does not crowd out basic needs.",
       "focus": "제도적 정의의 장중한 끊기",
+      "focusDe": "Bei der institutionellen Definition bewusst und ruhig pausieren.",
+      "focusEn": "Use measured pauses in the institutional definition.",
       "sourceSeedId": "seed_batch17_c2_housing",
       "courseUnitId": "c2_01_interpretation_institutions",
       "conceptIds": [
@@ -602,6 +692,8 @@
       "de": "Die durchschnittliche Miete bestehender Verträge allein bildet die Angebotsmieten, mit denen Wohnungssuchende konfrontiert sind, nicht ab.",
       "en": "The average rent under existing leases alone does not capture the asking rents faced by people looking for a new home.",
       "focus": "긴 관형절의 정보 중심과 평균·호가의 대조",
+      "focusDe": "Die Kernaussage des langen Attributsatzes betonen und Durchschnitt und Angebotspreis hörbar unterscheiden.",
+      "focusEn": "Stress the key information in the long modifying clause and distinguish the average from the asking price.",
       "sourceSeedId": "seed_batch17_c2_housing",
       "courseUnitId": "c2_01_interpretation_institutions",
       "conceptIds": [
@@ -616,6 +708,8 @@
       "de": "Erst die Belastungsverteilung nach Einkommen zeigt, welche Unterschiede der Mittelwert verdeckt.",
       "en": "Only by publishing the distribution of housing-cost burdens across income groups can we reveal the differences hidden by the average.",
       "focus": "논증 문장의 단계적 상승",
+      "focusDe": "Die Betonung im Verlauf der Argumentation stufenweise steigern.",
+      "focusEn": "Build emphasis step by step as the argument unfolds.",
       "sourceSeedId": "seed_batch17_c2_housing",
       "courseUnitId": "c2_01_interpretation_institutions",
       "conceptIds": [
@@ -630,6 +724,8 @@
       "de": "Selbst unter der Annahme hoher Durchschnittsgenauigkeit muss ein Einspruchsweg bestehen.",
       "en": "Even assuming high average accuracy, an appeal route must be guaranteed.",
       "focus": "가정적 양보 뒤 원칙 강조",
+      "focusDe": "Nach dem hypothetischen Zugeständnis den Grundsatz betonen.",
+      "focusEn": "Stress the principle after the hypothetical concession.",
       "sourceSeedId": "seed_batch17_c2_work_ai",
       "courseUnitId": "c2_02_technology_public_ethics",
       "conceptIds": [
@@ -644,6 +740,8 @@
       "de": "Auch wenn Unternehmen und Anbieter die Aufgaben unter sich aufteilen, darf keine Verantwortungslücke entstehen.",
       "en": "Even when the company and vendor divide the work between them, no accountability gap must arise.",
       "focus": "양보절 뒤 끊기와 책임의 공백 강조",
+      "focusDe": "Nach dem einräumenden Nebensatz pausieren und die Verantwortungslücke betonen.",
+      "focusEn": "Pause after the concessive clause and emphasize the accountability gap.",
       "sourceSeedId": "seed_batch17_c2_work_ai",
       "courseUnitId": "c2_02_technology_public_ethics",
       "conceptIds": [
@@ -658,6 +756,8 @@
       "de": "Menschliche Prüfende müssen die Begründung für eine Abweichung vom automatischen Ergebnis dokumentieren.",
       "en": "Human reviewers must record why they overrode an automated result.",
       "focus": "관형절과 목적어의 경계",
+      "focusDe": "Markieren, wo der modifizierende Nebensatz endet und das Objekt weitergeht.",
+      "focusEn": "Mark where the modifying clause ends and the object continues.",
       "sourceSeedId": "seed_batch17_c2_work_ai",
       "courseUnitId": "c2_02_technology_public_ethics",
       "conceptIds": [
@@ -672,6 +772,8 @@
       "de": "Die Beschäftigungsquote ist nichts weiter als ein Teilindikator der Arbeitsmarktteilhabe.",
       "en": "Employment rate is nothing more than one partial measure of labor-market participation.",
       "focus": "축소 평가의 단호한 마무리",
+      "focusDe": "Die Einschränkung mit einem bestimmten Satzende unterstreichen.",
+      "focusEn": "Underline the qualification with a firm ending.",
       "sourceSeedId": "seed_batch17_c2_migration_demography",
       "courseUnitId": "c2_01_interpretation_institutions",
       "conceptIds": [
@@ -686,6 +788,8 @@
       "de": "Wer Gruppen mit unterschiedlichen Rechtsbedingungen in einer Tabelle vergleicht, muss die Grenzen nennen.",
       "en": "If groups with different legal conditions are compared in one table, the limits must be stated.",
       "focus": "조건과 의무의 논리적 끊기",
+      "focusDe": "Bedingung und Verpflichtung durch eine Pause voneinander absetzen.",
+      "focusEn": "Use a pause to separate the condition from the obligation.",
       "sourceSeedId": "seed_batch17_c2_migration_demography",
       "courseUnitId": "c2_01_interpretation_institutions",
       "conceptIds": [
@@ -700,6 +804,8 @@
       "de": "Bei der Diskussion über den Erfolg einer Politik müssen auch die Entscheidungen der Betroffenen und ihr langfristiger Prozess des Ankommens im Mittelpunkt stehen.",
       "en": "Discussions of policy success must also give a central place to the choices of the people concerned and their long-term process of settlement.",
       "focus": "긴 논의 대상의 의미 단위 끊기와 중심적으로 강조",
+      "focusDe": "Das lange Diskussionsthema in Sinneinheiten gliedern und den Kern betonen.",
+      "focusEn": "Break the long topic into meaningful chunks and emphasize the central point.",
       "sourceSeedId": "seed_batch17_c2_migration_demography",
       "courseUnitId": "c2_01_interpretation_institutions",
       "conceptIds": [
@@ -714,6 +820,8 @@
       "de": "Die Bedeutung lokaler Neuinterpretationen muss unter der Voraussetzung wechselseitiger Übersetzung diskutiert werden.",
       "en": "The significance of local reinterpretations needs to be discussed on the premise of mutual translation.",
       "focus": "전제 구절 뒤 논점 제시",
+      "focusDe": "Nach der Prämisse pausieren und dann den Kernpunkt betonen.",
+      "focusEn": "Pause after the premise, then emphasize the main point.",
       "sourceSeedId": "seed_batch17_c2_k_culture",
       "courseUnitId": "c2_06_fandom_discourse_power",
       "conceptIds": [
@@ -728,6 +836,8 @@
       "de": "Der Ausdruck ‚echter Fan‘ kann Geld und Sprachvermögen zu Zugangsvoraussetzungen machen.",
       "en": "The phrase 'real fan' can turn money and language ability into conditions for belonging.",
       "focus": "인용어와 비판적 거리 두기",
+      "focusDe": "Den zitierten Ausdruck so betonen, dass die kritische Distanz hörbar wird.",
+      "focusEn": "Use intonation to signal critical distance from the quoted term.",
       "sourceSeedId": "seed_batch17_c2_k_culture",
       "courseUnitId": "c2_06_fandom_discourse_power",
       "conceptIds": [
@@ -740,8 +850,11 @@
       "level": "c2",
       "ko": "플랫폼의 추천 권력과 수익 배분을 검토하지 않으면 문화적 진정성 논쟁이 권력관계를 가릴 수 있습니다.",
       "de": "Wenn die Empfehlungsmacht der Plattform und die Verteilung der Erlöse nicht untersucht werden, kann die Debatte über kulturelle Authentizität Machtverhältnisse verdecken.",
+      "deDisplay": "Wenn die Empfehlungsmacht der\nPlattform und die Verteilung der Erlöse\nnicht untersucht werden, kann die Debatte\nüber kulturelle Authentizität\nMachtverhältnisse verdecken.",
       "en": "Without examining the platform’s power over recommendations and the distribution of revenue, debates about cultural authenticity can obscure power relations.",
       "focus": "조건절 뒤 끊기와 가능성을 나타내는 결론 억양",
+      "focusDe": "Nach dem Bedingungssatz kurz pausieren.",
+      "focusEn": "Pause briefly after the conditional clause.",
       "sourceSeedId": "seed_batch17_c2_k_culture",
       "courseUnitId": "c2_06_fandom_discourse_power",
       "conceptIds": [
@@ -756,6 +869,8 @@
       "de": "Meine Staatsangehörigkeit ist deutsch.",
       "en": "My nationality is German.",
       "focus": "국적은의 받침과 조사 연결",
+      "focusDe": "In 국적은 das abschließende ㄱ mit 은 verbinden.",
+      "focusEn": "In 국적은, link the final ㄱ to 은.",
       "sourceSeedId": "seed_batch19_a1_coverage"
     },
     {
@@ -765,6 +880,8 @@
       "de": "Meine Muttersprache ist Deutsch.",
       "en": "My first language is German.",
       "focus": "모국어는의 모음 연결",
+      "focusDe": "Auf die flüssigen Vokalübergänge in 모국어는 achten.",
+      "focusEn": "Keep the vowel transitions in 모국어는 smooth.",
       "sourceSeedId": "seed_batch19_a1_coverage"
     },
     {
@@ -774,6 +891,8 @@
       "de": "Bitte lassen Sie mich die Aussprache dieses Wortes noch einmal hören.",
       "en": "Please let me hear this word's pronunciation again.",
       "focus": "발음을의 연음",
+      "focusDe": "In 발음을 das abschließende ㅁ mit 을 verbinden.",
+      "focusEn": "In 발음을, link the final ㅁ to 을.",
       "sourceSeedId": "seed_batch19_a1_coverage"
     },
     {
@@ -783,6 +902,8 @@
       "de": "Bitte schreiben Sie die Adresse langsam auf.",
       "en": "Please write the address down slowly.",
       "focus": "천천히의 호흡과 요청 억양",
+      "focusDe": "천천히 in ruhigem Rhythmus sprechen und auf die Melodie der Bitte achten.",
+      "focusEn": "Say 천천히 at a steady pace and use the intonation of a request.",
       "sourceSeedId": "seed_batch19_a1_coverage"
     },
     {
@@ -792,6 +913,8 @@
       "de": "Ich bezahle mit Karte.",
       "en": "I'll pay by card.",
       "focus": "결제할게요의 된소리와 약속 억양",
+      "focusDe": "In 결제할게요 das gespannte ㄲ hören und die Zusage natürlich betonen.",
+      "focusEn": "Listen for the tense ㄲ in 결제할게요 and use a natural intonation for the promise.",
       "sourceSeedId": "seed_batch19_a1_coverage"
     },
     {
@@ -801,6 +924,8 @@
       "de": "Die Ankunftszeit ist sechs Uhr.",
       "en": "The arrival time is six o'clock.",
       "focus": "도착 시간의 받침과 단위 끊기",
+      "focusDe": "In 도착 시간 auf den Silbenauslaut und die Gliederung in Sprechgruppen achten.",
+      "focusEn": "Listen for the final consonant and the phrasing in 도착 시간.",
       "sourceSeedId": "seed_batch19_a1_coverage"
     },
     {
@@ -810,6 +935,8 @@
       "de": "Sollen wir uns am Samstag um drei treffen?",
       "en": "Shall we meet at three on Saturday?",
       "focus": "제안 의문문의 올라가는 억양",
+      "focusDe": "Bei der Frage, die einen Vorschlag macht, die Stimme am Ende heben.",
+      "focusEn": "Raise your voice at the end of the question that makes a suggestion.",
       "sourceSeedId": "seed_batch19_a2_coverage"
     },
     {
@@ -819,6 +946,8 @@
       "de": "Wenn es regnet, ändern wir den Termin.",
       "en": "If it rains, we change the schedule.",
       "focus": "조건절 뒤 짧은 쉼",
+      "focusDe": "Nach dem Bedingungssatz kurz pausieren.",
+      "focusEn": "Pause briefly after the conditional clause.",
       "sourceSeedId": "seed_batch19_a2_coverage"
     },
     {
@@ -828,6 +957,8 @@
       "de": "Wir haben uns für Freitagabend verabredet.",
       "en": "We made plans for Friday evening.",
       "focus": "약속을의 연음",
+      "focusDe": "In 약속을 das abschließende ㄱ mit 을 verbinden.",
+      "focusEn": "In 약속을, link the final ㄱ to 을.",
       "sourceSeedId": "seed_batch19_a2_coverage"
     },
     {
@@ -837,6 +968,8 @@
       "de": "Welche Uhrzeit passt dir?",
       "en": "What time works for you?",
       "focus": "의문사의 초점과 해요체 질문 억양",
+      "focusDe": "Das Fragewort betonen und auf die Fragemelodie im höflichen 해요-Stil achten.",
+      "focusEn": "Stress the question word and use the question intonation of polite 해요 speech.",
       "sourceSeedId": "seed_batch19_a2_coverage"
     },
     {
@@ -846,6 +979,8 @@
       "de": "Wir haben vereinbart, uns vor dem Bahnhof zu treffen.",
       "en": "We agreed to meet in front of the station.",
       "focus": "역 앞에서의 받침 연결과 계획을 말하는 억양",
+      "focusDe": "In 역 앞에서 auf die Lautverbindungen achten und den Plan mit natürlicher Satzmelodie formulieren.",
+      "focusEn": "Link the sounds in 역 앞에서 and use natural intonation when stating the plan.",
       "sourceSeedId": "seed_batch19_a2_coverage"
     },
     {
@@ -855,6 +990,8 @@
       "de": "Bitte melden Sie sich vorher, wenn Sie sich verspäten.",
       "en": "Please contact me in advance if you'll be late.",
       "focus": "늦으면의 받침 발음",
+      "focusDe": "In 늦으면 das ㅈ von 늦 mit 으 verbinden.",
+      "focusEn": "In 늦으면, link the final ㅈ of 늦 to 으.",
       "sourceSeedId": "seed_batch19_a2_coverage"
     },
     {
@@ -864,6 +1001,8 @@
       "de": "Könnten Sie mir den geänderten Termin noch heute mitteilen?",
       "en": "Could you let me know the revised schedule today?",
       "focus": "긴 완곡 요청의 의미 단위 끊기",
+      "focusDe": "Die lange, vorsichtig formulierte Bitte in Sinneinheiten gliedern.",
+      "focusEn": "Break the long, gently phrased request into meaningful chunks.",
       "sourceSeedId": "seed_batch19_b1_coverage"
     },
     {
@@ -873,6 +1012,8 @@
       "de": "Ich habe zuerst erklärt, warum sich die Abgabe verzögert.",
       "en": "I first explained why the submission was delayed.",
       "focus": "사정을의 연음",
+      "focusDe": "In 사정을 auf den flüssigen Übergang von 정 zu 을 achten.",
+      "focusEn": "Keep the transition from 정 to 을 smooth in 사정을.",
       "sourceSeedId": "seed_batch19_b1_coverage"
     },
     {
@@ -882,6 +1023,8 @@
       "de": "In der Besprechung haben wir die unterschiedlichen Standpunkte aufeinander abgestimmt.",
       "en": "We reconciled differing views during the meeting.",
       "focus": "의견을 조율하다의 모음 연결",
+      "focusDe": "In 의견을 조율하다 auf die flüssigen Übergänge zu den Vokalen achten.",
+      "focusEn": "Keep the transitions into vowels smooth in 의견을 조율하다.",
       "sourceSeedId": "seed_batch19_b1_coverage"
     },
     {
@@ -891,6 +1034,8 @@
       "de": "Bitte geben Sie vorher Bescheid, wenn sich der Termin ändert.",
       "en": "Please let me know in advance if the schedule changes.",
       "focus": "조건절과 요청절의 억양 대비",
+      "focusDe": "Bedingung und Bitte mit unterschiedlicher Satzmelodie sprechen.",
+      "focusEn": "Use different intonation for the condition and the request.",
       "sourceSeedId": "seed_batch19_b1_coverage"
     },
     {
@@ -900,6 +1045,8 @@
       "de": "Das Postamt liegt vor dem Bahnhof.",
       "en": "The post office is in front of the station.",
       "focus": "위치 표현의 받침 연결과 평서문 억양",
+      "focusDe": "Im Ortsausdruck die Auslaute verbinden und den Satz als Aussage sprechen.",
+      "focusEn": "Link the final consonants in the location phrase and use statement intonation.",
       "sourceSeedId": "seed_batch20_a1_city_services_2026"
     },
     {
@@ -909,6 +1056,8 @@
       "de": "Nach der Zahlung prüfe ich den Kassenbon.",
       "en": "I check the receipt after paying.",
       "focus": "받침과 조사 연결, 평서문의 의미 단위 끊기",
+      "focusDe": "Den Auslaut mit der Partikel verbinden und die Aussage in Sinneinheiten gliedern.",
+      "focusEn": "Link the final consonant to the particle and group the statement into meaningful chunks.",
       "sourceSeedId": "seed_batch20_a1_city_services_2026"
     },
     {
@@ -918,6 +1067,8 @@
       "de": "Vor Vertragsabschluss habe ich gefragt, ob eine Vorauszahlung nötig ist.",
       "en": "I asked whether an advance payment was required before signing.",
       "focus": "주거 복합 명사와 해요체 질문 억양",
+      "focusDe": "Das zusammengesetzte Nomen zum Wohnen deutlich aussprechen und die Fragemelodie im höflichen 해요-Stil beachten.",
+      "focusEn": "Articulate the housing compound and use the question intonation of polite 해요 speech.",
       "sourceSeedId": "seed_batch20_a2_housing_search_2026"
     },
     {
@@ -927,6 +1078,8 @@
       "de": "In der Aufstellung der Nebenkosten prüfe ich die Strom- und Gaskosten.",
       "en": "I check the electricity and gas charges in the utility-bill breakdown.",
       "focus": "주거 복합 명사와 해요체 질문 억양",
+      "focusDe": "Das zusammengesetzte Nomen zum Wohnen deutlich aussprechen und die Fragemelodie im höflichen 해요-Stil beachten.",
+      "focusEn": "Articulate the housing compound and use the question intonation of polite 해요 speech.",
       "sourceSeedId": "seed_batch20_a2_housing_search_2026"
     },
     {
@@ -936,6 +1089,8 @@
       "de": "In der Stellenanzeige habe ich Arbeitszeit und Aufgaben geprüft.",
       "en": "I checked the hours and duties in the job posting.",
       "focus": "업무 복합 명사의 경계와 완곡한 문장 끝",
+      "focusDe": "Die Teile des zusammengesetzten Arbeitsbegriffs klar gliedern und den Satz sanft abschließen.",
+      "focusEn": "Articulate the parts of the workplace compound and end the sentence gently.",
       "sourceSeedId": "seed_batch20_b1_work_entry_2026"
     },
     {
@@ -945,6 +1100,8 @@
       "de": "Ich habe die zuständige Person gefragt, wie die Tätigkeit mit meinem Aufenthaltsstatus zusammenhängt.",
       "en": "I asked the person in charge how the job relates to my residence status.",
       "focus": "업무 복합 명사의 경계와 완곡한 문장 끝",
+      "focusDe": "Die Teile des zusammengesetzten Arbeitsbegriffs klar gliedern und den Satz sanft abschließen.",
+      "focusEn": "Articulate the parts of the workplace compound and end the sentence gently.",
       "sourceSeedId": "seed_batch20_b1_work_entry_2026"
     },
     {
@@ -954,6 +1111,8 @@
       "de": "Wir haben den Anteil der Wohnkosten am Einkommen gesondert betrachtet.",
       "en": "We examined the share of income spent on housing separately.",
       "focus": "공식 설명에서 기준과 대조를 묶는 호흡",
+      "focusDe": "Kriterien und Gegenüberstellung in der formellen Erklärung zu Sprechgruppen verbinden.",
+      "focusEn": "Use phrasing to group the criteria and the contrast in the formal explanation.",
       "sourceSeedId": "seed_batch20_b2_housing_migration_2026"
     },
     {
@@ -963,6 +1122,8 @@
       "de": "Alle regionalen Mietunterschiede lassen sich nicht allein mit Angebotsmangel erklären.",
       "en": "Supply shortage alone cannot explain every regional difference in rent.",
       "focus": "공식 설명에서 기준과 대조를 묶는 호흡",
+      "focusDe": "Kriterien und Gegenüberstellung in der formellen Erklärung zu Sprechgruppen verbinden.",
+      "focusEn": "Use phrasing to group the criteria and the contrast in the formal explanation.",
       "sourceSeedId": "seed_batch20_b2_housing_migration_2026"
     },
     {
@@ -972,6 +1133,8 @@
       "de": "Es ist zu prüfen, ob die Transparenzpflicht tatsächlich zum Verständnis der Nutzenden beiträgt.",
       "en": "We need to check whether the transparency obligation actually helps users understand.",
       "focus": "추상 명사 연쇄와 근거 제한 표현의 강세",
+      "focusDe": "Die Folge abstrakter Nomen klar sprechen und die Einschränkung der Beleglage betonen.",
+      "focusEn": "Articulate the sequence of abstract nouns and stress the words that qualify the evidence.",
       "sourceSeedId": "seed_batch20_c1_ai_culture_labor_2026"
     },
     {
@@ -981,6 +1144,8 @@
       "de": "Bei geringer Repräsentativität der Daten müssen Aussagen über die Gesamtgruppe begrenzt werden.",
       "en": "When data representativeness is low, claims about the whole population must be limited.",
       "focus": "추상 명사 연쇄와 근거 제한 표현의 강세",
+      "focusDe": "Die Folge abstrakter Nomen klar sprechen und die Einschränkung der Beleglage betonen.",
+      "focusEn": "Articulate the sequence of abstract nouns and stress the words that qualify the evidence.",
       "sourceSeedId": "seed_batch20_c1_ai_culture_labor_2026"
     },
     {
@@ -990,6 +1155,8 @@
       "de": "Veränderungen der Bevölkerungsstruktur lassen sich nur unter Einbezug von Geburten, Migration und Lebenserwartung deuten.",
       "en": "Changes in population structure require considering births, migration, and life expectancy together.",
       "focus": "제도 용어 연쇄와 전제·책임 구분의 문장 억양",
+      "focusDe": "Die institutionellen Fachbegriffe klar sprechen und Prämisse und Verantwortlichkeit durch die Satzmelodie trennen.",
+      "focusEn": "Articulate the sequence of institutional terms and use intonation to distinguish the premise from the responsibility.",
       "sourceSeedId": "seed_batch20_c2_demography_accountability_2026"
     },
     {
@@ -999,6 +1166,8 @@
       "de": "Auch bei Automatisierung müssen die verantwortlichen Stellen für Entwicklung und Betrieb getrennt dokumentiert werden.",
       "en": "Even with automation, the responsible actors for design and operation must be documented separately.",
       "focus": "제도 용어 연쇄와 전제·책임 구분의 문장 억양",
+      "focusDe": "Die institutionellen Fachbegriffe klar sprechen und Prämisse und Verantwortlichkeit durch die Satzmelodie trennen.",
+      "focusEn": "Articulate the sequence of institutional terms and use intonation to distinguish the premise from the responsibility.",
       "sourceSeedId": "seed_batch20_c2_demography_accountability_2026"
     }
   ]

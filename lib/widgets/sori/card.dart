@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'c_learning_surface.dart';
 import 'hanok/eaves_corner.dart';
 import 'hanok/hanji_texture.dart';
 import 'pressable.dart';
@@ -64,6 +65,18 @@ class SoriCard extends StatefulWidget {
   /// [selectable] 카드의 선택 상태 — `primary` 2px 테두리 (§10.3).
   final bool selected;
 
+  /// Tactile learning/menu choices share the button's pressure model.
+  /// Reading panels keep their stable surface and existing motion.
+  final bool raised;
+
+  /// Opt-in C paper material. Geometry, gestures and semantics stay here;
+  /// callers use SoriCBookPanel for a book around a whole content group.
+  final bool cMaterial;
+
+  /// Optional overlay on the C paper, retaining its texture and raised edge.
+  /// Null preserves every existing material consumer.
+  final Color? cTint;
+
   /// 접근성 라벨 — null이면 child의 Semantics를 그대로 사용.
   /// tappable card는 button 역할로 트리에 등록된다.
   final String? semanticLabel;
@@ -88,6 +101,9 @@ class SoriCard extends StatefulWidget {
     this.eaves = false,
     this.selectable = false,
     this.selected = false,
+    this.raised = false,
+    this.cMaterial = false,
+    this.cTint,
     this.semanticLabel,
     this.semanticValue,
   }) : assert(selectable || !selected, 'selected는 selectable 카드 전용');
@@ -102,7 +118,11 @@ class SoriCard extends StatefulWidget {
     BuildContext context, {
     Color? accent,
     bool tinted = false,
+    bool cMaterial = false,
   }) {
+    if (cMaterial) {
+      return SoriCLearningTokens.paper;
+    }
     final s = SoriSurfaces.of(context);
     final isLight = s.brightness == Brightness.light;
     final accentColor = accent ?? SoriColors.primary;
@@ -117,6 +137,30 @@ class SoriCard extends StatefulWidget {
       accentColor.withValues(alpha: isLight ? 0.08 : 0.14),
       baseSurface,
     );
+  }
+
+  /// Shared paint border. Normal container cards reserve [Border.dimensions]
+  /// inside their outer size, so fixed-height consumers must measure it too.
+  static Border? resolvedBorder(
+    BuildContext context, {
+    bool selectable = false,
+    bool selected = false,
+  }) {
+    final isLight = SoriSurfaces.of(context).brightness == Brightness.light;
+    if (selectable && selected) {
+      return Border.all(color: SoriColors.primary, width: 2);
+    }
+    if (selectable) {
+      return Border.all(
+        color: isLight
+            ? SoriColors.lightBorderStrong
+            : SoriColors.darkBorderStrong,
+        width: 1.5,
+      );
+    }
+    return isLight
+        ? null
+        : Border.all(color: SoriColors.darkBorderStrong, width: 1.5);
   }
 
   @override
@@ -163,25 +207,16 @@ class _SoriCardState extends State<SoriCard> {
           context,
           accent: widget.accent,
           tinted: widget.tinted,
+          cMaterial: widget.cMaterial,
         );
 
     // 표면 v2 테두리 규칙 (§4.1·§10.3): 라이트 기본은 무테두리.
     // selectable(경계=정보)과 다크(그림자 무효)만 테두리를 가진다.
-    final Border? border;
-    if (widget.selectable && widget.selected) {
-      border = Border.all(color: SoriColors.primary, width: 2);
-    } else if (widget.selectable) {
-      border = Border.all(
-        color: isLight
-            ? SoriColors.lightBorderStrong
-            : SoriColors.darkBorderStrong,
-        width: 1.5,
-      );
-    } else if (!isLight) {
-      border = Border.all(color: SoriColors.darkBorderStrong, width: 1.5);
-    } else {
-      border = null;
-    }
+    final border = SoriCard.resolvedBorder(
+      context,
+      selectable: widget.selectable,
+      selected: widget.selected,
+    );
 
     // 라이트 전용 그림자 — 흰 한지 카드가 크림(lightBg) 위에 "떠 있는" 문법.
     final List<BoxShadow>? shadows = isLight
@@ -219,7 +254,20 @@ class _SoriCardState extends State<SoriCard> {
     }
 
     Widget body;
-    if (_useHanji) {
+    if (widget.cMaterial) {
+      body = SoriCMaterialSurface(
+        borderRadius: _borderRadius,
+        tint: widget.cTint,
+        child: DecoratedBox(
+          position: DecorationPosition.foreground,
+          decoration: BoxDecoration(
+            borderRadius: _borderRadius,
+            border: border,
+          ),
+          child: content,
+        ),
+      );
+    } else if (_useHanji) {
       // hanji 는 HanjiTexture 가 배경을 그린다 — 그림자는 바깥, 테두리는
       // 전경(foreground)으로 올려 텍스처가 테두리를 덮지 않게 한다.
       body = Container(
@@ -287,9 +335,14 @@ class _SoriCardState extends State<SoriCard> {
       child: SoriPressable(
         onTap: widget.onTap,
         onLongPress: widget.onLongPress,
-        pressScale:
-            (widget.variant == SoriCardVariant.hero ||
-                widget.variant == SoriCardVariant.hanji)
+        surfaceDepth: widget.raised ? 3 : 0,
+        surfaceRadius: _radius,
+        surfaceEdgeColor: SoriSurfaces.of(context).border,
+        tactileTilt: widget.raised,
+        pressScale: widget.raised
+            ? .99
+            : (widget.variant == SoriCardVariant.hero ||
+                  widget.variant == SoriCardVariant.hanji)
             ? 0.97
             : 0.96,
         onPressedChanged: (pressed) {

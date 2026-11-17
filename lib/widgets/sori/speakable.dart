@@ -96,6 +96,18 @@ class SoriSpeech {
   }
 
   static int _speechGeneration = 0;
+  static int _speechRequestGeneration = 0;
+
+  /// A route may defer cleanup until after layout. A newer request must not
+  /// be stopped by that older route's callback.
+  static int get speechRequestGeneration => _speechRequestGeneration;
+
+  static Future<void> stopIfRequestCurrent(int generation) async {
+    if (generation == _speechRequestGeneration) {
+      await stop();
+    }
+  }
+
   static String? _activeSpeechKey;
 
   /// resolving으로 전환한 요청의 trim된 텍스트 — [_onEnginePhaseChanged]가
@@ -136,6 +148,7 @@ class SoriSpeech {
     _pendingPrefetches.clear();
     _promotionPrefetches.clear();
     ++_speechGeneration;
+    ++_speechRequestGeneration;
     _activeSpeechKey = null;
     _activeSpeechText = null;
     phase.value = TtsSpeechPhase.idle;
@@ -153,6 +166,7 @@ class SoriSpeech {
   }
 
   static Future<bool> speak(String text, {String? voice}) {
+    ++_speechRequestGeneration;
     // C8 (EU AI Act Art. 50(2)) — 이 앱에서 실제로 오디오가 나가는 유일한
     // 진입점이 [speak] 다(직접 호출 스크린 34곳 + [SoriSpeakable]/
     // [SoriSpeechIndicator] 전부 여기로 모인다). 그래서 "첫 TTS 재생"
@@ -202,6 +216,7 @@ class SoriSpeech {
   }
 
   static Future<bool> speakSlow(String text, {String? voice}) {
+    ++_speechRequestGeneration;
     final resolvedVoice = voice ?? 'auto';
     final key = 'slow|$resolvedVoice|$text';
     final existing = _inFlight[key];
@@ -390,6 +405,7 @@ class SoriSpeech {
 
   static Future<void> stop() async {
     final activeKey = _activeSpeechKey;
+    ++_speechRequestGeneration;
     ++_speechGeneration;
     _activeSpeechKey = null;
     _activeSpeechText = null;
@@ -462,6 +478,7 @@ class SoriSpeechIndicator extends StatelessWidget {
     required this.text,
     this.voice,
     this.onTap,
+    this.builder,
   });
 
   final String text;
@@ -469,6 +486,8 @@ class SoriSpeechIndicator extends StatelessWidget {
 
   /// Lets a recording screen release its microphone/local player first.
   final VoidCallback? onTap;
+  final Widget Function(BuildContext context, IconData icon, VoidCallback tap)?
+  builder;
 
   @override
   Widget build(BuildContext context) {
@@ -512,43 +531,45 @@ class SoriSpeechIndicator extends StatelessWidget {
             // 48x48 터치 타깃 안 44x44 원형 배지(s.surface 0.85) + 18px 아이콘 —
             // 기존 SizedBox/Center/DecoratedBox 구조는 그대로, icon/alpha만 phase값을 따른다.
             child: ExcludeSemantics(
-              child: SoriPressable(
-                onTap: handleTap,
-                pressScale: .99,
-                surfaceDepth: 2,
-                surfaceRadius: SoriRadius.pill,
-                surfaceEdgeColor: s.border,
-                child: SizedBox(
-                  width: SoriLayout.chromeRowTouchHeight,
-                  height: SoriLayout.chromeRowTouchHeight,
-                  child: Center(
+              child:
+                  builder?.call(context, icon, handleTap) ??
+                  SoriPressable(
+                    onTap: handleTap,
+                    pressScale: .99,
+                    surfaceDepth: 2,
+                    surfaceRadius: SoriRadius.pill,
+                    surfaceEdgeColor: s.border,
                     child: SizedBox(
-                      width: 44,
-                      height: 44,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: s.surface.withValues(alpha: 0.85),
-                          shape: BoxShape.circle,
-                        ),
-                        child: AnimatedSwitcher(
-                          duration: SoriMotion.respect(
-                            context,
-                            SoriMotion.fast,
-                          ),
-                          child: Icon(
-                            icon,
-                            key: ValueKey(phase),
-                            size: 18,
-                            color: SoriColors.contentCta.withValues(
-                              alpha: iconAlpha,
+                      width: SoriLayout.chromeRowTouchHeight,
+                      height: SoriLayout.chromeRowTouchHeight,
+                      child: Center(
+                        child: SizedBox(
+                          width: 44,
+                          height: 44,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: s.surface.withValues(alpha: 0.85),
+                              shape: BoxShape.circle,
+                            ),
+                            child: AnimatedSwitcher(
+                              duration: SoriMotion.respect(
+                                context,
+                                SoriMotion.fast,
+                              ),
+                              child: Icon(
+                                icon,
+                                key: ValueKey(phase),
+                                size: 18,
+                                color: SoriColors.contentCta.withValues(
+                                  alpha: iconAlpha,
+                                ),
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ),
             ),
           ),
         );
@@ -636,7 +657,10 @@ class ContentSpeechController with RouteAware {
 
   /// `TtsService.stop()` 을 다음 프레임으로 미룬다 — 클래스 doc 참고.
   void _deferredStop() {
-    WidgetsBinding.instance.addPostFrameCallback((_) => SoriSpeech.stop());
+    final generation = SoriSpeech.speechRequestGeneration;
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => SoriSpeech.stopIfRequestCurrent(generation),
+    );
   }
 
   void dispose() {

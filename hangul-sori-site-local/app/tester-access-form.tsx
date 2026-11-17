@@ -1,30 +1,25 @@
 "use client";
 
-import { ArrowRight, CheckCircle2, LoaderCircle, Play } from "lucide-react";
+import { ArrowRight, CheckCircle2, LoaderCircle } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import type { Locale } from "./site";
-import { STORE_LINKS } from "./store-links";
+import { IOS_TEST_ACCESS_ID, STORE_LINKS } from "./store-links";
 
 const copy = {
   en: {
-    eyebrow: "TEST ACCESS",
-    title: "Join the Hangul Sori test.",
-    text: "Join the Android open test directly on Google Play. For an iOS invitation or to share test feedback, apply below.",
+    eyebrow: "TESTFLIGHT",
+    title: "Request an iOS test invitation",
+    text: "We'll review your application and send your TestFlight invitation by email.",
     androidDirect: "Join the Android open test",
     close: "Close test application",
     name: "Name or nickname",
     namePlaceholder: "How should we address you?",
-    email: "Contact email",
-    emailHelp: "For iOS, use your Apple ID email. For Android feedback, use an address we can contact.",
-    platform: "Test device",
-    android: "Android",
-    androidNote: "Testing now",
-    ios: "iPhone / iOS",
-    iosNote: "Invitation by email",
+    email: "Email for the invitation",
+    emailHelp: "Use the email address associated with your Apple Account.",
     device: "Device model",
-    devicePlaceholder: "e.g. Pixel 8, Galaxy S23, iPhone 15",
+    devicePlaceholder: "e.g. iPhone 15",
     os: "OS version",
-    osPlaceholder: "e.g. Android 15, iOS 18",
+    osPlaceholder: "e.g. iOS 18",
     language: "Explanation language",
     languagePlaceholder: "Choose a language",
     german: "German",
@@ -48,32 +43,24 @@ const copy = {
     error: "The application could not be sent. Please check the fields and try again.",
     successTitle: "Your application has arrived.",
     successText: "Thank you. We will review your device and learning profile and contact you by email.",
-    installLead: "Your open test link is ready:",
     installIosLead: "Your TestFlight invitation arrives by email:",
     installIosNote: "Apple only opens TestFlight for email addresses on our tester list. We add the address you entered in App Store Connect and send your invitation from there — the public link stays closed until then.",
-    installAndroid: "Join the test on Google Play",
-    installAndroidNote: "Join the open test on Google Play first, then install the app. No email invitation is needed.",
     successClose: "Back to the website",
   },
   de: {
-    eyebrow: "TESTZUGANG",
-    title: "Für den Hangul Sori Test bewerben.",
-    text: "Am offenen Android-Test kannst du direkt bei Google Play teilnehmen. Für eine iOS-Einladung oder Testfeedback nutze das Formular unten.",
+    eyebrow: "TESTFLIGHT",
+    title: "Einladung zum iOS-Test anfragen",
+    text: "Wir prüfen deine Bewerbung und schicken dir die TestFlight-Einladung per E-Mail.",
     androidDirect: "Am Android-Test teilnehmen",
     close: "Testbewerbung schließen",
     name: "Name oder Spitzname",
     namePlaceholder: "Wie dürfen wir dich ansprechen?",
-    email: "Kontakt-E-Mail",
-    emailHelp: "Für iOS nutze deine Apple-ID-Adresse. Für Android-Feedback genügt eine erreichbare E-Mail-Adresse.",
-    platform: "Testgerät",
-    android: "Android",
-    androidNote: "Test läuft",
-    ios: "iPhone / iOS",
-    iosNote: "Einladung per E-Mail",
+    email: "E-Mail-Adresse für die Einladung",
+    emailHelp: "Gib die E-Mail-Adresse deines Apple Accounts an.",
     device: "Gerätemodell",
-    devicePlaceholder: "z. B. Pixel 8, Galaxy S23, iPhone 15",
+    devicePlaceholder: "z. B. iPhone 15",
     os: "Betriebssystem",
-    osPlaceholder: "z. B. Android 15, iOS 18",
+    osPlaceholder: "z. B. iOS 18",
     language: "Sprache der Erklärungen",
     languagePlaceholder: "Sprache auswählen",
     german: "Deutsch",
@@ -97,32 +84,24 @@ const copy = {
     error: "Die Bewerbung konnte nicht gesendet werden. Bitte prüfe die Felder und versuche es erneut.",
     successTitle: "Deine Bewerbung ist angekommen.",
     successText: "Danke. Wir prüfen dein Gerät und Lernprofil und melden uns per E-Mail.",
-    installLead: "Dein Link zum offenen Test ist bereit:",
     installIosLead: "Deine TestFlight-Einladung kommt per E-Mail:",
     installIosNote: "Apple öffnet TestFlight nur für E-Mail-Adressen auf unserer Testliste. Wir tragen deine Adresse in App Store Connect ein und senden die Einladung von dort — bis dahin bleibt der öffentliche Link geschlossen.",
-    installAndroid: "Bei Google Play am Test teilnehmen",
-    installAndroidNote: "Nimm zuerst bei Google Play am offenen Test teil und installiere dann die App. Eine E-Mail-Einladung ist nicht nötig.",
     successClose: "Zurück zur Website",
   },
   ko: {
-    eyebrow: "테스트 참여",
-    title: "한글소리 테스터로 신청해 주세요.",
-    text: "Android 공개 테스트는 Google Play에서 바로 참여할 수 있습니다. iOS 초대를 받거나 테스트 의견을 보내려면 아래에서 신청해 주세요.",
+    eyebrow: "TESTFLIGHT",
+    title: "iOS 테스트 초대 신청",
+    text: "신청을 확인한 뒤 TestFlight 초대를 이메일로 보내드려요.",
     androidDirect: "Android 공개 테스트 참여하기",
     close: "테스터 신청 닫기",
     name: "이름 또는 닉네임",
     namePlaceholder: "어떻게 불러드리면 될까요?",
-    email: "연락받을 이메일",
-    emailHelp: "iOS는 Apple ID 이메일, Android 의견 신청은 연락받을 이메일을 입력해 주세요.",
-    platform: "테스트 기기",
-    android: "Android",
-    androidNote: "테스트 진행 중",
-    ios: "iPhone / iOS",
-    iosNote: "초대 메일 발송",
+    email: "초대받을 이메일",
+    emailHelp: "Apple 계정에 연결된 이메일을 입력해 주세요.",
     device: "기기 모델",
-    devicePlaceholder: "예: Pixel 8, Galaxy S23, iPhone 15",
+    devicePlaceholder: "예: iPhone 15",
     os: "운영체제 버전",
-    osPlaceholder: "예: Android 15, iOS 18",
+    osPlaceholder: "예: iOS 18",
     language: "설명 언어",
     languagePlaceholder: "언어 선택",
     german: "독일어",
@@ -146,11 +125,8 @@ const copy = {
     error: "신청을 보내지 못했습니다. 입력 내용을 확인하고 다시 시도해 주세요.",
     successTitle: "신청이 도착했습니다.",
     successText: "감사합니다. 기기와 학습 정보를 확인한 뒤 이메일로 연락드리겠습니다.",
-    installLead: "공개 테스트 참여 링크가 준비됐어요:",
     installIosLead: "TestFlight 초대는 이메일로 보내드려요:",
     installIosNote: "Apple은 테스터 목록에 등록된 이메일에만 TestFlight를 열어 줍니다. 입력하신 주소를 App Store Connect에 등록한 뒤 초대 메일을 보내드릴게요 — 그전까지는 공개 링크가 열리지 않습니다.",
-    installAndroid: "Google Play에서 테스트 참여하기",
-    installAndroidNote: "Google Play에서 공개 테스트에 참여한 뒤 앱을 설치하세요. 이메일 초대는 필요하지 않습니다.",
     successClose: "사이트로 돌아가기",
   },
 } as const;
@@ -162,7 +138,6 @@ export function TesterAccessForm({ locale }: { locale: Locale }) {
   const t = copy[locale];
   const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
-  const [platform, setPlatform] = useState<"android" | "ios" | null>(null);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -176,7 +151,6 @@ export function TesterAccessForm({ locale }: { locale: Locale }) {
       return;
     }
 
-    const selectedPlatform = data.get("platform") === "ios" ? "ios" : "android";
     setState("sending");
     setMessage("");
 
@@ -191,7 +165,7 @@ export function TesterAccessForm({ locale }: { locale: Locale }) {
           locale,
           name: data.get("name"),
           email: data.get("email"),
-          platform: data.get("platform"),
+          platform: "ios",
           device: data.get("device"),
           osVersion: data.get("osVersion"),
           explanationLanguage: data.get("explanationLanguage"),
@@ -207,7 +181,6 @@ export function TesterAccessForm({ locale }: { locale: Locale }) {
 
       if (!response.ok) throw new Error("tester application rejected");
       form.reset();
-      setPlatform(selectedPlatform);
       setState("success");
     } catch {
       setState("error");
@@ -216,7 +189,7 @@ export function TesterAccessForm({ locale }: { locale: Locale }) {
   }
 
   return (
-    <div className="tester-dialog" id="tester-access" role="dialog" aria-modal="true" aria-labelledby="tester-title">
+    <div className="tester-dialog" id={IOS_TEST_ACCESS_ID} role="dialog" aria-modal="true" aria-labelledby="tester-title" tabIndex={-1}>
       <a className="tester-backdrop" href="#tester-access-closed" aria-label={t.close} />
       <div className="tester-card">
         <a className="tester-close" href="#tester-access-closed" aria-label={t.close}>×</a>
@@ -227,20 +200,8 @@ export function TesterAccessForm({ locale }: { locale: Locale }) {
             <h2 id="tester-title">{t.successTitle}</h2>
             <p>{t.successText}</p>
             <div className="tester-install">
-              {platform === "ios" ? (
-                <>
-                  <p className="tester-install-lead">{t.installIosLead}</p>
-                  <small className="tester-install-note">{t.installIosNote}</small>
-                </>
-              ) : (
-                <>
-                  <p className="tester-install-lead">{t.installLead}</p>
-                  <a className="button button-primary tester-install-cta" href={STORE_LINKS.android} target="_blank" rel="noopener noreferrer">
-                    <Play aria-hidden="true" size={16} fill="currentColor" />{t.installAndroid}
-                  </a>
-                  <small className="tester-install-note">{t.installAndroidNote}</small>
-                </>
-              )}
+              <p className="tester-install-lead">{t.installIosLead}</p>
+              <small className="tester-install-note">{t.installIosNote}</small>
             </div>
             <a className="button button-ghost" href="#tester-access-closed">{t.successClose}<ArrowRight aria-hidden="true" size={18} /></a>
           </div>
@@ -249,9 +210,7 @@ export function TesterAccessForm({ locale }: { locale: Locale }) {
             <p className="eyebrow">{t.eyebrow}</p>
             <h2 id="tester-title">{t.title}</h2>
             <p className="tester-intro">{t.text}</p>
-            <a className="button button-secondary tester-direct-cta" href={STORE_LINKS.android}>
-              <Play aria-hidden="true" size={16} fill="currentColor" />{t.androidDirect}
-            </a>
+            <p className="tester-intro"><a href={STORE_LINKS.android} target="_blank" rel="noopener noreferrer">{t.androidDirect}</a></p>
             <form className="tester-form" onSubmit={submit}>
               <div className="form-trap" aria-hidden="true">
                 <label htmlFor="tester-website">Website</label>
@@ -269,14 +228,6 @@ export function TesterAccessForm({ locale }: { locale: Locale }) {
                   <small>{t.emailHelp}</small>
                 </label>
               </div>
-
-              <fieldset className="form-fieldset">
-                <legend>{t.platform} <i>*</i></legend>
-                <div className="platform-options">
-                  <label><input name="platform" type="radio" value="android" required /><span><b>{t.android}</b><small>{t.androidNote}</small></span></label>
-                  <label><input name="platform" type="radio" value="ios" required /><span><b>{t.ios}</b><small>{t.iosNote}</small></span></label>
-                </div>
-              </fieldset>
 
               <div className="form-grid">
                 <label className="form-field">

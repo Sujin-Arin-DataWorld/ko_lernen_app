@@ -1,0 +1,46 @@
+{
+  "references": [
+    {
+      "role": "style",
+      "path": "C:\\Users\\vjinn\\ELibrary\\Downloads\\Gemini_Generated_Image_824e6v824e6v824e.jpg",
+      "sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb"
+    },
+    {
+      "role": "world-quality",
+      "path": "C:\\Users\\vjinn\\ELibrary\\Downloads\\달빛 아래 마법의 호랑이 질주.png",
+      "sha256": "e84503eb90c128aac0c6b8ed922668ae6e34fc9d3546d3716ccb5e11fc469c0d"
+    },
+    {
+      "role": "estate-composition",
+      "path": "C:\\Users\\vjinn\\ELibrary\\Downloads\\Gemini_Generated_Image_rs4a0crs4a0crs4a.jpg",
+      "sha256": "4f2da0aa5e0820c173520d12da97d24d34c020fa52ab294218df150e74ff3120"
+    },
+    {
+      "role": "gemini-analysis",
+      "path": "C:\\Users\\vjinn\\.codex\\attachments\\0ab27ff3-bb1c-4519-91a1-e4a97068f2a5\\붙여넣은 텍스트.txt",
+      "sha256": "3ae8ac9a56266ad3bbda0531be73d75623411728b37976c683843576c30455a7"
+    },
+    {
+      "role": "gemini-recipe",
+      "path": "C:\\Users\\vjinn\\.codex\\attachments\\bd6960b6-916b-4662-80a4-277dd75d11b9\\붙여넣은 텍스트.txt",
+      "sha256": "174d0675402ed66a0049ad41a1e316ae890c98837ceaa733349235cd7a434088"
+    },
+    {
+      "role": "bible",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\ART_DIRECTION_BIBLE.md",
+      "sha256": "ea601fa8c52f38c9c161f403265d01664eb2b173ca4183e69f1a41c8f34a8ff8"
+    },
+    {
+      "role": "canonical-manifest",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-11-20261023\\CANONICAL_MANIFEST.json",
+      "sha256": "c98bc80e14b1adb6b56540be27cd0237cfc86b901311d8967e1b8baf0832de35"
+    },
+    {
+      "role": "gemini-hybrid-workflow",
+      "path": "C:\\Users\\vjinn\\.codex\\attachments\\d1fb95e9-b184-4094-9578-b4fc52e422c6\\붙여넣은 텍스트.txt",
+      "sha256": "e55f2bca2315d4493658dc26d4c70c4eea626ced916e982c30d1e12c20cfe9a8"
+    }
+  ],
+  "geometryAuthority": "canonical-manifest",
+  "numericSettingsInGeminiText": "unverified starting values, not confirmed source image render settings"
+}

@@ -4,7 +4,7 @@
   "cases": [
     {
       "id": "invite_friend",
-      "revision": 1,
+      "revision": 2,
       "level": "a1",
       "topic": "invite",
       "title": {
@@ -56,13 +56,13 @@
               "id": "casual",
               "text": {
                 "ko": "응, 있어. 왜?",
-                "de": "Ja. Wieso?",
-                "en": "Yeah, I am. Why?"
+                "de": "Ja, habe ich. Wieso?",
+                "en": "Yeah, I’m free. Why?"
               },
               "effect": {
-                "ko": "편하게 답하고 용건을 물어요. 친한 사이에서는 짧아도 무례한 답이 아니에요.",
-                "de": "Du sagst ungezwungen, dass du Zeit hast, und fragst nach dem Anlass. Unter guten Freunden ist die kurze Antwort nicht unhöflich.",
-                "en": "You answer casually and ask what it is about. A short reply can be friendly between close friends."
+                "ko": "시간이 있다고 답하면서 용건도 물어요. 친한 친구에게 편하게 쓸 수 있어요. 왜?를 세게 말하면 따지는 느낌이 날 수 있어요.",
+                "de": "Du sagst, dass du Zeit hast, und fragst gleich nach dem Anlass. Unter guten Freunden passt das. Ein scharf betontes Wieso? kann allerdings vorwurfsvoll klingen.",
+                "en": "You say you are free and ask what your friend has in mind. This works between close friends. A sharply spoken Why? can sound confrontational."
               },
               "grammarValid": true,
               "partnerReply": {
@@ -77,16 +77,16 @@
               }
             },
             {
-              "id": "playful",
+              "id": "available",
               "text": {
-                "ko": "네, 시간이 있습니다.",
-                "de": "Ja, ich stehe zur Verfügung.",
-                "en": "Yes, I am available."
+                "ko": "응, 시간 있어.",
+                "de": "Ja, ich habe Zeit.",
+                "en": "Yeah, I’m free."
               },
               "effect": {
-                "ko": "문법은 맞아요. 평소 반말을 쓰는 친구에게 갑자기 격식을 차리면 장난처럼 들릴 수 있어요. 억양에 따라 거리감도 생길 수 있어요.",
-                "de": "Grammatisch stimmt der Satz. Wenn ihr sonst locker redet, kann die plötzliche Förmlichkeit scherzhaft wirken. Je nach Ton kann sie auch Distanz schaffen.",
-                "en": "The grammar is correct. Sudden formality with a friend you usually speak casually to can sound playful. Depending on your tone, it may also create distance."
+                "ko": "시간이 있다고 편하게 답해요. 용건을 되묻지 않고 친구가 다음 말을 이어가도록 해요. 구체적인 약속은 아직 정하지 않았어요.",
+                "de": "Du sagst ungezwungen, dass du Zeit hast. Du fragst nicht nach dem Anlass und lässt deinen Freund weitererzählen. Eine konkrete Verabredung habt ihr noch nicht getroffen.",
+                "en": "You casually say you are free and let your friend continue without asking why. You have not made specific plans yet."
               },
               "grammarValid": true,
               "partnerReply": {

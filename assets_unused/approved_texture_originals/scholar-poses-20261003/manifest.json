@@ -1,0 +1,107 @@
+{
+  "originals_preserved": true,
+  "entries": [
+    {
+      "source": "C:\\Users\\vjinn\\ELibrary\\Downloads\\TalSunbi\\TalSunbi.png",
+      "runtime": "assets/illustrations/tactile/scholar/scholar_welcome.png",
+      "sha256": "3ca5cf78d7eaa1f9b50e2aa767aa0399653dbfbf2f0be01a84448f57dbf16fb1",
+      "bytes": 1310537,
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_bounds": [
+        17,
+        20,
+        1031,
+        1434
+      ],
+      "derivation": "None: byte-identical user-approved PNG"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\ELibrary\\Downloads\\TalSunbi\\TalSunbi2.png",
+      "runtime": "assets/illustrations/tactile/scholar/scholar_point.png",
+      "sha256": "61d31b27887a2ab27f0b424c032b8a08257e3aea889a41b852c22bd4fc79738c",
+      "bytes": 1237624,
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_bounds": [
+        25,
+        17,
+        1023,
+        1432
+      ],
+      "derivation": "None: byte-identical user-approved PNG"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\ELibrary\\Downloads\\TalSunbi\\TalSunbi3.png",
+      "runtime": "assets/illustrations/tactile/scholar/scholar_bow.png",
+      "sha256": "40cdfa5e9647e37eaa2cfe82c6c14640d5ab6fb74ff13fc9fc35db2a206389ef",
+      "bytes": 1103287,
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_bounds": [
+        56,
+        24,
+        1031,
+        1430
+      ],
+      "derivation": "None: byte-identical user-approved PNG"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\ELibrary\\Downloads\\TalSunbi\\TalSunbi4.png",
+      "runtime": "assets/illustrations/tactile/scholar/scholar_calm.png",
+      "sha256": "15a2f3f68a2f2240fd51d841f00819ba148ead13f3652d9d24ab5f39decd2552",
+      "bytes": 1102226,
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_bounds": [
+        25,
+        0,
+        1068,
+        1432
+      ],
+      "derivation": "None: byte-identical user-approved PNG"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\ELibrary\\Downloads\\TalSunbi\\TalSunbi5.png",
+      "runtime": "assets/illustrations/tactile/scholar/scholar_thinking.png",
+      "sha256": "93ec76ca7f57441845cad83391991964e727da9405aefccaadd1e4672203c927",
+      "bytes": 1122678,
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_bounds": [
+        25,
+        12,
+        1023,
+        1419
+      ],
+      "derivation": "None: byte-identical user-approved PNG"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\ELibrary\\Downloads\\TalSunbi\\TalSunbi6.png",
+      "runtime": "assets/illustrations/tactile/scholar/scholar_inviting.png",
+      "sha256": "d33bdf6f64187f0787201628317a92c67da8723232793fef89b18164347498e0",
+      "bytes": 1132465,
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_bounds": [
+        0,
+        22,
+        1068,
+        1434
+      ],
+      "derivation": "None: byte-identical user-approved PNG"
+    }
+  ]
+}

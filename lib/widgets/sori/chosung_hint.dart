@@ -308,11 +308,16 @@ class _Slot extends StatelessWidget {
     return CustomPaint(
       painter: _DashedBoxPainter(color: accent.withValues(alpha: 0.65)),
       child: Container(
-        width: _slotSize.width,
-        height: _slotSize.height,
+        constraints: BoxConstraints(
+          minWidth: _slotSize.width,
+          minHeight: _slotSize.height,
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 4),
         alignment: Alignment.center,
         child: Text(
           text,
+          maxLines: 1,
+          softWrap: false,
           style: tt.caption.copyWith(
             height: 1.0,
             fontWeight: FontWeight.w700,

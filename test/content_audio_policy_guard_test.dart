@@ -92,11 +92,10 @@ void main() {
     );
   });
 
-  test('quest, cloze, scenario 비플립 콘텐츠는 탭 재생 래퍼를 쓴다', () {
+  test('quest, cloze 비플립 콘텐츠는 탭 재생 래퍼를 쓴다', () {
     const paths = <String>[
       'lib/screens/quest_engines/quest_flow.dart',
       'lib/screens/cloze_game_screen.dart',
-      'lib/screens/scenario_player_screen.dart',
     ];
     final missing = <String>[];
     for (final path in paths) {
@@ -110,6 +109,38 @@ void main() {
       isEmpty,
       reason: '탭 재생 배선이 없는 비플립 표면: ${missing.join(', ')}',
     );
+  });
+
+  test('scenario paper cue preserves semantic replay and route ownership', () {
+    final scenario = File(
+      'lib/screens/scenario_player_screen.dart',
+    ).readAsStringSync();
+    final material = File(
+      'lib/widgets/sori/scenario_c.dart',
+    ).readAsStringSync();
+    expect(
+      scenario,
+      matches(RegExp(r'ScenarioCFold\(\s*onTap: \(\) => SoriSpeech\.replay\(')),
+    );
+    expect(
+      scenario,
+      contains('voice: widget.scenario.voiceForSpeaker(line.speaker)'),
+    );
+    expect(scenario, contains(r"semanticLabel: '${t.ttsListen}: ${line.ko}'"));
+    expect(material, contains('label: semanticLabel'));
+    expect(material, contains('SoriPressable('));
+    for (final contract in [
+      'ContentSpeechController()',
+      '_speech.subscribe(route)',
+      '_speech.deactivate()',
+      '_speech.dispose()',
+    ]) {
+      expect(
+        scenario,
+        contains(contract),
+        reason: 'Scenario audio must retain $contract',
+      );
+    }
   });
 
   test('first-line bundle tier bundles the immutable first-dialog corpus', () {

@@ -63,8 +63,10 @@ test("renders finished site metadata", async () => {
   assertStoreAccessCtas(html, "rendered home page");
   assert.match(html, /href=["']https:\/\/play\.google\.com\/apps\/testing\/com\.sujinarin\.ko_lernen_app["'][^>]*>[\s\S]*?Join the Android open test/i);
   assert.doesNotMatch(html, /href=["']https:\/\/testflight\.apple\.com/i);
-  assert.match(html, /iOS beta testing/i);
-  assert.match(html, /name=["']platform["']/i);
+  assert.match(html, /Request an iOS test invitation/i);
+  assert.match(html, /id=["']tester-access["'][^>]*class=["']store-buttons["']/i);
+  assert.match(html, /id=["']ios-tester-access["'][^>]*role=["']dialog["']/i);
+  assert.doesNotMatch(html, /name=["']platform["']/i);
   assert.match(html, /name=["']focus["']/i);
   assert.match(html, /name=["']privacyAcknowledged["']/i);
   assert.match(html, /Send test application/i);
@@ -73,7 +75,7 @@ test("renders finished site metadata", async () => {
 });
 
 test("rejects stale or unexpected store CTA destinations", () => {
-  const ios = '<a class="store-button" href="#tester-access">iOS</a>';
+  const ios = '<a class="store-button" href="#ios-tester-access">iOS</a>';
   const android =
     '<a class="store-button" href="https://play.google.com/apps/testing/com.sujinarin.ko_lernen_app" target="_blank" rel="noopener noreferrer">Android</a>';
   assert.doesNotThrow(() => assertStoreAccessCtas(ios + android, "test home"));
@@ -186,9 +188,9 @@ test("validates and emails a tester application without storing it", async () =>
     locale: "de",
     name: "Test Person",
     email: "tester@example.com",
-    platform: "android",
-    device: "Pixel 8",
-    osVersion: "Android 15",
+    platform: "ios",
+    device: "iPhone 15",
+    osVersion: "iOS 18",
     explanationLanguage: "de",
     koreanLevel: "hangul-learning",
     focus: ["hangul-reading", "pronunciation-listening"],
@@ -218,8 +220,29 @@ test("validates and emails a tester application without storing it", async () =>
   assert.equal(sent.length, 1);
   assert.equal(sent[0].to, "vjinny2@gmail.com");
   assert.equal(sent[0].replyTo, "tester@example.com");
-  assert.match(sent[0].subject, /Android · DE/);
-  assert.match(sent[0].text, /Pixel 8/);
+  assert.match(sent[0].subject, /iPhone \/ iOS · DE/);
+  assert.match(sent[0].text, /iPhone 15/);
+
+  const legacyAndroid = await worker.fetch(
+    new Request("http://localhost/api/tester-application", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "origin": "http://localhost",
+        "x-hangul-sori-form": "tester-application",
+      },
+      body: JSON.stringify({ ...payload, platform: "android", device: "Pixel 8", osVersion: "Android 15" }),
+    }),
+    env,
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  assert.equal(legacyAndroid.status, 409);
+  assert.deepEqual(await legacyAndroid.json(), {
+    ok: false,
+    error: "android_open_test",
+    joinUrl: "https://play.google.com/apps/testing/com.sujinarin.ko_lernen_app",
+  });
+  assert.equal(sent.length, 1);
 
   const rejected = await worker.fetch(
     new Request("http://localhost/api/tester-application", {
@@ -358,6 +381,10 @@ test("renders every public route with the expected launch content", async () => 
     assert.equal(response.status, 200, `${path} should render`);
     const html = await response.text();
     const visibleText = html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ");
+    if (["/de", "/en", "/ko"].includes(path)) {
+      assertStoreAccessCtas(html, path);
+      assert.doesNotMatch(html, /name=["']platform["']/i);
+    }
     if (path === "/account-deletion") {
       assertDeletionPageContract(html, { expectedLanguage: "de" });
     }

@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'dart:async';
 
 import '../widgets/sori/study_evidence_recovery.dart';
@@ -279,7 +280,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
         title: t.wbTyping,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CanonicalCompanionArt.baekhoSeated,
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -293,7 +294,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
         title: t.wbTyping,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_encourage.png',
+            asset: CanonicalCompanionArt.magpieGuide,
             icon: Icons.keyboard_alt_outlined,
             title: t.wbTyping,
             body: t.wbTypingNeedMore,

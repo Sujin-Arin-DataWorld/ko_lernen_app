@@ -1,0 +1,192 @@
+{
+  "version": "1.0-authoring-not-runtime",
+  "date": "2026-10-28",
+  "prompts": {
+    "model": ["모형을 보며 한 글자로 모아 봐요.", "Put the pieces together into one syllable block using the example.", "Setze die Teile nach dem Beispiel zu einem Silbenblock zusammen."],
+    "build": ["이 조각들을 한 글자로 모아 봐요.", "Put these pieces together into one syllable block.", "Setze diese Teile zu einem Silbenblock zusammen."],
+    "read_audio": ["글자를 보고, 맞는 소리를 골라요.", "Look at the written syllable and choose its sound.", "Sieh dir die geschriebene Silbe an und wähle den passenden Laut."],
+    "hear_text": ["소리를 듣고 같은 글자를 골라요.", "Listen and choose the matching written form.", "Hör zu und wähle die passende Schriftform."],
+    "picture_word": ["그림에 맞는 낱말을 골라요.", "Choose the word that matches the picture.", "Wähle das Wort, das zum Bild passt."],
+    "audio_picture": ["소리를 듣고 맞는 그림을 골라요.", "Listen and choose the matching picture.", "Hör zu und wähle das passende Bild."],
+    "text_picture": ["낱말을 읽고 맞는 그림을 골라요.", "Read the word and choose the matching picture.", "Lies das Wort und wähle das passende Bild."],
+    "label": ["낱말에 맞는 곳에 푯말을 놓아요.", "Put the label at the place that matches the word.", "Setze das Schild an die Stelle, die zum Wort passt."]
+  },
+  "common_copy": [
+    ["C-HELP", "도움 보기", "Get help", "Hilfe ansehen"],
+    ["C-MODEL", "시범 다시 보기", "Watch the example again", "Beispiel noch einmal ansehen"],
+    ["C-LISTEN", "소리 듣기", "Listen", "Anhören"],
+    ["C-AGAIN", "다시 듣기", "Listen again", "Noch einmal hören"],
+    ["C-SUPPORT", "도움받고 계속하기", "Continue with help", "Mit Hilfe weiter"],
+    ["C-LATER", "다음에 할게요", "I'll do this later", "Das mache ich später"],
+    ["C-RESUME", "이어서 하기", "Resume", "Weitermachen"],
+    ["C-NOANSWER", "아직 답을 고르지 않았어요. 준비되면 골라 주세요.", "You haven't chosen an answer yet. Choose one when you're ready.", "Du hast noch keine Antwort gewählt. Wähle eine, wenn du bereit bist."],
+    ["C-NOAUDIO", "소리를 재생하지 못했어요. 다시 듣거나 글자·낱말 연습을 계속할 수 있어요.", "The audio couldn't be played. You can try again or continue with the letter and word practice.", "Der Ton konnte nicht abgespielt werden. Du kannst es noch einmal versuchen oder mit den Schriftzeichen und Wörtern weiterüben."],
+    ["C-HELPSTATE", "도움과 함께 다시 연습했어요. 원래 답도 그대로 남겨 둘게요.", "You practised again with help. Your original answer will also be kept.", "Du hast mit Hilfe noch einmal geübt. Deine ursprüngliche Antwort bleibt ebenfalls erhalten."],
+    ["C-SAVED", "저장을 확인했어요. 다음에 여기서 이어갈 수 있어요.", "Your progress is saved. You can continue from here next time.", "Dein Fortschritt ist gespeichert. Hier kannst du nächstes Mal weitermachen."],
+    ["C-UNCONFIRMED", "아직 저장을 확인하지 못했어요. 다시 확인해 볼게요.", "Your progress hasn't been confirmed as saved yet. I'll check again.", "Es ist noch nicht bestätigt, dass dein Fortschritt gespeichert wurde. Wir prüfen es noch einmal."],
+    ["C-REVIEW", "다시 왔네요. 시범을 보기 전에 기억나는 대로 먼저 해 봐요.", "You're back. Try what you remember before looking at an example.", "Du bist wieder da. Versuch es zuerst aus der Erinnerung, bevor du dir ein Beispiel ansiehst."],
+    ["C-REVIEWHELP", "헷갈리면 도움을 골라도 괜찮아요. 같은 글자를 함께 다시 살펴봐요.", "You can choose help if you're unsure. We'll look at the same written form together again.", "Wenn du unsicher bist, kannst du Hilfe wählen. Wir sehen uns dieselbe Schriftform noch einmal gemeinsam an."]
+  ],
+  "lessons": [
+    {
+      "n": 1,
+      "id": "F0.2.first-names",
+      "file": "01_FIRST_CONSONANTS.md",
+      "title": ["창고로 가져갈 첫소리", "The first consonants for the storeroom", "Die ersten Konsonanten für den Vorratsraum"],
+      "new": "ㄴㅁ",
+      "taught": ["나", "너", "마", "모"],
+      "transfer": ["니", "무"],
+      "audio_distractors": ["미", "누"],
+      "vowel_distractors": ["너", "모"],
+      "scenes": [
+        ["수진", "창고 푯말도 읽어 보려면 첫소리 조각이 더 필요해. 아의 ㅇ 자리에 다른 첫소리를 놓아 볼까?", "We'll need more initial pieces to read the storeroom labels. Shall we replace the ㅇ in 아 with another initial?", "Damit wir die Schilder im Vorratsraum lesen können, brauchen wir weitere Anfangszeichen. Wollen wir das ㅇ in 아 durch ein anderes Anfangszeichen ersetzen?"],
+        ["탈선비", "이번에는 ㄴ과 ㅁ이라네. 모음의 자리는 기억하고 있겠지? 헷갈리면 함께 다시 보세.", "This time, we'll use ㄴ and ㅁ. Do you remember where the vowels go? We can look together again if you're unsure.", "Diesmal verwenden wir ㄴ und ㅁ. Weißt du noch, wo die Vokale stehen? Wenn du unsicher bist, sehen wir es uns gemeinsam noch einmal an."],
+        ["도깨비", "내 푯말을 보기 전에 연습부터 하겠다고? 좋다. 조각을 잃어버리지만 마라!", "You want to practise before looking at my labels? All right. Just don't lose the pieces!", "Ihr wollt üben, bevor ihr euch meine Schilder anseht? Gut. Verliert nur die Teile nicht!"]
+      ],
+      "teaching": [
+        ["나", "나 소리를 먼저 들어요. ㄴ을 왼쪽에, 배운 ㅏ를 오른쪽에 놓으면 나가 돼요. 첫자리에는 ㅇ 대신 ㄴ이 와요.", "First, listen to 나. Put ㄴ on the left and the familiar ㅏ on the right to make 나. ㄴ takes the initial position instead of ㅇ.", "Hör dir zuerst 나 an. Setze ㄴ nach links und das bekannte ㅏ nach rechts. So entsteht 나. Am Anfang steht ㄴ statt ㅇ."],
+        ["너", "같은 ㄴ에 ㅓ를 만나게 하면 너예요. 나와 너를 따로 듣고 모음도 비교해요.", "With the same ㄴ and ㅓ, you get 너. Listen to 나 and 너 separately and compare the vowels.", "Mit demselben ㄴ und ㅓ entsteht 너. Hör dir 나 und 너 einzeln an und vergleiche die Vokale."],
+        ["마", "이번에는 마예요. ㅁ을 왼쪽에, ㅏ를 오른쪽에 놓아요. 나와 첫 조각이 달라요.", "Now try 마. Put ㅁ on the left and ㅏ on the right. Its initial piece is different from 나.", "Jetzt kommt 마. Setze ㅁ nach links und ㅏ nach rechts. Das Anfangszeichen ist ein anderes als bei 나."],
+        ["모", "모에서는 ㅁ이 위에, ㅗ가 아래에 와요. 첫소리가 바뀌어도 가로 모음은 아래에 놓아요.", "In 모, ㅁ goes above and ㅗ below. A horizontal vowel still goes below when the initial changes.", "Bei 모 steht ㅁ oben und ㅗ darunter. Auch bei einem anderen Anfangszeichen bleibt ein waagerechter Vokal unten."]
+      ],
+      "help": ["나·너의 첫 조각은 ㄴ, 마·모의 첫 조각은 ㅁ이에요. 모형과 소리를 하나씩 다시 봐요.", "The initial piece in 나 and 너 is ㄴ; in 마 and 모, it's ㅁ. Let's go through the examples and sounds one at a time.", "Das Anfangszeichen von 나 und 너 ist ㄴ, das von 마 und 모 ist ㅁ. Sehen und hören wir uns die Beispiele einzeln noch einmal an."],
+      "oral": [
+        ["수진", "도깨비가 너를 뭐라고 부르면 좋을지 확인해 보자. 네가 고른 이름을 들어 볼래?", "Let's check the name you'd like Dokkaebi to use. Would you like to hear the name you chose?", "Prüfen wir zuerst, wie Dokkaebi dich nennen soll. Möchtest du den Namen hören, den du gewählt hast?"],
+        ["안내", "선택한 이름을 듣고 확인하거나 다시 들을 수 있어요. 이름의 글자를 읽을 필요는 없어요.", "Listen to your chosen name and confirm it, or listen again. You don't need to read its characters.", "Hör dir deinen gewählten Namen an und bestätige ihn oder höre ihn noch einmal. Du musst seine Zeichen nicht lesen können."],
+        ["수진", "네가 고른 이름으로 부를게. 다음에는 이 소리 조각을 다른 곳에도 써 보자.", "I'll use the name you chose. Next, let's use these sound pieces elsewhere too.", "Ich nenne dich so, wie du es gewählt hast. Als Nächstes verwenden wir diese Lautteile auch an anderer Stelle."]
+      ],
+      "oral_note": "개인 이름은 새 자모 평가 자료가 아니다. 선택 이름의 적절한 음성이 없으면 음성 확인을 미평가로 두고 이름 선택/설명 언어 확인으로 참여한다. 프로필 실명·음성 녹음을 요구하지 않는다. 수진과의 첫 만남으로 바꾸지 않는다.",
+      "ending": ["ㄴ·ㅁ을 배운 모음과 만나게 했어요. 다음에는 ㄱ·ㄷ을 배워요.", "You paired ㄴ and ㅁ with familiar vowels. Next, you'll learn ㄱ and ㄷ.", "Du hast ㄴ und ㅁ mit bekannten Vokalen verbunden. Als Nächstes lernst du ㄱ und ㄷ."],
+      "followup": "F0.2.tree-and-hat에서 나무의 뜻을 먼저 가르친 뒤 나·무를 낱말에 다시 사용한다. 지금은 나/너의 인칭대명사 뜻, 무의 채소 뜻을 묻지 않는다."
+    },
+    {
+      "n": 2,
+      "id": "F0.2.two-boxes",
+      "file": "02_TOOL_LABEL.md",
+      "title": ["두 상자와 새로운 첫소리", "Two boxes and new initials", "Zwei Kisten und neue Anfangszeichen"],
+      "new": "ㄱㄷ",
+      "taught": ["가", "고", "다", "도"],
+      "transfer": ["구", "디"],
+      "audio_distractors": ["두", "기"],
+      "vowel_distractors": ["고", "도"],
+      "scenes": [
+        ["도깨비", "물건은 여기 있는데 푯말은 저기 있구나! 먼저 글자부터 살펴보아라.", "The things are here, but their labels are over there! Look at the letters first.", "Die Sachen sind hier, aber ihre Schilder liegen dort! Seht euch zuerst die Zeichen an."],
+        ["수진", "이 푯말에는 아직 연습하지 않은 조합도 있어. ㄱ과 ㄷ부터 하나씩 해 보자.", "This label has combinations we haven't practised yet. Let's start with ㄱ and ㄷ, one at a time.", "Auf diesem Schild stehen Verbindungen, die wir noch nicht geübt haben. Beginnen wir einzeln mit ㄱ und ㄷ."],
+        ["탈선비", "모음의 자리를 살피면서 첫소리를 바꾸어 보세.", "Let's change the initial while watching where the vowel goes.", "Ändern wir das Anfangszeichen und achten dabei auf den Platz des Vokals."]
+      ],
+      "teaching": [
+        ["가", "가 소리를 들어요. ㄱ을 왼쪽에, ㅏ를 오른쪽에 모으면 가예요.", "Listen to 가. Put ㄱ on the left and ㅏ on the right to make 가.", "Hör dir 가 an. Setze ㄱ nach links und ㅏ nach rechts. So entsteht 가."],
+        ["고", "고에서는 ㄱ이 위에, ㅗ가 아래에 와요. 가와 모음의 자리도 달라요.", "In 고, ㄱ goes above and ㅗ below. The vowel's position is different from 가 too.", "Bei 고 steht ㄱ oben und ㅗ darunter. Auch der Platz des Vokals ist anders als bei 가."],
+        ["다", "이번에는 다 소리예요. ㄷ과 ㅏ를 모아요. ㄱ과 ㄷ의 모양과 소리를 따로 살펴봐요.", "Now listen to 다. Put ㄷ and ㅏ together. Look at and listen to ㄱ and ㄷ separately.", "Hör dir jetzt 다 an. Verbinde ㄷ und ㅏ. Sieh und hör dir ㄱ und ㄷ einzeln an."],
+        ["도", "도에서는 ㄷ을 위에, ㅗ를 아래에 놓아요. 같은 모음에 다른 첫소리를 놓아 본 거예요.", "In 도, put ㄷ above ㅗ. You've used a different initial with the same vowel.", "Bei 도 setzt du ㄷ über ㅗ. Du hast denselben Vokal mit einem anderen Anfangszeichen verbunden."]
+      ],
+      "help": ["가·고는 ㄱ, 다·도는 ㄷ으로 시작해요. 두 모형과 소리를 비교한 뒤 다시 해 봐요.", "가 and 고 start with ㄱ; 다 and 도 start with ㄷ. Compare the examples and sounds, then try again.", "가 und 고 beginnen mit ㄱ, 다 und 도 mit ㄷ. Vergleiche die Beispiele und Laute und versuch es dann noch einmal."],
+      "oral": [
+        ["도깨비", "시범을 한 번 더 보겠느냐?", "Would you like to see the example once more?", "Möchtest du das Beispiel noch einmal sehen?"],
+        ["안내", "더 보고 싶으면 네, 지금은 괜찮으면 아니요로 답해 봐요. 두 대답 모두 괜찮아요.", "Say 네 if you'd like to see it again, or 아니요 if you're ready to continue. Either answer is fine.", "Antworte mit 네, wenn du es noch einmal sehen möchtest, oder mit 아니요, wenn du weitermachen möchtest. Beide Antworten sind in Ordnung."],
+        ["도깨비·네 뒤", "좋다. 같은 시범을 다시 보아라.", "All right. Watch the same example again.", "Gut. Sieh dir dasselbe Beispiel noch einmal an."],
+        ["도깨비·아니요 뒤", "좋다. 그럼 다음으로 가 보자꾸나.", "All right. Let's continue, then.", "Gut. Dann machen wir weiter."]
+      ],
+      "oral_note": "네/아니요는 의미와 음성으로 가르치는 응답이다. ㅔ·ㅛ 등 미학습 문자를 해독하게 하지 않는다. 아니요를 오답이나 불성실로 기록하지 않는다. 네 뒤에는 실제 동일 시범을 제공한다.",
+      "ending": ["두 첫소리를 연습했어요. 도구라는 낱말의 뜻도 도움과 함께 살펴봤어요.", "You practised two initials and explored the meaning of 도구 with help.", "Du hast zwei Anfangszeichen geübt und mit Hilfe die Bedeutung von 도구 kennengelernt."],
+      "ending_no_supplement": ["두 첫소리를 연습했어요. 도구라는 낱말의 뜻도 도움과 함께 만나 볼 수 있어요.", "You practised two initials. You can also meet the word 도구 and its meaning with help.", "Du hast zwei Anfangszeichen geübt. Mit Hilfe kannst du auch das Wort 도구 und seine Bedeutung kennenlernen."],
+      "followup": "F0.2.sea-and-bridge에서 다리의 다를 회수한다. ㄱ/ㄷ을 영어 g/d와 동일하다고 설명하지 않는다. 도구 보충은 I 뒤에 제공해 새 조합 구의 첫 확인을 미리 노출하지 않는다.",
+      "supplement": "tools"
+    },
+    {
+      "n": 3,
+      "id": "F0.2.ribbon",
+      "file": "03_FLOOR_REFERENCE.md",
+      "title": ["ㄹ·ㅂ과 마루 사진", "ㄹ, ㅂ and a photo of a maru", "ㄹ, ㅂ und ein Foto eines Maru"],
+      "new": "ㄹㅂ",
+      "taught": ["라", "로", "바", "보"],
+      "transfer": ["리", "부"],
+      "audio_distractors": ["비", "루"],
+      "vowel_distractors": ["로", "보"],
+      "scenes": [
+        ["수진", "창고 정리 옆에 마루 참고 사진도 있어. 사진의 이름을 읽기 전에 첫소리부터 더 익혀 보자.", "There's also a reference photo of a maru beside the storeroom task. Let's learn more initials before reading its name.", "Neben der Aufgabe im Vorratsraum liegt auch ein Referenzfoto eines Maru. Bevor wir die Bezeichnung lesen, lernen wir weitere Anfangszeichen."],
+        ["탈선비", "이번에는 ㄹ과 ㅂ이라네. 글자 하나씩 소리와 함께 만나 보세.", "This time, we'll use ㄹ and ㅂ. Let's meet each written form with its sound.", "Diesmal verwenden wir ㄹ und ㅂ. Lernen wir jedes Zeichen zusammen mit seinem Laut kennen."],
+        ["도깨비", "그건 다른 집의 마루 사진이다. 사진에 붙일 푯말도 잘 챙겨 두어라!", "That's a photo of a maru in another house. Keep its label safe too!", "Das ist ein Foto eines Maru in einem anderen Haus. Bewahrt auch das Schild dafür gut auf!"]
+      ],
+      "teaching": [
+        ["라", "라 소리를 들어요. ㄹ을 왼쪽에, ㅏ를 오른쪽에 놓아요. 영어 r이나 l 하나로 외우지 않고 실제 소리를 들어요.", "Listen to 라. Put ㄹ on the left and ㅏ on the right. Listen to its actual sound rather than treating it as simply English r or l.", "Hör dir 라 an. Setze ㄹ nach links und ㅏ nach rechts. Hör auf den tatsächlichen Laut, statt ihn einfach einem lateinischen r oder l gleichzusetzen."],
+        ["로", "같은 ㄹ 아래에 ㅗ를 놓으면 로예요. 소리를 듣고 위아래 자리를 살펴봐요.", "Put ㅗ below the same ㄹ to make 로. Listen and look at the positions above and below.", "Setze ㅗ unter dasselbe ㄹ. So entsteht 로. Hör zu und sieh dir die Plätze oben und unten an."],
+        ["바", "바에서는 첫소리가 ㅂ이에요. ㅂ과 ㅏ를 좌우로 모아요.", "The initial in 바 is ㅂ. Put ㅂ and ㅏ together side by side.", "Das Anfangszeichen von 바 ist ㅂ. Setze ㅂ und ㅏ nebeneinander."],
+        ["보", "보에서는 ㅂ이 위에, ㅗ가 아래에 와요. 로와 첫소리를 비교해요.", "In 보, ㅂ goes above and ㅗ below. Compare its initial with 로.", "Bei 보 steht ㅂ oben und ㅗ darunter. Vergleiche das Anfangszeichen mit 로."]
+      ],
+      "help": ["라·로는 ㄹ, 바·보는 ㅂ으로 시작해요. 조각의 모양과 소리를 함께 다시 살펴봐요.", "라 and 로 start with ㄹ; 바 and 보 start with ㅂ. Let's revisit the written pieces and their sounds.", "라 und 로 beginnen mit ㄹ, 바 und 보 mit ㅂ. Sehen und hören wir uns die Zeichen noch einmal an."],
+      "oral": [
+        ["수진", "필요한 조각을 가리키면서 주세요라고 부탁해 볼까?", "Shall we point to the piece we need and ask with 주세요?", "Wollen wir auf das benötigte Teil zeigen und mit 주세요 darum bitten?"],
+        ["플레이어·시범", "주세요.", "Please give it to me.", "Bitte gib es mir."],
+        ["수진", "여기 있어. 가리킨 조각을 줄게.", "Here you are. I'll give you the piece you pointed to.", "Hier bitte. Ich gebe dir das Teil, auf das du gezeigt hast."]
+      ],
+      "oral_note": "가리킨 조각은 실제로 전달한다. 주세요의 전체 글자나 리본의 받침을 읽게 하지 않는다. 가까운 수진에게 하는 의미 안내는 DE du. 독립 발화·조사 숙달 판정은 없다.",
+      "ending": ["ㄹ·ㅂ을 익힌 모음과 연결했어요. 마루가 어떤 공간인지 사진과 함께 살펴봤어요.", "You paired ㄹ and ㅂ with familiar vowels and used a photo to explore what a maru is.", "Du hast ㄹ und ㅂ mit bekannten Vokalen verbunden und anhand eines Fotos kennengelernt, was ein Maru ist."],
+      "ending_no_supplement": ["ㄹ·ㅂ을 익힌 모음과 연결했어요. 이어서 마루가 어떤 곳인지 사진과 함께 알아봐요.", "You paired ㄹ and ㅂ with familiar vowels. Next, use a photo to learn what a maru is.", "Du hast ㄹ und ㅂ mit bekannten Vokalen verbunden. Als Nächstes erfährst du anhand eines Fotos, was ein Maru ist."],
+      "followup": "F0.2.sea-and-bridge에서 바다의 바와 다리의 리를 회수한다. 마루는 완성된 목재 바닥 공간의 뜻으로만 가르치며 목재 한 조각을 마루라고 부르지 않는다.",
+      "supplement": "floor"
+    },
+    {
+      "n": 4,
+      "id": "F0.2.two-tracks",
+      "file": "04_TWO_INITIALS.md",
+      "title": ["ㅅ·ㅈ으로 이어 보는 글자", "Building syllables with ㅅ and ㅈ", "Silben mit ㅅ und ㅈ bilden"],
+      "new": "ㅅㅈ",
+      "taught": ["사", "소", "자", "조"],
+      "transfer": ["수", "지"],
+      "audio_distractors": ["주", "시"],
+      "vowel_distractors": ["소", "조"],
+      "scenes": [
+        ["도깨비", "이제 푯말이 좀 읽힐 것 같으냐? 서두르다 첫 조각을 바꾸지는 마라!", "Do the labels look a little more readable to you both now? Don't rush and mix up the initial pieces!", "Könnt ihr die Schilder inzwischen etwas besser lesen? Vertauscht vor lauter Eile nicht die Anfangszeichen!"],
+        ["수진", "이번에는 ㅅ과 ㅈ을 따로 들어 보자. 배운 모음과 만나게 하면 돼.", "Let's listen to ㅅ and ㅈ separately this time. We'll pair them with familiar vowels.", "Hören wir uns diesmal ㅅ und ㅈ einzeln an. Wir verbinden sie mit bekannten Vokalen."],
+        ["탈선비", "서두를 것 없네. 소리를 들으며 글자 하나씩 이어 보세.", "There's no hurry. Let's listen and put the written forms together, one at a time.", "Keine Eile. Hören wir zu und setzen die Zeichen einzeln zusammen."]
+      ],
+      "teaching": [
+        ["사", "사 소리를 들어요. ㅅ을 왼쪽에, ㅏ를 오른쪽에 모아요.", "Listen to 사. Put ㅅ on the left and ㅏ on the right.", "Hör dir 사 an. Setze ㅅ nach links und ㅏ nach rechts."],
+        ["소", "소에서는 ㅅ이 위에, ㅗ가 아래에 와요. 같은 첫소리에 모음을 바꾸었어요.", "In 소, ㅅ goes above and ㅗ below. You've changed the vowel after the same initial.", "Bei 소 steht ㅅ oben und ㅗ darunter. Du hast beim gleichen Anfangszeichen den Vokal geändert."],
+        ["자", "자 소리를 따로 들어요. 첫 조각은 ㅈ이에요. 사와 자의 첫소리를 비교해요.", "Listen to 자 separately. Its initial piece is ㅈ. Compare the initials in 사 and 자.", "Hör dir 자 einzeln an. Das Anfangszeichen ist ㅈ. Vergleiche die Anfangslaute von 사 und 자."],
+        ["조", "조에서는 ㅈ을 위에, ㅗ를 아래에 놓아요. 소와 조를 소리와 모양으로 비교해요.", "In 조, put ㅈ above ㅗ. Compare 소 and 조 by sound and written form.", "Bei 조 setzt du ㅈ über ㅗ. Vergleiche 소 und 조 nach Laut und Schriftform."]
+      ],
+      "help": ["사·소의 첫소리는 ㅅ, 자·조의 첫소리는 ㅈ이에요. 두 짝의 시범을 다시 살펴봐요.", "사 and 소 start with ㅅ; 자 and 조 start with ㅈ. Let's revisit the two pairs.", "사 und 소 beginnen mit ㅅ, 자 und 조 mit ㅈ. Sehen wir uns die beiden Paare noch einmal an."],
+      "oral": [
+        ["수진", "이 조각 좀 건네줄래?", "Could you pass me this piece?", "Kannst du mir dieses Teil geben?"],
+        ["안내", "수진이 가리킨 조각을 건네줘요. 말이 어려우면 뜻 안내를 다시 볼 수 있어요.", "Give Sujin the piece Sujin points to. You can revisit the meaning if the words are difficult.", "Gib Sujin das Teil, auf das Sujin zeigt. Wenn die Worte schwierig sind, kannst du die Bedeutung noch einmal ansehen."],
+        ["수진", "고마워. 같은 조각을 보고 있었네.", "Thanks. We were looking at the same piece.", "Danke. Wir haben auf dasselbe Teil geschaut."]
+      ],
+      "oral_note": "손짓으로 대상이 분명한 전달 연습이다. 긴 한국어 지시를 독립 청취했다고 판정하지 않는다. 모자 등의 뜻을 가르치기 전에 사물 명칭으로 전달 시험을 내지 않는다.",
+      "ending": ["ㅅ·ㅈ과 모음의 조합을 연습했어요. 모자의 자도 나중에 다시 만나요.", "You practised combining ㅅ and ㅈ with vowels. You'll meet 자 again in 모자 later.", "Du hast ㅅ und ㅈ mit Vokalen verbunden. 자 begegnet dir später im Wort 모자 wieder."],
+      "followup": "F0.2.tree-and-hat에서 모자의 뜻을 먼저 가르친 뒤 자를 회수한다. 수의 숫자 뜻·지의 문법 기능은 이 단원의 평가가 아니다."
+    },
+    {
+      "n": 5,
+      "id": "F0.2.warm-breath",
+      "file": "05_BREATH_AND_REPEAT.md",
+      "title": ["ㅎ을 듣고 다시 부탁하기", "Hearing ㅎ and asking for a repeat", "ㅎ hören und um Wiederholung bitten"],
+      "new": "ㅎ",
+      "taught": ["하", "호", "허", "흐"],
+      "transfer": ["후", "히"],
+      "audio_distractors": ["우", "이"],
+      "vowel_distractors": ["호", "하"],
+      "scenes": [
+        ["탈선비", "이번에는 첫자리에 ㅎ을 놓아 보세. 소리가 없는 첫자리 ㅇ과 달리 ㅎ은 소리가 난다네.", "This time, let's put ㅎ in the initial position. Unlike silent initial ㅇ, ㅎ has a sound.", "Setzen wir diesmal ㅎ an den Anfang. Anders als das stumme ㅇ am Silbenanfang hat ㅎ einen Laut."],
+        ["수진", "소리가 잘 안 잡히면 다시 부탁하자. 급하게 맞힐 필요 없어.", "Let's ask to hear it again if the sound isn't clear to us. There's no need to rush an answer.", "Wenn wir den Laut nicht gut erkennen, bitten wir um Wiederholung. Du musst nicht schnell antworten."],
+        ["도깨비", "나처럼 큰 소리부터 낼 필요는 없다. 천천히 들어 보아라.", "Neither of you needs to start by shouting like me. Listen carefully, at your own pace.", "Ihr müsst nicht gleich so laut rufen wie ich. Hört in Ruhe zu."]
+      ],
+      "teaching": [
+        ["하", "하 소리를 들어요. ㅎ을 왼쪽에, ㅏ를 오른쪽에 놓아요. 첫자리의 ㅇ과 달리 ㅎ은 소리가 있어요.", "Listen to 하. Put ㅎ on the left and ㅏ on the right. Unlike initial ㅇ, ㅎ has a sound.", "Hör dir 하 an. Setze ㅎ nach links und ㅏ nach rechts. Anders als ㅇ am Silbenanfang hat ㅎ einen Laut."],
+        ["호", "호에서는 ㅎ이 위에, ㅗ가 아래에 와요. 하와 모음의 자리도 비교해요.", "In 호, ㅎ goes above and ㅗ below. Compare the vowel position with 하 too.", "Bei 호 steht ㅎ oben und ㅗ darunter. Vergleiche auch den Platz des Vokals mit 하."],
+        ["허", "이번에는 ㅎ과 ㅓ를 모아 허를 들어요. 새로운 받침은 없어요.", "Now combine ㅎ and ㅓ and listen to 허. There is no final consonant here.", "Verbinde jetzt ㅎ und ㅓ und hör dir 허 an. Hier gibt es keinen Endkonsonanten."],
+        ["흐", "ㅎ 아래에 ㅡ를 놓으면 흐예요. 처음 배운 으와 첫자리가 달라요.", "Put ㅡ below ㅎ to make 흐. Its initial is different from the 으 you learned earlier.", "Setze ㅡ unter ㅎ. So entsteht 흐. Sein Anfangszeichen unterscheidet sich von dem früher gelernten 으."]
+      ],
+      "help": ["첫자리 ㅇ은 이 음절들에서 소리가 없고, ㅎ은 소리가 있어요. 아와 하의 모형과 소리를 함께 다시 봐요.", "Initial ㅇ is silent in these syllables, while ㅎ has a sound. Let's revisit 아 and 하 with their written forms and audio.", "ㅇ am Anfang dieser Silben ist stumm, ㅎ hat dagegen einen Laut. Sehen und hören wir uns 아 und 하 noch einmal gemeinsam an."],
+      "oral": [
+        ["탈선비", "한 번 더 듣고 싶은 소리가 있는가?", "Is there a sound you'd like to hear once more?", "Gibt es einen Laut, den du noch einmal hören möchtest?"],
+        ["플레이어·시범", "다시 말해 주세요.", "Please say that again.", "Sagen Sie das bitte noch einmal."],
+        ["탈선비", "물론이지. 방금 들은 소리를 다시 들려주겠네.", "Of course. I'll play the sound you just heard again.", "Natürlich. Ich spiele dir den gerade gehörten Laut noch einmal vor."]
+      ],
+      "oral_note": "방금 선택한/들었던 학습 음성을 그대로 재생한다. 아직 처음 확인할 후·히를 시범 단계에서 재생하지 않는다. 재요청은 선택이며 잘 들렸어도 연습할 수 있다. 마이크 권한·발음 점수·호흡량 측정은 요구하지 않는다.",
+      "ending": ["ㅎ과 익힌 모음을 이어 봤어요. 다음에는 배운 글자가 낱말의 뜻과 만나요.", "You paired ㅎ with familiar vowels. Next, you'll connect familiar written forms with word meanings.", "Du hast ㅎ mit bekannten Vokalen verbunden. Als Nächstes verknüpfst du bekannte Schriftformen mit Wortbedeutungen."],
+      "followup": "F0.3.air-one에서 ㅋ를 새로 가르친 뒤 하/카를 비교한다. 아직 배우지 않은 ㅋ를 이 단원의 듣기 오답으로 넣지 않는다."
+    }
+  ]
+}

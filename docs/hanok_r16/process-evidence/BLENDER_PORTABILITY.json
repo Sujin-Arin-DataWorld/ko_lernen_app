@@ -1,0 +1,391 @@
+{
+  "complete": true,
+  "files": [
+    {
+      "key": "sarang",
+      "kind": "full",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\sarang\\full.blend",
+      "sha256": "b001666cef8bf9d0a23157c2aebb220d1df22f3b00698482e8277e9680049d12",
+      "reopened": true,
+      "packedImages": 42,
+      "externalImagesRequired": false,
+      "checkedStages": 0,
+      "cameraPresent": true
+    },
+    {
+      "key": "sarang",
+      "kind": "stage",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\sarang\\stage.blend",
+      "sha256": "e472d6d44973a541bc871254a0c949f3439351401cf6956df41698e4f3c5f578",
+      "reopened": true,
+      "packedImages": 42,
+      "externalImagesRequired": false,
+      "checkedStages": 16,
+      "cameraPresent": true
+    },
+    {
+      "key": "ansarang",
+      "kind": "full",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\ansarang\\full.blend",
+      "sha256": "06d3925b6ebd508967bb6b2c46d509e58e32c6d4c52b0df280a1d52a741e88f9",
+      "reopened": true,
+      "packedImages": 128,
+      "externalImagesRequired": false,
+      "checkedStages": 0,
+      "cameraPresent": true
+    },
+    {
+      "key": "ansarang",
+      "kind": "stage",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\ansarang\\stage.blend",
+      "sha256": "48f51680ee187f41c90fa9e8e9efc14a54601702d5725eb1fd83fc02ba520a25",
+      "reopened": true,
+      "packedImages": 128,
+      "externalImagesRequired": false,
+      "checkedStages": 14,
+      "cameraPresent": true
+    },
+    {
+      "key": "anchae",
+      "kind": "full",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\anchae\\full.blend",
+      "sha256": "3602b84f788337f1037b104daf525a95067e0def74e261a267b765064e818613",
+      "reopened": true,
+      "packedImages": 109,
+      "externalImagesRequired": false,
+      "checkedStages": 0,
+      "cameraPresent": true
+    },
+    {
+      "key": "anchae",
+      "kind": "stage",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\anchae\\stage.blend",
+      "sha256": "c1f6c07756ab2fe9636d1a25305746a7bb6179a291d4f6ed11e584af42542c47",
+      "reopened": true,
+      "packedImages": 109,
+      "externalImagesRequired": false,
+      "checkedStages": 14,
+      "cameraPresent": true
+    },
+    {
+      "key": "sadang",
+      "kind": "full",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\sadang\\full.blend",
+      "sha256": "cccb2806bf97555eae3429faeec42752fb94e19d00ba456a97064efff964f8b6",
+      "reopened": true,
+      "packedImages": 54,
+      "externalImagesRequired": false,
+      "checkedStages": 0,
+      "cameraPresent": true
+    },
+    {
+      "key": "sadang",
+      "kind": "stage",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\sadang\\stage.blend",
+      "sha256": "117ca49764b59b5ac8ccc6edd9ca5174fcf5fc1010ad6153ed740eb2dc4b3012",
+      "reopened": true,
+      "packedImages": 54,
+      "externalImagesRequired": false,
+      "checkedStages": 12,
+      "cameraPresent": true
+    },
+    {
+      "key": "jung",
+      "kind": "full",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\jung\\full.blend",
+      "sha256": "5257728066bd62b8a38fbf897890b093ab98523316665927f00e7049fb8ac1ab",
+      "reopened": true,
+      "packedImages": 42,
+      "externalImagesRequired": false,
+      "checkedStages": 0,
+      "cameraPresent": true
+    },
+    {
+      "key": "jung",
+      "kind": "stage",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\jung\\stage.blend",
+      "sha256": "1f2290ce6c4ed7fb4992d83accb8881ea8018a415eb94845cfc434df04565f11",
+      "reopened": true,
+      "packedImages": 42,
+      "externalImagesRequired": false,
+      "checkedStages": 12,
+      "cameraPresent": true
+    },
+    {
+      "key": "arae",
+      "kind": "full",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\arae\\full.blend",
+      "sha256": "b97426e3ed7e673a484bb4ca822289a4fc42fe7da2bfd6899daa08ffc69e035c",
+      "reopened": true,
+      "packedImages": 76,
+      "externalImagesRequired": false,
+      "checkedStages": 0,
+      "cameraPresent": true
+    },
+    {
+      "key": "arae",
+      "kind": "stage",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\arae\\stage.blend",
+      "sha256": "fff63830a310bf060378c6b90b69caa8b5d256043086739286a49676498a377b",
+      "reopened": true,
+      "packedImages": 76,
+      "externalImagesRequired": false,
+      "checkedStages": 12,
+      "cameraPresent": true
+    },
+    {
+      "key": "gokgan",
+      "kind": "full",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\gokgan\\full.blend",
+      "sha256": "302449fce492fe60e949757b44157cba0fd7849bd75022193b9a028ff5f0e8d8",
+      "reopened": true,
+      "packedImages": 60,
+      "externalImagesRequired": false,
+      "checkedStages": 0,
+      "cameraPresent": true
+    },
+    {
+      "key": "gokgan",
+      "kind": "stage",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\gokgan\\stage.blend",
+      "sha256": "41bad121ab6bd6f8131451437f22f2c8377c59d5e66c397dd1baf5efeb3fdd8a",
+      "reopened": true,
+      "packedImages": 60,
+      "externalImagesRequired": false,
+      "checkedStages": 11,
+      "cameraPresent": true
+    },
+    {
+      "key": "angotgan",
+      "kind": "full",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\angotgan\\full.blend",
+      "sha256": "e8f600ba76db069d1c70517ee29be321df5817e8441160e52ac98413e426b4ae",
+      "reopened": true,
+      "packedImages": 26,
+      "externalImagesRequired": false,
+      "checkedStages": 0,
+      "cameraPresent": true
+    },
+    {
+      "key": "angotgan",
+      "kind": "stage",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\angotgan\\stage.blend",
+      "sha256": "6370e61ab337a4dbf451dd9e02eaf4f65794fd94b11870bdf79f2a58769caa10",
+      "reopened": true,
+      "packedImages": 26,
+      "externalImagesRequired": false,
+      "checkedStages": 11,
+      "cameraPresent": true
+    },
+    {
+      "key": "changgo",
+      "kind": "full",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\changgo\\full.blend",
+      "sha256": "cbab7c5857cbb8d5d278629b6da6058f603a4a9aaa9d90f6d3f3cf4f1bd32a85",
+      "reopened": true,
+      "packedImages": 29,
+      "externalImagesRequired": false,
+      "checkedStages": 0,
+      "cameraPresent": true
+    },
+    {
+      "key": "changgo",
+      "kind": "stage",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\changgo\\stage.blend",
+      "sha256": "af708cfac5c6d21004f6a894cbef8cdc40c60ebec41974380475a631bc5ccdd9",
+      "reopened": true,
+      "packedImages": 29,
+      "externalImagesRequired": false,
+      "checkedStages": 8,
+      "cameraPresent": true
+    },
+    {
+      "key": "toilet",
+      "kind": "full",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\toilet\\full.blend",
+      "sha256": "001c38ecb9fdd10aeef7595b734796889b3661076efcc84823332651f3317b4f",
+      "reopened": true,
+      "packedImages": 32,
+      "externalImagesRequired": false,
+      "checkedStages": 0,
+      "cameraPresent": true
+    },
+    {
+      "key": "toilet",
+      "kind": "stage",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\toilet\\stage.blend",
+      "sha256": "d015775d7e15178f14ce617366daadc8bd291f9044bae5e2c906f362739b91f5",
+      "reopened": true,
+      "packedImages": 32,
+      "externalImagesRequired": false,
+      "checkedStages": 9,
+      "cameraPresent": true
+    },
+    {
+      "key": "toilet1",
+      "kind": "full",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\toilet1\\full.blend",
+      "sha256": "d4877d10cf9cedc0a38804cd16e5ed4616d254cc9a8588e1a881b864bab5e8ef",
+      "reopened": true,
+      "packedImages": 21,
+      "externalImagesRequired": false,
+      "checkedStages": 0,
+      "cameraPresent": true
+    },
+    {
+      "key": "toilet1",
+      "kind": "stage",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\native\\toilet1\\stage.blend",
+      "sha256": "5365313cfbac869dd13d7f331c80f3fcd81f73d632fbac647dfd379e205c668d",
+      "reopened": true,
+      "packedImages": 21,
+      "externalImagesRequired": false,
+      "checkedStages": 9,
+      "cameraPresent": true
+    },
+    {
+      "key": "left",
+      "kind": "gate-structural",
+      "original": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\inputs\\r12\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\left-new.blend",
+      "originalSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\left-structural.blend",
+      "sha256": "36b4c3f4699ef154d3192a449eea52cdbb1507ccab690944a79e80da8196a35c",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "geometryNamesUVTransformsPropertiesUnchanged": true,
+      "copiedImages": []
+    },
+    {
+      "key": "left",
+      "kind": "gate-material",
+      "original": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\inputs\\r12\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-buildings-r5\\left_changgo\\left_changgo-r5-brush-candidate.blend",
+      "originalSha256": "237cf14ede53373ed39879d13ac6dad8fd9d598ba898415d8e094b6ef1e124ac",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\left-material.blend",
+      "sha256": "a44ba08bbdad79ac3fc0e746a2a1d8cc5ac062c4448e21150794f2225060afb7",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "geometryNamesUVTransformsPropertiesUnchanged": true,
+      "copiedImages": []
+    },
+    {
+      "key": "right",
+      "kind": "gate-structural",
+      "original": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\inputs\\r12\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\right-new.blend",
+      "originalSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\right-structural.blend",
+      "sha256": "b27cae98f2424522f3b0b9988748fcab1b32476dbd6b741270feee571c4ad720",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "geometryNamesUVTransformsPropertiesUnchanged": true,
+      "copiedImages": []
+    },
+    {
+      "key": "right",
+      "kind": "gate-material",
+      "original": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\inputs\\r12\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-buildings-r5\\right_ansarang\\right_ansarang-r5-brush-candidate.blend",
+      "originalSha256": "eb9064848e456d2faefdbf3cf1fd6cb2e4344cdd8b9b58adb0e259d10252519e",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\right-material.blend",
+      "sha256": "55f5c6c7a5b0a32f6f7ac79c6dbf9d11878b979b208ddcf66d64eeed1dc91699",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "geometryNamesUVTransformsPropertiesUnchanged": true,
+      "copiedImages": []
+    },
+    {
+      "key": "shrine",
+      "kind": "gate-structural",
+      "original": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\inputs\\r12\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\shrine-new.blend",
+      "originalSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\shrine-structural.blend",
+      "sha256": "faebecf9cba14f7278ef611d002362f503fbfcd5705811d1ab19922a0d913686",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "geometryNamesUVTransformsPropertiesUnchanged": true,
+      "copiedImages": []
+    },
+    {
+      "key": "shrine",
+      "kind": "gate-material",
+      "original": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\inputs\\r12\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-buildings-r5\\sadangmun\\sadangmun-r5-brush-candidate.blend",
+      "originalSha256": "631767b183d2ef7802303b0ddb29fae78b38e8a91ea0c2ad957483098fbb551b",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\gates\\native\\shrine-material.blend",
+      "sha256": "a13ee80980f0445e1cd2bf79e028ec12c63517b9d54d40edba837f984210ce6e",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "geometryNamesUVTransformsPropertiesUnchanged": true,
+      "copiedImages": []
+    }
+  ],
+  "renders": [
+    {
+      "path": "validation/sarang-full.png",
+      "sha256": "547241aa49620c43966bd3d1c5c3736704fedcd116277a9e3b1bd06787ccbe54",
+      "frame": null,
+      "width": 320,
+      "height": 213,
+      "purpose": "portable smoke render"
+    },
+    {
+      "path": "validation/sarang-stage-1.png",
+      "sha256": "c43b3fa3f9b2facf1144e854df0e8d3615ecc4a55767d4c637d49d5ea077d931",
+      "frame": 1,
+      "width": 320,
+      "height": 213,
+      "purpose": "portable smoke render"
+    },
+    {
+      "path": "validation/sarang-stage-8.png",
+      "sha256": "4ceb0f18217156df99eab7a13775c3faad74ff1383d1044dc3813a99e692ed3f",
+      "frame": 8,
+      "width": 320,
+      "height": 213,
+      "purpose": "portable smoke render"
+    },
+    {
+      "path": "validation/sarang-stage-16.png",
+      "sha256": "a92a61345f1d7d4678db3a49768358688ac1a6f77ecb62b671a208e0e91189fe",
+      "frame": 16,
+      "width": 320,
+      "height": 213,
+      "purpose": "portable smoke render"
+    },
+    {
+      "path": "validation/anchae-full.png",
+      "sha256": "b1459c2a953d9eab7e726f78347db84575a747ae863729ac1ae97e86b1dec196",
+      "frame": null,
+      "width": 320,
+      "height": 213,
+      "purpose": "portable smoke render"
+    },
+    {
+      "path": "validation/gate-left.png",
+      "sha256": "c0234ce500a2fcb4ba54aa0eedc68dc4cb1e464b5b98c234ef83c808144519cb",
+      "frame": null,
+      "width": 320,
+      "height": 213,
+      "purpose": "portable smoke render"
+    },
+    {
+      "path": "validation/gate-right.png",
+      "sha256": "f96116e9b3f3420eba0fb25696b9c930f0fa233032346febb115fa270519eafe",
+      "frame": null,
+      "width": 320,
+      "height": 213,
+      "purpose": "portable smoke render"
+    },
+    {
+      "path": "validation/gate-shrine.png",
+      "sha256": "1e70b7b45b5fdc4aa2478ba43492bd2082cb5a2e2a76979907723d25c92e1986",
+      "frame": null,
+      "width": 320,
+      "height": 213,
+      "purpose": "portable smoke render"
+    }
+  ],
+  "gateOriginalsPreserved": true,
+  "runtimeIntegrated": false,
+  "glbPbrBakeComplete": false,
+  "r16Natives": 22,
+  "checkedStages": 128,
+  "gateNatives": 6
+}

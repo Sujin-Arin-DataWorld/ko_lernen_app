@@ -1,3 +1,5 @@
+import 'package:ko_lernen_app/widgets/practice_dokkaebi_art.dart';
+import 'package:ko_lernen_app/widgets/practice_dokkaebi_help.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,8 +19,9 @@ const h = SilbenWord(
   col: 0,
   answer: '가나다',
   german: 'across',
-  exampleKo: '',
-  exampleDe: '',
+  exampleKo: '◯◯◯를 읽어요.',
+  exampleDe: 'Lies diese drei Silben.',
+  exampleEn: 'Read these three syllables.',
 );
 const v = SilbenWord(
   dir: 'v',
@@ -65,6 +68,78 @@ void main() {
     await Storage.init();
     stubSoriSpeech();
   });
+  for (final size in [
+    const Size(320, 640),
+    const Size(390, 844),
+    const Size(844, 390),
+    const Size(800, 1280),
+  ]) {
+    testWidgets('club contact stays on the board edge at $size', (
+      tester,
+    ) async {
+      tester.view.physicalSize = size;
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(host(null));
+      await pumpSoriStage(tester);
+      final stage = tester.getRect(
+        find.byKey(const ValueKey('dokkaebi-motion-stage')),
+      );
+      final ledge = tester.getRect(
+        find.byKey(const ValueKey('dokkaebi-board-ledge')),
+      );
+      final contact = Offset(
+        stage.left + stage.width * ((1200 * .838 - 120) / 984),
+        stage.top + stage.height * ((1200 * .921 - 56) / 1088),
+      );
+      expect(contact.dy, closeTo(ledge.top, .01));
+      expect(contact.dx, inInclusiveRange(ledge.left, ledge.right));
+      final cell = tester.getRect(
+        find.byKey(const ValueKey('silben-cell-0-1')),
+      );
+      expect(stage.overlaps(cell), isFalse);
+      final arena = tester.getRect(
+        find.byKey(const ValueKey('dokkaebi-arena-fire')),
+      );
+      final help = tester.getRect(find.byType(PracticeDokkaebiHelp));
+      expect(help.top - arena.bottom, greaterThanOrEqualTo(16));
+      expect(tester.takeException(), isNull);
+      await tap(tester, find.byKey(const ValueKey('dokkaebi-introduction')));
+      expect(find.text('도깨비'), findsOneWidget);
+      expect(PracticeHistoryStore.load().items.single.assisted, isNull);
+      expect(PracticeHistoryStore.load().items.single.independent, isNull);
+      expect(Storage.xp, 0);
+      await tap(tester, find.text('Back to the puzzle'));
+      expect(find.byKey(const ValueKey('dokkaebi-hint')), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+  }
+  testWidgets(
+    'compact help adds a new sentence and word path, without placing a tile',
+    (tester) async {
+      await tester.pumpWidget(host(null));
+      await pumpSoriStage(tester);
+      await tap(tester, find.byKey(const ValueKey('silben-clue-0')));
+      expect(find.text(h.exampleKo), findsNothing);
+      expect(find.text(h.exampleEn), findsNothing);
+      expect(
+        tester.getSize(find.byType(PracticeDokkaebiHelp)).height,
+        lessThanOrEqualTo(84),
+      );
+      await tap(tester, find.byKey(const ValueKey('dokkaebi-hint')));
+      expect(find.text(h.exampleKo), findsOneWidget);
+      expect(find.text(h.exampleEn), findsOneWidget);
+      expect(find.text('3 syllables · Start: row 2, column 1'), findsOneWidget);
+      final selected = tester.widget<Semantics>(
+        find.byKey(const ValueKey('silben-cell-1-0')),
+      );
+      expect(selected.properties.label, contains('Open'));
+      expect(PracticeHistoryStore.load().items.single.assisted, isNull);
+      expect(Storage.xp, 0);
+      expect(tester.takeException(), isNull);
+    },
+  );
   testWidgets(
     'opening and reopening a puzzle stores viewing without completion or rewards',
     (tester) async {
@@ -76,6 +151,14 @@ void main() {
       expect(viewed.independent, isNull);
       expect(Storage.xp, 0);
       expect(Storage.gameBest('skz_a1'), 0);
+      expect(
+        find.byWidgetPredicate(
+          (w) =>
+              w is PracticeDokkaebiArt &&
+              w.pose == PracticeDokkaebiPose.celebrate,
+        ),
+        findsNothing,
+      );
       await tester.pumpWidget(const SizedBox());
       await tester.pumpWidget(
         host(SilbenReviewRequest(puzzleId: p.id, level: 'a1', revision: 1)),
@@ -146,6 +229,14 @@ void main() {
       }
       expect(PracticeHistoryStore.load().items.single.assisted, isNotNull);
       expect(Storage.xp, 30);
+      expect(
+        find.byWidgetPredicate(
+          (w) =>
+              w is PracticeDokkaebiArt &&
+              w.pose == PracticeDokkaebiPose.celebrate,
+        ),
+        findsOneWidget,
+      );
       final t = AppL10n.of(tester.element(find.byType(SilbenKreuzScreen)));
       final destination = find.text(t.practiceToSarangbang);
       expect(destination, findsOneWidget);
@@ -182,6 +273,14 @@ void main() {
       expect(Storage.xp, 0);
       expect(Storage.gameBest('skz_a1'), 0);
       expect(tester.takeException(), isNull);
+      expect(
+        find.byWidgetPredicate(
+          (w) =>
+              w is PracticeDokkaebiArt &&
+              w.pose == PracticeDokkaebiPose.celebrate,
+        ),
+        findsOneWidget,
+      );
     },
   );
 }

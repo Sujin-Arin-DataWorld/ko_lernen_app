@@ -1,0 +1,1094 @@
+[
+  {
+    "name": "Sarang.main roof left ornament.finial edge",
+    "min": [
+      0.7960000038146973,
+      1.8450000286102295,
+      6.659999847412109
+    ],
+    "max": [
+      0.9039999842643738,
+      2.1449999809265137,
+      7.090000152587891
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "HS detail4 tile | HS reference 3 tile | HS fresh tile | HS3 tile | HS2 tile | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+    ]
+  },
+  {
+    "name": "Sarang.main roof left ornament.original patterned face",
+    "min": [
+      0.7960000038146973,
+      1.8450000286102295,
+      6.659999847412109
+    ],
+    "max": [
+      0.7960000038146973,
+      2.1449999809265137,
+      7.090000152587891
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "R6 restored paint | Original Sarang finial pigment.002"
+    ]
+  },
+  {
+    "name": "Sarang.main roof left ornament.original patterned face.001",
+    "min": [
+      0.9039999842643738,
+      1.8450000286102295,
+      6.659999847412109
+    ],
+    "max": [
+      0.9039999842643738,
+      2.1449999809265137,
+      7.090000152587891
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "R6 restored paint | Original Sarang finial pigment.002"
+    ]
+  },
+  {
+    "name": "Sarang.main roof left ornament.pale base",
+    "min": [
+      0.7200000286102295,
+      1.850000023841858,
+      6.454999923706055
+    ],
+    "max": [
+      0.9800000190734863,
+      2.140000104904175,
+      6.744999885559082
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "HS detail4 tile | HS reference 3 tile | HS fresh tile | HS3 tile | HS2 tile | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+    ]
+  },
+  {
+    "name": "Sarang.main roof right ornament.finial edge",
+    "min": [
+      13.645999908447266,
+      1.8450000286102295,
+      6.650000095367432
+    ],
+    "max": [
+      13.753999710083008,
+      2.1449999809265137,
+      7.079999923706055
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "HS detail4 tile | HS reference 3 tile | HS fresh tile | HS3 tile | HS2 tile | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+    ]
+  },
+  {
+    "name": "Sarang.main roof right ornament.original patterned face",
+    "min": [
+      13.645999908447266,
+      1.8450000286102295,
+      6.650000095367432
+    ],
+    "max": [
+      13.645999908447266,
+      2.1449999809265137,
+      7.079999923706055
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "R6 restored paint | Original Sarang finial pigment.002"
+    ]
+  },
+  {
+    "name": "Sarang.main roof right ornament.original patterned face.001",
+    "min": [
+      13.753999710083008,
+      1.8450000286102295,
+      6.650000095367432
+    ],
+    "max": [
+      13.753999710083008,
+      2.1449999809265137,
+      7.079999923706055
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "R6 restored paint | Original Sarang finial pigment.002"
+    ]
+  },
+  {
+    "name": "Sarang.main roof right ornament.pale base",
+    "min": [
+      13.569999694824219,
+      1.850000023841858,
+      6.445000171661377
+    ],
+    "max": [
+      13.829999923706055,
+      2.140000104904175,
+      6.735000133514404
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "HS detail4 tile | HS reference 3 tile | HS fresh tile | HS3 tile | HS2 tile | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+    ]
+  },
+  {
+    "name": "Sarang.numaru roof end ornament.finial edge",
+    "min": [
+      12.40999984741211,
+      -3.5439999103546143,
+      6.659999847412109
+    ],
+    "max": [
+      12.710000038146973,
+      -3.436000108718872,
+      7.090000152587891
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "HS detail4 tile | HS reference 3 tile | HS fresh tile | HS3 tile | HS2 tile | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+    ]
+  },
+  {
+    "name": "Sarang.numaru roof end ornament.original patterned face",
+    "min": [
+      12.40999984741211,
+      -3.5439999103546143,
+      6.659999847412109
+    ],
+    "max": [
+      12.710000038146973,
+      -3.5439999103546143,
+      7.090000152587891
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "R6 restored paint | Original Sarang finial pigment.001"
+    ]
+  },
+  {
+    "name": "Sarang.numaru roof end ornament.original patterned face.001",
+    "min": [
+      12.40999984741211,
+      -3.436000108718872,
+      6.659999847412109
+    ],
+    "max": [
+      12.710000038146973,
+      -3.436000108718872,
+      7.090000152587891
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "R6 restored paint | Original Sarang finial pigment.001"
+    ]
+  },
+  {
+    "name": "Sarang.numaru roof end ornament.pale base",
+    "min": [
+      12.414999961853027,
+      -3.619999885559082,
+      6.454999923706055
+    ],
+    "max": [
+      12.704999923706055,
+      -3.359999895095825,
+      6.744999885559082
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "HS detail4 tile | HS reference 3 tile | HS fresh tile | HS3 tile | HS2 tile | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+    ]
+  },
+  {
+    "name": "Sarang.roof left lower gable finial.finial edge",
+    "min": [
+      0.813480019569397,
+      0.27300000190734863,
+      5.1479997634887695
+    ],
+    "max": [
+      0.8869199752807617,
+      4.300000190734863,
+      5.440400123596191
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "HS detail4 tile | HS reference 3 tile | HS fresh tile | HS3 tile | HS2 tile | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+    ]
+  },
+  {
+    "name": "Sarang.roof left lower gable finial.original patterned face",
+    "min": [
+      0.813480019569397,
+      0.27300000190734863,
+      5.1479997634887695
+    ],
+    "max": [
+      0.813480019569397,
+      0.47699999809265137,
+      5.440400123596191
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "R6 restored paint | Original Sarang finial pigment.002"
+    ]
+  },
+  {
+    "name": "Sarang.roof left lower gable finial.original patterned face.001",
+    "min": [
+      0.8869199752807617,
+      0.27300000190734863,
+      5.1479997634887695
+    ],
+    "max": [
+      0.8869199752807617,
+      0.47699999809265137,
+      5.440400123596191
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "R6 restored paint | Original Sarang finial pigment.002"
+    ]
+  },
+  {
+    "name": "Sarang.roof left lower gable finial.original patterned face.002",
+    "min": [
+      0.813480019569397,
+      4.0960001945495605,
+      5.1479997634887695
+    ],
+    "max": [
+      0.813480019569397,
+      4.300000190734863,
+      5.440400123596191
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "R6 restored paint | Original Sarang finial pigment.002"
+    ]
+  },
+  {
+    "name": "Sarang.roof left lower gable finial.original patterned face.003",
+    "min": [
+      0.8869199752807617,
+      4.0960001945495605,
+      5.1479997634887695
+    ],
+    "max": [
+      0.8869199752807617,
+      4.300000190734863,
+      5.440400123596191
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "R6 restored paint | Original Sarang finial pigment.002"
+    ]
+  },
+  {
+    "name": "Sarang.roof left lower gable finial.pale base",
+    "min": [
+      0.7617999911308289,
+      0.27639999985694885,
+      5.008600234985352
+    ],
+    "max": [
+      0.9386000037193298,
+      4.296599864959717,
+      5.2058000564575195
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "HS detail4 tile | HS reference 3 tile | HS fresh tile | HS3 tile | HS2 tile | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+    ]
+  },
+  {
+    "name": "Sarang.roof numaru lower gable finial.finial edge",
+    "min": [
+      10.84280014038086,
+      -3.52731990814209,
+      5.1479997634887695
+    ],
+    "max": [
+      14.277199745178223,
+      -3.4538800716400146,
+      5.440400123596191
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "HS detail4 tile | HS reference 3 tile | HS fresh tile | HS3 tile | HS2 tile | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+    ]
+  },
+  {
+    "name": "Sarang.roof numaru lower gable finial.original patterned face",
+    "min": [
+      10.84280014038086,
+      -3.52731990814209,
+      5.1479997634887695
+    ],
+    "max": [
+      11.046799659729004,
+      -3.52731990814209,
+      5.440400123596191
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "R6 restored paint | Original Sarang finial pigment.001"
+    ]
+  },
+  {
+    "name": "Sarang.roof numaru lower gable finial.original patterned face.001",
+    "min": [
+      10.84280014038086,
+      -3.4538800716400146,
+      5.1479997634887695
+    ],
+    "max": [
+      11.046799659729004,
+      -3.4538800716400146,
+      5.440400123596191
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "R6 restored paint | Original Sarang finial pigment.001"
+    ]
+  },
+  {
+    "name": "Sarang.roof numaru lower gable finial.original patterned face.002",
+    "min": [
+      14.073200225830078,
+      -3.52731990814209,
+      5.1479997634887695
+    ],
+    "max": [
+      14.277199745178223,
+      -3.52731990814209,
+      5.440400123596191
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "R6 restored paint | Original Sarang finial pigment.001"
+    ]
+  },
+  {
+    "name": "Sarang.roof numaru lower gable finial.original patterned face.003",
+    "min": [
+      14.073200225830078,
+      -3.4538800716400146,
+      5.1479997634887695
+    ],
+    "max": [
+      14.277199745178223,
+      -3.4538800716400146,
+      5.440400123596191
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "R6 restored paint | Original Sarang finial pigment.001"
+    ]
+  },
+  {
+    "name": "Sarang.roof numaru lower gable finial.pale base",
+    "min": [
+      10.846199989318848,
+      -3.5789999961853027,
+      5.008600234985352
+    ],
+    "max": [
+      14.273799896240234,
+      -3.4021999835968018,
+      5.2058000564575195
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "HS detail4 tile | HS reference 3 tile | HS fresh tile | HS3 tile | HS2 tile | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+    ]
+  },
+  {
+    "name": "Sarang.roof outer low cap left",
+    "min": [
+      -1.4800000190734863,
+      -1.4800000190734863,
+      4.795000076293945
+    ],
+    "max": [
+      -1.2799999713897705,
+      -1.2799999713897705,
+      4.994999885559082
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "HS detail4 tile | HS reference 3 tile | HS fresh tile | HS3 tile | HS2 tile | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+    ]
+  },
+  {
+    "name": "Sarang.roof outer low cap numaru",
+    "min": [
+      15.824999809265137,
+      -5.474999904632568,
+      4.795000076293945
+    ],
+    "max": [
+      16.024999618530273,
+      -5.275000095367432,
+      4.994999885559082
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "materials": [
+      "HS detail4 tile | HS reference 3 tile | HS fresh tile | HS3 tile | HS2 tile | Ildu craft tile | R6 restored tile | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52.001"
+    ]
+  }
+]

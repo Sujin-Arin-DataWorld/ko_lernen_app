@@ -1,0 +1,749 @@
+{
+  "GyeCraft.toilet1.irregular paving 0": {
+    "memberId": "ildu.toilet-south.part.df21b1d4b11e929d60b6",
+    "sourceObject": "GyeCraft.toilet1.irregular paving 0",
+    "reviewStage": 9,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.toilet1.irregular paving 1": {
+    "memberId": "ildu.toilet-south.part.616cd012f2221df18e4c",
+    "sourceObject": "GyeCraft.toilet1.irregular paving 1",
+    "reviewStage": 9,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.toilet1.irregular paving 2": {
+    "memberId": "ildu.toilet-south.part.bd3a838cc4be166b578a",
+    "sourceObject": "GyeCraft.toilet1.irregular paving 2",
+    "reviewStage": 9,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.toilet1.irregular paving 3": {
+    "memberId": "ildu.toilet-south.part.b0d3848ea3bcd7d87bb7",
+    "sourceObject": "GyeCraft.toilet1.irregular paving 3",
+    "reviewStage": 9,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.toilet1.irregular paving 4": {
+    "memberId": "ildu.toilet-south.part.abd2f99571cbdbe1de83",
+    "sourceObject": "GyeCraft.toilet1.irregular paving 4",
+    "reviewStage": 9,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "V28.toilet1.door jamb": {
+    "memberId": "ildu.toilet-south.part.7dd6c7195e2c4e5e8216",
+    "sourceObject": "V28.toilet1.door jamb",
+    "reviewStage": 8,
+    "processId": "ildu.toilet-south-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.toilet1.entry.leaf1.back rail": {
+    "memberId": "ildu.toilet-south.part.0930c2f19d32374b7b9f",
+    "sourceObject": "V28.toilet1.entry.leaf1.back rail",
+    "reviewStage": 8,
+    "processId": "ildu.toilet-south-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.toilet1.entry.leaf1.batten nail": {
+    "memberId": "ildu.toilet-south.part.86377fdb7000376ca12f",
+    "sourceObject": "V28.toilet1.entry.leaf1.batten nail",
+    "reviewStage": 8,
+    "processId": "ildu.toilet-south-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.toilet1.entry.leaf1.boards": {
+    "memberId": "ildu.toilet-south.part.b4587c08198021a7b8ff",
+    "sourceObject": "V28.toilet1.entry.leaf1.boards",
+    "reviewStage": 8,
+    "processId": "ildu.toilet-south-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.toilet1.entry.leaf1.boards.001": {
+    "memberId": "ildu.toilet-south.part.f5532f1fb1253d518e5b",
+    "sourceObject": "V28.toilet1.entry.leaf1.boards.001",
+    "reviewStage": 8,
+    "processId": "ildu.toilet-south-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.toilet1.entry.leaf1.boards.002": {
+    "memberId": "ildu.toilet-south.part.b4700dc778bf0ed77a95",
+    "sourceObject": "V28.toilet1.entry.leaf1.boards.002",
+    "reviewStage": 8,
+    "processId": "ildu.toilet-south-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.toilet1.entry.leaf1.boards.003": {
+    "memberId": "ildu.toilet-south.part.86edd23918cb4a2c32ca",
+    "sourceObject": "V28.toilet1.entry.leaf1.boards.003",
+    "reviewStage": 8,
+    "processId": "ildu.toilet-south-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.toilet1.entry.leaf1.canonical batten": {
+    "memberId": "ildu.toilet-south.part.3b337a17540c95f6d3dd",
+    "sourceObject": "V28.toilet1.entry.leaf1.canonical batten",
+    "reviewStage": 8,
+    "processId": "ildu.toilet-south-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.toilet1.entry.leaf1.front wooden crossbar": {
+    "memberId": "ildu.toilet-south.part.852e71fa30c0d4a3e155",
+    "sourceObject": "V28.toilet1.entry.leaf1.front wooden crossbar",
+    "reviewStage": 8,
+    "processId": "ildu.toilet-south-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.toilet1.entry.leaf1.wood latch": {
+    "memberId": "ildu.toilet-south.part.24c3fb3a4387e2268f2b",
+    "sourceObject": "V28.toilet1.entry.leaf1.wood latch",
+    "reviewStage": 8,
+    "processId": "ildu.toilet-south-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.toilet1.entry.leaf1.wooden latch": {
+    "memberId": "ildu.toilet-south.part.9646957904524924e308",
+    "sourceObject": "V28.toilet1.entry.leaf1.wooden latch",
+    "reviewStage": 8,
+    "processId": "ildu.toilet-south-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V28.toilet1.finish.step": {
+    "memberId": "ildu.toilet-south.part.550766beec8bab4129c5",
+    "sourceObject": "V28.toilet1.finish.step",
+    "reviewStage": 9,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "V28.toilet1.floor": {
+    "memberId": "ildu.toilet-south.part.6f9e7d89ac6a4daef228",
+    "sourceObject": "V28.toilet1.floor",
+    "reviewStage": 9,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "earth_floor"
+  },
+  "V28.toilet1.foundation.core": {
+    "memberId": "ildu.toilet-south.part.41702fa99ecd9745c3dd",
+    "sourceObject": "V28.toilet1.foundation.core",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.post stone": {
+    "memberId": "ildu.toilet-south.part.46be2f04c3e9594db04f",
+    "sourceObject": "V28.toilet1.foundation.post stone",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "V28.toilet1.foundation.post stone.001": {
+    "memberId": "ildu.toilet-south.part.5154fed778aa0247daa5",
+    "sourceObject": "V28.toilet1.foundation.post stone.001",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "V28.toilet1.foundation.stone.face0": {
+    "memberId": "ildu.toilet-south.part.f33491d2669bc5f2f716",
+    "sourceObject": "V28.toilet1.foundation.stone.face0",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face0.001": {
+    "memberId": "ildu.toilet-south.part.5c6ff1c784c0deb48832",
+    "sourceObject": "V28.toilet1.foundation.stone.face0.001",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face0.002": {
+    "memberId": "ildu.toilet-south.part.6c36762b7e558b140b50",
+    "sourceObject": "V28.toilet1.foundation.stone.face0.002",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face0.003": {
+    "memberId": "ildu.toilet-south.part.532f3b8b2177ba1592b5",
+    "sourceObject": "V28.toilet1.foundation.stone.face0.003",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face0.004": {
+    "memberId": "ildu.toilet-south.part.ceb1a9366cd41f8da895",
+    "sourceObject": "V28.toilet1.foundation.stone.face0.004",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face1": {
+    "memberId": "ildu.toilet-south.part.37a6234be4fe2ed05b30",
+    "sourceObject": "V28.toilet1.foundation.stone.face1",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face1.001": {
+    "memberId": "ildu.toilet-south.part.5cad37cf451d0da663e2",
+    "sourceObject": "V28.toilet1.foundation.stone.face1.001",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face1.002": {
+    "memberId": "ildu.toilet-south.part.8becc83669de1ffb4f73",
+    "sourceObject": "V28.toilet1.foundation.stone.face1.002",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face1.003": {
+    "memberId": "ildu.toilet-south.part.8c72fa1cd8fc33f0a8c9",
+    "sourceObject": "V28.toilet1.foundation.stone.face1.003",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face1.004": {
+    "memberId": "ildu.toilet-south.part.711dbc0e3998a401e316",
+    "sourceObject": "V28.toilet1.foundation.stone.face1.004",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face2": {
+    "memberId": "ildu.toilet-south.part.63e1fe72c080223d9530",
+    "sourceObject": "V28.toilet1.foundation.stone.face2",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face2.001": {
+    "memberId": "ildu.toilet-south.part.62e5d3c350fdadec3460",
+    "sourceObject": "V28.toilet1.foundation.stone.face2.001",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face2.002": {
+    "memberId": "ildu.toilet-south.part.349ca949da5517b22c47",
+    "sourceObject": "V28.toilet1.foundation.stone.face2.002",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face2.003": {
+    "memberId": "ildu.toilet-south.part.f59ffa9491936f6355e4",
+    "sourceObject": "V28.toilet1.foundation.stone.face2.003",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face2.004": {
+    "memberId": "ildu.toilet-south.part.dced3ba4a221fd31d80c",
+    "sourceObject": "V28.toilet1.foundation.stone.face2.004",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face3": {
+    "memberId": "ildu.toilet-south.part.75a90885cd142bd1bb55",
+    "sourceObject": "V28.toilet1.foundation.stone.face3",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face3.001": {
+    "memberId": "ildu.toilet-south.part.ab5bc64d7bb5f3f0f1f3",
+    "sourceObject": "V28.toilet1.foundation.stone.face3.001",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face3.002": {
+    "memberId": "ildu.toilet-south.part.0b19d18354ba3088b610",
+    "sourceObject": "V28.toilet1.foundation.stone.face3.002",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.foundation.stone.face3.003": {
+    "memberId": "ildu.toilet-south.part.af9f89db7418ac47335e",
+    "sourceObject": "V28.toilet1.foundation.stone.face3.003",
+    "reviewStage": 1,
+    "processId": "ildu.toilet-south-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "V28.toilet1.frame.bracket.lower seating block": {
+    "memberId": "ildu.toilet-south.part.a98d4f209d5cfdb007b5",
+    "sourceObject": "V28.toilet1.frame.bracket.lower seating block",
+    "reviewStage": 3,
+    "processId": "ildu.toilet-south-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.toilet1.frame.bracket.shaped timber shoulder": {
+    "memberId": "ildu.toilet-south.part.0b8188c448e37e21cc92",
+    "sourceObject": "V28.toilet1.frame.bracket.shaped timber shoulder",
+    "reviewStage": 3,
+    "processId": "ildu.toilet-south-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.toilet1.frame.bracket.upper bearing": {
+    "memberId": "ildu.toilet-south.part.59d7536dd3862011e76a",
+    "sourceObject": "V28.toilet1.frame.bracket.upper bearing",
+    "reviewStage": 3,
+    "processId": "ildu.toilet-south-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.toilet1.frame.cross beam": {
+    "memberId": "ildu.toilet-south.part.ff911caa993d7f90b939",
+    "sourceObject": "V28.toilet1.frame.cross beam",
+    "reviewStage": 3,
+    "processId": "ildu.toilet-south-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.toilet1.frame.long beam": {
+    "memberId": "ildu.toilet-south.part.318f3e486585e5fd0803",
+    "sourceObject": "V28.toilet1.frame.long beam",
+    "reviewStage": 3,
+    "processId": "ildu.toilet-south-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "V28.toilet1.frame.post": {
+    "memberId": "ildu.toilet-south.part.359f6460bbed07876f58",
+    "sourceObject": "V28.toilet1.frame.post",
+    "reviewStage": 2,
+    "processId": "ildu.toilet-south-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "V28.toilet1.front wall": {
+    "memberId": "ildu.toilet-south.part.47a1952c95eb9bc890f9",
+    "sourceObject": "V28.toilet1.front wall",
+    "reviewStage": 7,
+    "processId": "ildu.toilet-south-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.toilet1.front wall.head/sill": {
+    "memberId": "ildu.toilet-south.part.332288b6a424b1bf35a5",
+    "sourceObject": "V28.toilet1.front wall.head/sill",
+    "reviewStage": 7,
+    "processId": "ildu.toilet-south-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.toilet1.front wall.jamb": {
+    "memberId": "ildu.toilet-south.part.486d6765bd0d2e7f0b49",
+    "sourceObject": "V28.toilet1.front wall.jamb",
+    "reviewStage": 7,
+    "processId": "ildu.toilet-south-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.toilet1.rear wall": {
+    "memberId": "ildu.toilet-south.part.34d386b53cc9b069b34b",
+    "sourceObject": "V28.toilet1.rear wall",
+    "reviewStage": 7,
+    "processId": "ildu.toilet-south-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.toilet1.roof": {
+    "memberId": "ildu.toilet-south.part.9cc0dc947e1260d76afd",
+    "sourceObject": "V28.toilet1.roof",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.toilet1.roof backing": {
+    "memberId": "ildu.toilet-south.part.6b7e318a1fe42908f770",
+    "sourceObject": "V28.toilet1.roof backing",
+    "reviewStage": 5,
+    "processId": "ildu.toilet-south-roof-bed",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_board"
+  },
+  "V28.toilet1.roof frame.purlin": {
+    "memberId": "ildu.toilet-south.part.b95e2bda42a3a75f1c20",
+    "sourceObject": "V28.toilet1.roof frame.purlin",
+    "reviewStage": 3,
+    "processId": "ildu.toilet-south-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "purlins"
+  },
+  "V28.toilet1.roof.001": {
+    "memberId": "ildu.toilet-south.part.cc53a471cce423b48d54",
+    "sourceObject": "V28.toilet1.roof.001",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.toilet1.roof.002": {
+    "memberId": "ildu.toilet-south.part.eb79226e50c65114c27f",
+    "sourceObject": "V28.toilet1.roof.002",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.toilet1.roof.003": {
+    "memberId": "ildu.toilet-south.part.5f414c594b196fc501d6",
+    "sourceObject": "V28.toilet1.roof.003",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.toilet1.roof.004": {
+    "memberId": "ildu.toilet-south.part.7ca44dcba657afcd0d4e",
+    "sourceObject": "V28.toilet1.roof.004",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.toilet1.roof.005": {
+    "memberId": "ildu.toilet-south.part.166dc2bdcb38e97ad6ef",
+    "sourceObject": "V28.toilet1.roof.005",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.toilet1.roof.eave beam": {
+    "memberId": "ildu.toilet-south.part.6d5589264e5299b247ef",
+    "sourceObject": "V28.toilet1.roof.eave beam",
+    "reviewStage": 4,
+    "processId": "ildu.toilet-south-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V28.toilet1.roof.gable barge": {
+    "memberId": "ildu.toilet-south.part.857b51feac44d7df81b7",
+    "sourceObject": "V28.toilet1.roof.gable barge",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.toilet1.roof.gable brace": {
+    "memberId": "ildu.toilet-south.part.e20459a6af6ae3f00611",
+    "sourceObject": "V28.toilet1.roof.gable brace",
+    "reviewStage": 4,
+    "processId": "ildu.toilet-south-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V28.toilet1.roof.gable centre post": {
+    "memberId": "ildu.toilet-south.part.2d7187008b5b08c53cc2",
+    "sourceObject": "V28.toilet1.roof.gable centre post",
+    "reviewStage": 4,
+    "processId": "ildu.toilet-south-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V28.toilet1.roof.gable frame": {
+    "memberId": "ildu.toilet-south.part.1522d2f03544f234c9ad",
+    "sourceObject": "V28.toilet1.roof.gable frame",
+    "reviewStage": 4,
+    "processId": "ildu.toilet-south-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V28.toilet1.roof.gable timber": {
+    "memberId": "ildu.toilet-south.part.1d376087c2c8c700ca8a",
+    "sourceObject": "V28.toilet1.roof.gable timber",
+    "reviewStage": 7,
+    "processId": "ildu.toilet-south-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V28.toilet1.roof.hip eave beam": {
+    "memberId": "ildu.toilet-south.part.876be0ea70335bd55866",
+    "sourceObject": "V28.toilet1.roof.hip eave beam",
+    "reviewStage": 4,
+    "processId": "ildu.toilet-south-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V28.toilet1.roof.hip exposed rafters": {
+    "memberId": "ildu.toilet-south.part.17aa798ba16d828fe0c6",
+    "sourceObject": "V28.toilet1.roof.hip exposed rafters",
+    "reviewStage": 4,
+    "processId": "ildu.toilet-south-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V28.toilet1.roof.hip ridge": {
+    "memberId": "ildu.toilet-south.part.baf8a1c741f650aa09cc",
+    "sourceObject": "V28.toilet1.roof.hip ridge",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.toilet1.roof.hip round tile ends": {
+    "memberId": "ildu.toilet-south.part.65b05999b6de19a44e31",
+    "sourceObject": "V28.toilet1.roof.hip round tile ends",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.toilet1.roof.lower exposed rafters": {
+    "memberId": "ildu.toilet-south.part.1873dfd752d598030c01",
+    "sourceObject": "V28.toilet1.roof.lower exposed rafters",
+    "reviewStage": 4,
+    "processId": "ildu.toilet-south-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V28.toilet1.roof.rafters": {
+    "memberId": "ildu.toilet-south.part.a0e9c948062a186f4c04",
+    "sourceObject": "V28.toilet1.roof.rafters",
+    "reviewStage": 4,
+    "processId": "ildu.toilet-south-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V28.toilet1.roof.ridge stack": {
+    "memberId": "ildu.toilet-south.part.e7a209c01df70628b11b",
+    "sourceObject": "V28.toilet1.roof.ridge stack",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.toilet1.roof.ridge stack.001": {
+    "memberId": "ildu.toilet-south.part.68da83a6aff44af2cbef",
+    "sourceObject": "V28.toilet1.roof.ridge stack.001",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.toilet1.roof.ridge stack.002": {
+    "memberId": "ildu.toilet-south.part.d670f0b64ade1dc169c0",
+    "sourceObject": "V28.toilet1.roof.ridge stack.002",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.toilet1.roof.ridge stack.003": {
+    "memberId": "ildu.toilet-south.part.a26fc82b02922cf55c14",
+    "sourceObject": "V28.toilet1.roof.ridge stack.003",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.toilet1.roof.round tile ends": {
+    "memberId": "ildu.toilet-south.part.248a30dd59788a7e823c",
+    "sourceObject": "V28.toilet1.roof.round tile ends",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V28.toilet1.side wall": {
+    "memberId": "ildu.toilet-south.part.362ce8c4c3afd2e5e694",
+    "sourceObject": "V28.toilet1.side wall",
+    "reviewStage": 7,
+    "processId": "ildu.toilet-south-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.toilet1.front earthen skirt": {
+    "memberId": "ildu.toilet-south.part.5a4544f0b1288ebd9f37",
+    "sourceObject": "V31.toilet1.front earthen skirt",
+    "reviewStage": 7,
+    "processId": "ildu.toilet-south-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.toilet1.front low rail": {
+    "memberId": "ildu.toilet-south.part.8fa7b829730340bca016",
+    "sourceObject": "V31.toilet1.front low rail",
+    "reviewStage": 7,
+    "processId": "ildu.toilet-south-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.toilet1.roof.ridge cap joint": {
+    "memberId": "ildu.toilet-south.part.1df6b375b840f01443e0",
+    "sourceObject": "V31.toilet1.roof.ridge cap joint",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V31.toilet1.roof.ridge end border": {
+    "memberId": "ildu.toilet-south.part.922ba088afc676d33aff",
+    "sourceObject": "V31.toilet1.roof.ridge end border",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V31.toilet1.roof.ridge end plate": {
+    "memberId": "ildu.toilet-south.part.3e54bb875cdb9a273dd1",
+    "sourceObject": "V31.toilet1.roof.ridge end plate",
+    "reviewStage": 6,
+    "processId": "ildu.toilet-south-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "V31.toilet1.side earthen skirt": {
+    "memberId": "ildu.toilet-south.part.b8b3e689ea506121d1a7",
+    "sourceObject": "V31.toilet1.side earthen skirt",
+    "reviewStage": 7,
+    "processId": "ildu.toilet-south-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V31.toilet1.side low rail": {
+    "memberId": "ildu.toilet-south.part.2652687cc2e63508b822",
+    "sourceObject": "V31.toilet1.side low rail",
+    "reviewStage": 7,
+    "processId": "ildu.toilet-south-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  }
+}

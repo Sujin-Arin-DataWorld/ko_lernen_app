@@ -7,7 +7,6 @@ import 'package:ko_lernen_app/models/silben_puzzle.dart';
 import 'package:ko_lernen_app/screens/silben_kreuz_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
@@ -76,8 +75,7 @@ void main() {
       _expectSelectedClue(tester, horizontalClue);
       _expectSelectedCell(tester, row: 1, col: 0);
 
-      await tester.tap(find.byKey(const ValueKey('silben-cell-1-1')));
-      await tester.pumpAndSettle();
+      await _tapVisible(tester, find.byKey(const ValueKey('silben-cell-1-1')));
       _expectSelectedClue(tester, horizontalClue);
       _expectSelectedCell(tester, row: 1, col: 1);
 
@@ -97,8 +95,7 @@ void main() {
 
       // The current word does not contain the main crossing, so declared
       // puzzle order chooses the horizontal word before the vertical word.
-      await tester.tap(find.byKey(const ValueKey('silben-cell-1-1')));
-      await tester.pumpAndSettle();
+      await _tapVisible(tester, find.byKey(const ValueKey('silben-cell-1-1')));
       _expectSelectedClue(tester, horizontalClue);
     },
   );
@@ -128,8 +125,7 @@ void main() {
 
       final horizontalClue = find.byKey(const ValueKey('silben-clue-0'));
       await _tapVisible(tester, horizontalClue);
-      await tester.tap(find.byKey(const ValueKey('silben-cell-1-1')));
-      await tester.pumpAndSettle();
+      await _tapVisible(tester, find.byKey(const ValueKey('silben-cell-1-1')));
 
       expect(
         _semanticsLabel(tester, row: 1, col: 1),
@@ -163,7 +159,7 @@ void main() {
   });
 
   testWidgets(
-    'completing a word surfaces the clue-card speak indicator at its top-left',
+    'completing a word retains listening at the start of the compact clues',
     (tester) async {
       await _pumpPuzzle(tester);
 
@@ -190,14 +186,9 @@ void main() {
         '가나다. 가나다를 읽어요.',
       );
 
-      final localStack = find
-          .ancestor(of: indicator, matching: find.byType(Stack))
-          .first;
-      final cardFinder = find.descendant(
-        of: localStack,
-        matching: find.byType(SoriCard),
+      final cardRect = tester.getRect(
+        find.byKey(const ValueKey('silben-compact-clues')),
       );
-      final cardRect = tester.getRect(cardFinder);
       final indicatorRect = tester.getRect(indicator);
       expect(indicatorRect.left - cardRect.left, inInclusiveRange(-1.0, 24.0));
       expect(indicatorRect.top - cardRect.top, inInclusiveRange(-1.0, 24.0));
@@ -235,6 +226,10 @@ Future<void> _pumpPuzzle(
   await tester.pumpWidget(
     MaterialApp(
       theme: AppTheme.light,
+      builder: (context, child) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(disableAnimations: true),
+        child: child!,
+      ),
       locale: const Locale('en'),
       localizationsDelegates: AppL10n.localizationsDelegates,
       supportedLocales: AppL10n.supportedLocales,

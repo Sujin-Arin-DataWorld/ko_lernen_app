@@ -11,6 +11,7 @@ import '../pack_progress_service.dart';
 import '../vocab_pack_service.dart';
 import 'account_operation_client.dart';
 import 'account_switch_coordinator.dart';
+import 'account_switch_resolution.dart';
 import 'account_transition_coordinator.dart';
 import 'cloud_backup_deletion.dart';
 import 'cloud_write_session.dart';
@@ -75,7 +76,24 @@ enum AccountUiLinkFailureReason {
   unknown,
 }
 
-enum AccountUiPendingState { loading, none, deletionLocalCleanup, blocked }
+enum AccountUiPendingState {
+  loading,
+  none,
+  deletionLocalCleanup,
+  blocked,
+  switchResolutionNeeded,
+}
+
+/// Optional recovery capability. Existing link-only implementations stay valid.
+abstract interface class AccountUiSwitchResolutionOperations {
+  Future<AccountSwitchResolutionPreviewResult> previewPendingSwitchResolution();
+  Future<AccountSwitchResolutionOutcome> resumePendingSwitchResolution();
+
+  Future<AccountSwitchResolutionOutcome> confirmPendingSwitchResolution({
+    required AccountSwitchResolutionPreview preview,
+    required AccountSwitchResolutionSide side,
+  });
+}
 
 abstract interface class AccountUiPendingStateSource {
   ValueListenable<AccountUiPendingState> get pendingState;
@@ -104,7 +122,10 @@ typedef AccountUiPendingStateReader = Future<AccountUiPendingState> Function();
 typedef AccountUiCurriculumCatalogLoader = Future<CurriculumCatalog> Function();
 
 class ProductionAccountUiOperations
-    implements AccountUiOperations, AccountUiPendingStateSource {
+    implements
+        AccountUiOperations,
+        AccountUiPendingStateSource,
+        AccountUiSwitchResolutionOperations {
   const ProductionAccountUiOperations({
     this.providerLinker,
     @visibleForTesting this.pendingStateReader,
@@ -121,6 +142,31 @@ class ProductionAccountUiOperations
   @visibleForTesting
   final Future<AccountSwitchResult> Function(ExistingAccountLinkConflict)?
   switchFlow;
+
+  @override
+  Future<AccountSwitchResolutionPreviewResult>
+  previewPendingSwitchResolution() =>
+      AuthService.previewPendingSwitchResolution();
+
+  @override
+  Future<AccountSwitchResolutionOutcome> resumePendingSwitchResolution() async {
+    final result = await AuthService.resumePendingSwitchResolution();
+    await refreshPendingState();
+    return result;
+  }
+
+  @override
+  Future<AccountSwitchResolutionOutcome> confirmPendingSwitchResolution({
+    required AccountSwitchResolutionPreview preview,
+    required AccountSwitchResolutionSide side,
+  }) async {
+    final result = await AuthService.confirmPendingSwitchResolution(
+      preview: preview,
+      side: side,
+    );
+    await refreshPendingState();
+    return result;
+  }
 
   static final ValueNotifier<AccountUiPendingState> _pendingState =
       ValueNotifier<AccountUiPendingState>(AccountUiPendingState.loading);
@@ -165,7 +211,13 @@ class ProductionAccountUiOperations
     if (deletion?.operation?.phase == AccountOperationPhase.completed) {
       return AccountUiPendingState.deletionLocalCleanup;
     }
-    return AccountUiPendingState.none;
+    // Legacy non-completed deletion checkpoints alone do not lock this UI.
+    // When a switch marker exists, its durable admission still fences deletion.
+    return switch (await AuthService.pendingSwitchResolutionNeeded()) {
+      true => AccountUiPendingState.switchResolutionNeeded,
+      false => AccountUiPendingState.none,
+      null => AccountUiPendingState.blocked,
+    };
   }
 
   @override
@@ -242,12 +294,18 @@ class ProductionAccountUiOperations
 /// to reconcile local progress into the target account. Shared by
 /// [ProductionAccountUiOperations.switchToExisting] and the startup
 /// `resumeAccountSwitch` step in `main.dart`.
-Future<({Map<String, PackCatalogEntry> catalog, CourseMasteryReconciliationMerger courseMasteryMerger})>
+Future<
+  ({
+    Map<String, PackCatalogEntry> catalog,
+    CourseMasteryReconciliationMerger courseMasteryMerger,
+  })
+>
 loadAccountSwitchComposition({
   AccountUiCurriculumCatalogLoader? curriculumCatalogLoader,
 }) async {
   final packsFuture = VocabPackService.loadAll();
-  final curriculumFuture = curriculumCatalogLoader?.call() ?? CurriculumCatalog.load();
+  final curriculumFuture =
+      curriculumCatalogLoader?.call() ?? CurriculumCatalog.load();
   final packs = await packsFuture;
   final curriculum = await curriculumFuture;
   final catalog = <String, PackCatalogEntry>{
@@ -260,7 +318,9 @@ loadAccountSwitchComposition({
   };
   return (
     catalog: catalog,
-    courseMasteryMerger: CourseMasteryService(curriculum).mergeForReconciliation,
+    courseMasteryMerger: CourseMasteryService(
+      curriculum,
+    ).mergeForReconciliation,
   );
 }
 

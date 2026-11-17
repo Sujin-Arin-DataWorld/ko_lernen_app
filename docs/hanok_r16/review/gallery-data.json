@@ -1,0 +1,1024 @@
+{
+  "buildings": [
+    {
+      "key": "sarang",
+      "name": "사랑채",
+      "full": "sarang/full.png",
+      "native": "../RESTORE.md#native",
+      "timeline": "../RESTORE.md#native",
+      "steps": [
+        {
+          "sequence": 1,
+          "label": "터 닦기",
+          "image": "sarang/stages/01.png",
+          "reuseReason": null,
+          "visibleMembers": 0
+        },
+        {
+          "sequence": 2,
+          "label": "기단",
+          "image": "sarang/stages/02.png",
+          "reuseReason": null,
+          "visibleMembers": 239
+        },
+        {
+          "sequence": 3,
+          "label": "초석",
+          "image": "sarang/stages/03.png",
+          "reuseReason": null,
+          "visibleMembers": 249
+        },
+        {
+          "sequence": 4,
+          "label": "목재 치목",
+          "image": "sarang/stages/04.png",
+          "reuseReason": "same preserved cumulative geometry; existing curriculum step retained",
+          "visibleMembers": 249
+        },
+        {
+          "sequence": 5,
+          "label": "기둥",
+          "image": "sarang/stages/05.png",
+          "reuseReason": null,
+          "visibleMembers": 267
+        },
+        {
+          "sequence": 6,
+          "label": "보",
+          "image": "sarang/stages/06.png",
+          "reuseReason": null,
+          "visibleMembers": 296
+        },
+        {
+          "sequence": 7,
+          "label": "도리",
+          "image": "sarang/stages/07.png",
+          "reuseReason": null,
+          "visibleMembers": 297
+        },
+        {
+          "sequence": 8,
+          "label": "서까래",
+          "image": "sarang/stages/08.png",
+          "reuseReason": null,
+          "visibleMembers": 314
+        },
+        {
+          "sequence": 9,
+          "label": "마루판",
+          "image": "sarang/stages/09.png",
+          "reuseReason": null,
+          "visibleMembers": 318
+        },
+        {
+          "sequence": 10,
+          "label": "지붕 흙",
+          "image": "sarang/stages/10.png",
+          "reuseReason": "same preserved cumulative geometry; existing curriculum step retained",
+          "visibleMembers": 318
+        },
+        {
+          "sequence": 11,
+          "label": "기와",
+          "image": "sarang/stages/11.png",
+          "reuseReason": null,
+          "visibleMembers": 358
+        },
+        {
+          "sequence": 12,
+          "label": "벽체",
+          "image": "sarang/stages/12.png",
+          "reuseReason": null,
+          "visibleMembers": 417
+        },
+        {
+          "sequence": 13,
+          "label": "온돌",
+          "image": "sarang/stages/13.png",
+          "reuseReason": null,
+          "visibleMembers": 427
+        },
+        {
+          "sequence": 14,
+          "label": "마루",
+          "image": "sarang/stages/14.png",
+          "reuseReason": null,
+          "visibleMembers": 562
+        },
+        {
+          "sequence": 15,
+          "label": "창호",
+          "image": "sarang/stages/15.png",
+          "reuseReason": null,
+          "visibleMembers": 864
+        },
+        {
+          "sequence": 16,
+          "label": "완성",
+          "image": "sarang/stages/16.png",
+          "reuseReason": null,
+          "visibleMembers": 879
+        }
+      ],
+      "readyStages": 16,
+      "stageCount": 16
+    },
+    {
+      "key": "ansarang",
+      "name": "안사랑채",
+      "full": "ansarang/full.png",
+      "native": "../RESTORE.md#native",
+      "timeline": "../RESTORE.md#native",
+      "steps": [
+        {
+          "sequence": 1,
+          "label": "터 닦기",
+          "image": "ansarang/stages/01.png",
+          "reuseReason": null,
+          "visibleMembers": 0
+        },
+        {
+          "sequence": 2,
+          "label": "기단",
+          "image": "ansarang/stages/02.png",
+          "reuseReason": null,
+          "visibleMembers": 16
+        },
+        {
+          "sequence": 3,
+          "label": "초석",
+          "image": "ansarang/stages/03.png",
+          "reuseReason": null,
+          "visibleMembers": 21
+        },
+        {
+          "sequence": 4,
+          "label": "기둥",
+          "image": "ansarang/stages/04.png",
+          "reuseReason": null,
+          "visibleMembers": 24
+        },
+        {
+          "sequence": 5,
+          "label": "보",
+          "image": "ansarang/stages/05.png",
+          "reuseReason": null,
+          "visibleMembers": 33
+        },
+        {
+          "sequence": 6,
+          "label": "서까래",
+          "image": "ansarang/stages/06.png",
+          "reuseReason": null,
+          "visibleMembers": 43
+        },
+        {
+          "sequence": 7,
+          "label": "지붕 바탕",
+          "image": "ansarang/stages/07.png",
+          "reuseReason": null,
+          "visibleMembers": 44
+        },
+        {
+          "sequence": 8,
+          "label": "기와",
+          "image": "ansarang/stages/08.png",
+          "reuseReason": null,
+          "visibleMembers": 63
+        },
+        {
+          "sequence": 9,
+          "label": "벽체",
+          "image": "ansarang/stages/09.png",
+          "reuseReason": null,
+          "visibleMembers": 82
+        },
+        {
+          "sequence": 10,
+          "label": "온돌",
+          "image": "ansarang/stages/10.png",
+          "reuseReason": null,
+          "visibleMembers": 90
+        },
+        {
+          "sequence": 11,
+          "label": "마루 내부",
+          "image": "ansarang/stages/11.png",
+          "reuseReason": null,
+          "visibleMembers": 101
+        },
+        {
+          "sequence": 12,
+          "label": "툇마루",
+          "image": "ansarang/stages/12.png",
+          "reuseReason": null,
+          "visibleMembers": 109
+        },
+        {
+          "sequence": 13,
+          "label": "문",
+          "image": "ansarang/stages/13.png",
+          "reuseReason": null,
+          "visibleMembers": 372
+        },
+        {
+          "sequence": 14,
+          "label": "완성",
+          "image": "ansarang/stages/14.png",
+          "reuseReason": null,
+          "visibleMembers": 385
+        }
+      ],
+      "readyStages": 14,
+      "stageCount": 14
+    },
+    {
+      "key": "anchae",
+      "name": "안채",
+      "full": "anchae/full.png",
+      "native": "../RESTORE.md#native",
+      "timeline": "../RESTORE.md#native",
+      "steps": [
+        {
+          "sequence": 1,
+          "label": "집터",
+          "image": "anchae/stages/01.png",
+          "reuseReason": null,
+          "visibleMembers": 0
+        },
+        {
+          "sequence": 2,
+          "label": "돌기단",
+          "image": "anchae/stages/02.png",
+          "reuseReason": null,
+          "visibleMembers": 9
+        },
+        {
+          "sequence": 3,
+          "label": "기둥",
+          "image": "anchae/stages/03.png",
+          "reuseReason": null,
+          "visibleMembers": 12
+        },
+        {
+          "sequence": 4,
+          "label": "보와 도리",
+          "image": "anchae/stages/04.png",
+          "reuseReason": null,
+          "visibleMembers": 25
+        },
+        {
+          "sequence": 5,
+          "label": "추녀 틀",
+          "image": "anchae/stages/05.png",
+          "reuseReason": "same preserved cumulative geometry; existing curriculum step retained",
+          "visibleMembers": 25
+        },
+        {
+          "sequence": 6,
+          "label": "서까래와 처마",
+          "image": "anchae/stages/06.png",
+          "reuseReason": null,
+          "visibleMembers": 37
+        },
+        {
+          "sequence": 7,
+          "label": "지붕 바탕",
+          "image": "anchae/stages/07.png",
+          "reuseReason": null,
+          "visibleMembers": 39
+        },
+        {
+          "sequence": 8,
+          "label": "기와",
+          "image": "anchae/stages/08.png",
+          "reuseReason": null,
+          "visibleMembers": 408
+        },
+        {
+          "sequence": 9,
+          "label": "벽체와 부엌",
+          "image": "anchae/stages/09.png",
+          "reuseReason": null,
+          "visibleMembers": 446
+        },
+        {
+          "sequence": 10,
+          "label": "부엌과 다락",
+          "image": "anchae/stages/10.png",
+          "reuseReason": "same preserved cumulative geometry; existing curriculum step retained",
+          "visibleMembers": 446
+        },
+        {
+          "sequence": 11,
+          "label": "온돌",
+          "image": "anchae/stages/11.png",
+          "reuseReason": null,
+          "visibleMembers": 455
+        },
+        {
+          "sequence": 12,
+          "label": "대청마루",
+          "image": "anchae/stages/12.png",
+          "reuseReason": null,
+          "visibleMembers": 466
+        },
+        {
+          "sequence": 13,
+          "label": "창호",
+          "image": "anchae/stages/13.png",
+          "reuseReason": null,
+          "visibleMembers": 852
+        },
+        {
+          "sequence": 14,
+          "label": "완성 · 사용",
+          "image": "anchae/stages/14.png",
+          "reuseReason": null,
+          "visibleMembers": 882
+        }
+      ],
+      "readyStages": 14,
+      "stageCount": 14
+    },
+    {
+      "key": "sadang",
+      "name": "사당",
+      "full": "sadang/full.png",
+      "native": "../RESTORE.md#native",
+      "timeline": "../RESTORE.md#native",
+      "steps": [
+        {
+          "sequence": 1,
+          "label": "터 닦기",
+          "image": "sadang/stages/01.png",
+          "reuseReason": null,
+          "visibleMembers": 0
+        },
+        {
+          "sequence": 2,
+          "label": "기단",
+          "image": "sadang/stages/02.png",
+          "reuseReason": null,
+          "visibleMembers": 4
+        },
+        {
+          "sequence": 3,
+          "label": "초석",
+          "image": "sadang/stages/03.png",
+          "reuseReason": null,
+          "visibleMembers": 6
+        },
+        {
+          "sequence": 4,
+          "label": "기둥",
+          "image": "sadang/stages/04.png",
+          "reuseReason": null,
+          "visibleMembers": 12
+        },
+        {
+          "sequence": 5,
+          "label": "공포",
+          "image": "sadang/stages/05.png",
+          "reuseReason": null,
+          "visibleMembers": 23
+        },
+        {
+          "sequence": 6,
+          "label": "서까래",
+          "image": "sadang/stages/06.png",
+          "reuseReason": null,
+          "visibleMembers": 31
+        },
+        {
+          "sequence": 7,
+          "label": "지붕 바탕",
+          "image": "sadang/stages/07.png",
+          "reuseReason": null,
+          "visibleMembers": 36
+        },
+        {
+          "sequence": 8,
+          "label": "기와",
+          "image": "sadang/stages/08.png",
+          "reuseReason": null,
+          "visibleMembers": 95
+        },
+        {
+          "sequence": 9,
+          "label": "마루 내부",
+          "image": "sadang/stages/09.png",
+          "reuseReason": null,
+          "visibleMembers": 99
+        },
+        {
+          "sequence": 10,
+          "label": "벽체",
+          "image": "sadang/stages/10.png",
+          "reuseReason": null,
+          "visibleMembers": 170
+        },
+        {
+          "sequence": 11,
+          "label": "마감",
+          "image": "sadang/stages/11.png",
+          "reuseReason": null,
+          "visibleMembers": 223
+        },
+        {
+          "sequence": 12,
+          "label": "완성",
+          "image": "sadang/stages/12.png",
+          "reuseReason": null,
+          "visibleMembers": 229
+        }
+      ],
+      "readyStages": 12,
+      "stageCount": 12
+    },
+    {
+      "key": "jung",
+      "name": "중문간채",
+      "full": "jung/full.png",
+      "native": "../RESTORE.md#native",
+      "timeline": "../RESTORE.md#native",
+      "steps": [
+        {
+          "sequence": 1,
+          "label": "터와 통로",
+          "image": "jung/stages/01.png",
+          "reuseReason": null,
+          "visibleMembers": 0
+        },
+        {
+          "sequence": 2,
+          "label": "돌기단",
+          "image": "jung/stages/02.png",
+          "reuseReason": null,
+          "visibleMembers": 41
+        },
+        {
+          "sequence": 3,
+          "label": "기둥",
+          "image": "jung/stages/03.png",
+          "reuseReason": null,
+          "visibleMembers": 42
+        },
+        {
+          "sequence": 4,
+          "label": "보와 도리",
+          "image": "jung/stages/04.png",
+          "reuseReason": null,
+          "visibleMembers": 48
+        },
+        {
+          "sequence": 5,
+          "label": "서까래와 처마",
+          "image": "jung/stages/05.png",
+          "reuseReason": null,
+          "visibleMembers": 52
+        },
+        {
+          "sequence": 6,
+          "label": "지붕 바탕",
+          "image": "jung/stages/06.png",
+          "reuseReason": null,
+          "visibleMembers": 53
+        },
+        {
+          "sequence": 7,
+          "label": "기와",
+          "image": "jung/stages/07.png",
+          "reuseReason": null,
+          "visibleMembers": 64
+        },
+        {
+          "sequence": 8,
+          "label": "방 벽체",
+          "image": "jung/stages/08.png",
+          "reuseReason": null,
+          "visibleMembers": 84
+        },
+        {
+          "sequence": 9,
+          "label": "온돌과 바닥",
+          "image": "jung/stages/09.png",
+          "reuseReason": null,
+          "visibleMembers": 87
+        },
+        {
+          "sequence": 10,
+          "label": "열린 마루",
+          "image": "jung/stages/10.png",
+          "reuseReason": null,
+          "visibleMembers": 95
+        },
+        {
+          "sequence": 11,
+          "label": "문과 창호",
+          "image": "jung/stages/11.png",
+          "reuseReason": null,
+          "visibleMembers": 232
+        },
+        {
+          "sequence": 12,
+          "label": "완성 · 사용",
+          "image": "jung/stages/12.png",
+          "reuseReason": null,
+          "visibleMembers": 244
+        }
+      ],
+      "readyStages": 12,
+      "stageCount": 12
+    },
+    {
+      "key": "arae",
+      "name": "아랫채",
+      "full": "arae/full.png",
+      "native": "../RESTORE.md#native",
+      "timeline": "../RESTORE.md#native",
+      "steps": [
+        {
+          "sequence": 1,
+          "label": "터와 방 배치",
+          "image": "arae/stages/01.png",
+          "reuseReason": null,
+          "visibleMembers": 0
+        },
+        {
+          "sequence": 2,
+          "label": "돌기단",
+          "image": "arae/stages/02.png",
+          "reuseReason": null,
+          "visibleMembers": 4
+        },
+        {
+          "sequence": 3,
+          "label": "기둥과 바닥틀",
+          "image": "arae/stages/03.png",
+          "reuseReason": null,
+          "visibleMembers": 5
+        },
+        {
+          "sequence": 4,
+          "label": "보와 도리",
+          "image": "arae/stages/04.png",
+          "reuseReason": null,
+          "visibleMembers": 8
+        },
+        {
+          "sequence": 5,
+          "label": "서까래와 처마",
+          "image": "arae/stages/05.png",
+          "reuseReason": null,
+          "visibleMembers": 11
+        },
+        {
+          "sequence": 6,
+          "label": "지붕 바탕",
+          "image": "arae/stages/06.png",
+          "reuseReason": null,
+          "visibleMembers": 13
+        },
+        {
+          "sequence": 7,
+          "label": "기와",
+          "image": "arae/stages/07.png",
+          "reuseReason": null,
+          "visibleMembers": 26
+        },
+        {
+          "sequence": 8,
+          "label": "방 벽체",
+          "image": "arae/stages/08.png",
+          "reuseReason": null,
+          "visibleMembers": 34
+        },
+        {
+          "sequence": 9,
+          "label": "온돌",
+          "image": "arae/stages/09.png",
+          "reuseReason": null,
+          "visibleMembers": 38
+        },
+        {
+          "sequence": 10,
+          "label": "마루",
+          "image": "arae/stages/10.png",
+          "reuseReason": null,
+          "visibleMembers": 43
+        },
+        {
+          "sequence": 11,
+          "label": "창호",
+          "image": "arae/stages/11.png",
+          "reuseReason": null,
+          "visibleMembers": 247
+        },
+        {
+          "sequence": 12,
+          "label": "완성 · 사용",
+          "image": "arae/stages/12.png",
+          "reuseReason": null,
+          "visibleMembers": 259
+        }
+      ],
+      "readyStages": 12,
+      "stageCount": 12
+    },
+    {
+      "key": "gokgan",
+      "name": "곳간채",
+      "full": "gokgan/full.png",
+      "native": "../RESTORE.md#native",
+      "timeline": "../RESTORE.md#native",
+      "steps": [
+        {
+          "sequence": 1,
+          "label": "터 닦기",
+          "image": "gokgan/stages/01.png",
+          "reuseReason": null,
+          "visibleMembers": 0
+        },
+        {
+          "sequence": 2,
+          "label": "기단",
+          "image": "gokgan/stages/02.png",
+          "reuseReason": null,
+          "visibleMembers": 11
+        },
+        {
+          "sequence": 3,
+          "label": "기둥",
+          "image": "gokgan/stages/03.png",
+          "reuseReason": null,
+          "visibleMembers": 13
+        },
+        {
+          "sequence": 4,
+          "label": "보",
+          "image": "gokgan/stages/04.png",
+          "reuseReason": null,
+          "visibleMembers": 16
+        },
+        {
+          "sequence": 5,
+          "label": "서까래",
+          "image": "gokgan/stages/05.png",
+          "reuseReason": null,
+          "visibleMembers": 18
+        },
+        {
+          "sequence": 6,
+          "label": "지붕 바탕",
+          "image": "gokgan/stages/06.png",
+          "reuseReason": null,
+          "visibleMembers": 20
+        },
+        {
+          "sequence": 7,
+          "label": "기와",
+          "image": "gokgan/stages/07.png",
+          "reuseReason": null,
+          "visibleMembers": 41
+        },
+        {
+          "sequence": 8,
+          "label": "벽체",
+          "image": "gokgan/stages/08.png",
+          "reuseReason": null,
+          "visibleMembers": 51
+        },
+        {
+          "sequence": 9,
+          "label": "문",
+          "image": "gokgan/stages/09.png",
+          "reuseReason": null,
+          "visibleMembers": 70
+        },
+        {
+          "sequence": 10,
+          "label": "돌길",
+          "image": "gokgan/stages/10.png",
+          "reuseReason": null,
+          "visibleMembers": 75
+        },
+        {
+          "sequence": 11,
+          "label": "돌봄",
+          "image": "gokgan/stages/11.png",
+          "reuseReason": "same preserved cumulative geometry; existing curriculum step retained",
+          "visibleMembers": 75
+        }
+      ],
+      "readyStages": 11,
+      "stageCount": 11
+    },
+    {
+      "key": "angotgan",
+      "name": "안채곳간채",
+      "full": "angotgan/full.png",
+      "native": "../RESTORE.md#native",
+      "timeline": "../RESTORE.md#native",
+      "steps": [
+        {
+          "sequence": 1,
+          "label": "터와 수납 공간",
+          "image": "angotgan/stages/01.png",
+          "reuseReason": null,
+          "visibleMembers": 0
+        },
+        {
+          "sequence": 2,
+          "label": "돌기단",
+          "image": "angotgan/stages/02.png",
+          "reuseReason": null,
+          "visibleMembers": 4
+        },
+        {
+          "sequence": 3,
+          "label": "기둥",
+          "image": "angotgan/stages/03.png",
+          "reuseReason": null,
+          "visibleMembers": 5
+        },
+        {
+          "sequence": 4,
+          "label": "보와 도리",
+          "image": "angotgan/stages/04.png",
+          "reuseReason": null,
+          "visibleMembers": 26
+        },
+        {
+          "sequence": 5,
+          "label": "서까래와 처마",
+          "image": "angotgan/stages/05.png",
+          "reuseReason": null,
+          "visibleMembers": 28
+        },
+        {
+          "sequence": 6,
+          "label": "지붕 바탕",
+          "image": "angotgan/stages/06.png",
+          "reuseReason": null,
+          "visibleMembers": 29
+        },
+        {
+          "sequence": 7,
+          "label": "기와",
+          "image": "angotgan/stages/07.png",
+          "reuseReason": null,
+          "visibleMembers": 43
+        },
+        {
+          "sequence": 8,
+          "label": "다짐 바닥",
+          "image": "angotgan/stages/08.png",
+          "reuseReason": "same preserved cumulative geometry; existing curriculum step retained",
+          "visibleMembers": 43
+        },
+        {
+          "sequence": 9,
+          "label": "벽체와 칸막이",
+          "image": "angotgan/stages/09.png",
+          "reuseReason": null,
+          "visibleMembers": 63
+        },
+        {
+          "sequence": 10,
+          "label": "문과 환기창",
+          "image": "angotgan/stages/10.png",
+          "reuseReason": null,
+          "visibleMembers": 101
+        },
+        {
+          "sequence": 11,
+          "label": "완성 · 사용",
+          "image": "angotgan/stages/11.png",
+          "reuseReason": null,
+          "visibleMembers": 108
+        }
+      ],
+      "readyStages": 11,
+      "stageCount": 11
+    },
+    {
+      "key": "changgo",
+      "name": "창고",
+      "full": "changgo/full.png",
+      "native": "../RESTORE.md#native",
+      "timeline": "../RESTORE.md#native",
+      "steps": [
+        {
+          "sequence": 1,
+          "label": "터 닦기 · 기단",
+          "image": "changgo/stages/01.png",
+          "reuseReason": null,
+          "visibleMembers": 26
+        },
+        {
+          "sequence": 2,
+          "label": "기둥",
+          "image": "changgo/stages/02.png",
+          "reuseReason": null,
+          "visibleMembers": 27
+        },
+        {
+          "sequence": 3,
+          "label": "보와 도리",
+          "image": "changgo/stages/03.png",
+          "reuseReason": null,
+          "visibleMembers": 33
+        },
+        {
+          "sequence": 4,
+          "label": "서까래와 산자",
+          "image": "changgo/stages/04.png",
+          "reuseReason": null,
+          "visibleMembers": 41
+        },
+        {
+          "sequence": 5,
+          "label": "지붕 바탕",
+          "image": "changgo/stages/05.png",
+          "reuseReason": null,
+          "visibleMembers": 42
+        },
+        {
+          "sequence": 6,
+          "label": "기와",
+          "image": "changgo/stages/06.png",
+          "reuseReason": null,
+          "visibleMembers": 63
+        },
+        {
+          "sequence": 7,
+          "label": "벽체 채움",
+          "image": "changgo/stages/07.png",
+          "reuseReason": null,
+          "visibleMembers": 77
+        },
+        {
+          "sequence": 8,
+          "label": "문과 창호 · 마감 · 완성",
+          "image": "changgo/stages/08.png",
+          "reuseReason": null,
+          "visibleMembers": 209
+        }
+      ],
+      "readyStages": 8,
+      "stageCount": 8
+    },
+    {
+      "key": "toilet",
+      "name": "북측 측간",
+      "full": "toilet/full.png",
+      "native": "../RESTORE.md#native",
+      "timeline": "../RESTORE.md#native",
+      "steps": [
+        {
+          "sequence": 1,
+          "label": "기단",
+          "image": "toilet/stages/01.png",
+          "reuseReason": null,
+          "visibleMembers": 22
+        },
+        {
+          "sequence": 2,
+          "label": "기둥",
+          "image": "toilet/stages/02.png",
+          "reuseReason": null,
+          "visibleMembers": 23
+        },
+        {
+          "sequence": 3,
+          "label": "보",
+          "image": "toilet/stages/03.png",
+          "reuseReason": null,
+          "visibleMembers": 29
+        },
+        {
+          "sequence": 4,
+          "label": "서까래",
+          "image": "toilet/stages/04.png",
+          "reuseReason": null,
+          "visibleMembers": 37
+        },
+        {
+          "sequence": 5,
+          "label": "지붕 바탕",
+          "image": "toilet/stages/05.png",
+          "reuseReason": null,
+          "visibleMembers": 38
+        },
+        {
+          "sequence": 6,
+          "label": "기와",
+          "image": "toilet/stages/06.png",
+          "reuseReason": null,
+          "visibleMembers": 55
+        },
+        {
+          "sequence": 7,
+          "label": "벽체",
+          "image": "toilet/stages/07.png",
+          "reuseReason": null,
+          "visibleMembers": 65
+        },
+        {
+          "sequence": 8,
+          "label": "문",
+          "image": "toilet/stages/08.png",
+          "reuseReason": null,
+          "visibleMembers": 76
+        },
+        {
+          "sequence": 9,
+          "label": "돌봄",
+          "image": "toilet/stages/09.png",
+          "reuseReason": null,
+          "visibleMembers": 83
+        }
+      ],
+      "readyStages": 9,
+      "stageCount": 9
+    },
+    {
+      "key": "toilet1",
+      "name": "남측 측간",
+      "full": "toilet1/full.png",
+      "native": "../RESTORE.md#native",
+      "timeline": "../RESTORE.md#native",
+      "steps": [
+        {
+          "sequence": 1,
+          "label": "기단",
+          "image": "toilet1/stages/01.png",
+          "reuseReason": null,
+          "visibleMembers": 22
+        },
+        {
+          "sequence": 2,
+          "label": "기둥",
+          "image": "toilet1/stages/02.png",
+          "reuseReason": null,
+          "visibleMembers": 23
+        },
+        {
+          "sequence": 3,
+          "label": "보",
+          "image": "toilet1/stages/03.png",
+          "reuseReason": null,
+          "visibleMembers": 29
+        },
+        {
+          "sequence": 4,
+          "label": "서까래",
+          "image": "toilet1/stages/04.png",
+          "reuseReason": null,
+          "visibleMembers": 37
+        },
+        {
+          "sequence": 5,
+          "label": "지붕 바탕",
+          "image": "toilet1/stages/05.png",
+          "reuseReason": null,
+          "visibleMembers": 38
+        },
+        {
+          "sequence": 6,
+          "label": "기와",
+          "image": "toilet1/stages/06.png",
+          "reuseReason": null,
+          "visibleMembers": 55
+        },
+        {
+          "sequence": 7,
+          "label": "벽체",
+          "image": "toilet1/stages/07.png",
+          "reuseReason": null,
+          "visibleMembers": 65
+        },
+        {
+          "sequence": 8,
+          "label": "문",
+          "image": "toilet1/stages/08.png",
+          "reuseReason": null,
+          "visibleMembers": 76
+        },
+        {
+          "sequence": 9,
+          "label": "돌봄",
+          "image": "toilet1/stages/09.png",
+          "reuseReason": null,
+          "visibleMembers": 83
+        }
+      ],
+      "readyStages": 9,
+      "stageCount": 9
+    }
+  ],
+  "expectedStages": 128,
+  "renderedStages": 128,
+  "runtimeIntegrated": false
+}

@@ -23,6 +23,8 @@ import 'package:ko_lernen_app/widgets/sori/placed_decoration.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
+import 'support/real_fonts.dart';
+
 const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
 const _matrix = <({Size size, double textScale})>[
   (size: Size(320, 640), textScale: 2),
@@ -58,6 +60,8 @@ final _glossaryFixture = CulturalGlossary.fromJsonString('''
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+
+  setUpAll(loadSoriRealFonts);
 
   setUp(() async {
     Storage.resetForTesting();
@@ -133,9 +137,9 @@ void main() {
         );
         await _finishBojagiAsync(tester);
 
-        final knot = find.bySemanticsLabel(t.bojagiOpenHint);
+        final knot = find.bySemanticsLabel(t.najeonChestOpenHint);
         expect(tester.getSize(knot).shortestSide, greaterThanOrEqualTo(48));
-        _expectActionSemantics(tester, knot, t.bojagiOpenHint);
+        _expectActionSemantics(tester, knot, t.najeonChestOpenHint);
         await tester.tap(knot);
         await _finishBojagiAsync(tester);
 
@@ -207,10 +211,10 @@ void main() {
       );
       await _finishBojagiAsync(tester);
       expect(
-        find.widgetWithText(SoriEmptyState, t.bojagiEmptyTitle),
+        find.widgetWithText(SoriEmptyState, t.najeonChestEmptyTitle),
         findsOneWidget,
       );
-      await tester.ensureVisible(find.text(t.bojagiEmptyBody));
+      await tester.ensureVisible(find.text(t.najeonChestEmptyBody));
       await tester.pump();
       expect(tester.takeException(), isNull);
     }
@@ -247,9 +251,9 @@ void main() {
 
         expect(find.byType(AppLoading), findsOneWidget);
         final loadingData = tester
-            .getSemantics(find.bySemanticsLabel(t.bojagiLoading))
+            .getSemantics(find.bySemanticsLabel(t.najeonChestLoading))
             .getSemanticsData();
-        expect(loadingData.label, t.bojagiLoading);
+        expect(loadingData.label, t.najeonChestLoading);
         expect(loadingData.flagsCollection.isLiveRegion, isTrue);
 
         firstLoad.completeError(StateError('fixture load failure'));
@@ -257,9 +261,9 @@ void main() {
 
         expect(find.byType(AppError), findsOneWidget);
         final errorData = tester
-            .getSemantics(find.bySemanticsLabel(t.bojagiProblemBody))
+            .getSemantics(find.bySemanticsLabel(t.najeonChestProblemBody))
             .getSemanticsData();
-        expect(errorData.label, t.bojagiProblemBody);
+        expect(errorData.label, t.najeonChestProblemBody);
         expect(errorData.flagsCollection.isLiveRegion, isTrue);
         expect(Storage.pendingBoxes, const <String>['q_punggyeong']);
 
@@ -271,7 +275,7 @@ void main() {
         await _finishBojagiAsync(tester);
 
         expect(find.byType(AppError), findsNothing);
-        expect(find.bySemanticsLabel(t.bojagiOpenHint), findsOneWidget);
+        expect(find.bySemanticsLabel(t.najeonChestOpenHint), findsOneWidget);
         expect(Storage.pendingBoxes, const <String>['q_punggyeong']);
         expect(attempts, 2);
         expect(tester.takeException(), isNull);
@@ -311,7 +315,7 @@ void main() {
       textScale: 1.3,
     );
     await _finishBojagiAsync(tester);
-    await tester.tap(find.bySemanticsLabel(t.bojagiOpenHint));
+    await tester.tap(find.bySemanticsLabel(t.najeonChestOpenHint));
     await _finishBojagiAsync(tester);
     await tester.tap(
       find.bySemanticsLabel(t.bojagiChooseDecoration(decorName(t, slug))),
@@ -358,7 +362,7 @@ void main() {
       textScale: 1.3,
     );
     await _finishBojagiAsync(tester);
-    await tester.tap(find.bySemanticsLabel(t.bojagiOpenHint));
+    await tester.tap(find.bySemanticsLabel(t.najeonChestOpenHint));
     await _finishBojagiAsync(tester);
 
     final choose = find.bySemanticsLabel(chooseLabel);

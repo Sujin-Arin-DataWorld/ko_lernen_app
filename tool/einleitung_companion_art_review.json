@@ -1,0 +1,394 @@
+{
+  "reviewedAt": "2026-10-18",
+  "reviewer": "material_component_designer",
+  "scope": "Welcome85:32 and companion Taego80:505/Joy80:537, static reference composition and material preparation only",
+  "verdict": "PASS_V8_STATIC_WELCOME_AND_COMPANION_MATERIAL_COMPOSITION",
+  "figmaFileKey": "rVlcMLvngw07BYJ7nRT87C",
+  "figmaWritesByReviewer": false,
+  "pngFilesEditedByReviewer": false,
+  "scriptExecutedByReviewer": false,
+  "sourceScreenshotPixelsUsedAsRuntimeAssets": false,
+  "preparedScript": "tool/refine_einleitung_welcome_companion.js",
+  "scriptValidation": "Node AsyncFunction parse succeeded; not executed. Preflight loads existing/desired fonts and verifies structure. Named native layers are reused on rerun. Prototype reactions are not changed.",
+  "sources": [
+    {
+      "file": "C:/Users/vjinn/.codex/generated_images/einleitung_setting_rats확정/welcome.png",
+      "size": [
+        941,
+        1672
+      ],
+      "sha256": "735c37f552e30c9e2761dc0bb71373e3bed137ff2c3d4e19f251c2c52351526b",
+      "normalization": "Own aspect at width402: height714.286929. No phone-frame crop."
+    },
+    {
+      "file": "C:/Users/vjinn/.codex/generated_images/einleitung_setting_rats확정/einleitung7-joy.png",
+      "selectedCompanion": "Taego",
+      "size": [
+        853,
+        1844
+      ],
+      "sha256": "6aa6eef64dbdaa72e5d833aa6f077e56fe008c6e266b581611996b578fa989ab"
+    },
+    {
+      "file": "C:/Users/vjinn/.codex/generated_images/einleitung_setting_rats확정/einleitung7-taego.png",
+      "selectedCompanion": "Joy",
+      "size": [
+        853,
+        1844
+      ],
+      "sha256": "cc69dbe998a37195bf6d0e0566f0845c7e3828af5929ae7ba5d69cc7211859ba"
+    }
+  ],
+  "method": "Read actual Figma node properties/screenshots, view complete independent assets and source images, normalize original07 app rectangle x52,y52,width748,height1738 to402x934 in memory. Temporary in-memory reference crops and whole-asset reductions were viewed for inspection, never saved or used in Figma. Source dark-ink measurements use maxRGB<120 in bounded text regions.",
+  "skillsApplied": [
+    {
+      "path": "C:/Users/vjinn/.codex/plugins/cache/claude-plugins-official/frontend-design/local/skills/frontend-design/SKILL.md",
+      "decision": "Preserve the established jade/hanji/brass language, restore reference hierarchy and tactile surfaces, avoid a new visual direction."
+    },
+    {
+      "path": "C:/Users/vjinn/.agents/skills/design-system/SKILL.md",
+      "decision": "Reuse v7 material hashes and shared CTA103:48, lock selection-state geometry, use editable native type and semantic selection layers."
+    },
+    {
+      "path": "C:/Users/vjinn/.codex/plugins/cache/openai-curated-remote/figma/16.0.0/skills/figma-use/SKILL.md",
+      "decision": "Read-only inspection; prepare preflighted root-executed script with font loading, explicit created/changed IDs and no unsupported APIs."
+    }
+  ],
+  "originalProblems": [
+    "Welcome941x1672 was FILL-cropped into402x934, losing side posts and part of Joy's wings. Source already requires its own aspect mapping.",
+    "07 selection frames had unequal card x/y, Gye y633 versus609, and CTA y799 versus795, causing selection-state displacement.",
+    "07 header used old jade/paper, smaller cloud, old typography and flat filled progress dot.",
+    "Companion roles at12px were materially smaller than the reference. Gye title/body hierarchy and first/second-line colors differed.",
+    "Selected border surrounded the whole card rather than the portrait, and the Joy check sat at the lower left instead of lower right.",
+    "Both07 frames used the old CTA image and plain text chevron, missing the approved v7 metallic face and vector relief.",
+    "The right-side flowering branch and Welcome cloud ornaments were missing.",
+    "Taego candidate added a broad diagonal teal sash absent from the source. This was the only required portrait regeneration."
+  ],
+  "assetReviews": {
+    "welcome": {
+      "verdict": "PASS_FOR_WHOLE_SCENE_REUSE_AT_SOURCE_ASPECT",
+      "master": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-d8d5a526-b7e8-4a68-a35d-8c16eeaab0c1.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-welcome-scene.png",
+      "sha256": "b5082b040b4b976bcdb5f9fdf1c7a553c08509ba1afa54aaa5cfcee3734924a0",
+      "size": [
+        941,
+        1672
+      ],
+      "imageHash": "b05dffa8f6df3c5c679c758a07a58d7ea8fabb11",
+      "finding": "Gate posts, roof, distant Hanok, Joy's open wings/hat/badge, Taego, stone foreground and right door emblem retain the source composition. Current FILL mapping is the defect, not the asset.",
+      "requiredRegeneration": false,
+      "placement": [
+        0,
+        0,
+        402,
+        714.286929
+      ],
+      "adaptationLimit": "No claim that this714.29px source-aspect frame solves the separate402x934 Flutter layout. Do not FILL-crop or axis-stretch the scene."
+    },
+    "taegoOriginalCandidate": {
+      "verdict": "FAIL_BROAD_SASH_SUPERSEDED_BY_REVIEWED_MINIMAL_EDIT",
+      "master": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-510327f9-b77d-4627-ab55-04eb14931956.png",
+      "sha256": "85de045f31d4f8620f98bb2d17d78ad808ac37b19b22bc16ed49c72bf6f7d873",
+      "size": [
+        1024,
+        1536
+      ],
+      "requiredEditBrief": "Preserve the complete1024x1536 seated white tiger portrait, blue eyes, face, body, paws/tail, cream/plum/wood background and camera framing. Remove only the broad diagonal teal fabric sash across the chest. Restore white fur and natural original black stripes under it. Preserve the small gold-rimmed teal three-curl shoulder ornament with its short pointed tail on screen-right shoulder, as in einleitung7-joy.png. Add no clothing, necklace or new ornament. Full independent portrait; no labels, UI border or selection check.",
+      "replacementMaster": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-3ec508cc-0704-4ac9-9817-f8bd6990c640.png"
+    },
+    "taegoReplacement": {
+      "verdict": "PASS_SCOPED_IDENTITY_AND_SASH_CORRECTION",
+      "master": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-3ec508cc-0704-4ac9-9817-f8bd6990c640.png",
+      "sha256": "45e2c07aa8d8bccd4e593d29d1506f4eac776f5257de172543685533598d0503",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "inspection": "Full master and actual190x285 whole-image reduction viewed. Broad sash removed; fur/stripes are coherent. Gold-edged three-curl badge, blue eyes, seated guardian demeanor and complete paws remain legible.",
+      "remainingDifference": "Independent portrait has a somewhat narrower head/chest than the source. This is documented composition residual, not an assertion of exact pixel/proportion identity. It does not block recognition or the requested minimal correction.",
+      "furtherGenerationRecommended": false,
+      "scriptIntegration": "Root uploads master and fills CONFIG.taegoReplacementHash before execution or reruns the idempotent patch afterward."
+    },
+    "joy": {
+      "verdict": "PASS_FOR_REUSE_PENDING_IN_FRAME_REVIEW",
+      "master": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-18ed5c08-6dfc-4920-8f99-79915019335b.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-joy-close.png",
+      "sha256": "9c49d07afeb6a23f9bc160a8fab6fd51a3911cebafc9ae7573f328c74b6f96ac",
+      "size": [
+        1024,
+        1536
+      ],
+      "finding": "Black/ivory magpie, amber eyes, gat, gold cords/bells, teal/gold curl badge, feet and long tail preserve identity. Brim/torso proportions differ modestly, but no necessary regeneration is established by the actual190px-wide review.",
+      "requiredRegeneration": false
+    },
+    "gye": {
+      "verdict": "REUSE_PENDING_COMPOSITION_REVIEW",
+      "master": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-e615732c-1252-4ec4-b424-523ccf4e7eae.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-gye-reading.png",
+      "sha256": "87371f0da6687fd80e7411f3474cc63769768d9629f05bbd6b1d06513831192a",
+      "size": [
+        1536,
+        1024
+      ],
+      "finding": "Two students, hanbok, shared open book, stacked books, vase and warm Hanok reading setting remain coherent. This independent scene is wider and a little less close than the source. Whole image214x142.667 is centered inside the156px card, leaving6.667px cream above/below. No forced crop or distortion.",
+      "requiredRegeneration": false,
+      "reReviewCondition": "Check the final card's small padding and reading-group scale at100percent. Do not claim full reference parity from the script alone."
+    },
+    "upperRightFlowers": {
+      "verdict": "REUSE_APPROVED_WHOLE_PLUM_PENDING_RENDER",
+      "asset": "assets/illustrations/einleitung_generated/intro-plum-branch.png",
+      "imageHash": "72164c5f6f1a7ee1c9d4578f4d95805dbbfdf848",
+      "size": [
+        1816,
+        866
+      ],
+      "nativePlacement": "Complete215x102.5275 rectangle, transform[[0,1,291],[1,0,105]], yielding a102.5275x215 vertical ornament with stem at right. Native transpose preserves pixel aspect; no file changes.",
+      "requiredRegeneration": false
+    }
+  },
+  "fixedGeometryBothCompanionStates": {
+    "frame": [
+      402,
+      934
+    ],
+    "leftCard": [
+      7,
+      236,
+      195,
+      360
+    ],
+    "rightCard": [
+      210,
+      236,
+      188,
+      360
+    ],
+    "portraitBorderHeight": 288,
+    "selectedCheckVisibleTaego": [
+      18,
+      475,
+      46,
+      45.696035
+    ],
+    "selectedCheckVisibleJoy": [
+      342,
+      475,
+      46,
+      45.696035
+    ],
+    "suppliedCheckFullBox": [
+      63.528634,
+      63.528634
+    ],
+    "suppliedCheckOffsetFromVisibleTopLeft": [
+      -8.663,
+      -8.561674
+    ],
+    "gye": [
+      12,
+      605,
+      378,
+      156
+    ],
+    "ctaHit": [
+      16,
+      772,
+      370,
+      58
+    ],
+    "ctaSurface": [
+      16,
+      772,
+      370,
+      52.154263
+    ],
+    "backHit": [
+      140,
+      823,
+      122,
+      48
+    ],
+    "selectionFrameHeightAndCtaPositionChange": false,
+    "behaviorOwnership": "Parent/UX reviewer subsequently builds same-frame selection. Latest user direction excludes Vorschau. This script adds no preview and changes no reactions."
+  },
+  "typography": {
+    "header": {
+      "brand": "Noto Serif Regular15, tracking2.8, rect70/61/210/22",
+      "progress": "Noto Serif Regular21, rect318/58/66/27",
+      "title": "Roboto Bold36, line37, rect20/140/280/78; first-line tracking0.4 and second-line-0.15"
+    },
+    "names": "Roboto Condensed Bold26, line34; local y294 in both cards",
+    "roles": {
+      "Taego": "Roboto Condensed Regular17.5",
+      "Joy": "Roboto Condensed Regular15",
+      "line": 26,
+      "localY": 325,
+      "reason": "Source role lines have different optical sizes; native font sizing fits the long Joy label without raster stretching."
+    },
+    "gye": {
+      "title": "Roboto Condensed Bold17, line24",
+      "body": "Roboto Condensed Regular12.5, line20",
+      "copy": "Finde später deine Lerngruppe.\nDu kannst alleine starten.",
+      "bodyColors": [
+        "#10252b",
+        "#164e68"
+      ]
+    },
+    "sourceDarkInkBboxes": {
+      "TaegoName": [
+        71,
+        537,
+        135,
+        561
+      ],
+      "TaegoRole": [
+        30,
+        568,
+        178,
+        584
+      ],
+      "JoyRole": [
+        222,
+        568,
+        387,
+        584
+      ],
+      "GyeTitle": [
+        234,
+        653,
+        385,
+        671
+      ],
+      "GyeLine1": [
+        235,
+        677,
+        386,
+        690
+      ],
+      "GyeLine2": [
+        235,
+        697,
+        366,
+        706
+      ]
+    },
+    "nativeFontEvidence": {
+      "FigmaReadOnlyFontInventory": "Roboto Condensed Regular/Bold available, as are Roboto, Lora and Noto Serif",
+      "outlineSource": "https://raw.githubusercontent.com/google/fonts/main/ofl/robotocondensed/RobotoCondensed%5Bwght%5D.ttf",
+      "method": "Official Google Fonts bytes loaded into Pillow in memory only; no font file written by reviewer",
+      "measurements": {
+        "TaegoAtBold26Advance": 65,
+        "TaegoRoleAtRegular17_5Advance": 148.640625,
+        "JoyRoleAtRegular15Advance": 165.65625,
+        "GyeTitleAtBold17Advance": 151.725,
+        "GyeLine1AtRegular12_5Advance": 153.046875
+      }
+    },
+    "runtimeRequirement": "If absent from Flutter assets, root must add licensed Roboto Condensed or use the already available Roboto width75 font axis with equivalent metrics; do not horizontally stretch rendered text.",
+    "welcome": {
+      "brand": "Noto Serif Regular12 tracking1.7",
+      "title": "Lora SemiBold28 line30.5",
+      "body": "Roboto Regular12.5 line16",
+      "start": "Lora SemiBold20 line30",
+      "later": "Roboto Regular12 underlined;48px text hit box"
+    }
+  },
+  "approvedMaterialReuse": {
+    "jade": "6f491fecf54b88d71803b6d995449cb0570672cf with native#094838 opacity0.60 over complete402square",
+    "jadeBelow402": "Native#06523e continuation behind narrow portrait gutter to y526, matching v7 composed median, avoiding texture cropping/stretching",
+    "paper": "2b04ce49b5b575b4e55d89a0c23d430c9a25cc39 complete402x703.924 bottom-aligned; upper part naturally occluded by jade",
+    "goldCta": "Component103:48 reused through swapComponent; whole-image approved370x52.154 visible face,58px hit frame, relieved vector right chevron",
+    "check": "Exact supplied9d1d4c06ecef94534d268af293dd33ee961cb7de; alpha128 bbox171/169/1079/1071",
+    "selectedBorder": "Portrait-only jade2.6px rail with0.85px outer and0.75px inner metallic bevel; no full-label-card gold outline",
+    "welcomeCta": "Source-specific jade face233x50 and native gold1.5px bevel; editable label and shaft arrow;48px minimum hit retained",
+    "welcomeClouds": "Editable native stroked vectors; original scene is unchanged; full paths clipped only by explicit native ornament windows behind the wood-post regions. Rendered shape still needs visual review."
+  },
+  "requiredFreshRenderChecks": [
+    "Root supplies reviewed Taego hash, executes script and exports85:32,80:505,80:537 at their natural frame sizes.",
+    "No card, Gye or CTA displacement when selecting Joy/Taego; check visible at lower-left Taego or lower-right Joy only.",
+    "No role wrapping, Gye sentence wrapping beyond its two explicit lines, missing umlauts, collisions or label clipping.",
+    "Selected metallic rail encloses only portrait, does not cover labels; check remains legible at46px.",
+    "Gold CTA and engraved vector remain identical to approved v7 component; every entire asset preserves aspect and complete content.",
+    "Jade continuation seam is unobtrusive in the narrow gutter; whole-paper bottom waves/flowers retain source-like footer height.",
+    "Transposed whole plum stays clear of title text and resembles the right-side source grouping without new generation.",
+    "Welcome shows complete side posts, Joy wings, Taego, door emblem and stone foreground at source aspect; title and CTA stay within source clear areas.",
+    "Source Welcome cloud ornament approximation and small Gye image padding need explicit visual review; neither receives an automatic parity claim."
+  ],
+  "remainingRequiredAssetGenerations": [],
+  "approvalLimits": [
+    "V8 actual Figma exports passed the stated static material/composition scope. Flutter and device verification remain separate.",
+    "No100percent pixel identity or original font identity is claimed.",
+    "This does not establish Flutter interaction, actual route/state linkage, motion, large-text adaptation, small viewport behavior or device validation."
+  ],
+  "renderedV8Review": {
+    "date": "2026-10-18",
+    "verdict": "PASS",
+    "readyForFaithfulFlutterImplementation": true,
+    "evidence": [
+      {
+        "file": "docs/screenshots/einleitung-parity-review-20261018/welcome-v8.png",
+        "size": [
+          402,
+          715
+        ],
+        "sha256": "2213454676ca5f7c457a676933d681e601b3e84093ad992c80ba4f5d7730f13b"
+      },
+      {
+        "file": "docs/screenshots/einleitung-parity-review-20261018/07-taego-v8.png",
+        "size": [
+          402,
+          934
+        ],
+        "sha256": "2a9021213d7ec5ffd5ef28c64f7d300af71e753c0a0acc9315422c69097f7425"
+      },
+      {
+        "file": "docs/screenshots/einleitung-parity-review-20261018/07-joy-v8.png",
+        "size": [
+          402,
+          934
+        ],
+        "sha256": "8819e23b37e035ad6f3a51bf3e0857f21d8ff13a4dce1cfaea1bcb809117ba9c"
+      }
+    ],
+    "selectionStatePixelProof": {
+      "changedPixelsOutsidePortraitBordersChecksAndCtaLabel": 0,
+      "maskedExpectedRegions": [
+        [
+          3,
+          232,
+          206,
+          530
+        ],
+        [
+          206,
+          232,
+          402,
+          530
+        ],
+        [
+          12,
+          768,
+          390,
+          832
+        ]
+      ],
+      "meaning": "All header, roles, Gye, footer and action geometry remains identical between selection states."
+    },
+    "welcome": "Complete posts, wings, companion identities, door emblem and foreground visible. Source-aspect title/body and jade CTA are clear. Native cloud approximation reads coherently.402x715 export rounds the714.2869px frame.",
+    "companion": "Selected rim surrounds portrait only; exact supplied check is on the correct outer corner; no text wrap, collision or missing glyph. CTA remains the approved v7 material. Actual small-scale Taego badge and Joy details read clearly.",
+    "acceptedResiduals": [
+      "Independent portraits retain small head/body proportion differences.",
+      "Whole Gye scene has6.667px top/bottom cream spacing and slightly wider camera than source.",
+      "Native Welcome cloud curves approximate the source ornament; no exact vector identity claim.",
+      "Whole paper/footer has a somewhat more prominent wave band, with readable controls and coherent depth."
+    ],
+    "requiredFurtherMaterialCorrections": [],
+    "furtherGenerationRequired": false,
+    "limits": [
+      "Static Figma material/composition only.",
+      "Welcome402x934 adaptation remains a separate Flutter layout problem; do not crop or stretch the approved scene.",
+      "No interaction, native state, accessibility or device approval."
+    ]
+  }
+}

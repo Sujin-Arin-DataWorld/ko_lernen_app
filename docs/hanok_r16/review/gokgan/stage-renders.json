@@ -1,0 +1,353 @@
+{
+  "key": "gokgan",
+  "source": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\gokgan\\gokgan.blend",
+  "sourceSha256": "6ae55db4f8450b323a4e6c8122e4db081bead0e66f8840edb91d3be005ac9331",
+  "native": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\gokgan\\stage.blend",
+  "nativeSha256": "7de3d03b3765d1a8485a5b691662884495a6487d6e57c2a972720e0edf646bba",
+  "architecture": {
+    "stateSha256": "9da8de2e9e633ec4fa6cbb83e7b32cc7585f9e648a26e1500ca1127b05604593",
+    "normalsSha256": "4b2be4febfaa4c37728538bd3d2cbf6443c416537f3abe758615ac07fc0c50fb",
+    "meshCount": 75
+  },
+  "materialBindingSha256": "87db5958e6a458ca72143ee1aa5217794464707c52be8abd295db4d1810e8078",
+  "selection": "stage-selection.json",
+  "stageCount": 11,
+  "steps": [
+    {
+      "sequence": 1,
+      "processId": "ildu.gokgan-site",
+      "label": "터 닦기",
+      "isFinal": false,
+      "visibleMembers": 0,
+      "visibleSetSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "materialBindingSha256": "87db5958e6a458ca72143ee1aa5217794464707c52be8abd295db4d1810e8078",
+      "camera": {
+        "position": [
+          77.92606353759766,
+          -64.3096694946289,
+          44.75013732910156
+        ],
+        "rotation": [
+          1.1425167322158813,
+          8.452003186221191e-08,
+          0.6146631836891174
+        ],
+        "ortho": 16.769420623779297,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/01.png",
+      "sha256": "db5a5b4df307315f49fba5dff5187f69da012f3e7ae53392bfcab25fd390594e",
+      "seconds": 8.03,
+      "samples": 16
+    },
+    {
+      "sequence": 2,
+      "processId": "ildu.gokgan-foundation",
+      "label": "기단",
+      "isFinal": false,
+      "visibleMembers": 11,
+      "visibleSetSha256": "fc530f2fb4116abf2aab5c07bb5e04730484a2040b8a29b44acd2a72fc3cd5f2",
+      "materialBindingSha256": "87db5958e6a458ca72143ee1aa5217794464707c52be8abd295db4d1810e8078",
+      "camera": {
+        "position": [
+          77.92606353759766,
+          -64.3096694946289,
+          44.75013732910156
+        ],
+        "rotation": [
+          1.1425167322158813,
+          8.452003186221191e-08,
+          0.6146631836891174
+        ],
+        "ortho": 16.769420623779297,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/02.png",
+      "sha256": "bab905a7e7bba96ec56a85c47910d47f626f2c0aa38f03d9b6187d04da0a7be6",
+      "seconds": 12.36,
+      "samples": 16
+    },
+    {
+      "sequence": 3,
+      "processId": "ildu.gokgan-posts",
+      "label": "기둥",
+      "isFinal": false,
+      "visibleMembers": 13,
+      "visibleSetSha256": "dce5742c9c5e9d1ed14de50c95c336c12ce535a6dcfd852ec8141f1df7306d4c",
+      "materialBindingSha256": "87db5958e6a458ca72143ee1aa5217794464707c52be8abd295db4d1810e8078",
+      "camera": {
+        "position": [
+          77.92606353759766,
+          -64.3096694946289,
+          44.75013732910156
+        ],
+        "rotation": [
+          1.1425167322158813,
+          8.452003186221191e-08,
+          0.6146631836891174
+        ],
+        "ortho": 16.769420623779297,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/03.png",
+      "sha256": "47cdacd47996520aa910ede0fed1acb075ac006eba6cb168890fe80c15f8de5c",
+      "seconds": 13.15,
+      "samples": 16
+    },
+    {
+      "sequence": 4,
+      "processId": "ildu.gokgan-beams",
+      "label": "보",
+      "isFinal": false,
+      "visibleMembers": 16,
+      "visibleSetSha256": "10bcfe81f16811b3d12b2b00599d42ffa0a44d568a8b2227ecf19c3ca135f866",
+      "materialBindingSha256": "87db5958e6a458ca72143ee1aa5217794464707c52be8abd295db4d1810e8078",
+      "camera": {
+        "position": [
+          77.92606353759766,
+          -64.3096694946289,
+          44.75013732910156
+        ],
+        "rotation": [
+          1.1425167322158813,
+          8.452003186221191e-08,
+          0.6146631836891174
+        ],
+        "ortho": 16.769420623779297,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/04.png",
+      "sha256": "860d8fcfa68eb20469ed3e5d3a96964f580f05f0a5ed33990f42181091ad7d26",
+      "seconds": 16.14,
+      "samples": 16
+    },
+    {
+      "sequence": 5,
+      "processId": "ildu.gokgan-rafters",
+      "label": "서까래",
+      "isFinal": false,
+      "visibleMembers": 18,
+      "visibleSetSha256": "f158dbd467ffffa0212469d271df465561d97cb8503d65fd58f25af1b87ea457",
+      "materialBindingSha256": "87db5958e6a458ca72143ee1aa5217794464707c52be8abd295db4d1810e8078",
+      "camera": {
+        "position": [
+          77.92606353759766,
+          -64.3096694946289,
+          44.75013732910156
+        ],
+        "rotation": [
+          1.1425167322158813,
+          8.452003186221191e-08,
+          0.6146631836891174
+        ],
+        "ortho": 16.769420623779297,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/05.png",
+      "sha256": "af35fee19d258fd3ef27bfaa3454a8f498fbf525a7be495c72dd8455712f9e8c",
+      "seconds": 19.38,
+      "samples": 16
+    },
+    {
+      "sequence": 6,
+      "processId": "ildu.gokgan-roof-bed",
+      "label": "지붕 바탕",
+      "isFinal": false,
+      "visibleMembers": 20,
+      "visibleSetSha256": "408869e996e28b97c4bb77ed1997cde1c192156ddd9074fcce134ad8aecee427",
+      "materialBindingSha256": "87db5958e6a458ca72143ee1aa5217794464707c52be8abd295db4d1810e8078",
+      "camera": {
+        "position": [
+          77.92606353759766,
+          -64.3096694946289,
+          44.75013732910156
+        ],
+        "rotation": [
+          1.1425167322158813,
+          8.452003186221191e-08,
+          0.6146631836891174
+        ],
+        "ortho": 16.769420623779297,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/06.png",
+      "sha256": "93811cec03067648cacd32cfc0942d52bda4743124d020228f0a9a5efa5adc1b",
+      "seconds": 17.41,
+      "samples": 16
+    },
+    {
+      "sequence": 7,
+      "processId": "ildu.gokgan-tiles",
+      "label": "기와",
+      "isFinal": false,
+      "visibleMembers": 41,
+      "visibleSetSha256": "19082a2f281f9582ba4e3e8a90b9d50084360245aea57894e8623b603f9ca22e",
+      "materialBindingSha256": "87db5958e6a458ca72143ee1aa5217794464707c52be8abd295db4d1810e8078",
+      "camera": {
+        "position": [
+          77.92606353759766,
+          -64.3096694946289,
+          44.75013732910156
+        ],
+        "rotation": [
+          1.1425167322158813,
+          8.452003186221191e-08,
+          0.6146631836891174
+        ],
+        "ortho": 16.769420623779297,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/07.png",
+      "sha256": "4d171859c056bc191db8fedbfd37e03d191a62db1ab3f2e4f2a247006db0addf",
+      "seconds": 34.56,
+      "samples": 16
+    },
+    {
+      "sequence": 8,
+      "processId": "ildu.gokgan-walls",
+      "label": "벽체",
+      "isFinal": false,
+      "visibleMembers": 51,
+      "visibleSetSha256": "ef5dd43f950111673a6ee6fbff53eeb750900ff739351b39a005fe452ffe7216",
+      "materialBindingSha256": "87db5958e6a458ca72143ee1aa5217794464707c52be8abd295db4d1810e8078",
+      "camera": {
+        "position": [
+          77.92606353759766,
+          -64.3096694946289,
+          44.75013732910156
+        ],
+        "rotation": [
+          1.1425167322158813,
+          8.452003186221191e-08,
+          0.6146631836891174
+        ],
+        "ortho": 16.769420623779297,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/08.png",
+      "sha256": "a32bf417a7a13c6769fb0308aaaf5782299c3ede22ac7a41491309c55c759e42",
+      "seconds": 34.03,
+      "samples": 16
+    },
+    {
+      "sequence": 9,
+      "processId": "ildu.gokgan-doors",
+      "label": "문",
+      "isFinal": false,
+      "visibleMembers": 70,
+      "visibleSetSha256": "040d4c28931db680d7a5c4c69ebb0d2268428c5b0ac3fd32a387d1fcddad1e96",
+      "materialBindingSha256": "87db5958e6a458ca72143ee1aa5217794464707c52be8abd295db4d1810e8078",
+      "camera": {
+        "position": [
+          77.92606353759766,
+          -64.3096694946289,
+          44.75013732910156
+        ],
+        "rotation": [
+          1.1425167322158813,
+          8.452003186221191e-08,
+          0.6146631836891174
+        ],
+        "ortho": 16.769420623779297,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/09.png",
+      "sha256": "c0ecb413966602112bb2470e2588ea4d02b94148ce17464221d3ea55bc3eec3a",
+      "seconds": 28.58,
+      "samples": 16
+    },
+    {
+      "sequence": 10,
+      "processId": "ildu.gokgan-stone-path",
+      "label": "돌길",
+      "isFinal": false,
+      "visibleMembers": 75,
+      "visibleSetSha256": "137c4aecc3d7ed870d74a49ca8d1fe9524dc50769b2ad7a5120d125a60460d0f",
+      "materialBindingSha256": "87db5958e6a458ca72143ee1aa5217794464707c52be8abd295db4d1810e8078",
+      "camera": {
+        "position": [
+          77.92606353759766,
+          -64.3096694946289,
+          44.75013732910156
+        ],
+        "rotation": [
+          1.1425167322158813,
+          8.452003186221191e-08,
+          0.6146631836891174
+        ],
+        "ortho": 16.769420623779297,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/10.png",
+      "sha256": "3d4473f9b2a28f13052a878697bfb5675fe7bc4c813835fe3436f19d00fb992b",
+      "seconds": 28.08,
+      "samples": 16
+    },
+    {
+      "sequence": 11,
+      "processId": "ildu.gokgan-care",
+      "label": "돌봄",
+      "isFinal": true,
+      "visibleMembers": 75,
+      "visibleSetSha256": "137c4aecc3d7ed870d74a49ca8d1fe9524dc50769b2ad7a5120d125a60460d0f",
+      "materialBindingSha256": "87db5958e6a458ca72143ee1aa5217794464707c52be8abd295db4d1810e8078",
+      "camera": {
+        "position": [
+          77.92606353759766,
+          -64.3096694946289,
+          44.75013732910156
+        ],
+        "rotation": [
+          1.1425167322158813,
+          8.452003186221191e-08,
+          0.6146631836891174
+        ],
+        "ortho": 16.769420623779297,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/11.png",
+      "sha256": "3d4473f9b2a28f13052a878697bfb5675fe7bc4c813835fe3436f19d00fb992b",
+      "reuseReason": "same preserved cumulative geometry; existing curriculum step retained"
+    }
+  ],
+  "renderComplete": true,
+  "userApproved": false,
+  "runtimeIntegrated": false,
+  "reopenedNativeVerified": true,
+  "allStageMaterialsIdenticalToSavedNative": true,
+  "allStageVisibilityVerified": true,
+  "sourceFilePreserved": true
+}

@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "generation": "built-in imagegen; one output per topic",
+  "style_reference": "C:\\Users\\vjinn\\.codex\\generated_images\\Nevi_Bar5\\exec-d0abcd6e-3c27-46de-8c6b-85caa1ac23e3.png",
+  "style_reference_sha256": "a8ef18b79cc93d75600f2fccb35d8830c2277e9d42151176c0e22d34eb6bf22a",
+  "assets": [
+    {
+      "id": "tales",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0fef3-d1af-7883-b186-6cfdba971708\\exec-6f0e4c98-f120-4b62-947a-112b68c4cc6a.png",
+      "original": "assets_unused/source_originals/dokkaebi-topic-icons-20261003/tales.png",
+      "source_sha256": "81628856fa9edd797ab7b7ad4f12a3fca82d297492f0bf84b84f5553622f81cd",
+      "source_bytes": 1784623,
+      "source_size": [
+        1254,
+        1254
+      ],
+      "alpha_bounds_at_8": [
+        65,
+        160,
+        1195,
+        1112
+      ],
+      "runtime": "assets/illustrations/tactile/dokkaebi_topics/tales.webp",
+      "runtime_sha256": "2d2150547a5885a2d62d18b948a7f87941035c8307c91521a572c28351bd22e6",
+      "runtime_bytes": 58398,
+      "derivation": "whole-canvas 256x256 LANCZOS resize; lossless WebP with alpha; no crop/repaint"
+    },
+    {
+      "id": "home",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0fef3-d1af-7883-b186-6cfdba971708\\exec-2b9411ef-cf80-4893-98a8-57eec1053896.png",
+      "original": "assets_unused/source_originals/dokkaebi-topic-icons-20261003/home.png",
+      "source_sha256": "badf40200faa0f03214318b779a357346c651c0ea35820b0a9ebf01e383de156",
+      "source_bytes": 1863955,
+      "source_size": [
+        1254,
+        1254
+      ],
+      "alpha_bounds_at_8": [
+        93,
+        140,
+        1155,
+        1117
+      ],
+      "runtime": "assets/illustrations/tactile/dokkaebi_topics/home.webp",
+      "runtime_sha256": "f193b4126763bc76867a5636dcc2897e71b3a56615a3767c1adce25feef431b0",
+      "runtime_bytes": 64456,
+      "derivation": "whole-canvas 256x256 LANCZOS resize; lossless WebP with alpha; no crop/repaint"
+    },
+    {
+      "id": "learning",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0fef3-d1af-7883-b186-6cfdba971708\\exec-e2c40c49-b827-4920-ae49-66986c8054ef.png",
+      "original": "assets_unused/source_originals/dokkaebi-topic-icons-20261003/learning.png",
+      "source_sha256": "9b16b3e7e05e2239ce3aab2b4044d5b642545f05b18f422d9b72546929e8766b",
+      "source_bytes": 1451285,
+      "source_size": [
+        1254,
+        1254
+      ],
+      "alpha_bounds_at_8": [
+        97,
+        107,
+        1193,
+        1094
+      ],
+      "runtime": "assets/illustrations/tactile/dokkaebi_topics/learning.webp",
+      "runtime_sha256": "e9437c622469b3f0b789b0156663e36119570fa30a9121c3b971bdc1110ea93d",
+      "runtime_bytes": 49436,
+      "derivation": "whole-canvas 256x256 LANCZOS resize; lossless WebP with alpha; no crop/repaint"
+    }
+  ]
+}

@@ -8,6 +8,8 @@ import '../../screens/dojangcheop_screen.dart';
 import '../../services/storage_service.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
+import '../../widgets/sori/c_learning_header.dart';
+import '../../widgets/sori/c_learning_surface.dart';
 import '../../widgets/sori/dialog.dart';
 import '../../widgets/sori/toast.dart';
 import '../../widgets/sori/cultural_help.dart';
@@ -197,7 +199,20 @@ class _StudioState extends State<DancheongStudioScreen> {
     }
     return SoriStandardFrame(
       appBarTitle: t.dancheongTitle,
-      actions: const [CulturalHelpButton(termId: 'dancheong')],
+      headerBuilder: (context, leading, actions) => soriCLernenHeader(
+        context,
+        leading ?? const BackButton(),
+        actions,
+        t.dancheongTitle,
+      ),
+      cMaterial: true,
+      cPaperBody: true,
+      actions: const [
+        CulturalHelpButton(
+          termId: 'dancheong',
+          foregroundColor: SoriCLearningTokens.paper,
+        ),
+      ],
       padding: const EdgeInsets.all(Spacing.lg),
       builder: (context, padding) => ListView(
         padding: padding,
@@ -227,6 +242,7 @@ class _StudioState extends State<DancheongStudioScreen> {
               const SizedBox(height: Spacing.md),
               SoriButton.filled(
                 key: const ValueKey('dancheong-create'),
+                cMaterial: true,
                 label: t.dancheongCreate,
                 fullWidth: true,
                 onTap: _owned().isEmpty || owner!.drafts.length >= 30
@@ -242,6 +258,7 @@ class _StudioState extends State<DancheongStudioScreen> {
                 Text(t.dancheongCapacity),
                 SoriButton.ghost(
                   onTap: () => setState(() => tab = DancheongStudioTab.artwork),
+                  cMaterial: true,
                   label: t.dancheongManage,
                 ),
               ],
@@ -250,11 +267,12 @@ class _StudioState extends State<DancheongStudioScreen> {
                 Text(t.dancheongFirstMaterial),
                 SoriButton.ghost(
                   onTap: () => Navigator.of(context).pushNamed('/path'),
+                  cMaterial: true,
                   label: t.dancheongLearn,
                 ),
               ],
               const SizedBox(height: Spacing.lg),
-              const DojangcheopScreen(embedded: true),
+              const DojangcheopScreen(embedded: true, cMaterial: true),
               const SizedBox(height: Spacing.lg),
               Text(t.dancheongExamples, style: SoriTextTheme.of(context).h3),
               const SizedBox(height: Spacing.sm),
@@ -278,6 +296,7 @@ class _StudioState extends State<DancheongStudioScreen> {
                 Text(t.dancheongEmptyArtwork),
               for (final draft in owner.drafts.reversed) ...[
                 SoriCard(
+                  cMaterial: true,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -287,6 +306,7 @@ class _StudioState extends State<DancheongStudioScreen> {
                       ),
                       SoriButton.outlined(
                         label: t.dancheongDraft,
+                        cMaterial: true,
                         onTap: () => Navigator.of(context).pushNamed(
                           '/dancheong-studio/edit',
                           arguments: DancheongEditorArgs(draftId: draft.id),
@@ -304,6 +324,7 @@ class _StudioState extends State<DancheongStudioScreen> {
               ],
               for (final art in owner.artworks.reversed) ...[
                 SoriCard(
+                  cMaterial: true,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -320,6 +341,7 @@ class _StudioState extends State<DancheongStudioScreen> {
                       ),
                       SoriButton.outlined(
                         label: t.dancheongArtwork,
+                        cMaterial: true,
                         onTap: () => Navigator.of(context).pushNamed(
                           '/dancheong-artwork',
                           arguments: DancheongArtworkArgs(

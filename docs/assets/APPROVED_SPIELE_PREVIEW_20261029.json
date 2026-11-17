@@ -1,0 +1,152 @@
+{
+  "policy": "Exact source copy or rectangular extraction only; no redraw, generated art, phone frame or fake OS UI.",
+  "approvalBoundary": "Approved source art is distinct from native layout/device acceptance. Full Anlaut, Blitz-Paare and Karten screens are absent from this source folder.",
+  "assets": [
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/jade.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-0564b871-d2f6-410a-ab29-775cdea4de27.png",
+      "sourceSha256": "bffe176bea99668fdd641b1280c492e273bc81f0445098e1ad2ceab590e3e437",
+      "crop": null,
+      "sha256": "bffe176bea99668fdd641b1280c492e273bc81f0445098e1ad2ceab590e3e437"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/paper.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-5f8a2686-de4b-48bf-bdeb-a15d5f5f0eed.png",
+      "sourceSha256": "354fe58dad64473dc0cf442786bf2efb4fda569d10d3d02d95c922c46b58e0e7",
+      "crop": null,
+      "sha256": "354fe58dad64473dc0cf442786bf2efb4fda569d10d3d02d95c922c46b58e0e7"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/paper_card.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-d518d6fd-36c8-4401-a815-9933dc108d4d.png",
+      "sourceSha256": "4c6757ef74c0ce4efcb7a2519f79e8d81eecd3318ae85a39ae5cd00e6ff22ebe",
+      "crop": [
+        0,
+        17,
+        1750,
+        792
+      ],
+      "sha256": "61ca47118eabc74ab4d034c22fb88ab84ee86c30eecb99c5197b5e34d54ce48f"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/wood_tray.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-7c40205a-853b-4d3b-a129-3b13093d7287.png",
+      "sourceSha256": "edddd6a3ef9dffd44846e337bd2c5c9c231f3f931e78dde64c49c4957170a3c9",
+      "crop": [
+        0,
+        0,
+        1506,
+        992
+      ],
+      "sha256": "087ac4391c0208155a5251f8c84fe3f6e475d4ca8fd11122710bf2bf5c4cfaf5"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/silben_board.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-ed1541c3-53c8-4623-9ca7-fa9967fcdacb.png",
+      "sourceSha256": "7278c1fff5df4579d2ea04af76065af2cb0f5e0aaf77f2ddb4f198d895e9828e",
+      "crop": [
+        26,
+        610,
+        825,
+        1260
+      ],
+      "sha256": "3ab7caeb6b886027e0bc3f05759c78e92b1d4113b66fa39a63af91962b9a6197"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/silben_tile.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-ed1541c3-53c8-4623-9ca7-fa9967fcdacb.png",
+      "sourceSha256": "7278c1fff5df4579d2ea04af76065af2cb0f5e0aaf77f2ddb4f198d895e9828e",
+      "crop": [
+        58,
+        1280,
+        233,
+        1412
+      ],
+      "sha256": "5c3c5e532561d9b1cf3b77e4a4558cfee5bcd8a37a5096a3450a620d80e67548"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/silben_clue.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-ed1541c3-53c8-4623-9ca7-fa9967fcdacb.png",
+      "sourceSha256": "7278c1fff5df4579d2ea04af76065af2cb0f5e0aaf77f2ddb4f198d895e9828e",
+      "crop": [
+        30,
+        264,
+        824,
+        375
+      ],
+      "sha256": "3be03e2f3876bd38aa3bc895b5564aa4e97e5f2c56d0dd26e2ee30edf5066444"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/jade_action.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-d7a8c9e2-53f2-4cac-9984-afd5f00888e2.png",
+      "sourceSha256": "9097a6305659f65d339ebc34fd2f92440a8955335577163c9b8c7523be27871a",
+      "crop": [
+        30,
+        40,
+        1230,
+        229
+      ],
+      "sha256": "c81af6ef3fb943470876ff05463f9337ac4b51ab72454072fd3c955be95a0d19"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/paper_action.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-d7a8c9e2-53f2-4cac-9984-afd5f00888e2.png",
+      "sourceSha256": "9097a6305659f65d339ebc34fd2f92440a8955335577163c9b8c7523be27871a",
+      "crop": [
+        30,
+        415,
+        1230,
+        618
+      ],
+      "sha256": "aa7f617465a9d77df13dbb1dcd6217296c7556cf85bb50fe90b21c81d606cd2d"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/daily_board.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-4be90d08-29f5-4cc3-b8e0-589a69113b6f.png",
+      "sourceSha256": "95c5ad8b7d7398c27c0e246e03827b4518e17ba94f523343745c68dd89a80815",
+      "crop": [
+        0,
+        270,
+        850,
+        1850
+      ],
+      "sha256": "518167dd403e9a865da8304747036e44b4f13397504099a5018089c7be659875"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/daily_header.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-4be90d08-29f5-4cc3-b8e0-589a69113b6f.png",
+      "sourceSha256": "95c5ad8b7d7398c27c0e246e03827b4518e17ba94f523343745c68dd89a80815",
+      "crop": [
+        0,
+        270,
+        850,
+        615
+      ],
+      "sha256": "4aa9bda6b963e29cde03d84245d006bd35d4aee18d594fef9abc1a103be0d1cb"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/chain_board.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-a58edbd0-463a-4d0b-aa57-97778a772b18.png",
+      "sourceSha256": "903936ed42ca3455fd13c3a20a22d0b5ba95b662e014c57b3245cdec453f689c",
+      "crop": [
+        0,
+        300,
+        850,
+        1148
+      ],
+      "sha256": "b9c14269c2cba0bf9d2974f3d5c64ffb27c4803fe25e097a0ea1cba147feaf3c"
+    },
+    {
+      "asset": "assets/illustrations/concept_c/spiele_preview/chain_submit.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-a58edbd0-463a-4d0b-aa57-97778a772b18.png",
+      "sourceSha256": "903936ed42ca3455fd13c3a20a22d0b5ba95b662e014c57b3245cdec453f689c",
+      "crop": [
+        38,
+        1565,
+        809,
+        1692
+      ],
+      "sha256": "aa08b958ee5e2eb0e1990dedf9bf1a23ad0ce46f6b8ca08c90052569a7026c8e"
+    }
+  ]
+}

@@ -21,6 +21,7 @@ void main() {
               haptic: null,
               pressScale: .99,
               surfaceDepth: 4,
+              tactileTilt: true,
               child: const SizedBox(
                 width: 180,
                 height: 64,
@@ -78,6 +79,21 @@ void main() {
     expect(calls, 0);
     expect(scale(tester), 1);
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('quick activation stays immediate and visibly settles once', (
+    tester,
+  ) async {
+    var calls = 0;
+    await mount(tester, () => calls++);
+    await tester.tap(find.byType(SoriPressable));
+    expect(calls, 1);
+    await tester.pump(const Duration(milliseconds: 16));
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(scale(tester), lessThan(1));
+    await tester.pumpAndSettle();
+    expect(scale(tester), 1);
+    expect(calls, 1);
   });
 
   testWidgets('reduced motion has no touch, hover or focus displacement', (

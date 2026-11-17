@@ -1,0 +1,50 @@
+﻿source_document,author_item_id,author_material_not_learner_prompt,prompt_ko,prompt_en,prompt_de,answer_and_scope_not_learner_visible
+01_FIRST_SOUND.md,U1-P01,아 모형과 ㅇ·ㅏ 조각. T01 뒤에 시행,시범처럼 조각을 놓아 봐요.,Place the pieces as shown in the example.,Setze die Teile wie im Beispiel zusammen.,ㅇ 왼쪽·ㅏ 오른쪽→아. U1-D05 각성 장면으로 이어짐. 도움 연습
+01_FIRST_SOUND.md,U1-P02,어 모형과 ㅓ·ㅇ 조각. T02~03 뒤에 시행,이번에는 이 모형처럼 만들어 봐요.,Now make the syllable shown in this example.,Bilde jetzt die Silbe aus diesem Beispiel.,ㅇ 왼쪽·ㅓ 오른쪽→어. 도움 연습
+01_FIRST_SOUND.md,U1-P03,S-A 음성과 보기 [아 / 어]. 재생 뒤 정답 시범 가능,소리를 듣고 같은 글자를 골라요.,Listen and choose the matching character.,Hör zu und wähle das passende Zeichen.,아. 오답이면 U1-F03 후 아 시범. 듣기 연습
+01_FIRST_SOUND.md,U1-P04,S-EO 음성과 보기 [아 / 어],다시 소리를 듣고 글자를 골라요.,Listen to the next sound and choose its character.,Hör dir den nächsten Laut an und wähle das passende Zeichen.,어. 오답이면 U1-F04 후 어 시범. 듣기 연습
+01_FIRST_SOUND.md,U1-I01,섞인 낱조각 [ㅓ / ㅇ]만 제공. 완성 음절·음성 없음,이 조각들을 한 글자로 모아 봐요.,Put these pieces together into one syllable block.,Setze diese Teile zu einem Silbenblock zusammen.,ㅇ 왼쪽·ㅓ 오른쪽→어. 배운 문자 구조
+01_FIRST_SOUND.md,U1-I02,낱조각 [ㅏ / ㅇ]만 제공. 완성 음절·음성 없음,이번 조각들도 한 글자로 모아 봐요.,Put these pieces together into one syllable block too.,Setze auch diese Teile zu einem Silbenblock zusammen.,ㅇ 왼쪽·ㅏ 오른쪽→아. 배운 문자 구조
+01_FIRST_SOUND.md,U1-I03,S-EO만 재생; 보기 [어 / 아]. 전사·정답 모형 없음,들은 소리와 같은 글자를 골라요.,Choose the character that matches the sound.,"Wähle das Zeichen, das zum gehörten Laut passt.",어. 감수 음성이 있을 때만 소리→표기 확인
+01_FIRST_SOUND.md,U1-I04,S-A만 재생; 보기 [어 / 아],이번 소리와 같은 글자를 골라요.,Choose the character that matches this sound.,"Wähle das Zeichen, das zu diesem Laut passt.",아. 감수 음성이 있을 때만 소리→표기 확인
+01_FIRST_SOUND.md,U1-R01,"낱조각 [ㅇ / ㅓ], 모형 없음",이 조각들로 한 글자를 만들어 봐요.,Make one syllable block with these pieces.,Bilde aus diesen Teilen einen Silbenblock.,어: ㅇ 왼쪽·ㅓ 오른쪽. 문자 구조
+01_FIRST_SOUND.md,U1-R02,"S-A, 보기 [어 / 아]",소리를 듣고 같은 글자를 골라요.,Listen and choose the matching character.,Hör zu und wähle das passende Zeichen.,아. 소리→표기
+01_FIRST_SOUND.md,U1-R03,"낱조각 [ㅇ / ㅏ], 모형 없음",이번 조각들도 한 글자로 모아 봐요.,Put these pieces together into one syllable block too.,Setze auch diese Teile zu einem Silbenblock zusammen.,아: ㅇ 왼쪽·ㅏ 오른쪽. 문자 구조
+01_FIRST_SOUND.md,U1-R04,"S-EO, 보기 [어 / 아]",이번 소리와 같은 글자를 골라요.,Choose the character that matches this sound.,"Wähle das Zeichen, das zu diesem Laut passt.",어. 소리→표기
+02_TWO_MORE_SOUNDS.md,U2-P01,오 완성 모형과 [ㅗ / ㅇ],모형을 보며 조각을 위아래로 놓아요.,Use the example to place the pieces above and below.,Setze die Teile wie im Beispiel übereinander.,ㅇ 위·ㅗ 아래→오. 도움 연습
+02_TWO_MORE_SOUNDS.md,U2-P02,우 완성 모형과 [ㅇ / ㅜ],이번 모형도 같은 방법으로 만들어 봐요.,Build this example in the same way.,Bilde auch dieses Beispiel auf dieselbe Weise.,ㅇ 위·ㅜ 아래→우. 도움 연습
+02_TWO_MORE_SOUNDS.md,U2-P03,"S-U, 보기 [오 / 우]",소리를 듣고 같은 글자를 골라요.,Listen and choose the matching character.,Hör zu und wähle das passende Zeichen.,우. 오답이면 U2-F04
+02_TWO_MORE_SOUNDS.md,U2-P04,"S-O, 보기 [오 / 우]",이번 소리와 같은 글자를 골라요.,Choose the character that matches this sound.,"Wähle das Zeichen, das zu diesem Laut passt.",오. 오답이면 U2-F03
+02_TWO_MORE_SOUNDS.md,U2-I01,[ㅜ / ㅇ] 낱조각만. 모형·음성 없음,이 조각들을 한 글자로 모아 봐요.,Put these pieces together into one syllable block.,Setze diese Teile zu einem Silbenblock zusammen.,ㅇ 위·ㅜ 아래→우. 배운 상하 구조
+02_TWO_MORE_SOUNDS.md,U2-I02,[ㅗ / ㅇ] 낱조각만. 모형·음성 없음,이번 조각들도 한 글자로 모아 봐요.,Put these pieces together into one syllable block too.,Setze auch diese Teile zu einem Silbenblock zusammen.,ㅇ 위·ㅗ 아래→오. 배운 상하 구조
+02_TWO_MORE_SOUNDS.md,U2-I03,"S-O, 보기 [우 / 오]. 전사 없음",소리를 듣고 같은 글자를 골라요.,Listen and choose the matching character.,Hör zu und wähle das passende Zeichen.,오. 소리→표기
+02_TWO_MORE_SOUNDS.md,U2-I04,"S-U, 보기 [우 / 오]. 전사 없음",이번 소리와 같은 글자를 골라요.,Choose the character that matches this sound.,"Wähle das Zeichen, das zu diesem Laut passt.",우. 소리→표기
+02_TWO_MORE_SOUNDS.md,U2-I05,[ㅏ / ㅇ] 낱조각만. 모형·음성 없음,앞에서 배운 조각도 한 글자로 모아 봐요.,Put these earlier pieces together into one syllable block too.,Setze auch diese früher gelernten Teile zu einem Silbenblock zusammen.,ㅇ 왼쪽·ㅏ 오른쪽→아. 좌우 구조 재사용
+02_TWO_MORE_SOUNDS.md,U2-I06,[ㅓ / ㅇ] 낱조각만. 모형·음성 없음,이번 조각들도 알맞은 자리에 놓아 봐요.,Put these pieces in their places too.,Setze auch diese Teile an die passenden Plätze.,ㅇ 왼쪽·ㅓ 오른쪽→어. 좌우 구조 재사용
+02_TWO_MORE_SOUNDS.md,U2-R01,"S-U, 보기 [오 / 우]",소리를 듣고 같은 글자를 골라요.,Listen and choose the matching character.,Hör zu und wähle das passende Zeichen.,우. 소리→표기
+02_TWO_MORE_SOUNDS.md,U2-R02,"[ㅇ / ㅗ], 모형·음성 없음",이 조각들로 한 글자를 만들어 봐요.,Make one syllable block with these pieces.,Bilde aus diesen Teilen einen Silbenblock.,오: ㅇ 위·ㅗ 아래
+02_TWO_MORE_SOUNDS.md,U2-R03,"S-O, 보기 [오 / 우]",이번 소리와 같은 글자를 골라요.,Choose the character that matches this sound.,"Wähle das Zeichen, das zu diesem Laut passt.",오. 소리→표기
+02_TWO_MORE_SOUNDS.md,U2-R04,"[ㅇ / ㅜ], 모형·음성 없음",이번 조각들도 한 글자로 모아 봐요.,Put these pieces together into one syllable block too.,Setze auch diese Teile zu einem Silbenblock zusammen.,우: ㅇ 위·ㅜ 아래
+02_TWO_MORE_SOUNDS.md,U2-R05,"S-A, 보기 [어 / 아]. 1단원 학습 기록이 있을 때",앞에서 배운 소리도 다시 들어 봐요. 같은 글자를 골라요.,Listen again to a sound you learned earlier and choose its character.,Hör dir einen früher gelernten Laut noch einmal an und wähle das passende Zeichen.,아. 선행 범위 재확인
+02_TWO_MORE_SOUNDS.md,U2-R06,"S-EO, 보기 [어 / 아]. 1단원 학습 기록이 있을 때",이번 소리와 같은 글자를 골라요.,Choose the character that matches this sound.,"Wähle das Zeichen, das zu diesem Laut passt.",어. 선행 범위 재확인
+03_TWO_LINES.md,U3-P01,으 모형과 [ㅡ / ㅇ],모형을 보며 조각을 모아 봐요.,Put the pieces together using the example.,Setze die Teile nach dem Beispiel zusammen.,ㅇ 위·ㅡ 아래→으. 도움 연습
+03_TWO_LINES.md,U3-P02,이 모형과 [ㅇ / ㅣ],이번 모형도 함께 만들어 봐요.,Let's make this example together too.,Bauen wir auch dieses Beispiel gemeinsam.,ㅇ 왼쪽·ㅣ 오른쪽→이. 도움 연습
+03_TWO_LINES.md,U3-P03,"S-I, 보기 [이 / 으]",소리를 듣고 같은 글자를 골라요.,Listen and choose the matching character.,Hör zu und wähle das passende Zeichen.,이. 오답이면 U3-F04
+03_TWO_LINES.md,U3-P04,"S-EU, 보기 [이 / 으]",이번 소리와 같은 글자를 골라요.,Choose the character that matches this sound.,"Wähle das Zeichen, das zu diesem Laut passt.",으. 오답이면 U3-F03
+03_TWO_LINES.md,U3-I01,"[ㅣ / ㅇ], 모형·음성 없음",이 조각들로 한 글자를 만들어 봐요.,Make one syllable block with these pieces.,Bilde aus diesen Teilen einen Silbenblock.,ㅇ 왼쪽·ㅣ 오른쪽→이. 문자 구조
+03_TWO_LINES.md,U3-I02,"[ㅡ / ㅇ], 모형·음성 없음",이번 조각들도 한 글자로 모아 봐요.,Put these pieces together into one syllable block too.,Setze auch diese Teile zu einem Silbenblock zusammen.,ㅇ 위·ㅡ 아래→으. 문자 구조
+03_TWO_LINES.md,U3-I03,"S-EU, 보기 [으 / 우]. 전사 없음",소리를 듣고 같은 글자를 골라요.,Listen and choose the matching character.,Hör zu und wähle das passende Zeichen.,으. 배운 소리→표기. 우도 선행 학습했을 때만
+03_TWO_LINES.md,U3-I04,"S-I, 보기 [으 / 이]. 전사 없음",이번 소리와 같은 글자를 골라요.,Choose the character that matches this sound.,"Wähle das Zeichen, das zu diesem Laut passt.",이. 소리→표기
+03_TWO_LINES.md,U3-I05,"[ㅗ / ㅇ], 모형·음성 없음",앞에서 배운 조각으로도 한 글자를 만들어 봐요.,Make one syllable block with pieces you learned earlier.,Bilde auch aus den früher gelernten Teilen einen Silbenblock.,ㅇ 위·ㅗ 아래→오. 앞 단원 구조 재사용
+03_TWO_LINES.md,U3-I06,"S-EO, 보기 [어 / 오]. 전사 없음",앞에서 배운 소리를 듣고 같은 글자를 골라요.,Listen to a sound you learned earlier and choose its character.,Hör dir einen früher gelernten Laut an und wähle das passende Zeichen.,어. 앞 단원 소리→표기 재확인
+03_TWO_LINES.md,U3-I07,"[ㅏ / ㅇ], 모형·음성 없음",이번 조각들도 한 글자로 만들어 봐요.,Make one syllable block with these pieces too.,Bilde auch aus diesen Teilen einen Silbenblock.,ㅇ 왼쪽·ㅏ 오른쪽→아. 누적 조립
+03_TWO_LINES.md,U3-I08,"[ㅓ / ㅇ], 모형·음성 없음",조각의 방향을 보고 알맞은 자리에 놓아요.,Look at the direction of the pieces and put them in their places.,Sieh dir die Richtung der Teile an und setze sie an die passenden Plätze.,ㅇ 왼쪽·ㅓ 오른쪽→어. 누적 조립
+03_TWO_LINES.md,U3-I09,"[ㅜ / ㅇ], 모형·음성 없음",마지막 조각들도 한 글자로 모아 봐요.,Put the last pieces together into one syllable block too.,Setze auch die letzten Teile zu einem Silbenblock zusammen.,ㅇ 위·ㅜ 아래→우. 누적 조립
+03_TWO_LINES.md,U3-R01,"[ㅇ / ㅡ], 모형·음성 없음",이 조각들로 한 글자를 만들어 봐요.,Make one syllable block with these pieces.,Bilde aus diesen Teilen einen Silbenblock.,으: ㅇ 위·ㅡ 아래
+03_TWO_LINES.md,U3-R02,"S-I, 보기 [으 / 이]",소리를 듣고 같은 글자를 골라요.,Listen and choose the matching character.,Hör zu und wähle das passende Zeichen.,이. 소리→표기
+03_TWO_LINES.md,U3-R03,"S-A, 보기 [어 / 아]",이번 소리와 같은 글자를 골라요.,Choose the character that matches this sound.,"Wähle das Zeichen, das zu diesem Laut passt.",아. 소리→표기
+03_TWO_LINES.md,U3-R04,"[ㅇ / ㅣ], 모형·음성 없음",이번 조각들도 한 글자로 모아 봐요.,Put these pieces together into one syllable block too.,Setze auch diese Teile zu einem Silbenblock zusammen.,이: ㅇ 왼쪽·ㅣ 오른쪽
+03_TWO_LINES.md,U3-R05,"S-U, 보기 [우 / 오]",앞에서 배운 소리와 같은 글자를 골라요.,Choose the character that matches this earlier sound.,"Wähle das Zeichen, das zu diesem früher gelernten Laut passt.",우. 소리→표기
+03_TWO_LINES.md,U3-R06,"S-EO, 보기 [오 / 어]",이번 소리와 같은 글자를 골라요.,Choose the character that matches this sound.,"Wähle das Zeichen, das zu diesem Laut passt.",어. 소리→표기
+03_TWO_LINES.md,U3-R07,"S-EU, 보기 [으 / 우]",소리를 듣고 같은 글자를 골라요.,Listen and choose the matching character.,Hör zu und wähle das passende Zeichen.,으. 소리→표기
+03_TWO_LINES.md,U3-R08,"S-O, 보기 [오 / 우]",마지막 소리와 같은 글자를 골라요.,Choose the character that matches the last sound.,"Wähle das Zeichen, das zum letzten Laut passt.",오. 소리→표기

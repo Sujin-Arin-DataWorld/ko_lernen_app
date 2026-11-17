@@ -3,17 +3,18 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_journey_scenes.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'support/real_fonts.dart';
+import 'support/einleitung_capture_assets.dart';
 import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(() => loadSoriRealFonts(materialIcons: true));
+  setUpAll(loadEinleitungFonts);
   setUp(
     () =>
         SharedPreferences.setMockInitialValues({'kl_xp': 43, 'kl_level': 'b1'}),
@@ -37,7 +38,17 @@ void main() {
           };
           void fits(String state) {
             expect(tester.takeException(), isNull, reason: state);
-            for (final element in find.byType(Text).evaluate()) {
+            // The approved introduction itself scrolls. Check the bounded
+            // interactive preview, not the temporarily obscured story underlay.
+            final scene = find.byWidgetPredicate(
+              (widget) =>
+                  widget is OnboardingBookScene ||
+                  widget is OnboardingHanokScene,
+            );
+            for (final element
+                in find
+                    .descendant(of: scene, matching: find.byType(Text))
+                    .evaluate()) {
               final render = element.findRenderObject();
               if (render is RenderBox && render.hasSize) {
                 final rect = render.localToGlobal(Offset.zero) & render.size;
@@ -46,7 +57,10 @@ void main() {
                 expect(rect.bottom, lessThanOrEqualTo(640.5), reason: state);
               }
             }
-            for (final element in find.byType(Scrollable).evaluate()) {
+            for (final element
+                in find
+                    .descendant(of: scene, matching: find.byType(Scrollable))
+                    .evaluate()) {
               expect(
                 (element.widget as Scrollable).axisDirection,
                 isNot(AxisDirection.down),
@@ -56,6 +70,7 @@ void main() {
           }
 
           Future<void> page(int index, LearnerLevel level) async {
+            await tester.pumpWidget(const SizedBox.shrink());
             await tester.pumpWidget(
               MaterialApp(
                 locale: Locale(lang),
@@ -81,6 +96,21 @@ void main() {
                 ),
               ),
             );
+            await tester.pumpAndSettle();
+            expect(
+              tester.takeException(),
+              isNull,
+              reason: 'story $index $level',
+            );
+            final preview = find.byKey(
+              ValueKey('c-onboarding-preview-${index + 2}'),
+            );
+            await Scrollable.ensureVisible(
+              tester.element(preview),
+              alignment: .5,
+            );
+            await tester.pumpAndSettle();
+            await tester.tap(preview);
             await tester.pumpAndSettle();
             fits('page $index $level');
           }

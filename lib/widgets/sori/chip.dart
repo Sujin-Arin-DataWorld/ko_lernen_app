@@ -23,6 +23,9 @@ class SoriChip extends StatelessWidget {
   final VoidCallback? onTap;
   final double fontSize;
 
+  /// Interface filters opt in; vocabulary chips retain learning typography.
+  final bool interfaceLabel;
+
   /// Optional idle boundary for an unselected outlined choice.
   ///
   /// The default preserves existing consumers. App-owned filters that need a
@@ -56,6 +59,7 @@ class SoriChip extends StatelessWidget {
     this.variant = SoriChipVariant.soft,
     this.onTap,
     this.fontSize = 13.5,
+    this.interfaceLabel = false,
     this.idleBorderColor,
     this.maxLines = 1,
     this.horizontalPadding,
@@ -87,7 +91,7 @@ class SoriChip extends StatelessWidget {
     };
 
     final chip = AnimatedContainer(
-      duration: SoriMotion.fast,
+      duration: SoriMotion.respect(context, SoriMotion.fast),
       padding: EdgeInsets.symmetric(
         horizontal: horizontalPadding ?? (icon == null ? 12 : 10),
         vertical: 8,
@@ -113,7 +117,9 @@ class SoriChip extends StatelessWidget {
               overflow: maxLines == 1 ? TextOverflow.ellipsis : null,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontFamily: SoriFonts.sans,
+                fontFamily: interfaceLabel
+                    ? SoriFonts.interface
+                    : SoriFonts.sans,
                 color: fg,
                 fontSize: fontSize,
                 fontWeight: FontWeight.w700,

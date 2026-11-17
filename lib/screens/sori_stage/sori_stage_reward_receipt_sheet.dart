@@ -11,7 +11,6 @@ import '../../models/sarangchae_construction.dart';
 import '../../models/ildu_construction_art.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../widgets/app_loading.dart';
-import '../../widgets/hanok_asset_image.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/reward_icon.dart';
@@ -21,6 +20,7 @@ import '../../widgets/sori/activity_illustration.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/motion.dart';
 import 'sori_stage_common.dart';
+import '../../widgets/sori/ildu_r16_process_image.dart';
 
 class SoriStageRewardReceiptSheet extends StatefulWidget {
   const SoriStageRewardReceiptSheet({
@@ -373,8 +373,9 @@ class _ConstructionReceiptImage extends StatelessWidget {
               color: SoriSurfaces.of(context).surfaceAlt,
               child: const Center(child: Icon(Icons.home_work_outlined)),
             )
-          : HanokAssetImage(
-              stage!.asset,
+          : IlDuR16ProcessImage(
+              processId: 'ildu.${stage!.id}',
+              fallbackAsset: stage!.asset,
               fit: BoxFit.contain,
               semanticLabel: stage!.title['ko'],
               prefetchPack: false,

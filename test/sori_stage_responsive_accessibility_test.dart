@@ -11,7 +11,10 @@ import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/settings_button.dart';
 
+import 'support/real_fonts.dart';
+
 void main() {
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
   for (final size in const <Size>[
     Size(320, 640),
     Size(360, 400),

@@ -903,9 +903,11 @@ void main() {
       locale: const Locale('de'),
       textScale: 1.3,
     );
-    final clue = find.bySemanticsLabel('Ghana. Ich fahre nach Ghana. ◯◯에 가요.');
+    // The initial clue is meaning only. The new sentence belongs to requested help.
+    final clue = find.bySemanticsLabel('Ghana');
     await _pumpUntil(tester, clue);
     _expectButton(tester, clue);
+    expect(find.text('Ich fahre nach Ghana.'), findsNothing);
     _expectButton(tester, find.bySemanticsLabel(de.filterLevel), minHeight: 48);
     final silbenLevelButton = find.byIcon(Icons.tune_rounded);
     await tester.ensureVisible(silbenLevelButton);

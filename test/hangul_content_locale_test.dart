@@ -7,6 +7,7 @@
 library;
 
 import 'dart:io';
+import 'support/real_fonts.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -17,14 +18,19 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_atelier_materials.dart';
+
+import 'support/sori_speech_stubs.dart';
 
 const _deDescription = "wie 'g' in Gabe (Anfang) / 'k' (Ende)";
 const _enDescription = "like 'g' in good (start) / 'k' (end)";
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
 
   setUp(() async {
+    stubSoriSpeech();
     SharedPreferences.setMockInitialValues({
       'kl_tut_hangul': true,
       'kl_tut_hangulWriteRules': true,
@@ -84,7 +90,10 @@ void main() {
 
   test('한글 화면은 descriptionDe·exampleDe 를 직접 읽지 않는다', () {
     // 언어 분기를 건너뛴 직접 참조가 바로 이 버그의 형태였다.
-    final source = File('lib/screens/hangul_screen.dart').readAsStringSync();
+    final source = [
+      'lib/screens/hangul_screen.dart',
+      'lib/screens/hangul_atelier.dart',
+    ].map((path) => File(path).readAsStringSync()).join('\n');
     for (final field in ['.descriptionDe', '.exampleDe']) {
       expect(
         source.contains(field),
@@ -106,12 +115,16 @@ void main() {
     expect(find.text(_enDescription), findsNothing);
   });
 
-  testWidgets('개요 탭 칩은 한국어 하드코딩이 아니다', (tester) async {
+  testWidgets('Atelier 글자 선택판은 한국어 하드코딩이 아니다', (tester) async {
     await _pumpScreen(tester, const Locale('en'));
-    tester.widget<TabBar>(find.byType(TabBar)).controller!.index = 1;
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 400));
-    expect(find.text('Consonants'), findsWidgets);
+    await tester.tap(find.byKey(const Key('hangul-tab-1')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('hangul-cards-selection')));
+    await tester.pumpAndSettle();
+    final mode = tester.widget<CAtelierButton>(
+      find.byKey(const Key('hangul-cards-mode-0')),
+    );
+    expect(mode.label, 'Consonants (19)');
     expect(find.text('자음'), findsNothing);
     expect(find.text('모음'), findsNothing);
     expect(find.text('음절'), findsNothing);
@@ -129,7 +142,10 @@ Future<void> _pumpScreen(WidgetTester tester, Locale locale) async {
       locale: locale,
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
-      home: HangulScreen(speechPlayer: (_) async => true),
+      home: HangulScreen(
+        speechPlayer: (_) async => true,
+        textPrefetcher: (_) async {},
+      ),
     ),
   );
   await tester.pump();
@@ -137,10 +153,19 @@ Future<void> _pumpScreen(WidgetTester tester, Locale locale) async {
 
 Future<void> _pumpDetail(WidgetTester tester, Locale locale) async {
   await _pumpScreen(tester, locale);
-  final target = find.byKey(const ValueKey('hangul-overview-ㄱ'));
-  await tester.ensureVisible(target);
-  await tester.pump();
-  await tester.tap(target);
-  await tester.pump();
-  await tester.pump(const Duration(milliseconds: 400));
+  final t = AppL10n.of(tester.element(find.byType(HangulScreen)));
+  final catalog = find.byWidgetPredicate(
+    (widget) =>
+        widget is CAtelierButton &&
+        widget.label == '${t.hangulChipConsonants} · 19',
+  );
+  await tester.ensureVisible(catalog);
+  await tester.pumpAndSettle();
+  await tester.tap(catalog);
+  await tester.pumpAndSettle();
+  final letter = find.byKey(const ValueKey('hangul-catalog-ㄱ'));
+  await tester.ensureVisible(letter);
+  await tester.pumpAndSettle();
+  await tester.tap(letter);
+  await tester.pumpAndSettle();
 }

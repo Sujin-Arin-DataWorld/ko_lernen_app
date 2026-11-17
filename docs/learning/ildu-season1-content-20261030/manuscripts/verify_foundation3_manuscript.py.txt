@@ -1,0 +1,156 @@
+"""Content QA only. Prints a report; --receipt updates the standalone QA file."""
+import csv
+import hashlib
+import json
+import re
+import sys
+from collections import Counter
+from pathlib import Path
+
+root=Path(__file__).parent/'foundation-3-v35'
+data=json.loads((root/'CONTENT_SOURCE.json').read_text(encoding='utf-8'))
+media=json.loads((root/'MEANINGS_AND_MEDIA.json').read_text(encoding='utf-8'))
+items=json.loads((root/'AUTHORING_ITEMS.json').read_text(encoding='utf-8'))['items']
+csv_rows=list(csv.DictReader((root/'ITEM_BANK.csv').open(encoding='utf-8-sig',newline='')))
+receipt=json.loads((root/'SOURCE_AND_QA.json').read_text(encoding='utf-8'))
+ini='ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ'
+vow='ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ'
+fin='\0ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ'
+
+def parts(s):
+ n=ord(s)-44032
+ return (ini[n//588],vow[(n%588)//28],fin[n%28] if n%28 else '')
+
+def check_text(value,known,context):
+ if isinstance(value,list):
+  for x in value:check_text(x,known,context)
+ elif isinstance(value,str):
+  for char in value:
+   if 44032<=ord(char)<55204:
+    i,v,f=parts(char)
+    assert i in known['i'] and v in known['v'] and (not f or f in known['f']),(context,value,char,known)
+   elif char in ini:
+    assert char in known['i'] or char in known['f'],(context,value)
+   elif char in vow:
+    assert char in known['v'],(context,value)
+
+assert len(data['lessons'])==11
+assert len(items)==len(csv_rows)==196
+assert len({r['item_id'] for r in items})==196
+psv=next(Path(x['path']) for x in receipt['protected_files'] if x['path'].endswith('FOUNDATION.psv'))
+expected=[line.split('|')[0] for line in psv.read_text(encoding='utf-8').splitlines() if line.startswith('F0.3.')]
+assert expected==[l['id'] for l in data['lessons']]
+known={'i':set('ㅇㄴㅁㄱㄷㄹㅂㅅㅈㅎ'),'v':set('ㅏㅓㅗㅜㅡㅣ'),'f':set()}
+positions=Counter()
+map_positions={}
+for l in data['lessons']:
+ own=[r for r in items if r['unit_id']==l['id']]
+ md=(root/l['file']).read_text(encoding='utf-8')
+ states={'RECALL-START':{k:set(v) for k,v in known.items()}}
+ for index,t in enumerate(l['targets'],1):
+  if l['mode']=='ng': known['f'].add('ㅇ')
+  elif l['mode']=='final':known['f'].add(t['focus'][-1])
+  elif t['focus'] in vow:known['v'].add(t['focus'])
+  else:known['i'].add(t['focus'])
+  states[f'M{index:02d}']={k:set(v) for k,v in known.items()}
+  states[f'AFTER-M{index:02d}']={k:set(v) for k,v in known.items()}
+  check_text([t['taught'],t['contrast']],known,(l['id'],'teaching'))
+ for stage in 'PIR':
+  numbers=[int(r['item_id'][-2:]) for r in own if r['stage']==stage]
+  assert numbers==list(range(1,len(numbers)+1)),(l['id'],stage,numbers)
+ for r in own:
+  assert len(r['prompt'])==3 and all(r['prompt'])
+  assert r['item_id'] in md
+  for code in r['feedback']:
+   assert '| '+code+'·' in md,(r['item_id'],code)
+  state=known if r['stage']=='R' else states.get(r['subactivity'],known)
+  st=r['stimulus_author_only']
+  for key in ['written','shown_model','shown_word','audio','pieces','syllable_pieces','comparison_forms']:
+   if key in st:check_text(st[key],state,r['item_id'])
+  check_text(r['options_author_only'],state,r['item_id'])
+  ans=r['answer_author_only']
+  if r['kind']=='read_audio':
+   target=ans['transcript_author_only']; opts=r['options_author_only']
+   assert len(opts)==len(set(opts)) and opts['ABCD'.index(ans['button'])]==target
+   positions[ans['button']]+=1
+   for key in ['if_any_required_final_not_learned','if_any_m_n_not_learned']:
+    if key in st:
+     alt=st[key]
+     assert alt['audio_choices']['ABC'.index(alt['correct_button'])]==target
+     partial_known={k:set(v) for k,v in state.items()}
+     partial_known['f']={parts(target)[2]}
+     check_text(alt['audio_choices'],partial_known,r['item_id']+' partial prerequisite route')
+   p=parts(target)
+   if l['mode'] not in ['final','ng']:
+    others=[parts(x) for x in opts if x!=target]
+    assert len(opts)==3 and any(x[0]!=p[0] and x[1:]==p[1:] for x in others)
+    assert any(x[0]==p[0] and x[1]!=p[1] for x in others)
+   elif l['mode']=='ng' or r['stage']=='R' or r['subactivity']=='FINAL-COMPARE':
+    assert all(parts(x)[:2]==p[:2] for x in opts),(r['item_id'],opts)
+    assert len({parts(x)[2] for x in opts})==len(opts)
+   else:
+    assert any(parts(x)[:2]==p[:2] and parts(x)[2]=='' for x in opts)
+  elif r['kind'] in ['audio_text','vowel_in_block','picture_word','audio_picture','map_label','position_choice','ng_role']:
+   assert ans in r['options_author_only'],r['item_id']
+  elif r['kind']=='syllable_build':
+   expected_parts=[x for x in parts(ans['syllable']) if x]
+   assert st['pieces'] in [expected_parts,expected_parts[::-1]],(r['item_id'],st['pieces'],expected_parts)
+  if r['stage']=='R':assert '직전 마지막 관련 노출' in r['scope'] and '최근 노출24시간 미만' in r['scope']
+  if st.get('picture'):
+   match=re.fullmatch(r'([A-Z]+)-[TIR][12]',st['picture'])
+   assert match and match.group(1) in media['meanings'],r['item_id']
+  if r['kind']=='ng_role':
+   if st['marked_ㅇ']=='initial':assert parts(st['written'])[0]=='ㅇ' and ans=='A'
+   else:assert parts(st['written'])[2]=='ㅇ' and ans=='B'
+ if l.get('final_map'):
+  for stage in 'PIR':
+   rows=[r for r in own if r['stage']==stage and r['subactivity']=='MAP']
+   result=[r['options_author_only'].index(r['answer_author_only']) for r in rows]
+   assert len(rows)==4 and len(set(result))==4,(stage,result)
+   map_positions[stage]=[x+1 for x in result]
+
+for row,r in zip(csv_rows,items):
+ assert row['author_item_id']==r['item_id'] and row['unit_id']==r['unit_id']
+ for key in ['stage','subactivity','kind','scope']:assert row[key]==r[key]
+ for key in ['stimulus_author_only','options_author_only','answer_author_only']:assert json.loads(row[key])==r[key]
+ assert [row['prompt_ko'],row['prompt_en'],row['prompt_de']]==r['prompt']
+ assert row['feedback']==', '.join(r['feedback'])
+
+for f in root.glob('*.md'):
+ text=f.read_text(encoding='utf-8')
+ assert not re.search(r'(밤|문|말|남|산|길|공|강|방)예요',text),f.name
+ assert not re.search(r'[ㄱ-ㅎ]를',text),f.name
+ for target in re.findall(r'\]\(([^)]+)\)',text):
+  if not target.startswith(('https:','http:','#')):assert (root/target).exists(),(f.name,target)
+ width=None
+ for line in text.splitlines():
+  if line.startswith('|'):
+   current=len(re.findall(r'(?<!\\)\|',line))
+   if width is None:width=current
+   assert width==current,(f.name,line)
+  else:width=None
+audio_script=(root/'MEDIA_AND_SOURCES.md').read_text(encoding='utf-8')
+required_audio=set()
+for r in items:
+ st=r['stimulus_author_only']
+ if st.get('audio'):required_audio.add(st['audio'])
+ if r['kind']=='read_audio':required_audio.update(r['options_author_only'])
+ for key in ['if_any_required_final_not_learned','if_any_m_n_not_learned']:
+  if key in st:required_audio.update(st[key]['audio_choices'])
+for sound in required_audio:
+ assert re.search(r'\| S-\d+ \| '+re.escape(sound)+r' \|',audio_script),('missing audio script',sound)
+for x in receipt['protected_files']:
+ assert hashlib.sha256(Path(x['path']).read_bytes()).hexdigest()==x['sha256'],x['path']
+result={'canonical_units':11,'items':len(items),'stages':dict(Counter(r['stage'] for r in items)),
+ 'csv_json_manuscript_alignment':'PASS','introduced_symbols_per_subactivity':'PASS',
+ 'read_audio_contrasts':'PASS','audio_answer_positions':dict(positions),'map_answer_positions':map_positions,'all_main_and_partial_audio_scripts':'PASS',
+ 'current_target_feedback_references':'PASS','relative_links_and_table_structure':'PASS',
+ 'Korean_particle_and_copula_regressions':'PASS','last_exposure_rule_R_items':sum(r['stage']=='R' for r in items),
+ 'protected_files_unchanged':len(receipt['protected_files'])}
+if '--receipt' in sys.argv:
+ receipt.update({'date':'2026-10-29','status':'document_authored_structurally_checked','checks':result,
+  'not_done':['human_teacher_review','human_EN_DE_review','audio_production_and_listening_QA','image_production_and_rights_check','zero_beginner_observation','app_integration_and_device_QA'],
+  'output_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(root.iterdir()) if p.is_file() and p.name!='SOURCE_AND_QA.json'},
+  'authoring_helper':'../build_foundation3_manuscript.py'})
+ (root/'SOURCE_AND_QA.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps(result,ensure_ascii=False,indent=2))

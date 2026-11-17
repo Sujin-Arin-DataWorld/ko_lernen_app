@@ -1,0 +1,52 @@
+{
+  "schema": "hangulsori/scene-acting-review/1",
+  "date_berlin": "2026-11-03",
+  "review_scope": "Existing two mockups: visible staging, head-body continuity and prop support. No image editing.",
+  "rules": "ACTING_MECHANICS.md",
+  "detailed_findings": "SHOT_REVIEW_20261103.md",
+  "reviewers": [
+    "/root",
+    "/root/character_art_director"
+  ],
+  "independent_review": "Both input images and source club, relaxed stance, T-P02/D-P01 reviewed. Not approval of a corrected output.",
+  "required_preproduction_fields": [
+    "story_beat_and_next_user_action",
+    "speaker_and_addressee",
+    "primary_focus",
+    "per_character_gaze_target",
+    "head_neck_body_connection_and_support",
+    "prop_hand_grip_location_support_and_other_hand",
+    "continuity_and_transition",
+    "allowed_edit_scope"
+  ],
+  "separate_delivery_gates": [
+    "identity",
+    "acting_and_staging",
+    "contact_and_support"
+  ],
+  "proposed_direction_status": "DIRECTIVE_ONLY_NOT_RENDERED_OR_USER_APPROVED",
+  "canonical_files_or_approved_dimensions_changed": false,
+  "new_image_generations": 0,
+  "image_edits": 0,
+  "app_html_or_figma_changes": false,
+  "inputs": [
+    {
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-4b267147-1cc2-483e-9a70-576d355bf886.png",
+      "sha256": "3663cebb104de6245fe749801c85d98b9694ca9de8e308e454bc8a7637ae8d5c",
+      "historical_status": "superseded_blank_gaze",
+      "current_review_status": "SUPERSEDED_REFERENCE_NOT_FOR_DERIVATION",
+      "reviewed_from_actual_png": true,
+      "use_as_generation_or_delivery_reference": false,
+      "anatomical_impossibility_or_metric_compliance_claimed": false
+    },
+    {
+      "source_path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-c90358d0-9819-4d63-b604-3ad3aaab04a7.png",
+      "sha256": "e59c028aa35b41e53bc08a83e19ce476c9a52bc230c56cc3d7075d60b7230636",
+      "historical_status": "acting_correction_pending_review",
+      "current_review_status": "HOLD_USER_FLAGGED_ACTING_AND_PROP_SUPPORT",
+      "reviewed_from_actual_png": true,
+      "use_as_generation_or_delivery_reference": false,
+      "anatomical_impossibility_or_metric_compliance_claimed": false
+    }
+  ]
+}
