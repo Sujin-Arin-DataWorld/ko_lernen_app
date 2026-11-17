@@ -1,0 +1,877 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "unit_id": "A2.2-01",
+  "band": "A2.2",
+  "title": {
+    "ko": "해 본 일, 계속한 일",
+    "en": "What you have tried and what you have kept doing",
+    "de": "Erfahrungen und andauernde Tätigkeiten"
+  },
+  "goal": {
+    "ko": "경험 유무와 지속 기간을 구분해 말한다",
+    "en": "Distinguish past experience from the duration of an ongoing activity.",
+    "de": "Unterscheide bisherige Erfahrungen von der Dauer einer fortlaufenden Tätigkeit."
+  },
+  "prerequisites": [
+    "A1.2-03",
+    "A2.1-05"
+  ],
+  "teach_targets": {
+    "vocab": [
+      {
+        "ko": "처음",
+        "en": "first time",
+        "de": "zum ersten Mal"
+      },
+      {
+        "ko": "벌써",
+        "en": "already",
+        "de": "schon"
+      },
+      {
+        "ko": "동안",
+        "en": "during; for a period",
+        "de": "während; lang"
+      },
+      {
+        "ko": "살다",
+        "en": "live",
+        "de": "wohnen"
+      },
+      {
+        "ko": "해 보다",
+        "en": "try doing",
+        "de": "ausprobieren"
+      }
+    ],
+    "grammar": [
+      "-(으)ㄹ 때",
+      "-는 동안(에)",
+      "-(으)ㄴ 지",
+      "-(으)ㄴ 적이 있다/없다",
+      "-고 있다"
+    ]
+  },
+  "non_assessed": [
+    "날짜·경험은 학습용 역할 카드이며 플레이어의 실제 이력이나 도깨비의 세월을 인증하지 않는다.",
+    "고택 장면은 기존 E06 공개 상태에 따르고 현대 연습에는 본편 게이트가 없다."
+  ],
+  "source": {
+    "contract_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/UNITS.psv",
+    "contract_sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+    "story_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+    "story_sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332",
+    "base_sha": "646c4658e70f594ab234a172679e29122d0f0e66"
+  },
+  "story": {
+    "lq_id": "LQ-08",
+    "building_id": "anchae",
+    "anchor": "안채 중간 / v3.5 §6 06·§8.1; 이 패킷의 보이는 장면은 2026년 현대 역할 카드",
+    "spoiler_guard": {
+      "canonical_gate": "S1-E06.middle",
+      "visible_variant": "modern_role_card_no_story_gate",
+      "if_unmet": "이 패킷의 현대 모의 대화와 새 자극만 제공한다. 고택의 기억·이름·가족 약속·물건·대사를 선공개하지 않는다.",
+      "if_met": "이미 공개된 본편 자료로 돌아가는 선택만 제공한다. 이 패킷은 새 가족 사실이나 후속 진실을 추가하지 않는다.",
+      "gate_owner": "기존 본편 공개 상태; 학습 수준·정답률·지연 복습·건축률로 대체하지 않는다.",
+      "new_clue": 0,
+      "new_resident_npc": 0,
+      "ownership_or_reward_grant": false
+    }
+  },
+  "dialogue": [
+    {
+      "id": "A2.2-01-D01",
+      "speaker": "sujin",
+      "phase": "entry",
+      "ko": "경험이 있는지와 얼마나 오래 했는지는 따로 물어보자.",
+      "en": "Let’s ask separately about experience and duration.",
+      "de": "Fragen wir getrennt nach Erfahrung und Dauer."
+    },
+    {
+      "id": "A2.2-01-D02",
+      "speaker": "christian",
+      "phase": "request",
+      "ko": "한국어를 배워 본 적이 있어요?",
+      "en": "Have you ever studied Korean?",
+      "de": "Haben Sie schon einmal Koreanisch gelernt?"
+    },
+    {
+      "id": "A2.2-01-D03",
+      "speaker": "traveler_role_model",
+      "phase": "model",
+      "ko": "네. 이 역할 카드에서는 배운 지 두 달 됐어요.",
+      "en": "Yes. On this role card, I started two months ago.",
+      "de": "Ja. Laut dieser Rollenkarte lerne ich seit zwei Monaten."
+    },
+    {
+      "id": "A2.2-01-D04",
+      "speaker": "sujin",
+      "phase": "model",
+      "ko": "해 본 적은 경험, 배운 지는 시작 뒤의 시간이야. 지금 하는 일은 고 있어요로 말할 수 있어.",
+      "en": "적 is about experience; 지 gives time since a start. 고 있어요 can describe what is happening now.",
+      "de": "적 betrifft Erfahrung, 지 die Zeit seit einem Beginn. 고 있어요 kann ausdrücken, was gerade geschieht."
+    },
+    {
+      "id": "A2.2-01-D05",
+      "speaker": "sujin",
+      "phase": "practice",
+      "ko": "기다리는 동안과 도착할 때도 시간선에서 나누어 보자.",
+      "en": "Let’s also separate “during the wait” from “when arriving” on the timeline.",
+      "de": "Trennen wir auf der Zeitleiste auch „während des Wartens“ und „bei der Ankunft“."
+    },
+    {
+      "id": "A2.2-01-D06",
+      "speaker": "sujin",
+      "phase": "use",
+      "ko": "이제 다른 취미 카드로 골라 봐. 고른 답은 직접 한 말과 구분할 거야.",
+      "en": "Now choose for another hobby card. We will distinguish your choice from speech you produced yourself.",
+      "de": "Wähle jetzt für eine andere Hobbykarte. Die Auswahl halten wir getrennt von selbst gesprochenen Sätzen."
+    },
+    {
+      "id": "A2.2-01-D07",
+      "speaker": "christian",
+      "phase": "result",
+      "ko": "아, 한 번 해 본 것과 오래 배운 건 다르군요.",
+      "en": "I see; trying it once and studying it over time are different.",
+      "de": "Ach so, einmal ausprobieren und längere Zeit lernen ist nicht dasselbe."
+    },
+    {
+      "id": "A2.2-01-D08",
+      "speaker": "sujin",
+      "phase": "return",
+      "ko": "연습을 마치면 본편에서 이미 열린 장면으로 돌아가자. 새 기억은 여기서 열지 않아.",
+      "en": "After practice, let’s return to a scene already available in the story. This practice reveals no new memory.",
+      "de": "Nach der Übung kehren wir zu einer bereits zugänglichen Geschichtsszene zurück. Hier wird keine neue Erinnerung freigegeben."
+    },
+    {
+      "id": "A2.2-01-D09",
+      "speaker": "sujin",
+      "phase": "next",
+      "ko": "내일은 다른 활동과 날짜로 다시 확인해 보자.",
+      "en": "Tomorrow, let’s check again with a different activity and dates.",
+      "de": "Morgen prüfen wir es mit einer anderen Tätigkeit und neuen Daten."
+    }
+  ],
+  "items": [
+    {
+      "id": "A2.2-01-P01",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "경험 유무와 첫 시점을 구분한다",
+      "prompt": {
+        "ko": "경험을 묻는 질문을 골라요.",
+        "en": "Choose the question about past experience.",
+        "de": "Wähle die Frage nach einer bisherigen Erfahrung."
+      },
+      "material": {
+        "context": {
+          "ko": "현대 역할 카드. 크리스티안의 도자기 체험 여부는 모른다. 시범: 도자기를 만들어 본 적이 있어요? → 네, 한 번 있어요.",
+          "en": "Modern role card. You do not know whether Christian has tried pottery. Model: Have you ever made pottery? → Yes, once.",
+          "de": "Moderne Rollenkarte. Du weißt nicht, ob Christian schon getöpfert hat. Beispiel: Haben Sie schon einmal getöpfert? → Ja, einmal."
+        }
+      },
+      "options": [
+        {
+          "id": "experience",
+          "ko": "도자기를 만들어 본 적이 있어요?",
+          "en": "Have you ever made pottery?",
+          "de": "Haben Sie schon einmal getöpfert?"
+        },
+        {
+          "id": "duration",
+          "ko": "도자기를 배운 지 얼마나 됐어요?",
+          "en": "How long have you been learning pottery?",
+          "de": "Seit wann lernen Sie töpfern?"
+        },
+        {
+          "id": "current",
+          "ko": "지금 도자기를 만들고 있어요?",
+          "en": "Are you making pottery now?",
+          "de": "Töpfern Sie gerade?"
+        }
+      ],
+      "accepted_answers": [
+        "experience"
+      ],
+      "feedback_correct": {
+        "ko": "해 본 적이 있는지를 물었어요. 기간이나 지금 하는 일은 아직 몰라요.",
+        "en": "That asks whether it has happened before, without asking the duration or current activity.",
+        "de": "Damit fragst du nach einer Erfahrung. Dauer und aktuelle Tätigkeit bleiben offen."
+      },
+      "feedback_wrong": {
+        "ko": "기간이나 현재 행동을 묻는 질문이에요. 이번에는 해 본 일이 있는지 물어요.",
+        "en": "That asks about duration or a current action. Here you need to ask whether it has happened before.",
+        "de": "Diese Frage betrifft die Dauer oder das aktuelle Tun. Hier geht es darum, ob die Erfahrung schon gemacht wurde."
+      },
+      "help": {
+        "ko": "적이 있어요는 과거 경험의 유무에 초점을 둬요.",
+        "en": "적이 있어요 focuses on whether there is past experience.",
+        "de": "적이 있어요 fragt danach, ob eine Erfahrung schon gemacht wurde."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-01-P02",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "시작 뒤 경과 기간을 말한다",
+      "prompt": {
+        "ko": "공부를 시작한 뒤 지금까지 흐른 기간을 말한 답을 골라요.",
+        "en": "Choose the answer giving the time elapsed since study began.",
+        "de": "Wähle die Antwort zur Zeitspanne seit Beginn des Lernens."
+      },
+      "material": {
+        "context": {
+          "ko": "역할 카드: 한국어 공부 시작 9월 1일 → 오늘 11월 1일, 계속 공부 중. 시범: 한국어를 배운 지 두 달 됐어요.",
+          "en": "Role card: Korean study began on 1 September; today is 1 November and study continues. Model: I started learning Korean two months ago.",
+          "de": "Rollenkarte: Koreanischlernen seit dem 1. September; heute ist der 1. November und das Lernen geht weiter. Beispiel: Ich lerne seit zwei Monaten Koreanisch."
+        }
+      },
+      "options": [
+        {
+          "id": "elapsed",
+          "ko": "한국어를 배운 지 두 달 됐어요.",
+          "en": "I started learning Korean two months ago.",
+          "de": "Ich lerne seit zwei Monaten Koreanisch."
+        },
+        {
+          "id": "once",
+          "ko": "한국어를 한 번 배운 적이 있어요.",
+          "en": "I have studied Korean once.",
+          "de": "Ich habe einmal Koreanisch gelernt."
+        },
+        {
+          "id": "future",
+          "ko": "두 달 후에 한국어를 배울 거예요.",
+          "en": "I will start learning Korean in two months.",
+          "de": "Ich fange in zwei Monaten an, Koreanisch zu lernen."
+        }
+      ],
+      "accepted_answers": [
+        "elapsed"
+      ],
+      "feedback_correct": {
+        "ko": "시작한 날부터 지금까지 두 달이 흘렀어요.",
+        "en": "Two months have passed since the starting date.",
+        "de": "Seit dem Beginn sind zwei Monate vergangen."
+      },
+      "feedback_wrong": {
+        "ko": "한 번 해 본 경험이 있을 수도 있지만, 이번 질문은 시작한 뒤 흐른 기간을 물어요. 미래 계획도 그 기간에 답하지 못해요.",
+        "en": "A single past experience may be compatible with the card, but it does not answer how long it has been since the start. A future plan does not answer that duration either.",
+        "de": "Eine einzelne Erfahrung kann zur Karte passen, beantwortet aber nicht die Frage nach der Zeit seit dem Beginn. Ein Zukunftsplan nennt diese Dauer ebenfalls nicht."
+      },
+      "help": {
+        "ko": "시작점에서 오늘까지의 간격을 봐요. -ㄴ 지 뒤에 그 기간을 붙여요.",
+        "en": "Look at the interval from the start to today. Put that duration after -ㄴ 지.",
+        "de": "Lies die Zeitspanne vom Beginn bis heute ab. Diese Dauer steht nach -ㄴ 지."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-01-P03",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "기간과 특정 시점을 구분한다",
+      "prompt": {
+        "ko": "기다린 기간 전체를 말하는 문장을 골라요.",
+        "en": "Choose the sentence about the whole waiting period.",
+        "de": "Wähle den Satz über die gesamte Wartezeit."
+      },
+      "material": {
+        "context": {
+          "ko": "수진이 기다린 10분 내내 여행자는 안내문을 읽었다. 시범: 수진이 기다리는 동안 안내문을 읽었어요. -을 때는 시점을, -는 동안은 이어진 기간을 나타낼 수 있다. 시점의 완전한 시범: 문을 열 때 전화가 울렸어요.",
+          "en": "Throughout Sujin’s ten-minute wait, the traveler read a notice. Model: I read the notice while Sujin was waiting. -을 때 can locate a time; -는 동안 presents a continuing interval. Full time-point model: The phone rang when I opened the door.",
+          "de": "Während Sujin zehn Minuten wartete, las die reisende Person durchgehend einen Aushang. Beispiel: Während Sujin wartete, habe ich den Aushang gelesen. -을 때 nennt einen Zeitpunkt oder Anlass; -는 동안 betont eine andauernde Zeitspanne. Vollständiges Beispiel für den Zeitpunkt: Als ich die Tür öffnete, klingelte das Telefon."
+        }
+      },
+      "options": [
+        {
+          "id": "whole",
+          "ko": "수진이 기다리는 동안 안내문을 읽었어요.",
+          "en": "I read the notice throughout Sujin’s wait.",
+          "de": "Während Sujin wartete, habe ich den Aushang gelesen."
+        },
+        {
+          "id": "after",
+          "ko": "수진이 떠난 후에 안내문을 읽었어요.",
+          "en": "I read the notice after Sujin left.",
+          "de": "Nachdem Sujin gegangen war, habe ich den Aushang gelesen."
+        },
+        {
+          "id": "before",
+          "ko": "수진이 오기 전에 안내문을 읽었어요.",
+          "en": "I read the notice before Sujin arrived.",
+          "de": "Bevor Sujin kam, habe ich den Aushang gelesen."
+        }
+      ],
+      "accepted_answers": [
+        "whole"
+      ],
+      "feedback_correct": {
+        "ko": "기다림과 읽기가 같은 기간에 이어졌어요.",
+        "en": "The waiting and reading continued over the same interval.",
+        "de": "Warten und Lesen fanden über dieselbe Zeitspanne hinweg statt."
+      },
+      "feedback_wrong": {
+        "ko": "전이나 후로 옮기면 두 행동이 겹친다는 정보가 사라져요.",
+        "en": "Moving the reading before or after loses the overlap.",
+        "de": "Davor oder danach würde bedeuten, dass sich die beiden Handlungen nicht überlappten."
+      },
+      "help": {
+        "ko": "10분 동안 두 행동이 함께 이어졌는지 봐요.",
+        "en": "Check whether both actions continued during those ten minutes.",
+        "de": "Prüfe, ob beide Handlungen während dieser zehn Minuten andauerten."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-01-P04",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "현재 진행과 과거 경험을 구분한다",
+      "prompt": {
+        "ko": "크리스티안이 지금 자기 행동을 직접 말하는 답을 골라요.",
+        "en": "Choose what Christian says about the current action in the first person.",
+        "de": "Wähle Christians Aussage über das eigene aktuelle Tun in der Ich-Form."
+      },
+      "material": {
+        "context": {
+          "ko": "현재 모의 장면: 크리스티안의 손이 글자를 쓰고 있다. 시범: 지금 글씨를 쓰고 있어요. 과거에 해 본 일과 다르다.",
+          "en": "Current simulated scene: Christian’s hand is writing letters. Model: I am writing now. This differs from having done it before.",
+          "de": "Aktuelle Übungsszene: Christians Hand schreibt gerade Buchstaben. Beispiel: Ich schreibe gerade. Das unterscheidet sich von einer früheren Erfahrung."
+        }
+      },
+      "options": [
+        {
+          "id": "now",
+          "ko": "지금 글씨를 쓰고 있어요.",
+          "en": "I am writing now.",
+          "de": "Ich schreibe gerade."
+        },
+        {
+          "id": "past",
+          "ko": "글씨를 써 본 적이 있어요.",
+          "en": "I have tried writing before.",
+          "de": "Ich habe das Schreiben schon einmal ausprobiert."
+        },
+        {
+          "id": "next",
+          "ko": "내일 글씨를 쓸 거예요.",
+          "en": "I will write tomorrow.",
+          "de": "Ich werde morgen schreiben."
+        }
+      ],
+      "accepted_answers": [
+        "now"
+      ],
+      "feedback_correct": {
+        "ko": "-고 있어요로 진행 중인 행동을 말했어요.",
+        "en": "-고 있어요 describes the action in progress.",
+        "de": "-고 있어요 beschreibt die laufende Handlung."
+      },
+      "feedback_wrong": {
+        "ko": "경험이나 계획은 손이 지금 움직이는 것을 직접 설명하지 않아요.",
+        "en": "Experience or a plan does not directly describe what the hand is doing now.",
+        "de": "Erfahrung oder Planung beschreibt nicht direkt, was die Hand gerade tut."
+      },
+      "help": {
+        "ko": "지금이라는 시간과 계속 움직이는 손을 함께 봐요.",
+        "en": "Use both the word “now” and the continuing hand movement.",
+        "de": "Achte auf „jetzt“ und die fortlaufende Handbewegung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-01-I01",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 활동에서 경험 없음에 반응한다",
+      "prompt": {
+        "ko": "질문에 맞고 카드 사실을 지키는 대답을 골라요.",
+        "en": "Choose a response that answers the question and fits the card.",
+        "de": "Wähle eine Antwort, die zur Frage und zur Karte passt."
+      },
+      "material": {
+        "context": {
+          "ko": "크리스티안: 한복을 입어 본 적이 있어요? 여행자 역할 카드: 경험 0회, 오늘 처음 체험 예정.",
+          "en": "Christian: Have you ever worn hanbok? Traveler role card: zero times; first try planned for today.",
+          "de": "Christian: Haben Sie schon einmal Hanbok getragen? Rollenkarte: bisher nie; heute ist der erste Versuch geplant."
+        }
+      },
+      "options": [
+        {
+          "id": "notyet",
+          "ko": "아직 입어 본 적이 없어요. 오늘 처음 입을 거예요.",
+          "en": "Not yet. Today will be my first time.",
+          "de": "Bisher noch nicht. Heute trage ich zum ersten Mal Hanbok."
+        },
+        {
+          "id": "twice",
+          "ko": "벌써 두 번 입어 봤어요.",
+          "en": "I have already worn it twice.",
+          "de": "Ich habe schon zweimal Hanbok getragen."
+        },
+        {
+          "id": "twohours",
+          "ko": "두 시간 동안 입고 있었어요.",
+          "en": "I was wearing it for two hours.",
+          "de": "Ich habe ihn zwei Stunden lang getragen."
+        }
+      ],
+      "accepted_answers": [
+        "notyet"
+      ],
+      "feedback_correct": {
+        "ko": "아직의 경험 없음과 오늘의 첫 체험 계획을 함께 지켰어요.",
+        "en": "You preserved both “not yet” and the first try planned for today.",
+        "de": "Du hast sowohl die fehlende Erfahrung als auch den geplanten ersten Versuch erhalten."
+      },
+      "feedback_wrong": {
+        "ko": "횟수나 지난 기간을 새로 만들지 말아요. 카드에는 경험이 없어요.",
+        "en": "Do not invent a count or a past duration. The card says there is no past experience.",
+        "de": "Erfinde keine Anzahl und keine frühere Dauer. Laut Karte gibt es noch keine Erfahrung."
+      },
+      "help": {
+        "ko": "도움을 열면 이번 시도는 도움 사용으로 구분해요. 경험 횟수 0부터 확인해요.",
+        "en": "Opening help makes this an assisted attempt. Start by checking the zero count.",
+        "de": "Mit dieser Hilfe zählt der Versuch als unterstützt. Prüfe zuerst die Angabe „0-mal“."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-01-I02",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "경과 기간의 잘못된 이해를 고친다",
+      "prompt": {
+        "ko": "상대가 잘못 이해한 기간을 정정해요.",
+        "en": "Correct the duration the other person misunderstood.",
+        "de": "Korrigiere die missverstandene Dauer."
+      },
+      "material": {
+        "context": {
+          "ko": "오늘 8월 1일. 여행자: 서울 생활 시작 5월 1일, 현재도 거주. 크리스티안: 서울에서 한 달 살았어요?",
+          "en": "Today: 1 August. Traveler: living in Seoul since 1 May, still living there. Christian: Have you lived in Seoul for one month?",
+          "de": "Heute: 1. August. Rollenkarte: seit dem 1. Mai in Seoul, weiterhin dort wohnhaft. Christian: Wohnen Sie seit einem Monat in Seoul?"
+        }
+      },
+      "options": [
+        {
+          "id": "three",
+          "ko": "아니요, 서울에 산 지 세 달 됐어요.",
+          "en": "No, I started living in Seoul three months ago.",
+          "de": "Nein, ich wohne seit drei Monaten in Seoul."
+        },
+        {
+          "id": "one",
+          "ko": "네, 한 달 됐어요.",
+          "en": "Yes, one month.",
+          "de": "Ja, seit einem Monat."
+        },
+        {
+          "id": "future",
+          "ko": "아니요, 세 달 후에 서울에 갈 거예요.",
+          "en": "No, I will go to Seoul in three months.",
+          "de": "Nein, ich fahre in drei Monaten nach Seoul."
+        }
+      ],
+      "accepted_answers": [
+        "three"
+      ],
+      "feedback_correct": {
+        "ko": "시작일과 오늘 사이 세 달을 확인하고 한 달을 고쳤어요.",
+        "en": "You used the three-month interval to correct “one month.”",
+        "de": "Du hast anhand der drei Monate die Angabe „ein Monat“ korrigiert."
+      },
+      "feedback_wrong": {
+        "ko": "계속 살고 있는 현재와 5월 시작점을 모두 확인해요.",
+        "en": "Check both the May starting date and the continuing residence.",
+        "de": "Beachte sowohl den Beginn im Mai als auch, dass die Person weiterhin dort wohnt."
+      },
+      "help": {
+        "ko": "5월→6월→7월→8월 사이의 간격을 세어 봐요.",
+        "en": "Count the intervals from May through August.",
+        "de": "Zähle die Monatsabstände von Mai bis August."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-01-I03",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "우산이 없음을 알아차린 시점을 식별한다",
+      "prompt": {
+        "ko": "우산이 없다는 걸 알아차린 때를 말한 답을 골라요.",
+        "en": "Choose the answer that says when the missing umbrella was noticed.",
+        "de": "Wähle die Antwort, die sagt, wann das Fehlen des Schirms bemerkt wurde."
+      },
+      "material": {
+        "context": {
+          "ko": "카드 순서: 버스 탑승 전에는 우산 있음 → 버스에서 내리는 순간 우산이 없음을 발견 → 집 도착. 질문: 언제 우산이 없다는 걸 알았어요?",
+          "en": "Sequence: umbrella present before boarding; its absence noticed at the moment of getting off the bus; then arrival home. Question: When did you notice it was missing?",
+          "de": "Ablauf: Vor dem Einsteigen ist der Schirm da; beim Aussteigen fällt sein Fehlen auf; danach Ankunft zu Hause. Frage: Wann haben Sie bemerkt, dass er fehlt?"
+        }
+      },
+      "options": [
+        {
+          "id": "exit",
+          "ko": "버스에서 내릴 때 알았어요.",
+          "en": "I noticed when I got off the bus.",
+          "de": "Ich habe es beim Aussteigen aus dem Bus bemerkt."
+        },
+        {
+          "id": "home",
+          "ko": "집에 도착할 때 알았어요.",
+          "en": "I noticed when I arrived home.",
+          "de": "Ich habe es bei der Ankunft zu Hause bemerkt."
+        },
+        {
+          "id": "before",
+          "ko": "버스를 타기 전에 알았어요.",
+          "en": "I noticed before boarding the bus.",
+          "de": "Ich habe es vor dem Einsteigen bemerkt."
+        }
+      ],
+      "accepted_answers": [
+        "exit"
+      ],
+      "feedback_correct": {
+        "ko": "알아차린 시점을 버스에서 내리는 때에 연결했어요.",
+        "en": "You linked the moment of noticing to getting off the bus.",
+        "de": "Du hast den Moment des Bemerkens mit dem Aussteigen verbunden."
+      },
+      "feedback_wrong": {
+        "ko": "잃어버린 정확한 순간은 모르지만, 알아차린 때는 카드에 있어요.",
+        "en": "The exact moment of loss is unknown, but the moment of noticing is given.",
+        "de": "Der genaue Verlustzeitpunkt ist unbekannt; der Zeitpunkt des Bemerkens steht auf der Karte."
+      },
+      "help": {
+        "ko": "질문은 잃어버린 원인이 아니라 알게 된 때를 물어요.",
+        "en": "The question asks when you noticed, not why the loss happened.",
+        "de": "Gefragt ist, wann das Fehlen auffiel, nicht nach seiner Ursache."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-01-I04",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "기간 중 행동과 현재 진행을 구별한다",
+      "prompt": {
+        "ko": "카드 두 장을 모두 정확히 설명해요.",
+        "en": "Choose the description that fits both cards.",
+        "de": "Wähle die Beschreibung, die zu beiden Karten passt."
+      },
+      "material": {
+        "context": {
+          "ko": "역할 카드 A: 어제 수진이 차를 마신 5분 동안 여행자가 지도를 봄. 카드 B: 오늘 지금 여행자가 책을 읽는 중.",
+          "en": "Role card A: yesterday, the traveler looked at a map during Sujin’s five-minute tea break. Card B: today, the traveler is currently reading a book.",
+          "de": "Rollenkarte A: Gestern sah sich die reisende Person während Sujins fünfminütiger Teepause eine Karte an. Karte B: Heute liest sie gerade ein Buch."
+        }
+      },
+      "options": [
+        {
+          "id": "both",
+          "ko": "어제 수진이 차를 마시는 동안 지도를 봤어요. 지금은 책을 읽고 있어요.",
+          "en": "Yesterday I looked at a map while Sujin drank tea. Now I am reading a book.",
+          "de": "Gestern habe ich während Sujins Teepause eine Karte angesehen. Jetzt lese ich ein Buch."
+        },
+        {
+          "id": "swap",
+          "ko": "어제 책을 읽는 동안 수진이 지도를 봤어요. 지금 차를 마시고 있어요.",
+          "en": "Yesterday Sujin looked at a map while I read. Now I am drinking tea.",
+          "de": "Gestern hat Sujin eine Karte angesehen, während ich las. Jetzt trinke ich Tee."
+        },
+        {
+          "id": "future",
+          "ko": "내일 지도를 볼 거예요. 책은 읽어 본 적이 없어요.",
+          "en": "I will look at a map tomorrow. I have never read a book.",
+          "de": "Morgen werde ich eine Karte ansehen. Ein Buch habe ich noch nie gelesen."
+        }
+      ],
+      "accepted_answers": [
+        "both"
+      ],
+      "feedback_correct": {
+        "ko": "어제 이어진 두 행동과 지금의 진행을 나누었어요.",
+        "en": "You kept yesterday’s overlapping activities separate from the current action.",
+        "de": "Du hast die gestrige Überschneidung vom aktuellen Tun getrennt."
+      },
+      "feedback_wrong": {
+        "ko": "누가 무엇을 했는지와 어제/지금을 바꾸지 말아요.",
+        "en": "Keep the people, actions, and yesterday/now distinction unchanged.",
+        "de": "Vertausche weder Personen und Tätigkeiten noch gestern und jetzt."
+      },
+      "help": {
+        "ko": "A의 동시간대와 B의 현재를 따로 표시해요.",
+        "en": "Mark A’s shared interval and B’s present moment separately.",
+        "de": "Markiere bei A die gemeinsame Zeitspanne und bei B den jetzigen Moment."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-01-R01",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "다음 날 새 취미 경험을 확인한다",
+      "prompt": {
+        "ko": "새 역할 카드에 맞는 대답을 골라요.",
+        "en": "Choose the answer for this new role card.",
+        "de": "Wähle die Antwort zur neuen Rollenkarte."
+      },
+      "material": {
+        "context": {
+          "ko": "다음 날, 새 자극. 질문: 김치를 담가 본 적이 있어요? 역할 카드: 작년에 한 번 함께 담금; 오늘은 하지 않음. 이전 답안·시범은 기본 숨김.",
+          "en": "Next day, new stimulus. Question: Have you ever made kimchi? Role card: once with others last year; not today. Previous answers and models are hidden by default.",
+          "de": "Am nächsten Tag, neuer Impuls. Frage: Haben Sie schon einmal Kimchi eingelegt? Rollenkarte: einmal gemeinsam im letzten Jahr; heute nicht. Frühere Antworten und Beispiele bleiben zunächst verborgen."
+        },
+        "delay": "next_day"
+      },
+      "options": [
+        {
+          "id": "ever",
+          "ko": "네, 작년에 한 번 담가 본 적이 있어요.",
+          "en": "Yes, I did it once last year.",
+          "de": "Ja, letztes Jahr habe ich das einmal gemacht."
+        },
+        {
+          "id": "now",
+          "ko": "네, 지금 담그고 있어요.",
+          "en": "Yes, I am making it now.",
+          "de": "Ja, ich lege gerade Kimchi ein."
+        },
+        {
+          "id": "never",
+          "ko": "아니요, 아직 담가 본 적이 없어요.",
+          "en": "No, I have not tried it yet.",
+          "de": "Nein, bisher noch nie."
+        }
+      ],
+      "accepted_answers": [
+        "ever"
+      ],
+      "feedback_correct": {
+        "ko": "새 활동에서도 지난 경험을 현재 진행과 구분했어요.",
+        "en": "You distinguished past experience from current activity in a new task.",
+        "de": "Auch bei der neuen Tätigkeit hast du Erfahrung und aktuelles Tun getrennt."
+      },
+      "feedback_wrong": {
+        "ko": "작년의 한 번과 오늘 하지 않음을 함께 확인해요.",
+        "en": "Check both the single occasion last year and the fact that it is not happening today.",
+        "de": "Beachte sowohl den einmaligen Versuch im letzten Jahr als auch, dass es heute nicht geschieht."
+      },
+      "help": {
+        "ko": "도움 사용을 구분한 뒤, 과거 경험을 묻는 표현을 다시 살펴봐요.",
+        "en": "Keep help use separate, then revisit the expression for past experience.",
+        "de": "Halte die Hilfenutzung getrennt fest und sieh dir dann den Ausdruck für Erfahrungen erneut an."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 자료의 선택 이해만 확인한다. 도움·정답 공개 전후를 구분하며 보존 성공·독립 발화·이야기 해금 증거로 확대하지 않는다."
+    },
+    {
+      "id": "A2.2-01-R02",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "다음 날 새 시간선의 기간을 읽는다",
+      "prompt": {
+        "ko": "새 시간선의 기간을 바로잡아요.",
+        "en": "Correct the duration on the new timeline.",
+        "de": "Berichtige die Dauer auf der neuen Zeitleiste."
+      },
+      "material": {
+        "context": {
+          "ko": "다음 날 새 카드: 수영 시작 2월 10일 → 오늘 6월 10일, 계속 다님. 상대는 두 달이라고 이해함. 이전 모델 기본 숨김.",
+          "en": "Next-day new card: swimming began on 10 February; today is 10 June and attendance continues. The other person thinks it has been two months. Previous models hidden.",
+          "de": "Neue Karte am nächsten Tag: Schwimmen seit dem 10. Februar; heute ist der 10. Juni, weiterhin regelmäßig. Die andere Person hat zwei Monate verstanden. Frühere Vorlagen sind verborgen."
+        },
+        "delay": "next_day"
+      },
+      "options": [
+        {
+          "id": "four",
+          "ko": "두 달이 아니라 네 달 됐어요.",
+          "en": "It has been four months, not two.",
+          "de": "Es sind vier Monate, keine zwei."
+        },
+        {
+          "id": "two",
+          "ko": "맞아요, 두 달 됐어요.",
+          "en": "Yes, it has been two months.",
+          "de": "Ja, es sind zwei Monate."
+        },
+        {
+          "id": "future",
+          "ko": "네 달 후에 시작할 거예요.",
+          "en": "I will start in four months.",
+          "de": "Ich fange in vier Monaten an."
+        }
+      ],
+      "accepted_answers": [
+        "four"
+      ],
+      "feedback_correct": {
+        "ko": "새 시작점에서도 경과 기간을 정정했어요.",
+        "en": "You corrected the elapsed duration from a new starting point.",
+        "de": "Du hast die verstrichene Zeit auch mit einem neuen Anfangsdatum korrigiert."
+      },
+      "feedback_wrong": {
+        "ko": "시작 날짜와 오늘 사이의 네 간격을 확인해요.",
+        "en": "Check the four monthly intervals between the start and today.",
+        "de": "Prüfe die vier Monatsabstände zwischen Beginn und heute."
+      },
+      "help": {
+        "ko": "2→3→4→5→6월의 간격을 세어 봐요.",
+        "en": "Count the monthly steps from February to June.",
+        "de": "Zähle die Monatsschritte von Februar bis Juni."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 자료의 선택 이해만 확인한다. 도움·정답 공개 전후를 구분하며 보존 성공·독립 발화·이야기 해금 증거로 확대하지 않는다."
+    },
+    {
+      "id": "A2.2-01-R03",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "다음 날 특정 시점과 현재 진행을 구별한다",
+      "prompt": {
+        "ko": "새 상황의 두 시간 정보를 유지해요.",
+        "en": "Keep both time references in this new situation.",
+        "de": "Behalte beide Zeitangaben der neuen Situation bei."
+      },
+      "material": {
+        "context": {
+          "ko": "다음 날 새 자극: 어제 기차가 출발한 순간 여행자가 시계를 봄. 오늘 지금은 산책 중. 과거 답안 기본 숨김.",
+          "en": "Next-day new stimulus: yesterday, the traveler checked the clock as the train departed. Right now today, the traveler is taking a walk. Previous answers hidden.",
+          "de": "Neuer Impuls am nächsten Tag: Gestern sah die reisende Person beim Abfahren des Zuges auf die Uhr. Heute geht sie gerade spazieren. Frühere Antworten sind verborgen."
+        },
+        "delay": "next_day"
+      },
+      "options": [
+        {
+          "id": "time",
+          "ko": "어제 기차가 출발할 때 시계를 봤어요. 지금은 산책하고 있어요.",
+          "en": "Yesterday I checked the clock when the train departed. Now I am taking a walk.",
+          "de": "Gestern habe ich bei der Abfahrt des Zuges auf die Uhr gesehen. Jetzt gehe ich spazieren."
+        },
+        {
+          "id": "reverse",
+          "ko": "지금 기차가 출발하고 있어요. 어제 산책했어요.",
+          "en": "The train is departing now. I took a walk yesterday.",
+          "de": "Der Zug fährt gerade ab. Gestern war ich spazieren."
+        },
+        {
+          "id": "duration",
+          "ko": "어제 한 시간 동안 기차를 탔어요. 지금은 자고 있어요.",
+          "en": "I was on a train for an hour yesterday. I am sleeping now.",
+          "de": "Gestern bin ich eine Stunde Zug gefahren. Jetzt schlafe ich."
+        }
+      ],
+      "accepted_answers": [
+        "time"
+      ],
+      "feedback_correct": {
+        "ko": "사건의 순간과 현재 진행을 따로 회상했어요.",
+        "en": "You kept the event’s moment separate from the current action.",
+        "de": "Du hast den Ereigniszeitpunkt vom aktuellen Tun getrennt."
+      },
+      "feedback_wrong": {
+        "ko": "새 자료에는 탑승 기간이나 잠자는 행동이 없어요.",
+        "en": "The new stimulus gives no travel duration or sleeping action.",
+        "de": "Die neue Karte nennt weder eine Fahrtdauer noch Schlafen."
+      },
+      "help": {
+        "ko": "어제 무엇을 할 때였는지, 지금 무엇을 하는지 나누어 봐요.",
+        "en": "Separate what was happening at that moment yesterday from the action now.",
+        "de": "Trenne den gestrigen Zeitpunkt von der jetzigen Tätigkeit."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 자료의 선택 이해만 확인한다. 도움·정답 공개 전후를 구분하며 보존 성공·독립 발화·이야기 해금 증거로 확대하지 않는다."
+    },
+    {
+      "id": "A2.2-01-T01",
+      "mode": "T",
+      "kind": "roleplay",
+      "objective": "새 상대와 경험·기간을 나누고 오해를 정정한다",
+      "prompt": {
+        "ko": "모의 대화를 두세 문장으로 이어 보세요.",
+        "en": "Continue the roleplay in two or three sentences.",
+        "de": "Führe das Rollengespräch mit zwei oder drei Sätzen weiter."
+      },
+      "material": {
+        "context": {
+          "ko": "새 취미 모임의 이름 없는 상대 역할. 상대: 사진을 찍어 본 적이 있어요? 한 달 배웠어요? 내 카드: 작년 첫 체험, 3월부터 오늘 9월까지 계속 배움. 지금은 쉬는 중. 경험에 답하고 기간을 정정한 뒤 상대 경험도 물어본다. 사실 자료만 제공하며 정답 문장은 숨긴다.",
+          "en": "Unnamed partner role at a new hobby group. Partner: Have you tried photography? Have you studied it for one month? Your card: first try last year; learning continuously from March to September; resting now. Answer about experience, correct the duration, then ask about the partner’s experience. Facts only; no model answer.",
+          "de": "Unbenannte Gegenrolle in einer neuen Hobbygruppe. Frage: Haben Sie schon fotografiert? Lernen Sie das seit einem Monat? Deine Karte: erster Versuch im letzten Jahr; fortlaufendes Lernen von März bis September; jetzt Pause. Antworte zur Erfahrung, korrigiere die Dauer und frage nach der Erfahrung der anderen Person. Nur Fakten, keine Lösungsvorlage."
+        }
+      },
+      "options": [],
+      "accepted_answers": [],
+      "feedback_correct": {
+        "ko": "경험·기간·상대 질문이 카드와 맞는지 함께 살펴봐요.",
+        "en": "Review whether the experience, duration, and return question fit the card.",
+        "de": "Prüfe, ob Erfahrung, Dauer und Gegenfrage zur Karte passen."
+      },
+      "feedback_wrong": {
+        "ko": "빠진 정보만 보완해요. 지금 쉬는 중이라는 사실을 현재 촬영으로 바꾸지 말아요.",
+        "en": "Add only missing information. Do not turn the current rest into taking photos now.",
+        "de": "Ergänze nur Fehlendes. Mache aus der jetzigen Pause kein aktuelles Fotografieren."
+      },
+      "help": {
+        "ko": "경험 횟수/시작 후 기간/지금 하는 일을 별도 메모해요. 문장 도움을 보면 도움 수행으로 구분해요.",
+        "en": "Note experience, time since the start, and current activity separately. Any sentence help makes this assisted work.",
+        "de": "Notiere Erfahrung, Dauer seit Beginn und jetziges Tun getrennt. Mit Formulierungshilfe gilt die Aufgabe als unterstützt."
+      },
+      "scoring": "unscored",
+      "evidence_limit": "열린 역할 수행은 자동 채점하지 않는다. 의미·화행·사실·관계의 충족 여부를 본인 또는 별도 검토자가 살핀다. 독립 발화·발음·실생활 전이는 이 문항만으로 인증하지 않는다."
+    }
+  ],
+  "responses": {
+    "assisted": {
+      "ko": "도움을 보고 이어 갔어요. 이번 시도는 도움 사용으로 구분해요.",
+      "en": "You continued with help. Keep this attempt separate from work done independently.",
+      "de": "Du hast mit Hilfe weitergemacht. Dieser Versuch zählt getrennt von selbstständiger Arbeit."
+    },
+    "independent": {
+      "ko": "정답 시범 없이 선택했어요. 선택 이해와 직접 말하기는 따로 확인해요.",
+      "en": "You chose without an answer model. Choosing an answer and producing your own speech are checked separately.",
+      "de": "Du hast ohne Lösungsvorlage gewählt. Antworten auszuwählen und selbst zu sprechen wird getrennt geprüft."
+    },
+    "audio_unavailable": {
+      "ko": "소리를 재생할 수 없어요. 글과 상황 카드로 계속하고, 듣기·발음 확인은 나중에 해요.",
+      "en": "Audio is unavailable. Continue with the text and situation cards; check listening and pronunciation later.",
+      "de": "Der Ton ist nicht verfügbar. Mach mit Text und Situationskarten weiter; Hören und Aussprache prüfst du später."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 돼요. 이야기나 건축 진행을 되돌리는 조건은 없어요.",
+      "en": "You can pause here. Pausing does not undo story or construction progress.",
+      "de": "Du kannst hier pausieren. Dadurch gehen weder Geschichte noch Baufortschritt zurück."
+    },
+    "resume": {
+      "ko": "현재 상황과 입력을 다시 보고 이어 가요. 도움을 본 시도는 그대로 구분해요.",
+      "en": "Review the current situation and input, then continue. Attempts made with help stay separate.",
+      "de": "Sieh dir die aktuelle Situation und deine Eingabe an und mach weiter. Versuche mit Hilfe bleiben getrennt."
+    },
+    "save_failed": {
+      "ko": "저장을 확인하지 못했어요. 현재 입력을 유지한 채 다시 시도해요. 저장 완료로 표시하지 않아요.",
+      "en": "Saving could not be confirmed. Keep the current input and try again; do not mark it as saved.",
+      "de": "Das Speichern konnte nicht bestätigt werden. Behalte deine Eingabe und versuche es erneut; sie gilt noch nicht als gespeichert."
+    },
+    "revisit": {
+      "ko": "다음 날에는 새 상황으로 다시 해 봐요. 놓쳐도 본편은 계속할 수 있어요.",
+      "en": "Try a new situation the next day. Missing the review does not block the story.",
+      "de": "Versuche es am nächsten Tag mit einer neuen Situation. Auch ohne diese Wiederholung geht die Geschichte weiter."
+    }
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true
+  }
+}

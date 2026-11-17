@@ -42,7 +42,7 @@ class ReviewDeckService {
   );
 
   /// CSV + 커스텀 팩 + 책장 단어를 합친 복습 풀. 한국어 기준 중복 제거.
-  static Future<List<Vocab>> allReviewable() async {
+  static Future<List<Vocab>> allReviewable({bool strict = false}) async {
     final out = <Vocab>[];
     final seen = <String>{};
 
@@ -61,6 +61,7 @@ class ReviewDeckService {
         add(v);
       }
     } catch (_) {
+      if (strict) rethrow;
       /* CSV 로드 실패 시 커스텀만으로도 동작 */
     }
 
@@ -79,6 +80,7 @@ class ReviewDeckService {
         }
       }
     } catch (_) {
+      if (strict) rethrow;
       /* best-effort */
     }
 

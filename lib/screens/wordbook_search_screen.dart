@@ -44,6 +44,7 @@ class WordbookSearchScreen extends StatelessWidget {
 class WordbookSearchBody extends StatefulWidget {
   const WordbookSearchBody({
     super.key,
+    this.boundNotebook = false,
     this.padding = const EdgeInsets.fromLTRB(
       Spacing.lg,
       Spacing.md,
@@ -53,6 +54,7 @@ class WordbookSearchBody extends StatefulWidget {
   });
 
   final EdgeInsets padding;
+  final bool boundNotebook;
 
   @override
   State<WordbookSearchBody> createState() => _WordbookSearchBodyState();
@@ -156,6 +158,13 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
         ? 112.0
         : 160.0;
     final pagePadding = widget.padding;
+    final showBook =
+        widget.boundNotebook &&
+        results.isNotEmpty &&
+        MediaQuery.sizeOf(context).width >=
+            SoriBreakpoints.narrowPhone + Spacing.control &&
+        MediaQuery.sizeOf(context).height >= 750 &&
+        MediaQuery.textScalerOf(context).scale(1) <= 1.35;
 
     return _all.isEmpty
         ? Padding(
@@ -304,19 +313,38 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
                         title: t.wbSearchEmpty,
                         illustrationMaxHeight: 120,
                       )
-                    : ListView.separated(
-                        keyboardDismissBehavior:
-                            ScrollViewKeyboardDismissBehavior.onDrag,
-                        padding: EdgeInsets.fromLTRB(
-                          pagePadding.left,
-                          Spacing.sm,
-                          pagePadding.right,
-                          pagePadding.bottom,
+                    : DecoratedBox(
+                        decoration: BoxDecoration(
+                          image: showBook
+                              ? const DecorationImage(
+                                  image: AssetImage(
+                                    'design_assets/scenarios/open-book.png',
+                                  ),
+                                  fit: BoxFit.fill,
+                                )
+                              : null,
                         ),
-                        itemCount: results.length,
-                        separatorBuilder: (_, __) =>
-                            const SizedBox(height: Spacing.sm),
-                        itemBuilder: (_, i) => _WordRow(word: results[i]),
+                        child: ListView.separated(
+                          keyboardDismissBehavior:
+                              ScrollViewKeyboardDismissBehavior.onDrag,
+                          padding: EdgeInsets.fromLTRB(
+                            showBook ? pagePadding.left + 30 : pagePadding.left,
+                            showBook ? 30 : Spacing.sm,
+                            showBook
+                                ? pagePadding.right + 20
+                                : pagePadding.right,
+                            showBook ? 42 : pagePadding.bottom,
+                          ),
+                          itemCount: results.length,
+                          separatorBuilder: (_, __) => showBook
+                              ? const Divider(
+                                  height: 1,
+                                  color: Color(0xffd4bc95),
+                                )
+                              : const SizedBox(height: Spacing.sm),
+                          itemBuilder: (_, i) =>
+                              _WordRow(word: results[i], onBookPage: showBook),
+                        ),
                       ),
               ),
             ],
@@ -326,7 +354,8 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
 
 class _WordRow extends StatelessWidget {
   final ExtractedWord word;
-  const _WordRow({required this.word});
+  final bool onBookPage;
+  const _WordRow({required this.word, required this.onBookPage});
 
   @override
   Widget build(BuildContext context) {
@@ -344,101 +373,132 @@ class _WordRow extends StatelessWidget {
       TtsService.speak(word.korean);
     }
 
-    return SoriCard(
-      variant: SoriCardVariant.base,
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
-          final stackMetadata =
-              constraints.maxWidth - kMinInteractiveDimension <
-                  SoriAdaptiveWidth.criticalActionRow ||
-              textScale >= 1.6;
-          final titleAndPartOfSpeech = stackMetadata
-              ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _WordTitle(word: word),
-                    if (partOfSpeech.isNotEmpty) ...[
-                      const SizedBox(height: Spacing.xs),
-                      _PartOfSpeech(label: partOfSpeech),
-                    ],
+    final content = LayoutBuilder(
+      builder: (context, constraints) {
+        final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
+        final stackMetadata =
+            constraints.maxWidth - kMinInteractiveDimension <
+                SoriAdaptiveWidth.criticalActionRow ||
+            textScale >= 1.6;
+        final titleAndPartOfSpeech = stackMetadata
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _WordTitle(word: word, onBookPage: onBookPage),
+                  if (partOfSpeech.isNotEmpty) ...[
+                    const SizedBox(height: Spacing.xs),
+                    _PartOfSpeech(label: partOfSpeech),
                   ],
-                )
-              : Row(
-                  children: [
-                    Flexible(child: _WordTitle(word: word)),
-                    if (partOfSpeech.isNotEmpty) ...[
-                      const SizedBox(width: Spacing.sm),
-                      Flexible(child: _PartOfSpeech(label: partOfSpeech)),
-                    ],
+                ],
+              )
+            : Row(
+                children: [
+                  Flexible(
+                    child: _WordTitle(word: word, onBookPage: onBookPage),
+                  ),
+                  if (partOfSpeech.isNotEmpty) ...[
+                    const SizedBox(width: Spacing.sm),
+                    Flexible(child: _PartOfSpeech(label: partOfSpeech)),
                   ],
-                );
+                ],
+              );
 
-          return Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    titleAndPartOfSpeech,
-                    if (meaning.isNotEmpty) ...[
-                      const SizedBox(height: Spacing.xs),
-                      Text(
-                        meaning,
-                        style: SoriTextTheme.of(
-                          context,
-                        ).bodySmall.copyWith(color: s.textMuted),
-                      ),
-                    ],
-                    if (word.definitionKo.isNotEmpty) ...[
-                      const SizedBox(height: Spacing.xs),
-                      Text(
-                        word.definitionKo,
-                        style: SoriTextTheme.of(
-                          context,
-                        ).caption.copyWith(color: s.textDim),
-                      ),
-                    ],
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  titleAndPartOfSpeech,
+                  if (meaning.isNotEmpty) ...[
+                    const SizedBox(height: Spacing.xs),
+                    Text(
+                      meaning,
+                      style:
+                          (onBookPage
+                                  ? SoriTextTheme.of(context).body
+                                  : SoriTextTheme.of(context).bodySmall)
+                              .copyWith(color: s.textMuted),
+                    ),
                   ],
-                ),
+                  if (word.exampleKorean.trim().isNotEmpty) ...[
+                    const SizedBox(height: Spacing.xs),
+                    Text(
+                      word.exampleKorean,
+                      style: SoriTextTheme.of(context).bodySmall,
+                    ),
+                  ],
+                  if (word.definitionKo.isNotEmpty) ...[
+                    const SizedBox(height: Spacing.xs),
+                    Text(
+                      word.definitionKo,
+                      style: SoriTextTheme.of(
+                        context,
+                      ).caption.copyWith(color: s.textDim),
+                    ),
+                  ],
+                ],
               ),
-              Semantics(
-                container: true,
-                button: true,
-                enabled: true,
-                label: ttsLabel,
-                onTap: speak,
-                excludeSemantics: true,
-                child: IconButton(
-                  tooltip: ttsLabel,
-                  constraints: const BoxConstraints(
-                    minWidth: 48,
-                    minHeight: 48,
-                  ),
-                  icon: Icon(
-                    Icons.volume_up_rounded,
-                    color: SoriColors.primary.withValues(alpha: 0.75),
-                  ),
-                  onPressed: speak,
+            ),
+            Semantics(
+              container: true,
+              button: true,
+              enabled: true,
+              label: ttsLabel,
+              onTap: speak,
+              excludeSemantics: true,
+              child: IconButton(
+                tooltip: ttsLabel,
+                style: onBookPage
+                    ? IconButton.styleFrom(
+                        backgroundColor: const Color(0xff174d43),
+                        side: const BorderSide(
+                          color: Color(0xffae844a),
+                          width: 1.5,
+                        ),
+                      )
+                    : null,
+                constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+                icon: Icon(
+                  Icons.volume_up_rounded,
+                  color: onBookPage
+                      ? const Color(0xfffaf1df)
+                      : SoriColors.primary.withValues(alpha: 0.75),
                 ),
+                onPressed: speak,
               ),
-            ],
-          );
-        },
-      ),
+            ),
+          ],
+        );
+      },
     );
+    return onBookPage
+        ? Container(
+            constraints: const BoxConstraints(minHeight: 104),
+            padding: const EdgeInsets.symmetric(vertical: Spacing.sm),
+            child: content,
+          )
+        : SoriCard(variant: SoriCardVariant.base, child: content);
   }
 }
 
 class _WordTitle extends StatelessWidget {
-  const _WordTitle({required this.word});
+  const _WordTitle({required this.word, required this.onBookPage});
 
   final ExtractedWord word;
+  final bool onBookPage;
 
   @override
-  Widget build(BuildContext context) =>
-      Text(word.korean, style: SoriTextTheme.of(context).cardTitle);
+  Widget build(BuildContext context) {
+    final type = SoriTextTheme.of(context);
+    return Text(
+      word.korean,
+      style: onBookPage
+          ? type.koDisplay.copyWith(fontSize: 22, fontWeight: FontWeight.w700)
+          : type.cardTitle,
+    );
+  }
 }
 
 class _PartOfSpeech extends StatelessWidget {

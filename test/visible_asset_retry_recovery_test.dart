@@ -20,7 +20,6 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/nuancen_c.dart';
-import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -224,8 +223,18 @@ void main() {
         await _press(tester, t.btnRetry);
         await _pumpUntil(tester, find.text('안녕하세요'));
         expect(reads[PronunciationPhraseLoader.assetPath], 2);
-        expect(find.byType(SoriSpeechIndicator), findsOneWidget);
-        expect(find.text(t.pronunciationRecord), findsOneWidget);
+        expect(
+          find
+              .byKey(const ValueKey('pronunciation-model-action'))
+              .hitTestable(),
+          findsOneWidget,
+        );
+        expect(
+          find
+              .byKey(const ValueKey('pronunciation-record-action'))
+              .hitTestable(),
+          findsOneWidget,
+        );
       },
     );
 

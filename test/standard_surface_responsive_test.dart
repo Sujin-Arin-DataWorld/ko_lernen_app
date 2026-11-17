@@ -5,6 +5,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/viewport_pages.dart';
+
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/data/quest_catalog.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
@@ -353,15 +355,12 @@ void main() {
     await tester.pumpWidget(_host(const VocabPacksScreen()));
     await tester.pumpAndSettle();
 
-    final t = AppL10n.of(tester.element(find.byType(VocabPacksScreen)));
-    final level = find.text(t.wortpaketeLevelGoalA1);
-    await tester.ensureVisible(level);
-    await tester.pumpAndSettle();
+    final level = find.byKey(const ValueKey('wortpakete-overview-level-a1'));
+    await showViewportSection(tester, level);
     await tester.tap(level);
     await tester.pumpAndSettle();
     final card = find.byKey(const ValueKey('wortpakete-topic-a1_greetings'));
-    await tester.ensureVisible(card);
-    await tester.pumpAndSettle();
+    await showViewportSection(tester, card);
     expect(tester.getSize(card).width, greaterThan(250));
     expect(tester.takeException(), isNull);
   });

@@ -5,6 +5,18 @@ import 'approved_chrome_assets.dart';
 import 'c_gallery/c_materials.dart';
 import 'tokens.dart';
 
+/// The three approved Lernen toolbars share artwork and destination behavior.
+enum SoriLearningNavStyle {
+  vocabulary(68, Size(70, 56), 62),
+  review(70, Size(57, 53), 58),
+  pronunciation(79, Size(69, 63), 64);
+
+  const SoriLearningNavStyle(this.barHeight, this.selection, this.artSize);
+  final double barHeight;
+  final Size selection;
+  final double artSize;
+}
+
 /// Native destination behavior with the user's five image-only icons.
 /// Selection, keyboard, tooltip and screen-reader actions remain NavigationBar's.
 class SoriImageNavigationBar extends StatefulWidget {
@@ -14,6 +26,8 @@ class SoriImageNavigationBar extends StatefulWidget {
     required this.onDestinationSelected,
     required this.labels,
     required this.assets,
+    this.expandedArtwork = false,
+    this.learningStyle,
   }) : assert(labels.length == 5),
        assert(assets.length == 5);
 
@@ -21,6 +35,8 @@ class SoriImageNavigationBar extends StatefulWidget {
   final ValueChanged<int> onDestinationSelected;
   final List<String> labels;
   final List<String> assets;
+  final bool expandedArtwork;
+  final SoriLearningNavStyle? learningStyle;
 
   @override
   State<SoriImageNavigationBar> createState() => _SoriImageNavigationBarState();
@@ -59,14 +75,23 @@ class _SoriImageNavigationBarState extends State<SoriImageNavigationBar>
     child: ColoredBox(
       color: CPalette.jade,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 0, 10, 6),
+        padding: EdgeInsets.fromLTRB(
+          10,
+          0,
+          10,
+          widget.learningStyle == null
+              ? 6
+              : 80 - widget.learningStyle!.barHeight,
+        ),
         child: CPaperPanel(
           radius: 18,
           padding: EdgeInsets.zero,
           surfaceTexture: const CTexture(CMaterial.paper),
           child: NavigationBar(
             key: const ValueKey('sori-image-navigation-bar'),
-            height: 62,
+            height:
+                widget.learningStyle?.barHeight ??
+                (widget.expandedArtwork ? 74 : 62),
             backgroundColor: Colors.transparent,
             indicatorColor: Colors.transparent,
             labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
@@ -81,6 +106,8 @@ class _SoriImageNavigationBarState extends State<SoriImageNavigationBar>
                   label: widget.labels[index],
                   selected: widget.selectedIndex == index,
                   motionActive: _resumed,
+                  expandedArtwork: widget.expandedArtwork,
+                  learningStyle: widget.learningStyle,
                 ),
             ],
           ),
@@ -97,12 +124,16 @@ class _ImageDestination extends StatefulWidget {
     required this.label,
     required this.selected,
     required this.motionActive,
+    required this.expandedArtwork,
+    this.learningStyle,
   });
 
   final String asset;
   final String label;
   final bool selected;
   final bool motionActive;
+  final bool expandedArtwork;
+  final SoriLearningNavStyle? learningStyle;
 
   @override
   State<_ImageDestination> createState() => _ImageDestinationState();
@@ -146,12 +177,16 @@ class _ImageDestinationState extends State<_ImageDestination> {
         selected: widget.selected,
         pressed: _pressed,
         motionActive: widget.motionActive,
+        expandedArtwork: widget.expandedArtwork,
+        learningStyle: widget.learningStyle,
       ),
       selectedIcon: SoriNavigationImage(
         asset: widget.asset,
         selected: widget.selected,
         pressed: _pressed,
         motionActive: widget.motionActive,
+        expandedArtwork: widget.expandedArtwork,
+        learningStyle: widget.learningStyle,
       ),
     ),
   );
@@ -166,12 +201,16 @@ class SoriNavigationImage extends StatelessWidget {
     required this.selected,
     this.pressed = false,
     this.motionActive = true,
+    this.expandedArtwork = false,
+    this.learningStyle,
   });
 
   final String asset;
   final bool selected;
   final bool pressed;
   final bool motionActive;
+  final bool expandedArtwork;
+  final SoriLearningNavStyle? learningStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -187,9 +226,14 @@ class SoriNavigationImage extends StatelessWidget {
         ? 1.0
         : 0.0;
     final duration = animate ? SoriMotion.fast : Duration.zero;
+    final art = learningStyle?.artSize ?? (expandedArtwork ? 52.0 : 44.0);
+    final standard = expandedArtwork ? 64.0 : 54.0;
+    final visualSize = selected && learningStyle != null
+        ? learningStyle!.selection
+        : Size.square(learningStyle == null ? standard : art);
     return SizedBox(
-      width: 54,
-      height: 54,
+      width: visualSize.width,
+      height: visualSize.height,
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -226,7 +270,7 @@ class SoriNavigationImage extends StatelessWidget {
             tween: Tween(begin: target, end: target),
             duration: duration,
             curve: SoriMotion.gentle,
-            child: ApprovedChromeImage(asset: asset, size: 44),
+            child: ApprovedChromeImage(asset: asset, size: art),
             builder: (_, value, child) => Transform.translate(
               key: ValueKey('sori-navigation-depth-$asset'),
               offset: Offset(0, -2 * value),

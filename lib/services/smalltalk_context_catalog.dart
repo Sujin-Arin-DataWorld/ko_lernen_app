@@ -3,7 +3,10 @@ import 'package:flutter/services.dart';
 import '../models/smalltalk_context_case.dart';
 
 abstract final class SmalltalkContextCatalog {
+  static List<SmalltalkContextCase>? _cached;
+
   static Future<List<SmalltalkContextCase>> load() async {
+    if (_cached case final cases?) return cases;
     final json =
         jsonDecode(
               await rootBundle.loadString(
@@ -20,6 +23,6 @@ abstract final class SmalltalkContextCatalog {
     if (cases.map((c) => c.id).toSet().length != cases.length) {
       throw const FormatException('Duplicate context case.');
     }
-    return List.unmodifiable(cases);
+    return _cached = List.unmodifiable(cases);
   }
 }

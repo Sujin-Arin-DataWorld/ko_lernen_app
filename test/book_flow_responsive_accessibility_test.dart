@@ -1,6 +1,9 @@
+import 'dart:io';
 import 'dart:ui' as ui;
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,16 +16,23 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'package:ko_lernen_app/widgets/sori/screen_background.dart';
+import 'package:ko_lernen_app/widgets/sori/c_learning_surface.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
+import 'support/c_native_capture_assets.dart';
+import 'support/real_fonts.dart';
+
 const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
+const _captureDirectory = String.fromEnvironment('BOOK_CAPTURE_DIR');
 
 void main() {
   setUpAll(() async {
+    if (_captureDirectory.isNotEmpty) {
+      await loadSoriRealFonts(materialIcons: true);
+    }
     SharedPreferences.setMockInitialValues({'kl_tut_book': true});
     await Storage.init();
   });
@@ -34,7 +44,7 @@ void main() {
     await _pumpAccessiblePhone(tester, const BookCaptureScreen());
 
     expect(find.byType(SoriAppBar), findsOneWidget);
-    expect(find.byType(SoriScreenBackground), findsOneWidget);
+    expect(find.byType(SoriCLearningBackground), findsOneWidget);
     _expectAdaptiveTitle(tester, 'Buchseite einlesen');
 
     for (final label in const ['Kamera', 'Aus Galerie']) {
@@ -451,6 +461,73 @@ void main() {
     );
     expect(tester.takeException(), isNull);
   });
+  if (_captureDirectory.isNotEmpty) {
+    testWidgets('capture German book entry and editable OCR source', (
+      tester,
+    ) async {
+      const key = ValueKey('book-evidence');
+      final size = const bool.fromEnvironment('CAPTURE_402')
+          ? const Size(402, 874)
+          : const Size(430, 932);
+      const assetPath = 'assets/illustrations/book/hanji-scan-desk.png';
+      final photo = _BookCaptureFixture(
+        assetPath,
+        File(assetPath).readAsBytesSync(),
+      );
+      for (final (name, screen) in [
+        ('capture', const BookCaptureScreen()),
+        (
+          'ocr',
+          BookPreviewScreen(
+            args: const {
+              'text':
+                  '플랫폼의 추천 권력과 수익 배분을 검토하지 않으면, 문화적 진정성 논쟁이 권력관계를 가릴 수 있습니다.',
+              'blockCount': 3,
+            },
+            imageResolver: (_) async => photo,
+          ),
+        ),
+      ]) {
+        await _pumpAccessiblePhone(
+          tester,
+          RepaintBoundary(key: key, child: screen),
+          size: size,
+          textScale: 1,
+        );
+        await settleCNativeCaptureAssets(tester);
+        expect(tester.takeException(), isNull);
+        final boundary = tester.renderObject<RenderRepaintBoundary>(
+          find.byKey(key),
+        );
+        boundary.markNeedsPaint();
+        await tester.pump();
+        await tester.runAsync(() async {
+          final image = await boundary.toImage();
+          final data = (await image.toByteData(
+            format: ui.ImageByteFormat.png,
+          ))!;
+          await File(
+            '$_captureDirectory/native-book-$name.png',
+          ).writeAsBytes(data.buffer.asUint8List());
+          image.dispose();
+        });
+      }
+    });
+  }
+}
+
+class _BookCaptureFixture extends Fake implements File {
+  _BookCaptureFixture(this.path, this.bytes);
+
+  @override
+  final String path;
+  final Uint8List bytes;
+
+  @override
+  Future<int> length() async => bytes.length;
+
+  @override
+  Future<Uint8List> readAsBytes() async => bytes;
 }
 
 void _expectAdaptiveTitle(WidgetTester tester, String label) {

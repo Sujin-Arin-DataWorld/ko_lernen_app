@@ -1,0 +1,347 @@
+{
+  "base_sha": "646c4658e70f594ab234a172679e29122d0f0e66",
+  "sources": [
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/FOUNDATION.psv",
+      "sha256": "0d8ec0c9ec89060fd58df92c0ce71cf7b4d63454fef506eafe180386a2796c45",
+      "bytes": 10885,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/UNITS.psv",
+      "sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+      "bytes": 36854,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/final/sources/season1-rpg-image-production-20261031/INTRO_UNITS.json",
+      "sha256": "8723357e0de5e915e3728354355d2e9c6409113437c60778075dbe95826cad0a",
+      "bytes": 510792,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/AUTHORING_ITEMS.json",
+      "sha256": "9eeff3980ae4381354ce44b94f89e5f804428d9f827892a56fa7ea4941554b7f",
+      "bytes": 334593,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+      "sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332",
+      "bytes": 410477,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/01_FIRST_SOUND.md",
+      "sha256": "961bc75ab7241e89792f6ed260d7a7c55e17b07d5f6b56ce1502fddf32fe5f02",
+      "bytes": 18694,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/02_TWO_MORE_SOUNDS.md",
+      "sha256": "39929134c15e440ce0aa3b79561b70e282b457725e52c20937225a6bec5ae09b",
+      "bytes": 16083,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/03_TWO_LINES.md",
+      "sha256": "eded881ed0affe2e4eaeab6e27eb31dd7a45f59acb77b1122013ea85d5f67bdf",
+      "bytes": 21086,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/01_FIRST_CONSONANTS.md",
+      "sha256": "c8dd758d455da77543e02459411e50ece62cf7e941d85092dd9a50a79d27ae42",
+      "bytes": 18015,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/02_TOOL_LABEL.md",
+      "sha256": "947630693b47471331001c24504766f15b89c6b63f7bdb1ca50b3837fcd0f1dc",
+      "bytes": 21513,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/03_FLOOR_REFERENCE.md",
+      "sha256": "25eb043268285623f92a7224e02e5d3812a14e07a59ab5b845d3ff28c09e01d2",
+      "bytes": 21635,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/04_TWO_INITIALS.md",
+      "sha256": "10bbba1b853787ff6b7335bb0b8ef6548053d76cafbc4b2f009d0ea362c4b12f",
+      "bytes": 16850,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/05_BREATH_AND_REPEAT.md",
+      "sha256": "4501285d13c17cd05e4626d8a332251cf0102f8a0aedd80b72f51964663745c8",
+      "bytes": 17080,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/06_TREE_HAT_TIMBER.md",
+      "sha256": "ac27b3c1963e666d0132eb58ae758d5cf0e5a7282bf2944c482f218fdff13dfa",
+      "bytes": 19654,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-2-v35/07_PHOTO_CARDS_AND_LABELS.md",
+      "sha256": "3c880d1dfed9372866ef4a9768f7a00c0a4c6a5bbf94ef9b738b1af1512923d7",
+      "bytes": 22682,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/01_VERTICAL_BRANCHES.md",
+      "sha256": "5e1619f062d9d56ad83b3ad985904e16fc886dc6c65de03745a567960159c79f",
+      "bytes": 22017,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/02_HORIZONTAL_BRANCHES.md",
+      "sha256": "cf3ad0d50442a4027d8076f2de6bf8d040b2a4f44fc2429fd5a98e35a078bd1c",
+      "bytes": 24795,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/03_K_T_PAIRS.md",
+      "sha256": "968255c9c3be63abbca278978be9e6bfea83fa707d1d7487d0337e2e35a08eec",
+      "bytes": 22093,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/04_P_CH_PAIRS.md",
+      "sha256": "9824ed5ed3b839ed560d4c3db28d1dce4662b46114f777e7a911fbd4d000e07d",
+      "bytes": 27856,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/05_KK_TT_PAIRS.md",
+      "sha256": "668d7dd004d11a2a04e3a99517d6db89b0729a745b8d1e671b69241c3802e73a",
+      "bytes": 22047,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/06_PP_SS_JJ.md",
+      "sha256": "29b6c7e6fcb7e357d0f758617a9a4caa3c0ce836f024d184439b15018e240d42",
+      "bytes": 40505,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/07_AE_E_FORMS.md",
+      "sha256": "8207662a4ee98baae4606d792b84d23415a43bd9f45ebd2d7dede26897e40f25",
+      "bytes": 23234,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/08_WA_WO.md",
+      "sha256": "612fc6a881847fd280dd7b4710e48d993c63e36d57e0e2fd9a5d9e8477bd2759",
+      "bytes": 22310,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/09_WI_OE.md",
+      "sha256": "a850a5ccf571f9c2c5c327471736221bfd35022c821a2dc075184941b9ffbe2e",
+      "bytes": 26845,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/10_FIRST_FINAL_LABELS.md",
+      "sha256": "57ba41ad970b879be04d8c799ce2f2886e8d87fdb9eeac07c0e896d8a1633655",
+      "bytes": 43215,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/11_INITIAL_FINAL_NG_MAP.md",
+      "sha256": "10f9d1cf6bd490f6e31d467d4191200e7bfc084e936c9ee4a0e1c701379959c8",
+      "bytes": 47151,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/01_CLOSED_FINALS.md",
+      "sha256": "699c4c1a460b64f403bc1b2a693ff1fd272f9d8d97541bbc8102895de7e7d4a8",
+      "bytes": 30429,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/02_WAE_WE_FORMS.md",
+      "sha256": "b5a492c2fde2a6ce2a2effa8f807545997d5a61932eba6bd014140a74eb57b06",
+      "bytes": 16694,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/03_YAE_YE_AND_YES.md",
+      "sha256": "1efc5967cef9ddcdff76c5066a9561e57fdee961d535726cf225a7ab98e3f293",
+      "bytes": 19471,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/04_UI_AND_CHOSEN_REVIEW.md",
+      "sha256": "2f7806ac078163a7adbba807c1e1933b3874c8dff7d9b5e8614de85f5395eb8f",
+      "bytes": 22500,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/05_LINKED_SOUNDS.md",
+      "sha256": "086443a624e5b1e36e04e9567ba55b019430dd15864e8348895d4bc98e3b4d51",
+      "bytes": 26734,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/06_FIRST_NOTE_INPUT.md",
+      "sha256": "59ec7e468ccc1af10efef3600c204b0b77072d33c1063cca521a77b3b29e720c",
+      "bytes": 25027,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/07_THIS_HOUSE_AND_REQUESTS.md",
+      "sha256": "1d4382717b428ea1eccdf2eb66a0421dd03d06283de8b14001e33de9e7cc8d7d",
+      "bytes": 19540,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/01_A1.1-01.md",
+      "sha256": "d1ed5c13abab0d968f7c9287f9a1ceb3d3dca5ed2f2d5d3fe64b99bde7ff0136",
+      "bytes": 25066,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/02_A1.1-02.md",
+      "sha256": "f3e1df8dc582599021f05e7bb05b63635a48441575ad66f708d15ad7963c1304",
+      "bytes": 34154,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/03_A1.1-03.md",
+      "sha256": "af389178144dd09945baec14e4bdb1c708f1d0389394b7b1a98669391010a5eb",
+      "bytes": 35989,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/04_A1.1-04.md",
+      "sha256": "a6c49bf04be73be594a4cf7c146e62e7734c19b6afad69dd1639102b8ad25e73",
+      "bytes": 26821,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/05_A1.1-05.md",
+      "sha256": "6c9e565eaf98d8b9005a2abb5243a969765168a114b65f8d7bfa1d9d75306410",
+      "bytes": 41646,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/06_A1.1-06.md",
+      "sha256": "4203b6d69c7bcb7de044cc3a8143022101a2c9fe192a2328a1f833d963c838f5",
+      "bytes": 38205,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/curriculum_manifest.json",
+      "sha256": "2222d49c02dce92dc092be06c958dd6b2b535d13fb0c0d7184ec91037018541b",
+      "bytes": 217939,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/COURSE_BINDINGS.psv",
+      "sha256": "9fc235f7287834932ee7f0c15dfde5f1036a26d0db6ba3be0cfb45a62640df7d",
+      "bytes": 4017,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/GRAMMAR_ALLOCATION.csv",
+      "sha256": "85566f234a190abde20c4498d1b63df4680ef7947bf37d6e8be4c3bbbbe43c1a",
+      "bytes": 181991,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/phase_tasks.json",
+      "sha256": "b8c25c68d5bafeb45d34d029a10ff392b025e88bb9b4334d65a8244238f408f4",
+      "bytes": 7256767,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/korean_vocab.csv",
+      "sha256": "bb7ee0386813011757bd49f31479aa9eab2603d6cc304e189b7e719c378a6cd2",
+      "bytes": 914234,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/grammar.csv",
+      "sha256": "327bc56efe4456c01eaa980b76981cacb1ae4eb38a19816f439ba616bb730cde",
+      "bytes": 176824,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/scenarios_a1.json",
+      "sha256": "9391864b618577c0b18ddc0b129b62a6658c7d2920679db0b3c8b7ce68f9b1a7",
+      "bytes": 203327,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/scenarios_a2.json",
+      "sha256": "75949b9b7b3b173bc778e650ce6d2252ad40f4e5f78d33668607eba1e0d39a6d",
+      "bytes": 237594,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/scenarios_b1.json",
+      "sha256": "67463234f7a4610ba817ea3fc74ca989c8c790828497599cec5767bba039fcdb",
+      "bytes": 266814,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/scenarios_b2.json",
+      "sha256": "bb8f9f19897a5afaf8ffee08db680d935e0c97bd43ec71da7219e15968aab0b5",
+      "bytes": 303582,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/scenarios_c1.json",
+      "sha256": "ba999b997713e55f70097f96028d32807cddf9a427e318c87e2a37378291384e",
+      "bytes": 303123,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/scenarios_c2.json",
+      "sha256": "699d4aa166d3da1c45632d4258964ec748041dc28a7429014d08159fdeb596ad",
+      "bytes": 331211,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/listening_lessons.json",
+      "sha256": "46c1b9cb5f4ca750b44859cebc8729bc351fddec4c6be271125d66c2e624dac8",
+      "bytes": 2105146,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/smalltalk.json",
+      "sha256": "ac1a0dbbe6fcc9f5183c335ee419bcabe50ae89fdccdc2ba201470dcec31a3f5",
+      "bytes": 680616,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/cloze.json",
+      "sha256": "f7a69b33c82d1d04ba1f4048256a069576b8ee647cad003efa2c39185a674d89",
+      "bytes": 1371867,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/satz_sentences.json",
+      "sha256": "15b0d6022d72c378b1b334719ffb85ea3acc5b4cfdd6b004dacaae05bb2e052f",
+      "bytes": 1263724,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "assets/data/ildu_r16_art_v1.json",
+      "sha256": "f0dfbb6fd210e32fe4b5771f58c2dbeebfb3d0e27aa5c85158cc531f98152859",
+      "bytes": 99823,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    },
+    {
+      "path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/STAGE_STORY_128.json",
+      "sha256": "61929f8ce70f042520567ee7796c7c7cb8d9d16bd0300289f0174df9d72670d1",
+      "bytes": 578856,
+      "git_revision": "646c4658e70f594ab234a172679e29122d0f0e66"
+    }
+  ]
+}
