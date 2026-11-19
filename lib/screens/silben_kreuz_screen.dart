@@ -1237,7 +1237,12 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
             final paged =
                 MediaQuery.textScalerOf(context).scale(20) > 20.01 ||
                 bounds.maxWidth < 360;
-            if (paged) return _pagedPlayArea(p, s, t);
+            // A very short split-screen body cannot fit both a touch target
+            // and the pager. Let all game controls scroll together there.
+            const minPagedBodyHeight = 240.0;
+            if (paged && bounds.maxHeight >= minPagedBodyHeight) {
+              return _pagedPlayArea(p, s, t);
+            }
             final dense =
                 bounds.maxHeight < 690 &&
                 MediaQuery.textScalerOf(context).scale(1) <= 1.01;
