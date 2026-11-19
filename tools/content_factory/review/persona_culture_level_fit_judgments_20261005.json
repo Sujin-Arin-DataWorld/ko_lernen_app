@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "status": "approved_editorial_judgment",
+  "scope": "Batch 38 multidimensional level-fit review after dialogue-naturalness refinement.",
+  "nativeSpeakerQaClaim": false,
+  "scenes": [
+    {
+      "scenarioId": "b1_dongsun_norigae_shop_post",
+      "taskComplexity": {"verdict": "pass", "rationaleKo": "허락, 촬영 범위, 제작자 설명 수정이라는 실제 과업이 한 장면 안에서 순차적으로 진행되며 B1의 조율 기능에 맞는다."},
+      "registerRelationship": {"verdict": "pass", "rationaleKo": "마야와 동선은 서로 해요체를 쓰며 가게 홍보를 함께 조율하는 관계가 writer bible과 일치한다."},
+      "distractorDifficulty": {"verdict": "pass", "rationaleKo": "오답은 같은 장면의 다른 발화 또는 과업을 어기는 선택지라 형태는 그럴듯하지만 정답과 의미가 겹치지 않는다."},
+      "listeningBurden": {"verdict": "pass", "rationaleKo": "상황·의미·어순·응답 네 기능이 대사에 직접 근거하며 한 번에 요구하는 정보 범위가 B1을 넘지 않는다."},
+      "cultureException": {"verdict": "pass", "rationaleKo": "노리개·매듭은 장면의 직접 문화 anchor이며 CulturalGlossary 지원이 있어 일반 어휘 레벨 상승 근거로 쓰지 않는다."}
+    },
+    {
+      "scenarioId": "b1_byeongcheol_hwaseong_memory_check",
+      "taskComplexity": {"verdict": "pass", "rationaleKo": "개인 기억과 확인한 역사 정보를 분리하고 간접화법으로 전달하는 과업은 B1 정보 전달·한정 기능에 맞는다."},
+      "registerRelationship": {"verdict": "pass", "rationaleKo": "현아가 연장자 병철에게 공손하게 말하고 병철도 해요체/격식형으로 응답하는 관계 설정이 자연스럽다."},
+      "distractorDifficulty": {"verdict": "pass", "rationaleKo": "오답이 기억을 공식 역사로 단정하거나 근거 확인을 생략하게 만들어 핵심 구분을 제대로 이해해야 정답을 고를 수 있다."},
+      "listeningBurden": {"verdict": "pass", "rationaleKo": "기억의 출처와 사실 확인이라는 한 축을 반복해 듣게 하며 장황한 다중 추론을 요구하지 않는다."},
+      "cultureException": {"verdict": "pass", "rationaleKo": "수원화성은 고유 문화 anchor로 glossary 지원을 받으며 병철의 개인 기억이 역사 사실을 대신하지 않도록 경계를 명시했다."}
+    },
+    {
+      "scenarioId": "a2_jun_hwaseong_school_slide",
+      "taskComplexity": {"verdict": "pass", "rationaleKo": "학교에서 보여 줄 사진을 고르고 설명과 사진 출처를 다시 확인한다는 단일 생활 과업으로 A2 수준에 맞게 단순화했다."},
+      "registerRelationship": {"verdict": "pass", "rationaleKo": "16세 준은 크리스티안에게 해요체를 쓰고 크리스티안은 편한 반말로 조언해 기존 관계 정본과 일치한다."},
+      "distractorDifficulty": {"verdict": "pass", "rationaleKo": "사진 순서·정보 확인이라는 과업과 무관한 게임·환불 오답, 확인을 생략하는 오답이 명확히 분리된다."},
+      "listeningBurden": {"verdict": "pass", "rationaleKo": "최종 편집 후 8개 대사 모두 sentence profile A2이며 듣기 문항도 한 번에 한 정보만 추적한다."},
+      "cultureException": {"verdict": "pass", "rationaleKo": "수원화성만 문화 anchor 예외이며 그 밖의 핵심어 5개는 A2 이하로 감사됐다."}
+    },
+    {
+      "scenarioId": "c1_maya_hyuna_daniel_talchum_shortform",
+      "taskComplexity": {"verdict": "pass", "rationaleKo": "공연 기록·현대적 재해석·촬영 동의·출처 표기를 동시에 조정하며 표현 책임을 판단하는 과업이 C1 담화 기능에 맞는다."},
+      "registerRelationship": {"verdict": "pass", "rationaleKo": "세 사람이 문화 홍보 영상을 공동 제작하는 전문 협업 관계로 해요체/업무 말투가 일관된다."},
+      "distractorDifficulty": {"verdict": "pass", "rationaleKo": "전승과 재해석, 동의 범위를 뒤집는 오답이 있어 핵심 논리 구분을 이해해야 정답을 선택할 수 있다."},
+      "listeningBurden": {"verdict": "pass", "rationaleKo": "상황 전체의 의도와 미디어 책임을 함께 추론하는 문항이 포함되어 C1 수준의 통합적 듣기 요구를 제공한다."},
+      "cultureException": {"verdict": "pass", "rationaleKo": "탈춤은 장면의 직접 문화 anchor이며 원형과 현대 재해석을 구분해 문화 설명의 과잉 단정을 막는다."}
+    },
+    {
+      "scenarioId": "b2_daniel_hyuna_hanji_filming_scope",
+      "taskComplexity": {"verdict": "pass", "rationaleKo": "촬영 동의와 공개 동의를 분리하고 게시 전 검수 범위를 문서화하는 조건 조율 과업이 B2에 맞는다."},
+      "registerRelationship": {"verdict": "pass", "rationaleKo": "다니엘과 현아의 전문 협업 관계에서 공손하고 구체적인 요청 표현이 일관된다."},
+      "distractorDifficulty": {"verdict": "pass", "rationaleKo": "동의를 포괄적으로 해석하거나 확인을 생략하는 오답이 정답과 명확히 대비되어 조건 범위를 이해해야 한다."},
+      "listeningBurden": {"verdict": "pass", "rationaleKo": "촬영·공개·설명 검수의 세 범위를 연결하지만 각 문항은 한 판단 축에 집중해 B2 부담을 유지한다."},
+      "cultureException": {"verdict": "pass", "rationaleKo": "한지는 glossary 지원 문화 anchor이고 제작법은 장인에게 확인하도록 하여 문화 지식을 인물들이 임의로 만들어내지 않는다."}
+    }
+  ]
+}

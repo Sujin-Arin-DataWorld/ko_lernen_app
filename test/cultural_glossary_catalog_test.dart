@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/cultural_glossary.dart';
 import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
+import 'package:ko_lernen_app/services/decoration_reward_service.dart';
 import 'package:ko_lernen_app/widgets/sori/placed_decoration.dart';
 
 void main() {
@@ -30,6 +31,19 @@ void main() {
     'anchae',
     'huwon',
     'sadang',
+    'hahoe_mask',
+    'norigae',
+    'maedeup',
+    'buchae',
+    'hanji',
+    'yeopjeon',
+    'suwon_hwaseong',
+    'talchum',
+    'pansori',
+    'nongak',
+    'sunbae_hubae',
+    'jondaetmal_banmal',
+    'hoesik',
   };
   const expectedDecorationLinks = <String, String>{
     'decoration_jangdokdae': 'jangdokdae',
@@ -53,21 +67,24 @@ void main() {
     catalog = CulturalGlossary.fromJsonString(raw);
   });
 
-  test('catalog contains exactly the 23 approved term IDs', () {
-    expect(catalog.entries, hasLength(23));
+  test('catalog contains exactly the 36 approved term IDs', () {
+    expect(catalog.entries, hasLength(36));
     expect(
       catalog.entries.map((entry) => entry.termId).toSet(),
       expectedTermIds,
     );
   });
 
-  test('sarangchae entry exists with a bare romanization and no decoration link', () {
-    final sarangchae = catalog.entries.singleWhere(
-      (entry) => entry.termId == 'sarangchae',
-    );
-    expect(sarangchae.romanization, 'Sarangchae');
-    expect(sarangchae.decorationSlugs, isEmpty);
-  });
+  test(
+    'sarangchae entry exists with a bare romanization and no decoration link',
+    () {
+      final sarangchae = catalog.entries.singleWhere(
+        (entry) => entry.termId == 'sarangchae',
+      );
+      expect(sarangchae.romanization, 'Sarangchae');
+      expect(sarangchae.decorationSlugs, isEmpty);
+    },
+  );
 
   test('every entry has clean DE, EN, KO copy within the character limits', () {
     for (final entry in catalog.entries) {
@@ -108,6 +125,29 @@ void main() {
     expect(
       actualLinks.keys.length,
       catalog.entries.expand((entry) => entry.decorationSlugs).length,
+    );
+  });
+
+  test('phase 8 reuses only existing deterministic culture rewards', () {
+    const phase8Reuse = <String, String>{
+      'decoration_gat_buchae': 'gat',
+      'decoration_munbangsau': 'munbangsau',
+      'decoration_soban': 'soban',
+      'decoration_jagae_mungap': 'jagae_mungap',
+    };
+
+    for (final link in phase8Reuse.entries) {
+      expect(catalog.termIdForDecoration(link.key), link.value);
+      expect(kDecorationRewardPool, contains(link.key));
+    }
+
+    expect(catalog.entry('norigae')!.decorationSlugs, isEmpty);
+    expect(catalog.entry('maedeup')!.decorationSlugs, isEmpty);
+    expect(
+      kDecorationRewardPool.any(
+        (slug) => slug.contains('norigae') || slug.contains('maedeup'),
+      ),
+      isFalse,
     );
   });
 

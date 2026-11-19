@@ -1,4 +1,4 @@
-# F1 -- 국제통용 문법 336 <-> 앱 문법 261 매핑
+# F1 -- 국제통용 문법 336 <-> 앱 문법 264 매핑
 
 > 생성: `python tool/build_level_bible_tables.py` (plan §3.F, T1.4). 직접 편집 금지.
 > 매칭 알고리즘(R5 개정): `normalize_form_variants`(top-level `' / '` 대안 분리 -> 
@@ -10,7 +10,7 @@
 > 범위: 앱 비교 대상은 `assets/data/grammar.csv`의 문법 카드다. `missing_in_app`은 이 목록에서 대응 카드를 찾지 못했다는 기존 상태 이름이며, Phase 과제·시나리오 등 앱 전체에 해당 문법 학습이 없다는 판정이 아니다.
 > 기존 Phase 과제는 `assets/data/phase_tasks.json`과 `assets/data/learning_phases.json`의 연결을 별도로 확인한다. [B1 Phase 범위와 남은 검증](../b1_phase_coverage_scope.md)을 참고한다.
 
-**요약:** match 125 · level_mismatch 34 · missing_in_app 177 (nikl 문법 336행) · app_only 84(앱 문법 261개 중)
+**요약:** match 130 · level_mismatch 33 · missing_in_app 173 (nikl 문법 336행) · app_only 83(앱 문법 264개 중)
 
 ## 국제통용 -> 앱 매핑
 
@@ -189,7 +189,7 @@
 | 4(B2) | 연결어미 | -으며 | -며2 | -- | -- | missing_in_app |
 | 4(B2) | 연결어미 | -으므로 | -므로 | grammar_b2_formal_reason | B2 | match |
 | 4(B2) | 연결어미 | -을래야 | -ㄹ래야 | -- | -- | missing_in_app |
-| 4(B2) | 연결어미 | -을수록 | -ㄹ수록 | grammar_b1_more_more | B1 | level_mismatch |
+| 4(B2) | 연결어미 | -을수록 | -ㄹ수록 | grammar_b1_more_more | B2 | match |
 | 4(B2) | 조사 | 까지2 |  | grammar_a1_from_to, grammar_a1_from_until, grammar_b2_include_total_scope | A1, A1, B2 | match |
 | 4(B2) | 조사 | 마저 |  | -- | -- | missing_in_app |
 | 4(B2) | 조사 | 으로서 | 로서 | -- | -- | missing_in_app |
@@ -297,7 +297,7 @@
 | 5(C1) | 표현 | 에 관하여 | 에 관한 | grammar_b2_formal_regarding | C1 | match |
 | 5(C1) | 표현 | 에도 불구하고 |  | grammar_b2_despite | C1 | match |
 | 6(C2) | 연결어미 | -거들랑1 | -걸랑1 | -- | -- | missing_in_app |
-| 6(C2) | 연결어미 | -건대 |  | -- | -- | missing_in_app |
+| 6(C2) | 연결어미 | -건대 |  | grammar_c2_wishing_to | C2 | match |
 | 6(C2) | 연결어미 | -건만 | -건마는 | -- | -- | missing_in_app |
 | 6(C2) | 연결어미 | -기로서니 |  | grammar_b2_granted_limit | B2 | level_mismatch |
 | 6(C2) | 연결어미 | -노라면 |  | -- | -- | missing_in_app |
@@ -309,7 +309,7 @@
 | 6(C2) | 연결어미 | -은들 | -ㄴ들2, 인들 | -- | -- | missing_in_app |
 | 6(C2) | 연결어미 | -을라치면 | -ㄹ라치면 | -- | -- | missing_in_app |
 | 6(C2) | 연결어미 | -을망정 | -ㄹ망정 <유의> -ㄹ지언정, -을지언정 | grammar_c2_even_if_concession | C2 | match |
-| 6(C2) | 연결어미 | -이라야 | -라야, -이라야만, -라야만 | -- | -- | missing_in_app |
+| 6(C2) | 연결어미 | -이라야 | -라야, -이라야만, -라야만 | grammar_c2_only_adequate_explanation | C2 | match |
 | 6(C2) | 연결어미 | -자니3 | -자2,-자니까3 | -- | -- | missing_in_app |
 | 6(C2) | 연결어미 | -자면1 |  | -- | -- | missing_in_app |
 | 6(C2) | 조사 | 깨나 |  | -- | -- | missing_in_app |
@@ -337,7 +337,7 @@
 | 6(C2) | 종결어미 | -으리라 | -리라 | -- | -- | missing_in_app |
 | 6(C2) | 종결어미 | -으리오 | -리오 | -- | -- | missing_in_app |
 | 6(C2) | 종결어미 | -으오 | -오 | -- | -- | missing_in_app |
-| 6(C2) | 표현 | -기 일쑤이다 |  | -- | -- | missing_in_app |
+| 6(C2) | 표현 | -기 일쑤이다 |  | grammar_c2_often_ends_badly | C2 | match |
 | 6(C2) | 표현 | -기 짝이 없다 |  | -- | -- | missing_in_app |
 | 6(C2) | 표현 | -는 한이 있어도 | -는 한이 있더라도 | grammar_c1_even_at_cost | C1 | level_mismatch |
 | 6(C2) | 표현 | -는다는 | -ㄴ다는, -는단, -다는, -단2, -라는1, -란2 | grammar_b2_definition | B2 | level_mismatch |
@@ -347,7 +347,7 @@
 | 6(C2) | 표현 | -으려도 | -려도 | -- | -- | missing_in_app |
 | 6(C2) | 표현 | -으리라고 | -리라고 | -- | -- | missing_in_app |
 | 6(C2) | 표현 | -으리라는 | -리라는 | -- | -- | missing_in_app |
-| 6(C2) | 표현 | -을 바에 | -ㄹ 바에 | -- | -- | missing_in_app |
+| 6(C2) | 표현 | -을 바에 | -ㄹ 바에 | grammar_c2_rather_than_assume | C2 | match |
 | 6(C2) | 표현 | -자면2 |  | -- | -- | missing_in_app |
 | 6(C2) | 표현 | 는 마당에 | -ㄴ 마당에, -은 마당에 | grammar_c1_given_situation | C1 | level_mismatch |
 | 6(C2) | 표현 | 를 막론하고 | 을 막론하고, <유의> 를 불문하고, 을 불문하고 | grammar_c1_regardless_noun, grammar_c2_regardless_of | C1, C2 | match |
@@ -442,4 +442,3 @@ F9(예외표)에 사유란과 함께 이관된다.
 | grammar_c2_no_more_than_doing |
 | grammar_c2_premise_review_batch20 |
 | grammar_c2_responsibility_remains |
-| grammar_c2_wishing_to |

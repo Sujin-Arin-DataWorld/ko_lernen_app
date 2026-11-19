@@ -36,7 +36,7 @@ void main() {
     }
     expect(unresolved, isEmpty);
     expect(ambiguous, isEmpty);
-    expect(registered, hasLength(87));
+    expect(registered, hasLength(88));
     expect(registered.toSet(), hasLength(registered.length));
 
     final lock = File(_lockPath).readAsStringSync();
@@ -52,7 +52,7 @@ void main() {
       r'^\| `(/[^`]*)` \|',
       multiLine: true,
     ).allMatches(routeInventory).map((match) => match.group(1)!).toList();
-    expect(documented, hasLength(87));
+    expect(documented, hasLength(88));
     expect(documented.toSet(), hasLength(documented.length));
 
     registered.sort();
@@ -111,8 +111,8 @@ void main() {
     }
 
     // Includes the C5 overview, R16 reference and existing indirect owners.
-    expect(seen, hasLength(129));
-    expect(documented, hasLength(129));
+    expect(seen, hasLength(130));
+    expect(documented, hasLength(130));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });
@@ -160,9 +160,9 @@ void main() {
     // 2026-10-31: +2 — independent C5 scenes and matte-free R16 layer painter.
     // 2026-10-31: +2 — live Today card and semantic subject-art mapping.
     // 2026-11-04: +5 — approved grammar, nuance, scenario and stage navigation.
-    expect(actual, hasLength(183));
+    expect(actual, hasLength(185));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(183));
+    expect(listed, hasLength(185));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

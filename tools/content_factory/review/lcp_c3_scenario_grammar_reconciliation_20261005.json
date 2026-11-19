@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "stage": "LCP-C3",
+  "date": "2026-10-05",
+  "status": "complete",
+  "scope": "Resolve historical live scenario references whose grammar owner had been relevelled above the scenario.",
+  "policy": {
+    "noAutoScenarioPromotion": true,
+    "scenarioGrammarOwnerMustNotExceedScenarioLevel": true,
+    "ttsTouched": false
+  },
+  "decisions": [
+    {
+      "scenarioId": "a1_w10_partner",
+      "level": "a1",
+      "oldGrammarId": "grammar_a1_honorific_kke",
+      "oldGrammarLevel": "a2",
+      "disposition": "keep_scenario_level_and_rewrite",
+      "newGrammarIds": [
+        "grammar_a1_formal_statement",
+        "grammar_a1_polite_request"
+      ],
+      "copyDecision": "Keep the first-meeting politeness task, but replace learner-facing N께 material with A1 N한테/에게 and foreground the A1 formal statement used in 처음 뵙겠습니다.",
+      "reason": "The A1 Level Bible includes 에게/한테 and formal -ㅂ/습니다, while N께 is owned at A2."
+    },
+    {
+      "scenarioId": "a1_w10_fandom",
+      "level": "a1",
+      "oldGrammarId": "grammar_a1_or_particle",
+      "oldGrammarLevel": "a2",
+      "disposition": "keep_scenario_level_and_rewrite",
+      "newGrammarIds": [
+        "grammar_a1_also_particle",
+        "grammar_a1_polite_request"
+      ],
+      "copyDecision": "Replace the N(이)나 turn with short N도 sentences and a 주세요 response.",
+      "reason": "The shopping/browsing task is A1; the higher owner was not necessary to preserve the communicative goal."
+    },
+    {
+      "scenarioId": "b1_w10_insurance",
+      "level": "b1",
+      "oldGrammarId": "grammar_b1_whether",
+      "oldGrammarLevel": "b2",
+      "disposition": "keep_scenario_level_and_rewrite",
+      "newGrammarIds": [
+        "grammar_b1_takes_time"
+      ],
+      "copyDecision": "Ask coverage directly and split the check/result wording instead of using the relevelled whether construction.",
+      "reason": "The insurance inquiry remains a B1 service task without requiring the B2 indirect-question owner."
+    },
+    {
+      "scenarioId": "b2_w10_travel",
+      "level": "b2",
+      "oldGrammarId": "grammar_b2_despite",
+      "oldGrammarLevel": "c1",
+      "disposition": "keep_scenario_level_and_substitute",
+      "newGrammarIds": [
+        "grammar_b2_according_to",
+        "grammar_b2_formal_arrangement"
+      ],
+      "copyDecision": "Use 날씨에 따라 to frame condition-dependent travel difficulty and keep the alternative-route request.",
+      "reason": "N에 따라 is a live B2 owner and is directly grounded in the revised dialogue."
+    },
+    {
+      "scenarioId": "b2_w10_hiring",
+      "level": "b2",
+      "oldGrammarId": "grammar_b2_despite",
+      "oldGrammarLevel": "c1",
+      "disposition": "keep_scenario_level_and_rewrite",
+      "newGrammarIds": [
+        "grammar_b2_not_only"
+      ],
+      "copyDecision": "Rewrite 마감이 촉박한데도 불구하고 as 마감이 촉박해도; the scenario does not need a second explicit grammar owner.",
+      "reason": "The interview task and remaining grammar stay within B2."
+    },
+    {
+      "scenarioId": "b2_w10_authorities",
+      "level": "b2",
+      "oldGrammarId": "grammar_b2_negative_consequence",
+      "oldGrammarLevel": "c1",
+      "disposition": "keep_scenario_level_and_substitute",
+      "newGrammarIds": [
+        "grammar_b2_according_to",
+        "grammar_b2_formal_cause"
+      ],
+      "copyDecision": "Use the already-present 체류 자격과 현재 상황에 따라 line as the explicit B2 grammar anchor.",
+      "reason": "The B2 owner is already naturally realized in the canonical dialogue; no scenario promotion is justified."
+    }
+  ],
+  "postconditions": {
+    "liveScenarioGrammarAboveLevelCount": 0,
+    "w10AuthoringMirrorsEqualLive": true,
+    "listeningCopySynced": true,
+    "a1PartnerContainsA2RecipientParticle": false
+  },
+  "validation": {
+    "scenarioListeningRelevelPythonTests": "138/138 passed",
+    "contentValidation": "passed",
+    "levelAuditRatchets": "53/53 passed",
+    "curriculumMatrix": "fresh",
+    "learningPhases": "fresh; error 0"
+  }
+}

@@ -179,7 +179,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "a2_buy": (
         "a2_market_change", "a2_water_set", "a2_convenience_copy",
         "a2_id_pickup", "myeongdong_shopping", "a2_food_bag",
-        "a2_w10_buy",
+        "a2_w10_buy", "a2_lena_maya_buchae_gift_choice",
     ),
     "a2_eat": (
         "a2_cafe_plug", "a2_tea_taste", "a2_restaurant_split",
@@ -204,6 +204,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "plans_with_friend", "running_late", "a2_plan_weather_change",
         "a2_message_change_of_plan_2026",
         "a2_minho_weekend_cooking_plan", "a2_jun_game_time_change",
+        "a2_andrea_minho_bojagi_housewarming",
     ),
     "a2_partner": (
         "a2_partner_banmal_slip", "a2_partner_group_chat_join",
@@ -266,7 +267,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "a2_friends": (
         "a2_friends_weekend_slot", "a2_gaming_cant_connect",
-        "a2_w10_friends",
+        "a2_w10_friends", "a2_jun_hwaseong_school_slide",
     ),
     "a2_dating": (
         "a2_dating_slow_replies",
@@ -307,10 +308,12 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b1_work_deadline_soft_request",
         "b1_job_offer_conditions_batch20",
         "b1_team_briefing_revised_schedule_2026",
+        "b1_dongsun_norigae_shop_post",
+        "b1_minho_christian_hanok_cafe_meeting",
     ),
     "b1_neighbor": (
         "b1_guest_notice", "b1_laundry_turn", "b1_quiet_exam",
-        "b1_safety_vest",
+        "b1_safety_vest", "b1_byeongcheol_hwaseong_memory_check",
     ),
     "b1_feel": (
         "couple_argument", "love_confession", "warm_encouragement",
@@ -343,7 +346,9 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "b2_evidence": (
         "b2_chart_axes", "b2_metric_clear", "b2_cross_check",
         "b2_source_check", "b2_market_source", "b2_assumption",
-        "b2_review_three",
+        "b2_review_three", "b2_daniel_hyuna_hanji_filming_scope",
+        "b2_maya_daniel_pansori_promo_clip",
+        "b2_hyuna_daniel_nongak_festival_filming",
     ),
     "b2_negotiate": (
         "b2_counter_offer", "b2_must_have", "b2_limit_line",
@@ -476,6 +481,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "c1_attribution_collective_byline",
         "c1_attribution_reuse_without_credit",
         "c1_attribution_unpaid_translation",
+        "c1_maya_hyuna_daniel_talchum_shortform",
     ),
     "c1_friends": (
         "c1_friends_venue_access", "c1_gaming_playtime_policy",
@@ -571,6 +577,48 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "c2_representation_spokesperson_handover_concession",
     ),
 }
+
+# Living Korea batch 39 (2026-10-06): 23 user-reviewed scenes promoted only
+# after KO->EN/DE direct localization, corpus/native-usage QA and explicit Jin
+# approval. Keep these assignments in the canonical shelf map so promotion,
+# migration and shelf completeness checks all resolve the same placement.
+_LIVING_KOREA_BATCH39_ASSIGNMENT: dict[str, tuple[str, ...]] = {
+    "a2_delivery": ("a2_dongsun_christian_suspicious_delivery_text",),
+    "a2_plan": ("a2_lena_hyuna_heatwave_plan",),
+    "a2_work": ("a2_jun_minho_class_phone_rule",),
+    "b1_fandom": ("b1_lena_maya_beyond_music",),
+    "b1_friends": (
+        "b1_jun_christian_phone_study_habit",
+        "b1_lena_hyuna_crowded_weekend",
+    ),
+    "b1_partner": (
+        "b1_sujin_christian_asset_provenance_check",
+        "b1_jun_andrea_phone_house_rules",
+        "b1_christian_sujin_suspicious_text_followup",
+        "b1_sujin_byeongcheol_family_verification_rule",
+        "b1_andrea_minho_friday_schedule",
+        "b1_andrea_minho_family_calendar",
+    ),
+    "b1_repair": ("b1_dongsun_sujin_repair_price",),
+    "b1_team": (
+        "b1_maya_daniel_ai_campaign_cut",
+        "b1_dongsun_maya_price_notice",
+    ),
+    "b2_evidence": (
+        "b2_maya_daniel_tradition_reinterpretation",
+        "b2_hyuna_daniel_gyeongju_after_apec",
+        "b2_hyuna_sujin_gyeongju_fieldnotes",
+    ),
+    "b2_meeting": (
+        "b2_daniel_sujin_ai_asset_handoff",
+        "b2_sujin_minho_shorter_hours_tradeoff",
+    ),
+    "b2_partner": ("b2_byeongcheol_sujin_heat_electricity",),
+    "b2_public": ("b2_hyuna_andrea_work_family_choices",),
+    "b2_travel": ("b2_hyuna_daniel_resident_flow_filming",),
+}
+for _shelf, _ids in _LIVING_KOREA_BATCH39_ASSIGNMENT.items():
+    ASSIGNMENT[_shelf] = (*ASSIGNMENT[_shelf], *_ids)
 
 SHELF_BY_ID: dict[str, str] = {
     scenario_id: shelf

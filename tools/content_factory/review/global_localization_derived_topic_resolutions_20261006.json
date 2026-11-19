@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "status": "MODEL_ASSISTED_DERIVED_TOPIC_REVIEW",
+  "reviewedDate": "2026-10-06",
+  "humanNativeSignoff": false,
+  "policy": "Explicit topic assignments only for derived Satz surfaces that had neither an existing topic-ledger row nor an exact topic-mapped cloze counterpart. Assignments are based on the Korean learner task; they do not resolve canonical translation ownership or native-language QA.",
+  "mappings": {
+    "satz_b1_0079": "house_home",
+    "satz_b2_0152": "services_public_admin",
+    "satz_b2_0155": "services_public_admin",
+    "satz_c2_0052": "ethics_philosophy_abstract",
+    "satz_c2_0053": "ethics_philosophy_abstract",
+    "satz_a1_0191": "daily_life_routines",
+    "satz_a1_0195": "daily_life_routines",
+    "satz_a1_0291": "social_etiquette_customs",
+    "satz_a1_0408": "social_etiquette_customs",
+    "satz_a1_0496": "travel_accommodation"
+  }
+}

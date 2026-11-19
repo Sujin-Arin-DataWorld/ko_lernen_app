@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "status": "review_only",
+  "purpose": "Batch 39 pre-script contract: reuse existing glossary entries through real tasks and existing persona relationships.",
+  "scenes": [
+    {
+      "scenarioId": "a2_andrea_minho_bojagi_housewarming",
+      "level": "a2",
+      "playerCharacterId": "andrea",
+      "personaIds": [
+        "andrea",
+        "minho"
+      ],
+      "realTaskKo": "친구 집들이 선물을 보자기로 포장한 뒤 보이는 느낌과 매듭을 조정한다.",
+      "learningIntentKo": "보이는 느낌을 말하고 조건과 결과를 연결해 포장 방법을 조정한다.",
+      "cultureTermIds": [
+        "bojagi"
+      ],
+      "personaBoundaries": [
+        "민호와 안드레아는 보자기를 문화 강의 대상으로 설명하지 않고 실제 선물 포장으로 사용한다.",
+        "보자기를 받는 사람에게 보자기 자체도 선물이라고 강조하거나 재사용을 지시하지 않는다."
+      ]
+    },
+    {
+      "scenarioId": "b1_minho_christian_hanok_cafe_meeting",
+      "level": "b1",
+      "playerCharacterId": "christian",
+      "personaIds": [
+        "christian",
+        "minho"
+      ],
+      "realTaskKo": "한옥 카페에서 크리스티안이 직원에게 콘센트 있는 자리를 직접 묻고 안내받는다.",
+      "learningIntentKo": "서비스 상황에서 콘센트 있는 자리를 직접 묻고 자리 사용 허락을 받는다.",
+      "cultureTermIds": [
+        "hanok",
+        "madang"
+      ],
+      "personaBoundaries": [
+        "민호는 IT 멘토이지 카페 직원을 대신해 좌석을 확인하는 사람이 아니다.",
+        "크리스티안이 실제 서비스 문장을 직접 사용한다.",
+        "한옥과 마당은 실제 카페 공간으로 등장하며 문화 강의용 배경으로 소비하지 않는다."
+      ],
+      "supportRoleIds": [
+        "server"
+      ]
+    },
+    {
+      "scenarioId": "a2_lena_maya_buchae_gift_choice",
+      "level": "a2",
+      "playerCharacterId": "lena",
+      "personaIds": [
+        "lena",
+        "maya"
+      ],
+      "realTaskKo": "셰어하우스 친구에게 줄 실제 사용 가능한 부채의 색과 장식을 정한다.",
+      "learningIntentKo": "가까운 사이에서 취향을 묻고 자신의 선택을 말한다.",
+      "cultureTermIds": [
+        "buchae"
+      ],
+      "personaBoundaries": [
+        "레나는 사용 맥락과 선물 취향을 중심으로 판단한다.",
+        "마야를 전통 부채 전문가로 설정하지 않는다.",
+        "부채는 실제로 쓰는 선물이며 의상 소품으로만 다루지 않는다."
+      ]
+    },
+    {
+      "scenarioId": "b2_maya_daniel_pansori_promo_clip",
+      "level": "b2",
+      "playerCharacterId": "maya",
+      "personaIds": [
+        "maya",
+        "daniel"
+      ],
+      "realTaskKo": "판소리 공연을 보고 나온 뒤 인상 깊었던 소리, 고수와 추임새, 이야기 흐름을 실제 감상처럼 나눈다.",
+      "learningIntentKo": "예상과 실제가 달랐던 점과 경험하면서 달라진 느낌을 구체적으로 말한다.",
+      "cultureTermIds": [
+        "pansori"
+      ],
+      "personaBoundaries": [
+        "마야는 판소리 전문가 행세를 하지 않고 자신이 알고 있는 기본 용어와 관람 경험만 자연스럽게 나눈다.",
+        "다니엘은 처음 본 공연의 실제 감각과 궁금증을 말하고, 문화 감탄 캐릭터로 과장되지 않는다.",
+        "소리꾼·고수·추임새는 대화 안에서 바로 이해할 수 있게 설명하고 별도 전문용어 암기를 강요하지 않는다."
+      ]
+    },
+    {
+      "scenarioId": "b2_hyuna_daniel_nongak_festival_filming",
+      "level": "b2",
+      "playerCharacterId": "daniel",
+      "personaIds": [
+        "daniel",
+        "hyuna"
+      ],
+      "realTaskKo": "농악 공연을 본 뒤 장구를 배워 보고 싶다는 관심을 말하고 다음 공연을 함께 보러 갈 계획을 세운다.",
+      "learningIntentKo": "전해 들은 정보를 -대요로 말하고 관심사와 다음 약속을 자연스럽게 이어 간다.",
+      "cultureTermIds": [
+        "nongak"
+      ],
+      "personaBoundaries": [
+        "현아의 ‘한국 사람 다 됐네요’는 서로 알고 지낸 사이에서 하는 가벼운 농담이며 문화 지식으로 국적을 평가하는 규칙으로 일반화하지 않는다.",
+        "현아는 농악 전문가 역할을 맡지 않고 지역마다 조금 다르다고 들은 정도의 정보만 전달한다.",
+        "다니엘은 실제 생활 경험에서 나온 관심을 말하고 다음 공연을 함께 보자는 제안을 한다."
+      ]
+    }
+  ]
+}
