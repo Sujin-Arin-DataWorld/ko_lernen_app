@@ -309,7 +309,11 @@ def verify_successor(row: dict[str, Any], change: dict[str, Any],
         return False
     if fingerprint(row) != entry['afterSha256']:
         raise ValueError(f"{row['id']}: live copy does not match editorial revision ledger")
-    parent, key = text_field(entry['before'], change['field'])
+    field = change['field']
+    if '.' in field:
+        parent, key = text_field(entry['before'], field)
+    else:
+        parent, key = entry['before'], field
     if parent[key] != change['after']:
         raise ValueError(f"{row['id']}: editorial predecessor does not match historical overlay")
     return True
