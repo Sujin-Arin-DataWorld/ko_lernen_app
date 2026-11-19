@@ -142,6 +142,7 @@ flutter:
     - design_assets/scenarios/
     - design_assets/fonts/Manrope/OFL.txt
     - assets/illustrations/c_listening/
+    - assets/illustrations/approved_games/
     - assets/illustrations/einleitung_generated/
     - assets/data/
     # Approved R16 renders, losslessly packaged with exact process identities.
@@ -190,6 +191,7 @@ flutter:
     - assets/fonts/Chubbo/FFL.txt
     - assets/fonts/Supreme/FFL.txt
     - assets/fonts/Belgrano/OFL.txt
+    - assets/fonts/IBMPlexSans/OFL.txt
     - assets/fonts/EncodeSansCondensed/OFL.txt
     # Preserve retired companion originals on disk without shipping them.
     # Existing reward particles still use these two independent illustrations.
@@ -280,6 +282,9 @@ flutter:
   # OFL: Paperlogy for interface lettering; Noto Sans KR for learning copy.
   # Both families contain Korean, German and English glyphs (font bundle guard).
   fonts:
+    - family: SilbenPlex
+      fonts:
+        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-Variable.ttf
     - family: Manrope
       fonts:
         - asset: design_assets/fonts/Manrope/Manrope-Variable.ttf
@@ -327,6 +332,8 @@ flutter:
           weight: 400
         - asset: assets/fonts/MaruBuri/MaruBuri-SemiBold.otf
           weight: 600
+        - asset: assets/fonts/MaruBuri/MaruBuri-Bold.otf
+          weight: 700
     - family: Paperlogy
       fonts:
         - asset: assets/fonts/Paperlogy/Paperlogy-Regular.ttf

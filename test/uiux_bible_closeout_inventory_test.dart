@@ -160,9 +160,11 @@ void main() {
     // 2026-10-31: +2 — independent C5 scenes and matte-free R16 layer painter.
     // 2026-10-31: +2 — live Today card and semantic subject-art mapping.
     // 2026-11-04: +5 — approved grammar, nuance, scenario and stage navigation.
-    expect(actual, hasLength(185));
+    // +6: approved game materials and presentation views.
+    // +2: culture-stories entry card and scenario culture card (#449).
+    expect(actual, hasLength(191));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(185));
+    expect(listed, hasLength(191));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

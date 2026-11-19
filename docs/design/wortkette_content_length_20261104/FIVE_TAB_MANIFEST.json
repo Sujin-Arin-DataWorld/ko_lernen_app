@@ -1,0 +1,65 @@
+{
+  "created": "2026-11-04",
+  "images": {
+    "A": {
+      "original": "C:\\Users\\vjinn\\.codex\\generated_images\\01a1a3e8-95f5-7df1-ad8e-dbbcb0b4748b\\exec-ec18271d-6da9-4c40-8dd4-3d4f0fc0d47b.png",
+      "packaged": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-next-after-karten-20261104\\wortkette-a-five-tabs-candidate.png",
+      "sha256": "cb6b67787c317d4442f2b908a2133d56f18177bdd86299ed0ab363a5c938b2fc",
+      "width_px": 851,
+      "height_px": 1848,
+      "supersedes_for_presentation": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-next-after-karten-20261104\\wortkette-a-candidate.png",
+      "status": "five-tab image proposal only; generated nav glyphs are not original PNG bytes",
+      "content_review": "exact words, meanings, syllable ordering, instruction, draft, timer and chain count visually retained",
+      "navigation_review": "five icons in calendar/book/controller/hanok/group order; only third Games selected; no text labels"
+    },
+    "B": {
+      "original": "C:\\Users\\vjinn\\.codex\\generated_images\\01a1a3e8-95f5-7df1-ad8e-dbbcb0b4748b\\exec-301cabfc-f97b-4f67-97dd-0ed1dd79a262.png",
+      "packaged": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-next-after-karten-20261104\\wortkette-b-five-tabs-candidate.png",
+      "sha256": "884b363ff5d692685d2e9ec0d3e5c95c6556a55245277fb31b8c1448c396393f",
+      "width_px": 851,
+      "height_px": 1847,
+      "supersedes_for_presentation": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-next-after-karten-20261104\\wortkette-b-candidate.png",
+      "status": "five-tab image proposal only; generated nav glyphs are not original PNG bytes",
+      "content_review": "exact words, meanings, syllable ordering, instruction, draft, timer and chain count visually retained",
+      "navigation_review": "five icons in calendar/book/controller/hanok/group order; only third Games selected; no text labels"
+    },
+    "C": {
+      "original": "C:\\Users\\vjinn\\.codex\\generated_images\\01a1a3e8-95f5-7df1-ad8e-dbbcb0b4748b\\exec-4098a5ee-eb63-4765-8d9a-178f99f8032d.png",
+      "packaged": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-next-after-karten-20261104\\wortkette-c-five-tabs-candidate.png",
+      "sha256": "81760b8e467e326cdb25ed2381e7337bc07f9418852905736a5971d13e66d884",
+      "width_px": 851,
+      "height_px": 1847,
+      "supersedes_for_presentation": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-next-after-karten-20261104\\wortkette-c-candidate.png",
+      "status": "five-tab image proposal only; generated nav glyphs are not original PNG bytes",
+      "content_review": "exact words, meanings, syllable ordering, instruction, draft, timer and chain count visually retained",
+      "navigation_review": "five icons in calendar/book/controller/hanok/group order; only third Games selected; no text labels"
+    }
+  },
+  "scope": "imagegen edit of bottom navigation; no source/Figma/native/device changes by this agent",
+  "prompt_file": "FIVE_TAB_EDIT_PROMPTS_v2.json",
+  "prior_rejected_prompt_file": "FIVE_TAB_EDIT_PROMPTS.json",
+  "successful_new_generation_calls": 3,
+  "rejected_before_generation": "initial 7-reference attempt exceeded the tool limit of 5; no image was produced",
+  "prior_manifest": "MANIFEST.json",
+  "original_nav_source_files_verified_unchanged": {
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\assets\\illustrations\\approved_games\\nav_heute.png": "a8ef18b79cc93d75600f2fccb35d8830c2277e9d42151176c0e22d34eb6bf22a",
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\assets\\illustrations\\approved_games\\nav_open_book.png": "8311b5221ba242333219bf9aea7a618414e8eb7a67cb72e2ec905c5e6d4c2d5c",
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\assets\\illustrations\\approved_games\\nav_spiele.png": "11c9d9004f23cb9a4c63eb53fe546b3c745e7b5c10047996b94b724f9eabe5b1",
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\assets\\illustrations\\approved_games\\nav_hanok.png": "4c42fda8e624093c8ba39699492bbc5bf27efc1f3a04d9669b1d7d8720df61bf",
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\assets\\illustrations\\approved_games\\nav_gye.png": "42c2618b59241ff79f5413471b7b4f2bd61ce6d8c18b6acbdee9fff4f51a19b5"
+  },
+  "runtime_navigation_evidence": {
+    "route": "/custom_pack/play",
+    "screen": "CustomPackPlayScreen",
+    "not_this_screen": "/my_words / MyWordsScreen (search hub)",
+    "shared_component": "ApprovedGameNavigation",
+    "implementation": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\lib\\screens\\custom_pack_play_screen.dart",
+    "provenance": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\docs\\design\\karten_navigation_20261104\\PROVENANCE.json",
+    "provenance_sha256": "ad41e3b922635003c605b175172da3890600091e26af02ab7e7105b25230bdc7",
+    "independently_checked": "all four canonical source/runtime PNG hashes equal provenance; retained open-book asset hash equals provenance; source uses shared ApprovedGameNavigation",
+    "parent_provenance_capture_result": "front/back footer RGB difference_bbox null for rectangle [0,792,402,874]; not re-run by this image agent"
+  },
+  "proof_boundary": "Generated icons are visual mockup glyphs derived from approved screenshots/source PNG references, not byte-exact canonical assets. Actual Karten runtime (/custom_pack/play, previously called Meine Woerter Karten in the mockup context) uses original verified PNG assets through shared ApprovedGameNavigation. It is separate from the /my_words search hub and from these Wortkette proposals.",
+  "cloud": "not generated; exact canonical cloud requires separate original-PNG placement",
+  "image_processing": "copy2 and SHA verification only; Pillow used only to read dimensions, no raster alteration"
+}

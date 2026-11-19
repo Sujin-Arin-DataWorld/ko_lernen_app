@@ -1,0 +1,31 @@
+{
+  "capturedAtUtc": "2026-11-04T07:14:02.727828Z",
+  "evidenceKind": "Flutter presentation fixtures using production view widgets",
+  "fixtureLineBreaks": "Approved content states in gallery only; production layout measures actual text",
+  "engineValidation": "Separate widget and recovery tests; not established by these images",
+  "viewport": [
+    402,
+    874
+  ],
+  "devicePixelRatio": 1,
+  "textScale": 1,
+  "locale": "de",
+  "safeAreaNormalization": "zero insets for approved Figma comparison",
+  "files": [
+    {
+      "fixture": 0,
+      "name": "word-chain-a-flutter.png",
+      "bytes": 486706
+    },
+    {
+      "fixture": 1,
+      "name": "word-chain-b-flutter.png",
+      "bytes": 481205
+    },
+    {
+      "fixture": 2,
+      "name": "word-chain-c-flutter.png",
+      "bytes": 485743
+    }
+  ]
+}

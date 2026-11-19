@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-04",
+  "figma_file": "7IHizFZMk5G3ahsuVKiYwb",
+  "figma_nav_node": "278:112",
+  "figma_screen": "278:14",
+  "figma_nav_rect": [
+    0,
+    792,
+    402,
+    82
+  ],
+  "route": "/custom_pack/play",
+  "screen": "CustomPackPlayScreen",
+  "unchanged_search_hub": "/my_words",
+  "assets": [
+    {
+      "role": "heute",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\공통UI정본\\exec-d0abcd6e-3c27-46de-8c6b-85caa1ac23e3.png",
+      "sha256": "a8ef18b79cc93d75600f2fccb35d8830c2277e9d42151176c0e22d34eb6bf22a",
+      "runtime": "assets\\illustrations\\approved_games\\nav_heute.png",
+      "identical": true
+    },
+    {
+      "role": "spiele",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\공통UI정본\\exec-0341b149-61b9-4a48-acb3-74fa59314392.png",
+      "sha256": "11c9d9004f23cb9a4c63eb53fe546b3c745e7b5c10047996b94b724f9eabe5b1",
+      "runtime": "assets\\illustrations\\approved_games\\nav_spiele.png",
+      "identical": true
+    },
+    {
+      "role": "hanok",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\공통UI정본\\exec-801c0e2c-d79d-466c-b2ea-915356b4fe29.png",
+      "sha256": "4c42fda8e624093c8ba39699492bbc5bf27efc1f3a04d9669b1d7d8720df61bf",
+      "runtime": "assets\\illustrations\\approved_games\\nav_hanok.png",
+      "identical": true
+    },
+    {
+      "role": "gye",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\공통UI정본\\exec-effff9d2-a719-420a-9eb2-54f9b5d4a076.png",
+      "sha256": "42c2618b59241ff79f5413471b7b4f2bd61ce6d8c18b6acbdee9fff4f51a19b5",
+      "runtime": "assets\\illustrations\\approved_games\\nav_gye.png",
+      "identical": true
+    }
+  ],
+  "retained_book": {
+    "path": "assets/illustrations/approved_games/nav_open_book.png",
+    "sha256": "8311b5221ba242333219bf9aea7a618414e8eb7a67cb72e2ec905c5e6d4c2d5c"
+  },
+  "comparison": [
+    {
+      "capture": "C:\\dev\\hangulsori\\_codex_artifacts\\karten-navigation-20261104\\flutter-capture\\karten-back-footer.png",
+      "footer_rect": [
+        0,
+        792,
+        402,
+        874
+      ],
+      "rgb_difference_bbox": null
+    },
+    {
+      "capture": "C:\\dev\\hangulsori\\_codex_artifacts\\karten-navigation-20261104\\flutter-capture\\karten-front-footer.png",
+      "footer_rect": [
+        0,
+        792,
+        402,
+        874
+      ],
+      "rgb_difference_bbox": null
+    }
+  ],
+  "physical_device": "deferred by user",
+  "figma_changes": false
+}
