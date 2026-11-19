@@ -6,6 +6,9 @@ Future<void> showViewportSection(
   Finder target, {
   Finder? within,
 }) async {
+  // SoriViewportPages counts its pages after layout and shows the pager on
+  // the following frame; render that frame before deciding where we are.
+  await tester.pump();
   if (target.hitTestable().evaluate().isNotEmpty) {
     return;
   }

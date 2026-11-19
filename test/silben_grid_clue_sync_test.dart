@@ -11,6 +11,7 @@ import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 import 'support/sori_speech_stubs.dart';
+import 'support/viewport_pages.dart';
 
 const _horizontal = SilbenWord(
   dir: 'h',
@@ -250,6 +251,8 @@ Future<void> _pumpPuzzle(
 }
 
 Future<void> _tapVisible(WidgetTester tester, Finder finder) async {
+  // Compact widths page the board; bring the target's page forward first.
+  await showViewportSection(tester, finder);
   await tester.ensureVisible(finder);
   await tester.pump();
   await tester.tap(finder);

@@ -696,6 +696,9 @@ void main() {
     final matchingReviews = Storage.srsCard(matchingWord)!.reviewCount;
     matchingLocale.value = const Locale('en');
     await tester.pump();
+    // Paged layouts omit off-page sections from semantics; read the tile
+    // from its own page so the node reflects the current state.
+    await _showGamePage(tester, matchingLeft);
     final preservedMatch = tester.getSemantics(matchingLeft).getSemanticsData();
     expect(preservedMatch.hasAction(ui.SemanticsAction.tap), isFalse);
     expect(Storage.srsCard(matchingWord)!.reviewCount, matchingReviews);
