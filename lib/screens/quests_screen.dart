@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import 'package:flutter/material.dart';
 
 import '../data/quest_catalog.dart';
@@ -244,7 +245,7 @@ class _QuestsScreenState extends State<QuestsScreen>
                     completed.isEmpty &&
                     seasonalLocked.isEmpty)
                   SoriEmptyState(
-                    asset: 'assets/illustrations/mascot/magpie_encourage.png',
+                    asset: CanonicalCompanionArt.magpieGuide,
                     icon: Icons.local_florist_outlined,
                     title: t.questsEmptyTitle,
                     body: t.questsEmptyBody,

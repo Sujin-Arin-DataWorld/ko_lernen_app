@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/haptic_service.dart';
 import 'dart:async';
 import 'dart:math' as math;
@@ -614,7 +615,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
           appBarTitle: t.screenVocabTitle,
           maxWidth: SoriMaxWidth.focus,
           builder: (context, padding) => SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_wave.png',
+            asset: CanonicalCompanionArt.magpieGuide,
             icon: Icons.star_outline_rounded,
             title: t.vocabEmptyFavorites,
             ctaLabel: t.vocabModeAll,
@@ -631,7 +632,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
             _levelChrome(t, presentation),
             Expanded(
               child: SoriEmptyState(
-                asset: 'assets/illustrations/mascot/magpie_wave.png',
+                asset: CanonicalCompanionArt.magpieGuide,
                 icon: Icons.tune_rounded,
                 title: t.emptyVocab,
                 ctaLabel: t.filterOpenBtn,
@@ -880,7 +881,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SoriEmptyState(
-              asset: 'assets/illustrations/mascot/magpie_celebrate.png',
+              asset: CanonicalCompanionArt.magpieCelebrate,
               icon: Icons.celebration_outlined,
               title: t.vocabDueEmptyTitle,
               body: t.vocabDueEmptyBody,

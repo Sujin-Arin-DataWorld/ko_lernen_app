@@ -9,6 +9,7 @@ import 'package:ko_lernen_app/features/onboarding_v2/first_run_runtime.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/welcome_screen.dart';
 import 'package:ko_lernen_app/screens/splash_screen.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
@@ -16,6 +17,7 @@ import 'package:ko_lernen_app/services/data_migration_service.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/window_class.dart';
+import '../support/einleitung_capture_assets.dart';
 
 /// 핵심 사용자 흐름 E2E — **CI 에서 매번 도는** 전체 앱 테스트.
 ///
@@ -43,6 +45,7 @@ import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 /// (근본 원인인 자원 누수는 별도 트랙이다. 상한을 늘리기 전에 그걸 먼저 고친다.)
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(loadEinleitungFonts);
 
   const viewports = <String, Size>{
     'compact': Size(360, 800),
@@ -120,6 +123,11 @@ void main() {
       await freshInstall();
       await launch(tester, size: viewports['compact']!);
 
+      expect(find.byType(WelcomeScreen), findsOneWidget);
+      final start = find.byKey(const ValueKey('welcome-start'));
+      await tester.ensureVisible(start);
+      await tester.tap(start);
+      await tester.pumpAndSettle();
       expect(find.byType(ConsentScreen), findsOneWidget);
       expect(tester.takeException(), isNull);
       await teardownApp(tester);

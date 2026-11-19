@@ -1,0 +1,210 @@
+{
+  "source": "direct user attachments 2026-10-29",
+  "assets": [
+    {
+      "key": "cloud-ivory",
+      "path": "cloud-ivory.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-d84fefd7-5e20-4733-8c02-fe24e9b76956.png",
+      "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+      "bytes": 512974,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "role": "decoration",
+      "pixelsModified": false,
+      "runtimeIntegrated": false
+    },
+    {
+      "key": "settings-gold",
+      "path": "settings-gold.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-9c3a27f8-15cf-47e4-9b96-510158d83a69.png",
+      "sha256": "bee0e7a48115fe34c1a1a6f3fba17d022c0bd978470004ae5e92a2bf378c068d",
+      "bytes": 1799712,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "role": "settings control",
+      "pixelsModified": false,
+      "runtimeIntegrated": false
+    },
+    {
+      "key": "yeopjeon-front",
+      "path": "yeopjeon-front.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-92edb7ca-b8ac-44f1-9a2f-23fd2e4b324f.png",
+      "sha256": "c187032485925a52d6a6148fdeea11382a95648f0c37eecdfd1cd5654959f40f",
+      "bytes": 2512559,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "role": "wallet icon; no fabricated count",
+      "pixelsModified": false,
+      "runtimeIntegrated": false
+    },
+    {
+      "key": "gold-seal",
+      "path": "gold-seal.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-4302643a-ebba-432a-bdcb-659c96a44ba0.png",
+      "sha256": "668a6653c61f8aab32023ec58f554a3ebdaa51471b8c5dce48e4f5c120415a0c",
+      "bytes": 1902958,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "role": "button artwork",
+      "pixelsModified": false,
+      "runtimeIntegrated": false
+    },
+    {
+      "key": "chevron-ivory",
+      "path": "chevron-ivory.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-593cd363-4af8-46e9-b79b-c71cb0d6d95a.png",
+      "sha256": "d3a29d5361ecabfb2afd1a81a9c4b20e9cc28bf6b4d4f31807c3cfa7d347baf4",
+      "bytes": 367228,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "role": "forward control",
+      "pixelsModified": false,
+      "runtimeIntegrated": false
+    },
+    {
+      "key": "gold-disc",
+      "path": "gold-disc.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-5ec1718f-f54b-4d06-a213-8b147c85f5ec.png",
+      "sha256": "1fca7f57aafc7799d9055a2be9dc5246063f51f10ee92aa6ec0c88920421d97c",
+      "bytes": 1703962,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "role": "button backing",
+      "pixelsModified": false,
+      "runtimeIntegrated": false
+    },
+    {
+      "key": "gold-confirm",
+      "path": "gold-confirm.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-85bd852e-8d0b-4385-b482-98cfb1595661.png",
+      "sha256": "89144f953ef9235c7263bde06fc8c1f283ca046598527adcd0b1b84d1b8b7e3f",
+      "bytes": 1377146,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "role": "confirmation control",
+      "pixelsModified": false,
+      "runtimeIntegrated": false
+    },
+    {
+      "key": "hangulsori-seal",
+      "path": "hangulsori-seal.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-1492b2fe-69c7-4bb6-9d4b-7e0b54c514d0.png",
+      "sha256": "efb9e4fd903a87685a568de4a191d3a9f66fc4cc270aeea7a75228d45b932ce6",
+      "bytes": 1004285,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "role": "brand mark",
+      "pixelsModified": false,
+      "runtimeIntegrated": false
+    },
+    {
+      "key": "yeopjeon-angle",
+      "path": "yeopjeon-angle.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-efcabadf-1c35-408f-a052-4209b9969487.png",
+      "sha256": "9786f2acaae738972bfdb91104d8be43c9bc0ec8ce64c4b3ac1ad2a3ae51c0c9",
+      "bytes": 1522562,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "role": "wallet artwork",
+      "pixelsModified": false,
+      "runtimeIntegrated": false
+    },
+    {
+      "key": "najeon-chest",
+      "path": "najeon-chest.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-cc5b9c9a-1eed-4502-b235-b789b315c999.png",
+      "sha256": "6bbbfa26334b52b62180fdaab308d8047d41d58ee520061bf61ec230275f7de3",
+      "bytes": 2118571,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "role": "reward reference; do not add unearned claim",
+      "pixelsModified": false,
+      "runtimeIntegrated": false
+    },
+    {
+      "key": "hanok-gate-coin",
+      "path": "hanok-gate-coin.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-2b9411ef-cf80-4893-98a8-57eec1053896.png",
+      "sha256": "badf40200faa0f03214318b779a357346c651c0ea35820b0a9ebf01e383de156",
+      "bytes": 1863955,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "role": "gate artwork; navigation mapping pending",
+      "pixelsModified": false,
+      "runtimeIntegrated": false
+    },
+    {
+      "key": "cloud-teal-gold",
+      "path": "cloud-teal-gold.png",
+      "source": "C:\\Users\\vjinn\\ELibrary\\Downloads\\금빛 테두리의 청록 구름 소용돌이 엠블럼.png",
+      "sha256": "e341e9ede04c27594c1142d611371c904238b7ecd6082dd088841488fbeeb48f",
+      "bytes": 1189238,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "role": "secondary decoration",
+      "pixelsModified": false,
+      "runtimeIntegrated": false
+    }
+  ],
+  "navigationMapping": "awaiting remaining/corrected navigation assets; preserve existing tab meanings"
+}

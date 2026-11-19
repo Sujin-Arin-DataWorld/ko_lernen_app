@@ -252,12 +252,26 @@ class _PersonaPeopleScreenState extends State<PersonaPeopleScreen> {
 
   double _cardHeight(BuildContext context, double width) {
     final text = SoriTextTheme.of(context);
-    final lang = Localizations.localeOf(context).languageCode;
-    double measured(String value, TextStyle style) => (TextPainter(
-      text: TextSpan(text: value, style: style),
-      textDirection: Directionality.of(context),
-      textScaler: MediaQuery.textScalerOf(context),
-    )..layout(maxWidth: math.max(1.0, width - Spacing.md * 2))).height;
+    final locale = Localizations.localeOf(context);
+    final lang = locale.languageCode;
+    final border =
+        SoriCard.resolvedBorder(context)?.dimensions ?? EdgeInsets.zero;
+    final contentWidth = math.max(
+      1.0,
+      width - Spacing.md * 2 - border.horizontal,
+    );
+    double measured(String value, TextStyle style) {
+      final painter = TextPainter(
+        text: TextSpan(text: value, style: style),
+        textDirection: Directionality.of(context),
+        textScaler: MediaQuery.textScalerOf(context),
+        locale: locale,
+      )..layout(maxWidth: contentWidth);
+      final height = painter.height;
+      painter.dispose();
+      return height;
+    }
+
     final copyHeight = PersonaPresentationCatalog.people
         .map(
           (p) =>
@@ -265,6 +279,6 @@ class _PersonaPeopleScreenState extends State<PersonaPeopleScreen> {
               measured(p.practiceSummary.pick(lang), text.bodySmall),
         )
         .reduce(math.max);
-    return 180 + Spacing.md * 3 + Spacing.sm + copyHeight + 4;
+    return 180 + Spacing.md * 3 + Spacing.sm + copyHeight + border.vertical;
   }
 }

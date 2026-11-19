@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "archiveRepository": "https://github.com/Sujin-Arin-DataWorld/hangulsori-archive",
+  "archiveRef": "archive/preserved-learning-rewards-20261023-192613",
+  "snapshotCommit": "ede3ed8ffb3066d3186936ea74394713a1ca3e75",
+  "verifiedArchiveCommit": "ee571ef9f1521dca9fabcbba490d500914f78708",
+  "features": [
+    "하회탈/탈선비",
+    "보자기/일반 보상",
+    "엽전 보상",
+    "보물/보석상자/자개함",
+    "도깨비 Silben",
+    "붓 한글/음절"
+  ],
+  "variants": [
+    {
+      "name": "c-hangul-silben-native-20261008",
+      "baseCommit": "618129e40f139c806307fd55ea2e6db1337994c6",
+      "baseRef": "preserved-bases/c-hangul-silben-native-20261008"
+    },
+    {
+      "name": "character-c-main-20261010",
+      "baseCommit": "44727c1921b4b7f40748ac0d210d0ca62a094028",
+      "baseRef": "preserved-bases/character-c-main-20261010"
+    },
+    {
+      "name": "c-app-integration-20261012",
+      "baseCommit": "2d68784d3b642a14fe174de26d55b0c82209a694",
+      "baseRef": "preserved-bases/c-app-integration-20261012"
+    },
+    {
+      "name": "canonical-reward-onboarding-20261004",
+      "baseCommit": "618129e40f139c806307fd55ea2e6db1337994c6",
+      "baseRef": "preserved-bases/canonical-reward-onboarding-20261004"
+    },
+    {
+      "name": "tactile-settings-integration-20261002",
+      "baseCommit": "2257583bd376ea7be6b8bd0d6ca102b7d242c91e",
+      "baseRef": "preserved-bases/tactile-settings-integration-20261002"
+    },
+    {
+      "name": "reward-chest-preview-20261004",
+      "baseCommit": "536c01c121ec229ed3ee0f3142ce66dbd468164e",
+      "baseRef": "preserved-bases/reward-chest-preview-20261004"
+    },
+    {
+      "name": "reward-alpha-fit-20261004",
+      "baseCommit": "536c01c121ec229ed3ee0f3142ce66dbd468164e",
+      "baseRef": "preserved-bases/reward-alpha-fit-20261004"
+    },
+    {
+      "name": "hahoe-dokkaebi-practice-20261003",
+      "baseCommit": "34f1b0ca51de4f9b69db7d499b74fc17844dd878",
+      "baseRef": "preserved-bases/hahoe-dokkaebi-practice-20261003"
+    },
+    {
+      "name": "scholar-fan-integration-20261003",
+      "baseCommit": "3da567ec78841e0dd948e02c58bd802cb8165c8f",
+      "baseRef": "preserved-bases/scholar-fan-integration-20261003"
+    },
+    {
+      "name": "dokkaebi-c-parity-20261009",
+      "baseCommit": "618129e40f139c806307fd55ea2e6db1337994c6",
+      "baseRef": "preserved-bases/dokkaebi-c-parity-20261009"
+    },
+    {
+      "name": "dokkaebi-transform-debug-20261004",
+      "baseCommit": "af2b1b8adb5160860930a88cbfe70b5cc73662e7",
+      "baseRef": "preserved-bases/dokkaebi-transform-debug-20261004"
+    },
+    {
+      "name": "spiele-c-20261011",
+      "baseCommit": "afd4c4dc524d89c316b23fd001dac37e087796cd",
+      "baseRef": "preserved-bases/spiele-c-20261011"
+    },
+    {
+      "name": "spiele-dialogue-integration-20261013",
+      "baseCommit": "091b5857d3613832ec93a2a07d097424efca8867",
+      "baseRef": "preserved-bases/spiele-dialogue-integration-20261013"
+    },
+    {
+      "name": "spiele-approved-native-20261018",
+      "baseCommit": "091b5857d3613832ec93a2a07d097424efca8867",
+      "baseRef": "preserved-bases/spiele-approved-native-20261018"
+    }
+  ],
+  "verification": {
+    "allObjectSha256Match": true,
+    "uniqueObjects": 15114,
+    "brushFilesRestoredAndVerified": 9832
+  },
+  "preservedDependencies": {
+    "c-app-integration-20261012": "Lernen assets junction target",
+    "hanok-hwalju-20260928": "7 external Blender textures",
+    "hanok-warm-stone-20260923": "R12 mapping uses 103 Python source tools"
+  },
+  "sourceOfTruth": "Archive contains source/WIP variants, not runtime/approval promotion. Recheck remote refs and source state before deletion.",
+  "remoteArchiveVerified": true,
+  "additionalOverlays": {
+    "ref": "archive/cleanup-overlays-20261023",
+    "commit": "60393ab8816a782aa1219ccf9b9886664855b195",
+    "remoteVerified": true,
+    "variants": [
+      {
+        "name": "cp2026-b3-reasons-metrics-20260917",
+        "baseCommit": "4a6c9a6d8d2887245ff0d01a9c64ceb3ae24cab6",
+        "baseRef": "preserved-bases/cp2026-b3-reasons-metrics-20260917"
+      },
+      {
+        "name": "main-wip-before-pull-20260915",
+        "baseCommit": "3b59048c1d819b9024a1e1d3d1d1d203a18adfc9",
+        "baseRef": "preserved-bases/main-wip-before-pull-20260915"
+      },
+      {
+        "name": "scene-assets-live-20260830",
+        "baseCommit": "f394e7c30138733a0104ef369e01f8b6f6d2d9df",
+        "baseRef": "preserved-bases/scene-assets-live-20260830"
+      },
+      {
+        "name": "release-ui-audit-20261006",
+        "baseCommit": "27f7e00e70498ea6fe5b6ad2a64c4a1e4280f080",
+        "baseRef": "preserved-bases/release-ui-audit-20261006"
+      }
+    ]
+  },
+  "allBaseRefsVerified": true,
+  "verifiedPayloadSourceCommit": "ae869134007ff4a30ad140f1da53496210024aa6",
+  "legacyHanokV2Archive": {
+    "ref": "refs/heads/archive/hanok-v2-leftovers-20261023",
+    "commit": "00ecce35d3735838e59c947b8fa56e712b9bc866",
+    "variants": [
+      {
+        "name": "free-access-20260905",
+        "baseCommit": "3a4bc9bc936450cf0dc2d78801dd2bde9db5adb1",
+        "baseRef": "preserved-bases/free-access-20260905"
+      },
+      {
+        "name": "scenario-persona-repair",
+        "baseCommit": "c89907e64bd8d3702f185799eb0e25ba7968148d",
+        "baseRef": "preserved-bases/scenario-persona-repair"
+      }
+    ],
+    "remoteVerified": true
+  }
+}

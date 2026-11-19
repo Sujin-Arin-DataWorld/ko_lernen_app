@@ -1,12 +1,34 @@
 import 'package:flutter/material.dart';
 
 import 'app_bar.dart';
+import 'c_learning_surface.dart';
 import 'home_action.dart';
 import 'responsive.dart';
 import 'screen_background.dart';
 import 'tokens.dart';
 
 export 'home_action.dart' show SoriHomeEscape, SoriCloseAction;
+
+/// Recovery panels suspend learning input while keeping the frame's exits and
+/// speech controls usable. Nested evidence/result scopes preserve either lock.
+class StudyBodyInputLock extends InheritedWidget {
+  const StudyBodyInputLock({
+    super.key,
+    required this.locked,
+    required super.child,
+  });
+  final bool locked;
+
+  static bool isLocked(BuildContext context) =>
+      context
+          .dependOnInheritedWidgetOfExactType<StudyBodyInputLock>()
+          ?.locked ??
+      false;
+
+  @override
+  bool updateShouldNotify(StudyBodyInputLock oldWidget) =>
+      locked != oldWidget.locked;
+}
 
 /// 집중형 학습·퀴즈 화면의 공용 프레임.
 ///
@@ -28,9 +50,17 @@ class SoriStudyFrame extends StatelessWidget {
     this.hero,
     this.homeEscape = const SoriHomeEscape(),
     this.onLeave,
+    this.onLeaveOwnsNavigation = false,
     this.bottom,
     this.adaptTitleAtNormalScale = false,
     this.titleBelowToolbar = false,
+    this.backgroundBuilder,
+    this.headerBuilder,
+    this.surfaceBuilder,
+    this.homeContent,
+    this.leadingVisual,
+    this.cMaterial = false,
+    this.cPaperBody = false,
   });
 
   final String title;
@@ -58,8 +88,29 @@ class SoriStudyFrame extends StatelessWidget {
   /// [SoriHomeEscape.confirmWhen]이면 확인 시트에서 "떠나기"를 고른 뒤,
   /// 아니면 즉시 호출된다.
   final VoidCallback? onLeave;
+  final bool onLeaveOwnsNavigation;
   final bool adaptTitleAtNormalScale;
   final bool titleBelowToolbar;
+
+  /// A scoped material layer. SafeArea, scrolling and both exits remain here.
+  final Widget Function(BuildContext context, Widget body)? backgroundBuilder;
+
+  /// Approved art may change chrome presentation without owning navigation.
+  final PreferredSizeWidget Function(
+    BuildContext context,
+    Widget leading,
+    List<Widget> actions,
+  )?
+  headerBuilder;
+  final Widget? leadingVisual;
+  final bool cMaterial;
+  final bool cPaperBody;
+
+  /// An activity may supply its approved full surface. The provided exits
+  /// retain this frame's route/leave guards. Its learning body must honor
+  /// [StudyBodyInputLock]; the Hangul atelier does so around its tab pages.
+  final Widget Function(Widget close, Widget home)? surfaceBuilder;
+  final Widget? homeContent;
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +122,49 @@ class SoriStudyFrame extends StatelessWidget {
         if (action is! SoriHomeAction && action is! SoriCloseAction) action,
     ];
     final effectiveActions = <Widget>[
-      SoriHomeAction(escape: homeEscape, onLeave: onLeave),
+      SoriHomeAction(
+        escape: homeEscape,
+        onLeave: onLeave,
+        onLeaveOwnsNavigation: onLeaveOwnsNavigation,
+        content: homeContent,
+      ),
       ...remainingActions,
     ];
+    final leading = SoriCloseAction(
+      escape: homeEscape,
+      onLeave: onLeave,
+      onLeaveOwnsNavigation: onLeaveOwnsNavigation,
+      visual: leadingVisual,
+    );
+    final locked = StudyBodyInputLock.isLocked(context);
+    final learningBody = ExcludeFocus(
+      excluding: locked,
+      child: AbsorbPointer(
+        absorbing: locked,
+        child: cMaterial && cPaperBody
+            ? SoriCMaterialSurface(raised: false, child: child)
+            : child,
+      ),
+    );
+    final body = SafeArea(
+      top: false,
+      child: SoriStudyClamp(
+        child: hero == null
+            ? Padding(padding: padding, child: learningBody)
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SizedBox(
+                    height: SoriLayout.heroCollapsedHeight,
+                    child: ClipRect(child: hero!),
+                  ),
+                  Expanded(
+                    child: Padding(padding: padding, child: learningBody),
+                  ),
+                ],
+              ),
+      ),
+    );
 
     return PopScope(
       canPop: !homeEscape.confirmWhen,
@@ -87,51 +178,47 @@ class SoriStudyFrame extends StatelessWidget {
         if (didPop || !homeEscape.confirmWhen) {
           return;
         }
-        if (!await showLeaveConfirmSheet(context, homeEscape)) {
+        if (!await showLeaveConfirmSheet(
+          context,
+          homeEscape,
+          closingRoute: true,
+        )) {
           return;
         }
         onLeave?.call();
+        if (onLeaveOwnsNavigation) return;
         if (!context.mounted) return;
         Navigator.of(context).pop();
       },
       child: Scaffold(
-        appBar: SoriAppBar(
-          title: title,
-          textScale: MediaQuery.textScalerOf(context).scale(1),
-          viewportWidth:
-              MediaQuery.sizeOf(context).width -
-              MediaQuery.paddingOf(context).horizontal,
-          eyebrow: eyebrow,
-          actions: effectiveActions,
-          leading: SoriCloseAction(escape: homeEscape, onLeave: onLeave),
-          automaticallyImplyLeading: automaticallyImplyLeading,
-          bottom: bottom,
-          adaptTitleAtNormalScale: adaptTitleAtNormalScale,
-          titleBelowToolbar: titleBelowToolbar,
-        ),
-        body: SoriScreenBackground(
-          particles: particles,
-          noiseAlpha: noiseAlpha,
-          child: SafeArea(
-            top: false,
-            child: SoriStudyClamp(
-              child: hero == null
-                  ? Padding(padding: padding, child: child)
-                  : Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        SizedBox(
-                          height: SoriLayout.heroCollapsedHeight,
-                          child: ClipRect(child: hero!),
-                        ),
-                        Expanded(
-                          child: Padding(padding: padding, child: child),
-                        ),
-                      ],
-                    ),
-            ),
-          ),
-        ),
+        appBar: surfaceBuilder != null
+            ? null
+            : headerBuilder?.call(context, leading, effectiveActions) ??
+                  SoriAppBar(
+                    title: title,
+                    locale: Localizations.localeOf(context),
+                    textScale: MediaQuery.textScalerOf(context).scale(1),
+                    viewportWidth:
+                        MediaQuery.sizeOf(context).width -
+                        MediaQuery.paddingOf(context).horizontal,
+                    eyebrow: eyebrow,
+                    actions: effectiveActions,
+                    leading: leading,
+                    automaticallyImplyLeading: automaticallyImplyLeading,
+                    bottom: bottom,
+                    adaptTitleAtNormalScale: adaptTitleAtNormalScale,
+                    titleBelowToolbar: titleBelowToolbar,
+                  ),
+        body:
+            surfaceBuilder?.call(leading, effectiveActions.first) ??
+            backgroundBuilder?.call(context, body) ??
+            (cMaterial
+                ? SoriCLearningBackground(child: body)
+                : SoriScreenBackground(
+                    particles: particles,
+                    noiseAlpha: noiseAlpha,
+                    child: body,
+                  )),
         bottomNavigationBar: bottomNavigationBar,
       ),
     );

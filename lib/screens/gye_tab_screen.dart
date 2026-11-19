@@ -10,10 +10,12 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/c_gallery/c_materials.dart';
+import '../widgets/sori/pressable.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/gye_hanok.dart';
-import '../widgets/sori/progress_meter.dart';
+import '../widgets/sori/gye_weekly_lanterns.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -36,6 +38,7 @@ class GyeTabScreen extends StatefulWidget {
     this.onContinueSolo,
     this.enableCoach = true,
     this.embedded = false,
+    this.conceptC = false,
     this.active = true,
     this.refreshGeneration = 0,
   });
@@ -49,6 +52,7 @@ class GyeTabScreen extends StatefulWidget {
   final VoidCallback? onContinueSolo;
   final bool enableCoach;
   final bool embedded;
+  final bool conceptC;
   final bool active;
   final int refreshGeneration;
 
@@ -175,9 +179,28 @@ class _GyeTabScreenState extends State<GyeTabScreen>
           maxWidth: SoriMaxWidth.hub,
           // top=0 — 스텝퍼 슬리버가 이미 자기 bottom(lg)으로 간격을 뒀다.
           // bottom=xxxl(48) 은 부모의 `SoriContentClamp` 하단 여백과 맞춘다.
-          base: const EdgeInsets.fromLTRB(20, 0, 20, Spacing.xxxl),
+          base: widget.conceptC
+              ? const EdgeInsets.fromLTRB(12, 0, 12, 24)
+              : const EdgeInsets.fromLTRB(20, 0, 20, Spacing.xxxl),
         );
         if (gyeList.isEmpty) {
+          if (widget.conceptC) {
+            return SliverPadding(
+              padding: padding,
+              sliver: SliverList(
+                delegate: SliverChildListDelegate(
+                  _introContent(
+                    context,
+                    introKey: _introKey,
+                    embedded: true,
+                    conceptC: true,
+                    onFindOrCreate: _findOrCreate,
+                    onContinueSolo: _resolvedOnContinueSolo(context),
+                  ),
+                ),
+              ),
+            );
+          }
           return SliverPadding(
             padding: padding,
             sliver: SliverFillRemaining(
@@ -188,6 +211,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
                   context,
                   introKey: _introKey,
                   embedded: true,
+                  conceptC: widget.conceptC,
                   onFindOrCreate: _findOrCreate,
                   onContinueSolo: _resolvedOnContinueSolo(context),
                 ),
@@ -204,6 +228,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
                 gyeList: gyeList,
                 onFindOrCreate: _findOrCreate,
                 onOpenGye: _openGye,
+                conceptC: widget.conceptC,
               ),
             ),
           ),
@@ -328,9 +353,60 @@ List<Widget> _introContent(
   required bool embedded,
   required VoidCallback onFindOrCreate,
   required VoidCallback onContinueSolo,
+  bool conceptC = false,
 }) {
   final t = AppL10n.of(context);
   final tt = SoriTextTheme.of(context);
+  if (conceptC) {
+    final compact = MediaQuery.sizeOf(context).height < 750;
+    final body = tt.body.copyWith(
+      fontSize: 16,
+      height: 1.3,
+      color: CPalette.ink,
+    );
+    return [
+      CPaperPanel(
+        key: const ValueKey('c-gye-empty-board'),
+        padding: EdgeInsets.zero,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const AspectRatio(
+              key: ValueKey('gye-current-preview'),
+              aspectRatio: 1.5,
+              child: CReferenceArt(CReferencePart.studyTogether),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(t.gyeRootPurpose, key: introKey, style: body),
+                  const SizedBox(height: 4),
+                  Text(t.gyeRootPrivacy, style: body),
+                  const SizedBox(height: 12),
+                  CMaterialAction(
+                    key: const ValueKey('gye-empty-start'),
+                    label: t.gyeFindOrCreate,
+                    onTap: onFindOrCreate,
+                    compact: compact,
+                  ),
+                  const SizedBox(height: 8),
+                  CMaterialAction(
+                    key: const ValueKey('gye-continue-solo'),
+                    label: t.gyeContinueSolo,
+                    onTap: onContinueSolo,
+                    gold: false,
+                    compact: compact,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    ];
+  }
   return [
     KeyedSubtree(
       key: introKey,
@@ -362,6 +438,7 @@ List<Widget> _introContent(
     ),
     const SizedBox(height: Spacing.sm),
     if (kHanokWorldUpdating) Text(t.soriStageGyeUpdating, style: tt.bodySmall),
+    if (!kHanokWorldUpdating) Text(t.ilduR16Reference, style: tt.bodySmall),
     const SizedBox(height: Spacing.lg),
     SoriButton.filled(
       key: const ValueKey('gye-empty-start'),
@@ -489,6 +566,7 @@ List<Widget> _gyeListContent(
   required List<GyeMeta> gyeList,
   required VoidCallback onFindOrCreate,
   required ValueChanged<GyeMeta> onOpenGye,
+  bool conceptC = false,
 }) {
   final t = AppL10n.of(context);
   return [
@@ -497,24 +575,39 @@ List<Widget> _gyeListContent(
         key: ValueKey('gye-card-${gye.id}'),
         gye: gye,
         onTap: () => onOpenGye(gye),
+        conceptC: conceptC,
       ),
       const SizedBox(height: Spacing.md),
     ],
     const SizedBox(height: Spacing.sm),
-    SoriButton.outlined(
-      label: t.gyeChooserCreate,
-      icon: Icons.add_rounded,
-      fullWidth: true,
-      onTap: onFindOrCreate,
-    ),
+    if (conceptC)
+      CMaterialAction(
+        label: t.gyeChooserCreate,
+        onTap: onFindOrCreate,
+        gold: false,
+        compact: true,
+      )
+    else
+      SoriButton.outlined(
+        label: t.gyeChooserCreate,
+        icon: Icons.add_rounded,
+        fullWidth: true,
+        onTap: onFindOrCreate,
+      ),
   ];
 }
 
 class _GyeCard extends StatelessWidget {
   final GyeMeta gye;
   final VoidCallback onTap;
+  final bool conceptC;
 
-  const _GyeCard({super.key, required this.gye, required this.onTap});
+  const _GyeCard({
+    super.key,
+    required this.gye,
+    required this.onTap,
+    this.conceptC = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -533,12 +626,123 @@ class _GyeCard extends StatelessWidget {
         gye.weeklyPromiseSchemaVersion == 1 &&
         gye.weeklyPromiseId.isNotEmpty &&
         gye.weeklyPromiseTarget > 0;
-    final goalTarget = usesPromise
-        ? gye.weeklyPromiseTarget
-        : gye.weeklyGoalPacks;
-    final goalDone = usesPromise
-        ? gye.weeklyPromiseProgress
-        : gye.weeklyGoalProgress;
+    if (conceptC) {
+      final compact = MediaQuery.sizeOf(context).height < 750;
+      final body = tt.body.copyWith(
+        fontSize: 16,
+        height: 1.3,
+        color: CPalette.ink,
+      );
+      return SoriPressable(
+        onTap: onTap,
+        pressScale: 1,
+        surfaceDepth: 2,
+        child: CPaperPanel(
+          padding: EdgeInsets.zero,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              if (!compact) ...[
+                if (GyeHanok.isComplete(gye))
+                  SizedBox(
+                    key: const ValueKey('c-gye-group-hero'),
+                    height: 152,
+                    child: GyeHanok(meta: gye, animate: false),
+                  )
+                else
+                  const AspectRatio(
+                    key: ValueKey('c-gye-group-hero'),
+                    aspectRatio: 1.5,
+                    child: CReferenceArt(CReferencePart.studyTogether),
+                  ),
+              ],
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (compact)
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 144,
+                            height: 96,
+                            key: const ValueKey('c-gye-group-hero'),
+                            child: GyeHanok.isComplete(gye)
+                                ? GyeHanok(meta: gye, animate: false)
+                                : const CReferenceArt(
+                                    CReferencePart.studyTogether,
+                                  ),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  gye.name,
+                                  style: tt.cardTitle.copyWith(
+                                    fontSize: 22,
+                                    color: CPalette.ink,
+                                  ),
+                                ),
+                                Text(
+                                  t.gyeMembersN(gye.memberCount),
+                                  style: body,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      )
+                    else ...[
+                      Text(
+                        gye.name,
+                        style: tt.cardTitle.copyWith(
+                          fontSize: 22,
+                          color: CPalette.ink,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(t.gyeMembersN(gye.memberCount), style: body),
+                    ],
+                    const SizedBox(height: 8),
+                    if (progress.hasWeeklyGoal) ...[
+                      Text(
+                        usesPromise
+                            ? switch (gye.weeklyPromiseId) {
+                                GyeWeeklyPromises.cafeOrder =>
+                                  t.gyePromiseCafeOrderTitle,
+                                GyeWeeklyPromises.directions =>
+                                  t.gyePromiseDirectionsTitle,
+                                GyeWeeklyPromises.selfIntroduction =>
+                                  t.gyePromiseSelfIntroductionTitle,
+                                _ => t.gyeWeeklyTitle,
+                              }
+                            : t.gyeWeeklyTitle,
+                        style: body,
+                      ),
+                      const SizedBox(height: 4),
+                      GyeWeeklyGoalProgress(
+                        meta: gye,
+                        maxLanternWidth: compact ? 40 : 76,
+                      ),
+                      const SizedBox(height: 8),
+                    ],
+                    CMaterialAction(
+                      label: t.gyeOpenCta,
+                      onTap: onTap,
+                      compact: compact,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
     return SoriCard(
       variant: SoriCardVariant.base,
       onTap: onTap,
@@ -601,15 +805,12 @@ class _GyeCard extends StatelessWidget {
                     style: tt.label,
                   ),
                   const SizedBox(height: Spacing.sm),
-                  SoriProgressMeter.bar(
-                    value: progress.weeklyFraction,
-                    label: '$goalDone / $goalTarget',
-                  ),
+                  GyeWeeklyGoalProgress(meta: gye),
                 ],
               ),
             ),
           AspectRatio(
-            aspectRatio: 16 / 7,
+            aspectRatio: GyeHanok.isComplete(gye) ? 1600 / 1700 : 16 / 7,
             child: kHanokWorldUpdating
                 ? Image.asset(
                     'assets/illustrations/hanok/estate_overview.webp',

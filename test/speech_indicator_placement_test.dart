@@ -7,6 +7,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
@@ -29,6 +30,9 @@ import 'package:ko_lernen_app/services/cloze_loader.dart';
 import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/cloze_prompt.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/grammar_c.dart';
+import 'package:ko_lernen_app/services/tts_service.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 
 import 'support/sori_speech_stubs.dart';
@@ -121,9 +125,12 @@ void main() {
       await Storage.setTutPackBossSeen();
     });
 
-    testWidgets('SoriSpeechIndicator 가 카드 좌상단에 있다', (tester) async {
+    testWidgets('the word audio is tappable below the flip card', (
+      tester,
+    ) async {
       stubSoriSpeech();
       _setViewport(tester);
+      tester.view.physicalSize = const Size(430, 932);
       const korean = '하나';
       final pack = VocabPack(
         id: 'a1_placement_1',
@@ -161,7 +168,13 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 300));
 
-      expectIndicatorAtCardTopLeft(tester, korean: korean);
+      final face = find.byType(FlipCard);
+      final audio = find.byType(SoriSpeechIndicator);
+      expect(audio.hitTestable(), findsOneWidget);
+      expect(
+        tester.getCenter(audio).dy,
+        greaterThan(tester.getCenter(face).dy),
+      );
       expect(tester.takeException(), isNull);
     });
   });
@@ -290,41 +303,85 @@ void main() {
       await DataLoader.loadGrammar();
     });
 
-    testWidgets('SoriSpeechIndicator 가 SoriContentFeed 좌상단에 있다', (
-      tester,
-    ) async {
-      stubSoriSpeech();
-      _setViewport(tester);
-      await tester.pumpWidget(
-        MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: AppTheme.light,
-          locale: const Locale('de'),
-          supportedLocales: AppL10n.supportedLocales,
-          localizationsDelegates: AppL10n.localizationsDelegates,
-          builder: (context, child) {
-            final media = MediaQuery.of(context);
-            return MediaQuery(
-              data: media.copyWith(disableAnimations: true),
-              child: child!,
-            );
-          },
-          home: const GrammarScreen(),
-        ),
-      );
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 300));
-      if (find
-          .byKey(const Key('grammar-plan-onboarding-sheet'))
-          .evaluate()
-          .isNotEmpty) {
-        await tester.tapAt(const Offset(8, 8));
+    testWidgets(
+      'C audio stays outside the card and exposes playback state and stop',
+      (tester) async {
+        final speech = stubSoriSpeech(completeSpeak: false);
+        _setViewport(tester);
+        await tester.pumpWidget(
+          MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: AppTheme.light,
+            locale: const Locale('de'),
+            supportedLocales: AppL10n.supportedLocales,
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            builder: (context, child) {
+              final media = MediaQuery.of(context);
+              return MediaQuery(
+                data: media.copyWith(disableAnimations: true),
+                child: child!,
+              );
+            },
+            home: const GrammarScreen(),
+          ),
+        );
+        await tester.pump();
         await tester.pump(const Duration(milliseconds: 300));
-      }
+        if (find
+            .byKey(const Key('grammar-plan-onboarding-sheet'))
+            .evaluate()
+            .isNotEmpty) {
+          await tester.tapAt(const Offset(8, 8));
+          await tester.pump(const Duration(milliseconds: 300));
+        }
 
-      expectIndicatorAtContentFeedTopLeft(tester);
-      expect(tester.takeException(), isNull);
-    });
+        final controls = find.byType(GrammarCStudyControls);
+        expect(controls, findsOneWidget);
+        expect(
+          find.descendant(of: find.byType(SoriContentFeed), matching: controls),
+          findsNothing,
+        );
+        expect(
+          tester.getRect(controls).top,
+          greaterThanOrEqualTo(
+            tester.getRect(find.byType(SoriContentFeed)).bottom,
+          ),
+        );
+        final audio = find
+            .descendant(of: controls, matching: find.byType(SoriButton))
+            .first;
+        final t = AppL10n.of(tester.element(controls));
+        expect(
+          tester.widget<SoriButton>(audio).semanticLabel,
+          '${t.contentLearningAudio}, ${t.speechIndicatorIdle}',
+        );
+        await tester.ensureVisible(audio);
+        await tester.pump();
+        expect(tester.getSize(audio).height, greaterThanOrEqualTo(48));
+        await tester.tap(audio);
+        await tester.pump();
+        expect(speech.spoken, [
+          tester.widget<GrammarCStudyControls>(controls).korean,
+        ]);
+        expect(
+          tester.widget<SoriButton>(audio).label,
+          t.speechIndicatorResolving,
+        );
+        SoriSpeech.phase.value = TtsSpeechPhase.speaking;
+        await tester.pump();
+        expect(
+          tester.widget<SoriButton>(audio).semanticLabel,
+          '${t.contentLearningAudio}, ${t.speechIndicatorSpeaking}',
+        );
+        await tester.tap(audio);
+        await tester.pump();
+        expect(speech.stops, 1);
+        speech.speakCompleter!.complete(true);
+        await tester.pump();
+        expect(tester.widget<SoriButton>(audio).label, t.contentLearningAudio);
+        expect(tester.takeException(), isNull);
+      },
+    );
   });
 
   group('smalltalk_screen 카드', () {
@@ -374,7 +431,9 @@ void main() {
       await Storage.init();
     });
 
-    testWidgets('SoriSpeechIndicator 가 카드 좌상단에 있다', (tester) async {
+    testWidgets('the model control is tappable below the phrase', (
+      tester,
+    ) async {
       stubSoriSpeech();
       _setViewport(tester);
       const phrase = PronunciationPhrase(
@@ -399,7 +458,13 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expectIndicatorAtCardTopLeft(tester, korean: phrase.ko);
+      final phraseText = find.text(phrase.ko);
+      final audio = find.byKey(const ValueKey('pronunciation-model-action'));
+      expect(audio.hitTestable(), findsOneWidget);
+      expect(
+        tester.getCenter(audio).dy,
+        greaterThan(tester.getCenter(phraseText).dy),
+      );
       expect(tester.takeException(), isNull);
     });
   });

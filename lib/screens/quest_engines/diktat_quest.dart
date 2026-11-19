@@ -6,6 +6,7 @@ import '../../models/scenario.dart';
 import '../../services/sound_service.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/speakable.dart';
+import '../../widgets/sori/scenario_c.dart';
 import '../../widgets/sori/text_field.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_content.dart';
@@ -461,6 +462,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
     final langCode = Localizations.localeOf(context).languageCode;
     final s = SoriSurfaces.of(context);
     final canCheck = _ctrl.text.trim().isNotEmpty;
+    final paper = ScenarioCTheme.of(context);
 
     Color fieldBorder = s.brightness == Brightness.light
         ? SoriColors.primary
@@ -495,42 +497,80 @@ class _DiktatQuestState extends State<DiktatQuest> {
         children: [
           Text(
             t.diktatInstruction,
-            style: SoriTextTheme.of(
-              context,
-            ).bodySmall.copyWith(color: s.textMuted),
+            style: paper
+                ? ScenarioC.body.copyWith(fontSize: 14)
+                : SoriTextTheme.of(
+                    context,
+                  ).bodySmall.copyWith(color: s.textMuted),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: Spacing.md),
 
           // Compact paired audio controls. The button owns tap haptics; the
           // automatic first playback above remains tactilely silent.
-          Row(
-            children: [
-              Expanded(
-                child: SoriButton.filled(
-                  key: const ValueKey('diktat-listen-normal'),
-                  label: t.questListenAudio,
-                  semanticLabel: t.questListenAudio,
-                  size: SoriButtonSize.lg,
-                  maxLines: 1,
-                  fullWidth: true,
-                  onTap: _playTts,
+          if (paper)
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ScenarioCFold(
+                    key: const ValueKey('diktat-listen-normal'),
+                    minHeight: 56,
+                    padding: const EdgeInsets.fromLTRB(16, 12, 16, 20),
+                    semanticLabel: t.questListenAudio,
+                    onTap: _playTts,
+                    child: Text(
+                      t.questListenAudio,
+                      textAlign: TextAlign.center,
+                      style: ScenarioC.body,
+                    ),
+                  ),
                 ),
-              ),
-              const SizedBox(width: Spacing.sm),
-              Expanded(
-                child: SoriButton.outlined(
-                  key: const ValueKey('diktat-listen-slow'),
-                  label: t.diktatListenSlow,
-                  semanticLabel: t.diktatListenSlow,
-                  size: SoriButtonSize.lg,
-                  maxLines: 1,
-                  fullWidth: true,
-                  onTap: _playSlow,
+                const SizedBox(width: 8),
+                Expanded(
+                  child: ScenarioCFold(
+                    key: const ValueKey('diktat-listen-slow'),
+                    minHeight: 56,
+                    padding: const EdgeInsets.fromLTRB(16, 12, 16, 20),
+                    semanticLabel: t.diktatListenSlow,
+                    onTap: _playSlow,
+                    child: Text(
+                      t.diktatListenSlow,
+                      textAlign: TextAlign.center,
+                      style: ScenarioC.body,
+                    ),
+                  ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            )
+          else
+            Row(
+              children: [
+                Expanded(
+                  child: SoriButton.filled(
+                    key: const ValueKey('diktat-listen-normal'),
+                    label: t.questListenAudio,
+                    semanticLabel: t.questListenAudio,
+                    size: SoriButtonSize.lg,
+                    maxLines: 1,
+                    fullWidth: true,
+                    onTap: _playTts,
+                  ),
+                ),
+                const SizedBox(width: Spacing.sm),
+                Expanded(
+                  child: SoriButton.outlined(
+                    key: const ValueKey('diktat-listen-slow'),
+                    label: t.diktatListenSlow,
+                    semanticLabel: t.diktatListenSlow,
+                    size: SoriButtonSize.lg,
+                    maxLines: 1,
+                    fullWidth: true,
+                    onTap: _playSlow,
+                  ),
+                ),
+              ],
+            ),
           const SizedBox(height: Spacing.xl),
 
           // Eingabefeld (Koreanisch).
@@ -542,6 +582,43 @@ class _DiktatQuestState extends State<DiktatQuest> {
               borderColor: fieldBorder,
               onAdd: _addToken,
               onRemove: _removeToken,
+            )
+          else if (paper)
+            ScenarioCFold(
+              accent: _feedback == _Feedback.none ? null : fieldBorder,
+              child: CustomPaint(
+                painter: const ScenarioCWritingLines(),
+                child: TextField(
+                  key: const ValueKey('diktat-answer-field'),
+                  controller: _ctrl,
+                  enabled: !_completed,
+                  autocorrect: false,
+                  enableSuggestions: false,
+                  minLines: 5,
+                  maxLines: 5,
+                  textInputAction: TextInputAction.done,
+                  onSubmitted: (_) => _check(),
+                  onChanged: (_) => setState(() {}),
+                  style: ScenarioC.korean.copyWith(
+                    fontSize: 21,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  decoration: InputDecoration(
+                    labelText: t.diktatAnswerLabel,
+                    hintText: '…',
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    labelStyle: ScenarioC.body,
+                    border: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    filled: false,
+                    contentPadding: const EdgeInsets.only(
+                      top: Spacing.lg,
+                      bottom: Spacing.sm,
+                    ),
+                  ),
+                ),
+              ),
             )
           else
             SoriTextField(

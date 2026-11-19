@@ -25,7 +25,7 @@ function request(id = "recording-12345678", seconds = 10, uid = "learner-1") {
   };
 }
 
-function harness({mode, seed = [], provider, now = "2026-09-03T12:00:00Z"} = {}) {
+function harness({mode, seed = [], provider, now = "2026-09-03T12:00:00Z", releaseEnabled = true} = {}) {
   const records = new Map([["service_cost_controls/ai_v1", {
     schemaVersion: 1, approvedBy: "Jin", approvalRef: "local-test-only", approvedAt: new Date(0),
     dailyUnitLimit: 10000, bookReservationUnits: 10, pronunciationReservationUnits: 2, ttsReservationUnits: 3,
@@ -82,6 +82,11 @@ function harness({mode, seed = [], provider, now = "2026-09-03T12:00:00Z"} = {})
       };
     },
     require(name) {
+      // Exercise the retained provider/receipt implementation independently of
+      // the production release lock. The release-policy test uses the real value.
+      if (name === "./assessment_release_policy") {
+        return {pronunciationAssessmentReleaseEnabled: releaseEnabled};
+      }
       if (name === "firebase-admin/app") {
         return {initializeApp() {}};
       }
@@ -127,6 +132,14 @@ function harness({mode, seed = [], provider, now = "2026-09-03T12:00:00Z"} = {})
   vm.runInNewContext(fs.readFileSync(path.join(__dirname, "..", "index.js"), "utf8"), context);
   return {assess: moduleStub.exports.assessPronunciation, calls, records};
 }
+
+test("subscription launch lock rejects even legacy F0 without any billable work", async () => {
+  const {pronunciationAssessmentReleaseEnabled} = require("../assessment_release_policy");
+  const app = harness({mode: "azure_f0", releaseEnabled: pronunciationAssessmentReleaseEnabled});
+  await assert.rejects(app.assess(request()), (error) =>
+    error.code === "unavailable" && error.details.state === "disabled");
+  assert.deepEqual(app.calls, {auth: 0, database: 0, reads: 0, writes: 0, provider: 0, secret: 0});
+});
 
 test("default and paid modes perform no auth, database, secret, or provider work", async () => {
   for (const mode of [undefined, "disabled", "azure_s0", "true", "AZURE_F0"]) {

@@ -1,0 +1,486 @@
+{
+  "status": "MODEL_STRUCTURAL_QA_PASS",
+  "checks": [
+    {
+      "name": "source six unit IDs exact",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "unique item IDs",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "6 units /91 items",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "P29 I31 R31",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "all assessment metadata",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "all teaching refs exist",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "all later probes exist",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "all item trilingual copy",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "all first help trilingual",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "word forms and senses explicit",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "no Korean literacy gate in common item control",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "all protected source bytes unchanged",
+      "pass_": true,
+      "detail": 76
+    },
+    {
+      "name": "15 grammar rows have concrete I/R",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "A1.1-02-I03 receptive only",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "A1.1-02-I04 receptive only",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "A1.1-05-I03 receptive only",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "CSV IDs match JSON",
+      "pass_": true,
+      "detail": null
+    }
+  ],
+  "counts": {
+    "units": 6,
+    "items": 91,
+    "phases": {
+      "P": 29,
+      "I": 31,
+      "R": 31
+    },
+    "grammar_rows": 15
+  },
+  "protected_source_check": [
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\assets\\data\\lernpfad_foundation.json",
+      "unchanged": true,
+      "current_sha256": "e24f08fb79a1518afb8d83088ad527f6e11cc00e199eba4effd4896c02fa6ce0"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\assets\\data\\lernpfad_v2.json",
+      "unchanged": true,
+      "current_sha256": "0f6090fdfd392e67bfd9e82152538f8b02e944887333b23fc7f7969050b20398"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\lib\\models\\lernpfad.dart",
+      "unchanged": true,
+      "current_sha256": "07946dc62b59bca6688632acaeadc3f0ef89bbbe4dcbedf25f8e76aa3dff2c12"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\lib\\screens\\foundation_lesson_screen.dart",
+      "unchanged": true,
+      "current_sha256": "297d725d67ab88b5709786a941c421dda97b6d110405ff662558913bd69290ab"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\lib\\screens\\lernpfad_screen.dart",
+      "unchanged": true,
+      "current_sha256": "a04d2d960308949a5792d9174f4268d2da24408016b16bc591a9b82b57bb36ea"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\lib\\services\\lernpfad_catalog.dart",
+      "unchanged": true,
+      "current_sha256": "d18e0e3a758631ed42294a116def9b931ca1d03f722868c999cede916d5f16db"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\lib\\l10n\\app_de.arb",
+      "unchanged": true,
+      "current_sha256": "2a94dd02f429423da2f3ee7039200fa6d3200a614ef7b2b684730e7e01e75be3"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\lib\\l10n\\app_en.arb",
+      "unchanged": true,
+      "current_sha256": "d8e938e89150ae0e1c3dfce4e17683640a6c3ce134997250083c763c435d4fb7"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\tool\\lernpfad_foundation_content.py",
+      "unchanged": true,
+      "current_sha256": "008eeb342721e130d6d3efc1daa201d73ab3ca89a423f733af6d96434dbacbba"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\FOUNDATION.psv",
+      "unchanged": true,
+      "current_sha256": "0d8ec0c9ec89060fd58df92c0ce71cf7b4d63454fef506eafe180386a2796c45"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-1-v35\\01_FIRST_SOUND.md",
+      "unchanged": true,
+      "current_sha256": "961bc75ab7241e89792f6ed260d7a7c55e17b07d5f6b56ce1502fddf32fe5f02"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-1-v35\\02_TWO_MORE_SOUNDS.md",
+      "unchanged": true,
+      "current_sha256": "39929134c15e440ce0aa3b79561b70e282b457725e52c20937225a6bec5ae09b"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-1-v35\\03_TWO_LINES.md",
+      "unchanged": true,
+      "current_sha256": "eded881ed0affe2e4eaeab6e27eb31dd7a45f59acb77b1122013ea85d5f67bdf"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-1-v35\\ITEM_BANK.csv",
+      "unchanged": true,
+      "current_sha256": "24d95b64171177c8c7f70820eadf84c8522836a68255cc0f57674e188a7f4cd2"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-1-v35\\README.md",
+      "unchanged": true,
+      "current_sha256": "f39cf6e56e0115e8095e1057a2485ddecade03e384f9ad0119316cbf0bd1aa74"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-1-v35\\SOURCE_AND_QA.json",
+      "unchanged": true,
+      "current_sha256": "2b4d852c16999bdb60ba94fbf1a80f0b513abe3fc181127765eb839804b5976c"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\01_FIRST_CONSONANTS.md",
+      "unchanged": true,
+      "current_sha256": "c8dd758d455da77543e02459411e50ece62cf7e941d85092dd9a50a79d27ae42"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\02_TOOL_LABEL.md",
+      "unchanged": true,
+      "current_sha256": "947630693b47471331001c24504766f15b89c6b63f7bdb1ca50b3837fcd0f1dc"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\03_FLOOR_REFERENCE.md",
+      "unchanged": true,
+      "current_sha256": "25eb043268285623f92a7224e02e5d3812a14e07a59ab5b845d3ff28c09e01d2"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\04_TWO_INITIALS.md",
+      "unchanged": true,
+      "current_sha256": "10bbba1b853787ff6b7335bb0b8ef6548053d76cafbc4b2f009d0ea362c4b12f"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\05_BREATH_AND_REPEAT.md",
+      "unchanged": true,
+      "current_sha256": "4501285d13c17cd05e4626d8a332251cf0102f8a0aedd80b72f51964663745c8"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\06_TREE_HAT_TIMBER.md",
+      "unchanged": true,
+      "current_sha256": "ac27b3c1963e666d0132eb58ae758d5cf0e5a7282bf2944c482f218fdff13dfa"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\07_PHOTO_CARDS_AND_LABELS.md",
+      "unchanged": true,
+      "current_sha256": "3c880d1dfed9372866ef4a9768f7a00c0a4c6a5bbf94ef9b738b1af1512923d7"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\AUTHORING_ITEMS.json",
+      "unchanged": true,
+      "current_sha256": "56a417c5cb40f621dca4bd336e5eb648bf6bc846d4bba97b3788bc743f183533"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\COMMON_COPY.md",
+      "unchanged": true,
+      "current_sha256": "079c400eebc545df0c47af09e56ac2d3c64d36c1885cb65e02b15b05da3d10eb"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\CONTENT_SOURCE.json",
+      "unchanged": true,
+      "current_sha256": "6ec95c32f6b1fc60abeec2614986d28da559bb8b7970cb8ee5c0b2a958c871f5"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\ITEM_BANK.csv",
+      "unchanged": true,
+      "current_sha256": "f2d9ec04f9f510d04a8ba4caf4daaddb5532a615a59fb3bb86838b8551efe266"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\MEDIA_BRIEFS.md",
+      "unchanged": true,
+      "current_sha256": "86ed0e6d722bacb817c4c9e3075db176888801a6d043746563d416953c9547d3"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\QA_REVIEW.md",
+      "unchanged": true,
+      "current_sha256": "0b59e5f72f0b1ff3969e1fdcc8f955ed1880905a659e92db7ec6d8df27f5ad9e"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\README.md",
+      "unchanged": true,
+      "current_sha256": "e891b83567da7b36efb3ae86f9218d5a11be27223da78a7f0813f27ddee86782"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\SOURCE_AND_QA.json",
+      "unchanged": true,
+      "current_sha256": "9633aa98380a5597f9902267987c0d8251792043d8d583ce798e967becd7ed18"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-2-v35\\WORD_CONTENT.json",
+      "unchanged": true,
+      "current_sha256": "5ebcd1283fbab721b9388dceeb43f0a3e9220ff3f7998a4e2acd0acea0b066ba"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\ELibrary\\Downloads\\한글소리_게임스토리\\1_v3_5.md",
+      "unchanged": true,
+      "current_sha256": "24ec73c1051da05702aac1d0257339cb10059d6cc4ea05cb5c7fb585deb64bcb"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\01_VERTICAL_BRANCHES.md",
+      "unchanged": true,
+      "current_sha256": "5e1619f062d9d56ad83b3ad985904e16fc886dc6c65de03745a567960159c79f"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\02_HORIZONTAL_BRANCHES.md",
+      "unchanged": true,
+      "current_sha256": "cf3ad0d50442a4027d8076f2de6bf8d040b2a4f44fc2429fd5a98e35a078bd1c"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\03_K_T_PAIRS.md",
+      "unchanged": true,
+      "current_sha256": "968255c9c3be63abbca278978be9e6bfea83fa707d1d7487d0337e2e35a08eec"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\04_P_CH_PAIRS.md",
+      "unchanged": true,
+      "current_sha256": "9824ed5ed3b839ed560d4c3db28d1dce4662b46114f777e7a911fbd4d000e07d"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\05_KK_TT_PAIRS.md",
+      "unchanged": true,
+      "current_sha256": "668d7dd004d11a2a04e3a99517d6db89b0729a745b8d1e671b69241c3802e73a"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\06_PP_SS_JJ.md",
+      "unchanged": true,
+      "current_sha256": "29b6c7e6fcb7e357d0f758617a9a4caa3c0ce836f024d184439b15018e240d42"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\07_AE_E_FORMS.md",
+      "unchanged": true,
+      "current_sha256": "8207662a4ee98baae4606d792b84d23415a43bd9f45ebd2d7dede26897e40f25"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\08_WA_WO.md",
+      "unchanged": true,
+      "current_sha256": "612fc6a881847fd280dd7b4710e48d993c63e36d57e0e2fd9a5d9e8477bd2759"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\09_WI_OE.md",
+      "unchanged": true,
+      "current_sha256": "a850a5ccf571f9c2c5c327471736221bfd35022c821a2dc075184941b9ffbe2e"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\10_FIRST_FINAL_LABELS.md",
+      "unchanged": true,
+      "current_sha256": "57ba41ad970b879be04d8c799ce2f2886e8d87fdb9eeac07c0e896d8a1633655"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\11_INITIAL_FINAL_NG_MAP.md",
+      "unchanged": true,
+      "current_sha256": "10f9d1cf6bd490f6e31d467d4191200e7bfc084e936c9ee4a0e1c701379959c8"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\AUTHORING_ITEMS.json",
+      "unchanged": true,
+      "current_sha256": "4fc07322162b0054eeb974c223a0209235812fa164763e7091473c3e1246a917"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\COMMON_COPY.md",
+      "unchanged": true,
+      "current_sha256": "352f5aa0f0423dae780f7da84c0007abfcaa409a6d1a5a24547242f2b77d1ab9"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\CONTENT_SOURCE.json",
+      "unchanged": true,
+      "current_sha256": "97c5d084343942141142a47a1f0fcc041437b44c1d78d50905ec2eb2926c95e5"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\ITEM_BANK.csv",
+      "unchanged": true,
+      "current_sha256": "95fc00d1bbf180ade653f48241467b85e9f6e843f4b2a8ad17b54525aae56a17"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\MEANINGS_AND_MEDIA.json",
+      "unchanged": true,
+      "current_sha256": "b16149dcb3ee0d75716e8ed386861577a3c2a0a272c9bd29247b350cb14fbb31"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\MEDIA_AND_SOURCES.md",
+      "unchanged": true,
+      "current_sha256": "b9b66c8d24c5d83ffebf9b7469bf6d7f8936af60832abee2c6b44f6e44562edb"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\QA_REVIEW.md",
+      "unchanged": true,
+      "current_sha256": "45c23d5b45ff10ea0cb3b23d16e019ebb6213d6165b923199f5d40618fa202b6"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\README.md",
+      "unchanged": true,
+      "current_sha256": "fea1bd28b3c21a869016d015aacaae3b80c395d129a5c265bec7c5497ac7a22d"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-3-v35\\SOURCE_AND_QA.json",
+      "unchanged": true,
+      "current_sha256": "4cff782901bde5f487aacf143e04697841395ee57443bb2ae50c009b76109988"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\01_CLOSED_FINALS.md",
+      "unchanged": true,
+      "current_sha256": "699c4c1a460b64f403bc1b2a693ff1fd272f9d8d97541bbc8102895de7e7d4a8"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\02_WAE_WE_FORMS.md",
+      "unchanged": true,
+      "current_sha256": "b5a492c2fde2a6ce2a2effa8f807545997d5a61932eba6bd014140a74eb57b06"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\03_YAE_YE_AND_YES.md",
+      "unchanged": true,
+      "current_sha256": "1efc5967cef9ddcdff76c5066a9561e57fdee961d535726cf225a7ab98e3f293"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\04_UI_AND_CHOSEN_REVIEW.md",
+      "unchanged": true,
+      "current_sha256": "2f7806ac078163a7adbba807c1e1933b3874c8dff7d9b5e8614de85f5395eb8f"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\05_LINKED_SOUNDS.md",
+      "unchanged": true,
+      "current_sha256": "086443a624e5b1e36e04e9567ba55b019430dd15864e8348895d4bc98e3b4d51"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\06_FIRST_NOTE_INPUT.md",
+      "unchanged": true,
+      "current_sha256": "59ec7e468ccc1af10efef3600c204b0b77072d33c1063cca521a77b3b29e720c"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\07_THIS_HOUSE_AND_REQUESTS.md",
+      "unchanged": true,
+      "current_sha256": "1d4382717b428ea1eccdf2eb66a0421dd03d06283de8b14001e33de9e7cc8d7d"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\AUTHORING_ITEMS.json",
+      "unchanged": true,
+      "current_sha256": "b72cd33926b1c32cb80f65412c75fcea6bf17af9f21334e2105ac0b3c9bef64f"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\COMMON_COPY.md",
+      "unchanged": true,
+      "current_sha256": "ed608dad4e49ec90c6f61933c951edad3e03ee0e622812a553155002145903f0"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\CONTENT_SOURCE.json",
+      "unchanged": true,
+      "current_sha256": "c69dce94e8ea29dd95deb0e1732f6927fff897d532487821377cc308c3a062f9"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\ITEM_BANK.csv",
+      "unchanged": true,
+      "current_sha256": "6cb4c68032f770a0ff59eaabce3c7264423fc1fd3ceab4509c786414ce891167"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\MEANINGS_AND_NOTE.json",
+      "unchanged": true,
+      "current_sha256": "f90ebc4e6425128defb8630ea4859111439e76f7cc1b1d0868e33904d42b9704"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\MEDIA_AND_CRITERIA.md",
+      "unchanged": true,
+      "current_sha256": "7f4d433200346347f473c89b566a013d1f2fdaba1f59ff00122312d24911fdf2"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\QA_REVIEW.md",
+      "unchanged": true,
+      "current_sha256": "4cd9298bb2457d6afad980d9a16c743d3e483f7059d5cc9fe4b6a8227e47436a"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\README.md",
+      "unchanged": true,
+      "current_sha256": "d90d86a5e9e2830c66e62bbb91181926e7837d7048d3fca7ffc5ceb71dbd2f2d"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\foundation-4-v35\\SOURCE_AND_QA.json",
+      "unchanged": true,
+      "current_sha256": "8133ba7eea7759b063b3df52e962311b7c96fbca0b5633fe2e7aa7cf321b412e"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\UNITS.psv",
+      "unchanged": true,
+      "current_sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\SUPPLEMENTS.psv",
+      "unchanged": true,
+      "current_sha256": "54c46ec0897502b57f4578cb9dd59390f4ab447d583cca52b5f8b13d65b7bec3"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\GRAMMAR_ALLOCATION.csv",
+      "unchanged": true,
+      "current_sha256": "85566f234a190abde20c4498d1b63df4680ef7947bf37d6e8be4c3bbbbe43c1a"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\ASSESSMENT_CONTRACT.md",
+      "unchanged": true,
+      "current_sha256": "0e0b6e9526191819e520381f2e9291e81e2c2809df3336cbaeff07521128f8f7"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\BAND_CONTRACTS.md",
+      "unchanged": true,
+      "current_sha256": "d69cd9e3911dde0205dc6cbcb08b3a69c3089a5faf884d6ba11c51b97a407344"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\COURSE_BINDINGS.psv",
+      "unchanged": true,
+      "current_sha256": "9fc235f7287834932ee7f0c15dfde5f1036a26d0db6ba3be0cfb45a62640df7d"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\curriculum\\FIRST_PRODUCTION_PACK.md",
+      "unchanged": true,
+      "current_sha256": "91a2aac62ddab82e8092cf51a2f0b83305377f57ead1f3af4043f68b1761f17f"
+    }
+  ],
+  "limitations": [
+    "structural checks only, not linguistic or human approval",
+    "audio, image, timing, learner performance and runtime unverified"
+  ]
+}

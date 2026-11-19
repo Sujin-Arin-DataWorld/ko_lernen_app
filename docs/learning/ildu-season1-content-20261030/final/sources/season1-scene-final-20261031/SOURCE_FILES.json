@@ -1,0 +1,22 @@
+[
+  {
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-451c0b11-343f-4c03-b351-a12fb47ce3a6.png",
+    "copy": "inputs/book-background-plate.png",
+    "sha256": "fbb3b4e24f1a754cd8edd7f0a8a1f6ab555dd432a3c6078b1e934598fb6c6c24"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a18406-245e-7570-9379-62120de745d6\\exec-0f3acd56-4bc8-4231-a043-66219cc3e7eb.png",
+    "copy": "inputs/gate-empty-background-plate.png",
+    "sha256": "ea66946b4af3ffec9594b267f35030b08aeeeed042faafc12088756e57a83f28"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-r16-source-update-20261031\\references\\jung-stage06-original.webp",
+    "copy": "inputs/jung-stage06-original.webp",
+    "sha256": "235db45c7b1fbc12d26ded670107514a5ca22dfe2663e96b95ea33666db7506a"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\1.도깨비다른포즈.png",
+    "copy": "inputs/dokkaebi-original.png",
+    "sha256": "2e1c3fd6f47b0930233c70a7b9e2f93dd2d374d404136e28480dd4ddc74b8202"
+  }
+]

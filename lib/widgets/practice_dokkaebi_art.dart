@@ -27,12 +27,15 @@ class PracticeDokkaebiArt extends StatelessWidget {
     cacheWidth: 512,
     gaplessPlayback: true,
     excludeFromSemantics: true,
-    errorBuilder: (_, __, ___) => Image.asset(
-      'assets/illustrations/tactile/dokkaebi.png',
-      fit: BoxFit.contain,
-      cacheWidth: 512,
-      gaplessPlayback: true,
-      excludeFromSemantics: true,
-    ),
+    errorBuilder: (_, __, ___) => pose == PracticeDokkaebiPose.ready
+        ? const SizedBox.shrink()
+        : Image.asset(
+            PracticeDokkaebiPose.ready.asset,
+            fit: BoxFit.contain,
+            cacheWidth: 512,
+            gaplessPlayback: true,
+            excludeFromSemantics: true,
+            errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+          ),
   );
 }

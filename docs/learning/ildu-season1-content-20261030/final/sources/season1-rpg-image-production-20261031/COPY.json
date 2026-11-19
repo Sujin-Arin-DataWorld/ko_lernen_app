@@ -1,0 +1,182 @@
+[
+  {
+    "id": "S01",
+    "title": {"en": "Your story name", "de": "Dein Name in der Geschichte"},
+    "speaker": "Sujin",
+    "dialogue": {"en": "What name would you like me to call you?", "de": "Wie soll ich dich nennen?"},
+    "primary": {"en": "Begin as Mira", "de": "Als Mira beginnen"},
+    "secondary": {"en": "Use a default name", "de": "Standardnamen nutzen"},
+    "note": {"en": "Sample name: Mira", "de": "Beispielname: Mira"}
+  },
+  {
+    "id": "S02",
+    "title": {"en": "By the old reading desk", "de": "Am alten Lesetisch"},
+    "speaker": "Sujin",
+    "dialogue": {"en": "Mira, Joy is looking around the old reading desk. Shall we go over?", "de": "Mira, Joy schaut sich am alten Lesetisch um. Gehen wir hin?"},
+    "primary": {"en": "Take a closer look", "de": "Näher ansehen"},
+    "secondary": {"en": "Listen again", "de": "Noch einmal hören"},
+    "note": {"en": "Story excerpt · The first book", "de": "Szenenausschnitt · Das erste Buch"}
+  },
+  {
+    "id": "S03",
+    "title": {"en": "The first page", "de": "Die erste Seite"},
+    "speaker": "Sujin",
+    "dialogue": {"en": "Joy found a book. Shall we open the first page together?", "de": "Joy hat ein Buch gefunden. Wollen wir gemeinsam die erste Seite aufschlagen?"},
+    "primary": {"en": "Open the book", "de": "Buch aufschlagen"},
+    "secondary": {"en": "Listen again", "de": "Noch einmal hören"},
+    "note": {"en": "", "de": ""}
+  },
+  {
+    "id": "S04",
+    "title": {"en": "A half-remembered voice", "de": "Eine ferne Erinnerung"},
+    "speaker": "Dokkaebi",
+    "dialogue": {"en": "I seem to remember a noisy nagging voice coming from this book…", "de": "Aus dem Buch kam doch früher die Stimme eines lauten Nörglers …"},
+    "primary": {"en": "A voice?", "de": "Eine Stimme?"},
+    "secondary": {"en": "Listen again", "de": "Noch einmal hören"},
+    "note": {"en": "", "de": ""}
+  },
+  {
+    "id": "S05",
+    "title": {"en": "Sujin's example", "de": "Sujins Beispiel"},
+    "speaker": "Sujin",
+    "dialogue": {"en": "Here, ㅇ is silent. Put ㅇ on the left and ㅏ on the right. Together they make 아.", "de": "Hier ist ㅇ stumm. Setze ㅇ nach links und ㅏ nach rechts. Zusammen bilden sie 아."},
+    "primary": {"en": "Let me try", "de": "Ich probiere es"},
+    "secondary": {"en": "Hear 아", "de": "아 anhören"},
+    "note": {"en": "Practise with the example", "de": "Üben mit Vorlage"}
+  },
+  {
+    "id": "S06",
+    "title": {"en": "Your turn with the pieces", "de": "Jetzt bist du dran"},
+    "speaker": "Sujin",
+    "dialogue": {"en": "Place ㅏ beside ㅇ, on the right.", "de": "Lege ㅏ rechts neben ㅇ."},
+    "primary": {"en": "Place ㅏ", "de": "ㅏ einsetzen"},
+    "secondary": {"en": "Show me", "de": "Zeig es mir"},
+    "note": {"en": "Tap the piece, then its place.", "de": "Tippe erst auf das Teil, dann auf seinen Platz."}
+  },
+  {
+    "id": "S07",
+    "title": {"en": "The first character returns", "de": "Das erste Zeichen lebt wieder"},
+    "speaker": "Sujin",
+    "dialogue": {"en": "The two pieces now form one syllable block.", "de": "Die beiden Teile bilden jetzt einen Silbenblock."},
+    "primary": {"en": "Read the first sound", "de": "Den ersten Laut lesen"},
+    "secondary": {"en": "Hear 아", "de": "아 anhören"},
+    "note": {"en": "Restored with Sujin's help", "de": "Mit Sujins Hilfe zusammengesetzt"}
+  },
+  {
+    "id": "S08",
+    "title": {"en": "Read it your way", "de": "So, wie es für dich passt"},
+    "speaker": "Sujin",
+    "dialogue": {"en": "You can read 아 yourself, or we'll read it together. You can continue without speaking aloud.", "de": "Du kannst 아 selbst lesen oder mit mir zusammen. Auch ohne laut zu sprechen geht die Geschichte weiter."},
+    "primary": {"en": "Read it myself", "de": "Selbst lesen"},
+    "secondary": {"en": "Read together", "de": "Gemeinsam lesen"},
+    "note": {"en": "Speaking aloud is optional.", "de": "Laut mitsprechen ist freiwillig."}
+  },
+  {
+    "id": "S09",
+    "title": {"en": "Mira reads the first sound", "de": "Mira liest den ersten Laut"},
+    "speaker": "Mira",
+    "dialogue": {"en": "…아!", "de": "…아!"},
+    "primary": {"en": "Continue", "de": "Weiter"},
+    "secondary": {"en": "Hear 아", "de": "아 anhören"},
+    "note": {"en": "A line from your character", "de": "Eine Zeile deiner Figur"}
+  },
+  {
+    "id": "S10",
+    "title": {"en": "A voice from the book", "de": "Eine Stimme aus dem Buch"},
+    "speaker": "TalSunbi",
+    "dialogue": {"en": "Ha ha! At last, a new learner who understands how the letters work and can read the first sound!", "de": "Haha! Endlich ist jemand da, der versteht, wie die Zeichen funktionieren, und den ersten Laut lesen kann!"},
+    "primary": {"en": "Continue", "de": "Weiter"},
+    "secondary": {"en": "Skip animation", "de": "Animation überspringen"},
+    "note": {"en": "", "de": ""}
+  },
+  {
+    "id": "S11",
+    "title": {"en": "An old friend returns", "de": "Ein alter Freund kehrt zurück"},
+    "speaker": "Dokkaebi",
+    "dialogue": {"en": "…TalSunbi?", "de": "…TalSunbi?"},
+    "primary": {"en": "Continue", "de": "Weiter"},
+    "secondary": {"en": "Listen again", "de": "Noch einmal hören"},
+    "note": {"en": "", "de": ""}
+  },
+  {
+    "id": "S12",
+    "title": {"en": "Welcome, Mira", "de": "Willkommen, Mira"},
+    "speaker": "TalSunbi",
+    "dialogue": {"en": "Ha ha, sound comes first; letters are the clothes it wears. Now, Mira, let's begin with the first character and take it step by step.", "de": "Haha, zuerst kommt der Laut; die Schrift ist sein Gewand. Nun, Mira, sehen wir uns das erste Zeichen Schritt für Schritt an."},
+    "primary": {"en": "Continue with TalSunbi", "de": "Mit TalSunbi weiterlernen"},
+    "secondary": {"en": "Read the conversation", "de": "Gespräch nachlesen"},
+    "note": {"en": "", "de": ""}
+  },
+  {
+    "id": "A01",
+    "title": {"en": "Your story name", "de": "Dein Name in der Geschichte"},
+    "speaker": "Sujin",
+    "dialogue": {"en": "Mira. Is that what you'd like me to call you?", "de": "Mira. Soll ich dich so nennen?"},
+    "primary": {"en": "Use Mira", "de": "Mira übernehmen"},
+    "secondary": {"en": "Use a default name", "de": "Standardnamen nutzen"},
+    "note": {"en": "Sample name: Mira", "de": "Beispielname: Mira"}
+  },
+  {
+    "id": "A02",
+    "title": {"en": "Let's place them together", "de": "Gemeinsam zusammensetzen"},
+    "speaker": "Sujin",
+    "dialogue": {"en": "Put ㅇ on the left and ㅏ on the right. Shall we try together?", "de": "Setze ㅇ nach links und ㅏ nach rechts. Versuchen wir es gemeinsam?"},
+    "primary": {"en": "Try with the example", "de": "Mit Vorlage versuchen"},
+    "secondary": {"en": "Show me again", "de": "Noch einmal zeigen"},
+    "note": {"en": "Practise with the example", "de": "Üben mit Vorlage"}
+  },
+  {
+    "id": "A03",
+    "title": {"en": "Where the pieces go", "de": "Wo die Teile hingehören"},
+    "speaker": "Sujin",
+    "dialogue": {"en": "ㅇ goes on the left, ㅏ on the right. Let's look at their places together.", "de": "Links steht ㅇ, rechts ㅏ. Sehen wir uns die Plätze gemeinsam an."},
+    "primary": {"en": "Move ㅏ to the right", "de": "ㅏ nach rechts setzen"},
+    "secondary": {"en": "Show me", "de": "Zeig es mir"},
+    "note": {"en": "", "de": ""}
+  },
+  {
+    "id": "A04",
+    "title": {"en": "Continue without sound", "de": "Ohne Ton weiterlesen"},
+    "speaker": "Sujin",
+    "dialogue": {"en": "The sound isn't available right now. We can continue with the written line.", "de": "Der Ton ist gerade nicht verfügbar. Wir können mit dem Text weiterlesen."},
+    "primary": {"en": "Continue with text", "de": "Mit Text weiterlesen"},
+    "secondary": {"en": "Audio unavailable", "de": "Ton nicht verfügbar"},
+    "note": {"en": "", "de": ""}
+  },
+  {
+    "id": "A05",
+    "title": {"en": "Take a break?", "de": "Eine Pause machen?"},
+    "speaker": "",
+    "dialogue": {"en": "Your place in the story and the pieces on the page will be kept.", "de": "Deine Stelle in der Geschichte und die Teile auf der Seite bleiben erhalten."},
+    "primary": {"en": "Leave for now", "de": "Für jetzt beenden"},
+    "secondary": {"en": "Stay here", "de": "Hierbleiben"},
+    "note": {"en": "", "de": ""}
+  },
+  {
+    "id": "A06",
+    "title": {"en": "Back to the book", "de": "Zurück zum Buch"},
+    "speaker": "Sujin",
+    "dialogue": {"en": "Welcome back, Mira. ㅇ is still in place. Let's put ㅏ beside it.", "de": "Willkommen zurück, Mira. ㅇ liegt noch an seinem Platz. Setzen wir ㅏ daneben."},
+    "primary": {"en": "Continue placing ㅏ", "de": "ㅏ einsetzen"},
+    "secondary": {"en": "Show the example", "de": "Vorlage ansehen"},
+    "note": {"en": "Practise with the example", "de": "Üben mit Vorlage"}
+  },
+  {
+    "id": "A07",
+    "title": {"en": "Conversation so far", "de": "Bisheriges Gespräch"},
+    "speaker": "TalSunbi",
+    "dialogue": {"en": "…The house has grown so old. Were you… here alone the whole time I was asleep? …You must have been very lonely.", "de": "…Das Haus ist sehr verfallen. Warst du … die ganze Zeit hier allein, während ich geschlafen habe? …Du musst sehr einsam gewesen sein."},
+    "primary": {"en": "Back to the story", "de": "Zurück zur Geschichte"},
+    "secondary": {"en": "Replay this scene", "de": "Szene erneut ansehen"},
+    "note": {"en": "", "de": ""}
+  },
+  {
+    "id": "A08",
+    "title": {"en": "TalSunbi is awake", "de": "TalSunbi ist wach"},
+    "speaker": "TalSunbi",
+    "dialogue": {"en": "Ha ha! At last, a new learner who understands how the letters work and can read the first sound!", "de": "Haha! Endlich ist jemand da, der versteht, wie die Zeichen funktionieren, und den ersten Laut lesen kann!"},
+    "primary": {"en": "Continue", "de": "Weiter"},
+    "secondary": {"en": "Replay as stills", "de": "Standbilder erneut ansehen"},
+    "note": {"en": "Reduced motion", "de": "Bewegung reduziert"}
+  }
+]

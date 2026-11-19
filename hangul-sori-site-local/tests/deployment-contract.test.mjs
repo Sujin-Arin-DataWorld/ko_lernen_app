@@ -90,11 +90,19 @@ test("deploys the GitHub-tracked source directly to the production Worker", () =
   assert.match(workerSource, /x-hangul-sori-release/);
 });
 
+test("explicitly approves the installer versions resolved by the lockfile", () => {
+  const resolved = JSON.parse(packageLock).packages;
+  for (const name of ["esbuild", "unrs-resolver", "workerd"]) {
+    const version = resolved[`node_modules/${name}`].version;
+    assert.equal(packageJson.allowScripts[`${name}@${version}`], true, `${name}@${version}`);
+  }
+});
+
 test("keeps all quality gates and deployment in one command", () => {
   assert.deepEqual(packageJson.allowScripts, {
-    "esbuild@0.28.1": true,
+    "esbuild@0.28.2": true,
     "unrs-resolver@1.11.1": true,
-    "workerd@1.20260926.1": true,
+    "workerd@1.20261023.1": true,
   });
   assert.equal(
     packageJson.scripts.deploy,

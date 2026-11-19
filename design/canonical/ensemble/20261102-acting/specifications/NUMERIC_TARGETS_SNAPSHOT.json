@@ -1,0 +1,357 @@
+{
+  "schema": "hangulsori/illustration-numeric-snapshot/1",
+  "profile_sha256": "22ad4b5796fefd354d65e414aafc9aa14dcecd38f7d94fe905ac514aa4c49427",
+  "source": "../CHARACTER_LOCK.json",
+  "values_are_existing_approved_targets_not_raster_measurements": true,
+  "rows": [
+    {
+      "source_pointer": "/characters/sujin/barefoot_crown_height_cm",
+      "value": 160,
+      "unit": "cm",
+      "status": "USER_CONFIRMED",
+      "definition": ""
+    },
+    {
+      "source_pointer": "/characters/sujin/body/head_height",
+      "value": 30.8,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "crown to chin"
+    },
+    {
+      "source_pointer": "/characters/sujin/body/shoulder_width",
+      "value": 36,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "outer shoulder to outer shoulder in neutral front view"
+    },
+    {
+      "source_pointer": "/characters/sujin/body/upper_arm",
+      "value": 24,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "shoulder joint to elbow"
+    },
+    {
+      "source_pointer": "/characters/sujin/body/forearm",
+      "value": 22,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "elbow to wrist"
+    },
+    {
+      "source_pointer": "/characters/sujin/body/hand",
+      "value": 15,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "wrist to longest fingertip"
+    },
+    {
+      "source_pointer": "/characters/sujin/body/arm_span",
+      "value": 158,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "36 + 2*(24+22+15), neutral T pose target"
+    },
+    {
+      "source_pointer": "/characters/sujin/body/inseam_to_ground",
+      "value": 78,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "crotch to barefoot ground"
+    },
+    {
+      "source_pointer": "/characters/sujin/body/shoe_outsole_length",
+      "value": 23,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "shoe outside length; does not change height anchor"
+    },
+    {
+      "source_pointer": "/characters/talsunbi/body/height",
+      "value": 170,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "barefoot crown height"
+    },
+    {
+      "source_pointer": "/characters/talsunbi/body/head_height",
+      "value": 32.1,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "crown to chin"
+    },
+    {
+      "source_pointer": "/characters/talsunbi/body/shoulder_width",
+      "value": 40,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "neutral front view"
+    },
+    {
+      "source_pointer": "/characters/talsunbi/body/upper_arm",
+      "value": 26,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "shoulder to elbow"
+    },
+    {
+      "source_pointer": "/characters/talsunbi/body/forearm",
+      "value": 23,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "elbow to wrist"
+    },
+    {
+      "source_pointer": "/characters/talsunbi/body/hand",
+      "value": 16.5,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "wrist to fingertip"
+    },
+    {
+      "source_pointer": "/characters/talsunbi/body/arm_span",
+      "value": 171,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "40 + 2*(26+23+16.5)"
+    },
+    {
+      "source_pointer": "/characters/talsunbi/body/inseam_to_ground",
+      "value": 78,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "crotch to barefoot ground"
+    },
+    {
+      "source_pointer": "/characters/talsunbi/body/gat_brim_diameter",
+      "value": 50,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "prop diameter"
+    },
+    {
+      "source_pointer": "/characters/talsunbi/body/gat_added_height",
+      "value": 20,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "highest hat point above anatomical crown"
+    },
+    {
+      "source_pointer": "/characters/talsunbi/body/mask_height",
+      "value": 26,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "visible wooden face prop height"
+    },
+    {
+      "source_pointer": "/characters/dokkaebi/body/height",
+      "value": 120,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "barefoot anatomical crown, excludes topknot/horns"
+    },
+    {
+      "source_pointer": "/characters/dokkaebi/body/head_height",
+      "value": 33.3,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "crown to chin"
+    },
+    {
+      "source_pointer": "/characters/dokkaebi/body/shoulder_width",
+      "value": 39,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "neutral front shoulder span"
+    },
+    {
+      "source_pointer": "/characters/dokkaebi/body/upper_arm",
+      "value": 19,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "shoulder to elbow"
+    },
+    {
+      "source_pointer": "/characters/dokkaebi/body/forearm",
+      "value": 16,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "elbow to wrist"
+    },
+    {
+      "source_pointer": "/characters/dokkaebi/body/hand",
+      "value": 12.5,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "wrist to fingertip"
+    },
+    {
+      "source_pointer": "/characters/dokkaebi/body/arm_span",
+      "value": 134,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "39 + 2*(19+16+12.5)"
+    },
+    {
+      "source_pointer": "/characters/dokkaebi/body/inseam_to_ground",
+      "value": 51,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "crotch to barefoot ground"
+    },
+    {
+      "source_pointer": "/characters/dokkaebi/body/topknot_added_height",
+      "value": 18,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "highest tied hair point above crown"
+    },
+    {
+      "source_pointer": "/characters/dokkaebi/body/horn_length",
+      "value": 6,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "each horn base to tip, not added to topknot height"
+    },
+    {
+      "source_pointer": "/characters/yeoni_age08/body/height",
+      "value": 110,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "barefoot crown"
+    },
+    {
+      "source_pointer": "/characters/yeoni_age08/body/head_height",
+      "value": 28.9,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "crown to chin"
+    },
+    {
+      "source_pointer": "/characters/yeoni_age12/body/height",
+      "value": 132,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "barefoot crown"
+    },
+    {
+      "source_pointer": "/characters/yeoni_age12/body/head_height",
+      "value": 29.3,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "crown to chin"
+    },
+    {
+      "source_pointer": "/characters/joy/base_body/standing_height",
+      "value": 40,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "feet to crown, excludes gat and display block"
+    },
+    {
+      "source_pointer": "/characters/joy/base_body/trunk_length",
+      "value": 24,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "shoulder to rump"
+    },
+    {
+      "source_pointer": "/characters/joy/base_body/folded_wing_length",
+      "value": 40,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "neutral side projected root to primary tip"
+    },
+    {
+      "source_pointer": "/characters/joy/base_body/extended_wing_length",
+      "value": 60,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "spread root to primary tip"
+    },
+    {
+      "source_pointer": "/characters/joy/base_body/wingspan",
+      "value": 128,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "full tip to tip"
+    },
+    {
+      "source_pointer": "/characters/joy/base_body/tail_length",
+      "value": 54,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "rump to longest tail tip"
+    },
+    {
+      "source_pointer": "/characters/joy/base_body/gat_added_height",
+      "value": 10,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "hat above anatomical crown"
+    },
+    {
+      "source_pointer": "/characters/joy/divine_scale",
+      "value": 2.5,
+      "unit": "scale",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "uniform body scale only; do not change wing/tail ratios. Aura bounds excluded"
+    },
+    {
+      "source_pointer": "/characters/taego/base_body/withers_height",
+      "value": 80,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "ground to shoulder"
+    },
+    {
+      "source_pointer": "/characters/taego/base_body/nose_to_rump_length",
+      "value": 120,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "neutral side, excludes tail"
+    },
+    {
+      "source_pointer": "/characters/taego/base_body/tail_length",
+      "value": 85,
+      "unit": "cm",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "rump to tail tip"
+    },
+    {
+      "source_pointer": "/characters/taego/divine_scale",
+      "value": 2.25,
+      "unit": "scale",
+      "status": "USER_APPROVED_DESIGN_TARGET",
+      "definition": "uniform whole-body scale; preserve adult anatomy and face. Aura excluded"
+    }
+  ],
+  "counts": {
+    "sujin": {},
+    "talsunbi": {},
+    "dokkaebi": {
+      "horns": 2,
+      "arms": 2,
+      "legs": 2
+    },
+    "yeoni_age08": {},
+    "yeoni_age12": {},
+    "joy": {
+      "wings": 2,
+      "legs": 2,
+      "tails": 1,
+      "emblem_curls": 3
+    },
+    "taego": {
+      "legs": 4,
+      "tails": 1,
+      "emblem_curls": 3
+    }
+  },
+  "future_calibrated_QA_targets_not_current_PNG_results": {
+    "body_target_tolerance_percent": 2,
+    "proportion_target_tolerance_percent": 3,
+    "note": "proposed future calibrated model QA tolerances, NOT validated accuracy of generated PNGs"
+  }
+}

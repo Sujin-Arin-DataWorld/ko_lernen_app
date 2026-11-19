@@ -1,0 +1,11 @@
+{
+  "id": "TAEGO-R21b-ANATOMY-03",
+  "type": "precise-object-edit",
+  "refs": [
+    "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-73122e9b-b4db-45d5-a75c-ac351a44336d.png"
+  ],
+  "reviewer": "/root/character_design_guard",
+  "status": "PREFLIGHT_PASS_PADDING_ONLY",
+  "transparent": true,
+  "prompt": "Use case: precise-object-edit.\nEDIT TARGET: image 1, one full-body Taego tiger cutout. Change ONLY the framing and transparency. Preserve the exact current identity, expression, adult feline proportions, directional fur, stripe pattern, one left-chest teal/gold three-curl badge, FOUR existing legs, FOUR existing paws and ONE complete tail. Do not redesign or re-pose the tiger.\nUniformly reduce the ENTIRE tiger inside the same landscape 3:2 canvas. Target subject height 70–74% of canvas, width proportional to its unchanged aspect ratio. Center the bounding box of ALL nonzero-alpha pixels, including whiskers and faint residual pixels. Leave at least 10% of the canvas completely transparent on EVERY side. The entire subject including whiskers must sit comfortably inside those margins. Keep all four legs and four paws separately readable.\nRemove all background/haze pixels and do not create new shadows, glow, floor, halos, scenery, text, outlines or checkerboard. Produce actual RGBA transparency, not a black or brown background. Preserve the subject itself and its natural fine fur edges. Single tiger, one pose, no sheet."
+}

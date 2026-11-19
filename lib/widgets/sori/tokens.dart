@@ -20,6 +20,18 @@ import 'package:flutter/material.dart';
 // SPACING — 8px-grid (modular scale)
 // ─────────────────────────────────────────────────────────────────────────
 class Spacing {
+  static const double hairline = 2;
+  static const double micro = 3;
+  static const double dense = 5;
+  static const double compact = 6;
+  static const double tight = 7;
+  static const double control = 10;
+  static const double inset = 14;
+  static const double comfortable = 18;
+  static const double content = 20;
+  static const double between = 23;
+  static const double section = 27;
+
   static const double xs = 4; // 컴포넌트 내부 미세 간격
   static const double sm = 8; // 작은 갭
   static const double md = 12; // 중간 갭
@@ -55,8 +67,15 @@ class SoriBreakpoints {
   /// into an unreadably narrow side-by-side column.
   static const double missionHeaderStack = 280;
 
+  /// Owned Hanok art and its progress summary need a full-width stack here.
+  static const double hanokSummaryStack = 280;
+
   /// Deck judgment labels become full-width rows at this component width.
   static const double contentActionStack = 320;
+
+  /// Einleitung purpose cards and listening controls stack at enlarged text
+  /// sizes below this content width, preserving the approved phone layout.
+  static const double introAccessibleStack = 340;
 
   /// Very narrow phone content where two comparison panels must stack.
   static const double narrowPhone = 360;
@@ -191,6 +210,18 @@ double soriComfortScale(double width) {
 // RADIUS — round corners scale
 // ─────────────────────────────────────────────────────────────────────────
 class SoriRadius {
+  // Approved Today treasure tray: frame, inset, clipping and action surface.
+  static const double todayTreasure = 18;
+  static const double todayTreasureInset = 14;
+  static const double todayTreasureClip = 13;
+  static const double todayTreasureAction = 22;
+  static const double c5Tile = 9;
+  static const double c5DetailAction = 10;
+  static const double hairline = 2;
+  static const double micro = 3;
+  static const double xxs = 4;
+  static const double tight = 7;
+  static const double ctrl = 11;
   static const double xs = 8;
   static const double sm = 12;
   static const double md = 16; // default card
@@ -575,10 +606,10 @@ class SoriMotion {
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// TEXT — Noto Sans KR(KO/EN/DE) 중앙 TextStyle 토큰
+// TEXT — locale-aware interface roles and explicit Korean learning roles
 // ─────────────────────────────────────────────────────────────────────────
 /// 앱 폰트 패밀리 상수 — 역할로만 선택한다.
-/// - [sans] Noto Sans KR: KO/DE/EN UI와 학습 문장의 공용 폰트.
+/// - [sans] Noto Sans KR: 한국어와 학습 문장의 공용 폰트.
 /// - [korean] Noto Sans KR: 한국어 학습 글자와 문화 제목.
 ///
 /// **2026-08-19 교체**: 이전 PretendardStd 는 라틴 전용 서브셋이라 한글 글리프가
@@ -598,10 +629,46 @@ class SoriFonts {
   static const String learningKorean = korean;
   static const String culture = korean;
 
-  /// Distinctive interface lettering; learning copy always uses [sans].
-  /// All bundled faces cover Korean, German and English without OS fallback.
+  /// Legacy interface face for consumers not yet using [SoriLocaleFonts].
+  /// It covers Korean, German and English without OS fallback.
   static const String interface = 'Paperlogy';
   static const List<String> fallback = [];
+}
+
+/// User-selected Latin typography. Korean lesson roles remain [SoriFonts].
+/// Belgrano ships only Regular; never request a synthetic bold for headings.
+class SoriLocaleFonts {
+  const SoriLocaleFonts._(this.heading, this.body, this.headingWeight);
+
+  static const english = SoriLocaleFonts._(
+    'Chubbo',
+    'Supreme',
+    FontWeight.w700,
+  );
+  static const german = SoriLocaleFonts._(
+    'Belgrano',
+    'EncodeSansCondensed',
+    FontWeight.w400,
+  );
+  static const fallback = [SoriFonts.korean];
+
+  final String heading;
+  final String body;
+  final FontWeight headingWeight;
+
+  /// Unsupported locales follow AppL10n's first supported language, German.
+  static SoriLocaleFonts forLocale(Locale locale) =>
+      locale.languageCode == 'en' ? english : german;
+
+  static SoriLocaleFonts of(BuildContext context) =>
+      forLocale(Localizations.maybeLocaleOf(context) ?? const Locale('de'));
+
+  /// Supreme has actual 400/500/700 faces; 600 emphasis uses its actual Bold.
+  /// Encode Sans Condensed includes a true SemiBold face.
+  FontWeight bodyWeight(FontWeight requested) =>
+      this == english && requested == FontWeight.w600
+      ? FontWeight.w700
+      : requested;
 }
 
 /// Context-free type spec — size/weight/letterSpacing/height만, 색·family
@@ -652,24 +719,30 @@ class SoriTypeSpecs {
 /// 색은 surface 기반 — `s.text` (default), `s.textMuted`, `s.textDim`.
 /// 사이즈·weight·letter-spacing·height 만 중앙화.
 ///
-/// 위계는 기본 Regular(400), 제목 Medium(500), 주요 행동 SemiBold(600)
-/// 중심으로 만든다. 한글은 같은 스타일의 Noto Sans KR 폴백으로 그린다.
+/// DE headings use Belgrano Regular; EN headings use Chubbo Bold. Body copy
+/// defaults to Regular, with actual bundled faces for control emphasis.
+/// Korean learning styles keep Noto Sans KR; mixed UI copy falls back to it.
 class SoriTextTheme {
   final SoriSurfaces _s;
+  final SoriLocaleFonts _fonts;
 
-  const SoriTextTheme._(this._s);
+  const SoriTextTheme._(this._s, this._fonts);
 
   /// Context-free constructor for consumers that already hold a
   /// [SoriSurfaces] (e.g. `AppTheme._buildTextTheme`) — single source so
   /// the Material [TextTheme] can't drift from [SoriTextTheme] (§A4).
-  const SoriTextTheme.forSurfaces(SoriSurfaces s) : this._(s);
+  const SoriTextTheme.forSurfaces(
+    SoriSurfaces s, {
+    SoriLocaleFonts fonts = SoriLocaleFonts.german,
+  }) : this._(s, fonts);
 
   static SoriTextTheme of(BuildContext context) =>
-      SoriTextTheme._(SoriSurfaces.of(context));
+      SoriTextTheme._(SoriSurfaces.of(context), SoriLocaleFonts.of(context));
 
   // ── Display / Heading ────────────────────────────────────────────────
   // 학습 제목과 통계 숫자도 같은 Latin/Korean fallback 쌍으로 렌더한다.
   TextStyle get display => _base(
+    heading: true,
     fontSize: 32,
     weight: FontWeight.w500,
     letterSpacing: -0.2,
@@ -684,6 +757,7 @@ class SoriTextTheme {
   /// möchtest." 가 3줄·≈130dp를 차지해 첫 화면을 과점했다(Fable 시각 심사).
   /// 제목 서체도 DE/EN은 Plex Sans, KO는 Noto Sans KR이다.
   TextStyle get hero => _base(
+    heading: true,
     fontSize: 36,
     weight: FontWeight.w600,
     letterSpacing: -0.2,
@@ -701,12 +775,14 @@ class SoriTextTheme {
     color: SoriColors.accent,
   );
   TextStyle get h1 => _base(
+    heading: true,
     fontSize: 26,
     weight: FontWeight.w500,
     letterSpacing: -0.2,
     height: 1.25,
   );
   TextStyle get h2 => _base(
+    heading: true,
     fontSize: 22,
     weight: FontWeight.w500,
     letterSpacing: -0.2,
@@ -731,6 +807,7 @@ class SoriTextTheme {
     tabular: true,
   );
   TextStyle get h3 => _base(
+    heading: true,
     fontSize: 18,
     weight: FontWeight.w500,
     letterSpacing: -0.2,
@@ -738,14 +815,10 @@ class SoriTextTheme {
   );
 
   /// Menu headings and action labels are separate from lesson typography.
-  TextStyle get menuTitle =>
-      h2.copyWith(fontFamily: SoriFonts.interface, fontWeight: FontWeight.w600);
-  TextStyle get menuItem =>
-      h3.copyWith(fontFamily: SoriFonts.interface, fontWeight: FontWeight.w600);
-  TextStyle get menuLabel => label.copyWith(
-    fontFamily: SoriFonts.interface,
-    fontWeight: FontWeight.w600,
-  );
+  TextStyle get menuTitle => h2;
+  TextStyle get menuItem => h3;
+  TextStyle get menuLabel =>
+      label.copyWith(fontWeight: _fonts.bodyWeight(FontWeight.w600));
 
   // ── Body ─────────────────────────────────────────────────────────────
   TextStyle get body => _base(
@@ -761,6 +834,28 @@ class SoriTextTheme {
     height: 1.4,
     color: _s.textMuted,
   );
+
+  /// Functional task copy stays proportional in both interface languages.
+  /// Editorial headings retain the selected locale face; Korean keeps its
+  /// bundled fallback. Use actual Supreme Regular/Medium/Bold weights.
+  TextStyle get taskBody => body.copyWith(
+    fontFamily: SoriLocaleFonts.english.body,
+    fontWeight: FontWeight.w400,
+    height: 1.35,
+  );
+  TextStyle get taskTitle => taskBody.copyWith(
+    fontSize: 22,
+    fontWeight: FontWeight.w700,
+    letterSpacing: -.2,
+    height: 1.18,
+  );
+  TextStyle get taskLabel => taskBody.copyWith(
+    fontSize: 15,
+    fontWeight: FontWeight.w700,
+    height: 1.25,
+  );
+  TextStyle get taskCaption =>
+      taskBody.copyWith(fontSize: 13, height: 1.3, color: _s.textMuted);
 
   // ── Caption / Label ──────────────────────────────────────────────────
   TextStyle get caption => _base(
@@ -807,6 +902,7 @@ class SoriTextTheme {
   // ── Card (앱 최빈 패턴 — 카드 제목/부제. B-2 타이포 통일 2026-06-12) ──
   // 위계는 17px 제목과 13.5~16px 본문 간 크기 차로 낸다.
   TextStyle get cardTitle => _base(
+    heading: true,
     fontSize: 17,
     weight: FontWeight.w500,
     letterSpacing: -0.2,
@@ -823,7 +919,7 @@ class SoriTextTheme {
   /// 앱바 타이틀 크롬 전용 토큰 (2026-09-03, §A4). 화면 헤드라인은 [h2]가
   /// 맡고, 내비게이션 크롬은 Plex Sans / Noto Sans KR의 600을 쓴다.
   TextStyle get chromeTitle => _base(
-    fontFamily: SoriFonts.interface,
+    heading: true,
     fontSize: SoriTypeSpecs.chromeTitle.size,
     weight: SoriTypeSpecs.chromeTitle.weight,
     letterSpacing: SoriTypeSpecs.chromeTitle.letterSpacing,
@@ -837,12 +933,19 @@ class SoriTextTheme {
     required double height,
     Color? color,
     bool tabular = false,
-    String fontFamily = SoriFonts.sans,
+    bool heading = false,
+    String? fontFamily,
   }) => TextStyle(
-    fontFamily: fontFamily,
-    fontFamilyFallback: SoriFonts.fallback,
+    fontFamily: fontFamily ?? (heading ? _fonts.heading : _fonts.body),
+    fontFamilyFallback: fontFamily == null
+        ? SoriLocaleFonts.fallback
+        : SoriFonts.fallback,
     fontSize: fontSize,
-    fontWeight: weight,
+    fontWeight: fontFamily != null
+        ? weight
+        : heading
+        ? _fonts.headingWeight
+        : _fonts.bodyWeight(weight),
     letterSpacing: letterSpacing,
     height: height,
     color: color ?? _s.text,

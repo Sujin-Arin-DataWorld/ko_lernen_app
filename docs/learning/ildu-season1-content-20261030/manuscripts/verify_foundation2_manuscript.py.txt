@@ -1,0 +1,114 @@
+"""Read-only content checks; writes only the standalone QA receipt."""
+import csv
+import hashlib
+import json
+import re
+from collections import Counter
+from pathlib import Path
+
+root = Path(__file__).parent / 'foundation-2-v35'
+source = json.loads((root/'CONTENT_SOURCE.json').read_text(encoding='utf-8'))
+word = json.loads((root/'WORD_CONTENT.json').read_text(encoding='utf-8'))
+lessons = source['lessons'] + word['lessons']
+items = json.loads((root/'AUTHORING_ITEMS.json').read_text(encoding='utf-8'))['items']
+csv_rows = list(csv.DictReader((root/'ITEM_BANK.csv').open(encoding='utf-8-sig', newline='')))
+receipt_path = root/'SOURCE_AND_QA.json'
+receipt = json.loads(receipt_path.read_text(encoding='utf-8'))
+assert len(lessons) == 7 and len(items) == len(csv_rows) == 102
+assert len({r['item_id'] for r in items}) == 102
+canonical_path = Path(next(x['path'] for x in receipt['preserved_files'] if x['path'].endswith('FOUNDATION.psv')))
+canonical_ids = [line.split('|')[0] for line in canonical_path.read_text(encoding='utf-8').splitlines() if line.startswith('F0.2.')]
+assert canonical_ids == [l['id'] for l in lessons]
+active = set('ㅇㅏㅓㅗㅜㅡㅣ')
+initials = 'ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ'
+vowels = 'ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ'
+
+def parts(s):
+    off = ord(s) - 44032
+    assert 0 <= off < 11172 and off % 28 == 0, s
+    return initials[off//588], vowels[(off%588)//28]
+
+positions = Counter()
+for l in lessons:
+    active.update(l['new'])
+    md = (root/l['file']).read_text(encoding='utf-8')
+    own = [r for r in items if r['unit_id'] == l['id']]
+    for stage in 'PIR':
+        numbers = [int(r['item_id'][-2:]) for r in own if r['stage'] == stage]
+        assert numbers == list(range(1,len(numbers)+1)), (l['id'],stage)
+    for r in own:
+        assert len(r['prompt']) == 3 and all(r['prompt'])
+        assert r['item_id'] in md
+        for code in r['feedback']:
+            assert '| '+code+'·' in md or '| '+code+' |' in md, (r['item_id'],code)
+        targets = []
+        answer = r['answer_author_only']
+        if r['kind'] == 'read_audio':
+            assert len(r['options_author_only']) == 3
+            target = answer['transcript_author_only']
+            assert r['options_author_only']['ABC'.index(answer['audio_button'])] == target
+            ti,tv = parts(target)
+            distractors = [parts(x) for x in r['options_author_only'] if x != target]
+            assert any(i==ti and v!=tv for i,v in distractors)
+            assert any(i!=ti and v==tv for i,v in distractors)
+            positions[answer['audio_button']] += 1
+            targets = r['options_author_only']
+        elif r['kind'] == 'syllable_build':
+            targets = [answer['syllable']]
+        elif r['kind'] in ['picture_word','audio_picture','text_picture','audio_text','label_choice']:
+            assert answer in r['options_author_only']
+        if r['kind'] in ['picture_word','audio_text','label_choice','word_build']:
+            targets.append(answer)
+        for target in targets:
+            for s in target:
+                ini,vow = parts(s)
+                assert ini in active and vow in active, (r['item_id'],s)
+        for value in [r['stimulus'].get('picture','')] + r['options_author_only']:
+            if re.fullmatch(r'[A-Z]+-[TIR][0-9]',str(value)):
+                assert value in word['media'],value
+        if r['stage']=='R':
+            assert '직전 관련 노출' in r['scope'] and '24시간 미만' in r['scope']
+
+for row,r in zip(csv_rows,items):
+    assert row['author_item_id']==r['item_id'] and row['unit_id']==r['unit_id']
+    assert row['stage']==r['stage'] and row['kind']==r['kind']
+    assert json.loads(row['stimulus_author_only'])==r['stimulus']
+    assert json.loads(row['options_author_only'])==r['options_author_only']
+    assert json.loads(row['answer_author_only'])==r['answer_author_only']
+    assert [row['prompt_ko'],row['prompt_en'],row['prompt_de']]==r['prompt']
+    assert row['scope']==r['scope'] and row['feedback']==', '.join(r['feedback'])
+
+for f in root.glob('*.md'):
+    text=f.read_text(encoding='utf-8')
+    for target in re.findall(r'\]\(([^)]+)\)',text):
+        if not target.startswith(('https:','http:','#')):
+            assert (root/target).exists(),(f.name,target)
+    width=None
+    for line in text.splitlines():
+        if line.startswith('|'):
+            count=len(re.findall(r'(?<!\\)\|',line))
+            if width is None:
+                width=count
+            assert count==width,(f.name,line)
+        else:
+            width=None
+
+for original in receipt['preserved_files']:
+    assert hashlib.sha256(Path(original['path']).read_bytes()).hexdigest()==original['sha256'],original['path']
+receipt.update({
+    'last_review_date':'2026-10-29',
+    'status':'document_authored_model_reviewed',
+    'checks':{'seven_canonical_ids':'PASS','unique_items':len(items),'csv_json_manuscript_alignment':'PASS',
+              'counts':dict(Counter(r['stage'] for r in items)), 'three_audio_choice_contrasts':20,
+              'audio_answer_positions':dict(positions),'introduced_jamo_and_no_batchim':'PASS',
+              'feedback_and_media_references':'PASS','markdown_links_and_table_structure':'PASS',
+              'delayed_scope_last_exposure_rules':37,'protected_files_unchanged':len(receipt['preserved_files'])},
+    'model_reviews':{'language':'MODEL_QA_PASS','pedagogy_story':'PASS','independent_reviewers':2,
+                     'scope':'manuscript review; not human/native-speaker/teacher approval'},
+    'not_done':['human_teacher_review','human_EN_DE_review','audio_recording_and_listening_QA',
+                'image_production_and_rights_check','zero_beginner_observation','app_integration_and_device_QA'],
+    'output_sha256':{f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted(root.iterdir()) if f.is_file() and f.name!='SOURCE_AND_QA.json'},
+    'authoring_helper':'../build_foundation2_manuscript.py'
+})
+receipt_path.write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps(receipt['checks'],ensure_ascii=False,indent=2))

@@ -13,24 +13,41 @@ import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/first_voice_success_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_setup_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_journey_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/welcome_screen.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/screens/splash_screen.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
+import 'support/einleitung_capture_assets.dart';
+
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() async {
+    await loadEinleitungFonts();
+  });
   setUp(() async {
     Storage.resetForTesting();
     Storage.unlockLearningWrites();
   });
 
-  testWidgets('fresh startup reaches consent before any onboarding choice', (
+  testWidgets('fresh startup opens welcome then consent before any choice', (
     tester,
   ) async {
     await _launch(tester, const {});
 
+    expect(find.byType(WelcomeScreen), findsOneWidget);
+    expect(Storage.consentAccepted, isFalse);
+    final start = find.byKey(const ValueKey('welcome-start'));
+    await tester.ensureVisible(start);
+    await tester.pumpAndSettle();
+    await tester.tap(start);
+    await tester.pumpAndSettle();
+
     expect(find.byType(ConsentScreen), findsOneWidget);
+    expect(Storage.welcomeSeen, isTrue);
+    expect(Storage.consentAccepted, isFalse);
     expect(find.byType(OnboardingV2JourneyScreen), findsNothing);
   });
 
@@ -181,7 +198,9 @@ Future<void> _launch(
 
   final expectedDestination = preferences['kl_consent_accepted'] == true
       ? find.byType(OnboardingV2JourneyScreen)
-      : find.byType(ConsentScreen);
+      : Storage.welcomeSeen
+      ? find.byType(ConsentScreen)
+      : find.byType(WelcomeScreen);
   for (var attempt = 0; attempt < 40; attempt++) {
     await tester.pump(const Duration(milliseconds: 50));
     if (expectedDestination.evaluate().isNotEmpty) {

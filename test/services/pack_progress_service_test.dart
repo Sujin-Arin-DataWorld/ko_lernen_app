@@ -7,6 +7,7 @@ import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/firestore_progress_service.dart';
 import 'package:ko_lernen_app/services/pack_progress_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -21,6 +22,141 @@ void main() {
   const catalog = {
     'pack-a': PackCatalogEntry(packId: 'pack-a', level: 'A1', wordsTotal: 10),
   };
+
+  const expandedCatalog = {
+    'a2_daily_1': PackCatalogEntry(
+      packId: 'a2_daily_1',
+      level: 'A2',
+      wordsTotal: 12,
+    ),
+  };
+
+  test(
+    'the migrated bundled pack retains its verified original word set',
+    () async {
+      final pack = await VocabPackService.findById('a2_daily_1');
+      expect(pack, isNotNull);
+      expect(pack!.level, 'A2');
+      expect(pack.total, 12);
+      expect(
+        pack.words.map((word) => word.korean).toSet(),
+        containsAll([
+          '은행',
+          '지갑',
+          '열쇠',
+          '쉬다',
+          '기억하다',
+          '찾다',
+          '만들다',
+          '잃어버리다',
+          '늦잠',
+        ]),
+      );
+    },
+  );
+
+  for (final oldTotal in [8, 9]) {
+    for (final state in [
+      (
+        status: PackStatus.available,
+        learned: 0,
+        accuracy: 0.0,
+        attempts: 0,
+        cleared: null,
+      ),
+      (
+        status: PackStatus.inProgress,
+        learned: 6,
+        accuracy: 0.4,
+        attempts: 1,
+        cleared: null,
+      ),
+      (
+        status: PackStatus.cleared,
+        learned: 6,
+        accuracy: 0.8,
+        attempts: 2,
+        cleared: '2026-06-01T12:00:00.000Z',
+      ),
+    ]) {
+      test(
+        'rebases verified a2_daily_1 total $oldTotal preserving ${state.status}',
+        () {
+          final legacy = PackProgress(
+            packId: 'a2_daily_1',
+            level: 'A2',
+            status: state.status,
+            wordsLearned: state.learned,
+            wordsTotal: oldTotal,
+            bossAccuracy: state.accuracy,
+            attempts: state.attempts,
+            clearedAtIso: state.cleared,
+          );
+          final result = PackProgressService.mergeForReconciliation(
+            local: const {},
+            remote: {'a2_daily_1': legacy},
+            catalog: expandedCatalog,
+          );
+          expect(result.isValid, isTrue);
+          final migrated = result.merged!['a2_daily_1']!;
+          expect(migrated.wordsTotal, 12);
+          expect(migrated.wordsLearned, state.learned);
+          expect(migrated.status, state.status);
+          expect(migrated.bossAccuracy, state.accuracy);
+          expect(migrated.attempts, state.attempts);
+          expect(migrated.clearedAtIso, state.cleared);
+          final repeated = PackProgressService.mergeForReconciliation(
+            local: result.merged!,
+            remote: {'a2_daily_1': legacy},
+            catalog: expandedCatalog,
+          );
+          expect(repeated.isValid, isTrue);
+          expect(repeated.merged!['a2_daily_1']!.wordsTotal, 12);
+          expect(repeated.merged!['a2_daily_1']!.wordsLearned, state.learned);
+          expect(repeated.merged!['a2_daily_1']!.attempts, state.attempts);
+        },
+      );
+    }
+  }
+
+  for (final invalid in [
+    (id: 'a2_daily_1', level: 'A2', oldTotal: 7, learned: 6, currentTotal: 12),
+    (id: 'a2_daily_1', level: 'A2', oldTotal: 13, learned: 6, currentTotal: 12),
+    (id: 'a2_daily_1', level: 'A2', oldTotal: 8, learned: 9, currentTotal: 12),
+    (id: 'a2_daily_1', level: 'A1', oldTotal: 8, learned: 6, currentTotal: 12),
+    (id: 'other-pack', level: 'A2', oldTotal: 8, learned: 6, currentTotal: 12),
+    (id: 'a2_daily_1', level: 'A2', oldTotal: 8, learned: 6, currentTotal: 13),
+    (id: 'a2_daily_1', level: 'A2', oldTotal: 8, learned: 6, currentTotal: 7),
+  ]) {
+    test(
+      'does not rebase unsupported or invalid historical progress $invalid',
+      () {
+        final result = PackProgressService.mergeForReconciliation(
+          local: const {},
+          remote: {
+            invalid.id: PackProgress(
+              packId: invalid.id,
+              level: invalid.level,
+              status: PackStatus.inProgress,
+              wordsLearned: invalid.learned,
+              wordsTotal: invalid.oldTotal,
+              bossAccuracy: 0,
+              attempts: 0,
+              clearedAtIso: null,
+            ),
+          },
+          catalog: {
+            invalid.id: PackCatalogEntry(
+              packId: invalid.id,
+              level: 'A2',
+              wordsTotal: invalid.currentTotal,
+            ),
+          },
+        );
+        expect(result.isValid, isFalse);
+      },
+    );
+  }
 
   test('merge rejects progress for an unknown catalog id', () {
     final result = PackProgressService.mergeForReconciliation(

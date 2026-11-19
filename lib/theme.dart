@@ -11,15 +11,34 @@ class AppTheme {
   static ThemeData get dark => darkFor(PaletteVariant.dancheong);
   static ThemeData get light => lightFor(PaletteVariant.dancheong);
 
-  static ThemeData darkFor(PaletteVariant v) => v == PaletteVariant.teal
-      ? _build(SoriSurfaces.darkTeal, primary: SoriColorsTeal.primary)
-      : _build(SoriSurfaces.dark, primary: SoriColors.primary);
+  static ThemeData darkFor(
+    PaletteVariant v, {
+    Locale locale = const Locale('de'),
+  }) => v == PaletteVariant.teal
+      ? _build(
+          SoriSurfaces.darkTeal,
+          primary: SoriColorsTeal.primary,
+          locale: locale,
+        )
+      : _build(SoriSurfaces.dark, primary: SoriColors.primary, locale: locale);
 
-  static ThemeData lightFor(PaletteVariant v) => v == PaletteVariant.teal
-      ? _build(SoriSurfaces.lightTeal, primary: SoriColorsTeal.primary)
-      : _build(SoriSurfaces.light, primary: SoriColors.primary);
+  static ThemeData lightFor(
+    PaletteVariant v, {
+    Locale locale = const Locale('de'),
+  }) => v == PaletteVariant.teal
+      ? _build(
+          SoriSurfaces.lightTeal,
+          primary: SoriColorsTeal.primary,
+          locale: locale,
+        )
+      : _build(SoriSurfaces.light, primary: SoriColors.primary, locale: locale);
 
-  static ThemeData _build(SoriSurfaces s, {required Color primary}) {
+  static ThemeData _build(
+    SoriSurfaces s, {
+    required Color primary,
+    required Locale locale,
+  }) {
+    final fonts = SoriLocaleFonts.forLocale(locale);
     final colorScheme = ColorScheme.fromSeed(
       seedColor: primary,
       brightness: s.brightness,
@@ -33,8 +52,8 @@ class AppTheme {
       useMaterial3: true,
       scaffoldBackgroundColor: s.bg,
       colorScheme: colorScheme,
-      fontFamily: SoriFonts.sans,
-      fontFamilyFallback: SoriFonts.fallback,
+      fontFamily: fonts.body,
+      fontFamilyFallback: SoriLocaleFonts.fallback,
 
       // ── Page transitions §B1(2026-09-03) ────────────────────────────
       // 플랫폼 네이티브 전환 — Android predictive-back, iOS/macOS
@@ -63,9 +82,9 @@ class AppTheme {
           color: s.text,
           // §W-A2 b (2026-09-03): SoriAppBar 의 chromeTitle 과 동일 스펙으로
           // 수렴 — SoriTypeSpecs.chromeTitle 단일 원천.
-          fontFamily: SoriFonts.interface,
-          fontFamilyFallback: SoriFonts.fallback,
-          fontWeight: SoriTypeSpecs.chromeTitle.weight,
+          fontFamily: fonts.heading,
+          fontFamilyFallback: SoriLocaleFonts.fallback,
+          fontWeight: fonts.headingWeight,
           fontSize: SoriTypeSpecs.chromeTitle.size,
           letterSpacing: SoriTypeSpecs.chromeTitle.letterSpacing,
         ),
@@ -80,9 +99,10 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(SoriRadius.lg),
           ),
-          textStyle: const TextStyle(
-            fontFamily: SoriFonts.sans,
-            fontWeight: FontWeight.w600,
+          textStyle: TextStyle(
+            fontFamily: fonts.body,
+            fontFamilyFallback: SoriLocaleFonts.fallback,
+            fontWeight: fonts.bodyWeight(FontWeight.w600),
             fontSize: 15,
             letterSpacing: -0.2,
           ),
@@ -97,8 +117,9 @@ class AppTheme {
           ),
           foregroundColor: s.text,
           side: BorderSide(color: s.border, width: 1.5),
-          textStyle: const TextStyle(
-            fontFamily: SoriFonts.sans,
+          textStyle: TextStyle(
+            fontFamily: fonts.body,
+            fontFamilyFallback: SoriLocaleFonts.fallback,
             fontWeight: FontWeight.w500,
             fontSize: 14,
           ),
@@ -108,8 +129,9 @@ class AppTheme {
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           foregroundColor: primary,
-          textStyle: const TextStyle(
-            fontFamily: SoriFonts.sans,
+          textStyle: TextStyle(
+            fontFamily: fonts.body,
+            fontFamilyFallback: SoriLocaleFonts.fallback,
             fontWeight: FontWeight.w500,
             fontSize: 14,
           ),
@@ -145,14 +167,16 @@ class AppTheme {
         selectedColor: primary,
         labelStyle: TextStyle(
           color: s.text,
-          fontFamily: SoriFonts.sans,
+          fontFamily: fonts.body,
+          fontFamilyFallback: SoriLocaleFonts.fallback,
           fontWeight: FontWeight.w500,
           fontSize: 13.5,
         ),
-        secondaryLabelStyle: const TextStyle(
+        secondaryLabelStyle: TextStyle(
           color: Colors.white,
-          fontFamily: SoriFonts.sans,
-          fontWeight: FontWeight.w600,
+          fontFamily: fonts.body,
+          fontFamilyFallback: SoriLocaleFonts.fallback,
+          fontWeight: fonts.bodyWeight(FontWeight.w600),
           fontSize: 13.5,
         ),
         side: BorderSide(color: s.border),
@@ -175,7 +199,8 @@ class AppTheme {
         backgroundColor: s.text,
         contentTextStyle: TextStyle(
           color: s.bg,
-          fontFamily: SoriFonts.sans,
+          fontFamily: fonts.body,
+          fontFamilyFallback: SoriLocaleFonts.fallback,
           fontWeight: FontWeight.w400,
         ),
         shape: RoundedRectangleBorder(borderRadius: SoriRadius.brLg),
@@ -189,13 +214,15 @@ class AppTheme {
         textColor: s.text,
         titleTextStyle: TextStyle(
           color: s.text,
-          fontFamily: SoriFonts.sans,
+          fontFamily: fonts.body,
+          fontFamilyFallback: SoriLocaleFonts.fallback,
           fontWeight: FontWeight.w500,
           fontSize: 15,
         ),
         subtitleTextStyle: TextStyle(
           color: s.textMuted,
-          fontFamily: SoriFonts.sans,
+          fontFamily: fonts.body,
+          fontFamilyFallback: SoriLocaleFonts.fallback,
           fontWeight: FontWeight.w400,
           fontSize: 13.5,
         ),
@@ -209,9 +236,12 @@ class AppTheme {
         labelTextStyle: WidgetStateProperty.resolveWith((states) {
           final selected = states.contains(WidgetState.selected);
           return TextStyle(
-            fontFamily: SoriFonts.interface,
+            fontFamily: fonts.body,
+            fontFamilyFallback: SoriLocaleFonts.fallback,
             fontSize: 13,
-            fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
+            fontWeight: fonts.bodyWeight(
+              selected ? FontWeight.w600 : FontWeight.w400,
+            ),
             color: selected ? primary : s.textMuted,
           );
         }),
@@ -227,16 +257,16 @@ class AppTheme {
       ),
 
       // ── Typography ───────────────────────────────────────────────────
-      textTheme: _buildTextTheme(s),
+      textTheme: _buildTextTheme(s, fonts),
     );
   }
 
-  static TextTheme _buildTextTheme(SoriSurfaces s) {
+  static TextTheme _buildTextTheme(SoriSurfaces s, SoriLocaleFonts fonts) {
     // 2026-09-03 단일 원천화(§A4): displayLarge~headlineSmall 은
     // SoriTextTheme 값을 그대로 재사용해 스케일이 갈라지지 못하게 한다.
     // titleLarge~labelSmall 은 SoriTextTheme 에 대응 토큰이 없는 Material
     // 전용 역할이라 여기서만 값을 정의한다.
-    final tt = SoriTextTheme.forSurfaces(s);
+    final tt = SoriTextTheme.forSurfaces(s, fonts: fonts);
 
     TextStyle base(
       double size,
@@ -244,11 +274,12 @@ class AppTheme {
       double height = 1.4,
       double spacing = 0,
       Color? color,
+      bool heading = false,
     }) => TextStyle(
-      fontFamily: SoriFonts.sans,
-      fontFamilyFallback: SoriFonts.fallback,
+      fontFamily: heading ? fonts.heading : fonts.body,
+      fontFamilyFallback: SoriLocaleFonts.fallback,
       fontSize: size,
-      fontWeight: w,
+      fontWeight: heading ? fonts.headingWeight : fonts.bodyWeight(w),
       height: height,
       letterSpacing: spacing,
       color: color ?? s.text,
@@ -261,9 +292,15 @@ class AppTheme {
       headlineLarge: tt.h1,
       headlineMedium: tt.h2,
       headlineSmall: tt.h3,
-      titleLarge: base(18, FontWeight.w500, height: 1.4),
-      titleMedium: base(16, FontWeight.w500, height: 1.4),
-      titleSmall: base(14, FontWeight.w500, height: 1.4, color: s.textMuted),
+      titleLarge: base(18, FontWeight.w500, height: 1.4, heading: true),
+      titleMedium: base(16, FontWeight.w500, height: 1.4, heading: true),
+      titleSmall: base(
+        14,
+        FontWeight.w500,
+        height: 1.4,
+        color: s.textMuted,
+        heading: true,
+      ),
       bodyLarge: base(17, FontWeight.w400, height: 1.5),
       bodyMedium: base(16, FontWeight.w400, height: 1.5),
       bodySmall: base(14, FontWeight.w400, height: 1.5, color: s.textMuted),

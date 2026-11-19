@@ -3,15 +3,13 @@ import { Apple, ArrowRight, Brain, Check, Coffee, Gamepad2, Headphones, Language
 import { TesterAccessForm } from "./tester-access-form";
 import { CookieSettingsButton } from "./cookie-settings-button";
 import { CulturalLocaleSync, CulturalTerm } from "./cultural-glossary";
-import { STORE_LINKS } from "./store-links";
+import { IOS_TEST_ACCESS_ID, STORE_LINKS } from "./store-links";
 
 export type Locale = "de" | "en" | "ko";
 
 const content = {
   en: {
     nav: ["How it works", "Features", "For learners"],
-    login: "Log in",
-    start: "Start learning",
     eyebrow: "한글을, 소리로 배우다",
     headline: "Learn Korean and build your own hanok.",
     intro: "Tiger and Magpie guide you through Hangul, pronunciation, everyday Korean and games. Each completed lesson adds to your hanok. In Gye, learners can share progress and encourage each other.",
@@ -52,7 +50,7 @@ const content = {
     ],
     finalEyebrow: "TEST HANGUL SORI",
     finalTitle: "Try the current test version.",
-    finalIntro: "iOS and Android testing are open now.",
+    finalIntro: "Join the open test on Google Play or request a TestFlight invitation for iOS.",
     socialEyebrow: "LEARN WITH US ON INSTAGRAM",
     socialTitle: "A little Korean for your feed.",
     socialIntro: "Try Sori Check, discover how names sound in Hangul and watch a hanok grow one lesson at a time.",
@@ -62,8 +60,6 @@ const content = {
   },
   de: {
     nav: ["So funktioniert’s", "Funktionen", "Für Lernende"],
-    login: "Anmelden",
-    start: "Jetzt lernen",
     eyebrow: "한글을, 소리로 배우다",
     headline: "Lerne Koreanisch und baue deinen eigenen Hanok.",
     intro: "Tiger und Elster begleiten dich durch Hangul, Aussprache, Alltagssprache und Spiele. Jede abgeschlossene Lektion erweitert deinen Hanok. In Gye können Lernende Fortschritte teilen und sich gegenseitig ermutigen.",
@@ -104,7 +100,7 @@ const content = {
     ],
     finalEyebrow: "HANGUL SORI TESTEN",
     finalTitle: "Probiere die aktuelle Testversion aus.",
-    finalIntro: "Die Tests für iOS und Android sind jetzt geöffnet.",
+    finalIntro: "Nimm am offenen Test bei Google Play teil oder frage eine TestFlight-Einladung für iOS an.",
     socialEyebrow: "LERNE MIT UNS AUF INSTAGRAM",
     socialTitle: "Ein bisschen Koreanisch für deinen Feed.",
     socialIntro: "Mach beim Sori Check mit, entdecke deinen Namen in Hangul und sieh zu, wie dein Hanok mit jeder Lektion wächst.",
@@ -114,8 +110,6 @@ const content = {
   },
   ko: {
     nav: ["학습 방식", "주요 기능", "학습자 안내"],
-    login: "로그인",
-    start: "학습 시작",
     eyebrow: "한글을, 소리로 배우다",
     headline: "한국어를 배우며 나만의 한옥을 지어요.",
     intro: "호랑이와 까치가 한글, 발음, 생활 한국어, 게임 학습을 안내합니다. 수업을 마칠 때마다 한옥에 새로운 부분이 생깁니다. 계에서는 학습자들이 진도를 나누고 서로 응원할 수 있습니다.",
@@ -156,7 +150,7 @@ const content = {
     ],
     finalEyebrow: "한글소리 테스트",
     finalTitle: "현재 테스트 버전을 사용해 보세요.",
-    finalIntro: "iOS와 Android 테스트를 지금 이용할 수 있습니다.",
+    finalIntro: "Android는 Google Play에서 공개 테스트에 참여하고, iOS는 TestFlight 초대를 신청하세요.",
     socialEyebrow: "인스타그램에서 함께 배워요",
     socialTitle: "피드에서 만나는 짧은 한국어.",
     socialIntro: "소리 체크에 참여하고, 이름을 한글로 써 보고, 수업마다 자라는 한옥을 만나 보세요.",
@@ -168,16 +162,16 @@ const content = {
 
 const testerCopy = {
   en: {
-    ios: "iOS beta testing",
-    android: "Android testing",
+    ios: "Request iOS access",
+    android: "Android open test",
   },
   de: {
-    ios: "iOS-Beta läuft",
-    android: "Android-Test läuft",
+    ios: "iOS-Einladung anfragen",
+    android: "Offener Android-Test",
   },
   ko: {
-    ios: "iOS 베타 진행 중",
-    android: "Android 테스트 중",
+    ios: "iOS 초대 신청",
+    android: "Android 공개 테스트",
   },
 } as const;
 
@@ -185,16 +179,11 @@ function localeHref(locale: Locale) {
   return locale === "en" ? "/en" : locale === "ko" ? "/ko" : "/de";
 }
 
-function ButtonLink({ href, children, variant = "primary", compact = false }: { href: string; children: React.ReactNode; variant?: "primary" | "secondary" | "ghost"; compact?: boolean }) {
-  return <a className={`button button-${variant}${compact ? " button-compact" : ""}`} href={href}>{children}<ArrowRight aria-hidden="true" size={18} strokeWidth={2.4}/></a>;
-}
-
 function StoreButtons({ locale, light = false }: { locale: Locale; light?: boolean }) {
   const t = testerCopy[locale];
-  // iOS needs an invitation; Android can join the public test on Google Play.
-  return <div className={`store-buttons${light ? " store-buttons-light" : ""}`} aria-label="App testing access">
-    <a className="store-button" href="#tester-access" aria-haspopup="dialog"><span className="store-icon" aria-hidden="true"><Apple size={20} strokeWidth={2}/></span><span><small>{t.ios}</small><b>App Store</b></span></a>
+  return <div id={light ? undefined : "tester-access"} className={`store-buttons${light ? " store-buttons-light" : ""}`}>
     <a className="store-button" href={STORE_LINKS.android} target="_blank" rel="noopener noreferrer"><span className="store-icon play-icon" aria-hidden="true"><Play size={18} fill="currentColor" strokeWidth={1.8}/></span><span><small>{t.android}</small><b>Google Play</b></span></a>
+    <a className="store-button" href={`#${IOS_TEST_ACCESS_ID}`} aria-haspopup="dialog"><span className="store-icon" aria-hidden="true"><Apple size={20} strokeWidth={2}/></span><span><small>{t.ios}</small><b>TestFlight</b></span></a>
   </div>;
 }
 
@@ -211,7 +200,11 @@ export function Header({ locale }: { locale: Locale }) {
   return <header className="site-header"><div className="nav-shell">
     <Link className="brand-link" href={localeHref(locale)}><Brand /></Link>
     <nav className="desktop-nav" aria-label="Primary navigation"><Link href="#how">{c.nav[0]}</Link><Link href="#features">{c.nav[1]}</Link><Link href="#learners">{c.nav[2]}</Link></nav>
-    <div className="nav-actions"><div className="locale-switch" aria-label="Language"><Link className={locale === "de" ? "active" : ""} href="/de">DE</Link><Link className={locale === "en" ? "active" : ""} href="/en">EN</Link><Link className={locale === "ko" ? "active" : ""} href="/ko">KO</Link></div><a className="login-link" href="#tester-access">{c.login}</a><ButtonLink href="#tester-access" compact>{c.start}</ButtonLink></div>
+    <div className="nav-actions">
+      <div className="locale-switch" aria-label="Language"><Link className={locale === "de" ? "active" : ""} href="/de">DE</Link><Link className={locale === "en" ? "active" : ""} href="/en">EN</Link><Link className={locale === "ko" ? "active" : ""} href="/ko">KO</Link></div>
+      <a className="ios-test-link" href={`#${IOS_TEST_ACCESS_ID}`} aria-label={testerCopy[locale].ios} aria-haspopup="dialog">iOS</a>
+      <a className="button button-primary button-compact" href={STORE_LINKS.android} target="_blank" rel="noopener noreferrer" aria-label={`Google Play · ${testerCopy[locale].android}`}>Google Play</a>
+    </div>
   </div></header>;
 }
 
@@ -336,7 +329,7 @@ export function Landing({ locale }: { locale: Locale }) {
   return <main lang={locale}>
     <CulturalLocaleSync locale={locale}/>
     <Header locale={locale}/>
-    <section className="hero-section"><div className="hero-shell"><div className="hero-copy"><p className="eyebrow korean-brand-copy">{c.eyebrow}</p><h1><CulturalHeroHeadline locale={locale}/></h1><p className="hero-intro"><CulturalHeroIntro locale={locale}/></p><div className="hero-actions"><ButtonLink href="#tester-access">{c.start}</ButtonLink><ButtonLink href="#how" variant="secondary">{c.secondary}</ButtonLink></div><StoreButtons locale={locale}/><ul className="proof-row">{c.proof.map(item=><li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul></div><HanokHero locale={locale}/></div></section>
+    <section className="hero-section"><div className="hero-shell"><div className="hero-copy"><p className="eyebrow korean-brand-copy">{c.eyebrow}</p><h1><CulturalHeroHeadline locale={locale}/></h1><p className="hero-intro"><CulturalHeroIntro locale={locale}/></p><StoreButtons locale={locale}/><div className="hero-actions"><a className="button button-ghost" href="#how">{c.secondary}<ArrowRight aria-hidden="true" size={18} strokeWidth={2.4}/></a></div><ul className="proof-row">{c.proof.map(item=><li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul></div><HanokHero locale={locale}/></div></section>
 
     <section className="section how-section" id="how"><div className="section-shell"><div className="section-heading"><div><p className="eyebrow">{c.stepsEyebrow}</p><h2>{c.stepsTitle}</h2></div><p>{c.stepsIntro}</p></div><LessonStage locale={locale} steps={c.steps}/></div></section>
 

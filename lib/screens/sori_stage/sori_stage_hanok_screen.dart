@@ -12,18 +12,19 @@ import '../../services/sori_stage_progression_service.dart';
 import '../../services/storage_service.dart';
 import '../../widgets/app_loading.dart';
 import '../../widgets/sori/card.dart';
+import '../../widgets/sori/c_gallery/c_materials.dart';
 import '../../widgets/sori/button.dart';
-import '../../widgets/sori/settings_button.dart';
-import '../../widgets/sori/collapsing_header.dart';
+import '../../widgets/sori/top_chrome.dart';
 import '../../widgets/sori/cultural_help.dart';
 import '../../widgets/sori/dancheong_stamp.dart';
 import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/reward_thumb.dart';
-import '../../widgets/sori/screen_background.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/window_class.dart';
 import '../bojagi_screen.dart' show kBojagiClosed;
+import '../../widgets/sori/ildu_r16_estate_artwork.dart';
+import 'c_stage_chrome.dart';
 
 class SoriStageHanokScreen extends StatefulWidget {
   const SoriStageHanokScreen({
@@ -102,17 +103,16 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final shortPhone =
+        MediaQuery.sizeOf(context).height < 750 &&
+        MediaQuery.textScalerOf(context).scale(1) < 1.6;
     // One scroll surface: verified learning, current portrait, then collections.
     return Scaffold(
-      body: SoriScreenBackground(
+      body: CStageBackground(
         child: SafeArea(
           child: SoriContentClamp(
             maxWidth: SoriMaxWidth.world,
-            // top=20 (§W-F3 §1) — matches the catalog screen
-            // (sori_stage_catalog_screen.dart:~144) so every Stage tab
-            // starts the same distance below SafeArea; Lernen/Spiele/Gye all
-            // use this same rhythm, and Hanok diverging at 0 broke it.
-            base: const EdgeInsets.fromLTRB(20, 20, 20, 48),
+            base: const EdgeInsets.fromLTRB(12, 8, 12, 24),
             builder: (context, padding) => CustomScrollView(
               slivers: [
                 SliverToBoxAdapter(child: SizedBox(height: padding.top)),
@@ -123,148 +123,258 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                   ),
                   sliver: Builder(
                     builder: (context) {
-                      return SoriCollapsingHeader(
+                      return SoriRootHeader(
                         title: t.soriStageNavHanok,
-                        titleStyle: SoriTextTheme.of(
-                          context,
-                        ).h1.copyWith(fontSize: 26, height: 1.35),
-                        // 접힌 56dp 크롬 바용 짧은 제목 — 없으면 title 전체가
-                        // ellipsis 로 잘린다.
-                        collapsedTitle: t.soriStageNavHanok,
-                        trailingSlots: 2,
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const CulturalHelpButton(termId: 'hanok'),
-                            const SizedBox(width: Spacing.xs),
-                            const SoriSettingsButton(),
-                          ],
+                        foreground: CPalette.paper,
+                        background: CPalette.jade,
+                        trailing: const CulturalHelpButton(
+                          termId: 'hanok',
+                          foregroundColor: CPalette.paper,
                         ),
                       );
                     },
                   ),
                 ),
-                const SliverToBoxAdapter(child: SizedBox(height: Spacing.xl)),
-                _HanokMapSliver(
-                  progressionFuture: _future,
-                  constructionFuture: _constructionFuture,
-                  selectedSequence: _selectedSequence,
-                ),
-                FutureBuilder<SoriStageProgressionSnapshot>(
-                  future: _future,
-                  builder: (context, snapshot) {
-                    final ready =
-                        snapshot.connectionState == ConnectionState.done &&
-                        !snapshot.hasError;
-                    final data = ready ? snapshot.data : null;
-                    return SliverPadding(
-                      padding: EdgeInsets.fromLTRB(
-                        padding.left,
-                        8,
-                        padding.right,
-                        12,
+                SliverToBoxAdapter(child: SizedBox(height: shortPhone ? 4 : 8)),
+                SliverPadding(
+                  padding: EdgeInsets.symmetric(horizontal: padding.left),
+                  sliver: SliverMainAxisGroup(
+                    slivers: [
+                      _HanokMapSliver(
+                        progressionFuture: _future,
+                        constructionFuture: _constructionFuture,
+                        selectedSequence: _selectedSequence,
                       ),
-                      sliver: SliverToBoxAdapter(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            ExpansionTile(
-                              key: const ValueKey('hanok-how-to-build'),
-                              tilePadding: EdgeInsets.zero,
-                              title: Text(t.hanokHowTitle),
-                              children: [
-                                Text(
-                                  t.hanokHowBody,
-                                  style: SoriTextTheme.of(context).body,
-                                ),
-                                const SizedBox(height: Spacing.sm),
-                                SoriButton.outlined(
-                                  label: t.hanokHowAction,
-                                  onTap: () => _openShortcut('/path'),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              t.soriStageHanokLearningSummary,
-                              style: SoriTextTheme.of(context).cardTitle,
-                            ),
-                            const SizedBox(height: Spacing.sm),
-                            if (data != null)
-                              Text(
-                                data.hanokCompetence.totalUnitCount == 0
-                                    ? t.soriStageHanokNoUnits
-                                    : t.soriStageConfirmedUnits(
-                                        data.hanokCompetence.completedUnitCount,
-                                        data.hanokCompetence.totalUnitCount,
+                      FutureBuilder<SoriStageProgressionSnapshot>(
+                        future: _future,
+                        builder: (context, snapshot) {
+                          final ready =
+                              snapshot.connectionState ==
+                                  ConnectionState.done &&
+                              !snapshot.hasError;
+                          final data = ready ? snapshot.data : null;
+                          return SliverPadding(
+                            padding: const EdgeInsets.only(top: 8, bottom: 12),
+                            sliver: SliverToBoxAdapter(
+                              child: CPaperPanel(
+                                key: const ValueKey('hanok-progress-panel'),
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    Padding(
+                                      key: const ValueKey('c-hanok-board'),
+                                      padding: EdgeInsets.zero,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
+                                        children: [
+                                          if (data != null &&
+                                              !data.walletUnavailable) ...[
+                                            Text(
+                                              '${data.ownedSarangchaeStage} / ${SarangchaeConstruction.stageCount}',
+                                              key: const ValueKey(
+                                                'hanok-owned-stages',
+                                              ),
+                                              style: SoriTextTheme.of(context)
+                                                  .body
+                                                  .copyWith(
+                                                    fontSize: 16,
+                                                    color: CPalette.ink,
+                                                  ),
+                                            ),
+                                            const SizedBox(height: 4),
+                                            Wrap(
+                                              spacing: 4,
+                                              runSpacing: 4,
+                                              children: [
+                                                for (
+                                                  var stage = 1;
+                                                  stage <=
+                                                      SarangchaeConstruction
+                                                          .stageCount;
+                                                  stage++
+                                                )
+                                                  DecoratedBox(
+                                                    key: ValueKey(
+                                                      'hanok-owned-dot-$stage',
+                                                    ),
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color:
+                                                          stage <=
+                                                              data.ownedSarangchaeStage
+                                                          ? CPalette.jade
+                                                          : CPalette.ink
+                                                                .withValues(
+                                                                  alpha: .16,
+                                                                ),
+                                                    ),
+                                                    child:
+                                                        const SizedBox.square(
+                                                          dimension: 8,
+                                                        ),
+                                                  ),
+                                              ],
+                                            ),
+                                            const SizedBox(height: 8),
+                                            FutureBuilder<
+                                              SarangchaeConstruction
+                                            >(
+                                              future: _constructionFuture,
+                                              builder: (context, catalog) {
+                                                if (!catalog.hasData) {
+                                                  return const SizedBox.shrink();
+                                                }
+                                                final next = catalog.data!.stage(
+                                                  (data.ownedSarangchaeStage +
+                                                          1)
+                                                      .clamp(
+                                                        1,
+                                                        SarangchaeConstruction
+                                                            .stageCount,
+                                                      ),
+                                                );
+                                                return Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                        bottom: 8,
+                                                      ),
+                                                  child: Text(
+                                                    next.text(
+                                                      'title',
+                                                      Localizations.localeOf(
+                                                        context,
+                                                      ).languageCode,
+                                                    ),
+                                                    key: const ValueKey(
+                                                      'hanok-next-stage-title',
+                                                    ),
+                                                    style:
+                                                        SoriTextTheme.of(
+                                                          context,
+                                                        ).body.copyWith(
+                                                          fontSize: 16,
+                                                          color: CPalette.ink,
+                                                        ),
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                          ],
+                                          CMaterialAction(
+                                            key: const ValueKey(
+                                              'hanok-construction-entry',
+                                            ),
+                                            label: t.ilduConstructionTitle,
+                                            onTap: () => _openShortcut(
+                                              '/hanok/construction',
+                                            ),
+                                            compact: true,
+                                          ),
+                                          const SizedBox(height: 8),
+                                          _ShortcutTiles(
+                                            snapshot: data,
+                                            onOpen: _openShortcut,
+                                          ),
+                                        ],
                                       ),
-                                key: const ValueKey('hanok-confirmed-units'),
-                                style: SoriTextTheme.of(context).body,
-                              )
-                            else if (snapshot.hasError) ...[
-                              Text(
-                                t.soriStageHanokProgressUnavailable,
-                                key: const ValueKey('hanok-progress-error'),
+                                    ),
+                                    const SizedBox(height: 12),
+                                    ExpansionTile(
+                                      key: const ValueKey('hanok-how-to-build'),
+                                      tilePadding: EdgeInsets.zero,
+                                      title: Text(t.hanokHowTitle),
+                                      children: [
+                                        Text(
+                                          t.hanokHowBody,
+                                          style: SoriTextTheme.of(context).body,
+                                        ),
+                                        const SizedBox(height: Spacing.sm),
+                                        SoriButton.outlined(
+                                          label: t.hanokHowAction,
+                                          onTap: () => _openShortcut('/path'),
+                                        ),
+                                      ],
+                                    ),
+                                    Text(
+                                      t.soriStageHanokLearningSummary,
+                                      style: SoriTextTheme.of(
+                                        context,
+                                      ).cardTitle,
+                                    ),
+                                    const SizedBox(height: Spacing.sm),
+                                    if (data != null)
+                                      Text(
+                                        data.hanokCompetence.totalUnitCount == 0
+                                            ? t.soriStageHanokNoUnits
+                                            : t.soriStageConfirmedUnits(
+                                                data
+                                                    .hanokCompetence
+                                                    .completedUnitCount,
+                                                data
+                                                    .hanokCompetence
+                                                    .totalUnitCount,
+                                              ),
+                                        key: const ValueKey(
+                                          'hanok-confirmed-units',
+                                        ),
+                                        style: SoriTextTheme.of(context).body,
+                                      )
+                                    else if (snapshot.hasError) ...[
+                                      Text(
+                                        t.soriStageHanokProgressUnavailable,
+                                        key: const ValueKey(
+                                          'hanok-progress-error',
+                                        ),
+                                      ),
+                                      TextButton(
+                                        onPressed: _refresh,
+                                        child: Text(t.btnRetry),
+                                      ),
+                                    ] else
+                                      const LinearProgressIndicator(),
+                                    const SizedBox(height: Spacing.lg),
+                                    DancheongEntryCard(
+                                      store: DancheongStore(),
+                                      compact: true,
+                                      onOpen: () =>
+                                          _openShortcut('/dancheong-studio'),
+                                    ),
+                                    const SizedBox(height: Spacing.lg),
+                                  ],
+                                ),
                               ),
-                              TextButton(
-                                onPressed: _refresh,
-                                child: Text(t.btnRetry),
-                              ),
-                            ] else
-                              const LinearProgressIndicator(),
-                            const SizedBox(height: Spacing.lg),
-                            DancheongEntryCard(
-                              store: DancheongStore(),
-                              compact: true,
-                              onOpen: () => _openShortcut('/dancheong-studio'),
                             ),
-                            const SizedBox(height: Spacing.lg),
-                            _ShortcutTiles(
-                              snapshot: data,
-                              onOpen: _openShortcut,
-                            ),
-                            const SizedBox(height: Spacing.xl),
-                          ],
+                          );
+                        },
+                      ),
+                      SliverPadding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: Spacing.md,
+                        ),
+                        sliver: SliverToBoxAdapter(
+                          child: YeopjeonWalletCard(
+                            key: ObjectKey(_future),
+                            onBuilt: _refresh,
+                          ),
                         ),
                       ),
-                    );
-                  },
-                ),
-                SliverPadding(
-                  padding: EdgeInsets.fromLTRB(
-                    padding.left,
-                    12,
-                    padding.right,
-                    12,
+                      const SliverPadding(
+                        padding: EdgeInsets.symmetric(horizontal: 12),
+                        sliver: SliverToBoxAdapter(child: IlDuR16EstateEntry()),
+                      ),
+                      _SarangchaeConstructionSliver(
+                        progressionFuture: _future,
+                        constructionFuture: _constructionFuture,
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        onRetry: _refresh,
+                        onStageSelected: (sequence) =>
+                            setState(() => _selectedSequence = sequence),
+                      ),
+                    ],
                   ),
-                  sliver: SliverToBoxAdapter(
-                    child: SoriButton.filled(
-                      key: const ValueKey('hanok-construction-entry'),
-                      label: t.ilduConstructionTitle,
-                      onTap: () => Navigator.of(
-                        context,
-                      ).pushNamed('/hanok/construction'),
-                    ),
-                  ),
-                ),
-                SliverPadding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: padding.left,
-                    vertical: Spacing.md,
-                  ),
-                  sliver: SliverToBoxAdapter(
-                    child: YeopjeonWalletCard(
-                      key: ObjectKey(_future),
-                      onBuilt: _refresh,
-                    ),
-                  ),
-                ),
-                _SarangchaeConstructionSliver(
-                  progressionFuture: _future,
-                  constructionFuture: _constructionFuture,
-                  padding: padding,
-                  onRetry: _refresh,
-                  onStageSelected: (sequence) =>
-                      setState(() => _selectedSequence = sequence),
                 ),
               ],
             ),
@@ -289,33 +399,96 @@ class _HanokMapSliver extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final reduceMotion = SoriMotion.reduceMotion(context);
-    return SliverLayoutBuilder(
-      builder: (context, constraints) {
-        final w = constraints.crossAxisExtent;
-        // §W-F F1.2 — 진행은 장소: 지도가 이 탭의 주인공이다. 확장 높이 =
-        // min(w×3/4, 320)(태블릿 상한), 축소 높이 = max(w×0.25, 88).clamp(88,
-        // expandedHeight). 390dp → 292/98, 320dp → 240/88. fold 기준(§W-F F4):
-        // 헤더·지도·바로가기 행은 전부 뷰포트 안, 첫 장소 카드는 상단 24dp만
-        // 보이면 된다(스크롤 단서, test/sori_stage_hanok_fold_test.dart와 동일
-        // 기준). reduce-motion은 두 상태를 즉시 스냅한다.
-        final expandedHeight = math.min(w * 3 / 4, 320.0);
-        final collapsedHeight = math
-            .max(w * 0.25, 88.0)
-            .clamp(88.0, expandedHeight);
-        return SliverPersistentHeader(
-          pinned: true,
-          delegate: _HanokMapHeaderDelegate(
-            expandedHeight: expandedHeight,
-            collapsedHeight: collapsedHeight,
-            reduceMotion: reduceMotion,
-            child: _CurrentSarangchaeArtwork(
-              progressionFuture: progressionFuture,
-              constructionFuture: constructionFuture,
-              selectedSequence: selectedSequence,
-            ),
-          ),
+    return FutureBuilder<SoriStageProgressionSnapshot>(
+      future: progressionFuture,
+      builder: (context, snapshot) {
+        final data = snapshot.data;
+        if (!snapshot.hasError &&
+            data != null &&
+            !data.walletUnavailable &&
+            (selectedSequence ?? data.ownedSarangchaeStage) <= 1) {
+          // R16 stage 1 contains zero meshes. Do not substitute a future house
+          // or reserve a large empty illustration plate for an unbuilt site.
+          return SliverToBoxAdapter(
+            child: _EmptySarangchaeSite(locked: data.ownedSarangchaeStage == 0),
+          );
+        }
+        return SliverLayoutBuilder(
+          builder: (context, constraints) {
+            final w = constraints.crossAxisExtent;
+            final compact =
+                MediaQuery.sizeOf(context).height < 750 &&
+                MediaQuery.textScalerOf(context).scale(1) < 1.6;
+            final expandedHeight = compact
+                ? math.min(w * .55, 176.0)
+                : math.min(w * .75, 320.0);
+            final collapsedHeight = math
+                .max(w * .30, 104.0)
+                .clamp(104.0, expandedHeight);
+            return SliverPersistentHeader(
+              pinned: true,
+              delegate: _HanokMapHeaderDelegate(
+                expandedHeight: expandedHeight,
+                collapsedHeight: collapsedHeight,
+                reduceMotion: reduceMotion,
+                child: _CurrentSarangchaeArtwork(
+                  progressionFuture: progressionFuture,
+                  constructionFuture: constructionFuture,
+                  selectedSequence: selectedSequence,
+                ),
+              ),
+            );
+          },
         );
       },
+    );
+  }
+}
+
+class _EmptySarangchaeSite extends StatelessWidget {
+  const _EmptySarangchaeSite({required this.locked});
+  final bool locked;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    return Semantics(
+      label: locked ? t.sarangchaeStageLocked(1) : t.sarangchaeStageUnlocked(1),
+      child: Padding(
+        key: const ValueKey('hanok-map-header'),
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ExcludeSemantics(
+              child: Icon(
+                locked ? Icons.lock_outline_rounded : Icons.check_rounded,
+                color: CPalette.brass,
+                size: 32,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    t.ilduConstructionEmptyTitle,
+                    key: const ValueKey('hanok-empty-site'),
+                    style: text.cardTitle.copyWith(color: CPalette.paper),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    t.ilduConstructionEmptyBody,
+                    style: text.bodySmall.copyWith(color: CPalette.paper),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -361,11 +534,25 @@ class _HanokMapHeaderDelegate extends SliverPersistentHeaderDelegate {
         key: const ValueKey('hanok-map-header'),
         height: layoutExtent,
         width: double.infinity,
-        child: OverflowBox(
-          alignment: Alignment.topCenter,
-          minHeight: currentExtent,
-          maxHeight: currentExtent,
-          child: child,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            if (overlapsContent) ...[
+              // Transparent foreground must not reveal scrolling text/cards.
+              // Keep the pinned scene on the same opaque jade material.
+              const ColoredBox(
+                key: ValueKey('hanok-pinned-jade-backing'),
+                color: CPalette.jade,
+              ),
+              const CTexture(CMaterial.jade, opacity: .48),
+            ],
+            OverflowBox(
+              alignment: Alignment.topCenter,
+              minHeight: currentExtent,
+              maxHeight: currentExtent,
+              child: child,
+            ),
+          ],
         ),
       ),
     );
@@ -398,7 +585,9 @@ class _CurrentSarangchaeArtwork extends StatelessWidget {
       if (constructionSnapshot.hasError) {
         return Semantics(
           label: AppL10n.of(context).loadErrorTryAgain,
-          child: const Center(child: Icon(Icons.error_outline_rounded)),
+          child: const Center(
+            child: Icon(Icons.error_outline_rounded, color: CPalette.paper),
+          ),
         );
       }
       if (!constructionSnapshot.hasData) {
@@ -411,7 +600,9 @@ class _CurrentSarangchaeArtwork extends StatelessWidget {
               (progressionSnapshot.data?.walletUnavailable ?? false)) {
             return Semantics(
               label: AppL10n.of(context).loadErrorTryAgain,
-              child: const Center(child: Icon(Icons.error_outline_rounded)),
+              child: const Center(
+                child: Icon(Icons.error_outline_rounded, color: CPalette.paper),
+              ),
             );
           }
           final data = progressionSnapshot.data;
@@ -573,7 +764,7 @@ class _ShortcutTiles extends StatelessWidget {
       ),
       _ShortcutTile(
         id: 'furnish',
-        label: t.sarangbangStudyFurnish,
+        label: t.sarangbangFurnishTitle,
         count: null,
         thumb: const SoriRewardThumb(
           slug: 'decoration_soban',
@@ -588,9 +779,7 @@ class _ShortcutTiles extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final textScale = MediaQuery.textScalerOf(context).scale(1);
-        final stacked =
-            constraints.maxWidth < SoriAdaptiveWidth.shortcutRow ||
-            textScale >= 1.6;
+        final stacked = textScale >= 1.6;
         if (stacked) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -599,6 +788,25 @@ class _ShortcutTiles extends StatelessWidget {
                 tiles[index],
                 if (index != tiles.length - 1)
                   const SizedBox(height: Spacing.sm),
+              ],
+            ],
+          );
+        }
+        if (MediaQuery.sizeOf(context).width < SoriBreakpoints.narrowPhone) {
+          return Column(
+            children: [
+              for (var row = 0; row < 2; row++) ...[
+                if (row > 0) const SizedBox(height: 8),
+                IntrinsicHeight(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Expanded(child: tiles[row * 2]),
+                      const SizedBox(width: 8),
+                      Expanded(child: tiles[row * 2 + 1]),
+                    ],
+                  ),
+                ),
               ],
             ],
           );
@@ -613,8 +821,7 @@ class _ShortcutTiles extends StatelessWidget {
             children: [
               for (var index = 0; index < tiles.length; index++) ...[
                 Expanded(child: tiles[index]),
-                if (index != tiles.length - 1)
-                  const SizedBox(width: Spacing.sm),
+                if (index != tiles.length - 1) const SizedBox(width: 4),
               ],
             ],
           ),
@@ -644,14 +851,14 @@ class _ShortcutTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final tt = SoriTextTheme.of(context);
     final s = SoriSurfaces.of(context);
-    final compactLabel = MediaQuery.textScalerOf(context).scale(1) < 1.6;
+    final horizontal =
+        MediaQuery.sizeOf(context).width < SoriBreakpoints.narrowPhone &&
+        MediaQuery.textScalerOf(context).scale(1) < 1.6;
     final labelText = Text(
       label,
       key: ValueKey('hanok-shortcut-label-$id'),
-      maxLines: compactLabel ? 1 : null,
-      softWrap: !compactLabel,
-      textAlign: TextAlign.center,
-      style: tt.label.copyWith(fontSize: 15, height: 1.35),
+      textAlign: horizontal ? TextAlign.start : TextAlign.center,
+      style: tt.label.copyWith(fontSize: 16, height: 1.2, color: CPalette.ink),
     );
     return KeyedSubtree(
       key: ValueKey('hanok-shortcut-$id'),
@@ -664,32 +871,67 @@ class _ShortcutTile extends StatelessWidget {
         label: count == null ? label : '$label, $count',
         onTap: onTap,
         child: ExcludeSemantics(
-          child: SoriCard(
-            variant: SoriCardVariant.compact,
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+          child: CImageTap(
+            label: count == null ? label : '$label, $count',
             onTap: onTap,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(height: 40, child: Center(child: thumb)),
-                const SizedBox(height: Spacing.xs),
-                if (compactLabel)
-                  FittedBox(fit: BoxFit.scaleDown, child: labelText)
-                else
-                  labelText,
-                if (count != null)
-                  Text(
-                    count!,
-                    key: ValueKey('hanok-shortcut-count-$id'),
-                    // 자릿수 정렬(progress_meter.dart:191과 동일 패턴) — 이
-                    // 카운트는 갱신마다 자릿수가 바뀔 수 있어(0/1 → 1/1 등)
-                    // 폭이 흔들리지 않게 tabular figures 를 쓴다.
-                    style: tt.caption.copyWith(
-                      color: s.textMuted,
-                      fontFeatures: const [FontFeature.tabularFigures()],
+            child: CPaperPanel(
+              padding: EdgeInsets.symmetric(
+                horizontal: horizontal ? 8 : 2,
+                vertical: 8,
+              ),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(minHeight: 32),
+                child: Flex(
+                  direction: horizontal ? Axis.horizontal : Axis.vertical,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      width: horizontal ? 24 : null,
+                      height: MediaQuery.sizeOf(context).height < 750 ? 24 : 40,
+                      child: Center(child: thumb),
                     ),
-                  ),
-              ],
+                    SizedBox(
+                      height: horizontal ? 0 : 4,
+                      width: horizontal ? 6 : 0,
+                    ),
+                    if (horizontal)
+                      Expanded(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            labelText,
+                            if (count != null)
+                              Text(
+                                count!,
+                                key: ValueKey('hanok-shortcut-count-$id'),
+                                style: tt.caption.copyWith(
+                                  fontSize: 16,
+                                  color: s.textMuted,
+                                ),
+                              ),
+                          ],
+                        ),
+                      )
+                    else ...[
+                      labelText,
+                      if (count != null)
+                        Text(
+                          count!,
+                          key: ValueKey('hanok-shortcut-count-$id'),
+                          // 자릿수 정렬(progress_meter.dart:191과 동일 패턴) — 이
+                          // 카운트는 갱신마다 자릿수가 바뀔 수 있어(0/1 → 1/1 등)
+                          // 폭이 흔들리지 않게 tabular figures 를 쓴다.
+                          style: tt.caption.copyWith(
+                            fontSize: 16,
+                            color: s.textMuted,
+                            fontFeatures: const [FontFeature.tabularFigures()],
+                          ),
+                        ),
+                    ],
+                  ],
+                ),
+              ),
             ),
           ),
         ),

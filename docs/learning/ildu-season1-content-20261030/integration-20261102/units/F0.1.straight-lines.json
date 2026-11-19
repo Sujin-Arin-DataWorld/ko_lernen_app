@@ -1,0 +1,452 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "record_type": "inherited_detailed_with_integration_overlay",
+  "unit_id": "F0.1.straight-lines",
+  "band": "F0.1",
+  "title": {
+    "ko": "ㅡ·ㅣ를 구별하고 여섯 모음을 다시 조립한다",
+    "en": "Two lines, six syllable blocks",
+    "de": "Zwei Linien, sechs Silbenzeichen"
+  },
+  "goal": {
+    "ko": "ㅡ·ㅣ를 구별하고 여섯 모음을 다시 조립한다",
+    "en": "Distinguish ㅡ and ㅣ and rebuild the six vowels you have learned.",
+    "de": "Unterscheide ㅡ und ㅣ und setze die sechs gelernten Vokale erneut zusammen."
+  },
+  "prerequisites": [],
+  "base_manuscript": {
+    "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-1-v35/03_TWO_LINES.md",
+    "sha256": "eded881ed0affe2e4eaeab6e27eb31dd7a45f59acb77b1122013ea85d5f67bdf",
+    "inheritance": "full dialogue, teaching, P/I/R items, answer criteria, help and feedback retained verbatim; overlay is additive"
+  },
+  "source_contract": {
+    "id": "F0.1.straight-lines",
+    "goal": "ㅡ·ㅣ를 구별하고 여섯 모음을 다시 조립한다",
+    "teach_targets": "으,이",
+    "check_targets": "이,으",
+    "meaning_or_oral": "다시 말해 주세요를 뜻·음성·반복 행동으로 경험",
+    "transfer_task": "배운 여섯 음절을 다른 순서의 소리표와 연결",
+    "review_in": "F0.2.first-names",
+    "review_prompt": "느·니를 새 조합으로 조립하고 모음 차이 확인",
+    "evidence_limit": "로마자 정답만 보고 고른 시도는 한글 독립 인식 아님"
+  },
+  "inherited_content": {
+    "selected_feedback_refs": [
+      "U3-F04",
+      "U3-F03",
+      "U3-H01",
+      "U3-H02",
+      "U3-F01",
+      "U3-F02",
+      "U3-F05",
+      "U3-F06",
+      "U2-H01",
+      "U2-F01",
+      "U2-F06",
+      "U1-H01",
+      "U1-F01",
+      "U1-F06",
+      "U1-H02"
+    ],
+    "feedback_rows": [
+      {
+        "key": "U3-H01 · ㅡ 배치 도움",
+        "en": "ㅡ is a horizontal line. Let's watch an example with it below ㅇ.",
+        "de": "ㅡ ist eine waagerechte Linie. Sehen wir uns an, wie sie unter ㅇ steht."
+      },
+      {
+        "key": "U3-H02 · ㅣ 배치 도움",
+        "en": "ㅣ is a vertical line. Let's watch an example with it to the right of ㅇ.",
+        "de": "ㅣ ist eine senkrechte Linie. Sehen wir uns an, wie sie rechts neben ㅇ steht."
+      },
+      {
+        "key": "U3-F01 · ㅡ를 ㅇ 옆에 놓음",
+        "en": "This horizontal line goes below ㅇ. Put the two pieces one above the other.",
+        "de": "Diese waagerechte Linie steht unter ㅇ. Setze die beiden Teile übereinander."
+      },
+      {
+        "key": "U3-F02 · ㅣ를 ㅇ 아래에 놓음",
+        "en": "This vertical line goes to the right of ㅇ. Put the two pieces side by side.",
+        "de": "Diese senkrechte Linie steht rechts neben ㅇ. Setze die beiden Teile nebeneinander."
+      },
+      {
+        "key": "U3-F03 · 으 음성에 이 또는 우 선택",
+        "en": "This sound is 으. It's the character with ㅡ, a line without a short stroke, below ㅇ. Let's listen again together.",
+        "de": "Dieser Laut ist 으. Bei diesem Zeichen steht ㅡ ohne kurzen Strich unter ㅇ. Hören wir noch einmal gemeinsam zu."
+      },
+      {
+        "key": "U3-F04 · 이 음성에 으 선택",
+        "en": "This sound is 이. The vertical line ㅣ stands to the right of ㅇ. Let's listen again together.",
+        "de": "Dieser Laut ist 이. Rechts neben ㅇ steht die senkrechte Linie ㅣ. Hören wir noch einmal gemeinsam zu."
+      },
+      {
+        "key": "U3-F05 · 두 조각의 순서가 반대",
+        "en": "Let's check the position of ㅇ. It goes on the left of a vertical vowel and above a horizontal vowel.",
+        "de": "Prüfen wir den Platz von ㅇ. Es steht links von einem senkrechten Vokal und über einem waagerechten Vokal."
+      },
+      {
+        "key": "U3-F06 · 정답",
+        "en": "You made a syllable block using the direction of the line.",
+        "de": "Du hast passend zur Richtung der Linie einen Silbenblock gebildet."
+      }
+    ],
+    "practice_task_ids": [
+      "U3-P01",
+      "U3-P02",
+      "U3-P03",
+      "U3-P04"
+    ],
+    "independent_task_ids": [
+      "U3-I01",
+      "U3-I02",
+      "U3-I03",
+      "U3-I04",
+      "U3-I05",
+      "U3-I06",
+      "U3-I07",
+      "U3-I08",
+      "U3-I09"
+    ],
+    "next_day_task_ids": [
+      "U3-R01",
+      "U3-R02",
+      "U3-R03",
+      "U3-R04",
+      "U3-R05",
+      "U3-R06",
+      "U3-R07",
+      "U3-R08"
+    ],
+    "common_copy_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-1-v35\\README.md",
+    "readme_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-1-v35\\README.md",
+    "task_bindings": [
+      {
+        "task_id": "U3-P01",
+        "kind": "P",
+        "prompt": {
+          "en": "Put the pieces together using the example.",
+          "de": "Setze die Teile nach dem Beispiel zusammen."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-P01 | 으 모형과 [ㅡ / ㅇ] | 모형을 보며 조각을 모아 봐요. | Put the pieces together using the example. | Setze die Teile nach dem Beispiel zusammen. | ㅇ 위·ㅡ 아래→으. 도움 연습 |"
+      },
+      {
+        "task_id": "U3-P02",
+        "kind": "P",
+        "prompt": {
+          "en": "Let's make this example together too.",
+          "de": "Bauen wir auch dieses Beispiel gemeinsam."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-P02 | 이 모형과 [ㅇ / ㅣ] | 이번 모형도 함께 만들어 봐요. | Let's make this example together too. | Bauen wir auch dieses Beispiel gemeinsam. | ㅇ 왼쪽·ㅣ 오른쪽→이. 도움 연습 |"
+      },
+      {
+        "task_id": "U3-P03",
+        "kind": "P",
+        "prompt": {
+          "en": "Listen and choose the matching character.",
+          "de": "Hör zu und wähle das passende Zeichen."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-P03 | S-I, 보기 [이 / 으] | 소리를 듣고 같은 글자를 골라요. | Listen and choose the matching character. | Hör zu und wähle das passende Zeichen. | 이. 오답이면 U3-F04 |"
+      },
+      {
+        "task_id": "U3-P04",
+        "kind": "P",
+        "prompt": {
+          "en": "Choose the character that matches this sound.",
+          "de": "Wähle das Zeichen, das zu diesem Laut passt."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-P04 | S-EU, 보기 [이 / 으] | 이번 소리와 같은 글자를 골라요. | Choose the character that matches this sound. | Wähle das Zeichen, das zu diesem Laut passt. | 으. 오답이면 U3-F03 |"
+      },
+      {
+        "task_id": "U3-I01",
+        "kind": "I",
+        "prompt": {
+          "en": "Make one syllable block with these pieces.",
+          "de": "Bilde aus diesen Teilen einen Silbenblock."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-I01 | [ㅣ / ㅇ], 모형·음성 없음 | 이 조각들로 한 글자를 만들어 봐요. | Make one syllable block with these pieces. | Bilde aus diesen Teilen einen Silbenblock. | ㅇ 왼쪽·ㅣ 오른쪽→이. 문자 구조 |"
+      },
+      {
+        "task_id": "U3-I02",
+        "kind": "I",
+        "prompt": {
+          "en": "Put these pieces together into one syllable block too.",
+          "de": "Setze auch diese Teile zu einem Silbenblock zusammen."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-I02 | [ㅡ / ㅇ], 모형·음성 없음 | 이번 조각들도 한 글자로 모아 봐요. | Put these pieces together into one syllable block too. | Setze auch diese Teile zu einem Silbenblock zusammen. | ㅇ 위·ㅡ 아래→으. 문자 구조 |"
+      },
+      {
+        "task_id": "U3-I03",
+        "kind": "I",
+        "prompt": {
+          "en": "Listen and choose the matching character.",
+          "de": "Hör zu und wähle das passende Zeichen."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-I03 | S-EU, 보기 [으 / 우]. 전사 없음 | 소리를 듣고 같은 글자를 골라요. | Listen and choose the matching character. | Hör zu und wähle das passende Zeichen. | 으. 배운 소리→표기. 우도 선행 학습했을 때만 |"
+      },
+      {
+        "task_id": "U3-I04",
+        "kind": "I",
+        "prompt": {
+          "en": "Choose the character that matches this sound.",
+          "de": "Wähle das Zeichen, das zu diesem Laut passt."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-I04 | S-I, 보기 [으 / 이]. 전사 없음 | 이번 소리와 같은 글자를 골라요. | Choose the character that matches this sound. | Wähle das Zeichen, das zu diesem Laut passt. | 이. 소리→표기 |"
+      },
+      {
+        "task_id": "U3-I05",
+        "kind": "I",
+        "prompt": {
+          "en": "Make one syllable block with pieces you learned earlier.",
+          "de": "Bilde auch aus den früher gelernten Teilen einen Silbenblock."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-I05 | [ㅗ / ㅇ], 모형·음성 없음 | 앞에서 배운 조각으로도 한 글자를 만들어 봐요. | Make one syllable block with pieces you learned earlier. | Bilde auch aus den früher gelernten Teilen einen Silbenblock. | ㅇ 위·ㅗ 아래→오. 앞 단원 구조 재사용 |"
+      },
+      {
+        "task_id": "U3-I06",
+        "kind": "I",
+        "prompt": {
+          "en": "Listen to a sound you learned earlier and choose its character.",
+          "de": "Hör dir einen früher gelernten Laut an und wähle das passende Zeichen."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-I06 | S-EO, 보기 [어 / 오]. 전사 없음 | 앞에서 배운 소리를 듣고 같은 글자를 골라요. | Listen to a sound you learned earlier and choose its character. | Hör dir einen früher gelernten Laut an und wähle das passende Zeichen. | 어. 앞 단원 소리→표기 재확인 |"
+      },
+      {
+        "task_id": "U3-I07",
+        "kind": "I",
+        "prompt": {
+          "en": "Make one syllable block with these pieces too.",
+          "de": "Bilde auch aus diesen Teilen einen Silbenblock."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-I07 | [ㅏ / ㅇ], 모형·음성 없음 | 이번 조각들도 한 글자로 만들어 봐요. | Make one syllable block with these pieces too. | Bilde auch aus diesen Teilen einen Silbenblock. | ㅇ 왼쪽·ㅏ 오른쪽→아. 누적 조립 |"
+      },
+      {
+        "task_id": "U3-I08",
+        "kind": "I",
+        "prompt": {
+          "en": "Look at the direction of the pieces and put them in their places.",
+          "de": "Sieh dir die Richtung der Teile an und setze sie an die passenden Plätze."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-I08 | [ㅓ / ㅇ], 모형·음성 없음 | 조각의 방향을 보고 알맞은 자리에 놓아요. | Look at the direction of the pieces and put them in their places. | Sieh dir die Richtung der Teile an und setze sie an die passenden Plätze. | ㅇ 왼쪽·ㅓ 오른쪽→어. 누적 조립 |"
+      },
+      {
+        "task_id": "U3-I09",
+        "kind": "I",
+        "prompt": {
+          "en": "Put the last pieces together into one syllable block too.",
+          "de": "Setze auch die letzten Teile zu einem Silbenblock zusammen."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-I09 | [ㅜ / ㅇ], 모형·음성 없음 | 마지막 조각들도 한 글자로 모아 봐요. | Put the last pieces together into one syllable block too. | Setze auch die letzten Teile zu einem Silbenblock zusammen. | ㅇ 위·ㅜ 아래→우. 누적 조립 |"
+      },
+      {
+        "task_id": "U3-R01",
+        "kind": "R",
+        "prompt": {
+          "en": "Make one syllable block with these pieces.",
+          "de": "Bilde aus diesen Teilen einen Silbenblock."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-R01 | [ㅇ / ㅡ], 모형·음성 없음 | 이 조각들로 한 글자를 만들어 봐요. | Make one syllable block with these pieces. | Bilde aus diesen Teilen einen Silbenblock. | 으: ㅇ 위·ㅡ 아래 |"
+      },
+      {
+        "task_id": "U3-R02",
+        "kind": "R",
+        "prompt": {
+          "en": "Listen and choose the matching character.",
+          "de": "Hör zu und wähle das passende Zeichen."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-R02 | S-I, 보기 [으 / 이] | 소리를 듣고 같은 글자를 골라요. | Listen and choose the matching character. | Hör zu und wähle das passende Zeichen. | 이. 소리→표기 |"
+      },
+      {
+        "task_id": "U3-R03",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the character that matches this sound.",
+          "de": "Wähle das Zeichen, das zu diesem Laut passt."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-R03 | S-A, 보기 [어 / 아] | 이번 소리와 같은 글자를 골라요. | Choose the character that matches this sound. | Wähle das Zeichen, das zu diesem Laut passt. | 아. 소리→표기 |"
+      },
+      {
+        "task_id": "U3-R04",
+        "kind": "R",
+        "prompt": {
+          "en": "Put these pieces together into one syllable block too.",
+          "de": "Setze auch diese Teile zu einem Silbenblock zusammen."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-R04 | [ㅇ / ㅣ], 모형·음성 없음 | 이번 조각들도 한 글자로 모아 봐요. | Put these pieces together into one syllable block too. | Setze auch diese Teile zu einem Silbenblock zusammen. | 이: ㅇ 왼쪽·ㅣ 오른쪽 |"
+      },
+      {
+        "task_id": "U3-R05",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the character that matches this earlier sound.",
+          "de": "Wähle das Zeichen, das zu diesem früher gelernten Laut passt."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-R05 | S-U, 보기 [우 / 오] | 앞에서 배운 소리와 같은 글자를 골라요. | Choose the character that matches this earlier sound. | Wähle das Zeichen, das zu diesem früher gelernten Laut passt. | 우. 소리→표기 |"
+      },
+      {
+        "task_id": "U3-R06",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the character that matches this sound.",
+          "de": "Wähle das Zeichen, das zu diesem Laut passt."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-R06 | S-EO, 보기 [오 / 어] | 이번 소리와 같은 글자를 골라요. | Choose the character that matches this sound. | Wähle das Zeichen, das zu diesem Laut passt. | 어. 소리→표기 |"
+      },
+      {
+        "task_id": "U3-R07",
+        "kind": "R",
+        "prompt": {
+          "en": "Listen and choose the matching character.",
+          "de": "Hör zu und wähle das passende Zeichen."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-R07 | S-EU, 보기 [으 / 우] | 소리를 듣고 같은 글자를 골라요. | Listen and choose the matching character. | Hör zu und wähle das passende Zeichen. | 으. 소리→표기 |"
+      },
+      {
+        "task_id": "U3-R08",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the character that matches the last sound.",
+          "de": "Wähle das Zeichen, das zum letzten Laut passt."
+        },
+        "target": null,
+        "feedback_refs": [],
+        "material": null,
+        "choices": null,
+        "source_row": "| U3-R08 | S-O, 보기 [오 / 우] | 마지막 소리와 같은 글자를 골라요. | Choose the character that matches the last sound. | Wähle das Zeichen, das zum letzten Laut passt. | 오. 소리→표기 |"
+      }
+    ]
+  },
+  "responses": {
+    "assisted": {
+      "ko": "도움을 받아 이 활동을 함께 마쳤어요. 다른 예는 준비되면 해 봐요.",
+      "en": "You completed this activity with support. Try another example when you are ready.",
+      "de": "Du hast diese Aufgabe mit Hilfe abgeschlossen. Probiere ein weiteres Beispiel, wenn du bereit bist."
+    },
+    "independent": {
+      "ko": "이 예는 시범 없이 확인했어요. 다른 날 새로운 상황에서도 다시 해 봐요.",
+      "en": "You checked this example without a model. Try it in a new setting another day.",
+      "de": "Du hast dieses Beispiel ohne Vorlage bearbeitet. Probiere es an einem anderen Tag in einer neuen Situation."
+    },
+    "audio_unavailable": {
+      "ko": "지금은 소리를 재생할 수 없어요. 글과 그림으로 계속하거나 나중에 다시 들어요.",
+      "en": "Audio is unavailable right now. Continue with text and pictures, or listen later.",
+      "de": "Der Ton ist gerade nicht verfügbar. Mach mit Text und Bildern weiter oder höre später noch einmal zu."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 괜찮아요. 돌아오면 같은 차례에서 이어가요.",
+      "en": "You can take a break here. When you return, continue from the same turn.",
+      "de": "Du kannst hier eine Pause machen. Wenn du zurückkommst, geht es an derselben Stelle weiter."
+    },
+    "resume": {
+      "ko": "돌아왔네요. 놓아 둔 답과 도움 상태를 확인하고 이어가요.",
+      "en": "Welcome back. Check your previous response and any help you used, then continue.",
+      "de": "Willkommen zurück. Sieh dir deine bisherige Antwort und die verwendete Hilfe an und mach dann weiter."
+    },
+    "save_failed": {
+      "ko": "아직 저장을 확인하지 못했어요. 지금 답은 유지한 채 다시 시도해요.",
+      "en": "Saving has not been confirmed yet. Keep your response and try again.",
+      "de": "Das Speichern ist noch nicht bestätigt. Deine Antwort bleibt stehen; versuche es erneut."
+    },
+    "revisit": {
+      "ko": "이미 본 장면이에요. 다시 보아도 보상이나 공정이 중복 생성되지 않아요.",
+      "en": "You have seen this scene before. Replaying it does not grant another reward or construction step.",
+      "de": "Du kennst diese Szene bereits. Beim erneuten Ansehen erhältst du keine weitere Belohnung und keinen zusätzlichen Bauabschnitt."
+    }
+  },
+  "response_conditions": {
+    "assisted": "only after supported task is resolved",
+    "independent": "only if the eligible item met its criteria without model/hint; not all modalities",
+    "resume": "only after original state is actually restored",
+    "revisit": "existing reward owner remains authoritative"
+  },
+  "story": {
+    "lq_id": "LQ-01",
+    "anchor": "사랑채 착공 전·착공",
+    "spoiler_guard": "Use only revealed facts. First book has no completed Sarangchae; first 집 remains practice draft until original readiness is confirmed."
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true,
+    "original_review_scope": "existing manuscript reviews and same-byte source; not human/native/device approval"
+  }
+}

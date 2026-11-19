@@ -1,3 +1,4 @@
+import '../data/canonical_companion_art.dart';
 import '../services/haptic_service.dart';
 import '../widgets/sori/game_reward.dart';
 import '../services/learning_journey.dart';
@@ -746,7 +747,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         onLeave: _retireStudy,
         title: t.kkeunmariTitle,
         child: SoriEmptyState(
-          asset: 'assets/illustrations/mascot/magpie_encourage.png',
+          asset: CanonicalCompanionArt.magpieGuide,
           icon: Icons.link_off_rounded,
           title: t.kkeunmariTitle,
           body: widget.source == null

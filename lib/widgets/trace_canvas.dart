@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'sori/tokens.dart';
+import 'sori/c_gallery/c_calligraphy_canvas.dart';
+import 'sori/c_gallery/c_calligraphy_ink.dart';
 
 typedef TraceStrokeEndCallback =
     void Function(TraceCanvasSnapshot snapshot, Size canvasSize);
@@ -18,6 +20,8 @@ final class TraceCanvasSnapshot {
 
 final class TraceCanvasController extends ChangeNotifier {
   final List<List<Offset>> _strokes = [];
+  final List<CInkStroke?> _inkStrokes = [];
+  CInkStroke? _currentInk;
   List<Offset>? _currentStroke;
   List<Offset>? _errorGhost;
   List<Offset>? _nextStrokeHint;
@@ -30,6 +34,8 @@ final class TraceCanvasController extends ChangeNotifier {
       return;
     }
     _errorGhost = List<Offset>.unmodifiable(_strokes.removeLast());
+    _inkStrokes.removeLast();
+    _currentInk = null;
     _currentStroke = null;
     _changed();
   }
@@ -63,25 +69,34 @@ final class TraceCanvasController extends ChangeNotifier {
       return;
     }
     _strokes.clear();
+    _inkStrokes.clear();
+    _currentInk = null;
     _currentStroke = null;
     _errorGhost = null;
     _nextStrokeHint = null;
     _changed();
   }
 
-  void _beginStroke(Offset point) {
+  void _beginStroke(Offset point, {CInkPoint? inkPoint, bool stylus = false}) {
     _errorGhost = null;
     _currentStroke = <Offset>[point];
     _strokes.add(_currentStroke!);
+    _currentInk = inkPoint == null
+        ? null
+        : CInkStroke(inkPoint, stylus: stylus);
+    _inkStrokes.add(_currentInk);
     _changed();
   }
 
-  void _moveStroke(Offset point) {
+  void _moveStroke(Offset point, {CInkPoint? inkPoint}) {
     final current = _currentStroke;
     if (current == null) {
       return;
     }
     current.add(point);
+    if (inkPoint != null) {
+      _currentInk?.add(inkPoint);
+    }
     _changed();
   }
 
@@ -91,8 +106,11 @@ final class TraceCanvasController extends ChangeNotifier {
       return false;
     }
     _currentStroke = null;
+    _currentInk?.finish();
+    _currentInk = null;
     if (current.length < 2) {
       _strokes.removeLast();
+      _inkStrokes.removeLast();
       _changed();
       return false;
     }
@@ -105,6 +123,8 @@ final class TraceCanvasController extends ChangeNotifier {
       return;
     }
     _strokes.removeLast();
+    _inkStrokes.removeLast();
+    _currentInk = null;
     _currentStroke = null;
     if (notify) {
       _changed();
@@ -130,6 +150,11 @@ class TraceCanvas extends StatefulWidget {
     required this.onStrokeEnd,
     required this.semanticLabel,
     this.paintKey,
+    this.calligraphy = false,
+    this.canonicalCoordinates = false,
+    this.parkedBrush,
+    this.brushScale = 1,
+    this.brushAngle = .42,
   });
 
   final TraceCanvasController controller;
@@ -141,19 +166,31 @@ class TraceCanvas extends StatefulWidget {
   final String semanticLabel;
   final Key? paintKey;
 
+  /// C writing uses the pressure/time sidecar, without changing snapshots.
+  final bool calligraphy;
+
+  /// A resize must not change historical paths or the assessment reference.
+  /// Atelier stores centered, uniform 220-unit paths at pointer capture time.
+  final bool canonicalCoordinates;
+  final Offset? parkedBrush;
+  final double brushScale;
+  final double brushAngle;
+
   @override
   State<TraceCanvas> createState() => _TraceCanvasState();
 }
 
 class _TraceCanvasState extends State<TraceCanvas> {
   int? _activePointer;
+  Size? _paperSize;
 
   @override
   void didUpdateWidget(covariant TraceCanvas oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.controller != widget.controller) {
       _cancelActiveStroke(oldWidget.controller);
-    } else if (oldWidget.enabled && !widget.enabled) {
+    } else if ((oldWidget.enabled && !widget.enabled) ||
+        oldWidget.calligraphy != widget.calligraphy) {
       _cancelActiveStroke(widget.controller);
     }
   }
@@ -180,14 +217,21 @@ class _TraceCanvasState extends State<TraceCanvas> {
       return;
     }
     _activePointer = event.pointer;
-    widget.controller._beginStroke(event.localPosition);
+    widget.controller._beginStroke(
+      _point(event.localPosition),
+      inkPoint: _inkPoint(event),
+      stylus: CCalligraphyMotion.isPen(event.kind),
+    );
   }
 
   void _updateStroke(PointerMoveEvent event) {
     if (_activePointer != event.pointer) {
       return;
     }
-    widget.controller._moveStroke(event.localPosition);
+    widget.controller._moveStroke(
+      _point(event.localPosition),
+      inkPoint: _inkPoint(event),
+    );
   }
 
   void _endStroke(PointerUpEvent event) {
@@ -200,8 +244,29 @@ class _TraceCanvasState extends State<TraceCanvas> {
     }
     final box = context.findRenderObject();
     final size = box is RenderBox && box.hasSize ? box.size : Size.zero;
-    widget.onStrokeEnd(widget.controller.snapshot, size);
+    widget.onStrokeEnd(
+      widget.controller.snapshot,
+      widget.canonicalCoordinates ? const Size.square(220) : size,
+    );
   }
+
+  Offset _point(Offset local) {
+    if (!widget.canonicalCoordinates) {
+      return local;
+    }
+    final size = (context.findRenderObject()! as RenderBox).size;
+    final side = size.shortestSide;
+    return (local - Offset((size.width - side) / 2, (size.height - side) / 2)) *
+        (220 / side);
+  }
+
+  CInkPoint? _inkPoint(PointerEvent event) => !widget.calligraphy
+      ? null
+      : CInkPoint(
+          _point(event.localPosition),
+          event.timeStamp,
+          CCalligraphyMotion.pressure(event),
+        );
 
   void _cancelStroke(PointerCancelEvent event) {
     if (_activePointer != event.pointer) {
@@ -212,13 +277,16 @@ class _TraceCanvasState extends State<TraceCanvas> {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
-      container: true,
-      enabled: widget.enabled,
-      label: widget.semanticLabel,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(SoriRadius.md),
-        child: RawGestureDetector(
+    final drawing = LayoutBuilder(
+      builder: (context, constraints) {
+        final size = constraints.biggest;
+        if (_paperSize != null && _paperSize != size) {
+          // Geometry changes retire only the in-flight pointer. Accepted ink is
+          // already stored in the stable 220-unit reference coordinate system.
+          _cancelActiveStroke(widget.controller, notify: false);
+        }
+        _paperSize = size;
+        return RawGestureDetector(
           key: const Key('trace-canvas'),
           behavior: HitTestBehavior.opaque,
           gestures: <Type, GestureRecognizerFactory>{
@@ -237,18 +305,35 @@ class _TraceCanvasState extends State<TraceCanvas> {
             child: AnimatedBuilder(
               animation: widget.controller,
               builder: (context, _) => Stack(
+                clipBehavior: widget.calligraphy ? Clip.none : Clip.hardEdge,
                 fit: StackFit.expand,
                 children: [
-                  CustomPaint(
-                    key:
-                        widget.paintKey ??
-                        ValueKey('trace-canvas-ghost-${widget.ghost}'),
-                    painter: _TraceStrokePainter(
-                      strokes: widget.controller._strokes,
-                      color: widget.color,
+                  if (widget.calligraphy)
+                    CCalligraphyCanvas(
+                      strokes: widget.controller._inkStrokes
+                          .whereType<CInkStroke>()
+                          .toList(),
                       revision: widget.controller._revision,
+                      canonicalCoordinates: widget.canonicalCoordinates,
+                      parkedBrush: widget.parkedBrush,
+                      brushOverflow: widget.canonicalCoordinates,
+                      brushScale: widget.brushScale,
+                      brushAngle: widget.brushAngle,
+                      paintKey:
+                          widget.paintKey ??
+                          ValueKey('trace-canvas-ghost-${widget.ghost}'),
+                    )
+                  else
+                    CustomPaint(
+                      key:
+                          widget.paintKey ??
+                          ValueKey('trace-canvas-ghost-${widget.ghost}'),
+                      painter: _TraceStrokePainter(
+                        strokes: widget.controller._strokes,
+                        color: widget.color,
+                        revision: widget.controller._revision,
+                      ),
                     ),
-                  ),
                   if (widget.controller._nextStrokeHint case final hint?)
                     IgnorePointer(
                       child: CustomPaint(
@@ -258,6 +343,7 @@ class _TraceCanvasState extends State<TraceCanvas> {
                           color: widget.color.withValues(alpha: 0.38),
                           revision: widget.controller._revision,
                           referenceCoordinates: true,
+                          uniformReference: widget.canonicalCoordinates,
                           strokeWidth: 7,
                         ),
                       ),
@@ -271,6 +357,8 @@ class _TraceCanvasState extends State<TraceCanvas> {
                           color: widget.errorColor,
                           revision: widget.controller._revision,
                           strokeWidth: 7,
+                          referenceCoordinates: widget.canonicalCoordinates,
+                          uniformReference: widget.canonicalCoordinates,
                         ),
                       ),
                     ),
@@ -278,8 +366,19 @@ class _TraceCanvasState extends State<TraceCanvas> {
               ),
             ),
           ),
-        ),
-      ),
+        );
+      },
+    );
+    return Semantics(
+      container: true,
+      enabled: widget.enabled,
+      label: widget.semanticLabel,
+      child: widget.calligraphy
+          ? drawing
+          : ClipRRect(
+              borderRadius: BorderRadius.circular(SoriRadius.md),
+              child: drawing,
+            ),
     );
   }
 }
@@ -291,6 +390,7 @@ final class _TraceStrokePainter extends CustomPainter {
     required this.revision,
     this.referenceCoordinates = false,
     this.strokeWidth,
+    this.uniformReference = false,
   });
 
   final List<List<Offset>> strokes;
@@ -298,11 +398,25 @@ final class _TraceStrokePainter extends CustomPainter {
   final int revision;
   final bool referenceCoordinates;
   final double? strokeWidth;
+  final bool uniformReference;
 
   @override
   void paint(Canvas canvas, Size size) {
+    canvas.save();
+    canvas.clipRRect(
+      RRect.fromRectAndRadius(
+        Offset.zero & size,
+        Radius.circular(SoriRadius.md),
+      ),
+    );
     if (referenceCoordinates) {
-      canvas.scale(size.width / 220, size.height / 220);
+      if (uniformReference) {
+        final side = size.shortestSide;
+        canvas.translate((size.width - side) / 2, (size.height - side) / 2);
+        canvas.scale(side / 220);
+      } else {
+        canvas.scale(size.width / 220, size.height / 220);
+      }
     }
     final paint = Paint()
       ..color = color
@@ -320,6 +434,7 @@ final class _TraceStrokePainter extends CustomPainter {
       }
       canvas.drawPath(path, paint);
     }
+    canvas.restore();
   }
 
   @override

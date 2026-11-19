@@ -1,0 +1,53 @@
+from pathlib import Path
+from collections import Counter
+import csv,hashlib,json,re
+
+R=Path(__file__).parent
+CUR=Path(r'C:\dev\hangulsori\ko_lernen_app_worktrees\lernpfad-v2-20261023\docs\learning\lernpfad-v2\curriculum')
+CANON=Path(r'C:\Users\vjinn\ELibrary\Downloads\한글소리_게임스토리\1_v3_5.md')
+ASSET=Path(r'C:\dev\hangulsori\_codex_artifacts\ildu-r16-publication-20261028\APP_ASSET_CONTRACT.json')
+levels=json.loads((R/'LEVEL_STORY_100.json').read_text(encoding='utf-8'))
+stages=json.loads((R/'STAGE_STORY_128.json').read_text(encoding='utf-8'))
+contract=json.loads(ASSET.read_text(encoding='utf-8'))
+checks=[]
+def check(name,result,detail=None): checks.append(dict(name=name,passed=bool(result),detail=detail))
+def readpsv(n):
+    with (CUR/n).open(encoding='utf-8-sig',newline='') as f:return list(csv.DictReader(f,delimiter='|'))
+f,u=readpsv('FOUNDATION.psv'),readpsv('UNITS.psv')
+ls=levels['units']; ss=stages['stages']
+check('100 unique units match exact source IDs',len(ls)==100 and len({x['unit_id'] for x in ls})==100 and {x['unit_id'] for x in ls}=={x['id'] for x in f+u})
+sources={x['id']:x for x in f+u}
+check('original titles and can-dos preserved',all(x['original_can_do']==sources[x['unit_id']].get('can_do',sources[x['unit_id']].get('goal')) for x in ls))
+check('16 bands and99required1optional',len({x['band'] for x in ls})==16 and sum(x['curriculum_required'] for x in ls)==99 and [x['unit_id'] for x in ls if not x['curriculum_required']]==['C2.1-06'])
+check('all100 have story action/consequence/hook',all(x['micro_conflict'] and x['player_action'] and x['visible_narrative_consequence'] and x['next_hook'] for x in ls))
+check('all100 NPC trilingual',all(set(x['npc']['line'])=={'ko','en','de'} and all(x['npc']['line'].values()) for x in ls))
+check('no newclue in100',all(x['new_clue']==0 for x in ls))
+original={s['processId']:(b['catalogBuildingId'],s) for b in contract['buildings'] for s in b['stages']}
+check('11 buildings128uniqueprocessId',len({x['catalogBuildingId'] for x in ss})==11 and len(ss)==128 and len({x['processId'] for x in ss})==128 and set(original)=={x['processId'] for x in ss})
+check('exact process labels sequences buildings legacyarrays',all((x['catalogBuildingId'],x['sequence'],x['label'],x['requiredCourseUnitIds'])==(original[x['processId']][0],original[x['processId']][1]['sequence'],original[x['processId']][1]['label'],original[x['processId']][1]['requiredCourseUnitIds']) for x in ss))
+check('4act36/35/31/26',Counter(x['act'] for x in ss)=={1:36,2:35,3:31,4:26})
+check('33basic hooks',len(stages['canonicalHooks'])==33)
+check('all128 distinct authored microbeats',len({x['proposedStoryBeat']['title'] for x in ss})==128 and all(x['proposedStoryBeat']['microProblem'] and x['proposedStoryBeat']['learnerAction'] and x['proposedStoryBeat']['tangibleNarrativeConsequence'] for x in ss))
+check('all128 NPC trilingual',all(all(x['npcLine'].get(lang) for lang in ['ko','en','de-DE']) for x in ss))
+check('no newclue in128',all(x['proposedStoryBeat']['new_clue']==0 and not x['canon']['newClueIds'] for x in ss))
+early=[x for x in ss if x['narrativeBuildingOrdinal']<=5]
+check('no early Yeoni name in NPC KO EN DE',not any(re.search(r'연이|연아|Yeoni|Yeon-i',x['npcLine'][lang],re.I) for x in early for lang in ['ko','en','de-DE']))
+check('LQ05midgate noE04grant',all(not x['canon']['revealClueIds'] for x in ss if x['catalogBuildingId']=='jungmunganchae' and x['canon']['hook']=='STRUCTURE_MILESTONE'))
+ep=(R/'EPILOGUES_10S.md').read_text(encoding='utf-8')
+check('two canon answers and homecoming preserved',all(x in ep for x in ['다 왔다, 연아. 내가 다 받았어.','연아. 이제 문은 고쳐 놨다.','다녀왔습니다.']))
+check('canonAP1andcookievariant distinguished',all(x in ep for x in ['AP-1','537','변주','10초']))
+with (R/'EPILOGUE_TIMELINE.csv').open(encoding='utf-8-sig',newline='') as f: erows=list(csv.DictReader(f))
+check('six timeline shots',len(erows)==6)
+check('canon SHA unchanged',hashlib.sha256(CANON.read_bytes()).hexdigest()=='24ec73c1051da05702aac1d0257339cb10059d6cc4ea05cb5c7fb585deb64bcb')
+check('R16contract SHA unchanged',hashlib.sha256(ASSET.read_bytes()).hexdigest()=='15541911a96ddc747bb2960102f3d983aabcc84541750c2bf1fb3439d6220a75')
+links=[]
+for name in ['README.md','STORY_MANAGER_GUIDE.md']:
+    for target in re.findall(r'\]\(([^)]+)\)',(R/name).read_text(encoding='utf-8')):
+        if ':' not in target and not target.startswith('#'):
+            links.append((name,target,(R/target.split('#')[0]).exists()))
+check('entrypoint local links resolve',all(x[2] for x in links),links)
+report=dict(status='MODEL_STRUCTURAL_QA_PASS' if all(x['passed'] for x in checks) else 'REPAIR_REQUIRED',checks=checks,
+counts=dict(units=len(ls),buildings=11,stages=len(ss),basicHooks=len(stages['canonicalHooks']),epilogueShots=len(erows)),
+limits=['structural identity and manuscript checks, not native speaker or teacher approval','actual audio timing and render unverified','runtime construction policy and evidence/persistence unmodified'])
+(R/'STRUCTURAL_QA.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+print(json.dumps(dict(status=report['status'],checks=len(checks),failed=[x for x in checks if not x['passed']],counts=report['counts']),ensure_ascii=False))

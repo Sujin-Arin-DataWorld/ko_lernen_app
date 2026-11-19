@@ -1,0 +1,1008 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-18",
+  "scope": "02 through 06. Complete references and whole masters inspected. Reviewer generated bounded candidates and authored the delegated script; reviewer did not mutate Figma.",
+  "status": "FIGMA_V11_AND_FINAL_NATIVE_CAPTURES_SCOPED_STATIC_VISUAL_PASS",
+  "referenceFolder": "C:/Users/vjinn/.codex/generated_images/einleitung_setting_rats확정",
+  "masterFolder": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f",
+  "referenceSpec": "tool/einleitung_reference_spec.json",
+  "script": "tool/refine_einleitung_story_screens.js",
+  "viewport": [
+    402,
+    934
+  ],
+  "normalization": {
+    "sourceRect": [
+      52,
+      52,
+      748,
+      1738
+    ],
+    "hardwareExcluded": true
+  },
+  "locked": [
+    "Approved v7 shared CTA, header typography, progress metal and paper/footer treatment; reuse without redesigning the approved source nodes.",
+    "Keep all existing flow reactions and node ownership. Vorschau belongs to another task and is explicitly excluded from this script's mutations.",
+    "Use complete independently generated images in FIT mode. Do not crop the user mockups, slice a scene into props or stretch a figure.",
+    "All UI copy and learner-facing example content must be real text. Image props may retain ornamental book-cover marks or decorative medallion engravings.",
+    "Preserve the current recognizable faces, wardrobe, counted major objects and camera. No alternative character generation. Fine grain, foliage and fur differences do not trigger further regeneration."
+  ],
+  "edits": [
+    {
+      "key": "path",
+      "screen": "02",
+      "node": "80:383",
+      "reference": "einleitung2.png",
+      "master": "exec-10f008dd-58d3-4a56-8824-9c52d68bd55e.png",
+      "masterSha256": "fd751db4591aa13e18a362b2777dff7bf88fec17bd258879e00490f3dbd30a87",
+      "verdict": "SCENE_IDENTITY_PASS; INTERNAL_COMPOSITION_EDIT_REQUIRED",
+      "reason": "Current live medal tops are around y500 versus reference y533. There is excess bare table/foreground below the three bases, while labels sit below the bases. Moving the entire 603px image to end at644 moves the medals farther from the reference. This is a landmark/layout problem, not a raster-difference rejection.",
+      "targetImageRect": [
+        0,
+        41,
+        402,
+        603
+      ],
+      "targetAspect": "2:3, whole opaque scene",
+      "locks": {
+        "characterCount": 1,
+        "character": "Joy, black and white magpie, two amber eyes, brown gat with chin cord and two end fittings, teal/gold shoulder emblem",
+        "pose": "Standing front three-quarter, head gently tilted, two feet visible; open book left, bird right",
+        "majorProps": "One open ivory book front-left; teal/gold stacked books behind it; one plum vase far left; exactly three brass numbered medals1,2,3 on three separate wooden label bases connected by a gold cord",
+        "camera": "Slightly elevated frontal tabletop; no close portrait crop",
+        "colors": "Deep jade, ivory, warm walnut, aged brass; retain white wing panels and black breast"
+      },
+      "targetLandmarksApprox": {
+        "hatTop": 192,
+        "birdFeetBottom": 550,
+        "openBookRect": [
+          20,
+          395,
+          200,
+          112
+        ],
+        "medalTops": 533,
+        "baseBand": [
+          18,
+          580,
+          366,
+          57
+        ],
+        "nativeLabelInkTop": 613,
+        "sceneBottom": 644
+      },
+      "editPrompt": "Edit the supplied whole generated Joy scene using the full approved screen only as composition reference. Preserve Joy's exact recognizable face, feather identity, hat, pose, book and vase. Reflow the existing scene within a2:3 whole canvas: move the numbered medallions and their three wooden bases lower and reduce the excessive unused foreground table below them. At display rect0,41,402,603, hat top should be near192, three medal tops near533, base fronts580-637, and scene end644. Keep every object whole. Keep blank wooden label fronts for native Entdecken/Ueben/Behalten text. Do not add any app title, header, German labels, summary, button, phone, frame or new prop. Preserve the current book's decorative Korean cover/page marks. This is a bounded composition edit, not a new scene.",
+      "generatedSelection": {
+        "master": "C:/Users/vjinn/.codex/generated_images/01a14ebc-f7b4-7661-83ad-0489170ce757/exec-2ad0562d-9a91-4ad7-a8ba-fc0fbd4ba4a1.png",
+        "sha256": "fbd4caf41fc97dbe1dd78c5a26a81f3e6753af0e400026308f5f8290f5c37218",
+        "size": [
+          1024,
+          1536
+        ],
+        "figmaImageHash": "c8e657ebabdc70b39bcff13ae4abafe2c2460862",
+        "verdict": "PASS_IDENTITY_AND_MAJOR_PROPS; FULL_RENDER_PENDING",
+        "residualDisclosure": "Medal tops are approximately y540 versus target533; hat top approximately212 versus192. No further texture regeneration. Inspect title/hat clearance in the actual full screen.",
+        "originalMasterPreserved": true,
+        "cropped": false,
+        "runtimePromotionByReviewer": false
+      }
+    },
+    {
+      "key": "soundTextFree",
+      "screen": "03",
+      "node": "80:409",
+      "reference": "einleitung3.png",
+      "master": "exec-a31f5440-9277-4a58-a948-c22ca9423e03.png",
+      "masterSha256": "21cd2562ea1aa96ea5830a6798331b88da3cb45d29abb04e85039d1f238827d8",
+      "verdict": "PROP_IDENTITY_PASS; TEXT_FREE_AND_BOUNDED_COMPOSITION_EDIT_REQUIRED",
+      "reason": "The correct ㄱ + ㅏ = 가 and 가 · ga are currently baked into the art. Native text cannot replace them cleanly without blank surfaces. Current full master also leaves excess table beneath the reading plaque; the source scene ends at600 and controls begin below/over that edge.",
+      "targetImageRect": [
+        0,
+        0,
+        402,
+        600
+      ],
+      "targetAspect": "402:600, whole opaque scene",
+      "locks": {
+        "characterCount": 0,
+        "tiles": 3,
+        "tileOrder": "Two smaller ivory tiles on the left wooden riser, one larger ivory tile to their right",
+        "vases": "One round jade/plum vase left; one tall jade brush holder right with three long brush/bamboo implements",
+        "readingPlaque": 1,
+        "camera": "Frontal, slightly elevated tabletop; preserve thickness and gold flecks",
+        "colors": "Deep jade, ivory hanji/stone tiles, gold flecks, warm wood"
+      },
+      "targetLandmarksApprox": {
+        "tile1": [
+          25,
+          392,
+          77,
+          87
+        ],
+        "tile2": [
+          126,
+          391,
+          74,
+          88
+        ],
+        "tile3": [
+          242,
+          341,
+          137,
+          154
+        ],
+        "readingPlaque": [
+          94,
+          505,
+          215,
+          70
+        ],
+        "sceneBottom": 600
+      },
+      "removeOnlyText": [
+        "ㄱ",
+        "ㅏ",
+        "가",
+        "+",
+        "=",
+        "가 · ga"
+      ],
+      "nativeContent": {
+        "hangul": "ㄱ + ㅏ = 가",
+        "reading": "가 · ga",
+        "textIsGeneratedIntoImage": false,
+        "controls": "Separate whole speaker asset and native Anhören control; no speaker/button baked into scene"
+      },
+      "editPrompt": "Edit the supplied whole sound scene, preserving the same vases, three implements, plum flowers, tile counts, warm wood and camera. Make the two small tile faces, large tile face and reading plaque completely blank, with intact ivory material and gold flecks: remove only the learner-facing ㄱ,ㅏ,가,+,= and 가·ga marks. Preserve the tiny red ornamental seal if present. Recompose within402:600 so the small tile bounds are approximately25,392,77,87 and126,391,74,88; the larger right tile242,341,137,154; plaque94,505,215,70. End the complete scene at600 with minimal unused foreground. Keep the upper jade field quiet for a native title and header. No UI text, controls, button, phone or cropped object. Native text will be placed on the blank physical surfaces.",
+      "generatedSelection": {
+        "master": "C:/Users/vjinn/.codex/generated_images/01a14ebc-f7b4-7661-83ad-0489170ce757/exec-dd1e7576-1d70-4a29-9aa3-dc3ba51a49f9.png",
+        "sha256": "f678c24138ae822168e8761e6a198a9ba4a9aa330802f58faa4e462890d4c48c",
+        "size": [
+          1026,
+          1533
+        ],
+        "figmaImageHash": "4a10b1e13b2aa6887c02650eb4214cc9abc808d9",
+        "verdict": "PASS_BLANK_FACES_AND_MAJOR_PROPS; NATIVE_CONTENT_RENDER_PENDING",
+        "residualDisclosure": "Small physical tile centers remain about19px higher than reference, large tile about14px higher. Native slots align with actual edited faces; reference-exact geometry is not claimed.",
+        "originalMasterPreserved": true,
+        "cropped": false,
+        "runtimePromotionByReviewer": false
+      },
+      "actualNativeSlots": {
+        "Consonant": [
+          32,
+          377,
+          69,
+          77
+        ],
+        "Vowel": [
+          125,
+          375,
+          65,
+          77
+        ],
+        "Syllable": [
+          246,
+          337,
+          124,
+          130
+        ],
+        "plus": [
+          103,
+          399,
+          25,
+          44
+        ],
+        "equals": [
+          206,
+          399,
+          29,
+          44
+        ],
+        "reading": [
+          104,
+          511,
+          196,
+          52
+        ]
+      }
+    },
+    {
+      "key": "games",
+      "screen": "04",
+      "node": "80:436",
+      "reference": "einleitung4.png",
+      "master": "exec-83b0737b-1ff1-4ec4-aa22-867f2289623c.png",
+      "masterSha256": "d5b24e67348e787c00441ba547ccc7ba753e9211a141dce16734cd4dbb70939d",
+      "verdict": "FACE_AND_PROP_IDENTITY_PASS; FOREGROUND_COMPOSITION_EDIT_REQUIRED",
+      "reason": "Current scene ends at657 versus reference612, leaving a broad extra floor/flower strip. Simply translating the entire scene upward45px also lifts chest, knot and coin by45px and conflicts with their source positions. Preserve those props while reducing unused foreground and recovering the source vertical composition.",
+      "targetImageRect": [
+        0,
+        9,
+        402,
+        603
+      ],
+      "targetAspect": "2:3, whole opaque scene",
+      "locks": {
+        "characterCount": 1,
+        "character": "Current friendly orange Dokkaebi, exactly two short cream horns, dark tousled hair, patterned ivory headband, gold earrings, cream sleeves/navy cuffs/red vest",
+        "pose": "One open hand reaching to viewer-left; other hand rests on closed black floral chest at right",
+        "majorProps": "Exactly three cream ㄱ/가/다 tiles on one wooden riser, one closed black mother-of-pearl flower chest, one teal knot with coral tassel, one large square-hole gold coin",
+        "camera": "Same frontal tabletop; no change to face or hand anatomy"
+      },
+      "targetLandmarksApprox": {
+        "hairTop": 130,
+        "chestRect": [
+          232,
+          421,
+          170,
+          140
+        ],
+        "knotBand": [
+          25,
+          474,
+          150,
+          129
+        ],
+        "coinRect": [
+          185,
+          511,
+          87,
+          91
+        ],
+        "sceneBottom": 612
+      },
+      "editPrompt": "Make a bounded composition edit of the supplied whole Dokkaebi scene, using the full approved screen for placement only. Preserve the exact friendly face, two horns, reaching palm, clothing and other hand on the closed floral chest. Preserve exactly three letter tiles, one knot/tassel, one chest and one coin. Within a2:3 whole image displayed at0,9,402,603, recover the source landmarks: hair starts near130, chest occupies232,421,170,140, knot and tassel roughly25,474,150,129, coin185,511,87,91, and the complete scene ends at612. Remove the excessive bare foreground/flowers by recomposing the scene, not by cropping an existing image. Keep every important prop whole. No Vorschau button, German words, app UI or phone. Do not redesign Dokkaebi, invent new game props, or change chest from closed to open.",
+      "generatedSelection": {
+        "master": "C:/Users/vjinn/.codex/generated_images/01a14ebc-f7b4-7661-83ad-0489170ce757/exec-5ba0166c-9af9-472a-8ff1-1a9afba3b7d2.png",
+        "sha256": "88c1fa529b1bbabbd5f3c89bde99f0fa6c5aa9c3c2d25c3e08ef80763445e4a9",
+        "size": [
+          1024,
+          1536
+        ],
+        "figmaImageHash": "526889b1c41b6b2886a7287945d0a428d53bbfb9",
+        "verdict": "PASS_FACE_AND_WHOLE_MAJOR_PROPS; FULL_RENDER_PENDING",
+        "residualDisclosure": "Hair top about142 versus130; chest top about415 versus421; coin bottom about584 versus602. All major props are whole; no extra lantern or cloth. No further regeneration.",
+        "originalMasterPreserved": true,
+        "cropped": false,
+        "runtimePromotionByReviewer": false
+      }
+    },
+    {
+      "key": "scholarTextFree",
+      "screen": "05",
+      "node": "80:458",
+      "reference": "einleitung5.png",
+      "master": "exec-e91ebda6-90e1-449d-a484-32b4a6bb10c8.png",
+      "masterSha256": "a444ef6be70f78f4b446d67a4194b9d206c188d57aad3143fd94ac569f38fb30",
+      "verdict": "SCENE_IDENTITY_PASS; LEARNING_TEXT_REMOVAL_REQUIRED",
+      "reason": "Current TalSunbi identity, fan, card, book and camera are suitable. Geometry is repairable with scene y21 plus a separate whole tool strip at14,545,374,125. The example card and open book contain baked learning text, and the reference Beispiel tag is missing. Those teaching strings must be native layers.",
+      "targetImageRect": [
+        0,
+        21,
+        402,
+        603
+      ],
+      "targetAspect": "2:3, unchanged whole master framing",
+      "locks": {
+        "characterCount": 1,
+        "character": "Current smiling wooden Hahoe scholar mask under brown gat, pale hanbok with blue collar/cuffs and green sash",
+        "pose": "Card held viewer-left, folded bamboo fan held viewer-right",
+        "majorProps": "One tilted ivory example card, one open illustrated book, stacked teal books left, brush holder right; retain right-page floral painting",
+        "camera": "Exactly the current generated camera and prop geometry; do not recompose"
+      },
+      "removeOnlyText": [
+        "안녕하세요 on example card",
+        "annyeonghaseyo",
+        "Guten Tag",
+        "안녕하세요 on left open-book page"
+      ],
+      "nativeContent": {
+        "card": [
+          "Beispiel",
+          "안녕하세요",
+          "annyeonghaseyo",
+          "Guten Tag"
+        ],
+        "book": "안녕하세요",
+        "cardLayerRect": [
+          77,
+          286,
+          138,
+          121
+        ],
+        "cardRotationDegrees": 8.5,
+        "bookLayerRect": [
+          84,
+          476,
+          144,
+          36
+        ],
+        "bookRotationDegrees": 5
+      },
+      "editPrompt": "Edit this supplied whole TalSunbi master only to remove learner-facing words. Preserve the exact mask face, hat, hand positions, folded fan, clothing, camera, card geometry and open book. Make the example card blank ivory with its corners/ornamental marks intact: remove 안녕하세요, annyeonghaseyo and Guten Tag. Remove 안녕하세요 from the left open-book page while keeping page material, borders and the right-page floral painting. Do not add Beispiel or any replacement lettering; all content will be native text. Do not change composition or add/remove any object. Retain the whole2:3 canvas without cropping."
+    },
+    {
+      "key": "hanok",
+      "screen": "06",
+      "node": "80:483",
+      "reference": "einleitung6.png",
+      "master": "exec-af2a7de6-2349-45ae-a14f-f61637b31fa4.png",
+      "masterSha256": "1822b657a0f4ce3ffb29f6e4f7b0e6970adb0e3ddfdd8102b7c8ecc2aeb90550",
+      "verdict": "ARCHITECTURE_AND_PROP_IDENTITY_PASS; FOREGROUND_COMPOSITION_EDIT_REQUIRED",
+      "reason": "Current lower blocks end around622, reference646. Moving the whole scene down to align blocks leaves about33px of extra foreground below the reference edge. The whole-image FIT constraint requires an internal layout edit. Do not redesign the Hanok.",
+      "targetImageRect": [
+        0,
+        43,
+        402,
+        603
+      ],
+      "targetAspect": "2:3, whole opaque scene",
+      "locks": {
+        "peopleCount": 0,
+        "architecture": "Current timber Hanok silhouette, tiled roofs, eaves, columns, stone stair and courtyard arrangement unchanged",
+        "majorProps": "One teal/red lotus stampbook front-center, one gold square-hole coin left, one framed painting with exactly two white cranes right, one horizontal calligraphy brush in front, three blank wooden bases at bottom",
+        "camera": "Same slightly elevated front view; building occupies upper/middle field",
+        "colors": "Warm wood, charcoal tiled roof, jade and red lacquer, ivory crane wings, brass coin"
+      },
+      "targetLandmarksApprox": {
+        "roofUpperBand": 215,
+        "bookRect": [
+          77,
+          421,
+          241,
+          148
+        ],
+        "horizontalBrushBand": [
+          167,
+          548,
+          226,
+          23
+        ],
+        "woodBaseBand": [
+          15,
+          576,
+          372,
+          68
+        ],
+        "sceneBottom": 646
+      },
+      "editPrompt": "Edit the supplied whole Hanok scene only for the reference composition. Lock the current building geometry, camera, stairs, roof silhouette, two-crane painting, coin, stampbook and horizontal brush. Within a2:3 whole canvas displayed at0,43,402,603, put the stampbook approximately77,421,241,148, brush band167,548,226,23, and three blank wooden blocks across15,576,372,68. End the scene at646 with almost no extra foreground below the bases. Reflow unused negative/table space without cropping a prop or changing architecture. Keep all three base fronts blank for separate gold icons and native labels. No German labels, app UI, phone or new ornament."
+    },
+    {
+      "key": "hanokTools",
+      "screen": "06",
+      "node": "90:41",
+      "reference": "einleitung6.png",
+      "master": "exec-263e24aa-5bba-4602-92ee-8df5196acf49.png",
+      "masterSha256": "4f4cd9715656c37ab2b7b284e7e8835ca5089cd5d047d387691655a66dfbf816",
+      "verdict": "ICON_IDENTITY_PASS; INTERNAL_SIZE_AND_SPACING_EDIT_REQUIRED",
+      "reason": "Current standalone three-icon strip uses approximately100px wide icons at intended screen width, versus about45-50px in the reference. Its large pavilion/lotus/brush overlap the main coin, stampbook and horizontal brush. Scaling the whole strip alone also collapses horizontal center spacing.",
+      "targetImageRect": [
+        16,
+        548,
+        370,
+        123.3333
+      ],
+      "targetAspect": "3:1 transparent whole strip; keep all three icons in one asset",
+      "locks": {
+        "count": 3,
+        "order": [
+          "gold miniature Hanok pavilion",
+          "red lotus with gold edging and green leaves",
+          "gold-handled ivory-bristle brush angled up-right"
+        ],
+        "material": "Same sculpted gold/red/ivory materials; no wooden blocks or lettering added"
+      },
+      "targetLandmarksApprox": {
+        "screenCentersX": [
+          86,
+          201,
+          317
+        ],
+        "visibleScreenY": [
+          579,
+          610
+        ],
+        "iconMaxScreenWidth": 50,
+        "masterCanvas": [
+          2172,
+          724
+        ],
+        "masterCentersX": [
+          411,
+          1086,
+          1767
+        ],
+        "masterVisibleY": [
+          180,
+          365
+        ]
+      },
+      "editPrompt": "Edit the supplied transparent3:1 strip, retaining exactly its three existing sculpted symbols and order. Keep the whole2172x724 canvas. Independently shrink the pavilion, lotus and diagonal brush so each is no more than293px wide on the master, centered approximately at x411,1086,1767. Their visible top/bottom should lie approximately y180-365, with transparent padding around and below; taller glyphs may use a few extra pixels without exceeding native labels. Preserve each icon's identity, color and lighting. Do not crop, slice, connect the icons or add labels, wood bases, circles or app UI. At full-width display370x123.33 the symbols should read about45-50px wide at the three original slot centers."
+    }
+  ],
+  "retainedWholeAssets": [
+    {
+      "name": "Book tools",
+      "master": "exec-c3e0ab0c-bee7-4abc-9961-72bf24b97ceb.png",
+      "decision": "Keep; reposition whole strip to14,545,374,125. Camera/book/head medal count and identity already correct."
+    },
+    {
+      "name": "Speaker",
+      "master": "exec-00347072-e237-4d62-8635-1af894810ea6.png",
+      "decision": "Keep; increase whole transparent asset so alpha-visible body is approximately32,566,137,125. The old visible speaker was abouthalf the source size."
+    }
+  ],
+  "layoutTargets": [
+    {
+      "screen": "02",
+      "frame": "80:380",
+      "titleInkTop": 148,
+      "artBottom": 644,
+      "summaryInkTop": 674,
+      "ctaTop": 782,
+      "backInkTop": 855
+    },
+    {
+      "screen": "03",
+      "frame": "80:406",
+      "titleInkTop": 151,
+      "artBottom": 600,
+      "summaryInkTop": 712,
+      "ctaTop": 776,
+      "backInkTop": 853,
+      "listenRect": [
+        182,
+        608,
+        190,
+        58
+      ]
+    },
+    {
+      "screen": "04",
+      "frame": "80:433",
+      "titleInkTop": 153,
+      "artBottom": 612,
+      "summaryInkTop": 651,
+      "ctaTop": 763,
+      "backInkTop": 840,
+      "preview": "Excluded; retain other task ownership"
+    },
+    {
+      "screen": "05",
+      "frame": "80:455",
+      "titleInkTop": 142,
+      "artBottomIncludingTools": 664,
+      "summaryInkTop": 684,
+      "ctaTop": 772,
+      "backInkTop": 846
+    },
+    {
+      "screen": "06",
+      "frame": "80:480",
+      "titleInkTop": 147,
+      "artBottom": 646,
+      "summaryInkTop": 667,
+      "ctaTop": 760,
+      "backInkTop": 831
+    }
+  ],
+  "verification": {
+    "evidence": "Five live Figma screenshots at402x934 read on2026-10-18, all five complete approved originals, five complete current scene masters and two tool strips plus speaker master.",
+    "scriptExecuted": true,
+    "mustRecheck": [
+      "Whole scenes remain visible without crop or nonuniform figure scaling",
+      "Native 03 glyphs/reading align on the blank tile/placard surfaces",
+      "Native 05 teaching copy matches the actual blank card/page after image edit",
+      "No title-face/hat collision",
+      "German source copy has matching line breaks and no overlap",
+      "CTA/back preserve existing reactions; audio reaction is separately owned",
+      "Vorschau remains untouched",
+      "No shared v7 source node is modified"
+    ],
+    "stoppingRule": "Approve recognizable face, major object count, pose, camera, composition and material at actual402px render. Record small grain/flower/fur/letterform differences; do not request further generation because raster bytes differ. A delivered script or generated master alone is not a rendered approval.",
+    "residualDisclosure": "Original font metadata is absent. Roboto is reused from the approved first unit; exact source glyph pixels are not claimed. Independent image editing can preserve identity and layout without guaranteeing identical texture pixels.",
+    "scriptSyntax": "PASS: Node AsyncFunction compilation with figma argument",
+    "ctaInstanceSafety": "swapComponent followed by instance geometry and Label.characters only; no child transform writes",
+    "nativeScholarTextSize": "Korean card font26 within138px width; avoids five Hangul glyphs wrapping at28px",
+    "native03ActualFaceAlignment": "Coordinates adjusted to actual edited blank faces; post-execution glyph centering remains mandatory",
+    "lastExecutionReportedByParent": "Initial execution completed; existing reactions unchanged and Vorschau untouched.",
+    "currentScriptSha256": "d37104fd4f7b08021ccbfee81e54736b1a1aff59a7a9f85c3bb7b193a0a73e21"
+  },
+  "generationHistory": {
+    "path": {
+      "first": "exec-050e576c-a1de-40b4-849c-1c0fa4daf397.png",
+      "corrections": 1
+    },
+    "soundTextFree": {
+      "first": "exec-471e6222-d49d-460a-90db-d742f09394b6.png",
+      "corrections": 1
+    },
+    "games": {
+      "rejected": [
+        {
+          "master": "exec-f92e24ba-dd8b-4689-b562-f0563a85631e.png",
+          "reason": "Invented large lantern and fabric foreground; reject."
+        },
+        {
+          "master": "exec-aa2d7bd3-bbae-4316-b810-1d121b80c327.png",
+          "reason": "Clipped lower coin and character moved too low; reject."
+        }
+      ],
+      "recovery": "exec-5ba0166c-9af9-472a-8ff1-1a9afba3b7d2.png",
+      "generationStopped": true
+    },
+    "tool": "Built-in image_gen; complete local targets inspected before editing; all old and rejected masters retained"
+  },
+  "hanokCandidateReview": {
+    "materialManifest": "tool/einleitung_material_generated_edits.json",
+    "candidate": "exec-49e625e0-4fd1-43e7-bd36-bfb5defce134.png",
+    "verdict": "IDENTITY_AND_OBJECT_COUNT_PASS; FULL_COMPOSITION_PENDING",
+    "finding": "Building geometry, both plaques, stairs, book, square-hole coin, exactly two cranes, horizontal brush and three wooden bases retained. Building/book roughly20px above source landmarks; base faces roughly20px taller. Final judgment must inspect native labels and tool icons on these actual faces. No more image generation.",
+    "wholeToolRect": [
+      3.122533918,
+      527,
+      397.091950497,
+      132.363983499
+    ],
+    "iconVisibleWidths": [
+      45.1573,
+      52.6531,
+      42.7806
+    ],
+    "iconVisibleY": [
+      [
+        570.8776,
+        604.1514
+      ],
+      [
+        569.7806,
+        607.9907
+      ],
+      [
+        567.7696,
+        606.5281
+      ]
+    ]
+  },
+  "closingScreensCrossReview": {
+    "verdict": "SCOPED_STATIC_VISUAL_PASS",
+    "files": [
+      {
+        "name": "welcome-v8.png",
+        "sha256": "2213454676ca5f7c457a676933d681e601b3e84093ad992c80ba4f5d7730f13b"
+      },
+      {
+        "name": "07-taego-v8.png",
+        "sha256": "2a9021213d7ec5ffd5ef28c64f7d300af71e753c0a0acc9315422c69097f7425"
+      },
+      {
+        "name": "07-joy-v8.png",
+        "sha256": "8819e23b37e035ad6f3a51bf3e0857f21d8ff13a4dce1cfaea1bcb809117ba9c"
+      }
+    ],
+    "references": [
+      "welcome.png",
+      "einleitung7-taego.png",
+      "einleitung7-joy.png"
+    ],
+    "welcomeViewport": [
+      402,
+      714.2869
+    ],
+    "screen07Viewport": [
+      402,
+      934
+    ],
+    "passed": [
+      "Welcome full scene aspect, two recognizable characters, hierarchy and unobstructed title/body/CTA",
+      "07 equal card geometry in both states, correct single selected check, card names/descriptions, Gye block, CTA and Back without collision",
+      "Scene counts, material continuity and readable native text at actual402px rendering"
+    ],
+    "residualDisclosure": [
+      "07 upper-right branch hangs farther down than the original",
+      "Gye independent artwork uses a slightly wider view; recognizable two characters and one open book remain",
+      "Generated fur, flowers, feather grain and background differ in detail; no exact pixel identity claimed"
+    ],
+    "scopeLimit": "Static approval supports Flutter port; runtime interactions, motion, device/accessibility validation remain separate."
+  },
+  "postExecutionV9": {
+    "status": "FAIL_RENDER_DEFECTS; bounded script repairs ready",
+    "files": [
+      {
+        "name": "02-v9.png",
+        "sha256": "2f9aa93add472a0b0cb6c133db5c4494d62169851828a6edcac5c841bfb7c492"
+      },
+      {
+        "name": "03-v9.png",
+        "sha256": "6e4742964b084c013624e55c183f41815ed8b489430fdab3726d6e17b7817ec9"
+      },
+      {
+        "name": "04-v9.png",
+        "sha256": "5666bf830c989a6a8d596f90d82ae19e4b18ffa48bb74d2734ab1e8574e29fb4"
+      },
+      {
+        "name": "05-v9.png",
+        "sha256": "4caa1f32698bc65c8cbf7a6ae5a6618a3a56352ba0094c679bea613cda38169e"
+      },
+      {
+        "name": "06-v9.png",
+        "sha256": "41e18ddc49b5bced257c57d039ba7f1b548fd5962709ccaa0cfe64f25fa97a89"
+      }
+    ],
+    "critical": [
+      {
+        "screen": "02",
+        "issue": "Second summary line overlaps Description at y706-721.",
+        "cause": "Text nodes were resized to a single line after HEIGHT mode.",
+        "repair": "Explicit height equals count of supplied line breaks times lineHeight; summary60, desc23, hint20."
+      },
+      {
+        "screens": [
+          "04",
+          "05",
+          "06"
+        ],
+        "issue": "Second Description line is clipped.",
+        "repair": "Explicit text heights52,50,50; inspect any additional implicit wrap at actual width."
+      }
+    ],
+    "otherRequired": [
+      {
+        "screens": "02-06",
+        "issue": "First progress circle at centerx80 is absent, displaying six dots.",
+        "repair": "Restore Step1 from inactive Step2 paint/stroke and make visible."
+      },
+      {
+        "screens": [
+          "02",
+          "04",
+          "05",
+          "06"
+        ],
+        "issue": "Bright background top stripe above the whole image at its positivey offset.",
+        "repair": "Approved v7 jade glaze152:224 behind whole scene only; do not tint characters or props."
+      },
+      {
+        "screen": "04",
+        "issue": "Other-owned Vorschau ends655 and Summary originally starts643, causing overlap.",
+        "repair": "Move Native content to657; preserve Vorschau node/action."
+      },
+      {
+        "screen": "03",
+        "issue": "Anhören surface contains a small175x24 metal button inside a190x58 flat gold rectangle.",
+        "repair": "Use one tactile gold face; whole main CTA asset FILL with alpha padding is causing nested-button appearance."
+      }
+    ],
+    "passed": [
+      "02 title/hat clearance and complete three medal bases, face and book are readable",
+      "03 native ㄱ+ㅏ=가 and reading plaque have no collision and sit on the actual blank faces",
+      "04 friendly face and reaching hand, closed chest, three tiles, complete coin and tassel remain visible",
+      "05 native Korean greeting/card/romanization/German copy is visible on blank surfaces; mask and fan are not covered",
+      "06 Hanok identity, plaques, exactly two cranes, coin, book, brush and three labeled bases remain legible"
+    ],
+    "artDecision": "No additional image generation. Existing disclosed differences in vertical placement and texture do not by themselves block after layout defects are repaired.",
+    "approvalLimit": "Not exact100percent image reproduction; independent generated material and flora/fur/engraving details remain visibly different."
+  },
+  "postExecutionV10": {
+    "status": "TWO_BOUNDED_REPAIRS_PENDING",
+    "files": [
+      {
+        "name": "02-v10.png",
+        "sha256": "66e4f451801b73d5893e2b72656264ffb77f20465ecba2803233e2bccf0e0854"
+      },
+      {
+        "name": "03-v10.png",
+        "sha256": "603b5bac58f82b775d26c67ce066e0109fbf3b5b9788a676a0d97934bfa9bc6d"
+      },
+      {
+        "name": "04-v10.png",
+        "sha256": "c8aaee7d7f3c8a18fde1c668cb404eec6b54470ef032443e55169b002d607d1f"
+      },
+      {
+        "name": "05-v10.png",
+        "sha256": "3dd77215fe7957dda569b72bfeaa695d6706498fc7e0f27f54f796d4ea8dba28"
+      },
+      {
+        "name": "06-v10.png",
+        "sha256": "016c32659d0304b4d360316ace339653e2bd72f654bc1ac1fac4bf89a38ac124"
+      }
+    ],
+    "passed": [
+      "02 full summary/description/helper no longer overlap",
+      "05 and06 second Description lines are restored and readable",
+      "All seven progress dots are now present",
+      "04 summary no longer intersects untouched Vorschau",
+      "03 glyphs on actual tiles and05 card/page copy remain aligned; faces and major props remain unoccluded"
+    ],
+    "required": [
+      {
+        "screen": "04",
+        "issue": "Fortschritte. wraps to a third line and is clipped.",
+        "repair": "Description17.6px/line26 at width356; source paragraph remains two explicit lines. Local Roboto Regular400 width100 measurement: full second line at18.6px=371.9px; at17.8px=355.90px too close;17.6px approximately351.91px."
+      },
+      {
+        "screen": "03",
+        "issue": "Nested image button in the listening control.",
+        "repair": "Remove IMAGE paint. One native3stop gold gradient surface190x58, inside bevel/stroke and lower shadow; existing control node and reaction preserved."
+      }
+    ],
+    "residualMaterial": "The source-specific scene pattern meets the cloud-like v7 background at the top offset. The glaze reduces brightness contrast; texture seam remains disclosed. No image regeneration requested.",
+    "scriptRepairReady": true
+  },
+  "postExecutionV11": {
+    "figmaStatus": "SCOPED_STATIC_VISUAL_PASS",
+    "figmaFiles": [
+      {
+        "path": "docs/screenshots/einleitung-parity-review-20261018/02-v11.png",
+        "sha256": "66e4f451801b73d5893e2b72656264ffb77f20465ecba2803233e2bccf0e0854"
+      },
+      {
+        "path": "docs/screenshots/einleitung-parity-review-20261018/03-v11.png",
+        "sha256": "67d61b17bfe4b06857b40951a27a18857eb292f09604f38bff750e3fcbff43e4"
+      },
+      {
+        "path": "docs/screenshots/einleitung-parity-review-20261018/04-v11.png",
+        "sha256": "ea839e40279b140fa8c9d11adc6758372c28e3f76db65ed9a0dfeef6bde97b22"
+      },
+      {
+        "path": "docs/screenshots/einleitung-parity-review-20261018/05-v11.png",
+        "sha256": "3dd77215fe7957dda569b72bfeaa695d6706498fc7e0f27f54f796d4ea8dba28"
+      },
+      {
+        "path": "docs/screenshots/einleitung-parity-review-20261018/06-v11.png",
+        "sha256": "016c32659d0304b4d360316ace339653e2bd72f654bc1ac1fac4bf89a38ac124"
+      }
+    ],
+    "nativeStatus": "PASS_SCOPED_STATIC_VISUAL; final02-06 post-correction captures directly verified",
+    "nativeFiles": [
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-02-de-402-934-1x.png",
+        "sha256": "b1299096f5fd8300f7c624f94bf9164fd03cebdbc3362b2f6dcaaf046fac747f",
+        "size": [
+          402,
+          934
+        ]
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-03-de-402-934-1x.png",
+        "sha256": "08208f0b0cc673151fb34cb88e1ecdf954e403361543afe1a9bf8ec9dad217a0",
+        "size": [
+          402,
+          934
+        ]
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-04-de-402-934-1x.png",
+        "sha256": "af84c6ce1c63f98ca01652c91182f3cb61523cbd2b0656eb474ae415c9e34001",
+        "size": [
+          402,
+          934
+        ]
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-05-de-402-934-1x.png",
+        "sha256": "26eb33f58c50ea305b17398f7881a746279cb685e9f719273d9b67887373c016",
+        "size": [
+          402,
+          934
+        ]
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-06-de-402-934-1x.png",
+        "sha256": "3d225104886e2e4782ee7b38323743ebee63b711ae9be34e2de923af21bfcfdc",
+        "size": [
+          402,
+          934
+        ]
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-07-de-402-934-1x.png",
+        "sha256": "3257c4af37342f2023e5342d130f4a5d7c933db0b9a90c1ac6e33709fd50ffbf"
+      }
+    ],
+    "viewport": [
+      402,
+      934
+    ],
+    "scale": 1,
+    "passed": [
+      "02 helper Als Nächstes: Eine kurze Lernprobe. displays completely without collision",
+      "04 complete Fortschritte. now fits on the second Description line",
+      "03 single native gold listening surface has no nested-button artifact",
+      "03 native Hangul and romanization are centered on physical faces; no overlap",
+      "05 native example card and open-book Korean copy fit their blank physical surfaces",
+      "06 full two-line body and all three label/icon pairs remain visible",
+      "02-06 no title/face collision, missing major object, clipped coin/book/tassel or hidden CTA",
+      "Flutter uses matching full independent masters and follows the Figma composition, control positions and text hierarchy"
+    ],
+    "nativeCorrections": [
+      {
+        "priority": "P2",
+        "scope": "02-07 common Progress text",
+        "issue": "Native current-step counter is darker and more orange than the pale cream Figma token.",
+        "measurement": "03 glyph crop x329..386,y63..83 foreground median Figma[239,230,180], Flutter[215,172,97]. These are screenshot samples, not replacement design tokens.",
+        "repair": "Copy the actual Figma Progress fill to the shared Flutter progress text token."
+      },
+      {
+        "priority": "P2",
+        "scope": "02-07 common Back",
+        "issue": "Native Back glyphs sit approximately4-5px below Figma.",
+        "measurement": "02 expected ink top about855 versus Flutter860; other screens show the same baseline shift.",
+        "repair": "Move common native Back text baseline upward5px while retaining the48px tap target and action."
+      },
+      {
+        "priority": "P2",
+        "scope": "07 foreground branch layer",
+        "issue": "Flutter places the branch behind the right card, cutting it at the card top y237. Figma branch overlaps in front of the upper-right card down to roughly315.",
+        "repair": "Move the whole branch decoration above the companion-card layers, retaining its rect and IgnorePointer behavior."
+      }
+    ],
+    "residualDisclosure": "Approved scope is matching scene identity, major object count, layout, hierarchy and readable content. Original mockups and independently generated artwork are not100percent raster-identical. Previously recorded hat/tile/building offsets and texture/foliage differences remain disclosed; no further image generation is required for these.",
+    "runtimeLimit": "This review examines static screenshots only. Parent-reported43tests are not a substitute for interaction, motion, accessibility, device or release evidence.",
+    "nativeCorrectionsResolvedBy": "scopedFlutterApproval"
+  },
+  "scopedFlutterApproval": {
+    "status": "PASS_SCOPED_STATIC_VISUAL",
+    "reviewedAt": "2026-10-18",
+    "scope": "02-07 static implementation against reviewed Figma v11 and07v8. Final02-06 captures were directly re-inspected after the shared counter/Back corrections; final07 foreground-branch, counter and Back were directly reviewed in the preceding capture round.",
+    "finalEvidence": [
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-07-de-402-934-1x.png",
+        "sha256": "d180aab9a0fd0db3380c4f382554bf30eb493a1f4c3833ae944b41e6d2f7ee51",
+        "size": [
+          402,
+          934
+        ]
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-07-de-402-874-1x.png",
+        "sha256": "1e30d4d6e23e3a1f209929dc3887e51621ceee80b27d4681fb844ac8fef29304",
+        "size": [
+          402,
+          874
+        ]
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-02-de-402-934-1x.png",
+        "sha256": "b1299096f5fd8300f7c624f94bf9164fd03cebdbc3362b2f6dcaaf046fac747f",
+        "size": [
+          402,
+          934
+        ]
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-03-de-402-934-1x.png",
+        "sha256": "08208f0b0cc673151fb34cb88e1ecdf954e403361543afe1a9bf8ec9dad217a0",
+        "size": [
+          402,
+          934
+        ]
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-04-de-402-934-1x.png",
+        "sha256": "af84c6ce1c63f98ca01652c91182f3cb61523cbd2b0656eb474ae415c9e34001",
+        "size": [
+          402,
+          934
+        ]
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-05-de-402-934-1x.png",
+        "sha256": "26eb33f58c50ea305b17398f7881a746279cb685e9f719273d9b67887373c016",
+        "size": [
+          402,
+          934
+        ]
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-06-de-402-934-1x.png",
+        "sha256": "3d225104886e2e4782ee7b38323743ebee63b711ae9be34e2de923af21bfcfdc",
+        "size": [
+          402,
+          934
+        ]
+      }
+    ],
+    "sharedSource": {
+      "path": "lib/screens/onboarding_v2/c_onboarding.dart",
+      "sha256": "9e3681d7783507a6a7d8b9a4945044e91870688604c6493c562494760e5dfc26",
+      "readOnlyInspection": true,
+      "verified": [
+        "Progress color0xffefe6b4 at line547",
+        "Back top padding1 and48px minimum touch target",
+        "07 branch is an IgnorePointer foreground sibling after the hero/body Column inside the scroll Stack"
+      ]
+    },
+    "resolved": [
+      {
+        "issue": "Counter color",
+        "result": "Fresh07 pale cream text now matches the approved hierarchy; shared source uses EFE6B4."
+      },
+      {
+        "issue": "Back baseline",
+        "result": "Fresh07 Back baseline raised to the approved position; touch target retained."
+      },
+      {
+        "issue": "07 branch layering",
+        "result": "Whole branch now overlays the upper-right companion card through roughlyy315 instead of clipping at card top237; no title or card label obstruction."
+      }
+    ],
+    "referenceViewportResult": "402x934: cards, selection medal, names/descriptions, Gye block, full CTA and Back visible without overlap or clipping.",
+    "shortViewportResult": "402x874: fixed CTA/Back remain fully visible. The initial scroll position shows part of the Gye block; current source places complete content in SingleChildScrollView above the fixed footer. Screenshot review does not claim a performed scroll gesture.",
+    "captureScopeDisclosure": "Final02-06 native captures at402x934 now directly verify the shared counter color and Back baseline. The prior02-06 post-correction capture gap is resolved. Native07 retains its previously reviewed final capture evidence.",
+    "remainingRequiredVisualCorrections": [],
+    "nonBlockingResiduals": [
+      "Previously disclosed generated-image texture, foliage, face-detail and approximate landmark differences remain; no100percent raster match claimed.",
+      "Small antialiasing/font rasterization differences between Figma and Flutter remain.",
+      "Story upper background/scene texture transition remains disclosed; no new layout defect."
+    ],
+    "excludedEvidence": [
+      "No Git actions or runtime source modifications by this reviewer",
+      "No new image generation",
+      "No device, motion, TTS, persistence, release or user-approval claim"
+    ],
+    "finalMainIntegrationRereview": {
+      "status": "PASS_SCOPED_STATIC_VISUAL",
+      "basis": "Parent reported main integration completed and all screenshots regenerated. Reviewer read the actual five new02-06 image files; no Git/release claim inferred.",
+      "files": [
+        {
+          "path": "docs/screenshots/einleitung-generated-20261018/intro-02-de-402-934-1x.png",
+          "sha256": "b1299096f5fd8300f7c624f94bf9164fd03cebdbc3362b2f6dcaaf046fac747f",
+          "size": [
+            402,
+            934
+          ]
+        },
+        {
+          "path": "docs/screenshots/einleitung-generated-20261018/intro-03-de-402-934-1x.png",
+          "sha256": "08208f0b0cc673151fb34cb88e1ecdf954e403361543afe1a9bf8ec9dad217a0",
+          "size": [
+            402,
+            934
+          ]
+        },
+        {
+          "path": "docs/screenshots/einleitung-generated-20261018/intro-04-de-402-934-1x.png",
+          "sha256": "af84c6ce1c63f98ca01652c91182f3cb61523cbd2b0656eb474ae415c9e34001",
+          "size": [
+            402,
+            934
+          ]
+        },
+        {
+          "path": "docs/screenshots/einleitung-generated-20261018/intro-05-de-402-934-1x.png",
+          "sha256": "26eb33f58c50ea305b17398f7881a746279cb685e9f719273d9b67887373c016",
+          "size": [
+            402,
+            934
+          ]
+        },
+        {
+          "path": "docs/screenshots/einleitung-generated-20261018/intro-06-de-402-934-1x.png",
+          "sha256": "3d225104886e2e4782ee7b38323743ebee63b711ae9be34e2de923af21bfcfdc",
+          "size": [
+            402,
+            934
+          ]
+        }
+      ],
+      "checks": [
+        "02-06 progress counters use the approved pale cream tone",
+        "02-06 Back baseline now aligns with approved Figma positions",
+        "02 helper remains fully visible above the CTA",
+        "03 single gold listening surface and native Korean content remain intact",
+        "04 Fortschritte. remains visible on the second description line",
+        "05-06 all body lines remain visible",
+        "No new title/face obstruction, missing object, clipped content or CTA overlap"
+      ],
+      "requiredCorrections": [],
+      "tests": "Parent reports46testsPASS; this reviewer did not execute those tests.",
+      "editsByReviewer": [
+        "tool/einleitung_story_art_review.json only"
+      ],
+      "allOtherFilesUnmodifiedByReviewer": true
+    }
+  }
+}

@@ -169,14 +169,16 @@ void main() {
         path == PronunciationPhraseLoader.assetPath && reads[path] == 1
         ? null
         : bundled(path);
-    await CustomPackService.save(
-      CustomPack.manual(
-        id: 'retry-pack',
-        name: 'My phrases',
-        words: [
-          ExtractedWord.manual(korean: '안녕하세요', translationDe: 'Hallo'),
-          ExtractedWord.manual(korean: '감사합니다', translationDe: 'Danke'),
-        ],
+    await tester.runAsync(
+      () => CustomPackService.save(
+        CustomPack.manual(
+          id: 'retry-pack',
+          name: 'My phrases',
+          words: [
+            ExtractedWord.manual(korean: '안녕하세요', translationDe: 'Hallo'),
+            ExtractedWord.manual(korean: '감사합니다', translationDe: 'Danke'),
+          ],
+        ),
       ),
     );
     final saved = CustomPackService.getById('retry-pack')!.toLocalJson();
@@ -214,14 +216,27 @@ void main() {
     final t = AppL10n.of(
       tester.element(find.byType(VocabNotebookStudioScreen)),
     );
-    final phrases = (await PronunciationPhraseLoader.load())
-        .where((phrase) => phrase.ko.contains('안녕하세요'))
-        .toList();
+    final source = File(PronunciationPhraseLoader.assetPath).readAsStringSync();
+    final phrases = PronunciationPhraseLoader.parse(
+      source,
+    ).where((phrase) => phrase.ko.contains('안녕하세요')).toList();
     expect(phrases, isNotEmpty);
     final action = find.widgetWithText(
       SoriButton,
       t.vocabNotebookStudioPronunciation(phrases.length),
     );
+    // The real asset decoder completes on another isolate. Give that result
+    // time to arrive while pumping the widget's fake clock between attempts.
+    for (
+      var attempt = 0;
+      attempt < 30 && action.evaluate().isEmpty;
+      attempt++
+    ) {
+      await tester.runAsync(
+        () => Future<void>.delayed(const Duration(milliseconds: 20)),
+      );
+      await tester.pump();
+    }
     await tester.scrollUntilVisible(action, 250, scrollable: scrollable);
     await tester.ensureVisible(action);
     expect(tester.widget<SoriButton>(action).onTap, isNotNull);

@@ -16,6 +16,8 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
+import 'package:ko_lernen_app/widgets/sori/grammar_c.dart';
+import 'package:ko_lernen_app/widgets/sori/c_learning_surface.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
@@ -354,9 +356,27 @@ Finder _soriButton(String label) => find.byWidgetPredicate(
   (widget) => widget is SoriButton && widget.label == label,
 );
 
-Finder _choiceList() => find.byType(ListView, skipOffstage: false);
+Finder _choiceList() {
+  final grammar = find.byType(GrammarChoiceQuizScreen);
+  if (grammar.evaluate().isNotEmpty) {
+    return find
+        .descendant(of: grammar, matching: find.byType(SingleChildScrollView))
+        .first;
+  }
+  return find.byType(ListView, skipOffstage: false);
+}
 
 List<QuizChoice> _choiceWidgets(WidgetTester tester) {
+  if (find.byType(GrammarChoiceQuizScreen).evaluate().isNotEmpty) {
+    return tester
+        .widgetList<QuizChoice>(
+          find.descendant(
+            of: find.byType(GrammarChoiceQuizScreen),
+            matching: find.byType(QuizChoice),
+          ),
+        )
+        .toList();
+  }
   final list = tester.widget<ListView>(_choiceList());
   final children = (list.childrenDelegate as SliverChildListDelegate).children;
   return <QuizChoice>[
@@ -414,6 +434,27 @@ void _expectExecutableButton(
 }
 
 void _expectBoundaryContrast(WidgetTester tester, Finder control) {
+  if (tester.widget<QuizChoice>(control).surfaceBuilder != null) {
+    final outlines = tester
+        .widgetList<DecoratedBox>(
+          find.descendant(of: control, matching: find.byType(DecoratedBox)),
+        )
+        .map((box) => box.decoration)
+        .whereType<BoxDecoration>()
+        .map((box) => box.border)
+        .whereType<Border>()
+        .where((border) => border.top.color == GrammarC.jade);
+    expect(outlines, hasLength(1));
+    expect(outlines.single.top.width, greaterThanOrEqualTo(1.6));
+    expect(
+      SoriColors.contrastRatio(
+        outlines.single.top.color,
+        SoriCLearningTokens.paper,
+      ),
+      greaterThanOrEqualTo(3),
+    );
+    return;
+  }
   final decorated = find.descendant(
     of: control,
     matching: find.byType(AnimatedContainer),

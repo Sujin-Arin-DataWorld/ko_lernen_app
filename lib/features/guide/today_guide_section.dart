@@ -14,9 +14,14 @@ import 'today_guide_checklist_card.dart';
 /// Self-contained optional Today surface. Closing it changes presentation
 /// only; the permanent `/guide` hub and per-topic completion remain intact.
 class TodayGuideChecklistSection extends StatefulWidget {
-  const TodayGuideChecklistSection({super.key, this.progressService});
+  const TodayGuideChecklistSection({
+    super.key,
+    this.progressService,
+    this.topSpacing = 0,
+  });
 
   final GuideProgressService? progressService;
+  final double topSpacing;
 
   @override
   State<TodayGuideChecklistSection> createState() =>
@@ -166,17 +171,20 @@ class _TodayGuideChecklistSectionState
         .where((topic) => snapshot.isComplete(topic.id))
         .length;
     final t = AppL10n.of(context);
-    return TodayGuideChecklistCard(
-      copy: todayGuideChecklistCopy(
-        t,
-        completed: completed,
-        total: specs.length,
+    return Padding(
+      padding: EdgeInsets.only(top: widget.topSpacing),
+      child: TodayGuideChecklistCard(
+        copy: todayGuideChecklistCopy(
+          t,
+          completed: completed,
+          total: specs.length,
+        ),
+        topics: guideTopicViewModels(t, snapshot, topics: specs),
+        onOpenGuide: () => unawaited(_openHub()),
+        onDismiss: () => unawaited(_dismiss()),
+        onDestinationRequested: (topic) => unawaited(_openTopic(topic)),
+        onNonLiveTopicRequested: (topic) => unawaited(_openTopic(topic)),
       ),
-      topics: guideTopicViewModels(t, snapshot, topics: specs),
-      onOpenGuide: () => unawaited(_openHub()),
-      onDismiss: () => unawaited(_dismiss()),
-      onDestinationRequested: (topic) => unawaited(_openTopic(topic)),
-      onNonLiveTopicRequested: (topic) => unawaited(_openTopic(topic)),
     );
   }
 }

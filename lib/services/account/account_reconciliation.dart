@@ -20,6 +20,10 @@ import '../legacy_hanok_v1_importer.dart';
 import '../pack_progress_service.dart';
 import '../storage_service.dart';
 import 'account_failure_diagnostics.dart';
+import 'account_reconciliation_field_policy.dart';
+import 'account_switch_resolution.dart';
+import '../course_mastery_service.dart';
+import '../local_data_lifetime.dart';
 import 'account_transition_journal.dart';
 import 'cloud_read_result.dart';
 import 'cloud_write_session.dart';
@@ -39,6 +43,8 @@ class AccountReconciliationSnapshot {
     this.ilduWorldState,
     this.packRevisions = const {},
     this.packMembershipRevision,
+    this.packMembershipIds,
+    this.legacyPackDocuments = const {},
     this.localSrsGeneration,
     this.localCustomPackGeneration,
     this.localPackProgressGeneration,
@@ -70,6 +76,8 @@ class AccountReconciliationSnapshot {
   final IlDuWorldState? ilduWorldState;
   final Map<String, int?> packRevisions;
   final int? packMembershipRevision;
+  final Set<String>? packMembershipIds;
+  final Map<String, Map<String, dynamic>> legacyPackDocuments;
   final String? localSrsGeneration;
   final String? localCustomPackGeneration;
   final String? localPackProgressGeneration;
@@ -81,6 +89,8 @@ class AccountReconciliationSnapshot {
     Map<String, PackProgress> packProgress = const {},
     Map<String, int?> packRevisions = const {},
     int? packMembershipRevision,
+    Set<String>? packMembershipIds,
+    Map<String, Map<String, dynamic>> legacyPackDocuments = const {},
   }) {
     if (document.containsKey('hanok_practice_json')) {
       try {
@@ -127,6 +137,8 @@ class AccountReconciliationSnapshot {
             ilduWorldState: ilduResult.value,
             packRevisions: packRevisions,
             packMembershipRevision: packMembershipRevision,
+            packMembershipIds: packMembershipIds,
+            legacyPackDocuments: legacyPackDocuments,
           ),
         ),
         CloudReadState.tooLarge => const CloudReadResult.tooLarge(),
@@ -152,6 +164,8 @@ class AccountReconciliationSnapshot {
         ilduWorldState: ilduResult.value,
         packRevisions: packRevisions,
         packMembershipRevision: packMembershipRevision,
+        packMembershipIds: packMembershipIds,
+        legacyPackDocuments: legacyPackDocuments,
       ),
     );
   }
@@ -445,6 +459,8 @@ class AccountReconciliationMerger {
         ilduWorldState: ilduWorldState,
         packRevisions: remote.packRevisions,
         packMembershipRevision: remote.packMembershipRevision,
+        packMembershipIds: remote.packMembershipIds,
+        legacyPackDocuments: remote.legacyPackDocuments,
         localSrsGeneration: local.localSrsGeneration,
         localCustomPackGeneration: local.localCustomPackGeneration,
         localPackProgressGeneration: local.localPackProgressGeneration,
@@ -501,22 +517,203 @@ class AccountReconciliationMerger {
   static Map<String, Object?> _mergeFields(
     Map<String, Object?> local,
     Map<String, Object?> remote,
-    List<AccountReconciliationConflict> conflicts,
-  ) {
+    List<AccountReconciliationConflict> conflicts, {
+    bool accountRoot = true,
+  }) {
     final keys = {...local.keys, ...remote.keys}.toList()..sort();
     final result = <String, Object?>{};
     for (final key in keys) {
       final hasLocal = local.containsKey(key);
       final hasRemote = remote.containsKey(key);
+      if (accountRoot &&
+          const {
+            'study_log_json',
+            'gram_plan_json',
+            'yeopjeon_wallet_json',
+            'progress',
+          }.contains(key)) {
+        try {
+          result[key] = switch (key) {
+            'study_log_json' => AccountReconciliationFieldPolicy.mergeStudyLog(
+              local[key],
+              remote[key],
+            ),
+            'gram_plan_json' =>
+              AccountReconciliationFieldPolicy.mergeGrammarPlan(
+                local[key],
+                remote[key],
+              ),
+            'yeopjeon_wallet_json' =>
+              AccountReconciliationFieldPolicy.mergeWallet(
+                local[key],
+                remote[key],
+              ),
+            _ => _mergeProgressFields(local[key], remote[key], conflicts),
+          };
+        } on FormatException {
+          conflicts.add(
+            AccountReconciliationConflict(
+              kind: AccountReconciliationConflictKind.documentField,
+              id: key,
+            ),
+          );
+        }
+        continue;
+      }
       if (!hasLocal) {
         result[key] = _canonicalFieldValue(remote[key]);
       } else if (!hasRemote) {
         result[key] = _canonicalFieldValue(local[key]);
       } else {
+        if (accountRoot && (key == 'app' || key == 'wrong_count_json')) {
+          try {
+            result[key] = key == 'app'
+                ? _mergeAppHistory(local[key], remote[key], conflicts)
+                : _mergeWrongCounts(local[key], remote[key]);
+          } on FormatException {
+            conflicts.add(
+              AccountReconciliationConflict(
+                kind: AccountReconciliationConflictKind.documentField,
+                id: key,
+              ),
+            );
+          }
+          continue;
+        }
         result[key] = _mergeFieldValue(key, local[key], remote[key], conflicts);
       }
     }
     return result;
+  }
+
+  static Map<String, Object?> _mergeProgressFields(
+    Object? local,
+    Object? remote,
+    List<AccountReconciliationConflict> conflicts,
+  ) {
+    if ((local != null && local is! Map) ||
+        (remote != null && remote is! Map)) {
+      throw const FormatException('Invalid progress fields.');
+    }
+    final left = Map<String, Object?>.from(local as Map? ?? const {});
+    final right = Map<String, Object?>.from(remote as Map? ?? const {});
+    final hasLevel = left.containsKey('level') || right.containsKey('level');
+    final level = hasLevel
+        ? AccountReconciliationFieldPolicy.mergeLearnerGoal(
+            left.remove('level'),
+            right.remove('level'),
+          )
+        : null;
+    final result = _mergeFields(left, right, conflicts, accountRoot: false);
+    if (hasLevel) {
+      result['level'] = level;
+    }
+    return result;
+  }
+
+  // Current streak belongs to its calendar date; taking both numeric maxima
+  // would attach an old streak to a newer day after a device-only reset.
+  static Map<String, Object?> _mergeAppHistory(
+    Object? local,
+    Object? remote,
+    List<AccountReconciliationConflict> conflicts,
+  ) {
+    if (local is! Map || remote is! Map) {
+      throw const FormatException('Invalid app history.');
+    }
+    final left = _appStreak(local);
+    final right = _appStreak(remote);
+    final latest = left.date.compareTo(right.date) >= 0 ? left : right;
+    final current = left.date == right.date
+        ? (left.streak >= right.streak ? left.streak : right.streak)
+        : latest.streak;
+    final best = [
+      left.best,
+      right.best,
+      left.streak,
+      right.streak,
+    ].reduce((a, b) => a >= b ? a : b);
+    Map<String, Object?> remaining(Map value) => {
+      for (final entry in value.entries)
+        if (!const {
+          'last_open',
+          'streak_days',
+          'best_streak',
+        }.contains(entry.key))
+          entry.key.toString(): entry.value,
+    };
+    return {
+      ..._mergeFields(
+        remaining(local),
+        remaining(remote),
+        conflicts,
+        accountRoot: false,
+      ),
+      'last_open': latest.date,
+      'streak_days': current,
+      'best_streak': best,
+    };
+  }
+
+  static ({String date, int streak, int best}) _appStreak(Map data) {
+    final date = data.containsKey('last_open') ? data['last_open'] : '';
+    final streak = data.containsKey('streak_days') ? data['streak_days'] : 0;
+    final best = data.containsKey('best_streak') ? data['best_streak'] : 0;
+    if (date is! String ||
+        streak is! int ||
+        streak < 0 ||
+        best is! int ||
+        best < 0) {
+      throw const FormatException('Invalid app streak.');
+    }
+    if (date.isEmpty) {
+      if (streak != 0) {
+        throw const FormatException('Undated current streak.');
+      }
+    } else {
+      final parsed = DateTime.tryParse(date);
+      if (!RegExp(r'^\d{4}-\d{2}-\d{2}$').hasMatch(date) ||
+          parsed == null ||
+          '${parsed.year.toString().padLeft(4, '0')}-'
+                  '${parsed.month.toString().padLeft(2, '0')}-'
+                  '${parsed.day.toString().padLeft(2, '0')}' !=
+              date) {
+        throw const FormatException('Invalid app calendar date.');
+      }
+    }
+    return (date: date, streak: streak, best: best);
+  }
+
+  static String _mergeWrongCounts(Object? local, Object? remote) {
+    Map<String, int> decode(Object? raw) {
+      if (raw is! String) {
+        throw const FormatException('Invalid wrong-count history.');
+      }
+      if (raw.isEmpty) {
+        return {};
+      }
+      final decoded = jsonDecode(raw);
+      if (decoded is! Map<String, dynamic> ||
+          decoded.entries.any(
+            (entry) =>
+                entry.key.trim().isEmpty ||
+                entry.value is! int ||
+                (entry.value as int) < 0,
+          )) {
+        throw const FormatException('Invalid wrong-count history.');
+      }
+      return decoded.cast<String, int>();
+    }
+
+    final left = decode(local);
+    final right = decode(remote);
+    final keys = {...left.keys, ...right.keys}.toList()..sort();
+    return jsonEncode({
+      for (final key in keys)
+        key: (left[key] ?? 0) >= (right[key] ?? 0)
+            ? (left[key] ?? 0)
+            : (right[key] ?? 0),
+    });
   }
 
   static Object? _mergeFieldValue(
@@ -566,6 +763,7 @@ class AccountReconciliationMerger {
         canonicalLocal.map((key, value) => MapEntry(key.toString(), value)),
         canonicalRemote.map((key, value) => MapEntry(key.toString(), value)),
         conflicts,
+        accountRoot: false,
       );
     }
     if (canonicalLocal is List && canonicalRemote is List) {
@@ -717,7 +915,13 @@ class LocalAccountReconciliationStore {
 
   static Future<AccountReconciliationSnapshot> load({
     CourseProgressService? courseProgress,
+    CourseMasteryService? readOnlyCourse,
   }) async {
+    if (readOnlyCourse != null && Storage.srsIsQuarantined) {
+      throw const FormatException(
+        'Quarantined local learning cannot be resolved.',
+      );
+    }
     final srsGeneration = _hashText(Storage.srsRawJson);
     final customPackGeneration =
         CustomPackService.localReconciliationGeneration;
@@ -732,19 +936,35 @@ class LocalAccountReconciliationStore {
         Storage.legacyCourseMasteryRawJson.trim().isNotEmpty ||
         Storage.dedicatedCoursePlacementLevelCode != null ||
         Storage.courseUnitId != null;
-    final courseCapture = hasLocalCourseInput
+    final courseCapture = readOnlyCourse != null
+        ? CourseMasteryLocalCapture(
+            snapshot: readOnlyCourse.readForReconciliation(
+              allowCatalogGenerationMigration: false,
+            ),
+            canonicalGeneration: Storage.courseMasterySnapshotRawJson,
+          )
+        : hasLocalCourseInput
         ? await (courseProgress ?? CourseProgressService.shared)
               .captureForCloudReconciliation()
         : const CourseMasteryLocalCapture(
             snapshot: null,
             canonicalGeneration: '',
           );
-    final ilduCapture = await const IlDuWorldStateService()
-        .captureForCloudReconciliation();
+    final ilduCapture = readOnlyCourse != null
+        ? IlDuWorldStateLocalCapture(
+            state: const IlDuWorldStateService().load(),
+            generation: Storage.ilduWorldStateRawJson,
+          )
+        : await const IlDuWorldStateService().captureForCloudReconciliation();
     final payload = await CloudSync.buildBackupPayload(
       courseMasteryCapture: courseCapture,
       ilduWorldStateCapture: ilduCapture,
     );
+    if (readOnlyCourse != null) {
+      payload.remove('study_log_json');
+      payload.remove('gram_plan_json');
+      payload.addAll(CloudSync.captureReconciliationFields());
+    }
     final result = AccountReconciliationSnapshot.decodeCloudDocument(
       payload,
       packProgress: packProgress,
@@ -762,6 +982,8 @@ class LocalAccountReconciliationStore {
       ilduWorldState: snapshot.ilduWorldState,
       packRevisions: snapshot.packRevisions,
       packMembershipRevision: snapshot.packMembershipRevision,
+      packMembershipIds: snapshot.packMembershipIds,
+      legacyPackDocuments: snapshot.legacyPackDocuments,
       localSrsGeneration: srsGeneration,
       localCustomPackGeneration: customPackGeneration,
       localPackProgressGeneration: packProgressGeneration,
@@ -775,6 +997,7 @@ class LocalAccountReconciliationStore {
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
     CourseProgressService? courseProgress,
+    void Function()? assertCurrentLocalSource,
   }) async {
     _assertCurrent(session, sessions);
     await PackCompletionStorage.retire();
@@ -784,6 +1007,7 @@ class LocalAccountReconciliationStore {
       snapshot.customPacks,
       expectedGeneration: snapshot.localCustomPackGeneration,
       beforeWrite: () {
+        assertCurrentLocalSource?.call();
         _assertCurrent(session, sessions);
         _assertCompositeGeneration(snapshot);
       },
@@ -799,8 +1023,10 @@ class LocalAccountReconciliationStore {
       uid: session.uid,
       session: session,
       sessions: sessions,
+      assertCurrentLocalSource: assertCurrentLocalSource,
     );
     _assertCurrent(session, sessions);
+    assertCurrentLocalSource?.call();
     _assertSrsGeneration(snapshot);
     await Storage.setSrsRawJsonStrict(jsonEncode(snapshot.srsCards));
     if (snapshot.courseMastery case final courseMastery?) {
@@ -809,7 +1035,10 @@ class LocalAccountReconciliationStore {
           .applyReconciledSnapshot(
             courseMastery,
             expectedGeneration: snapshot.localCourseMasteryGeneration,
-            assertCurrentWrite: () => _assertCurrent(session, sessions),
+            assertCurrentWrite: () {
+              _assertCurrent(session, sessions);
+              assertCurrentLocalSource?.call();
+            },
           );
     }
     if (snapshot.ilduWorldState case final ilduWorldState?) {
@@ -818,13 +1047,17 @@ class LocalAccountReconciliationStore {
         await const IlDuWorldStateService().save(
           ilduWorldState,
           expectedGeneration: snapshot.localIlDuWorldGeneration,
-          beforeWrite: () => _assertCurrent(session, sessions),
+          beforeWrite: () {
+            _assertCurrent(session, sessions);
+            assertCurrentLocalSource?.call();
+          },
         );
       } on IlDuWorldStateGenerationConflict {
         throw const LocalReconciliationGenerationConflict();
       }
     }
     _assertCurrent(session, sessions);
+    assertCurrentLocalSource?.call();
     _assertPackProgressGeneration(snapshot);
     await Storage.setAllPackProgressJsonStrict({
       for (final entry in snapshot.packProgress.entries)
@@ -941,6 +1174,14 @@ typedef AccountLocalWriter =
       required CloudWriteSessionController sessions,
     });
 
+typedef AccountResolutionRemoteValidator =
+    Future<bool> Function({
+      required AccountReconciliationSnapshot remote,
+      required int? revision,
+      required AccountSwitchResolutionConsent consent,
+      required String operationId,
+    });
+
 enum AccountReconciliationStatus {
   completed,
   blocked,
@@ -973,6 +1214,8 @@ class AccountReconciliationCoordinator {
     required this.writeRemote,
     required this.writeLocal,
     this.courseMasteryMerger,
+    this.resolutionCatalogFingerprint,
+    this.validateResolutionRemote,
     this.maxCasAttempts = 3,
   }) : assert(maxCasAttempts > 0);
 
@@ -983,6 +1226,8 @@ class AccountReconciliationCoordinator {
   final AccountRemoteWriter writeRemote;
   final AccountLocalWriter writeLocal;
   final CourseMasteryReconciliationMerger? courseMasteryMerger;
+  final String? resolutionCatalogFingerprint;
+  final AccountResolutionRemoteValidator? validateResolutionRemote;
   final int maxCasAttempts;
 
   Future<AccountReconciliationResult> reconcile({
@@ -990,11 +1235,13 @@ class AccountReconciliationCoordinator {
     required String operationId,
     required Map<String, PackCatalogEntry> catalog,
   }) async {
-    if (!_isCurrent(session) || !_validOperationId(operationId)) {
+    final lifetime = LocalDataLifetime.capture();
+    bool isCurrent() => lifetime.isCurrent && _isCurrent(session);
+    if (!isCurrent() || !_validOperationId(operationId)) {
       _diag(
         'guard.blocked',
         detail:
-            'current=${_isCurrent(session)} '
+            'current=${isCurrent()} '
             'validOpId=${_validOperationId(operationId)}',
       );
       return const AccountReconciliationResult(
@@ -1005,7 +1252,7 @@ class AccountReconciliationCoordinator {
     late AccountTransitionJournal journal;
     try {
       final existing = await journalStore.read();
-      if (!_isCurrent(session)) {
+      if (!isCurrent()) {
         return const AccountReconciliationResult(
           AccountReconciliationStatus.stale,
         );
@@ -1037,9 +1284,9 @@ class AccountReconciliationCoordinator {
         );
         final restored = await journalStore.restoreIfAbsent(
           expected: journal,
-          isCurrent: () => _isCurrent(session),
+          isCurrent: () => isCurrent(),
         );
-        if (!restored || !_isCurrent(session)) {
+        if (!restored || !isCurrent()) {
           throw StateError('Reconciliation session is stale.');
         }
       }
@@ -1051,7 +1298,7 @@ class AccountReconciliationCoordinator {
     }
 
     for (var attempt = 0; attempt < maxCasAttempts; attempt += 1) {
-      if (!_isCurrent(session)) {
+      if (!isCurrent()) {
         return const AccountReconciliationResult(
           AccountReconciliationStatus.stale,
         );
@@ -1065,7 +1312,7 @@ class AccountReconciliationCoordinator {
           AccountReconciliationStatus.unavailable,
         );
       }
-      if (!_isCurrent(session)) {
+      if (!isCurrent()) {
         _diag('readRemote.stale');
         return const AccountReconciliationResult(
           AccountReconciliationStatus.stale,
@@ -1083,8 +1330,10 @@ class AccountReconciliationCoordinator {
         remoteRevision: remoteResult.revision,
       );
       try {
-        await _writeJournal(journal, remoteReadJournal, session);
-        journal = remoteReadJournal;
+        if (journal.switchResolutionConsent == null) {
+          await _writeJournal(journal, remoteReadJournal, session);
+          journal = remoteReadJournal;
+        }
       } catch (_) {
         return const AccountReconciliationResult(
           AccountReconciliationStatus.unavailable,
@@ -1105,10 +1354,52 @@ class AccountReconciliationCoordinator {
           AccountReconciliationStatus.unavailable,
         );
       }
-      if (!_isCurrent(session)) {
+      if (!isCurrent()) {
         return const AccountReconciliationResult(
           AccountReconciliationStatus.stale,
         );
+      }
+      final consent = journal.switchResolutionConsent;
+      if (consent != null) {
+        if (resolutionCatalogFingerprint != consent.catalogFingerprint ||
+            !consent.acceptsComponents(local, device: true) ||
+            !consent.acceptsComponents(remote, device: false)) {
+          return const AccountReconciliationResult(
+            AccountReconciliationStatus.stale,
+          );
+        }
+        final remoteFences = AccountSwitchResolutionFingerprint.fences(
+          remote,
+          remoteResult.revision,
+        );
+        if (!mapEquals(remoteFences, consent.cloudFences)) {
+          final validator = validateResolutionRemote;
+          if (validator == null ||
+              !await validator(
+                remote: remote,
+                revision: remoteResult.revision,
+                consent: consent,
+                operationId: operationId,
+              ) ||
+              !isCurrent()) {
+            return const AccountReconciliationResult(
+              AccountReconciliationStatus.stale,
+            );
+          }
+        }
+        try {
+          await _writeJournal(journal, remoteReadJournal, session);
+          journal = remoteReadJournal;
+        } catch (_) {
+          return const AccountReconciliationResult(
+            AccountReconciliationStatus.unavailable,
+          );
+        }
+        if (!isCurrent()) {
+          return const AccountReconciliationResult(
+            AccountReconciliationStatus.stale,
+          );
+        }
       }
       final currentLocalCustomPackIds = local.customPacks.keys.toSet();
       var localCustomPackBaseIds = journal.reconciliationLocalCustomPackBaseIds;
@@ -1166,13 +1457,67 @@ class AccountReconciliationCoordinator {
           );
         }
       }
+      var mergeLocal = local;
+      if (consent != null) {
+        final rootComponents = AccountSwitchResolutionFingerprint.components(
+          remote,
+        )..remove('packs');
+        final candidateRoot = Map<String, String>.from(
+          consent.candidateComponents,
+        )..remove('packs');
+        if (mapEquals(rootComponents, candidateRoot)) {
+          // A verified, exact consent candidate has already reached the root.
+          // Use that committed root to finish partial native field writes;
+          // recomputing streak/date pairs from a half-applied pair is unsafe.
+          mergeLocal = AccountReconciliationSnapshot(
+            fields: remote.fields,
+            srsCards: remote.srsCards,
+            customPacks: remote.customPacks,
+            courseMastery: remote.courseMastery,
+            ilduWorldState: remote.ilduWorldState,
+            packProgress: local.packProgress,
+            localSrsGeneration: local.localSrsGeneration,
+            localCustomPackGeneration: local.localCustomPackGeneration,
+            localPackProgressGeneration: local.localPackProgressGeneration,
+            localCourseMasteryGeneration: local.localCourseMasteryGeneration,
+            localIlDuWorldGeneration: local.localIlDuWorldGeneration,
+          );
+        }
+      }
       final merge = AccountReconciliationMerger.merge(
-        local: local,
+        local: mergeLocal,
         remote: remote,
         catalog: catalog,
         courseMasteryMerger: courseMasteryMerger,
       );
       if (merge.merged == null) {
+        AccountFailureDiagnostics.logSwitchResolution(
+          fields: {
+            for (final conflict in merge.conflicts)
+              if (conflict.kind ==
+                  AccountReconciliationConflictKind.documentField)
+                switch (conflict.id) {
+                  'app' => AccountResolutionFieldBucket.appHistory,
+                  'wrong_count_json' =>
+                    AccountResolutionFieldBucket.wrongCounts,
+                  'study_log_json' => AccountResolutionFieldBucket.studyLog,
+                  'gram_plan_json' => AccountResolutionFieldBucket.grammarPlan,
+                  'progress' => AccountResolutionFieldBucket.learnerGoal,
+                  'yeopjeon_wallet_json' => AccountResolutionFieldBucket.wallet,
+                  'content_learning_json' =>
+                    AccountResolutionFieldBucket.contentLearning,
+                  'hanok_practice_json' =>
+                    AccountResolutionFieldBucket.practiceHistory,
+                  _ => AccountResolutionFieldBucket.unknown,
+                },
+          },
+          devicePlacement: local.courseMastery?.placementLevel,
+          cloudPlacement: remote.courseMastery?.placementLevel,
+          deviceCompletedCount:
+              local.courseMastery?.completedUnitIds.length ?? 0,
+          cloudCompletedCount:
+              remote.courseMastery?.completedUnitIds.length ?? 0,
+        );
         _diag('merge.blocked', detail: _summarizeConflicts(merge.conflicts));
         return AccountReconciliationResult(
           AccountReconciliationStatus.blocked,
@@ -1180,6 +1525,13 @@ class AccountReconciliationCoordinator {
         );
       }
       final merged = merge.merged!;
+      if (consent != null &&
+          AccountSwitchResolutionFingerprint.snapshot(merged) !=
+              consent.candidateFingerprint) {
+        return const AccountReconciliationResult(
+          AccountReconciliationStatus.stale,
+        );
+      }
       final mergedJournal = journal.copyWith(
         reconciliationCheckpoint: ReconciliationCheckpoint.merged,
         remoteRevision: remoteResult.revision,
@@ -1195,13 +1547,27 @@ class AccountReconciliationCoordinator {
 
       final needsLocalWrite = merged != local;
       if (merged != remote || needsLocalWrite) {
-        if (!_isCurrent(session)) {
+        if (!isCurrent()) {
           return const AccountReconciliationResult(
             AccountReconciliationStatus.stale,
           );
         }
         late ReconciliationWriteResult writeResult;
         try {
+          // This belongs to the operation, including strict/default merges.
+          // Persist before invoking a request that may commit after a timeout.
+          if (journal.resolutionRemoteWriteStarted != true) {
+            final started = journal.copyWith(
+              resolutionRemoteWriteStarted: true,
+            );
+            await _writeJournal(journal, started, session);
+            journal = started;
+          }
+          if (!isCurrent()) {
+            return const AccountReconciliationResult(
+              AccountReconciliationStatus.stale,
+            );
+          }
           writeResult = await writeRemote(
             merged,
             expectedRevision: remoteResult.revision,
@@ -1213,7 +1579,7 @@ class AccountReconciliationCoordinator {
             AccountReconciliationStatus.unavailable,
           );
         }
-        if (!_isCurrent(session)) {
+        if (!isCurrent()) {
           return const AccountReconciliationResult(
             AccountReconciliationStatus.stale,
           );
@@ -1236,12 +1602,22 @@ class AccountReconciliationCoordinator {
       }
 
       if (needsLocalWrite) {
-        if (!_isCurrent(session)) {
+        if (!isCurrent()) {
           return const AccountReconciliationResult(
             AccountReconciliationStatus.stale,
           );
         }
         try {
+          if (consent != null && await loadLocal() != local) {
+            return const AccountReconciliationResult(
+              AccountReconciliationStatus.stale,
+            );
+          }
+          if (!isCurrent()) {
+            return const AccountReconciliationResult(
+              AccountReconciliationStatus.stale,
+            );
+          }
           await writeLocal(merged, session: session, sessions: sessions);
         } on LocalCustomPackGenerationConflict {
           _diag('writeLocal.customPackConflict.retry');
@@ -1260,7 +1636,7 @@ class AccountReconciliationCoordinator {
             AccountReconciliationStatus.unavailable,
           );
         }
-        if (!_isCurrent(session)) {
+        if (!isCurrent()) {
           return const AccountReconciliationResult(
             AccountReconciliationStatus.stale,
           );
@@ -1433,6 +1809,147 @@ class FirebaseAccountReconciliationAdapter {
   final CloudWriteSessionController sessions;
   final FirebaseAccountReconciliationRemote? remote;
 
+  /// Supporting evidence only: no observed tag never proves no attempted write.
+  /// The caller must additionally own a durable, operation-wide false latch.
+  Future<AccountSwitchCommitEvidence> readResolutionCommitEvidence({
+    required String operationId,
+  }) async {
+    final io = remote;
+    if (io == null) {
+      return AccountSwitchCommitEvidence.unavailable;
+    }
+    try {
+      sessions.assertCurrent(session);
+      final before = await io.compositeReader(uid);
+      final packs = await io.packReader(uid);
+      final after = await io.compositeReader(uid);
+      sessions.assertCurrent(session);
+      final documents = [
+        before.root,
+        before.packMembership,
+        after.root,
+        after.packMembership,
+      ];
+      final raw = <Map<String, dynamic>>[
+        for (final document in documents)
+          if (document.data != null) document.data!,
+        for (final pack in packs) pack.data,
+      ];
+      if (raw.any(
+        (data) => data['reconciliation_operation_id'] == operationId,
+      )) {
+        return AccountSwitchCommitEvidence.sameOperationObserved;
+      }
+      if (documents.any((doc) => doc.exists != (doc.data != null)) ||
+          before.root.exists != after.root.exists ||
+          before.packMembership.exists != after.packMembership.exists ||
+          !_deepEquals(before.root.data, after.root.data) ||
+          !_deepEquals(before.packMembership.data, after.packMembership.data)) {
+        return AccountSwitchCommitEvidence.unavailable;
+      }
+      for (final data in raw) {
+        final operation = data['reconciliation_operation_id'];
+        if (data.containsKey('reconciliation_operation_id') &&
+            (operation is! String || operation.trim().isEmpty)) {
+          return AccountSwitchCommitEvidence.unavailable;
+        }
+        final revision = data['sync_revision'];
+        if (data.containsKey('sync_revision') &&
+            (revision is! int || revision < 0)) {
+          return AccountSwitchCommitEvidence.unavailable;
+        }
+      }
+      final ids = <String>{};
+      for (final pack in packs) {
+        if (pack.id.trim().isEmpty || !ids.add(pack.id)) {
+          return AccountSwitchCommitEvidence.unavailable;
+        }
+      }
+      if (after.packMembership.data case final membership?) {
+        final revision = membership['revision'];
+        final members = membership['pack_ids'];
+        if (revision is! int ||
+            revision < 0 ||
+            members is! List ||
+            members.any((id) => id is! String || !ids.contains(id)) ||
+            members.toSet().length != members.length) {
+          return AccountSwitchCommitEvidence.unavailable;
+        }
+      }
+      return AccountSwitchCommitEvidence.notObserved;
+    } catch (_) {
+      return AccountSwitchCommitEvidence.unavailable;
+    }
+  }
+
+  /// A changed CAS generation is admissible only when the exact observed
+  /// component is this operation's already-committed candidate.
+  Future<bool> validateResolutionReceipt({
+    required AccountReconciliationSnapshot remote,
+    required int? revision,
+    required AccountSwitchResolutionConsent consent,
+    required String operationId,
+  }) async {
+    final io = this.remote;
+    if (io == null) {
+      return false;
+    }
+    final fences = AccountSwitchResolutionFingerprint.fences(remote, revision);
+    final documents = await io.compositeReader(uid);
+    final root = documents.root.data;
+    if (root?['sync_revision'] != revision) {
+      return false;
+    }
+    if (fences['root'] != consent.cloudFences['root']) {
+      if (root?['reconciliation_operation_id'] != operationId ||
+          root?['reconciliation_payload_hash'] !=
+              AccountSwitchResolutionFingerprint.hash(
+                remote.toCloudDocument(),
+              )) {
+        return false;
+      }
+      final components = AccountSwitchResolutionFingerprint.components(remote)
+        ..remove('packs');
+      final candidateRoot = Map<String, String>.from(
+        consent.candidateComponents,
+      )..remove('packs');
+      if (!mapEquals(components, candidateRoot)) {
+        return false;
+      }
+    }
+    if (fences['packs'] != consent.cloudFences['packs']) {
+      final membership = documents.packMembership.data;
+      if (membership?['reconciliation_operation_id'] != operationId ||
+          membership?['revision'] != remote.packMembershipRevision ||
+          AccountSwitchResolutionFingerprint.components(remote)['packs'] !=
+              consent.candidateComponents['packs']) {
+        return false;
+      }
+      final ids = membership?['pack_ids'];
+      if (ids is! List ||
+          !setEquals(ids.toSet(), remote.packProgress.keys.toSet())) {
+        return false;
+      }
+      final packs = await io.packReader(uid);
+      if (packs.length != remote.packProgress.length) {
+        return false;
+      }
+      for (final pack in packs) {
+        final expected = remote.packProgress[pack.id];
+        if (expected == null ||
+            pack.data['reconciliation_operation_id'] != operationId ||
+            pack.data['sync_revision'] != remote.packRevisions[pack.id] ||
+            expected.toJson().entries.any(
+              (e) => !_deepEquals(pack.data[e.key], e.value),
+            )) {
+          return false;
+        }
+      }
+    }
+    sessions.assertCurrent(session);
+    return true;
+  }
+
   Future<CloudReadResult<AccountReconciliationSnapshot>> readRemote() async {
     final root = await CloudSyncService.readAccountDocument(
       uid: uid,
@@ -1477,6 +1994,8 @@ class FirebaseAccountReconciliationAdapter {
               packProgress: packSnapshot?.progress ?? const {},
               packRevisions: packSnapshot?.revisions ?? const {},
               packMembershipRevision: packSnapshot?.membershipRevision,
+              packMembershipIds: packSnapshot?.membershipPackIds,
+              legacyPackDocuments: packSnapshot?.legacyDocuments ?? const {},
             ),
           )
         : AccountReconciliationSnapshot.decodeCloudDocument(
@@ -1484,6 +2003,8 @@ class FirebaseAccountReconciliationAdapter {
             packProgress: packSnapshot?.progress ?? const {},
             packRevisions: packSnapshot?.revisions ?? const {},
             packMembershipRevision: packSnapshot?.membershipRevision,
+            packMembershipIds: packSnapshot?.membershipPackIds,
+            legacyPackDocuments: packSnapshot?.legacyDocuments ?? const {},
           );
     if (!decoded.isPresent) return decoded;
     return CloudReadResult.present(decoded.value!, revision: root.revision);
@@ -1517,6 +2038,8 @@ class FirebaseAccountReconciliationAdapter {
       progresses: snapshot.packProgress.values,
       expectedRevisions: snapshot.packRevisions,
       expectedMembershipRevision: snapshot.packMembershipRevision,
+      expectedMembershipPackIds: snapshot.packMembershipIds,
+      expectedLegacyDocuments: snapshot.legacyPackDocuments,
       operationId: operationId,
       session: session,
       sessions: sessions,
@@ -1567,6 +2090,8 @@ class FirebaseAccountReconciliationAdapter {
     CourseMasteryReconciliationMerger? courseMasteryMerger,
     AccountLocalReader? loadLocal,
     AccountLocalWriter? writeLocal,
+    String? resolutionCatalogFingerprint,
+    AccountResolutionRemoteValidator? validateResolutionRemote,
   }) {
     return AccountReconciliationCoordinator(
       sessions: sessions,
@@ -1576,6 +2101,8 @@ class FirebaseAccountReconciliationAdapter {
       writeRemote: writeRemote,
       writeLocal: writeLocal ?? LocalAccountReconciliationStore.write,
       courseMasteryMerger: courseMasteryMerger,
+      resolutionCatalogFingerprint: resolutionCatalogFingerprint,
+      validateResolutionRemote: validateResolutionRemote,
     );
   }
 }

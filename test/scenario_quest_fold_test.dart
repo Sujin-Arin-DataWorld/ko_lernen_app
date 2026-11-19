@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'support/real_fonts.dart';
+import 'package:ko_lernen_app/widgets/sori/scenario_c.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
@@ -89,6 +91,7 @@ Future<void> _pumpSettled(WidgetTester tester, Widget widget) async {
 }
 
 void main() {
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
   testWidgets('poster yields height so all four answers sit above the fold', (
     tester,
   ) async {
@@ -139,7 +142,14 @@ void main() {
     }
 
     // Das Poster bleibt sichtbar — es schrumpft, verschwindet aber nicht.
-    final poster = tester.getRect(find.byType(Image).first);
+    final poster = tester.getRect(
+      find
+          .descendant(
+            of: find.byType(ScenarioCHero).first,
+            matching: find.byType(Image),
+          )
+          .first,
+    );
     expect(poster.height, greaterThanOrEqualTo(96));
     expect(tester.takeException(), isNull);
   });

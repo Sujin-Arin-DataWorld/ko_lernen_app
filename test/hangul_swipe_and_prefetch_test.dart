@@ -1,13 +1,8 @@
-/// 2026-08-18 후속 UX 3건 — 테스터 → Jin 전달.
-///
-///   ① 획순 카드가 작다        → 세로 2단, 둘 다 같은 크기
-///   ② 카드 음성이 늦게 나온다 → 화면 진입 시 낱자 34개 미리받기
-///   ③ 좌우 슬라이딩이 느리다  → 공용 SoriSwipeCard 로 교체
-///
-/// ②·③ 은 눈으로만 확인하면 조용히 되돌아간다. 여기서 계약으로 못박는다.
+/// Audio prefetch, explicit grading and native Atelier gesture contracts.
 library;
 
 import 'dart:io';
+import 'support/real_fonts.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -16,15 +11,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/data/hangul_data.dart' as hangul;
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/guide_contract.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/tts_recorded_jamo.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
-import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
-
-import 'helpers/deck_actions.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_atelier_materials.dart';
+import 'package:ko_lernen_app/widgets/trace_canvas.dart';
 
 String? _sourceSection(
   String source, {
@@ -40,6 +34,7 @@ String? _sourceSection(
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
 
   late List<String> prefetched;
 
@@ -47,6 +42,7 @@ void main() {
     SharedPreferences.setMockInitialValues({
       'kl_tut_hangul': true,
       'kl_tut_hangulWriteRules': true,
+      'kl_hangul_auto_advance_v1': false,
     });
     Storage.resetForTesting();
     await Storage.init();
@@ -70,15 +66,14 @@ void main() {
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
         home: HangulScreen(
+          initialTarget: HangulTarget.values[tab],
           speechPlayer: speechPlayer ?? (_) async => true,
           textPrefetcher:
               textPrefetcher ?? (text) async => prefetched.add(text),
         ),
       ),
     );
-    tester.widget<TabBar>(find.byType(TabBar)).controller!.index = tab;
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 400));
+    await tester.pumpAndSettle();
   }
 
   group('② 음성 미리받기', () {
@@ -127,7 +122,7 @@ void main() {
       expect(spoken, contains(hangul.speakableJamo('ㄱ')));
     });
 
-    testWidgets('카드 탭은 추가 pump 없이 즉시 현재 낱자 재생을 시작한다', (tester) async {
+    testWidgets('카드 뒤집기가 인식되면 현재 낱자 재생을 시작한다', (tester) async {
       final spoken = <String>[];
       await pumpScreen(
         tester,
@@ -139,6 +134,9 @@ void main() {
       spoken.clear();
 
       await tester.tap(find.byType(FlipCard).first);
+      expect(spoken, isEmpty, reason: 'double tap 판단 전에는 뒤집지 않는다');
+      await tester.pump(const Duration(milliseconds: 350));
+      await tester.pumpAndSettle();
 
       expect(spoken, [hangul.speakableJamo('ㄱ')]);
     });
@@ -155,8 +153,9 @@ void main() {
       );
       events.clear();
 
-      final feed = tester.widget<SoriContentFeed>(find.byType(SoriContentFeed));
-      feed.onSkip!();
+      tester
+          .widget<CAtelierButton>(_button(_l10n(tester).atelierSkip))
+          .onTap!();
 
       expect(events, isNotEmpty);
       expect(events.first, 'speak:${hangul.speakableJamo('ㄴ')}');
@@ -171,76 +170,89 @@ void main() {
     });
   });
 
-  group('③ 카드 스와이프 — 세로 피드 계약', () {
-    testWidgets('공용 SoriContentFeed 를 쓰고 틴더 축을 쓰지 않는다', (tester) async {
+  group('③ Atelier 카드 — 세로 탐색과 명시적 판정', () {
+    testWidgets('앞면에서는 앎과 모름이 막히고 건너뛰기와 소셜 조작은 유지된다', (tester) async {
       await pumpScreen(tester);
-      expect(find.byType(SoriContentFeed), findsOneWidget);
-      final feed = tester.widget<SoriContentFeed>(find.byType(SoriContentFeed));
-
-      expect(feed.onNext, isNotNull, reason: '뒤집은 뒤 세로 다음 = 앎');
-      expect(feed.onHard, isNotNull, reason: '모름은 텍스트 판정');
-      expect(feed.onSkip, isNotNull, reason: '뒤집기 전 세로 = 넘어가기');
-      expect(feed.showBookmark, isFalse, reason: '자모는 단어장 대상이 아니다');
-      expect(feed.underlay, isNotNull);
-    });
-
-    testWidgets('아래로 밀면 넘어간다 — 뒤집지 않아도 된다', (tester) async {
-      await pumpScreen(tester);
-      expect(find.text('1 / 19'), findsOneWidget);
-      await tester.fling(
-        find.byType(FlipCard).first,
-        const Offset(0, 400),
-        1200,
+      final t = _l10n(tester);
+      expect(
+        tester.widget<CAtelierButton>(_button(t.atelierKnown)).onTap,
+        isNull,
       );
-      await tester.pumpAndSettle();
-      expect(find.text('2 / 19'), findsOneWidget);
-    });
-
-    testWidgets('뒤집기 전에는 좌/우 판정이 일어나지 않는다', (tester) async {
-      // flipgate 계약 — 못 본 낱자에 앎/모름이 기록되면 안 된다.
-      await pumpScreen(tester);
-      await tester.fling(
-        find.byType(FlipCard).first,
-        const Offset(400, 0),
-        1200,
+      expect(
+        tester.widget<CAtelierButton>(_button(t.atelierNotYet)).onTap,
+        isNull,
       );
-      await tester.pumpAndSettle();
-      expect(find.text('1 / 19'), findsOneWidget);
+      expect(
+        tester.widget<CAtelierButton>(_button(t.atelierSkip)).onTap,
+        isNotNull,
+      );
+      expect(find.text(t.atelierRemember), findsOneWidget);
+      expect(find.text(t.atelierShare), findsOneWidget);
+      expect(find.byKey(const Key('atelier-feed-ㄱ')), findsOneWidget);
       expect(Storage.hangulHard, isEmpty);
     });
 
-    testWidgets('뒤집은 뒤 모름 텍스트로 기록하고 넘어간다', (tester) async {
+    testWidgets('위로 탐색하면 뒤집지 않아도 다음 카드로 가며 판정하지 않는다', (tester) async {
       await pumpScreen(tester);
-      await tester.tap(find.byType(FlipCard).first);
+      expect(find.text('1 / 19'), findsOneWidget);
+      await tester.fling(find.byType(FlipCard), const Offset(0, -180), 1200);
       await tester.pumpAndSettle();
-      tapDeckAction(tester, 'Didn\'t know');
+      expect(find.text('2 / 19'), findsOneWidget);
+      expect(Storage.hangulHard, isEmpty);
+    });
+
+    testWidgets('아래로 탐색하면 이전 카드로 가며 앞면 판정은 계속 막힌다', (tester) async {
+      await pumpScreen(tester);
+      await tester.fling(find.byType(FlipCard), const Offset(0, 180), 1200);
+      await tester.pumpAndSettle();
+      expect(find.text('19 / 19'), findsOneWidget);
+      expect(Storage.hangulHard, isEmpty);
+      expect(
+        tester
+            .widget<CAtelierButton>(_button(_l10n(tester).atelierKnown))
+            .onTap,
+        isNull,
+      );
+      expect(
+        tester
+            .widget<CAtelierButton>(_button(_l10n(tester).atelierNotYet))
+            .onTap,
+        isNull,
+      );
+    });
+
+    testWidgets('뒤집은 뒤 모름 버튼이 실제 어려운 글자를 기록하고 넘어간다', (tester) async {
+      await pumpScreen(tester);
+      await tester.tap(find.byType(FlipCard));
+      await tester.pump(const Duration(milliseconds: 350));
+      await tester.pumpAndSettle();
+      await tester.tap(_button(_l10n(tester).atelierNotYet));
+      await tester.runAsync(() => Future<void>.delayed(Duration.zero));
       await tester.pumpAndSettle();
       expect(Storage.hangulHard, contains('ㄱ'));
       expect(find.text('2 / 19'), findsOneWidget);
     });
   });
 
-  group('① Write 탭 레이아웃', () {
-    testWidgets('시범은 연습 캔버스 고스트로 겹친다', (tester) async {
+  group('① Atelier Write 입력과 조작', () {
+    testWidgets('필기 가이드와 실제 입력은 같은 종이 영역을 사용한다', (tester) async {
       await pumpScreen(tester, tab: 2);
-      final demo = tester.getRect(find.byType(StrokeCanvas));
-      final practice = tester.getRect(
-        find.byKey(const Key('hangul-practice-canvas')),
+      final guide = tester.getRect(
+        find.byKey(const Key('hangul-writing-guide')),
       );
-      expect(demo.size.width, closeTo(practice.size.width, 1));
-      expect(demo.size.height, closeTo(practice.size.height, 1));
-      expect(demo.top, closeTo(practice.top, 2));
-      expect(demo.size.width, greaterThan(200));
+      final practice = tester.getRect(find.byKey(const Key('trace-canvas')));
+      expect(guide, practice);
+      expect(practice.width, greaterThan(200));
+      expect(
+        tester.widget<TraceCanvas>(find.byType(TraceCanvas)).enabled,
+        isTrue,
+      );
     });
 
-    testWidgets('연습 캔버스 위 드래그는 획이 될 뿐 글자를 넘기지 않는다', (tester) async {
-      // 이게 이번 변경에서 가장 깨지기 쉬운 계약이다 — 스와이프 내비게이션을
-      // 붙였는데 큰 연습 캔버스가 그걸 먹으면 글씨를 못 쓴다. 반대로 캔버스가
-      // 제스처를 독점하지 않으면 획을 그으려다 글자가 넘어간다.
+    testWidgets('종이 위 가로 드래그는 획이며 글자를 넘기지 않는다', (tester) async {
       await pumpScreen(tester, tab: 2);
-      expect(find.text('1 / 19'), findsOneWidget);
-
-      final canvas = find.byKey(const Key('hangul-practice-canvas'));
+      expect(find.text('1 / 34'), findsOneWidget);
+      final canvas = find.byKey(const Key('trace-canvas'));
       final bounds = tester.getRect(canvas);
       final gesture = await tester.startGesture(
         Offset(bounds.left + 20, bounds.center.dy),
@@ -248,47 +260,42 @@ void main() {
       await gesture.moveTo(Offset(bounds.right - 20, bounds.center.dy));
       await gesture.up();
       await tester.pump();
-
-      expect(
-        find.text('1 / 19'),
-        findsOneWidget,
-        reason: '캔버스 위 가로 드래그는 획이어야 한다 — 글자가 넘어가면 안 된다',
-      );
+      expect(find.text('1 / 34'), findsOneWidget);
+      expect(tester.widget<TraceCanvas>(find.byType(TraceCanvas)).ghost, 'ㄱ');
+      await tester.pump(const Duration(milliseconds: 600));
     });
 
-    testWidgets('Write 탭은 좌우 스와이프로 넘기지 않는다 — 방향 계약 보호', (tester) async {
-      // 여기서만 좌/우를 이전/다음으로 쓰면 카드 덱에서 익힌 손버릇과
-      // 정반대가 된다(우 = 앎). 이동은 ‹ › 아이콘이 정본이다.
+    testWidgets('쓰기 글자 이동은 종이 스와이프가 아닌 다음 버튼으로 한다', (tester) async {
       await pumpScreen(tester, tab: 2);
-      expect(find.text('1 / 19'), findsOneWidget);
       await tester.fling(
-        find.byKey(const Key('hangul-practice-canvas')),
-        const Offset(-400, 0),
+        find.byKey(const Key('trace-canvas')),
+        const Offset(-180, 0),
         1200,
       );
       await tester.pumpAndSettle();
-      expect(find.text('1 / 19'), findsOneWidget);
-
-      await tester.tap(find.byKey(const Key('hangul-write-next')));
-      await tester.pump();
-      expect(find.text('2 / 19'), findsOneWidget);
+      expect(find.text('1 / 34'), findsOneWidget);
+      await tester.tap(_button(_l10n(tester).btnNext));
+      await tester.pumpAndSettle();
+      expect(find.text('2 / 34'), findsOneWidget);
     });
 
-    testWidgets('컴팩트 아이콘 행이 예전 전폭 버튼 4줄을 대신한다', (tester) async {
+    testWidgets('필기 선택과 이동·지우기·더 보기 조작은 한 행과 48dp 영역을 유지한다', (tester) async {
       await pumpScreen(tester, tab: 2);
-      for (final key in [
-        'hangul-write-prev',
-        'hangul-write-next',
-        'hangul-write-speak',
-        'hangul-write-clear',
-      ]) {
-        expect(find.byKey(Key(key)), findsOneWidget, reason: key);
+      final t = _l10n(tester);
+      final controls = [
+        _button(t.btnPrev),
+        find.byKey(const Key('hangul-writing-selection')),
+        _button(t.btnNext),
+        _button(t.hangulClearBtn),
+        _button(t.atelierMore),
+      ];
+      final centerY = tester.getRect(controls.first).center.dy;
+      for (final control in controls) {
+        final bounds = tester.getRect(control);
+        expect(bounds.center.dy, closeTo(centerY, .1));
+        expect(math.min(bounds.width, bounds.height), greaterThanOrEqualTo(48));
       }
-      // 44pt 터치 타깃 (접근성).
-      for (final key in ['hangul-write-prev', 'hangul-write-next']) {
-        final size = tester.getSize(find.byKey(Key(key)));
-        expect(math.min(size.width, size.height), greaterThanOrEqualTo(44.0));
-      }
+      expect(_button(t.cHangulListen), findsOneWidget);
     });
   });
 
@@ -393,15 +400,18 @@ void main() {
               textScaler: TextScaler.linear(1.3),
             ),
             child: HangulScreen(
+              initialTarget: HangulTarget.write,
               speechPlayer: (_) async => true,
               textPrefetcher: (_) async {},
             ),
           ),
         ),
       );
-      tester.widget<TabBar>(find.byType(TabBar)).controller!.index = 2;
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 400));
+      await tester.pumpAndSettle();
+      final finish = find.byKey(const Key('hangul-finish-writing'));
+      await tester.ensureVisible(finish);
+      await tester.pumpAndSettle();
+      expect(tester.getSize(finish).height, greaterThanOrEqualTo(48));
       expect(tester.takeException(), isNull, reason: 'Write 탭 오버플로');
     });
 
@@ -417,14 +427,13 @@ void main() {
           supportedLocales: AppL10n.supportedLocales,
           localizationsDelegates: AppL10n.localizationsDelegates,
           home: HangulScreen(
+            initialTarget: HangulTarget.cards,
             speechPlayer: (_) async => true,
             textPrefetcher: (_) async {},
           ),
         ),
       );
-      tester.widget<TabBar>(find.byType(TabBar)).controller!.index = 1;
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 400));
+      await tester.pumpAndSettle();
 
       await tester.fling(
         find.byType(FlipCard).first,
@@ -438,3 +447,9 @@ void main() {
     });
   });
 }
+
+AppL10n _l10n(WidgetTester tester) =>
+    AppL10n.of(tester.element(find.byType(HangulScreen)));
+
+Finder _button(String label) =>
+    find.byWidgetPredicate((w) => w is CAtelierButton && w.label == label);

@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -6,25 +8,102 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
+import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  Widget wrap(Widget home) {
+  Widget wrap(Widget home, {bool reduceMotion = true}) {
     return MaterialApp(
       theme: AppTheme.light,
       locale: const Locale('de'),
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
       home: MediaQuery(
-        data: const MediaQueryData(
-          size: Size(400, 800),
-          disableAnimations: true,
+        data: MediaQueryData(
+          size: const Size(400, 800),
+          disableAnimations: reduceMotion,
         ),
         child: Scaffold(body: home),
       ),
     );
+  }
+
+  for (final physics in FeedPhysics.values) {
+    for (final reduceMotion in [false, true]) {
+      testWidgets(
+        'only current card is accessible with $physics and reduceMotion=$reduceMotion',
+        (tester) async {
+          final semantics = tester.ensureSemantics();
+          try {
+            final spoken = <String>[];
+            var advanced = false;
+
+            Widget card(String word) => SizedBox.expand(
+              child: Column(
+                children: [
+                  Semantics(container: true, child: Text(word)),
+                  Semantics(
+                    container: true,
+                    child: SoriSpeechIndicator(
+                      text: word,
+                      onTap: () => spoken.add(word),
+                    ),
+                  ),
+                ],
+              ),
+            );
+
+            await tester.pumpWidget(
+              wrap(
+                StatefulBuilder(
+                  builder: (context, setState) => SoriContentFeed(
+                    physics: physics,
+                    onNext: () => setState(() => advanced = true),
+                    underlay: advanced ? null : card('지갑'),
+                    child: card(advanced ? '지갑' : '은행'),
+                  ),
+                ),
+                reduceMotion: reduceMotion,
+              ),
+            );
+
+            // The preview remains built for depth and animation, but TalkBack
+            // receives only the current word and its one actionable speaker.
+            expect(find.text('지갑'), findsOneWidget);
+            expect(find.bySemanticsLabel('은행'), findsOneWidget);
+            expect(find.bySemanticsLabel('지갑'), findsNothing);
+            expect(find.bySemanticsLabel('Vorlesen'), findsOneWidget);
+
+            void activateSpeaker() {
+              final node = tester.getSemantics(
+                find.bySemanticsLabel('Vorlesen'),
+              );
+              node.owner!.performAction(node.id, ui.SemanticsAction.tap);
+            }
+
+            activateSpeaker();
+            await tester.pump();
+            expect(spoken, ['은행']);
+
+            tester
+                .widget<SoriContentFeed>(find.byType(SoriContentFeed))
+                .onNext!();
+            await tester.pump();
+            expect(find.bySemanticsLabel('은행'), findsNothing);
+            expect(find.bySemanticsLabel('지갑'), findsOneWidget);
+            expect(find.bySemanticsLabel('Vorlesen'), findsOneWidget);
+            activateSpeaker();
+            await tester.pump();
+            expect(spoken, ['은행', '지갑']);
+            expect(tester.takeException(), isNull);
+          } finally {
+            semantics.dispose();
+          }
+        },
+      );
+    }
   }
 
   testWidgets('horizontal drag does not advance or judge', (tester) async {

@@ -7,6 +7,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/sarangchae_construction.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
+import 'package:ko_lernen_app/widgets/sori/ildu_r16_layer_artwork.dart';
+import 'support/r16_test_asset_bundle.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -29,15 +31,12 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    final image = tester.widget<Image>(
-      find.byKey(const ValueKey('sarangchae-stage-artwork-16')),
+    final image = tester.widget<IlDuR16LayerArtwork>(
+      find.byType(IlDuR16LayerArtwork),
     );
-    expect(
-      (image.image as AssetImage).assetName,
-      construction.stage(16).assetPath,
-    );
+    expect(image.processId, 'ildu.${construction.stage(16).stageId}');
     expect(image.fit, BoxFit.contain);
-    expect(image.alignment, Alignment.center);
+    expect(image.opacity, 1);
     expect(find.byType(ColorFiltered), findsNothing);
     expect(find.byType(Opacity), findsNothing);
     await tester.pumpWidget(const SizedBox.shrink());
@@ -63,7 +62,15 @@ void main() {
       find.byKey(const ValueKey('sarangchae-stage-artwork-1')),
       findsOneWidget,
     );
-    expect(find.byType(Opacity), findsOneWidget);
+    // The paint alpha preserves neutral-white shadow corners. An outer
+    // opacity saveLayer would reintroduce a white rectangle while fading.
+    expect(find.byType(Opacity), findsNothing);
+    expect(
+      tester
+          .widget<IlDuR16LayerArtwork>(find.byType(IlDuR16LayerArtwork))
+          .opacity,
+      .24,
+    );
     expect(find.byIcon(Icons.lock_rounded), findsOneWidget);
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump();
@@ -80,7 +87,7 @@ Widget _app(Widget home) => MaterialApp(
   ),
 );
 
-final class _TinyPngBundle extends CachingAssetBundle {
+final class _TinyPngBundle extends R16TestAssetBundle {
   static final Uint8List _png = base64Decode(
     'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/OSvDPwAAAABJRU5ErkJggg==',
   );

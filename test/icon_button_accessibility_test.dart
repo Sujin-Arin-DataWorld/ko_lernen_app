@@ -38,6 +38,46 @@ void main() {
   });
 
   for (final locale in const [Locale('de'), Locale('en')]) {
+    testWidgets('${locale.languageCode} streak badge pluralizes its accessible '
+        'day count and keeps the numeric label actionable', (tester) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        var streakTaps = 0;
+        for (final days in [0, 1, 2]) {
+          await tester.pumpWidget(
+            _app(
+              locale,
+              Scaffold(
+                body: SoriStatsTopBar(
+                  streak: days,
+                  level: 4,
+                  xp: 320,
+                  onStreakTap: () => streakTaps++,
+                  onStatsTap: () {},
+                ),
+              ),
+            ),
+          );
+          await tester.pump();
+          final unit = locale.languageCode == 'de'
+              ? (days == 1 ? 'Tag' : 'Tage')
+              : (days == 1 ? 'day' : 'days');
+          expect(find.text('$days'), findsOneWidget);
+          final node = tester.getSemantics(find.text('$days'));
+          final data = node.getSemanticsData();
+          expect(data.label, '$days $unit\n$days');
+          expect(data.flagsCollection.isButton, isTrue);
+          expect(data.hasAction(ui.SemanticsAction.tap), isTrue);
+          node.owner!.performAction(node.id, ui.SemanticsAction.tap);
+          await tester.pump();
+          expect(streakTaps, days + 1);
+          expect(tester.takeException(), isNull);
+        }
+      } finally {
+        semantics.dispose();
+      }
+    });
+
     for (final profileLabel in <String?>[null, '   ', 'Custom profile']) {
       testWidgets('${locale.languageCode} header icons label, explain and act '
           'at 320dp/200% (profile: $profileLabel)', (tester) async {

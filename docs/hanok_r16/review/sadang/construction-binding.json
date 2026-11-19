@@ -1,0 +1,2063 @@
+{
+  "GyeCraft.sadang.irregular paving 0": {
+    "memberId": "ildu.sadang.part.0455a4058cdd3b61ce45",
+    "sourceObject": "GyeCraft.sadang.irregular paving 0",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.sadang.irregular paving 1": {
+    "memberId": "ildu.sadang.part.2daaa66a6af71f21738f",
+    "sourceObject": "GyeCraft.sadang.irregular paving 1",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.sadang.irregular paving 2": {
+    "memberId": "ildu.sadang.part.55500be5a1977a7131f5",
+    "sourceObject": "GyeCraft.sadang.irregular paving 2",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.sadang.irregular paving 3": {
+    "memberId": "ildu.sadang.part.52513ff224b5ade724a6",
+    "sourceObject": "GyeCraft.sadang.irregular paving 3",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.sadang.irregular paving 4": {
+    "memberId": "ildu.sadang.part.18440f04a5dc72478b8c",
+    "sourceObject": "GyeCraft.sadang.irregular paving 4",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "North.sadang.dancheong carved bracket.lower seating block": {
+    "memberId": "ildu.sadang.part.bb153ae1ac69dbe68cbf",
+    "sourceObject": "North.sadang.dancheong carved bracket.lower seating block",
+    "reviewStage": 5,
+    "processId": "ildu.sadang-brackets",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.sadang.dancheong carved bracket.upper bearing": {
+    "memberId": "ildu.sadang.part.6882f30b909589bf5228",
+    "sourceObject": "North.sadang.dancheong carved bracket.upper bearing",
+    "reviewStage": 5,
+    "processId": "ildu.sadang-brackets",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.sadang.dancheong floral panel": {
+    "memberId": "ildu.sadang.part.ec4efdd90626dbd32c21",
+    "sourceObject": "North.sadang.dancheong floral panel",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.dancheong flower petal": {
+    "memberId": "ildu.sadang.part.839eba55dfdc72c60e09",
+    "sourceObject": "North.sadang.dancheong flower petal",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.dancheong painted beam": {
+    "memberId": "ildu.sadang.part.93b405f0bb759475c412",
+    "sourceObject": "North.sadang.dancheong painted beam",
+    "reviewStage": 5,
+    "processId": "ildu.sadang-brackets",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.sadang.dancheong red flower eye": {
+    "memberId": "ildu.sadang.part.d1e415566d7a05d82cec",
+    "sourceObject": "North.sadang.dancheong red flower eye",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.double eave square buyeon": {
+    "memberId": "ildu.sadang.part.3a437bceeae8b2be5ce1",
+    "sourceObject": "North.sadang.double eave square buyeon",
+    "reviewStage": 6,
+    "processId": "ildu.sadang-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "North.sadang.floor individual boards": {
+    "memberId": "ildu.sadang.part.c51d025855799cd48cb3",
+    "sourceObject": "North.sadang.floor individual boards",
+    "reviewStage": 9,
+    "processId": "ildu.sadang-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "North.sadang.floor under joists": {
+    "memberId": "ildu.sadang.part.630d9ece68ec69ece1b2",
+    "sourceObject": "North.sadang.floor under joists",
+    "reviewStage": 9,
+    "processId": "ildu.sadang-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "North.sadang.foundation": {
+    "memberId": "ildu.sadang.part.622744f40e24365589db",
+    "sourceObject": "North.sadang.foundation",
+    "reviewStage": 2,
+    "processId": "ildu.sadang-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "North.sadang.foundation earth top": {
+    "memberId": "ildu.sadang.part.7c23440cebabe8d5addf",
+    "sourceObject": "North.sadang.foundation earth top",
+    "reviewStage": 2,
+    "processId": "ildu.sadang-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "North.sadang.foundation individual plinth": {
+    "memberId": "ildu.sadang.part.f84bb46ad384f4d6a84e",
+    "sourceObject": "North.sadang.foundation individual plinth",
+    "reviewStage": 3,
+    "processId": "ildu.sadang-padstones",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "North.sadang.foundation.recessed earth mortar": {
+    "memberId": "ildu.sadang.part.f59c2cd8ff7006098f57",
+    "sourceObject": "North.sadang.foundation.recessed earth mortar",
+    "reviewStage": 2,
+    "processId": "ildu.sadang-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "North.sadang.frame longitudinal beam": {
+    "memberId": "ildu.sadang.part.dc0499b020eb45afc613",
+    "sourceObject": "North.sadang.frame longitudinal beam",
+    "reviewStage": 5,
+    "processId": "ildu.sadang-brackets",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.sadang.frame mortise peg": {
+    "memberId": "ildu.sadang.part.9a397fc13fe2cded305c",
+    "sourceObject": "North.sadang.frame mortise peg",
+    "reviewStage": 5,
+    "processId": "ildu.sadang-brackets",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.sadang.frame round red column": {
+    "memberId": "ildu.sadang.part.de89d7b0887ea25d3987",
+    "sourceObject": "North.sadang.frame round red column",
+    "reviewStage": 4,
+    "processId": "ildu.sadang-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "North.sadang.frame square post": {
+    "memberId": "ildu.sadang.part.d4f0853a9c02579a2eb5",
+    "sourceObject": "North.sadang.frame square post",
+    "reviewStage": 4,
+    "processId": "ildu.sadang-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "North.sadang.frame transverse beam": {
+    "memberId": "ildu.sadang.part.a51a22fc3a58b3bbb162",
+    "sourceObject": "North.sadang.frame transverse beam",
+    "reviewStage": 5,
+    "processId": "ildu.sadang-brackets",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.sadang.granite step": {
+    "memberId": "ildu.sadang.part.e6e45e9dc86409e9542c",
+    "sourceObject": "North.sadang.granite step",
+    "reviewStage": 2,
+    "processId": "ildu.sadang-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "North.sadang.joinery.bracket painted cream contour": {
+    "memberId": "ildu.sadang.part.f4df5159d7cd01620f85",
+    "sourceObject": "North.sadang.joinery.bracket painted cream contour",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.joinery.bracket painted ochre hairline": {
+    "memberId": "ildu.sadang.part.b743722cb607ed6b3676",
+    "sourceObject": "North.sadang.joinery.bracket painted ochre hairline",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.joinery.bracket painted vermilion contour": {
+    "memberId": "ildu.sadang.part.430a0cb9916c0b9128c9",
+    "sourceObject": "North.sadang.joinery.bracket painted vermilion contour",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.joinery.gable 45x27 cover batten": {
+    "memberId": "ildu.sadang.part.e4fe9679c5b1eee8bbac",
+    "sourceObject": "North.sadang.joinery.gable 45x27 cover batten",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.sadang.joinery.gable thirty millimetre planks": {
+    "memberId": "ildu.sadang.part.323f778d7aff4ddcd3b7",
+    "sourceObject": "North.sadang.joinery.gable thirty millimetre planks",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.sadang.joinery.packed ridge core": {
+    "memberId": "ildu.sadang.part.44dc70225177f96b62ec",
+    "sourceObject": "North.sadang.joinery.packed ridge core",
+    "reviewStage": 7,
+    "processId": "ildu.sadang-roof_bed",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_earth"
+  },
+  "North.sadang.joinery.sculpted bracket shoulder": {
+    "memberId": "ildu.sadang.part.3c4062797ecdd36a45db",
+    "sourceObject": "North.sadang.joinery.sculpted bracket shoulder",
+    "reviewStage": 5,
+    "processId": "ildu.sadang-brackets",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.sadang.joinery.solid roof bedding": {
+    "memberId": "ildu.sadang.part.855ceb15d91a015d3b25",
+    "sourceObject": "North.sadang.joinery.solid roof bedding",
+    "reviewStage": 7,
+    "processId": "ildu.sadang-roof_bed",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_earth"
+  },
+  "North.sadang.left sanctuary plaster": {
+    "memberId": "ildu.sadang.part.db7a6ea19676901e7322",
+    "sourceObject": "North.sadang.left sanctuary plaster",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.sadang.measured porch donggwiteul": {
+    "memberId": "ildu.sadang.part.d67969740d8badc712f5",
+    "sourceObject": "North.sadang.measured porch donggwiteul",
+    "reviewStage": 9,
+    "processId": "ildu.sadang-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru_porch"
+  },
+  "North.sadang.measured porch janggwiteul": {
+    "memberId": "ildu.sadang.part.9c63bd477621590afeb1",
+    "sourceObject": "North.sadang.measured porch janggwiteul",
+    "reviewStage": 9,
+    "processId": "ildu.sadang-maru_interior",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru_porch"
+  },
+  "North.sadang.painted rafter end": {
+    "memberId": "ildu.sadang.part.8ad0d21add2029bcbb77",
+    "sourceObject": "North.sadang.painted rafter end",
+    "reviewStage": 6,
+    "processId": "ildu.sadang-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "North.sadang.photo beam fine painted border": {
+    "memberId": "ildu.sadang.part.497ef05a5b96ee85cdc5",
+    "sourceObject": "North.sadang.photo beam fine painted border",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo bracket ochre contour": {
+    "memberId": "ildu.sadang.part.901268ae74e580921ed1",
+    "sourceObject": "North.sadang.photo bracket ochre contour",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo canonical dancheong frieze": {
+    "memberId": "ildu.sadang.part.eafd899b8f35aff11349",
+    "sourceObject": "North.sadang.photo canonical dancheong frieze",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo carved wing bracket": {
+    "memberId": "ildu.sadang.part.1607f390cd12b4a9e599",
+    "sourceObject": "North.sadang.photo carved wing bracket",
+    "reviewStage": 5,
+    "processId": "ildu.sadang-brackets",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.sadang.photo column lotus green outline": {
+    "memberId": "ildu.sadang.part.c888ad5593f6ea03b063",
+    "sourceObject": "North.sadang.photo column lotus green outline",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo column lotus ground": {
+    "memberId": "ildu.sadang.part.edde7e19480889a43c40",
+    "sourceObject": "North.sadang.photo column lotus ground",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo column lotus ochre eye": {
+    "memberId": "ildu.sadang.part.4a4cef5e7bc72453d210",
+    "sourceObject": "North.sadang.photo column lotus ochre eye",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo column lotus petal": {
+    "memberId": "ildu.sadang.part.8f645ecdd5925cac9d20",
+    "sourceObject": "North.sadang.photo column lotus petal",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo column painted collar": {
+    "memberId": "ildu.sadang.part.0f2ed5de93ac17b460e9",
+    "sourceObject": "North.sadang.photo column painted collar",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo column painted collar.001": {
+    "memberId": "ildu.sadang.part.c1842a9f214e03d53354",
+    "sourceObject": "North.sadang.photo column painted collar.001",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo column painted collar.002": {
+    "memberId": "ildu.sadang.part.e764d03130f8c3bb6f92",
+    "sourceObject": "North.sadang.photo column painted collar.002",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo column painted collar.003": {
+    "memberId": "ildu.sadang.part.8f6fcbc66bcd79bd6bd1",
+    "sourceObject": "North.sadang.photo column painted collar.003",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo painted rafter collar": {
+    "memberId": "ildu.sadang.part.cb63fdaead85ffef8e73",
+    "sourceObject": "North.sadang.photo painted rafter collar",
+    "reviewStage": 6,
+    "processId": "ildu.sadang-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "North.sadang.photo painted rafter collar.001": {
+    "memberId": "ildu.sadang.part.da16626d5f1d27ab56dd",
+    "sourceObject": "North.sadang.photo painted rafter collar.001",
+    "reviewStage": 6,
+    "processId": "ildu.sadang-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "North.sadang.photo painted rafter collar.002": {
+    "memberId": "ildu.sadang.part.861b25ea54191bf97e93",
+    "sourceObject": "North.sadang.photo painted rafter collar.002",
+    "reviewStage": 6,
+    "processId": "ildu.sadang-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "North.sadang.photo painted rafter collar.003": {
+    "memberId": "ildu.sadang.part.a117342a1b725f02795b",
+    "sourceObject": "North.sadang.photo painted rafter collar.003",
+    "reviewStage": 6,
+    "processId": "ildu.sadang-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "North.sadang.photo rafter rosette green outline": {
+    "memberId": "ildu.sadang.part.a28e4869e4ae65b158c5",
+    "sourceObject": "North.sadang.photo rafter rosette green outline",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo rafter rosette ground": {
+    "memberId": "ildu.sadang.part.04aeace6ee7fa86ed14d",
+    "sourceObject": "North.sadang.photo rafter rosette ground",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo rafter rosette ochre eye": {
+    "memberId": "ildu.sadang.part.e78447a554dae86d10fb",
+    "sourceObject": "North.sadang.photo rafter rosette ochre eye",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo rafter rosette petal": {
+    "memberId": "ildu.sadang.part.97533ec2e6d95592bdb2",
+    "sourceObject": "North.sadang.photo rafter rosette petal",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "North.sadang.photo side red beam": {
+    "memberId": "ildu.sadang.part.98dccf1fc0e819f1e5a8",
+    "sourceObject": "North.sadang.photo side red beam",
+    "reviewStage": 5,
+    "processId": "ildu.sadang-brackets",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.sadang.photo ventilated earth apron": {
+    "memberId": "ildu.sadang.part.c6238cef6fd3d5b2758b",
+    "sourceObject": "North.sadang.photo ventilated earth apron",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.photo ventilation bore": {
+    "memberId": "ildu.sadang.part.e878872a983a5207d3c0",
+    "sourceObject": "North.sadang.photo ventilation bore",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.rear sanctuary plaster": {
+    "memberId": "ildu.sadang.part.22c8019497027fc82cef",
+    "sourceObject": "North.sadang.rear sanctuary plaster",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.sadang.right sanctuary plaster": {
+    "memberId": "ildu.sadang.part.a362da799cd364896344",
+    "sourceObject": "North.sadang.right sanctuary plaster",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.sadang.roof": {
+    "memberId": "ildu.sadang.part.6466bb4509631c0e6811",
+    "sourceObject": "North.sadang.roof",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.001": {
+    "memberId": "ildu.sadang.part.4b8cc8240ef50e66b2d3",
+    "sourceObject": "North.sadang.roof.001",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.002": {
+    "memberId": "ildu.sadang.part.f2b33c7ec5d0661fc95a",
+    "sourceObject": "North.sadang.roof.002",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.003": {
+    "memberId": "ildu.sadang.part.994c7091767415469d3a",
+    "sourceObject": "North.sadang.roof.003",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.004": {
+    "memberId": "ildu.sadang.part.fed95567c1988b274f3f",
+    "sourceObject": "North.sadang.roof.004",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.005": {
+    "memberId": "ildu.sadang.part.6b0b0cb1827f46361d7d",
+    "sourceObject": "North.sadang.roof.005",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.T45 W320 bargeboard": {
+    "memberId": "ildu.sadang.part.58f1c76344d5df913343",
+    "sourceObject": "North.sadang.roof.T45 W320 bargeboard",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "barge_board"
+  },
+  "North.sadang.roof.descending course 1": {
+    "memberId": "ildu.sadang.part.3d894b7a461b8c66900b",
+    "sourceObject": "North.sadang.roof.descending course 1",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.descending course 2": {
+    "memberId": "ildu.sadang.part.7b69e017b6e47d4a00bd",
+    "sourceObject": "North.sadang.roof.descending course 2",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.descending course 3": {
+    "memberId": "ildu.sadang.part.4d3620c2317e0d2717c6",
+    "sourceObject": "North.sadang.roof.descending course 3",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.descending packed core": {
+    "memberId": "ildu.sadang.part.9c5f3e94a4414a15b290",
+    "sourceObject": "North.sadang.roof.descending packed core",
+    "reviewStage": 7,
+    "processId": "ildu.sadang-roof_bed",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_earth"
+  },
+  "North.sadang.roof.eave binding": {
+    "memberId": "ildu.sadang.part.35fdf33e0ee7c3b6f4d5",
+    "sourceObject": "North.sadang.roof.eave binding",
+    "reviewStage": 5,
+    "processId": "ildu.sadang-brackets",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.sadang.roof.gable earthen bedding": {
+    "memberId": "ildu.sadang.part.f243e0ba06aca4880024",
+    "sourceObject": "North.sadang.roof.gable earthen bedding",
+    "reviewStage": 7,
+    "processId": "ildu.sadang-roof_bed",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_earth"
+  },
+  "North.sadang.roof.lower exposed rafters": {
+    "memberId": "ildu.sadang.part.fa8d108c65ef89904c5a",
+    "sourceObject": "North.sadang.roof.lower exposed rafters",
+    "reviewStage": 6,
+    "processId": "ildu.sadang-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "North.sadang.roof.ridge chaggo": {
+    "memberId": "ildu.sadang.part.b559723b0ba8ff45602d",
+    "sourceObject": "North.sadang.roof.ridge chaggo",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge chaggo.001": {
+    "memberId": "ildu.sadang.part.83898dd8efa92b86fb64",
+    "sourceObject": "North.sadang.roof.ridge chaggo.001",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge chaggo.002": {
+    "memberId": "ildu.sadang.part.b349ead3c3cbe9b9c628",
+    "sourceObject": "North.sadang.roof.ridge chaggo.002",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge chaggo.003": {
+    "memberId": "ildu.sadang.part.50eef580068ba1869886",
+    "sourceObject": "North.sadang.roof.ridge chaggo.003",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge chaggo.004": {
+    "memberId": "ildu.sadang.part.3cd4ed3bd5bb56df5bf6",
+    "sourceObject": "North.sadang.roof.ridge chaggo.004",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge chaggo.005": {
+    "memberId": "ildu.sadang.part.99abc0d7c28766e16f05",
+    "sourceObject": "North.sadang.roof.ridge chaggo.005",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 1": {
+    "memberId": "ildu.sadang.part.9296841ed4560eda92cb",
+    "sourceObject": "North.sadang.roof.ridge course 1",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 1.001": {
+    "memberId": "ildu.sadang.part.6138ecb9a88ed47fa695",
+    "sourceObject": "North.sadang.roof.ridge course 1.001",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 1.002": {
+    "memberId": "ildu.sadang.part.b21ba93f192d90b83bff",
+    "sourceObject": "North.sadang.roof.ridge course 1.002",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 1.003": {
+    "memberId": "ildu.sadang.part.f5e14576b0ccf291dd0a",
+    "sourceObject": "North.sadang.roof.ridge course 1.003",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 1.004": {
+    "memberId": "ildu.sadang.part.4207ea5dd85348850885",
+    "sourceObject": "North.sadang.roof.ridge course 1.004",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 1.005": {
+    "memberId": "ildu.sadang.part.c43cbae5214516ae636b",
+    "sourceObject": "North.sadang.roof.ridge course 1.005",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 2": {
+    "memberId": "ildu.sadang.part.41361934d26287417859",
+    "sourceObject": "North.sadang.roof.ridge course 2",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 2.001": {
+    "memberId": "ildu.sadang.part.f7d73a4c01724ae8e09e",
+    "sourceObject": "North.sadang.roof.ridge course 2.001",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 2.002": {
+    "memberId": "ildu.sadang.part.1f5adad1caaed2c69660",
+    "sourceObject": "North.sadang.roof.ridge course 2.002",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 2.003": {
+    "memberId": "ildu.sadang.part.be53e8105c5a0de6e66e",
+    "sourceObject": "North.sadang.roof.ridge course 2.003",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 2.004": {
+    "memberId": "ildu.sadang.part.dc2080c260b29900e9b9",
+    "sourceObject": "North.sadang.roof.ridge course 2.004",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 2.005": {
+    "memberId": "ildu.sadang.part.f25ea7168e0f0218fccb",
+    "sourceObject": "North.sadang.roof.ridge course 2.005",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 3": {
+    "memberId": "ildu.sadang.part.25bed1366de0902139e0",
+    "sourceObject": "North.sadang.roof.ridge course 3",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 3.001": {
+    "memberId": "ildu.sadang.part.76135b8456739e0e24e0",
+    "sourceObject": "North.sadang.roof.ridge course 3.001",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 3.002": {
+    "memberId": "ildu.sadang.part.c79e421ceff9aa8ef08a",
+    "sourceObject": "North.sadang.roof.ridge course 3.002",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 3.003": {
+    "memberId": "ildu.sadang.part.7c5e450be50798a59666",
+    "sourceObject": "North.sadang.roof.ridge course 3.003",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 3.004": {
+    "memberId": "ildu.sadang.part.ff79b71a136424358bf8",
+    "sourceObject": "North.sadang.roof.ridge course 3.004",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 3.005": {
+    "memberId": "ildu.sadang.part.5d8abaa9a0b61ee266b3",
+    "sourceObject": "North.sadang.roof.ridge course 3.005",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 4": {
+    "memberId": "ildu.sadang.part.690d3406ff53cec538fc",
+    "sourceObject": "North.sadang.roof.ridge course 4",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 4.001": {
+    "memberId": "ildu.sadang.part.0fe8b60bd2d4773dada3",
+    "sourceObject": "North.sadang.roof.ridge course 4.001",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 4.002": {
+    "memberId": "ildu.sadang.part.3bdfdf9e513576a4f112",
+    "sourceObject": "North.sadang.roof.ridge course 4.002",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 4.003": {
+    "memberId": "ildu.sadang.part.85c34360a012b9f8eb54",
+    "sourceObject": "North.sadang.roof.ridge course 4.003",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 4.004": {
+    "memberId": "ildu.sadang.part.e5da6f3d4dc3fb21912e",
+    "sourceObject": "North.sadang.roof.ridge course 4.004",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 4.005": {
+    "memberId": "ildu.sadang.part.82dd3e375d1718eaf3d7",
+    "sourceObject": "North.sadang.roof.ridge course 4.005",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 5": {
+    "memberId": "ildu.sadang.part.c75633002897b2c7123e",
+    "sourceObject": "North.sadang.roof.ridge course 5",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 5.001": {
+    "memberId": "ildu.sadang.part.52009bc69c67633a1abb",
+    "sourceObject": "North.sadang.roof.ridge course 5.001",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 5.002": {
+    "memberId": "ildu.sadang.part.4a3b27cc76ce3ac09a0a",
+    "sourceObject": "North.sadang.roof.ridge course 5.002",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 5.003": {
+    "memberId": "ildu.sadang.part.846523115dc95c5e8821",
+    "sourceObject": "North.sadang.roof.ridge course 5.003",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 5.004": {
+    "memberId": "ildu.sadang.part.c4d6ed002e7685243cca",
+    "sourceObject": "North.sadang.roof.ridge course 5.004",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.ridge course 5.005": {
+    "memberId": "ildu.sadang.part.1a0ff66613f99db1e6a7",
+    "sourceObject": "North.sadang.roof.ridge course 5.005",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.round tile ends": {
+    "memberId": "ildu.sadang.part.2f470de76ee8f1bf66ba",
+    "sourceObject": "North.sadang.roof.round tile ends",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.side laid covers": {
+    "memberId": "ildu.sadang.part.d2abd1ace4e364c131f9",
+    "sourceObject": "North.sadang.roof.side laid covers",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.side laid covers.001": {
+    "memberId": "ildu.sadang.part.6f683d344967823cf490",
+    "sourceObject": "North.sadang.roof.side laid covers.001",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.side laid covers.002": {
+    "memberId": "ildu.sadang.part.1891d099e8a000e30211",
+    "sourceObject": "North.sadang.roof.side laid covers.002",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.side laid covers.003": {
+    "memberId": "ildu.sadang.part.d921abedc57892ce4c5f",
+    "sourceObject": "North.sadang.roof.side laid covers.003",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.side laid covers.004": {
+    "memberId": "ildu.sadang.part.f141a782245b03defb5e",
+    "sourceObject": "North.sadang.roof.side laid covers.004",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.side laid covers.005": {
+    "memberId": "ildu.sadang.part.5c8da3981cfd5557ef30",
+    "sourceObject": "North.sadang.roof.side laid covers.005",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.side laid pans": {
+    "memberId": "ildu.sadang.part.34ee6c85a779420d7f4e",
+    "sourceObject": "North.sadang.roof.side laid pans",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.side laid pans.001": {
+    "memberId": "ildu.sadang.part.1127f277305d5682f577",
+    "sourceObject": "North.sadang.roof.side laid pans.001",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.side laid pans.002": {
+    "memberId": "ildu.sadang.part.56186269fe9620c16556",
+    "sourceObject": "North.sadang.roof.side laid pans.002",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.side laid pans.003": {
+    "memberId": "ildu.sadang.part.01fe68587a919ea9aa33",
+    "sourceObject": "North.sadang.roof.side laid pans.003",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.side laid pans.004": {
+    "memberId": "ildu.sadang.part.a1cb8283d404e6d5cf2b",
+    "sourceObject": "North.sadang.roof.side laid pans.004",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.side laid pans.005": {
+    "memberId": "ildu.sadang.part.bb593c3d80a295690e49",
+    "sourceObject": "North.sadang.roof.side laid pans.005",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.roof.side lime plugs": {
+    "memberId": "ildu.sadang.part.4dc1951984c5642df98d",
+    "sourceObject": "North.sadang.roof.side lime plugs",
+    "reviewStage": 7,
+    "processId": "ildu.sadang-roof_bed",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_earth"
+  },
+  "North.sadang.roof.upright end cap": {
+    "memberId": "ildu.sadang.part.3cc53e65f0a23bfd0660",
+    "sourceObject": "North.sadang.roof.upright end cap",
+    "reviewStage": 8,
+    "processId": "ildu.sadang-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.sadang.round stone plinth": {
+    "memberId": "ildu.sadang.part.7e25de4647aea43dadc0",
+    "sourceObject": "North.sadang.round stone plinth",
+    "reviewStage": 3,
+    "processId": "ildu.sadang-padstones",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "North.sadang.survey sanctuary 0.infill": {
+    "memberId": "ildu.sadang.part.69b7b2dedb3ddde47ddf",
+    "sourceObject": "North.sadang.survey sanctuary 0.infill",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.sadang.survey sanctuary 0.leaf1.hanji backing": {
+    "memberId": "ildu.sadang.part.04c5d4acd80d4cc6b6e8",
+    "sourceObject": "North.sadang.survey sanctuary 0.leaf1.hanji backing",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 0.leaf1.horizontal band": {
+    "memberId": "ildu.sadang.part.843bde4e759b5ae5c354",
+    "sourceObject": "North.sadang.survey sanctuary 0.leaf1.horizontal band",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 0.leaf1.iron ring": {
+    "memberId": "ildu.sadang.part.da56432297cd3dfd3896",
+    "sourceObject": "North.sadang.survey sanctuary 0.leaf1.iron ring",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 0.leaf1.lock rail": {
+    "memberId": "ildu.sadang.part.1e89cd6bd21edd71b26a",
+    "sourceObject": "North.sadang.survey sanctuary 0.leaf1.lock rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 0.leaf1.lower moulding.rail": {
+    "memberId": "ildu.sadang.part.99721bf46916bbc12b61",
+    "sourceObject": "North.sadang.survey sanctuary 0.leaf1.lower moulding.rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 0.leaf1.lower moulding.stile": {
+    "memberId": "ildu.sadang.part.64911c7f2a8468c00777",
+    "sourceObject": "North.sadang.survey sanctuary 0.leaf1.lower moulding.stile",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 0.leaf1.rail": {
+    "memberId": "ildu.sadang.part.8b40dad979e2f4f31af8",
+    "sourceObject": "North.sadang.survey sanctuary 0.leaf1.rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 0.leaf1.rear paper rail": {
+    "memberId": "ildu.sadang.part.ba791d39de79133dfee5",
+    "sourceObject": "North.sadang.survey sanctuary 0.leaf1.rear paper rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 0.leaf1.rebated bead.rail": {
+    "memberId": "ildu.sadang.part.2bbcb0886ba7617402c2",
+    "sourceObject": "North.sadang.survey sanctuary 0.leaf1.rebated bead.rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 0.leaf1.rebated bead.stile": {
+    "memberId": "ildu.sadang.part.1a32f4f2fd54a3c87604",
+    "sourceObject": "North.sadang.survey sanctuary 0.leaf1.rebated bead.stile",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 0.leaf1.recessed lower board": {
+    "memberId": "ildu.sadang.part.4644091d08c9241aecad",
+    "sourceObject": "North.sadang.survey sanctuary 0.leaf1.recessed lower board",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 0.leaf1.stile": {
+    "memberId": "ildu.sadang.part.888b16523d3fb95e241c",
+    "sourceObject": "North.sadang.survey sanctuary 0.leaf1.stile",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 0.leaf1.vertical sal": {
+    "memberId": "ildu.sadang.part.d383107f24442e129d4a",
+    "sourceObject": "North.sadang.survey sanctuary 0.leaf1.vertical sal",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 0.measured head and sill": {
+    "memberId": "ildu.sadang.part.16e58e5800f4b30b63b6",
+    "sourceObject": "North.sadang.survey sanctuary 0.measured head and sill",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 0.measured jamb": {
+    "memberId": "ildu.sadang.part.99b0d061f93ba0806add",
+    "sourceObject": "North.sadang.survey sanctuary 0.measured jamb",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.infill": {
+    "memberId": "ildu.sadang.part.7abdb8ee45399245d749",
+    "sourceObject": "North.sadang.survey sanctuary 1.infill",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.sadang.survey sanctuary 1.leaf1.hanji backing": {
+    "memberId": "ildu.sadang.part.ac77a648b7ea005c6141",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf1.hanji backing",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf1.horizontal band": {
+    "memberId": "ildu.sadang.part.5074fdf7a33281de58e7",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf1.horizontal band",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf1.iron ring": {
+    "memberId": "ildu.sadang.part.a4687b75426997687fcf",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf1.iron ring",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf1.lock rail": {
+    "memberId": "ildu.sadang.part.7f0e81bf533dde71041b",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf1.lock rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf1.lower moulding.rail": {
+    "memberId": "ildu.sadang.part.ac4f71cefe5bfe9c5bf0",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf1.lower moulding.rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf1.lower moulding.stile": {
+    "memberId": "ildu.sadang.part.d2ced9b127320417fa6e",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf1.lower moulding.stile",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf1.rail": {
+    "memberId": "ildu.sadang.part.f23d3d172bbf51bbd435",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf1.rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf1.rear paper rail": {
+    "memberId": "ildu.sadang.part.7a2f630edfb8f8730fec",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf1.rear paper rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf1.rebated bead.rail": {
+    "memberId": "ildu.sadang.part.e214abbe9a0150294383",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf1.rebated bead.rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf1.rebated bead.stile": {
+    "memberId": "ildu.sadang.part.b14734da1184cb661877",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf1.rebated bead.stile",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf1.recessed lower board": {
+    "memberId": "ildu.sadang.part.29f19e5b4f383f886c06",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf1.recessed lower board",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf1.stile": {
+    "memberId": "ildu.sadang.part.58d68e55c5033b96b568",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf1.stile",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf1.vertical sal": {
+    "memberId": "ildu.sadang.part.d628a658773da525a93e",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf1.vertical sal",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf2.hanji backing": {
+    "memberId": "ildu.sadang.part.e80b5e5a8955ba687a76",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf2.hanji backing",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf2.horizontal band": {
+    "memberId": "ildu.sadang.part.4446e328a5d3c0284377",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf2.horizontal band",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf2.iron ring": {
+    "memberId": "ildu.sadang.part.c636737feb8c57b64a34",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf2.iron ring",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf2.lock rail": {
+    "memberId": "ildu.sadang.part.f4a5263a3a295fad9477",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf2.lock rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf2.lower moulding.rail": {
+    "memberId": "ildu.sadang.part.8d3d334019969f648da2",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf2.lower moulding.rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf2.lower moulding.stile": {
+    "memberId": "ildu.sadang.part.3888b21d841dee1f9abd",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf2.lower moulding.stile",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf2.rail": {
+    "memberId": "ildu.sadang.part.b6eca87bdfb72dc02da5",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf2.rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf2.rear paper rail": {
+    "memberId": "ildu.sadang.part.4deb5ef7c1f2bf3eb4d9",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf2.rear paper rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf2.rebated bead.rail": {
+    "memberId": "ildu.sadang.part.ad671171f3b4ceb6956a",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf2.rebated bead.rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf2.rebated bead.stile": {
+    "memberId": "ildu.sadang.part.1520ada643c471db730a",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf2.rebated bead.stile",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf2.recessed lower board": {
+    "memberId": "ildu.sadang.part.9f849a9fc5568f279359",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf2.recessed lower board",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf2.stile": {
+    "memberId": "ildu.sadang.part.ee77c3b82942e6ee63e9",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf2.stile",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.leaf2.vertical sal": {
+    "memberId": "ildu.sadang.part.3a9b6bb67616685f0db0",
+    "sourceObject": "North.sadang.survey sanctuary 1.leaf2.vertical sal",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.measured head and sill": {
+    "memberId": "ildu.sadang.part.f29da4392e20dda9f22d",
+    "sourceObject": "North.sadang.survey sanctuary 1.measured head and sill",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 1.measured jamb": {
+    "memberId": "ildu.sadang.part.f084367d011d7508e8c8",
+    "sourceObject": "North.sadang.survey sanctuary 1.measured jamb",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.infill": {
+    "memberId": "ildu.sadang.part.19f5cd2755d724cc92ad",
+    "sourceObject": "North.sadang.survey sanctuary 2.infill",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.sadang.survey sanctuary 2.leaf1.hanji backing": {
+    "memberId": "ildu.sadang.part.e1c0a36cf22e848af6f6",
+    "sourceObject": "North.sadang.survey sanctuary 2.leaf1.hanji backing",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.leaf1.horizontal band": {
+    "memberId": "ildu.sadang.part.0ab76c8c5edded89c3b5",
+    "sourceObject": "North.sadang.survey sanctuary 2.leaf1.horizontal band",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.leaf1.iron ring": {
+    "memberId": "ildu.sadang.part.eae4935141d74062bf38",
+    "sourceObject": "North.sadang.survey sanctuary 2.leaf1.iron ring",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.leaf1.lock rail": {
+    "memberId": "ildu.sadang.part.bf8885118c9b53f522e9",
+    "sourceObject": "North.sadang.survey sanctuary 2.leaf1.lock rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.leaf1.lower moulding.rail": {
+    "memberId": "ildu.sadang.part.d0fe097c16fff39579d2",
+    "sourceObject": "North.sadang.survey sanctuary 2.leaf1.lower moulding.rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.leaf1.lower moulding.stile": {
+    "memberId": "ildu.sadang.part.3c9bd2c3b399dca8630d",
+    "sourceObject": "North.sadang.survey sanctuary 2.leaf1.lower moulding.stile",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.leaf1.rail": {
+    "memberId": "ildu.sadang.part.1d6d17f5bfbda8c8fa48",
+    "sourceObject": "North.sadang.survey sanctuary 2.leaf1.rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.leaf1.rear paper rail": {
+    "memberId": "ildu.sadang.part.792e043e17ad6456efdf",
+    "sourceObject": "North.sadang.survey sanctuary 2.leaf1.rear paper rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.leaf1.rebated bead.rail": {
+    "memberId": "ildu.sadang.part.0076bf90307e80cc9d9a",
+    "sourceObject": "North.sadang.survey sanctuary 2.leaf1.rebated bead.rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.leaf1.rebated bead.stile": {
+    "memberId": "ildu.sadang.part.27eef7e3b60b6e3372de",
+    "sourceObject": "North.sadang.survey sanctuary 2.leaf1.rebated bead.stile",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.leaf1.recessed lower board": {
+    "memberId": "ildu.sadang.part.c00615be348a5e6ca935",
+    "sourceObject": "North.sadang.survey sanctuary 2.leaf1.recessed lower board",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.leaf1.stile": {
+    "memberId": "ildu.sadang.part.aa9e4fa682e18c75b105",
+    "sourceObject": "North.sadang.survey sanctuary 2.leaf1.stile",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.leaf1.vertical sal": {
+    "memberId": "ildu.sadang.part.a66fbb8bd91e0892d903",
+    "sourceObject": "North.sadang.survey sanctuary 2.leaf1.vertical sal",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.measured head and sill": {
+    "memberId": "ildu.sadang.part.a1e4cfd6203a0696d2a4",
+    "sourceObject": "North.sadang.survey sanctuary 2.measured head and sill",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.sadang.survey sanctuary 2.measured jamb": {
+    "memberId": "ildu.sadang.part.d2579cc4f6d54cb7e5a5",
+    "sourceObject": "North.sadang.survey sanctuary 2.measured jamb",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "Sep29.sadang.altar carved timber apron": {
+    "memberId": "ildu.sadang.part.b7f75b6660cb01545be5",
+    "sourceObject": "Sep29.sadang.altar carved timber apron",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.altar moulded rim": {
+    "memberId": "ildu.sadang.part.30bf3ef92305f7e8bee0",
+    "sourceObject": "Sep29.sadang.altar moulded rim",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.altar rear stretcher": {
+    "memberId": "ildu.sadang.part.a50600ce95b4f797c8fe",
+    "sourceObject": "Sep29.sadang.altar rear stretcher",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.altar side stretcher": {
+    "memberId": "ildu.sadang.part.d825b41a2efd16902933",
+    "sourceObject": "Sep29.sadang.altar side stretcher",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.altar timber leg": {
+    "memberId": "ildu.sadang.part.a51fddb555ededa57907",
+    "sourceObject": "Sep29.sadang.altar timber leg",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.altar timber top": {
+    "memberId": "ildu.sadang.part.1cdcbb8234b652817dd2",
+    "sourceObject": "Sep29.sadang.altar timber top",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.brass candle stand": {
+    "memberId": "ildu.sadang.part.31b8d44220c7dff4d44c",
+    "sourceObject": "Sep29.sadang.brass candle stand",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.brass incense bowl": {
+    "memberId": "ildu.sadang.part.5df0909b67bc61554941",
+    "sourceObject": "Sep29.sadang.brass incense bowl",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.cabinet brass fittings": {
+    "memberId": "ildu.sadang.part.91b4253878b4927748e6",
+    "sourceObject": "Sep29.sadang.cabinet brass fittings",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.cabinet brass pulls": {
+    "memberId": "ildu.sadang.part.643403f227f4c8e81d9f",
+    "sourceObject": "Sep29.sadang.cabinet brass pulls",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.cabinet timber back": {
+    "memberId": "ildu.sadang.part.50de44bfe986b3e005cc",
+    "sourceObject": "Sep29.sadang.cabinet timber back",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.cabinet timber base": {
+    "memberId": "ildu.sadang.part.4588be3dbeacb6a66c41",
+    "sourceObject": "Sep29.sadang.cabinet timber base",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.cabinet timber lattice": {
+    "memberId": "ildu.sadang.part.250081c41e8ef67df8ac",
+    "sourceObject": "Sep29.sadang.cabinet timber lattice",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.cabinet timber pediment": {
+    "memberId": "ildu.sadang.part.43c5a0900c612c6043a8",
+    "sourceObject": "Sep29.sadang.cabinet timber pediment",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.cabinet timber rail": {
+    "memberId": "ildu.sadang.part.e94cb11b21417f7745df",
+    "sourceObject": "Sep29.sadang.cabinet timber rail",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.cabinet timber side": {
+    "memberId": "ildu.sadang.part.0aa53b626a852bc33c4d",
+    "sourceObject": "Sep29.sadang.cabinet timber side",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.cabinet timber stile": {
+    "memberId": "ildu.sadang.part.0419cd846ae8bcf26466",
+    "sourceObject": "Sep29.sadang.cabinet timber stile",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.drawer brass pull": {
+    "memberId": "ildu.sadang.part.17da882d67b494fd673b",
+    "sourceObject": "Sep29.sadang.drawer brass pull",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.interior green rafter": {
+    "memberId": "ildu.sadang.part.6b07d53434516d9bdc4f",
+    "sourceObject": "Sep29.sadang.interior green rafter",
+    "reviewStage": 6,
+    "processId": "ildu.sadang-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "Sep29.sadang.interior rear rail": {
+    "memberId": "ildu.sadang.part.3c11ef765d2bff836e19",
+    "sourceObject": "Sep29.sadang.interior rear rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Sep29.sadang.ivory candle": {
+    "memberId": "ildu.sadang.part.d865075ae88b9d322529",
+    "sourceObject": "Sep29.sadang.ivory candle",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.lotus circular field": {
+    "memberId": "ildu.sadang.part.d9a7c4581a8ccafc4f39",
+    "sourceObject": "Sep29.sadang.lotus circular field",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.lotus ochre centre": {
+    "memberId": "ildu.sadang.part.1f2f5ed11c05201ea73a",
+    "sourceObject": "Sep29.sadang.lotus ochre centre",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.lotus painted petal": {
+    "memberId": "ildu.sadang.part.d1a0619adfdd8a59b975",
+    "sourceObject": "Sep29.sadang.lotus painted petal",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.lotus petal outline": {
+    "memberId": "ildu.sadang.part.f6bccb25d2b05ad5f689",
+    "sourceObject": "Sep29.sadang.lotus petal outline",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.mat indigo hem": {
+    "memberId": "ildu.sadang.part.9291b4a9429c8f90e273",
+    "sourceObject": "Sep29.sadang.mat indigo hem",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.mat woven reed": {
+    "memberId": "ildu.sadang.part.f83eb9c989e3c4328c1e",
+    "sourceObject": "Sep29.sadang.mat woven reed",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.offering timber drawer": {
+    "memberId": "ildu.sadang.part.959a0fc2012c1a1c135c",
+    "sourceObject": "Sep29.sadang.offering timber drawer",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.offering timber leg": {
+    "memberId": "ildu.sadang.part.36d58e51314b2304a133",
+    "sourceObject": "Sep29.sadang.offering timber leg",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.offering timber top": {
+    "memberId": "ildu.sadang.part.df9da967a64a4576c827",
+    "sourceObject": "Sep29.sadang.offering timber top",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.painted column band": {
+    "memberId": "ildu.sadang.part.a52342c06521b3ec1e62",
+    "sourceObject": "Sep29.sadang.painted column band",
+    "reviewStage": 4,
+    "processId": "ildu.sadang-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "Sep29.sadang.painted column band.001": {
+    "memberId": "ildu.sadang.part.d4216d5c7f28d5953221",
+    "sourceObject": "Sep29.sadang.painted column band.001",
+    "reviewStage": 4,
+    "processId": "ildu.sadang-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "Sep29.sadang.painted column band.002": {
+    "memberId": "ildu.sadang.part.cbc922f13ad2dbb18fb3",
+    "sourceObject": "Sep29.sadang.painted column band.002",
+    "reviewStage": 4,
+    "processId": "ildu.sadang-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "Sep29.sadang.painted column band.003": {
+    "memberId": "ildu.sadang.part.9abf937ef62546a8a31f",
+    "sourceObject": "Sep29.sadang.painted column band.003",
+    "reviewStage": 4,
+    "processId": "ildu.sadang-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "Sep29.sadang.scroll bracket solid": {
+    "memberId": "ildu.sadang.part.4ec484e9c2728176c4d5",
+    "sourceObject": "Sep29.sadang.scroll bracket solid",
+    "reviewStage": 5,
+    "processId": "ildu.sadang-brackets",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "Sep29.sadang.scroll painted contour": {
+    "memberId": "ildu.sadang.part.888a6c491ba93cb93475",
+    "sourceObject": "Sep29.sadang.scroll painted contour",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.scroll painted contour.001": {
+    "memberId": "ildu.sadang.part.cea87a907eeff766d7b9",
+    "sourceObject": "Sep29.sadang.scroll painted contour.001",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.scroll painted contour.002": {
+    "memberId": "ildu.sadang.part.ff384129f7a47cb1e7bc",
+    "sourceObject": "Sep29.sadang.scroll painted contour.002",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Sep29.sadang.side horizontal red rail": {
+    "memberId": "ildu.sadang.part.6fdd3ce56fa94c9860c5",
+    "sourceObject": "Sep29.sadang.side horizontal red rail",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Sep29.sadang.side lower red sill": {
+    "memberId": "ildu.sadang.part.2524cc11d501ee0688d9",
+    "sourceObject": "Sep29.sadang.side lower red sill",
+    "reviewStage": 10,
+    "processId": "ildu.sadang-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Sep29.sadang.woven straw mat": {
+    "memberId": "ildu.sadang.part.1de3c633531345ecca42",
+    "sourceObject": "Sep29.sadang.woven straw mat",
+    "reviewStage": 11,
+    "processId": "ildu.sadang-finish",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  }
+}

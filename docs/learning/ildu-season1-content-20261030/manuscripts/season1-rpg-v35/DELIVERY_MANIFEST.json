@@ -1,0 +1,225 @@
+{
+  "status": "MANUSCRIPT_DELIVERY_COMPLETE",
+  "completed_at_utc": "2026-10-29T23:06:14.094060+00:00",
+  "completed_at_berlin": "2026-10-30T00:06:14.094060+01:00",
+  "deadline_berlin": "2026-10-30T09:00:00+01:00",
+  "requested_scope": "A1.1 detailed six units plus100unit/128stage story and key dialogue plus2x10second epilogue timelines",
+  "scope_complete": {
+    "a11_units": 6,
+    "a11_items": 91,
+    "P": 29,
+    "I": 31,
+    "R": 31,
+    "grammar_rows": 15,
+    "story_units": 100,
+    "required_units": 99,
+    "optional_units": 1,
+    "story_bands": 16,
+    "buildings": 11,
+    "stages": 128,
+    "basic_story_hooks": 33,
+    "epilogue_versions": 2,
+    "epilogue_timeline_seconds_each": 10
+  },
+  "quality": {
+    "a11_structural_checks": 17,
+    "season_structural_checks": 21,
+    "a11_independent_model_review": "PASS",
+    "season_independent_model_review": "PASS",
+    "protected_sources_unchanged": 76,
+    "local_markdown_links_verified": 48
+  },
+  "entrypoints": [
+    "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\README.md",
+    "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\STORY_MANAGER_GUIDE.md",
+    "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\README.md",
+    "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\EPILOGUES_10S.md"
+  ],
+  "unchanged": {
+    "app_code": true,
+    "app_design": true,
+    "prior_foundation_manuscripts": true,
+    "canon_v35": true,
+    "r16_contract": true,
+    "curriculum_source": true,
+    "construction_currency_policy": true
+  },
+  "remaining_actual_production": [
+    "human Korean teacher and EN/de-DE review",
+    "audio and image creation and learner pilot",
+    "actual10second voice/subtitle/render verification",
+    "runtime gate/evidence/persistence/ownership integration and device checks"
+  ],
+  "remaining_integration_decisions": [
+    "existing cumulative course conditions versus canon beginner narrative/support path",
+    "exact numeric process-to-semantic-hook binding"
+  ],
+  "snapshot_head": "6fadd838e2a8ad378b92b38d06d86541782a7db8",
+  "files": [
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\01_A1.1-01.md",
+      "bytes": 25066,
+      "sha256": "d1ed5c13abab0d968f7c9287f9a1ceb3d3dca5ed2f2d5d3fe64b99bde7ff0136"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\02_A1.1-02.md",
+      "bytes": 34154,
+      "sha256": "f3e1df8dc582599021f05e7bb05b63635a48441575ad66f708d15ad7963c1304"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\03_A1.1-03.md",
+      "bytes": 35989,
+      "sha256": "af389178144dd09945baec14e4bdb1c708f1d0389394b7b1a98669391010a5eb"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\04_A1.1-04.md",
+      "bytes": 26821,
+      "sha256": "a6c49bf04be73be594a4cf7c146e62e7734c19b6afad69dd1639102b8ad25e73"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\05_A1.1-05.md",
+      "bytes": 41646,
+      "sha256": "6c9e565eaf98d8b9005a2abb5243a969765168a114b65f8d7bfa1d9d75306410"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\06_A1.1-06.md",
+      "bytes": 38205,
+      "sha256": "4203b6d69c7bcb7de044cc3a8143022101a2c9fe192a2328a1f833d963c838f5"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\A11_INDEPENDENT_REVIEW.md",
+      "bytes": 15724,
+      "sha256": "0836d59b094ae3958d48d09c6825e7cdf5dadebc758440bf59fdd5ce2d388839"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\AUTHORING_ITEMS.json",
+      "bytes": 334593,
+      "sha256": "9eeff3980ae4381354ce44b94f89e5f804428d9f827892a56fa7ea4941554b7f"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\COMMON_COPY.md",
+      "bytes": 9768,
+      "sha256": "0168ff661e9e1ff7e2f5b3e1c26ee9fb9c49513c91d419ee2733a1a65c3ca73f"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\CONTENT_SOURCE.json",
+      "bytes": 409658,
+      "sha256": "b29968cff262a7cd40c418cd71bb08a6f03a1b9d76d256e7e6628394a431890c"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\GRAMMAR_AND_RECALL.md",
+      "bytes": 5114,
+      "sha256": "e36d60690e8fc9336629a6f909ee0f24671e91deba4e1aa820bacb510d9b9c57"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\GRAMMAR_COVERAGE.csv",
+      "bytes": 7752,
+      "sha256": "f9beb69bae969e4a66d50a72131e4ffeb043628c7d089a7cd6ed328d1ff83f61"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\ITEM_BANK.csv",
+      "bytes": 258058,
+      "sha256": "e09709ee1f7c89d2e4f2e1f56de517a39112a25f48ffce2950659d7d674d84ed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\LQ05_GATEKEEPER.md",
+      "bytes": 5385,
+      "sha256": "c4aa900747ff925f54643496f16fb94046b40bd1bddee480b32eb3111df5b104"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\MEDIA_AND_CRITERIA.md",
+      "bytes": 7942,
+      "sha256": "7d635eaa537b18913462e26d523d2224edec86edd2023d456f08c5739fc14a7e"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\QA_REVIEW.md",
+      "bytes": 3286,
+      "sha256": "f8e54be145072932fa4480899ffe29ba2a710fefcd0061fdbf547f0355304193"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\README.md",
+      "bytes": 4274,
+      "sha256": "0ecec65d6aa0117d1094a7a0ab5159ac4f9326f2d46e3dacf5431d5048abf599"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\SOURCE_AND_QA.json",
+      "bytes": 18350,
+      "sha256": "e07e7374f9ec0cd6c2c967f405943a88d9c3e4fc03db933cb9c888dc333b19b1"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\SOURCE_UNIT_CONTRACTS.json",
+      "bytes": 21098,
+      "sha256": "170de931279b9af54c2650c13262c7c6943c575fbe3442e9c7183c5f6609f887"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\a1-1-v35\\STRUCTURAL_QA.json",
+      "bytes": 22126,
+      "sha256": "9eb682c3c45bc37a26b63d0b146b42cf351d33d5ed33c0c09ce9f60dc62cb50c"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\EPILOGUE_QA.md",
+      "bytes": 8191,
+      "sha256": "7993ce99eaed42d4e8248111df3c9a8361df223a235c2046834508a6ee38e389"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\EPILOGUE_TIMELINE.csv",
+      "bytes": 5145,
+      "sha256": "96da4330d2dcd4bbdb48b1fd73e7425650e20b1206fd70e020a358875eb2e07d"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\EPILOGUES_10S.md",
+      "bytes": 18080,
+      "sha256": "47535f0efa70ffeba68a629e98df8d1e7fd64466788b9751d7d5b82773cc4a0e"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\LEVEL_STORY_100.json",
+      "bytes": 410477,
+      "sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\LEVEL_STORY_100.md",
+      "bytes": 123621,
+      "sha256": "c33682742af5e307fdfb430fddfe11818e3410e8d4c50d0321a6c57611aaeebe"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\QA_REVIEW.md",
+      "bytes": 4204,
+      "sha256": "d8c4137488fe182ce04ec9ad49af0a49a1254d62c408d9628d2b2f2c6e7894ce"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\README.md",
+      "bytes": 4584,
+      "sha256": "923682d591bb296e2fc96664607949f42ac4bb571a02ee62c844f1e8f7fd1e72"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\SEASON1_INDEPENDENT_REVIEW.md",
+      "bytes": 11981,
+      "sha256": "555bdf0d584a60860eaacf560b6c7513d127fbe014e334018d089fa61d10ba7f"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\STAGE_STORY_128.json",
+      "bytes": 578856,
+      "sha256": "61929f8ce70f042520567ee7796c7c7cb8d9d16bd0300289f0174df9d72670d1"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\STAGE_STORY_128.md",
+      "bytes": 196269,
+      "sha256": "a19b449b3c76fa862b9af491aafe98420de063e5f2cbe1c6c032d257157a45b1"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\STORY_MANAGER_GUIDE.md",
+      "bytes": 11218,
+      "sha256": "00bb2ae58ee9c36c9a12b546be7140067b2ac1744727220dff43a274117fd44f"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\curriculum-content-bridge-20261028\\season1-rpg-v35\\STRUCTURAL_QA.json",
+      "bytes": 3966,
+      "sha256": "1a5042697eba7a81936206e24ac627ba9c3e224c853347609364484fe4afa9de"
+    }
+  ],
+  "overnight_continuation": {
+    "automation_id": "1",
+    "status": "PAUSED",
+    "reason": "authorized manuscript scope completed before deadline"
+  }
+}

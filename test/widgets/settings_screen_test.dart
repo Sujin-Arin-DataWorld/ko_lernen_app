@@ -49,6 +49,50 @@ void main() {
 
   tearDown(() => cloudJournalState.dispose());
 
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    for (final (nameCase, displayName, expectedName) in [
+      ('missing', null, 'Google'),
+      ('empty', '', 'Google'),
+      ('whitespace', ' \t\n ', 'Google'),
+      ('named', '  Lernname  ', '  Lernname  '),
+    ]) {
+      testWidgets(
+        '${locale.languageCode} linked settings labels a $nameCase display name',
+        (tester) async {
+          final t = lookupAppL10n(locale);
+          await tester.pumpWidget(
+            _wrapForLocale(
+              SettingsScreen(
+                account: AuthAccountSnapshot(
+                  providers: const AuthProviderState(
+                    isGoogleLinked: true,
+                    isAppleLinked: false,
+                  ),
+                  displayName: displayName,
+                ),
+                accountOperations: _SettingsAccountOperations(),
+                cloudDataDeletionJournalState: cloudJournalState,
+              ),
+              locale: locale,
+            ),
+          );
+          await tester.pump();
+          final description = find.text(t.settingsCloudSignedInDesc);
+          await _ensureSettingsActionVisible(tester, description);
+          final tile = tester.widget<ListTile>(
+            find.ancestor(of: description, matching: find.byType(ListTile)),
+          );
+          expect(
+            (tile.title! as Text).data,
+            t.settingsCloudSignedIn(expectedName),
+          );
+          expect(find.text(t.settingsCloudSignInPrompt), findsNothing);
+          expect(tester.takeException(), isNull);
+        },
+      );
+    }
+  }
+
   testWidgets('settings keeps the complete profile reachable', (tester) async {
     await tester.pumpWidget(
       _wrap(

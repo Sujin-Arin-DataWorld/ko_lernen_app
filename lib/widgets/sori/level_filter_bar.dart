@@ -4,6 +4,7 @@ import '../../models/learner_level.dart';
 import '../../services/storage_service.dart';
 import 'chip.dart';
 import 'hanok_tokens.dart';
+import 'pressable.dart';
 import 'sheet.dart';
 import 'tokens.dart';
 
@@ -84,7 +85,10 @@ class SoriLevelFilterBar extends StatefulWidget {
     required this.onChanged,
     this.allLabel,
     this.countFor,
-  });
+    this.choiceBuilder,
+    this.choiceLayout,
+  }) : assert((choiceBuilder == null) == (choiceLayout == null)),
+       assert(choiceBuilder == null || (allLabel == null && countFor == null));
 
   /// 현재 선택 레벨 코드('a1'..'c2'). null = "전체".
   final String? selected;
@@ -96,6 +100,11 @@ class SoriLevelFilterBar extends StatefulWidget {
   /// 레벨별 개수 배지 — `'C1 · 5'` 형식(스몰톡 기존 계약과 동일). null이면
   /// 접미사를 안 붙인다. 0을 돌려주면 그 칩은 탭을 막는다(빈 레벨 안내).
   final int Function(String? levelCode)? countFor;
+
+  /// An approved CEFR-only bar may supply its choice art and row geometry.
+  /// The shared bar still owns canonical levels, selection and tap behavior.
+  final Widget Function(LearnerLevel level, bool selected)? choiceBuilder;
+  final Widget Function(List<Widget> choices)? choiceLayout;
 
   /// 화면이 아직 시작 레벨을 정하지 못했을 때 쓰는 단일 판정.
   ///
@@ -160,6 +169,22 @@ class _SoriLevelFilterBarState extends State<SoriLevelFilterBar> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.choiceBuilder case final buildChoice?) {
+      return widget.choiceLayout!([
+        for (final level in LearnerLevel.values)
+          Semantics(
+            button: true,
+            selected: widget.selected == level.code,
+            child: SoriPressable(
+              pressScale: 1,
+              onTap: widget.selected == level.code
+                  ? null
+                  : () => widget.onChanged(level.code),
+              child: buildChoice(level, widget.selected == level.code),
+            ),
+          ),
+      ]);
+    }
     final s = SoriSurfaces.of(context);
     final chips = <Widget>[
       if (widget.allLabel != null) _chip(null, widget.allLabel!),

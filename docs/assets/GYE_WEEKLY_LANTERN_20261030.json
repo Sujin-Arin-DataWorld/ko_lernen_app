@@ -1,0 +1,35 @@
+{
+  "checkedOn": "2026-10-30",
+  "lit": {
+    "source": "C:/Users/vjinn/.codex/generated_images/한글_5탭 확정/exec-71b4365c-1481-4256-9ad4-49c00c3520da.png",
+    "asset": "assets/illustrations/gye/weekly_lantern/lit.png",
+    "sha256": "7500862ea4dc73c6cd0cfb95bc37425a443c3074db8f61736c6b4f6cef9a2b18",
+    "authority": "Exact user-selected original; copied byte for byte."
+  },
+  "off": {
+    "source": "C:/Users/vjinn/.codex/generated_images/01a189c4-67f6-7650-a035-a60877b14e01/exec-c05234e9-ee98-4666-9d57-52c59dbe63f6.png",
+    "asset": "assets/illustrations/gye/weekly_lantern/off.png",
+    "sha256": "7819d18167b6a9b20b9dadbc885332dc1be684d8a935009f7d6422ee8bfd3489",
+    "generatedWith": "Built-in image_gen edit; transparent_background=true; original supplied as edit target.",
+    "canvas": [926, 1698],
+    "mode": "RGBA",
+    "review": "Unlit ivory hanji is readable. Same view, ring, roof, lattice and feet inspected. Same pixel canvas verified; generative edit is not claimed to have pixel-identical geometry.",
+    "prompt": "Use case: precise-object-edit / lighting-only state variant.\nEdit target: the supplied approved lit Korean wooden-and-brass hanji lantern asset. Produce ONE premium OFF/unlit state of this EXACT lantern, on a genuinely transparent PNG background.\nPrimary change: switch OFF only the internal illumination. The translucent cream ivory hanji panels must remain clearly readable as natural matte ivory paper under the same soft neutral external studio light, with subtle paper fibers; remove the warm yellow internal emissive glow and light spill. Do not turn panels into black or dark holes. No flame, no candle light, no bright core, no aura.\nStrict invariants: keep the complete same lantern, identical three-quarter perspective, camera angle, silhouette, roof curvature, circular hanging ring, lattice geometry and crossbars, wood grain, brass finish/engraving/hardware/rivets, feet, external highlights, object position and scale, all transparent margins, and EXACT 926 by 1698 pixel canvas. The entire ring and feet remain visible. Do not redraw, redesign, add or remove any physical part. No extra props, no surface/backdrop, no text, no border or watermark. Preserve the source's delicate 3D craftsmanship and high-resolution texture. This is a matching binary app-state asset; changing only interior lighting is essential so switching between lit and off never appears to move or replace the object."
+  },
+  "runtimeState": {
+    "lifePromise": "One image per supported target contribution. Lit count comes only from clamped weeklyPromiseProgress.",
+    "legacyPackGoal": "One weekly lantern becomes lit only at weeklyFraction >= 1. Pack progress is not counted as earned lanterns.",
+    "writes": "None added. No owner, group, contribution, reward, or learner state mutation."
+  },
+  "designReferencesCheckedOn": "2026-10-30",
+  "designReferences": [
+    "https://docs.flutter.dev/ui/accessibility",
+    "https://docs.flutter.dev/ui/adaptive-responsive/best-practices"
+  ],
+  "appliedDecisions": [
+    "Native flow layout for week heading, progress label, and images; no fixed positioned text.",
+    "Wrap lanterns to available width; keep the natural source aspect ratio and transparent image canvas.",
+    "Expose one localized aggregate semantics label; artwork is decorative, not a fake action.",
+    "Use motion only for confirmed metadata state changes and disable it with reduced motion."
+  ]
+}

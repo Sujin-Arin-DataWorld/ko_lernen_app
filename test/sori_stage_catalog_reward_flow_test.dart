@@ -32,6 +32,7 @@ void main() {
         localizationsDelegates: AppL10n.localizationsDelegates,
         home: SoriStageCatalogScreen(
           tab: SoriStageTab.learn,
+          initialShowAll: true,
           loadSnapshot: () async => _snapshot(xp),
         ),
         onGenerateRoute: (_) => MaterialPageRoute<void>(

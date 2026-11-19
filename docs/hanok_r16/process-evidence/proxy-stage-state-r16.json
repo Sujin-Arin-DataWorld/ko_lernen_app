@@ -1,0 +1,3885 @@
+[
+  {
+    "name": "HS6 seated entry bedding 0",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "source_member": "V25.upper entry slab 0",
+      "construction_parent": "V25.upper entry slab 0"
+    }
+  },
+  {
+    "name": "HS6 seated entry bedding 1",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "source_member": "V25.upper entry slab 1",
+      "construction_parent": "V25.upper entry slab 1"
+    }
+  },
+  {
+    "name": "HS6 guardian eave seal 0",
+    "parent": null,
+    "hidden": true,
+    "props": {
+      "construction_parent": "Sarang.numaru roof.hip round tile ends",
+      "story_layer": "Dokkaebi guardian fantasy addition"
+    }
+  },
+  {
+    "name": "HS6 guardian eave seal 1",
+    "parent": null,
+    "hidden": true,
+    "props": {
+      "construction_parent": "Sarang.numaru roof.hip round tile ends",
+      "story_layer": "Dokkaebi guardian fantasy addition"
+    }
+  },
+  {
+    "name": "HS8 main full guardian",
+    "parent": null,
+    "hidden": true,
+    "props": {
+      "construction_parent": "Sarang.numaru roof end ornament.original patterned face",
+      "story_layer": "User requested full Dokkaebi finial relief"
+    }
+  },
+  {
+    "name": "HS8 left full guardian",
+    "parent": null,
+    "hidden": true,
+    "props": {
+      "construction_parent": "Sarang.numaru roof.hip round tile ends",
+      "story_layer": "User requested full Dokkaebi finial relief"
+    }
+  },
+  {
+    "name": "HS8 right full guardian",
+    "parent": null,
+    "hidden": true,
+    "props": {
+      "construction_parent": "Sarang.numaru roof.hip round tile ends",
+      "story_layer": "User requested full Dokkaebi finial relief"
+    }
+  },
+  {
+    "name": "HS9 main integrated finial",
+    "parent": null,
+    "hidden": true,
+    "props": {
+      "construction_parent": "Sarang.numaru roof end ornament.original patterned face",
+      "story_layer": "Dokkaebi guardian arched finial"
+    }
+  },
+  {
+    "name": "HS9 left integrated finial",
+    "parent": null,
+    "hidden": true,
+    "props": {
+      "construction_parent": "Sarang.numaru roof.hip round tile ends",
+      "story_layer": "Dokkaebi guardian arched finial"
+    }
+  },
+  {
+    "name": "HS9 right integrated finial",
+    "parent": null,
+    "hidden": true,
+    "props": {
+      "construction_parent": "Sarang.numaru roof.hip round tile ends",
+      "story_layer": "Dokkaebi guardian arched finial"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7421029806137085,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6506779789924622,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6451565623283386,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7692526578903198,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.675722599029541,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8522212505340576,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7202441692352295,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 07",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6067094802856445,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 08",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8665895462036133,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 09",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8510279655456543,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 10",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7874202728271484,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 11",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8256654739379883,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 12",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7534952163696289,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 13",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7789535522460938,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 0 block 14",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6647605895996094,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7618809938430786,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.5931562781333923,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7294338345527649,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7509723901748657,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8061602115631104,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7779467105865479,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8303205966949463,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 07",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6586036682128906,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 08",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7121214866638184,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 09",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8543510437011719,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 10",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7501254081726074,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 11",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7547335624694824,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 12",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8375482559204102,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 13",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6270933151245117,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 0 block 14",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7455549240112305,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 0 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.7538083791732788,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 0 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.8055521249771118,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 0 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.7034753561019897,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 0 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.7759701013565063,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 0 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.8513193130493164,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 0 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.929908037185669,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 0 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.8449664115905762,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 0 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.7798594236373901,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 0 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.784845232963562,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 0 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.8550162315368652,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 0 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.7471671104431152,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 0 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.8788127899169922,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 0 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.7252368927001953,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 0 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.8940625190734863,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.44996368885040283,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6028292179107666,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.758376955986023,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.841651439666748,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8179905414581299,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7527942657470703,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7655346393585205,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 07",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.5997238159179688,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 08",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8115634918212891,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 09",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7521553039550781,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 10",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7188377380371094,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 11",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8170971870422363,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 12",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7921419143676758,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 13",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.673253059387207,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 1 block 14",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        1.036086082458496,
+        0.3199999928474426,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.4421706795692444,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8027169108390808,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.763465404510498,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8015224933624268,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7669706344604492,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8451633453369141,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6844818592071533,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 07",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7458481788635254,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 08",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7253236770629883,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 09",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6310954093933105,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 10",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8512940406799316,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 11",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.729590892791748,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 12",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6473016738891602,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 13",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7288417816162109,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 1 block 14",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        1.0242128372192383,
+        0.32000017166137695,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 1 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.3956545889377594,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 1 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.8302988409996033,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 1 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.7901772260665894,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 1 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.7424881458282471,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 1 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.880795955657959,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 1 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.9113614559173584,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 1 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        1.1142239570617676,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 1 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.5583454370498657,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 1 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.6915194988250732,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 1 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.8983224630355835,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 1 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.7536455392837524,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 1 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.6821689605712891,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 1 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.8787410259246826,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 1 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        1.2022571563720703,
+        0.33266666531562805
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6914204359054565,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.742853045463562,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7712416648864746,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8607935905456543,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7045061588287354,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.847562313079834,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6983523368835449,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 07",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7203989028930664,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 08",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.753791332244873,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 09",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6495852470397949,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 10",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6969060897827148,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 11",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8955349922180176,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 12",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6365861892700195,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 13",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8085727691650391,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation front course 2 block 14",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7118959426879883,
+        0.3199999928474426,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6454148292541504,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6673212051391602,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8028610944747925,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7526360750198364,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8476998805999756,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8417766094207764,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6576364040374756,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 07",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8148179054260254,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 08",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7253718376159668,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 09",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6614818572998047,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 10",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6906623840332031,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 11",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8762445449829102,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 12",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6944217681884766,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 13",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6452980041503906,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation rear course 2 block 14",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8663558959960938,
+        0.32000017166137695,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 2 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.7115205526351929,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 2 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.8090952634811401,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 2 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.853797197341919,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 2 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.8442842960357666,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 2 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.8194124698638916,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 2 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.854318380355835,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation left course 2 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.320000022649765,
+        0.7725715637207031,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 2 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.763097882270813,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 2 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.874282956123352,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 2 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.7937822341918945,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 2 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.6756031513214111,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 2 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.7337732315063477,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 2 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.9018576145172119,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 main foundation right course 2 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Sarang dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.32000064849853516,
+        0.9226031303405762,
+        0.33266669511795044
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation front course 0 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7363662719726562,
+        0.32000017166137695,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation front course 0 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7715568542480469,
+        0.32000017166137695,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation front course 0 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.76092529296875,
+        0.32000017166137695,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation front course 0 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7843952178955078,
+        0.32000017166137695,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation front course 0 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.5952224731445312,
+        0.32000017166137695,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation front course 0 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.5952825546264648,
+        0.32000017166137695,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation front course 0 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7712516784667969,
+        0.32000017166137695,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation rear course 0 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6595449447631836,
+        0.32000017166137695,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation rear course 0 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6660299301147461,
+        0.32000017166137695,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation rear course 0 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7564563751220703,
+        0.32000017166137695,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation rear course 0 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6062707901000977,
+        0.32000017166137695,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation rear course 0 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8278636932373047,
+        0.32000017166137695,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation rear course 0 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6636953353881836,
+        0.32000017166137695,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation rear course 0 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8351373672485352,
+        0.32000017166137695,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation left course 0 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.7304704189300537,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation left course 0 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.7448830604553223,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation left course 0 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.8124682903289795,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation left course 0 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.8562312126159668,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation left course 0 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.7949637770652771,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation left course 0 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.7773820161819458,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation left course 0 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.861983597278595,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation left course 0 block 07",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.7996624708175659,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation left course 0 block 08",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.6732709407806396,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation left course 0 block 09",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.858597993850708,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation left course 0 block 10",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.8589494228363037,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation left course 0 block 11",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.6711363792419434,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation right course 0 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.8943881988525391,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation right course 0 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.6871321201324463,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation right course 0 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.7553608417510986,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation right course 0 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.6321429014205933,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation right course 0 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.9049359560012817,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation right course 0 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.6631366014480591,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation right course 0 block 06",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.8410402536392212,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation right course 0 block 07",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.902518630027771,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation right course 0 block 08",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.7013587951660156,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation right course 0 block 09",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.8874228000640869,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation right course 0 block 10",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.8560917377471924,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru foundation right course 0 block 11",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Craft.Numaru dressed foundation",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.31999969482421875,
+        0.7144708633422852,
+        0.37400001287460327
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 left terrace course 0 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.left terrace masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6899999380111694,
+        1.5799999237060547,
+        0.3606666624546051
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 left terrace course 1 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.left terrace masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6899999380111694,
+        1.5799999237060547,
+        0.3606666624546051
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 left terrace course 2 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.left terrace masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6899999380111694,
+        1.5799999237060547,
+        0.3606666922569275
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 front apron course 0 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.left front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6785842776298523,
+        0.5899999737739563,
+        0.3606666624546051
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 front apron course 0 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.left front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.776626706123352,
+        0.5899999737739563,
+        0.3606666624546051
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 front apron course 0 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.left front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.9347889423370361,
+        0.5899999737739563,
+        0.3606666624546051
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 front apron course 1 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.left front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.4854181408882141,
+        0.5899999737739563,
+        0.3606666624546051
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 front apron course 1 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.left front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8596096038818359,
+        0.5899999737739563,
+        0.3606666624546051
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 front apron course 1 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.left front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        1.0449721813201904,
+        0.5899999737739563,
+        0.3606666624546051
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 front apron course 2 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.left front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7735372185707092,
+        0.5899999737739563,
+        0.3606666922569275
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 front apron course 2 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.left front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.9008181095123291,
+        0.5899999737739563,
+        0.3606666922569275
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 front apron course 2 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.left front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7156445980072021,
+        0.5899999737739563,
+        0.3606666922569275
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 0 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7144620418548584,
+        0.7199999690055847,
+        0.4206666648387909
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 0 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7118875980377197,
+        0.7199999690055847,
+        0.4206666648387909
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 0 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6863284111022949,
+        0.7199999690055847,
+        0.4206666648387909
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 0 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6796104907989502,
+        0.7199999690055847,
+        0.4206666648387909
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 0 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.774503231048584,
+        0.7199999690055847,
+        0.4206666648387909
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 0 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6232080459594727,
+        0.7199999690055847,
+        0.4206666648387909
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 1 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.3412916660308838,
+        0.7199999690055847,
+        0.4206666648387909
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 1 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6976099014282227,
+        0.7199999690055847,
+        0.4206666648387909
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 1 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7280523777008057,
+        0.7199999690055847,
+        0.4206666648387909
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 1 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7453124523162842,
+        0.7199999690055847,
+        0.4206666648387909
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 1 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.76904296875,
+        0.7199999690055847,
+        0.4206666648387909
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 1 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.9086904525756836,
+        0.7199999690055847,
+        0.4206666648387909
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 2 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6734907627105713,
+        0.7199999690055847,
+        0.4206666350364685
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 2 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6107094287872314,
+        0.7199999690055847,
+        0.4206666350364685
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 2 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7366132736206055,
+        0.7199999690055847,
+        0.4206666350364685
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 2 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6872870922088623,
+        0.7199999690055847,
+        0.4206666350364685
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 2 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7635626792907715,
+        0.7199999690055847,
+        0.4206666350364685
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair landing course 2 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.landing masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7183365821838379,
+        0.7199999690055847,
+        0.4206666350364685
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru front apron course 0 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.numaru front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.687565803527832,
+        0.6499996185302734,
+        0.42399999499320984
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru front apron course 0 block 01",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.numaru front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.7456455230712891,
+        0.6499996185302734,
+        0.42399999499320984
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru front apron course 0 block 02",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.numaru front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6564121246337891,
+        0.6499996185302734,
+        0.42399999499320984
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru front apron course 0 block 03",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.numaru front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8278694152832031,
+        0.6499996185302734,
+        0.42399999499320984
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru front apron course 0 block 04",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.numaru front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6480112075805664,
+        0.6499996185302734,
+        0.42399999499320984
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru front apron course 0 block 05",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.numaru front apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.8144960403442383,
+        0.6499996185302734,
+        0.42399999499320984
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 numaru inner apron course 0 block 00",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "HwaljuFix.numaru inner apron masonry 0-0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.9699993133544922,
+        0.9800000190734863,
+        0.42399999499320984
+      ],
+      "hs12_shape_version": "r12-dressed-polyhedra-1",
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair 1 stone 0",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.stair tread 1",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.66050124168396,
+        0.35900068283081055,
+        0.21033333241939545
+      ],
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair 1 stone 1",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.stair tread 1",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.5405011177062988,
+        0.35900068283081055,
+        0.21033333241939545
+      ],
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair 2 stone 0",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.stair tread 2",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.5619766712188721,
+        0.36351752281188965,
+        0.42366668581962585
+      ],
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair 2 stone 1",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.stair tread 2",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6419765949249268,
+        0.36351752281188965,
+        0.42366668581962585
+      ],
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair 3 stone 0",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.stair tread 3",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6628460884094238,
+        0.36099398136138916,
+        0.6369999647140503
+      ],
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair 3 stone 1",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.stair tread 3",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.5428459644317627,
+        0.36099398136138916,
+        0.6369999647140503
+      ],
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair 4 stone 0",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.stair tread 4",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.5624268054962158,
+        0.36608970165252686,
+        0.8503333330154419
+      ],
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair 4 stone 1",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.stair tread 4",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.6424267292022705,
+        0.36608970165252686,
+        0.8503333330154419
+      ],
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair 5 stone 0",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.stair tread 5",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.666790246963501,
+        0.3615589141845703,
+        1.0636667013168335
+      ],
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 stair 5 stone 1",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.stair tread 5",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        0.5467901229858398,
+        0.3615589141845703,
+        1.0636667013168335
+      ],
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 upper entry solid 0",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.upper entry slab 0",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        1.1861953735351562,
+        0.6147404909133911,
+        0.3799999952316284
+      ],
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 upper entry solid 1",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.upper entry slab 1",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        1.2487537860870361,
+        0.6206695437431335,
+        0.3799999952316284
+      ],
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS10 measured solid stair cheeks",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "V25.stair cheek",
+      "stone_geometry": "solid dressed stone with real bevel, clipped corners and surface relief",
+      "source_dimensions": [
+        1.570000171661377,
+        1.7000000476837158,
+        1.277330994606018
+      ],
+      "hs12_stone_material_version": "r12-mineral-1",
+      "hs12_stone_review_version": "r12-mineral-review-1"
+    }
+  },
+  {
+    "name": "HS12 main exact guardian cap",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "construction_parent": "Sarang.numaru roof end ornament.original patterned face",
+      "design_source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a1501f-48a0-72b0-952f-b9030f42cafe\\exec-6dc3e9d7-0263-4476-93a4-e250cbe75c2e.png",
+      "depth_method": "multiscale image-derived approximation plus broad sculpted face; verify clay",
+      "not_image_plane": true
+    }
+  },
+  {
+    "name": "HS12 ridge finish Sarang.numaru roof.ridge stack",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "geometry_role": "Sarang.numaru roof.ridge stack",
+      "gyeCaredEstateV52": true,
+      "construction_parent": "Sarang.numaru roof.ridge stack"
+    }
+  },
+  {
+    "name": "HS12 ridge finish Sarang.numaru roof.ridge stack.001",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "geometry_role": "Sarang.numaru roof.ridge stack",
+      "gyeCaredEstateV52": true,
+      "construction_parent": "Sarang.numaru roof.ridge stack.001"
+    }
+  },
+  {
+    "name": "HS12 ridge finish Sarang.numaru roof.ridge stack.002",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "geometry_role": "Sarang.numaru roof.ridge stack",
+      "gyeCaredEstateV52": true,
+      "construction_parent": "Sarang.numaru roof.ridge stack.002"
+    }
+  },
+  {
+    "name": "HS12 ridge finish Sarang.numaru roof.ridge stack.003",
+    "parent": null,
+    "hidden": false,
+    "props": {
+      "geometry_role": "Sarang.numaru roof.ridge stack",
+      "gyeCaredEstateV52": true,
+      "construction_parent": "Sarang.numaru roof.ridge stack.003"
+    }
+  },
+  {
+    "name": "HS12 native arch-fit guardian saddle",
+    "parent": "HS12 main exact guardian cap",
+    "hidden": false,
+    "props": {
+      "construction_parent": "Sarang.numaru roof end ornament.pale base",
+      "support_for": "HS12 main exact guardian cap",
+      "source_mesh_sha256": "a996c8da741fb4e64569b4e122f7f2c07458e2afd77697eec82b62fe57f5140c",
+      "source_preserved_hidden": true,
+      "no_image_geometry": true,
+      "mount_checks": "{\"name\": \"HS12 native arch-fit guardian saddle\", \"parentObject\": \"HS12 main exact guardian cap\", \"constructionParent\": \"Sarang.numaru roof end ornament.pale base\", \"sourceGeometryUnchanged\": true, \"capGeometryUnchanged\": true, \"closedMesh\": true, \"nonManifoldEdges\": 0, \"looseVertices\": 0, \"volumeCubicMetres\": 0.013737220417324806, \"vertices\": 230235, \"faces\": 230882, \"sourceFrontY\": -3.619999885559082, \"sourceRearY\": -3.359999895095825, \"nativeCapFrontY\": -3.5439999103546143, \"capBackY\": -3.436000108718872, \"rearRestorationStartsY\": -3.4340001087188723, \"rearSectionMaxErrorMetres\": 0.0, \"lowerSectionPreserved\": true, \"uniformScaleApplied\": false, \"frontUpperRollFromY\": -3.619999885559082, \"frontUpperRollToY\": -3.543899910354614, \"frontRollStartsZ\": 6.599999904632568, \"frontRollEndsZ\": 6.659999847412109, \"exposedProfileSmoothingMetres\": 0.0012, \"frontEndRuledSurfaceRows\": 65, \"archSource\": \"vertical intersections with actual closed HS12 cap mesh\", \"seatingOverlapMetres\": 0.0002, \"profileProbeRadiusMetres\": 2e-05, \"contactSamplingStepYMetres\": 0.0008, \"contactComparison\": \"median of three paired independent mesh rays within 14 micrometres\", \"profileRayMisses\": 0, \"independentContactSamples\": 1232, \"contactRayMisses\": 0, \"maxContactOverlapMetres\": 0.0012035369873046875, \"maxContactGapMetres\": 0.0012021064758300781, \"contactToleranceMetres\": 0.0012, \"contactNumericalAllowanceMetres\": 1e-05, \"contactEffectiveLimitMetres\": 0.00121, \"contactNumericalAllowanceUsedMetres\": 3.536987304687605e-06, \"contactNominalPassed\": false, \"contactNominalOverlapExcessMetres\": 3.536987304687605e-06, \"contactNominalGapExcessMetres\": 2.10647583007823e-06, \"contactDecision\": \"pass_with_declared_numerical_allowance\", \"contactAllowanceBasis\": \"Declared 10 micrometre acceptance budget for float32 BVH/transforms and surface sampling/interpolation; not a measured bound or a geometric correction\", \"largestContactDifferences\": [[12.644185431705672, -3.4377055663671463, 6.665817737579346, 6.66702127456665, 0.0012035369873046875], [12.495185451305323, -3.5078427495309175, 6.693938255310059, 6.6927361488342285, -0.0012021064758300781], [12.635185432889543, -3.4377055663671463, 6.681573390960693, 6.68250846862793, 0.0009350776672363281], [12.47568545387038, -3.4377055663671463, 6.6658935546875, 6.666654109954834, 0.0007605552673339844], [12.478685453475755, -3.4377055663671463, 6.6722588539123535, 6.673015117645264, 0.0007562637329101562], [12.48168545308113, -3.5421143276677602, 6.675753116607666, 6.676503658294678, 0.0007505416870117188], [12.596685437953884, -3.4377055663671463, 6.7106032371521, 6.71134090423584, 0.0007376670837402344], [12.483185452883818, -3.5421143276677602, 6.678043842315674, 6.678771018981934, 0.0007271766662597656], [12.484685452686508, -3.4377055663671463, 6.68157434463501, 6.682276248931885, 0.000701904296875], [12.593685438348508, -3.4377055663671463, 6.712267875671387, 6.7129411697387695, 0.0006732940673828125], [12.477185453673066, -3.5421143276677602, 6.669168472290039, 6.669833660125732, 0.0006651878356933594], [12.595185438151194, -3.4377055663671463, 6.7114481925964355, 6.712090969085693, 0.0006427764892578125]], \"contactPassed\": true, \"allGeometryChecksPassed\": true, \"needsVisualReview\": \"Rolled upper front and smoothed exposed lead-in; no render performed\"}",
+      "closed_mesh": true,
+      "contact_passed": true
+    }
+  }
+]

@@ -132,12 +132,13 @@ void main() {
       elementSlugs = RegExp(
         r"slug: '(gye_[a-zA-Z0-9_]+)'",
       ).allMatches(source).map((m) => m.group(1)!).toSet();
-      final showcaseStem = GyeShowcaseArtwork.asset
-          .split('/')
-          .last
-          .split('.')
-          .first;
-      elementSlugs = {...elementSlugs, showcaseStem};
+      // R16 is the active completion reference and has its own content-hash
+      // catalog guard. Preserve the prior showcase alongside the eight layers.
+      expect(File(GyeShowcaseArtwork.asset).existsSync(), isTrue);
+      elementSlugs = {
+        ...elementSlugs,
+        GyeShowcaseArtwork.legacyAsset.split('/').last.split('.').first,
+      };
       fileStems = Directory('assets/illustrations/gye')
           .listSync()
           .whereType<File>()

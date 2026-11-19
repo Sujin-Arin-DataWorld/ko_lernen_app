@@ -1,0 +1,515 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "record_type": "inherited_detailed_with_integration_overlay",
+  "unit_id": "F0.3.near-vowels",
+  "band": "F0.3",
+  "title": {
+    "ko": "ㅐ·ㅔ의 표기를 구분하고 익힌 단어와 연결한다",
+    "en": "Look closely at ㅐ and ㅔ",
+    "de": "ㅐ und ㅔ genau ansehen"
+  },
+  "goal": {
+    "ko": "ㅐ·ㅔ의 표기를 구분하고 익힌 단어와 연결한다",
+    "en": "Distinguish the spellings ㅐ and ㅔ in familiar words.",
+    "de": "Unterscheide die Schreibweisen ㅐ und ㅔ in vertrauten Wörtern."
+  },
+  "prerequisites": [],
+  "base_manuscript": {
+    "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-3-v35/07_AE_E_FORMS.md",
+    "sha256": "8207662a4ee98baae4606d792b84d23415a43bd9f45ebd2d7dede26897e40f25",
+    "inheritance": "full dialogue, teaching, P/I/R items, answer criteria, help and feedback retained verbatim; overlay is additive"
+  },
+  "source_contract": {
+    "id": "F0.3.near-vowels",
+    "goal": "ㅐ·ㅔ의 표기를 구분하고 익힌 단어와 연결한다",
+    "teach_targets": "개,네",
+    "check_targets": "매,세",
+    "meaning_or_oral": "개·네는 뜻과 장면을 먼저; 발음만으로 두 모음을 반드시 구분하라 요구 안 함",
+    "transfer_task": "새 표기의 매·세를 구성하고 들은 음성과 함께 표기 확인",
+    "review_in": "F0.4.wide-vowels",
+    "review_prompt": "ㅐ·ㅔ 표기를 다시 보며 왜·웨 결합 위치 시범",
+    "evidence_limit": "현대 발음에서 항상 청각 구별 가능하다는 전제 금지"
+  },
+  "inherited_content": {
+    "selected_feedback_refs": [
+      "H01",
+      "V01"
+    ],
+    "feedback_rows": [
+      {
+        "key": "H01·시범 도움",
+        "en": "개 names the dog in this photo. Listen to 개 and look at ㅐ beside ㄱ. In this activity, distinguish ㅐ and ㅔ by their written forms.",
+        "de": "개 bezeichnet den Hund auf diesem Foto. Hör dir 개 an und sieh dir ㅐ neben ㄱ an. In dieser Übung unterscheidest du ㅐ und ㅔ an ihrer Schriftform."
+      },
+      {
+        "key": "B01·배치·개",
+        "en": "The written form here is 개: initial ㄱ, vowel ㅐ. Put the pieces into one block and try again with the same example.",
+        "de": "Hier steht 개: Anfangszeichen ㄱ, Vokal ㅐ. Setze die Teile zu einem Block zusammen und versuch es mit demselben Beispiel noch einmal."
+      },
+      {
+        "key": "B01·배치·매",
+        "en": "The written form here is 매: initial ㅁ, vowel ㅐ. Put the pieces into one block and try again with the same example.",
+        "de": "Hier steht 매: Anfangszeichen ㅁ, Vokal ㅐ. Setze die Teile zu einem Block zusammen und versuch es mit demselben Beispiel noch einmal."
+      },
+      {
+        "key": "V01·모음·개",
+        "en": "The vowel in 개 is ㅐ. Look at its shape again and choose that vowel piece.",
+        "de": "Der Vokal in 개 ist ㅐ. Sieh dir die Form noch einmal an und wähle dieses Vokalzeichen."
+      },
+      {
+        "key": "V01·모음·매",
+        "en": "The vowel in 매 is ㅐ. Look at its shape again and choose that vowel piece.",
+        "de": "Der Vokal in 매 ist ㅐ. Sieh dir die Form noch einmal an und wähle dieses Vokalzeichen."
+      },
+      {
+        "key": "H02·시범 도움",
+        "en": "This is 네, the yes response you've heard when asking for more help. Now look at its written parts, ㄴ and ㅔ. You won't be tested on always distinguishing the two vowels by sound alone.",
+        "de": "Das ist 네, die Ja-Antwort, die du schon beim Wunsch nach mehr Hilfe gehört hast. Sieh dir jetzt ㄴ und ㅔ als Schriftzeichen an. Du musst die beiden Vokale nicht immer allein am Klang unterscheiden können."
+      },
+      {
+        "key": "B02·배치·네",
+        "en": "The written form here is 네: initial ㄴ, vowel ㅔ. Put the pieces into one block and try again with the same example.",
+        "de": "Hier steht 네: Anfangszeichen ㄴ, Vokal ㅔ. Setze die Teile zu einem Block zusammen und versuch es mit demselben Beispiel noch einmal."
+      },
+      {
+        "key": "B02·배치·세",
+        "en": "The written form here is 세: initial ㅅ, vowel ㅔ. Put the pieces into one block and try again with the same example.",
+        "de": "Hier steht 세: Anfangszeichen ㅅ, Vokal ㅔ. Setze die Teile zu einem Block zusammen und versuch es mit demselben Beispiel noch einmal."
+      },
+      {
+        "key": "V02·모음·네",
+        "en": "The vowel in 네 is ㅔ. Look at its shape again and choose that vowel piece.",
+        "de": "Der Vokal in 네 ist ㅔ. Sieh dir die Form noch einmal an und wähle dieses Vokalzeichen."
+      },
+      {
+        "key": "V02·모음·세",
+        "en": "The vowel in 세 is ㅔ. Look at its shape again and choose that vowel piece.",
+        "de": "Der Vokal in 세 ist ㅔ. Sieh dir die Form noch einmal an und wähle dieses Vokalzeichen."
+      },
+      {
+        "key": "S-H·뜻 도움/오답",
+        "en": "개 names the animal in this photo. Revisit the meaning, picture and the word 개 with ㅐ.",
+        "de": "개 bezeichnet das Tier auf diesem Foto. Sieh dir Bedeutung, Bild und das Wort 개 mit ㅐ noch einmal an."
+      },
+      {
+        "key": "S-B·낱말 조립",
+        "en": "In 개, put ㄱ on the left and ㅐ on the right. Try again with the same example.",
+        "de": "Bei 개 steht ㄱ links und ㅐ rechts. Versuch es mit demselben Beispiel noch einmal."
+      },
+      {
+        "key": "OK·현재 목표만",
+        "en": "That matches this written form or the marked target. Take your time with the next one too.",
+        "de": "Das passt zu dieser Schriftform oder zur markierten Stelle. Nimm dir auch für die nächste Aufgabe Zeit."
+      }
+    ],
+    "practice_task_ids": [
+      "C07-P01",
+      "C07-P02",
+      "C07-P03",
+      "C07-P04",
+      "C07-P05"
+    ],
+    "independent_task_ids": [
+      "C07-I01",
+      "C07-I02",
+      "C07-I03",
+      "C07-I04"
+    ],
+    "next_day_task_ids": [
+      "C07-R01",
+      "C07-R02",
+      "C07-R03",
+      "C07-R04",
+      "C07-R05",
+      "C07-R06"
+    ],
+    "common_copy_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-3-v35\\COMMON_COPY.md",
+    "readme_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-3-v35\\README.md",
+    "task_bindings": [
+      {
+        "task_id": "C07-P01",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to put the pieces into one syllable block.",
+          "de": "Setze die Teile nach dem Beispiel zu einem Silbenblock zusammen."
+        },
+        "target": "개",
+        "feedback_refs": [
+          "H01",
+          "B01"
+        ],
+        "material": {
+          "shown_model": "개",
+          "pieces": [
+            "ㅐ",
+            "ㄱ"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C07-P02",
+        "kind": "P",
+        "prompt": {
+          "en": "Find the vowel piece in the written block. This is not a sound-only question.",
+          "de": "Finde das Vokalzeichen im geschriebenen Block. Hier entscheidest du nicht nur nach dem Klang."
+        },
+        "target": "ㅐ",
+        "feedback_refs": [
+          "H01",
+          "V01"
+        ],
+        "material": {
+          "written": "개"
+        },
+        "choices": [
+          "ㅐ",
+          "ㅏ"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C07-I01",
+        "kind": "I",
+        "prompt": {
+          "en": "Find the vowel piece in the written block. This is not a sound-only question.",
+          "de": "Finde das Vokalzeichen im geschriebenen Block. Hier entscheidest du nicht nur nach dem Klang."
+        },
+        "target": "ㅐ",
+        "feedback_refs": [
+          "H01",
+          "V01"
+        ],
+        "material": {
+          "written": "매",
+          "no_audio_required": true
+        },
+        "choices": [
+          "ㅏ",
+          "ㅐ"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C07-I02",
+        "kind": "I",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist noch verborgen."
+        },
+        "target": "매",
+        "feedback_refs": [
+          "H01",
+          "B01"
+        ],
+        "material": {
+          "pieces": [
+            "ㅐ",
+            "ㅁ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C07-P03",
+        "kind": "P",
+        "prompt": {
+          "en": "Use the example to put the pieces into one syllable block.",
+          "de": "Setze die Teile nach dem Beispiel zu einem Silbenblock zusammen."
+        },
+        "target": "네",
+        "feedback_refs": [
+          "H02",
+          "B02"
+        ],
+        "material": {
+          "shown_model": "네",
+          "pieces": [
+            "ㅔ",
+            "ㄴ"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C07-P04",
+        "kind": "P",
+        "prompt": {
+          "en": "Find the vowel piece in the written block. This is not a sound-only question.",
+          "de": "Finde das Vokalzeichen im geschriebenen Block. Hier entscheidest du nicht nur nach dem Klang."
+        },
+        "target": "ㅔ",
+        "feedback_refs": [
+          "H02",
+          "V02"
+        ],
+        "material": {
+          "written": "네"
+        },
+        "choices": [
+          "ㅐ",
+          "ㅔ"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C07-I03",
+        "kind": "I",
+        "prompt": {
+          "en": "Find the vowel piece in the written block. This is not a sound-only question.",
+          "de": "Finde das Vokalzeichen im geschriebenen Block. Hier entscheidest du nicht nur nach dem Klang."
+        },
+        "target": "ㅔ",
+        "feedback_refs": [
+          "H02",
+          "V02"
+        ],
+        "material": {
+          "written": "세",
+          "no_audio_required": true
+        },
+        "choices": [
+          "ㅔ",
+          "ㅐ"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C07-I04",
+        "kind": "I",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist noch verborgen."
+        },
+        "target": "세",
+        "feedback_refs": [
+          "H02",
+          "B02"
+        ],
+        "material": {
+          "pieces": [
+            "ㅔ",
+            "ㅅ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C07-P05",
+        "kind": "P",
+        "prompt": {
+          "en": "Look at the picture, meaning and word example, then choose the matching word.",
+          "de": "Sieh dir Bild, Bedeutung und Wortbeispiel zusammen an und wähle das passende Wort."
+        },
+        "target": "개",
+        "feedback_refs": [
+          "S-H"
+        ],
+        "material": {
+          "picture": "DOG-T1",
+          "meaning_supplied": true,
+          "shown_word": "개"
+        },
+        "choices": [
+          "개",
+          "가",
+          "너"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C07-R01",
+        "kind": "R",
+        "prompt": {
+          "en": "Find the vowel piece in the written block. This is not a sound-only question.",
+          "de": "Finde das Vokalzeichen im geschriebenen Block. Hier entscheidest du nicht nur nach dem Klang."
+        },
+        "target": "ㅐ",
+        "feedback_refs": [
+          "H01",
+          "V01"
+        ],
+        "material": {
+          "written": "매",
+          "no_audio_required": true
+        },
+        "choices": [
+          "ㅏ",
+          "ㅐ"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C07-R02",
+        "kind": "R",
+        "prompt": {
+          "en": "Find the vowel piece in the written block. This is not a sound-only question.",
+          "de": "Finde das Vokalzeichen im geschriebenen Block. Hier entscheidest du nicht nur nach dem Klang."
+        },
+        "target": "ㅔ",
+        "feedback_refs": [
+          "H02",
+          "V02"
+        ],
+        "material": {
+          "written": "세",
+          "no_audio_required": true
+        },
+        "choices": [
+          "ㅔ",
+          "ㅐ"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C07-R03",
+        "kind": "R",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist noch verborgen."
+        },
+        "target": "매",
+        "feedback_refs": [
+          "H01",
+          "B01"
+        ],
+        "material": {
+          "pieces": [
+            "ㅁ",
+            "ㅐ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C07-R04",
+        "kind": "R",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist noch verborgen."
+        },
+        "target": "세",
+        "feedback_refs": [
+          "H02",
+          "B02"
+        ],
+        "material": {
+          "pieces": [
+            "ㅅ",
+            "ㅔ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "C07-R05",
+        "kind": "R",
+        "prompt": {
+          "en": "Choose the word that matches the picture.",
+          "de": "Wähle das Wort, das zum Bild passt."
+        },
+        "target": "개",
+        "feedback_refs": [
+          "S-H"
+        ],
+        "material": {
+          "picture": "DOG-R1",
+          "meaning_supplied": false,
+          "meaning_if_supplied": null
+        },
+        "choices": [
+          "가",
+          "너",
+          "개"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "C07-R06",
+        "kind": "R",
+        "prompt": {
+          "en": "Put the pieces into one syllable block. The completed example is hidden.",
+          "de": "Setze die Teile zu einem Silbenblock zusammen. Das fertige Beispiel ist noch verborgen."
+        },
+        "target": "개",
+        "feedback_refs": [
+          "S-H",
+          "S-B"
+        ],
+        "material": {
+          "pieces": [
+            "ㄱ",
+            "ㅐ"
+          ],
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      }
+    ]
+  },
+  "responses": {
+    "assisted": {
+      "ko": "도움을 받아 이 활동을 함께 마쳤어요. 다른 예는 준비되면 해 봐요.",
+      "en": "You completed this activity with support. Try another example when you are ready.",
+      "de": "Du hast diese Aufgabe mit Hilfe abgeschlossen. Probiere ein weiteres Beispiel, wenn du bereit bist."
+    },
+    "independent": {
+      "ko": "이 예는 시범 없이 확인했어요. 다른 날 새로운 상황에서도 다시 해 봐요.",
+      "en": "You checked this example without a model. Try it in a new setting another day.",
+      "de": "Du hast dieses Beispiel ohne Vorlage bearbeitet. Probiere es an einem anderen Tag in einer neuen Situation."
+    },
+    "audio_unavailable": {
+      "ko": "지금은 소리를 재생할 수 없어요. 글과 그림으로 계속하거나 나중에 다시 들어요.",
+      "en": "Audio is unavailable right now. Continue with text and pictures, or listen later.",
+      "de": "Der Ton ist gerade nicht verfügbar. Mach mit Text und Bildern weiter oder höre später noch einmal zu."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 괜찮아요. 돌아오면 같은 차례에서 이어가요.",
+      "en": "You can take a break here. When you return, continue from the same turn.",
+      "de": "Du kannst hier eine Pause machen. Wenn du zurückkommst, geht es an derselben Stelle weiter."
+    },
+    "resume": {
+      "ko": "돌아왔네요. 놓아 둔 답과 도움 상태를 확인하고 이어가요.",
+      "en": "Welcome back. Check your previous response and any help you used, then continue.",
+      "de": "Willkommen zurück. Sieh dir deine bisherige Antwort und die verwendete Hilfe an und mach dann weiter."
+    },
+    "save_failed": {
+      "ko": "아직 저장을 확인하지 못했어요. 지금 답은 유지한 채 다시 시도해요.",
+      "en": "Saving has not been confirmed yet. Keep your response and try again.",
+      "de": "Das Speichern ist noch nicht bestätigt. Deine Antwort bleibt stehen; versuche es erneut."
+    },
+    "revisit": {
+      "ko": "이미 본 장면이에요. 다시 보아도 보상이나 공정이 중복 생성되지 않아요.",
+      "en": "You have seen this scene before. Replaying it does not grant another reward or construction step.",
+      "de": "Du kennst diese Szene bereits. Beim erneuten Ansehen erhältst du keine weitere Belohnung und keinen zusätzlichen Bauabschnitt."
+    }
+  },
+  "response_conditions": {
+    "assisted": "only after supported task is resolved",
+    "independent": "only if the eligible item met its criteria without model/hint; not all modalities",
+    "resume": "only after original state is actually restored",
+    "revisit": "existing reward owner remains authoritative"
+  },
+  "story": {
+    "lq_id": "LQ-03",
+    "anchor": "중문간채 착공",
+    "spoiler_guard": "Use only revealed facts. First book has no completed Sarangchae; first 집 remains practice draft until original readiness is confirmed."
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true,
+    "original_review_scope": "existing manuscript reviews and same-byte source; not human/native/device approval"
+  }
+}

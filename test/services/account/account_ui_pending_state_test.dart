@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/services/account/account_operation_client.dart';
+import 'package:ko_lernen_app/services/account/account_switch_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
@@ -71,6 +72,44 @@ void main() {
 
         expect(state, AccountUiPendingState.none);
         expect(operations.pendingState.value, state);
+      },
+    );
+    test(
+      'a non-completed deletion (${phase.name}) still fences a pending switch',
+      () async {
+        final deletionRaw = jsonEncode(_nonCompletedDeletion(phase).toJson());
+        final switchRaw = jsonEncode(
+          const AccountSwitchJournal(
+            version: AccountSwitchJournal.currentVersion,
+            sourceUid: 'anonymous-source',
+            targetUid: 'durable-target',
+            provider: 'google',
+            operationId: 'switch-operation-1',
+            createdAtMillis: 1,
+          ).toJson(),
+        );
+        SharedPreferences.setMockInitialValues(<String, Object>{
+          AuthService.accountDeletionCheckpointPreferenceKey: deletionRaw,
+          AccountSwitchJournal.storageKey: switchRaw,
+        });
+        final preferences = await SharedPreferences.getInstance();
+        const operations = ProductionAccountUiOperations();
+
+        expect(
+          await operations.refreshPendingState(),
+          AccountUiPendingState.blocked,
+        );
+        expect(operations.pendingState.value, AccountUiPendingState.blocked);
+        expect(
+          preferences.getString(
+            AuthService.accountDeletionCheckpointPreferenceKey,
+          ),
+          deletionRaw,
+        );
+        expect(
+          preferences.getString(AccountSwitchJournal.storageKey),
+          switchRaw,
+        );
       },
     );
   }

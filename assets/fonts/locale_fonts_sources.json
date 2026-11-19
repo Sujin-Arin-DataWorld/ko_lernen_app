@@ -1,0 +1,118 @@
+{
+  "verified_on": "2026-10-29",
+  "fonts": [
+    {
+      "asset": "assets/fonts/Chubbo/Chubbo-Bold.otf",
+      "source": "https://api.fontshare.com/v2/fonts/download/chubbo",
+      "archive_member": "Chubbo_Complete/Fonts/OTF/Chubbo-Bold.otf",
+      "sha256": "6e76c474b7da8a82fc0776e0003c6a642fc0b42279d585488a63013ab2b78257",
+      "weight": 700,
+      "covers_latin": true,
+      "has_korean": false
+    },
+    {
+      "asset": "assets/fonts/Supreme/Supreme-Regular.otf",
+      "source": "https://api.fontshare.com/v2/fonts/download/supreme",
+      "archive_member": "Supreme_Complete/Fonts/OTF/Supreme-Regular.otf",
+      "sha256": "00410913847ad5e731e49da556a0c541aacfae84e6c998c5a3a6b4fca3b18ee4",
+      "weight": 400,
+      "covers_latin": true,
+      "has_korean": false
+    },
+    {
+      "asset": "assets/fonts/Supreme/Supreme-Medium.otf",
+      "source": "https://api.fontshare.com/v2/fonts/download/supreme",
+      "archive_member": "Supreme_Complete/Fonts/OTF/Supreme-Medium.otf",
+      "sha256": "4771fa1237212a3eddb060814b2d721e47a79b9b3bf58451ac1b98c48dce58f9",
+      "weight": 500,
+      "covers_latin": true,
+      "has_korean": false
+    },
+    {
+      "asset": "assets/fonts/Supreme/Supreme-Bold.otf",
+      "source": "https://api.fontshare.com/v2/fonts/download/supreme",
+      "archive_member": "Supreme_Complete/Fonts/OTF/Supreme-Bold.otf",
+      "sha256": "00ebce7fae218b2e28df0581652749e9cbc1d4a6a4221780541532362471d89a",
+      "weight": 700,
+      "covers_latin": true,
+      "has_korean": false
+    },
+    {
+      "asset": "assets/fonts/Belgrano/Belgrano-Regular.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/belgrano/Belgrano-Regular.ttf",
+      "sha256": "5bf095dfbc56718bea7d74c0b30c36413714aaf8833d2cb012b604b64fd383d9",
+      "weight": 400,
+      "covers_latin": true,
+      "has_korean": false
+    },
+    {
+      "asset": "assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Regular.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/encodesanscondensed/EncodeSansCondensed-Regular.ttf",
+      "sha256": "768d969127953c8a2e7d756a7735c7f803e08a3f86be60dcad77bafff3711788",
+      "weight": 400,
+      "covers_latin": true,
+      "has_korean": false
+    },
+    {
+      "asset": "assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Medium.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/encodesanscondensed/EncodeSansCondensed-Medium.ttf",
+      "sha256": "ae5721464a60c9747f7f5f8f2d824575dd1cfa6372905ba90d1fd48ef1e81987",
+      "weight": 500,
+      "covers_latin": true,
+      "has_korean": false
+    },
+    {
+      "asset": "assets/fonts/EncodeSansCondensed/EncodeSansCondensed-SemiBold.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/encodesanscondensed/EncodeSansCondensed-SemiBold.ttf",
+      "sha256": "264adc117bfc4b6100b2a87fefeb8fb71d86ae9dac0c94a453b19602bbcb51b4",
+      "weight": 600,
+      "covers_latin": true,
+      "has_korean": false
+    },
+    {
+      "asset": "assets/fonts/EncodeSansCondensed/EncodeSansCondensed-Bold.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/encodesanscondensed/EncodeSansCondensed-Bold.ttf",
+      "sha256": "a6896b28cc8e16fe8d1073c766127a07a9c89cc8f4df9ffac376a41ff4050b5f",
+      "weight": 700,
+      "covers_latin": true,
+      "has_korean": false
+    }
+  ],
+  "licenses": [
+    {
+      "asset": "assets/fonts/Chubbo/FFL.txt",
+      "archive_member": "Chubbo_Complete/License/FFL.txt",
+      "license": "ITF Free Font License 2.0 (17 Aug 2026)",
+      "sha256": "145e7fe2429a3336ba215c070ef722000e01348a3e1baaa127e871bb5012f554",
+      "source": "https://api.fontshare.com/v2/fonts/download/chubbo"
+    },
+    {
+      "asset": "assets/fonts/Supreme/FFL.txt",
+      "archive_member": "Supreme_Complete/License/FFL.txt",
+      "license": "ITF Free Font License 2.0 (17 Aug 2026)",
+      "sha256": "145e7fe2429a3336ba215c070ef722000e01348a3e1baaa127e871bb5012f554",
+      "source": "https://api.fontshare.com/v2/fonts/download/supreme"
+    },
+    {
+      "asset": "assets/fonts/Belgrano/OFL.txt",
+      "license": "SIL Open Font License 1.1",
+      "sha256": "284a5a26e6db9a04259a5690ad57d52c56a4c515ca2ece1943d950f99e709dcd",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/belgrano/OFL.txt"
+    },
+    {
+      "asset": "assets/fonts/EncodeSansCondensed/OFL.txt",
+      "license": "SIL Open Font License 1.1",
+      "sha256": "cc8c0c3e81cf543e190f128b83ba7c30959f15865c14dd972fca4917faeceec1",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/encodesanscondensed/OFL.txt"
+    }
+  ],
+  "notes": [
+    "Official font binaries are copied unchanged. No subsetting, conversion, or font metadata changes.",
+    "Belgrano has only Regular 400; German headings use its actual Regular face.",
+    "English body defaults to Supreme Regular 400; actual Medium 500 and Bold 700 preserve control emphasis.",
+    "Korean learning and mixed-script fallback use the existing bundled NotoSansKR.",
+    "Fontshare permits own application embedding and self-hosting; standalone raw-font redistribution via public repositories is restricted.",
+    "Fontshare binaries and vendor FFL text are local build inputs excluded from Git. Run python3 tool/prepare_fontshare_fonts.py before Flutter tests or builds; only official downloads matching these locked hashes are accepted.",
+    "Public provenance contains source URLs, archive member names and SHA-256 values, not Fontshare font payloads. License reference: https://www.fontshare.com/licenses"
+  ]
+}

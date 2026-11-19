@@ -1,0 +1,356 @@
+{
+  "source_worktree": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012",
+  "source_head": "2d68784d3b642a14fe174de26d55b0c82209a694",
+  "source_dirty": true,
+  "source_modified": false,
+  "dart_source_files": [
+    "lib/widgets/sori/approved_figma_scene.dart",
+    "lib/screens/sori_stage/c_stage_chrome.dart",
+    "lib/widgets/sori/c_gallery/c_materials.dart",
+    "lib/widgets/sori/c_gallery/c_objects.dart",
+    "lib/widgets/sori/c_gallery/c_palette.dart"
+  ],
+  "scene_json": [
+    "today-65.json",
+    "lernen-65.json",
+    "spiele-65.json",
+    "hanok-18-962.json",
+    "gye-18-1033.json",
+    "figma-assets.json"
+  ],
+  "chrome_remap": {
+    "assets/illustrations/concept_c/cloud_v2.png": "assets/icons/chrome/cloud.png",
+    "assets/illustrations/concept_c/coin_v2.png": "assets/icons/chrome/yeopjeon-front.png",
+    "assets/illustrations/concept_c/approved_20261018/settings-gear.png": "assets/icons/chrome/settings-gear.png",
+    "assets/icons/navigation/settings_gear.png": "assets/icons/chrome/settings-gear.png",
+    "assets/icons/navigation/today_calendar.png": "assets/icons/navigation/today.png",
+    "assets/icons/navigation/learn.png": "assets/icons/navigation/learn.png",
+    "assets/icons/navigation/games_controller.png": "assets/icons/navigation/games.png",
+    "assets/icons/navigation/hanok_gate.png": "assets/icons/navigation/hanok.png",
+    "assets/icons/navigation/gye_people.png": "assets/icons/navigation/gye.png",
+    "assets/illustrations/concept_c/lantern_v2.png": "assets/illustrations/gye/weekly_lantern/lit.png",
+    "assets/illustrations/companions/canonical/taego_portrait.png": "assets/illustrations/companions/baekho/portrait.png",
+    "assets/illustrations/companions/canonical/joy_portrait.png": "assets/illustrations/companions/magpie/portrait.png"
+  },
+  "copied_asset_bytes": 32785928,
+  "assets": [
+    {
+      "asset": "assets/illustrations/c_learning/jade.png",
+      "source_sha256": "88bd3a7d543ac5fb7b7436c892b174ec977bc717520f218699fc137c255c77fe",
+      "target_sha256": "88bd3a7d543ac5fb7b7436c892b174ec977bc717520f218699fc137c255c77fe",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/companions/canonical/taego_portrait.png",
+      "source_sha256": "8d7137edfe97df4c63b5048962c6660e189c9ad37b6031799b152abf38065479",
+      "target_sha256": "8d7137edfe97df4c63b5048962c6660e189c9ad37b6031799b152abf38065479",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/approved_20261018/five-tabs.png",
+      "source_sha256": "28c9640156a8e8757e4817cd2a5a9afd748406cdcfd9b23ccafde4bd70cd63cb",
+      "target_sha256": "28c9640156a8e8757e4817cd2a5a9afd748406cdcfd9b23ccafde4bd70cd63cb",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/arrow_v2.png",
+      "source_sha256": "d3a29d5361ecabfb2afd1a81a9c4b20e9cc28bf6b4d4f31807c3cfa7d347baf4",
+      "target_sha256": "d3a29d5361ecabfb2afd1a81a9c4b20e9cc28bf6b4d4f31807c3cfa7d347baf4",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/craft_gold_cta.png",
+      "source_sha256": "5d3ce82ad26b5bbf00ab5457fbef0cfaf0fb7c3e65d774f5846e1893fe98312f",
+      "target_sha256": "5d3ce82ad26b5bbf00ab5457fbef0cfaf0fb7c3e65d774f5846e1893fe98312f",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/dancheong_preview_v3.png",
+      "source_sha256": "95cb5b84c969f9689760d212f4487978df39796b2182da2eb4822520eb3f123e",
+      "target_sha256": "95cb5b84c969f9689760d212f4487978df39796b2182da2eb4822520eb3f123e",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/game_object_atlas.png",
+      "source_sha256": "b7f089b0cb4044f93a4b511e3a3d24e4b3dfec58ce6edbe23f11c8ae829f24b7",
+      "target_sha256": "b7f089b0cb4044f93a4b511e3a3d24e4b3dfec58ce6edbe23f11c8ae829f24b7",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/games-own-words-brush.png",
+      "source_sha256": "5daf5e13b9850ab08787d803432d8b65ff4a42664dc4a041555a67584bbaa97b",
+      "target_sha256": "5daf5e13b9850ab08787d803432d8b65ff4a42664dc4a041555a67584bbaa97b",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/games/silben_plant.png",
+      "source_sha256": "8f32cb86a75bb4c12c7c1e980dc375c2d6e539eb48fd9e3729b88951aad384d7",
+      "target_sha256": "8f32cb86a75bb4c12c7c1e980dc375c2d6e539eb48fd9e3729b88951aad384d7",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/hero_atlas.png",
+      "source_sha256": "a9153f721cf868fe5029ec410cd4c779e44217e66afc5ac6cbe17f8ccf43dd22",
+      "target_sha256": "a9153f721cf868fe5029ec410cd4c779e44217e66afc5ac6cbe17f8ccf43dd22",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/material_atlas.png",
+      "source_sha256": "de51969fdc7fbd7f2f4c0c87acbe5061afdaf799b9a90937c5abbf2b6570e464",
+      "target_sha256": "de51969fdc7fbd7f2f4c0c87acbe5061afdaf799b9a90937c5abbf2b6570e464",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/pronunciation/layered-hanji-v1.png",
+      "source_sha256": "6dea6474b840378e7b431cdf3f027fb8455261601d06c038db617fc6aa4304ef",
+      "target_sha256": "6dea6474b840378e7b431cdf3f027fb8455261601d06c038db617fc6aa4304ef",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/seal_v2.png",
+      "source_sha256": "668a6653c61f8aab32023ec58f554a3ebdaa51471b8c5dce48e4f5c120415a0c",
+      "target_sha256": "668a6653c61f8aab32023ec58f554a3ebdaa51471b8c5dce48e4f5c120415a0c",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/concept_c/stampbook_v2.png",
+      "source_sha256": "ee79481579523a98e16cfe4639c0892623a5b7acd4dcd68a705c6b635de35ac1",
+      "target_sha256": "ee79481579523a98e16cfe4639c0892623a5b7acd4dcd68a705c6b635de35ac1",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/culture_scenes/hanok_home_changho.png",
+      "source_sha256": "b2cca9a5cb79706ba42fdc899e846e2b59ac2bfed7f477ea22854e07b8f2a44f",
+      "target_sha256": "b2cca9a5cb79706ba42fdc899e846e2b59ac2bfed7f477ea22854e07b8f2a44f",
+      "copied": true
+    },
+    {
+      "asset": "assets/illustrations/personal_hanok_v3/sarangchae/stage_08_rafters.png",
+      "source_sha256": "81e68c58d5d342bef0e5849dae38bfc6f5483d436140cc6615c492d3119dcd10",
+      "target_sha256": "81e68c58d5d342bef0e5849dae38bfc6f5483d436140cc6615c492d3119dcd10",
+      "copied": false
+    },
+    {
+      "asset": "assets/illustrations/personal_hanok_v3/world/sarangchae.png",
+      "source_sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+      "target_sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+      "copied": false
+    },
+    {
+      "asset": "assets/illustrations/tactile/grammar.png",
+      "source_sha256": "da3232e17af967fef0395965c86fadace006226f15796ee3aa6d83a9763bcd3f",
+      "target_sha256": "da3232e17af967fef0395965c86fadace006226f15796ee3aa6d83a9763bcd3f",
+      "copied": false
+    },
+    {
+      "asset": "assets/illustrations/tactile/hangul.png",
+      "source_sha256": "234de0b865ce72a4052541d32abebc9743d8906fbd7f316b4c8a6362c33d2029",
+      "target_sha256": "234de0b865ce72a4052541d32abebc9743d8906fbd7f316b4c8a6362c33d2029",
+      "copied": false
+    },
+    {
+      "asset": "assets/illustrations/tactile/speaker.png",
+      "source_sha256": "0fe547bd137c4dd504474ee6d2a3176058366175b7a039405f2f7169a87c974a",
+      "target_sha256": "0fe547bd137c4dd504474ee6d2a3176058366175b7a039405f2f7169a87c974a",
+      "copied": false
+    },
+    {
+      "asset": "assets/illustrations/companions/canonical/joy_portrait.png",
+      "source_sha256": "15c3c966c0ae190c11777977587943cdef1975d7e186349b4dc7408987749d29",
+      "target_sha256": "15c3c966c0ae190c11777977587943cdef1975d7e186349b4dc7408987749d29",
+      "copied": true
+    }
+  ],
+  "source_and_adapter_hashes": [
+    {
+      "file": "lib/widgets/sori/approved_figma_scene.dart",
+      "source_sha256": "7658c354ba3fe66bc6f6ff3257cb6528e62e8b7b14ed3b0ea207be1bd22c8a76",
+      "adapter_sha256": "f96c3d978cde636fe170ec04138b47619d45ae3b2f72e60b2a38ad257a0feb7b"
+    },
+    {
+      "file": "lib/screens/sori_stage/c_stage_chrome.dart",
+      "source_sha256": "0c4ee94bc740704490daab8ebfdddd5836ea59df1c54f238c43ae80a1bc1d211",
+      "adapter_sha256": "e07db765eaf99d58f20474a874179b1a0727cee0fc3980a0663962cd49a5e3ce"
+    },
+    {
+      "file": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "source_sha256": "a9f912b6c0af4c54b92154e41610b37971d96abb5058ff506bd9b205c176781f",
+      "adapter_sha256": "0b135dcb81f899a76e65167a30affb30b5de9f136fb336945c8ae950e54ad2d1"
+    },
+    {
+      "file": "lib/widgets/sori/c_gallery/c_objects.dart",
+      "source_sha256": "e392ad09908a1c6cf23c23d7a6d4ee2b00849139af3df7fd04e76060ebdeb5d4",
+      "adapter_sha256": "b4d4c8bb80eb02dc6bafbf0760800dfb5a97301207959979bfa867f94b53fcb6"
+    },
+    {
+      "file": "lib/widgets/sori/c_gallery/c_palette.dart",
+      "source_sha256": "2800db8aabe0515f91606037224d375bbdcd98815a57bcfb680c514a6cff598b",
+      "adapter_sha256": "20a6468f57a60b8383ab738fd5d77e4dd319da2d9f041de89ac18a12220d0447"
+    },
+    {
+      "file": "lib/widgets/sori/standard_page.dart",
+      "source_sha256": "cade4a7ca9ba275fd1b1e6305e865aa4ca371905febd8827a16b238dfdf69047",
+      "adapter_sha256": "5572f37f918790af0cf53daea7151f81e5ad13ac3f74aa13c26482f8b145a639"
+    },
+    {
+      "file": "lib/widgets/sori/card.dart",
+      "source_sha256": "e62e8d0a20c68a4cdf087beba1d05f51ebe34fa0f13f64fa9a160f247511318b",
+      "adapter_sha256": "ad263fc12ce1844a0422601f521d08301917c0f2ea1bac9e1228c145fb48e1be"
+    },
+    {
+      "file": "lib/widgets/sori/button.dart",
+      "source_sha256": "b7fd6a810f0f51b1f13500168b8b1e2696731ce5f1914caed471447e17af662e",
+      "adapter_sha256": "92de2f0c486ba6e6e7c1737e7ec9f96f9d0d4121381bd661692e5aaa7d65043c"
+    },
+    {
+      "file": "lib/screens/dojangcheop_screen.dart",
+      "source_sha256": "740c8bae46d6e653374a8ffb6635d799ec55e7da9477720f5b1316c0b2d9390d",
+      "adapter_sha256": "740c8bae46d6e653374a8ffb6635d799ec55e7da9477720f5b1316c0b2d9390d"
+    }
+  ],
+  "scene_hashes": [
+    {
+      "file": "assets/illustrations/concept_c/approved_20261018/today-65.json",
+      "source_sha256": "a99f14b058d5ce0cfed32e5279e54c9d39de6f3f0572f4b2a67eeb0617c37ad6",
+      "adapter_sha256": "a99f14b058d5ce0cfed32e5279e54c9d39de6f3f0572f4b2a67eeb0617c37ad6",
+      "byte_identical": true
+    },
+    {
+      "file": "assets/illustrations/concept_c/approved_20261018/lernen-65.json",
+      "source_sha256": "a4572a9634a3ff4b32f31498fee57ad568aecf6d550e8813af083b6b0cfc5235",
+      "adapter_sha256": "a4572a9634a3ff4b32f31498fee57ad568aecf6d550e8813af083b6b0cfc5235",
+      "byte_identical": true
+    },
+    {
+      "file": "assets/illustrations/concept_c/approved_20261018/spiele-65.json",
+      "source_sha256": "b8de4a4a4888ce493878af700f04927abfd15db8bd01dc83a4ced0cc21cd2050",
+      "adapter_sha256": "b8de4a4a4888ce493878af700f04927abfd15db8bd01dc83a4ced0cc21cd2050",
+      "byte_identical": true
+    },
+    {
+      "file": "assets/illustrations/concept_c/approved_20261018/hanok-18-962.json",
+      "source_sha256": "1543dc5e759874e1a0cbcc4890b5d34366f3a6f590fc08b75cabca2340f955be",
+      "adapter_sha256": "1543dc5e759874e1a0cbcc4890b5d34366f3a6f590fc08b75cabca2340f955be",
+      "byte_identical": true
+    },
+    {
+      "file": "assets/illustrations/concept_c/approved_20261018/gye-18-1033.json",
+      "source_sha256": "201356e171f388653968d6c01e465af9b3732f53c00a6e7513574d5d946f93d4",
+      "adapter_sha256": "201356e171f388653968d6c01e465af9b3732f53c00a6e7513574d5d946f93d4",
+      "byte_identical": true
+    },
+    {
+      "file": "assets/illustrations/concept_c/approved_20261018/figma-assets.json",
+      "source_sha256": "b87dd499fdf8c2e6bba19ae56bf61544488eb52969d15b12b26b564d16452eb9",
+      "adapter_sha256": "83b1815b74fa92b5a91854a2fae7eee9177570cc7d5762553a884b21c32e34dc",
+      "byte_identical": false
+    }
+  ],
+  "adaptations": [
+    "Preserve current ApprovedChromeAssets, real wallet owner, native image navigation and selected locale font roles.",
+    "Only art and spacing compress to the optional normal-size height budget. Native type is at least 16, native actions at least 48dp.",
+    "TextPainter expands subsequent rows; 200 percent text retains normal scrolling.",
+    "Independent unlettered book/game art replaces baked German overview panels.",
+    "Existing current catalog IDs, start/details/locks/reward handlers, CEFR and full catalog widgets remain.",
+    "Finite C5 overview opens the complete current catalog with a native localized All button; close/back restore the overview offset.",
+    "No source business service, reward rule, free-learning route or source-only feature API was imported.",
+    "C5CatalogOverview reflows the exact steps/book/four-object and Silben/six-object/own-words composition as native widgets; ApprovedFigmaArt resolves image crops from original JSON.",
+    "Normal mobile evidence includes 24dp status and 24dp bottom system inset; enlarged text and keyboard use normal scrolling.",
+    "Short-landscape NavigationRail scrolls in its own primary-controller scope.",
+    "UI geometry/contrast tests load actual bundled locale fonts instead of the Ahem test glyphs; no overflow, target, label or contrast checks were removed.",
+    "The first step marker uses the existing deep-jade/paper/brass palette and native bold numerals for clear rendered contrast.",
+    "SoriCard exposes its existing resolved border without changing colors or widths; Persona grid text measurement uses the same border dimensions, locale and text scaler."
+  ],
+  "verification_status": "Initial integration 73/73 PASS; latest root/chrome and final native-capture checks 24/24 PASS; Persona matrix 12/12 and adjacent card interaction 5/5 PASS. All 44 currently changed Dart files analyze with no issues; their hashes remained unchanged during analysis. Whole PR CI/device/APK/release are separate gates.",
+  "native_adapter_hashes": [
+    {
+      "file": "lib/screens/sori_stage/c5_catalog_overview.dart",
+      "sha256": "a19611f61d48260e173b2606a6b31d6ea7c0021e0ebb740d243ab8ad90e50977"
+    },
+    {
+      "file": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "sha256": "b097061dd4d3ddae6ce1bacf586dbc8d9571e682c952dadd8a77a30ce5e8ce70"
+    },
+    {
+      "file": "lib/widgets/sori/adaptive_navigation.dart",
+      "sha256": "3423288dae6a89fc43a2a484ab833fef339435972300d2689815c25a4ba0994e"
+    }
+  ],
+  "native_evidence": {
+    "directory": "C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-c5-number-contrast",
+    "log": "C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-root-chrome-final.log",
+    "captures": 16,
+    "locales": [
+      "de",
+      "en"
+    ],
+    "viewports": [
+      [
+        320,
+        640
+      ],
+      [
+        393,
+        873
+      ]
+    ],
+    "text_scales": [
+      1,
+      2
+    ],
+    "top_inset": 24,
+    "bottom_inset": 24,
+    "normal_scroll_extent": 0,
+    "normal_all_button_to_navigation_gap": 8,
+    "keyboard_reflow_test": "PASS",
+    "details_fully_painted_min_48dp": "PASS",
+    "tests_passed": 24,
+    "initial_integration_log": "C:/dev/hangulsori/_codex_artifacts/c5-native-integration-20261030/catalog-all-final.log",
+    "initial_integration_tests_passed": 73,
+    "text_contrast_guideline": "PASS with real fonts and a deep-jade/paper/brass first step marker"
+  },
+  "verification_runs": [
+    {
+      "scope": "Initial kernel/catalog integration",
+      "passed": 73,
+      "failed": 0,
+      "log": "C:/dev/hangulsori/_codex_artifacts/c5-native-integration-20261030/catalog-all-final.log"
+    },
+    {
+      "scope": "CI root/chrome remediation and final native captures",
+      "passed": 24,
+      "failed": 0,
+      "log": "C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-root-chrome-final.log"
+    },
+    {
+      "scope": "Persona light/dark and 100/200 percent viewport matrix",
+      "passed": 12,
+      "failed": 0,
+      "log": "C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-persona-border-matrix.log"
+    },
+    {
+      "scope": "Adjacent card selection and persona interaction",
+      "passed": 5,
+      "failed": 0,
+      "log": "C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-persona-card-adjacent.log"
+    }
+  ],
+  "source_freeze_analysis": {
+    "scope_file": "C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-source-freeze-analyze.json",
+    "log": "C:/dev/hangulsori/_codex_artifacts/einleitung-device-fit-20261029/ci-source-freeze-analyze.log",
+    "product_changes_performed_by_refresh": false,
+    "flutter_tests_executed_by_refresh": false,
+    "changed_dart_files": 44,
+    "exit_code": 0,
+    "diagnostics": 0,
+    "source_unchanged_during_analysis": true,
+    "base_target_head": "0c85a1599324764eb318f01961348f119f71e99f"
+  },
+  "canonical_main_integration": {
+    "main_sha": "5e778d6b5b34f37947f21325170de28fe2252c77",
+    "original_pngs_preserved": true,
+    "portrait_bytes_identical": true,
+    "duplicate_legacy_portraits_bundled": false,
+    "account_changes_preserved": true
+  }
+}

@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ko_lernen_app/models/pack_progress.dart';
 import 'package:ko_lernen_app/services/account/cloud_read_result.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
@@ -15,7 +16,253 @@ void main() {
     expect(next.packIds, {'pack-a', 'pack-b'});
   });
 
+  test(
+    'observed manifest override cannot hide a versioned pack from CAS',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.transition(CloudWriteMode.reconciling);
+      var writes = 0;
+      final result = await FirestoreProgressService.saveManyReconciled(
+        uid: 'uid-a',
+        progresses: [
+          PackProgress.fresh(packId: 'pack-a', level: 'A1', wordsTotal: 10),
+          PackProgress.fresh(packId: 'pack-b', level: 'A1', wordsTotal: 10),
+        ],
+        expectedRevisions: {'pack-a': 1, 'pack-b': 1},
+        expectedMembershipRevision: 3,
+        expectedMembershipPackIds: {'pack-b'},
+        operationId: 'operation-1',
+        session: session,
+        sessions: sessions,
+        writer:
+            ({
+              required uid,
+              required progresses,
+              required expectedRevisions,
+              required expectedLegacyDocuments,
+              required expectedMembershipRevision,
+              required expectedMembershipPackIds,
+              required operationId,
+              required session,
+              required sessions,
+            }) async {
+              writes++;
+              return const FirestorePackCasResult.committed(
+                {'pack-a': 2, 'pack-b': 2},
+                membershipRevision: 4,
+                membershipPackIds: {'pack-a', 'pack-b'},
+              );
+            },
+      );
+      expect(result.status, FirestorePackCasStatus.revisionConflict);
+      expect(writes, 0);
+    },
+  );
+
   group('FirestoreProgressService.loadAllTyped', () {
+    for (final change in [
+      'learning',
+      'operation tag',
+      'revision',
+      'nested metadata',
+      'timestamp',
+    ]) {
+      test(
+        'legacy adoption retries concurrent $change without overwriting it',
+        () async {
+          final data = {
+            ...PackProgress.fresh(
+              packId: 'pack-a',
+              level: 'A1',
+              wordsTotal: 10,
+            ).copyWith(wordsLearned: 7, status: PackStatus.inProgress).toJson(),
+            'updatedAt': Timestamp(100, 0),
+            'extra': {
+              'items': [1, 2],
+            },
+          };
+          final read = await FirestoreProgressService.loadAllTyped(
+            uid: 'uid-a',
+            reader: (_) async => [
+              FirestorePackDocument(id: 'pack-a', data: data),
+            ],
+            membershipReader: (_) async =>
+                const FirestorePackMembership(revision: 3, packIds: {}),
+          );
+          expect(read.state, CloudReadState.present);
+          switch (change) {
+            case 'learning':
+              data['wordsLearned'] = 8;
+            case 'operation tag':
+              data['reconciliation_operation_id'] = 'other-operation';
+            case 'revision':
+              data['sync_revision'] = 1;
+            case 'nested metadata':
+              ((data['extra'] as Map)['items'] as List).add(3);
+            case 'timestamp':
+              data['updatedAt'] = Timestamp(100, 1);
+          }
+          final sessions = CloudWriteSessionController()..acquire('uid-a');
+          final session = sessions.transition(CloudWriteMode.reconciling);
+          var writes = 0;
+          final snapshot = read.value!;
+          final result = await FirestoreProgressService.saveManyReconciled(
+            uid: 'uid-a',
+            progresses: snapshot.progress.values,
+            expectedRevisions: snapshot.revisions,
+            expectedMembershipRevision: snapshot.membershipRevision,
+            expectedMembershipPackIds: snapshot.membershipPackIds,
+            expectedLegacyDocuments: snapshot.legacyDocuments,
+            operationId: 'operation-1',
+            session: session,
+            sessions: sessions,
+            writer:
+                ({
+                  required uid,
+                  required progresses,
+                  required expectedRevisions,
+                  required expectedLegacyDocuments,
+                  required expectedMembershipRevision,
+                  required expectedMembershipPackIds,
+                  required operationId,
+                  required session,
+                  required sessions,
+                }) async {
+                  // Replace only Firestore I/O. Exercise the transaction's production
+                  // precondition against the latest document, still lacking a revision
+                  // in the learning/metadata cases.
+                  if (!FirestoreProgressService.legacyDocumentsUnchanged(
+                    expectedLegacyDocuments,
+                    {'pack-a': data},
+                  )) {
+                    return const FirestorePackCasResult.revisionConflict();
+                  }
+                  writes++;
+                  return const FirestorePackCasResult.committed(
+                    {'pack-a': 1},
+                    membershipRevision: 4,
+                    membershipPackIds: {'pack-a'},
+                  );
+                },
+          );
+          expect(result.status, FirestorePackCasStatus.revisionConflict);
+          expect(writes, 0);
+          if (change == 'learning') {
+            expect(data['wordsLearned'], 8);
+          }
+          if (change == 'nested metadata') {
+            expect((data['extra'] as Map)['items'], [1, 2, 3]);
+          }
+        },
+      );
+    }
+
+    test(
+      'legacy transaction precondition compares timestamp and nested values by value',
+      () {
+        Map<String, dynamic> sameValue() => {
+          'updatedAt': Timestamp(100, 0),
+          'extra': {
+            'items': [1, 2],
+          },
+        };
+        expect(
+          FirestoreProgressService.legacyDocumentsUnchanged(
+            {'pack-a': sameValue()},
+            {'pack-a': sameValue()},
+          ),
+          isTrue,
+        );
+        expect(
+          FirestoreProgressService.legacyDocumentsUnchanged(
+            {'pack-a': sameValue()},
+            {'pack-a': null},
+          ),
+          isFalse,
+        );
+      },
+    );
+
+    test(
+      'retains legacy packs omitted by the first ready-write manifest',
+      () async {
+        // A was backed up before membership tracking. The existing ready writer
+        // seeds an absent manifest from empty, then adds only the pack it saves.
+        final firstManifest = const FirestorePackMembership(
+          revision: 0,
+          packIds: {},
+        ).afterWriting({'pack-b'});
+        expect(firstManifest.packIds, {'pack-b'});
+        final result = await FirestoreProgressService.loadAllTyped(
+          uid: 'uid-a',
+          reader: (_) async => [
+            FirestorePackDocument(
+              id: 'pack-a',
+              data:
+                  PackProgress.fresh(
+                        packId: 'pack-a',
+                        level: 'A1',
+                        wordsTotal: 10,
+                      )
+                      .copyWith(wordsLearned: 7, status: PackStatus.inProgress)
+                      .toJson(),
+            ),
+            FirestorePackDocument(
+              id: 'pack-b',
+              data: {
+                ...PackProgress.fresh(
+                  packId: 'pack-b',
+                  level: 'A1',
+                  wordsTotal: 10,
+                ).toJson(),
+                'sync_revision': 1,
+              },
+            ),
+          ],
+          membershipReader: (_) async => firstManifest,
+        );
+
+        expect(result.state, CloudReadState.present);
+        expect(
+          result.value!.progress.keys,
+          unorderedEquals(['pack-a', 'pack-b']),
+        );
+        expect(result.value!.progress['pack-a']!.wordsLearned, 7);
+        expect(result.value!.revisions, {'pack-a': null, 'pack-b': 1});
+      },
+    );
+
+    for (final extraMetadata in [
+      {'sync_revision': null},
+      {'sync_revision': 1},
+      {'reconciliation_operation_id': 'operation-1'},
+    ]) {
+      test(
+        'does not treat tagged unexpected packs as legacy: $extraMetadata',
+        () async {
+          final result = await FirestoreProgressService.loadAllTyped(
+            uid: 'uid-a',
+            reader: (_) async => [
+              FirestorePackDocument(
+                id: 'pack-a',
+                data: {
+                  ...PackProgress.fresh(
+                    packId: 'pack-a',
+                    level: 'A1',
+                    wordsTotal: 10,
+                  ).toJson(),
+                  ...extraMetadata,
+                },
+              ),
+            ],
+            membershipReader: (_) async =>
+                const FirestorePackMembership(revision: 1, packIds: {}),
+          );
+          expect(result.state, CloudReadState.invalid);
+        },
+      );
+    }
+
     test('does not collapse a query failure to an empty map', () async {
       final result = await FirestoreProgressService.loadAllTyped(
         uid: 'uid-a',
@@ -220,6 +467,7 @@ void main() {
               required uid,
               required progresses,
               required expectedRevisions,
+              required expectedLegacyDocuments,
               required expectedMembershipRevision,
               required expectedMembershipPackIds,
               required operationId,
@@ -296,6 +544,7 @@ void main() {
               required uid,
               required progresses,
               required expectedRevisions,
+              required expectedLegacyDocuments,
               required expectedMembershipRevision,
               required expectedMembershipPackIds,
               required operationId,
@@ -342,6 +591,7 @@ void main() {
               required uid,
               required progresses,
               required expectedRevisions,
+              required expectedLegacyDocuments,
               required expectedMembershipRevision,
               required expectedMembershipPackIds,
               required operationId,

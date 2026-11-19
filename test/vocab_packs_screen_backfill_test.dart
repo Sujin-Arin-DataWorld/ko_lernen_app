@@ -11,7 +11,6 @@ import 'package:ko_lernen_app/services/pack_progress_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/pack_card.dart';
 
 /// 지시서 검수#21 — 표준팩 소급 복구 (2026-08-27) + 검수 라운드1 (단조 클램프).
 ///
@@ -47,7 +46,10 @@ void main() {
     );
     for (var i = 0; i < 40; i++) {
       await tester.pump(const Duration(milliseconds: 50));
-      if (tester.widgetList(find.byType(PackCard)).isNotEmpty) {
+      if (find
+          .byKey(const ValueKey('wortpakete-search'))
+          .evaluate()
+          .isNotEmpty) {
         break;
       }
     }

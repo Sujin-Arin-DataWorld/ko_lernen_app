@@ -126,16 +126,26 @@
   "reviewDoneBody": "Du hast deine fälligen Karten wiederholt.",
   "reviewBonusLabel": "Satz des Tages",
   "reviewHubTitle": "Wiederholen",
+  "reviewArchiveTab": "Nach Themen",
+  "reviewSelectedCount": "{count} ausgewählt",
+  "@reviewSelectedCount": {"placeholders": {"count": {"type": "int"}}},
+  "reviewSelectedTopic": "Auswahl: {topic}",
+  "@reviewSelectedTopic": {"placeholders": {"topic": {"type": "String"}}},
+  "reviewByDay": "Nach Lerntag suchen",
+  "reviewArchiveTitle": "Dein Lernarchiv",
+  "reviewArchiveSubtitle": "Gelernte Wörter nach Niveau und Thema",
+  "reviewSelectAll": "Alle auswählen",
+  "reviewClearSelection": "Auswahl aufheben",
+  "reviewSelectHint": "Wähle Wörter für deine Wiederholung.",
+  "reviewSearchHint": "Wörter oder Themen suchen",
+  "reviewOwnWords": "Eigene Wörter & Bücher",
+  "reviewArchiveEmpty": "Hier gibt es noch keine gelernten Wörter.",
+  "reviewLoadError": "Die Wörter konnten nicht geladen werden.",
+  "reviewRetry": "Erneut versuchen",
+  "reviewNoTopic": "Weitere Wörter",
+  "reviewPlayAudio": "Aussprache anhören",
   "reviewHubTodayHeadline": "Heute gelernt",
   "reviewHubEmptyToday": "Heute noch nichts gelernt? Starte eine Lektion.",
-  "reviewHubStartSelected": "{n, plural, one{1 Wort üben} other{{n} Wörter üben}}",
-  "@reviewHubStartSelected": {
-    "placeholders": {
-      "n": {
-        "type": "int"
-      }
-    }
-  },
   "reviewHubCalendarTooltip": "Kalender",
   "reviewHubDeckLabel": "{words, plural, one{1 Wort} other{{words} Wörter}}",
   "@reviewHubDeckLabel": {
@@ -569,23 +579,12 @@
   "hangulTabOverview": "Übersicht",
   "hangulTabCards": "Karten",
   "hangulTabWrite": "Schreiben",
-  "hangulConsonantsLabel": "자음 · Konsonanten",
-  "hangulVowelsLabel": "모음 · Vokale",
-  "hangulSyllableLabel": "🧩 음절 구조 · Silbenaufbau",
-  "hangulSyllableTableTitle": "Silbentafel",
   "hangulSyllableTableHint": "Tippe auf eine Silbe, um sie zu hören. Wische seitlich für weitere Vokale.",
   "hangulPronounceBtn": "Aussprechen",
-  "hangulRulesTitle": "Hangul-Schreibregeln",
   "hangulRulesBody": "① Oben → Unten   ② Horizontal → Vertikal   ③ Links → Rechts",
   "hangulStrokeOrderTitle": "📽 Strichreihenfolge (zum Wiederholen tippen)",
   "hangulTraceTitle": "Mit dem Finger nachzeichnen",
   "hangulClearBtn": "Löschen",
-  "hangulPronounceLetter": "{letter} aussprechen",
-  "@hangulPronounceLetter": {
-    "placeholders": {
-      "letter": {}
-    }
-  },
   "hangulChipConsonants": "Konsonanten",
   "hangulChipVowels": "Vokale",
   "hangulChipSyllables": "Silben",
@@ -645,15 +644,6 @@
   "@hangulStrokeLetterDone": {
     "placeholders": {
       "letter": {}
-    }
-  },
-  "hangulLettersDone": "{count, plural, one{1 Buchstabe fertig} other{{count} Buchstaben fertig}}",
-  "hangulHardOnly": "Nur schwierige",
-  "@hangulLettersDone": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
     }
   },
   "chosungModeWithVowels": "Anlaut + Vokal",
@@ -1209,7 +1199,6 @@
   "hanokStageJongga": "Jongga vollendet",
   "vocabPackPlayTitle": "Paket-Übung",
   "vocabPackFinishSaveError": "Dein Fortschritt konnte nicht gespeichert werden. Bitte versuche es erneut.",
-  "vocabPackLearnHint": "Tippen zum Umdrehen",
   "vocabPackDontKnow": "Weiß ich nicht",
   "vocabPackGotIt": "Gewusst",
   "deckActionSave": "Merken",
@@ -1493,7 +1482,6 @@
   "moduleScenariosDesc": "Übe Alltagssituationen: Café, Flughafen, Vorstellung …",
   "scenarioIntroTitle": "Einleitung",
   "scenarioVocabTitle": "Wortschatz",
-  "scenarioDialogTitle": "Dialog",
   "scenarioGrammarTitle": "Grammatik",
   "scenarioQuestsTitle": "Mini-Spiele",
   "scenarioQuestProgress": "{current} von {total}",
@@ -1520,6 +1508,9 @@
   "scenarioSavedReturnHanok": "Zurück zum Hanok",
   "scenarioSavedRepeat": "Diese Szene noch einmal üben",
   "scenarioResultSaving": "Diese abgeschlossene Szene wird gespeichert…",
+  "scenarioResultSavingTitle": "Deine Szene wird gespeichert",
+  "scenarioResultSavingAction": "Speichern …",
+  "scenarioResultSaveErrorTitle": "Deine Szene ist noch nicht gespeichert",
   "scenarioResultSaveRetry": "Speichern erneut versuchen",
   "scenarioStructureChangedTitle": "Dein Hanok hat sich verändert.",
   "scenarioStructureChangedBody": "Neue Struktur: {stage}",
@@ -2791,7 +2782,6 @@
   "grammarPlanLevelLabel": "Niveau",
   "grammarPlanEditTooltip": "Niveau oder Tempo ändern",
   "grammarPlanOnboardingTitle": "Wie viele Muster pro Tag?",
-  "grammarPlanOnboardingBody": "Wähle eine tägliche Empfehlung. Oben kannst du Tempo und Niveau ändern oder jederzeit alle Muster ansehen.",
   "grammarPlanItemsPerDayOption": "{n} pro Tag",
   "@grammarPlanItemsPerDayOption": {
     "placeholders": {
@@ -3396,7 +3386,6 @@
   "testerFeedbackMissionGames": "Eine Spielrunde abschließen",
   "testerFeedbackMissionLanguageForm": "Grammatik oder Hangul üben",
   "testerFeedbackCompleteGrammar": "Grammatikübung abschließen",
-  "testerFeedbackCompleteHangul": "Hangul-Übung abschließen",
   "testerFeedbackCompleteDailyHangul": "Heutiges Zeichen abschließen",
   "testerFeedbackPromptScenario": "Gab es eine Stelle, die du in dieser Situation wirklich sagen würdest?",
   "testerFeedbackPromptWordWork": "Fühlen sich diese Wörter nützlich und einprägsam an?",
@@ -3773,10 +3762,7 @@
   },
   "sarangbangHubDesc": "Lerne im Sarangbang weiter.",
   "bojagiTitle": "Bojagi-Bündel",
-  "bojagiLoading": "Dein Bündel wird vorbereitet …",
-  "bojagiOpenHint": "Tippe auf den Knoten, um das Bündel zu öffnen.",
   "bojagiPickTitle": "Such dir eins aus",
-  "bojagiPickBody": "Was du liegen lässt, bleibt im Beutel und kann in einem späteren Bündel wiederkommen.",
   "bojagiChooseDecoration": "{name} auswählen",
   "@bojagiChooseDecoration": {
     "placeholders": {
@@ -3785,12 +3771,7 @@
       }
     }
   },
-  "bojagiEmptyTitle": "Kein Bündel wartet",
-  "bojagiEmptyBody": "Schließe eine Quest ab. Dafür bekommst du ein Bündel.",
   "bojagiAllOwnedTitle": "Nichts Neues drin",
-  "bojagiAllOwnedBody": "Alle drei Stücke aus diesem Bündel hast du schon.",
-  "bojagiProblemTitle": "Das Bündel lässt sich gerade nicht öffnen",
-  "bojagiProblemBody": "Versuch es gleich noch einmal. Dein Bündel geht dabei nicht verloren.",
   "bojagiRetry": "Nochmal versuchen",
   "bojagiClaimedTitle": "Bekommen!",
   "bojagiClaimedAnnouncement": "Bekommen: {name}",
@@ -3802,10 +3783,7 @@
     }
   },
   "bojagiGoToRoom": "In der Stube aufstellen",
-  "bojagiNext": "Nächstes Bündel öffnen",
   "bojagiCollectionCompleteTitle": "Sammlung vollständig",
-  "bojagiCollectionCompleteBody": "Du besitzt bereits alle Einrichtungsstücke. Lege dieses Bündel ab, um weiterzumachen.",
-  "bojagiArchiveComplete": "Bündel ablegen",
   "@_hanok_world": {
     "description": "Persönliche Hanok-Welt — Karte und Ortsnavigation."
   },
@@ -4253,10 +4231,6 @@
   "soriStageGyeFlow": "Mission abschließen → Laterne → gemeinsame Hanok",
   "soriStageGyeUpdating": "Der gemeinsame Hof wird gerade erneuert.",
   "pronunciationTitle": "Aussprache-Studio",
-  "pronunciationEyebrow": "AUSSPRACHE ÜBEN",
-  "pronunciationIntro": "Höre zuerst zu. Nimm bis zu 10 Sekunden auf und vergleiche deine Stimme mit dem Beispiel.",
-  "pronunciationScoringSoonTitle": "Bewertung kommt bald",
-  "pronunciationScoringSoonBody": "Die automatische Aussprache-Bewertung ist noch nicht freigeschaltet. Anhören, Aufnehmen und Vergleichen funktionieren schon jetzt.",
   "pronunciationPhrasesLoading": "Ausspracheübungen werden geladen …",
   "pronunciationPhrasesUnavailableTitle": "Ausspracheübungen nicht verfügbar",
   "pronunciationPhrasesUnavailableBody": "Die Ausspracheübungen konnten nicht geladen werden. Bitte versuche es noch einmal.",
@@ -4267,7 +4241,6 @@
   "pronunciationRecording": "Aufnahme läuft…",
   "pronunciationAssessing": "Bewertung wird erstellt…",
   "pronunciationStop": "Aufnahme stoppen",
-  "pronunciationContinueWithoutScore": "Ohne Bewertung weiter",
   "pronunciationNextPhrase": "Nächster Satz",
   "pronunciationConsentTitle": "Deine Stimme bewerten lassen?",
   "pronunciationConsentBody": "Mit deiner gesonderten Einwilligung werden eine Aufnahme von höchstens 10 Sekunden und der angezeigte koreanische Satz sicher an Microsoft Azure Speech in der Region Deutschland West-Mitte gesendet. Hangul Sori speichert weder Aufnahme noch Satz auf seinem Server. Nur die Bewertungen und eine ID gegen Doppelzählung werden auf diesem Gerät gespeichert. Du kannst ohne Bewertung üben und die Einwilligung in den Einstellungen widerrufen.",
@@ -4314,7 +4287,7 @@
       }
     }
   },
-  "soriStageActivityDescription": "{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Jeden Tag ein Schriftzeichen entdecken.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten. Bewertung folgt später.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Wörter genau im richtigen Moment auffrischen.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu deinen Wörtern.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} my_words{Suchen, Regal und schwierige Wörter an einem Ort.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_practice{Quiz, Matching und Tippen mit deinen gespeicherten Wörtern.} other{Weiterlernen.}}}",
+  "soriStageActivityDescription": "{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Jeden Tag ein Schriftzeichen entdecken.} pronunciation{Hören, aufnehmen und vergleichen.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Wörter genau im richtigen Moment auffrischen.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu deinen Wörtern.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} my_words{Suchen, Regal und schwierige Wörter an einem Ort.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_practice{Quiz, Matching und Tippen mit deinen gespeicherten Wörtern.} other{Weiterlernen.}}}",
   "@soriStageActivityDescription": {
     "placeholders": {
       "activityId": {
@@ -4724,7 +4697,7 @@
   "onboardingV2LevelB2ExampleKo": "회의가 길어져서 조금 늦을 것 같아요.",
   "onboardingV2LevelC1ExampleKo": "확인된 사실과 현재의 해석을 나누어 설명하겠습니다.",
   "onboardingV2LevelC2ExampleKo": "침묵을 동의로 보면 질문의 틀만으로도 참여를 제한할 수 있습니다.",
-  "onboardingV2PurposeLifeTravelTitle": "Alltag & Reisen",
+  "onboardingV2PurposeLifeTravelTitle": "Alltag & Reise",
   "onboardingV2PurposeLifeTravelBody": "Bestellen, Wege finden und tägliche Situationen meistern",
   "onboardingV2PurposePeopleCultureTitle": "Menschen & Kultur",
   "onboardingV2PurposePeopleCultureBody": "Gespräche, Beziehungen und kulturelle Zusammenhänge",
@@ -4957,13 +4930,11 @@
   "savedOriginalMeaning": "Ursprünglich gespeicherte Bedeutung",
   "pronunciationRequestScore": "Bewertung anfordern",
   "savedTranslationUnavailable": "Noch keine deutsche Übersetzung gespeichert.",
-  "pronunciationReplay": "Meine Aufnahme anhören",
   "flashcardRomanizationFront": "Auf der Vorderseite anzeigen",
   "pronunciationFinishingRecording": "Aufnahme wird beendet…",
   "pronunciationReplayUnavailable": "Deine Aufnahme konnte nicht abgespielt werden. Versuche es erneut oder nimm sie neu auf.",
   "flashcardRomanizationBack": "Auf der Rückseite anzeigen",
   "ttsUnavailablePlayback": "Der Ton konnte auf diesem Gerät nicht abgespielt werden. Prüfe die Lautstärke oder verbundene Kopfhörer und versuche es erneut.",
-  "pronunciationLocalRecordingHint": "Deine Aufnahme bleibt vorübergehend auf diesem Gerät. Wenn du diesen Bildschirm verlässt, wird sie gelöscht.",
   "pronunciationReplayStop": "Meine Aufnahme stoppen",
   "flashcardRomanization": "Umschrift",
   "onboardingV2ComposeGa": "Verbinden",
@@ -5205,26 +5176,8 @@
   "onboardingDemoDuck": "Ente",
   "onboardingDemoSound": "Laut",
   "onboardingDemoWord": "Wort",
-  "onboardingDemoInitials": "Anlautspiel",
-  "onboardingDemoCross": "Silben-Kreuz",
-  "onboardingDemoCloze": "Lückentext",
-  "onboardingDemoPairs": "Wortpaare",
-  "onboardingDemoSentence": "Satz bauen",
-  "onboardingDemoChain": "Wortkette",
-  "onboardingDemoExample": "Beispiel zeigen",
   "onboardingJourneyStartTitle": "Dein Koreanisch.\nDein Rhythmus.",
-  "onboardingJourneyNew": "Ich fange neu an",
-  "onboardingJourneyNewHint": "Mit Zeichen und Lauten beginnen.",
-  "onboardingJourneyReturning": "Ich habe schon gelernt",
   "onboardingJourneyReturningHint": "Bei deinem Können anknüpfen.",
-  "onboardingJourneyExperience": "Deine Erfahrung",
-  "onboardingJourneyPathTitle": "Ein klarer Weg.\nDein nächster Schritt.",
-  "onboardingJourneyLettersTitle": "Zeichen werden\nzu deinen Worten.",
-  "onboardingJourneyLearnTitle": "Aus Verstehen\nwird Sprechen.",
-  "onboardingJourneyGamesTitle": "Spielen gehört\nzum Lernen.",
-  "onboardingJourneyBookTitle": "Dein Buch.\nJetzt zum Mitlernen.",
-  "onboardingJourneyHanokTitle": "Dein Koreanisch wächst.\nDein Hanok lebt.",
-  "onboardingJourneyCompanionTitle": "Ein Lernweg.\nEin Freund an deiner Seite.",
   "onboardingJourneyStartWith": "Mit {name} beginnen",
   "onboardingJourneyMethod": "Der Aufbau",
   "onboardingJourneyMethodBody": "Lernziele, Wortschatz und Grammatik bauen aufeinander auf. Koreanische Lehrpläne und der europäische Referenzrahmen dienen als Orientierung. A1 bis C2 bezeichnen die Lernstufen in dieser App.",
@@ -5260,14 +5213,6 @@
       }
     }
   },
-  "onboardingJourneyStartShort": "Dein Anfang",
-  "onboardingJourneyPathShort": "Dein Lernweg",
-  "onboardingJourneyLettersShort": "Zeichen & Laute",
-  "onboardingJourneyLearnShort": "Deine Worte",
-  "onboardingJourneyGamesShort": "Spielend lernen",
-  "onboardingJourneyBookShort": "Dein Buch",
-  "onboardingJourneyHanokShort": "Dein Hanok",
-  "onboardingJourneyCompanionShort": "Deine Begleitung",
   "questUnavailableTitle": "Diese Übung ist nicht verfügbar",
   "questUnavailableBody": "Geh zurück und wähle eine andere Übung.",
   "contentLearningGoals": "Themen-Lernziele",
@@ -5715,5 +5660,426 @@
         "type": "int"
       }
     }
-  }
+  },
+  "welcomeTitle": "Willkommen bei\nHangul Sori.",
+  "welcomeBody": "Entdecke Koreanisch, Kultur und\ndein wachsendes Hanok-Abenteuer.",
+  "welcomeStart": "Los geht’s",
+  "welcomeLater": "Später",
+  "welcomeLaterHint": "Erst ausprobieren, danach einrichten.",
+  "welcomeCharacters": "Baekho und die neue Elster begrüßen dich im Hanok.",
+  "onboardingCBookBody": "Entdecke Wörter und ihren Kontext.\nTalSunbi hilft dir, sie zu verstehen.",
+  "onboardingCBookSummary": "Aus deinen Büchern lernen.",
+  "onboardingCChange": "Ändern",
+  "onboardingCGamesBody": "Übe mit deinen gespeicherten Wörtern.\nEntdecke Belohnungen für deine Fortschritte.",
+  "onboardingCGamesSummary": "8 Spiele. Viele Aha-Momente.",
+  "onboardingCGyeBody": "Finde später deine Lerngruppe. Du kannst alleine starten.",
+  "onboardingCGyeTitle": "Auch gemeinsam: Gye",
+  "onboardingCHanokBody": "Stempelbuch & Dancheong-Atelier.\nDeine Werke für die Sarangbang.",
+  "onboardingCHanokSummary": "Mit Yeopjeon wächst dein Hanok.",
+  "onboardingCInterest": "Was ist dir wichtig?",
+  "onboardingCJoyRole": "Deine neugierige Begleiterin",
+  "onboardingCLater": "Du kannst das später ändern.",
+  "introLevelLater": "Du kannst es später ändern.",
+  "onboardingJourneyStartWhere": "Wo möchtest du starten?",
+  "onboardingJourneyBeginnerHint": "Ich fange neu an",
+  "onboardingCLevelRange": "Ganz neu oder A1 bis C2.",
+  "onboardingCPathBody": "Von den ersten Lauten bis zum echten Gespräch.",
+  "onboardingCPathSummary": "Ein klarer Lernweg.",
+  "onboardingCSoundBody": "Hören, verbinden, ausprobieren.",
+  "onboardingCSoundSummary": "Zwei Zeichen. Ein Klang.",
+  "onboardingCStartLevel": "Dein Startniveau",
+  "onboardingCTaegoRole": "Dein ruhiger Begleiter",
+  "onboardingCtaGames": "Spiele entdecken",
+  "onboardingCtaTry": "Kurz ausprobieren",
+  "onboardingCBrand": "EINLEITUNG",
+  "onboardingCPathTitle": "Ein Weg, der\nzu dir passt.",
+  "onboardingCSoundTitle": "Dein erster\nKlang.",
+  "onboardingCGamesTitle": "Spielend\nbleibt mehr.",
+  "onboardingCBookTitle": "Dein Buch\nlernt mit.",
+  "onboardingCHanokTitle": "Dein Lernen\nwird sichtbar.",
+  "onboardingCCompanionTitle": "Ein Freund\nan deiner Seite.",
+  "introNew": "Ganz neu",
+  "introNewHint": "Mit Hangul anfangen",
+  "introA2Hint": "Du kennst die Grundlagen.",
+  "introChooseLevel": "Startniveau wählen",
+  "introApplyLevel": "Niveau übernehmen",
+  "introNextPath": "Als Nächstes: Dein Lernweg.",
+  "introNextSample": "Als Nächstes: Eine kurze Lernprobe.",
+  "introTwelveTools": "12 Lernwerkzeuge für deinen Alltag.",
+  "introGreetingTranslation": "Guten Tag",
+  "onboardingCDiscover": "Entdecken",
+  "onboardingCPractice": "Üben",
+  "onboardingCRetain": "Behalten",
+  "onboardingCPhoto": "Foto",
+  "onboardingCUnderstand": "Verstehen",
+  "onboardingCRemember": "Merken",
+  "onboardingCBuild": "Bauen",
+  "onboardingCCollect": "Sammeln",
+  "onboardingCCreate": "Gestalten",
+  "grammarBookExample": "Beispiel",
+  "atelierAutoOff": "Auto weiter: Aus",
+  "atelierAutoOn": "Auto weiter: An",
+  "atelierChartHint": "19 Konsonanten · Im Feld nach oben oder unten wischen.",
+  "atelierDemo": "Strichfolge zeigen",
+  "atelierDemoEnd": "Vorführung beenden",
+  "atelierDemoNext": "Nächster Strich",
+  "atelierDemoPhase": "Schau zu",
+  "atelierDemoRestart": "Neu vorführen",
+  "atelierDifficult": "Schwierige",
+  "atelierDiscover": "Silben entdecken",
+  "atelierDonePhase": "Geschafft",
+  "atelierFeedHint": "Oben / unten: nächste / vorige Karte.\nZweimal tippen: merken. Einmal tippen: umdrehen.",
+  "atelierFinish": "Übung abschließen",
+  "atelierFlipHint": "Tippen zum Umdrehen",
+  "atelierKnown": "Gewusst",
+  "atelierMore": "Mehr",
+  "atelierNotYet": "Nicht gewusst",
+  "atelierPracticePhase": "Du bist dran",
+  "atelierRandom": "Zufällige Karte",
+  "atelierRemember": "Merken",
+  "atelierSaveFailed": "Noch nicht gespeichert. Bitte erneut versuchen.",
+  "atelierShare": "Teilen",
+  "atelierSkip": "Überspringen",
+  "atelierStructure": "Silbenaufbau",
+  "atelierSubtitle": "Zeichen · Klang · Handschrift",
+  "atelierUseInChart": "In der Silbentafel auswählen",
+  "atelierWatchBrush": "Zuerst ansehen. Dann selbst schreiben.",
+  "cHangulCardsReceipt": "{count, plural, =1{1 Kartenaktion in dieser Übung} other{{count} Kartenaktionen in dieser Übung}}",
+  "@cHangulCardsReceipt": {
+    "description": "C internal learning screen; counts are actual activity state.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cHangulCompleted": "Hangul-Übung abgeschlossen",
+  "cHangulHardCharacters": "Nur schwierige Zeichen",
+  "cHangulKeepPractising": "Du kannst jederzeit weiterüben.",
+  "cHangulListen": "Anhören",
+  "cHangulListenWord": "Wort anhören",
+  "cHangulSelectionTitle": "Kartenauswahl",
+  "cHangulWritingLettersReceipt": "{letters, plural, =1{1 Buchstabe geübt} other{{letters} Buchstaben geübt}}",
+  "@cHangulWritingLettersReceipt": {
+    "placeholders": {
+      "letters": {
+        "type": "int"
+      }
+    }
+  },
+  "cHangulWritingReceipt": "{letters, plural, =1{1 Buchstabe geübt} other{{letters} Buchstaben geübt}} · {strokes, plural, =1{1 Strichversuch} other{{strokes} Strichversuche}} · {mode}",
+  "@cHangulWritingReceipt": {
+    "description": "C internal learning screen; counts are actual activity state.",
+    "placeholders": {
+      "letters": {
+        "type": "int"
+      },
+      "strokes": {
+        "type": "int"
+      },
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "cHangulWritingStrokesReceipt": "{strokes, plural, =1{1 Strichversuch} other{{strokes} Strichversuche}} · {mode}",
+  "@cHangulWritingStrokesReceipt": {
+    "placeholders": {
+      "strokes": {
+        "type": "int"
+      },
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "c5AllLearningActivities": "Alle Lernangebote",
+  "c5AllGames": "Alle Spiele",
+  "onboardingHangulEquationSemantics": "{title}. ㄱ + ㅏ = 가. 가 · ga. {previewLabel}",
+  "@onboardingHangulEquationSemantics": {
+    "description": "Accessible native Hangul equation with localized section and preview labels. Korean lesson glyphs remain Korean.",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "previewLabel": {
+        "type": "String"
+      }
+    }
+  },
+  "ilduR16Title": "Ildu-Gotaek",
+  "ilduR16Explore": "Ildu-Gotaek entdecken",
+  "ilduR16Reference": "Vollendetes Anwesen · Architekturansicht",
+  "ilduR16ReferenceBody": "Entdecke die Gebäude und ihren kulturellen Hintergrund. Diese Ansicht ist unabhängig von deinem Baufortschritt.",
+  "ilduR16Enlarge": "Anwesen vergrößern",
+  "ilduR16Building": "Ein Gebäude auswählen",
+  "ilduR16AboutSpace": "Der Ort und seine Geschichte",
+  "ilduR16Practice": "Gelerntes wiederholen",
+  "ilduR16Sarangchae": "Sarangchae · Gästetrakt",
+  "ilduR16Changgo": "Changgo · Lagerhaus",
+  "ilduR16Jungmunganchae": "Jungmunganchae · Innerer Torbau",
+  "ilduR16Araechae": "Araechae · Unterer Wohntrakt",
+  "ilduR16SouthToilet": "Südliche Toilette",
+  "ilduR16Anchae": "Anchae · Innerer Wohntrakt",
+  "ilduR16AnchaeStore": "Vorratsraum des Anchae",
+  "ilduR16NorthToilet": "Nördliche Toilette",
+  "ilduR16Gokgan": "Gokgan · Getreidespeicher",
+  "ilduR16Ansarang": "Ansarangchae · Innerer Gästetrakt",
+  "ilduR16Sadang": "Sadang · Ahnenschrein",
+  "accountRecoveryTitle": "Wo möchtest du weiterlernen?",
+  "accountRecoveryBody": "Gespeicherte Übungen aus beiden Lernständen bleiben erhalten. Du wählst den Startpunkt für deinen Lernpfad.",
+  "accountRecoveryDevice": "Dieses Gerät",
+  "accountRecoveryCloud": "Cloud",
+  "accountRecoveryCompletedUnits": "{count, plural, =0{Noch keine Einheit geschafft} =1{1 Einheit geschafft} other{{count} Einheiten geschafft}}",
+  "@accountRecoveryCompletedUnits": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "accountRecoveryUnavailableChoice": "Dieser Startpunkt passt nicht zu deinen gespeicherten Abschlüssen.",
+  "accountRecoveryUnknownLevel": "Startpunkt nicht verfügbar",
+  "accountRecoveryCountUnavailable": "Gespeicherte Einheiten nicht verfügbar",
+  "accountRecoveryConfirm": "Bestätigen",
+  "accountRecoveryReview": "Lernstand prüfen",
+  "accountRecoveryPendingTitle": "Sicherung braucht deine Aufmerksamkeit",
+  "accountRecoveryPendingBody": "Die letzten Lernstände konnten noch nicht sicher verbunden werden. Prüfe die gespeicherten Startpunkte.",
+  "accountRecoveryWorking": "Lernstand wird geprüft …",
+  "accountRecoveryUnavailable": "Dein Lernstand kann gerade nicht geprüft werden. Versuche es erneut.",
+  "accountRecoveryBlocked": "Deine gespeicherten Lernstände brauchen noch eine Prüfung. Sie bleiben erhalten.",
+  "accountRecoveryStale": "Dein Lernstand hat sich inzwischen geändert. Prüfe ihn bitte noch einmal.",
+  "accountRecoveryReady": "Der Lernstand ist verbunden. Du kannst jetzt sichern.",
+  "accountRecoveryBackupWaiting": "Verbunden; Sicherung wartet auf Prüfung",
+  "accountRecoveryResumeTitle": "Bestätigte Auswahl fortsetzen?",
+  "accountRecoveryResumeBody": "Deine Auswahl wurde bereits gespeichert. Du kannst denselben Vorgang fortsetzen. Der Startpunkt wird dabei nicht neu gewählt.",
+  "accountRecoveryResumeConfirm": "Bestätigte Auswahl fortsetzen",
+  "todayFirstSyllable": "Deine erste Silbe",
+  "todayFirstSyllableBody": "Höre und verbinde zwei Zeichen.",
+  "todayStartHangul": "Hangul starten",
+  "todayStartReview": "Jetzt wiederholen",
+  "todayYourHanok": "Dein Hanok",
+  "todayDetails": "Dein Tag im Überblick",
+  "todayProgress": "Lernfortschritt",
+  "najeonChestTitle": "Schatztruhe",
+  "najeonChestLoading": "Deine Schatztruhe wird vorbereitet …",
+  "najeonChestOpenHint": "Tippe auf die Truhe, um sie zu öffnen.",
+  "najeonChestOpen": "Truhe öffnen",
+  "najeonChestPickBody": "Wähle ein Stück für dein Zimmer. Die anderen Stücke können in einer späteren Schatztruhe wiederkommen.",
+  "najeonChestEmptyTitle": "Keine Schatztruhe wartet",
+  "najeonChestEmptyBody": "Schließe eine Quest ab. Dafür bekommst du eine Schatztruhe.",
+  "najeonChestAllOwnedBody": "Du besitzt bereits alle drei Stücke aus dieser Schatztruhe.",
+  "najeonChestProblemTitle": "Die Schatztruhe lässt sich gerade nicht öffnen",
+  "najeonChestProblemBody": "Versuch es gleich noch einmal. Deine Schatztruhe geht dabei nicht verloren.",
+  "najeonChestNext": "Nächste Truhe öffnen",
+  "najeonChestCollectionCompleteBody": "Du besitzt bereits alle Einrichtungsstücke. Lege diese Schatztruhe ab, um weiterzumachen.",
+  "najeonChestArchive": "Truhe ablegen",
+  "najeonChestHelpTitle": "Najeon · 나전",
+  "najeonChestHelpBody": "Bei Najeon werden dünne Stücke aus Muschelschalen zu Mustern geschnitten und in eine Lackoberfläche eingelegt. Die schimmernden Einlagen nennt man Perlmutt.",
+  "todayCompanionSubtitle": "Dein Koreanisch wächst.",
+  "todayNextStage": "Deine nächste Etappe",
+  "todayTreasureTitle": "Deine Schatztruhe",
+  "todayTreasureReady": "{count, plural, one{1 wartet auf dich} other{{count} warten auf dich}}",
+  "todayTreasureCollection": "Sammlung",
+  "todayExploreGames": "Spiele entdecken",
+  "todayMissionGreetingTitle": "Heute sagst du Hallo",
+  "todayMissionGreetingBody": "Begrüße jemanden und stelle eine kurze Frage.",
+  "todayMissionPlansTitle": "Ein Plan mit Freunden",
+  "todayMissionPlansBody": "Schlage ein Treffen vor und ändere den Termin.",
+  "todayMissionRequestsTitle": "Klar miteinander planen",
+  "todayMissionRequestsBody": "Formuliere eine Bitte und handle eine Lösung aus.",
+  "todayMissionPolicyTitle": "Regeln gemeinsam gestalten",
+  "todayMissionPolicyBody": "Wäge Positionen ab und begründe einen Vorschlag.",
+  "todayMissionAuthorityTitle": "Wo Zuständigkeit endet",
+  "todayMissionAuthorityBody": "Prüfe Mandate und unterscheide ihre Grenzen.",
+  "todayMissionReviewTitle": "Was bleibt, wächst",
+  "todayResumeStage": "Fortsetzen",
+  "@todayTreasureReady": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "todayTreasureOpen": "Öffnen",
+  "todayBeginStage": "Los geht’s",
+  "listeningShelfPhone": "Anrufe",
+  "listeningFlowFollow": "Zur aktuellen Nachricht",
+  "listeningShelfShopping": "Einkauf",
+  "listeningFlowResult": "Ergebnis",
+  "listeningShelfFamily": "Erster Besuch",
+  "listeningShelfArrival": "Ankunft",
+  "listeningShelfEthics": "Forschungsethik",
+  "listeningShelfExplore": "Entdecken",
+  "listeningShelfUncertainty": "Unsicherheit",
+  "listeningShelfRestaurant": "Restaurant",
+  "listeningShelfPrompt": "Wähle dein nächstes Gespräch.",
+  "listeningShelfDiscourse": "Vorannahmen",
+  "listeningShelfSources": "Zitate & Quellen",
+  "listeningShelfMemory": "Erinnerung",
+  "listeningShelfFocus": "IM FOKUS",
+  "listeningShelfGreeting": "Begrüßung",
+  "listeningFlowChoose": "DEINE LEKTION",
+  "listeningShelfHealth": "Arzt & Sport",
+  "listeningShelfCritique": "Kunstkritik",
+  "listeningShelfRecord": "Aktenlücken",
+  "listeningShelfWork": "Im Job",
+  "listeningShelfMethod": "Methodik",
+  "listeningFlowUnderstand": "Verstehen",
+  "listeningRecoverySaving": "Wird gespeichert …",
+  "listeningRecoverySaveFailed": "Noch nicht gespeichert.",
+  "listeningServiceRole": "Service",
+  "listeningRecoveryDone": "Lektion abgeschlossen",
+  "listeningRecoverySavingBody": "Deine Eingaben bleiben unverändert. Bitte kurz warten.",
+  "listeningRecoverySaveBody": "Deine Antworten bleiben hier erhalten. Bitte versuche es erneut.",
+  "listeningRecoverySaved": "Antworten gespeichert.",
+  "listeningRecoveryAnswers": "Deine Antworten",
+  "listeningRecoveryScore": "{correct} von {total} richtig",
+  "listeningRecoverySaveRetry": "Erneut speichern",
+  "listeningRecoveryWait": "Bitte kurz warten",
+  "listeningRecoveryStay": "Hier bleiben",
+  "listeningRecoveryAudioFailed": "Ton gerade nicht verfügbar.",
+  "listeningRecoveryAudioBody": "Erneut versuchen oder weiterlesen.",
+  "listeningRecoveryAudioRetry": "Ton wiederholen",
+  "listeningRecoveryRead": "Weiterlesen",
+  "listeningRecoveryPractice": "Noch einmal üben",
+  "listeningRecoveryTopics": "Zu den Themen",
+  "listeningRecoveryMore": "Vertiefen",
+  "@listeningRecoveryScore": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "listeningRecoveryRemaining": "{count, plural, one {Eine Antwort kannst du noch üben.} other {{count} Antworten kannst du noch üben.}}",
+  "@listeningRecoveryRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanTitle": "Dein\nGrammatik­plan",
+  "grammarPlanSetupHint": "Wähle dein Niveau und dein tägliches Pensum.",
+  "grammarPlanPatternsPerDayLabel": "Muster pro Tag",
+  "grammarPlanDailyPreview": "{n} Muster pro Tag",
+  "grammarPlanPaceChangeHint": "Dein Tempo lässt sich jederzeit ändern.",
+  "grammarPlanLevelCount": "{level} · {count} Muster",
+  "@grammarPlanDailyPreview": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@grammarPlanLevelCount": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanSaveErrorTitle": "Fortschritt nicht gespeichert",
+  "grammarPlanSelectionRetained": "Deine Auswahl bleibt erhalten.",
+  "wordWebCloseConfirmBody": "Dein Fortschritt in dieser Runde geht verloren, wenn du zur Wortliste zurückkehrst.",
+  "wordWebCloseConfirmLeave": "Zur Wortliste",
+  "wortpaketeOverview": "Dein Wortschatz",
+  "wortpaketeChooseLevel": "Wähle ein Niveau",
+  "wortpaketeSearchAll": "Thema oder Wort suchen",
+  "wortpaketeSearchLevel": "In {level} suchen",
+  "@wortpaketeSearchLevel": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "wortpaketeTopics": "Themen",
+  "wortpaketeGreetingPackGoal": "Grüßen, danken und sich verabschieden",
+  "wortpaketeLearnProgressHint": "Wort ansehen und anhören",
+  "wortpaketeRevealFirst": "Erst aufdecken, dann einschätzen.",
+  "wortpaketeOpenNumberedPack": "Paket {number} öffnen",
+  "@wortpaketeOpenNumberedPack": {"placeholders": {"number": {"type": "int"}}},
+  "wortpaketeTopicsCount": "{count, plural, one{1 Thema} other{{count} Themen}}",
+  "@wortpaketeTopicsCount": {"placeholders": {"count": {"type": "int"}}},
+  "wortpaketeAllTopicsCount": "Alle {count} ansehen",
+  "@wortpaketeAllTopicsCount": {"placeholders": {"count": {"type": "int"}}},
+  "wortpaketeNoResults": "Keine passenden Themen oder Wörter",
+  "wortpaketePacks": "{count, plural, one{1 Paket} other{{count} Pakete}}",
+  "@wortpaketePacks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wortpaketeWords": "{count, plural, one{1 Wort} other{{count} Wörter}}",
+  "@wortpaketeWords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wortpaketeSearchClear": "Suche löschen",
+  "wortpaketePackNumber": "Paket {number}",
+  "@wortpaketePackNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "wortpaketeLevelGoalA1": "Erste Gespräche",
+  "wortpaketeLevelGoalA2": "Alltag meistern",
+  "wortpaketeLevelGoalB1": "Erfahrungen austauschen",
+  "wortpaketeLevelGoalB2": "Begründen & diskutieren",
+  "wortpaketeLevelGoalC1": "Präzise argumentieren",
+  "wortpaketeLevelGoalC2": "Bedeutung differenzieren",
+  "wortpaketeLevelHintA1": "Begrüßung · Essen · Alltag",
+  "wortpaketeLevelHintA2": "Wohnen · Kleidung · Beruf",
+  "wortpaketeLevelHintB1": "Arbeit · Medien · Gesellschaft",
+  "wortpaketeLevelHintB2": "Gesellschaft · Umwelt · Denken",
+  "wortpaketeLevelHintC1": "Forschung · Risiko · Teilhabe",
+  "wortpaketeLevelHintC2": "Deutung · Erinnerung · Ethik",
+  "wortpaketeTopicName": "{topic, select, a1_greetings{Begrüßung & Höflichkeit} a1_food{Essen & Trinken} a1_home_daily{Zuhause & Alltag} a1_transport{Verkehr & Bewegung} a2_home{Wohnen} a2_clothing{Kleidung} a2_restaurant{Im Restaurant} a2_work{Beruf} b1_work_career{Karriere & Büro} b1_media_culture{Medien & Kultur} b1_tech_society{Technologie & Gesellschaft} b1_city_places{Stadt & Orte} b2_society{Gesellschaft} b2_thinking{Denken} b2_environment{Umwelt} b2_work{Beruf} c1_evidence_reasoning{Forschung & Evidenz} c1_accessible_participation{Teilhabe} c1_risk_communication{Risiko­kommunikation} c1_sustainable_tradeoffs{Nachhaltigkeit} c2_language_framing{Sprache & Deutung} c2_narrative_perspective{Erzählperspektive} c2_institutional_mediation{Vermittlung} c2_technology_ethics{Technikethik} other{}}",
+  "@wortpaketeTopicName": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "wortpaketeTopicGoal": "{topic, select, a1_greetings{Grüßen und danken} a1_food{Essen und Getränke benennen} a1_home_daily{Über den Alltag sprechen} a1_transport{Verkehrsmittel benennen} a2_home{Räume beschreiben} a2_clothing{Kleidung benennen} a2_restaurant{Über Zutaten sprechen} a2_work{Arbeitstermine besprechen} b1_work_career{Berufserfahrungen schildern} b1_media_culture{Medieninhalte beschreiben} b1_tech_society{Über Beiträge sprechen} b1_city_places{Orte beschreiben} b2_society{Konflikte einordnen} b2_thinking{Standpunkte begründen} b2_environment{Umweltfolgen diskutieren} b2_work{Verträge besprechen} c1_evidence_reasoning{Studien beurteilen} c1_accessible_participation{Zugangshürden benennen} c1_risk_communication{Unsicherheit benennen} c1_sustainable_tradeoffs{Folgekosten abwägen} c2_language_framing{Framing erkennen} c2_narrative_perspective{Erinnerung reflektieren} c2_institutional_mediation{Interessen verhandeln} c2_technology_ethics{Entscheidungen prüfen} other{}}",
+  "@wortpaketeTopicGoal": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "pronunciationPracticeRhythm": "Satzrhythmus üben",
+  "pronunciationCompareVoices": "Stimmen vergleichen",
+  "pronunciationModelListen": "Satz hören",
+  "pronunciationOriginalListen": "Original hören",
+  "pronunciationOwnListen": "Meine Aufnahme hören",
+  "pronunciationRecordingReady": "Aufnahme bereit",
+  "pronunciationNoScoring": "Ohne automatische Bewertung.",
+  "pronunciationMaxDuration": "Max. 10 Sek. · Danach Aufnahme vergleichen.",
+  "pronunciationNextSentence": "Nächster Satz",
+  "pronunciationFocusConditional": "Nach dem Bedingungssatz kurz pausieren.",
+  "pronunciationFocusH": "Aussprache von ㅎ",
+  "pronunciationFocusNasal": "Nasalisierung",
+  "pronunciationFocusTense": "Anspannung der Konsonanten",
+  "pronunciationFocusLink": "Lautverbindung",
+  "pronunciationHeader": "Aussprache",
+  "pronunciationRecordShort": "Aufnehmen",
+  "pronunciationRecordAgainShort": "Erneut aufnehmen"
 }

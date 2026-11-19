@@ -4,11 +4,65 @@
 // 배율 1.0/1.3/2.0 에서 초성 글자가 항상 칸 안에 완전히 들어오는지 고정한다
 // (배율은 1.3으로 클램프되므로 2.0에서도 잘리지 않아야 한다).
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/widgets/sori/chosung_hint.dart';
+import 'support/real_fonts.dart';
 
 void main() {
+  setUpAll(loadSoriRealFonts);
+
+  for (final vowel in ['Vokal', 'Vowel']) {
+    for (final scale in [1.0, 1.3, 2.0]) {
+      testWidgets('slot labels stay whole at $scale with $vowel', (
+        tester,
+      ) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            home: MediaQuery(
+              data: MediaQueryData(textScaler: TextScaler.linear(scale)),
+              child: Scaffold(
+                body: Center(
+                  child: SizedBox(
+                    width: 280,
+                    child: ChosungHint(
+                      word: '맛없다',
+                      mode: HintMode.chosung,
+                      accent: Colors.teal,
+                      vowelLabel: vowel,
+                      jongsungLabel: 'Batchim',
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+        for (final label in [vowel, 'Batchim']) {
+          final found = find.text(label);
+          expect(found, findsWidgets);
+          for (final element in found.evaluate()) {
+            final paragraph = element.renderObject! as RenderParagraph;
+            final boxes = paragraph.getBoxesForSelection(
+              TextSelection(baseOffset: 0, extentOffset: label.length),
+            );
+            expect(
+              boxes.map((b) => b.top).toSet(),
+              hasLength(1),
+              reason: '$label must not split inside a syllable slot',
+            );
+            for (final box in boxes) {
+              expect(box.left, greaterThanOrEqualTo(0));
+              expect(box.right, lessThanOrEqualTo(paragraph.size.width + 0.01));
+            }
+          }
+        }
+        expect(tester.takeException(), isNull);
+      });
+    }
+  }
+
   Future<void> pump(WidgetTester tester, double textScale) async {
     await tester.pumpWidget(
       MediaQuery(

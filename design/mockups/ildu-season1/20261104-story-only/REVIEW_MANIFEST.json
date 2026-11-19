@@ -1,0 +1,466 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-11-04T01:26:35.316924+00:00",
+  "worktree": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103",
+  "branch": "codex/taego-canon-season1-mockups-20261103",
+  "base_commit": "6943b8a45a2d0802347e718946bedab8b618d7bf",
+  "task": "Independent designer review guard for existing Season 1 story image work",
+  "review_system": {
+    "status": "applied_to_actual_candidates",
+    "character_reviewer": "/root/character_design_guard",
+    "narrative_reviewer": "/root/story_contract_review",
+    "type": "independent AI review",
+    "persistent_instructions": "design/AGENTS.md",
+    "always_running_service": false,
+    "automatic_software_gate": false,
+    "new_chat_must_assign_reviewer": true
+  },
+  "scope": {
+    "story_mockup_images": true,
+    "learning_screens": false,
+    "app_code": false,
+    "html": false,
+    "figma": false,
+    "deployment": false
+  },
+  "status": {
+    "new_images_accepted_for_delivery": 0,
+    "r21b": "correction_incomplete",
+    "r22_to_r27": "not_completed_in_this_batch",
+    "canonical_assets_changed": false,
+    "source_images_deleted": false,
+    "failed_images_copied_into_project_assets": false
+  },
+  "references": [
+    {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/canonical/ensemble/20261103-taego-design/taego-body-design.png",
+      "sha256": "c68f9d43959eeb1812762291642ef6b4b9cf80668b657cbc5377d14d1c2c546c",
+      "bytes": 2235092,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 920533,
+      "alpha_gt_0_bbox": [
+        0,
+        12,
+        1525,
+        1024
+      ],
+      "alpha_gt_16_bbox": [
+        31,
+        14,
+        1522,
+        990
+      ],
+      "role": "approved Taego body; WELCOME direction and form",
+      "used_in_r21b_v5": true
+    },
+    {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/canonical/ensemble/20261103-taego-design/taego-face-design.png",
+      "sha256": "570bc17bb9d16ed8a035880db8a60aebd7544ec44550b97160cda9feda2c7c77",
+      "bytes": 2484072,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 710170,
+      "alpha_gt_0_bbox": [
+        0,
+        1,
+        1520,
+        1024
+      ],
+      "alpha_gt_16_bbox": [
+        27,
+        10,
+        1515,
+        987
+      ],
+      "role": "approved Taego face authority",
+      "used_in_r21b_v5": true
+    },
+    {
+      "path": "C:/dev/hangulsori/_codex_artifacts/season1-story-image-revision-20261102/references/canonical/assets/sujin/01-b2-selected.png",
+      "sha256": "2f9e367ef657ae82abe3ed0eefdd234cc997c6cdf281c416dbc6103c6d972c33",
+      "bytes": 2139811,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "role": "approved Sujin B2 identity",
+      "used_in_r21b_v5": true
+    },
+    {
+      "path": "C:/dev/hangulsori/_codex_artifacts/season1-story-image-revision-20261102/references/canonical/assets/talsunbi/01-original-character-sheet.png",
+      "sha256": "0f846e66da68f11106a60bad24f38bf4a45d6eec7525778bfe3c80745d8185ed",
+      "bytes": 2840792,
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "role": "approved Tal-Seonbi identity",
+      "used_in_r21b_v5": true
+    },
+    {
+      "path": "C:/Users/vjinn/.codex/generated_images/hanok-ildu-stroy/fdf264be-1917-4f84-98a8-7b725713170a.png",
+      "sha256": "27ef755778871cdf6236d823b2044c816161137c6f565d8ffcbc688f75981aa7",
+      "bytes": 2580427,
+      "width": 853,
+      "height": 1844,
+      "mode": "RGB",
+      "role": "ruined courtyard environment only; not character or UI authority",
+      "used_in_r21b_v5": true
+    },
+    {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/canonical/ensemble/TAEGO_CURRENT.json",
+      "sha256": "e2fd7858255031fbc30d1d73edc7a7184a513d8f30ea9725261cebbb7c3b0a64",
+      "bytes": 846,
+      "role": "current local Taego authority pointer; scope and limits retained",
+      "used_in_r21b_v5": false
+    },
+    {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/canonical/ensemble/20261102-acting/specifications/MEASUREMENTS.md",
+      "sha256": "db4bbfa3cd9de2009a93ae1bcd31863068f8e0ee3c123ef02b2d70ea14652890",
+      "bytes": 7235,
+      "role": "approved target dimensions; no raster cm certification",
+      "used_in_r21b_v5": false
+    },
+    {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/canonical/ensemble/20261102-acting/specifications/ACTING_MECHANICS.md",
+      "sha256": "1eee23ca43bb5b886ffcd99d5df6d67c0bd64add4c7d4319c9442b7646d26402",
+      "bytes": 11663,
+      "role": "acting and physical contact constraints",
+      "used_in_r21b_v5": false
+    },
+    {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/canonical/ensemble/20261102-acting/specifications/ILLUSTRATION_CONTRACT.json",
+      "sha256": "1a4e89b6ec630672021e8ff26fdf56290fa6131ea46002ab739ee005db607733",
+      "bytes": 12197,
+      "role": "fixed identity and material contract",
+      "used_in_r21b_v5": false
+    },
+    {
+      "path": "C:/Users/vjinn/.codex/generated_images/공통UI정본/CANONICAL_UI.json",
+      "sha256": "03bf3a9d89b1d0a6f5babb1aa096e7b7791bab501b72d5c0d92b54d868a8e3d9",
+      "bytes": 2267,
+      "role": "common UI source authority",
+      "used_in_r21b_v5": false
+    },
+    {
+      "path": "C:/Users/vjinn/.codex/generated_images/공통UI정본/cloud.png",
+      "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+      "bytes": 512974,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "fully_transparent_pixels": 1242785,
+      "alpha_gt_0_bbox": [
+        105,
+        45,
+        1210,
+        1212
+      ],
+      "alpha_gt_16_bbox": [
+        129,
+        348,
+        1182,
+        885
+      ],
+      "role": "common UI cloud; compare only, do not recreate",
+      "used_in_r21b_v5": false
+    },
+    {
+      "path": "C:/dev/hangulsori/_codex_artifacts/season1-story-image-revision-20261102/references/canonical/assets/ui/approved-gold-cta.png",
+      "sha256": "5857e3e341e4281f0f1133bb44bbf20593b7f1f928f4557d670619badea0c923",
+      "bytes": 1500537,
+      "width": 2149,
+      "height": 732,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "fully_transparent_pixels": 736145,
+      "alpha_gt_0_bbox": [
+        0,
+        9,
+        2131,
+        732
+      ],
+      "alpha_gt_16_bbox": [
+        41,
+        176,
+        2114,
+        559
+      ],
+      "role": "gold CTA authority; newly generated CTA not pixel-certified",
+      "used_in_r21b_v5": false
+    }
+  ],
+  "prompt_records": [
+    {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/mockups/ildu-season1/20261104-story-only/ANATOMY_PREFLIGHT.json",
+      "sha256": "8d524819e7349a05219335206dfa31a132e25e74becb01ce45d6a1eb8af7ae09",
+      "bytes": 2885,
+      "filename": "ANATOMY_PREFLIGHT.json",
+      "used_for_generation": true,
+      "historical_preflight_status": "PREFLIGHT_REVIEWED_GENERATION_PENDING",
+      "current_result": "See outputs; preflight does not certify the generated result"
+    },
+    {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/mockups/ildu-season1/20261104-story-only/ANATOMY_REVISION_PREFLIGHT.json",
+      "sha256": "3997539d85d5e1915a36f774656c979ac454753355850ab93c61c846f271e19b",
+      "bytes": 2462,
+      "filename": "ANATOMY_REVISION_PREFLIGHT.json",
+      "used_for_generation": true,
+      "historical_preflight_status": "PREFLIGHT_REVIEWED",
+      "current_result": "See outputs; preflight does not certify the generated result"
+    },
+    {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/mockups/ildu-season1/20261104-story-only/ANATOMY_PADDING_PREFLIGHT.json",
+      "sha256": "881c5b69237a1d381dcc8296ccc0be3fd1ab80f307f2596fef7544ea5746ea0d",
+      "bytes": 1480,
+      "filename": "ANATOMY_PADDING_PREFLIGHT.json",
+      "used_for_generation": true,
+      "historical_preflight_status": "PREFLIGHT_PASS_PADDING_ONLY",
+      "current_result": "See outputs; preflight does not certify the generated result"
+    },
+    {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/mockups/ildu-season1/20261104-story-only/R21B_PREFLIGHT_V5.json",
+      "sha256": "a89720ca0cf3af5cf70933a3c13fd971f67da1152233b60508bcf909b4627a89",
+      "bytes": 5724,
+      "filename": "R21B_PREFLIGHT_V5.json",
+      "used_for_generation": false,
+      "historical_preflight_status": "PREFLIGHT_PENDING",
+      "current_result": "See outputs; preflight does not certify the generated result"
+    },
+    {
+      "path": "C:/dev/hangulsori/ko_lernen_app_worktrees/character-illustration-spec-20261103/design/mockups/ildu-season1/20261104-story-only/R21B_PROMPT_V5.json",
+      "sha256": "4d3d3db4eb2d87483ed081589020f0177f588e45c1b83cc0a8178a9dfcb86c4b",
+      "bytes": 6250,
+      "filename": "R21B_PROMPT_V5.json",
+      "used_for_generation": true,
+      "historical_preflight_status": "PREFLIGHT_PASS_WITH_REVIEWER_CORRECTIONS_APPLIED",
+      "current_result": "See outputs; preflight does not certify the generated result"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-2636549c-3f3e-42bd-a6f4-d29a450c1dd7.png",
+      "sha256": "3f256b528572cd6acae0aa0067ac29f6428b40ea7fb8173fc86481e91fcca9a4",
+      "bytes": 2869462,
+      "width": 852,
+      "height": 1846,
+      "mode": "RGB",
+      "id": "R21b-v1",
+      "delivery_status": "FAIL",
+      "checks": {
+        "limb_readability": "FAIL",
+        "relative_scale": "FAIL"
+      },
+      "notes": "Earlier rejected scene; no new reference use.",
+      "approved_for_delivery": false,
+      "user_approved": false,
+      "canonical_promoted": false,
+      "runtime_integrated": false
+    },
+    {
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-2976bc3e-314f-4587-976c-6e7b7dcd3aeb.png",
+      "sha256": "8c9f944dc2ef2ce0a106ad4939099e4ce3ffe8d7f706ae24f32a9c66383d03c6",
+      "bytes": 2738500,
+      "width": 852,
+      "height": 1846,
+      "mode": "RGB",
+      "id": "R21b-v2",
+      "delivery_status": "FAIL",
+      "checks": {
+        "limb_readability": "FAIL"
+      },
+      "notes": "User again reported three readable legs.",
+      "approved_for_delivery": false,
+      "user_approved": false,
+      "canonical_promoted": false,
+      "runtime_integrated": false
+    },
+    {
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-38459d40-ac1c-4149-8c13-dbd2942c20f1.png",
+      "sha256": "3c743ba32cc147e8d12e94e330281d2ce52f3ef3a76864b898112ece413466c4",
+      "bytes": 2703213,
+      "width": 941,
+      "height": 1672,
+      "mode": "RGB",
+      "id": "R21b-v3",
+      "delivery_status": "FAIL",
+      "checks": {
+        "fullbody_framing": "FAIL"
+      },
+      "notes": "Hindquarters/tail crop fails this fullbody review purpose.",
+      "approved_for_delivery": false,
+      "user_approved": false,
+      "canonical_promoted": false,
+      "runtime_integrated": false
+    },
+    {
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-1ff0958c-5ef0-4394-8620-95ffb5191503.png",
+      "sha256": "094bde25aa12727f20ef23e756c5013baf828fd2fb84f8353307b0161d6ceabf",
+      "bytes": 2227010,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 925300,
+      "alpha_gt_0_bbox": [
+        105,
+        13,
+        1518,
+        1024
+      ],
+      "alpha_gt_16_bbox": [
+        137,
+        16,
+        1416,
+        1009
+      ],
+      "id": "ANATOMY-01",
+      "delivery_status": "FAIL",
+      "checks": {
+        "four_visible_paws": "PASS",
+        "three_leg_defect_claim": "UNVERIFIED",
+        "transparent_margin": "FAIL"
+      },
+      "notes": "Review correction: normal far hip overlap is allowed; actual missing leg not established.",
+      "approved_for_delivery": false,
+      "user_approved": false,
+      "canonical_promoted": false,
+      "runtime_integrated": false
+    },
+    {
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-73122e9b-b4db-45d5-a75c-ac351a44336d.png",
+      "sha256": "363b4617030dd5f07c67f6c4638234ebeac3e3bce9bb7f97d4b146093de79573",
+      "bytes": 1892835,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 1088528,
+      "alpha_gt_0_bbox": [
+        169,
+        25,
+        1382,
+        945
+      ],
+      "alpha_gt_16_bbox": [
+        246,
+        79,
+        1327,
+        937
+      ],
+      "id": "ANATOMY-02",
+      "delivery_status": "FAIL",
+      "checks": {
+        "limb_structure": "PASS",
+        "major_identity": "PASS",
+        "transparent_margin": "FAIL"
+      },
+      "notes": "Visible top margin 7.71 percent and height 83.79 percent fail packaging target.",
+      "approved_for_delivery": false,
+      "user_approved": false,
+      "canonical_promoted": false,
+      "runtime_integrated": false
+    },
+    {
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-4fab028c-e2f7-4ee6-be3b-da615c3570ac.png",
+      "sha256": "98523dd321bcae6e1bded449f4c198c286cd5158f4374adee43c066a5620e8c7",
+      "bytes": 1591648,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 1249761,
+      "alpha_gt_0_bbox": [
+        71,
+        23,
+        1480,
+        1024
+      ],
+      "alpha_gt_16_bbox": [
+        332,
+        165,
+        1219,
+        861
+      ],
+      "id": "ANATOMY-03",
+      "delivery_status": "FAIL",
+      "checks": {
+        "limb_structure": "PASS",
+        "major_identity": "PASS",
+        "visible_margin": "PASS",
+        "all_nonzero_alpha_margin": "FAIL"
+      },
+      "notes": "Transparent PNG delivery fails residual alpha=1 in outer strips; not used as input for R21b V5.",
+      "approved_for_delivery": false,
+      "user_approved": false,
+      "canonical_promoted": false,
+      "runtime_integrated": false,
+      "other_purpose_permission": {
+        "purpose": "secondary form reference in opaque scene only",
+        "status": "conditional independent reviewer permission",
+        "used_for_r21b_v5": false,
+        "changes_delivery_failure": false,
+        "replaces_canonical": false
+      }
+    },
+    {
+      "path": "C:/Users/vjinn/.codex/generated_images/01a18406-245e-7570-9379-62120de745d6/exec-47f534af-ca07-4505-b752-a4db03458cce.png",
+      "sha256": "83fd5ee033d341ad3322a8b2c6878210c6f535f9a1b007bc327f9fe984ee8136",
+      "bytes": 3077693,
+      "width": 853,
+      "height": 1844,
+      "mode": "RGB",
+      "id": "R21b-v5",
+      "delivery_status": "FAIL",
+      "checks": {
+        "limb_structure": "PASS",
+        "relative_scale": "FAIL",
+        "taego_face_identity": "FAIL",
+        "body_direction": "FAIL",
+        "badge_side_details": "UNVERIFIED",
+        "table_book_occlusion": "PASS",
+        "sujin_tal_major_identity": "PASS",
+        "ko_de_visible_dialogue": "PASS",
+        "generated_ui_ornaments": "FAIL",
+        "building_state": "UNVERIFIED"
+      },
+      "notes": "Do not deliver, promote or derive subsequent scenes; see R21B_POSTFLIGHT.md.",
+      "approved_for_delivery": false,
+      "user_approved": false,
+      "canonical_promoted": false,
+      "runtime_integrated": false
+    }
+  ],
+  "limitations": [
+    "AI visual review is not user approval.",
+    "No exact centimetre, pixel-identical stripe, rig or runtime certification.",
+    "Local source paths are evidence references; failed image binaries are not shipped by this documentation commit.",
+    "PASS applies only to the observed criterion and its stated scope."
+  ],
+  "next_step": "Resolve R21b canonical scale, face, direction and background composition at preflight before new generation."
+}

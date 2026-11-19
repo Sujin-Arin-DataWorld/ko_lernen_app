@@ -16,26 +16,47 @@ abstract final class GrammarPlanService {
   static List<Grammar> curatedRowsForLevel(
     List<Grammar> source,
     String level,
-  ) =>
-      source
-          .where((g) => g.level.toUpperCase() == level.toUpperCase())
-          .toList(growable: false);
+  ) => source
+      .where((g) => g.level.toUpperCase() == level.toUpperCase())
+      .toList(growable: false);
 
-  /// "오늘 분량" — completedDays 기반 결정적 윈도우. 밀린 날이 있어도
-  /// 누적되지 않고, 다음 접속 시 정확히 itemsPerDay 만큼만 나간다.
+  /// Next unserved IDs in current CSV order. Historical days retain their
+  /// actual IDs, so changing pace cannot skip unseen rows or replay old ones.
+  /// The screen still owns today's completed-day gate and cached quiz slice.
   static List<Grammar> todaysSlice({
     required List<Grammar> curatedRows,
     required GrammarStudyPlan plan,
   }) {
-    if (plan.itemsPerDay <= 0) return const <Grammar>[];
-    final start = plan.completedDays * plan.itemsPerDay;
-    if (start >= curatedRows.length) return const <Grammar>[];
-    final end = (start + plan.itemsPerDay).clamp(0, curatedRows.length);
-    return curatedRows.sublist(start, end);
+    if (plan.itemsPerDay <= 0) {
+      return const <Grammar>[];
+    }
+    return _unservedRows(
+      curatedRows,
+      plan,
+    ).take(plan.itemsPerDay).toList(growable: false);
   }
 
   static int totalDays(List<Grammar> curatedRows, int itemsPerDay) =>
       itemsPerDay <= 0 ? 0 : (curatedRows.length / itemsPerDay).ceil();
+
+  static int totalDaysForPlan({
+    required List<Grammar> curatedRows,
+    required GrammarStudyPlan plan,
+  }) {
+    if (plan.itemsPerDay <= 0) {
+      return 0;
+    }
+    final remaining = _unservedRows(curatedRows, plan).length;
+    return plan.completedDays + (remaining / plan.itemsPerDay).ceil();
+  }
+
+  static Iterable<Grammar> _unservedRows(
+    List<Grammar> curatedRows,
+    GrammarStudyPlan plan,
+  ) {
+    final servedIds = {for (final day in plan.servedIdsByDate.values) ...day};
+    return curatedRows.where((row) => !servedIds.contains(row.id));
+  }
 
   /// dateIso 하루치 서빙 기록을 추가한 새 플랜(불변). 같은 날짜 재호출은
   /// 멱등 — 그 날짜 키를 그대로 덮어쓴다(호출측이 이미 오늘 슬라이스를
@@ -51,9 +72,9 @@ abstract final class GrammarPlanService {
   }
 
   /// 레벨→플랜 맵 직렬화(Storage.grammarPlanRawJson 저장용).
-  static String encodePlans(Map<String, GrammarStudyPlan> plans) => jsonEncode(
-        {for (final entry in plans.entries) entry.key: entry.value.toJson()},
-      );
+  static String encodePlans(Map<String, GrammarStudyPlan> plans) => jsonEncode({
+    for (final entry in plans.entries) entry.key: entry.value.toJson(),
+  });
 
   /// 손상/빈 원본은 조용히 빈 맵으로 떨어진다.
   static Map<String, GrammarStudyPlan> decodePlans(String raw) {

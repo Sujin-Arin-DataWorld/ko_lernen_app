@@ -1,0 +1,700 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "unit_id": "A2.2-05",
+  "band": "A2.2",
+  "title": {
+    "ko": "보이는 것과 짐작한 것",
+    "en": "What you see and what you infer",
+    "de": "Was du siehst und was du vermutest"
+  },
+  "goal": {
+    "ko": "관찰된 상태와 추측을 구분해 말하고 확인한다",
+    "en": "Distinguish an observed state from an inference and check what remains unknown.",
+    "de": "Unterscheide beobachtete Zustände von Vermutungen und frage bei Unbekanntem nach."
+  },
+  "prerequisites": [
+    "A2.1-04",
+    "A2.2-02"
+  ],
+  "teach_targets": {
+    "vocab": [
+      {
+        "ko": "열다",
+        "en": "open",
+        "de": "öffnen"
+      },
+      {
+        "ko": "닫다",
+        "en": "close",
+        "de": "schließen"
+      },
+      {
+        "ko": "걸리다",
+        "en": "be hanging",
+        "de": "hängen"
+      },
+      {
+        "ko": "아마",
+        "en": "perhaps; probably",
+        "de": "vielleicht; vermutlich"
+      },
+      {
+        "ko": "확인",
+        "en": "check",
+        "de": "prüfen"
+      }
+    ],
+    "grammar": [
+      "-는 것 같다",
+      "-아/어 있다",
+      "-고 있다(진행과 결과 상태 대비)"
+    ]
+  },
+  "non_assessed": [
+    "닫힌 문은 새 본편 단서가 아니며 부재·소유·출입 허가의 증거가 아니다.",
+    "사진·영상은 집필용 입력 대본으로 실제 에셋이나 재생 완료를 뜻하지 않는다."
+  ],
+  "source": {
+    "contract_path": "docs/learning/ildu-season1-content-20261030/reference/curriculum/UNITS.psv",
+    "contract_sha256": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+    "story_path": "docs/learning/ildu-season1-content-20261030/manuscripts/season1-rpg-v35/LEVEL_STORY_100.json",
+    "story_sha256": "7db9f275d903d4510a92d07ea0ed4881e2cd9111fbb14412add6947195354332",
+    "base_sha": "646c4658e70f594ab234a172679e29122d0f0e66"
+  },
+  "story": {
+    "lq_id": "LQ-08",
+    "building_id": "anchae",
+    "anchor": "안채 중간 / v3.5 §6 06·§8.1; 이 패킷의 보이는 장면은 2026년 현대 역할 카드",
+    "spoiler_guard": {
+      "canonical_gate": "S1-E06.middle",
+      "visible_variant": "modern_role_card_no_story_gate",
+      "if_unmet": "이 패킷의 현대 모의 대화와 새 자극만 제공한다. 고택의 기억·이름·가족 약속·물건·대사를 선공개하지 않는다.",
+      "if_met": "이미 공개된 본편 자료로 돌아가는 선택만 제공한다. 이 패킷은 새 가족 사실이나 후속 진실을 추가하지 않는다.",
+      "gate_owner": "기존 본편 공개 상태; 학습 수준·정답률·지연 복습·건축률로 대체하지 않는다.",
+      "new_clue": 0,
+      "new_resident_npc": 0,
+      "ownership_or_reward_grant": false
+    }
+  },
+  "dialogue": [
+    {
+      "id": "A2.2-05-D01",
+      "speaker": "sujin",
+      "phase": "entry",
+      "ko": "현대 사진 카드에서 보이는 것부터 말해 보자.",
+      "en": "Start with what is visible in the modern photo card.",
+      "de": "Beginnen wir mit dem Sichtbaren auf der modernen Fotokarte."
+    },
+    {
+      "id": "A2.2-05-D02",
+      "speaker": "christian",
+      "phase": "request",
+      "ko": "문이 닫혀 있으니까 아무도 없는 걸까요?",
+      "en": "Does the closed door mean no one is there?",
+      "de": "Heißt die geschlossene Tür, dass niemand da ist?"
+    },
+    {
+      "id": "A2.2-05-D03",
+      "speaker": "sujin",
+      "phase": "model",
+      "ko": "문이 닫혀 있어요는 상태야. 안에 누가 있는지는 아직 몰라.",
+      "en": "The closed door is a state. We do not yet know who is inside.",
+      "de": "Die geschlossene Tür ist ein Zustand. Wer drinnen ist, wissen wir noch nicht."
+    },
+    {
+      "id": "A2.2-05-D04",
+      "speaker": "sujin",
+      "phase": "model",
+      "ko": "문을 닫고 있어요는 지금 닫는 동작이 진행 중이라는 말이야.",
+      "en": "문을 닫고 있어요 describes the closing action in progress now.",
+      "de": "문을 닫고 있어요 beschreibt die gerade laufende Handlung des Schließens."
+    },
+    {
+      "id": "A2.2-05-D05",
+      "speaker": "sujin",
+      "phase": "practice",
+      "ko": "없는 것 같아요는 추측으로 표시하고 확인 질문을 붙여 봐.",
+      "en": "Mark “it seems no one is there” as an inference, then add a checking question.",
+      "de": "Kennzeichne „Vielleicht ist niemand da“ als Vermutung und ergänze eine Rückfrage."
+    },
+    {
+      "id": "A2.2-05-D06",
+      "speaker": "sujin",
+      "phase": "use",
+      "ko": "새 사진에서는 물건의 자리만 보고 주인을 만들지 말자.",
+      "en": "In a new photo, do not infer an owner just from an object’s location.",
+      "de": "Erfinde beim neuen Foto keine Eigentumsverhältnisse aus dem Standort eines Gegenstands."
+    },
+    {
+      "id": "A2.2-05-D07",
+      "speaker": "christian",
+      "phase": "result",
+      "ko": "보이는 상태는 말하고, 모르는 안쪽은 확인할 수 있겠네요.",
+      "en": "We can state the visible condition and check what is unknown inside.",
+      "de": "Wir können den sichtbaren Zustand nennen und das Unbekannte drinnen prüfen."
+    },
+    {
+      "id": "A2.2-05-D08",
+      "speaker": "sujin",
+      "phase": "return",
+      "ko": "공개된 고택 장면으로 돌아가도 관찰과 짐작을 나누자. 여기서 새 단서를 얻은 것은 아니야.",
+      "en": "In an available estate scene, keep observation and inference separate too. This practice has given no new clue.",
+      "de": "Auch in einer zugänglichen Gutshausszene trennen wir Beobachtung und Vermutung. Die Übung liefert keinen neuen Hinweis."
+    },
+    {
+      "id": "A2.2-05-D09",
+      "speaker": "sujin",
+      "phase": "next",
+      "ko": "내일은 다른 장소와 물건으로 다시 확인해 보자.",
+      "en": "Tomorrow, we will check with another place and object.",
+      "de": "Morgen prüfen wir es an einem anderen Ort und Gegenstand."
+    }
+  ],
+  "items": [
+    {
+      "id": "A2.2-05-P01",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "행동 뒤 유지된 결과 상태를 읽는다",
+      "prompt": {
+        "ko": "지금 보이는 상태를 골라요.",
+        "en": "Choose the state visible now.",
+        "de": "Wähle den jetzt sichtbaren Zustand."
+      },
+      "material": {
+        "context": {
+          "ko": "현대 역할 사진 카드: 문을 닫는 행동은 이미 끝남. 지금 문틈이 없이 닫힌 채 멈춰 있음. 시범: 문이 닫혀 있어요.",
+          "en": "Modern role photo card: the closing action has finished; the door is now stationary and fully closed. Model: The door is closed.",
+          "de": "Moderne Fotokarte: Das Schließen ist beendet. Die Tür steht still und ist vollständig geschlossen. Beispiel: Die Tür ist geschlossen."
+        }
+      },
+      "options": [
+        {
+          "id": "state",
+          "ko": "문이 닫혀 있어요.",
+          "en": "The door is closed.",
+          "de": "Die Tür ist geschlossen."
+        },
+        {
+          "id": "process",
+          "ko": "문을 닫고 있어요.",
+          "en": "Someone is closing the door.",
+          "de": "Die Tür wird gerade geschlossen."
+        },
+        {
+          "id": "open",
+          "ko": "문이 열려 있어요.",
+          "en": "The door is open.",
+          "de": "Die Tür ist offen."
+        }
+      ],
+      "accepted_answers": [
+        "state"
+      ],
+      "feedback_correct": {
+        "ko": "끝난 행동 뒤 남아 있는 닫힘 상태를 말했어요.",
+        "en": "You described the closed state remaining after the action.",
+        "de": "Du hast den geschlossenen Zustand nach der Handlung beschrieben."
+      },
+      "feedback_wrong": {
+        "ko": "지금 닫는 중이거나 열려 있다고 바꾸면 사진과 달라져요.",
+        "en": "Saying it is being closed now or is open changes the photo.",
+        "de": "„Wird gerade geschlossen“ oder „ist offen“ passt nicht zum Foto."
+      },
+      "help": {
+        "ko": "-어 있어요는 이 카드에서 행동 뒤 유지되는 상태예요.",
+        "en": "Here -어 있어요 presents a state that remains after an action.",
+        "de": "-어 있어요 beschreibt hier den nach einer Handlung bleibenden Zustand."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-05-P02",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "진행 동작과 결과 상태를 대비한다",
+      "prompt": {
+        "ko": "크리스티안이 현재 자기 움직임을 직접 말하는 문장을 골라요.",
+        "en": "Choose Christian’s first-person statement about the ongoing action.",
+        "de": "Wähle Christians Aussage über das eigene aktuelle Tun in der Ich-Form."
+      },
+      "material": {
+        "context": {
+          "ko": "영상 대본: 크리스티안이 손으로 창문을 조금씩 여는 중. 아직 다 열지 않음. 시범: 창문을 열고 있어요. 열려 있어요는 열린 뒤 상태를 말할 수 있다.",
+          "en": "Video script: Christian is gradually opening a window by hand; not yet fully open. Model: I am opening the window. 열려 있어요 can describe the resulting open state.",
+          "de": "Videoskript: Christian öffnet das Fenster nach und nach mit der Hand; es ist noch nicht ganz offen. Beispiel: Ich öffne gerade das Fenster. 열려 있어요 kann den offenen Ergebniszustand beschreiben."
+        }
+      },
+      "options": [
+        {
+          "id": "ongoing",
+          "ko": "창문을 열고 있어요.",
+          "en": "I am opening the window.",
+          "de": "Ich öffne gerade das Fenster."
+        },
+        {
+          "id": "done",
+          "ko": "창문을 다 열었고 지금은 자리에 앉아 있어요.",
+          "en": "I have finished opening it and am seated now.",
+          "de": "Ich habe es ganz geöffnet und sitze jetzt."
+        },
+        {
+          "id": "closed",
+          "ko": "창문은 계속 닫혀 있어요.",
+          "en": "The window remains closed.",
+          "de": "Das Fenster bleibt geschlossen."
+        }
+      ],
+      "accepted_answers": [
+        "ongoing"
+      ],
+      "feedback_correct": {
+        "ko": "손이 움직이는 진행 동작을 골랐어요.",
+        "en": "You chose the ongoing action shown by the moving hand.",
+        "de": "Du hast die laufende Tätigkeit der bewegten Hand ausgewählt."
+      },
+      "feedback_wrong": {
+        "ko": "완료나 닫힌 채 유지로 바꾸지 말아요.",
+        "en": "Do not change it into completion or a maintained closed state.",
+        "de": "Mache daraus weder einen Abschluss noch einen unverändert geschlossenen Zustand."
+      },
+      "help": {
+        "ko": "누가 지금 무엇을 하는지 물으면 -고 있어요를 살펴봐요.",
+        "en": "For what someone is doing now, consider -고 있어요.",
+        "de": "Wenn gefragt ist, was jemand gerade tut, prüfe -고 있어요."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-05-P03",
+      "mode": "P",
+      "kind": "choice",
+      "objective": "관찰과 추측을 구분하고 확인한다",
+      "prompt": {
+        "ko": "관찰과 추측의 경계를 지킨 답을 골라요.",
+        "en": "Choose the answer keeping observation separate from inference.",
+        "de": "Wähle die Antwort, die Beobachtung und Vermutung trennt."
+      },
+      "material": {
+        "context": {
+          "ko": "수진과 보는 모의 사진: 문이 닫힘; 내부는 보이지 않음. 소리 확인도 안 함. 시범: 문이 닫혀 있어요. 아무도 없는 것 같지만 아직 몰라요. 안에 계세요?",
+          "en": "Simulated photo with Sujin: door closed; inside not visible; no sound check. Model: The door is closed. It seems no one is there, but we do not know yet. Is anyone inside?",
+          "de": "Simuliertes Foto mit Sujin: Tür geschlossen; innen nicht einsehbar; Geräusche nicht geprüft. Beispiel: Die Tür ist zu. Vielleicht ist niemand da, aber wir wissen es noch nicht. Ist jemand drinnen?"
+        }
+      },
+      "options": [
+        {
+          "id": "check",
+          "ko": "문은 닫혀 있어요. 사람이 없는지는 아직 몰라요. 안에 계세요?",
+          "en": "The door is closed. We do not yet know whether anyone is there. Is anyone inside?",
+          "de": "Die Tür ist zu. Ob jemand da ist, wissen wir noch nicht. Ist jemand drinnen?"
+        },
+        {
+          "id": "certain",
+          "ko": "문이 닫혔으니까 안에는 아무도 없어요.",
+          "en": "The door is closed, so no one is inside.",
+          "de": "Die Tür ist zu, also ist niemand drinnen."
+        },
+        {
+          "id": "invent",
+          "ko": "안에 사람이 세 명 있고 모두 자고 있어요.",
+          "en": "Three people are inside, all sleeping.",
+          "de": "Drinnen sind drei Personen und alle schlafen."
+        }
+      ],
+      "accepted_answers": [
+        "check"
+      ],
+      "feedback_correct": {
+        "ko": "닫힘은 관찰, 부재는 미확인으로 남겨 질문했어요.",
+        "en": "You treated closure as observed and absence as unconfirmed, then asked.",
+        "de": "Du hast die geschlossene Tür als Beobachtung und Abwesenheit als ungeklärt behandelt und nachgefragt."
+      },
+      "feedback_wrong": {
+        "ko": "닫힌 문만으로 안의 사람 수나 부재를 확정할 수 없어요.",
+        "en": "A closed door alone establishes neither occupancy nor absence.",
+        "de": "Eine geschlossene Tür allein bestätigt weder Anwesenheit noch Abwesenheit."
+      },
+      "help": {
+        "ko": "-것 같아요는 추측을 낮춰 말하지만 확인을 대신하지 않아요.",
+        "en": "-것 같아요 softens an inference; it does not replace checking.",
+        "de": "-것 같아요 kennzeichnet eine vorsichtige Vermutung und ersetzt keine Prüfung."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-05-I01",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 그림의 결과 상태를 분류한다",
+      "prompt": {
+        "ko": "사진에서 확인되는 사실만 골라요.",
+        "en": "Choose only what the photo confirms.",
+        "de": "Wähle nur, was auf dem Foto bestätigt wird."
+      },
+      "material": {
+        "context": {
+          "ko": "새 정지 사진: 파란 모자가 벽의 고리에 걸려 있음. 걸어 놓는 사람이나 주인, 걸린 시각은 보이지 않음.",
+          "en": "New still photo: a blue hat hangs on a wall hook. No person placing it, owner, or time is shown.",
+          "de": "Neues Standfoto: Ein blauer Hut hängt an einem Wandhaken. Weder die aufhängende Person noch Eigentümer oder Zeitpunkt sind zu sehen."
+        }
+      },
+      "options": [
+        {
+          "id": "hang",
+          "ko": "파란 모자가 벽에 걸려 있어요.",
+          "en": "A blue hat is hanging on the wall.",
+          "de": "Ein blauer Hut hängt an der Wand."
+        },
+        {
+          "id": "owner",
+          "ko": "크리스티안이 방금 자기 모자를 걸었어요.",
+          "en": "Christian just hung up his own hat.",
+          "de": "Christian hat gerade seinen eigenen Hut aufgehängt."
+        },
+        {
+          "id": "doing",
+          "ko": "누군가 지금 모자를 걸고 있어요.",
+          "en": "Someone is hanging the hat up now.",
+          "de": "Jemand hängt den Hut gerade auf."
+        }
+      ],
+      "accepted_answers": [
+        "hang"
+      ],
+      "feedback_correct": {
+        "ko": "보이는 결과 상태만 말했어요.",
+        "en": "You stated only the visible resulting state.",
+        "de": "Du hast nur den sichtbaren Ergebniszustand genannt."
+      },
+      "feedback_wrong": {
+        "ko": "사진에는 소유자·놓은 사람·방금이라는 시간 근거가 없어요.",
+        "en": "The photo provides no owner, actor, or “just now” evidence.",
+        "de": "Das Foto belegt weder Eigentum noch handelnde Person noch „gerade eben“."
+      },
+      "help": {
+        "ko": "보이는 물건과 위치만 먼저 적어 봐요.",
+        "en": "Start with only the visible object and location.",
+        "de": "Notiere zuerst nur sichtbaren Gegenstand und Ort."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-05-I02",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 동작과 결과 상태를 각각 대응한다",
+      "prompt": {
+        "ko": "두 카드의 차이를 유지하는 설명을 골라요.",
+        "en": "Choose the description preserving the difference between both cards.",
+        "de": "Wähle die Beschreibung, die beide Karten unterscheidet."
+      },
+      "material": {
+        "context": {
+          "ko": "카드 A 동작 대본: 사람이 상자를 지금 여는 중. 카드 B 정지 사진: 상자가 다 열린 채 탁자 위에 있음.",
+          "en": "Card A action script: a person is opening a box now. Card B still photo: the box is fully open on the table.",
+          "de": "Karte A, Handlungsskript: Eine Person öffnet gerade eine Schachtel. Karte B, Standfoto: Die Schachtel steht vollständig geöffnet auf dem Tisch."
+        }
+      },
+      "options": [
+        {
+          "id": "pair",
+          "ko": "A는 상자를 열고 있어요. B는 상자가 열려 있어요.",
+          "en": "In A, someone is opening a box. In B, the box is open.",
+          "de": "Bei A öffnet jemand die Schachtel. Bei B ist sie geöffnet."
+        },
+        {
+          "id": "swap",
+          "ko": "A는 상자가 닫혀 있어요. B는 상자를 닫고 있어요.",
+          "en": "In A, the box is closed. In B, someone is closing it.",
+          "de": "Bei A ist die Schachtel zu. Bei B schließt sie jemand."
+        },
+        {
+          "id": "same",
+          "ko": "A와 B 모두 상자를 다 닫았어요.",
+          "en": "The box has been fully closed in both A and B.",
+          "de": "Bei A und B wurde die Schachtel vollständig geschlossen."
+        }
+      ],
+      "accepted_answers": [
+        "pair"
+      ],
+      "feedback_correct": {
+        "ko": "진행 동작과 유지 상태를 각각 나누었어요.",
+        "en": "You separated the action in progress from the resulting state.",
+        "de": "Du hast laufende Handlung und bleibenden Zustand getrennt."
+      },
+      "feedback_wrong": {
+        "ko": "동작 대본과 멈춘 사진을 같은 완료 행동으로 합치지 않아요.",
+        "en": "Do not merge the action script and still photo into the same completed action.",
+        "de": "Fasse Bewegungsskript und Standfoto nicht als dieselbe abgeschlossene Handlung zusammen."
+      },
+      "help": {
+        "ko": "A에는 움직이는 손, B에는 열린 결과가 있어요.",
+        "en": "A has a moving hand; B shows the open result.",
+        "de": "A zeigt eine bewegte Hand, B das geöffnete Ergebnis."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-05-I03",
+      "mode": "I",
+      "kind": "choice",
+      "objective": "새 추측을 사실로 강화하지 않고 확인한다",
+      "prompt": {
+        "ko": "확인되지 않은 부분을 질문으로 남겨요.",
+        "en": "Leave the unconfirmed part open as a question.",
+        "de": "Lass den ungeklärten Teil als Frage offen."
+      },
+      "material": {
+        "context": {
+          "ko": "새 장소 역할 사진: 가게 불이 꺼짐, 문이 닫힘. 영업시간표는 화면 밖. 크리스티안: 아마 오늘 쉬는 것 같아요.",
+          "en": "New-place role photo: shop lights off, door closed; hours are outside the frame. Christian: I think it might be closed today.",
+          "de": "Neue Ortskarte: Ladenlicht aus, Tür zu; Öffnungszeiten außerhalb des Bildes. Christian: Vielleicht ist heute Ruhetag."
+        }
+      },
+      "options": [
+        {
+          "id": "verify",
+          "ko": "불은 꺼져 있어요. 오늘 쉬는지는 영업시간표로 확인해 볼까요?",
+          "en": "The lights are off. Shall we check the hours to see whether it is closed today?",
+          "de": "Das Licht ist aus. Wollen wir an den Öffnungszeiten prüfen, ob heute Ruhetag ist?"
+        },
+        {
+          "id": "certain",
+          "ko": "오늘 문을 안 여는 게 확실해요.",
+          "en": "It is certain it will not open today.",
+          "de": "Heute wird ganz sicher nicht geöffnet."
+        },
+        {
+          "id": "reason",
+          "ko": "주인이 여행을 가서 문을 닫았어요.",
+          "en": "The owner closed it to go traveling.",
+          "de": "Die Person, der der Laden gehört, hat wegen einer Reise geschlossen."
+        }
+      ],
+      "accepted_answers": [
+        "verify"
+      ],
+      "feedback_correct": {
+        "ko": "불 꺼짐을 말하고 휴무 여부는 확인할 일로 남겼어요.",
+        "en": "You stated the lights are off and left closure to be checked.",
+        "de": "Du hast das ausgeschaltete Licht genannt und den Ruhetag als offene Prüfung behandelt."
+      },
+      "feedback_wrong": {
+        "ko": "아마라는 추측을 확신이나 여행 원인으로 강화하지 말아요.",
+        "en": "Do not strengthen “might” into certainty or a travel explanation.",
+        "de": "Verstärke „vielleicht“ weder zur Gewissheit noch zu einer Reise als Ursache."
+      },
+      "help": {
+        "ko": "관찰한 것 / 짐작한 것 / 확인할 자료를 세 칸으로 나눠요.",
+        "en": "Separate what is observed, inferred, and available to check.",
+        "de": "Trenne Beobachtung, Vermutung und prüfbare Informationsquelle."
+      },
+      "scoring": "structured",
+      "evidence_limit": "보기에서 의미·형태를 식별한 범위만 확인한다. 정답 선택은 독립 발화·발음·실생활 수행의 증거가 아니며 도움 노출 이력과 분리한다."
+    },
+    {
+      "id": "A2.2-05-R01",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "다음 날 새 상태와 미확인 소유를 구별한다",
+      "prompt": {
+        "ko": "새 사진의 관찰만 고르세요.",
+        "en": "Choose only the observation from the new photo.",
+        "de": "Wähle nur die Beobachtung auf dem neuen Foto."
+      },
+      "material": {
+        "context": {
+          "ko": "다음 날 새 자극: 노란 우산이 입구 고리에 걸린 정지 사진. 이름표 없음. 누가 걸었는지·누구 것인지 모름. 이전 답 숨김.",
+          "en": "Next-day new stimulus: still photo of a yellow umbrella hanging on an entrance hook, without a name label. Actor and owner unknown. Previous answers hidden.",
+          "de": "Neuer Impuls am nächsten Tag: Standfoto eines gelben Schirms am Eingangshaken, ohne Namensschild. Handelnde Person und Eigentum unbekannt. Alte Antworten verborgen."
+        },
+        "delay": "next_day"
+      },
+      "options": [
+        {
+          "id": "seen",
+          "ko": "노란 우산이 입구에 걸려 있어요.",
+          "en": "A yellow umbrella is hanging by the entrance.",
+          "de": "Am Eingang hängt ein gelber Schirm."
+        },
+        {
+          "id": "mine",
+          "ko": "제 우산을 수진이 걸었어요.",
+          "en": "Sujin hung up my umbrella.",
+          "de": "Sujin hat meinen Schirm aufgehängt."
+        },
+        {
+          "id": "now",
+          "ko": "지금 누군가 우산을 걸고 있어요.",
+          "en": "Someone is hanging up the umbrella now.",
+          "de": "Jemand hängt gerade den Schirm auf."
+        }
+      ],
+      "accepted_answers": [
+        "seen"
+      ],
+      "feedback_correct": {
+        "ko": "새 물건에서도 상태만 관찰했어요.",
+        "en": "You identified only the state for a new object.",
+        "de": "Auch beim neuen Gegenstand hast du nur den Zustand genannt."
+      },
+      "feedback_wrong": {
+        "ko": "정지 사진은 걸어 놓은 행동이나 소유를 확인하지 못해요.",
+        "en": "A still photo does not establish the placing action or ownership.",
+        "de": "Ein Standfoto bestätigt weder die Handlung des Aufhängens noch Eigentum."
+      },
+      "help": {
+        "ko": "새 물건의 색·자리·현재 상태만 확인해요.",
+        "en": "Check only the new object’s color, location, and present state.",
+        "de": "Prüfe nur Farbe, Ort und jetzigen Zustand des neuen Gegenstands."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 자료의 선택 이해만 확인한다. 도움·정답 공개 전후를 구분하며 보존 성공·독립 발화·이야기 해금 증거로 확대하지 않는다."
+    },
+    {
+      "id": "A2.2-05-R02",
+      "mode": "R",
+      "kind": "choice",
+      "objective": "다음 날 새 추측을 확인 질문으로 잇는다",
+      "prompt": {
+        "ko": "추측을 남겨 두고 확인하는 답을 골라요.",
+        "en": "Choose the reply that leaves the inference open and checks it.",
+        "de": "Wähle die Antwort, die die Vermutung offenlässt und überprüft."
+      },
+      "material": {
+        "context": {
+          "ko": "다음 날 새 장소: 도서관 방의 커튼이 닫혀 있음. 안은 보이지 않음. 소리 없음. 비었는지는 확인 전. 이전 모델 숨김.",
+          "en": "Next-day new place: curtains closed in a library room; interior unseen; no sound; vacancy unconfirmed. Previous models hidden.",
+          "de": "Neuer Ort am nächsten Tag: Vorhänge eines Bibliotheksraums zu; Innenraum nicht sichtbar; kein Geräusch; Belegung ungeklärt. Frühere Vorlagen verborgen."
+        },
+        "delay": "next_day"
+      },
+      "options": [
+        {
+          "id": "ask",
+          "ko": "커튼이 닫혀 있어요. 방이 빈 것 같지만 아직 몰라요. 사용 중인지 확인할까요?",
+          "en": "The curtains are closed. The room seems empty, but we do not know yet. Shall we check whether it is in use?",
+          "de": "Die Vorhänge sind zu. Vielleicht ist der Raum leer, aber wir wissen es noch nicht. Prüfen wir, ob er benutzt wird?"
+        },
+        {
+          "id": "fact",
+          "ko": "커튼이 닫혔으니까 아무도 없어요.",
+          "en": "The curtains are closed, so no one is there.",
+          "de": "Die Vorhänge sind zu, also ist niemand da."
+        },
+        {
+          "id": "busy",
+          "ko": "모든 자리가 찼어요.",
+          "en": "Every seat is occupied.",
+          "de": "Alle Plätze sind besetzt."
+        }
+      ],
+      "accepted_answers": [
+        "ask"
+      ],
+      "feedback_correct": {
+        "ko": "새 장소에서도 관찰과 추측, 확인을 분리했어요.",
+        "en": "You separated observation, inference, and checking in a new place.",
+        "de": "Auch am neuen Ort hast du Beobachtung, Vermutung und Prüfung getrennt."
+      },
+      "feedback_wrong": {
+        "ko": "조용함과 가려진 안쪽은 부재나 만석을 확정하지 않아요.",
+        "en": "Silence and a hidden interior establish neither vacancy nor full occupancy.",
+        "de": "Ruhe und verdeckter Innenraum bestätigen weder Leere noch Vollbelegung."
+      },
+      "help": {
+        "ko": "없는 것 같다는 추측 뒤에 확인 질문을 붙여요.",
+        "en": "Follow a tentative absence inference with a checking question.",
+        "de": "Ergänze eine Vermutung über Abwesenheit durch eine Rückfrage."
+      },
+      "scoring": "structured",
+      "evidence_limit": "다음 날 새 자료의 선택 이해만 확인한다. 도움·정답 공개 전후를 구분하며 보존 성공·독립 발화·이야기 해금 증거로 확대하지 않는다."
+    },
+    {
+      "id": "A2.2-05-T01",
+      "mode": "T",
+      "kind": "roleplay",
+      "objective": "새 장소의 관찰을 말하고 추측을 확인한다",
+      "prompt": {
+        "ko": "관찰 한 문장과 확인 질문을 말하거나 써 보세요.",
+        "en": "Say or write one observation and a checking question.",
+        "de": "Sprich oder schreibe eine Beobachtung und eine Rückfrage."
+      },
+      "material": {
+        "context": {
+          "ko": "새 현대 모의 장소: 모임 방 앞. 문은 열려 있음. 안쪽 의자는 한 개만 보이고 다른 공간은 가려짐. 사용 중인지·사람 수는 모름. 처음 만난 성인에게 해요체로 묻는다. 열린 문만으로 입장 허가나 사용 가능을 선언하지 않는다.",
+          "en": "New modern simulated place: outside a meeting room. Door open; only one chair visible, rest obscured. Occupancy and number of people unknown. Ask an unfamiliar adult using 해요체. An open door grants no permission to enter or claim the room.",
+          "de": "Neuer moderner Übungsort: vor einem Gruppenraum. Tür offen; nur ein Stuhl sichtbar, der Rest verdeckt. Nutzung und Personenzahl unbekannt. Frage eine unbekannte erwachsene Person auf Koreanisch in 해요체. Eine offene Tür erlaubt weder Zutritt noch die Beanspruchung des Raums."
+        }
+      },
+      "options": [],
+      "accepted_answers": [],
+      "feedback_correct": {
+        "ko": "보이는 상태와 모르는 사용 여부를 나눴는지 살펴봐요.",
+        "en": "Check that the visible state and unknown room use remain separate.",
+        "de": "Prüfe, ob sichtbarer Zustand und ungeklärte Nutzung getrennt bleiben."
+      },
+      "feedback_wrong": {
+        "ko": "방이 비었다거나 사용할 권한이 생겼다고 덧붙이지 말아요.",
+        "en": "Do not add that the room is empty or that you have acquired permission to use it.",
+        "de": "Ergänze weder einen leeren Raum noch eine erhaltene Nutzungsberechtigung."
+      },
+      "help": {
+        "ko": "먼저 보이는 문 상태를 말하고, 사용 여부는 질문으로 남겨요.",
+        "en": "First state the visible door condition, then ask whether the room is in use.",
+        "de": "Nenne zuerst den sichtbaren Türzustand und frage dann nach der Nutzung."
+      },
+      "scoring": "unscored",
+      "evidence_limit": "열린 역할 수행은 자동 채점하지 않는다. 의미·화행·사실·관계의 충족 여부를 본인 또는 별도 검토자가 살핀다. 독립 발화·발음·실생활 전이는 이 문항만으로 인증하지 않는다."
+    }
+  ],
+  "responses": {
+    "assisted": {
+      "ko": "도움을 보고 이어 갔어요. 이번 시도는 도움 사용으로 구분해요.",
+      "en": "You continued with help. Keep this attempt separate from work done independently.",
+      "de": "Du hast mit Hilfe weitergemacht. Dieser Versuch zählt getrennt von selbstständiger Arbeit."
+    },
+    "independent": {
+      "ko": "정답 시범 없이 선택했어요. 선택 이해와 직접 말하기는 따로 확인해요.",
+      "en": "You chose without an answer model. Choosing an answer and producing your own speech are checked separately.",
+      "de": "Du hast ohne Lösungsvorlage gewählt. Antworten auszuwählen und selbst zu sprechen wird getrennt geprüft."
+    },
+    "audio_unavailable": {
+      "ko": "소리를 재생할 수 없어요. 글과 상황 카드로 계속하고, 듣기·발음 확인은 나중에 해요.",
+      "en": "Audio is unavailable. Continue with the text and situation cards; check listening and pronunciation later.",
+      "de": "Der Ton ist nicht verfügbar. Mach mit Text und Situationskarten weiter; Hören und Aussprache prüfst du später."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 돼요. 이야기나 건축 진행을 되돌리는 조건은 없어요.",
+      "en": "You can pause here. Pausing does not undo story or construction progress.",
+      "de": "Du kannst hier pausieren. Dadurch gehen weder Geschichte noch Baufortschritt zurück."
+    },
+    "resume": {
+      "ko": "현재 상황과 입력을 다시 보고 이어 가요. 도움을 본 시도는 그대로 구분해요.",
+      "en": "Review the current situation and input, then continue. Attempts made with help stay separate.",
+      "de": "Sieh dir die aktuelle Situation und deine Eingabe an und mach weiter. Versuche mit Hilfe bleiben getrennt."
+    },
+    "save_failed": {
+      "ko": "저장을 확인하지 못했어요. 현재 입력을 유지한 채 다시 시도해요. 저장 완료로 표시하지 않아요.",
+      "en": "Saving could not be confirmed. Keep the current input and try again; do not mark it as saved.",
+      "de": "Das Speichern konnte nicht bestätigt werden. Behalte deine Eingabe und versuche es erneut; sie gilt noch nicht als gespeichert."
+    },
+    "revisit": {
+      "ko": "다음 날에는 새 상황으로 다시 해 봐요. 놓쳐도 본편은 계속할 수 있어요.",
+      "en": "Try a new situation the next day. Missing the review does not block the story.",
+      "de": "Versuche es am nächsten Tag mit einer neuen Situation. Auch ohne diese Wiederholung geht die Geschichte weiter."
+    }
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true
+  }
+}

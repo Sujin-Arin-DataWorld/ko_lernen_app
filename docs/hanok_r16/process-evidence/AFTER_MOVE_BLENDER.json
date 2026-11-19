@@ -1,0 +1,279 @@
+{
+  "complete": true,
+  "oldSourceAbsent": true,
+  "files": [
+    {
+      "variant": "r16-native",
+      "path": "anchae/full.blend",
+      "sha256": "3602b84f788337f1037b104daf525a95067e0def74e261a267b765064e818613",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "r16-native",
+      "path": "anchae/stage.blend",
+      "sha256": "c1f6c07756ab2fe9636d1a25305746a7bb6179a291d4f6ed11e584af42542c47",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 14
+    },
+    {
+      "variant": "r16-native",
+      "path": "angotgan/full.blend",
+      "sha256": "e8f600ba76db069d1c70517ee29be321df5817e8441160e52ac98413e426b4ae",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "r16-native",
+      "path": "angotgan/stage.blend",
+      "sha256": "6370e61ab337a4dbf451dd9e02eaf4f65794fd94b11870bdf79f2a58769caa10",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 11
+    },
+    {
+      "variant": "r16-native",
+      "path": "ansarang/full.blend",
+      "sha256": "06d3925b6ebd508967bb6b2c46d509e58e32c6d4c52b0df280a1d52a741e88f9",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "r16-native",
+      "path": "ansarang/stage.blend",
+      "sha256": "48f51680ee187f41c90fa9e8e9efc14a54601702d5725eb1fd83fc02ba520a25",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 14
+    },
+    {
+      "variant": "r16-native",
+      "path": "arae/full.blend",
+      "sha256": "b97426e3ed7e673a484bb4ca822289a4fc42fe7da2bfd6899daa08ffc69e035c",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "r16-native",
+      "path": "arae/stage.blend",
+      "sha256": "fff63830a310bf060378c6b90b69caa8b5d256043086739286a49676498a377b",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 12
+    },
+    {
+      "variant": "r16-native",
+      "path": "changgo/full.blend",
+      "sha256": "cbab7c5857cbb8d5d278629b6da6058f603a4a9aaa9d90f6d3f3cf4f1bd32a85",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "r16-native",
+      "path": "changgo/stage.blend",
+      "sha256": "af708cfac5c6d21004f6a894cbef8cdc40c60ebec41974380475a631bc5ccdd9",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 8
+    },
+    {
+      "variant": "r16-native",
+      "path": "gokgan/full.blend",
+      "sha256": "302449fce492fe60e949757b44157cba0fd7849bd75022193b9a028ff5f0e8d8",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "r16-native",
+      "path": "gokgan/stage.blend",
+      "sha256": "41bad121ab6bd6f8131451437f22f2c8377c59d5e66c397dd1baf5efeb3fdd8a",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 11
+    },
+    {
+      "variant": "r16-native",
+      "path": "jung/full.blend",
+      "sha256": "5257728066bd62b8a38fbf897890b093ab98523316665927f00e7049fb8ac1ab",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "r16-native",
+      "path": "jung/stage.blend",
+      "sha256": "1f2290ce6c4ed7fb4992d83accb8881ea8018a415eb94845cfc434df04565f11",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 12
+    },
+    {
+      "variant": "r16-native",
+      "path": "sadang/full.blend",
+      "sha256": "cccb2806bf97555eae3429faeec42752fb94e19d00ba456a97064efff964f8b6",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "r16-native",
+      "path": "sadang/stage.blend",
+      "sha256": "117ca49764b59b5ac8ccc6edd9ca5174fcf5fc1010ad6153ed740eb2dc4b3012",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 12
+    },
+    {
+      "variant": "r16-native",
+      "path": "sarang/full.blend",
+      "sha256": "b001666cef8bf9d0a23157c2aebb220d1df22f3b00698482e8277e9680049d12",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "r16-native",
+      "path": "sarang/stage.blend",
+      "sha256": "e472d6d44973a541bc871254a0c949f3439351401cf6956df41698e4f3c5f578",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 16
+    },
+    {
+      "variant": "r16-native",
+      "path": "toilet/full.blend",
+      "sha256": "001c38ecb9fdd10aeef7595b734796889b3661076efcc84823332651f3317b4f",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "r16-native",
+      "path": "toilet/stage.blend",
+      "sha256": "d015775d7e15178f14ce617366daadc8bd291f9044bae5e2c906f362739b91f5",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 9
+    },
+    {
+      "variant": "r16-native",
+      "path": "toilet1/full.blend",
+      "sha256": "d4877d10cf9cedc0a38804cd16e5ed4616d254cc9a8588e1a881b864bab5e8ef",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "r16-native",
+      "path": "toilet1/stage.blend",
+      "sha256": "5365313cfbac869dd13d7f331c80f3fcd81f73d632fbac647dfd379e205c668d",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 9
+    },
+    {
+      "variant": "current-gates",
+      "path": "native/left-material.blend",
+      "sha256": "a44ba08bbdad79ac3fc0e746a2a1d8cc5ac062c4448e21150794f2225060afb7",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "current-gates",
+      "path": "native/left-structural.blend",
+      "sha256": "36b4c3f4699ef154d3192a449eea52cdbb1507ccab690944a79e80da8196a35c",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "current-gates",
+      "path": "native/right-material.blend",
+      "sha256": "55f5c6c7a5b0a32f6f7ac79c6dbf9d11878b979b208ddcf66d64eeed1dc91699",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "current-gates",
+      "path": "native/right-structural.blend",
+      "sha256": "b27cae98f2424522f3b0b9988748fcab1b32476dbd6b741270feee571c4ad720",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "current-gates",
+      "path": "native/shrine-material.blend",
+      "sha256": "a13ee80980f0445e1cd2bf79e028ec12c63517b9d54d40edba837f984210ce6e",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    },
+    {
+      "variant": "current-gates",
+      "path": "native/shrine-structural.blend",
+      "sha256": "faebecf9cba14f7278ef611d002362f503fbfcd5705811d1ab19922a0d913686",
+      "reopened": true,
+      "externalImagesRequired": false,
+      "externalLibrariesRequired": false,
+      "checkedStages": 0
+    }
+  ],
+  "r16Natives": 22,
+  "gateNatives": 6,
+  "checkedStages": 128,
+  "renders": [
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\validation\\remote-sarang-full.png",
+      "sha256": "17cb240036e95e8b38f7546271f7686e487c928b8c82031891737bae12604bcf",
+      "frame": null
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\validation\\remote-sarang-stage8.png",
+      "sha256": "b244968bf64030960b365f93008df6c0a72192e43e573df7306db0a13d4aee12",
+      "frame": 8
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\validation\\remote-gate-left.png",
+      "sha256": "4753139e3b2d16f4fb9ae84a58165adb4620f8268fc8bf3f224de62ae2d9a1f2",
+      "frame": null
+    }
+  ],
+  "remoteCommit": "4f016f35b2e7b90a7dc8e976e4cb4986effeee5d"
+}

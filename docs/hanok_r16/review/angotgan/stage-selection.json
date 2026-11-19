@@ -1,0 +1,2203 @@
+{
+  "key": "angotgan",
+  "buildingId": "anchae-store",
+  "name": "안채곳간채",
+  "selectorAuthority": "canonical-review catalog and preserved GLB/native explicit reviewStage",
+  "canonicalCatalogSha256": "4f511d3c06b1dcc995cdf94f578b70f400f0ca96bc14fcf65e689eacaec9c6d1",
+  "steps": [
+    {
+      "sequence": 1,
+      "processId": "ildu.anchae-store-site-storage",
+      "label": "터와 수납 공간",
+      "isFinal": false,
+      "visibleObjects": [],
+      "visibleOriginals": [],
+      "visibleProxies": [],
+      "newMembers": 0,
+      "newOriginalMembers": 0,
+      "visibleMembers": 0,
+      "visibleSetSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "noNewGeometry": true
+    },
+    {
+      "sequence": 2,
+      "processId": "ildu.anchae-store-stone-foundation",
+      "label": "돌기단",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar"
+      ],
+      "visibleOriginals": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar"
+      ],
+      "visibleProxies": [],
+      "newMembers": 4,
+      "newOriginalMembers": 4,
+      "visibleMembers": 4,
+      "visibleSetSha256": "ce74180d817467b1f675f201b3e2b708c8fac54f68e92bcdaa658587cb4b0d80",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 3,
+      "processId": "ildu.anchae-store-posts",
+      "label": "기둥",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame square post"
+      ],
+      "visibleOriginals": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame square post"
+      ],
+      "visibleProxies": [],
+      "newMembers": 1,
+      "newOriginalMembers": 1,
+      "visibleMembers": 5,
+      "visibleSetSha256": "1c26bec6933ebd9454fe1c5967f53ad37dfdeeb3897885742dbd455a304f9516",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 4,
+      "processId": "ildu.anchae-store-beams-purlins",
+      "label": "보와 도리",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)"
+      ],
+      "visibleOriginals": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)"
+      ],
+      "visibleProxies": [],
+      "newMembers": 21,
+      "newOriginalMembers": 21,
+      "visibleMembers": 26,
+      "visibleSetSha256": "922b8e4e1d0cd1a6ef58a091db03cb2a75d234b1f08dc8cb472b58d2b6024e6a",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 5,
+      "processId": "ildu.anchae-store-rafters-eaves",
+      "label": "서까래와 처마",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+        "North.angotgan.survey v73 continuous round rafters",
+        "North.angotgan.survey v73 roof.eave beam"
+      ],
+      "visibleOriginals": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+        "North.angotgan.survey v73 continuous round rafters",
+        "North.angotgan.survey v73 roof.eave beam"
+      ],
+      "visibleProxies": [],
+      "newMembers": 2,
+      "newOriginalMembers": 2,
+      "visibleMembers": 28,
+      "visibleSetSha256": "84053dfc6b7699bfca233d580d391f60538dd1e65bea85df7c3c3918c69f3520",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 6,
+      "processId": "ildu.anchae-store-roof-bed",
+      "label": "지붕 바탕",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+        "North.angotgan.survey v73 continuous round rafters",
+        "North.angotgan.survey v73 roof.eave beam",
+        "North.angotgan.survey v73 solid roof bed"
+      ],
+      "visibleOriginals": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+        "North.angotgan.survey v73 continuous round rafters",
+        "North.angotgan.survey v73 roof.eave beam",
+        "North.angotgan.survey v73 solid roof bed"
+      ],
+      "visibleProxies": [],
+      "newMembers": 1,
+      "newOriginalMembers": 1,
+      "visibleMembers": 29,
+      "visibleSetSha256": "ff9f4852a82fe153fc49fc67dcf7ac47005a9663173a07134e36e805580ec0ba",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 7,
+      "processId": "ildu.anchae-store-tiles",
+      "label": "기와",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+        "North.angotgan.survey v73 continuous round rafters",
+        "North.angotgan.survey v73 roof",
+        "North.angotgan.survey v73 roof.001",
+        "North.angotgan.survey v73 roof.002",
+        "North.angotgan.survey v73 roof.003",
+        "North.angotgan.survey v73 roof.004",
+        "North.angotgan.survey v73 roof.005",
+        "North.angotgan.survey v73 roof.eave beam",
+        "North.angotgan.survey v73 roof.ridge stack",
+        "North.angotgan.survey v73 roof.ridge stack.001",
+        "North.angotgan.survey v73 roof.ridge stack.002",
+        "North.angotgan.survey v73 roof.ridge stack.003",
+        "North.angotgan.survey v73 roof.ridge stack.004",
+        "North.angotgan.survey v73 roof.round tile ends",
+        "North.angotgan.survey v73 solid roof bed",
+        "North.angotgan.v74 three barge ceramic courses -1",
+        "North.angotgan.v74 three barge ceramic courses 1"
+      ],
+      "visibleOriginals": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+        "North.angotgan.survey v73 continuous round rafters",
+        "North.angotgan.survey v73 roof",
+        "North.angotgan.survey v73 roof.001",
+        "North.angotgan.survey v73 roof.002",
+        "North.angotgan.survey v73 roof.003",
+        "North.angotgan.survey v73 roof.004",
+        "North.angotgan.survey v73 roof.005",
+        "North.angotgan.survey v73 roof.eave beam",
+        "North.angotgan.survey v73 roof.ridge stack",
+        "North.angotgan.survey v73 roof.ridge stack.001",
+        "North.angotgan.survey v73 roof.ridge stack.002",
+        "North.angotgan.survey v73 roof.ridge stack.003",
+        "North.angotgan.survey v73 roof.ridge stack.004",
+        "North.angotgan.survey v73 roof.round tile ends",
+        "North.angotgan.survey v73 solid roof bed",
+        "North.angotgan.v74 three barge ceramic courses -1",
+        "North.angotgan.v74 three barge ceramic courses 1"
+      ],
+      "visibleProxies": [],
+      "newMembers": 14,
+      "newOriginalMembers": 14,
+      "visibleMembers": 43,
+      "visibleSetSha256": "ed923cbe56976571acdb04c366d21f06bf4473ad4ecb81f867aa511820a82ccf",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 8,
+      "processId": "ildu.anchae-store-compacted-floor",
+      "label": "다짐 바닥",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+        "North.angotgan.survey v73 continuous round rafters",
+        "North.angotgan.survey v73 roof",
+        "North.angotgan.survey v73 roof.001",
+        "North.angotgan.survey v73 roof.002",
+        "North.angotgan.survey v73 roof.003",
+        "North.angotgan.survey v73 roof.004",
+        "North.angotgan.survey v73 roof.005",
+        "North.angotgan.survey v73 roof.eave beam",
+        "North.angotgan.survey v73 roof.ridge stack",
+        "North.angotgan.survey v73 roof.ridge stack.001",
+        "North.angotgan.survey v73 roof.ridge stack.002",
+        "North.angotgan.survey v73 roof.ridge stack.003",
+        "North.angotgan.survey v73 roof.ridge stack.004",
+        "North.angotgan.survey v73 roof.round tile ends",
+        "North.angotgan.survey v73 solid roof bed",
+        "North.angotgan.v74 three barge ceramic courses -1",
+        "North.angotgan.v74 three barge ceramic courses 1"
+      ],
+      "visibleOriginals": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+        "North.angotgan.survey v73 continuous round rafters",
+        "North.angotgan.survey v73 roof",
+        "North.angotgan.survey v73 roof.001",
+        "North.angotgan.survey v73 roof.002",
+        "North.angotgan.survey v73 roof.003",
+        "North.angotgan.survey v73 roof.004",
+        "North.angotgan.survey v73 roof.005",
+        "North.angotgan.survey v73 roof.eave beam",
+        "North.angotgan.survey v73 roof.ridge stack",
+        "North.angotgan.survey v73 roof.ridge stack.001",
+        "North.angotgan.survey v73 roof.ridge stack.002",
+        "North.angotgan.survey v73 roof.ridge stack.003",
+        "North.angotgan.survey v73 roof.ridge stack.004",
+        "North.angotgan.survey v73 roof.round tile ends",
+        "North.angotgan.survey v73 solid roof bed",
+        "North.angotgan.v74 three barge ceramic courses -1",
+        "North.angotgan.v74 three barge ceramic courses 1"
+      ],
+      "visibleProxies": [],
+      "newMembers": 0,
+      "newOriginalMembers": 0,
+      "visibleMembers": 43,
+      "visibleSetSha256": "ed923cbe56976571acdb04c366d21f06bf4473ad4ecb81f867aa511820a82ccf",
+      "noNewGeometry": true
+    },
+    {
+      "sequence": 9,
+      "processId": "ildu.anchae-store-walls-partition",
+      "label": "벽체와 칸막이",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.front plank wall",
+        "North.angotgan.interior two storage rooms",
+        "North.angotgan.rear or closed bay plank wall",
+        "North.angotgan.side plank wall",
+        "North.angotgan.side upper plaster",
+        "North.angotgan.side upper plaster.head/sill",
+        "North.angotgan.side upper plaster.jamb",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+        "North.angotgan.survey v73 continuous round rafters",
+        "North.angotgan.survey v73 roof",
+        "North.angotgan.survey v73 roof.001",
+        "North.angotgan.survey v73 roof.002",
+        "North.angotgan.survey v73 roof.003",
+        "North.angotgan.survey v73 roof.004",
+        "North.angotgan.survey v73 roof.005",
+        "North.angotgan.survey v73 roof.eave beam",
+        "North.angotgan.survey v73 roof.ridge stack",
+        "North.angotgan.survey v73 roof.ridge stack.001",
+        "North.angotgan.survey v73 roof.ridge stack.002",
+        "North.angotgan.survey v73 roof.ridge stack.003",
+        "North.angotgan.survey v73 roof.ridge stack.004",
+        "North.angotgan.survey v73 roof.round tile ends",
+        "North.angotgan.survey v73 solid roof bed",
+        "North.angotgan.survey v73 upper lime closure (0, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (0, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (1, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (1, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (2, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (2, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (3, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (3, 1.35)",
+        "North.angotgan.upper lime strip",
+        "North.angotgan.upper lime strip.head/sill",
+        "North.angotgan.upper lime strip.jamb",
+        "North.angotgan.v74 continuous plaster gable -1",
+        "North.angotgan.v74 continuous plaster gable 1",
+        "North.angotgan.v74 three barge ceramic courses -1",
+        "North.angotgan.v74 three barge ceramic courses 1"
+      ],
+      "visibleOriginals": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.front plank wall",
+        "North.angotgan.interior two storage rooms",
+        "North.angotgan.rear or closed bay plank wall",
+        "North.angotgan.side plank wall",
+        "North.angotgan.side upper plaster",
+        "North.angotgan.side upper plaster.head/sill",
+        "North.angotgan.side upper plaster.jamb",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+        "North.angotgan.survey v73 continuous round rafters",
+        "North.angotgan.survey v73 roof",
+        "North.angotgan.survey v73 roof.001",
+        "North.angotgan.survey v73 roof.002",
+        "North.angotgan.survey v73 roof.003",
+        "North.angotgan.survey v73 roof.004",
+        "North.angotgan.survey v73 roof.005",
+        "North.angotgan.survey v73 roof.eave beam",
+        "North.angotgan.survey v73 roof.ridge stack",
+        "North.angotgan.survey v73 roof.ridge stack.001",
+        "North.angotgan.survey v73 roof.ridge stack.002",
+        "North.angotgan.survey v73 roof.ridge stack.003",
+        "North.angotgan.survey v73 roof.ridge stack.004",
+        "North.angotgan.survey v73 roof.round tile ends",
+        "North.angotgan.survey v73 solid roof bed",
+        "North.angotgan.survey v73 upper lime closure (0, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (0, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (1, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (1, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (2, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (2, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (3, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (3, 1.35)",
+        "North.angotgan.upper lime strip",
+        "North.angotgan.upper lime strip.head/sill",
+        "North.angotgan.upper lime strip.jamb",
+        "North.angotgan.v74 continuous plaster gable -1",
+        "North.angotgan.v74 continuous plaster gable 1",
+        "North.angotgan.v74 three barge ceramic courses -1",
+        "North.angotgan.v74 three barge ceramic courses 1"
+      ],
+      "visibleProxies": [],
+      "newMembers": 20,
+      "newOriginalMembers": 20,
+      "visibleMembers": 63,
+      "visibleSetSha256": "9dcfb48e424f697d9fe0bd4993df02ca45edbb4d4a144170c270cf0054785a34",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 10,
+      "processId": "ildu.anchae-store-doors-vents",
+      "label": "문과 환기창",
+      "isFinal": false,
+      "visibleObjects": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.front WD1 0.leaf1.forged hinge",
+        "North.angotgan.front WD1 0.leaf1.iron ring",
+        "North.angotgan.front WD1 0.leaf1.nail",
+        "North.angotgan.front WD1 0.leaf1.rear rail",
+        "North.angotgan.front WD1 0.leaf1.solid board",
+        "North.angotgan.front WD1 0.leaf2.forged hinge",
+        "North.angotgan.front WD1 0.leaf2.iron ring",
+        "North.angotgan.front WD1 0.leaf2.nail",
+        "North.angotgan.front WD1 0.leaf2.rear rail",
+        "North.angotgan.front WD1 0.leaf2.solid board",
+        "North.angotgan.front WD1 2.leaf1.forged hinge",
+        "North.angotgan.front WD1 2.leaf1.iron ring",
+        "North.angotgan.front WD1 2.leaf1.nail",
+        "North.angotgan.front WD1 2.leaf1.rear rail",
+        "North.angotgan.front WD1 2.leaf1.solid board",
+        "North.angotgan.front WD1 2.leaf2.forged hinge",
+        "North.angotgan.front WD1 2.leaf2.iron ring",
+        "North.angotgan.front WD1 2.leaf2.nail",
+        "North.angotgan.front WD1 2.leaf2.rear rail",
+        "North.angotgan.front WD1 2.leaf2.solid board",
+        "North.angotgan.front WD1 3.leaf1.forged hinge",
+        "North.angotgan.front WD1 3.leaf1.iron ring",
+        "North.angotgan.front WD1 3.leaf1.nail",
+        "North.angotgan.front WD1 3.leaf1.rear rail",
+        "North.angotgan.front WD1 3.leaf1.solid board",
+        "North.angotgan.front WD1 3.leaf2.forged hinge",
+        "North.angotgan.front WD1 3.leaf2.iron ring",
+        "North.angotgan.front WD1 3.leaf2.nail",
+        "North.angotgan.front WD1 3.leaf2.rear rail",
+        "North.angotgan.front WD1 3.leaf2.solid board",
+        "North.angotgan.front plank wall",
+        "North.angotgan.interior two storage rooms",
+        "North.angotgan.rear WW3 black void",
+        "North.angotgan.rear WW3 three horizontal bars",
+        "North.angotgan.rear WW3.rail",
+        "North.angotgan.rear WW3.stile",
+        "North.angotgan.rear or closed bay plank wall",
+        "North.angotgan.side measured vent black void",
+        "North.angotgan.side measured vent three horizontal bars",
+        "North.angotgan.side measured vent.rail",
+        "North.angotgan.side measured vent.stile",
+        "North.angotgan.side plank wall",
+        "North.angotgan.side upper plaster",
+        "North.angotgan.side upper plaster.head/sill",
+        "North.angotgan.side upper plaster.jamb",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+        "North.angotgan.survey v73 continuous round rafters",
+        "North.angotgan.survey v73 roof",
+        "North.angotgan.survey v73 roof.001",
+        "North.angotgan.survey v73 roof.002",
+        "North.angotgan.survey v73 roof.003",
+        "North.angotgan.survey v73 roof.004",
+        "North.angotgan.survey v73 roof.005",
+        "North.angotgan.survey v73 roof.eave beam",
+        "North.angotgan.survey v73 roof.ridge stack",
+        "North.angotgan.survey v73 roof.ridge stack.001",
+        "North.angotgan.survey v73 roof.ridge stack.002",
+        "North.angotgan.survey v73 roof.ridge stack.003",
+        "North.angotgan.survey v73 roof.ridge stack.004",
+        "North.angotgan.survey v73 roof.round tile ends",
+        "North.angotgan.survey v73 solid roof bed",
+        "North.angotgan.survey v73 upper lime closure (0, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (0, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (1, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (1, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (2, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (2, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (3, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (3, 1.35)",
+        "North.angotgan.upper lime strip",
+        "North.angotgan.upper lime strip.head/sill",
+        "North.angotgan.upper lime strip.jamb",
+        "North.angotgan.v74 continuous plaster gable -1",
+        "North.angotgan.v74 continuous plaster gable 1",
+        "North.angotgan.v74 three barge ceramic courses -1",
+        "North.angotgan.v74 three barge ceramic courses 1"
+      ],
+      "visibleOriginals": [
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.front WD1 0.leaf1.forged hinge",
+        "North.angotgan.front WD1 0.leaf1.iron ring",
+        "North.angotgan.front WD1 0.leaf1.nail",
+        "North.angotgan.front WD1 0.leaf1.rear rail",
+        "North.angotgan.front WD1 0.leaf1.solid board",
+        "North.angotgan.front WD1 0.leaf2.forged hinge",
+        "North.angotgan.front WD1 0.leaf2.iron ring",
+        "North.angotgan.front WD1 0.leaf2.nail",
+        "North.angotgan.front WD1 0.leaf2.rear rail",
+        "North.angotgan.front WD1 0.leaf2.solid board",
+        "North.angotgan.front WD1 2.leaf1.forged hinge",
+        "North.angotgan.front WD1 2.leaf1.iron ring",
+        "North.angotgan.front WD1 2.leaf1.nail",
+        "North.angotgan.front WD1 2.leaf1.rear rail",
+        "North.angotgan.front WD1 2.leaf1.solid board",
+        "North.angotgan.front WD1 2.leaf2.forged hinge",
+        "North.angotgan.front WD1 2.leaf2.iron ring",
+        "North.angotgan.front WD1 2.leaf2.nail",
+        "North.angotgan.front WD1 2.leaf2.rear rail",
+        "North.angotgan.front WD1 2.leaf2.solid board",
+        "North.angotgan.front WD1 3.leaf1.forged hinge",
+        "North.angotgan.front WD1 3.leaf1.iron ring",
+        "North.angotgan.front WD1 3.leaf1.nail",
+        "North.angotgan.front WD1 3.leaf1.rear rail",
+        "North.angotgan.front WD1 3.leaf1.solid board",
+        "North.angotgan.front WD1 3.leaf2.forged hinge",
+        "North.angotgan.front WD1 3.leaf2.iron ring",
+        "North.angotgan.front WD1 3.leaf2.nail",
+        "North.angotgan.front WD1 3.leaf2.rear rail",
+        "North.angotgan.front WD1 3.leaf2.solid board",
+        "North.angotgan.front plank wall",
+        "North.angotgan.interior two storage rooms",
+        "North.angotgan.rear WW3 black void",
+        "North.angotgan.rear WW3 three horizontal bars",
+        "North.angotgan.rear WW3.rail",
+        "North.angotgan.rear WW3.stile",
+        "North.angotgan.rear or closed bay plank wall",
+        "North.angotgan.side measured vent black void",
+        "North.angotgan.side measured vent three horizontal bars",
+        "North.angotgan.side measured vent.rail",
+        "North.angotgan.side measured vent.stile",
+        "North.angotgan.side plank wall",
+        "North.angotgan.side upper plaster",
+        "North.angotgan.side upper plaster.head/sill",
+        "North.angotgan.side upper plaster.jamb",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+        "North.angotgan.survey v73 continuous round rafters",
+        "North.angotgan.survey v73 roof",
+        "North.angotgan.survey v73 roof.001",
+        "North.angotgan.survey v73 roof.002",
+        "North.angotgan.survey v73 roof.003",
+        "North.angotgan.survey v73 roof.004",
+        "North.angotgan.survey v73 roof.005",
+        "North.angotgan.survey v73 roof.eave beam",
+        "North.angotgan.survey v73 roof.ridge stack",
+        "North.angotgan.survey v73 roof.ridge stack.001",
+        "North.angotgan.survey v73 roof.ridge stack.002",
+        "North.angotgan.survey v73 roof.ridge stack.003",
+        "North.angotgan.survey v73 roof.ridge stack.004",
+        "North.angotgan.survey v73 roof.round tile ends",
+        "North.angotgan.survey v73 solid roof bed",
+        "North.angotgan.survey v73 upper lime closure (0, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (0, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (1, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (1, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (2, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (2, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (3, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (3, 1.35)",
+        "North.angotgan.upper lime strip",
+        "North.angotgan.upper lime strip.head/sill",
+        "North.angotgan.upper lime strip.jamb",
+        "North.angotgan.v74 continuous plaster gable -1",
+        "North.angotgan.v74 continuous plaster gable 1",
+        "North.angotgan.v74 three barge ceramic courses -1",
+        "North.angotgan.v74 three barge ceramic courses 1"
+      ],
+      "visibleProxies": [],
+      "newMembers": 38,
+      "newOriginalMembers": 38,
+      "visibleMembers": 101,
+      "visibleSetSha256": "5c92fb5b6da70009b76a1ca6602469cc7a8fbde01ba02c1b17917346bd969e4c",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 11,
+      "processId": "ildu.anchae-store-complete-use",
+      "label": "완성 · 사용",
+      "isFinal": true,
+      "visibleObjects": [
+        "GyeCraft.angotgan.irregular paving 0",
+        "GyeCraft.angotgan.irregular paving 1",
+        "GyeCraft.angotgan.irregular paving 2",
+        "GyeCraft.angotgan.irregular paving 3",
+        "GyeCraft.angotgan.irregular paving 4",
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.front WD1 0.leaf1.forged hinge",
+        "North.angotgan.front WD1 0.leaf1.iron ring",
+        "North.angotgan.front WD1 0.leaf1.nail",
+        "North.angotgan.front WD1 0.leaf1.rear rail",
+        "North.angotgan.front WD1 0.leaf1.solid board",
+        "North.angotgan.front WD1 0.leaf2.forged hinge",
+        "North.angotgan.front WD1 0.leaf2.iron ring",
+        "North.angotgan.front WD1 0.leaf2.nail",
+        "North.angotgan.front WD1 0.leaf2.rear rail",
+        "North.angotgan.front WD1 0.leaf2.solid board",
+        "North.angotgan.front WD1 2.leaf1.forged hinge",
+        "North.angotgan.front WD1 2.leaf1.iron ring",
+        "North.angotgan.front WD1 2.leaf1.nail",
+        "North.angotgan.front WD1 2.leaf1.rear rail",
+        "North.angotgan.front WD1 2.leaf1.solid board",
+        "North.angotgan.front WD1 2.leaf2.forged hinge",
+        "North.angotgan.front WD1 2.leaf2.iron ring",
+        "North.angotgan.front WD1 2.leaf2.nail",
+        "North.angotgan.front WD1 2.leaf2.rear rail",
+        "North.angotgan.front WD1 2.leaf2.solid board",
+        "North.angotgan.front WD1 3.leaf1.forged hinge",
+        "North.angotgan.front WD1 3.leaf1.iron ring",
+        "North.angotgan.front WD1 3.leaf1.nail",
+        "North.angotgan.front WD1 3.leaf1.rear rail",
+        "North.angotgan.front WD1 3.leaf1.solid board",
+        "North.angotgan.front WD1 3.leaf2.forged hinge",
+        "North.angotgan.front WD1 3.leaf2.iron ring",
+        "North.angotgan.front WD1 3.leaf2.nail",
+        "North.angotgan.front WD1 3.leaf2.rear rail",
+        "North.angotgan.front WD1 3.leaf2.solid board",
+        "North.angotgan.front plank wall",
+        "North.angotgan.interior two storage rooms",
+        "North.angotgan.rear WW3 black void",
+        "North.angotgan.rear WW3 three horizontal bars",
+        "North.angotgan.rear WW3.rail",
+        "North.angotgan.rear WW3.stile",
+        "North.angotgan.rear or closed bay plank wall",
+        "North.angotgan.side measured vent black void",
+        "North.angotgan.side measured vent three horizontal bars",
+        "North.angotgan.side measured vent.rail",
+        "North.angotgan.side measured vent.stile",
+        "North.angotgan.side plank wall",
+        "North.angotgan.side upper plaster",
+        "North.angotgan.side upper plaster.head/sill",
+        "North.angotgan.side upper plaster.jamb",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+        "North.angotgan.survey v73 continuous round rafters",
+        "North.angotgan.survey v73 roof",
+        "North.angotgan.survey v73 roof.001",
+        "North.angotgan.survey v73 roof.002",
+        "North.angotgan.survey v73 roof.003",
+        "North.angotgan.survey v73 roof.004",
+        "North.angotgan.survey v73 roof.005",
+        "North.angotgan.survey v73 roof.eave beam",
+        "North.angotgan.survey v73 roof.ridge stack",
+        "North.angotgan.survey v73 roof.ridge stack.001",
+        "North.angotgan.survey v73 roof.ridge stack.002",
+        "North.angotgan.survey v73 roof.ridge stack.003",
+        "North.angotgan.survey v73 roof.ridge stack.004",
+        "North.angotgan.survey v73 roof.round tile ends",
+        "North.angotgan.survey v73 solid roof bed",
+        "North.angotgan.survey v73 upper lime closure (0, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (0, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (1, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (1, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (2, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (2, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (3, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (3, 1.35)",
+        "North.angotgan.upper lime strip",
+        "North.angotgan.upper lime strip.head/sill",
+        "North.angotgan.upper lime strip.jamb",
+        "North.angotgan.v74 45x300 barge board -1",
+        "North.angotgan.v74 45x300 barge board 1",
+        "North.angotgan.v74 continuous plaster gable -1",
+        "North.angotgan.v74 continuous plaster gable 1",
+        "North.angotgan.v74 three barge ceramic courses -1",
+        "North.angotgan.v74 three barge ceramic courses 1"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.angotgan.irregular paving 0",
+        "GyeCraft.angotgan.irregular paving 1",
+        "GyeCraft.angotgan.irregular paving 2",
+        "GyeCraft.angotgan.irregular paving 3",
+        "GyeCraft.angotgan.irregular paving 4",
+        "North.angotgan.foundation",
+        "North.angotgan.foundation earth top",
+        "North.angotgan.foundation individual plinth",
+        "North.angotgan.foundation.recessed earth mortar",
+        "North.angotgan.frame longitudinal beam",
+        "North.angotgan.frame mortise peg",
+        "North.angotgan.frame square post",
+        "North.angotgan.frame transverse beam.survey v73",
+        "North.angotgan.front WD1 0.leaf1.forged hinge",
+        "North.angotgan.front WD1 0.leaf1.iron ring",
+        "North.angotgan.front WD1 0.leaf1.nail",
+        "North.angotgan.front WD1 0.leaf1.rear rail",
+        "North.angotgan.front WD1 0.leaf1.solid board",
+        "North.angotgan.front WD1 0.leaf2.forged hinge",
+        "North.angotgan.front WD1 0.leaf2.iron ring",
+        "North.angotgan.front WD1 0.leaf2.nail",
+        "North.angotgan.front WD1 0.leaf2.rear rail",
+        "North.angotgan.front WD1 0.leaf2.solid board",
+        "North.angotgan.front WD1 2.leaf1.forged hinge",
+        "North.angotgan.front WD1 2.leaf1.iron ring",
+        "North.angotgan.front WD1 2.leaf1.nail",
+        "North.angotgan.front WD1 2.leaf1.rear rail",
+        "North.angotgan.front WD1 2.leaf1.solid board",
+        "North.angotgan.front WD1 2.leaf2.forged hinge",
+        "North.angotgan.front WD1 2.leaf2.iron ring",
+        "North.angotgan.front WD1 2.leaf2.nail",
+        "North.angotgan.front WD1 2.leaf2.rear rail",
+        "North.angotgan.front WD1 2.leaf2.solid board",
+        "North.angotgan.front WD1 3.leaf1.forged hinge",
+        "North.angotgan.front WD1 3.leaf1.iron ring",
+        "North.angotgan.front WD1 3.leaf1.nail",
+        "North.angotgan.front WD1 3.leaf1.rear rail",
+        "North.angotgan.front WD1 3.leaf1.solid board",
+        "North.angotgan.front WD1 3.leaf2.forged hinge",
+        "North.angotgan.front WD1 3.leaf2.iron ring",
+        "North.angotgan.front WD1 3.leaf2.nail",
+        "North.angotgan.front WD1 3.leaf2.rear rail",
+        "North.angotgan.front WD1 3.leaf2.solid board",
+        "North.angotgan.front plank wall",
+        "North.angotgan.interior two storage rooms",
+        "North.angotgan.rear WW3 black void",
+        "North.angotgan.rear WW3 three horizontal bars",
+        "North.angotgan.rear WW3.rail",
+        "North.angotgan.rear WW3.stile",
+        "North.angotgan.rear or closed bay plank wall",
+        "North.angotgan.side measured vent black void",
+        "North.angotgan.side measured vent three horizontal bars",
+        "North.angotgan.side measured vent.rail",
+        "North.angotgan.side measured vent.stile",
+        "North.angotgan.side plank wall",
+        "North.angotgan.side upper plaster",
+        "North.angotgan.side upper plaster.head/sill",
+        "North.angotgan.side upper plaster.jamb",
+        "North.angotgan.survey v73 180mm eave purlin -1.35",
+        "North.angotgan.survey v73 180mm eave purlin 1.35",
+        "North.angotgan.survey v73 180mm ridge purlin",
+        "North.angotgan.survey v73 90mm kingpost -0.18",
+        "North.angotgan.survey v73 90mm kingpost -2.43",
+        "North.angotgan.survey v73 90mm kingpost -4.68",
+        "North.angotgan.survey v73 90mm kingpost 2.25",
+        "North.angotgan.survey v73 90mm kingpost 4.68",
+        "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+        "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+        "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+        "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+        "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+        "North.angotgan.survey v73 continuous round rafters",
+        "North.angotgan.survey v73 roof",
+        "North.angotgan.survey v73 roof.001",
+        "North.angotgan.survey v73 roof.002",
+        "North.angotgan.survey v73 roof.003",
+        "North.angotgan.survey v73 roof.004",
+        "North.angotgan.survey v73 roof.005",
+        "North.angotgan.survey v73 roof.eave beam",
+        "North.angotgan.survey v73 roof.ridge stack",
+        "North.angotgan.survey v73 roof.ridge stack.001",
+        "North.angotgan.survey v73 roof.ridge stack.002",
+        "North.angotgan.survey v73 roof.ridge stack.003",
+        "North.angotgan.survey v73 roof.ridge stack.004",
+        "North.angotgan.survey v73 roof.round tile ends",
+        "North.angotgan.survey v73 solid roof bed",
+        "North.angotgan.survey v73 upper lime closure (0, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (0, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (1, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (1, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (2, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (2, 1.35)",
+        "North.angotgan.survey v73 upper lime closure (3, -1.35)",
+        "North.angotgan.survey v73 upper lime closure (3, 1.35)",
+        "North.angotgan.upper lime strip",
+        "North.angotgan.upper lime strip.head/sill",
+        "North.angotgan.upper lime strip.jamb",
+        "North.angotgan.v74 45x300 barge board -1",
+        "North.angotgan.v74 45x300 barge board 1",
+        "North.angotgan.v74 continuous plaster gable -1",
+        "North.angotgan.v74 continuous plaster gable 1",
+        "North.angotgan.v74 three barge ceramic courses -1",
+        "North.angotgan.v74 three barge ceramic courses 1"
+      ],
+      "visibleProxies": [],
+      "newMembers": 7,
+      "newOriginalMembers": 7,
+      "visibleMembers": 108,
+      "visibleSetSha256": "691542d481d276374e2db1cd2595e3d37b38327754468d58dd770a1230fae17b",
+      "noNewGeometry": false
+    }
+  ],
+  "originalObjectCount": 108,
+  "proxyObjectCount": 0,
+  "baseline": {
+    "GyeCraft.angotgan.irregular paving 0": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.angotgan.irregular paving 1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.angotgan.irregular paving 2": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.angotgan.irregular paving 3": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.angotgan.irregular paving 4": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.foundation": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.foundation earth top": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.foundation individual plinth": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.foundation.recessed earth mortar": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.frame longitudinal beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.frame mortise peg": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.frame square post": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.frame transverse beam.survey v73": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 0.leaf1.forged hinge": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 0.leaf1.iron ring": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 0.leaf1.nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 0.leaf1.rear rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 0.leaf1.solid board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 0.leaf2.forged hinge": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 0.leaf2.iron ring": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 0.leaf2.nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 0.leaf2.rear rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 0.leaf2.solid board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 2.leaf1.forged hinge": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 2.leaf1.iron ring": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 2.leaf1.nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 2.leaf1.rear rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 2.leaf1.solid board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 2.leaf2.forged hinge": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 2.leaf2.iron ring": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 2.leaf2.nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 2.leaf2.rear rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 2.leaf2.solid board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 3.leaf1.forged hinge": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 3.leaf1.iron ring": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 3.leaf1.nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 3.leaf1.rear rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 3.leaf1.solid board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 3.leaf2.forged hinge": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 3.leaf2.iron ring": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 3.leaf2.nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 3.leaf2.rear rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front WD1 3.leaf2.solid board": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.front plank wall": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.interior two storage rooms": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.rear WW3 black void": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.rear WW3 three horizontal bars": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.rear WW3.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.rear WW3.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.rear or closed bay plank wall": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.side measured vent black void": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.side measured vent three horizontal bars": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.side measured vent.rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.side measured vent.stile": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.side plank wall": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.side upper plaster": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.side upper plaster.head/sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.side upper plaster.jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 180mm eave purlin -1.35": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 180mm eave purlin 1.35": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 180mm ridge purlin": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 90mm kingpost -0.18": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 90mm kingpost -2.43": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 90mm kingpost -4.68": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 90mm kingpost 2.25": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 90mm kingpost 4.68": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 bearing block (-0.18, -1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 bearing block (-0.18, 1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 bearing block (-2.43, -1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 bearing block (-2.43, 1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 bearing block (-4.68, -1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 bearing block (-4.68, 1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 bearing block (2.25, -1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 bearing block (2.25, 1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 bearing block (4.68, -1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 bearing block (4.68, 1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 continuous round rafters": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 roof": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 roof.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 roof.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 roof.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 roof.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 roof.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 roof.eave beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 roof.ridge stack": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 roof.ridge stack.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 roof.ridge stack.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 roof.ridge stack.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 roof.ridge stack.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 roof.round tile ends": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 solid roof bed": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 upper lime closure (0, -1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 upper lime closure (0, 1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 upper lime closure (1, -1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 upper lime closure (1, 1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 upper lime closure (2, -1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 upper lime closure (2, 1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 upper lime closure (3, -1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.survey v73 upper lime closure (3, 1.35)": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.upper lime strip": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.upper lime strip.head/sill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.upper lime strip.jamb": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.v74 45x300 barge board -1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.v74 45x300 barge board 1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.v74 continuous plaster gable -1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.v74 continuous plaster gable 1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.v74 three barge ceramic courses -1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "North.angotgan.v74 three barge ceramic courses 1": {
+      "hideRender": false,
+      "hideViewport": false
+    }
+  },
+  "requiredStage": {
+    "GyeCraft.angotgan.irregular paving 0": 11,
+    "GyeCraft.angotgan.irregular paving 1": 11,
+    "GyeCraft.angotgan.irregular paving 2": 11,
+    "GyeCraft.angotgan.irregular paving 3": 11,
+    "GyeCraft.angotgan.irregular paving 4": 11,
+    "North.angotgan.foundation": 2,
+    "North.angotgan.foundation earth top": 2,
+    "North.angotgan.foundation individual plinth": 2,
+    "North.angotgan.foundation.recessed earth mortar": 2,
+    "North.angotgan.frame longitudinal beam": 4,
+    "North.angotgan.frame mortise peg": 4,
+    "North.angotgan.frame square post": 3,
+    "North.angotgan.frame transverse beam.survey v73": 4,
+    "North.angotgan.front WD1 0.leaf1.forged hinge": 10,
+    "North.angotgan.front WD1 0.leaf1.iron ring": 10,
+    "North.angotgan.front WD1 0.leaf1.nail": 10,
+    "North.angotgan.front WD1 0.leaf1.rear rail": 10,
+    "North.angotgan.front WD1 0.leaf1.solid board": 10,
+    "North.angotgan.front WD1 0.leaf2.forged hinge": 10,
+    "North.angotgan.front WD1 0.leaf2.iron ring": 10,
+    "North.angotgan.front WD1 0.leaf2.nail": 10,
+    "North.angotgan.front WD1 0.leaf2.rear rail": 10,
+    "North.angotgan.front WD1 0.leaf2.solid board": 10,
+    "North.angotgan.front WD1 2.leaf1.forged hinge": 10,
+    "North.angotgan.front WD1 2.leaf1.iron ring": 10,
+    "North.angotgan.front WD1 2.leaf1.nail": 10,
+    "North.angotgan.front WD1 2.leaf1.rear rail": 10,
+    "North.angotgan.front WD1 2.leaf1.solid board": 10,
+    "North.angotgan.front WD1 2.leaf2.forged hinge": 10,
+    "North.angotgan.front WD1 2.leaf2.iron ring": 10,
+    "North.angotgan.front WD1 2.leaf2.nail": 10,
+    "North.angotgan.front WD1 2.leaf2.rear rail": 10,
+    "North.angotgan.front WD1 2.leaf2.solid board": 10,
+    "North.angotgan.front WD1 3.leaf1.forged hinge": 10,
+    "North.angotgan.front WD1 3.leaf1.iron ring": 10,
+    "North.angotgan.front WD1 3.leaf1.nail": 10,
+    "North.angotgan.front WD1 3.leaf1.rear rail": 10,
+    "North.angotgan.front WD1 3.leaf1.solid board": 10,
+    "North.angotgan.front WD1 3.leaf2.forged hinge": 10,
+    "North.angotgan.front WD1 3.leaf2.iron ring": 10,
+    "North.angotgan.front WD1 3.leaf2.nail": 10,
+    "North.angotgan.front WD1 3.leaf2.rear rail": 10,
+    "North.angotgan.front WD1 3.leaf2.solid board": 10,
+    "North.angotgan.front plank wall": 9,
+    "North.angotgan.interior two storage rooms": 9,
+    "North.angotgan.rear WW3 black void": 10,
+    "North.angotgan.rear WW3 three horizontal bars": 10,
+    "North.angotgan.rear WW3.rail": 10,
+    "North.angotgan.rear WW3.stile": 10,
+    "North.angotgan.rear or closed bay plank wall": 9,
+    "North.angotgan.side measured vent black void": 10,
+    "North.angotgan.side measured vent three horizontal bars": 10,
+    "North.angotgan.side measured vent.rail": 10,
+    "North.angotgan.side measured vent.stile": 10,
+    "North.angotgan.side plank wall": 9,
+    "North.angotgan.side upper plaster": 9,
+    "North.angotgan.side upper plaster.head/sill": 9,
+    "North.angotgan.side upper plaster.jamb": 9,
+    "North.angotgan.survey v73 180mm eave purlin -1.35": 4,
+    "North.angotgan.survey v73 180mm eave purlin 1.35": 4,
+    "North.angotgan.survey v73 180mm ridge purlin": 4,
+    "North.angotgan.survey v73 90mm kingpost -0.18": 4,
+    "North.angotgan.survey v73 90mm kingpost -2.43": 4,
+    "North.angotgan.survey v73 90mm kingpost -4.68": 4,
+    "North.angotgan.survey v73 90mm kingpost 2.25": 4,
+    "North.angotgan.survey v73 90mm kingpost 4.68": 4,
+    "North.angotgan.survey v73 bearing block (-0.18, -1.35)": 4,
+    "North.angotgan.survey v73 bearing block (-0.18, 1.35)": 4,
+    "North.angotgan.survey v73 bearing block (-2.43, -1.35)": 4,
+    "North.angotgan.survey v73 bearing block (-2.43, 1.35)": 4,
+    "North.angotgan.survey v73 bearing block (-4.68, -1.35)": 4,
+    "North.angotgan.survey v73 bearing block (-4.68, 1.35)": 4,
+    "North.angotgan.survey v73 bearing block (2.25, -1.35)": 4,
+    "North.angotgan.survey v73 bearing block (2.25, 1.35)": 4,
+    "North.angotgan.survey v73 bearing block (4.68, -1.35)": 4,
+    "North.angotgan.survey v73 bearing block (4.68, 1.35)": 4,
+    "North.angotgan.survey v73 continuous round rafters": 5,
+    "North.angotgan.survey v73 roof": 7,
+    "North.angotgan.survey v73 roof.001": 7,
+    "North.angotgan.survey v73 roof.002": 7,
+    "North.angotgan.survey v73 roof.003": 7,
+    "North.angotgan.survey v73 roof.004": 7,
+    "North.angotgan.survey v73 roof.005": 7,
+    "North.angotgan.survey v73 roof.eave beam": 5,
+    "North.angotgan.survey v73 roof.ridge stack": 7,
+    "North.angotgan.survey v73 roof.ridge stack.001": 7,
+    "North.angotgan.survey v73 roof.ridge stack.002": 7,
+    "North.angotgan.survey v73 roof.ridge stack.003": 7,
+    "North.angotgan.survey v73 roof.ridge stack.004": 7,
+    "North.angotgan.survey v73 roof.round tile ends": 7,
+    "North.angotgan.survey v73 solid roof bed": 6,
+    "North.angotgan.survey v73 upper lime closure (0, -1.35)": 9,
+    "North.angotgan.survey v73 upper lime closure (0, 1.35)": 9,
+    "North.angotgan.survey v73 upper lime closure (1, -1.35)": 9,
+    "North.angotgan.survey v73 upper lime closure (1, 1.35)": 9,
+    "North.angotgan.survey v73 upper lime closure (2, -1.35)": 9,
+    "North.angotgan.survey v73 upper lime closure (2, 1.35)": 9,
+    "North.angotgan.survey v73 upper lime closure (3, -1.35)": 9,
+    "North.angotgan.survey v73 upper lime closure (3, 1.35)": 9,
+    "North.angotgan.upper lime strip": 9,
+    "North.angotgan.upper lime strip.head/sill": 9,
+    "North.angotgan.upper lime strip.jamb": 9,
+    "North.angotgan.v74 45x300 barge board -1": 11,
+    "North.angotgan.v74 45x300 barge board 1": 11,
+    "North.angotgan.v74 continuous plaster gable -1": 9,
+    "North.angotgan.v74 continuous plaster gable 1": 9,
+    "North.angotgan.v74 three barge ceramic courses -1": 7,
+    "North.angotgan.v74 three barge ceramic courses 1": 7
+  },
+  "lineage": {
+    "GyeCraft.angotgan.irregular paving 0": {
+      "sourceObject": "GyeCraft.angotgan.irregular paving 0",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.angotgan.irregular paving 1": {
+      "sourceObject": "GyeCraft.angotgan.irregular paving 1",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.angotgan.irregular paving 2": {
+      "sourceObject": "GyeCraft.angotgan.irregular paving 2",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.angotgan.irregular paving 3": {
+      "sourceObject": "GyeCraft.angotgan.irregular paving 3",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.angotgan.irregular paving 4": {
+      "sourceObject": "GyeCraft.angotgan.irregular paving 4",
+      "processId": null,
+      "original": true
+    },
+    "North.angotgan.foundation": {
+      "sourceObject": "North.angotgan.foundation",
+      "processId": "ildu.anchae-store-stone-foundation",
+      "original": true
+    },
+    "North.angotgan.foundation earth top": {
+      "sourceObject": "North.angotgan.foundation earth top",
+      "processId": "ildu.anchae-store-stone-foundation",
+      "original": true
+    },
+    "North.angotgan.foundation individual plinth": {
+      "sourceObject": "North.angotgan.foundation individual plinth",
+      "processId": "ildu.anchae-store-stone-foundation",
+      "original": true
+    },
+    "North.angotgan.foundation.recessed earth mortar": {
+      "sourceObject": "North.angotgan.foundation.recessed earth mortar",
+      "processId": "ildu.anchae-store-stone-foundation",
+      "original": true
+    },
+    "North.angotgan.frame longitudinal beam": {
+      "sourceObject": "North.angotgan.frame longitudinal beam",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.frame mortise peg": {
+      "sourceObject": "North.angotgan.frame mortise peg",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.frame square post": {
+      "sourceObject": "North.angotgan.frame square post",
+      "processId": "ildu.anchae-store-posts",
+      "original": true
+    },
+    "North.angotgan.frame transverse beam.survey v73": {
+      "sourceObject": "North.angotgan.frame transverse beam.survey v73",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.front WD1 0.leaf1.forged hinge": {
+      "sourceObject": "North.angotgan.front WD1 0.leaf1.forged hinge",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 0.leaf1.iron ring": {
+      "sourceObject": "North.angotgan.front WD1 0.leaf1.iron ring",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 0.leaf1.nail": {
+      "sourceObject": "North.angotgan.front WD1 0.leaf1.nail",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 0.leaf1.rear rail": {
+      "sourceObject": "North.angotgan.front WD1 0.leaf1.rear rail",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 0.leaf1.solid board": {
+      "sourceObject": "North.angotgan.front WD1 0.leaf1.solid board",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 0.leaf2.forged hinge": {
+      "sourceObject": "North.angotgan.front WD1 0.leaf2.forged hinge",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 0.leaf2.iron ring": {
+      "sourceObject": "North.angotgan.front WD1 0.leaf2.iron ring",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 0.leaf2.nail": {
+      "sourceObject": "North.angotgan.front WD1 0.leaf2.nail",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 0.leaf2.rear rail": {
+      "sourceObject": "North.angotgan.front WD1 0.leaf2.rear rail",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 0.leaf2.solid board": {
+      "sourceObject": "North.angotgan.front WD1 0.leaf2.solid board",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 2.leaf1.forged hinge": {
+      "sourceObject": "North.angotgan.front WD1 2.leaf1.forged hinge",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 2.leaf1.iron ring": {
+      "sourceObject": "North.angotgan.front WD1 2.leaf1.iron ring",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 2.leaf1.nail": {
+      "sourceObject": "North.angotgan.front WD1 2.leaf1.nail",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 2.leaf1.rear rail": {
+      "sourceObject": "North.angotgan.front WD1 2.leaf1.rear rail",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 2.leaf1.solid board": {
+      "sourceObject": "North.angotgan.front WD1 2.leaf1.solid board",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 2.leaf2.forged hinge": {
+      "sourceObject": "North.angotgan.front WD1 2.leaf2.forged hinge",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 2.leaf2.iron ring": {
+      "sourceObject": "North.angotgan.front WD1 2.leaf2.iron ring",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 2.leaf2.nail": {
+      "sourceObject": "North.angotgan.front WD1 2.leaf2.nail",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 2.leaf2.rear rail": {
+      "sourceObject": "North.angotgan.front WD1 2.leaf2.rear rail",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 2.leaf2.solid board": {
+      "sourceObject": "North.angotgan.front WD1 2.leaf2.solid board",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 3.leaf1.forged hinge": {
+      "sourceObject": "North.angotgan.front WD1 3.leaf1.forged hinge",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 3.leaf1.iron ring": {
+      "sourceObject": "North.angotgan.front WD1 3.leaf1.iron ring",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 3.leaf1.nail": {
+      "sourceObject": "North.angotgan.front WD1 3.leaf1.nail",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 3.leaf1.rear rail": {
+      "sourceObject": "North.angotgan.front WD1 3.leaf1.rear rail",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 3.leaf1.solid board": {
+      "sourceObject": "North.angotgan.front WD1 3.leaf1.solid board",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 3.leaf2.forged hinge": {
+      "sourceObject": "North.angotgan.front WD1 3.leaf2.forged hinge",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 3.leaf2.iron ring": {
+      "sourceObject": "North.angotgan.front WD1 3.leaf2.iron ring",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 3.leaf2.nail": {
+      "sourceObject": "North.angotgan.front WD1 3.leaf2.nail",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 3.leaf2.rear rail": {
+      "sourceObject": "North.angotgan.front WD1 3.leaf2.rear rail",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front WD1 3.leaf2.solid board": {
+      "sourceObject": "North.angotgan.front WD1 3.leaf2.solid board",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.front plank wall": {
+      "sourceObject": "North.angotgan.front plank wall",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.interior two storage rooms": {
+      "sourceObject": "North.angotgan.interior two storage rooms",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.rear WW3 black void": {
+      "sourceObject": "North.angotgan.rear WW3 black void",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.rear WW3 three horizontal bars": {
+      "sourceObject": "North.angotgan.rear WW3 three horizontal bars",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.rear WW3.rail": {
+      "sourceObject": "North.angotgan.rear WW3.rail",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.rear WW3.stile": {
+      "sourceObject": "North.angotgan.rear WW3.stile",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.rear or closed bay plank wall": {
+      "sourceObject": "North.angotgan.rear or closed bay plank wall",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.side measured vent black void": {
+      "sourceObject": "North.angotgan.side measured vent black void",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.side measured vent three horizontal bars": {
+      "sourceObject": "North.angotgan.side measured vent three horizontal bars",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.side measured vent.rail": {
+      "sourceObject": "North.angotgan.side measured vent.rail",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.side measured vent.stile": {
+      "sourceObject": "North.angotgan.side measured vent.stile",
+      "processId": "ildu.anchae-store-doors-vents",
+      "original": true
+    },
+    "North.angotgan.side plank wall": {
+      "sourceObject": "North.angotgan.side plank wall",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.side upper plaster": {
+      "sourceObject": "North.angotgan.side upper plaster",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.side upper plaster.head/sill": {
+      "sourceObject": "North.angotgan.side upper plaster.head/sill",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.side upper plaster.jamb": {
+      "sourceObject": "North.angotgan.side upper plaster.jamb",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.survey v73 180mm eave purlin -1.35": {
+      "sourceObject": "North.angotgan.survey v73 180mm eave purlin -1.35",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 180mm eave purlin 1.35": {
+      "sourceObject": "North.angotgan.survey v73 180mm eave purlin 1.35",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 180mm ridge purlin": {
+      "sourceObject": "North.angotgan.survey v73 180mm ridge purlin",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 90mm kingpost -0.18": {
+      "sourceObject": "North.angotgan.survey v73 90mm kingpost -0.18",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 90mm kingpost -2.43": {
+      "sourceObject": "North.angotgan.survey v73 90mm kingpost -2.43",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 90mm kingpost -4.68": {
+      "sourceObject": "North.angotgan.survey v73 90mm kingpost -4.68",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 90mm kingpost 2.25": {
+      "sourceObject": "North.angotgan.survey v73 90mm kingpost 2.25",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 90mm kingpost 4.68": {
+      "sourceObject": "North.angotgan.survey v73 90mm kingpost 4.68",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 bearing block (-0.18, -1.35)": {
+      "sourceObject": "North.angotgan.survey v73 bearing block (-0.18, -1.35)",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 bearing block (-0.18, 1.35)": {
+      "sourceObject": "North.angotgan.survey v73 bearing block (-0.18, 1.35)",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 bearing block (-2.43, -1.35)": {
+      "sourceObject": "North.angotgan.survey v73 bearing block (-2.43, -1.35)",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 bearing block (-2.43, 1.35)": {
+      "sourceObject": "North.angotgan.survey v73 bearing block (-2.43, 1.35)",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 bearing block (-4.68, -1.35)": {
+      "sourceObject": "North.angotgan.survey v73 bearing block (-4.68, -1.35)",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 bearing block (-4.68, 1.35)": {
+      "sourceObject": "North.angotgan.survey v73 bearing block (-4.68, 1.35)",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 bearing block (2.25, -1.35)": {
+      "sourceObject": "North.angotgan.survey v73 bearing block (2.25, -1.35)",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 bearing block (2.25, 1.35)": {
+      "sourceObject": "North.angotgan.survey v73 bearing block (2.25, 1.35)",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 bearing block (4.68, -1.35)": {
+      "sourceObject": "North.angotgan.survey v73 bearing block (4.68, -1.35)",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 bearing block (4.68, 1.35)": {
+      "sourceObject": "North.angotgan.survey v73 bearing block (4.68, 1.35)",
+      "processId": "ildu.anchae-store-beams-purlins",
+      "original": true
+    },
+    "North.angotgan.survey v73 continuous round rafters": {
+      "sourceObject": "North.angotgan.survey v73 continuous round rafters",
+      "processId": "ildu.anchae-store-rafters-eaves",
+      "original": true
+    },
+    "North.angotgan.survey v73 roof": {
+      "sourceObject": "North.angotgan.survey v73 roof",
+      "processId": "ildu.anchae-store-tiles",
+      "original": true
+    },
+    "North.angotgan.survey v73 roof.001": {
+      "sourceObject": "North.angotgan.survey v73 roof.001",
+      "processId": "ildu.anchae-store-tiles",
+      "original": true
+    },
+    "North.angotgan.survey v73 roof.002": {
+      "sourceObject": "North.angotgan.survey v73 roof.002",
+      "processId": "ildu.anchae-store-tiles",
+      "original": true
+    },
+    "North.angotgan.survey v73 roof.003": {
+      "sourceObject": "North.angotgan.survey v73 roof.003",
+      "processId": "ildu.anchae-store-tiles",
+      "original": true
+    },
+    "North.angotgan.survey v73 roof.004": {
+      "sourceObject": "North.angotgan.survey v73 roof.004",
+      "processId": "ildu.anchae-store-tiles",
+      "original": true
+    },
+    "North.angotgan.survey v73 roof.005": {
+      "sourceObject": "North.angotgan.survey v73 roof.005",
+      "processId": "ildu.anchae-store-tiles",
+      "original": true
+    },
+    "North.angotgan.survey v73 roof.eave beam": {
+      "sourceObject": "North.angotgan.survey v73 roof.eave beam",
+      "processId": "ildu.anchae-store-rafters-eaves",
+      "original": true
+    },
+    "North.angotgan.survey v73 roof.ridge stack": {
+      "sourceObject": "North.angotgan.survey v73 roof.ridge stack",
+      "processId": "ildu.anchae-store-tiles",
+      "original": true
+    },
+    "North.angotgan.survey v73 roof.ridge stack.001": {
+      "sourceObject": "North.angotgan.survey v73 roof.ridge stack.001",
+      "processId": "ildu.anchae-store-tiles",
+      "original": true
+    },
+    "North.angotgan.survey v73 roof.ridge stack.002": {
+      "sourceObject": "North.angotgan.survey v73 roof.ridge stack.002",
+      "processId": "ildu.anchae-store-tiles",
+      "original": true
+    },
+    "North.angotgan.survey v73 roof.ridge stack.003": {
+      "sourceObject": "North.angotgan.survey v73 roof.ridge stack.003",
+      "processId": "ildu.anchae-store-tiles",
+      "original": true
+    },
+    "North.angotgan.survey v73 roof.ridge stack.004": {
+      "sourceObject": "North.angotgan.survey v73 roof.ridge stack.004",
+      "processId": "ildu.anchae-store-tiles",
+      "original": true
+    },
+    "North.angotgan.survey v73 roof.round tile ends": {
+      "sourceObject": "North.angotgan.survey v73 roof.round tile ends",
+      "processId": "ildu.anchae-store-tiles",
+      "original": true
+    },
+    "North.angotgan.survey v73 solid roof bed": {
+      "sourceObject": "North.angotgan.survey v73 solid roof bed",
+      "processId": "ildu.anchae-store-roof-bed",
+      "original": true
+    },
+    "North.angotgan.survey v73 upper lime closure (0, -1.35)": {
+      "sourceObject": "North.angotgan.survey v73 upper lime closure (0, -1.35)",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.survey v73 upper lime closure (0, 1.35)": {
+      "sourceObject": "North.angotgan.survey v73 upper lime closure (0, 1.35)",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.survey v73 upper lime closure (1, -1.35)": {
+      "sourceObject": "North.angotgan.survey v73 upper lime closure (1, -1.35)",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.survey v73 upper lime closure (1, 1.35)": {
+      "sourceObject": "North.angotgan.survey v73 upper lime closure (1, 1.35)",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.survey v73 upper lime closure (2, -1.35)": {
+      "sourceObject": "North.angotgan.survey v73 upper lime closure (2, -1.35)",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.survey v73 upper lime closure (2, 1.35)": {
+      "sourceObject": "North.angotgan.survey v73 upper lime closure (2, 1.35)",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.survey v73 upper lime closure (3, -1.35)": {
+      "sourceObject": "North.angotgan.survey v73 upper lime closure (3, -1.35)",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.survey v73 upper lime closure (3, 1.35)": {
+      "sourceObject": "North.angotgan.survey v73 upper lime closure (3, 1.35)",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.upper lime strip": {
+      "sourceObject": "North.angotgan.upper lime strip",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.upper lime strip.head/sill": {
+      "sourceObject": "North.angotgan.upper lime strip.head/sill",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.upper lime strip.jamb": {
+      "sourceObject": "North.angotgan.upper lime strip.jamb",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.v74 45x300 barge board -1": {
+      "sourceObject": "North.angotgan.v74 45x300 barge board -1",
+      "processId": null,
+      "original": true
+    },
+    "North.angotgan.v74 45x300 barge board 1": {
+      "sourceObject": "North.angotgan.v74 45x300 barge board 1",
+      "processId": null,
+      "original": true
+    },
+    "North.angotgan.v74 continuous plaster gable -1": {
+      "sourceObject": "North.angotgan.v74 continuous plaster gable -1",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.v74 continuous plaster gable 1": {
+      "sourceObject": "North.angotgan.v74 continuous plaster gable 1",
+      "processId": "ildu.anchae-store-walls-partition",
+      "original": true
+    },
+    "North.angotgan.v74 three barge ceramic courses -1": {
+      "sourceObject": "North.angotgan.v74 three barge ceramic courses -1",
+      "processId": "ildu.anchae-store-tiles",
+      "original": true
+    },
+    "North.angotgan.v74 three barge ceramic courses 1": {
+      "sourceObject": "North.angotgan.v74 three barge ceramic courses 1",
+      "processId": "ildu.anchae-store-tiles",
+      "original": true
+    }
+  },
+  "nullProcessOriginals": [
+    "GyeCraft.angotgan.irregular paving 0",
+    "GyeCraft.angotgan.irregular paving 1",
+    "GyeCraft.angotgan.irregular paving 2",
+    "GyeCraft.angotgan.irregular paving 3",
+    "GyeCraft.angotgan.irregular paving 4",
+    "North.angotgan.v74 45x300 barge board -1",
+    "North.angotgan.v74 45x300 barge board 1"
+  ],
+  "legacyDisplayPolicyDifferences": [
+    {
+      "key": "angotgan",
+      "processId": "ildu.anchae-store-site-storage",
+      "noNewCanonicalGLBGeometry": true,
+      "policyNoNewGeometry": false
+    },
+    {
+      "key": "angotgan",
+      "processId": "ildu.anchae-store-compacted-floor",
+      "noNewCanonicalGLBGeometry": true,
+      "policyNoNewGeometry": false
+    },
+    {
+      "key": "angotgan",
+      "processId": "ildu.anchae-store-complete-use",
+      "noNewCanonicalGLBGeometry": false,
+      "policyNoNewGeometry": true
+    }
+  ],
+  "legacyPolicyUnmodified": true,
+  "processIdsAndOrderPreserved": true,
+  "sourceDataEdited": false
+}

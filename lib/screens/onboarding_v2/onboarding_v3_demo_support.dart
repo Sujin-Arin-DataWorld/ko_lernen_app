@@ -210,11 +210,13 @@ class DemoPagedText extends StatefulWidget {
     this.korean = true,
     this.fontSize = 28,
     this.textKey,
+    this.measureHorizontalInset = 24,
   });
   final String text;
   final bool korean;
   final double fontSize;
   final Key? textKey;
+  final double measureHorizontalInset;
   @override
   State<DemoPagedText> createState() => _DemoPagedTextState();
 }
@@ -248,9 +250,17 @@ class _DemoPagedTextState extends State<DemoPagedText> {
         textDirection: TextDirection.ltr,
         textScaler: MediaQuery.textScalerOf(context),
       );
+      final measuredStyle = widget.measureHorizontalInset == 0
+          ? DefaultTextStyle.of(context).style.merge(style)
+          : style;
       double height(String value) {
-        painter.text = TextSpan(text: value, style: style);
-        painter.layout(maxWidth: math.max(1, bounds.maxWidth - 24));
+        painter.text = TextSpan(text: value, style: measuredStyle);
+        painter.layout(
+          maxWidth: math.max(
+            1,
+            bounds.maxWidth - widget.measureHorizontalInset,
+          ),
+        );
         return painter.height;
       }
 

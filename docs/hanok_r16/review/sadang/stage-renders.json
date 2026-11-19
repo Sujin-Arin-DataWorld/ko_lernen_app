@@ -1,0 +1,384 @@
+{
+  "key": "sadang",
+  "source": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\sadang\\sadang.blend",
+  "sourceSha256": "7402bf03011316371d2b30e65e90c2fde898c28d2809d9fd1f2a0938139356a1",
+  "native": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\visual-direction-20261023\\hanok-style-production-r2\\family-r16\\sadang\\stage.blend",
+  "nativeSha256": "05c7444ff54b521171251969a9ba12d887a3c625b515d14422f3039aa0508844",
+  "architecture": {
+    "stateSha256": "d225732335c05dc3a037a8853ea8e2a004b2b84b015503022ed02eae50c27d2e",
+    "normalsSha256": "4c641a5868a9cbb717473b4441e9b72aba7e9512b1562085a5ac73700d1dc1f3",
+    "meshCount": 229
+  },
+  "materialBindingSha256": "d359211b6616311933aa4e17dbb63d6c97e4cd687a2b2cb484039b4a86ba82a2",
+  "selection": "stage-selection.json",
+  "stageCount": 12,
+  "steps": [
+    {
+      "sequence": 1,
+      "processId": "ildu.sadang-site",
+      "label": "터 닦기",
+      "isFinal": false,
+      "visibleMembers": 0,
+      "visibleSetSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "materialBindingSha256": "d359211b6616311933aa4e17dbb63d6c97e4cd687a2b2cb484039b4a86ba82a2",
+      "camera": {
+        "position": [
+          -65.25592803955078,
+          -8.23879623413086,
+          36.0541877746582
+        ],
+        "rotation": [
+          1.241781234741211,
+          -4.661522723381495e-08,
+          -1.239079475402832
+        ],
+        "ortho": 12.406134605407715,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/01.png",
+      "sha256": "17a4517932dd0964dd5091b62179319e17ae50e1c7cdbf5840df3d476e9d2332",
+      "seconds": 10.31,
+      "samples": 16
+    },
+    {
+      "sequence": 2,
+      "processId": "ildu.sadang-foundation",
+      "label": "기단",
+      "isFinal": false,
+      "visibleMembers": 4,
+      "visibleSetSha256": "51d96b284eb0e37b3df9447e725c2c9e9de360c3839898c1f75644b7157dce73",
+      "materialBindingSha256": "d359211b6616311933aa4e17dbb63d6c97e4cd687a2b2cb484039b4a86ba82a2",
+      "camera": {
+        "position": [
+          -65.25592803955078,
+          -8.23879623413086,
+          36.0541877746582
+        ],
+        "rotation": [
+          1.241781234741211,
+          -4.661522723381495e-08,
+          -1.239079475402832
+        ],
+        "ortho": 12.406134605407715,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/02.png",
+      "sha256": "c7b9c0755cc714ade24ca01364292be1521a3309a4b329b782c5dcea998e1ed0",
+      "seconds": 9.52,
+      "samples": 16
+    },
+    {
+      "sequence": 3,
+      "processId": "ildu.sadang-padstones",
+      "label": "초석",
+      "isFinal": false,
+      "visibleMembers": 6,
+      "visibleSetSha256": "cf6e045598e9f0f75cc476d9f69cca8da03f98154236ffcadacdb80487052200",
+      "materialBindingSha256": "d359211b6616311933aa4e17dbb63d6c97e4cd687a2b2cb484039b4a86ba82a2",
+      "camera": {
+        "position": [
+          -65.25592803955078,
+          -8.23879623413086,
+          36.0541877746582
+        ],
+        "rotation": [
+          1.241781234741211,
+          -4.661522723381495e-08,
+          -1.239079475402832
+        ],
+        "ortho": 12.406134605407715,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/03.png",
+      "sha256": "52d3b67b7c76124695e93f7b22322c865e2df88e132c4a586606ee3f336f37f6",
+      "seconds": 10.23,
+      "samples": 16
+    },
+    {
+      "sequence": 4,
+      "processId": "ildu.sadang-posts",
+      "label": "기둥",
+      "isFinal": false,
+      "visibleMembers": 12,
+      "visibleSetSha256": "ef014003132a27c88578f282677fba16600732c56fd6d503de8bcd6628b544db",
+      "materialBindingSha256": "d359211b6616311933aa4e17dbb63d6c97e4cd687a2b2cb484039b4a86ba82a2",
+      "camera": {
+        "position": [
+          -65.25592803955078,
+          -8.23879623413086,
+          36.0541877746582
+        ],
+        "rotation": [
+          1.241781234741211,
+          -4.661522723381495e-08,
+          -1.239079475402832
+        ],
+        "ortho": 12.406134605407715,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/04.png",
+      "sha256": "18d89ecb92df8c7ee8b77c9997512217a5b7511115a2e1e7b69735a82bb83167",
+      "seconds": 21.61,
+      "samples": 16
+    },
+    {
+      "sequence": 5,
+      "processId": "ildu.sadang-brackets",
+      "label": "공포",
+      "isFinal": false,
+      "visibleMembers": 23,
+      "visibleSetSha256": "5ab1b52ac35b970a0ee0fd22b2b59b14a905bec95faf0f74a499f713db2bd931",
+      "materialBindingSha256": "d359211b6616311933aa4e17dbb63d6c97e4cd687a2b2cb484039b4a86ba82a2",
+      "camera": {
+        "position": [
+          -65.25592803955078,
+          -8.23879623413086,
+          36.0541877746582
+        ],
+        "rotation": [
+          1.241781234741211,
+          -4.661522723381495e-08,
+          -1.239079475402832
+        ],
+        "ortho": 12.406134605407715,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/05.png",
+      "sha256": "6919166ad9ce28b745192d3ba5903d0ce757bb577550cbdec1dab63e34d216bc",
+      "seconds": 16.04,
+      "samples": 16
+    },
+    {
+      "sequence": 6,
+      "processId": "ildu.sadang-rafters",
+      "label": "서까래",
+      "isFinal": false,
+      "visibleMembers": 31,
+      "visibleSetSha256": "55ce8009f53309c35b5be0e69d687bac4c10f0a60536b93d919de2fe8db8f31f",
+      "materialBindingSha256": "d359211b6616311933aa4e17dbb63d6c97e4cd687a2b2cb484039b4a86ba82a2",
+      "camera": {
+        "position": [
+          -65.25592803955078,
+          -8.23879623413086,
+          36.0541877746582
+        ],
+        "rotation": [
+          1.241781234741211,
+          -4.661522723381495e-08,
+          -1.239079475402832
+        ],
+        "ortho": 12.406134605407715,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/06.png",
+      "sha256": "977429b4803399eed422f1dd228d68b293accfa4a45c72e121357388a297007c",
+      "seconds": 16.54,
+      "samples": 16
+    },
+    {
+      "sequence": 7,
+      "processId": "ildu.sadang-roof_bed",
+      "label": "지붕 바탕",
+      "isFinal": false,
+      "visibleMembers": 36,
+      "visibleSetSha256": "aeae73170e2bfa0d33dee5f69af81221db21d2ec85a29396599be94a10446c3f",
+      "materialBindingSha256": "d359211b6616311933aa4e17dbb63d6c97e4cd687a2b2cb484039b4a86ba82a2",
+      "camera": {
+        "position": [
+          -65.25592803955078,
+          -8.23879623413086,
+          36.0541877746582
+        ],
+        "rotation": [
+          1.241781234741211,
+          -4.661522723381495e-08,
+          -1.239079475402832
+        ],
+        "ortho": 12.406134605407715,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/07.png",
+      "sha256": "7a656b2d8e7a637f2c58ad2d65776cff782479b1da98216be198279d8969d7e4",
+      "seconds": 21.1,
+      "samples": 16
+    },
+    {
+      "sequence": 8,
+      "processId": "ildu.sadang-tiles",
+      "label": "기와",
+      "isFinal": false,
+      "visibleMembers": 95,
+      "visibleSetSha256": "bae2805a5efffadd7b34227ab84741c1ed732fd258bb9dfae2f1cf3ee130077c",
+      "materialBindingSha256": "d359211b6616311933aa4e17dbb63d6c97e4cd687a2b2cb484039b4a86ba82a2",
+      "camera": {
+        "position": [
+          -65.25592803955078,
+          -8.23879623413086,
+          36.0541877746582
+        ],
+        "rotation": [
+          1.241781234741211,
+          -4.661522723381495e-08,
+          -1.239079475402832
+        ],
+        "ortho": 12.406134605407715,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/08.png",
+      "sha256": "328cf237806150342415c2999c1c0c6185d9c3aa3fccf8fa76ebf242c9d2abc3",
+      "seconds": 24.81,
+      "samples": 16
+    },
+    {
+      "sequence": 9,
+      "processId": "ildu.sadang-maru_interior",
+      "label": "마루 내부",
+      "isFinal": false,
+      "visibleMembers": 99,
+      "visibleSetSha256": "20c199976222b72832c810f4312829b0108ff5eb252c234700e8b2c40b7cf0a2",
+      "materialBindingSha256": "d359211b6616311933aa4e17dbb63d6c97e4cd687a2b2cb484039b4a86ba82a2",
+      "camera": {
+        "position": [
+          -65.25592803955078,
+          -8.23879623413086,
+          36.0541877746582
+        ],
+        "rotation": [
+          1.241781234741211,
+          -4.661522723381495e-08,
+          -1.239079475402832
+        ],
+        "ortho": 12.406134605407715,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/09.png",
+      "sha256": "1220cc8573f6e54a56c9bf2e8544dea9a604d2a34f5d1eee26585feae98b7fbb",
+      "seconds": 25.65,
+      "samples": 16
+    },
+    {
+      "sequence": 10,
+      "processId": "ildu.sadang-walls",
+      "label": "벽체",
+      "isFinal": false,
+      "visibleMembers": 170,
+      "visibleSetSha256": "126b21202dc2817988f3644fc927235a5292bcfe8f6a6e8fc20d3e5499e669d7",
+      "materialBindingSha256": "d359211b6616311933aa4e17dbb63d6c97e4cd687a2b2cb484039b4a86ba82a2",
+      "camera": {
+        "position": [
+          -65.25592803955078,
+          -8.23879623413086,
+          36.0541877746582
+        ],
+        "rotation": [
+          1.241781234741211,
+          -4.661522723381495e-08,
+          -1.239079475402832
+        ],
+        "ortho": 12.406134605407715,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/10.png",
+      "sha256": "b9d8a5d3c36d4000855453d389b9ad427fe237d0474e9f09b0e3f165dc2a5131",
+      "seconds": 20.26,
+      "samples": 16
+    },
+    {
+      "sequence": 11,
+      "processId": "ildu.sadang-finish",
+      "label": "마감",
+      "isFinal": false,
+      "visibleMembers": 223,
+      "visibleSetSha256": "023fba61af7fd9a0ace9e837bbc5bdd783838f6a11ba6d2ce00c019b0aaa34d5",
+      "materialBindingSha256": "d359211b6616311933aa4e17dbb63d6c97e4cd687a2b2cb484039b4a86ba82a2",
+      "camera": {
+        "position": [
+          -65.25592803955078,
+          -8.23879623413086,
+          36.0541877746582
+        ],
+        "rotation": [
+          1.241781234741211,
+          -4.661522723381495e-08,
+          -1.239079475402832
+        ],
+        "ortho": 12.406134605407715,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/11.png",
+      "sha256": "cde231f0fc9125634eda1e178054c2484ba3fcdbd8c7aa07283d6f8137cae4a2",
+      "seconds": 27.22,
+      "samples": 16
+    },
+    {
+      "sequence": 12,
+      "processId": "ildu.sadang-complete",
+      "label": "완성",
+      "isFinal": true,
+      "visibleMembers": 229,
+      "visibleSetSha256": "8ac756ebce3adfec827990a6ef2586f30c5e1cc8b4a27afc177be7295f23c0ed",
+      "materialBindingSha256": "d359211b6616311933aa4e17dbb63d6c97e4cd687a2b2cb484039b4a86ba82a2",
+      "camera": {
+        "position": [
+          -65.25592803955078,
+          -8.23879623413086,
+          36.0541877746582
+        ],
+        "rotation": [
+          1.241781234741211,
+          -4.661522723381495e-08,
+          -1.239079475402832
+        ],
+        "ortho": 12.406134605407715,
+        "resolution": [
+          800,
+          533
+        ]
+      },
+      "file": "stages/12.png",
+      "sha256": "cae376a305c05617938ae9aad1afbe7826d118c6d14b5ee8768fe7ef3bf83967",
+      "seconds": 28.82,
+      "samples": 16
+    }
+  ],
+  "renderComplete": true,
+  "userApproved": false,
+  "runtimeIntegrated": false,
+  "reopenedNativeVerified": true,
+  "allStageMaterialsIdenticalToSavedNative": true,
+  "allStageVisibilityVerified": true,
+  "sourceFilePreserved": true
+}

@@ -1,0 +1,658 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "record_type": "inherited_detailed_with_integration_overlay",
+  "unit_id": "F0.4.linked-sounds",
+  "band": "F0.4",
+  "title": {
+    "ko": "쉬운 받침과 모음 시작 음절의 이어짐을 이해한다",
+    "en": "Linking sounds",
+    "de": "Laute verbinden"
+  },
+  "goal": {
+    "ko": "쉬운 받침과 모음 시작 음절의 이어짐을 이해한다",
+    "en": "Explore how a familiar final consonant links to a vowel-initial syllable.",
+    "de": "Erkunde, wie ein vertrauter Endkonsonant mit einer vokalisch beginnenden Silbe verbunden wird."
+  },
+  "prerequisites": [],
+  "base_manuscript": {
+    "path": "docs/learning/ildu-season1-content-20261030/manuscripts/foundation-4-v35/05_LINKED_SOUNDS.md",
+    "sha256": "086443a624e5b1e36e04e9567ba55b019430dd15864e8348895d4bc98e3b4d51",
+    "inheritance": "full dialogue, teaching, P/I/R items, answer criteria, help and feedback retained verbatim; overlay is additive"
+  },
+  "source_contract": {
+    "id": "F0.4.linked-sounds",
+    "goal": "쉬운 받침과 모음 시작 음절의 이어짐을 이해한다",
+    "teach_targets": "문이,옷이",
+    "check_targets": "밥이,집에",
+    "meaning_or_oral": "조사 기능은 번역 도움; 이번 목표는 익힌 단어의 이어진 소리",
+    "transfer_task": "모양은 유지되지만 소리가 이어지는 밥이·집에를 읽음",
+    "review_in": "A1.1-03",
+    "review_prompt": "옷이 있어요에서 배운 부분만 읽고 새 조사 기능은 별도 지도",
+    "evidence_limit": "연음 이해를 조사 숙달로 합산하지 않음"
+  },
+  "inherited_content": {
+    "selected_feedback_refs": [
+      "LINK-H",
+      "LINK-TEXT-문이"
+    ],
+    "feedback_rows": [
+      {
+        "key": "LINK-H·이어짐 도움",
+        "en": "As in the example you just saw, listen to the final consonant linking to the following vowel. Keep the original spelling.",
+        "de": "Hör wie im gerade gezeigten Beispiel, wie sich der Endkonsonant mit dem folgenden Vokal verbindet. Die ursprüngliche Schreibung bleibt."
+      },
+      {
+        "key": "LINK-TEXT-문이·듣고 표기",
+        "en": "The sound links like [무니], but the spelling is 문이. Listen again and choose the original spelling.",
+        "de": "Es klingt verbunden wie [무니], geschrieben wird aber 문이. Hör erneut zu und wähle die ursprüngliche Schreibung."
+      },
+      {
+        "key": "LINK-SOUND-문이·읽고 소리",
+        "en": "The written 문이 sounds linked like [무니]. Keep the same spelling and choose its sound again.",
+        "de": "Das geschriebene 문이 klingt verbunden wie [무니]. Behalte dieselbe Schreibung und wähle ihren Klang erneut."
+      },
+      {
+        "key": "LINK-ORDER-문이·음절 순서",
+        "en": "The spelling is 문이. Put 문 before 이. Listen again and arrange the pieces in that order.",
+        "de": "Geschrieben wird 문이. Setze 문 vor 이. Hör erneut zu und ordne die Teile so an."
+      },
+      {
+        "key": "LINK-TEXT-옷이·듣고 표기",
+        "en": "The sound links like [오시], but the spelling is 옷이. Listen again and choose the original spelling.",
+        "de": "Es klingt verbunden wie [오시], geschrieben wird aber 옷이. Hör erneut zu und wähle die ursprüngliche Schreibung."
+      },
+      {
+        "key": "LINK-SOUND-옷이·읽고 소리",
+        "en": "The written 옷이 sounds linked like [오시]. Keep the same spelling and choose its sound again.",
+        "de": "Das geschriebene 옷이 klingt verbunden wie [오시]. Behalte dieselbe Schreibung und wähle ihren Klang erneut."
+      },
+      {
+        "key": "LINK-ORDER-옷이·음절 순서",
+        "en": "The spelling is 옷이. Put 옷 before 이. Listen again and arrange the pieces in that order.",
+        "de": "Geschrieben wird 옷이. Setze 옷 vor 이. Hör erneut zu und ordne die Teile so an."
+      },
+      {
+        "key": "LINK-TEXT-밥이·듣고 표기",
+        "en": "The sound links like [바비], but the spelling is 밥이. Listen again and choose the original spelling.",
+        "de": "Es klingt verbunden wie [바비], geschrieben wird aber 밥이. Hör erneut zu und wähle die ursprüngliche Schreibung."
+      },
+      {
+        "key": "LINK-SOUND-밥이·읽고 소리",
+        "en": "The written 밥이 sounds linked like [바비]. Keep the same spelling and choose its sound again.",
+        "de": "Das geschriebene 밥이 klingt verbunden wie [바비]. Behalte dieselbe Schreibung und wähle ihren Klang erneut."
+      },
+      {
+        "key": "LINK-ORDER-밥이·음절 순서",
+        "en": "The spelling is 밥이. Put 밥 before 이. Listen again and arrange the pieces in that order.",
+        "de": "Geschrieben wird 밥이. Setze 밥 vor 이. Hör erneut zu und ordne die Teile so an."
+      },
+      {
+        "key": "LINK-TEXT-집에·듣고 표기",
+        "en": "The sound links like [지베], but the spelling is 집에. Listen again and choose the original spelling.",
+        "de": "Es klingt verbunden wie [지베], geschrieben wird aber 집에. Hör erneut zu und wähle die ursprüngliche Schreibung."
+      },
+      {
+        "key": "LINK-SOUND-집에·읽고 소리",
+        "en": "The written 집에 sounds linked like [지베]. Keep the same spelling and choose its sound again.",
+        "de": "Das geschriebene 집에 klingt verbunden wie [지베]. Behalte dieselbe Schreibung und wähle ihren Klang erneut."
+      },
+      {
+        "key": "LINK-ORDER-집에·음절 순서",
+        "en": "The spelling is 집에. Put 집 before 에. Listen again and arrange the pieces in that order.",
+        "de": "Geschrieben wird 집에. Setze 집 vor 에. Hör erneut zu und ordne die Teile so an."
+      },
+      {
+        "key": "LINK-POS-밥이·받침 위치",
+        "en": "The final ㅂ in 밥 links to 이. Keep the spelling and choose that final consonant position again.",
+        "de": "Das End-ㅂ in 밥 verbindet sich beim Sprechen mit 이. Behalte die Schreibung bei und wähle die Position dieses Endkonsonanten erneut."
+      },
+      {
+        "key": "LINK-POS-집에·받침 위치",
+        "en": "The final ㅂ in 집 links to 에. Keep the spelling and choose that final consonant position again.",
+        "de": "Das End-ㅂ in 집 verbindet sich beim Sprechen mit 에. Behalte die Schreibung bei und wähle die Position dieses Endkonsonanten erneut."
+      },
+      {
+        "key": "NG-H·받침ㅇ 유지",
+        "en": "Final ㅇ is not lost in 방에. Listen again to 방 and 방에. Do not read or write it as 바에.",
+        "de": "Das ㅇ am Ende von 방 bleibt in 방에 hörbar. Hör dir 방 und 방에 erneut an. Lies oder schreibe es nicht als 바에."
+      },
+      {
+        "key": "OK·현재 범위",
+        "en": "That matches the current target. Take your time with the next one too.",
+        "de": "Das passt zum aktuellen Ziel. Nimm dir auch für die nächste Aufgabe Zeit."
+      }
+    ],
+    "practice_task_ids": [
+      "D05-P01",
+      "D05-P02",
+      "D05-P03",
+      "D05-P04",
+      "D05-P05",
+      "D05-P06"
+    ],
+    "independent_task_ids": [
+      "D05-I01",
+      "D05-I02",
+      "D05-I03",
+      "D05-I04",
+      "D05-I05",
+      "D05-I06"
+    ],
+    "next_day_task_ids": [
+      "D05-R01",
+      "D05-R02",
+      "D05-R03",
+      "D05-R04",
+      "D05-R05",
+      "D05-R06",
+      "D05-R07"
+    ],
+    "common_copy_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-4-v35\\COMMON_COPY.md",
+    "readme_source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-content-docs-20261030\\docs\\learning\\ildu-season1-content-20261030\\manuscripts\\foundation-4-v35\\README.md",
+    "task_bindings": [
+      {
+        "task_id": "D05-P01",
+        "kind": "P",
+        "prompt": {
+          "en": "Listen and choose the matching written form.",
+          "de": "Hör zu und wähle die passende Schriftform."
+        },
+        "target": "문이",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-TEXT-문이"
+        ],
+        "material": {
+          "audio": "문이",
+          "shown_model": "문이"
+        },
+        "choices": [
+          "무리",
+          "문이"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-P02",
+        "kind": "P",
+        "prompt": {
+          "en": "Put the syllable pieces in the correct order.",
+          "de": "Lege die Silbenteile in die richtige Reihenfolge."
+        },
+        "target": "문이",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-ORDER-문이"
+        ],
+        "material": {
+          "shown_word": "문이",
+          "syllable_pieces": [
+            "이",
+            "문"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-I01",
+        "kind": "I",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "밥이",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-SOUND-밥이"
+        ],
+        "material": {
+          "written": "밥이",
+          "audio_ui": "A/B/C, 전사 숨김",
+          "meaning_supplied": {
+            "ko": "이 예시의 밥/집이라는 대상과 문장 뜻은 설명 언어로 안내",
+            "en": "the rice in this example",
+            "de": "der Reis in diesem Beispiel"
+          }
+        },
+        "choices": [
+          "바이",
+          "밤이",
+          "밥이"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-I02",
+        "kind": "I",
+        "prompt": {
+          "en": "Listen and put the syllable pieces in the order of that word.",
+          "de": "Hör zu und ordne die Silbenteile zu diesem Wort."
+        },
+        "target": "밥이",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-ORDER-밥이"
+        ],
+        "material": {
+          "syllable_pieces": [
+            "이",
+            "밥"
+          ],
+          "audio": "밥이",
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-P03",
+        "kind": "P",
+        "prompt": {
+          "en": "Listen and choose the matching written form.",
+          "de": "Hör zu und wähle die passende Schriftform."
+        },
+        "target": "옷이",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-TEXT-옷이"
+        ],
+        "material": {
+          "audio": "옷이",
+          "shown_model": "옷이"
+        },
+        "choices": [
+          "옷이",
+          "오이"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-P04",
+        "kind": "P",
+        "prompt": {
+          "en": "Put the syllable pieces in the correct order.",
+          "de": "Lege die Silbenteile in die richtige Reihenfolge."
+        },
+        "target": "옷이",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-ORDER-옷이"
+        ],
+        "material": {
+          "shown_word": "옷이",
+          "syllable_pieces": [
+            "이",
+            "옷"
+          ]
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-I03",
+        "kind": "I",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "집에",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-SOUND-집에"
+        ],
+        "material": {
+          "written": "집에",
+          "audio_ui": "A/B/C, 전사 숨김",
+          "meaning_supplied": {
+            "ko": "이 예시의 밥/집이라는 대상과 문장 뜻은 설명 언어로 안내",
+            "en": "at the house in this example",
+            "de": "am Haus in diesem Beispiel"
+          }
+        },
+        "choices": [
+          "짐에",
+          "집에",
+          "지에"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-I04",
+        "kind": "I",
+        "prompt": {
+          "en": "Listen and put the syllable pieces in the order of that word.",
+          "de": "Hör zu und ordne die Silbenteile zu diesem Wort."
+        },
+        "target": "집에",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-ORDER-집에"
+        ],
+        "material": {
+          "syllable_pieces": [
+            "에",
+            "집"
+          ],
+          "audio": "집에",
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-P05",
+        "kind": "P",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "옷이",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-SOUND-옷이"
+        ],
+        "material": {
+          "written": "옷이",
+          "reference_pair": [
+            "옷",
+            "옷이"
+          ],
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "옷",
+          "옷이",
+          "오이"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-P06",
+        "kind": "P",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "방에",
+        "feedback_refs": [
+          "NG-H"
+        ],
+        "material": {
+          "written": "방에",
+          "reference_pair": [
+            "방",
+            "방에"
+          ],
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "바에",
+          "방에",
+          "방"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-I05",
+        "kind": "I",
+        "prompt": {
+          "en": "In this spelling, choose the final-consonant position that links to the following vowel.",
+          "de": "Wähle in dieser Schreibung die Endkonsonantenstelle, deren Laut sich mit dem folgenden Vokal verbindet."
+        },
+        "target": "B",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-POS-밥이"
+        ],
+        "material": {
+          "written": "밥이",
+          "response_labels": "POS-A/B/C"
+        },
+        "choices": [
+          "B",
+          "A",
+          "C"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-I06",
+        "kind": "I",
+        "prompt": {
+          "en": "In this spelling, choose the final-consonant position that links to the following vowel.",
+          "de": "Wähle in dieser Schreibung die Endkonsonantenstelle, deren Laut sich mit dem folgenden Vokal verbindet."
+        },
+        "target": "B",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-POS-집에"
+        ],
+        "material": {
+          "written": "집에",
+          "response_labels": "POS-A/B/C"
+        },
+        "choices": [
+          "C",
+          "B",
+          "A"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-R01",
+        "kind": "R",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "밥이",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-SOUND-밥이"
+        ],
+        "material": {
+          "written": "밥이",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "밥이",
+          "밤이",
+          "바이"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-R02",
+        "kind": "R",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "집에",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-SOUND-집에"
+        ],
+        "material": {
+          "written": "집에",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "지에",
+          "집에",
+          "짐에"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-R03",
+        "kind": "R",
+        "prompt": {
+          "en": "Listen and put the syllable pieces in the order of that word.",
+          "de": "Hör zu und ordne die Silbenteile zu diesem Wort."
+        },
+        "target": "밥이",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-ORDER-밥이"
+        ],
+        "material": {
+          "syllable_pieces": [
+            "밥",
+            "이"
+          ],
+          "audio": "밥이",
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-R04",
+        "kind": "R",
+        "prompt": {
+          "en": "Listen and put the syllable pieces in the order of that word.",
+          "de": "Hör zu und ordne die Silbenteile zu diesem Wort."
+        },
+        "target": "집에",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-ORDER-집에"
+        ],
+        "material": {
+          "syllable_pieces": [
+            "집",
+            "에"
+          ],
+          "audio": "집에",
+          "no_model": true
+        },
+        "choices": [],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-R05",
+        "kind": "R",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "옷이",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-SOUND-옷이"
+        ],
+        "material": {
+          "written": "옷이",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "오이",
+          "옷",
+          "옷이"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-R06",
+        "kind": "R",
+        "prompt": {
+          "en": "Look at the written form and choose its sound.",
+          "de": "Sieh dir die Schriftform an und wähle den passenden Laut."
+        },
+        "target": "방에",
+        "feedback_refs": [
+          "NG-H"
+        ],
+        "material": {
+          "written": "방에",
+          "audio_ui": "A/B/C, 전사 숨김"
+        },
+        "choices": [
+          "방에",
+          "방",
+          "바에"
+        ],
+        "source_row": null
+      },
+      {
+        "task_id": "D05-R07",
+        "kind": "R",
+        "prompt": {
+          "en": "In this spelling, choose the final-consonant position that links to the following vowel.",
+          "de": "Wähle in dieser Schreibung die Endkonsonantenstelle, deren Laut sich mit dem folgenden Vokal verbindet."
+        },
+        "target": "B",
+        "feedback_refs": [
+          "LINK-H",
+          "LINK-POS-밥이"
+        ],
+        "material": {
+          "written": "밥이",
+          "response_labels": "POS-A/B/C"
+        },
+        "choices": [
+          "A",
+          "C",
+          "B"
+        ],
+        "source_row": null
+      }
+    ]
+  },
+  "responses": {
+    "assisted": {
+      "ko": "도움을 받아 이 활동을 함께 마쳤어요. 다른 예는 준비되면 해 봐요.",
+      "en": "You completed this activity with support. Try another example when you are ready.",
+      "de": "Du hast diese Aufgabe mit Hilfe abgeschlossen. Probiere ein weiteres Beispiel, wenn du bereit bist."
+    },
+    "independent": {
+      "ko": "이 예는 시범 없이 확인했어요. 다른 날 새로운 상황에서도 다시 해 봐요.",
+      "en": "You checked this example without a model. Try it in a new setting another day.",
+      "de": "Du hast dieses Beispiel ohne Vorlage bearbeitet. Probiere es an einem anderen Tag in einer neuen Situation."
+    },
+    "audio_unavailable": {
+      "ko": "지금은 소리를 재생할 수 없어요. 글과 그림으로 계속하거나 나중에 다시 들어요.",
+      "en": "Audio is unavailable right now. Continue with text and pictures, or listen later.",
+      "de": "Der Ton ist gerade nicht verfügbar. Mach mit Text und Bildern weiter oder höre später noch einmal zu."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 괜찮아요. 돌아오면 같은 차례에서 이어가요.",
+      "en": "You can take a break here. When you return, continue from the same turn.",
+      "de": "Du kannst hier eine Pause machen. Wenn du zurückkommst, geht es an derselben Stelle weiter."
+    },
+    "resume": {
+      "ko": "돌아왔네요. 놓아 둔 답과 도움 상태를 확인하고 이어가요.",
+      "en": "Welcome back. Check your previous response and any help you used, then continue.",
+      "de": "Willkommen zurück. Sieh dir deine bisherige Antwort und die verwendete Hilfe an und mach dann weiter."
+    },
+    "save_failed": {
+      "ko": "아직 저장을 확인하지 못했어요. 지금 답은 유지한 채 다시 시도해요.",
+      "en": "Saving has not been confirmed yet. Keep your response and try again.",
+      "de": "Das Speichern ist noch nicht bestätigt. Deine Antwort bleibt stehen; versuche es erneut."
+    },
+    "revisit": {
+      "ko": "이미 본 장면이에요. 다시 보아도 보상이나 공정이 중복 생성되지 않아요.",
+      "en": "You have seen this scene before. Replaying it does not grant another reward or construction step.",
+      "de": "Du kennst diese Szene bereits. Beim erneuten Ansehen erhältst du keine weitere Belohnung und keinen zusätzlichen Bauabschnitt."
+    }
+  },
+  "response_conditions": {
+    "assisted": "only after supported task is resolved",
+    "independent": "only if the eligible item met its criteria without model/hint; not all modalities",
+    "resume": "only after original state is actually restored",
+    "revisit": "existing reward owner remains authoritative"
+  },
+  "story": {
+    "lq_id": "LQ-04",
+    "anchor": "사랑채 완공·재방문",
+    "spoiler_guard": "Use only revealed facts. First book has no completed Sarangchae; first 집 remains practice draft until original readiness is confirmed."
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true,
+    "original_review_scope": "existing manuscript reviews and same-byte source; not human/native/device approval"
+  }
+}

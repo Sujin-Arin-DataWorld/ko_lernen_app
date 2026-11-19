@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-15",
+  "scope": "canonical R16 unchanged; Numaru research retained separately; two selected artworks; other lookdev retired",
+  "canonical": {
+    "approved": true,
+    "authority": "docs/hanok_r16/CANONICAL_PROMOTION_R16.json",
+    "localRoot": "C:/dev/hangulsori/_codex_artifacts/ildu-r16-publication-20261028",
+    "filesInventoried": 2767,
+    "bytesInventoried": 6492903424,
+    "archiveRefs": [
+      {
+        "branch": "archive/ildu-r12-retirement-20261029",
+        "commit": "4f016f35b2e7b90a7dc8e976e4cb4986effeee5d"
+      },
+      {
+        "branch": "archive/ildu-r16-roofs-20261029",
+        "commit": "a3ebf0c614ccec1864324f6e2641c9f895ddaf6f"
+      }
+    ]
+  },
+  "research": {
+    "approved": false,
+    "fullSarangchaeReviewCompleted": false,
+    "fullSarangchaeApproved": false,
+    "canonicalReplacement": false,
+    "remote": "https://github.com/Sujin-Arin-DataWorld/hangulsori-archive.git",
+    "branch": "research/r16-numaru-material-light-20261115",
+    "verifiedCommit": "30d242ec08984c9895e6b310d8781a81648290e5",
+    "verifiedFiles": 295,
+    "manifestPath": "manifest.json",
+    "restorationInstructions": "README.md",
+    "localRoot": "C:/dev/hangulsori/_codex_artifacts/r16-lookdev-20261102/numaru-zone",
+    "native": "environment-v1/directional-sky.blend",
+    "board": "C:/dev/hangulsori/_codex_artifacts/r16-lookdev-20261102/figma/numaru-zone-work/compact-reference-baseline-I1.png",
+    "dependencyNote": "Canonical tool/reference dependencies included for reproducibility retain their original authority; this archive does not downgrade or replace the approved R16 source."
+  },
+  "selectedArt": [
+    {
+      "path": "design/r16-retained-20261115/04-p07-first-book-art.png",
+      "sha256": "12eaf31dfe2f4ca2b5868ba21f10549b2417bf57a6a1d93364d04219dd4ee310",
+      "bytes": 3075181,
+      "status": "user-selected for preservation; not runtime integration or architecture promotion",
+      "sourcePaths": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\r16-lookdev-20261102\\design\\r16-scene-targets-20261104\\20261111-image-first\\04-p07-first-book-art.png",
+        "C:\\Users\\vjinn\\.codex\\generated_images\\01a19d32-c3d2-71c3-95ab-c962556bb279\\exec-6daa19fd-0cde-46f3-a1fe-50c335785b80.png"
+      ]
+    },
+    {
+      "path": "design/r16-retained-20261115/02-p05-ruins-gate-collapsed-art.png",
+      "sha256": "ea4b7ba2f3b9a50db10d84d17da64247a3e124fb17884b8d2508235835ab5e86",
+      "bytes": 3262235,
+      "status": "user-selected for preservation; not runtime integration or architecture promotion",
+      "sourcePaths": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\r16-lookdev-20261102\\design\\r16-scene-targets-20261104\\20261111-image-first\\02-p05-ruins-gate-collapsed-art.png",
+        "C:\\Users\\vjinn\\.codex\\generated_images\\01a19d32-c3d2-71c3-95ab-c962556bb279\\exec-572c00a3-86e9-412f-8ff8-68fa4cb2b686.png"
+      ]
+    }
+  ],
+  "validation": {
+    "retainedNativesReopened": 9,
+    "missingNativeDependencies": 0,
+    "independentRemoteNativeRestore": {
+      "source": "C:/dev/hangulsori/_codex_artifacts/r16-lookdev-20261102/numaru-zone/environment-v1/directional-sky.blend",
+      "restored": "C:\\dev\\hangulsori\\_codex_artifacts\\r16-retention-20261115\\native-restored\\directional-sky.blend",
+      "sha256": "181ce89f5d42b5343cb65cdc6b08d820917ee0f5c1a91a869716c8d7e8668d6e",
+      "bytes": 248408739,
+      "remote": "https://github.com/Sujin-Arin-DataWorld/hangulsori-archive.git",
+      "commit": "65c13b239d59c06da17e494e944b023d077bf364",
+      "verified": true,
+      "localObjectAlternates": false
+    },
+    "rerender": {
+      "original": "C:\\dev\\hangulsori\\_codex_artifacts\\r16-lookdev-20261102\\numaru-zone\\environment-v1\\directional-sky.png",
+      "restoredRender": "C:\\dev\\hangulsori\\_codex_artifacts\\r16-retention-20261115\\native-restored-check\\reopened-I1.png",
+      "sizeMatches": true,
+      "pixelExact": false,
+      "meanAbsoluteChannelError": 0.0006716666666666667,
+      "maxChannelError": 3,
+      "originalSHA256": "6e8644fc0d8ad49b190b97cea8e6e7bb8f0a0d3672b0c4a4b04f55d97b1d8459",
+      "restoredRenderSHA256": "cbafa504edb462a72498d134c4f47e37deeb0660e5075f17f52d33d02f43c62b",
+      "renderCompleted": true,
+      "artApproved": false
+    },
+    "safetyTests": 5,
+    "losslessChunkTests": 4,
+    "retainedToolTests": 10,
+    "afterDeletion": {
+      "phase": "after-deletion",
+      "checkedAtUnix": 1794732602.4747066,
+      "canonicalFiles": 2767,
+      "canonicalBytes": 6492903424,
+      "retainedFiles": 299,
+      "sourceHead": "02fa1a8f2b1894a88db83370ede13f1630e823b6",
+      "stagedPaths": "",
+      "protectedModifiedFiles": 4,
+      "errors": [],
+      "passed": true
+    }
+  },
+  "retirement": {
+    "status": "completed",
+    "remote": "https://github.com/Sujin-Arin-DataWorld/hangulsori-archive.git",
+    "branch": "archive/r16-retired-lookdev-20261115",
+    "verifiedCommit": "b33a2b9966fd2732278a436a0c91b5bb16798781",
+    "verifiedFiles": 1111,
+    "expectedFiles": 1111,
+    "deletionSummary": {
+      "candidates": 1162,
+      "bytes": 10602750900,
+      "apply": true,
+      "retiredCommit": "0b37378566cdd641639a7ac73ed3e0a694877863",
+      "researchCommit": "e9625013690376f208abd61144f26a208a2a995e"
+    },
+    "generatedCacheFilesDeleted": 3,
+    "generatedCacheBytesDeleted": 813678720,
+    "previewCacheFilesDeleted": 2059,
+    "previewCacheBytesDeleted": 1199471354,
+    "deletedFileCount": 1162,
+    "deletedFileBytes": 10602750900,
+    "archivedHistoryDeleted": 1111,
+    "rejectedGeneratedAndExactCopiesDeleted": 51,
+    "cleanupSummary": {
+      "originalFilesDeleted": 1162,
+      "originalBytesDeleted": 10602750900,
+      "generatedCacheFilesDeleted": 2073,
+      "generatedCacheBytesDeleted": 2013369602,
+      "totalFilesDeleted": 3235,
+      "totalBytesDeleted": 12616120502,
+      "retiredHistoryFiles": 1111,
+      "rejectedImagesAndExactCopies": 51,
+      "emptyFoldersRemoved": 209,
+      "allRetiredPathsAbsent": true,
+      "diskFreeSpaceDeltaNotUsed": "Other active chats changed free disk space during this task; totals are actual deleted-file logical bytes."
+    }
+  },
+  "exclusions": [
+    "Figma edits",
+    "runtime code and artwork replacement",
+    "wallet or ownership changes",
+    "story changes",
+    "main merge",
+    "other worktree removal",
+    "unrelated Graphify changes"
+  ],
+  "auditRoot": "C:\\dev\\hangulsori\\_codex_artifacts\\r16-retention-20261115"
+}

@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../services/storage_service.dart';
+import 'practice_character_clip.dart';
 import 'practice_dokkaebi_art.dart';
+import 'practice_dokkaebi_canvas.dart';
+import 'practice_dokkaebi_clip.dart';
 import 'practice_layout.dart';
 import 'practice_magic.dart';
 import 'practice_motion.dart';
 import 'sori/button.dart';
-import 'sori/dokkaebi_flame_frame.dart';
-import 'sori/dokkaebi_intro.dart';
 import 'sori/card.dart';
+import 'sori/dokkaebi_intro.dart';
 import 'sori/external_link.dart';
 import 'sori/pressable.dart';
 import 'sori/tiger_video.dart';
@@ -36,16 +38,32 @@ class _PracticeDokkaebiIntroductionState
   final _stageAnchor = GlobalKey();
   _Topic _topic = _Topic.learning;
   int _request = 1, _spark = 0;
-  bool _shown = true, _fireWord = false, _roof = false;
+  int _swingCount = 0;
+  bool _showIntroduction = true;
+  bool _play = false, _shown = false, _fireWord = false, _roof = false;
   bool _magical = false;
   bool _details = false;
+  bool _postersCached = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_postersCached) {
+      _postersCached = true;
+      for (final clip in PracticeDokkaebiClip.values) {
+        precacheImage(AssetImage(clip.startAsset), context);
+        precacheImage(AssetImage(clip.endAsset), context);
+      }
+    }
+  }
 
   void _select(_Topic topic) {
     if (_topic == topic) return;
     setState(() {
       _topic = topic;
+      _showIntroduction = false;
       _request++;
-      _shown = _roof = false;
+      _shown = _play = _roof = false;
       _magical = false;
       _details = false;
       _spark++;
@@ -55,7 +73,9 @@ class _PracticeDokkaebiIntroductionState
   void _showSwing() {
     setState(() {
       _request++;
-      _shown = false;
+      _swingCount++;
+      _showIntroduction = false;
+      _shown = _play = false;
     });
     final request = _request;
     WidgetsBinding.instance.addPostFrameCallback((_) async {
@@ -68,7 +88,7 @@ class _PracticeDokkaebiIntroductionState
       );
       if (mounted && request == _request) {
         setState(() {
-          _shown = true;
+          _shown = _play = true;
         });
       }
     });
@@ -144,6 +164,7 @@ class _PracticeDokkaebiIntroductionState
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final clip = PracticeDokkaebiClip.forRequest(_swingCount);
     final text = SoriTextTheme.of(context);
     final size = MediaQuery.sizeOf(context);
     final scale = MediaQuery.textScalerOf(context).scale(16) / 16;
@@ -155,7 +176,8 @@ class _PracticeDokkaebiIntroductionState
     final canPlay =
         !Storage.reducedMotion &&
         !MediaQuery.disableAnimationsOf(context) &&
-        TigerStageVideo.videoReady;
+        TigerStageVideo.videoReady &&
+        Theme.of(context).brightness == Brightness.light;
     final (title, body, pose) = switch (_topic) {
       _Topic.tales => (
         t.practiceDokkaebiTalesTitle,
@@ -179,56 +201,59 @@ class _PracticeDokkaebiIntroductionState
     final heroWidth = beside
         ? math.min(stageWidth, size.width - Spacing.xl * 2 - 108)
         : stageWidth;
-    // Preserve room for the complete culture panel above the sheet footer.
-    final compactHeroRatio = size.height <= 600 ? 1.1 : 1.3;
-    Widget introductionStage(double viewportHeight) {
-      final heroHeight = math.min(
-        heroWidth * (beside ? compactHeroRatio : 1.5),
-        math.max(0.0, viewportHeight - Spacing.sm),
-      );
-      return Center(
-        child: PracticeViewportGate(
-          requireFullVisibility: true,
-          child: SizedBox(
-            key: _stageAnchor,
-            width: heroWidth,
-            height: heroHeight,
-            child: _IntroductionStage(
-              spark: _spark,
-              fireLabel: t.practiceDokkaebiFireAction,
-              onFire: () => setState(() {
-                _fireWord = !_fireWord;
-                _spark++;
-              }),
-              child: Center(
-                child: SizedBox(
-                  width: heroHeight / 1.5,
-                  child: _shown
-                      ? DokkaebiIntro(
-                          key: ValueKey('dokkaebi-intro-$_request'),
-                          staticOnly: !canPlay,
-                        )
-                      : DokkaebiFlameFrame(
-                          animate:
-                              !Storage.reducedMotion &&
-                              !MediaQuery.disableAnimationsOf(context),
-                          child: PracticeDokkaebiArt(
-                            key: ValueKey(
-                              _magical ? PracticeDokkaebiPose.magical : pose,
-                            ),
-                            pose: _magical
-                                ? PracticeDokkaebiPose.magical
-                                : pose,
-                          ),
-                        ),
-                ),
-              ),
+    Widget introductionStage(double viewportHeight) => Center(
+      child: PracticeViewportGate(
+        requireFullVisibility: true,
+        child: SizedBox(
+          key: _stageAnchor,
+          width: heroWidth,
+          height: math.min(
+            heroWidth / PracticeDokkaebiCanvas.aspectRatio,
+            math.max(0.0, viewportHeight - Spacing.sm),
+          ),
+          child: _IntroductionStage(
+            spark: _spark,
+            fireLabel: t.practiceDokkaebiFireAction,
+            onFire: () => setState(() {
+              _fireWord = !_fireWord;
+              _spark++;
+            }),
+            child: AnimatedSwitcher(
+              duration: _duration(context, const Duration(milliseconds: 150)),
+              child: _showIntroduction
+                  ? Center(
+                      key: ValueKey('dokkaebi-intro-$_request'),
+                      child: DokkaebiIntro(
+                        staticOnly: !TigerStageVideo.videoReady,
+                      ),
+                    )
+                  : !_shown
+                  ? PracticeDokkaebiRestingArt(
+                      key: ValueKey(
+                        _magical ? PracticeDokkaebiPose.magical : pose,
+                      ),
+                      pose: _magical ? PracticeDokkaebiPose.magical : pose,
+                    )
+                  : PracticeDokkaebiCanvas(
+                      child: PracticeCharacterClip(
+                        key: ValueKey('dokkaebi-intro-$_request'),
+                        videoAsset: clip.videoAsset,
+                        startAsset: clip.startAsset,
+                        endAsset: clip.endAsset,
+                        explaining: true,
+                        play: _play,
+                        onRequested: () {
+                          if (mounted) {
+                            setState(() => _play = false);
+                          }
+                        },
+                      ),
+                    ),
             ),
           ),
         ),
-      );
-    }
-
+      ),
+    );
     return SafeArea(
       top: false,
       child: SizedBox(
@@ -366,7 +391,7 @@ class _PracticeDokkaebiIntroductionState
                                               onTap: () {
                                                 setState(() {
                                                   _magical = !_magical;
-                                                  _shown = false;
+                                                  _shown = _play = false;
                                                   _request++;
                                                   _spark++;
                                                 });
@@ -664,15 +689,10 @@ class _IntroductionStageState extends State<_IntroductionStage>
     duration: SoriMotion.medium,
   );
 
-  bool get _motionEnabled =>
-      TickerMode.valuesOf(context).enabled &&
-      !MediaQuery.disableAnimationsOf(context) &&
-      !Storage.reducedMotion;
-
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    if (_motionEnabled) {
+    if (TickerMode.valuesOf(context).enabled) {
       if (!_orbit.isAnimating) _orbit.repeat();
     } else {
       _orbit.stop();
@@ -684,7 +704,8 @@ class _IntroductionStageState extends State<_IntroductionStage>
   @override
   void didUpdateWidget(_IntroductionStage oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.spark != widget.spark && _motionEnabled) {
+    if (oldWidget.spark != widget.spark &&
+        TickerMode.valuesOf(context).enabled) {
       _pulse.forward(from: 0);
     }
   }
@@ -723,7 +744,7 @@ class _IntroductionStageState extends State<_IntroductionStage>
                       child: AnimatedBuilder(
                         animation: Listenable.merge([_orbit, _pulse]),
                         builder: (context, child) {
-                          final enabled = _motionEnabled;
+                          final enabled = TickerMode.valuesOf(context).enabled;
                           final angle =
                               _orbit.value * math.pi * 2 + i * math.pi;
                           final bump = enabled
