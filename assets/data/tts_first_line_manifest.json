@@ -9,8 +9,8 @@
   ],
   "generatedFrom": {
     "assets/data/scenarios_a1.json": "351eee5408943d0581a5aa5177727d8586b99c919cd8e120ac821830682b6032",
-    "assets/data/scenarios_a2.json": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
-    "assets/data/scenarios_b1.json": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+    "assets/data/scenarios_a2.json": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
+    "assets/data/scenarios_b1.json": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
     "assets/data/scenarios_b2.json": "1a9246bc9b20d3712ca5faa27003d49fa6e153eb216ca2b3f9ad8041d5feb44b",
     "assets/data/scenarios_c1.json": "a77ac95283cec6d5837371bded2b68c7c38c76133a9d2c2ca824b2494b7783b6",
     "assets/data/scenarios_c2.json": "2720956038673c9adea993515e0105db541e5e5bdf31799fd8efdd4e5ab62b6c"
@@ -441,7 +441,7 @@
     {
       "scenarioId": "a2_andrea_minho_bojagi_housewarming",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "와, 집들이 선물을 보자기에 싸니까 훨씬 고급스러워 보이네.",
       "speakerRole": "minho",
       "voice": "male",
@@ -455,7 +455,7 @@
     {
       "scenarioId": "a2_byeongcheol_walk_break",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "여기서 조금 더 걸을까요?",
       "speakerRole": "byeongcheol",
       "voice": "male",
@@ -469,7 +469,7 @@
     {
       "scenarioId": "a2_dongsun_christian_suspicious_delivery_text",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "크리스티안, 이것 좀 봐줄래요? 택배 주소가 틀렸다고 문자가 왔네요. 빨리 이 링크로 다시 확인하라고 써 있어요.",
       "speakerRole": "dongsun",
       "voice": "female",
@@ -483,7 +483,7 @@
     {
       "scenarioId": "a2_jun_game_time_change",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "오늘 숙제 때문에 좀 늦을 것 같아요.",
       "speakerRole": "jun",
       "voice": "male",
@@ -497,7 +497,7 @@
     {
       "scenarioId": "a2_jun_hwaseong_school_slide",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "준, 학교에서 보여 줄 사진 거의 다 골랐어?",
       "speakerRole": "christian",
       "voice": "male",
@@ -511,7 +511,7 @@
     {
       "scenarioId": "a2_jun_minho_class_phone_rule",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "아빠, 이번 학기부터 수업 중에는 휴대폰을 쓰면 안 돼.",
       "speakerRole": "user",
       "voice": "male",
@@ -525,7 +525,7 @@
     {
       "scenarioId": "a2_lena_hyuna_heatwave_plan",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "현아 씨, 내일 오후에 한강 갈까요?",
       "speakerRole": "user",
       "voice": "female",
@@ -539,7 +539,7 @@
     {
       "scenarioId": "a2_lena_maya_buchae_gift_choice",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "현아한테 작은 선물을 주고 싶은데, 이 부채 어때?",
       "speakerRole": "user",
       "voice": "female",
@@ -553,7 +553,7 @@
     {
       "scenarioId": "a2_message_change_of_plan_2026",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "미안해. 버스가 너무 늦게 와서 여섯 시에는 못 갈 것 같아.",
       "speakerRole": "user",
       "voice": "female",
@@ -567,7 +567,7 @@
     {
       "scenarioId": "a2_minho_weekend_cooking_plan",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "이번 토요일에 같이 요리할까?",
       "speakerRole": "minho",
       "voice": "male",
@@ -581,7 +581,7 @@
     {
       "scenarioId": "a2_theme_park_date_break",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "수진아, 괜찮아? 많이 피곤해 보여.",
       "speakerRole": "christian",
       "voice": "male",
@@ -595,7 +595,7 @@
     {
       "scenarioId": "a2_w10_apt",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "안녕하세요. 이사 오셨죠?",
       "speakerRole": "neighbor",
       "voice": "male",
@@ -609,7 +609,7 @@
     {
       "scenarioId": "a2_w10_booking",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "네, 서울식당입니다.",
       "speakerRole": "server",
       "voice": "male",
@@ -623,7 +623,7 @@
     {
       "scenarioId": "a2_w10_buy",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "어서 오세요. 뭐 찾으세요?",
       "speakerRole": "clerk",
       "voice": "female",
@@ -637,7 +637,7 @@
     {
       "scenarioId": "a2_w10_enrolment",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "안녕하세요. 수업 등록하러 오셨어요?",
       "speakerRole": "instructor",
       "voice": "female",
@@ -651,7 +651,7 @@
     {
       "scenarioId": "a2_w10_fandom",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "우리 몇 번째야? 줄이 진짜 길다.",
       "speakerRole": "lena",
       "voice": "female",
@@ -665,7 +665,7 @@
     {
       "scenarioId": "a2_w10_friends",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "밥 진짜 맛있었다. 이제 뭐 할까?",
       "speakerRole": "maya",
       "voice": "female",
@@ -679,7 +679,7 @@
     {
       "scenarioId": "a2_w10_money",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "어서 오세요. 어떻게 오셨어요?",
       "speakerRole": "clerk",
       "voice": "female",
@@ -693,7 +693,7 @@
     {
       "scenarioId": "a2_w10_partner",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "수진아, 나 좀 떨려. 추석이라 부모님께 뭐라고 인사하면 좋을까?",
       "speakerRole": "user",
       "voice": "male",
@@ -707,7 +707,7 @@
     {
       "scenarioId": "clothing_refund_size",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "무엇을 도와드릴까요?",
       "speakerRole": "clerk",
       "voice": "female",
@@ -721,7 +721,7 @@
     {
       "scenarioId": "convenience_parcel_pickup",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "어서 오세요.",
       "speakerRole": "clerk",
       "voice": "female",
@@ -735,7 +735,7 @@
     {
       "scenarioId": "delivery_dinner_spicy",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "와, 생각보다 너무 매워요.",
       "speakerRole": "user",
       "voice": "male",
@@ -749,7 +749,7 @@
     {
       "scenarioId": "email_attachment_twice",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "마야, 메일에 첨부파일이 없어요.",
       "speakerRole": "coworker",
       "voice": "female",
@@ -763,7 +763,7 @@
     {
       "scenarioId": "favorite_drama_chat",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "한국에 온 지 얼마나 됐어요?",
       "speakerRole": "sujin",
       "voice": "female",
@@ -777,7 +777,7 @@
     {
       "scenarioId": "forgot_house_key",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "나 큰일 났어. 열쇠를 방에 두고 왔어.",
       "speakerRole": "user",
       "voice": "male",
@@ -791,7 +791,7 @@
     {
       "scenarioId": "forgot_presentation_cable",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "큰일이야. 케이블을 안 가져왔어.",
       "speakerRole": "user",
       "voice": "male",
@@ -805,7 +805,7 @@
     {
       "scenarioId": "friend_cancelled_plan",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "갑자기 취소해서 미안해.",
       "speakerRole": "user",
       "voice": "female",
@@ -819,7 +819,7 @@
     {
       "scenarioId": "group_chat_photo_permission",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "이 사진 올려도 돼?",
       "speakerRole": "maya",
       "voice": "female",
@@ -833,7 +833,7 @@
     {
       "scenarioId": "gym_class_cancel",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "안녕하세요. 무엇을 도와드릴까요?",
       "speakerRole": "clerk",
       "voice": "female",
@@ -847,7 +847,7 @@
     {
       "scenarioId": "jeju_bus_missed",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "다니엘, 우리 막차를 놓쳤어.",
       "speakerRole": "user",
       "voice": "female",
@@ -861,7 +861,7 @@
     {
       "scenarioId": "library_card_problem",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "저기요. 카드가 안 돼요.",
       "speakerRole": "user",
       "voice": "female",
@@ -875,7 +875,7 @@
     {
       "scenarioId": "package_wrong_door",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "네, 무슨 일이세요?",
       "speakerRole": "neighbor",
       "voice": "male",
@@ -889,7 +889,7 @@
     {
       "scenarioId": "pharmacy_cold_medicine",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "어디가 불편하세요?",
       "speakerRole": "pharmacist",
       "voice": "female",
@@ -903,7 +903,7 @@
     {
       "scenarioId": "plans_with_friend",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "토요일에 이 전시 보러 갈래요?",
       "speakerRole": "user",
       "voice": "male",
@@ -917,7 +917,7 @@
     {
       "scenarioId": "running_late",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "지하철이 늦어서 십 분쯤 늦을 것 같아.",
       "speakerRole": "user",
       "voice": "female",
@@ -931,7 +931,7 @@
     {
       "scenarioId": "samgyeopsal_first_time",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "이제 먹어도 돼요?",
       "speakerRole": "user",
       "voice": "male",
@@ -945,7 +945,7 @@
     {
       "scenarioId": "taxi_slow_down",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "기사님, 천천히 좀 가 주실 수 있을까요?",
       "speakerRole": "user",
       "voice": "female",
@@ -959,7 +959,7 @@
     {
       "scenarioId": "train_seat_swap",
       "sourceShard": "scenarios_a2.json",
-      "sourceSha256": "0cd337e7c9e7557b3dd934da1b4285e03a11524fac77cfe32cf6ddf373f0fa49",
+      "sourceSha256": "4634e61e50145a67096a8c2b7dbaac5a21f29e6712baebd6a30e0bb48005654a",
       "firstDialogKo": "죄송한데, 여기 제 자리예요.",
       "speakerRole": "customer",
       "voice": "male",
@@ -973,7 +973,7 @@
     {
       "scenarioId": "ai_summary_wrong_fact",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "요약에는 행사가 5월 12일이라고 되어 있는데 원문은 21일이에요.",
       "speakerRole": "hyuna",
       "voice": "female",
@@ -987,7 +987,7 @@
     {
       "scenarioId": "apartment_recycling_mixup",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "죄송한데, 그건 종이류가 아닌 것 같아요.",
       "speakerRole": "neighbor",
       "voice": "male",
@@ -1001,7 +1001,7 @@
     {
       "scenarioId": "b1_andrea_minho_family_calendar",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "다음 주 화요일 나 늦어. 준 학원 끝나는 시간 당신 괜찮아?",
       "speakerRole": "user",
       "voice": "female",
@@ -1015,7 +1015,7 @@
     {
       "scenarioId": "b1_andrea_minho_friday_schedule",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "요즘 회사에서 금요일 오후를 어떻게 할지 얘기가 계속 나와.",
       "speakerRole": "user",
       "voice": "female",
@@ -1029,7 +1029,7 @@
     {
       "scenarioId": "b1_byeongcheol_hwaseong_memory_check",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "예전에는 이쪽으로 산책 오는 사람이 지금보다 적었던 기억이 납니다.",
       "speakerRole": "byeongcheol",
       "voice": "male",
@@ -1043,7 +1043,7 @@
     {
       "scenarioId": "b1_christian_sujin_suspicious_text_followup",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "수진아, 어머님이랑 대화 나누다가 문자를 봤는데, 보이스피싱 같아서 링크를 누르지 말라고 했어.",
       "speakerRole": "user",
       "voice": "male",
@@ -1057,7 +1057,7 @@
     {
       "scenarioId": "b1_dongsun_maya_price_notice",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "마야 씨, 수선 가격 조금 바꾸려고 하는데 공지까지 무서우면 손님 다 도망가겠죠?",
       "speakerRole": "dongsun",
       "voice": "female",
@@ -1071,7 +1071,7 @@
     {
       "scenarioId": "b1_dongsun_norigae_shop_post",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "사장님, 이 노리개 사진을 가게 페이지에 올려도 될까요?",
       "speakerRole": "user",
       "voice": "female",
@@ -1085,7 +1085,7 @@
     {
       "scenarioId": "b1_dongsun_sujin_repair_price",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "수진아, 엄마 수선 가격표 좀 다시 보려고.",
       "speakerRole": "dongsun",
       "voice": "female",
@@ -1099,7 +1099,7 @@
     {
       "scenarioId": "b1_jun_andrea_phone_house_rules",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "엄마, 학교에서는 휴대폰을 안 쓰니까 집중은 되는데 공지 확인이 늦을 때가 있어.",
       "speakerRole": "user",
       "voice": "male",
@@ -1113,7 +1113,7 @@
     {
       "scenarioId": "b1_jun_christian_phone_study_habit",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "크리스티안 형, 학교에서 수업 중에 폰을 못 쓰니까 가끔 답답해요.",
       "speakerRole": "user",
       "voice": "male",
@@ -1127,7 +1127,7 @@
     {
       "scenarioId": "b1_lena_hyuna_crowded_weekend",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "현아 씨, 토요일에 그 골목 같이 가는 거 어때요? 요즘 사진만 보면 다 거기예요.",
       "speakerRole": "user",
       "voice": "female",
@@ -1141,7 +1141,7 @@
     {
       "scenarioId": "b1_lena_maya_beyond_music",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "저 처음엔 진짜 음악 때문에 한국에 관심 생겼거든요.",
       "speakerRole": "user",
       "voice": "female",
@@ -1155,7 +1155,7 @@
     {
       "scenarioId": "b1_maya_daniel_ai_campaign_cut",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "다니엘, 이 장면도 우리가 지난주에 찍은 거예요?",
       "speakerRole": "user",
       "voice": "female",
@@ -1169,7 +1169,7 @@
     {
       "scenarioId": "b1_minho_christian_hanok_cafe_meeting",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "여기가 제가 말한 한옥 카페예요. 마당 쪽에도 자리가 있네요.",
       "speakerRole": "minho",
       "voice": "male",
@@ -1183,7 +1183,7 @@
     {
       "scenarioId": "b1_sujin_byeongcheol_family_verification_rule",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "아빠, 엄마한테 이상한 택배 문자가 왔다는데 보이스피싱 같아.",
       "speakerRole": "user",
       "voice": "female",
@@ -1197,7 +1197,7 @@
     {
       "scenarioId": "b1_sujin_christian_asset_provenance_check",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "이전 파일 몇 개는 AI로 만든 파일인지 표시가 없네. 파일 이름만 봐서는 모르겠어.",
       "speakerRole": "user",
       "voice": "female",
@@ -1211,7 +1211,7 @@
     {
       "scenarioId": "b1_team_briefing_revised_schedule_2026",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "회의 전에 한 가지 정정할 게 있습니다. 공유한 일정표에 파일 검토 시간이 빠졌습니다.",
       "speakerRole": "andrea",
       "voice": "female",
@@ -1225,7 +1225,7 @@
     {
       "scenarioId": "b1_theme_park_date_thrill",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "올라갈 때 탁탁탁탁 나는 소리, 진짜 좋지 않았어?",
       "speakerRole": "christian",
       "voice": "male",
@@ -1239,7 +1239,7 @@
     {
       "scenarioId": "b1_w10_bill",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "저기요, 죄송한데 영수증을 보니까 커피가 두 잔 값으로 찍혀 있어요.",
       "speakerRole": "user",
       "voice": "female",
@@ -1253,7 +1253,7 @@
     {
       "scenarioId": "b1_w10_cancellation",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "안녕하세요, 헬스장 회원권을 해지하고 싶은데요.",
       "speakerRole": "user",
       "voice": "female",
@@ -1267,7 +1267,7 @@
     {
       "scenarioId": "b1_w10_fandom",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "큰일 났어. 티켓팅 시작하자마자 서버가 다운됐어.",
       "speakerRole": "user",
       "voice": "female",
@@ -1281,7 +1281,7 @@
     {
       "scenarioId": "b1_w10_form",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "어서 오세요. 주소 변경에 필요한 서류를 확인해 드릴게요.",
       "speakerRole": "official",
       "voice": "male",
@@ -1295,7 +1295,7 @@
     {
       "scenarioId": "b1_w10_friends",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "현아야, 저번에 약속 갑자기 취소해서 미안해.",
       "speakerRole": "user",
       "voice": "female",
@@ -1309,7 +1309,7 @@
     {
       "scenarioId": "b1_w10_incident",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "어, 죄송해요! 못 봤어요, 괜찮으세요?",
       "speakerRole": "resident",
       "voice": "male",
@@ -1323,7 +1323,7 @@
     {
       "scenarioId": "b1_w10_insurance",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "안녕하세요, 실손보험 청구 때문에 전화했는데요.",
       "speakerRole": "user",
       "voice": "male",
@@ -1337,7 +1337,7 @@
     {
       "scenarioId": "b1_w10_partner",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "수진아, 이번 주말에는 나 혼자 좀 쉬고 싶은데 괜찮을까?",
       "speakerRole": "user",
       "voice": "male",
@@ -1351,7 +1351,7 @@
     {
       "scenarioId": "b1_w10_repair",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "네, 고객센터예요. 어떤 문제가 있으세요?",
       "speakerRole": "clerk",
       "voice": "female",
@@ -1365,7 +1365,7 @@
     {
       "scenarioId": "birthday_expectation_gap",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "제가 준비하려던 게 부담스러웠어요?",
       "speakerRole": "sujin",
       "voice": "female",
@@ -1379,7 +1379,7 @@
     {
       "scenarioId": "cancelled_trip_hurt_feelings",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "작업이 늦어져서 오후 표로 바꿨어.",
       "speakerRole": "user",
       "voice": "male",
@@ -1393,7 +1393,7 @@
     {
       "scenarioId": "community_festival_shift",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "축제 봉사 담당입니다. 무슨 일이세요?",
       "speakerRole": "official",
       "voice": "male",
@@ -1407,7 +1407,7 @@
     {
       "scenarioId": "company_instagram_wrong_account",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "큰일 났어요. 회사 인스타그램 계정에 제 개인 스토리를 올렸어요.",
       "speakerRole": "user",
       "voice": "female",
@@ -1421,7 +1421,7 @@
     {
       "scenarioId": "date_or_friendly_coffee",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.",
       "speakerRole": "sujin",
       "voice": "female",
@@ -1435,7 +1435,7 @@
     {
       "scenarioId": "food_delivery_wrong_order",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "고객센터입니다. 어떤 문제가 있으세요?",
       "speakerRole": "clerk",
       "voice": "female",
@@ -1449,7 +1449,7 @@
     {
       "scenarioId": "jeju_rain_plan_change",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "바람이 너무 세서 배가 취소됐대.",
       "speakerRole": "user",
       "voice": "female",
@@ -1463,7 +1463,7 @@
     {
       "scenarioId": "ktx_sold_out_alternative",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "세 시 KTX는 다 매진이야.",
       "speakerRole": "user",
       "voice": "male",
@@ -1477,7 +1477,7 @@
     {
       "scenarioId": "noisy_neighbor_evening",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "네, 무슨 일이세요?",
       "speakerRole": "neighbor",
       "voice": "male",
@@ -1491,7 +1491,7 @@
     {
       "scenarioId": "park_pet_manners",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "죄송한데, 줄이 길어서 넘어질 뻔했어요.",
       "speakerRole": "user",
       "voice": "male",
@@ -1505,7 +1505,7 @@
     {
       "scenarioId": "reel_caption_misunderstanding",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "웃기려고 쓴 건데 가게를 비꼬는 것처럼 보여.",
       "speakerRole": "user",
       "voice": "female",
@@ -1519,7 +1519,7 @@
     {
       "scenarioId": "running_injury_training_plan",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "다니엘, 아까부터 계속 절뚝거리는데 괜찮아?",
       "speakerRole": "hyuna",
       "voice": "female",
@@ -1533,7 +1533,7 @@
     {
       "scenarioId": "secondhand_hidden_defect",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "잠깐만요. 글에는 이 흠집이 없었는데요.",
       "speakerRole": "user",
       "voice": "male",
@@ -1547,7 +1547,7 @@
     {
       "scenarioId": "shared_cup_recycling",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "회의가 끝날 때마다 일회용 컵이 너무 많이 남아요.",
       "speakerRole": "user",
       "voice": "female",
@@ -1561,7 +1561,7 @@
     {
       "scenarioId": "shared_document_old_version",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "레나, 나 예전 파일을 고쳤어.",
       "speakerRole": "user",
       "voice": "male",
@@ -1575,7 +1575,7 @@
     {
       "scenarioId": "speech_level_after_friendship",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "레나, 우리 이제 말 놓을까?",
       "speakerRole": "maya",
       "voice": "female",
@@ -1589,7 +1589,7 @@
     {
       "scenarioId": "subscription_cancel_charge",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "고객센터입니다. 무엇을 확인해 드릴까요?",
       "speakerRole": "clerk",
       "voice": "female",
@@ -1603,7 +1603,7 @@
     {
       "scenarioId": "team_update_indirect_speech",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요.",
       "speakerRole": "user",
       "voice": "female",
@@ -1617,7 +1617,7 @@
     {
       "scenarioId": "work_message_too_direct",
       "sourceShard": "scenarios_b1.json",
-      "sourceSha256": "8d27990943a8fba9a76385ae107f571db6c875088ac1798f1ba3fab5a82a1993",
+      "sourceSha256": "58709da3606418eb292ec8a8dc7d4d871b3385e723a02502655f07a980012d1c",
       "firstDialogKo": "마야, ‘오늘 안에 가능하실까요?’만 보내면 조금 재촉하는 것처럼 들려요.",
       "speakerRole": "andrea",
       "voice": "female",
