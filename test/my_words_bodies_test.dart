@@ -17,6 +17,7 @@ import 'package:ko_lernen_app/screens/wordbook_search_screen.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
@@ -118,6 +119,164 @@ void main() {
     },
   );
   testWidgets(
+    'saved-word pages retain search and filters when the keyboard opens',
+    (tester) async {
+      tester.view.physicalSize = const Size(320, 640);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      addTearDown(tester.view.resetViewInsets);
+      await CustomPackService.save(
+        CustomPack.manual(
+          id: 'my-words-body-pack',
+          name: 'Viele Wörter',
+          words: [
+            for (var index = 1; index <= 20; index++)
+              ExtractedWord(
+                korean: '연습 $index',
+                romanization: '',
+                posDe: 'Nomen',
+                translationDe: 'Lernkarte $index',
+                translationEn: '',
+                exampleKorean: '',
+                exampleDe: '',
+                savedToPackId: null,
+              ),
+          ],
+        ),
+      );
+      await tester.pumpWidget(_host(const MyWordsScreen()));
+      await tester.pumpAndSettle();
+      final context = tester.element(find.byType(MyWordsScreen));
+      final nextLabel = MaterialLocalizations.of(context).nextPageTooltip;
+      final next = find.byTooltip(nextLabel).hitTestable();
+      expect(find.text('연습 1').hitTestable(), findsOneWidget);
+      expect(next, findsOneWidget);
+      await tester.tap(next);
+      await tester.pumpAndSettle();
+      expect(find.text('연습 1').hitTestable(), findsNothing);
+
+      final field = find.byType(TextField).hitTestable();
+      await tester.tap(field);
+      tester.view.viewInsets = const FakeViewPadding(bottom: 260);
+      await tester.pumpAndSettle();
+      await tester.enterText(field, 'Lernkarte 20');
+      await tester.pumpAndSettle();
+      expect(find.text('연습 20').hitTestable(), findsOneWidget);
+      expect(
+        find.byTooltip(AppL10n.of(context).filterOpenBtn).hitTestable(),
+        findsOneWidget,
+      );
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets('Regal actions remain reachable on subsequent pages', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    for (var index = 0; index < 8; index++) {
+      await CustomPackService.save(
+        CustomPack.manual(
+          id: 'shelf-pack-$index',
+          name: 'Wortliste $index',
+          words: const [_savedWord],
+        ),
+      );
+    }
+    await tester.pumpWidget(
+      _host(const MyWordsScreen(initialTab: MyWordsTab.shelf), textScale: 2),
+    );
+    await tester.pumpAndSettle();
+    final context = tester.element(find.byType(BookshelfBody));
+    final t = AppL10n.of(context);
+    final next = find
+        .byTooltip(MaterialLocalizations.of(context).nextPageTooltip)
+        .hitTestable();
+    expect(next, findsOneWidget);
+    await tester.tap(next);
+    await tester.pumpAndSettle();
+    expect(find.byTooltip(t.createWordbookCta).hitTestable(), findsOneWidget);
+    expect(find.byTooltip(t.redeemTooltip).hitTestable(), findsOneWidget);
+    expect(find.byTooltip(t.studyLibraryRefresh).hitTestable(), findsOneWidget);
+    final practice = find
+        .byWidgetPredicate(
+          (widget) =>
+              widget is IconButton &&
+              (widget.tooltip?.startsWith('${t.btnPlay}: ') ?? false),
+        )
+        .hitTestable();
+    expect(practice, findsWidgets);
+    expect(
+      tester.getSize(practice.first).shortestSide,
+      greaterThanOrEqualTo(48),
+    );
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('Schwierig keeps both practice buttons in the viewport', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 420);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final words = [
+      for (var index = 1; index <= 12; index++)
+        Vocab(
+          id: 'difficult-word-$index',
+          korean: '반복 $index',
+          romanization: '',
+          german: 'Wiederholung $index',
+          english: '',
+          level: 'B2',
+          posDe: 'Nomen',
+          exampleKorean: '',
+          exampleGerman: '',
+          topic: 'test',
+        ),
+    ];
+    for (final word in words) {
+      for (var attempt = 0; attempt < 3; attempt++) {
+        await Storage.incrementWrongCount(word.korean);
+      }
+    }
+    await tester.pumpWidget(
+      _host(
+        Scaffold(
+          body: HardWordsBody(paged: true, deckLoader: () async => words),
+        ),
+        textScale: 2,
+      ),
+    );
+    await tester.pumpAndSettle();
+    final context = tester.element(find.byType(HardWordsBody));
+    final t = AppL10n.of(context);
+    final next = find
+        .byTooltip(MaterialLocalizations.of(context).nextPageTooltip)
+        .hitTestable();
+    expect(next, findsOneWidget);
+    for (final label in [t.hardWordsHardQuizCta, t.hardWordsStudyCta]) {
+      expect(
+        find.widgetWithText(SoriButton, label).hitTestable(),
+        findsOneWidget,
+      );
+    }
+    await tester.tap(next);
+    await tester.pumpAndSettle();
+    for (final label in [t.hardWordsHardQuizCta, t.hardWordsStudyCta]) {
+      expect(
+        find.widgetWithText(SoriButton, label).hitTestable(),
+        findsOneWidget,
+      );
+    }
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets(
     'saved words show their actual source examples and canonical tabs',
     (tester) async {
       final size = const bool.fromEnvironment('CAPTURE_402')
@@ -191,14 +350,19 @@ void main() {
   );
 }
 
-Widget _host(Widget child) {
+Widget _host(Widget child, {double textScale = 1}) {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: AppTheme.light,
     locale: const Locale('de'),
     supportedLocales: AppL10n.supportedLocales,
     localizationsDelegates: AppL10n.localizationsDelegates,
-    builder: (context, appChild) => SoriTypeScale(child: appChild!),
+    builder: (context, appChild) => MediaQuery(
+      data: MediaQuery.of(
+        context,
+      ).copyWith(textScaler: TextScaler.linear(textScale)),
+      child: SoriTypeScale(child: appChild!),
+    ),
     home: child,
   );
 }

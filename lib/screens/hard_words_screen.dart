@@ -20,6 +20,7 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
+import '../widgets/sori/viewport_pages.dart';
 import 'hard_choice_quiz_screen.dart';
 import 'review_session_screen.dart';
 
@@ -58,6 +59,7 @@ class HardWordsBody extends StatefulWidget {
   const HardWordsBody({
     super.key,
     this.deckLoader,
+    this.paged = false,
     this.padding = const EdgeInsets.fromLTRB(
       Spacing.lg,
       Spacing.md,
@@ -68,6 +70,7 @@ class HardWordsBody extends StatefulWidget {
 
   final Future<List<Vocab>> Function()? deckLoader;
   final EdgeInsets padding;
+  final bool paged;
 
   @override
   State<HardWordsBody> createState() => _HardWordsBodyState();
@@ -168,50 +171,53 @@ class _HardWordsBodyState extends State<HardWordsBody>
     final inlineActions =
         MediaQuery.textScalerOf(context).scale(1) >= 1.6 ||
         MediaQuery.sizeOf(context).height < 700;
+    final practiceActions = [
+      SoriButton(
+        label: t.hardWordsHardQuizCta,
+        variant: SoriButtonVariant.filled,
+        accent: SoriColors.danger,
+        fullWidth: true,
+        onTap: () async {
+          await Navigator.of(context).push(
+            SoriTransitions.page(
+              (_) => HardChoiceQuizScreen(deck: _hard, title: t.hardQuizTitle),
+            ),
+          );
+          if (mounted) {
+            // ignore: discarded_futures
+            _load();
+          }
+        },
+      ),
+      SoriButton(
+        label: t.hardWordsStudyCta,
+        icon: Icons.bolt_rounded,
+        variant: SoriButtonVariant.outlined,
+        fullWidth: true,
+        onTap: () async {
+          await Navigator.of(context).push(
+            SoriTransitions.page(
+              (_) => ReviewSessionScreen(
+                deck: _hard,
+                title: t.hardWordsTitle,
+                feedbackContentId: 'hard_words',
+                feedbackContentLabel: t.hardWordsTitle,
+              ),
+            ),
+          );
+          if (mounted) {
+            // ignore: discarded_futures
+            _load();
+          }
+        },
+      ),
+    ];
     final actionBlock = Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        SoriButton(
-          label: t.hardWordsHardQuizCta,
-          variant: SoriButtonVariant.filled,
-          accent: SoriColors.danger,
-          fullWidth: true,
-          onTap: () async {
-            await Navigator.of(context).push(
-              SoriTransitions.page(
-                (_) =>
-                    HardChoiceQuizScreen(deck: _hard, title: t.hardQuizTitle),
-              ),
-            );
-            if (mounted) {
-              // ignore: discarded_futures
-              _load();
-            }
-          },
-        ),
+        practiceActions.first,
         const SizedBox(height: Spacing.sm),
-        SoriButton(
-          label: t.hardWordsStudyCta,
-          icon: Icons.bolt_rounded,
-          variant: SoriButtonVariant.outlined,
-          fullWidth: true,
-          onTap: () async {
-            await Navigator.of(context).push(
-              SoriTransitions.page(
-                (_) => ReviewSessionScreen(
-                  deck: _hard,
-                  title: t.hardWordsTitle,
-                  feedbackContentId: 'hard_words',
-                  feedbackContentLabel: t.hardWordsTitle,
-                ),
-              ),
-            );
-            if (mounted) {
-              // ignore: discarded_futures
-              _load();
-            }
-          },
-        ),
+        practiceActions.last,
       ],
     );
 
@@ -224,6 +230,44 @@ class _HardWordsBodyState extends State<HardWordsBody>
         message: t.loadErrorTryAgain,
         messageLiveRegion: true,
         onRetry: () => _load(showLoading: true),
+      );
+    }
+    if (_hard.isEmpty && widget.paged) {
+      final type = SoriTextTheme.of(context);
+      return Padding(
+        padding: EdgeInsets.fromLTRB(
+          padding.left,
+          padding.top,
+          padding.right,
+          Spacing.lg,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: SoriViewportPages(
+                sections: [
+                  Text(t.hardWordsEmptyTitle, style: type.h2),
+                  const SizedBox(height: Spacing.sm),
+                  Text(
+                    t.hardWordsEmptyBody,
+                    style: _hardWordBodyStyle(context),
+                  ),
+                  const Mascot.magpie(
+                    emotion: MascotEmotion.celebrate,
+                    size: 80,
+                    animate: false,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: Spacing.sm),
+            SoriButton.filled(
+              label: t.btnClose,
+              onTap: () => Navigator.of(context).maybePop(),
+            ),
+          ],
+        ),
       );
     }
     if (_hard.isEmpty) {
@@ -258,6 +302,53 @@ class _HardWordsBodyState extends State<HardWordsBody>
         ),
       ],
     );
+    if (widget.paged) {
+      return Padding(
+        padding: EdgeInsets.fromLTRB(
+          padding.left,
+          padding.top,
+          padding.right,
+          Spacing.lg,
+        ),
+        child: LayoutBuilder(
+          builder: (context, constraints) => Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: LayoutBuilder(
+                  builder: (context, body) => SoriViewportPages(
+                    key: _listKey,
+                    sections: [
+                      if (body.maxHeight >= 260)
+                        header
+                      else
+                        Text(
+                          t.hardWordsSubtitle(_hard.length),
+                          style: _hardWordBodyStyle(context),
+                        ),
+                      const SizedBox(height: Spacing.sm),
+                      ..._sectionedTiles(t, body: body),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: Spacing.sm),
+              if (constraints.maxHeight < 420)
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(child: practiceActions.first),
+                    const SizedBox(width: Spacing.sm),
+                    Expanded(child: practiceActions.last),
+                  ],
+                )
+              else
+                actionBlock,
+            ],
+          ),
+        ),
+      );
+    }
     if (inlineActions) {
       return ListView(
         key: _listKey,
@@ -302,11 +393,11 @@ class _HardWordsBodyState extends State<HardWordsBody>
   /// 자동 산출 ∪ 하트한 단어 타일들. 두 출처가 실제로 섞일 때만(하트한
   /// 단어가 있을 때만) 섹션 헤더 2개로 나눠 보여준다 — 하트한 단어가 없으면
   /// 지금까지와 동일하게 헤더 없이 자동 목록만 보인다.
-  List<Widget> _sectionedTiles(AppL10n t) {
+  List<Widget> _sectionedTiles(AppL10n t, {BoxConstraints? body}) {
     if (_hardLiked.isEmpty) {
       return [
         for (final word in _hardAuto) ...[
-          _HardWordTile(word: word),
+          ..._wordSections(word, body),
           const SizedBox(height: Spacing.xs),
         ],
       ];
@@ -315,23 +406,87 @@ class _HardWordsBodyState extends State<HardWordsBody>
       if (_hardAuto.isNotEmpty) ...[
         SoriSectionHeader(t.hardWordsSectionAuto),
         for (final word in _hardAuto) ...[
-          _HardWordTile(word: word),
+          ..._wordSections(word, body),
           const SizedBox(height: Spacing.xs),
         ],
       ],
       SoriSectionHeader(t.hardWordsSectionLiked),
       for (final word in _hardLiked) ...[
-        _HardWordTile(word: word),
+        ..._wordSections(word, body),
         const SizedBox(height: Spacing.xs),
       ],
     ];
   }
+
+  Iterable<Widget> _wordSections(Vocab word, BoxConstraints? body) sync* {
+    if (body == null) {
+      yield _HardWordTile(word: word);
+      return;
+    }
+    final style = _hardWordBodyStyle(context);
+    final language = Localizations.localeOf(context).languageCode;
+    final meaning = word.translationFor(language);
+    final available = body.maxHeight - SoriViewportPages.controlsHeight;
+    final titleStyle = SoriTextTheme.of(context).h3;
+    final textWidth = (body.maxWidth - Spacing.xl - 48).clamp(
+      1.0,
+      double.infinity,
+    );
+    final titlePages = soriViewportTextPages(
+      context,
+      word.korean,
+      style: titleStyle,
+      width: textWidth,
+      height: (available * .45).clamp(1.0, double.infinity),
+    );
+    final translationPages = soriViewportTextPages(
+      context,
+      meaning,
+      style: style,
+      width: textWidth,
+      height: (available * .55 - Spacing.lg).clamp(1.0, double.infinity),
+    );
+    final summary = titlePages.length > 1 || translationPages.length > 1;
+    yield _HardWordTile(word: word, summary: summary, paged: true);
+    if (summary) {
+      for (final (text, textStyle) in [
+        if (titlePages.length > 1) (word.korean, titleStyle),
+        if (meaning.isNotEmpty) (meaning, style),
+      ]) {
+        for (final page in soriViewportTextPages(
+          context,
+          text,
+          style: textStyle,
+          width: (body.maxWidth - Spacing.xl).clamp(1.0, double.infinity),
+          height: (available - Spacing.xl).clamp(1.0, double.infinity),
+        )) {
+          yield SoriCard(
+            padding: const EdgeInsets.all(Spacing.md),
+            child: Text(page, style: textStyle),
+          );
+        }
+      }
+    }
+  }
+}
+
+TextStyle _hardWordBodyStyle(BuildContext context) {
+  final style = SoriTextTheme.of(context).body;
+  return Theme.of(context).platform == TargetPlatform.iOS
+      ? style.copyWith(fontSize: 17)
+      : style;
 }
 
 class _HardWordTile extends StatelessWidget {
-  const _HardWordTile({required this.word});
+  const _HardWordTile({
+    required this.word,
+    this.summary = false,
+    this.paged = false,
+  });
 
   final Vocab word;
+  final bool summary;
+  final bool paged;
 
   @override
   Widget build(BuildContext context) {
@@ -357,13 +512,20 @@ class _HardWordTile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(word.korean, style: SoriTextTheme.of(context).h3),
-                if (translation.isNotEmpty)
+                Text(
+                  word.korean,
+                  style: SoriTextTheme.of(context).h3,
+                  maxLines: summary ? 1 : null,
+                  overflow: summary ? TextOverflow.ellipsis : null,
+                ),
+                if (!summary && translation.isNotEmpty)
                   Text(
                     translation,
-                    style: SoriTextTheme.of(
-                      context,
-                    ).bodySmall.copyWith(color: s.textMuted),
+                    style:
+                        (paged
+                                ? _hardWordBodyStyle(context)
+                                : SoriTextTheme.of(context).bodySmall)
+                            .copyWith(color: s.textMuted),
                   ),
               ],
             ),

@@ -40,7 +40,8 @@ void main() {
     await tester.pump();
 
     expect(find.byType(AppLoading), findsNothing);
-    expect(find.text(_t.reviewEmptyTitle), findsOneWidget);
+    expect(find.text(_t.reviewEmptyTitle).hitTestable(), findsOneWidget);
+    expect(find.text(_t.btnClose).hitTestable(), findsOneWidget);
   });
 
   testWidgets('load error is localized and retry can reach ready', (
@@ -56,7 +57,8 @@ void main() {
     });
     await tester.pump();
 
-    expect(find.text(_t.loadErrorTryAgain), findsOneWidget);
+    expect(find.text(_t.loadErrorTryAgain).hitTestable(), findsOneWidget);
+    expect(find.text(_t.btnRetry).hitTestable(), findsOneWidget);
     expect(find.textContaining('raw loader secret'), findsNothing);
     expect(find.text(_t.reviewEmptyTitle), findsNothing);
 

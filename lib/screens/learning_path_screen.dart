@@ -20,7 +20,6 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/hanok_v3_preview.dart';
 import '../widgets/sori/button.dart';
-import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/level_chip.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/course_progress_evidence_note.dart';
@@ -30,6 +29,7 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/viewport_pages.dart';
 import '../widgets/sori/window_class.dart';
 
 /// 경로가 렌더할 단일 CEFR 레벨을 정한다. 학습자의 온보딩 선택
@@ -159,11 +159,12 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   final GlobalKey _nowNodeKey = GlobalKey();
   final GlobalKey _currentCourseNodeKey = GlobalKey();
 
-  // ── §6.2-① 자동 스크롤 ──
-  /// 홈 미리보기가 넘긴 스크롤 타깃 팩 id (`/path` route arguments).
+  /// The pack targeted by a link from the home preview.
   String? _focusPackId;
   final GlobalKey _focusNodeKey = GlobalKey();
-  bool _autoScrolled = false;
+  int _targetRevision = 0;
+  bool _targetLegacyPack = false;
+  static const _legacyHeaderKey = ValueKey('path-legacy-practice-content');
 
   @override
   String get coachId => 'learningPath';
@@ -224,46 +225,18 @@ class _LearningPathScreenState extends State<LearningPathScreen>
     if (_focusPackId == null && args is String) {
       _focusPackId = args;
       _showLegacyPractice = true;
+      _targetLegacyPack = true;
     }
   }
 
   bool get _hasLegacyTarget => _focusPackId != null || _nowPackId != null;
 
-  /// §6.2-①: 진입(및 점프 버튼) 시 현재 — 또는 홈이 지정한 — 노드로 스크롤.
-  /// ListView가 children 전량을 즉시 빌드하므로 ensureVisible이 안전하다.
-  void _autoScrollToTarget({bool force = false}) {
-    if (!mounted || (_autoScrolled && !force)) {
-      return;
-    }
-    final focusCtx = _focusPackId != null && _focusPackId != _nowPackId
-        ? _focusNodeKey.currentContext
-        : null;
-    final ctx = focusCtx ?? _nowNodeKey.currentContext;
-    if (ctx == null) {
-      return; // 타깃 없음(예: 전부 클리어) — 상단 유지.
-    }
-    _autoScrolled = true;
-    final reduce = SoriMotion.reduceMotion(context);
-    Scrollable.ensureVisible(
-      ctx,
-      alignment: 0.35,
-      duration: reduce ? Duration.zero : const Duration(milliseconds: 450),
-      curve: Curves.easeOutCubic,
-    );
-  }
-
   void _jumpToLegacyTarget() {
-    if (!_hasLegacyTarget) {
-      return;
-    }
-    if (_showLegacyPractice) {
-      _autoScrollToTarget(force: true);
-      return;
-    }
-    setState(() => _showLegacyPractice = true);
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) => _autoScrollToTarget(force: true),
-    );
+    setState(() {
+      _showLegacyPractice = true;
+      _targetLegacyPack = true;
+      _targetRevision++;
+    });
   }
 
   Future<void> _load() async {
@@ -321,41 +294,37 @@ class _LearningPathScreenState extends State<LearningPathScreen>
           !hasCurrentCourseTarget &&
           _nowPackId != null &&
           !Storage.tutSeen(coachId);
-      final shouldAutoScroll = !_showLegacyPractice && revealLegacyForCoach;
       setState(() {
         _courseLevel = courseLevel;
         _courseUnits = courseUnits;
         _courseSnapshot = courseSnapshot;
         _courseLoading = false;
         _courseLoadFailed = false;
+        if (revealLegacyForCoach && !_showLegacyPractice) {
+          _targetLegacyPack = true;
+          _targetRevision++;
+        }
         _showLegacyPractice = _showLegacyPractice || revealLegacyForCoach;
         _loading = false;
       });
-      if (shouldAutoScroll) {
-        WidgetsBinding.instance.addPostFrameCallback(
-          (_) => _autoScrollToTarget(),
-        );
-      }
     } catch (_) {
       if (!mounted || generation != _courseLoadGeneration) {
         return;
       }
       final revealLegacyForCoach =
           _nowPackId != null && !Storage.tutSeen(coachId);
-      final shouldAutoScroll = !_showLegacyPractice && revealLegacyForCoach;
       setState(() {
         _courseUnits = const [];
         _courseSnapshot = null;
         _courseLoading = false;
         _courseLoadFailed = true;
+        if (revealLegacyForCoach && !_showLegacyPractice) {
+          _targetLegacyPack = true;
+          _targetRevision++;
+        }
         _showLegacyPractice = _showLegacyPractice || revealLegacyForCoach;
         _loading = false;
       });
-      if (shouldAutoScroll) {
-        WidgetsBinding.instance.addPostFrameCallback(
-          (_) => _autoScrollToTarget(),
-        );
-      }
     }
   }
 
@@ -441,14 +410,15 @@ class _LearningPathScreenState extends State<LearningPathScreen>
         _packTotal = total;
         _nowPackId = now;
         _selectedLevel = selectedLevel;
+        if (revealLegacyForCoach && !_showLegacyPractice) {
+          _targetLegacyPack = true;
+          _targetRevision++;
+        }
         _showLegacyPractice = _showLegacyPractice || revealLegacyForCoach;
         _legacyLoading = false;
         _legacyLoadFailure = null;
         _loading = false;
       });
-      WidgetsBinding.instance.addPostFrameCallback(
-        (_) => _autoScrollToTarget(),
-      );
     } catch (_) {
       if (!mounted || generation != _legacyLoadGeneration) {
         return;
@@ -501,26 +471,30 @@ class _LearningPathScreenState extends State<LearningPathScreen>
     return SoriStandardFrame(
       appBarTitle: t.pathTitle,
       maxWidth: SoriMaxWidth.hub,
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 48),
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
       actions: [
         const CulturalHelpButton(termId: 'madang'),
-        // §6.2-①: 현재 노드로 점프 (자동 스크롤과 병행).
+        // The named action opens the page containing the current pack.
         IconButton(
           key: const ValueKey('path-jump-to-now'),
           tooltip: t.pathJumpToNow,
           icon: const Icon(Icons.my_location_rounded),
           onPressed: _hasLegacyTarget ? _jumpToLegacyTarget : null,
         ),
-        const SizedBox(width: Spacing.xs),
+        IconButton(
+          key: const ValueKey('path-refresh'),
+          tooltip: MaterialLocalizations.of(
+            context,
+          ).refreshIndicatorSemanticLabel,
+          icon: const Icon(Icons.refresh_rounded),
+          onPressed: _loading ? null : _refresh,
+        ),
       ],
       builder: (context, resolvedPadding) {
         if (_loading) {
           return const AppLoading();
         }
-        // 접힌(기본) 상태 = 코스 미션 경로(있으면) + 토글 버튼뿐이다. 이
-        // 서브트리에는 내부 LayoutBuilder가 없어 fillViewport의
-        // IntrinsicHeight 측정과 안전하게 함께 쓸 수 있다.
-        final collapsedChildren = <Widget>[
+        final courseSections = <Widget>[
           SoriButton.outlined(
             key: const ValueKey('path-learning-phases'),
             label: t.coursePreviewTitle,
@@ -555,7 +529,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
             const SizedBox(height: Spacing.xl),
           ],
           if (_courseUnits.isNotEmpty && _courseSnapshot != null) ...[
-            _CourseMissionPath(
+            ..._CourseMissionPath(
               courseUnits: _courseUnits,
               snapshot: _courseSnapshot!,
               lang: Localizations.localeOf(context).languageCode,
@@ -570,8 +544,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
                 );
                 if (mounted) await _load();
               },
-            ),
-            const SizedBox(height: Spacing.xl),
+            ).sections(context),
           ],
           if (_legacyLoading && _groups.isEmpty)
             _PathSectionLoading(
@@ -596,74 +569,64 @@ class _LearningPathScreenState extends State<LearningPathScreen>
                   ? Icons.expand_less_rounded
                   : Icons.expand_more_rounded,
               fullWidth: true,
-              onTap: () =>
-                  setState(() => _showLegacyPractice = !_showLegacyPractice),
+              onTap: () => setState(() {
+                _showLegacyPractice = !_showLegacyPractice;
+                _targetLegacyPack = false;
+                _targetRevision++;
+              }),
             ),
         ];
 
-        return RefreshIndicator(
-          onRefresh: _refresh,
-          // W10 T-V3(2026-09-05, Jin D-4): 접힌 기본 상태는 카드 몇 개 +
-          // 버튼 하나뿐이라 긴 뷰포트에서 위쪽에 뭉쳤다 — 그때만
-          // ConstrainedBox(minHeight)+IntrinsicHeight 로 감싸 중앙 정렬한다.
-          // 펼친 상태는 `SoriPathTrail` 내부의 `LayoutBuilder` 가
-          // IntrinsicHeight 측정과 함께 쓸 수 없어(2026-09-05 실측,
-          // "LayoutBuilder does not support returning intrinsic dimensions")
-          // 자연 높이 그대로 둔다.
-          //
-          // 바깥 `SingleChildScrollView`는 두 상태 모두에서 **같은 위젯**으로
-          // 유지한다(자식만 바뀐다) — `ListView`(Sliver 기반)로 매번 새로 만들면
-          // ①뷰포트 밖 자식이 지연 생성돼 스크롤 없이 `find`로 안 잡히고,
-          // ②토글 직후 스크롤 위치가 초기화돼 방금 누른 토글 버튼 자체가
-          // 화면 밖으로 밀려난다(2026-09-05 실측 회귀). `SingleChildScrollView`
-          // +`Column`은 항상 자식을 전부 즉시 빌드하고, 위젯 타입이 안 바뀌니
-          // 스크롤 위치도 자연히 이어진다.
+        final showTrail =
+            _showLegacyPractice &&
+            _legacyLoadFailure == null &&
+            !(_legacyLoading && _groups.isEmpty);
+        final currentMission = _courseSnapshot?.currentCourseUnitId;
+        final group = _groups
+            .where((g) => g.level == _selectedLevel)
+            .firstOrNull;
+        final focus =
+            group?.packs.any((item) => item.pack.id == _focusPackId) == true
+            ? _focusPackId
+            : _nowPackId;
+
+        return Padding(
+          padding: resolvedPadding,
           child: LayoutBuilder(
             builder: (context, constraints) {
-              final content =
-                  _showLegacyPractice &&
-                      _legacyLoadFailure == null &&
-                      !(_legacyLoading && _groups.isEmpty)
-                  ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        ...collapsedChildren,
-                        KeyedSubtree(
-                          key: const ValueKey('path-legacy-practice-content'),
-                          child: Column(
-                            children: [
-                              const SizedBox(height: Spacing.lg),
-                              _HanokHeader(
-                                stage: _stage,
-                                cleared: _clearedTotal,
-                                total: _packTotal,
-                              ),
-                              const SizedBox(height: Spacing.xl),
-                              // 선택한 레벨만 렌더 — 전체 A1~C2 나열 대신.
-                              for (final g in _groups)
-                                if (g.level == _selectedLevel)
-                                  ..._levelSection(t, g),
-                            ],
-                          ),
-                        ),
-                      ],
-                    )
-                  : ConstrainedBox(
-                      constraints: BoxConstraints(
-                        minHeight: constraints.maxHeight.isFinite
-                            ? constraints.maxHeight
-                            : 0,
+              final trailSections = showTrail && group != null
+                  ? _levelSection(t, group, constraints.maxHeight, focus)
+                  : const <Widget>[];
+              final trailTarget = trailSections
+                  .map((section) => section.key)
+                  .whereType<_TrailSectionKey>()
+                  .where((key) => key.stopIds.contains(focus))
+                  .firstOrNull;
+              return SoriViewportPages(
+                targetSectionKey: showTrail
+                    ? (_targetLegacyPack ? trailTarget : null) ??
+                          _legacyHeaderKey
+                    : currentMission == null || Storage.tutSeen(coachId)
+                    ? null
+                    : ValueKey('course-section-$currentMission'),
+                targetRevision: _targetRevision,
+                sections: [
+                  ...courseSections,
+                  if (showTrail) ...[
+                    const SizedBox(height: Spacing.lg),
+                    _HanokHeader(
+                      key: _legacyHeaderKey,
+                      stage: _stage,
+                      cleared: _clearedTotal,
+                      total: _packTotal,
+                      artworkHeight: (constraints.maxHeight * .25).clamp(
+                        54,
+                        150,
                       ),
-                      child: IntrinsicHeight(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: collapsedChildren,
-                        ),
-                      ),
-                    );
-              return SingleChildScrollView(
-                child: Padding(padding: resolvedPadding, child: content),
+                    ),
+                    ...trailSections,
+                  ],
+                ],
               );
             },
           ),
@@ -672,30 +635,46 @@ class _LearningPathScreenState extends State<LearningPathScreen>
     );
   }
 
-  List<Widget> _levelSection(AppL10n t, _LevelGroup g) {
+  List<Widget> _levelSection(
+    AppL10n t,
+    _LevelGroup g,
+    double bodyHeight,
+    String? focus,
+  ) {
     final s = SoriSurfaces.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final cleared = g.packs
         .where((e) => e.progress.status == PackStatus.cleared)
         .length;
+    final stops = [
+      for (final e in g.packs)
+        SoriPathStop(
+          id: e.pack.id,
+          label: VocabPackService.displayLabel(e.pack.id, lang: lang),
+          status: e.progress.status,
+          fraction: e.progress.progressFraction,
+          isNow: e.pack.id == _nowPackId,
+          nodeKey: e.pack.id == _nowPackId
+              ? _nowNodeKey
+              : (e.pack.id == focus ? _focusNodeKey : null),
+          onTap: () => _openPack(e.pack),
+        ),
+    ];
+    final sectionCapacity =
+        ((bodyHeight - SoriViewportPages.controlsHeight) /
+                SoriPathTrail.slotHeightFor(context))
+            .floor()
+            .clamp(1, 3);
     return [
       Padding(
         padding: const EdgeInsets.only(top: Spacing.sm, bottom: Spacing.sm),
         // §6.2-②: 레벨 챕터 헤더 — 사계 단청 팔레트로 장(章) 리듬.
-        child: Row(
+        child: Wrap(
+          spacing: Spacing.sm,
+          runSpacing: Spacing.xs,
+          crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             SoriLevelChip(code: g.level),
-            const SizedBox(width: Spacing.sm),
-            Expanded(
-              child: Container(
-                height: 1.5,
-                decoration: BoxDecoration(
-                  color: HanokLevelPalette.of(g.level).withValues(alpha: 0.28),
-                  borderRadius: SoriRadius.brPill,
-                ),
-              ),
-            ),
-            const SizedBox(width: Spacing.sm),
             Text(
               t.pathLevelPacks(cleared, g.packs.length),
               style: SoriTextTheme.of(
@@ -705,27 +684,22 @@ class _LearningPathScreenState extends State<LearningPathScreen>
           ],
         ),
       ),
-      // 지그재그 경로 — 팩을 하나도 빠뜨리지 않고 전부 노드로 만든다.
-      // (접거나 "+N개 더"로 숨기지 않음 → 모든 팩이 항상 탭 가능)
-      SoriPathTrail(
-        stops: [
-          for (final e in g.packs)
-            SoriPathStop(
-              id: e.pack.id,
-              label: VocabPackService.displayLabel(e.pack.id, lang: lang),
-              status: e.progress.status,
-              fraction: e.progress.progressFraction,
-              isNow: e.pack.id == _nowPackId,
-              nodeKey: e.pack.id == _nowPackId
-                  ? _nowNodeKey
-                  : (e.pack.id == _focusPackId ? _focusNodeKey : null),
-              onTap: () => _openPack(e.pack),
-            ),
-        ],
-      ),
+      for (var from = 0; from < stops.length; from += sectionCapacity)
+        _trailSection(stops.skip(from).take(sectionCapacity).toList()),
       const SizedBox(height: Spacing.lg),
     ];
   }
+
+  Widget _trailSection(List<SoriPathStop> stops) =>
+      SoriPathTrail(key: _TrailSectionKey(stops), stops: stops);
+}
+
+class _TrailSectionKey extends ValueKey<String> {
+  _TrailSectionKey(List<SoriPathStop> stops)
+    : stopIds = {for (final stop in stops) stop.id},
+      super(stops.first.id);
+
+  final Set<String> stopIds;
 }
 
 class _PathSectionLoading extends StatelessWidget {
@@ -817,7 +791,7 @@ class _PathSectionError extends StatelessWidget {
 
 /// Sequential missions sit above the older pack path. Future missions are
 /// intentionally previewable, but only the active one can collect progress.
-class _CourseMissionPath extends StatelessWidget {
+class _CourseMissionPath {
   const _CourseMissionPath({
     required this.courseUnits,
     required this.snapshot,
@@ -836,9 +810,10 @@ class _CourseMissionPath extends StatelessWidget {
   final GlobalKey currentNodeKey;
   final ValueChanged<CourseUnit> onTapUnit;
 
-  @override
-  Widget build(BuildContext context) {
+  List<Widget> sections(BuildContext context) {
     final t = AppL10n.of(context);
+    final body = SoriTextTheme.of(context).body;
+    final ios = Theme.of(context).platform == TargetPlatform.iOS;
     final grouped = <String, List<CourseUnit>>{
       for (final level in LearnerLevel.values) level.code: <CourseUnit>[],
     };
@@ -883,49 +858,55 @@ class _CourseMissionPath extends StatelessWidget {
         visible.add(unit);
       }
     }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          t.pathStoryEyebrow(
-            (LearnerLevel.fromCode(filterLevel) ?? LearnerLevel.a1).display,
+    return [
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            t.pathStoryEyebrow(
+              (LearnerLevel.fromCode(filterLevel) ?? LearnerLevel.a1).display,
+            ),
+            style: SoriTextTheme.of(context).label,
           ),
-          style: SoriTextTheme.of(context).label,
-        ),
-        const SizedBox(height: Spacing.xs),
-        Text(t.pathStoryTitle, style: SoriTextTheme.of(context).h1),
-        const SizedBox(height: Spacing.xs),
-        Text(t.pathStoryBody, style: SoriTextTheme.of(context).bodySmall),
-        const SizedBox(height: Spacing.lg),
-        for (final unit in visible)
-          Padding(
-            padding: const EdgeInsets.only(bottom: Spacing.sm),
-            child: KeyedSubtree(
-              key: unit.id == snapshot.currentCourseUnitId
-                  ? currentNodeKey
-                  : null,
-              child: _CourseMissionNode(
-                key: ValueKey('path-course-row-${unit.id}'),
-                unit: unit,
-                status: _statusFor(unit),
-                lang: lang,
-                onTap: () => onTapUnit(unit),
-              ),
+          const SizedBox(height: Spacing.xs),
+          Text(t.pathStoryTitle, style: SoriTextTheme.of(context).h1),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            t.pathStoryBody,
+            style: ios ? body.copyWith(fontSize: 17) : body,
+          ),
+          const SizedBox(height: Spacing.md),
+        ],
+      ),
+      for (final unit in visible)
+        Padding(
+          key: ValueKey('course-section-${unit.id}'),
+          padding: const EdgeInsets.only(bottom: Spacing.sm),
+          child: KeyedSubtree(
+            key: unit.id == snapshot.currentCourseUnitId
+                ? currentNodeKey
+                : null,
+            child: _CourseMissionNode(
+              key: ValueKey('path-course-row-${unit.id}'),
+              unit: unit,
+              status: _statusFor(unit),
+              lang: lang,
+              onTap: () => onTapUnit(unit),
             ),
           ),
-        const SizedBox(height: Spacing.xs),
-        const CourseProgressEvidenceNote(),
-        if (current case final currentUnit?) ...[
-          const SizedBox(height: Spacing.md),
-          SoriButton.filled(
-            key: const ValueKey('path-current-mission'),
-            label: t.pathOpenCurrentMission,
-            fullWidth: true,
-            onTap: () => onTapUnit(currentUnit),
-          ),
-        ],
+        ),
+      const SizedBox(height: Spacing.xs),
+      const CourseProgressEvidenceNote(),
+      if (current case final currentUnit?) ...[
+        const SizedBox(height: Spacing.md),
+        SoriButton.filled(
+          key: const ValueKey('path-current-mission'),
+          label: t.pathOpenCurrentMission,
+          fullWidth: true,
+          onTap: () => onTapUnit(currentUnit),
+        ),
       ],
-    );
+    ];
   }
 
   _MissionPathStatus _statusFor(CourseUnit unit) {
@@ -1087,14 +1068,17 @@ class _MissionStatusBadge extends StatelessWidget {
 
 class _HanokHeader extends StatelessWidget {
   const _HanokHeader({
+    super.key,
     required this.stage,
     required this.cleared,
     required this.total,
+    required this.artworkHeight,
   });
 
   final HanokStage stage;
   final int cleared;
   final int total;
+  final double artworkHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -1112,8 +1096,8 @@ class _HanokHeader extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          AspectRatio(
-            aspectRatio: 16 / 9,
+          SizedBox(
+            height: artworkHeight,
             child: HanokV3Preview(message: t.soriStageHanokUpdating),
           ),
           Padding(

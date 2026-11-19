@@ -22,6 +22,7 @@ import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
+import 'support/sori_viewport_page.dart';
 import 'support/c_native_capture_assets.dart';
 import 'support/real_fonts.dart';
 
@@ -300,31 +301,38 @@ void main() {
           await tester.pump();
 
           _expectAdaptiveTitle(tester, testCase.title);
-          expect(find.textContaining(testCase.description), findsOneWidget);
-          expect(find.textContaining(testCase.warning), findsOneWidget);
+          await _expectPreviewCopy(tester, testCase.description);
+          await _expectPreviewCopy(tester, testCase.warning);
           expect(find.byType(SoriTextField), findsOneWidget);
           final field = tester.widget<TextField>(find.byType(TextField));
           expect(field.decoration?.labelText, testCase.editorLabel);
           expect(field.expands, isTrue);
 
-          for (final label in [testCase.primaryAction, testCase.retake]) {
-            final action = find.widgetWithText(SoriButton, label);
-            await tester.scrollUntilVisible(
-              action,
-              240,
-              scrollable: find.byType(Scrollable).first,
-            );
-            await tester.pump();
-            _expectButtonSemantics(tester, action, label);
-          }
+          _expectButtonSemantics(
+            tester,
+            find.widgetWithText(SoriButton, testCase.primaryAction),
+            testCase.primaryAction,
+          );
 
           final retake = find.widgetWithText(SoriButton, testCase.retake);
-          expect(tester.widget<SoriButton>(retake).accent, isNull);
-          _expectOutlinedBoundaryContrast(
-            tester,
-            retake,
-            SoriSurfaces.of(tester.element(retake)).bg,
-          );
+          if (retake.evaluate().isEmpty) {
+            _expectButtonSemantics(
+              tester,
+              find.ancestor(
+                of: find.byTooltip(testCase.retake),
+                matching: find.byType(IconButton),
+              ),
+              testCase.retake,
+            );
+          } else {
+            _expectButtonSemantics(tester, retake, testCase.retake);
+            expect(tester.widget<SoriButton>(retake).accent, isNull);
+            _expectOutlinedBoundaryContrast(
+              tester,
+              retake,
+              SoriSurfaces.of(tester.element(retake)).bg,
+            );
+          }
           expect(tester.takeException(), isNull);
         }
       }
@@ -367,24 +375,12 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        expect(find.textContaining(testCase.warning), findsOneWidget);
+        await _expectPreviewCopy(tester, testCase.warning);
         final primary = find.widgetWithText(SoriButton, testCase.primary);
-        await tester.scrollUntilVisible(
-          primary,
-          240,
-          scrollable: find.byType(Scrollable).first,
-        );
-        await tester.pumpAndSettle();
         _expectDisabledButtonSemantics(tester, primary, testCase.primary);
 
         await tester.enterText(find.byType(TextField), '안녕하십니까.');
         await tester.pump();
-        await tester.scrollUntilVisible(
-          primary,
-          240,
-          scrollable: find.byType(Scrollable).first,
-        );
-        await tester.pumpAndSettle();
         _expectButtonSemantics(tester, primary, testCase.primary);
         expect(tester.takeException(), isNull);
         semantics.dispose();
@@ -413,11 +409,7 @@ void main() {
 
       _expectAdaptiveTitle(tester, 'Ergebnis');
       final retake = find.widgetWithText(SoriButton, 'Neu aufnehmen');
-      await tester.scrollUntilVisible(
-        retake,
-        260,
-        scrollable: find.byType(Scrollable).first,
-      );
+      await showSoriViewportSection(tester, retake);
       _expectButtonSemantics(tester, retake, 'Neu aufnehmen');
       expect(tester.takeException(), isNull);
       semantics.dispose();
@@ -544,13 +536,37 @@ void _expectAdaptiveTitle(WidgetTester tester, String label) {
   }
 }
 
+Future<void> _expectPreviewCopy(WidgetTester tester, String copy) async {
+  final text = find.textContaining(copy);
+  if (text.evaluate().isEmpty) {
+    await tester.tap(find.byKey(const Key('book-preview-details')));
+    await tester.pumpAndSettle();
+    final pages = find.byKey(const ValueKey('book-preview-copy'));
+    expect(pages, findsWidgets);
+    final completeCopy = tester
+        .widgetList<Text>(pages)
+        .map((text) => text.data)
+        .join(' ');
+    expect(completeCopy, contains(copy));
+    await showSoriViewportSection(tester, pages);
+    await tester.tap(find.byType(CloseButton));
+    await tester.pumpAndSettle();
+  } else {
+    expect(text, findsOneWidget);
+  }
+}
+
 void _expectButtonSemantics(
   WidgetTester tester,
   Finder buttonFinder,
   String label,
 ) {
   expect(tester.getSize(buttonFinder).height, greaterThanOrEqualTo(48));
-  expect(tester.widget<SoriButton>(buttonFinder).onTap, isNotNull);
+  final widget = tester.widget(buttonFinder);
+  expect(
+    widget is SoriButton ? widget.onTap : (widget as IconButton).onPressed,
+    isNotNull,
+  );
   final semanticsFinder = find.bySemanticsLabel(label);
   expect(semanticsFinder, findsOneWidget);
   final data = tester.getSemantics(semanticsFinder).getSemanticsData();

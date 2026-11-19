@@ -23,6 +23,7 @@ import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/text_field.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/viewport_pages.dart';
 import '../widgets/sori/window_class.dart';
 
 typedef SharePackCodeGenerator = Future<String> Function(CustomPack pack);
@@ -181,6 +182,7 @@ class BookshelfBody extends StatefulWidget {
       Spacing.xxl,
     ),
     this.showEmbeddedActions = true,
+    this.paged = false,
     this.showEmbeddedSearchAndPhoto = true,
     this.onEmptyChanged,
   });
@@ -189,6 +191,7 @@ class BookshelfBody extends StatefulWidget {
   final SharedPackRedeemer? sharedPackRedeemer;
   final EdgeInsets padding;
   final bool showEmbeddedActions;
+  final bool paged;
   final bool showEmbeddedSearchAndPhoto;
   final ValueChanged<bool>? onEmptyChanged;
 
@@ -290,7 +293,7 @@ class _BookshelfBodyState extends State<BookshelfBody> {
     onPressed: _addPhoto,
   );
 
-  Widget _embeddedActions(AppL10n t) {
+  Widget _embeddedActions(AppL10n t, {bool includeRefresh = false}) {
     return Align(
       alignment: AlignmentDirectional.centerEnd,
       child: Wrap(
@@ -300,6 +303,13 @@ class _BookshelfBodyState extends State<BookshelfBody> {
           if (widget.showEmbeddedSearchAndPhoto) _searchAction(t),
           _createAction(t),
           _redeemAction(t),
+          if (includeRefresh)
+            IconButton(
+              tooltip: t.studyLibraryRefresh,
+              constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+              icon: const Icon(Icons.refresh_rounded),
+              onPressed: _reload,
+            ),
           if (widget.showEmbeddedSearchAndPhoto) _photoAction(t),
         ],
       ),
@@ -342,35 +352,122 @@ class _BookshelfBodyState extends State<BookshelfBody> {
             fallbackIcon: Icons.menu_book_outlined,
           ),
           const SizedBox(height: Spacing.md),
-          if (_packs.isNotEmpty) ...[
-            _SectionHeader(label: t.bookshelfSectionCustomPacks),
-            ..._packs.map(
-              (p) => _CustomPackTile(
-                pack: p,
-                onTap: () => Navigator.of(
-                  context,
-                ).pushNamed('/custom_pack/play', arguments: p.id),
-                onEdit: () => Navigator.of(context)
-                    .pushNamed('/custom_pack/edit', arguments: p.id)
-                    .then((_) => _reload()),
-                onShare: () => _sharePack(p),
-                onDelete: () async {
-                  await CustomPackService.delete(p.id);
-                  _reload();
-                },
-              ),
+          ..._shelfSections(t),
+        ],
+      ),
+    );
+  }
+
+  List<Widget> _shelfSections(AppL10n t, {bool bounded = false}) => [
+    if (_packs.isNotEmpty) ...[
+      _SectionHeader(label: t.bookshelfSectionCustomPacks),
+      ..._packs.map(
+        (p) => _CustomPackTile(
+          key: ValueKey(('pack', p.id)),
+          pack: p,
+          bounded: bounded,
+          onTap: () => Navigator.of(
+            context,
+          ).pushNamed('/custom_pack/play', arguments: p.id),
+          onEdit: () => Navigator.of(context)
+              .pushNamed('/custom_pack/edit', arguments: p.id)
+              .then((_) => _reload()),
+          onShare: () => _sharePack(p),
+          onDelete: () async {
+            await CustomPackService.delete(p.id);
+            _reload();
+          },
+        ),
+      ),
+      const SizedBox(height: Spacing.lg),
+    ],
+    if (_pages.isNotEmpty) ...[
+      _SectionHeader(label: t.bookshelfSectionPages),
+      ..._pages.map(
+        (p) => _PageTile(
+          key: ValueKey(('page', p.id)),
+          page: p,
+          bounded: bounded,
+          onTap: () => Navigator.of(context)
+              .pushNamed('/bookshelf/page', arguments: p.id)
+              .then((_) => _reload()),
+        ),
+      ),
+    ],
+  ];
+
+  Widget _pagedShelf(AppL10n t) {
+    final padding = widget.padding;
+    final empty = _pages.isEmpty && _packs.isEmpty;
+    return Padding(
+      padding: EdgeInsets.fromLTRB(
+        padding.left,
+        padding.top,
+        padding.right,
+        Spacing.lg,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (widget.showEmbeddedActions)
+            _embeddedActions(t, includeRefresh: !empty),
+          Expanded(
+            child: LayoutBuilder(
+              builder: (context, body) {
+                final compact = body.maxHeight < 300;
+                final type = SoriTextTheme.of(context);
+                final artwork = SizedBox(
+                  height: (body.maxHeight * .30).clamp(0.0, 120.0),
+                  child: empty
+                      ? Image.asset(
+                          'assets/illustrations/book/book_empty_shelf.png',
+                          fit: BoxFit.contain,
+                          excludeFromSemantics: true,
+                        )
+                      : const HanokHeader(
+                          asset: 'assets/illustrations/hanok/calligraphy.png',
+                          fallbackIcon: Icons.menu_book_outlined,
+                        ),
+                );
+                return SoriViewportPages(
+                  sections: [
+                    if (!compact) SoriPageHeader(title: t.bookshelfTitle),
+                    if (!compact) artwork,
+                    if (empty) ...[
+                      Text(t.bookshelfEmptyTitle, style: type.h2),
+                      const SizedBox(height: Spacing.sm),
+                      Text(
+                        t.bookshelfEmptyBody,
+                        style: Theme.of(context).platform == TargetPlatform.iOS
+                            ? type.body.copyWith(fontSize: 17)
+                            : type.body,
+                      ),
+                    ] else
+                      ..._shelfSections(t, bounded: true),
+                    if (compact) artwork,
+                  ],
+                );
+              },
             ),
-            const SizedBox(height: Spacing.lg),
-          ],
-          if (_pages.isNotEmpty) ...[
-            _SectionHeader(label: t.bookshelfSectionPages),
-            ..._pages.map(
-              (p) => _PageTile(
-                page: p,
-                onTap: () => Navigator.of(context)
-                    .pushNamed('/bookshelf/page', arguments: p.id)
-                    .then((_) => _reload()),
-              ),
+          ),
+          if (empty) ...[
+            const SizedBox(height: Spacing.sm),
+            Row(
+              children: [
+                Expanded(
+                  child: SoriButton.filled(
+                    label: t.bookshelfEmptyCta,
+                    onTap: _addPhoto,
+                  ),
+                ),
+                const SizedBox(width: Spacing.sm),
+                Expanded(
+                  child: SoriButton.outlined(
+                    label: t.createWordbookCta,
+                    onTap: _createWordbook,
+                  ),
+                ),
+              ],
             ),
           ],
         ],
@@ -381,6 +478,9 @@ class _BookshelfBodyState extends State<BookshelfBody> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    if (widget.paged) {
+      return _pagedShelf(t);
+    }
 
     if (_pages.isEmpty && _packs.isEmpty) {
       return ListView(
@@ -421,7 +521,14 @@ class _SectionHeader extends StatelessWidget {
 class _PageTile extends StatelessWidget {
   final BookPage page;
   final VoidCallback onTap;
-  const _PageTile({required this.page, required this.onTap});
+  const _PageTile({
+    super.key,
+    required this.page,
+    required this.onTap,
+    this.bounded = false,
+  });
+
+  final bool bounded;
 
   @override
   Widget build(BuildContext context) {
@@ -455,7 +562,12 @@ class _PageTile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(title, style: SoriTextTheme.of(context).cardTitle),
+                    Text(
+                      title,
+                      style: SoriTextTheme.of(context).cardTitle,
+                      maxLines: bounded ? 2 : null,
+                      overflow: bounded ? TextOverflow.ellipsis : null,
+                    ),
                     const SizedBox(height: 2),
                     Text(meta, style: SoriTextTheme.of(context).cardSubtitle),
                   ],
@@ -479,7 +591,10 @@ class _CustomPackTile extends StatelessWidget {
   final VoidCallback onEdit;
   final VoidCallback onShare;
   final VoidCallback onDelete;
+  final bool bounded;
   const _CustomPackTile({
+    super.key,
+    this.bounded = false,
     required this.pack,
     required this.onTap,
     required this.onEdit,
@@ -527,6 +642,8 @@ class _CustomPackTile extends StatelessWidget {
                       children: [
                         Text(
                           pack.displayName(),
+                          maxLines: bounded ? 2 : null,
+                          overflow: bounded ? TextOverflow.ellipsis : null,
                           style: SoriTextTheme.of(context).cardTitle,
                         ),
                         Text(
@@ -548,13 +665,23 @@ class _CustomPackTile extends StatelessWidget {
                 label: playLabel,
                 onTap: onTap,
                 excludeSemantics: true,
-                child: SoriButton(
-                  label: t.btnPlay,
-                  variant: SoriButtonVariant.ghost,
-                  size: SoriButtonSize.md,
-                  accent: SoriColors.primary,
-                  onTap: onTap,
-                ),
+                child: bounded && stackActions
+                    ? IconButton(
+                        onPressed: onTap,
+                        icon: const Icon(Icons.play_arrow_rounded),
+                        tooltip: playLabel,
+                        constraints: const BoxConstraints.tightFor(
+                          width: 48,
+                          height: 48,
+                        ),
+                      )
+                    : SoriButton(
+                        label: t.btnPlay,
+                        variant: SoriButtonVariant.ghost,
+                        size: SoriButtonSize.md,
+                        accent: SoriColors.primary,
+                        onTap: onTap,
+                      ),
               ),
               Semantics(
                 container: true,

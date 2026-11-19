@@ -11,9 +11,9 @@ import '../theme.dart';
 import '../widgets/display_sized_file_image.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/standard_page.dart';
-import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/text_field.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/viewport_pages.dart';
 import '../widgets/sori/window_class.dart';
 
 typedef BookPreviewImageResolver = Future<File?> Function(String? encodedLease);
@@ -198,12 +198,22 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
   Widget _buildPreview(BuildContext context) {
     final t = AppL10n.of(context);
     final bookPaper = widget.args['captureMode'] != 'notebook';
+    final keyboardOpen = MediaQuery.viewInsetsOf(context).bottom > 0;
     final blockCount = widget.args['blockCount'] as int? ?? 0;
     final qualityWarnings =
         (widget.args['qualityWarnings'] as List?)
             ?.whereType<String>()
             .toList() ??
         const <String>[];
+
+    final hint = _useNotebookPath
+        ? t.vocabNotebookDesc
+        : t.bookPreviewHint(blockCount);
+    final warning = _hasSevereCaptureWarning
+        ? t.bookPreviewSevereQualityWarning
+        : qualityWarnings.isNotEmpty
+        ? t.bookPreviewQualityWarning
+        : null;
 
     return SoriStandardFrame(
       appBarTitle: t.bookPreviewTitle,
@@ -212,117 +222,293 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
       jadeAppBar: bookPaper,
       maxWidth: SoriMaxWidth.focus,
       padding: const EdgeInsets.all(Spacing.lg),
-      // §W-A2: 200% 배율에서 32px 부족했다(경고 카드+긴 부제) — 기본
-      // 1.9배로는 부족해 2.0배로 소폭 올린다. 정상 세로(minHeight 자체)는
-      // 그대로라 390×844 스크롤 없음 계약은 안 바뀐다.
-      builder: (context, padding) => SoriAdaptiveStudyBody(
-        minHeight: _hasSevereCaptureWarning
-            ? 920
-            : qualityWarnings.isEmpty
-            ? 640
-            : 800,
-        maxScaleBoost: 1.0,
-        child: Padding(
-          padding: padding,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                _useNotebookPath
-                    ? t.vocabNotebookDesc
-                    : t.bookPreviewHint(blockCount),
-                style: SoriTextTheme.of(context).bodySmall,
-              ),
-              if (qualityWarnings.isNotEmpty) ...[
-                const SizedBox(height: Spacing.sm),
-                Container(
-                  padding: const EdgeInsets.all(Spacing.sm),
-                  decoration: BoxDecoration(
-                    color: SoriColors.warning.withValues(alpha: 0.10),
-                    borderRadius: SoriRadius.brSm,
-                    border: Border.all(
-                      color: SoriColors.warning.withValues(alpha: 0.35),
+      builder: (context, padding) => Padding(
+        padding: padding,
+        child: LayoutBuilder(
+          builder: (context, viewport) {
+            final compactActions = keyboardOpen || viewport.maxHeight < 420;
+            final analyze = SoriButton(
+              cMaterial: bookPaper,
+              label: _useNotebookPath
+                  ? t.vocabNotebookPreviewCta
+                  : t.bookPreviewAnalyze,
+              icon: _useNotebookPath
+                  ? Icons.menu_book_outlined
+                  : Icons.auto_awesome,
+              variant: SoriButtonVariant.filled,
+              accent: SoriColors.primary,
+              fullWidth: true,
+              onTap: _canAnalyze ? _continue : null,
+            );
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(
+                  child: LayoutBuilder(
+                    builder: (context, body) => _previewEditor(
+                      context,
+                      body,
+                      hint: hint,
+                      warning: warning,
+                      keyboardOpen: keyboardOpen,
                     ),
                   ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                ),
+                const SizedBox(height: Spacing.md),
+                if (compactActions)
+                  Row(
                     children: [
-                      const Icon(
-                        Icons.fact_check_outlined,
-                        size: 18,
-                        color: SoriColors.warning,
-                      ),
+                      Expanded(child: analyze),
                       const SizedBox(width: Spacing.sm),
-                      Expanded(
-                        child: Text(
-                          _hasSevereCaptureWarning
-                              ? t.bookPreviewSevereQualityWarning
-                              : t.bookPreviewQualityWarning,
-                          style: SoriTextTheme.of(context).bodySmall,
+                      Semantics(
+                        label: t.bookPreviewRetake,
+                        button: true,
+                        enabled: true,
+                        onTap: () => Navigator.of(context).maybePop(),
+                        excludeSemantics: true,
+                        child: IconButton(
+                          tooltip: t.bookPreviewRetake,
+                          constraints: const BoxConstraints(
+                            minWidth: 48,
+                            minHeight: 48,
+                          ),
+                          icon: const Icon(Icons.replay_outlined),
+                          onPressed: () => Navigator.of(context).maybePop(),
                         ),
                       ),
                     ],
+                  )
+                else ...[
+                  analyze,
+                  const SizedBox(height: Spacing.sm),
+                  SoriButton(
+                    cMaterial: bookPaper,
+                    label: t.bookPreviewRetake,
+                    icon: Icons.replay_outlined,
+                    variant: SoriButtonVariant.outlined,
+                    fullWidth: true,
+                    onTap: () => Navigator.of(context).maybePop(),
+                  ),
+                ],
+              ],
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  TextStyle _bodyStyle(BuildContext context) {
+    final body = SoriTextTheme.of(context).body;
+    return Theme.of(context).platform == TargetPlatform.iOS
+        ? body.copyWith(fontSize: 17)
+        : body;
+  }
+
+  Widget _previewEditor(
+    BuildContext context,
+    BoxConstraints body, {
+    required String hint,
+    required String? warning,
+    required bool keyboardOpen,
+  }) {
+    final t = AppL10n.of(context);
+    final style = _bodyStyle(context);
+    double textHeight(String text, double width) {
+      final painter = TextPainter(
+        text: TextSpan(text: text, style: style),
+        textDirection: Directionality.of(context),
+        textScaler: MediaQuery.textScalerOf(context),
+        locale: Localizations.localeOf(context),
+      )..layout(maxWidth: width.clamp(1.0, double.infinity));
+      final height = painter.height;
+      painter.dispose();
+      return height;
+    }
+
+    final hintHeight = textHeight(hint, body.maxWidth);
+    final warningHeight = warning == null
+        ? 0.0
+        : textHeight(warning, body.maxWidth - 44) + Spacing.lg + 2;
+    final noteHeight = hintHeight + warningHeight + Spacing.lg;
+    const editorHeight = 88.0;
+    final showPhoto =
+        !keyboardOpen &&
+        body.maxHeight >= noteHeight + bookPreviewImageMaxHeight + editorHeight;
+    final showWarning =
+        warning != null &&
+        (showPhoto ||
+            (!keyboardOpen &&
+                body.maxHeight >= warningHeight + editorHeight + 56));
+    final field = SoriTextField(
+      controller: _ctrl,
+      labelText: t.bookPreviewEditorLabel,
+      hintText: t.bookPreviewTextFieldHint,
+      alignLabelWithHint: true,
+      keyboardType: TextInputType.multiline,
+      maxLines: null,
+      expands: true,
+      textAlignVertical: TextAlignVertical.top,
+      style: style,
+    );
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (showPhoto) ...[
+          Text(hint, style: style),
+          const SizedBox(height: Spacing.sm),
+        ],
+        if (showWarning) ...[
+          _qualityWarning(warning, style),
+          const SizedBox(height: Spacing.sm),
+        ],
+        if (showPhoto) ...[
+          _BookPreviewImage(image: _previewImage),
+          const SizedBox(height: Spacing.sm),
+        ],
+        Expanded(
+          child: showPhoto
+              ? field
+              : Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(child: field),
+                    const SizedBox(width: Spacing.xs),
+                    IconButton(
+                      key: const Key('book-preview-details'),
+                      tooltip: warning != null && !showWarning
+                          ? warning
+                          : t.onboardingJourneyPhotoAgain,
+                      constraints: const BoxConstraints(
+                        minWidth: 48,
+                        minHeight: 48,
+                      ),
+                      icon: Icon(
+                        warning != null && !showWarning
+                            ? Icons.warning_amber_rounded
+                            : Icons.image_outlined,
+                      ),
+                      onPressed: () => _showPreviewDetails(hint, warning),
+                    ),
+                  ],
+                ),
+        ),
+      ],
+    );
+  }
+
+  Widget _qualityWarning(String warning, TextStyle style) => Container(
+    padding: const EdgeInsets.all(Spacing.sm),
+    decoration: BoxDecoration(
+      color: SoriColors.warning.withValues(alpha: 0.10),
+      borderRadius: SoriRadius.brSm,
+      border: Border.all(color: SoriColors.warning.withValues(alpha: 0.35)),
+    ),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Icon(
+          Icons.fact_check_outlined,
+          size: 18,
+          color: SoriColors.warning,
+        ),
+        const SizedBox(width: Spacing.sm),
+        Expanded(child: Text(warning, style: style)),
+      ],
+    ),
+  );
+
+  void _showPreviewDetails(String hint, String? warning) {
+    FocusManager.instance.primaryFocus?.unfocus();
+    showDialog<void>(
+      context: context,
+      builder: (context) {
+        final t = AppL10n.of(context);
+        final style = _bodyStyle(context);
+        return Dialog(
+          insetPadding: const EdgeInsets.all(Spacing.lg),
+          child: Padding(
+            padding: const EdgeInsets.all(Spacing.lg),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        t.bookPreviewTitle,
+                        style: SoriTextTheme.of(context).h3,
+                      ),
+                    ),
+                    const CloseButton(),
+                  ],
+                ),
+                Expanded(
+                  child: LayoutBuilder(
+                    builder: (context, body) {
+                      final textHeight = (body.maxHeight - 56).clamp(
+                        1.0,
+                        double.infinity,
+                      );
+                      return SoriViewportPages(
+                        sections: [
+                          for (final copy in [
+                            if (warning != null) warning,
+                            hint,
+                          ])
+                            for (final page in soriViewportTextPages(
+                              context,
+                              copy,
+                              style: style,
+                              width: body.maxWidth,
+                              height: textHeight,
+                            ))
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  bottom: Spacing.sm,
+                                ),
+                                child: Text(
+                                  page,
+                                  key: const ValueKey('book-preview-copy'),
+                                  style: style,
+                                ),
+                              ),
+                          _BookPreviewImage(
+                            image: _previewImage,
+                            height: bookPreviewImageMaxHeight.clamp(
+                              0.0,
+                              (body.maxHeight - 48).clamp(0.0, double.infinity),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
                   ),
                 ),
               ],
-              const SizedBox(height: Spacing.md),
-              _BookPreviewImage(image: _previewImage),
-              const SizedBox(height: Spacing.md),
-              Expanded(
-                child: SoriTextField(
-                  controller: _ctrl,
-                  labelText: t.bookPreviewEditorLabel,
-                  hintText: t.bookPreviewTextFieldHint,
-                  alignLabelWithHint: true,
-                  keyboardType: TextInputType.multiline,
-                  maxLines: null,
-                  expands: true,
-                  textAlignVertical: TextAlignVertical.top,
-                  style: SoriTextTheme.of(context).body,
-                ),
-              ),
-              const SizedBox(height: Spacing.lg),
-              SoriButton(
-                cMaterial: bookPaper,
-                label: _useNotebookPath
-                    ? t.vocabNotebookPreviewCta
-                    : t.bookPreviewAnalyze,
-                icon: _useNotebookPath
-                    ? Icons.menu_book_outlined
-                    : Icons.auto_awesome,
-                variant: SoriButtonVariant.filled,
-                accent: SoriColors.primary,
-                fullWidth: true,
-                onTap: _canAnalyze ? _continue : null,
-              ),
-              const SizedBox(height: Spacing.sm),
-              SoriButton(
-                cMaterial: bookPaper,
-                label: t.bookPreviewRetake,
-                icon: Icons.replay_outlined,
-                variant: SoriButtonVariant.outlined,
-                fullWidth: true,
-                onTap: () => Navigator.of(context).maybePop(),
-              ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
 
 class _BookPreviewImage extends StatelessWidget {
-  const _BookPreviewImage({required this.image});
+  const _BookPreviewImage({
+    required this.image,
+    this.height = bookPreviewImageMaxHeight,
+  });
 
   final Future<File?> image;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     final surfaces = SoriSurfaces.of(context);
     return Container(
       key: const ValueKey<String>('book-preview-image-frame'),
-      height: bookPreviewImageMaxHeight,
+      height: height,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: surfaces.surfaceAlt,
@@ -345,7 +531,7 @@ class _BookPreviewImage extends StatelessWidget {
               ),
               key: const ValueKey<String>('book-preview-image'),
               width: double.infinity,
-              height: bookPreviewImageMaxHeight,
+              height: height,
               fit: BoxFit.contain,
               gaplessPlayback: true,
               errorBuilder: (_, __, ___) =>

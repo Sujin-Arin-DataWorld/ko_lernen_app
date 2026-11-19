@@ -16,6 +16,8 @@ import 'support/real_fonts.dart';
 import 'support/sori_speech_stubs.dart';
 import 'support/sori_stage_pump.dart';
 
+import 'support/sori_viewport_page.dart';
+
 void main() {
   setUpAll(loadSoriRealFonts);
   setUp(() async {
@@ -46,7 +48,7 @@ void main() {
       );
       Future<void> action(String key) async {
         final f = find.byKey(ValueKey(key));
-        await tester.ensureVisible(f);
+        await showSoriViewportSection(tester, f);
         await tester.pump();
         tester.widget<SoriButton>(f).onTap!();
         await tester.pump();
@@ -95,7 +97,7 @@ void main() {
       );
       Future<void> press(String key) async {
         final finder = find.byKey(ValueKey(key));
-        await Scrollable.ensureVisible(tester.element(finder), alignment: .5);
+        await showSoriViewportSection(tester, finder);
         await pumpSoriStage(tester);
         final gesture = await tester.startGesture(tester.getCenter(finder));
         await tester.pump(const Duration(milliseconds: 110));
@@ -140,6 +142,8 @@ void main() {
         tester.widget<Text>(find.text('좋아. 몇 시에 만날까?')).style?.fontFamily,
         SoriFonts.sans,
       );
+      expect(find.byType(Scrollable), findsNothing);
+      expect(check.hitTestable(), findsOneWidget);
       expect(tester.widget<SoriButton>(check).onTap, isNotNull);
       expect(tester.getRect(check).bottom, lessThanOrEqualTo(844));
       await tester.tap(check);
@@ -190,13 +194,7 @@ void main() {
           await pumpSoriStage(tester);
           Future<void> tap(String key) async {
             final f = find.byKey(ValueKey(key));
-            await tester.drag(find.byType(ListView), const Offset(0, 3000));
-            await tester.scrollUntilVisible(
-              f,
-              200,
-              scrollable: find.byType(Scrollable).first,
-            );
-            await Scrollable.ensureVisible(tester.element(f), alignment: 0.5);
+            await showSoriViewportSection(tester, f);
             await tester.pump();
             await tester.tap(f);
             await pumpSoriStage(tester);
@@ -225,11 +223,9 @@ void main() {
             expression,
           );
           expect(PracticeHistoryStore.load().items.single.assisted, isNull);
-          await tester.drag(find.byType(ListView), const Offset(0, 4000));
-          await tester.scrollUntilVisible(
+          await showSoriViewportSection(
+            tester,
             find.byKey(const ValueKey('context-complete')),
-            200,
-            scrollable: find.byType(Scrollable).first,
           );
           expect(Storage.xp, 0);
           expect(tester.takeException(), isNull);
@@ -270,13 +266,7 @@ void main() {
       await pumpUntilFound(tester, find.text('Making dinner plans'));
       Future<void> tap(String key) async {
         final f = find.byKey(ValueKey(key));
-        await tester.drag(find.byType(ListView), const Offset(0, 3000));
-        await tester.scrollUntilVisible(
-          f,
-          200,
-          scrollable: find.byType(Scrollable).first,
-        );
-        await Scrollable.ensureVisible(tester.element(f), alignment: 0.5);
+        await showSoriViewportSection(tester, f);
         await tester.pump();
         await tester.tap(f);
         await pumpSoriStage(tester);
@@ -299,17 +289,11 @@ void main() {
         SoriButton,
         labels.practiceChooseAgain,
       );
-      await tester.scrollUntilVisible(
-        beforeChoose,
-        200,
-        scrollable: find.byType(Scrollable).first,
-      );
+      await showSoriViewportSection(tester, beforeChoose);
       final retainedChoose = tester.widget<SoriButton>(beforeChoose).onTap!;
-      await tester.drag(find.byType(ListView), const Offset(0, 4000));
-      await tester.scrollUntilVisible(
+      await showSoriViewportSection(
+        tester,
         find.byKey(const ValueKey('context-help')),
-        200,
-        scrollable: find.byType(Scrollable).first,
       );
       final retainedHelp = tester
           .widget<SoriButton>(find.byKey(const ValueKey('context-help')))
@@ -328,17 +312,11 @@ void main() {
       );
       final t = AppL10n.of(tester.element(find.byType(SmalltalkContextScreen)));
       final choose = find.widgetWithText(SoriButton, t.practiceChooseAgain);
-      await tester.scrollUntilVisible(
-        choose,
-        200,
-        scrollable: find.byType(Scrollable).first,
-      );
+      await showSoriViewportSection(tester, choose);
       expect(tester.widget<SoriButton>(choose).onTap, isNull);
-      await tester.drag(find.byType(ListView), const Offset(0, 4000));
-      await tester.scrollUntilVisible(
+      await showSoriViewportSection(
+        tester,
         find.byKey(const ValueKey('context-help')),
-        200,
-        scrollable: find.byType(Scrollable).first,
       );
       expect(
         tester
@@ -348,12 +326,7 @@ void main() {
       );
       reject = false;
       final retry = find.widgetWithText(SoriButton, t.practiceRetrySave);
-      await tester.drag(find.byType(ListView), const Offset(0, 3000));
-      await tester.scrollUntilVisible(
-        retry,
-        -200,
-        scrollable: find.byType(Scrollable).first,
-      );
+      await showSoriViewportSection(tester, retry);
       final retryTap = tester.widget<SoriButton>(retry).onTap!;
       retryTap();
       retryTap();
