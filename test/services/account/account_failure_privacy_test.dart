@@ -1,7 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_core_platform_interface/test.dart';
-import 'package:flutter/services.dart';
+import 'package:firebase_crashlytics_platform_interface/test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
@@ -21,21 +21,33 @@ class _Core extends MockFirebaseApp {
   }
 }
 
+class _CrashlyticsHostApi extends TestFirebaseCrashlyticsHostApi {
+  _CrashlyticsHostApi(this.calls);
+
+  final List<String> calls;
+
+  @override
+  Future<void> log(String message) async {
+    calls.add('Crashlytics#log');
+  }
+
+  @override
+  Future<void> recordError(RecordErrorRequest request) async {
+    calls.add('Crashlytics#recordError');
+  }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   final calls = <String>[];
   late PrivacyPreferencesPlatform native;
   setUpAll(() async {
     TestFirebaseCoreHostApi.setUp(_Core());
+    TestFirebaseCrashlyticsHostApi.setUp(_CrashlyticsHostApi(calls));
     await Firebase.initializeApp();
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-        .setMockMethodCallHandler(
-          const MethodChannel('plugins.flutter.io/firebase_crashlytics'),
-          (call) async {
-            calls.add(call.method);
-            return null;
-          },
-        );
   });
   setUp(() async {
     Storage.resetForTesting();

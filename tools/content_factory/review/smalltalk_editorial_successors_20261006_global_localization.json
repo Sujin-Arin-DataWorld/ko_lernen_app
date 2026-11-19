@@ -1,0 +1,1106 @@
+{
+  "schemaVersion": 1,
+  "scope": "assets/data/smalltalk.json",
+  "reviewStatus": "MODEL_REVIEW_ONLY",
+  "humanApprovalClaim": false,
+  "humanReviewStatus": "required_before_native-quality-claim",
+  "predecessorLedger": "tools/content_factory/review/smalltalk_editorial_successors_20261005.json",
+  "predecessorLedgerSha256": "1929c16469fa599867b1e2f3e5eec606942ffcab56e586f8a106e7b5b0ddfedd",
+  "sourceGitCommit": "15b78e7dceb7263eee87bf368d687fc9e07126ec",
+  "sourceGitPath": "assets/data/smalltalk.json",
+  "authoringReceiptSha256": "ebe026d36b3ee8ac80cbb5b4ee5face6b8229d30b267c71045ec7f6bfe3070e7",
+  "entries": [
+    {
+      "id": "smalltalk_a1_0036",
+      "fields": [
+        "followUp.de"
+      ],
+      "before": {
+        "id": "smalltalk_a1_0036",
+        "category": "hospital",
+        "level": "a1",
+        "kind": "opener",
+        "ko": "오늘 병원 좀 다녀오려고요.",
+        "de": "Ich möchte heute zum Arzt gehen.",
+        "en": "I'm planning to see the doctor today.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie geht es dir in letzter Zeit?",
+            "en": "How have you been lately?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "잘 다녀오세요.",
+          "de": "Ich hoffe, der Arztbesuch geht gut.",
+          "en": "I hope your doctor’s visit goes well."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a1_0036",
+        "category": "hospital",
+        "level": "a1",
+        "kind": "opener",
+        "ko": "오늘 병원 좀 다녀오려고요.",
+        "de": "Ich möchte heute zum Arzt gehen.",
+        "en": "I'm planning to see the doctor today.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie geht es dir in letzter Zeit?",
+            "en": "How have you been lately?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "잘 다녀오세요.",
+          "de": "Alles Gute für den Arzttermin.",
+          "en": "I hope your doctor’s visit goes well."
+        }
+      },
+      "beforeSha256": "c8dbc922793f706577aafa314d5ade9371a3f880a8aedbcc68bd2b67106cb816",
+      "afterSha256": "86ebbc8efe2913110713d90e566d793a7c104a20074650445c73c0ae9241e845",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "c8dbc922793f706577aafa314d5ade9371a3f880a8aedbcc68bd2b67106cb816",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_a1_0054",
+      "fields": [
+        "safeAlternativeQuestions.0.de",
+        "safeAlternativeQuestions.0.en"
+      ],
+      "before": {
+        "id": "smalltalk_a1_0054",
+        "category": "emergency",
+        "level": "a1",
+        "kind": "opener",
+        "ko": "도와주세요!",
+        "de": "Helfen Sie mir bitte!",
+        "en": "Please help me!",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "여기 좀 봐 주실 수 있어요?",
+            "de": "Können Sie bitte hierherschauen?",
+            "en": "Could you look this way, please?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "question",
+          "ko": "무슨 일이세요?",
+          "de": "Was ist passiert?",
+          "en": "What happened?"
+        }
+      },
+      "after": {
+        "id": "smalltalk_a1_0054",
+        "category": "emergency",
+        "level": "a1",
+        "kind": "opener",
+        "ko": "도와주세요!",
+        "de": "Helfen Sie mir bitte!",
+        "en": "Please help me!",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "여기 좀 봐 주실 수 있어요?",
+            "de": "Können Sie sich das bitte kurz ansehen?",
+            "en": "Could you take a look at this, please?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "question",
+          "ko": "무슨 일이세요?",
+          "de": "Was ist passiert?",
+          "en": "What happened?"
+        }
+      },
+      "beforeSha256": "e792289c5d0ed94bb8600f9e4ed672d698fd948a197fd20271bf19367a29979a",
+      "afterSha256": "4561397b292c37e9f47d289062c4f422caccc4841d1f483424b95dee5aaf87a2",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "e792289c5d0ed94bb8600f9e4ed672d698fd948a197fd20271bf19367a29979a",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_a1_0058",
+      "fields": [
+        "followUp.de",
+        "followUp.en"
+      ],
+      "before": {
+        "id": "smalltalk_a1_0058",
+        "category": "emergency",
+        "level": "a1",
+        "kind": "opener",
+        "ko": "지갑을 잃어버렸어요.",
+        "de": "Ich habe meinen Geldbeutel verloren.",
+        "en": "I lost my wallet.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "카드 분실 신고는 어떻게 해요?",
+            "de": "Wie melde ich den Verlust meiner Karte?",
+            "en": "How do I report a lost card?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "경찰서에 신고하세요.",
+          "de": "Melden Sie es bei der Polizeiwache.",
+          "en": "Report it to the police station."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a1_0058",
+        "category": "emergency",
+        "level": "a1",
+        "kind": "opener",
+        "ko": "지갑을 잃어버렸어요.",
+        "de": "Ich habe meinen Geldbeutel verloren.",
+        "en": "I lost my wallet.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "카드 분실 신고는 어떻게 해요?",
+            "de": "Wie melde ich den Verlust meiner Karte?",
+            "en": "How do I report a lost card?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "경찰서에 신고하세요.",
+          "de": "Melden Sie es bei der Polizei.",
+          "en": "Report it to the police."
+        }
+      },
+      "beforeSha256": "a171b10e79536ee7b3ce279270e28003e1c8b0d344f57a589acc7d2a2daa38e8",
+      "afterSha256": "41594b1c2bfb46c1c83a7d90a8ca752e1712b96b40662d8331293e9ac5b5f4eb",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "a171b10e79536ee7b3ce279270e28003e1c8b0d344f57a589acc7d2a2daa38e8",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_a2_0074",
+      "fields": [
+        "reply.en"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0074",
+        "category": "weekend",
+        "level": "a2",
+        "kind": "question",
+        "ko": "토요일 오전에 시장 갈 건데 같이 가실래요?",
+        "de": "Ich gehe Samstagvormittag auf den Markt. Kommen Sie mit?",
+        "en": "I'm going to the market on Saturday morning. Would you like to come?",
+        "reply": {
+          "ko": "좋아요. 열 시에 입구에서 만나요.",
+          "de": "Gern. Treffen wir uns um zehn am Eingang.",
+          "en": "Sure. Let us meet at the entrance at ten.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "지금은 짧게만 확인할까요?",
+            "de": "Wollen wir es jetzt nur kurz klären?",
+            "en": "Shall we just check this briefly for now?"
+          }
+        ],
+        "followUp": {
+          "ko": "좋아요. 토요일 열 시에 입구에서 봐요.",
+          "de": "Gern. Bis Samstag um zehn am Eingang.",
+          "en": "Great. See you at the entrance at ten on Saturday.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0074",
+        "category": "weekend",
+        "level": "a2",
+        "kind": "question",
+        "ko": "토요일 오전에 시장 갈 건데 같이 가실래요?",
+        "de": "Ich gehe Samstagvormittag auf den Markt. Kommen Sie mit?",
+        "en": "I'm going to the market on Saturday morning. Would you like to come?",
+        "reply": {
+          "ko": "좋아요. 열 시에 입구에서 만나요.",
+          "de": "Gern. Treffen wir uns um zehn am Eingang.",
+          "en": "Sure. Let's meet at the entrance at ten.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "지금은 짧게만 확인할까요?",
+            "de": "Wollen wir es jetzt nur kurz klären?",
+            "en": "Shall we just check this briefly for now?"
+          }
+        ],
+        "followUp": {
+          "ko": "좋아요. 토요일 열 시에 입구에서 봐요.",
+          "de": "Gern. Bis Samstag um zehn am Eingang.",
+          "en": "Great. See you at the entrance at ten on Saturday.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "dce1c3458bca9f028cbddabaf05d40063a290c94d8d2962f6da23e77d7b5e521",
+      "afterSha256": "9984ae22c68fe82cf8a56ba585ba9b12f80b30a9409ec4259fe630c5657ae2a7",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "dce1c3458bca9f028cbddabaf05d40063a290c94d8d2962f6da23e77d7b5e521",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_a2_0083",
+      "fields": [
+        "followUp.en",
+        "reply.en"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0083",
+        "level": "a2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "이사 날짜를 일주일 늦춰도 괜찮아요?",
+        "de": "Ist es in Ordnung, den Umzug um eine Woche zu verschieben?",
+        "en": "Is it okay to move the date back by one week?",
+        "reply": {
+          "ko": "네, 새 날짜를 계약서에 함께 적어요.",
+          "de": "Ja, wir tragen das neue Datum gemeinsam in den Vertrag ein.",
+          "en": "Yes, let us add the new date to the contract."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "새 이사 날짜를 계약서에도 적을까요?",
+            "de": "Sollen wir das neue Umzugsdatum auch im Vertrag festhalten?",
+            "en": "Shall we put the new moving date in the contract too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 새 날짜를 함께 확인해요.",
+          "de": "Gut, prüfen wir das neue Datum gemeinsam.",
+          "en": "Okay, let us confirm the new date together.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0083",
+        "level": "a2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "이사 날짜를 일주일 늦춰도 괜찮아요?",
+        "de": "Ist es in Ordnung, den Umzug um eine Woche zu verschieben?",
+        "en": "Is it okay to move the date back by one week?",
+        "reply": {
+          "ko": "네, 새 날짜를 계약서에 함께 적어요.",
+          "de": "Ja, wir tragen das neue Datum gemeinsam in den Vertrag ein.",
+          "en": "Yes, let's add the new date to the contract."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "새 이사 날짜를 계약서에도 적을까요?",
+            "de": "Sollen wir das neue Umzugsdatum auch im Vertrag festhalten?",
+            "en": "Shall we put the new moving date in the contract too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 새 날짜를 함께 확인해요.",
+          "de": "Gut, prüfen wir das neue Datum gemeinsam.",
+          "en": "Okay, let's confirm the new date together.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "d1b59f03e9841773060ec6937cf82bb6bed9d3d4a069f88667af5b305232436e",
+      "afterSha256": "4b0f04f624509f8a12652bb552047f977b4238b59f92b5d9a97359ff8c9a34ca",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "d1b59f03e9841773060ec6937cf82bb6bed9d3d4a069f88667af5b305232436e",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_b1_0066",
+      "fields": [
+        "followUp.en"
+      ],
+      "before": {
+        "id": "smalltalk_b1_0066",
+        "category": "partner_family",
+        "level": "b1",
+        "kind": "opener",
+        "ko": "다음 명절엔 제가 먼저 준비할게요.",
+        "de": "Beim nächsten Fest ergreife ich bei den Vorbereitungen die Initiative.",
+        "en": "Next holiday, I'll take the initiative with the preparations.",
+        "reply": {
+          "ko": "그럼 같이 해요.",
+          "de": "Dann machen wir es zusammen.",
+          "en": "Then let's do it together.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 잘못 알고 있는 게 있을까요?",
+            "de": "Habe ich da etwas falsch verstanden?",
+            "en": "Have I got something wrong?"
+          }
+        ],
+        "followUp": {
+          "ko": "좋아요. 함께 준비해요.",
+          "de": "Gern, dann bereiten wir alles zusammen vor.",
+          "en": "Great, let us prepare everything together.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_b1_0066",
+        "category": "partner_family",
+        "level": "b1",
+        "kind": "opener",
+        "ko": "다음 명절엔 제가 먼저 준비할게요.",
+        "de": "Beim nächsten Fest ergreife ich bei den Vorbereitungen die Initiative.",
+        "en": "Next holiday, I'll take the initiative with the preparations.",
+        "reply": {
+          "ko": "그럼 같이 해요.",
+          "de": "Dann machen wir es zusammen.",
+          "en": "Then let's do it together.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 잘못 알고 있는 게 있을까요?",
+            "de": "Habe ich da etwas falsch verstanden?",
+            "en": "Have I got something wrong?"
+          }
+        ],
+        "followUp": {
+          "ko": "좋아요. 함께 준비해요.",
+          "de": "Gern, dann bereiten wir alles zusammen vor.",
+          "en": "Great, let's prepare everything together.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "18570e9f07046aedc88a1c53513a691b6bb27c62922533ad44916f5a02cbbd01",
+      "afterSha256": "1bd03b7dfc5e0a4b364dba8a71eed63c09f0125efb23d8e90053d529e756ebef",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "18570e9f07046aedc88a1c53513a691b6bb27c62922533ad44916f5a02cbbd01",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_b1_0071",
+      "fields": [
+        "reply.en"
+      ],
+      "before": {
+        "id": "smalltalk_b1_0071",
+        "category": "work_study",
+        "level": "b1",
+        "kind": "question",
+        "ko": "이 초안을 오늘 안에 검토하려면 어디부터 시작하면 될까요?",
+        "de": "Wenn wir den Entwurf heute noch durchsehen wollen, womit sollten wir anfangen?",
+        "en": "If we want to review the draft today, where should we start?",
+        "reply": {
+          "ko": "먼저 표의 숫자를 확인하고 문장은 내일 봐요.",
+          "de": "Prüfen wir zuerst die Zahlen in der Tabelle und lesen die Sätze morgen.",
+          "en": "Let us check the figures in the table first and review the sentences tomorrow.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "지금은 짧게만 확인할까요?",
+            "de": "Wollen wir es jetzt nur kurz klären?",
+            "en": "Shall we just check this briefly for now?"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 오늘은 표의 숫자부터 확인할게요.",
+          "de": "Dann prüfe ich heute zuerst die Zahlen in der Tabelle.",
+          "en": "Then I will start by checking the figures in the table today.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_b1_0071",
+        "category": "work_study",
+        "level": "b1",
+        "kind": "question",
+        "ko": "이 초안을 오늘 안에 검토하려면 어디부터 시작하면 될까요?",
+        "de": "Wenn wir den Entwurf heute noch durchsehen wollen, womit sollten wir anfangen?",
+        "en": "If we want to review the draft today, where should we start?",
+        "reply": {
+          "ko": "먼저 표의 숫자를 확인하고 문장은 내일 봐요.",
+          "de": "Prüfen wir zuerst die Zahlen in der Tabelle und lesen die Sätze morgen.",
+          "en": "Let's check the figures in the table first and review the sentences tomorrow.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "지금은 짧게만 확인할까요?",
+            "de": "Wollen wir es jetzt nur kurz klären?",
+            "en": "Shall we just check this briefly for now?"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 오늘은 표의 숫자부터 확인할게요.",
+          "de": "Dann prüfe ich heute zuerst die Zahlen in der Tabelle.",
+          "en": "Then I will start by checking the figures in the table today.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "9d16daf0c351358d9d93d2fa8549c342c92d59c98c140e1e8fb405190846fce7",
+      "afterSha256": "24d19a3a172cb956618ce494813b90882463be42553d590f1e9efd5ee6b20450",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "9d16daf0c351358d9d93d2fa8549c342c92d59c98c140e1e8fb405190846fce7",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_b2_0098",
+      "fields": [
+        "followUp.en"
+      ],
+      "before": {
+        "id": "smalltalk_b2_0098",
+        "category": "partner_family",
+        "level": "b2",
+        "kind": "opener",
+        "ko": "밖에서는 저도 말을 더 조심할게요.",
+        "de": "In der Öffentlichkeit passe ich auch mehr auf, was ich sage.",
+        "en": "In public I'll be more careful with how I speak too.",
+        "reply": {
+          "ko": "서로 그러면 편하죠.",
+          "de": "Wenn beide das tun, ist es leichter.",
+          "en": "If we both do that, it's easier.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이 부분은 어떻게 생각하세요?",
+            "de": "Wie sehen Sie das?",
+            "en": "What do you think about this part?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 서로 불편한 표현은 미리 이야기해요.",
+          "de": "Ja, sprechen wir vorher darüber, welche Formulierungen uns unangenehm sind.",
+          "en": "Yes, let us discuss beforehand which expressions make us uncomfortable.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_b2_0098",
+        "category": "partner_family",
+        "level": "b2",
+        "kind": "opener",
+        "ko": "밖에서는 저도 말을 더 조심할게요.",
+        "de": "In der Öffentlichkeit passe ich auch mehr auf, was ich sage.",
+        "en": "In public I'll be more careful with how I speak too.",
+        "reply": {
+          "ko": "서로 그러면 편하죠.",
+          "de": "Wenn beide das tun, ist es leichter.",
+          "en": "If we both do that, it's easier.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이 부분은 어떻게 생각하세요?",
+            "de": "Wie sehen Sie das?",
+            "en": "What do you think about this part?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 서로 불편한 표현은 미리 이야기해요.",
+          "de": "Ja, sprechen wir vorher darüber, welche Formulierungen uns unangenehm sind.",
+          "en": "Yes, let's discuss beforehand which expressions make us uncomfortable.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "b47cde9ae31f40d44b5cc9236524e47c96c74daa07806451028687e2447a31ff",
+      "afterSha256": "4125da56183f2438dfd32faadff1829bfb6547e5b63ccd398b77fd59d8339fa5",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "b47cde9ae31f40d44b5cc9236524e47c96c74daa07806451028687e2447a31ff",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_c1_0022",
+      "fields": [
+        "followUp.en"
+      ],
+      "before": {
+        "id": "smalltalk_c1_0022",
+        "category": "partner_family",
+        "level": "c1",
+        "kind": "opener",
+        "ko": "공평한 분담은 그때그때 호의를 보이는 데 그치지 않고, 미리 함께 계획하는 문제인 것 같아요.",
+        "de": "Eine gerechte Arbeitsteilung scheint mir mehr zu erfordern als guten Willen im jeweiligen Moment: Wir müssen sie vorher gemeinsam planen.",
+        "en": "A fair division of work seems to require more than goodwill in the moment; we need to plan it together in advance.",
+        "reply": {
+          "ko": "그럼 올해부터 같이 짜 봐요.",
+          "de": "Dann planen wir es dieses Jahr zusammen.",
+          "en": "Then let's plan it together starting this year.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "혹시 다르게 보시는 부분이 있을까요?",
+            "de": "Sehen Sie etwas davon anders?",
+            "en": "Is there any part you see differently?"
+          }
+        ],
+        "followUp": {
+          "ko": "좋아요. 각자 맡을 수 있는 일부터 이야기해 봐요.",
+          "de": "Gern. Sprechen wir zuerst darüber, welche Aufgaben jeder übernehmen kann.",
+          "en": "Great. Let us start by discussing what each person can take on.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_c1_0022",
+        "category": "partner_family",
+        "level": "c1",
+        "kind": "opener",
+        "ko": "공평한 분담은 그때그때 호의를 보이는 데 그치지 않고, 미리 함께 계획하는 문제인 것 같아요.",
+        "de": "Eine gerechte Arbeitsteilung scheint mir mehr zu erfordern als guten Willen im jeweiligen Moment: Wir müssen sie vorher gemeinsam planen.",
+        "en": "A fair division of work seems to require more than goodwill in the moment; we need to plan it together in advance.",
+        "reply": {
+          "ko": "그럼 올해부터 같이 짜 봐요.",
+          "de": "Dann planen wir es dieses Jahr zusammen.",
+          "en": "Then let's plan it together starting this year.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "혹시 다르게 보시는 부분이 있을까요?",
+            "de": "Sehen Sie etwas davon anders?",
+            "en": "Is there any part you see differently?"
+          }
+        ],
+        "followUp": {
+          "ko": "좋아요. 각자 맡을 수 있는 일부터 이야기해 봐요.",
+          "de": "Gern. Sprechen wir zuerst darüber, welche Aufgaben jeder übernehmen kann.",
+          "en": "Great. Let's start by discussing what each person can take on.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "5f1f92f20efef635f153dde4c959f96e1dd6d66f42351970c988a7ba220255ab",
+      "afterSha256": "4f4c7f87a2fa860dc85ad2ec2e6afd4aa6ea0a143074e96e73e9ee468d600e9a",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "5f1f92f20efef635f153dde4c959f96e1dd6d66f42351970c988a7ba220255ab",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_c1_0035",
+      "fields": [
+        "safeAlternativeQuestions.0.de"
+      ],
+      "before": {
+        "category": "work_study",
+        "kind": "question",
+        "relationshipContext": "coworker",
+        "ko": "AI 도입 뒤에 선별 속도뿐 아니라 어떤 지원자들이 더 자주 탈락하는지도 살펴봤어요?",
+        "de": "Wurde nach der KI-Einführung neben dem Auswahltempo auch geprüft, welche Bewerbenden häufiger ausscheiden?",
+        "en": "After AI was introduced, did they examine which applicants are rejected more often, as well as how fast screening is?",
+        "reply": {
+          "ko": "직무별 표본이 작아서 아직 단정하기 어렵대요.",
+          "de": "Die Stichproben je Beruf seien zu klein für ein klares Urteil.",
+          "en": "They say the samples by role are still too small for a firm conclusion."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "사람의 재검토가 결과를 바꾼 경우도 집계했어요?",
+            "de": "Wurde gezählt, wann menschliche Prüfung das Ergebnis änderte?",
+            "en": "Did they count cases where human review changed the outcome?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그 자료가 있어야 효율과 공정성을 나눠 볼 수 있겠네요.",
+          "de": "Erst damit lassen sich Effizienz und Fairness getrennt beurteilen.",
+          "en": "We need that data to assess efficiency and fairness separately."
+        },
+        "id": "smalltalk_c1_0035",
+        "level": "c1"
+      },
+      "after": {
+        "category": "work_study",
+        "kind": "question",
+        "relationshipContext": "coworker",
+        "ko": "AI 도입 뒤에 선별 속도뿐 아니라 어떤 지원자들이 더 자주 탈락하는지도 살펴봤어요?",
+        "de": "Wurde nach der KI-Einführung neben dem Auswahltempo auch geprüft, welche Bewerbenden häufiger ausscheiden?",
+        "en": "After AI was introduced, did they examine which applicants are rejected more often, as well as how fast screening is?",
+        "reply": {
+          "ko": "직무별 표본이 작아서 아직 단정하기 어렵대요.",
+          "de": "Die Stichproben je Beruf seien zu klein für ein klares Urteil.",
+          "en": "They say the samples by role are still too small for a firm conclusion."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "사람의 재검토가 결과를 바꾼 경우도 집계했어요?",
+            "de": "Wurde erfasst, wie oft eine menschliche Prüfung das Ergebnis verändert hat?",
+            "en": "Did they count cases where human review changed the outcome?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그 자료가 있어야 효율과 공정성을 나눠 볼 수 있겠네요.",
+          "de": "Erst damit lassen sich Effizienz und Fairness getrennt beurteilen.",
+          "en": "We need that data to assess efficiency and fairness separately."
+        },
+        "id": "smalltalk_c1_0035",
+        "level": "c1"
+      },
+      "beforeSha256": "97a5d81ef4acbfc14f1394597e1a663b7b467da8e6de50e241f17087beddad9d",
+      "afterSha256": "3dd7a90aeb47ba0af814aa4c2694fc3316febe4fdee8670320e3ef2acd1b4341",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "97a5d81ef4acbfc14f1394597e1a663b7b467da8e6de50e241f17087beddad9d",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_c1_0036",
+      "fields": [
+        "followUp.de",
+        "followUp.en"
+      ],
+      "before": {
+        "category": "work_study",
+        "kind": "reaction",
+        "relationshipContext": "peer",
+        "ko": "AI를 썼다는 사실보다 설명과 재검토가 실제로 가능한지가 더 중요해요.",
+        "de": "Wichtiger als der bloße KI-Einsatz ist, ob Erklärung und Nachprüfung praktisch möglich sind.",
+        "en": "What matters more than the fact AI was used is whether explanation and review actually work.",
+        "reply": {
+          "ko": "지원자가 찾을 수 있는 문의 경로부터 확인해 봐요.",
+          "de": "Prüfen wir zuerst den für Bewerbende auffindbaren Kontaktweg.",
+          "en": "Let's first check whether applicants can find the contact route."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "결과 통지에 검토 요청 방법이 적혀 있어요?",
+            "de": "Steht im Bescheid, wie eine Nachprüfung beantragt wird?",
+            "en": "Does the notice explain how to request review?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "절차가 화면에만 있고 작동하지 않는지도 봐야겠네요.",
+          "de": "Wir sollten prüfen, ob das Verfahren nur auf dem Bildschirm existiert.",
+          "en": "We should check whether the process exists only on screen."
+        },
+        "id": "smalltalk_c1_0036",
+        "level": "c1"
+      },
+      "after": {
+        "category": "work_study",
+        "kind": "reaction",
+        "relationshipContext": "peer",
+        "ko": "AI를 썼다는 사실보다 설명과 재검토가 실제로 가능한지가 더 중요해요.",
+        "de": "Wichtiger als der bloße KI-Einsatz ist, ob Erklärung und Nachprüfung praktisch möglich sind.",
+        "en": "What matters more than the fact AI was used is whether explanation and review actually work.",
+        "reply": {
+          "ko": "지원자가 찾을 수 있는 문의 경로부터 확인해 봐요.",
+          "de": "Prüfen wir zuerst den für Bewerbende auffindbaren Kontaktweg.",
+          "en": "Let's first check whether applicants can find the contact route."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "결과 통지에 검토 요청 방법이 적혀 있어요?",
+            "de": "Steht im Bescheid, wie eine Nachprüfung beantragt wird?",
+            "en": "Does the notice explain how to request review?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "절차가 화면에만 있고 작동하지 않는지도 봐야겠네요.",
+          "de": "Wir sollten auch prüfen, ob das Verfahren nur auf dem Bildschirm existiert, ohne tatsächlich zu funktionieren.",
+          "en": "We should also check whether the process only exists on screen without actually working."
+        },
+        "id": "smalltalk_c1_0036",
+        "level": "c1"
+      },
+      "beforeSha256": "e2682979375e03acdd57ef67c4fa285ce8316cd065ed62922abe32253841c285",
+      "afterSha256": "7a3e2c60f325b95fb4b6c7548b42b36147e6b69160c832212624e67cbfcc6e61",
+      "predecessorKind": "source_git",
+      "predecessorAfterSha256": "e2682979375e03acdd57ef67c4fa285ce8316cd065ed62922abe32253841c285",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_c2_0013",
+      "fields": [
+        "followUp.en"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0013",
+        "category": "work_study",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동 결정이 왜 나왔는지 나중에 추적하려면 지금 무엇을 남겨야 할까요?",
+        "de": "Was müssen wir jetzt dokumentieren, um eine automatische Entscheidung später nachvollziehen zu können?",
+        "en": "What should we record now so an automated decision can be traced later?",
+        "reply": {
+          "ko": "사용한 데이터 버전과 기준, 사람의 개입 시점을 함께 남겨야 해요.",
+          "de": "Wir müssen Datenversion, Kriterien und den Zeitpunkt menschlicher Eingriffe festhalten.",
+          "en": "We need to record the data version, the criteria, and when a person intervened."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "결과가 바뀐 수정 이력도 보존할까요?",
+            "de": "Sollen wir auch Änderungen speichern, die das Ergebnis beeinflusst haben?",
+            "en": "Shall we preserve the revision history that changed the result?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그 기록이 있어야 책임 소재와 오류의 시작점을 나눠 볼 수 있겠네요.",
+          "de": "Nur mit diesen Spuren lassen sich Verantwortung und Fehlerursprung unterscheiden.",
+          "en": "Only with those records can we distinguish accountability from the point where an error began."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0013",
+        "category": "work_study",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동 결정이 왜 나왔는지 나중에 추적하려면 지금 무엇을 남겨야 할까요?",
+        "de": "Was müssen wir jetzt dokumentieren, um eine automatische Entscheidung später nachvollziehen zu können?",
+        "en": "What should we record now so an automated decision can be traced later?",
+        "reply": {
+          "ko": "사용한 데이터 버전과 기준, 사람의 개입 시점을 함께 남겨야 해요.",
+          "de": "Wir müssen Datenversion, Kriterien und den Zeitpunkt menschlicher Eingriffe festhalten.",
+          "en": "We need to record the data version, the criteria, and when a person intervened."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "결과가 바뀐 수정 이력도 보존할까요?",
+            "de": "Sollen wir auch Änderungen speichern, die das Ergebnis beeinflusst haben?",
+            "en": "Shall we preserve the revision history that changed the result?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그 기록이 있어야 책임 소재와 오류의 시작점을 나눠 볼 수 있겠네요.",
+          "de": "Nur mit diesen Spuren lassen sich Verantwortung und Fehlerursprung unterscheiden.",
+          "en": "With those records, we can distinguish who is responsible from where the error originated."
+        }
+      },
+      "beforeSha256": "19af9569603b97f56a96539ffce6c8cafd245c3ee2dc986ab0201ac7d5bba378",
+      "afterSha256": "3400feb02395dca46da8c5b4414c7740f2aa08a6dcd58df75d22a54d22c48568",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "19af9569603b97f56a96539ffce6c8cafd245c3ee2dc986ab0201ac7d5bba378",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_c2_0023",
+      "fields": [
+        "reply.en"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0023",
+        "category": "work_study",
+        "level": "c2",
+        "kind": "question",
+        "ko": "이 문장이 권한을 절차 뒤에 숨기는 것 같지 않아요?",
+        "de": "Versteckt dieser Satz die Befugnis nicht hinter dem Verfahren?",
+        "en": "Does this sentence hide authority behind procedure?",
+        "reply": {
+          "ko": "실제로 결정하는 주체를 밝히고, 그 결정의 근거를 한 줄 덧붙입시다.",
+          "de": "Benennen wir, wer tatsächlich entscheidet, und ergänzen wir einen Satz zur Begründung der Entscheidung.",
+          "en": "Let us identify who actually makes the decision and add a sentence explaining its basis.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "지금은 짧게만 확인할까요?",
+            "de": "Wollen wir es jetzt nur kurz klären?",
+            "en": "Shall we just check this briefly for now?"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 절차를 설명하면서도 책임의 주체를 드러낼 수 있겠네요.",
+          "de": "So können wir das Verfahren erklären und zugleich sichtbar machen, wer verantwortlich ist.",
+          "en": "Then we can explain the procedure while making it clear who is responsible.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0023",
+        "category": "work_study",
+        "level": "c2",
+        "kind": "question",
+        "ko": "이 문장이 권한을 절차 뒤에 숨기는 것 같지 않아요?",
+        "de": "Versteckt dieser Satz die Befugnis nicht hinter dem Verfahren?",
+        "en": "Does this sentence hide authority behind procedure?",
+        "reply": {
+          "ko": "실제로 결정하는 주체를 밝히고, 그 결정의 근거를 한 줄 덧붙입시다.",
+          "de": "Benennen wir, wer tatsächlich entscheidet, und ergänzen wir einen Satz zur Begründung der Entscheidung.",
+          "en": "Let's identify who actually makes the decision and add a sentence explaining its basis.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "지금은 짧게만 확인할까요?",
+            "de": "Wollen wir es jetzt nur kurz klären?",
+            "en": "Shall we just check this briefly for now?"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 절차를 설명하면서도 책임의 주체를 드러낼 수 있겠네요.",
+          "de": "So können wir das Verfahren erklären und zugleich sichtbar machen, wer verantwortlich ist.",
+          "en": "Then we can explain the procedure while making it clear who is responsible.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "269239373d1995fbf12c3833c72f8a0c5fe7d10effb88f11dd6a27ad3462694f",
+      "afterSha256": "0df0c7907cb35f4e118d84f8ab754c7f1f8cc8d318e0f133afbc164a02f09c04",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "269239373d1995fbf12c3833c72f8a0c5fe7d10effb88f11dd6a27ad3462694f",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_c2_0038",
+      "fields": [
+        "reply.en"
+      ],
+      "before": {
+        "category": "work_study",
+        "kind": "reaction",
+        "relationshipContext": "coworker",
+        "ko": "사람을 인력 부족의 해답으로만 쓰면 선택권과 생활 조건이 문장에서 사라져요.",
+        "de": "Wer Menschen nur als Antwort auf Personalmangel beschreibt, löscht Wahlmöglichkeiten und Lebensbedingungen aus dem Satz.",
+        "en": "When people are described only as the answer to labor shortages, their choices and living conditions vanish from the sentence.",
+        "reply": {
+          "ko": "당사자가 무엇을 선택했고 어떻게 판단했는지를 문장에 다시 담아 봅시다.",
+          "de": "Halten wir im Satz wieder fest, was die Betroffenen selbst gewählt und wie sie entschieden haben.",
+          "en": "Let us put back into the sentence what the people concerned chose and how they made their decisions.",
+          "turnKind": "response"
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "인용된 당사자 목소리는 몇 명이에요?",
+            "de": "Wie viele Betroffene werden selbst zitiert?",
+            "en": "How many people concerned are quoted directly?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "정책 설명과 삶의 서사를 분리하지 않는 편집이 필요하겠네요.",
+          "de": "Die Redaktion sollte Politik und Lebensgeschichten nicht voneinander trennen.",
+          "en": "The editing needs to keep policy and lived experience connected."
+        },
+        "id": "smalltalk_c2_0038",
+        "level": "c2"
+      },
+      "after": {
+        "category": "work_study",
+        "kind": "reaction",
+        "relationshipContext": "coworker",
+        "ko": "사람을 인력 부족의 해답으로만 쓰면 선택권과 생활 조건이 문장에서 사라져요.",
+        "de": "Wer Menschen nur als Antwort auf Personalmangel beschreibt, löscht Wahlmöglichkeiten und Lebensbedingungen aus dem Satz.",
+        "en": "When people are described only as the answer to labor shortages, their choices and living conditions vanish from the sentence.",
+        "reply": {
+          "ko": "당사자가 무엇을 선택했고 어떻게 판단했는지를 문장에 다시 담아 봅시다.",
+          "de": "Halten wir im Satz wieder fest, was die Betroffenen selbst gewählt und wie sie entschieden haben.",
+          "en": "Let's put back into the sentence what the people concerned chose and how they made their decisions.",
+          "turnKind": "response"
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "인용된 당사자 목소리는 몇 명이에요?",
+            "de": "Wie viele Betroffene werden selbst zitiert?",
+            "en": "How many people concerned are quoted directly?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "정책 설명과 삶의 서사를 분리하지 않는 편집이 필요하겠네요.",
+          "de": "Die Redaktion sollte Politik und Lebensgeschichten nicht voneinander trennen.",
+          "en": "The editing needs to keep policy and lived experience connected."
+        },
+        "id": "smalltalk_c2_0038",
+        "level": "c2"
+      },
+      "beforeSha256": "342142418c5140e40cfa28fcc2afe3a10737df12d2236adeccd89f58f2d7842a",
+      "afterSha256": "142841f7177ecc6e5a50bc74c6f065a03579f4878d59c45b8a0418cdd16213b3",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "342142418c5140e40cfa28fcc2afe3a10737df12d2236adeccd89f58f2d7842a",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_c2_0064",
+      "fields": [
+        "followUp.de"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0064",
+        "level": "c2",
+        "category": "hospital",
+        "kind": "question",
+        "ko": "진료 외 목적으로 자료를 활용하는 데 동의했다가, 치료를 포기하지 않고도 그 동의를 철회할 수 있나요?",
+        "de": "Kann eine Einwilligung zur Datennutzung außerhalb der Behandlung widerrufen werden, ohne auf die Behandlung verzichten zu müssen?",
+        "en": "Can consent to data use for purposes beyond treatment be withdrawn without giving up treatment?",
+        "reply": {
+          "ko": "거절의 불이익이 크면 동의의 자발성을 다시 봐야 해요.",
+          "de": "Bei hohen Nachteilen einer Ablehnung muss die Freiwilligkeit neu geprüft werden.",
+          "en": "If refusal carries major harm, the voluntariness of consent needs reexamination."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "철회했을 때 진료에 어떤 영향이 있는지도 안내됐나요?",
+            "de": "Wurde auch erklärt, welche Auswirkungen ein Widerruf auf die Behandlung hätte?",
+            "en": "Were the effects that withdrawal would have on treatment explained too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 동의 내용과 철회에 따른 실제 영향을 함께 확인해야겠네요.",
+          "de": "Dann sollten wir Inhalt der Einwilligung und tatsächliche Widerrufsfolgen gemeinsam prüfen.",
+          "en": "Then we should examine the scope of consent and the actual effects of withdrawal together.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0064",
+        "level": "c2",
+        "category": "hospital",
+        "kind": "question",
+        "ko": "진료 외 목적으로 자료를 활용하는 데 동의했다가, 치료를 포기하지 않고도 그 동의를 철회할 수 있나요?",
+        "de": "Kann eine Einwilligung zur Datennutzung außerhalb der Behandlung widerrufen werden, ohne auf die Behandlung verzichten zu müssen?",
+        "en": "Can consent to data use for purposes beyond treatment be withdrawn without giving up treatment?",
+        "reply": {
+          "ko": "거절의 불이익이 크면 동의의 자발성을 다시 봐야 해요.",
+          "de": "Bei hohen Nachteilen einer Ablehnung muss die Freiwilligkeit neu geprüft werden.",
+          "en": "If refusal carries major harm, the voluntariness of consent needs reexamination."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "철회했을 때 진료에 어떤 영향이 있는지도 안내됐나요?",
+            "de": "Wurde auch erklärt, welche Auswirkungen ein Widerruf auf die Behandlung hätte?",
+            "en": "Were the effects that withdrawal would have on treatment explained too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 동의 내용과 철회에 따른 실제 영향을 함께 확인해야겠네요.",
+          "de": "Dann sollten wir den Inhalt der Einwilligung und die tatsächlichen Folgen eines Widerrufs gemeinsam prüfen.",
+          "en": "Then we should examine the scope of consent and the actual effects of withdrawal together.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "c25ef1455e65e63464588e38805ab66ff2e61c761146bf22857ace954d8ce018",
+      "afterSha256": "f009b13c9cb6d5e7b9310e7aa78587393bea09f78e021dec00c00e83b868a824",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "c25ef1455e65e63464588e38805ab66ff2e61c761146bf22857ace954d8ce018",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    },
+    {
+      "id": "smalltalk_c2_0070",
+      "fields": [
+        "followUp.de"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0070",
+        "level": "c2",
+        "category": "emergency",
+        "kind": "question",
+        "ko": "자동 경보가 틀렸을 때 누가 설명하고 피해를 시정하나요?",
+        "de": "Wer erklärt und behebt Schäden, wenn ein automatischer Alarm falsch liegt?",
+        "en": "Who explains and remedies harm when an automated alert is wrong?",
+        "reply": {
+          "ko": "공급자와 운영 기관 사이의 책임 공백을 막아야 해요.",
+          "de": "Eine Verantwortungslücke zwischen Anbieter und Betreiber muss verhindert werden.",
+          "en": "There must be no accountability gap between the vendor and operating institution."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "오류 신고를 받는 기관과 피해 시정 담당이 명시돼 있나요?",
+            "de": "Sind die Stelle für Fehlermeldungen und die Zuständigkeit für die Schadensbehebung angegeben?",
+            "en": "Are the institution receiving error reports and the party responsible for remedying harm identified?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 오류를 설명하는 역할과 피해를 시정하는 책임을 함께 명시해야겠네요.",
+          "de": "Dann sollten wir Erklärungsaufgabe und Verantwortung für die Schadensbehebung gemeinsam festlegen.",
+          "en": "Then we should specify both the role of explaining the error and the responsibility for remedying harm.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0070",
+        "level": "c2",
+        "category": "emergency",
+        "kind": "question",
+        "ko": "자동 경보가 틀렸을 때 누가 설명하고 피해를 시정하나요?",
+        "de": "Wer erklärt und behebt Schäden, wenn ein automatischer Alarm falsch liegt?",
+        "en": "Who explains and remedies harm when an automated alert is wrong?",
+        "reply": {
+          "ko": "공급자와 운영 기관 사이의 책임 공백을 막아야 해요.",
+          "de": "Eine Verantwortungslücke zwischen Anbieter und Betreiber muss verhindert werden.",
+          "en": "There must be no accountability gap between the vendor and operating institution."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "오류 신고를 받는 기관과 피해 시정 담당이 명시돼 있나요?",
+            "de": "Sind die Stelle für Fehlermeldungen und die Zuständigkeit für die Schadensbehebung angegeben?",
+            "en": "Are the institution receiving error reports and the party responsible for remedying harm identified?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 오류를 설명하는 역할과 피해를 시정하는 책임을 함께 명시해야겠네요.",
+          "de": "Dann sollten wir sowohl festlegen, wer Fehler erklärt, als auch, wer für die Behebung von Schäden verantwortlich ist.",
+          "en": "Then we should specify both the role of explaining the error and the responsibility for remedying harm.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "dbb62591501365eac368b198eba303e9aa34187749dda9ad9911e2cd32a3a93e",
+      "afterSha256": "b777fba098a221fda640e4799a8b55917adfd1dd1569196425146e8220321fc7",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "dbb62591501365eac368b198eba303e9aa34187749dda9ad9911e2cd32a3a93e",
+      "reason": "Global Localization Canonicalization model-assisted direct KO?EN/DE QA; semantic/topic route preserved and human-native sign-off is not claimed."
+    }
+  ]
+}

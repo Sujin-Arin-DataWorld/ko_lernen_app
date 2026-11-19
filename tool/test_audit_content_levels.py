@@ -544,6 +544,47 @@ class FixtureAuditTest(unittest.TestCase):
         self.assertEqual(it.reason, "over2 lex_p90=5.0")
         self.assertEqual(it.blocked_by, "can_do_ref")
 
+    def test_target_owner_over2_is_not_double_counted_when_context_is_easy(self):
+        rows = [
+            {
+                "id": "cloze_a1_target_owner_only",
+                "level": "a1",
+                "fullKo": "정책을 봐요.",
+                "answer": "정책",
+            }
+        ]
+        item = acl._grade_sentence_surface(
+            self.corpus,
+            "cloze",
+            rows,
+            "fullKo",
+            set(),
+            target_field="answer",
+        )[0]
+        self.assertGreaterEqual(item.delta, 2)
+        self.assertEqual(item.bucket, "")
+        self.assertEqual(item.reason, "")
+
+    def test_target_owner_does_not_hide_independent_context_over2(self):
+        rows = [
+            {
+                "id": "cloze_a1_target_and_hard_context",
+                "level": "a1",
+                "fullKo": "정책과 사전을 봐요.",
+                "answer": "정책",
+            }
+        ]
+        item = acl._grade_sentence_surface(
+            self.corpus,
+            "cloze",
+            rows,
+            "fullKo",
+            set(),
+            target_field="answer",
+        )[0]
+        self.assertEqual(item.bucket, "over2")
+        self.assertGreaterEqual(item.delta, 2)
+
     # -- grammar / scenario / smalltalk / pronunciation / media ---------------
 
     def test_grammar_over2_and_can_do_blocked(self):
@@ -658,17 +699,47 @@ class FixtureAuditTest(unittest.TestCase):
             # fallback_over2 -- item 2b) raises total again and over2 by 1.
             # fallback_over2 stays 2 -- unchanged, both are still the LOW-
             # confidence 사전 rows.
-            {"over2": 4, "over1": 2, "under2": 0, "unknown": 0, "fallback_over2": 2, "total": 12},
+            {
+                "over2": 4,
+                "over1": 2,
+                "under2": 0,
+                "unknown": 0,
+                "fallback_over2": 2,
+                "accepted_relevel": 0,
+                "reviewed_owner": 0,
+                "replacement_backlog": 0,
+                "total": 12,
+            },
         )
         self.assertEqual(
             summary["counts"]["grammar"],
             # R4b item 2c: +1 over2 (grammar_a1_medium, medium confidence,
             # stays plain over2 instead of fallback_over2).
-            {"over2": 2, "over1": 0, "under2": 0, "unknown": 0, "fallback_over2": 1, "total": 5},
+            {
+                "over2": 2,
+                "over1": 0,
+                "under2": 0,
+                "unknown": 0,
+                "fallback_over2": 1,
+                "accepted_relevel": 0,
+                "reviewed_owner": 0,
+                "replacement_backlog": 0,
+                "total": 5,
+            },
         )
         self.assertEqual(
             summary["counts"]["pronunciation"],
-            {"over2": 1, "over1": 0, "under2": 0, "unknown": 1, "fallback_over2": 0, "total": 3},
+            {
+                "over2": 1,
+                "over1": 0,
+                "under2": 0,
+                "unknown": 1,
+                "fallback_over2": 0,
+                "accepted_relevel": 0,
+                "reviewed_owner": 0,
+                "replacement_backlog": 0,
+                "total": 3,
+            },
         )
         self.assertEqual(
             summary["packs"],
@@ -1014,6 +1085,68 @@ class CliTest(unittest.TestCase):
         self.assertIn("not yet supported", str(ctx.exception))
 
 
+class ReviewedVocabOwnerLedgerTest(unittest.TestCase):
+    def setUp(self) -> None:
+        self._tmp = tempfile.TemporaryDirectory(prefix="reviewed-vocab-owner-")
+        self.addCleanup(self._tmp.cleanup)
+        self.root = Path(self._tmp.name)
+        path = self.root / acl.REVIEWED_VOCAB_OWNERS_JSON.relative_to(acl.REPO)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        self.path = path
+        self.vocab_rows = [
+            {"id": "vocab_b1_test", "level": "B1", "pack_id": "b1_test"},
+            {"id": "vocab_b2_test", "level": "B2", "pack_id": "b2_test"},
+        ]
+
+    def _write(self, decisions):
+        self.path.write_text(
+            json.dumps(
+                {"schemaVersion": 1, "decisions": decisions},
+                ensure_ascii=False,
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+
+    def test_matching_keep_current_decision_is_loaded(self):
+        self._write([
+            {
+                "id": "vocab_b1_test",
+                "currentLevel": "b1",
+                "packId": "b1_test",
+                "decision": "keep_current",
+            }
+        ])
+        self.assertEqual(
+            acl._load_reviewed_vocab_owner_ids(self.root, self.vocab_rows),
+            frozenset({"vocab_b1_test"}),
+        )
+
+    def test_duplicate_id_fails_closed(self):
+        row = {
+            "id": "vocab_b1_test",
+            "currentLevel": "b1",
+            "packId": "b1_test",
+            "decision": "keep_current",
+        }
+        self._write([row, dict(row)])
+        with self.assertRaisesRegex(ValueError, "duplicate reviewed vocab owner"):
+            acl._load_reviewed_vocab_owner_ids(self.root, self.vocab_rows)
+
+    def test_stale_live_level_fails_closed(self):
+        self._write([
+            {
+                "id": "vocab_b1_test",
+                "currentLevel": "b2",
+                "packId": "b1_test",
+                "decision": "keep_current",
+            }
+        ])
+        with self.assertRaisesRegex(ValueError, "does not match live"):
+            acl._load_reviewed_vocab_owner_ids(self.root, self.vocab_rows)
+
+
 class LiveRatchetTest(unittest.TestCase):
     """Ratchet against the real repo's tool/content_level_summary.json —
     lower-only caps (2026-09-07 R4b baseline: item 2's confidence-policy
@@ -1090,16 +1223,22 @@ class LiveRatchetTest(unittest.TestCase):
     # anything that would move them).
     # 2026-09-08 PR-L3a 실측: vocab 159 · cloze 35 · satz 26 · pronunciation 0
     # (하향), 나머지 불변.
+    # 2026-10-05 LCP Stage C-2 actuals after the long-negation contextual
+    # grading fix and V2G2 -(으)ㄹ수록 relevel. Lower-only: preserve every
+    # improvement accumulated since the September baseline.
     CAP_OVER2 = {
-        "vocab": 159, "grammar": 3, "scenario": 0, "cloze": 35,
-        "satz": 26, "smalltalk": 19, "pronunciation": 0, "media": 6,
+        "vocab": 0, "grammar": 0, "scenario": 0, "cloze": 0,
+        "satz": 0, "smalltalk": 0, "pronunciation": 0, "media": 0,
     }
     # 실측 unknown/total: vocab .0231(=56/2420, unchanged from T2.4a --
     # the allowance/contraction fix only ever changes sentence_profile's
     # lexical_p90 input, never word_grade's own resolution), 나머지 0.
     # +0.01 여유는 브리프 지시(래칫 조건) 그대로.
+    # C7-3 assigns an explicit reviewed lexicon owner to every live vocab
+    # headword that previously had no resolvable grade. Unknown is now a
+    # zero-tolerance regression signal for every audited content kind.
     CAP_UNKNOWN_RATIO = {
-        "vocab": 0.0231, "grammar": 0.0, "scenario": 0.0, "cloze": 0.0,
+        "vocab": 0.0, "grammar": 0.0, "scenario": 0.0, "cloze": 0.0,
         "satz": 0.0, "smalltalk": 0.0, "pronunciation": 0.0, "media": 0.0,
     }
     # Unchanged from the T2.3-R1 baseline (still 0) -- neither this fix
@@ -1129,8 +1268,31 @@ class LiveRatchetTest(unittest.TestCase):
     # satz_a1_0023) plus this PR's own cloze_a1_0597/satz_a1_0578
     # (에어컨을 켜요), so both actuals are genuinely 0, not padded.
     CAP_FALLBACK_OVER2 = {
-        "vocab": 66, "grammar": 0, "scenario": 0, "cloze": 0,
-        "satz": 0, "smalltalk": 1, "pronunciation": 0, "media": 1,
+        "vocab": 0, "grammar": 0, "scenario": 0, "cloze": 0,
+        "satz": 0, "smalltalk": 0, "pronunciation": 0, "media": 0,
+    }
+    CAP_REPLACEMENT_BACKLOG = 0
+    REVIEWED_OWNER_EXPECTED = 146
+    REVIEWED_OWNER_DECISIONS_EXPECTED = 153
+    # 2026-10-05 Stage C-1: coverage is now measured for all six NIKL
+    # grades. These are lower-only missing caps and upper-only at-level
+    # floors. A content change must not make a grade less represented merely
+    # by moving/removing words elsewhere.
+    CAP_COVERAGE_MISSING = {
+        "grade1": 1,
+        "grade2": 656,
+        "grade3": 1242,
+        "grade4": 1813,
+        "grade5": 2017,
+        "grade6": 2350,
+    }
+    MIN_COVERAGE_AT_LEVEL = {
+        "grade1": 596,
+        "grade2": 206,
+        "grade3": 164,
+        "grade4": 148,
+        "grade5": 27,
+        "grade6": 49,
     }
 
     @classmethod
@@ -1154,7 +1316,11 @@ class LiveRatchetTest(unittest.TestCase):
             with self.subTest(kind=kind):
                 c = self.summary["counts"][kind]
                 ratio = c["unknown"] / c["total"] if c["total"] else 0.0
-                self.assertLessEqual(ratio, cap + 0.01, f"{kind} unknown ratio {ratio:.3f} exceeds cap {cap}")
+                self.assertLessEqual(
+                    ratio,
+                    cap,
+                    f"{kind} unknown ratio {ratio:.3f} exceeds cap {cap}",
+                )
 
     def test_pack_median_ge_plus2_does_not_regress(self):
         a1 = self.summary["packs"]["a1"]["median_ge_plus2"]
@@ -1173,6 +1339,53 @@ class LiveRatchetTest(unittest.TestCase):
             with self.subTest(kind=kind):
                 n = self.summary["counts"][kind]["fallback_over2"]
                 self.assertLessEqual(n, cap, f"{kind}.fallback_over2={n} exceeds cap {cap}")
+
+    def test_replacement_backlog_count_does_not_regress(self):
+        n = self.summary["counts"]["vocab"]["replacement_backlog"]
+        self.assertLessEqual(
+            n,
+            self.CAP_REPLACEMENT_BACKLOG,
+            f"vocab.replacement_backlog={n} exceeds cap "
+            f"{self.CAP_REPLACEMENT_BACKLOG}",
+        )
+
+    def test_all_six_coverage_grades_do_not_regress(self):
+        expected = {f"grade{grade}" for grade in range(1, 7)}
+        self.assertEqual(set(self.summary["coverage"]), expected)
+        for key in sorted(expected):
+            with self.subTest(grade=key):
+                coverage = self.summary["coverage"][key]
+                self.assertLessEqual(
+                    coverage["missing"],
+                    self.CAP_COVERAGE_MISSING[key],
+                    f"{key}.missing={coverage['missing']} exceeds "
+                    f"cap {self.CAP_COVERAGE_MISSING[key]}",
+                )
+                self.assertGreaterEqual(
+                    coverage["at_level"],
+                    self.MIN_COVERAGE_AT_LEVEL[key],
+                    f"{key}.at_level={coverage['at_level']} is below "
+                    f"floor {self.MIN_COVERAGE_AT_LEVEL[key]}",
+                )
+
+    def test_reviewed_owner_state_is_loaded(self):
+        self.assertEqual(
+            self.summary["counts"]["vocab"]["reviewed_owner"],
+            self.REVIEWED_OWNER_EXPECTED,
+        )
+        ledger = json.loads(
+            (
+                REPO
+                / "tools"
+                / "content_factory"
+                / "relevel"
+                / "reviewed_vocab_owners_20261005.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            len(ledger["decisions"]),
+            self.REVIEWED_OWNER_DECISIONS_EXPECTED,
+        )
 
     def test_pack_top10_entries_have_expected_shape(self):
         # R4b item 2a: n_high renamed to n_hm (high+medium), n_low added.

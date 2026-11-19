@@ -1,68 +1,92 @@
 {
   "counts": {
     "cloze": {
+      "accepted_relevel": 0,
       "fallback_over2": 0,
-      "over1": 161,
-      "over2": 22,
+      "over1": 153,
+      "over2": 0,
+      "replacement_backlog": 0,
+      "reviewed_owner": 0,
       "total": 2365,
-      "under2": 473,
+      "under2": 448,
       "unknown": 0
     },
     "grammar": {
+      "accepted_relevel": 0,
       "fallback_over2": 0,
-      "over1": 11,
-      "over2": 2,
+      "over1": 10,
+      "over2": 0,
+      "replacement_backlog": 0,
+      "reviewed_owner": 0,
       "total": 264,
       "under2": 42,
       "unknown": 0
     },
     "media": {
-      "fallback_over2": 1,
+      "accepted_relevel": 0,
+      "fallback_over2": 0,
       "over1": 23,
-      "over2": 6,
+      "over2": 0,
+      "replacement_backlog": 0,
+      "reviewed_owner": 0,
       "total": 136,
-      "under2": 13,
+      "under2": 12,
       "unknown": 0
     },
     "pronunciation": {
+      "accepted_relevel": 0,
       "fallback_over2": 0,
       "over1": 7,
       "over2": 0,
+      "replacement_backlog": 0,
+      "reviewed_owner": 0,
       "total": 84,
       "under2": 18,
       "unknown": 0
     },
     "satz": {
+      "accepted_relevel": 0,
       "fallback_over2": 0,
-      "over1": 161,
-      "over2": 16,
+      "over1": 150,
+      "over2": 0,
+      "replacement_backlog": 0,
+      "reviewed_owner": 0,
       "total": 2885,
-      "under2": 666,
+      "under2": 633,
       "unknown": 0
     },
     "scenario": {
+      "accepted_relevel": 0,
       "fallback_over2": 0,
-      "over1": 23,
+      "over1": 18,
       "over2": 0,
-      "total": 186,
+      "replacement_backlog": 0,
+      "reviewed_owner": 0,
+      "total": 191,
       "under2": 23,
       "unknown": 0
     },
     "smalltalk": {
-      "fallback_over2": 1,
-      "over1": 92,
-      "over2": 17,
+      "accepted_relevel": 0,
+      "fallback_over2": 0,
+      "over1": 97,
+      "over2": 0,
+      "replacement_backlog": 0,
+      "reviewed_owner": 0,
       "total": 590,
-      "under2": 131,
+      "under2": 139,
       "unknown": 0
     },
     "vocab": {
-      "fallback_over2": 66,
+      "accepted_relevel": 66,
+      "fallback_over2": 0,
       "over1": 313,
-      "over2": 158,
+      "over2": 0,
+      "replacement_backlog": 0,
+      "reviewed_owner": 146,
       "total": 2968,
-      "under2": 231,
-      "unknown": 58
+      "under2": 224,
+      "unknown": 0
     }
   },
   "coverage": {
@@ -73,10 +97,34 @@
       "total_unique": 713
     },
     "grade2": {
-      "at_level": 204,
+      "at_level": 206,
       "missing": 656,
       "present_in_app": 412,
       "total_unique": 1068
+    },
+    "grade3": {
+      "at_level": 164,
+      "missing": 1242,
+      "present_in_app": 312,
+      "total_unique": 1554
+    },
+    "grade4": {
+      "at_level": 148,
+      "missing": 1813,
+      "present_in_app": 276,
+      "total_unique": 2089
+    },
+    "grade5": {
+      "at_level": 27,
+      "missing": 2017,
+      "present_in_app": 154,
+      "total_unique": 2171
+    },
+    "grade6": {
+      "at_level": 49,
+      "missing": 2350,
+      "present_in_app": 129,
+      "total_unique": 2479
     }
   },
   "generatedFrom": "assets/data/* + tools/content_factory/lexicon/* (tool/audit_content_levels.py)",
@@ -163,38 +211,38 @@
       "share_ge_plus2_top10": [
         {
           "median": 1.0,
-          "n_hm": 8,
+          "n_hm": 10,
           "n_low": 2,
           "pack_id": "a2_pharmacy_ask_1",
-          "share_ge_plus2": 0.25
+          "share_ge_plus2": 0.2
+        },
+        {
+          "median": 0.0,
+          "n_hm": 12,
+          "n_low": 0,
+          "pack_id": "a2_gym_class_1",
+          "share_ge_plus2": 0.1667
+        },
+        {
+          "median": 0.0,
+          "n_hm": 12,
+          "n_low": 0,
+          "pack_id": "a2_salon_visit_1",
+          "share_ge_plus2": 0.1667
         },
         {
           "median": 0.0,
           "n_hm": 10,
-          "n_low": 0,
-          "pack_id": "a2_gym_class_1",
-          "share_ge_plus2": 0.2
-        },
-        {
-          "median": 0.5,
-          "n_hm": 10,
-          "n_low": 0,
-          "pack_id": "a2_salon_visit_1",
-          "share_ge_plus2": 0.2
-        },
-        {
-          "median": 0,
-          "n_hm": 9,
-          "n_low": 0,
-          "pack_id": "a2_partner_photo_thanks_1",
-          "share_ge_plus2": 0.1111
-        },
-        {
-          "median": 0,
-          "n_hm": 9,
           "n_low": 2,
           "pack_id": "a2_school_supplies_1",
-          "share_ge_plus2": 0.1111
+          "share_ge_plus2": 0.1
+        },
+        {
+          "median": 0,
+          "n_hm": 11,
+          "n_low": 0,
+          "pack_id": "a2_partner_photo_thanks_1",
+          "share_ge_plus2": 0.0909
         },
         {
           "median": 0,

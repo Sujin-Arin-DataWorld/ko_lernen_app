@@ -20,6 +20,7 @@ import re
 import shutil
 import sys
 import tempfile
+import time
 from typing import Any
 
 import scenario_store
@@ -31,6 +32,15 @@ from validate_promoted_batch import (
 
 
 ROOT = Path(__file__).resolve().parents[2]
+LOCALIZATION_CONTRACT = (
+    "tools/content_factory/canonical_scenarios/"
+    "dialogue_localization_contract_20261006.json"
+)
+NATIVE_USAGE_REGISTRY = (
+    "tools/content_factory/canonical_scenarios/"
+    "trilingual_native_usage_registry_20261006.json"
+)
+FUTURE_LOCALIZATION_BATCH_FLOOR = 39
 DEFAULT_MANIFEST = Path("tools/content_factory/drafts/batch_04_manifest.json")
 REVIEW_HEADER = ["id", "level", "ko", "de", "en", "field_notes", "상태", "jin_memo"]
 APPROVED = frozenset(("approved", "ok"))
@@ -121,6 +131,203 @@ def _read_json(path: Path) -> dict[str, Any]:
     return value
 
 
+
+
+def _stage_validator_dependencies(root: Path, stage: Path) -> None:
+    """Mirror canonical governance inputs required by ContentValidator.
+
+    Scenario staging historically copied only assets/data plus the audit
+    manifest. The 2026-10-06 authoring/localization gates deliberately validate
+    canonical contracts, the native-usage registry, taxonomy and coverage
+    ledger too. Copy those read-only governance inputs into the temporary stage
+    so preview/apply validates the same policy as the real checkout.
+    """
+
+    required = (
+        "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
+        "tools/content_factory/canonical_scenarios/dialogue_localization_contract_20261006.json",
+        "tools/content_factory/canonical_scenarios/trilingual_native_usage_registry_20261006.json",
+        "tools/content_factory/cefr_matrix/taxonomy.json",
+        "tools/content_factory/review/trilingual_content_topic_coverage_20261006.json",
+    )
+    # Legacy transaction fixtures and grandfathered batches intentionally use
+    # minimal temporary repos. Real batch 39+ promotion is already fail-closed
+    # in _validate_native_usage_promotion_gate before staging, so a missing
+    # governance bundle here means this is a legacy/test root and staging must
+    # preserve the pre-governance transaction behavior.
+    if any(not (root / relative).is_file() for relative in required):
+        return
+
+    for relative in required:
+        source = root / relative
+        target = stage / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, target)
+
+    # The dialogue-authoring validator intentionally requires evidence that at
+    # least one governed scene-first artifact exists. Copy only governed JSON
+    # drafts, not the entire research tree.
+    source_drafts = root / "tools" / "content_factory" / "drafts"
+    target_drafts = stage / "tools" / "content_factory" / "drafts"
+    governed = 0
+    if source_drafts.is_dir():
+        for source in source_drafts.glob("*.json"):
+            try:
+                payload = json.loads(source.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                continue
+            if not isinstance(payload, dict):
+                continue
+            purpose = str(payload.get("purpose", ""))
+            if (
+                payload.get("status") == "review_only_scene_first"
+                or purpose.startswith(
+                    "Pre-script authoring contract for persona-led culture scenes"
+                )
+            ):
+                target_drafts.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source, target_drafts / source.name)
+                governed += 1
+    if governed == 0:
+        raise ScenarioIntegrationError(
+            "no governed persona dialogue authoring artifact available for staged validation"
+        )
+
+def _validate_native_usage_promotion_gate(
+    root: Path,
+    manifest_path: Path,
+    manifest: dict[str, Any],
+    batch_number: int,
+) -> None:
+    """Require 32-topic native-usage coverage for future live promotions.
+
+    Batches 1-38 are legacy-grandfathered. Batch 39+ must explicitly declare
+    the canonical localization contract and every native-usage topic it
+    depends on; every declared KO/EN/DE profile must already be deep-pass
+    complete.
+    """
+
+    if batch_number < FUTURE_LOCALIZATION_BATCH_FLOOR:
+        return
+
+    contract_path = _under_root(root, LOCALIZATION_CONTRACT)
+    registry_path = _under_root(root, NATIVE_USAGE_REGISTRY)
+    contract = _read_json(contract_path)
+    registry = _read_json(registry_path)
+
+    policy = contract.get("promotionPolicy")
+    gate = contract.get("nativeUsageGate")
+    if not isinstance(policy, dict) or not isinstance(gate, dict):
+        raise ScenarioIntegrationError(
+            f"{contract_path}: localization promotion/native-usage gate is malformed"
+        )
+    floor = policy.get("futureScenarioBatchFloor")
+    if not isinstance(floor, int):
+        raise ScenarioIntegrationError(
+            f"{contract_path}: futureScenarioBatchFloor must be an integer"
+        )
+    if floor != FUTURE_LOCALIZATION_BATCH_FLOOR:
+        raise ScenarioIntegrationError(
+            f"{contract_path}: futureScenarioBatchFloor must stay "
+            f"{FUTURE_LOCALIZATION_BATCH_FLOOR}"
+        )
+
+    expected_contract = policy.get("localizationContractValue")
+    if manifest.get("localizationContract") != expected_contract:
+        raise ScenarioIntegrationError(
+            f"{manifest_path}: batch {batch_number}+ promotion must reference "
+            f"{expected_contract}"
+        )
+
+    raw_topic_ids = manifest.get("nativeUsageTopicIds")
+    if (
+        not isinstance(raw_topic_ids, list)
+        or not raw_topic_ids
+        or any(not isinstance(item, str) or not item.strip() for item in raw_topic_ids)
+    ):
+        raise ScenarioIntegrationError(
+            f"{manifest_path}: batch {batch_number}+ promotion needs nonempty "
+            "nativeUsageTopicIds"
+        )
+    topic_ids = [item.strip() for item in raw_topic_ids]
+    if len(topic_ids) != len(set(topic_ids)):
+        raise ScenarioIntegrationError(
+            f"{manifest_path}: nativeUsageTopicIds must be unique"
+        )
+
+    topics = registry.get("topics")
+    if not isinstance(topics, list):
+        raise ScenarioIntegrationError(
+            f"{registry_path}: topics must be an array"
+        )
+    by_id = {
+        row.get("topicId"): row
+        for row in topics
+        if isinstance(row, dict) and isinstance(row.get("topicId"), str)
+    }
+    unknown = sorted(set(topic_ids) - set(by_id))
+    if unknown:
+        raise ScenarioIntegrationError(
+            f"{manifest_path}: unknown nativeUsageTopicIds: {unknown}"
+        )
+
+    required_languages = gate.get("requiredLanguages")
+    required_status = gate.get("requiredProfileStatus")
+    if required_languages != ["ko", "en", "de"] or required_status != "deep_pass_complete":
+        raise ScenarioIntegrationError(
+            f"{contract_path}: nativeUsageGate language/status contract drifted"
+        )
+
+    failures: list[str] = []
+    for topic_id in topic_ids:
+        topic = by_id[topic_id]
+        cross = topic.get("crossLanguage")
+        if not isinstance(cross, dict):
+            failures.append(f"{topic_id}: missing crossLanguage")
+        else:
+            if gate.get("requireCategoryShiftRisks") and not cross.get(
+                "categoryShiftRisks"
+            ):
+                failures.append(f"{topic_id}: categoryShiftRisks empty")
+            if gate.get("requirePedagogicalAlignmentNotes") and not cross.get(
+                "pedagogicalAlignmentNotes"
+            ):
+                failures.append(f"{topic_id}: pedagogicalAlignmentNotes empty")
+
+        for lang in required_languages:
+            profile = topic.get(lang)
+            if not isinstance(profile, dict):
+                failures.append(f"{topic_id}/{lang}: profile missing")
+                continue
+            if profile.get("nativeUsageProfileStatus") != required_status:
+                failures.append(
+                    f"{topic_id}/{lang}: expected {required_status}, got "
+                    f"{profile.get('nativeUsageProfileStatus')!r}"
+                )
+            if gate.get("requireTranslationeseWarningsPerLanguage") and not profile.get(
+                "avoidTranslationese"
+            ):
+                failures.append(f"{topic_id}/{lang}: translationese warning missing")
+            if gate.get("requireResearchDatePerLanguage") and not profile.get(
+                "researchDate"
+            ):
+                failures.append(f"{topic_id}/{lang}: researchDate missing")
+            if (
+                gate.get("requireAuthoritativeTermCheckWhenTopicRequiresIt")
+                and topic.get("requiresAuthoritativeTermCheckForDeepPass")
+                and not profile.get("authoritativeTermChecks")
+            ):
+                failures.append(
+                    f"{topic_id}/{lang}: authoritative term check missing"
+                )
+
+    if failures:
+        raise ScenarioIntegrationError(
+            f"{manifest_path}: native-usage promotion gate failed: "
+            + "; ".join(failures[:12])
+        )
+
+
 def _json_text(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False, indent=2) + "\n"
 
@@ -176,6 +383,13 @@ def _validate_bundle(
         raise ScenarioIntegrationError(f"{manifest_path}: unknown scenario manifest status")
     if require_approved and manifest_status not in {"approved", "merged"}:
         raise ScenarioIntegrationError(f"{manifest_path}: status must be approved before promotion")
+    if require_approved:
+        _validate_native_usage_promotion_gate(
+            root,
+            manifest_path,
+            manifest,
+            int(batch),
+        )
     artifacts = manifest.get("artifacts")
     if not isinstance(artifacts, list) or not artifacts or any(not isinstance(item, dict) for item in artifacts):
         raise ScenarioIntegrationError(f"{manifest_path}: artifacts must be a nonempty array of objects")
@@ -290,23 +504,74 @@ def _validate_batch(
     return manifest_path, manifest, records_by_kind["scenario"], backdrops
 
 
-def _atomic_write(path: Path, text: str) -> None:
+def _replace_with_retry(source: Path, target: Path) -> None:
+    """Replace one staged file, tolerating only brief Windows file locks."""
+
+    attempts = 6
+    for attempt in range(attempts):
+        try:
+            os.replace(source, target)
+            return
+        except PermissionError:
+            if attempt == attempts - 1:
+                raise
+            time.sleep(0.05 * (attempt + 1))
+
+
+def _fsync_overwrite(path: Path, data: bytes) -> None:
+    """Overwrite staged bytes when Windows permanently blocks rename.
+
+    The caller must already have staged and validated the complete transaction
+    and must opt in explicitly. Some Windows editors/watchers open JSON without
+    FILE_SHARE_DELETE, which permits ordinary writes but makes os.replace fail
+    with WinError 5 for as long as the watcher stays open. The transaction
+    keeps exact original bytes and uses the same fsynced fallback for rollback
+    before reporting failure.
+    """
+
+    with path.open("wb") as handle:
+        handle.write(data)
+        handle.flush()
+        os.fsync(handle.fileno())
+
+
+def _atomic_write(
+    path: Path,
+    text: str,
+    *,
+    allow_in_place_fallback: bool = False,
+) -> None:
     temporary = path.with_name(f".{path.name}.scenario-integration.tmp")
     try:
         temporary.write_text(text, encoding="utf-8")
-        os.replace(temporary, path)
+        try:
+            _replace_with_retry(temporary, path)
+        except PermissionError:
+            if not allow_in_place_fallback:
+                raise
+            _fsync_overwrite(path, temporary.read_bytes())
     finally:
         if temporary.exists():
             temporary.unlink()
 
 
-def _atomic_restore(path: Path, data: bytes) -> None:
+def _atomic_restore(
+    path: Path,
+    data: bytes,
+    *,
+    allow_in_place_fallback: bool = False,
+) -> None:
     """Restore exact pre-transaction bytes, including Windows newlines."""
 
     temporary = path.with_name(f".{path.name}.scenario-integration.tmp")
     try:
         temporary.write_bytes(data)
-        os.replace(temporary, path)
+        try:
+            _replace_with_retry(temporary, path)
+        except PermissionError:
+            if not allow_in_place_fallback:
+                raise
+            _fsync_overwrite(path, data)
     finally:
         if temporary.exists():
             temporary.unlink()
@@ -365,6 +630,249 @@ def _stage_listening(root: Path, data: Path, manifest: dict[str, Any],
         target.write_text(_json_text(live), encoding='utf-8')
     return True
 
+def _stage_culture_links(
+    root: Path,
+    data: Path,
+    manifest: dict[str, Any],
+    scenes: list[dict[str, Any]],
+) -> bool:
+    """Stage reviewed scenario -> CulturalGlossary links with the scenario batch.
+
+    Culture links are optional presentation metadata. They are promoted in the
+    same transaction as their scenarios so a live registry can never point at a
+    scenario that failed to ship. They do not alter mastery or reward state.
+    """
+
+    raw_path = manifest.get("cultureLinksDraft")
+    if not raw_path:
+        return False
+    draft = _read_json(_under_root(root, raw_path))
+    if draft.get("schemaVersion") != 1:
+        raise ScenarioIntegrationError("culture-links draft must use schemaVersion 1")
+    additions = draft.get("links")
+    if not isinstance(additions, list) or any(not isinstance(item, dict) for item in additions):
+        raise ScenarioIntegrationError("culture-links draft links must be an array of objects")
+    if manifest.get("cultureLinkCount") != len(additions):
+        raise ScenarioIntegrationError("culture link count disagrees with draft")
+
+    scene_ids = [str(scene["id"]) for scene in scenes]
+    link_ids = [str(item.get("scenarioId") or "") for item in additions]
+    if link_ids != scene_ids:
+        raise ScenarioIntegrationError(
+            "culture links must cover scenario draft IDs exactly and in the same order"
+        )
+
+    glossary = _read_json(root / "docs" / "data" / "cultural_glossary.json")
+    entries = glossary.get("entries")
+    if not isinstance(entries, list):
+        raise ScenarioIntegrationError("cultural glossary entries must be an array")
+    known_terms = {
+        str(item.get("termId") or "")
+        for item in entries
+        if isinstance(item, dict) and item.get("termId")
+    }
+    for item in additions:
+        term_ids = item.get("termIds")
+        if (
+            not isinstance(term_ids, list)
+            or not term_ids
+            or any(not isinstance(term, str) or not term.strip() for term in term_ids)
+            or len(set(term_ids)) != len(term_ids)
+        ):
+            raise ScenarioIntegrationError(
+                f"culture link {item.get('scenarioId')} needs unique nonempty termIds"
+            )
+        unknown = sorted(set(term_ids) - known_terms)
+        if unknown:
+            raise ScenarioIntegrationError(
+                f"culture link {item.get('scenarioId')} uses unknown terms: {unknown}"
+            )
+
+    target = data / "scenario_culture_links.json"
+    live = _read_json(target)
+    if live.get("schemaVersion") != 1 or not isinstance(live.get("links"), list):
+        raise ScenarioIntegrationError("live scenario culture links use an unsupported schema")
+    live_links = live["links"]
+    if any(not isinstance(item, dict) for item in live_links):
+        raise ScenarioIntegrationError("live scenario culture links must be objects")
+    live_by_id = {str(item.get("scenarioId") or ""): item for item in live_links}
+    batch_ids = set(scene_ids)
+    overlap = set(live_by_id) & batch_ids
+    if overlap:
+        if overlap != batch_ids or manifest.get("status") != "merged":
+            raise ScenarioIntegrationError("culture-links draft duplicates a live scenario link")
+        if any(live_by_id[item["scenarioId"]] != item for item in additions):
+            raise ScenarioIntegrationError(
+                "merged culture-link payload no longer matches its reviewed draft"
+            )
+        return True
+    if manifest.get("status") == "merged":
+        raise ScenarioIntegrationError("merged batch is missing live culture links")
+
+    live["links"] = [*live_links, *additions]
+    target.write_text(_json_text(live), encoding="utf-8")
+    return True
+
+
+def _stage_culture_story_arcs(
+    root: Path,
+    data: Path,
+    manifest: dict[str, Any],
+) -> bool:
+    """Stage reviewed culture-story grouping metadata with its scenario batch.
+
+    Story arcs are read-only projections. They may group newly promoted
+    scenarios with already-live scenarios, but every step must resolve through
+    the staged scenario-culture registry and may only reference terms actually
+    linked to that scenario. This keeps review-only IDs out of learner-facing
+    assets and gives scenario/culture/arc promotion one rollback boundary.
+    """
+
+    raw_path = manifest.get("cultureStoryArcsDraft")
+    if not raw_path:
+        return False
+
+    draft = _read_json(_under_root(root, raw_path))
+    if draft.get("schemaVersion") != 1:
+        raise ScenarioIntegrationError(
+            "culture-story-arcs draft must use schemaVersion 1"
+        )
+    if draft.get("status") not in {"review_only", "merged"}:
+        raise ScenarioIntegrationError(
+            "culture-story-arcs draft must declare review_only or merged status"
+        )
+    additions = draft.get("arcs")
+    if not isinstance(additions, list) or any(
+        not isinstance(item, dict) for item in additions
+    ):
+        raise ScenarioIntegrationError(
+            "culture-story-arcs draft arcs must be an array of objects"
+        )
+
+    arc_ids = [str(item.get("arcId") or "") for item in additions]
+    if any(not arc_id for arc_id in arc_ids) or len(set(arc_ids)) != len(arc_ids):
+        raise ScenarioIntegrationError(
+            "culture-story-arcs draft needs unique nonempty arcId values"
+        )
+
+    staged_links = _read_json(data / "scenario_culture_links.json")
+    raw_links = staged_links.get("links")
+    if not isinstance(raw_links, list) or any(
+        not isinstance(item, dict) for item in raw_links
+    ):
+        raise ScenarioIntegrationError(
+            "staged scenario culture links must be an array of objects"
+        )
+    terms_by_scenario = {
+        str(item.get("scenarioId") or ""): {
+            str(term)
+            for term in item.get("termIds", [])
+            if isinstance(term, str) and term
+        }
+        for item in raw_links
+    }
+
+    for arc in additions:
+        arc_id = str(arc.get("arcId") or "")
+        if arc.get("progressMode") != "derived_read_only":
+            raise ScenarioIntegrationError(
+                f"culture story arc {arc_id} must use derived_read_only progress"
+            )
+        for field in ("title", "summary"):
+            localized = arc.get(field)
+            if not isinstance(localized, dict) or any(
+                not isinstance(localized.get(language), str)
+                or not localized[language].strip()
+                for language in ("ko", "de", "en")
+            ):
+                raise ScenarioIntegrationError(
+                    f"culture story arc {arc_id} needs nonempty KO/DE/EN {field}"
+                )
+        steps = arc.get("steps")
+        if not isinstance(steps, list) or not steps or any(
+            not isinstance(step, dict) for step in steps
+        ):
+            raise ScenarioIntegrationError(
+                f"culture story arc {arc_id} needs at least one step"
+            )
+        seen_scenarios: set[str] = set()
+        for step in steps:
+            scenario_id = str(step.get("scenarioId") or "")
+            if not scenario_id or scenario_id in seen_scenarios:
+                raise ScenarioIntegrationError(
+                    f"culture story arc {arc_id} needs unique nonempty scenario steps"
+                )
+            seen_scenarios.add(scenario_id)
+            if scenario_id not in terms_by_scenario:
+                raise ScenarioIntegrationError(
+                    f"culture story arc {arc_id} references non-live scenario "
+                    f"{scenario_id}"
+                )
+            persona_ids = step.get("personaIds")
+            if (
+                not isinstance(persona_ids, list)
+                or not persona_ids
+                or any(
+                    not isinstance(persona, str) or not persona.strip()
+                    for persona in persona_ids
+                )
+                or len(set(persona_ids)) != len(persona_ids)
+            ):
+                raise ScenarioIntegrationError(
+                    f"culture story arc {arc_id}/{scenario_id} needs unique "
+                    "nonempty personaIds"
+                )
+            term_ids = step.get("termIds")
+            if (
+                not isinstance(term_ids, list)
+                or not term_ids
+                or any(
+                    not isinstance(term, str) or not term.strip()
+                    for term in term_ids
+                )
+                or len(set(term_ids)) != len(term_ids)
+            ):
+                raise ScenarioIntegrationError(
+                    f"culture story arc {arc_id}/{scenario_id} needs unique "
+                    "nonempty termIds"
+                )
+            missing_terms = sorted(set(term_ids) - terms_by_scenario[scenario_id])
+            if missing_terms:
+                raise ScenarioIntegrationError(
+                    f"culture story arc {arc_id}/{scenario_id} references terms "
+                    f"not linked to that scenario: {missing_terms}"
+                )
+
+    target = data / "culture_story_arcs.json"
+    live = _read_json(target)
+    if live.get("schemaVersion") != 1 or not isinstance(live.get("arcs"), list):
+        raise ScenarioIntegrationError(
+            "live culture story arcs use an unsupported schema"
+        )
+    live_arcs = live["arcs"]
+    if any(not isinstance(item, dict) for item in live_arcs):
+        raise ScenarioIntegrationError("live culture story arcs must be objects")
+    live_by_id = {str(item.get("arcId") or ""): item for item in live_arcs}
+    overlap = set(live_by_id) & set(arc_ids)
+    if overlap:
+        if overlap != set(arc_ids) or manifest.get("status") != "merged":
+            raise ScenarioIntegrationError(
+                "culture-story-arcs draft duplicates a live arc"
+            )
+        if any(live_by_id[item["arcId"]] != item for item in additions):
+            raise ScenarioIntegrationError(
+                "merged culture-story arc no longer matches its reviewed draft"
+            )
+        return True
+    if manifest.get("status") == "merged":
+        raise ScenarioIntegrationError(
+            "merged batch is missing live culture story arcs"
+        )
+
+    live["arcs"] = [*live_arcs, *additions]
+    target.write_text(_json_text(live), encoding="utf-8")
+    return True
+
 
 def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, apply: bool) -> tuple[dict[str, int], int]:
     root = root.resolve()
@@ -393,6 +901,7 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
             root / "tools" / "content_factory" / "content_audit_manifest.json",
             stage_manifest_path,
         )
+        _stage_validator_dependencies(root, stage)
         data = stage / "assets" / "data"
         already_merged = False
         for kind, records in records_by_kind.items():
@@ -459,6 +968,12 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
 
         includes_listening = _stage_listening(
             root, data, manifest, records_by_kind.get('scenario', []),
+        )
+        includes_culture_links = _stage_culture_links(
+            root, data, manifest, records_by_kind.get('scenario', []),
+        )
+        includes_culture_story_arcs = _stage_culture_story_arcs(
+            root, data, manifest,
         )
 
         if already_merged:
@@ -568,6 +1083,14 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
             outputs[root / 'assets/data/listening_lessons.json'] = (
                 data / 'listening_lessons.json'
             ).read_text(encoding='utf-8')
+        if includes_culture_links:
+            outputs[root / 'assets/data/scenario_culture_links.json'] = (
+                data / 'scenario_culture_links.json'
+            ).read_text(encoding='utf-8')
+        if includes_culture_story_arcs:
+            outputs[root / 'assets/data/culture_story_arcs.json'] = (
+                data / 'culture_story_arcs.json'
+            ).read_text(encoding='utf-8')
         if not apply:
             return counts, int(manifest["recordCount"])
         merged_manifest = dict(manifest)
@@ -579,7 +1102,11 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
         originals = {path: path.read_bytes() for path in outputs}
         try:
             for path, content in outputs.items():
-                _atomic_write(path, content)
+                _atomic_write(
+                    path,
+                    content,
+                    allow_in_place_fallback=os.name == "nt",
+                )
             final_issues = ContentValidator(root).validate()
             if final_issues:
                 detail = "\n".join(f"{issue.source}: {issue.message}" for issue in final_issues)
@@ -588,7 +1115,11 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
             rollback_errors: list[str] = []
             for path, data in originals.items():
                 try:
-                    _atomic_restore(path, data)
+                    _atomic_restore(
+                        path,
+                        data,
+                        allow_in_place_fallback=os.name == "nt",
+                    )
                 except OSError as rollback_error:
                     rollback_errors.append(f"{path}: {rollback_error}")
             suffix = (

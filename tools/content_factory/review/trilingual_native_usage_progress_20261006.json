@@ -1,0 +1,3283 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "tools/content_factory/audit_trilingual_native_usage_progress.py",
+  "generatedDate": "2026-10-06",
+  "registryPath": "tools/content_factory/canonical_scenarios/trilingual_native_usage_registry_20261006.json",
+  "hardMinimumPerTopicLanguage": {
+    "independentSourceContexts": 3,
+    "normalizedUsagePatterns": 8,
+    "registerLanes": 2,
+    "translationeseAvoidNotes": 1
+  },
+  "summary": {
+    "topicCount": 32,
+    "profileCount": 96,
+    "broadPassCompleteProfileCount": 96,
+    "deepPassCompleteProfileCount": 96,
+    "allLanguagesBroadPassCompleteTopicCount": 32,
+    "allLanguagesDeepPassCompleteTopicCount": 32
+  },
+  "topics": [
+    {
+      "topicId": "personal_identification",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "formal_or_service",
+            "professional_or_networking",
+            "relationship_or_service",
+            "relationship_sensitive",
+            "work_professional"
+          ],
+          "registerLaneCount": 6,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "professional_or_networking",
+            "relationship_or_service",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "professional_or_networking",
+            "relationship_or_service",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "family_relationships",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "family_practical",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "relationship_reflective",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "relationship_reflective",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "house_home",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "household_casual",
+            "relationship_or_service",
+            "service_public"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "household_casual",
+            "housing_institutional",
+            "relationship_or_service",
+            "service_public"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "housing_institutional",
+            "relationship_or_service",
+            "service_public"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "neighbourhood_environment",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "community_discussion",
+            "everyday_casual",
+            "relationship_or_service",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "community_discussion",
+            "everyday_casual",
+            "relationship_or_service",
+            "relationship_sensitive",
+            "service_public"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "community_discussion",
+            "everyday_casual",
+            "relationship_sensitive",
+            "service_public"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "daily_life_routines",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "household_casual",
+            "planning_productivity",
+            "reflective_casual"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "household_casual",
+            "planning_productivity",
+            "reflective_casual"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "household_casual",
+            "planning_productivity",
+            "reflective_casual"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "numbers_time_dates",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "pedagogical_or_service",
+            "relationship_or_service",
+            "relationship_sensitive",
+            "scheduling_coordination"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "relationship_or_service",
+            "relationship_sensitive",
+            "scheduling_coordination",
+            "service_or_planning"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "relationship_or_service",
+            "relationship_sensitive",
+            "scheduling_coordination",
+            "service_or_planning"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "food_drink",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "food_safety_service",
+            "relationship_or_service"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "food_safety_service",
+            "food_service_specialist",
+            "relationship_or_service"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "food_safety_service",
+            "relationship_or_service"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "shopping_consumption",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "relationship_or_service",
+            "service_public"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "relationship_or_service",
+            "service_public"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "relationship_or_service",
+            "service_public"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "transport_wayfinding",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "relationship_or_service",
+            "service_public"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "relationship_or_service",
+            "service_public",
+            "transport_system"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "relationship_or_service",
+            "service_public"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "travel_accommodation",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "planning_travel",
+            "relationship_or_service",
+            "service_problem_solving",
+            "service_public"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "planning_travel",
+            "relationship_or_service",
+            "service_problem_solving",
+            "service_public"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "planning_travel",
+            "relationship_or_service",
+            "service_problem_solving",
+            "service_public"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "health_body",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "clinical_or_institutional",
+            "relationship_or_service",
+            "service_public"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "clinical_or_institutional",
+            "everyday_casual",
+            "relationship_or_service"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "clinical_or_institutional",
+            "everyday_casual",
+            "relationship_or_service"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "free_time_hobbies_sport",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "club_or_instructional",
+            "everyday_casual",
+            "planning_social",
+            "reflective_casual",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "club_or_instructional",
+            "everyday_casual",
+            "planning_social",
+            "reflective_casual",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "club_or_instructional",
+            "everyday_casual",
+            "planning_social",
+            "reflective_casual",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "media_entertainment_culture_pop",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "fan_community",
+            "online_chat",
+            "recommendation_discussion"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "fan_community",
+            "online_chat",
+            "recommendation_discussion"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "fan_community",
+            "online_chat",
+            "recommendation_discussion"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "education_study",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "academic_workflow",
+            "classroom_casual",
+            "education_academic",
+            "everyday_casual",
+            "peer_collaboration",
+            "relationship_or_service"
+          ],
+          "registerLaneCount": 6,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "academic_workflow",
+            "classroom_casual",
+            "education_academic",
+            "everyday_casual",
+            "peer_collaboration",
+            "relationship_or_service"
+          ],
+          "registerLaneCount": 6,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "academic_workflow",
+            "classroom_casual",
+            "education_academic",
+            "everyday_casual",
+            "peer_collaboration",
+            "relationship_or_service"
+          ],
+          "registerLaneCount": 6,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "work_career",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "business_formal",
+            "everyday_casual",
+            "work_professional"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "business_formal",
+            "everyday_casual",
+            "work_professional"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "business_formal",
+            "everyday_casual",
+            "work_professional"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "services_public_admin",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "relationship_or_service",
+            "service_public"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "relationship_or_service",
+            "service_public"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "relationship_or_service",
+            "service_public"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "communication_phone_digital",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "online_chat",
+            "relationship_sensitive",
+            "work_professional"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "online_chat",
+            "work_professional"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "online_chat",
+            "work_professional"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "weather_nature_climate",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "planning_safety",
+            "relationship_or_service",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "planning_safety",
+            "relationship_sensitive",
+            "weather_safety"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "household_casual",
+            "planning_safety",
+            "weather_safety"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "feelings_character",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "reflective_casual",
+            "relationship_sensitive",
+            "supportive_conversation"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "reflective_casual",
+            "relationship_sensitive",
+            "supportive_conversation"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "reflective_casual",
+            "relationship_sensitive",
+            "supportive_conversation"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "social_etiquette_customs",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "formal_or_institutional",
+            "relationship_or_service",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "formal_or_institutional",
+            "relationship_or_service",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "formal_or_institutional",
+            "relationship_or_service",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "language_learning_communication_repair",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "language_learning",
+            "relationship_or_service",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "language_learning",
+            "relationship_or_service",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "formal_or_institutional",
+            "language_learning",
+            "relationship_or_service",
+            "relationship_sensitive"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "money_finance_contracts",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "financial_institutional",
+            "money_service",
+            "relationship_or_service"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "financial_institutional",
+            "money_service",
+            "relationship_or_service"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "financial_institutional",
+            "money_service",
+            "relationship_or_service"
+          ],
+          "registerLaneCount": 4,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "technology_digital_ai",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "media_professional",
+            "technical_practical"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "media_professional",
+            "technical_practical"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "media_professional",
+            "technical_practical"
+          ],
+          "registerLaneCount": 3,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "environment_sustainability",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "environmental_public",
+            "everyday_casual",
+            "household_casual",
+            "public_discussion",
+            "relationship_or_service"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "environmental_public",
+            "everyday_casual",
+            "household_casual",
+            "public_discussion",
+            "relationship_or_service"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "environmental_public",
+            "everyday_casual",
+            "household_casual",
+            "public_discussion",
+            "relationship_or_service"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "society_current_affairs",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "institutional_public",
+            "public_discussion",
+            "society_personal",
+            "society_public"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "institutional_public",
+            "public_discussion",
+            "society_personal",
+            "society_public"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "institutional_public",
+            "public_discussion",
+            "relationship_sensitive",
+            "service_public",
+            "society_personal",
+            "society_public"
+          ],
+          "registerLaneCount": 7,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "politics_law_institutions",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "institutional_legal",
+            "legal_institutional",
+            "legal_public",
+            "relationship_or_service",
+            "service_navigation"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "institutional_legal",
+            "legal_institutional",
+            "legal_public",
+            "relationship_or_service",
+            "service_navigation"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "institutional_legal",
+            "legal_institutional",
+            "legal_public",
+            "relationship_or_service",
+            "service_navigation"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "economy_business_labour",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "business_operations",
+            "business_professional",
+            "economic_public",
+            "economy_public",
+            "everyday_casual",
+            "labour_market"
+          ],
+          "registerLaneCount": 6,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "business_operations",
+            "business_professional",
+            "economic_public",
+            "economy_public",
+            "everyday_casual",
+            "labour_market"
+          ],
+          "registerLaneCount": 6,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "business_operations",
+            "business_professional",
+            "economic_public",
+            "economy_public",
+            "everyday_casual",
+            "labour_market"
+          ],
+          "registerLaneCount": 6,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "science_research_evidence",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "academic_method",
+            "evidence_everyday",
+            "research_academic",
+            "research_discussion",
+            "research_professional"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "academic_method",
+            "evidence_everyday",
+            "research_academic",
+            "research_discussion",
+            "research_professional"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "academic_method",
+            "evidence_everyday",
+            "research_academic",
+            "research_discussion",
+            "research_professional"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "arts_literature_history",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "academic_or_museum",
+            "arts_interpretive",
+            "everyday_casual",
+            "interpretive_discussion",
+            "research_professional"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "academic_or_museum",
+            "arts_interpretive",
+            "everyday_casual",
+            "interpretive_discussion",
+            "research_professional"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "academic_or_museum",
+            "arts_interpretive",
+            "everyday_casual",
+            "interpretive_discussion",
+            "research_professional"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "ethics_philosophy_abstract",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "abstract_discussion",
+            "ethical_academic",
+            "ethical_everyday",
+            "ethical_public",
+            "philosophical_discussion",
+            "public_discussion"
+          ],
+          "registerLaneCount": 6,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "abstract_discussion",
+            "ethical_academic",
+            "ethical_everyday",
+            "ethical_public",
+            "philosophical_discussion",
+            "public_discussion"
+          ],
+          "registerLaneCount": 6,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "abstract_discussion",
+            "ethical_academic",
+            "ethical_everyday",
+            "ethical_public",
+            "philosophical_discussion",
+            "public_discussion"
+          ],
+          "registerLaneCount": 6,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "professional_specialised_fields",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "operational_coordination",
+            "professional_documentation",
+            "professional_plain_language",
+            "professional_specialist",
+            "stakeholder_or_client"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "operational_coordination",
+            "professional_documentation",
+            "professional_plain_language",
+            "professional_specialist",
+            "stakeholder_or_client"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "operational_coordination",
+            "professional_documentation",
+            "professional_plain_language",
+            "professional_specialist",
+            "stakeholder_or_client"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 1,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    },
+    {
+      "topicId": "intercultural_globalisation_migration",
+      "researchStatus": "deep_pass_complete",
+      "allLanguagesBroadPassComplete": true,
+      "allLanguagesDeepPassComplete": true,
+      "languages": {
+        "ko": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "intercultural_reflection",
+            "reflective_casual",
+            "relationship_sensitive",
+            "society_personal"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "en": {
+          "sourceContextCount": 5,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "intercultural_reflection",
+            "reflective_casual",
+            "relationship_sensitive",
+            "society_personal"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        },
+        "de": {
+          "sourceContextCount": 4,
+          "phrasePatternCount": 15,
+          "registerLanes": [
+            "everyday_casual",
+            "intercultural_reflection",
+            "reflective_casual",
+            "relationship_sensitive",
+            "society_personal"
+          ],
+          "registerLaneCount": 5,
+          "translationeseWarningCount": 1,
+          "speechSurfaceNoteCount": 1,
+          "authoritativeTermCheckCount": 0,
+          "researchDate": "2026-10-06",
+          "broadRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true
+          },
+          "broadPassComplete": true,
+          "deepRequirements": {
+            "sourceContexts": true,
+            "patterns": true,
+            "registerLanes": true,
+            "translationeseWarnings": true,
+            "researchDate": true,
+            "authoritativeTermChecks": true
+          },
+          "deepPassComplete": true
+        }
+      }
+    }
+  ]
+}

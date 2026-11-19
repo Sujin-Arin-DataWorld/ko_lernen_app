@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "event": "LCP current-owner route transfer",
+  "date": "2026-10-05",
+  "note": "Explicitly records content whose immutable ID remains the same while its reviewed CEFR owner and can-do route move. Historical published clusters remain evidence; this ledger authorizes only the exact transfers listed here.",
+  "transfers": [
+    {
+      "kind": "cloze",
+      "id": "cloze_a2_0054",
+      "seedId": "seed_cloze_cloze_a2_0054_v1",
+      "fromClusterId": "cluster_a2_cafe_study_v1",
+      "toClusterId": "cluster_b1_team_role_coordination_v1",
+      "fromLevel": "a2",
+      "toLevel": "b1",
+      "toCourseUnitId": "b1_03_work_softening",
+      "reason": "The target word 상사 was already canonically relevelled A2→B1; the cloze surface and route were stale."
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a2_0069",
+      "seedId": "seed_cloze_cloze_a2_0069_v1",
+      "fromClusterId": "cluster_a2_rent_bank_transfer_v1",
+      "toClusterId": "cluster_b1_housing_contract_v1",
+      "fromLevel": "a2",
+      "toLevel": "b1",
+      "toCourseUnitId": "b1_05_complaint_resolution",
+      "reason": "The target word 보증금 was already canonically relevelled A2→B1; the cloze surface and route were stale."
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
+
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -2972,6 +2973,50 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get scenarioCulturalNote => 'Kulturnotiz';
+
+  @override
+  String get scenarioCultureInSceneTitle => 'Kultur in dieser Szene';
+
+  @override
+  String get scenarioCultureInSceneBody =>
+      'Entdecke die Kulturbegriffe, die dir in diesem Gespräch begegnet sind.';
+
+  @override
+  String get scenarioCultureTigerReaction =>
+      'Taego bewahrt diesen Kulturhinweis ruhig für dich auf.';
+
+  @override
+  String get scenarioCultureMagpieReaction =>
+      'Joy hat ein kulturelles Detail entdeckt und bringt dir die Neuigkeit.';
+
+  @override
+  String get scenarioCultureTransferTitle =>
+      'Gleiche Absicht, andere Beziehung';
+
+  @override
+  String get scenarioCultureTransferBody =>
+      'Übe mit dem Hahoe-Gelehrten, wie sich dieselbe Bitte bei einem Freund, einem Elternteil oder im Kollegenkreis verändert.';
+
+  @override
+  String get scenarioCultureTransferAction => 'Tonfall üben';
+
+  @override
+  String get cultureStoriesTitle => 'Kulturgeschichten';
+
+  @override
+  String get cultureStoriesBody =>
+      'Kulturelles aus deinen abgeschlossenen Alltagsszenen wird hier gesammelt.';
+
+  @override
+  String get cultureStoriesEmptyTitle => 'Noch keine Kulturgeschichte';
+
+  @override
+  String get cultureStoriesEmptyBody =>
+      'Wenn du eine Szene mit einem Kulturbegriff abschließt, erscheint er hier.';
+
+  @override
+  String get cultureStoriesHanokBody =>
+      'Sammle Kulturbegriffe aus deinen abgeschlossenen Szenen.';
 
   @override
   String get scenarioStartBtn => 'Los geht\'s!';
@@ -8976,8 +9021,7 @@ class AppL10nDe extends AppL10n {
       locale: localeName,
       other:
           '$count Wörter aus deinem Heft. Spiele damit, statt neue Vokabeln zu bekommen.',
-      one:
-          '1 Wort aus deinem Heft. Spiele damit, statt neue Vokabeln zu bekommen.',
+      one: '1 Wort aus deinem Heft. Spiele damit, statt neue Vokabeln zu bekommen.',
     );
     return '$_temp0';
   }

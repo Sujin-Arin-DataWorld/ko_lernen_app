@@ -23,6 +23,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
@@ -591,6 +592,52 @@ class ApplyTest(RelevelBundleFixture):
         # The applied repository is genuinely valid by the same gates CI runs.
         self.assertEqual([], ContentValidator(self.root, ledger=ledger).validate())
         self.assertEqual([], rb.check_can_do_consistency(self.root))
+
+
+class AtomicWriteWindowsLockTest(unittest.TestCase):
+    def test_retries_one_transient_permission_error(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "content.json"
+            target.write_bytes(b"old")
+            real_replace = rb.os.replace
+            calls = 0
+
+            def flaky_replace(source, destination):
+                nonlocal calls
+                calls += 1
+                if calls == 1:
+                    raise PermissionError(5, "transient Windows lock")
+                return real_replace(source, destination)
+
+            with (
+                mock.patch.object(rb.os, "replace", side_effect=flaky_replace),
+                mock.patch.object(rb.time, "sleep") as sleeper,
+            ):
+                rb._atomic_write_bytes(target, b"new")
+
+            self.assertEqual(target.read_bytes(), b"new")
+            self.assertEqual(calls, 2)
+            sleeper.assert_called_once()
+            self.assertFalse(
+                target.with_name(f".{target.name}.relevel-bundle.tmp").exists()
+            )
+
+    def test_falls_back_to_fsynced_overwrite_when_rename_stays_locked(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "content.json"
+            target.write_bytes(b"old")
+
+            with mock.patch.object(
+                rb,
+                "_replace_with_retry",
+                side_effect=PermissionError(5, "persistent Windows lock"),
+            ):
+                rb._atomic_write_bytes(target, b"new")
+
+            self.assertEqual(target.read_bytes(), b"new")
+            self.assertFalse(
+                target.with_name(f".{target.name}.relevel-bundle.tmp").exists()
+            )
 
 
 class RollbackTest(RelevelBundleFixture):

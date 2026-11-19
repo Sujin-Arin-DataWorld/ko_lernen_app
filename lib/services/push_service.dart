@@ -137,6 +137,7 @@ class FirebasePushMessagingClient implements PushMessagingClient {
       case AuthorizationStatus.provisional:
         return PushPermissionStatus.provisional;
       case AuthorizationStatus.denied:
+      case AuthorizationStatus.deniedPermanently:
       case AuthorizationStatus.notDetermined:
         return PushPermissionStatus.denied;
     }
