@@ -987,23 +987,31 @@ class _AtelierOverviewState extends State<_AtelierOverview>
             ),
           ],
         );
-        if (tablet) {
-          return Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(child: preview),
-              const SizedBox(width: Spacing.lg),
-              Expanded(child: matrix),
-            ],
+        final overview = tablet
+            ? Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(child: preview),
+                  const SizedBox(width: Spacing.lg),
+                  Expanded(child: matrix),
+                ],
+              )
+            : Column(
+                children: [
+                  preview,
+                  const SizedBox(height: CAtelierSpacing.relatedGap),
+                  Expanded(child: matrix),
+                ],
+              );
+        // Keep the chart row, paging controls and reference buttons reachable
+        // in split screen even when they cannot all fit beneath the preview.
+        const minimumOverviewHeight = 384.0;
+        if (constraints.maxHeight < minimumOverviewHeight) {
+          return SingleChildScrollView(
+            child: SizedBox(height: minimumOverviewHeight, child: overview),
           );
         }
-        return Column(
-          children: [
-            preview,
-            const SizedBox(height: CAtelierSpacing.relatedGap),
-            Expanded(child: matrix),
-          ],
-        );
+        return overview;
       },
     );
   }

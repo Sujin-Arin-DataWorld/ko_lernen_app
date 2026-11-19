@@ -13,6 +13,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/dancheong_stamp.dart';
 import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
+import 'support/sori_viewport_page.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -118,6 +119,11 @@ void main() {
         tt.caption,
       );
       expect(tester.widget<Text>(find.text('2 / 2 (100%)')).style, tt.label);
+      await showSoriViewportSection(
+        tester,
+        find.byKey(const Key('vocab-result-xp')),
+      );
+      await tester.pump(const Duration(milliseconds: 1600));
       expect(
         tester.widget<Text>(find.text('+45 XP')).style,
         tt.h3.copyWith(color: SoriColors.gold),
@@ -238,6 +244,11 @@ void main() {
     );
     await tester.pump(const Duration(milliseconds: 1100));
 
+    await showSoriViewportSection(
+      tester,
+      find.byKey(const Key('vocab-result-stamp')),
+    );
+    await tester.pump(const Duration(milliseconds: 1600));
     expect(
       find.bySemanticsLabel(dancheongMotifName(t, DancheongMotif.lotus)),
       findsOneWidget,

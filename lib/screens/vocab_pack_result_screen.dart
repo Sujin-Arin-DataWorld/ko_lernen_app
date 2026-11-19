@@ -444,7 +444,9 @@ class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
                                     : t.vocabPackResultClearedAgain)
                               : t.vocabPackResultRetry,
                           textAlign: TextAlign.center,
-                          style: tt.h3.copyWith(color: statusColor),
+                          style: compact
+                              ? tt.h3.copyWith(color: statusColor)
+                              : tt.h2,
                         ),
                       ),
                     ),
@@ -752,6 +754,7 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
                 child: Transform.scale(
                   scale: (0.6 + 0.4 * _stampIn.value).clamp(0.0, 1.3),
                   child: Semantics(
+                    key: const Key('vocab-result-stamp'),
                     image: true,
                     label: dancheongMotifName(
                       AppL10n.of(context),

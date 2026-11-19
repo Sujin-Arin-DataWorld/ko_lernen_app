@@ -369,7 +369,10 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
                     Expanded(child: field),
                     const SizedBox(width: Spacing.xs),
                     IconButton(
-                      tooltip: t.onboardingJourneyPhotoAgain,
+                      key: const Key('book-preview-details'),
+                      tooltip: warning != null && !showWarning
+                          ? warning
+                          : t.onboardingJourneyPhotoAgain,
                       constraints: const BoxConstraints(
                         minWidth: 48,
                         minHeight: 48,
