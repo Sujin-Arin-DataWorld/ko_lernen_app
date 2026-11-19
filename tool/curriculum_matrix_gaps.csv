@@ -21,8 +21,6 @@ A1,grammar_anchor,grammar_a1_topic_particle,grammar.csv row never shown in a sce
 A1,grammar_anchor,grammar_a1_which_question,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A1,grammar_anchor,grammar_a1_with_connector,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A1,grammar_anchor,grammar_a2_ability,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
-A1,grammar_anchor,grammar_a2_cause_nikka,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
-A1,grammar_anchor,grammar_a2_comparative,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A1,grammar_anchor,grammar_a2_contrast,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A1,grammar_anchor,grammar_a2_dative_person,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A1,grammar_anchor,grammar_a2_inability,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -48,7 +46,6 @@ A2,grammar_anchor,grammar_a1_future_modifier,grammar.csv row never shown in a sc
 A2,grammar_anchor,grammar_a1_honorific_kke,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a1_or_particle,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a1_past_modifier,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
-A2,grammar_anchor,grammar_a1_polite_prohibition,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a1_present_modifier,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_additive_location,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_adverbial,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -64,7 +61,6 @@ A2,grammar_anchor,grammar_a2_from_person,grammar.csv row never shown in a scenar
 A2,grammar_anchor,grammar_a2_gentle_question,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_humble_give,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_in_progress,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
-A2,grammar_anchor,grammar_a2_interrupted_action,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_irregular_bieup,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_irregular_digeut,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_irregular_eu,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -72,7 +68,6 @@ A2,grammar_anchor,grammar_a2_irregular_rieul,grammar.csv row never shown in a sc
 A2,grammar_anchor,grammar_a2_like,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_no_choice_but,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_nominalizer_eum,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
-A2,grammar_anchor,grammar_a2_noun_cause,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_only_negative,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_or_verbs,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_permission_check_batch20,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -107,7 +102,6 @@ A2,register,hapsyo_formal_business,production,absent,scenarios=0,add_scenario_in
 A2,speech_act,advise_recommend_warn,조언·추천·경고하기,missing,scenarios=0;units=0,add_scenario_with_this_intent
 A2,speech_act,congratulate_sympathise_comfort,축하·위로하기,thin,scenarios=0;units=1,add_scenario_with_this_intent
 A2,speech_act,express_certainty_doubt_hedging,확신·의심·완곡 표현하기,recognition_missing,scenarios=0;units=0,add_scenario_with_this_intent
-A2,speech_act,express_obligation_permission,의무·허가·금지 말하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
 A2,speech_act,express_opinion_agree_disagree,의견 말하고 동의·반대하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
 A2,speech_act,invite_accept_decline,초대·수락·거절하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
 A2,speech_act,order_buy_pay,주문·구매·결제하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
@@ -214,8 +208,7 @@ B1,grammar_nikl,아1,조사 야1,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,요1,조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,으로부터,조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,이고,조사 고1,missing_in_app,nikl_kiiq_2017,add_grammar_row
-B1,speech_act,evaluate_assess_critique,평가·비판·한계 지적하기,missing,scenarios=0;units=0,add_scenario_with_this_intent
-B1,speech_act,negotiate_compromise_conditions,협상·절충·조건 조율하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
+B1,speech_act,evaluate_assess_critique,평가·비판·한계 지적하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
 B1,speech_act,persuade_argue_justify,설득·논증·정당화하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
 B1,speech_act,refuse_set_boundaries,거절하고 경계 정하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
 B1,text_type,email_letter_formal,격식 이메일·공문,structural_gap,mode=R/P;count=0;surfaces=none,verify_genre_content_and_placement

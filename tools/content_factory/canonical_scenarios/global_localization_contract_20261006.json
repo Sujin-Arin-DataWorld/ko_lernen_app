@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "status": "CANONICAL",
+  "effectiveDate": "2026-10-06",
+  "scope": "All existing and future KO->EN/DE learner-facing localization owners and their derived exercise surfaces.",
+  "dependencies": {
+    "dialogueLocalizationContract": "tools/content_factory/canonical_scenarios/dialogue_localization_contract_20261006.json",
+    "nativeUsageRegistry": "tools/content_factory/canonical_scenarios/trilingual_native_usage_registry_20261006.json",
+    "contentTopicCoverageLedger": "tools/content_factory/review/trilingual_content_topic_coverage_20261006.json"
+  },
+  "principles": {
+    "koreanIsSemanticPragmaticSourceOfTruth": true,
+    "englishAuthoredDirectlyFromKorean": true,
+    "germanAuthoredDirectlyFromKorean": true,
+    "englishAndGermanMustNotBeTranslationChains": true,
+    "ownerFirstLocalization": true,
+    "derivedSurfacesMustReconcileToOwner": true,
+    "researchCoverageDoesNotImplyQaOrPromotion": true,
+    "displayAndSpokenSurfacesSeparate": true
+  },
+  "ownerSurfaceTypes": [
+    "vocab_lexeme",
+    "vocab_example",
+    "smalltalk_expression",
+    "smalltalk_followup",
+    "scenario_dialogue_turn",
+    "listening_source_turn",
+    "culture_editorial_copy",
+    "living_korea_turn"
+  ],
+  "derivedSurfaceTypes": [
+    "cloze_translation",
+    "satz_prompt",
+    "smalltalk_lesson_copy",
+    "listening_question_copy",
+    "scenario_quest_copy"
+  ],
+  "lexicalQaRequiredFields": [
+    "semanticCore",
+    "targetSense",
+    "partOfSpeech",
+    "registerLane",
+    "mustPreserve",
+    "mayAdapt",
+    "avoidLiteral"
+  ],
+  "exampleQaRequiredFields": [
+    "semanticCore",
+    "targetOwnerId",
+    "senseMatch",
+    "pedagogicalFunction",
+    "registerLane",
+    "mustPreserve",
+    "mayAdapt",
+    "avoidLiteral"
+  ],
+  "dialogueSpineRequiredFields": [
+    "semanticCore",
+    "speechAct",
+    "relationship",
+    "authority",
+    "tone",
+    "humanBeat",
+    "mustPreserve",
+    "mayAdapt",
+    "mustNotBecome",
+    "registerLane"
+  ],
+  "qaDimensions": [
+    "semantic_accuracy",
+    "sense_alignment",
+    "native_fluency",
+    "terminology",
+    "collocation",
+    "relationship_fidelity",
+    "persona_fidelity",
+    "pragmatic_equivalence",
+    "register_fidelity",
+    "pedagogical_alignment",
+    "translationese",
+    "display_vs_spoken_suitability",
+    "derived_owner_parity"
+  ],
+  "qaStatusVocabulary": [
+    "inventory_only",
+    "pending_native_usage_qa",
+    "corpus_qa_complete",
+    "human_native_reviewed",
+    "promotion_ready",
+    "live"
+  ],
+  "humanReviewPolicy": {
+    "mayClaimHumanNativeReviewedOnlyWithRecordedHumanReviewer": true,
+    "automatedOrModelReviewMustNotBeLabeledHumanNativeSignoff": true
+  },
+  "ttsBoundary": {
+    "ttsOwner": "Jin",
+    "contentFactoryGeneratesTts": false,
+    "rule": "May prepare spoken-surface strings/notes. Never synthesize or overwrite audio."
+  }
+}

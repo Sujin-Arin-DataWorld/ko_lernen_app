@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "status": "MODEL_ASSISTED_PRIMARY_TOPIC_REVIEW",
+  "reviewedDate": "2026-10-06",
+  "humanNativeSignoff": false,
+  "policy": "Primary topics for mixed-source lesson/editorial owners. Child questions with a single canonical source keep their source topic; the explicit lesson topic is used only for lesson-level copy and mixed-source situation copy. These assignments do not change approval or native-QA status.",
+  "smalltalkLessons": {
+    "smalltalk.a1.emergency.help": "services_public_admin",
+    "smalltalk.a2.work_study.activity": "work_career",
+    "smalltalk.a2.emergency.report": "services_public_admin",
+    "smalltalk.b1.work_study.coordination": "work_career",
+    "smalltalk.b1.emergency.preparedness": "services_public_admin",
+    "smalltalk.b2.work_study.meeting": "work_career",
+    "smalltalk.c1.emergency.warnings": "services_public_admin",
+    "smalltalk.c2.work_study.dissent": "ethics_philosophy_abstract",
+    "smalltalk.c2.work_study.interpretation": "ethics_philosophy_abstract",
+    "smalltalk.c2.work_study.policy": "society_current_affairs",
+    "smalltalk.c2.work_study.forms_of_address": "social_etiquette_customs",
+    "smalltalk.c2.emergency.power": "politics_law_institutions"
+  },
+  "cultureArcs": {
+    "found_around_nammun": "arts_literature_history",
+    "memory_to_record": "arts_literature_history"
+  }
+}

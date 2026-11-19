@@ -1,6 +1,8 @@
 {
   "schemaVersion": 1,
   "status": "MERGED_AUDIT_PASS",
+  "dialogueAuthoringContract": "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
+  "dialogueAuthoringContractRequiredForFuturePersonaDialogue": true,
   "manifest": "tools/content_factory/drafts/batch_38_persona_culture_manifest.json",
   "batch": "38",
   "scenarioCount": 5,
@@ -14,6 +16,7 @@
   "authoringBrief": {
     "path": "tools/content_factory/drafts/persona_culture_authoring_brief_20261005.json",
     "sceneCount": 5,
+    "dialogueAuthoringContract": "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
     "relationChecks": [
       {
         "scenarioId": "b1_dongsun_norigae_shop_post",

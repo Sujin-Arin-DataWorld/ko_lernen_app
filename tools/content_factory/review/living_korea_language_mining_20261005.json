@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "status": "model_mined_review_only",
+  "sourceDraft": "tools/content_factory/drafts/living_korea_scene_first_drafts_20261005.json",
+  "miningOrder": "dialogue_first_then_language",
+  "humanApprovalClaim": false,
+  "nativeSpeakerQaClaim": false,
+  "cefrAuditStatus": "pending_d4",
+  "scenes": [
+    {
+      "sceneId": "b1_maya_daniel_ai_campaign_cut",
+      "vocabulary": [
+        {"lemma": "영상", "attestedSurface": "영상"},
+        {"lemma": "직접", "attestedSurface": "직접"},
+        {"lemma": "찍다", "attestedSurface": "찍은"},
+        {"lemma": "표시하다", "attestedSurface": "표시하는"},
+        {"lemma": "대표 이미지", "attestedSurface": "대표 이미지"},
+        {"lemma": "사진", "attestedSurface": "사진"},
+        {"lemma": "실제 장면", "attestedSurface": "실제 장면"}
+      ],
+      "grammar": [
+        {"pattern": "V-(으)면", "attestedSurface": "올리면"},
+        {"pattern": "V-(으)ㄹ 수도 있다", "attestedSurface": "보일 수도 있겠네요"},
+        {"pattern": "V-는 게 좋겠다", "attestedSurface": "표시하는 게 좋겠어요"},
+        {"pattern": "V-(으)ㄹ까요?", "attestedSurface": "바꿀까요?"}
+      ],
+      "pragmatics": [
+        {"function": "출처·제작방식 확인 질문", "attestedSurface": "이 장면도 우리가 지난주에 찍은 거예요?"},
+        {"function": "오해 가능성을 부드럽게 제기", "attestedSurface": "그대로 올리면 우리가 직접 찍은 것처럼 보일 수도 있겠네요."},
+        {"function": "책임을 남겨 둔 제안", "attestedSurface": "따로 표시하는 게 좋겠어요."}
+      ],
+      "registerMarkers": [
+        "프로젝트 동료 사이의 해요체",
+        "마야는 빠르게 확인 질문을 하고 다니엘은 실제 촬영 책임 범위에서 답한다"
+      ]
+    },
+    {
+      "sceneId": "b2_daniel_sujin_ai_asset_handoff",
+      "vocabulary": [
+        {"lemma": "이미지", "attestedSurface": "이미지"},
+        {"lemma": "생성하다", "attestedSurface": "생성한"},
+        {"lemma": "폴더", "attestedSurface": "폴더"},
+        {"lemma": "구분하다", "attestedSurface": "구분할"},
+        {"lemma": "표시", "attestedSurface": "표시를"},
+        {"lemma": "정보 화면", "attestedSurface": "정보 화면"},
+        {"lemma": "파일명", "attestedSurface": "파일명"},
+        {"lemma": "설명 문구", "attestedSurface": "설명 문구"},
+        {"lemma": "추적하다", "attestedSurface": "추적할"}
+      ],
+      "grammar": [
+        {"pattern": "V-(으)ㄹ 수 있다", "attestedSurface": "구분할 수 있으면"},
+        {"pattern": "V-(으)ㄹ 수 있는데", "attestedSurface": "복잡해질 수 있는데"},
+        {"pattern": "V-(으)면 어떨까요?", "attestedSurface": "두면 어떨까요?"},
+        {"pattern": "V-아/어도", "attestedSurface": "바뀌어도"}
+      ],
+      "pragmatics": [
+        {"function": "자료 유형을 먼저 분리하겠다고 제안", "attestedSurface": "실제로 찍은 이미지랑 AI로 생성한 이미지는 폴더부터 나눠 둘게요."},
+        {"function": "UI 장단점 함께 제시", "attestedSurface": "표시를 크게 넣으면 화면이 복잡해질 수 있는데"},
+        {"function": "판단 기준 명확화", "attestedSurface": "중요한 건 사용자가 실제 촬영 이미지라고 오해하지 않는 거예요."}
+      ],
+      "registerMarkers": [
+        "영상 제작자와 제품 개발자 사이의 전문적 해요체",
+        "다니엘은 제작 자산을 설명하고 수진은 제품 판단 기준을 정한다"
+      ]
+    },
+    {
+      "sceneId": "b1_sujin_christian_asset_provenance_check",
+      "vocabulary": [
+        {"lemma": "파일 이름", "attestedSurface": "파일 이름"},
+        {"lemma": "올리다", "attestedSurface": "올린"},
+        {"lemma": "구분 정보", "attestedSurface": "구분 정보"},
+        {"lemma": "폴더", "attestedSurface": "폴더"},
+        {"lemma": "기록", "attestedSurface": "기록"},
+        {"lemma": "보안 설정", "attestedSurface": "보안 설정"},
+        {"lemma": "추측하다", "attestedSurface": "추측하지"}
+      ],
+      "grammar": [
+        {"pattern": "N인지", "attestedSurface": "파일인지"},
+        {"pattern": "N만 봐서는", "attestedSurface": "파일 이름만 봐서는"},
+        {"pattern": "N부터", "attestedSurface": "기록부터"},
+        {"pattern": "V-는 게 좋을 것 같다", "attestedSurface": "확인하는 게 좋을 것 같아"},
+        {"pattern": "V-(으)ㄹ 수 있는지만", "attestedSurface": "확인할 수 있는지만"},
+        {"pattern": "V-아/어야 하면", "attestedSurface": "봐야 하면"}
+      ],
+      "pragmatics": [
+        {"function": "지식 범위 한정", "attestedSurface": "내가 아는 범위에서는"},
+        {"function": "역할 분리", "attestedSurface": "판단은 내가 할게."},
+        {"function": "모르는 보안 영역을 추측하지 않기", "attestedSurface": "내가 추측하지 않고 먼저 알아볼게."}
+      ],
+      "registerMarkers": [
+        "현재 연애 시점의 자연스러운 반말",
+        "크리스티안은 시스템 운영 관점만 제안하고 최종 판단을 수진에게 남긴다"
+      ]
+    },
+    {
+      "sceneId": "a2_jun_minho_class_phone_rule",
+      "vocabulary": [
+        {"lemma": "학기", "attestedSurface": "학기"},
+        {"lemma": "수업 중", "attestedSurface": "수업 중"},
+        {"lemma": "휴대폰", "attestedSurface": "휴대폰"},
+        {"lemma": "필요하다", "attestedSurface": "필요한"},
+        {"lemma": "영어 시간", "attestedSurface": "영어 시간"},
+        {"lemma": "쉬는 시간", "attestedSurface": "쉬는 시간"},
+        {"lemma": "규칙", "attestedSurface": "규칙"},
+        {"lemma": "반", "attestedSurface": "반마다"}
+      ],
+      "grammar": [
+        {"pattern": "V-(으)면 안 되다", "attestedSurface": "쓰면 안 돼"},
+        {"pattern": "N에서는", "attestedSurface": "필요한 수업에서는"},
+        {"pattern": "V-아/어도 되다", "attestedSurface": "써도 돼"},
+        {"pattern": "N마다", "attestedSurface": "수업마다"},
+        {"pattern": "V-아/어 보다", "attestedSurface": "생각해 보자"}
+      ],
+      "pragmatics": [
+        {"function": "절대 금지인지 확인", "attestedSurface": "아예 못 써?"},
+        {"function": "규칙의 예외 설명", "attestedSurface": "필요한 수업에서는 선생님이 허락해. 그때는 써도 돼."},
+        {"function": "학교와 가정 규칙 분리", "attestedSurface": "학교 규칙이랑 집 규칙은 따로 생각해 보자."}
+      ],
+      "registerMarkers": [
+        "부자 사이의 짧은 반말",
+        "민호는 결론을 강요하기 전에 준에게 예외를 묻는다"
+      ]
+    },
+    {
+      "sceneId": "b1_jun_andrea_phone_house_rules",
+      "vocabulary": [
+        {"lemma": "집중", "attestedSurface": "집중"},
+        {"lemma": "공지", "attestedSurface": "공지"},
+        {"lemma": "규칙", "attestedSurface": "규칙"},
+        {"lemma": "숙제", "attestedSurface": "숙제"},
+        {"lemma": "알림", "attestedSurface": "알림"},
+        {"lemma": "게임", "attestedSurface": "게임"},
+        {"lemma": "연락", "attestedSurface": "연락"}
+      ],
+      "grammar": [
+        {"pattern": "V-(으)니까", "attestedSurface": "안 쓰니까"},
+        {"pattern": "A/V-는데", "attestedSurface": "되는데"},
+        {"pattern": "V-(으)ㄹ 필요는 없다", "attestedSurface": "만들 필요는 없겠네"},
+        {"pattern": "V-는 동안", "attestedSurface": "숙제하는 동안"},
+        {"pattern": "V-(으)면 좋겠다", "attestedSurface": "꺼 두면 좋겠어"},
+        {"pattern": "V-기 전에는", "attestedSurface": "끝나기 전에는"}
+      ],
+      "pragmatics": [
+        {"function": "장점과 불편함 함께 말하기", "attestedSurface": "집중은 되는데 공지 확인이 늦을 때가 있어."},
+        {"function": "자기가 지킬 수 있는 대안 제안", "attestedSurface": "집에서는 숙제하는 동안 알림만 꺼 두면 좋겠어."},
+        {"function": "이유에 따라 규칙 분리", "attestedSurface": "이유가 다르면 규칙도 나눠서 보는 게 맞아."}
+      ],
+      "registerMarkers": [
+        "모자 사이의 자연스러운 반말",
+        "안드레아의 지시형 업무 말투를 가족 장면에 그대로 가져오지 않는다"
+      ]
+    },
+    {
+      "sceneId": "b1_jun_christian_phone_study_habit",
+      "vocabulary": [
+        {"lemma": "수업 중", "attestedSurface": "수업 중"},
+        {"lemma": "알림", "attestedSurface": "알림"},
+        {"lemma": "자료", "attestedSurface": "자료"},
+        {"lemma": "허락하다", "attestedSurface": "허락하면"},
+        {"lemma": "수업용", "attestedSurface": "수업용"},
+        {"lemma": "규칙", "attestedSurface": "규칙"},
+        {"lemma": "예외", "attestedSurface": "예외"},
+        {"lemma": "이유", "attestedSurface": "이유"}
+      ],
+      "grammar": [
+        {"pattern": "V-(으)니까", "attestedSurface": "못 쓰니까"},
+        {"pattern": "V-는 편이다", "attestedSurface": "끄는 편이야"},
+        {"pattern": "V-(으)면", "attestedSurface": "허락하면"},
+        {"pattern": "V-(으)ㄹ 수 있다", "attestedSurface": "쓸 수 있어요"},
+        {"pattern": "V-는지", "attestedSurface": "되는지"},
+        {"pattern": "A/V-거든요", "attestedSurface": "답답하거든요"}
+      ],
+      "pragmatics": [
+        {"function": "불편함을 이유와 함께 설명", "attestedSurface": "폰을 못 쓰니까 가끔 답답해요."},
+        {"function": "개인 습관을 비교 자료로만 제시", "attestedSurface": "나도 수업할 때는 알림을 끄는 편이야."},
+        {"function": "규칙의 이유 설명 필요성 말하기", "attestedSurface": "이유를 같이 설명해 주면 받아들이기 쉬울 것 같아."}
+      ],
+      "registerMarkers": [
+        "준은 연상 지인 크리스티안에게 해요체를 사용",
+        "크리스티안은 준에게 편한 말투를 쓰되 학교 규칙의 권위자로 말하지 않는다"
+      ]
+    },
+    {
+      "sceneId": "a2_dongsun_christian_suspicious_delivery_text",
+      "vocabulary": [
+        {"lemma": "택배", "attestedSurface": "택배"},
+        {"lemma": "주소", "attestedSurface": "주소"},
+        {"lemma": "링크", "attestedSurface": "링크"},
+        {"lemma": "주문하다", "attestedSurface": "주문한"},
+        {"lemma": "앱", "attestedSurface": "앱"},
+        {"lemma": "직접", "attestedSurface": "직접"},
+        {"lemma": "확인하다", "attestedSurface": "확인해"},
+        {"lemma": "급하다", "attestedSurface": "급해"}
+      ],
+      "grammar": [
+        {"pattern": "V-라고 쓰여 있다", "attestedSurface": "확인하라고 써 있어요"},
+        {"pattern": "V-지 마세요", "attestedSurface": "누르지 마세요"},
+        {"pattern": "V-기는 한데", "attestedSurface": "있기는 있는데"},
+        {"pattern": "N 말고", "attestedSurface": "링크 말고"},
+        {"pattern": "V-아/어 보다", "attestedSurface": "확인해 봐요"},
+        {"pattern": "A/V-아/어도", "attestedSurface": "급해 보여도"}
+      ],
+      "pragmatics": [
+        {"function": "도움을 자연스럽게 요청", "attestedSurface": "크리스티안, 이것 좀 봐줄래요?"},
+        {"function": "즉시 행동 중지", "attestedSurface": "잠깐만요. 바로 누르지 마세요."},
+        {"function": "공식 경로로 전환", "attestedSurface": "링크 말고 택배 앱에서 직접 확인해 봐요."}
+      ],
+      "registerMarkers": [
+        "서로 친근하지만 존댓말을 유지",
+        "동선의 실수를 희화화하지 않고 크리스티안도 전문가처럼 분석하지 않는다"
+      ]
+    },
+    {
+      "sceneId": "b1_christian_sujin_suspicious_text_followup",
+      "vocabulary": [
+        {"lemma": "보이스피싱", "attestedSurface": "보이스피싱"},
+        {"lemma": "링크", "attestedSurface": "링크"},
+        {"lemma": "개인정보", "attestedSurface": "개인정보"},
+        {"lemma": "피싱", "attestedSurface": "피싱"},
+        {"lemma": "앱", "attestedSurface": "앱"},
+        {"lemma": "고객센터", "attestedSurface": "고객센터"},
+        {"lemma": "이메일", "attestedSurface": "이메일"}
+      ],
+      "grammar": [
+        {"pattern": "V-다가", "attestedSurface": "나누다가"},
+        {"pattern": "A/V-아서/어서", "attestedSurface": "같아서"},
+        {"pattern": "V-지 말라고 하다", "attestedSurface": "누르지 말라고 했어"},
+        {"pattern": "V-다던데", "attestedSurface": "있다던데"},
+        {"pattern": "V-(으)ㄹ 수도 있다", "attestedSurface": "유출될 수도 있으니까"},
+        {"pattern": "V-아/어 보니까", "attestedSurface": "확인해 보니까"},
+        {"pattern": "V-다고 하더라", "attestedSurface": "도착한다고 하더라고"},
+        {"pattern": "V-(으)ㄹ 뻔하다", "attestedSurface": "큰일 날 뻔했네"}
+      ],
+      "pragmatics": [
+        {"function": "가까운 연인에게 상황을 바로 공유", "attestedSurface": "수진아, 어머님이랑 대화 나누다가 문자를 봤는데, 보이스피싱 같아서 링크를 누르지 말라고 했어."},
+        {"function": "감사와 놀람을 즉각 표현", "attestedSurface": "아, 정말? 와, 고마워."},
+        {"function": "공식 채널에서 확인한 결과 공유", "attestedSurface": "내가 앱 들어가서 확인했는데 아무 문제 없고, 목요일에 도착한다고 하더라고."},
+        {"function": "친밀한 애정과 후속 행동 표현", "attestedSurface": "고마워, 크리스티안! 사랑해 ㅎㅎ 내가 택배회사 고객센터에 이메일이라도 써서 알려줘야겠다."}
+      ],
+      "registerMarkers": [
+        "1년째 사귀는 연인 사이의 자연스러운 반말",
+        "크리스티안은 보안 전문가처럼 분석하지 않고 자신이 본 문자와 공식 앱 확인 결과를 공유한다",
+        "수진은 놀람·감사·애정을 직접 표현한다"
+      ]
+    },
+    {
+      "sceneId": "b1_sujin_byeongcheol_family_verification_rule",
+      "vocabulary": [
+        {"lemma": "택배 문자", "attestedSurface": "택배 문자"},
+        {"lemma": "보이스피싱", "attestedSurface": "보이스피싱"},
+        {"lemma": "링크", "attestedSurface": "링크"},
+        {"lemma": "연락", "attestedSurface": "연락"},
+        {"lemma": "직접", "attestedSurface": "직접"},
+        {"lemma": "전화하다", "attestedSurface": "전화해서"},
+        {"lemma": "규칙", "attestedSurface": "규칙"}
+      ],
+      "grammar": [
+        {"pattern": "V-다는데", "attestedSurface": "문자가 왔다는데"},
+        {"pattern": "A/V-(으)ㄴ/는 것 같다", "attestedSurface": "보이스피싱 같아"},
+        {"pattern": "V-았/었대지?", "attestedSurface": "안 눌렀대지?"},
+        {"pattern": "V-지 말라고 하다", "attestedSurface": "누르지 말라고 했어"},
+        {"pattern": "V-(으)면", "attestedSurface": "링크가 오면"},
+        {"pattern": "V-지 말고", "attestedSurface": "누르지 말고"},
+        {"pattern": "V-아/어 달라고 하다", "attestedSurface": "보내 달라는"},
+        {"pattern": "V-기 쉽다", "attestedSurface": "기억하기 쉽지"}
+      ],
+      "pragmatics": [
+        {"function": "가족에게 의심 상황을 바로 공유", "attestedSurface": "아빠, 엄마한테 이상한 택배 문자가 왔다는데 보이스피싱 같아."},
+        {"function": "가장 중요한 안전 행동부터 확인", "attestedSurface": "뭐? 링크 안 눌렀대지?"},
+        {"function": "가족 공동 원칙 만들기", "attestedSurface": "앞으로 무슨 링크가 오면 먼저 누르지 말고 확인부터 하자."},
+        {"function": "기억하기 쉬운 규칙 선호", "attestedSurface": "규칙은 간단해야 기억하기 쉽지."}
+      ],
+      "registerMarkers": [
+        "부녀 사이의 짧은 반말",
+        "병철은 훈계 대신 한 문장 규칙으로 정리한다"
+      ]
+    }
+  ],
+  "crossSceneRepetition": [
+    {
+      "family": "확인·검증",
+      "sceneIds": [
+        "b1_sujin_christian_asset_provenance_check",
+        "a2_dongsun_christian_suspicious_delivery_text",
+        "b1_christian_sujin_suspicious_text_followup",
+        "b1_sujin_byeongcheol_family_verification_rule"
+      ],
+      "repeatedLanguage": ["확인하다", "직접 확인하다", "추측하지 않다"]
+    },
+    {
+      "family": "허용·금지·예외",
+      "sceneIds": [
+        "a2_jun_minho_class_phone_rule",
+        "b1_jun_andrea_phone_house_rules",
+        "b1_jun_christian_phone_study_habit"
+      ],
+      "repeatedLanguage": ["-(으)면 안 되다", "-아/어도 되다", "허락하다", "규칙", "예외"]
+    },
+    {
+      "family": "오해 방지와 투명성",
+      "sceneIds": [
+        "b1_maya_daniel_ai_campaign_cut",
+        "b2_daniel_sujin_ai_asset_handoff",
+        "b1_sujin_christian_asset_provenance_check"
+      ],
+      "repeatedLanguage": ["구분하다", "표시하다", "오해하다", "기록"]
+    },
+    {
+      "family": "책임을 남긴 제안",
+      "sceneIds": [
+        "b1_maya_daniel_ai_campaign_cut",
+        "b2_daniel_sujin_ai_asset_handoff",
+        "b1_sujin_christian_asset_provenance_check",
+        "a2_dongsun_christian_suspicious_delivery_text"
+      ],
+      "repeatedLanguage": ["-는 게 좋겠다", "-(으)면 어떨까요?", "제가 아는 범위에서는"]
+    }
+  ]
+}

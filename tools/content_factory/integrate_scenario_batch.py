@@ -32,6 +32,15 @@ from validate_promoted_batch import (
 
 
 ROOT = Path(__file__).resolve().parents[2]
+LOCALIZATION_CONTRACT = (
+    "tools/content_factory/canonical_scenarios/"
+    "dialogue_localization_contract_20261006.json"
+)
+NATIVE_USAGE_REGISTRY = (
+    "tools/content_factory/canonical_scenarios/"
+    "trilingual_native_usage_registry_20261006.json"
+)
+FUTURE_LOCALIZATION_BATCH_FLOOR = 39
 DEFAULT_MANIFEST = Path("tools/content_factory/drafts/batch_04_manifest.json")
 REVIEW_HEADER = ["id", "level", "ko", "de", "en", "field_notes", "상태", "jin_memo"]
 APPROVED = frozenset(("approved", "ok"))
@@ -122,6 +131,203 @@ def _read_json(path: Path) -> dict[str, Any]:
     return value
 
 
+
+
+def _stage_validator_dependencies(root: Path, stage: Path) -> None:
+    """Mirror canonical governance inputs required by ContentValidator.
+
+    Scenario staging historically copied only assets/data plus the audit
+    manifest. The 2026-10-06 authoring/localization gates deliberately validate
+    canonical contracts, the native-usage registry, taxonomy and coverage
+    ledger too. Copy those read-only governance inputs into the temporary stage
+    so preview/apply validates the same policy as the real checkout.
+    """
+
+    required = (
+        "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
+        "tools/content_factory/canonical_scenarios/dialogue_localization_contract_20261006.json",
+        "tools/content_factory/canonical_scenarios/trilingual_native_usage_registry_20261006.json",
+        "tools/content_factory/cefr_matrix/taxonomy.json",
+        "tools/content_factory/review/trilingual_content_topic_coverage_20261006.json",
+    )
+    # Legacy transaction fixtures and grandfathered batches intentionally use
+    # minimal temporary repos. Real batch 39+ promotion is already fail-closed
+    # in _validate_native_usage_promotion_gate before staging, so a missing
+    # governance bundle here means this is a legacy/test root and staging must
+    # preserve the pre-governance transaction behavior.
+    if any(not (root / relative).is_file() for relative in required):
+        return
+
+    for relative in required:
+        source = root / relative
+        target = stage / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, target)
+
+    # The dialogue-authoring validator intentionally requires evidence that at
+    # least one governed scene-first artifact exists. Copy only governed JSON
+    # drafts, not the entire research tree.
+    source_drafts = root / "tools" / "content_factory" / "drafts"
+    target_drafts = stage / "tools" / "content_factory" / "drafts"
+    governed = 0
+    if source_drafts.is_dir():
+        for source in source_drafts.glob("*.json"):
+            try:
+                payload = json.loads(source.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                continue
+            if not isinstance(payload, dict):
+                continue
+            purpose = str(payload.get("purpose", ""))
+            if (
+                payload.get("status") == "review_only_scene_first"
+                or purpose.startswith(
+                    "Pre-script authoring contract for persona-led culture scenes"
+                )
+            ):
+                target_drafts.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source, target_drafts / source.name)
+                governed += 1
+    if governed == 0:
+        raise ScenarioIntegrationError(
+            "no governed persona dialogue authoring artifact available for staged validation"
+        )
+
+def _validate_native_usage_promotion_gate(
+    root: Path,
+    manifest_path: Path,
+    manifest: dict[str, Any],
+    batch_number: int,
+) -> None:
+    """Require 32-topic native-usage coverage for future live promotions.
+
+    Batches 1-38 are legacy-grandfathered. Batch 39+ must explicitly declare
+    the canonical localization contract and every native-usage topic it
+    depends on; every declared KO/EN/DE profile must already be deep-pass
+    complete.
+    """
+
+    if batch_number < FUTURE_LOCALIZATION_BATCH_FLOOR:
+        return
+
+    contract_path = _under_root(root, LOCALIZATION_CONTRACT)
+    registry_path = _under_root(root, NATIVE_USAGE_REGISTRY)
+    contract = _read_json(contract_path)
+    registry = _read_json(registry_path)
+
+    policy = contract.get("promotionPolicy")
+    gate = contract.get("nativeUsageGate")
+    if not isinstance(policy, dict) or not isinstance(gate, dict):
+        raise ScenarioIntegrationError(
+            f"{contract_path}: localization promotion/native-usage gate is malformed"
+        )
+    floor = policy.get("futureScenarioBatchFloor")
+    if not isinstance(floor, int):
+        raise ScenarioIntegrationError(
+            f"{contract_path}: futureScenarioBatchFloor must be an integer"
+        )
+    if floor != FUTURE_LOCALIZATION_BATCH_FLOOR:
+        raise ScenarioIntegrationError(
+            f"{contract_path}: futureScenarioBatchFloor must stay "
+            f"{FUTURE_LOCALIZATION_BATCH_FLOOR}"
+        )
+
+    expected_contract = policy.get("localizationContractValue")
+    if manifest.get("localizationContract") != expected_contract:
+        raise ScenarioIntegrationError(
+            f"{manifest_path}: batch {batch_number}+ promotion must reference "
+            f"{expected_contract}"
+        )
+
+    raw_topic_ids = manifest.get("nativeUsageTopicIds")
+    if (
+        not isinstance(raw_topic_ids, list)
+        or not raw_topic_ids
+        or any(not isinstance(item, str) or not item.strip() for item in raw_topic_ids)
+    ):
+        raise ScenarioIntegrationError(
+            f"{manifest_path}: batch {batch_number}+ promotion needs nonempty "
+            "nativeUsageTopicIds"
+        )
+    topic_ids = [item.strip() for item in raw_topic_ids]
+    if len(topic_ids) != len(set(topic_ids)):
+        raise ScenarioIntegrationError(
+            f"{manifest_path}: nativeUsageTopicIds must be unique"
+        )
+
+    topics = registry.get("topics")
+    if not isinstance(topics, list):
+        raise ScenarioIntegrationError(
+            f"{registry_path}: topics must be an array"
+        )
+    by_id = {
+        row.get("topicId"): row
+        for row in topics
+        if isinstance(row, dict) and isinstance(row.get("topicId"), str)
+    }
+    unknown = sorted(set(topic_ids) - set(by_id))
+    if unknown:
+        raise ScenarioIntegrationError(
+            f"{manifest_path}: unknown nativeUsageTopicIds: {unknown}"
+        )
+
+    required_languages = gate.get("requiredLanguages")
+    required_status = gate.get("requiredProfileStatus")
+    if required_languages != ["ko", "en", "de"] or required_status != "deep_pass_complete":
+        raise ScenarioIntegrationError(
+            f"{contract_path}: nativeUsageGate language/status contract drifted"
+        )
+
+    failures: list[str] = []
+    for topic_id in topic_ids:
+        topic = by_id[topic_id]
+        cross = topic.get("crossLanguage")
+        if not isinstance(cross, dict):
+            failures.append(f"{topic_id}: missing crossLanguage")
+        else:
+            if gate.get("requireCategoryShiftRisks") and not cross.get(
+                "categoryShiftRisks"
+            ):
+                failures.append(f"{topic_id}: categoryShiftRisks empty")
+            if gate.get("requirePedagogicalAlignmentNotes") and not cross.get(
+                "pedagogicalAlignmentNotes"
+            ):
+                failures.append(f"{topic_id}: pedagogicalAlignmentNotes empty")
+
+        for lang in required_languages:
+            profile = topic.get(lang)
+            if not isinstance(profile, dict):
+                failures.append(f"{topic_id}/{lang}: profile missing")
+                continue
+            if profile.get("nativeUsageProfileStatus") != required_status:
+                failures.append(
+                    f"{topic_id}/{lang}: expected {required_status}, got "
+                    f"{profile.get('nativeUsageProfileStatus')!r}"
+                )
+            if gate.get("requireTranslationeseWarningsPerLanguage") and not profile.get(
+                "avoidTranslationese"
+            ):
+                failures.append(f"{topic_id}/{lang}: translationese warning missing")
+            if gate.get("requireResearchDatePerLanguage") and not profile.get(
+                "researchDate"
+            ):
+                failures.append(f"{topic_id}/{lang}: researchDate missing")
+            if (
+                gate.get("requireAuthoritativeTermCheckWhenTopicRequiresIt")
+                and topic.get("requiresAuthoritativeTermCheckForDeepPass")
+                and not profile.get("authoritativeTermChecks")
+            ):
+                failures.append(
+                    f"{topic_id}/{lang}: authoritative term check missing"
+                )
+
+    if failures:
+        raise ScenarioIntegrationError(
+            f"{manifest_path}: native-usage promotion gate failed: "
+            + "; ".join(failures[:12])
+        )
+
+
 def _json_text(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False, indent=2) + "\n"
 
@@ -177,6 +383,13 @@ def _validate_bundle(
         raise ScenarioIntegrationError(f"{manifest_path}: unknown scenario manifest status")
     if require_approved and manifest_status not in {"approved", "merged"}:
         raise ScenarioIntegrationError(f"{manifest_path}: status must be approved before promotion")
+    if require_approved:
+        _validate_native_usage_promotion_gate(
+            root,
+            manifest_path,
+            manifest,
+            int(batch),
+        )
     artifacts = manifest.get("artifacts")
     if not isinstance(artifacts, list) or not artifacts or any(not isinstance(item, dict) for item in artifacts):
         raise ScenarioIntegrationError(f"{manifest_path}: artifacts must be a nonempty array of objects")
@@ -688,6 +901,7 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
             root / "tools" / "content_factory" / "content_audit_manifest.json",
             stage_manifest_path,
         )
+        _stage_validator_dependencies(root, stage)
         data = stage / "assets" / "data"
         already_merged = False
         for kind, records in records_by_kind.items():

@@ -1,0 +1,290 @@
+{
+  "version": 1,
+  "batch": "39",
+  "status": "merged",
+  "localizationContract": "tools/content_factory/canonical_scenarios/dialogue_localization_contract_20261006.json",
+  "nativeUsageTopicIds": [
+    "arts_literature_history",
+    "economy_business_labour",
+    "education_study",
+    "media_entertainment_culture_pop",
+    "neighbourhood_environment",
+    "society_current_affairs",
+    "technology_digital_ai",
+    "weather_nature_climate",
+    "work_career"
+  ],
+  "provenance": {
+    "date": "2026-10-06",
+    "rights": "original",
+    "scope": "Living Korea 23 user-reviewed Korean scenes promoted through the canonical Scenario runtime after EN/DE direct-from-KO localization and corpus/native-usage QA.",
+    "approval": {
+      "authority": "jin",
+      "approvedAt": "2026-10-06",
+      "method": "explicit_user_approval_in_chat",
+      "scope": "Living Korea 23 localization, native QA and live promotion"
+    },
+    "modelLanguageQa": "CORPUS_QA_PASS",
+    "humanLanguageQaClaim": false,
+    "ttsGenerated": false,
+    "mergedAt": "2026-10-06"
+  },
+  "artifacts": [
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "review": "tools/content_factory/review/living_korea_scenarios_20261006.csv",
+      "count": 23,
+      "levels": {
+        "a2": 3,
+        "b1": 12,
+        "b2": 8
+      }
+    }
+  ],
+  "recordCount": 23,
+  "questCount": 69,
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_maya_daniel_ai_campaign_cut",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_daniel_sujin_ai_asset_handoff",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_sujin_christian_asset_provenance_check",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_jun_minho_class_phone_rule",
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_jun_andrea_phone_house_rules",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_jun_christian_phone_study_habit",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_dongsun_christian_suspicious_delivery_text",
+      "courseUnitId": "a2_05_delivery_services",
+      "conceptIds": [
+        "concept_a2_services"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_christian_sujin_suspicious_text_followup",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_sujin_byeongcheol_family_verification_rule",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_andrea_minho_friday_schedule",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_sujin_minho_shorter_hours_tradeoff",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hyuna_andrea_work_family_choices",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_andrea_minho_family_calendar",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_dongsun_sujin_repair_price",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_dongsun_maya_price_notice",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_lena_hyuna_crowded_weekend",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hyuna_daniel_resident_flow_filming",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_lena_maya_beyond_music",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_maya_daniel_tradition_reinterpretation",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hyuna_daniel_gyeongju_after_apec",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hyuna_sujin_gyeongju_fieldnotes",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_lena_hyuna_heatwave_plan",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_byeongcheol_sujin_heat_electricity",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "assess"
+    }
+  ],
+  "backdrops": {
+    "b1_maya_daniel_ai_campaign_cut": "office",
+    "b2_daniel_sujin_ai_asset_handoff": "office",
+    "b1_sujin_christian_asset_provenance_check": "home",
+    "a2_jun_minho_class_phone_rule": "home",
+    "b1_jun_andrea_phone_house_rules": "home",
+    "b1_jun_christian_phone_study_habit": "cafe",
+    "a2_dongsun_christian_suspicious_delivery_text": "home",
+    "b1_christian_sujin_suspicious_text_followup": "home",
+    "b1_sujin_byeongcheol_family_verification_rule": "home",
+    "b1_andrea_minho_friday_schedule": "home",
+    "b2_sujin_minho_shorter_hours_tradeoff": "office",
+    "b2_hyuna_andrea_work_family_choices": "cafe",
+    "b1_andrea_minho_family_calendar": "home",
+    "b1_dongsun_sujin_repair_price": "market",
+    "b1_dongsun_maya_price_notice": "market",
+    "b1_lena_hyuna_crowded_weekend": "cafe",
+    "b2_hyuna_daniel_resident_flow_filming": "directions",
+    "b1_lena_maya_beyond_music": "cafe",
+    "b2_maya_daniel_tradition_reinterpretation": "office",
+    "b2_hyuna_daniel_gyeongju_after_apec": "directions",
+    "b2_hyuna_sujin_gyeongju_fieldnotes": "cafe",
+    "a2_lena_hyuna_heatwave_plan": "cafe",
+    "b2_byeongcheol_sujin_heat_electricity": "home"
+  },
+  "mergeOrder": [
+    "scenario + curriculum contentLinks + audit via integrate_scenario_batch.py",
+    "TTS only after Jin-owned spoken-surface review"
+  ],
+  "nonMergeGuards": [
+    "Do not synthesize or overwrite TTS audio.",
+    "Do not claim human-native sign-off from corpus/model QA.",
+    "Preserve Korean checkpoint copy and persona relationship canon."
+  ]
+}

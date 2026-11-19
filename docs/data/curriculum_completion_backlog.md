@@ -2,7 +2,7 @@
 
 > 이 목록은 W0b3의 검토용 분류 큐입니다. 완료된 교육과정, 확정된 카드 누락 수, 전체 요구 분모를 뜻하지 않습니다.
 
-- 고유 작업 항목: 816
+- 고유 작업 항목: 809
 - 고유 sampleLexis 후보: 183 (Phase×단어 맥락 299)
 - Phase C18 병합 경고 참조: 72; C11 정보성 참조: 5
 - 자동 문법 진단은 의미·원 급·기존 연결 검토 전 확정 결손이 아닙니다.
@@ -11,7 +11,7 @@
 
 SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체크아웃의 줄바꿈 차이는 내용 변경으로 세지 않습니다.
 
-- `tool/curriculum_matrix_gaps.csv`: `0474c470684cec36438a8be16f054286da8719cf44994f8f6115cf65d091e6b6`
+- `tool/curriculum_matrix_gaps.csv`: `6da95c3d603c3eca3c3d2a40e6c3b9b62e1866b42046624ffd2e3bbfa7af4dfd`
 - `tool/learning_phase_findings.csv`: `34cfe20922bfcd0e8b50966489d425affa1cd443036910970f8137571dbad41b`
 - `tool/learning_phase_summary.json`: `f773367a2f014b0eca81399f71f86ae4c80d9db3e76af93cfba569647b0c2fc4`
 - `tools/content_factory/cefr_matrix/phases.json`: `b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9`
@@ -245,22 +245,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
 
 ### `A1|grammar_anchor|grammar_a2_ability|unassigned`
-
-- 항목: grammar.csv row never shown in a scenario or media line
-- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
-- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
-- 조치: link_to_scenario_grammarIds
-- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
-
-### `A1|grammar_anchor|grammar_a2_cause_nikka|unassigned`
-
-- 항목: grammar.csv row never shown in a scenario or media line
-- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
-- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
-- 조치: link_to_scenario_grammarIds
-- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
-
-### `A1|grammar_anchor|grammar_a2_comparative|unassigned`
 
 - 항목: grammar.csv row never shown in a scenario or media line
 - 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
@@ -756,14 +740,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: link_to_scenario_grammarIds
 - 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
 
-### `A2|grammar_anchor|grammar_a1_polite_prohibition|unassigned`
-
-- 항목: grammar.csv row never shown in a scenario or media line
-- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
-- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
-- 조치: link_to_scenario_grammarIds
-- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
-
 ### `A2|grammar_anchor|grammar_a1_present_modifier|unassigned`
 
 - 항목: grammar.csv row never shown in a scenario or media line
@@ -884,14 +860,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: link_to_scenario_grammarIds
 - 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
 
-### `A2|grammar_anchor|grammar_a2_interrupted_action|unassigned`
-
-- 항목: grammar.csv row never shown in a scenario or media line
-- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
-- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
-- 조치: link_to_scenario_grammarIds
-- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
-
 ### `A2|grammar_anchor|grammar_a2_irregular_bieup|unassigned`
 
 - 항목: grammar.csv row never shown in a scenario or media line
@@ -941,14 +909,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
 
 ### `A2|grammar_anchor|grammar_a2_nominalizer_eum|unassigned`
-
-- 항목: grammar.csv row never shown in a scenario or media line
-- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
-- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
-- 조치: link_to_scenario_grammarIds
-- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
-
-### `A2|grammar_anchor|grammar_a2_noun_cause|unassigned`
 
 - 항목: grammar.csv row never shown in a scenario or media line
 - 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
@@ -1435,14 +1395,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
 - 조치: add_scenario_with_this_intent
 - 근거: recognition_missing: scenarios=0;units=0
-
-### `A2|speech_act|express_obligation_permission|unassigned`
-
-- 항목: 의무·허가·금지 말하기
-- 상태: needs_review; 확정 분류: 없음; 후보: assessment_missing, content_missing, existing_unlinked
-- 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
-- 조치: add_scenario_with_this_intent
-- 근거: thin: scenarios=1;units=0
 
 ### `A2|speech_act|express_opinion_agree_disagree|unassigned`
 
@@ -2527,14 +2479,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 ### `B1|speech_act|evaluate_assess_critique|unassigned`
 
 - 항목: 평가·비판·한계 지적하기
-- 상태: needs_review; 확정 분류: 없음; 후보: assessment_missing, content_missing, existing_unlinked
-- 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
-- 조치: add_scenario_with_this_intent
-- 근거: missing: scenarios=0;units=0
-
-### `B1|speech_act|negotiate_compromise_conditions|unassigned`
-
-- 항목: 협상·절충·조건 조율하기
 - 상태: needs_review; 확정 분류: 없음; 후보: assessment_missing, content_missing, existing_unlinked
 - 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
 - 조치: add_scenario_with_this_intent
