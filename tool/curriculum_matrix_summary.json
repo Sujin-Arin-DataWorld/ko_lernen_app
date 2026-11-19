@@ -20,7 +20,7 @@
         "discourse_features": {
           "covered": 2
         },
-        "no_scenario_anchor": 30,
+        "no_scenario_anchor": 28,
         "app_grammar_count": 55
       },
       "speechActs": {
@@ -64,15 +64,15 @@
           "covered": 1,
           "missing": 1
         },
-        "no_scenario_anchor": 49,
+        "no_scenario_anchor": 45,
         "app_grammar_count": 63
       },
       "speechActs": {
-        "covered": 7,
+        "covered": 8,
         "missing": 1,
         "recognition_missing": 1,
         "recognition_thin": 1,
-        "thin": 7
+        "thin": 6
       },
       "textTypes": {
         "covered": 2,
@@ -107,13 +107,12 @@
         "discourse_features": {
           "covered": 4
         },
-        "no_scenario_anchor": 27,
+        "no_scenario_anchor": 26,
         "app_grammar_count": 38
       },
       "speechActs": {
-        "covered": 11,
-        "missing": 1,
-        "recognition_thin": 1,
+        "covered": 12,
+        "recognition_covered": 1,
         "thin": 3
       },
       "textTypes": {
@@ -161,9 +160,8 @@
         "thin": 1
       },
       "textTypes": {
-        "covered": 1,
-        "structural_gap": 7,
-        "thin": 1
+        "covered": 2,
+        "structural_gap": 7
       },
       "vocabDomains": {
         "beyond_matrix": 12,
@@ -261,22 +259,22 @@
     "app_earlier": 3,
     "missing": 2
   },
-  "gap_total": 512,
+  "gap_total": 502,
   "gap_counts": {
     "functional_grammar:missing": 2,
-    "grammar_anchor:no_scenario_anchor": 164,
+    "grammar_anchor:no_scenario_anchor": 157,
     "grammar_brief:level_mismatch": 32,
     "grammar_brief:missing": 23,
     "grammar_discourse:missing": 3,
     "grammar_nikl:level_mismatch": 33,
     "grammar_nikl:missing_in_app": 173,
     "register:absent": 7,
-    "speech_act:missing": 6,
+    "speech_act:missing": 5,
     "speech_act:recognition_missing": 3,
-    "speech_act:thin": 17,
+    "speech_act:thin": 16,
     "text_type:missing": 5,
     "text_type:structural_gap": 38,
-    "text_type:thin": 3,
+    "text_type:thin": 2,
     "vocab_domain:missing": 2,
     "vocab_domain:thin": 1
   },
@@ -3238,7 +3236,7 @@
         }
       }
     },
-    "candidateRows": 107,
+    "candidateRows": 108,
     "unverifiedUnmappedRows": 0,
     "phasePathConnectedRows": 186,
     "rows": [
@@ -4846,7 +4844,6 @@
           "media:media_006",
           "media:media_007",
           "media:media_014",
-          "media:media_015",
           "media:media_016",
           "media:media_020",
           "media:media_041",
@@ -5716,6 +5713,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a2_andrea_minho_bojagi_housewarming",
           "scenario:favorite_drama_chat",
           "scenario:friend_cancelled_plan",
           "scenario:taxi_slow_down",
@@ -5773,6 +5771,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a2_jun_minho_class_phone_rule",
           "scenario:package_wrong_door"
         ],
         "contentCandidateState": "candidate_observed",
@@ -6399,6 +6398,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a2_lena_hyuna_heatwave_plan",
           "scenario:a2_message_change_of_plan_2026",
           "scenario:a2_w10_booking",
           "scenario:a2_w10_enrolment",
@@ -7614,6 +7614,7 @@
         "mode": "P",
         "contentCandidates": [
           "scenario:a2_byeongcheol_walk_break",
+          "scenario:a2_dongsun_christian_suspicious_delivery_text",
           "scenario:a2_jun_hwaseong_school_slide",
           "scenario:a2_w10_apt",
           "scenario:a2_w10_booking",
@@ -7763,7 +7764,10 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a2_andrea_minho_bojagi_housewarming",
           "scenario:a2_jun_game_time_change",
+          "scenario:a2_lena_hyuna_heatwave_plan",
+          "scenario:a2_lena_maya_buchae_gift_choice",
           "scenario:a2_message_change_of_plan_2026",
           "scenario:a2_minho_weekend_cooking_plan",
           "scenario:a2_w10_fandom",
@@ -7959,6 +7963,7 @@
         },
         "mode": "R",
         "contentCandidates": [
+          "scenario:a2_jun_minho_class_phone_rule",
           "scenario:a2_theme_park_date_break",
           "scenario:a2_w10_partner"
         ],
@@ -8019,6 +8024,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b1_dongsun_maya_price_notice",
           "scenario:team_update_indirect_speech",
           "unit:b1_02_indirect_speech"
         ],
@@ -8160,6 +8166,7 @@
         "mode": "P",
         "contentCandidates": [
           "scenario:b1_byeongcheol_hwaseong_memory_check",
+          "scenario:b1_sujin_christian_asset_provenance_check",
           "scenario:team_update_indirect_speech",
           "unit:b1_02_indirect_speech"
         ],
@@ -8213,8 +8220,10 @@
           "de": "Bewerten, beurteilen und kritisieren"
         },
         "mode": "P",
-        "contentCandidates": [],
-        "contentCandidateState": "no_candidate_observed_not_proven_absent",
+        "contentCandidates": [
+          "scenario:b1_jun_andrea_phone_house_rules"
+        ],
+        "contentCandidateState": "candidate_observed",
         "draftHoldings": [],
         "draftBindingState": "no_approved_semantic_binding",
         "evidenceStage": "phase_task_path_connected",
@@ -8269,6 +8278,8 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b1_andrea_minho_friday_schedule",
+          "scenario:b1_jun_andrea_phone_house_rules",
           "scenario:secondhand_hidden_defect"
         ],
         "contentCandidateState": "candidate_observed",
@@ -8537,6 +8548,8 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b1_christian_sujin_suspicious_text_followup",
+          "scenario:b1_dongsun_sujin_repair_price",
           "scenario:b1_team_briefing_revised_schedule_2026",
           "scenario:cancelled_trip_hurt_feelings",
           "scenario:community_festival_shift",
@@ -8635,6 +8648,9 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b1_christian_sujin_suspicious_text_followup",
+          "scenario:b1_lena_maya_beyond_music",
+          "scenario:b1_sujin_byeongcheol_family_verification_rule",
           "scenario:company_instagram_wrong_account",
           "unit:b1_01_experience_reasons",
           "unit:b1_03_work_softening",
@@ -8840,6 +8856,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b1_jun_christian_phone_study_habit",
           "scenario:jeju_rain_plan_change",
           "scenario:ktx_sold_out_alternative",
           "scenario:reel_caption_misunderstanding",
@@ -8953,7 +8970,8 @@
         },
         "mode": "R",
         "contentCandidates": [
-          "scenario:b1_dongsun_norigae_shop_post"
+          "scenario:b1_dongsun_norigae_shop_post",
+          "scenario:b1_sujin_christian_asset_provenance_check"
         ],
         "contentCandidateState": "candidate_observed",
         "draftHoldings": [],
@@ -9942,7 +9960,10 @@
           "scenario:ai_summary_wrong_fact",
           "scenario:apartment_recycling_mixup",
           "scenario:b1_byeongcheol_hwaseong_memory_check",
+          "scenario:b1_dongsun_maya_price_notice",
           "scenario:b1_dongsun_norigae_shop_post",
+          "scenario:b1_jun_christian_phone_study_habit",
+          "scenario:b1_minho_christian_hanok_cafe_meeting",
           "scenario:b1_w10_bill",
           "scenario:b1_w10_cancellation",
           "scenario:b1_w10_form",
@@ -10117,6 +10138,9 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b1_dongsun_sujin_repair_price",
+          "scenario:b1_lena_hyuna_crowded_weekend",
+          "scenario:b1_lena_maya_beyond_music",
           "scenario:b1_w10_fandom",
           "scenario:b1_w10_friends",
           "scenario:cancelled_trip_hurt_feelings",
@@ -10203,6 +10227,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b1_maya_daniel_ai_campaign_cut",
           "scenario:b1_team_briefing_revised_schedule_2026",
           "scenario:work_message_too_direct"
         ],
@@ -10345,6 +10370,12 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b1_andrea_minho_family_calendar",
+          "scenario:b1_andrea_minho_friday_schedule",
+          "scenario:b1_christian_sujin_suspicious_text_followup",
+          "scenario:b1_jun_andrea_phone_house_rules",
+          "scenario:b1_sujin_byeongcheol_family_verification_rule",
+          "scenario:b1_sujin_christian_asset_provenance_check",
           "scenario:b1_theme_park_date_thrill",
           "scenario:b1_w10_partner"
         ],
@@ -10517,6 +10548,8 @@
         "mode": "P",
         "contentCandidates": [
           "scenario:ai_image_disclosure",
+          "scenario:b2_hyuna_daniel_resident_flow_filming",
+          "scenario:b2_sujin_minho_shorter_hours_tradeoff",
           "scenario:b2_w10_hiring",
           "scenario:b2_w10_negotiate",
           "scenario:b2_w10_partner",
@@ -10825,6 +10858,8 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b2_hyuna_daniel_resident_flow_filming",
+          "scenario:b2_sujin_minho_shorter_hours_tradeoff",
           "scenario:neighborhood_filming_notice",
           "unit:b2_02_professional_opinion"
         ],
@@ -10880,6 +10915,7 @@
         "mode": "P",
         "contentCandidates": [
           "scenario:b2_meeting_hold_for_evidence_2026",
+          "scenario:b2_sujin_minho_shorter_hours_tradeoff",
           "scenario:b2_w10_hiring",
           "scenario:meeting_disagreement_evidence",
           "unit:b2_05_interview"
@@ -10971,6 +11007,10 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b2_daniel_sujin_ai_asset_handoff",
+          "scenario:b2_hyuna_andrea_work_family_choices",
+          "scenario:b2_hyuna_sujin_gyeongju_fieldnotes",
+          "scenario:b2_maya_daniel_tradition_reinterpretation",
           "scenario:brand_private_account_boundary",
           "unit:b2_03_precise_requests"
         ],
@@ -11165,6 +11205,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b2_hyuna_daniel_nongak_festival_filming",
           "scenario:freelance_scope_change",
           "scenario:rental_repair_deposit",
           "unit:b2_04_complaint_resolution",
@@ -11370,6 +11411,7 @@
         "mode": "P",
         "contentCandidates": [
           "scenario:accessible_festival_route",
+          "scenario:b2_hyuna_daniel_resident_flow_filming",
           "scenario:b2_w10_partner",
           "scenario:brand_private_account_boundary"
         ],
@@ -11860,7 +11902,14 @@
           "scenario:accessible_festival_route",
           "scenario:ai_image_disclosure",
           "scenario:b2_daniel_hyuna_hanji_filming_scope",
+          "scenario:b2_daniel_sujin_ai_asset_handoff",
+          "scenario:b2_hyuna_daniel_gyeongju_after_apec",
+          "scenario:b2_hyuna_daniel_nongak_festival_filming",
+          "scenario:b2_hyuna_daniel_resident_flow_filming",
+          "scenario:b2_maya_daniel_pansori_promo_clip",
+          "scenario:b2_maya_daniel_tradition_reinterpretation",
           "scenario:b2_meeting_hold_for_evidence_2026",
+          "scenario:b2_sujin_minho_shorter_hours_tradeoff",
           "scenario:b2_w10_hiring",
           "scenario:b2_w10_negotiate",
           "scenario:brand_private_account_boundary",
@@ -12487,6 +12536,12 @@
           "scenario:accessible_festival_route",
           "scenario:ai_image_disclosure",
           "scenario:b2_daniel_hyuna_hanji_filming_scope",
+          "scenario:b2_daniel_sujin_ai_asset_handoff",
+          "scenario:b2_hyuna_daniel_gyeongju_after_apec",
+          "scenario:b2_hyuna_daniel_nongak_festival_filming",
+          "scenario:b2_hyuna_daniel_resident_flow_filming",
+          "scenario:b2_maya_daniel_pansori_promo_clip",
+          "scenario:b2_maya_daniel_tradition_reinterpretation",
           "scenario:b2_meeting_hold_for_evidence_2026",
           "scenario:b2_w10_hiring",
           "scenario:b2_w10_negotiate",
@@ -12654,6 +12709,8 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b2_hyuna_andrea_work_family_choices",
+          "scenario:b2_sujin_minho_shorter_hours_tradeoff",
           "scenario:b2_w10_authorities",
           "scenario:b2_w10_health",
           "scenario:b2_w10_notice",
@@ -12823,6 +12880,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b2_hyuna_sujin_gyeongju_fieldnotes",
           "scenario:b2_w10_fandom",
           "scenario:direct_feedback_misread",
           "scenario:fremdschaemen_live"
@@ -12878,6 +12936,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b2_byeongcheol_sujin_heat_electricity",
           "scenario:b2_theme_park_date_safety",
           "scenario:b2_w10_partner"
         ],
@@ -18688,7 +18747,7 @@
     "unmapped_pack_ids": 0,
     "unmapped_scenarios_topic": 0,
     "unmapped_units_topic": 8,
-    "unmatched_scenarios_speech_act": 7,
+    "unmatched_scenarios_speech_act": 9,
     "unmatched_units_speech_act": 1,
     "unassigned_culture_notes": 36
   }
