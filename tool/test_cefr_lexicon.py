@@ -387,11 +387,35 @@ class TestRealLexiconGoldenCases(unittest.TestCase):
                 self.assertTrue(any(hit.grade == 2 and
                     hit.pattern_id == "grammar_a2_preference_question" for hit in hits))
 
+    def test_geuraeyo_is_not_quoted_speech(self):
+        for text in ("그래요.", "제 생각도 그래요.", "저도 그렇게 생각해요."):
+            with self.subTest(text=text):
+                ids = {hit.pattern_id for hit in self.grammar.detect(text)}
+                self.assertNotIn("grammar_b2_quoted_contractions", ids)
+
     def test_genuine_quoted_raeyo_and_copula_remain_detected(self):
         for text in ("엄마가 쓰래요.", "친구가 마시래요.", "그분은 의사래요.", "그분은 선생님이래요.", "이건 물이래요."):
             with self.subTest(text=text):
                 ids = {hit.pattern_id for hit in self.grammar.detect(text)}
                 self.assertIn("grammar_b2_quoted_contractions", ids)
+
+    def test_possession_gajigo_itda_is_not_c1_argument_framing(self):
+        ids = {
+            hit.pattern_id
+            for hit in self.grammar.detect("저는 책을 가지고 있어요.")
+        }
+        self.assertFalse(
+            any(pid.startswith("nikl_g5_를_가지고") for pid in ids)
+        )
+        genuine_ids = {
+            hit.pattern_id
+            for hit in self.grammar.detect(
+                "그 한마디를 가지고 의도를 단정할 수는 없어요."
+            )
+        }
+        self.assertTrue(
+            any(pid.startswith("nikl_g5_를_가지고") for pid in genuine_ids)
+        )
 
     def test_negative_quoted_malraeyo_remains_detected(self):
         for text in ("엄마가 하지 말래요.", "선생님이 떠들지 말래요.", "친구가 가지말래요.",
@@ -400,6 +424,72 @@ class TestRealLexiconGoldenCases(unittest.TestCase):
                 ids = {hit.pattern_id for hit in self.grammar.detect(text)}
                 self.assertIn("grammar_b2_quoted_contractions", ids)
                 self.assertNotIn("grammar_a2_preference_question", ids)
+
+    def test_common_conjugations_beat_unrelated_high_grade_homographs(self):
+        cases = {
+            "일해요": ("일", 1, "A1"),
+            "비싸요": ("비싸다", 1, "A1"),
+            "이상한데": ("이상", 2, "A2"),
+        }
+        for surface, (matched, grade, cefr) in cases.items():
+            with self.subTest(surface=surface):
+                word = self.lex.word_grade(surface)
+                self.assertEqual((word.matched, word.grade, word.cefr), (matched, grade, cefr))
+
+    def test_deferential_dririda_compounds_resolve_from_real_noun_roots(self):
+        cases = {
+            "인사드리다": ("인사", 1, "A1"),
+            "인사드리겠습니다": ("인사", 1, "A1"),
+            "연락드릴게요": ("연락", 2, "A2"),
+        }
+        for surface, (matched, grade, cefr) in cases.items():
+            with self.subTest(surface=surface):
+                word = self.lex.word_grade(surface)
+                self.assertEqual(
+                    (word.matched, word.grade, word.cefr, word.source),
+                    (matched, grade, cefr, "derived"),
+                )
+        self.assertIsNone(self.lex.word_grade("가나다드리다").grade)
+
+    def test_plain_style_present_and_past_forms_resolve_without_guessing(self):
+        cases = {
+            "한다": ("하다", 1),
+            "분석한다": ("분석", 3),
+            "했다": ("하다", 1),
+            "설명한다": ("설명", 1),
+            "비교했다": ("비교", 2),
+            "된다": ("되다", 1),
+            "검토했다": ("검토", 3),
+            "준다": ("주다", 1),
+            "나타난다": ("나타나다", 2),
+            "않았다": ("않다", 3),
+            "않는다": ("않다", 3),
+            "만났어요": ("만나다", 1),
+            "잤어요": ("자다", 1),
+            "났어요": ("나다", 1),
+            "끝났어요": ("끝나다", 1),
+        }
+        for surface, (matched, grade) in cases.items():
+            with self.subTest(surface=surface):
+                word = self.lex.word_grade(surface)
+                self.assertEqual(word.grade, grade)
+                self.assertTrue(word.matched.startswith(matched))
+
+        # Ambiguous fused-ㄴ다 forms stay unresolved rather than guessing
+        # 사다 vs 살다 for 산다.
+        self.assertIsNone(self.lex.word_grade("산다").grade)
+
+    def test_a1_want_disambiguates_verbal_bogo_and_caps_sipda_component(self):
+        self.assertEqual(self.lex.word_grade("보고").grade, 3)
+        profile = self.lex.sentence_profile("보고 싶어.", self.grammar)
+        self.assertEqual(profile.level_estimate, "A1")
+        self.assertEqual(
+            [(word.matched, word.grade) for word in profile.tokens],
+            [("보다(h1,h4)", 1), ("싶다", 1)],
+        )
+        self.assertTrue(
+            any(hit.pattern_id == "grammar_a1_want" for hit in profile.grammar_hits)
+        )
 
     def test_word_grade_gongbuhada_derived(self):
         wg = self.lex.word_grade("공부하다")
@@ -496,6 +586,16 @@ class TestRealLexiconGoldenCases(unittest.TestCase):
         sp = self.lex.sentence_profile("이게 뭐예요?", self.grammar)
         self.assertEqual(sp.unknown, ())
         self.assertEqual(self.lex.word_grade("이게").grade, 1)
+
+    def test_topic_contractions_igeon_geugeon_jeogeon_are_a1(self) -> None:
+        # 이건/그건/저건 are 이것은/그것은/저것은, not unrelated
+        # high-register/basic2023 homographs. The shopping reply
+        # "이건 어떠세요?" must therefore not inherit a C2 lexical burden.
+        for surface in ("이건", "그건", "저건"):
+            with self.subTest(surface=surface):
+                self.assertEqual(self.lex.word_grade(surface).grade, 1)
+        profile = self.lex.sentence_profile("이건 어떠세요?", self.grammar)
+        self.assertEqual(profile.level_estimate, "A1")
 
     def test_sentence_profile_gamgie_geollyeoseo(self):
         sentence = "감기에 걸려서 축제에 못 갔어요."
@@ -624,8 +724,15 @@ class TestR3ConfidenceAndProperNouns(unittest.TestCase):
 
 
 class TestVocabUnknownRatio(unittest.TestCase):
-    """Measures word_grade() unknown-ratio over all 2,499 live headwords
-    (Section 6/T1.2 R3 target: <= 10%, tightened from the original 25%)."""
+    """Ratchet word_grade() unknown-ratio over all live headwords.
+
+    The original R3 acceptance ceiling was 10%; C7-3 resolves every
+    audit-level vocab unknown. Twelve multiword/proper-name surfaces still
+    intentionally do not receive a direct single-token word_grade, so this
+    lower-level smoke ratchet is pinned to the current ~0.40% actual.
+    """
+
+    CAP_UNKNOWN_RATIO = 0.0041
 
     @classmethod
     def setUpClass(cls):
@@ -633,7 +740,7 @@ class TestVocabUnknownRatio(unittest.TestCase):
         with cl.VOCAB_CSV.open(encoding="utf-8", newline="") as fh:
             cls.rows = list(csv.DictReader(fh))
 
-    def test_unknown_ratio_at_most_10_percent(self):
+    def test_unknown_ratio_does_not_regress(self):
         unknown = [
             row["korean"] for row in self.rows
             if self.lex.word_grade(row["korean"]).grade is None
@@ -645,7 +752,7 @@ class TestVocabUnknownRatio(unittest.TestCase):
         print("[top 30 unknown headwords]")
         for word, count in top[:30]:
             print("  %s x%d" % (word, count))
-        self.assertLessEqual(ratio, 0.10)
+        self.assertLessEqual(ratio, self.CAP_UNKNOWN_RATIO)
         # C2d-2 (2026-09-16): vocab_a1_0141 deleted (Jin: "아예 쓰지 말자").
         # C3-T3 (2026-09-16): Batch 26/27/28 add 192 words. 2563-1+192=2754.
         # C3-T4 (2026-09-16): Batch 29 adds 64 words. 2754+64=2818.
@@ -656,9 +763,15 @@ class TestVocabUnknownRatio(unittest.TestCase):
 
 
 class TestSentenceUnknownRatio(unittest.TestCase):
-    """Section 6/T1.2 R3 target: sentence unknown-TOKEN ratio over every
-    cloze.json fullKo sentence <= 12% (eojeol-level, not headword-level --
-    a sentence contributes one denominator entry per eojeol)."""
+    """Ratchet sentence unknown-token ratio over every cloze fullKo.
+
+    The original R3 acceptance ceiling was 12%; C7-4 lowered the live ratio
+    to ~1.92%, Living Korea first-wave repairs lowered it below 1.89%, and
+    second-wave conversational repairs lower it again to ~1.86%. The ratchet
+    is now 1.87%.
+    """
+
+    CAP_UNKNOWN_RATIO = 0.0187
 
     @classmethod
     def setUpClass(cls):
@@ -669,7 +782,7 @@ class TestSentenceUnknownRatio(unittest.TestCase):
             data = json.load(fh)
         cls.sentences = [item["fullKo"] for item in data["items"] if item.get("fullKo")]
 
-    def test_sentence_unknown_token_ratio_at_most_12_percent(self):
+    def test_sentence_unknown_token_ratio_does_not_regress(self):
         total_tokens = 0
         total_unknown = 0
         unknown_counter: Counter = Counter()
@@ -686,7 +799,7 @@ class TestSentenceUnknownRatio(unittest.TestCase):
         print("[top 30 unknown tokens]")
         for token, count in unknown_counter.most_common(30):
             print("  %s x%d" % (token, count))
-        self.assertLessEqual(ratio, 0.12)
+        self.assertLessEqual(ratio, self.CAP_UNKNOWN_RATIO)
         self.assertGreater(len(self.sentences), 0)
 
 
@@ -1653,11 +1766,184 @@ class TestT25LevelExceptionsGoldenCases(unittest.TestCase):
         wg = self.lex.word_grade("환승")
         self.assertEqual(wg.confidence, "high")
 
+    def test_a1_long_negation_caps_only_the_sentence_component(self):
+        wg = self.lex.word_grade("않다")
+        self.assertEqual((wg.grade, wg.cefr, wg.source), (3, "B1", "kiiq"))
+        profile = self.lex.sentence_profile("먹지 않아요.", self.gi)
+        self.assertEqual(profile.level_estimate, "A1")
+        self.assertTrue(
+            any(
+                hit.pattern_id == "grammar_a1_long_negation"
+                for hit in profile.grammar_hits
+            )
+        )
+        auxiliary = next(t for t in profile.tokens if t.matched == "않다")
+        self.assertEqual((auxiliary.grade, auxiliary.cefr), (1, "A1"))
+
     def test_sentence_profile_carries_exception_source_for_listed_token(self):
         prof = self.lex.sentence_profile("추석에 성묘를 갔어요.", self.gi)
         seongmyo = next(t for t in prof.tokens if t.matched == "성묘")
         self.assertEqual(seongmyo.source, "exception")
         self.assertEqual(seongmyo.grade, 2)
+
+    def test_hanji_culture_noun_wins_over_morphology_collision(self):
+        direct = self.lex.word_grade("한지")
+        self.assertEqual(
+            (direct.grade, direct.cefr, direct.source, direct.matched),
+            (3, "B1", "exception", "한지"),
+        )
+        phrase = self.lex.phrase_grade("한지")
+        self.assertEqual((phrase.grade, phrase.cefr), (3, "B1"))
+        self.assertEqual(
+            [(word.matched, word.source) for word in phrase.words],
+            [("한지", "exception")],
+        )
+        # Spaced grammar remains separate; the exception only owns the exact
+        # culture noun surface and does not change normal eojeol morphology.
+        profile = self.lex.sentence_profile("한국에서 산 지 오래됐어요.", self.gi)
+        self.assertTrue(profile.tokens)
+        self.assertNotIn("한지", [word.matched for word in profile.tokens])
+
+
+class TestLivingKoreaD4SurfaceMorphology(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+        cls.gi = cl.GrammarIndex.load()
+
+    CASES = [
+        ("어떨까요?", "어떻다"),
+        ("누르래요.", "누르다"),
+        ("마세요.", "말다"),
+        ("다르대.", "다르다"),
+        ("왔대.", "오다"),
+        ("눌렀냐?", "누르다"),
+        ("할게.", "하다"),
+        ("보내", "보내다"),
+        ("보내서", "보내다"),
+        ("빼가는", "빼다"),
+        ("있다던데.", "있다"),
+        ("조심해야겠어.", "조심하다"),
+        ("들어가서", "들어가다"),
+        ("써서", "쓰다"),
+        ("알려줘야겠다.", "알려주다"),
+        ("왔다는데", "오다"),
+        ("눌렀대지?", "누르다"),
+        ("정해야겠네요.", "정하다"),
+        ("순서겠네요.", "순서"),
+        ("봐야겠죠.", "보다"),
+        ("드나드는", "드나들다"),
+        ("볼까요?", "보다"),
+        ("봐야겠지요.", "보다"),
+        ("합시다.", "하다"),
+        ("나거나", "나다"),
+        ("할지", "하다"),
+        ("거야?", "것"),
+        ("없애야겠네.", "없애다"),
+        ("겁니다.", "것"),
+        ("만들어야겠네요.", "만들다"),
+        ("맡을게.", "맡다"),
+        ("불러서", "부르다"),
+        ("드는", "들다"),
+        ("올리자니", "올리다"),
+        ("나겠다", "나다"),
+        ("올려야겠네", "올리다"),
+        ("무서우면", "무섭다"),
+        ("쓰려다가", "쓰다"),
+        ("거니까요.", "것"),
+        ("통제죠.", "통제"),
+        ("입는구나", "입다"),
+        ("만드는", "만들다"),
+        ("어떠세요?", "어떻다"),
+        ("않을게.", "않다"),
+        ("있을게.", "있다"),
+        ("하잖아.", "하다"),
+        ("재밌겠다.", "재밌다"),
+        ("있거든.", "있다"),
+        ("그렇긴", "그렇다"),
+    ]
+
+    def test_living_korea_normal_surfaces_resolve_to_dictionary_forms(self):
+        for surface, expected in self.CASES:
+            with self.subTest(surface=surface):
+                token = cl._normalize_token(surface)
+                wg = self.lex._resolve_eojeol(token)
+                self.assertEqual(wg.matched, expected)
+                self.assertIsNotNone(wg.grade)
+
+    def test_living_korea_surface_repairs_remove_unknowns_in_context(self):
+        sentences = [
+            "자세한 설명은 정보 화면에 두면 어떨까요?",
+            "이 링크를 누르래요.",
+            "바로 누르지 마세요.",
+            "쉬는 시간 규칙도 조금 다르대.",
+            "엄마한테 문자가 왔대.",
+            "링크는 눌렀냐?",
+            "판단은 내가 할게.",
+            "돈 보내 달라는 연락도 확인하고.",
+            "택배 문자로 링크 보내서 개인정보 빼가는 피싱도 있다던데.",
+            "정말 조심해야겠어.",
+            "앱 들어가서 확인했어.",
+            "이메일이라도 써서 알려줘야겠다.",
+            "엄마한테 문자가 왔다는데.",
+            "링크 안 눌렀대지?",
+        ]
+        for sentence in sentences:
+            with self.subTest(sentence=sentence):
+                profile = self.lex.sentence_profile(sentence, self.gi)
+                repaired_surfaces = {
+                    cl._normalize_token(surface)
+                    for surface, _ in self.CASES
+                }
+                self.assertFalse(
+                    repaired_surfaces.intersection(profile.unknown),
+                    msg=(sentence, profile.unknown),
+                )
+
+    def test_person_name_vocative_and_chat_laughter_are_not_vocab_unknowns(self):
+        profile = self.lex.sentence_profile(
+            "수진아, 고마워. 사랑해 ㅎㅎ",
+            self.gi,
+        )
+        self.assertNotIn("수진아,", profile.unknown)
+        self.assertNotIn("ㅎㅎ", profile.unknown)
+        self.assertIn("수진", profile.proper_nouns)
+
+
+class TestC7ReviewedUnknownOwners(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+        path = (
+            cl.REPO
+            / "tools"
+            / "content_factory"
+            / "review"
+            / "lcp_c7_vocab_unknown_owner_review_20261005.json"
+        )
+        cls.payload = json.loads(path.read_text(encoding="utf-8"))
+
+    def test_owner_ledger_shape_and_claim_boundaries(self):
+        self.assertEqual(self.payload["schemaVersion"], 1)
+        self.assertEqual(self.payload["sourceAuditUnknownCount"], 46)
+        self.assertFalse(self.payload["humanApprovalClaim"])
+        self.assertFalse(self.payload["nativeSpeakerQaClaim"])
+        self.assertEqual(len(self.payload["decisions"]), 46)
+
+    def test_every_reviewed_unknown_owner_resolves_at_exact_current_level(self):
+        for decision in self.payload["decisions"]:
+            word = decision["korean"]
+            level = decision["currentLevel"].upper()
+            expected_grade = cl.CEFR_TO_GRADE[level]
+            with self.subTest(id=decision["id"], korean=word):
+                result = (
+                    self.lex.phrase_grade(word)
+                    if " " in word
+                    else self.lex.word_grade(word)
+                )
+                self.assertEqual(result.grade, expected_grade)
+                if hasattr(result, "source"):
+                    self.assertEqual(result.source, "exception")
 
 
 if __name__ == "__main__":

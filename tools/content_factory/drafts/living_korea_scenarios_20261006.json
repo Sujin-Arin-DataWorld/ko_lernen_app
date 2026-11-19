@@ -1,0 +1,4226 @@
+{
+  "version": 1,
+  "scenarios": [
+    {
+      "id": "b1_maya_daniel_ai_campaign_cut",
+      "level": "b1",
+      "emoji": "🎬",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "AI 장면 표시 정하기",
+        "de": "KI-Szenen kennzeichnen",
+        "en": "Labeling AI scenes"
+      },
+      "intro": {
+        "ko": "마야와 다니엘이 캠페인 영상에서 실제 촬영본과 AI 생성 장면을 구분하고 게시 방식을 정해요.",
+        "de": "Maya und Daniel unterscheiden im Kampagnenvideo echtes Filmmaterial von KI-generierten Szenen und legen die Kennzeichnung fest.",
+        "en": "Maya and Daniel separate real footage from AI-generated scenes in a campaign video and decide how to label them."
+      },
+      "courseUnitId": "b1_03_work_softening",
+      "playerCharacterId": "maya",
+      "participantIds": [
+        "maya",
+        "daniel"
+      ],
+      "relationshipContext": "같은 캠페인 영상 프로젝트를 하는 동료. 서로 해요체로 빠르게 의견을 주고받는다.",
+      "intent": "캠페인 초안에서 실제 촬영본과 AI 생성 시안을 구분하고 게시 방식을 정한다.",
+      "shelf": "b1_team",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "영상"
+        },
+        {
+          "korean": "직접"
+        },
+        {
+          "korean": "찍다"
+        },
+        {
+          "korean": "표시하다"
+        },
+        {
+          "korean": "대표 이미지"
+        },
+        {
+          "korean": "사진"
+        },
+        {
+          "korean": "실제 장면"
+        },
+        {
+          "korean": "캠페인"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_conditional"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)면",
+          "de": "Grammatik im Kontext: V-(으)면",
+          "en": "Grammar in context: V-(으)면"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)면 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Wenn/Falls-Bedingung",
+          "en": "If / in case (a condition)"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "다니엘, 이 장면도 우리가 지난주에 찍은 거예요?",
+          "de": "Daniel, haben wir diese Szene letzte Woche auch selbst gedreht?",
+          "en": "Daniel, did we shoot this scene last week too?"
+        },
+        {
+          "speaker": "daniel",
+          "ko": "아니요. 그 장면은 편집팀이 AI로 만든 영상이에요. 우리가 직접 찍은 건 여기까지예요.",
+          "de": "Nein. Die Szene hat das Schnittteam mit KI erstellt. Bis hierhin ist das Material, das wir selbst gedreht haben.",
+          "en": "No. The editing team generated that clip with AI. Everything up to here is footage we shot ourselves."
+        },
+        {
+          "speaker": "user",
+          "ko": "그대로 올리면 우리가 직접 찍은 것처럼 보일 수도 있겠네요.",
+          "de": "Wenn wir es so hochladen, könnte es so wirken, als hätten wir auch diesen Teil selbst gedreht.",
+          "en": "If we post it as is, it could look like we shot that part ourselves too."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "맞아요. 저는 AI로 만든 장면은 따로 표시하는 게 좋겠어요.",
+          "de": "Stimmt. Ich fände es gut, die KI-generierten Szenen extra zu kennzeichnen.",
+          "en": "Right. I think we should label the AI-generated scenes separately."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 설명에도 넣고, 대표 이미지는 직접 찍은 사진으로 바꿀까요?",
+          "de": "Dann schreiben wir es auch in die Beschreibung und nehmen als Titelbild ein Foto, das wir selbst gemacht haben?",
+          "en": "Then should we mention it in the description too and switch the cover image to a photo we actually took?"
+        },
+        {
+          "speaker": "daniel",
+          "ko": "좋아요. 그러면 보는 사람도 실제 장면인지 잘 알 수 있을 거예요.",
+          "de": "Klingt gut. Dann können die Leute besser erkennen, was wirklich aufgenommen wurde.",
+          "en": "Sounds good. That way people can tell what was actually filmed."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_maya_daniel_ai_campaign_cut_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "audioKo": "아니요. 그 장면은 편집팀이 AI로 만든 영상이에요. 우리가 직접 찍은 건 여기까지예요.",
+            "options": [
+              {
+                "de": "Nein. Die Szene hat das Schnittteam mit KI erstellt. Bis hierhin ist das Material, das wir selbst gedreht haben.",
+                "en": "No. The editing team generated that clip with AI. Everything up to here is footage we shot ourselves."
+              },
+              {
+                "de": "Daniel, haben wir diese Szene letzte Woche auch selbst gedreht?",
+                "en": "Daniel, did we shoot this scene last week too?"
+              },
+              {
+                "de": "Wenn wir es so hochladen, könnte es so wirken, als hätten wir auch diesen Teil selbst gedreht.",
+                "en": "If we post it as is, it could look like we shot that part ourselves too."
+              },
+              {
+                "de": "Stimmt. Ich fände es gut, die KI-generierten Szenen extra zu kennzeichnen.",
+                "en": "Right. I think we should label the AI-generated scenes separately."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_maya_daniel_ai_campaign_cut_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "promptDe": "Dann schreiben wir es auch in die Beschreibung und nehmen als Titelbild ein Foto, das wir selbst gemacht haben?",
+            "promptEn": "Then should we mention it in the description too and switch the cover image to a photo we actually took?",
+            "options": [
+              {
+                "ko": "그럼 설명에도 넣고, 대표 이미지는 직접 찍은 사진으로 바꿀까요?"
+              },
+              {
+                "ko": "다니엘, 이 장면도 우리가 지난주에 찍은 거예요?"
+              },
+              {
+                "ko": "그대로 올리면 우리가 직접 찍은 것처럼 보일 수도 있겠네요."
+              },
+              {
+                "ko": "좋아요. 그러면 보는 사람도 실제 장면인지 잘 알 수 있을 거예요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_maya_daniel_ai_campaign_cut_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "targetKo": "좋아요. 그러면 보는 사람도 실제 장면인지 잘 알 수 있을 거예요.",
+            "audioKo": "좋아요. 그러면 보는 사람도 실제 장면인지 잘 알 수 있을 거예요.",
+            "promptDe": "Klingt gut. Dann können die Leute besser erkennen, was wirklich aufgenommen wurde.",
+            "promptEn": "Sounds good. That way people can tell what was actually filmed.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b2_daniel_sujin_ai_asset_handoff",
+      "level": "b2",
+      "emoji": "🗂️",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "이미지 출처를 정리해 넘기기",
+        "de": "Bildherkunft für die Übergabe ordnen",
+        "en": "Organizing image provenance for handoff"
+      },
+      "intro": {
+        "ko": "다니엘과 수진이 실제 사진과 생성 이미지를 구분해 앱 자산을 넘기는 기준을 맞춰요.",
+        "de": "Daniel und Sujin legen fest, wie echte Fotos und generierte Bilder bei der Übergabe von App-Material getrennt werden.",
+        "en": "Daniel and Sujin agree on how to separate real photos from generated images when handing off app assets."
+      },
+      "courseUnitId": "b2_03_precise_requests",
+      "playerCharacterId": "daniel",
+      "participantIds": [
+        "daniel",
+        "sujin"
+      ],
+      "relationshipContext": "마야의 캠페인 프로젝트에서 알게 된 지인. 작업 파일을 넘기며 전문적인 해요체를 쓴다.",
+      "intent": "앱에 들어갈 이미지 자산을 넘기기 전에 실제로 찍은 이미지와 AI로 생성한 이미지를 사용자가 구분할 수 있는 방식으로 정리한다.",
+      "shelf": "b2_meeting",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "이미지"
+        },
+        {
+          "korean": "생성하다"
+        },
+        {
+          "korean": "폴더"
+        },
+        {
+          "korean": "구분하다"
+        },
+        {
+          "korean": "표시"
+        },
+        {
+          "korean": "정보 화면"
+        },
+        {
+          "korean": "파일명"
+        },
+        {
+          "korean": "설명 문구"
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_b1_even_if_light"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어도",
+          "de": "Grammatik im Kontext: V-아/어도",
+          "en": "Grammar in context: V-아/어도"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-아/어도 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Auch wenn/selbst wenn: mit 아무리 verstärkbar",
+          "en": "Even if/no matter how: intensify with 아무리"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "수진 씨, 실제로 찍은 이미지랑 AI로 생성한 이미지는 폴더부터 나눠 둘게요.",
+          "de": "Sujin, ich trenne die echten Fotos und die KI-generierten Bilder erst einmal in separate Ordner.",
+          "en": "Sujin, I'll separate the photos we actually took from the AI-generated images into different folders first."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "좋아요. 앱 안에서도 사용자가 어떤 이미지인지 바로 구분할 수 있으면 좋겠어요.",
+          "de": "Gut. In der App sollte man möglichst sofort erkennen können, um welche Art von Bild es sich handelt.",
+          "en": "Good. In the app, it would be nice if users could tell right away what kind of image they're looking at."
+        },
+        {
+          "speaker": "user",
+          "ko": "표시를 크게 넣으면 화면이 복잡해질 수 있는데, 짧게 표시하고 자세한 설명은 정보 화면에 두면 어떨까요?",
+          "de": "Wenn die Kennzeichnung zu groß ist, wird der Bildschirm schnell unruhig. Wie wäre es mit einem kurzen Hinweis und den Details auf der Infoseite?",
+          "en": "If the label is too large, the screen could get cluttered. How about a short label, with the details on the info screen?"
+        },
+        {
+          "speaker": "sujin",
+          "ko": "그게 낫겠네요. 중요한 건 사용자가 실제 촬영 이미지라고 오해하지 않는 거예요.",
+          "de": "Das wäre besser. Wichtig ist, dass niemand denkt, es sei ein echtes Foto.",
+          "en": "That sounds better. The important thing is that users don't mistake it for an actual photo."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 파일명과 설명 문구도 같은 기준으로 맞춰서 전달할게요.",
+          "de": "Dann passe ich auch die Dateinamen und Beschreibungstexte an dieselbe Regel an, bevor ich alles übergebe.",
+          "en": "Then I'll use the same rule for the filenames and description text before I hand everything over."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "네. 나중에 파일이 바뀌어도 어떤 자료인지 추적할 수 있게요.",
+          "de": "Ja. Dann lässt sich auch später noch nachvollziehen, was für Material es ist, selbst wenn Dateien ausgetauscht werden.",
+          "en": "Yes. That way, even if files change later, we'll still be able to trace what kind of material each one is."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_daniel_sujin_ai_asset_handoff_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "audioKo": "좋아요. 앱 안에서도 사용자가 어떤 이미지인지 바로 구분할 수 있으면 좋겠어요.",
+            "options": [
+              {
+                "de": "Gut. In der App sollte man möglichst sofort erkennen können, um welche Art von Bild es sich handelt.",
+                "en": "Good. In the app, it would be nice if users could tell right away what kind of image they're looking at."
+              },
+              {
+                "de": "Sujin, ich trenne die echten Fotos und die KI-generierten Bilder erst einmal in separate Ordner.",
+                "en": "Sujin, I'll separate the photos we actually took from the AI-generated images into different folders first."
+              },
+              {
+                "de": "Wenn die Kennzeichnung zu groß ist, wird der Bildschirm schnell unruhig. Wie wäre es mit einem kurzen Hinweis und den Details auf der Infoseite?",
+                "en": "If the label is too large, the screen could get cluttered. How about a short label, with the details on the info screen?"
+              },
+              {
+                "de": "Das wäre besser. Wichtig ist, dass niemand denkt, es sei ein echtes Foto.",
+                "en": "That sounds better. The important thing is that users don't mistake it for an actual photo."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_daniel_sujin_ai_asset_handoff_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "promptDe": "Dann passe ich auch die Dateinamen und Beschreibungstexte an dieselbe Regel an, bevor ich alles übergebe.",
+            "promptEn": "Then I'll use the same rule for the filenames and description text before I hand everything over.",
+            "options": [
+              {
+                "ko": "그럼 파일명과 설명 문구도 같은 기준으로 맞춰서 전달할게요."
+              },
+              {
+                "ko": "수진 씨, 실제로 찍은 이미지랑 AI로 생성한 이미지는 폴더부터 나눠 둘게요."
+              },
+              {
+                "ko": "표시를 크게 넣으면 화면이 복잡해질 수 있는데, 짧게 표시하고 자세한 설명은 정보 화면에 두면 어떨까요?"
+              },
+              {
+                "ko": "네. 나중에 파일이 바뀌어도 어떤 자료인지 추적할 수 있게요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_daniel_sujin_ai_asset_handoff_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "네. 나중에 파일이 바뀌어도 어떤 자료인지 추적할 수 있게요.",
+            "audioKo": "네. 나중에 파일이 바뀌어도 어떤 자료인지 추적할 수 있게요.",
+            "promptDe": "Ja. Dann lässt sich auch später noch nachvollziehen, was für Material es ist, selbst wenn Dateien ausgetauscht werden.",
+            "promptEn": "Yes. That way, even if files change later, we'll still be able to trace what kind of material each one is.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b1_sujin_christian_asset_provenance_check",
+      "level": "b1",
+      "emoji": "📁",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "title": {
+        "ko": "예전 파일 기록 확인하기",
+        "de": "Alte Dateiverläufe prüfen",
+        "en": "Checking old file records"
+      },
+      "intro": {
+        "ko": "수진과 크리스티안이 오래된 파일의 제작 기록을 확인하되 모르는 보안 정보는 추측하지 않아요.",
+        "de": "Sujin und Christian prüfen die Herkunft älterer Dateien, ohne unbekannte Sicherheitsdetails zu erraten.",
+        "en": "Sujin and Christian check the provenance of older files without guessing about security details they cannot verify."
+      },
+      "courseUnitId": "b1_06_life_capstone",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "christian"
+      ],
+      "relationshipContext": "1년째 사귀는 연인. 서로 반말을 쓰고, 수진은 짧게 핵심을 말하며 크리스티안은 시스템·인프라 얘기에서만 조금 더 또렷하게 설명한다.",
+      "intent": "예전 영상 파일의 생성 여부를 단정하지 않고, 시스템 기록에서 확인할 수 있는 범위부터 찾는다.",
+      "shelf": "b1_partner",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "파일 이름"
+        },
+        {
+          "korean": "올리다"
+        },
+        {
+          "korean": "구분 정보"
+        },
+        {
+          "korean": "폴더"
+        },
+        {
+          "korean": "기록"
+        },
+        {
+          "korean": "보안 설정"
+        },
+        {
+          "korean": "추측하다"
+        },
+        {
+          "korean": "예전"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_conditional"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)면",
+          "de": "Grammatik im Kontext: V-(으)면",
+          "en": "Grammar in context: V-(으)면"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)면 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Wenn/Falls-Bedingung",
+          "en": "If / in case (a condition)"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "이전 파일 몇 개는 AI로 만든 파일인지 표시가 없네. 파일 이름만 봐서는 모르겠어.",
+          "de": "Bei ein paar älteren Dateien steht nicht dabei, ob sie mit KI erstellt wurden. Am Dateinamen kann ich's nicht erkennen.",
+          "en": "A few of the older files don't say whether they were made with AI. You can't tell from the filenames."
+        },
+        {
+          "speaker": "christian",
+          "ko": "파일을 올린 기록에 구분 정보가 있어?",
+          "de": "Steht im Upload-Verlauf irgendwas dazu, was was ist?",
+          "en": "Is there anything in the upload history that says which is which?"
+        },
+        {
+          "speaker": "user",
+          "ko": "최근 파일엔 있는데, 예전 파일엔 없어.",
+          "de": "Bei den neueren schon, bei den alten nicht.",
+          "en": "For the newer files, yes. Not for the old ones."
+        },
+        {
+          "speaker": "christian",
+          "ko": "그럼 내가 아는 범위에서는 누가 폴더를 볼 수 있는지랑 파일을 올린 기록부터 확인하는 게 좋을 것 같아.",
+          "de": "Dann würde ich, soweit ich das beurteilen kann, erst mal schauen, wer Zugriff auf den Ordner hat und was im Upload-Verlauf steht.",
+          "en": "Then, based on what I know, I'd start by checking who has access to the folder and the upload history."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아. 어떤 기록을 확인할 수 있는지만 봐 줘. 판단은 내가 할게.",
+          "de": "Gut. Schau nur, welche Einträge wir tatsächlich prüfen können. Die Entscheidung treffe ich.",
+          "en": "Good. Just see what records we can actually check. I'll make the call."
+        },
+        {
+          "speaker": "christian",
+          "ko": "응. 보안 설정도 더 봐야 하면 내가 추측하지 않고 먼저 알아볼게.",
+          "de": "Okay. Wenn wir die Sicherheitseinstellungen genauer prüfen müssen, schaue ich erst nach, statt einfach zu raten.",
+          "en": "Okay. If we need to look deeper into the security settings, I'll check first instead of guessing."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_sujin_christian_asset_provenance_check_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_life"
+          ],
+          "data": {
+            "audioKo": "파일을 올린 기록에 구분 정보가 있어?",
+            "options": [
+              {
+                "de": "Steht im Upload-Verlauf irgendwas dazu, was was ist?",
+                "en": "Is there anything in the upload history that says which is which?"
+              },
+              {
+                "de": "Bei ein paar älteren Dateien steht nicht dabei, ob sie mit KI erstellt wurden. Am Dateinamen kann ich's nicht erkennen.",
+                "en": "A few of the older files don't say whether they were made with AI. You can't tell from the filenames."
+              },
+              {
+                "de": "Bei den neueren schon, bei den alten nicht.",
+                "en": "For the newer files, yes. Not for the old ones."
+              },
+              {
+                "de": "Dann würde ich, soweit ich das beurteilen kann, erst mal schauen, wer Zugriff auf den Ordner hat und was im Upload-Verlauf steht.",
+                "en": "Then, based on what I know, I'd start by checking who has access to the folder and the upload history."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_sujin_christian_asset_provenance_check_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_life"
+          ],
+          "data": {
+            "promptDe": "Gut. Schau nur, welche Einträge wir tatsächlich prüfen können. Die Entscheidung treffe ich.",
+            "promptEn": "Good. Just see what records we can actually check. I'll make the call.",
+            "options": [
+              {
+                "ko": "좋아. 어떤 기록을 확인할 수 있는지만 봐 줘. 판단은 내가 할게."
+              },
+              {
+                "ko": "이전 파일 몇 개는 AI로 만든 파일인지 표시가 없네. 파일 이름만 봐서는 모르겠어."
+              },
+              {
+                "ko": "최근 파일엔 있는데, 예전 파일엔 없어."
+              },
+              {
+                "ko": "응. 보안 설정도 더 봐야 하면 내가 추측하지 않고 먼저 알아볼게."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_sujin_christian_asset_provenance_check_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_life"
+          ],
+          "data": {
+            "targetKo": "응. 보안 설정도 더 봐야 하면 내가 추측하지 않고 먼저 알아볼게.",
+            "audioKo": "응. 보안 설정도 더 봐야 하면 내가 추측하지 않고 먼저 알아볼게.",
+            "promptDe": "Okay. Wenn wir die Sicherheitseinstellungen genauer prüfen müssen, schaue ich erst nach, statt einfach zu raten.",
+            "promptEn": "Okay. If we need to look deeper into the security settings, I'll check first instead of guessing.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "a2_jun_minho_class_phone_rule",
+      "level": "a2",
+      "emoji": "📵",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "title": {
+        "ko": "수업 중 휴대폰 예외 설명하기",
+        "de": "Ausnahmen bei der Handynutzung im Unterricht erklären",
+        "en": "Explaining classroom phone exceptions"
+      },
+      "intro": {
+        "ko": "준이 민호에게 학교의 휴대폰 규칙과 수업별 예외를 설명해요.",
+        "de": "Jun erklärt Minho die Handyregeln der Schule und die Ausnahmen im Unterricht.",
+        "en": "Jun explains the school phone rules and the exceptions that apply in class."
+      },
+      "courseUnitId": "a2_06_study_work",
+      "playerCharacterId": "jun",
+      "participantIds": [
+        "jun",
+        "minho"
+      ],
+      "relationshipContext": "부자 관계. 준은 집에서 편하게 반말하고 민호도 설명을 먼저 듣는다.",
+      "intent": "준이 새 학기 수업 중 휴대전화 규칙과 수업별 예외를 아빠에게 설명한다.",
+      "shelf": "a2_work",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "학기"
+        },
+        {
+          "korean": "수업 중"
+        },
+        {
+          "korean": "휴대폰"
+        },
+        {
+          "korean": "필요하다"
+        },
+        {
+          "korean": "영어 시간"
+        },
+        {
+          "korean": "쉬는 시간"
+        },
+        {
+          "korean": "규칙"
+        },
+        {
+          "korean": "반"
+        }
+      ],
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_prohibition"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)면 안 되다",
+          "de": "Grammatik im Kontext: V-(으)면 안 되다",
+          "en": "Grammar in context: V-(으)면 안 되다"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)면 안 되다 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Nicht dürfen / Verboten sein: etwas ist nicht erlaubt",
+          "en": "Must not / not allowed: something is not permitted"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "아빠, 이번 학기부터 수업 중에는 휴대폰을 쓰면 안 돼.",
+          "de": "Papa, ab diesem Halbjahr dürfen wir im Unterricht keine Handys benutzen.",
+          "en": "Dad, starting this semester we're not allowed to use our phones during class."
+        },
+        {
+          "speaker": "minho",
+          "ko": "아예 못 써?",
+          "de": "Gar nicht?",
+          "en": "Not at all?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아니. 필요한 수업에서는 선생님이 허락해. 그때는 써도 돼. 오늘 영어 시간에도 썼어.",
+          "de": "Doch. Wenn wir sie für den Unterricht brauchen, erlaubt die Lehrkraft es. Dann dürfen wir sie benutzen. Heute im Englischunterricht auch.",
+          "en": "No. In classes where we need them, the teacher allows it. Then we can use them. We used ours in English today too."
+        },
+        {
+          "speaker": "minho",
+          "ko": "그럼 수업마다 조금 다를 수 있겠네.",
+          "de": "Dann kann es je nach Unterricht ein bisschen anders sein.",
+          "en": "So it can be a little different from class to class."
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 쉬는 시간 규칙도 반마다 조금 다르대.",
+          "de": "Ja. In den Pausen sind die Regeln wohl auch je nach Klasse etwas anders.",
+          "en": "Yeah. I heard the rules for break time are a bit different by homeroom too."
+        },
+        {
+          "speaker": "minho",
+          "ko": "알겠어. 학교 규칙이랑 집 규칙은 따로 생각해 보자.",
+          "de": "Verstanden. Dann betrachten wir die Schulregeln und unsere Regeln zu Hause getrennt.",
+          "en": "Got it. Let's treat the school rules and our rules at home separately."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_jun_minho_class_phone_rule_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a2_work_study"
+          ],
+          "data": {
+            "audioKo": "아예 못 써?",
+            "options": [
+              {
+                "de": "Gar nicht?",
+                "en": "Not at all?"
+              },
+              {
+                "de": "Papa, ab diesem Halbjahr dürfen wir im Unterricht keine Handys benutzen.",
+                "en": "Dad, starting this semester we're not allowed to use our phones during class."
+              },
+              {
+                "de": "Doch. Wenn wir sie für den Unterricht brauchen, erlaubt die Lehrkraft es. Dann dürfen wir sie benutzen. Heute im Englischunterricht auch.",
+                "en": "No. In classes where we need them, the teacher allows it. Then we can use them. We used ours in English today too."
+              },
+              {
+                "de": "Dann kann es je nach Unterricht ein bisschen anders sein.",
+                "en": "So it can be a little different from class to class."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_jun_minho_class_phone_rule_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a2_work_study"
+          ],
+          "data": {
+            "promptDe": "Ja. In den Pausen sind die Regeln wohl auch je nach Klasse etwas anders.",
+            "promptEn": "Yeah. I heard the rules for break time are a bit different by homeroom too.",
+            "options": [
+              {
+                "ko": "응. 쉬는 시간 규칙도 반마다 조금 다르대."
+              },
+              {
+                "ko": "아빠, 이번 학기부터 수업 중에는 휴대폰을 쓰면 안 돼."
+              },
+              {
+                "ko": "아니. 필요한 수업에서는 선생님이 허락해. 그때는 써도 돼. 오늘 영어 시간에도 썼어."
+              },
+              {
+                "ko": "알겠어. 학교 규칙이랑 집 규칙은 따로 생각해 보자."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_jun_minho_class_phone_rule_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a2_work_study"
+          ],
+          "data": {
+            "targetKo": "알겠어. 학교 규칙이랑 집 규칙은 따로 생각해 보자.",
+            "audioKo": "알겠어. 학교 규칙이랑 집 규칙은 따로 생각해 보자.",
+            "promptDe": "Verstanden. Dann betrachten wir die Schulregeln und unsere Regeln zu Hause getrennt.",
+            "promptEn": "Got it. Let's treat the school rules and our rules at home separately.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b1_jun_andrea_phone_house_rules",
+      "level": "b1",
+      "emoji": "📱",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "title": {
+        "ko": "집에서 지킬 휴대폰 규칙 정하기",
+        "de": "Handyregeln für zu Hause vereinbaren",
+        "en": "Agreeing on phone rules at home"
+      },
+      "intro": {
+        "ko": "준과 안드레아가 학교 규칙과 집에서 지킬 휴대폰 규칙을 따로 정해요.",
+        "de": "Jun und Andrea unterscheiden Schulregeln von ihren Handyregeln zu Hause.",
+        "en": "Jun and Andrea separate school rules from the phone rules they want at home."
+      },
+      "courseUnitId": "b1_04_relationships",
+      "playerCharacterId": "jun",
+      "participantIds": [
+        "jun",
+        "andrea"
+      ],
+      "relationshipContext": "모자 관계. 학교 규칙을 그대로 집에 복사하지 않고 이유가 다른 규칙을 따로 조율한다.",
+      "intent": "준이 학교에서 느낀 장단점을 말하고 집에서는 알림·게임 규칙을 별도로 합의한다.",
+      "shelf": "b1_partner",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "집중"
+        },
+        {
+          "korean": "공지"
+        },
+        {
+          "korean": "규칙"
+        },
+        {
+          "korean": "숙제"
+        },
+        {
+          "korean": "알림"
+        },
+        {
+          "korean": "게임"
+        },
+        {
+          "korean": "연락"
+        },
+        {
+          "korean": "준이"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_cause_nikka"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)니까",
+          "de": "Grammatik im Kontext: V-(으)니까",
+          "en": "Grammar in context: V-(으)니까"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)니까 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Weil/da (subjektive Begründung): auch vor Aufforderung/Vorschlag erlaubt",
+          "en": "Because/since (subjective reason): allowed before commands/suggestions"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "엄마, 학교에서는 휴대폰을 안 쓰니까 집중은 되는데 공지 확인이 늦을 때가 있어.",
+          "de": "Mama, ohne Handy kann ich mich in der Schule besser konzentrieren, aber manchmal sehe ich Mitteilungen erst spät.",
+          "en": "Mom, not using my phone at school does help me focus, but sometimes I don't see announcements until later."
+        },
+        {
+          "speaker": "andrea",
+          "ko": "그럼 학교 규칙과 집 규칙을 똑같이 만들 필요는 없겠네.",
+          "de": "Dann müssen die Regeln zu Hause ja nicht genauso sein wie in der Schule.",
+          "en": "Then we don't need to make the rules at home exactly the same as at school."
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 집에서는 숙제하는 동안 알림만 꺼 두면 좋겠어.",
+          "de": "Ja. Zu Hause würde ich beim Hausaufgabenmachen lieber nur die Benachrichtigungen ausschalten.",
+          "en": "Yeah. At home, I'd rather just turn off notifications while I'm doing homework."
+        },
+        {
+          "speaker": "andrea",
+          "ko": "좋아. 대신 숙제 끝나기 전에는 게임을 시작하지 않는 걸로 하자.",
+          "de": "Gut. Dafür fängst du vor den fertigen Hausaufgaben nicht mit Spielen an.",
+          "en": "Okay. But let's agree you don't start gaming before you're done with your homework."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 정도면 괜찮아. 필요한 연락은 확인하고.",
+          "de": "Das ist okay. Wichtige Nachrichten kann ich trotzdem checken.",
+          "en": "That's fine. And I can still check important messages."
+        },
+        {
+          "speaker": "andrea",
+          "ko": "그래. 이유가 다르면 규칙도 나눠서 보는 게 맞아.",
+          "de": "Genau. Wenn der Grund ein anderer ist, können die Regeln auch unterschiedlich sein.",
+          "en": "Right. If the reasons are different, it makes sense to have different rules."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_jun_andrea_phone_house_rules_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "audioKo": "그럼 학교 규칙과 집 규칙을 똑같이 만들 필요는 없겠네.",
+            "options": [
+              {
+                "de": "Dann müssen die Regeln zu Hause ja nicht genauso sein wie in der Schule.",
+                "en": "Then we don't need to make the rules at home exactly the same as at school."
+              },
+              {
+                "de": "Mama, ohne Handy kann ich mich in der Schule besser konzentrieren, aber manchmal sehe ich Mitteilungen erst spät.",
+                "en": "Mom, not using my phone at school does help me focus, but sometimes I don't see announcements until later."
+              },
+              {
+                "de": "Ja. Zu Hause würde ich beim Hausaufgabenmachen lieber nur die Benachrichtigungen ausschalten.",
+                "en": "Yeah. At home, I'd rather just turn off notifications while I'm doing homework."
+              },
+              {
+                "de": "Gut. Dafür fängst du vor den fertigen Hausaufgaben nicht mit Spielen an.",
+                "en": "Okay. But let's agree you don't start gaming before you're done with your homework."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_jun_andrea_phone_house_rules_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "promptDe": "Das ist okay. Wichtige Nachrichten kann ich trotzdem checken.",
+            "promptEn": "That's fine. And I can still check important messages.",
+            "options": [
+              {
+                "ko": "그 정도면 괜찮아. 필요한 연락은 확인하고."
+              },
+              {
+                "ko": "엄마, 학교에서는 휴대폰을 안 쓰니까 집중은 되는데 공지 확인이 늦을 때가 있어."
+              },
+              {
+                "ko": "응. 집에서는 숙제하는 동안 알림만 꺼 두면 좋겠어."
+              },
+              {
+                "ko": "그래. 이유가 다르면 규칙도 나눠서 보는 게 맞아."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_jun_andrea_phone_house_rules_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "targetKo": "그래. 이유가 다르면 규칙도 나눠서 보는 게 맞아.",
+            "audioKo": "그래. 이유가 다르면 규칙도 나눠서 보는 게 맞아.",
+            "promptDe": "Genau. Wenn der Grund ein anderer ist, können die Regeln auch unterschiedlich sein.",
+            "promptEn": "Right. If the reasons are different, it makes sense to have different rules.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b1_jun_christian_phone_study_habit",
+      "level": "b1",
+      "emoji": "📚",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "휴대폰 공부 습관 비교하기",
+        "de": "Handygewohnheiten beim Lernen vergleichen",
+        "en": "Comparing phone habits while studying"
+      },
+      "intro": {
+        "ko": "준과 크리스티안이 수업 중 휴대폰 사용과 공부 습관을 비교해요.",
+        "de": "Jun und Christian vergleichen Handynutzung im Unterricht und ihre Lerngewohnheiten.",
+        "en": "Jun and Christian compare phone use in class and their study habits."
+      },
+      "courseUnitId": "b1_04_relationships",
+      "playerCharacterId": "jun",
+      "participantIds": [
+        "jun",
+        "christian"
+      ],
+      "relationshipContext": "코딩·게임으로 친해진 형 같은 지인. 준은 해요체를 쓰고 크리스티안은 준에게 편하게 말한다.",
+      "intent": "준이 학교 규칙의 답답한 점과 예외를 설명하고 크리스티안과 공부할 때의 디지털 습관을 비교한다.",
+      "shelf": "b1_friends",
+      "backdrop": "cafe",
+      "vocab": [
+        {
+          "korean": "수업 중"
+        },
+        {
+          "korean": "알림"
+        },
+        {
+          "korean": "자료"
+        },
+        {
+          "korean": "허락하다"
+        },
+        {
+          "korean": "수업용"
+        },
+        {
+          "korean": "규칙"
+        },
+        {
+          "korean": "예외"
+        },
+        {
+          "korean": "이유"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_cause_nikka"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)니까",
+          "de": "Grammatik im Kontext: V-(으)니까",
+          "en": "Grammar in context: V-(으)니까"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)니까 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Weil/da (subjektive Begründung): auch vor Aufforderung/Vorschlag erlaubt",
+          "en": "Because/since (subjective reason): allowed before commands/suggestions"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "크리스티안 형, 학교에서 수업 중에 폰을 못 쓰니까 가끔 답답해요.",
+          "de": "Christian, manchmal nervt es mich, dass wir im Unterricht keine Handys benutzen dürfen.",
+          "en": "Christian, sometimes it's frustrating that we can't use our phones in class."
+        },
+        {
+          "speaker": "christian",
+          "ko": "나도 수업할 때는 알림을 끄는 편이야. 그런데 필요한 자료까지 못 보면 불편하겠네.",
+          "de": "Ich schalte im Unterricht auch meistens die Benachrichtigungen aus. Aber wenn du dann nicht mal die Unterlagen aufrufen kannst, die du brauchst, ist das schon unpraktisch.",
+          "en": "I usually turn off notifications during class too. But it'd be annoying if you couldn't access materials you actually need."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아요. 그래서 선생님이 허락하면 수업용으로 쓸 수 있어요.",
+          "de": "Genau. Deshalb dürfen wir sie für den Unterricht benutzen, wenn die Lehrkraft es erlaubt.",
+          "en": "Exactly. That's why we can use them for class if the teacher says it's okay."
+        },
+        {
+          "speaker": "christian",
+          "ko": "그럼 규칙 자체보다 언제 예외가 되는지 아는 게 중요하겠네.",
+          "de": "Dann ist fast wichtiger zu wissen, wann die Ausnahme gilt, als nur die Regel zu kennen.",
+          "en": "Then knowing when the exceptions apply matters more than the rule itself."
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 그냥 안 된다고만 하면 더 답답하거든요.",
+          "de": "Ja. Wenn man einfach nur sagt 'Handys sind verboten', nervt es noch mehr.",
+          "en": "Yeah. If they just say 'no phones' with no explanation, it's even more frustrating."
+        },
+        {
+          "speaker": "christian",
+          "ko": "그건 이해해. 이유를 같이 설명해 주면 받아들이기 쉬울 것 같아.",
+          "de": "Kann ich verstehen. Wenn man den Grund gleich mit erklärt, lässt es sich leichter akzeptieren.",
+          "en": "I get that. It's probably easier to accept if they explain the reason too."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_jun_christian_phone_study_habit_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "audioKo": "나도 수업할 때는 알림을 끄는 편이야. 그런데 필요한 자료까지 못 보면 불편하겠네.",
+            "options": [
+              {
+                "de": "Ich schalte im Unterricht auch meistens die Benachrichtigungen aus. Aber wenn du dann nicht mal die Unterlagen aufrufen kannst, die du brauchst, ist das schon unpraktisch.",
+                "en": "I usually turn off notifications during class too. But it'd be annoying if you couldn't access materials you actually need."
+              },
+              {
+                "de": "Christian, manchmal nervt es mich, dass wir im Unterricht keine Handys benutzen dürfen.",
+                "en": "Christian, sometimes it's frustrating that we can't use our phones in class."
+              },
+              {
+                "de": "Genau. Deshalb dürfen wir sie für den Unterricht benutzen, wenn die Lehrkraft es erlaubt.",
+                "en": "Exactly. That's why we can use them for class if the teacher says it's okay."
+              },
+              {
+                "de": "Dann ist fast wichtiger zu wissen, wann die Ausnahme gilt, als nur die Regel zu kennen.",
+                "en": "Then knowing when the exceptions apply matters more than the rule itself."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_jun_christian_phone_study_habit_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "promptDe": "Ja. Wenn man einfach nur sagt 'Handys sind verboten', nervt es noch mehr.",
+            "promptEn": "Yeah. If they just say 'no phones' with no explanation, it's even more frustrating.",
+            "options": [
+              {
+                "ko": "네. 그냥 안 된다고만 하면 더 답답하거든요."
+              },
+              {
+                "ko": "크리스티안 형, 학교에서 수업 중에 폰을 못 쓰니까 가끔 답답해요."
+              },
+              {
+                "ko": "맞아요. 그래서 선생님이 허락하면 수업용으로 쓸 수 있어요."
+              },
+              {
+                "ko": "그건 이해해. 이유를 같이 설명해 주면 받아들이기 쉬울 것 같아."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_jun_christian_phone_study_habit_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "targetKo": "그건 이해해. 이유를 같이 설명해 주면 받아들이기 쉬울 것 같아.",
+            "audioKo": "그건 이해해. 이유를 같이 설명해 주면 받아들이기 쉬울 것 같아.",
+            "promptDe": "Kann ich verstehen. Wenn man den Grund gleich mit erklärt, lässt es sich leichter akzeptieren.",
+            "promptEn": "I get that. It's probably easier to accept if they explain the reason too.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "a2_dongsun_christian_suspicious_delivery_text",
+      "level": "a2",
+      "emoji": "📦",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "수상한 택배 문자 확인하기",
+        "de": "Eine verdächtige Paket-SMS prüfen",
+        "en": "Checking a suspicious delivery text"
+      },
+      "intro": {
+        "ko": "동선과 크리스티안이 수상한 택배 문자를 링크 대신 공식 앱에서 확인해요.",
+        "de": "Dongsun und Christian prüfen eine verdächtige Paket-SMS direkt in der offiziellen App statt über den Link.",
+        "en": "Dongsun and Christian verify a suspicious delivery text in the official app instead of using the link."
+      },
+      "courseUnitId": "a2_05_delivery_services",
+      "playerCharacterId": "christian",
+      "participantIds": [
+        "christian",
+        "dongsun"
+      ],
+      "relationshipContext": "동선은 딸의 연인인 크리스티안을 친근하게 대하지만 존댓말을 쓴다. 크리스티안도 공손한 해요체로 답한다.",
+      "intent": "동선이 받은 급한 택배 문자를 링크 대신 공식 앱에서 확인하도록 돕는다.",
+      "shelf": "a2_delivery",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "택배"
+        },
+        {
+          "korean": "주소"
+        },
+        {
+          "korean": "링크"
+        },
+        {
+          "korean": "주문하다"
+        },
+        {
+          "korean": "앱"
+        },
+        {
+          "korean": "직접"
+        },
+        {
+          "korean": "확인하다"
+        },
+        {
+          "korean": "급하다"
+        }
+      ],
+      "conceptIds": [
+        "concept_a2_services"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a1_polite_prohibition"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-지 마세요",
+          "de": "Grammatik im Kontext: V-지 마세요",
+          "en": "Grammar in context: V-지 마세요"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-지 마세요 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Bitte etwas nicht tun: höfliche Aufforderung zu unterlassen",
+          "en": "Please don't do something: a polite request to refrain"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "dongsun",
+          "ko": "크리스티안, 이것 좀 봐줄래요? 택배 주소가 틀렸다고 문자가 왔네요. 빨리 이 링크로 다시 확인하라고 써 있어요.",
+          "de": "Christian, kannst du dir das mal ansehen? Ich habe eine Nachricht bekommen, dass die Lieferadresse falsch sei. Ich soll das ganz schnell über diesen Link bestätigen.",
+          "en": "Christian, could you take a look at this? I got a text saying the delivery address is wrong. It says I need to check it again through this link right away."
+        },
+        {
+          "speaker": "user",
+          "ko": "잠깐만요. 바로 누르지 마세요. 주문한 택배가 있어요?",
+          "de": "Moment. Klick noch nicht drauf. Erwartest du ein Paket?",
+          "en": "Hang on. Don't tap it yet. Are you expecting a package?"
+        },
+        {
+          "speaker": "dongsun",
+          "ko": "있기는 있는데 오늘 오는 건 아니에요.",
+          "de": "Ja, schon, aber es sollte heute nicht kommen.",
+          "en": "I am, but it's not supposed to arrive today."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 링크 말고 택배 앱에서 직접 확인해 봐요.",
+          "de": "Dann schauen wir lieber direkt in der Paket-App nach, statt den Link zu benutzen.",
+          "en": "Then let's check it directly in the delivery app instead of using the link."
+        },
+        {
+          "speaker": "dongsun",
+          "ko": "아이고, 급하다고 써 있어서 놀랐어요.",
+          "de": "Ach herrje, da stand 'dringend', deshalb habe ich mich erschrocken.",
+          "en": "Oh my, it said it was urgent, so it startled me."
+        },
+        {
+          "speaker": "user",
+          "ko": "급해 보여도 먼저 확인하는 게 좋을 것 같아요.",
+          "de": "Auch wenn es dringend aussieht, würde ich es erst einmal überprüfen.",
+          "en": "Even if it looks urgent, I think it's better to verify it first."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_dongsun_christian_suspicious_delivery_text_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a2_services"
+          ],
+          "data": {
+            "audioKo": "잠깐만요. 바로 누르지 마세요. 주문한 택배가 있어요?",
+            "options": [
+              {
+                "de": "Moment. Klick noch nicht drauf. Erwartest du ein Paket?",
+                "en": "Hang on. Don't tap it yet. Are you expecting a package?"
+              },
+              {
+                "de": "Christian, kannst du dir das mal ansehen? Ich habe eine Nachricht bekommen, dass die Lieferadresse falsch sei. Ich soll das ganz schnell über diesen Link bestätigen.",
+                "en": "Christian, could you take a look at this? I got a text saying the delivery address is wrong. It says I need to check it again through this link right away."
+              },
+              {
+                "de": "Ja, schon, aber es sollte heute nicht kommen.",
+                "en": "I am, but it's not supposed to arrive today."
+              },
+              {
+                "de": "Dann schauen wir lieber direkt in der Paket-App nach, statt den Link zu benutzen.",
+                "en": "Then let's check it directly in the delivery app instead of using the link."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_dongsun_christian_suspicious_delivery_text_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a2_services"
+          ],
+          "data": {
+            "promptDe": "Ach herrje, da stand 'dringend', deshalb habe ich mich erschrocken.",
+            "promptEn": "Oh my, it said it was urgent, so it startled me.",
+            "options": [
+              {
+                "ko": "아이고, 급하다고 써 있어서 놀랐어요."
+              },
+              {
+                "ko": "크리스티안, 이것 좀 봐줄래요? 택배 주소가 틀렸다고 문자가 왔네요. 빨리 이 링크로 다시 확인하라고 써 있어요."
+              },
+              {
+                "ko": "있기는 있는데 오늘 오는 건 아니에요."
+              },
+              {
+                "ko": "급해 보여도 먼저 확인하는 게 좋을 것 같아요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_dongsun_christian_suspicious_delivery_text_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a2_services"
+          ],
+          "data": {
+            "targetKo": "급해 보여도 먼저 확인하는 게 좋을 것 같아요.",
+            "audioKo": "급해 보여도 먼저 확인하는 게 좋을 것 같아요.",
+            "promptDe": "Auch wenn es dringend aussieht, würde ich es erst einmal überprüfen.",
+            "promptEn": "Even if it looks urgent, I think it's better to verify it first.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b1_christian_sujin_suspicious_text_followup",
+      "level": "b1",
+      "emoji": "🔐",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "title": {
+        "ko": "피싱 문자 확인 결과 나누기",
+        "de": "Das Ergebnis einer Phishing-Prüfung besprechen",
+        "en": "Sharing the result of a phishing check"
+      },
+      "intro": {
+        "ko": "크리스티안이 수진에게 피싱으로 보인 택배 문자와 공식 앱에서 확인한 결과를 알려 줘요.",
+        "de": "Christian erzählt Sujin von der verdächtigen Paket-SMS und dem Ergebnis der Prüfung in der offiziellen App.",
+        "en": "Christian tells Sujin about the suspicious delivery text and what he confirmed in the official app."
+      },
+      "courseUnitId": "b1_06_life_capstone",
+      "playerCharacterId": "christian",
+      "participantIds": [
+        "christian",
+        "sujin"
+      ],
+      "relationshipContext": "1년째 사귀는 연인 사이. 둘 다 자연스러운 반말을 쓰고, 크리스티안은 자신이 본 문자와 공식 앱에서 확인한 결과를 수진에게 공유한다.",
+      "intent": "동선의 수상한 문자 상황을 수진에게 공유하고, 공식 앱에서 확인한 실제 배송 정보와 함께 피싱 위험에 대해 이야기한다.",
+      "shelf": "b1_partner",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "보이스피싱"
+        },
+        {
+          "korean": "링크"
+        },
+        {
+          "korean": "개인정보"
+        },
+        {
+          "korean": "피싱"
+        },
+        {
+          "korean": "앱"
+        },
+        {
+          "korean": "고객센터"
+        },
+        {
+          "korean": "이메일"
+        },
+        {
+          "korean": "동선의"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_interrupted_action"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-다가",
+          "de": "Grammatik im Kontext: V-다가",
+          "en": "Grammar in context: V-다가"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-다가 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Eine Handlung wird unterbrochen und durch eine andere ersetzt. Beide Teilsätze haben dasselbe Subjekt.",
+          "en": "An action is interrupted and replaced by another. Both clauses have the same subject."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "수진아, 어머님이랑 대화 나누다가 문자를 봤는데, 보이스피싱 같아서 링크를 누르지 말라고 했어.",
+          "de": "Sujin, ich hab mich mit deiner Mutter unterhalten und dabei die Nachricht gesehen. Sie sah nach einer Phishing-SMS aus, also hab ich ihr gesagt, sie soll den Link nicht anklicken.",
+          "en": "Sujin, I was talking with your mom and saw the text she got. It looked like a phishing scam, so I told her not to tap the link."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "아, 정말? 와, 고마워. 요새 택배 문자로 링크 보내서 개인정보 빼가는 피싱도 있다던데.",
+          "de": "Echt? Wow, danke. Ich hab gehört, dass solche Phishing-SMS sich als Paketnachrichten ausgeben und über Links persönliche Daten abgreifen.",
+          "en": "Oh, really? Wow, thank you. I've heard there are phishing texts pretending to be delivery messages and trying to steal personal information through links."
+        },
+        {
+          "speaker": "user",
+          "ko": "아, 그러니까… 이런 문자로 개인정보가 유출될 수도 있으니까 정말 조심해야겠어.",
+          "de": "Ja, genau ... Wenn über solche Nachrichten persönliche Daten abgegriffen werden können, müssen wir echt vorsichtig sein.",
+          "en": "Yeah, exactly... If texts like that can lead to personal information being stolen, we really need to be careful."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "아무튼 고마워. 그래서 앱에서 확인해 보니까 그 문자가 가짜였어?",
+          "de": "Auf jeden Fall danke. Und als du in der App nachgesehen hast – war die Nachricht dann tatsächlich fake?",
+          "en": "Anyway, thanks. So when you checked in the app, did it turn out the text was fake?"
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 내가 앱 들어가서 확인했는데 아무 문제 없고, 목요일에 도착한다고 하더라고.",
+          "de": "Ja. In der App war alles in Ordnung, und da stand, dass das Paket am Donnerstag kommt.",
+          "en": "Yeah. I checked the app and everything was fine. It says the package will arrive Thursday."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "와, 대박… 진짜 큰일 날 뻔했네. 고마워, 크리스티안! 사랑해 ㅎㅎ 내가 택배회사 고객센터에 이메일이라도 써서 알려줘야겠다.",
+          "de": "Wow, krass ... Das hätte echt schiefgehen können. Danke, Christian! Lieb dich, haha. Ich sollte dem Kundenservice vom Paketdienst eine Mail schreiben und Bescheid sagen.",
+          "en": "Wow... that could've gone really badly. Thanks, Christian! Love you haha. I should email the delivery company's customer service and let them know."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_christian_sujin_suspicious_text_followup_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_life"
+          ],
+          "data": {
+            "audioKo": "아, 정말? 와, 고마워. 요새 택배 문자로 링크 보내서 개인정보 빼가는 피싱도 있다던데.",
+            "options": [
+              {
+                "de": "Echt? Wow, danke. Ich hab gehört, dass solche Phishing-SMS sich als Paketnachrichten ausgeben und über Links persönliche Daten abgreifen.",
+                "en": "Oh, really? Wow, thank you. I've heard there are phishing texts pretending to be delivery messages and trying to steal personal information through links."
+              },
+              {
+                "de": "Sujin, ich hab mich mit deiner Mutter unterhalten und dabei die Nachricht gesehen. Sie sah nach einer Phishing-SMS aus, also hab ich ihr gesagt, sie soll den Link nicht anklicken.",
+                "en": "Sujin, I was talking with your mom and saw the text she got. It looked like a phishing scam, so I told her not to tap the link."
+              },
+              {
+                "de": "Ja, genau ... Wenn über solche Nachrichten persönliche Daten abgegriffen werden können, müssen wir echt vorsichtig sein.",
+                "en": "Yeah, exactly... If texts like that can lead to personal information being stolen, we really need to be careful."
+              },
+              {
+                "de": "Auf jeden Fall danke. Und als du in der App nachgesehen hast – war die Nachricht dann tatsächlich fake?",
+                "en": "Anyway, thanks. So when you checked in the app, did it turn out the text was fake?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_christian_sujin_suspicious_text_followup_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_life"
+          ],
+          "data": {
+            "promptDe": "Ja. In der App war alles in Ordnung, und da stand, dass das Paket am Donnerstag kommt.",
+            "promptEn": "Yeah. I checked the app and everything was fine. It says the package will arrive Thursday.",
+            "options": [
+              {
+                "ko": "응. 내가 앱 들어가서 확인했는데 아무 문제 없고, 목요일에 도착한다고 하더라고."
+              },
+              {
+                "ko": "수진아, 어머님이랑 대화 나누다가 문자를 봤는데, 보이스피싱 같아서 링크를 누르지 말라고 했어."
+              },
+              {
+                "ko": "아, 그러니까… 이런 문자로 개인정보가 유출될 수도 있으니까 정말 조심해야겠어."
+              },
+              {
+                "ko": "와, 대박… 진짜 큰일 날 뻔했네. 고마워, 크리스티안! 사랑해 ㅎㅎ 내가 택배회사 고객센터에 이메일이라도 써서 알려줘야겠다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_christian_sujin_suspicious_text_followup_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_life"
+          ],
+          "data": {
+            "targetKo": "와, 대박… 진짜 큰일 날 뻔했네. 고마워, 크리스티안! 사랑해 ㅎㅎ 내가 택배회사 고객센터에 이메일이라도 써서 알려줘야겠다.",
+            "audioKo": "와, 대박… 진짜 큰일 날 뻔했네. 고마워, 크리스티안! 사랑해 ㅎㅎ 내가 택배회사 고객센터에 이메일이라도 써서 알려줘야겠다.",
+            "promptDe": "Wow, krass ... Das hätte echt schiefgehen können. Danke, Christian! Lieb dich, haha. Ich sollte dem Kundenservice vom Paketdienst eine Mail schreiben und Bescheid sagen.",
+            "promptEn": "Wow... that could've gone really badly. Thanks, Christian! Love you haha. I should email the delivery company's customer service and let them know.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b1_sujin_byeongcheol_family_verification_rule",
+      "level": "b1",
+      "emoji": "☎️",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "title": {
+        "ko": "가족 링크 확인 규칙 정하기",
+        "de": "Eine Familienregel zum Prüfen von Links festlegen",
+        "en": "Setting a family rule for checking links"
+      },
+      "intro": {
+        "ko": "수진과 병철이 가족에게 온 링크와 송금 요청을 먼저 확인하는 간단한 규칙을 정해요.",
+        "de": "Sujin und Byeongcheol vereinbaren eine einfache Familienregel: Links und Geldforderungen werden zuerst geprüft.",
+        "en": "Sujin and Byeongcheol agree on a simple family rule for checking links and money requests first."
+      },
+      "courseUnitId": "b1_06_life_capstone",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "byeongcheol"
+      ],
+      "relationshipContext": "부녀 관계. 둘 다 짧은 반말을 쓰며 가족 규칙을 간단하게 합의한다.",
+      "intent": "동선의 문자 경험을 계기로 가족끼리 급한 연락을 확인하는 간단한 원칙을 정한다.",
+      "shelf": "b1_partner",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "택배 문자"
+        },
+        {
+          "korean": "보이스피싱"
+        },
+        {
+          "korean": "링크"
+        },
+        {
+          "korean": "연락"
+        },
+        {
+          "korean": "직접"
+        },
+        {
+          "korean": "전화하다"
+        },
+        {
+          "korean": "규칙"
+        },
+        {
+          "korean": "동선의"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_conditional"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)면",
+          "de": "Grammatik im Kontext: V-(으)면",
+          "en": "Grammar in context: V-(으)면"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)면 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Wenn/Falls-Bedingung",
+          "en": "If / in case (a condition)"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "아빠, 엄마한테 이상한 택배 문자가 왔다는데 보이스피싱 같아.",
+          "de": "Papa, Mama hat so eine komische Paketnachricht bekommen. Sieht nach Phishing aus.",
+          "en": "Dad, Mom got a weird delivery text. It looks like a phishing scam."
+        },
+        {
+          "speaker": "byeongcheol",
+          "ko": "뭐? 링크 안 눌렀대지?",
+          "de": "Was? Sie hat den Link nicht angeklickt, oder?",
+          "en": "What? She didn't click the link, right?"
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 엄마한테 연락 와서 내가 누르지 말라고 했어.",
+          "de": "Nein. Sie hat mich angerufen, und ich hab ihr gesagt, sie soll nicht draufklicken.",
+          "en": "No. She called me, and I told her not to."
+        },
+        {
+          "speaker": "byeongcheol",
+          "ko": "그럼 됐다. 앞으로 무슨 링크가 오면 먼저 누르지 말고 확인부터 하자.",
+          "de": "Gut. Ab jetzt gilt: Wenn irgendein Link kommt, klicken wir nicht sofort drauf, sondern prüfen erst.",
+          "en": "Good. From now on, if any link comes in, let's not click it first. Let's verify it."
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 돈 보내 달라는 연락은 직접 전화해서 확인하고, 링크는 일단 거르자.",
+          "de": "Ja. Wenn jemand Geld verlangt, rufen wir direkt an und fragen nach. Links öffnen wir erst, wenn wir sie geprüft haben.",
+          "en": "Yeah. If someone asks us to send money, we call them directly to check, and we don't open links until we've verified them."
+        },
+        {
+          "speaker": "byeongcheol",
+          "ko": "그래, 맞아. 규칙은 간단해야 기억하기 쉽지.",
+          "de": "Genau. Einfache Regeln merkt man sich leichter.",
+          "en": "Exactly. Rules are easier to remember when they're simple."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_sujin_byeongcheol_family_verification_rule_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_life"
+          ],
+          "data": {
+            "audioKo": "뭐? 링크 안 눌렀대지?",
+            "options": [
+              {
+                "de": "Was? Sie hat den Link nicht angeklickt, oder?",
+                "en": "What? She didn't click the link, right?"
+              },
+              {
+                "de": "Papa, Mama hat so eine komische Paketnachricht bekommen. Sieht nach Phishing aus.",
+                "en": "Dad, Mom got a weird delivery text. It looks like a phishing scam."
+              },
+              {
+                "de": "Nein. Sie hat mich angerufen, und ich hab ihr gesagt, sie soll nicht draufklicken.",
+                "en": "No. She called me, and I told her not to."
+              },
+              {
+                "de": "Gut. Ab jetzt gilt: Wenn irgendein Link kommt, klicken wir nicht sofort drauf, sondern prüfen erst.",
+                "en": "Good. From now on, if any link comes in, let's not click it first. Let's verify it."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_sujin_byeongcheol_family_verification_rule_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_life"
+          ],
+          "data": {
+            "promptDe": "Ja. Wenn jemand Geld verlangt, rufen wir direkt an und fragen nach. Links öffnen wir erst, wenn wir sie geprüft haben.",
+            "promptEn": "Yeah. If someone asks us to send money, we call them directly to check, and we don't open links until we've verified them.",
+            "options": [
+              {
+                "ko": "응. 돈 보내 달라는 연락은 직접 전화해서 확인하고, 링크는 일단 거르자."
+              },
+              {
+                "ko": "아빠, 엄마한테 이상한 택배 문자가 왔다는데 보이스피싱 같아."
+              },
+              {
+                "ko": "응. 엄마한테 연락 와서 내가 누르지 말라고 했어."
+              },
+              {
+                "ko": "그래, 맞아. 규칙은 간단해야 기억하기 쉽지."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_sujin_byeongcheol_family_verification_rule_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_life"
+          ],
+          "data": {
+            "targetKo": "그래, 맞아. 규칙은 간단해야 기억하기 쉽지.",
+            "audioKo": "그래, 맞아. 규칙은 간단해야 기억하기 쉽지.",
+            "promptDe": "Genau. Einfache Regeln merkt man sich leichter.",
+            "promptEn": "Exactly. Rules are easier to remember when they're simple.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b1_andrea_minho_friday_schedule",
+      "level": "b1",
+      "emoji": "🗓️",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "title": {
+        "ko": "금요일 오후 일정 맞추기",
+        "de": "Den Freitagnachmittag abstimmen",
+        "en": "Coordinating Friday afternoon"
+      },
+      "intro": {
+        "ko": "안드레아와 민호가 금요일 근무시간 변화 가능성을 가족 일정과 함께 조율해요.",
+        "de": "Andrea und Minho stimmen eine mögliche Änderung der Freitagsarbeitszeit mit ihrem Familienplan ab.",
+        "en": "Andrea and Minho coordinate a possible change in Friday work hours with their family schedule."
+      },
+      "courseUnitId": "b1_04_relationships",
+      "playerCharacterId": "andrea",
+      "participantIds": [
+        "andrea",
+        "minho"
+      ],
+      "relationshipContext": "부부가 집에서 자연스러운 반말로 회사 얘기와 금요일 가족 일정을 조율한다.",
+      "intent": "안드레아가 회사에서 근무시간 단축 방식이 논의되는 상황을 말하고 금요일 가족 일정을 민호와 조율한다.",
+      "shelf": "b1_partner",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "금요일 오후"
+        },
+        {
+          "korean": "회의"
+        },
+        {
+          "korean": "안드레아가"
+        },
+        {
+          "korean": "회사에서"
+        },
+        {
+          "korean": "근무시간"
+        },
+        {
+          "korean": "단축"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_conditional"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)면",
+          "de": "Grammatik im Kontext: V-(으)면",
+          "en": "Grammar in context: V-(으)면"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)면 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Wenn/Falls-Bedingung",
+          "en": "If / in case (a condition)"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "요즘 회사에서 금요일 오후를 어떻게 할지 얘기가 계속 나와.",
+          "de": "Bei uns in der Firma reden sie in letzter Zeit ständig darüber, was mit dem Freitagnachmittag passieren soll.",
+          "en": "Lately at work they keep talking about what to do with Friday afternoons."
+        },
+        {
+          "speaker": "minho",
+          "ko": "오, 드디어 금요일에 당신 얼굴 좀 일찍 보는 거야?",
+          "de": "Oh, sehe ich dich freitags dann endlich mal früher?",
+          "en": "Oh, does that mean I finally get to see you a little earlier on Fridays?"
+        },
+        {
+          "speaker": "user",
+          "ko": "회의부터 줄이면 가능하지. 시간만 줄이고 일 그대로면 목요일 밤에 얼굴도 못 봐.",
+          "de": "Vielleicht, wenn wir zuerst die Meetings kürzen. Wenn nur die Arbeitszeit kürzer wird, die Arbeit aber gleich bleibt, siehst du mich Donnerstagabend gar nicht mehr.",
+          "en": "Maybe, if we cut the meetings first. If they just cut the hours but keep the same workload, you won't even see me Thursday night."
+        },
+        {
+          "speaker": "minho",
+          "ko": "그건 싫은데. 그럼 회의 몇 개부터 없애야겠네.",
+          "de": "Das will ich nicht. Dann müssen wohl zuerst ein paar Meetings weg.",
+          "en": "I don't like that. Then a few meetings need to go first."
+        },
+        {
+          "speaker": "user",
+          "ko": "그래서 실제로 몇 개 없애자는 얘기가 나왔어. 금요일 오후 비면 준이랑 일찍 먹자.",
+          "de": "Genau darüber reden sie tatsächlich schon. Wenn der Freitagnachmittag frei wird, lass uns mit Jun früher essen.",
+          "en": "That's actually what they're talking about—dropping a few of them. If Friday afternoon opens up, let's eat early with Jun."
+        },
+        {
+          "speaker": "minho",
+          "ko": "좋아. 준이 우리보다 먼저 약속 잡기 전에 빨리 물어보자.",
+          "de": "Gut. Fragen wir ihn schnell, bevor er schon ohne uns was ausmacht.",
+          "en": "Sounds good. Let's ask him before he makes plans without us."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_andrea_minho_friday_schedule_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "audioKo": "오, 드디어 금요일에 당신 얼굴 좀 일찍 보는 거야?",
+            "options": [
+              {
+                "de": "Oh, sehe ich dich freitags dann endlich mal früher?",
+                "en": "Oh, does that mean I finally get to see you a little earlier on Fridays?"
+              },
+              {
+                "de": "Bei uns in der Firma reden sie in letzter Zeit ständig darüber, was mit dem Freitagnachmittag passieren soll.",
+                "en": "Lately at work they keep talking about what to do with Friday afternoons."
+              },
+              {
+                "de": "Vielleicht, wenn wir zuerst die Meetings kürzen. Wenn nur die Arbeitszeit kürzer wird, die Arbeit aber gleich bleibt, siehst du mich Donnerstagabend gar nicht mehr.",
+                "en": "Maybe, if we cut the meetings first. If they just cut the hours but keep the same workload, you won't even see me Thursday night."
+              },
+              {
+                "de": "Das will ich nicht. Dann müssen wohl zuerst ein paar Meetings weg.",
+                "en": "I don't like that. Then a few meetings need to go first."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_andrea_minho_friday_schedule_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "promptDe": "Genau darüber reden sie tatsächlich schon. Wenn der Freitagnachmittag frei wird, lass uns mit Jun früher essen.",
+            "promptEn": "That's actually what they're talking about—dropping a few of them. If Friday afternoon opens up, let's eat early with Jun.",
+            "options": [
+              {
+                "ko": "그래서 실제로 몇 개 없애자는 얘기가 나왔어. 금요일 오후 비면 준이랑 일찍 먹자."
+              },
+              {
+                "ko": "요즘 회사에서 금요일 오후를 어떻게 할지 얘기가 계속 나와."
+              },
+              {
+                "ko": "회의부터 줄이면 가능하지. 시간만 줄이고 일 그대로면 목요일 밤에 얼굴도 못 봐."
+              },
+              {
+                "ko": "좋아. 준이 우리보다 먼저 약속 잡기 전에 빨리 물어보자."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_andrea_minho_friday_schedule_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "targetKo": "좋아. 준이 우리보다 먼저 약속 잡기 전에 빨리 물어보자.",
+            "audioKo": "좋아. 준이 우리보다 먼저 약속 잡기 전에 빨리 물어보자.",
+            "promptDe": "Gut. Fragen wir ihn schnell, bevor er schon ohne uns was ausmacht.",
+            "promptEn": "Sounds good. Let's ask him before he makes plans without us.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b2_sujin_minho_shorter_hours_tradeoff",
+      "level": "b2",
+      "emoji": "⏱️",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "근무시간 단축의 조건 따져 보기",
+        "de": "Bedingungen kürzerer Arbeitszeiten abwägen",
+        "en": "Weighing the conditions for shorter hours"
+      },
+      "intro": {
+        "ko": "수진과 민호가 근무시간을 줄일 때 업무량과 회의를 함께 줄여야 하는지 이야기해요.",
+        "de": "Sujin und Minho sprechen darüber, ob bei kürzeren Arbeitszeiten auch Arbeitsmenge und Meetings sinken müssen.",
+        "en": "Sujin and Minho discuss whether shorter working hours also require cutting workload and meetings."
+      },
+      "courseUnitId": "b2_02_professional_opinion",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "sujin",
+        "minho"
+      ],
+      "relationshipContext": "예전 팀장과 전 팀원. 현재 보고·평가 관계는 없고 서로 존댓말로 경험을 나눈다.",
+      "intent": "근무시간을 줄일 때 업무량·회의·인수인계를 어떻게 함께 조정해야 하는지 전 직장 경험을 바탕으로 이야기한다.",
+      "shelf": "b2_meeting",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "근무시간"
+        },
+        {
+          "korean": "업무"
+        },
+        {
+          "korean": "근무시간을"
+        },
+        {
+          "korean": "줄일"
+        },
+        {
+          "korean": "업무량·회의·인수인계를"
+        },
+        {
+          "korean": "어떻게"
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_conditional"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)면",
+          "de": "Grammatik im Kontext: V-(으)면",
+          "en": "Grammar in context: V-(으)면"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)면 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Wenn/Falls-Bedingung",
+          "en": "If / in case (a condition)"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "팀장님, 요즘 근무시간 줄이는 얘기 많잖아요. 예전 팀이면 뭐부터 없애셨을 것 같아요?",
+          "de": "Es wird ja gerade viel über kürzere Arbeitszeiten gesprochen. Was hätten Sie in unserem alten Team wohl als Erstes gestrichen?",
+          "en": "There's a lot of talk about shorter working hours these days. If it were our old team, what do you think you would've cut first?"
+        },
+        {
+          "speaker": "minho",
+          "ko": "회의요. 회의 하나 줄이면 다들 표정이 먼저 좋아졌을 겁니다.",
+          "de": "Meetings. Wenn man nur ein Meeting streicht, werden die Gesichter meistens als Erstes entspannter.",
+          "en": "Meetings. Cut one meeting and people's faces would've brightened first."
+        },
+        {
+          "speaker": "user",
+          "ko": "역시요. 금요일 비워 놓고 목요일 밤까지 일하면 이름만 4.5일제잖아요.",
+          "de": "Das dachte ich mir. Wenn der Freitag frei ist, man dafür aber bis Donnerstagabend arbeitet, ist es nur dem Namen nach eine Viereinhalb-Tage-Woche.",
+          "en": "I knew it. If Friday is free but everyone works until Thursday night, it's a four-and-a-half-day week in name only."
+        },
+        {
+          "speaker": "minho",
+          "ko": "그렇죠. 업무량 그대로 두면 결국 누군가 몰아서 하게 됩니다.",
+          "de": "Genau. Wenn die Arbeitsmenge gleich bleibt, muss am Ende jemand alles in kürzerer Zeit schaffen.",
+          "en": "Exactly. If the workload stays the same, someone ends up cramming it all in."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 근무시간보다 ‘안 할 일 목록’부터 만들어야겠네요.",
+          "de": "Dann brauchen wir vielleicht erst eine 'Was wir nicht machen'-Liste, bevor wir die Arbeitszeit kürzen.",
+          "en": "Then maybe we need a 'not doing' list before we need shorter hours."
+        },
+        {
+          "speaker": "minho",
+          "ko": "맞아요. 할 일 목록보다 안 할 일 목록이 더 어려울 때가 많죠.",
+          "de": "Stimmt. So eine Nicht-tun-Liste ist oft schwieriger als die To-do-Liste.",
+          "en": "Right. Sometimes the 'not doing' list is harder than the to-do list."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_sujin_minho_shorter_hours_tradeoff_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "audioKo": "회의요. 회의 하나 줄이면 다들 표정이 먼저 좋아졌을 겁니다.",
+            "options": [
+              {
+                "de": "Meetings. Wenn man nur ein Meeting streicht, werden die Gesichter meistens als Erstes entspannter.",
+                "en": "Meetings. Cut one meeting and people's faces would've brightened first."
+              },
+              {
+                "de": "Es wird ja gerade viel über kürzere Arbeitszeiten gesprochen. Was hätten Sie in unserem alten Team wohl als Erstes gestrichen?",
+                "en": "There's a lot of talk about shorter working hours these days. If it were our old team, what do you think you would've cut first?"
+              },
+              {
+                "de": "Das dachte ich mir. Wenn der Freitag frei ist, man dafür aber bis Donnerstagabend arbeitet, ist es nur dem Namen nach eine Viereinhalb-Tage-Woche.",
+                "en": "I knew it. If Friday is free but everyone works until Thursday night, it's a four-and-a-half-day week in name only."
+              },
+              {
+                "de": "Genau. Wenn die Arbeitsmenge gleich bleibt, muss am Ende jemand alles in kürzerer Zeit schaffen.",
+                "en": "Exactly. If the workload stays the same, someone ends up cramming it all in."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_sujin_minho_shorter_hours_tradeoff_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "promptDe": "Dann brauchen wir vielleicht erst eine 'Was wir nicht machen'-Liste, bevor wir die Arbeitszeit kürzen.",
+            "promptEn": "Then maybe we need a 'not doing' list before we need shorter hours.",
+            "options": [
+              {
+                "ko": "그럼 근무시간보다 ‘안 할 일 목록’부터 만들어야겠네요."
+              },
+              {
+                "ko": "팀장님, 요즘 근무시간 줄이는 얘기 많잖아요. 예전 팀이면 뭐부터 없애셨을 것 같아요?"
+              },
+              {
+                "ko": "역시요. 금요일 비워 놓고 목요일 밤까지 일하면 이름만 4.5일제잖아요."
+              },
+              {
+                "ko": "맞아요. 할 일 목록보다 안 할 일 목록이 더 어려울 때가 많죠."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_sujin_minho_shorter_hours_tradeoff_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "targetKo": "맞아요. 할 일 목록보다 안 할 일 목록이 더 어려울 때가 많죠.",
+            "audioKo": "맞아요. 할 일 목록보다 안 할 일 목록이 더 어려울 때가 많죠.",
+            "promptDe": "Stimmt. So eine Nicht-tun-Liste ist oft schwieriger als die To-do-Liste.",
+            "promptEn": "Right. Sometimes the 'not doing' list is harder than the to-do list.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b2_hyuna_andrea_work_family_choices",
+      "level": "b2",
+      "emoji": "⚖️",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "통계와 개인 선택 구분하기",
+        "de": "Statistik und persönliche Entscheidungen auseinanderhalten",
+        "en": "Separating statistics from personal choices"
+      },
+      "intro": {
+        "ko": "현아와 안드레아가 통계가 보여 주는 흐름과 개인의 서로 다른 선택 조건을 구분해요.",
+        "de": "Hyuna und Andrea unterscheiden statistische Trends von den unterschiedlichen Bedingungen persönlicher Entscheidungen.",
+        "en": "Hyuna and Andrea distinguish statistical trends from the different conditions behind personal choices."
+      },
+      "courseUnitId": "b2_02_professional_opinion",
+      "playerCharacterId": "hyuna",
+      "participantIds": [
+        "hyuna",
+        "andrea"
+      ],
+      "relationshipContext": "독일과 한국 생활 경험을 비교해 보는 지인. 서로 차분한 해요체를 쓴다.",
+      "intent": "출생 관련 통계와 실제 개인의 일·가정 선택을 같은 것으로 보지 않고 이야기한다.",
+      "shelf": "b2_public",
+      "backdrop": "cafe",
+      "vocab": [
+        {
+          "korean": "출생"
+        },
+        {
+          "korean": "선택"
+        },
+        {
+          "korean": "집값"
+        },
+        {
+          "korean": "돌봄"
+        },
+        {
+          "korean": "통계"
+        },
+        {
+          "korean": "관련"
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_conditional"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)면",
+          "de": "Grammatik im Kontext: V-(으)면",
+          "en": "Grammar in context: V-(으)면"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)면 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Wenn/Falls-Bedingung",
+          "en": "If / in case (a condition)"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "요즘 출생이나 일과 가정 얘기 나오면 숫자부터 앞에 나오잖아요.",
+          "de": "Wenn heute über Geburten oder die Vereinbarkeit von Arbeit und Familie gesprochen wird, stehen zuerst immer die Zahlen im Raum.",
+          "en": "Whenever people talk about births or work and family these days, the numbers come first."
+        },
+        {
+          "speaker": "andrea",
+          "ko": "맞아요. 숫자는 깔끔한데 사람 사는 건 별로 안 깔끔하죠.",
+          "de": "Stimmt. Zahlen sind schön ordentlich, das Leben der Leute eher nicht.",
+          "en": "True. Numbers are neat. Real life usually isn't."
+        },
+        {
+          "speaker": "user",
+          "ko": "그렇죠. 일하는 시간, 집값, 돌봄이 한꺼번에 움직이니까요.",
+          "de": "Genau. Arbeitszeit, Wohnkosten und Betreuung hängen ja alles zusammen.",
+          "en": "Exactly. Working hours, housing costs, and caregiving all move together."
+        },
+        {
+          "speaker": "andrea",
+          "ko": "저도 아이가 있지만 제 경험을 정답처럼 말하면 바로 틀릴 것 같아요.",
+          "de": "Ich habe selbst ein Kind, aber wenn ich meine Erfahrung als die richtige Antwort verkaufen würde, läge ich wahrscheinlich sofort daneben.",
+          "en": "I have a child too, but if I treated my experience like the answer, I'd probably be wrong right away."
+        },
+        {
+          "speaker": "user",
+          "ko": "그러니까요. 통계는 흐름은 보여 줘도 사람마다 다른 ‘왜’까지 말해 주진 않잖아요.",
+          "de": "Eben. Statistiken zeigen Trends, aber nicht das unterschiedliche 'Warum' jedes einzelnen Menschen.",
+          "en": "Exactly. Statistics can show a trend, but they don't explain every person's different 'why'."
+        },
+        {
+          "speaker": "andrea",
+          "ko": "네. 결국 실제로 선택할 수 있는 조건이 있는지가 더 중요하죠.",
+          "de": "Ja. Am Ende ist wichtiger, ob man überhaupt echte Wahlmöglichkeiten hat.",
+          "en": "Right. In the end, what matters more is whether people actually have the conditions to choose."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_hyuna_andrea_work_family_choices_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "audioKo": "맞아요. 숫자는 깔끔한데 사람 사는 건 별로 안 깔끔하죠.",
+            "options": [
+              {
+                "de": "Stimmt. Zahlen sind schön ordentlich, das Leben der Leute eher nicht.",
+                "en": "True. Numbers are neat. Real life usually isn't."
+              },
+              {
+                "de": "Wenn heute über Geburten oder die Vereinbarkeit von Arbeit und Familie gesprochen wird, stehen zuerst immer die Zahlen im Raum.",
+                "en": "Whenever people talk about births or work and family these days, the numbers come first."
+              },
+              {
+                "de": "Genau. Arbeitszeit, Wohnkosten und Betreuung hängen ja alles zusammen.",
+                "en": "Exactly. Working hours, housing costs, and caregiving all move together."
+              },
+              {
+                "de": "Ich habe selbst ein Kind, aber wenn ich meine Erfahrung als die richtige Antwort verkaufen würde, läge ich wahrscheinlich sofort daneben.",
+                "en": "I have a child too, but if I treated my experience like the answer, I'd probably be wrong right away."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hyuna_andrea_work_family_choices_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "promptDe": "Eben. Statistiken zeigen Trends, aber nicht das unterschiedliche 'Warum' jedes einzelnen Menschen.",
+            "promptEn": "Exactly. Statistics can show a trend, but they don't explain every person's different 'why'.",
+            "options": [
+              {
+                "ko": "그러니까요. 통계는 흐름은 보여 줘도 사람마다 다른 ‘왜’까지 말해 주진 않잖아요."
+              },
+              {
+                "ko": "요즘 출생이나 일과 가정 얘기 나오면 숫자부터 앞에 나오잖아요."
+              },
+              {
+                "ko": "그렇죠. 일하는 시간, 집값, 돌봄이 한꺼번에 움직이니까요."
+              },
+              {
+                "ko": "네. 결국 실제로 선택할 수 있는 조건이 있는지가 더 중요하죠."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hyuna_andrea_work_family_choices_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "targetKo": "네. 결국 실제로 선택할 수 있는 조건이 있는지가 더 중요하죠.",
+            "audioKo": "네. 결국 실제로 선택할 수 있는 조건이 있는지가 더 중요하죠.",
+            "promptDe": "Ja. Am Ende ist wichtiger, ob man überhaupt echte Wahlmöglichkeiten hat.",
+            "promptEn": "Right. In the end, what matters more is whether people actually have the conditions to choose.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b1_andrea_minho_family_calendar",
+      "level": "b1",
+      "emoji": "📅",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "title": {
+        "ko": "가족 일정을 셋이 맞추기",
+        "de": "Den Familienkalender zu dritt abstimmen",
+        "en": "Coordinating the family calendar together"
+      },
+      "intro": {
+        "ko": "안드레아와 민호가 준의 의견도 포함해 가족 일정을 함께 맞추기로 해요.",
+        "de": "Andrea und Minho beschließen, den Familienkalender gemeinsam mit Jun abzustimmen.",
+        "en": "Andrea and Minho decide to coordinate the family schedule together with Jun."
+      },
+      "courseUnitId": "b1_04_relationships",
+      "playerCharacterId": "andrea",
+      "participantIds": [
+        "andrea",
+        "minho"
+      ],
+      "relationshipContext": "부부가 집에서 반말로 준의 일정과 자기 업무를 함께 조율한다.",
+      "intent": "한 주의 업무·가족 일정을 한쪽에게 몰지 않고 다시 나눈다.",
+      "shelf": "b1_partner",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "학원"
+        },
+        {
+          "korean": "회의"
+        },
+        {
+          "korean": "일정"
+        },
+        {
+          "korean": "주의"
+        },
+        {
+          "korean": "업무·가족"
+        },
+        {
+          "korean": "일정을"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_promise"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ게요",
+          "de": "Grammatik im Kontext: V-(으)ㄹ게요",
+          "en": "Grammar in context: V-(으)ㄹ게요"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)ㄹ게요 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Ich werde mal / Ich mache das: Ankündigung der eigenen Absicht",
+          "en": "I'll go ahead and / I'll do that: announcing one's own intention"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "다음 주 화요일 나 늦어. 준 학원 끝나는 시간 당신 괜찮아?",
+          "de": "Nächsten Dienstag wird's bei mir spät. Kannst du Jun abholen, wenn sein Kurs vorbei ist?",
+          "en": "I'm going to be late next Tuesday. Can you pick Jun up when his course finishes?"
+        },
+        {
+          "speaker": "minho",
+          "ko": "화요일은 내가 갈 수 있어. 대신 목요일은 회의가 늦게 끝나.",
+          "de": "Dienstag kann ich. Dafür geht meine Besprechung am Donnerstag länger.",
+          "en": "I can do Tuesday. But my meeting runs late Thursday."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 목요일 저녁은 내가 맡을게. 준도 자기 일정 먼저 확인하라고 하고.",
+          "de": "Dann übernehme ich Donnerstagabend. Und Jun soll auch erst mal seinen eigenen Plan checken.",
+          "en": "Then I'll handle Thursday evening. And let's have Jun check his own schedule first too."
+        },
+        {
+          "speaker": "minho",
+          "ko": "좋아. 이번엔 우리 둘이 준 일정까지 다 짜지 말고 셋이 같이 보자.",
+          "de": "Gut. Diesmal planen wir seinen ganzen Kalender nicht zu zweit, sondern schauen ihn uns zu dritt an.",
+          "en": "Good. This time let's not plan Jun's whole schedule between the two of us. Let's look at it together, all three of us."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아. 나 혼자 가족 캘린더 역할 하긴 싫어.",
+          "de": "Genau. Ich will nicht allein der Familienkalender sein.",
+          "en": "Exactly. I don't want to be the family calendar by myself."
+        },
+        {
+          "speaker": "minho",
+          "ko": "알겠어. 오늘은 준까지 불러서 셋이 정리하자.",
+          "de": "Verstanden. Dann holen wir Jun heute dazu und sortieren es zu dritt.",
+          "en": "Got it. Let's get Jun and sort it out together tonight."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_andrea_minho_family_calendar_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "audioKo": "화요일은 내가 갈 수 있어. 대신 목요일은 회의가 늦게 끝나.",
+            "options": [
+              {
+                "de": "Dienstag kann ich. Dafür geht meine Besprechung am Donnerstag länger.",
+                "en": "I can do Tuesday. But my meeting runs late Thursday."
+              },
+              {
+                "de": "Nächsten Dienstag wird's bei mir spät. Kannst du Jun abholen, wenn sein Kurs vorbei ist?",
+                "en": "I'm going to be late next Tuesday. Can you pick Jun up when his course finishes?"
+              },
+              {
+                "de": "Dann übernehme ich Donnerstagabend. Und Jun soll auch erst mal seinen eigenen Plan checken.",
+                "en": "Then I'll handle Thursday evening. And let's have Jun check his own schedule first too."
+              },
+              {
+                "de": "Gut. Diesmal planen wir seinen ganzen Kalender nicht zu zweit, sondern schauen ihn uns zu dritt an.",
+                "en": "Good. This time let's not plan Jun's whole schedule between the two of us. Let's look at it together, all three of us."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_andrea_minho_family_calendar_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "promptDe": "Genau. Ich will nicht allein der Familienkalender sein.",
+            "promptEn": "Exactly. I don't want to be the family calendar by myself.",
+            "options": [
+              {
+                "ko": "맞아. 나 혼자 가족 캘린더 역할 하긴 싫어."
+              },
+              {
+                "ko": "다음 주 화요일 나 늦어. 준 학원 끝나는 시간 당신 괜찮아?"
+              },
+              {
+                "ko": "그럼 목요일 저녁은 내가 맡을게. 준도 자기 일정 먼저 확인하라고 하고."
+              },
+              {
+                "ko": "알겠어. 오늘은 준까지 불러서 셋이 정리하자."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_andrea_minho_family_calendar_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "targetKo": "알겠어. 오늘은 준까지 불러서 셋이 정리하자.",
+            "audioKo": "알겠어. 오늘은 준까지 불러서 셋이 정리하자.",
+            "promptDe": "Verstanden. Dann holen wir Jun heute dazu und sortieren es zu dritt.",
+            "promptEn": "Got it. Let's get Jun and sort it out together tonight.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b1_dongsun_sujin_repair_price",
+      "level": "b1",
+      "emoji": "🛠️",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "수리 가격 다시 계산하기",
+        "de": "Reparaturpreise neu durchrechnen",
+        "en": "Reworking repair prices"
+      },
+      "intro": {
+        "ko": "동선과 수진이 재료비와 작업시간을 보며 어떤 수리 가격부터 조정할지 정해요.",
+        "de": "Dongsun und Sujin überlegen anhand von Materialkosten und Arbeitszeit, welche Reparaturpreise zuerst angepasst werden sollten.",
+        "en": "Dongsun and Sujin use material costs and work time to decide which repair prices should change first."
+      },
+      "courseUnitId": "b1_03_work_softening",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "dongsun",
+        "sujin"
+      ],
+      "relationshipContext": "엄마와 딸이 가게 일을 두고 편한 반말로 이야기한다.",
+      "intent": "동선이 재료비·인건비 부담 때문에 수선 가격표를 다시 보려는 고민을 수진에게 말한다.",
+      "shelf": "b1_repair",
+      "backdrop": "market",
+      "vocab": [
+        {
+          "korean": "수선"
+        },
+        {
+          "korean": "가격표"
+        },
+        {
+          "korean": "재료값"
+        },
+        {
+          "korean": "계산하다"
+        },
+        {
+          "korean": "동선이"
+        },
+        {
+          "korean": "재료비·인건비"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_b1_intention"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)려고",
+          "de": "Grammatik im Kontext: V-(으)려고",
+          "en": "Grammar in context: V-(으)려고"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)려고 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Um zu (Ziel einer Handlung)",
+          "en": "In order to (the goal of an action)"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "dongsun",
+          "ko": "수진아, 엄마 수선 가격표 좀 다시 보려고.",
+          "de": "Sujin, ich will meine Preisliste für Reparaturen noch mal durchgehen.",
+          "en": "Sujin, I'm thinking of taking another look at my repair price list."
+        },
+        {
+          "speaker": "user",
+          "ko": "왜? 또 재료값 올랐어?",
+          "de": "Warum? Sind die Materialkosten schon wieder gestiegen?",
+          "en": "Why? Did material costs go up again?"
+        },
+        {
+          "speaker": "dongsun",
+          "ko": "재료값도 그렇고 사람 도움 받을 때 드는 돈도 그렇지. 근데 가격 올리자니 손님 얼굴부터 떠올라.",
+          "de": "Die auch, und Hilfe kostet natürlich ebenfalls. Aber sobald ich an höhere Preise denke, sehe ich zuerst die Gesichter meiner Kundschaft vor mir.",
+          "en": "Materials, yes, and paying for help costs more too. But when I think about raising prices, I picture my customers' faces first."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 다 올리지 말고 오래 걸리는 수선부터 계산해 봐.",
+          "de": "Dann erhöh nicht alles. Rechne zuerst die Reparaturen durch, die besonders lange dauern.",
+          "en": "Then don't raise everything. Start by working out the repairs that take the longest."
+        },
+        {
+          "speaker": "dongsun",
+          "ko": "나도 그 생각이야. 하나 고치다가 내가 먼저 고장 나겠다 싶은 것부터.",
+          "de": "Genau das dachte ich auch. Erst die, bei denen ich denke: Bevor das Ding repariert ist, bin ich selbst kaputt.",
+          "en": "That's what I was thinking. Start with the ones where I feel like I'll break before the thing I'm fixing does."
+        },
+        {
+          "speaker": "user",
+          "ko": "그건 올려야겠네 ㅋㅋ. 대신 왜 바뀌는지만 손님한테 짧게 알려 줘.",
+          "de": "Die musst du wohl wirklich anheben, haha. Sag den Kunden einfach kurz, warum sich der Preis ändert.",
+          "en": "Yeah, those probably need to go up haha. Just give customers a short explanation of why."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_dongsun_sujin_repair_price_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "audioKo": "왜? 또 재료값 올랐어?",
+            "options": [
+              {
+                "de": "Warum? Sind die Materialkosten schon wieder gestiegen?",
+                "en": "Why? Did material costs go up again?"
+              },
+              {
+                "de": "Sujin, ich will meine Preisliste für Reparaturen noch mal durchgehen.",
+                "en": "Sujin, I'm thinking of taking another look at my repair price list."
+              },
+              {
+                "de": "Die auch, und Hilfe kostet natürlich ebenfalls. Aber sobald ich an höhere Preise denke, sehe ich zuerst die Gesichter meiner Kundschaft vor mir.",
+                "en": "Materials, yes, and paying for help costs more too. But when I think about raising prices, I picture my customers' faces first."
+              },
+              {
+                "de": "Dann erhöh nicht alles. Rechne zuerst die Reparaturen durch, die besonders lange dauern.",
+                "en": "Then don't raise everything. Start by working out the repairs that take the longest."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_dongsun_sujin_repair_price_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "promptDe": "Genau das dachte ich auch. Erst die, bei denen ich denke: Bevor das Ding repariert ist, bin ich selbst kaputt.",
+            "promptEn": "That's what I was thinking. Start with the ones where I feel like I'll break before the thing I'm fixing does.",
+            "options": [
+              {
+                "ko": "나도 그 생각이야. 하나 고치다가 내가 먼저 고장 나겠다 싶은 것부터."
+              },
+              {
+                "ko": "수진아, 엄마 수선 가격표 좀 다시 보려고."
+              },
+              {
+                "ko": "재료값도 그렇고 사람 도움 받을 때 드는 돈도 그렇지. 근데 가격 올리자니 손님 얼굴부터 떠올라."
+              },
+              {
+                "ko": "그건 올려야겠네 ㅋㅋ. 대신 왜 바뀌는지만 손님한테 짧게 알려 줘."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_dongsun_sujin_repair_price_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "targetKo": "그건 올려야겠네 ㅋㅋ. 대신 왜 바뀌는지만 손님한테 짧게 알려 줘.",
+            "audioKo": "그건 올려야겠네 ㅋㅋ. 대신 왜 바뀌는지만 손님한테 짧게 알려 줘.",
+            "promptDe": "Die musst du wohl wirklich anheben, haha. Sag den Kunden einfach kurz, warum sich der Preis ändert.",
+            "promptEn": "Yeah, those probably need to go up haha. Just give customers a short explanation of why.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b1_dongsun_maya_price_notice",
+      "level": "b1",
+      "emoji": "🏷️",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "가격 변경 안내문 다듬기",
+        "de": "Eine Preisänderung klar ankündigen",
+        "en": "Writing a clear price-change notice"
+      },
+      "intro": {
+        "ko": "동선과 마야가 손님이 이해하기 쉬운 가격 변경 안내 문구를 만들어요.",
+        "de": "Dongsun und Maya formulieren eine klare Preisänderungsankündigung für die Kundschaft.",
+        "en": "Dongsun and Maya write a clear price-change notice for customers."
+      },
+      "courseUnitId": "b1_03_work_softening",
+      "playerCharacterId": "maya",
+      "participantIds": [
+        "dongsun",
+        "maya"
+      ],
+      "relationshipContext": "가게 홍보 조언을 주고받는 사이. 서로 해요체를 쓴다.",
+      "intent": "수선 가격 변경 안내를 손님에게 부담스럽지 않게 전달할 문구를 함께 정한다.",
+      "shelf": "b1_team",
+      "backdrop": "market",
+      "vocab": [
+        {
+          "korean": "수선 가격"
+        },
+        {
+          "korean": "조정되다"
+        },
+        {
+          "korean": "맡기다"
+        },
+        {
+          "korean": "안내하다"
+        },
+        {
+          "korean": "안심되다"
+        },
+        {
+          "korean": "수선"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_b1_before"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-기 전에",
+          "de": "Grammatik im Kontext: V-기 전에",
+          "en": "Grammar in context: V-기 전에"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-기 전에 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Bevor etwas getan wird",
+          "en": "Before something is done"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "dongsun",
+          "ko": "마야 씨, 수선 가격 조금 바꾸려고 하는데 공지까지 무서우면 손님 다 도망가겠죠?",
+          "de": "Maya, ich will ein paar Reparaturpreise ändern. Wenn schon die Ankündigung abschreckend klingt, laufen mir doch alle Kunden weg, oder?",
+          "en": "Maya, I'm thinking of changing some repair prices, but if even the notice sounds scary, all my customers will run away, right?"
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 공지부터 안 무섭게 만들죠. 언제부터 어떤 수선 가격이 바뀌는지만 먼저 써요.",
+          "de": "Dann machen wir zuerst die Ankündigung weniger abschreckend. Schreiben Sie einfach, ab wann sich welche Reparaturpreise ändern.",
+          "en": "Then let's make the notice less scary first. Just say which repair prices are changing and from when."
+        },
+        {
+          "speaker": "dongsun",
+          "ko": "‘일부 수선 가격이 조정됩니다.’ 이 정도면 괜찮아요?",
+          "de": "'Die Preise für einige Reparaturen werden angepasst.' Reicht das?",
+          "en": "Would 'Prices for some repairs will be adjusted' be okay?"
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아요. 그리고 맡기기 전에 가격을 먼저 안내해 드린다고 쓰면 더 안심될 것 같아요.",
+          "de": "Ja. Und wenn Sie dazuschreiben, dass der Preis vor der Annahme der Reparatur genannt wird, wirkt das noch transparenter.",
+          "en": "Yes. And I think it would reassure people if you say you'll tell them the price before you take the repair."
+        },
+        {
+          "speaker": "dongsun",
+          "ko": "좋네요. 미안합니다를 세 번 쓰려다가 참았어요.",
+          "de": "Gut. Ich wollte schon dreimal 'Entschuldigung' schreiben, hab mich aber gebremst.",
+          "en": "Good. I was about to write 'We're sorry' three times, but I stopped myself."
+        },
+        {
+          "speaker": "user",
+          "ko": "잘 참으셨어요 ㅋㅋ. 정확하게 알려 주는 게 더 중요해요.",
+          "de": "Gut so, haha. Klar zu sagen, was sich ändert, ist wichtiger.",
+          "en": "Good call haha. It's more important to explain it clearly."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_dongsun_maya_price_notice_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "audioKo": "그럼 공지부터 안 무섭게 만들죠. 언제부터 어떤 수선 가격이 바뀌는지만 먼저 써요.",
+            "options": [
+              {
+                "de": "Dann machen wir zuerst die Ankündigung weniger abschreckend. Schreiben Sie einfach, ab wann sich welche Reparaturpreise ändern.",
+                "en": "Then let's make the notice less scary first. Just say which repair prices are changing and from when."
+              },
+              {
+                "de": "Maya, ich will ein paar Reparaturpreise ändern. Wenn schon die Ankündigung abschreckend klingt, laufen mir doch alle Kunden weg, oder?",
+                "en": "Maya, I'm thinking of changing some repair prices, but if even the notice sounds scary, all my customers will run away, right?"
+              },
+              {
+                "de": "'Die Preise für einige Reparaturen werden angepasst.' Reicht das?",
+                "en": "Would 'Prices for some repairs will be adjusted' be okay?"
+              },
+              {
+                "de": "Ja. Und wenn Sie dazuschreiben, dass der Preis vor der Annahme der Reparatur genannt wird, wirkt das noch transparenter.",
+                "en": "Yes. And I think it would reassure people if you say you'll tell them the price before you take the repair."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_dongsun_maya_price_notice_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "promptDe": "Gut. Ich wollte schon dreimal 'Entschuldigung' schreiben, hab mich aber gebremst.",
+            "promptEn": "Good. I was about to write 'We're sorry' three times, but I stopped myself.",
+            "options": [
+              {
+                "ko": "좋네요. 미안합니다를 세 번 쓰려다가 참았어요."
+              },
+              {
+                "ko": "마야 씨, 수선 가격 조금 바꾸려고 하는데 공지까지 무서우면 손님 다 도망가겠죠?"
+              },
+              {
+                "ko": "‘일부 수선 가격이 조정됩니다.’ 이 정도면 괜찮아요?"
+              },
+              {
+                "ko": "잘 참으셨어요 ㅋㅋ. 정확하게 알려 주는 게 더 중요해요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_dongsun_maya_price_notice_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "targetKo": "잘 참으셨어요 ㅋㅋ. 정확하게 알려 주는 게 더 중요해요.",
+            "audioKo": "잘 참으셨어요 ㅋㅋ. 정확하게 알려 주는 게 더 중요해요.",
+            "promptDe": "Gut so, haha. Klar zu sagen, was sich ändert, ist wichtiger.",
+            "promptEn": "Good call haha. It's more important to explain it clearly.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b1_lena_hyuna_crowded_weekend",
+      "level": "b1",
+      "emoji": "🚶",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "붐비는 동네 방문 시간 바꾸기",
+        "de": "Die Besuchszeit für ein volles Viertel ändern",
+        "en": "Changing the time for a crowded neighborhood visit"
+      },
+      "intro": {
+        "ko": "레나와 현아가 붐비는 동네를 방문할 시간을 바꾸며 주민 생활도 고려해요.",
+        "de": "Lena und Hyuna verschieben ihren Besuch in einem vollen Viertel und berücksichtigen dabei den Alltag der Anwohner.",
+        "en": "Lena and Hyuna change the time of a visit to a crowded neighborhood while considering local residents."
+      },
+      "courseUnitId": "b1_01_experience_reasons",
+      "playerCharacterId": "lena",
+      "participantIds": [
+        "lena",
+        "hyuna"
+      ],
+      "relationshipContext": "같은 셰어하우스 이웃. 서로 친근한 해요체로 주말 계획을 이야기한다.",
+      "intent": "레나가 인기 지역에 가고 싶어 하지만 현아와 혼잡한 시간과 주민 생활을 고려해 시간을 바꾼다.",
+      "shelf": "b1_friends",
+      "backdrop": "cafe",
+      "vocab": [
+        {
+          "korean": "골목"
+        },
+        {
+          "korean": "토요일 오후"
+        },
+        {
+          "korean": "조용한 곳"
+        },
+        {
+          "korean": "불편하다"
+        },
+        {
+          "korean": "레나가"
+        },
+        {
+          "korean": "인기"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_comparative"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N보다",
+          "de": "Grammatik im Kontext: N보다",
+          "en": "Grammar in context: N보다"
+        },
+        "explanation": {
+          "ko": "이 장면에서 N보다 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Als: Vergleich (mehr/weniger als)",
+          "en": "Than: comparison (more/less than)"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "현아 씨, 토요일에 그 골목 같이 가는 거 어때요? 요즘 사진만 보면 다 거기예요.",
+          "de": "Hyuna, wollen wir am Samstag in diese Gasse? Gefühlt ist gerade jedes Foto von dort.",
+          "en": "Hyuna, how about going to that alley on Saturday? Every photo I see lately seems to be from there."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "좋아요. 근데 토요일 오후면 사진보다 사람 구경을 더 많이 할 수도 있어요.",
+          "de": "Gerne. Aber am Samstagnachmittag schaust du dir vielleicht mehr Menschen als die Gasse an.",
+          "en": "Sure. But on a Saturday afternoon you might end up looking at more people than scenery."
+        },
+        {
+          "speaker": "user",
+          "ko": "아, 그 정도예요? 그럼 아침에 가요. 저는 골목 보러 가는 거니까요.",
+          "de": "Ach, so voll? Dann gehen wir morgens. Ich will ja die Gegend sehen.",
+          "en": "Oh, it's that busy? Then let's go in the morning. I'm going to see the neighborhood, after all."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "아침이면 훨씬 나아요. 가게 열기 전이라 조용한 곳도 있고요.",
+          "de": "Morgens ist es viel besser. Bevor die Läden öffnen, sind manche Ecken noch ruhig.",
+          "en": "Morning is much better. Some places are still quiet before the shops open."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아요. 사진 한 장 찍겠다고 가게 입구 막는 건 싫어요.",
+          "de": "Gut. Ich will nicht für ein Foto einen Ladeneingang blockieren.",
+          "en": "Good. I don't want to block a shop entrance just to get one photo."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "그 정도면 완벽하죠. 놀러 온 사람도 편하고 사는 사람도 덜 불편하고요.",
+          "de": "Dann passt's. So ist es für Besucher angenehm und für die Leute, die dort leben, weniger störend.",
+          "en": "Then we're set. It's easier for visitors and less disruptive for people who live there."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_lena_hyuna_crowded_weekend_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "audioKo": "좋아요. 근데 토요일 오후면 사진보다 사람 구경을 더 많이 할 수도 있어요.",
+            "options": [
+              {
+                "de": "Gerne. Aber am Samstagnachmittag schaust du dir vielleicht mehr Menschen als die Gasse an.",
+                "en": "Sure. But on a Saturday afternoon you might end up looking at more people than scenery."
+              },
+              {
+                "de": "Hyuna, wollen wir am Samstag in diese Gasse? Gefühlt ist gerade jedes Foto von dort.",
+                "en": "Hyuna, how about going to that alley on Saturday? Every photo I see lately seems to be from there."
+              },
+              {
+                "de": "Ach, so voll? Dann gehen wir morgens. Ich will ja die Gegend sehen.",
+                "en": "Oh, it's that busy? Then let's go in the morning. I'm going to see the neighborhood, after all."
+              },
+              {
+                "de": "Morgens ist es viel besser. Bevor die Läden öffnen, sind manche Ecken noch ruhig.",
+                "en": "Morning is much better. Some places are still quiet before the shops open."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_lena_hyuna_crowded_weekend_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "promptDe": "Gut. Ich will nicht für ein Foto einen Ladeneingang blockieren.",
+            "promptEn": "Good. I don't want to block a shop entrance just to get one photo.",
+            "options": [
+              {
+                "ko": "좋아요. 사진 한 장 찍겠다고 가게 입구 막는 건 싫어요."
+              },
+              {
+                "ko": "현아 씨, 토요일에 그 골목 같이 가는 거 어때요? 요즘 사진만 보면 다 거기예요."
+              },
+              {
+                "ko": "아, 그 정도예요? 그럼 아침에 가요. 저는 골목 보러 가는 거니까요."
+              },
+              {
+                "ko": "그 정도면 완벽하죠. 놀러 온 사람도 편하고 사는 사람도 덜 불편하고요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_lena_hyuna_crowded_weekend_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "targetKo": "그 정도면 완벽하죠. 놀러 온 사람도 편하고 사는 사람도 덜 불편하고요.",
+            "audioKo": "그 정도면 완벽하죠. 놀러 온 사람도 편하고 사는 사람도 덜 불편하고요.",
+            "promptDe": "Dann passt's. So ist es für Besucher angenehm und für die Leute, die dort leben, weniger störend.",
+            "promptEn": "Then we're set. It's easier for visitors and less disruptive for people who live there.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b2_hyuna_daniel_resident_flow_filming",
+      "level": "b2",
+      "emoji": "🎥",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "주민 동선을 막지 않고 촬영하기",
+        "de": "Filmen, ohne Anwohnerwege zu blockieren",
+        "en": "Filming without blocking residents"
+      },
+      "intro": {
+        "ko": "현아와 다니엘이 주민 통행을 막지 않으면서 골목을 촬영할 방법을 정해요.",
+        "de": "Hyuna und Daniel planen einen Dreh in einer Gasse, ohne die Wege der Anwohner zu blockieren.",
+        "en": "Hyuna and Daniel plan how to film an alley without blocking residents' access."
+      },
+      "courseUnitId": "b2_03_precise_requests",
+      "playerCharacterId": "daniel",
+      "participantIds": [
+        "hyuna",
+        "daniel"
+      ],
+      "relationshipContext": "지역 촬영 방식에 관해 의견을 나누는 사이. 서로 전문적인 해요체를 쓴다.",
+      "intent": "관광객이 많은 골목에서 촬영할 때 주민 통로와 촬영 시간을 조정한다.",
+      "shelf": "b2_travel",
+      "backdrop": "directions",
+      "vocab": [
+        {
+          "korean": "관광객"
+        },
+        {
+          "korean": "주민"
+        },
+        {
+          "korean": "드나들다"
+        },
+        {
+          "korean": "삼각대"
+        },
+        {
+          "korean": "가게 앞"
+        },
+        {
+          "korean": "관광객이"
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_comparative"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N보다",
+          "de": "Grammatik im Kontext: N보다",
+          "en": "Grammar in context: N보다"
+        },
+        "explanation": {
+          "ko": "이 장면에서 N보다 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Als: Vergleich (mehr/weniger als)",
+          "en": "Than: comparison (more/less than)"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "이 골목, 화면은 진짜 좋은데 오후엔 사람이 끊이질 않네요.",
+          "de": "Diese Gasse sieht auf Kamera wirklich gut aus, aber nachmittags reißt der Fußverkehr gar nicht ab.",
+          "en": "This alley looks amazing on camera, but in the afternoon there's never a break in the foot traffic."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "관광객도 많지만 주민들이 집에 드나드는 길이기도 해요. 길 막으면 바로 티 나요.",
+          "de": "Es sind viele Touristen da, aber die Anwohner nutzen die Gasse auch, um zu ihren Häusern zu kommen. Wenn man den Weg blockiert, fällt das sofort auf.",
+          "en": "There are lots of tourists, but people who live here use it to get in and out of their homes too. If you block the way, people notice immediately."
+        },
+        {
+          "speaker": "user",
+          "ko": "그러면 삼각대는 벽 쪽으로 붙이고, 한 장면도 짧게 갈게요.",
+          "de": "Dann stelle ich das Stativ an die Wand und halte jede Einstellung kurz.",
+          "en": "Then I'll keep the tripod against the wall and keep each shot short."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "좋아요. 가게 앞 오래 쓰려면 가게에도 따로 물어보고요.",
+          "de": "Gut. Und wenn Sie länger vor einem Laden drehen wollen, fragen Sie dort vorher extra nach.",
+          "en": "Good. And if you need to use the space in front of a shop for a while, ask the shop first."
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 사람 없는 화면 만들겠다고 길 비워 달라고 하진 않을게요. 그건 다큐가 아니라 통제죠.",
+          "de": "Ja. Ich werde die Leute nicht bitten, die Straße freizumachen, nur damit das Bild leer aussieht. Das wäre Kontrolle, keine Dokumentation.",
+          "en": "Yeah. I'm not going to ask people to clear the street just so I can get an empty shot. That'd be control, not a documentary."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "맞아요. 여기서는 예쁜 화면보다 사람들이 계속 생활하는 게 먼저예요.",
+          "de": "Genau. Hier ist wichtiger, dass die Menschen weiter ihren Alltag leben können, als ein hübsches Bild.",
+          "en": "Exactly. Here, people being able to go on with their lives matters more than getting a pretty shot."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_hyuna_daniel_resident_flow_filming_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "audioKo": "관광객도 많지만 주민들이 집에 드나드는 길이기도 해요. 길 막으면 바로 티 나요.",
+            "options": [
+              {
+                "de": "Es sind viele Touristen da, aber die Anwohner nutzen die Gasse auch, um zu ihren Häusern zu kommen. Wenn man den Weg blockiert, fällt das sofort auf.",
+                "en": "There are lots of tourists, but people who live here use it to get in and out of their homes too. If you block the way, people notice immediately."
+              },
+              {
+                "de": "Diese Gasse sieht auf Kamera wirklich gut aus, aber nachmittags reißt der Fußverkehr gar nicht ab.",
+                "en": "This alley looks amazing on camera, but in the afternoon there's never a break in the foot traffic."
+              },
+              {
+                "de": "Dann stelle ich das Stativ an die Wand und halte jede Einstellung kurz.",
+                "en": "Then I'll keep the tripod against the wall and keep each shot short."
+              },
+              {
+                "de": "Gut. Und wenn Sie länger vor einem Laden drehen wollen, fragen Sie dort vorher extra nach.",
+                "en": "Good. And if you need to use the space in front of a shop for a while, ask the shop first."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hyuna_daniel_resident_flow_filming_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "promptDe": "Ja. Ich werde die Leute nicht bitten, die Straße freizumachen, nur damit das Bild leer aussieht. Das wäre Kontrolle, keine Dokumentation.",
+            "promptEn": "Yeah. I'm not going to ask people to clear the street just so I can get an empty shot. That'd be control, not a documentary.",
+            "options": [
+              {
+                "ko": "네. 사람 없는 화면 만들겠다고 길 비워 달라고 하진 않을게요. 그건 다큐가 아니라 통제죠."
+              },
+              {
+                "ko": "이 골목, 화면은 진짜 좋은데 오후엔 사람이 끊이질 않네요."
+              },
+              {
+                "ko": "그러면 삼각대는 벽 쪽으로 붙이고, 한 장면도 짧게 갈게요."
+              },
+              {
+                "ko": "맞아요. 여기서는 예쁜 화면보다 사람들이 계속 생활하는 게 먼저예요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hyuna_daniel_resident_flow_filming_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "맞아요. 여기서는 예쁜 화면보다 사람들이 계속 생활하는 게 먼저예요.",
+            "audioKo": "맞아요. 여기서는 예쁜 화면보다 사람들이 계속 생활하는 게 먼저예요.",
+            "promptDe": "Genau. Hier ist wichtiger, dass die Menschen weiter ihren Alltag leben können, als ein hübsches Bild.",
+            "promptEn": "Exactly. Here, people being able to go on with their lives matters more than getting a pretty shot.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b1_lena_maya_beyond_music",
+      "level": "b1",
+      "emoji": "🎧",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "음악 밖으로 넓어진 한류 이야기",
+        "de": "Hallyu über Musik hinaus",
+        "en": "Talking about Hallyu beyond music"
+      },
+      "intro": {
+        "ko": "레나와 마야가 음악에서 시작해 음식·책·여행으로 넓어진 한국 문화 관심을 이야기해요.",
+        "de": "Lena und Maya sprechen darüber, wie ihr Interesse an koreanischer Kultur von Musik auf Essen, Bücher und Reisen übergegangen ist.",
+        "en": "Lena and Maya talk about how an interest that began with music expanded to food, books, and travel."
+      },
+      "courseUnitId": "b1_01_experience_reasons",
+      "playerCharacterId": "lena",
+      "participantIds": [
+        "lena",
+        "maya"
+      ],
+      "relationshipContext": "음악과 공연 취향을 나누는 친구. 밝은 해요체로 이야기한다.",
+      "intent": "레나가 K-pop에서 시작한 관심이 소설·음식·여행으로 넓어진 경험을 마야에게 말한다.",
+      "shelf": "b1_fandom",
+      "backdrop": "cafe",
+      "vocab": [
+        {
+          "korean": "관심"
+        },
+        {
+          "korean": "공연"
+        },
+        {
+          "korean": "음식"
+        },
+        {
+          "korean": "한류"
+        },
+        {
+          "korean": "콘텐츠"
+        },
+        {
+          "korean": "레나가"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_noun_cause"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N때문에",
+          "de": "Grammatik im Kontext: N때문에",
+          "en": "Grammar in context: N때문에"
+        },
+        "explanation": {
+          "ko": "이 장면에서 N때문에 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Grund als Nomen. Nach Nomen, nicht nach Verb.",
+          "en": "Noun cause. After a noun, not a verb."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "저 처음엔 진짜 음악 때문에 한국에 관심 생겼거든요.",
+          "de": "Am Anfang hab ich mich wirklich wegen der Musik für Korea interessiert.",
+          "en": "At first, I really got interested in Korea because of the music."
+        },
+        {
+          "speaker": "maya",
+          "ko": "알죠. 공연 얘기 나오면 레나 씨 눈부터 두 배 되잖아요.",
+          "de": "Ich weiß. Sobald es um Konzerte geht, werden deine Augen doppelt so groß.",
+          "en": "I know. The second someone mentions a concert, your eyes get twice as big."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아요 ㅋㅋ. 근데 요즘은 소설 읽고 음식 찾아다니고 여행 계획까지 바뀌었어요.",
+          "de": "Stimmt, haha. Aber inzwischen lese ich Romane, suche gezielt nach Essen und ändere sogar meine Reisepläne.",
+          "en": "True haha. But lately I've been reading novels, hunting down food, and even changing my travel plans."
+        },
+        {
+          "speaker": "maya",
+          "ko": "한 곡 들었다가 여행 일정까지 바뀐 거예요?",
+          "de": "Du hast ein Lied gehört und am Ende gleich deine Reise umgeplant?",
+          "en": "You listened to one song and ended up changing your whole itinerary?"
+        },
+        {
+          "speaker": "user",
+          "ko": "그러니까요. 이제 한류라고 하면 음악만 떠오르진 않아요.",
+          "de": "Genau. Wenn ich heute an Hallyu denke, fällt mir nicht mehr nur Musik ein.",
+          "en": "Exactly. Now when I think of Hallyu, music isn't the only thing that comes to mind."
+        },
+        {
+          "speaker": "maya",
+          "ko": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요.",
+          "de": "Diese Verbindungen würde ich auch gern im Content zeigen – ohne so zu tun, als würde ein Trend ganz Korea repräsentieren.",
+          "en": "I want to show those connections in our content too—without treating one trend like it represents all of Korea."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_lena_maya_beyond_music_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "audioKo": "알죠. 공연 얘기 나오면 레나 씨 눈부터 두 배 되잖아요.",
+            "options": [
+              {
+                "de": "Ich weiß. Sobald es um Konzerte geht, werden deine Augen doppelt so groß.",
+                "en": "I know. The second someone mentions a concert, your eyes get twice as big."
+              },
+              {
+                "de": "Am Anfang hab ich mich wirklich wegen der Musik für Korea interessiert.",
+                "en": "At first, I really got interested in Korea because of the music."
+              },
+              {
+                "de": "Stimmt, haha. Aber inzwischen lese ich Romane, suche gezielt nach Essen und ändere sogar meine Reisepläne.",
+                "en": "True haha. But lately I've been reading novels, hunting down food, and even changing my travel plans."
+              },
+              {
+                "de": "Du hast ein Lied gehört und am Ende gleich deine Reise umgeplant?",
+                "en": "You listened to one song and ended up changing your whole itinerary?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_lena_maya_beyond_music_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "promptDe": "Genau. Wenn ich heute an Hallyu denke, fällt mir nicht mehr nur Musik ein.",
+            "promptEn": "Exactly. Now when I think of Hallyu, music isn't the only thing that comes to mind.",
+            "options": [
+              {
+                "ko": "그러니까요. 이제 한류라고 하면 음악만 떠오르진 않아요."
+              },
+              {
+                "ko": "저 처음엔 진짜 음악 때문에 한국에 관심 생겼거든요."
+              },
+              {
+                "ko": "맞아요 ㅋㅋ. 근데 요즘은 소설 읽고 음식 찾아다니고 여행 계획까지 바뀌었어요."
+              },
+              {
+                "ko": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_lena_maya_beyond_music_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "targetKo": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요.",
+            "audioKo": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요.",
+            "promptDe": "Diese Verbindungen würde ich auch gern im Content zeigen – ohne so zu tun, als würde ein Trend ganz Korea repräsentieren.",
+            "promptEn": "I want to show those connections in our content too—without treating one trend like it represents all of Korea.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b2_maya_daniel_tradition_reinterpretation",
+      "level": "b2",
+      "emoji": "💍",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "전통과 재해석 구분하기",
+        "de": "Tradition und Neuinterpretation unterscheiden",
+        "en": "Separating tradition from reinterpretation"
+      },
+      "intro": {
+        "ko": "마야와 다니엘이 전통 장신구의 원래 맥락과 현대적 재해석을 분명히 구분해요.",
+        "de": "Maya und Daniel trennen den ursprünglichen Kontext traditionellen Schmucks klar von ihrer modernen Neuinterpretation.",
+        "en": "Maya and Daniel clearly separate the original context of traditional jewelry from their modern reinterpretation."
+      },
+      "courseUnitId": "b2_02_professional_opinion",
+      "playerCharacterId": "maya",
+      "participantIds": [
+        "maya",
+        "daniel"
+      ],
+      "relationshipContext": "문화콘텐츠 영상 프로젝트 동료. 서로 빠르고 전문적인 해요체를 쓴다.",
+      "intent": "전통 요소를 현대 영상에 쓸 때 원래 맥락과 새로 연출한 부분을 구분한다.",
+      "shelf": "b2_evidence",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "전통 장신구"
+        },
+        {
+          "korean": "현대 의상"
+        },
+        {
+          "korean": "원래 쓰임"
+        },
+        {
+          "korean": "전통 자료"
+        },
+        {
+          "korean": "재해석 장면"
+        },
+        {
+          "korean": "맥락"
+        },
+        {
+          "korean": "전통"
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_conditional"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)면",
+          "de": "Grammatik im Kontext: V-(으)면",
+          "en": "Grammar in context: V-(으)면"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)면 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Wenn/Falls-Bedingung",
+          "en": "If / in case (a condition)"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "이번 영상에서 전통 장신구를 현대 의상에 같이 쓰면 진짜 예쁠 것 같아요.",
+          "de": "Ich glaube, traditioneller Schmuck zusammen mit moderner Kleidung würde in diesem Video richtig gut aussehen.",
+          "en": "I think pairing traditional jewelry with modern clothes would look amazing in this video."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "좋아요. 근데 보는 사람이 ‘원래 이렇게 입는구나’ 하면 우리 큰일이죠?",
+          "de": "Ja. Aber wenn die Leute danach denken: 'Ach, so trägt man das traditionell', hätten wir ein Problem, oder?",
+          "en": "Yeah. But if viewers come away thinking, 'Oh, this is how people traditionally wore it,' we'd have a problem, right?"
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아요 ㅋㅋ. 원래 쓰임은 따로 설명하고, 이 장면은 우리가 새로 연출했다고 표시해요.",
+          "de": "Genau, haha. Wir erklären die ursprüngliche Verwendung separat und kennzeichnen die Szene als unsere eigene Neuinterpretation.",
+          "en": "Exactly haha. Let's explain the original use separately and label this scene as our own reinterpretation."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "그럼 촬영할 때도 전통 자료 장면이랑 재해석 장면 폴더부터 나눌게요.",
+          "de": "Dann trenne ich beim Dreh von Anfang an die Ordner für Referenzmaterial und die neu inszenierten Szenen.",
+          "en": "Then when I shoot, I'll separate the folders for reference footage and reinterpretation footage from the start."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아요. 예쁜 것도 좋은데 어디까지가 원래 맥락인지 보여 주는 게 더 중요해요.",
+          "de": "Gut. Schön aussehen ist wichtig, aber noch wichtiger ist zu zeigen, was zum ursprünglichen Kontext gehört.",
+          "en": "Good. Looking nice matters, but showing what belongs to the original context matters more."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "네. 그래야 짧게 잘라도 둘이 섞여서 새 전통 하나 만드는 일은 없겠네요.",
+          "de": "Ja. Dann vermischen wir beides auch in einem kurzen Schnitt nicht so, dass plötzlich eine neue 'Tradition' entsteht.",
+          "en": "Right. Then even if we cut it short, we won't accidentally blend the two into some 'new tradition.'"
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_maya_daniel_tradition_reinterpretation_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "audioKo": "좋아요. 근데 보는 사람이 ‘원래 이렇게 입는구나’ 하면 우리 큰일이죠?",
+            "options": [
+              {
+                "de": "Ja. Aber wenn die Leute danach denken: 'Ach, so trägt man das traditionell', hätten wir ein Problem, oder?",
+                "en": "Yeah. But if viewers come away thinking, 'Oh, this is how people traditionally wore it,' we'd have a problem, right?"
+              },
+              {
+                "de": "Ich glaube, traditioneller Schmuck zusammen mit moderner Kleidung würde in diesem Video richtig gut aussehen.",
+                "en": "I think pairing traditional jewelry with modern clothes would look amazing in this video."
+              },
+              {
+                "de": "Genau, haha. Wir erklären die ursprüngliche Verwendung separat und kennzeichnen die Szene als unsere eigene Neuinterpretation.",
+                "en": "Exactly haha. Let's explain the original use separately and label this scene as our own reinterpretation."
+              },
+              {
+                "de": "Dann trenne ich beim Dreh von Anfang an die Ordner für Referenzmaterial und die neu inszenierten Szenen.",
+                "en": "Then when I shoot, I'll separate the folders for reference footage and reinterpretation footage from the start."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_maya_daniel_tradition_reinterpretation_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "promptDe": "Gut. Schön aussehen ist wichtig, aber noch wichtiger ist zu zeigen, was zum ursprünglichen Kontext gehört.",
+            "promptEn": "Good. Looking nice matters, but showing what belongs to the original context matters more.",
+            "options": [
+              {
+                "ko": "좋아요. 예쁜 것도 좋은데 어디까지가 원래 맥락인지 보여 주는 게 더 중요해요."
+              },
+              {
+                "ko": "이번 영상에서 전통 장신구를 현대 의상에 같이 쓰면 진짜 예쁠 것 같아요."
+              },
+              {
+                "ko": "맞아요 ㅋㅋ. 원래 쓰임은 따로 설명하고, 이 장면은 우리가 새로 연출했다고 표시해요."
+              },
+              {
+                "ko": "네. 그래야 짧게 잘라도 둘이 섞여서 새 전통 하나 만드는 일은 없겠네요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_maya_daniel_tradition_reinterpretation_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "targetKo": "네. 그래야 짧게 잘라도 둘이 섞여서 새 전통 하나 만드는 일은 없겠네요.",
+            "audioKo": "네. 그래야 짧게 잘라도 둘이 섞여서 새 전통 하나 만드는 일은 없겠네요.",
+            "promptDe": "Ja. Dann vermischen wir beides auch in einem kurzen Schnitt nicht so, dass plötzlich eine neue 'Tradition' entsteht.",
+            "promptEn": "Right. Then even if we cut it short, we won't accidentally blend the two into some 'new tradition.'",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b2_hyuna_daniel_gyeongju_after_apec",
+      "level": "b2",
+      "emoji": "🏯",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "APEC 이후 경주 기록하기",
+        "de": "Gyeongju nach der APEC dokumentieren",
+        "en": "Documenting Gyeongju after APEC"
+      },
+      "intro": {
+        "ko": "현아와 다니엘이 APEC 행사 기록과 경주의 기존 문화유산을 섞지 않고 도시의 현재 모습을 기록해요.",
+        "de": "Hyuna und Daniel dokumentieren Gyeongju nach der APEC, ohne Veranstaltungsbilder und das bestehende Kulturerbe der Stadt zu vermischen.",
+        "en": "Hyuna and Daniel document Gyeongju after APEC without blending event imagery into the city's existing heritage."
+      },
+      "courseUnitId": "b2_02_professional_opinion",
+      "playerCharacterId": "hyuna",
+      "participantIds": [
+        "hyuna",
+        "daniel"
+      ],
+      "relationshipContext": "지역을 기록하는 방식에 대해 자주 의견을 나누는 사이.",
+      "intent": "APEC 이후 경주를 촬영할 때 국제행사 이미지와 지역의 일상·문화유산을 어떻게 함께 보여 줄지 정한다.",
+      "shelf": "b2_evidence",
+      "backdrop": "directions",
+      "vocab": [
+        {
+          "korean": "행사 흔적"
+        },
+        {
+          "korean": "평소"
+        },
+        {
+          "korean": "문화유산"
+        },
+        {
+          "korean": "행사 자료"
+        },
+        {
+          "korean": "현재 도시"
+        },
+        {
+          "korean": "안내"
+        },
+        {
+          "korean": "길"
+        },
+        {
+          "korean": "APEC"
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_conditional"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)면",
+          "de": "Grammatik im Kontext: V-(으)면",
+          "en": "Grammar in context: V-(으)면"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)면 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Wenn/Falls-Bedingung",
+          "en": "If / in case (a condition)"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "APEC 끝난 뒤에 경주 다시 찍으면 행사 때랑 분위기 완전 다르겠죠.",
+          "de": "Wenn wir Gyeongju nach der APEC noch einmal drehen, wird die Stimmung ganz anders sein als während der Veranstaltung.",
+          "en": "If we film Gyeongju again after APEC, the atmosphere will be totally different from during the event."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "그럴 것 같아요. 행사 흔적도 궁금한데, 다시 평소처럼 사는 모습이 더 궁금해요.",
+          "de": "Denke ich auch. Die Spuren der Veranstaltung interessieren mich, aber noch mehr, wie die Stadt wieder in ihren Alltag zurückkehrt.",
+          "en": "I think so. I'm curious about the traces of the event, but I'm even more curious about the city going back to everyday life."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아요. 다만 ‘APEC 도시’랑 경주가 원래 가진 문화유산을 한 덩어리로 섞지만 말아요.",
+          "de": "Gut. Wir sollten nur die 'APEC-Stadt' und das kulturelle Erbe, das Gyeongju schon vorher hatte, nicht zu einem einzigen Bild vermischen.",
+          "en": "Good. Let's just not blend 'APEC city' and Gyeongju's existing cultural heritage into one thing."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "네. 행사 자료는 따로 두고, 지금 촬영은 현재 도시 모습에 집중할게요.",
+          "de": "Ja. Das Veranstaltungsmaterial halte ich getrennt, und bei den neuen Aufnahmen konzentriere ich mich auf die Stadt, wie sie jetzt ist.",
+          "en": "Right. I'll keep the event material separate and focus the new shoot on what the city looks like now."
+        },
+        {
+          "speaker": "user",
+          "ko": "그리고 행사 때문에 안내나 길이 달라진 게 있으면 따로 확인하고요.",
+          "de": "Und wenn sich wegen der Veranstaltung Beschilderung oder Wege geändert haben, prüfen wir das separat.",
+          "en": "And if the event changed any signs or routes, let's verify that separately."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "좋아요. 경주가 정상회의 배경화면으로만 남으면 너무 아깝잖아요.",
+          "de": "Gut. Es wäre schade, wenn Gyeongju am Ende nur als Kulisse für ein Gipfeltreffen hängen bliebe.",
+          "en": "Sounds good. It'd be a shame if Gyeongju were remembered only as a backdrop for a summit."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_hyuna_daniel_gyeongju_after_apec_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "audioKo": "그럴 것 같아요. 행사 흔적도 궁금한데, 다시 평소처럼 사는 모습이 더 궁금해요.",
+            "options": [
+              {
+                "de": "Denke ich auch. Die Spuren der Veranstaltung interessieren mich, aber noch mehr, wie die Stadt wieder in ihren Alltag zurückkehrt.",
+                "en": "I think so. I'm curious about the traces of the event, but I'm even more curious about the city going back to everyday life."
+              },
+              {
+                "de": "Wenn wir Gyeongju nach der APEC noch einmal drehen, wird die Stimmung ganz anders sein als während der Veranstaltung.",
+                "en": "If we film Gyeongju again after APEC, the atmosphere will be totally different from during the event."
+              },
+              {
+                "de": "Gut. Wir sollten nur die 'APEC-Stadt' und das kulturelle Erbe, das Gyeongju schon vorher hatte, nicht zu einem einzigen Bild vermischen.",
+                "en": "Good. Let's just not blend 'APEC city' and Gyeongju's existing cultural heritage into one thing."
+              },
+              {
+                "de": "Ja. Das Veranstaltungsmaterial halte ich getrennt, und bei den neuen Aufnahmen konzentriere ich mich auf die Stadt, wie sie jetzt ist.",
+                "en": "Right. I'll keep the event material separate and focus the new shoot on what the city looks like now."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hyuna_daniel_gyeongju_after_apec_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "promptDe": "Und wenn sich wegen der Veranstaltung Beschilderung oder Wege geändert haben, prüfen wir das separat.",
+            "promptEn": "And if the event changed any signs or routes, let's verify that separately.",
+            "options": [
+              {
+                "ko": "그리고 행사 때문에 안내나 길이 달라진 게 있으면 따로 확인하고요."
+              },
+              {
+                "ko": "APEC 끝난 뒤에 경주 다시 찍으면 행사 때랑 분위기 완전 다르겠죠."
+              },
+              {
+                "ko": "좋아요. 다만 ‘APEC 도시’랑 경주가 원래 가진 문화유산을 한 덩어리로 섞지만 말아요."
+              },
+              {
+                "ko": "좋아요. 경주가 정상회의 배경화면으로만 남으면 너무 아깝잖아요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hyuna_daniel_gyeongju_after_apec_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "targetKo": "좋아요. 경주가 정상회의 배경화면으로만 남으면 너무 아깝잖아요.",
+            "audioKo": "좋아요. 경주가 정상회의 배경화면으로만 남으면 너무 아깝잖아요.",
+            "promptDe": "Gut. Es wäre schade, wenn Gyeongju am Ende nur als Kulisse für ein Gipfeltreffen hängen bliebe.",
+            "promptEn": "Sounds good. It'd be a shame if Gyeongju were remembered only as a backdrop for a summit.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b2_hyuna_sujin_gyeongju_fieldnotes",
+      "level": "b2",
+      "emoji": "📝",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "경주 답사 메모와 사실 나누기",
+        "de": "Feldnotizen und Fakten in Gyeongju trennen",
+        "en": "Separating field notes from facts in Gyeongju"
+      },
+      "intro": {
+        "ko": "현아와 수진이 경주 답사에서 현장 인상과 확인해야 할 역사 사실을 따로 다뤄요.",
+        "de": "Hyuna und Sujin trennen bei der Gyeongju-Feldrecherche persönliche Eindrücke von historischen Fakten, die noch geprüft werden müssen.",
+        "en": "Hyuna and Sujin keep field impressions separate from historical facts that still need verification during a Gyeongju research trip."
+      },
+      "courseUnitId": "b2_02_professional_opinion",
+      "playerCharacterId": "hyuna",
+      "participantIds": [
+        "hyuna",
+        "sujin"
+      ],
+      "relationshipContext": "오래 대화가 통하는 친구 사이. 둘 다 편한 반말을 쓰고, 수진은 현아의 연구 습관을 잘 알아 장난스럽게 받아준다.",
+      "intent": "현아가 경주 답사 준비를 수진에게 이야기하면서 행사 홍보 표현과 문화유산 자료, 현장 느낌과 확인된 사실을 구분해 보기로 한다.",
+      "shelf": "b2_evidence",
+      "backdrop": "cafe",
+      "vocab": [
+        {
+          "korean": "답사"
+        },
+        {
+          "korean": "도시 소개"
+        },
+        {
+          "korean": "메모"
+        },
+        {
+          "korean": "홍보 문구"
+        },
+        {
+          "korean": "문화유산"
+        },
+        {
+          "korean": "연대"
+        },
+        {
+          "korean": "역사 사실"
+        },
+        {
+          "korean": "자료"
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_b1_intention"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)려고",
+          "de": "Grammatik im Kontext: V-(으)려고",
+          "en": "Grammar in context: V-(으)려고"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)려고 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Um zu (Ziel einer Handlung)",
+          "en": "In order to (the goal of an action)"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "수진아, 나 다음 주에 경주 답사 가려고. APEC 이후에 도시 소개가 어떻게 달라졌는지도 좀 보고 오려고.",
+          "de": "Sujin, ich fahre nächste Woche für eine Feldrecherche nach Gyeongju. Ich will auch schauen, wie sich die Darstellung der Stadt seit der APEC verändert hat.",
+          "en": "Sujin, I'm going to Gyeongju for fieldwork next week. I also want to see how the city has been presented differently since APEC."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "또 사진보다 메모를 더 많이 찍어 오는 거 아니야? ㅋㅋ",
+          "de": "Kommst du wieder mit mehr Notizen als Fotos zurück? haha",
+          "en": "Are you going to come back with more notes than photos again? haha"
+        },
+        {
+          "speaker": "user",
+          "ko": "그럴 수도 있지 ㅋㅋ. 근데 행사 홍보 문구랑 원래 문화유산 설명은 따로 봐야 하잖아.",
+          "de": "Kann passieren, haha. Aber Werbetexte zur Veranstaltung und die eigentlichen Erklärungen zum Kulturerbe muss ich getrennt betrachten.",
+          "en": "Could happen haha. But I need to separate the event's promotional wording from the original heritage explanations."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "그럼 행사 때문에 많이 소개된 장소랑 원래 유명했던 곳이 어떻게 다른지도 보면 재밌겠다.",
+          "de": "Dann wäre es spannend zu vergleichen, welche Orte wegen der Veranstaltung besonders oft vorgestellt wurden und welche schon vorher bekannt waren.",
+          "en": "Then it'd be interesting to compare the places that got a lot of attention because of the event with the places that were already well known."
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 현장에서 느낀 건 메모로 남기고, 연대나 역사 사실은 자료로 다시 확인하려고.",
+          "de": "Ja. Was ich vor Ort empfinde, notiere ich als Eindruck. Jahreszahlen und historische Fakten prüfe ich später noch einmal anhand von Quellen.",
+          "en": "Yeah. I'll write down what I feel on site as notes, and then re-check dates and historical facts against sources."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "역시 ㅋㅋ. 경주 가서도 감상보다 검증부터 하네.",
+          "de": "Typisch, haha. Selbst in Gyeongju kommt bei dir erst die Prüfung und dann der Eindruck.",
+          "en": "Of course haha. You go to Gyeongju and still verify things before you let yourself have an impression."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_hyuna_sujin_gyeongju_fieldnotes_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "audioKo": "또 사진보다 메모를 더 많이 찍어 오는 거 아니야? ㅋㅋ",
+            "options": [
+              {
+                "de": "Kommst du wieder mit mehr Notizen als Fotos zurück? haha",
+                "en": "Are you going to come back with more notes than photos again? haha"
+              },
+              {
+                "de": "Sujin, ich fahre nächste Woche für eine Feldrecherche nach Gyeongju. Ich will auch schauen, wie sich die Darstellung der Stadt seit der APEC verändert hat.",
+                "en": "Sujin, I'm going to Gyeongju for fieldwork next week. I also want to see how the city has been presented differently since APEC."
+              },
+              {
+                "de": "Kann passieren, haha. Aber Werbetexte zur Veranstaltung und die eigentlichen Erklärungen zum Kulturerbe muss ich getrennt betrachten.",
+                "en": "Could happen haha. But I need to separate the event's promotional wording from the original heritage explanations."
+              },
+              {
+                "de": "Dann wäre es spannend zu vergleichen, welche Orte wegen der Veranstaltung besonders oft vorgestellt wurden und welche schon vorher bekannt waren.",
+                "en": "Then it'd be interesting to compare the places that got a lot of attention because of the event with the places that were already well known."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hyuna_sujin_gyeongju_fieldnotes_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "promptDe": "Ja. Was ich vor Ort empfinde, notiere ich als Eindruck. Jahreszahlen und historische Fakten prüfe ich später noch einmal anhand von Quellen.",
+            "promptEn": "Yeah. I'll write down what I feel on site as notes, and then re-check dates and historical facts against sources.",
+            "options": [
+              {
+                "ko": "응. 현장에서 느낀 건 메모로 남기고, 연대나 역사 사실은 자료로 다시 확인하려고."
+              },
+              {
+                "ko": "수진아, 나 다음 주에 경주 답사 가려고. APEC 이후에 도시 소개가 어떻게 달라졌는지도 좀 보고 오려고."
+              },
+              {
+                "ko": "그럴 수도 있지 ㅋㅋ. 근데 행사 홍보 문구랑 원래 문화유산 설명은 따로 봐야 하잖아."
+              },
+              {
+                "ko": "역시 ㅋㅋ. 경주 가서도 감상보다 검증부터 하네."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hyuna_sujin_gyeongju_fieldnotes_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "targetKo": "역시 ㅋㅋ. 경주 가서도 감상보다 검증부터 하네.",
+            "audioKo": "역시 ㅋㅋ. 경주 가서도 감상보다 검증부터 하네.",
+            "promptDe": "Typisch, haha. Selbst in Gyeongju kommt bei dir erst die Prüfung und dann der Eindruck.",
+            "promptEn": "Of course haha. You go to Gyeongju and still verify things before you let yourself have an impression.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "a2_lena_hyuna_heatwave_plan",
+      "level": "a2",
+      "emoji": "☀️",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "폭염에 맞춰 약속 시간 바꾸기",
+        "de": "Pläne an die Hitze anpassen",
+        "en": "Changing plans for a heatwave"
+      },
+      "intro": {
+        "ko": "레나와 현아가 폭염을 피해 산책 시간과 실내 대안을 함께 정해요.",
+        "de": "Lena und Hyuna verlegen ihren Spaziergang wegen der Hitze und planen eine Alternative drinnen.",
+        "en": "Lena and Hyuna change their walking time for the heatwave and plan an indoor alternative."
+      },
+      "courseUnitId": "a2_02_plans_proposals",
+      "playerCharacterId": "lena",
+      "participantIds": [
+        "lena",
+        "hyuna"
+      ],
+      "relationshipContext": "같은 셰어하우스 이웃. 더운 날 주말 일정을 친근한 해요체로 바꾼다.",
+      "intent": "한낮 야외 일정을 피하고 아침·실내 중심으로 주말 계획을 바꾼다.",
+      "shelf": "a2_plan",
+      "backdrop": "cafe",
+      "vocab": [
+        {
+          "korean": "한강"
+        },
+        {
+          "korean": "오후"
+        },
+        {
+          "korean": "아침"
+        },
+        {
+          "korean": "물"
+        },
+        {
+          "korean": "카페"
+        },
+        {
+          "korean": "전시"
+        },
+        {
+          "korean": "시간"
+        },
+        {
+          "korean": "한낮"
+        }
+      ],
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_polite_proposal"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ까요?",
+          "de": "Grammatik im Kontext: V-(으)ㄹ까요?",
+          "en": "Grammar in context: V-(으)ㄹ까요?"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)ㄹ까요? 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Sollen wir? / Wie wäre es? / Ich frage mich ob... Vorschlag oder Unsicherheit",
+          "en": "Shall we? / How about? / I wonder if... a suggestion or uncertainty"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "현아 씨, 내일 오후에 한강 갈까요?",
+          "de": "Hyuna, wollen wir morgen Nachmittag an den Han-Fluss?",
+          "en": "Hyuna, want to go to the Han River tomorrow afternoon?"
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "내일도 많이 더워요. 오후 말고 아침에 가는 게 어때요?",
+          "de": "Morgen wird es wieder sehr heiß. Wie wäre es stattdessen morgens?",
+          "en": "It's going to be really hot again tomorrow. How about going in the morning instead?"
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아요. 그럼 아침에 걷고 점심부터는 실내로 도망가요.",
+          "de": "Gut. Dann gehen wir morgens spazieren und flüchten ab Mittag nach drinnen.",
+          "en": "Sure. Then we'll walk in the morning and escape indoors after lunch."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "좋아요 ㅋㅋ. 물도 챙기고 오래 걷지는 말아요.",
+          "de": "Klingt gut, haha. Nehmen wir Wasser mit und laufen nicht zu lange.",
+          "en": "Sounds good haha. Let's bring water and not walk for too long."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 카페랑 전시도 찾아볼게요. 더우면 바로 들어가고요.",
+          "de": "Dann suche ich auch ein Café und eine Ausstellung raus. Wenn's zu heiß wird, gehen wir direkt rein.",
+          "en": "Then I'll look up a café and an exhibition too. If it gets too hot, we can go straight inside."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "좋아요. 이런 날은 장소보다 시간을 바꾸는 게 제일 편해요.",
+          "de": "Perfekt. An solchen Tagen ist es am einfachsten, die Uhrzeit statt den Ort zu ändern.",
+          "en": "Perfect. On days like this, changing the time is easier than changing the place."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_lena_hyuna_heatwave_plan_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "audioKo": "내일도 많이 더워요. 오후 말고 아침에 가는 게 어때요?",
+            "options": [
+              {
+                "de": "Morgen wird es wieder sehr heiß. Wie wäre es stattdessen morgens?",
+                "en": "It's going to be really hot again tomorrow. How about going in the morning instead?"
+              },
+              {
+                "de": "Hyuna, wollen wir morgen Nachmittag an den Han-Fluss?",
+                "en": "Hyuna, want to go to the Han River tomorrow afternoon?"
+              },
+              {
+                "de": "Gut. Dann gehen wir morgens spazieren und flüchten ab Mittag nach drinnen.",
+                "en": "Sure. Then we'll walk in the morning and escape indoors after lunch."
+              },
+              {
+                "de": "Klingt gut, haha. Nehmen wir Wasser mit und laufen nicht zu lange.",
+                "en": "Sounds good haha. Let's bring water and not walk for too long."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_lena_hyuna_heatwave_plan_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "promptDe": "Dann suche ich auch ein Café und eine Ausstellung raus. Wenn's zu heiß wird, gehen wir direkt rein.",
+            "promptEn": "Then I'll look up a café and an exhibition too. If it gets too hot, we can go straight inside.",
+            "options": [
+              {
+                "ko": "그럼 카페랑 전시도 찾아볼게요. 더우면 바로 들어가고요."
+              },
+              {
+                "ko": "현아 씨, 내일 오후에 한강 갈까요?"
+              },
+              {
+                "ko": "좋아요. 그럼 아침에 걷고 점심부터는 실내로 도망가요."
+              },
+              {
+                "ko": "좋아요. 이런 날은 장소보다 시간을 바꾸는 게 제일 편해요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_lena_hyuna_heatwave_plan_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "targetKo": "좋아요. 이런 날은 장소보다 시간을 바꾸는 게 제일 편해요.",
+            "audioKo": "좋아요. 이런 날은 장소보다 시간을 바꾸는 게 제일 편해요.",
+            "promptDe": "Perfekt. An solchen Tagen ist es am einfachsten, die Uhrzeit statt den Ort zu ändern.",
+            "promptEn": "Perfect. On days like this, changing the time is easier than changing the place.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b2_byeongcheol_sujin_heat_electricity",
+      "level": "b2",
+      "emoji": "⚡",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "title": {
+        "ko": "더운 날 전기 이상에 대응하기",
+        "de": "Bei Hitze sicher auf elektrische Probleme reagieren",
+        "en": "Responding safely to electrical problems in hot weather"
+      },
+      "intro": {
+        "ko": "병철과 수진이 더운 날 전기기기를 많이 쓸 때 이상 신호가 보이면 먼저 전원을 끄기로 해요.",
+        "de": "Byeongcheol und Sujin sprechen darüber, bei ungewöhnlichen Anzeichen zuerst den Strom auszuschalten, wenn bei Hitze viele Geräte laufen.",
+        "en": "Byeongcheol and Sujin agree to switch off the power first if something seems wrong while many electrical devices are running in hot weather."
+      },
+      "courseUnitId": "b2_06_advanced_capstone",
+      "playerCharacterId": "sujin",
+      "participantIds": [
+        "byeongcheol",
+        "sujin"
+      ],
+      "relationshipContext": "아빠와 딸이 짧은 반말로 폭염 때 집의 전기 사용과 외출 시간을 이야기한다.",
+      "intent": "더운 날 에어컨 등 전기기기를 오래 사용할 때 무리하게 손대지 않고 이상이 있으면 먼저 끄고 확인하기로 한다.",
+      "shelf": "b2_partner",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "에어컨"
+        },
+        {
+          "korean": "전기요금"
+        },
+        {
+          "korean": "회로"
+        },
+        {
+          "korean": "과부하"
+        },
+        {
+          "korean": "차단기"
+        },
+        {
+          "korean": "전기 코드"
+        },
+        {
+          "korean": "콘센트"
+        },
+        {
+          "korean": "전원"
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_comparative"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N보다",
+          "de": "Grammatik im Kontext: N보다",
+          "en": "Grammar in context: N보다"
+        },
+        "explanation": {
+          "ko": "이 장면에서 N보다 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Als: Vergleich (mehr/weniger als)",
+          "en": "Than: comparison (more/less than)"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "아빠, 근데 요새 우리 에어컨 맨날 켜는데 전기요금 엄청 나오겠지?",
+          "de": "Papa, wir haben die Klimaanlage in letzter Zeit jeden Tag an. Die Stromrechnung wird bestimmt riesig, oder?",
+          "en": "Dad, we've had the AC on every day lately. The electricity bill's going to be huge, right?"
+        },
+        {
+          "speaker": "byeongcheol",
+          "ko": "그렇지, 아무래도. 근데 요금보다 같은 회로에 전기를 너무 많이 쓰면 과부하로 차단기가 내려갈 수도 있거든.",
+          "de": "Wahrscheinlich schon. Aber wichtiger als die Rechnung ist: Wenn an demselben Stromkreis zu viel gleichzeitig läuft, kann wegen Überlastung die Sicherung rausfliegen.",
+          "en": "Probably, yeah. But more important than the bill: if we draw too much power on the same circuit, the breaker can trip from overload."
+        },
+        {
+          "speaker": "user",
+          "ko": "아, 그렇긴 하지. 근데 아빠, 갑자기 전기 코드 쪽에서 이상한 냄새 나면 어떻게 해?",
+          "de": "Stimmt. Aber Papa, was mache ich, wenn es plötzlich am Kabel komisch riecht?",
+          "en": "Right. But Dad, what do I do if I suddenly smell something weird near a power cord?"
+        },
+        {
+          "speaker": "byeongcheol",
+          "ko": "어휴, 그러면 일단 전원부터 끄고 전기 코드나 콘센트는 절대 만지면 안 돼.",
+          "de": "Dann zuerst den Strom ausschalten und auf keinen Fall Kabel oder Steckdose anfassen.",
+          "en": "Then first turn the power off, and do not touch the cord or the outlet."
+        },
+        {
+          "speaker": "user",
+          "ko": "응, 알겠어요. 역시 우리 아빠 최고야 ㅎㅎ.",
+          "de": "Okay, verstanden. Mein Papa ist eben der Beste, haha.",
+          "en": "Okay, got it. My dad is the best haha."
+        },
+        {
+          "speaker": "byeongcheol",
+          "ko": "그 말 들었으면 됐다. 대신 이상하면 바로 불러.",
+          "de": "Das reicht mir schon. Aber wenn dir etwas komisch vorkommt, ruf mich sofort.",
+          "en": "That's all I needed to hear. But if anything seems wrong, call me right away."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_byeongcheol_sujin_heat_electricity_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_advanced"
+          ],
+          "data": {
+            "audioKo": "그렇지, 아무래도. 근데 요금보다 같은 회로에 전기를 너무 많이 쓰면 과부하로 차단기가 내려갈 수도 있거든.",
+            "options": [
+              {
+                "de": "Wahrscheinlich schon. Aber wichtiger als die Rechnung ist: Wenn an demselben Stromkreis zu viel gleichzeitig läuft, kann wegen Überlastung die Sicherung rausfliegen.",
+                "en": "Probably, yeah. But more important than the bill: if we draw too much power on the same circuit, the breaker can trip from overload."
+              },
+              {
+                "de": "Papa, wir haben die Klimaanlage in letzter Zeit jeden Tag an. Die Stromrechnung wird bestimmt riesig, oder?",
+                "en": "Dad, we've had the AC on every day lately. The electricity bill's going to be huge, right?"
+              },
+              {
+                "de": "Stimmt. Aber Papa, was mache ich, wenn es plötzlich am Kabel komisch riecht?",
+                "en": "Right. But Dad, what do I do if I suddenly smell something weird near a power cord?"
+              },
+              {
+                "de": "Dann zuerst den Strom ausschalten und auf keinen Fall Kabel oder Steckdose anfassen.",
+                "en": "Then first turn the power off, and do not touch the cord or the outlet."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_byeongcheol_sujin_heat_electricity_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_advanced"
+          ],
+          "data": {
+            "promptDe": "Okay, verstanden. Mein Papa ist eben der Beste, haha.",
+            "promptEn": "Okay, got it. My dad is the best haha.",
+            "options": [
+              {
+                "ko": "응, 알겠어요. 역시 우리 아빠 최고야 ㅎㅎ."
+              },
+              {
+                "ko": "아빠, 근데 요새 우리 에어컨 맨날 켜는데 전기요금 엄청 나오겠지?"
+              },
+              {
+                "ko": "아, 그렇긴 하지. 근데 아빠, 갑자기 전기 코드 쪽에서 이상한 냄새 나면 어떻게 해?"
+              },
+              {
+                "ko": "그 말 들었으면 됐다. 대신 이상하면 바로 불러."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_byeongcheol_sujin_heat_electricity_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_advanced"
+          ],
+          "data": {
+            "targetKo": "그 말 들었으면 됐다. 대신 이상하면 바로 불러.",
+            "audioKo": "그 말 들었으면 됐다. 대신 이상하면 바로 불러.",
+            "promptDe": "Das reicht mir schon. Aber wenn dir etwas komisch vorkommt, ruf mich sofort.",
+            "promptEn": "That's all I needed to hear. But if anything seems wrong, call me right away.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    }
+  ]
+}

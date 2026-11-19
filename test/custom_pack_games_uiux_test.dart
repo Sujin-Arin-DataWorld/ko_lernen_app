@@ -948,9 +948,7 @@ Finder _soriButton(String label) => find.byWidgetPredicate(
 SoriHomeEscape _homeEscape(WidgetTester tester) {
   final approved = find.byType(ApprovedGameFrame);
   if (approved.evaluate().isNotEmpty) {
-    return SoriHomeEscape(
-      confirmWhen: tester.widget<ApprovedGameFrame>(approved).confirmWhen,
-    );
+    return tester.widget<ApprovedGameFrame>(approved).homeEscape;
   }
   return tester.widget<SoriHomeAction>(find.byType(SoriHomeAction)).escape;
 }

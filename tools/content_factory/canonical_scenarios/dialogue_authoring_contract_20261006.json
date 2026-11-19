@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "status": "CANONICAL",
+  "effectiveDate": "2026-10-06",
+  "source": "User review of Living Korea first- and second-wave Korean dialogue",
+  "scope": "All new or materially revised persona-led Korean dialogue, culture scenes, scenario dialogue, listening dialogue, and contemporary-Korea dialogue.",
+  "principles": {
+    "relationshipBeforeTopic": true,
+    "naturalDialogueBeforePedagogy": true,
+    "languageMiningAfterDialogue": true,
+    "cefrMayChangeSceneLevelInsteadOfFlatteningCharacter": true,
+    "currentFactsBelongInCardsWhenPossible": true,
+    "userReviewedNaturalnessOverridesModelDraft": true
+  },
+  "authoringOrder": [
+    "Check canonical relationship, chronology, and register before writing any line.",
+    "Define the real-life task or friction that gives the characters a reason to speak.",
+    "Choose each character's natural reaction style and one relationship-bearing human beat.",
+    "Write the Korean dialogue as people first, without pre-attaching grammar targets.",
+    "Keep current-event facts subordinate to the lived situation; move volatile facts to the source-backed culture card.",
+    "Mine only vocabulary, grammar, pragmatics, and register that actually appear in the accepted dialogue.",
+    "Run CEFR/LCP audit. Rewrite true difficulty debt; add narrow owners only for genuine modern-life gaps; fix morphology gaps in the auditor.",
+    "After any human dialogue revision, discard stale mined targets and re-mine/re-audit from the revised Korean copy."
+  ],
+  "relationshipRegisterPriority": [
+    "explicit relationshipGraph registerKo override",
+    "relationship-specific character profile rule",
+    "private/work setting",
+    "character baseRegister",
+    "CEFR simplification"
+  ],
+  "relationshipRegisterRules": {
+    "sujin_christian": {
+      "early": "First meeting and early relationship use polite haeyo.",
+      "current": "Current one-year dating timeline uses mutual banmal.",
+      "forbiddenCurrentPattern": "Do not revert to 수진 씨 / 제가 / 해요체 merely because the topic is technical."
+    },
+    "andrea_minho": {
+      "private": "Married-life and home scenes use mutual banmal.",
+      "work": "Andrea's -습니다 work register and Minho's meeting register apply to actual work relationships, not to each other at home.",
+      "forbiddenPrivatePattern": "Do not make the couple use serial 존댓말 simply because they are discussing work or schedules."
+    }
+  },
+  "ttsSurfacePolicy": {
+    "displayAndSpeechAreDifferentSurfaces": true,
+    "ttsOwnership": "Jin",
+    "ttsGenerationInContentFactory": false,
+    "defaultRule": "Display-only paralinguistic markers such as ㅋㅋ/ㅎㅎ must never be synthesized literally as Korean letter names/syllables.",
+    "displayOnlyMarkers": ["ㅋㅋ", "ㅎㅎ", "ㅋㅋㅋ", "ㅎㅎㅎ"],
+    "spokenSurfaceDefault": "Omit pure chat-laughter markers from spoken text when the humor or warmth is already carried by wording and delivery.",
+    "spokenLaughterException": "If audible laughter is semantically important, author it explicitly as a separate performance direction or natural laugh event; do not convert ㅋㅋ/ㅎㅎ mechanically to 하하/호호.",
+    "punctuationRule": "Emoji, repeated punctuation, and chat markers may shape performance/tone but are not automatically lexical TTS content.",
+    "localizationRule": "DE/EN may preserve the pragmatic warmth through wording, intonation, or an equivalent laugh cue; they must not transliterate Korean chat laughter.",
+    "releaseGate": "Before TTS generation, produce or review a spoken-surface string distinct from display text whenever display-only markers are present."
+  },
+  "humanBeatPolicy": {
+    "required": true,
+    "minimumPerSixTurnScene": 1,
+    "definition": "A line or exchange that reveals the relationship or personality beyond information transfer.",
+    "allowedTypes": [
+      "teasing",
+      "dry humor",
+      "playful exaggeration",
+      "small complaint",
+      "affection",
+      "self-deprecation",
+      "warm reaction",
+      "surprise",
+      "character-specific callback",
+      "gentle disagreement"
+    ],
+    "seriousSceneRule": "In safety, fraud, health, legal, or high-stakes scenes, use warmth/reaction/relationship texture without joking about the danger itself.",
+    "antiPattern": "Do not insert a random joke that could be spoken by any character."
+  },
+  "antiTextbookRules": [
+    "Do not let both characters take turns explaining facts like a textbook.",
+    "Avoid consecutive information-only turns when a question, reaction, decision, disagreement, or personal consequence can carry the same content.",
+    "Do not make every response begin with generic 좋아요/맞아요 unless it performs a real pragmatic function.",
+    "Do not use a character as a universal expert just because their job is adjacent to the topic.",
+    "Do not preserve an unnatural sentence just because it contains a desired grammar target.",
+    "Do not make low-CEFR dialogue childish; simplify language, not intelligence or age.",
+    "Do not make every scene end with a neat moral or lesson-summary sentence.",
+    "Do not turn every cultural topic into an exposition lesson; the scene must still work as a believable conversation if the headline is removed."
+  ],
+  "personaHumanBeatStyles": {
+    "sujin": {
+      "preferred": ["short dry reaction", "understated affection", "quick practical comeback"],
+      "avoid": ["long lecture", "constant explainer role"]
+    },
+    "christian": {
+      "preferred": ["careful admission", "small self-correction", "sincere reaction", "technical clarity only when relevant"],
+      "avoid": ["security guru", "data engineer persona", "permanent clueless foreigner"]
+    },
+    "maya": {
+      "preferred": ["fast playful reaction", "energetic idea bounce", "light teasing"],
+      "avoid": ["K-pop-only caricature", "marketing lecture"]
+    },
+    "hyuna": {
+      "preferred": ["dry observation", "gentle nuance", "one-line reality check"],
+      "avoid": ["universal culture lecturer", "speaking for all residents or all Koreans"]
+    },
+    "andrea": {
+      "preferred": ["practical dry humor", "clear tradeoff", "family banter with Minho"],
+      "avoid": ["manager voice at home", "commanding the family"]
+    },
+    "lena": {
+      "preferred": ["bright reaction", "playful enthusiasm", "self-aware adjustment"],
+      "avoid": ["generic foreign tourist", "Daniel-only identity"]
+    },
+    "daniel": {
+      "preferred": ["warm playful line followed by a serious boundary", "visual/media joke"],
+      "avoid": ["all-media expert", "deciding community meaning for others"]
+    },
+    "minho": {
+      "preferred": ["calm dry comeback", "short dad/husband joke", "practical wrap-up"],
+      "avoid": ["authoritarian boss at home", "formal meeting voice with Andrea"]
+    },
+    "dongsun": {
+      "preferred": ["shop-owner wit", "practical self-deprecation", "warm family humor"],
+      "avoid": ["digital-illiterate mother stereotype", "grumbling-old-shopkeeper caricature"]
+    },
+    "byeongcheol": {
+      "preferred": ["terse dry humor", "short safety-first line", "understated father reaction"],
+      "avoid": ["historian authority", "climate-policy authority", "cybersecurity authority"]
+    },
+    "jun": {
+      "preferred": ["teen understatement", "mild complaint", "quick negotiation"],
+      "avoid": ["baby talk", "adult expert voice", "elementary-school tasks"]
+    }
+  },
+  "reviewSignalsFromUser": {
+    "approvedDirection": [
+      "Couples should sound like couples, not coworkers.",
+      "Friends and family may tease or react before giving information.",
+      "A practical topic becomes more engaging when the character's relationship is visible in the line.",
+      "Dry humor and small exaggeration are preferred over forced punchlines.",
+      "Technical accuracy should be corrected without making the conversation stiff."
+    ],
+    "examplesOfDesiredTransformation": [
+      "work-schedule exposition -> spouse banter plus actual scheduling",
+      "shop-cost explanation -> Dongsun's practical joke plus a concrete pricing decision",
+      "tourism etiquette lecture -> Lena voluntarily adjusts time and behavior after Hyuna's context",
+      "heritage methodology lecture -> old-friend teasing around Hyuna's note-taking and verification habit",
+      "electrical-safety lecture -> daughter asks father a real household question, father gives one clear safety boundary"
+    ]
+  },
+  "mandatoryReviewChecks": [
+    "Does the register match the exact relationship and chronology?",
+    "Could these lines plausibly be spoken by these two specific characters?",
+    "Is there at least one relationship-bearing human beat when safe?",
+    "Is any character lecturing because the author needs to deliver facts?",
+    "Could an information-only turn be replaced by a reaction, question, choice, consequence, or disagreement?",
+    "Are volatile current facts kept out of evergreen dialogue when possible?",
+    "Was grammar mined after the final Korean dialogue rather than used to force it?",
+    "If human review changed the copy, were language mining and CEFR audit regenerated?"
+  ]
+}

@@ -732,56 +732,57 @@
       "register": "polite",
       "speechStyle": "polite",
       "title": {
-        "ko": "여자친구 집에 처음 인사드리러 가기",
-        "de": "Zum ersten Mal die Familie der Freundin besuchen",
-        "en": "Visiting your girlfriend's family for the first time"
+        "ko": "여자친구의 부모님을 처음 만나기",
+        "de": "Die Eltern deiner Freundin zum ersten Mal treffen",
+        "en": "Meeting your girlfriend's parents for the first time"
       },
       "intro": {
-        "ko": "수진의 집에 처음 가서 수진 어머니께 인사드려요.",
-        "de": "Du besuchst Sujins Zuhause zum ersten Mal und begrüßt ihre Mutter.",
-        "en": "You visit Sujin's home for the first time and greet her mother."
+        "ko": "수진의 집에서 어머니 동순에게 처음 인사드려요.",
+        "de": "Bei Sujin zu Hause begrüßt du ihre Mutter Dongsun zum ersten Mal.",
+        "en": "At Sujin's home, you meet her mother Dongsun for the first time."
       },
       "courseUnitId": "a1_11_titles_relationships",
       "playerCharacterId": "christian",
       "participantIds": [
         "christian",
-        "sujin"
+        "sujin",
+        "dongsun"
       ],
-      "relationshipContext": "romantic_partner",
-      "intent": "greet_partners_family_politely",
+      "relationshipContext": "수진의 어머니 동순에게 처음 인사드리는 크리스티안",
+      "intent": "수진의 어머니에게 선물을 건네고 정중히 인사한다",
       "shelf": "a1_partner",
       "backdrop": "home",
       "vocab": [
         {
-          "korean": "떨려요.",
+          "korean": "네, 좀 떨려요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Ich bin nervös.",
-            "en": "I'm nervous."
+            "de": "Ja, ich bin ein bisschen nervös.",
+            "en": "Yeah, I'm a little nervous."
           }
         },
         {
-          "korean": "신발은 여기서 벗으세요.",
+          "korean": "괜찮아. 신발은 여기서 벗어.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Zieh die Schuhe hier aus.",
-            "en": "Take off your shoes here."
+            "de": "Alles gut. Zieh die Schuhe hier aus.",
+            "en": "It's fine. Take off your shoes here."
           }
         },
         {
-          "korean": "어머니께 드리는 거예요.",
+          "korean": "이거 어머니한테 드리는 거예요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Das ist für deine Mutter.",
+            "de": "Das hier ist für deine Mutter.",
             "en": "This is for your mom."
           }
         },
         {
-          "korean": "감사해요.",
+          "korean": "어서 와요, 크리스티안 씨.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Danke.",
-            "en": "Thanks."
+            "de": "Kommen Sie doch rein, Christian.",
+            "en": "Come on in, Christian."
           }
         },
         {
@@ -793,27 +794,11 @@
           }
         },
         {
-          "korean": "안에서 기다리세요.",
+          "korean": "반가워요. 선물 고마워요. 편하게 있어요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Sie wartet drinnen.",
-            "en": "She's waiting inside."
-          }
-        },
-        {
-          "korean": "아주 좋아하세요.",
-          "note": {
-            "ko": "장면 핵심 표현",
-            "de": "Sie freut sich sehr.",
-            "en": "She's very happy."
-          }
-        },
-        {
-          "korean": "편하게 계세요.",
-          "note": {
-            "ko": "장면 핵심 표현",
-            "de": "Mach es dir bequem.",
-            "en": "Make yourself at home."
+            "de": "Freut mich. Danke für das Geschenk. Machen Sie es sich bequem.",
+            "en": "It's nice to meet you. Thank you for the gift. Make yourself at home."
           }
         }
       ],
@@ -823,26 +808,26 @@
       ],
       "surfaceFormIds": [],
       "grammarIds": [
-        "grammar_a1_honorific_kke",
+        "grammar_a1_formal_statement",
         "grammar_a1_polite_request"
       ],
       "grammarBlock": {
         "title": {
-          "ko": "N께",
-          "de": "Honorativ-Partikel N께",
-          "en": "Honorific particle N께"
+          "ko": "V-ㅂ/습니다",
+          "de": "V-ㅂ/습니다: formelle Aussage",
+          "en": "V-ㅂ/습니다: formal statement"
         },
         "explanation": {
-          "ko": "웃어른에게 무엇을 드릴 때 N한테 대신 N께를 써요.",
-          "de": "Gegenüber älteren Personen verwendest du N께 statt N한테.",
-          "en": "With elders, use the honorific N께 instead of N한테."
+          "ko": "처음 만나는 어른에게 격식 있게 인사하거나 말할 때 -ㅂ/습니다를 써요.",
+          "de": "Mit -ㅂ/습니다 sprichst du bei einer ersten formellen Begegnung höflich und förmlich.",
+          "en": "Use -ㅂ/습니다 for a polite, formal statement when meeting an elder or respected person for the first time."
         }
       },
       "dialog": [
         {
           "speaker": "sujin",
-          "ko": "여기예요. 우리 집은 처음이죠?",
-          "de": "Hier ist es. Du bist zum ersten Mal bei mir zu Hause, oder?",
+          "ko": "여기야. 우리 집은 처음이지?",
+          "de": "Da sind wir. Du bist zum ersten Mal bei mir zu Hause, oder?",
           "en": "Here it is. This is your first time at my home, right?"
         },
         {
@@ -853,21 +838,21 @@
         },
         {
           "speaker": "sujin",
-          "ko": "괜찮아요. 신발은 여기서 벗으세요.",
+          "ko": "괜찮아. 신발은 여기서 벗어.",
           "de": "Alles gut. Zieh die Schuhe hier aus.",
           "en": "It's fine. Take off your shoes here."
         },
         {
           "speaker": "user",
-          "ko": "이거 어머니께 드리는 거예요.",
+          "ko": "이거 어머니한테 드리는 거예요.",
           "de": "Das hier ist für deine Mutter.",
           "en": "This is for your mom."
         },
         {
-          "speaker": "sujin",
-          "ko": "와, 감사해요. 엄마가 안에서 기다리세요.",
-          "de": "Wow, danke. Meine Mutter wartet drinnen.",
-          "en": "Wow, thanks. My mom is waiting inside."
+          "speaker": "dongsun",
+          "ko": "어서 와요, 크리스티안 씨.",
+          "de": "Kommen Sie doch rein, Christian.",
+          "en": "Come on in, Christian."
         },
         {
           "speaker": "user",
@@ -876,10 +861,10 @@
           "en": "It's nice to meet you."
         },
         {
-          "speaker": "sujin",
-          "ko": "엄마가 아주 좋아하세요. 편하게 계세요.",
-          "de": "Meine Mutter freut sich sehr. Mach es dir bequem.",
-          "en": "My mom is very happy. Make yourself at home."
+          "speaker": "dongsun",
+          "ko": "반가워요. 선물 고마워요. 편하게 있어요.",
+          "de": "Freut mich. Danke für das Geschenk. Machen Sie es sich bequem.",
+          "en": "It's nice to meet you. Thank you for the gift. Make yourself at home."
         },
         {
           "speaker": "user",
@@ -893,11 +878,11 @@
           "id": "quest_a1_w10_partner_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "와, 감사해요. 엄마가 안에서 기다리세요.",
+            "audioKo": "어서 와요, 크리스티안 씨.",
             "options": [
               {
-                "de": "Wow, danke. Meine Mutter wartet drinnen.",
-                "en": "Wow, thanks. My mom is waiting inside."
+                "de": "Kommen Sie doch rein, Christian.",
+                "en": "Come on in, Christian."
               },
               {
                 "de": "Ja, ich bin ein bisschen nervös.",
@@ -908,8 +893,8 @@
                 "en": "It's fine. Take off your shoes here."
               },
               {
-                "de": "Meine Mutter freut sich sehr. Mach es dir bequem.",
-                "en": "My mom is very happy. Make yourself at home."
+                "de": "Freut mich. Danke für das Geschenk. Mach es dir bequem.",
+                "en": "It's nice to meet you. Thank you for the gift. Make yourself at home."
               }
             ],
             "correctIndex": 0
@@ -923,7 +908,7 @@
             "promptEn": "This is for your mom.",
             "options": [
               {
-                "ko": "이거 어머니께 드리는 거예요."
+                "ko": "이거 어머니한테 드리는 거예요."
               },
               {
                 "ko": "네, 좀 떨려요."
@@ -946,11 +931,11 @@
           ],
           "type": "satzBauen",
           "data": {
-            "targetKo": "괜찮아요. 신발은 여기서 벗으세요.",
+            "targetKo": "괜찮아. 신발은 여기서 벗어.",
             "promptDe": "Alles gut. Zieh die Schuhe hier aus.",
             "promptEn": "It's fine. Take off your shoes here.",
             "distractors": [
-              "어머니께",
+              "어머니에게",
               "편하게",
               "을"
             ]
@@ -964,9 +949,9 @@
           "en": "First-visit etiquette"
         },
         "body": {
-          "ko": "여자친구·남자친구 부모님을 처음 뵐 때는 작은 선물을 가져가고, 집에 들어가기 전에 현관에서 신발을 벗어요.",
-          "de": "Beim ersten Treffen mit den Eltern des Partners bringt man ein kleines Geschenk mit und zieht vor dem Betreten der Wohnung die Schuhe im Eingang aus.",
-          "en": "When meeting a partner's parents for the first time, it's common to bring a small gift and take off your shoes at the entrance before stepping inside."
+          "ko": "여자친구나 남자친구의 부모님을 처음 뵐 때 작은 선물을 준비하는 경우가 많고, 집에 따라 현관에서 신발을 벗어요.",
+          "de": "Beim ersten Treffen mit den Eltern der Partnerin oder des Partners bringen viele Menschen ein kleines Geschenk mit. Je nach Haushalt zieht man die Schuhe im Eingang aus.",
+          "en": "When meeting a partner's parents for the first time, many people bring a small gift. Depending on the home, you take off your shoes at the entrance."
         }
       },
       "xpReward": 120,
@@ -1770,19 +1755,19 @@
       ],
       "surfaceFormIds": [],
       "grammarIds": [
-        "grammar_a1_or_particle",
-        "grammar_a1_also_particle"
+        "grammar_a1_also_particle",
+        "grammar_a1_polite_request"
       ],
       "grammarBlock": {
         "title": {
-          "ko": "N(이)나",
-          "de": "N(이)나: oder",
-          "en": "N(이)나: or"
+          "ko": "N도",
+          "de": "N도: auch",
+          "en": "N도: also / too"
         },
         "explanation": {
-          "ko": "포토카드나 배지처럼 N(이)나는 몇 가지 중 아무거나 괜찮을 때 써요.",
-          "de": "N(이)나 nennt mehrere Möglichkeiten, von denen jede in Ordnung ist, z. B. 포토카드나 배지.",
-          "en": "N(이)나 lists a few options where any of them is fine, as in 포토카드나 배지."
+          "ko": "이미 나온 내용에 다른 사람이나 물건을 더할 때 N도를 써요.",
+          "de": "Mit N도 fügst du eine weitere Person oder Sache hinzu: auch / ebenfalls.",
+          "en": "Use N도 to add another person or thing: also / too."
         }
       },
       "dialog": [
@@ -1795,8 +1780,8 @@
         {
           "speaker": "user",
           "ko": "와, 진짜 예뻐요. 이 가수 누구예요?",
-          "de": "Wow, wirklich schön. Wer ist das für ein Sänger?",
-          "en": "Wow, really pretty. Who's this singer?"
+          "de": "Wow, wirklich schön. Wer ist dieser Sänger?",
+          "en": "Wow, it's really pretty. Who's this singer?"
         },
         {
           "speaker": "maya",
@@ -1812,21 +1797,21 @@
         },
         {
           "speaker": "maya",
-          "ko": "포토카드나 배지도 있어요. 같이 볼까요?",
-          "de": "Es gibt auch Fotokarten oder Anstecker. Wollen wir mal schauen?",
-          "en": "There are photocards or badges too. Want to look together?"
+          "ko": "포토카드도 있어요. 배지도 있어요. 볼까요?",
+          "de": "Es gibt auch Fotokarten und Anstecker. Wollen wir schauen?",
+          "en": "There are photocards and badges too. Want to take a look?"
         },
         {
           "speaker": "user",
-          "ko": "네, 좋아요. 저는 포토카드 하나 사고 싶어요.",
-          "de": "Ja, gern. Ich möchte eine Fotokarte kaufen.",
-          "en": "Yes, sure. I want to buy one photocard."
+          "ko": "네. 포토카드 주세요.",
+          "de": "Ja. Eine Fotokarte, bitte.",
+          "en": "Yes. A photocard, please."
         },
         {
           "speaker": "maya",
           "ko": "이거 어때요? 이번 앨범 거예요.",
-          "de": "Wie wäre es mit der hier? Die ist aus dem neuen Album.",
-          "en": "How about this one? It's from the new album."
+          "de": "Wie wäre es mit der hier? Die ist aus diesem Album.",
+          "en": "How about this one? It's from this album."
         },
         {
           "speaker": "user",
@@ -1866,11 +1851,11 @@
           "id": "quest_a1_w10_fandom_translate",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Ja, gern. Ich möchte eine Fotokarte kaufen.",
-            "promptEn": "Yes, sure. I want to buy one photocard.",
+            "promptDe": "Ja. Eine Fotokarte, bitte.",
+            "promptEn": "Yes. A photocard, please.",
             "options": [
               {
-                "ko": "네, 좋아요. 저는 포토카드 하나 사고 싶어요."
+                "ko": "네. 포토카드 주세요."
               },
               {
                 "ko": "와, 진짜 예뻐요. 이 가수 누구예요?"
@@ -1893,9 +1878,9 @@
           ],
           "type": "satzBauen",
           "data": {
-            "targetKo": "포토카드나 배지도 있어요. 같이 볼까요?",
-            "promptDe": "Es gibt auch Fotokarten oder Anstecker. Wollen wir mal schauen?",
-            "promptEn": "There are photocards or badges too. Want to look together?",
+            "targetKo": "포토카드도 있어요. 배지도 있어요. 볼까요?",
+            "promptDe": "Es gibt auch Fotokarten und Anstecker. Wollen wir schauen?",
+            "promptEn": "There are photocards and badges too. Want to take a look?",
             "distractors": [
               "가수",
               "앨범",
@@ -4803,11 +4788,11 @@
           }
         },
         {
-          "korean": "진단서",
+          "korean": "가입하신 보험 내용",
           "note": {
-            "ko": "의사가 병명을 적어 주는 서류",
-            "de": "Diagnosebescheinigung",
-            "en": "diagnosis certificate"
+            "ko": "보험에서 정한 보장 내용",
+            "de": "der Versicherungsumfang",
+            "en": "coverage terms"
           }
         },
         {
@@ -4833,7 +4818,6 @@
       "surfaceFormIds": [],
       "sidekick": "christian",
       "grammarIds": [
-        "grammar_b1_whether",
         "grammar_b1_takes_time"
       ],
       "grammarBlock": {
@@ -4852,26 +4836,26 @@
         {
           "speaker": "user",
           "ko": "안녕하세요, 실손보험 청구 때문에 전화했는데요.",
-          "de": "Hallo, ich rufe wegen einer Erstattung über meine Zusatzversicherung an.",
-          "en": "Hi, I'm calling about a supplementary insurance claim."
+          "de": "Hallo, ich rufe an, weil ich eine Erstattung über meine Krankenversicherung beantragen möchte.",
+          "en": "Hi, I'm calling to ask about filing a medical insurance claim."
         },
         {
           "speaker": "clerk",
           "ko": "네, 어떤 진료를 받으셨어요?",
-          "de": "Ja, welche Behandlung haben Sie bekommen?",
+          "de": "Ja, welche Behandlung haben Sie erhalten?",
           "en": "Sure, what treatment did you receive?"
         },
         {
           "speaker": "user",
-          "ko": "지난주에 병원에서 검사를 받았는데 그게 보장되는지 궁금해서요.",
-          "de": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus und frage mich, ob das gedeckt ist.",
-          "en": "I had a test at the hospital last week, and I'm wondering if that's covered."
+          "ko": "지난주에 병원에서 검사를 받았는데, 그 검사도 보험으로 보장돼요? 확인하고 싶어서요.",
+          "de": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus. Ist diese Untersuchung auch versichert? Das möchte ich gern klären.",
+          "en": "I had a test at the hospital last week. Is that test covered by my insurance too? I'd like to check."
         },
         {
           "speaker": "clerk",
-          "ko": "진단서랑 영수증만 있으면 대부분 보장돼요.",
-          "de": "Wenn Sie nur die Diagnosebescheinigung und die Quittung haben, ist das meiste gedeckt.",
-          "en": "If you just have the diagnosis certificate and the receipt, most of it is covered."
+          "ko": "보험 내용과 받은 진료를 먼저 확인해야 해요. 확인한 뒤에 알려 드릴게요.",
+          "de": "Wir müssen zuerst Ihren Tarif und die Behandlung prüfen. Danach kann ich Ihnen Bescheid geben.",
+          "en": "We need to check your coverage and the treatment first. Then I can let you know."
         },
         {
           "speaker": "user",
@@ -4881,21 +4865,21 @@
         },
         {
           "speaker": "clerk",
-          "ko": "앱에서 사진 찍어서 올리시면 처리해 드려요.",
-          "de": "Wenn Sie in der App ein Foto hochladen, kümmern wir uns darum.",
-          "en": "If you take a photo and upload it in the app, we'll process it."
+          "ko": "필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.",
+          "de": "Ich prüfe die erforderlichen Unterlagen und die Einreichungsmethode und erkläre sie Ihnen dann.",
+          "en": "I'll check the required documents and how to submit them, then explain it to you."
         },
         {
           "speaker": "user",
-          "ko": "처리하는 데 시간이 얼마나 걸려요?",
+          "ko": "처리하는 데 얼마나 걸려요?",
           "de": "Wie lange dauert die Bearbeitung?",
-          "en": "How long does the processing take?"
+          "en": "How long does processing take?"
         },
         {
           "speaker": "clerk",
-          "ko": "보통 삼 일 정도 걸려요.",
-          "de": "Normalerweise dauert es etwa drei Tage.",
-          "en": "It usually takes about three days."
+          "ko": "접수한 뒤에 예상 처리 기간을 확인해 드릴게요.",
+          "de": "Nach der Einreichung prüfe ich die voraussichtliche Bearbeitungszeit für Sie.",
+          "en": "After you submit it, I'll check the expected processing time for you."
         }
       ],
       "quests": [
@@ -4903,11 +4887,11 @@
           "id": "quest_b1_w10_insurance_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "진단서랑 영수증만 있으면 대부분 보장돼요.",
+            "audioKo": "보험 내용과 받은 진료를 먼저 확인해야 해요. 확인한 뒤에 알려 드릴게요.",
             "options": [
               {
-                "de": "Wenn Sie nur die Diagnosebescheinigung und die Quittung haben, ist das meiste gedeckt.",
-                "en": "If you just have the diagnosis certificate and the receipt, most of it is covered."
+                "de": "Wir müssen zuerst Ihren Tarif und die Behandlung prüfen. Danach kann ich Ihnen Bescheid geben.",
+                "en": "We need to check your coverage and the treatment first. Then I can let you know."
               },
               {
                 "de": "Ohne Rezept wird nichts erstattet.",
@@ -4929,11 +4913,11 @@
           "id": "quest_b1_w10_insurance_translate",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus und frage mich, ob das gedeckt ist.",
-            "promptEn": "I had a test at the hospital last week, and I'm wondering if that's covered.",
+            "promptDe": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus. Ist diese Untersuchung auch versichert? Das möchte ich gern klären.",
+            "promptEn": "I had a test at the hospital last week. Is that test covered by my insurance too? I'd like to check.",
             "options": [
               {
-                "ko": "지난주에 병원에서 검사를 받았는데 그게 보장되는지 궁금해서요."
+                "ko": "지난주에 병원에서 검사를 받았는데, 그 검사도 보험으로 보장돼요? 확인하고 싶어서요."
               },
               {
                 "ko": "안녕하세요, 실손보험 청구 때문에 전화했는데요."
@@ -4942,7 +4926,7 @@
                 "ko": "서류는 어떻게 보내면 돼요?"
               },
               {
-                "ko": "처리하는 데 시간이 얼마나 걸려요?"
+                "ko": "처리하는 데 얼마나 걸려요?"
               }
             ],
             "correctIndex": 0
@@ -4952,9 +4936,9 @@
           "id": "quest_b1_w10_insurance_build",
           "type": "satzBauen",
           "data": {
-            "targetKo": "처리하는 데 시간이 얼마나 걸려요?",
+            "targetKo": "처리하는 데 얼마나 걸려요?",
             "promptDe": "Wie lange dauert die Bearbeitung?",
-            "promptEn": "How long does the processing take?",
+            "promptEn": "How long does processing take?",
             "distractors": [
               "진단서랑",
               "청구"

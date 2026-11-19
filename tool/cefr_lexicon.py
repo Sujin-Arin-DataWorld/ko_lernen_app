@@ -225,7 +225,7 @@ ENDINGS: Tuple[str, ...] = (
     "아요", "어요", "여요", "해요", "았어요", "었어요", "했어요", "ㅂ니다",
     "습니다", "습니까", "ㅂ니까", "세요", "으세요", "고", "지만", "어서",
     "아서", "해서", "으니까", "니까", "으면", "면", "으러", "러", "으려고",
-    "려고", "는데", "은데", "ㄴ데", "네요", "군요", "지요", "죠", "을게요",
+    "려고", "는데", "은데", "ㄴ데", "한데", "네요", "군요", "지요", "죠", "을게요",
     "ㄹ게요", "을까요", "ㄹ까요", "을래요", "ㄹ래요", "거든요", "잖아요",
     "겠어요", "았", "었", "겠", "는", "은", "ㄴ", "을", "ㄹ", "기", "음", "ㅁ",
     # R3 item 4: 으니/니 connective ("앉으니" -> 앉다).
@@ -328,7 +328,7 @@ _NOUN_PARTICLE_PRIORITY_SUFFIXES: frozenset = frozenset({"은"})
 # "말하다" at the SAME early priority (see the item-4 addition's own
 # `suf not in _HADA_FUSED_ENDINGS` guard, added at the same time) instead
 # of depending on suffix-length ordering to surface it later.
-_HADA_FUSED_ENDINGS: frozenset = frozenset({"해서", "해야", "했어요"})
+_HADA_FUSED_ENDINGS: frozenset = frozenset({"해서", "해야", "했어요", "한데"})
 
 # Connective (연결어미) subset of ENDINGS used for clause counting.
 CONNECTIVE_ENDINGS: frozenset = frozenset({
@@ -698,6 +698,77 @@ def _swap_final_batchim(token: str, from_tail: int, to_tail: int) -> Optional[st
 _STEM_HOMOGRAPH_OVERRIDE_MAP: Mapping[str, str] = {
     "켜": "켜다",
     "타": "타다",
+    # Regular 하다 / adjective stems whose shorter generic stem is itself
+    # a different high-grade headword. Keep these in the same narrow table
+    # used for 켜/타 so only conjugated-stem recovery changes; exact noun/
+    # dictionary-form lookups still win before lemma fallback.
+    "일": "일하다",
+    "비싸": "비싸다",
+}
+
+# D-4 Living Korea morphology audit: exact, learner-facing colloquial/polite
+# surfaces that are normal Korean but are unsafe to recover through a broad
+# generic ending rule. Keeping these as exact surface -> dictionary-form
+# repairs avoids widening ENDINGS in ways that would collide with nouns or
+# unrelated stems elsewhere in the corpus.
+_SURFACE_LEMMA_OVERRIDE_MAP: Mapping[str, str] = {
+    "어떨까요": "어떻다",
+    "누르래요": "누르다",
+    "마세요": "말다",
+    "다르대": "다르다",
+    "왔대": "오다",
+    "눌렀냐": "누르다",
+    "할게": "하다",
+    "보내": "보내다",
+    # Living Korea first-wave conversational surfaces retained after Jin's
+    # dialogue review. Exact repairs are intentionally narrow so colloquial
+    # forms do not require broad, collision-prone ending rules.
+    "보내서": "보내다",
+    "빼가는": "빼다",
+    "있다던데": "있다",
+    "조심해야겠어": "조심하다",
+    "들어가서": "들어가다",
+    "써서": "쓰다",
+    "알려줘야겠다": "알려주다",
+    "왔다는데": "오다",
+    "눌렀대지": "누르다",
+    # Living Korea second-wave surfaces found in natural work/family,
+    # fieldwork, and safety dialogue. Exact repairs remain intentionally
+    # narrow to avoid broad ending collisions.
+    "정해야겠네요": "정하다",
+    "순서겠네요": "순서",
+    "봐야겠죠": "보다",
+    "드나드는": "드나들다",
+    "볼까요": "보다",
+    "봐야겠지요": "보다",
+    "합시다": "하다",
+    "나거나": "나다",
+    # Living Korea second-wave conversational QA after humor/pass review.
+    "할지": "하다",
+    "거야": "것",
+    "없애야겠네": "없애다",
+    "겁니다": "것",
+    "만들어야겠네요": "만들다",
+    "맡을게": "맡다",
+    "불러서": "부르다",
+    "드는": "들다",
+    "올리자니": "올리다",
+    "나겠다": "나다",
+    "올려야겠네": "올리다",
+    "무서우면": "무섭다",
+    "쓰려다가": "쓰다",
+    "거니까요": "것",
+    "통제죠": "통제",
+    "입는구나": "입다",
+    "만드는": "만들다",
+    "어떠세요": "어떻다",
+    "않을게": "않다",
+    "있을게": "있다",
+    # User-reviewed second-wave Gyeongju/electrical dialogue.
+    "하잖아": "하다",
+    "재밌겠다": "재밌다",
+    "있거든": "있다",
+    "그렇긴": "그렇다",
 }
 
 
@@ -857,6 +928,54 @@ def _auxiliary_tensed_repair(stem: str) -> Optional[str]:
     return remainder + "다"
 
 
+def _plain_style_repair(source: str) -> Optional[str]:
+    """Restore a narrow set of plain-style present/past predicate forms.
+
+    Sentence-level editorial/audit text uses 해라체 declaratives heavily
+    (한다, 먹는다, 했다, 먹었다). Those forms were outside the original
+    polite-ending table and therefore stayed unresolved. This helper is
+    deliberately narrower than a generic "-다" stripper: vowel-final
+    ㄴ다 forms are ambiguous for ㄹ-stems (산다 could be 살다, not 사다),
+    so only closed, observed families are handled here.
+    """
+
+    if len(source) < 2:
+        return None
+
+    # Productive 하다/되다/주다 and -나다 families with fused ㄴ다.
+    for surface_tail, lemma_tail in (
+        ("한다", "하다"),
+        ("된다", "되다"),
+        ("준다", "주다"),
+        ("난다", "나다"),
+    ):
+        if source.endswith(surface_tail):
+            return source[: -len(surface_tail)] + lemma_tail
+
+    # Consonant-stem plain present: 먹는다/묻는다/않는다 -> 먹다/묻다/않다.
+    if source.endswith("는다") and len(source) > len("는다"):
+        stem = source[: -len("는다")]
+        repaired = _irregular_repair(stem)
+        return repaired if repaired is not None else stem + "다"
+
+    # Transparent past forms where 았/었 remains as its own syllable.
+    for suffix in ("았다", "었다"):
+        if source.endswith(suffix) and len(source) > len(suffix):
+            stem = source[: -len(suffix)]
+            repaired = _irregular_repair(stem)
+            return repaired if repaired is not None else stem + "다"
+
+    # Fused ㅆ-past forms such as 했다/갔다/됐다/보냈다.
+    if source.endswith("다") and len(source) > 1:
+        stem = source[:-1]
+        if _strip_final_batchim(stem, (_TAIL_SSANGSIOT,)) is not None:
+            repaired = _irregular_repair(stem)
+            if repaired is not None:
+                return repaired
+
+    return None
+
+
 def _jamo_attributive_repair(stem: str) -> Optional[str]:
     stripped = _strip_final_batchim(stem, (_TAIL_NIEUN, _TAIL_RIEUL))
     if stripped is None:
@@ -940,6 +1059,7 @@ PRONOUN_CONTRACTION_MAP: Mapping[str, str] = {
     "거": "것", "걸": "것", "걸로": "것",
     "이거": "이것", "그거": "그것", "저거": "저것",
     "이게": "이것", "그게": "그것", "저게": "저것",
+    "이건": "이것", "그건": "그것", "저건": "저것",
     "뭘": "뭐",
     # C3-T3 (2026-09-16, Fable review of #352): "누가" (who + subject
     # particle 가) is not a casual shortcut -- it is the ONLY natural
@@ -1213,6 +1333,9 @@ def _lemma_candidates(token: str) -> List[str]:
         copula_stem = _copula_noun_stem(source)
         if copula_stem is not None:
             candidates.append(copula_stem)
+        plain_style = _plain_style_repair(source)
+        if plain_style is not None:
+            candidates.append(plain_style)
         direct = _irregular_repair(source)
         if direct is not None:
             candidates.append(direct)
@@ -1256,6 +1379,23 @@ def _lemma_candidates(token: str) -> List[str]:
                 aux_tensed = _auxiliary_tensed_repair(stem)
                 if aux_tensed is not None:
                     candidates.append(aux_tensed)
+                # C-7.4: polite past forms with a fused tense batchim ㅆ
+                # can leave a stem such as 만났/잤/났/끝났 after stripping
+                # -어요.  Remove only that final tense batchim and restore
+                # the citation -다 form.  Keep separate 았/었/였 syllables
+                # (있었어요 -> 있었) on the existing literal-ending path,
+                # and do not reinterpret lexical 있 as a past marker.
+                if suf in {"아요", "어요", "여요"}:
+                    tense_stem = _strip_final_batchim(stem, (_TAIL_SSANGSIOT,))
+                    if (
+                        tense_stem is not None
+                        and stem != "있"
+                        and not tense_stem.endswith(("아", "어", "여"))
+                    ):
+                        tense_repaired = _irregular_repair(stem)
+                        candidates.append(
+                            tense_repaired if tense_repaired is not None else tense_stem + "다"
+                        )
                 # R7 item 4 ("만들어요" -> 만들다): a stem that ALREADY
                 # ends in batchim ㄹ (e.g. "만들" after stripping "-어요")
                 # is already a complete, valid regular citation stem
@@ -1437,6 +1577,8 @@ def tokenize_eojeols(text: str) -> List[str]:
 EXTRA_PROPER_NOUNS: Tuple[str, ...] = (
     "현우", "지은", "민수", "수진", "안드레아", "크리스티안", "마리아",
     "다니엘", "제니", "이지윤",
+    # Live geographic names are identity, not lexical CEFR burden.
+    "인사동", "종각역",
 )
 
 # T2.4a (B6): brand/product names -- excluded from grading (`grade=None`,
@@ -1450,7 +1592,7 @@ EXTRA_PROPER_NOUNS: Tuple[str, ...] = (
 # table (docs/data/level_bible/F9_exceptions.md, "브랜드/고유명사" section)
 # alongside every other grade-list-independent exception category.
 PROPER_NOUN_EXCLUSIONS: FrozenSet[str] = frozenset({
-    "카카오톡", "카톡", "네이버", "인스타그램", "유튜브", "쿠팡", "배민",
+    "카카오톡", "카톡", "네이버", "인스타그램", "인스타", "유튜브", "쿠팡", "배민",
     "지도앱",
 })
 
@@ -2096,6 +2238,9 @@ class CefrLexicon:
             wg = self._base_chain(candidate)
             if wg.grade is not None:
                 return wg
+            dririda = self._deferential_dririda_lookup(candidate)
+            if dririda.grade is not None:
+                return dririda
             # T2.4a (B4, "드시라고요" -> 드시다): a lemma candidate can
             # ITSELF only be resolvable via aliases.csv (e.g. "드시다",
             # which is neither a kiiq nor a basic2023 headword -- see
@@ -2219,6 +2364,29 @@ class CefrLexicon:
             return prefixed
         return self._compound_split_lookup(word)
 
+    def _deferential_dririda_lookup(self, word: str) -> WordGrade:
+        """Resolve transparent N+드리다 honorific compounds.
+
+        Learner-facing forms such as 인사드리다 and 연락드리다 are productive
+        combinations of a real noun plus the A1 honorific verb 드리다. Only
+        accept the construction when the noun stem itself resolves through
+        the ordinary base chain; otherwise fail closed rather than inventing
+        a grade for an arbitrary string ending in 드리다.
+        """
+        suffix = "드리다"
+        if not word.endswith(suffix) or len(word) <= len(suffix):
+            return WordGrade(None, None, None, word)
+        root = word[:-len(suffix)]
+        root_grade = self._base_chain(root)
+        if root_grade.grade is None:
+            return WordGrade(None, None, None, word)
+        return WordGrade(
+            root_grade.grade,
+            root_grade.cefr,
+            "derived",
+            root,
+        )
+
     def _copula_headword_lookup(self, word: str) -> WordGrade:
         """R8 item 4 ("효율적이다" -> 효율적, B2; "학생이다" -> 학생, A1):
         a headword spelled in the copula's OWN citation/dictionary form
@@ -2304,6 +2472,15 @@ class CefrLexicon:
             return None
         if token in self._proper_nouns:
             return token
+        # Living Korea D-4 follow-up: ordinary Korean vocatives attach
+        # -아/-야 directly to a person's name (수진아, 준아, ...). Treat
+        # that surface as the same deliberately-ungraded proper noun before
+        # generic morphology, but only when the stripped root is already in
+        # the curated proper-noun set.
+        if len(token) > 1 and token[-1] in {"아", "야"}:
+            vocative_root = token[:-1]
+            if vocative_root in self._proper_nouns:
+                return vocative_root
         root = _strip_one_particle(token)
         if root != token and root in self._proper_nouns:
             return root
@@ -2384,6 +2561,9 @@ class CefrLexicon:
         lemma_fb = self._lemma_fallback_chain(normalized)
         if lemma_fb.grade is not None:
             return lemma_fb
+        dririda = self._deferential_dririda_lookup(normalized)
+        if dririda.grade is not None:
+            return dririda
         # R8 item 4: X이다/X적이다 headword-level copula-stem resolution,
         # inserted BEFORE basic2023 (the brief's own ordering) -- see
         # `_copula_headword_lookup`'s docstring.
@@ -2500,6 +2680,17 @@ class CefrLexicon:
         if pronoun_contraction is not None:
             wg = self.word_grade(pronoun_contraction)
             return WordGrade(wg.grade, wg.cefr, wg.source, token, wg.confidence_override)
+        surface_override = _SURFACE_LEMMA_OVERRIDE_MAP.get(token)
+        if surface_override is not None:
+            wg = self.word_grade(surface_override)
+            if wg.grade is not None:
+                return WordGrade(
+                    wg.grade,
+                    wg.cefr,
+                    wg.source,
+                    surface_override,
+                    wg.confidence_override,
+                )
         exact = self._exact_headword_lookup(token)
         if exact.grade is not None:
             return WordGrade(exact.grade, exact.cefr, exact.source, token, exact.confidence_override)
@@ -2527,17 +2718,81 @@ class CefrLexicon:
         docstring for the confidence-cap and proper-noun changes)."""
         eojeols = tokenize_eojeols(text)
         eojeol_count = len(eojeols)
+        grammar_hits = grammar_index.detect(expand_contractions(text))
+        has_a1_long_negation = any(
+            hit.pattern_id == "grammar_a1_long_negation"
+            for hit in grammar_hits
+        )
+        has_a1_want = any(
+            hit.pattern_id in {"grammar_a1_want", "nikl_g1_고_싶다"}
+            for hit in grammar_hits
+        )
 
         tokens: List[WordGrade] = []
         unknown: List[str] = []
         low_confidence: List[str] = []
         proper_nouns: List[str] = []
         connective_hits = 0
-        for raw in eojeols:
+        for index, raw in enumerate(eojeols):
             token = _normalize_token(raw)
             if not token:
                 continue
+            # Pure Korean chat-laughter markers are paralinguistic, not
+            # vocabulary burden. Keep them in learner-facing dialogue while
+            # excluding them from CEFR unknown-token accounting.
+            if all(char in {"ㅋ", "ㅎ"} for char in token):
+                continue
             resolved = self._resolve_eojeol(token)
+            # In V-고 싶다 the immediately preceding -고 form is verbal,
+            # even when its surface is also an unrelated noun headword
+            # (보고 = report vs 보다+고). Once GrammarIndex confirms the
+            # A1 construction and the next eojeol is 싶-, prefer the verb
+            # lemma only when it resolves lower than the raw homograph.
+            if (
+                has_a1_want
+                and token.endswith("고")
+                and index + 1 < len(eojeols)
+                and _normalize_token(eojeols[index + 1]).startswith("싶")
+            ):
+                stem = token[:-1]
+                repaired = _irregular_repair(stem)
+                verb_candidate = repaired if repaired is not None else _restore_predicate(stem)
+                verb_grade = self.word_grade(verb_candidate)
+                if (
+                    verb_grade.grade is not None
+                    and (
+                        resolved.grade is None
+                        or verb_grade.grade < resolved.grade
+                    )
+                ):
+                    resolved = verb_grade
+            # 않다 is a genuine grade-3 lexical headword, so word_grade()
+            # must keep that grade for vocabulary coverage. In the fixed A1
+            # grammar -지 않다, however, the same lemma is the auxiliary
+            # component of the negation construction. Once GrammarIndex has
+            # positively identified that construction, cap only this
+            # sentence token at A1 so the grammar's own lexical material is
+            # not counted twice as unrelated B1 vocabulary.
+            if has_a1_long_negation and resolved.matched == "않다":
+                resolved = WordGrade(
+                    1,
+                    "A1",
+                    "exception",
+                    resolved.matched,
+                    "high",
+                )
+            # 싶다 likewise has an independent higher lexical grade, but in
+            # the positively detected A1 construction V-고 싶다 it is the
+            # grammatical desire component rather than a separate lexical
+            # burden. Keep standalone 싶다 unchanged; cap only this context.
+            if has_a1_want and resolved.matched == "싶다":
+                resolved = WordGrade(
+                    1,
+                    "A1",
+                    "exception",
+                    resolved.matched,
+                    "high",
+                )
             tokens.append(resolved)
             if resolved.source == "proper_noun":
                 proper_nouns.append(resolved.matched)
@@ -2599,7 +2854,6 @@ class CefrLexicon:
 
         lexical_p90 = _percentile([grade for _, grade in percentile_pairs], 90)
 
-        grammar_hits = grammar_index.detect(expand_contractions(text))
         grammar_max = max((h.grade for h in grammar_hits), default=None)
 
         candidates = []
@@ -2959,6 +3213,22 @@ class GrammarIndex:
                 # even though 말 shares the ㄹ-coda surface of volition.
                 if (rule.volitional_raeyo and match.group(0) == "말래요"
                         and re.search(r"지\s*$", text[:match.start()])):
+                    continue
+                # 그래요 is the irregular A1 polite form of 그렇다, not
+                # the B2 reported-speech contraction -(으)래요. The shared
+                # matcher used to see only the bare tail 래요.
+                if (
+                    rule.pattern_id == "grammar_b2_quoted_contractions"
+                    and match.group(0) == "래요"
+                    and text[max(match.start() - 1, 0):match.start()] == "그"
+                ):
+                    continue
+                # NIKL C1 N을/를 가지고 is an argument-framing form.
+                # Do not confuse it with elementary possession: 가지고 있다.
+                if (
+                    rule.pattern_id.startswith("nikl_g5_를_가지고")
+                    and re.match(r"\s*있", text[match.end():])
+                ):
                     continue
                 if rule.short_fragment and not _ends_at_eojeol_boundary(text, match.end()):
                     continue

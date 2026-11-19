@@ -16,6 +16,7 @@ import '../../widgets/sori/c_gallery/c_materials.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/top_chrome.dart';
 import '../../widgets/sori/cultural_help.dart';
+import '../../widgets/sori/culture_stories_entry_card.dart';
 import '../../widgets/sori/dancheong_stamp.dart';
 import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/responsive.dart';
@@ -358,6 +359,20 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                           child: YeopjeonWalletCard(
                             key: ObjectKey(_future),
                             onBuilt: _refresh,
+                          ),
+                        ),
+                      ),
+                      SliverPadding(
+                        padding: const EdgeInsets.fromLTRB(
+                          12,
+                          0,
+                          12,
+                          Spacing.md,
+                        ),
+                        sliver: SliverToBoxAdapter(
+                          child: CultureStoriesEntryCard(
+                            key: ObjectKey(_future),
+                            onOpen: () => _openShortcut('/culture-stories'),
                           ),
                         ),
                       ),

@@ -1,0 +1,479 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "scope": "assets/data/korean_vocab.csv",
+  "reviewAuthority": "assistant_project_manager_under_user_delegation",
+  "humanApprovalClaim": false,
+  "nativeSpeakerQaClaim": false,
+  "sourceAudit": "tool/content_level_suspects.csv",
+  "sourceAuditUnknownCount": 46,
+  "note": "C-7 exact owner decisions for previously unresolved live vocab headwords. The external lexicon gap remains documented by this ledger; level_exceptions.csv provides the canonical learner-facing grade to all audit consumers.",
+  "decisions": [
+    {
+      "id": "vocab_a1_0254",
+      "korean": "집밥",
+      "currentLevel": "a1",
+      "packId": "a1_partner_table_basic_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "compound_daily",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear A1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a1_0296",
+      "korean": "인증샷",
+      "currentLevel": "a2",
+      "packId": "a2_partner_photo_thanks_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "slang_digital",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear A2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a1_0326",
+      "korean": "가글액",
+      "currentLevel": "a2",
+      "packId": "a2_pharmacy_ask_1",
+      "topic": "Apotheke",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear A2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a1_0331",
+      "korean": "제산제",
+      "currentLevel": "a2",
+      "packId": "a2_pharmacy_ask_1",
+      "topic": "Apotheke",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear A2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a2_0314",
+      "korean": "단톡방",
+      "currentLevel": "b1",
+      "packId": "b1_partner_sibling_tease_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "slang_digital",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a2_0324",
+      "korean": "코골이",
+      "currentLevel": "a2",
+      "packId": "a2_partner_overnight_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "compound_daily",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear A2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a2_0368",
+      "korean": "약정",
+      "currentLevel": "b1",
+      "packId": "b1_phone_plan_1",
+      "topic": "Handytarif",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a2_0377",
+      "korean": "이체하다",
+      "currentLevel": "b1",
+      "packId": "b1_bank_counter_1",
+      "topic": "Bankschalter",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a2_0384",
+      "korean": "인감",
+      "currentLevel": "b1",
+      "packId": "b1_bank_counter_1",
+      "topic": "Bankschalter",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a2_0419",
+      "korean": "방문증",
+      "currentLevel": "b1",
+      "packId": "b1_apt_rules_1",
+      "topic": "Hausordnung",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "compound_daily",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a2_0425",
+      "korean": "시급",
+      "currentLevel": "b1",
+      "packId": "b1_part_time_1",
+      "topic": "Nebenjob",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a2_0428",
+      "korean": "휴게시간",
+      "currentLevel": "b1",
+      "packId": "b1_part_time_1",
+      "topic": "Nebenjob",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "compound_daily",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a2_0430",
+      "korean": "알바생",
+      "currentLevel": "b1",
+      "packId": "b1_part_time_1",
+      "topic": "Nebenjob",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "slang_digital",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a2_0431",
+      "korean": "주휴수당",
+      "currentLevel": "b1",
+      "packId": "b1_part_time_1",
+      "topic": "Nebenjob",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a2_0434",
+      "korean": "점장",
+      "currentLevel": "b1",
+      "packId": "b1_part_time_1",
+      "topic": "Nebenjob",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a2_0452",
+      "korean": "줄서다",
+      "currentLevel": "b1",
+      "packId": "b1_festival_booth_1",
+      "topic": "Feststand",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_a2_0465",
+      "korean": "선납금",
+      "currentLevel": "b1",
+      "packId": "b1_housing_search_2026_1",
+      "topic": "집 구하기",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "compound_daily",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_b1_0251",
+      "korean": "입주하다",
+      "currentLevel": "b1",
+      "packId": "b1_housing_contract_1",
+      "topic": "Wohnen & Vertrag",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_b1_0252",
+      "korean": "퇴거하다",
+      "currentLevel": "b1",
+      "packId": "b1_housing_contract_1",
+      "topic": "Wohnen & Vertrag",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_b1_0260",
+      "korean": "조율하다",
+      "currentLevel": "b1",
+      "packId": "b1_work_coordination_1",
+      "topic": "Arbeitskoordination & Termine",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_b1_0304",
+      "korean": "오역",
+      "currentLevel": "b1",
+      "packId": "b1_partner_translating_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_b1_0345",
+      "korean": "읽씹",
+      "currentLevel": "b1",
+      "packId": "b1_partner_group_chat_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "slang_digital",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_b1_0369",
+      "korean": "숨은참조",
+      "currentLevel": "b1",
+      "packId": "b1_workplace_mail_1",
+      "topic": "Dienstmail",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_b1_0406",
+      "korean": "접수증",
+      "currentLevel": "b2",
+      "packId": "b2_public_office_1",
+      "topic": "Amtgang",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "compound_daily",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_b2_0206",
+      "korean": "해지하다",
+      "currentLevel": "b2",
+      "packId": "b2_formal_agreement_1",
+      "topic": "Formelle Vereinbarungen",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_b2_0207",
+      "korean": "갱신하다",
+      "currentLevel": "b2",
+      "packId": "b2_formal_agreement_1",
+      "topic": "Formelle Vereinbarungen",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_b2_0216",
+      "korean": "유예하다",
+      "currentLevel": "b2",
+      "packId": "b2_formal_agreement_1",
+      "topic": "Formelle Vereinbarungen",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_b2_0231",
+      "korean": "숙고하다",
+      "currentLevel": "b2",
+      "packId": "b2_decisions_perspectives_1",
+      "topic": "Entscheidungen & Perspektiven",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_b2_0237",
+      "korean": "책무",
+      "currentLevel": "b2",
+      "packId": "b2_decisions_perspectives_1",
+      "topic": "Entscheidungen & Perspektiven",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_b2_0436",
+      "korean": "시월드",
+      "currentLevel": "b2",
+      "packId": "b2_partner_inlaws_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "slang_digital",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_b2_0571",
+      "korean": "방청",
+      "currentLevel": "b2",
+      "packId": "b2_civic_meeting_1",
+      "topic": "Bürgerversammlung",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "practical_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear B2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c1_0100",
+      "korean": "표집틀",
+      "currentLevel": "c1",
+      "packId": "c1_survey_design_1",
+      "topic": "Erhebungsdesign",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c1_0173",
+      "korean": "편향",
+      "currentLevel": "c1",
+      "packId": "c1_media_evidence_1",
+      "topic": "Medien & Evidenz",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c1_0213",
+      "korean": "임계치",
+      "currentLevel": "c1",
+      "packId": "c1_intimacy_safety_1",
+      "topic": "Sicherheit & Grenzen",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C1 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c2_0040",
+      "korean": "편향을 증폭하다",
+      "currentLevel": "c2",
+      "packId": "c2_technology_ethics_1",
+      "topic": "Technikethik & Verantwortung",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c2_0115",
+      "korean": "완곡어법",
+      "currentLevel": "c2",
+      "packId": "c2_authority_language_1",
+      "topic": "Autoritätssprache",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c2_0171",
+      "korean": "소명",
+      "currentLevel": "c2",
+      "packId": "c2_automation_redress_1",
+      "topic": "Automatisierung & Rechtsweg",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c2_0188",
+      "korean": "항변",
+      "currentLevel": "c2",
+      "packId": "c2_sanction_accountability_1",
+      "topic": "Sanktion & Rechenschaft",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c2_0189",
+      "korean": "오탐",
+      "currentLevel": "c2",
+      "packId": "c2_sanction_accountability_1",
+      "topic": "Sanktion & Rechenschaft",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c2_0191",
+      "korean": "귀책",
+      "currentLevel": "c2",
+      "packId": "c2_sanction_accountability_1",
+      "topic": "Sanktion & Rechenschaft",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c2_0205",
+      "korean": "담론",
+      "currentLevel": "c2",
+      "packId": "c2_fandom_discourse_1",
+      "topic": "Diskurs & Macht",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c2_0206",
+      "korean": "결집",
+      "currentLevel": "c2",
+      "packId": "c2_fandom_discourse_1",
+      "topic": "Diskurs & Macht",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c2_0210",
+      "korean": "위계",
+      "currentLevel": "c2",
+      "packId": "c2_fandom_discourse_1",
+      "topic": "Diskurs & Macht",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c2_0217",
+      "korean": "담론 프레임",
+      "currentLevel": "c2",
+      "packId": "c2_2026_social_topics_1",
+      "topic": "Diskurs, Macht & Verantwortung",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c2_0239",
+      "korean": "표집 편향",
+      "currentLevel": "c2",
+      "packId": "c2_demography_accountability_2026_1",
+      "topic": "인구 담론과 제도 책임",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    },
+    {
+      "id": "vocab_c2_0254",
+      "korean": "충분조건",
+      "currentLevel": "c2",
+      "packId": "c2_argument_scope_1",
+      "topic": "Argumentation und Verfahrensgestaltung",
+      "decision": "assign_exact_lexicon_owner",
+      "category": "advanced_domain",
+      "reason": "LCP C-7 delegated PM review: live learner-facing headword has a clear C2 task/domain owner but no resolvable external lexicon grade. Assign the exact current owner grade; this is a pedagogical owner decision, not a native-speaker QA claim."
+    }
+  ],
+  "coveragePreservation": {
+    "id": "vocab_c1_0113",
+    "korean": "오탐 비율",
+    "currentLevel": "c1",
+    "reason": "Adding exact C2 owner 오탐 changed the old resolved lemma for 오탐 비율 from 비율 to 오탐. The phrase-level C1 owner preserves both compositional coverage keys without weakening the six-grade ratchet."
+  }
+}

@@ -9,7 +9,7 @@ level the app currently assigns it (plan §3.C.3).
 
 Outputs (``main()`` / ``run_audit`` + the ``write_*`` helpers):
   - ``docs/data/content_level_report.md``   — human-readable matrices +
-    A1/A2 pack ranking + 1-/2-grade coverage + level-deviating scenarios.
+    A1/A2 pack ranking + 1-/6-grade coverage + level-deviating scenarios.
   - ``tool/content_level_suspects.csv``     — one row per flagged item,
     header ``kind,id,level,estimate,delta,reason,blocked_by,bundle_id,
     suggested_action``, sorted by ``(kind, id)``.
@@ -102,7 +102,7 @@ Rework R4 (this revision)
 
 Rework R4b (this revision)
 ---------------------------
-1. **Coverage present_in_app by resolved lemma.** A kiiq grade-1/grade-2
+1. **Coverage present_in_app by resolved lemma.** A kiiq grade-1/grade-6
    headword now also counts as ``present_in_app`` when it equals the
    RESOLVED lemma of some app vocab row — ``CefrLexicon.word_grade(row
    ['korean']).matched``, with any trailing ``'(hN,hM,...)'`` homograph
@@ -180,6 +180,8 @@ SUMMARY_JSON = REPO / "tool" / "content_level_summary.json"
 # packs.a1/a2.over2_unbacklogged ratchet -- an over2 vocab suspect that IS
 # in this backlog is "triaged", not "unaddressed".
 REPLACEMENT_BACKLOG_JSON = REPO / "tools" / "content_factory" / "relevel" / "replacement_backlog.json"
+REVIEWED_VOCAB_OWNERS_JSON = REPO / "tools" / "content_factory" / "relevel" / "reviewed_vocab_owners_20261005.json"
+RELEVEL_LEDGER_JSON = REPO / "tools" / "content_factory" / "relevel_ledger.json"
 
 # R4 item 3: lowercase throughout -- both the matrix's grouping keys and
 # its printed row labels (a data value, unlike the fixed "A1".."C2" table
@@ -195,7 +197,10 @@ SUSPECTS_HEADER: Tuple[str, ...] = (
 # R4 item 4: 'fallback_over2' added -- a >=+2 verdict resting on a
 # medium/low-confidence token/word, split out of plain 'over2' so the
 # ratchet's over2 caps stay a high-confidence-only signal.
-REASON_BUCKETS: Tuple[str, ...] = ("over2", "over1", "under2", "unknown", "fallback_over2")
+REASON_BUCKETS: Tuple[str, ...] = (
+    "over2", "over1", "under2", "unknown", "fallback_over2",
+    "accepted_relevel", "reviewed_owner", "replacement_backlog",
+)
 
 
 # ---------------------------------------------------------------------------
@@ -215,7 +220,8 @@ class Item:
     bundle_id: str
     # R4 item 4: canonical classification driving suggested_action /
     # counts[kind] / suspects-CSV inclusion -- '' | 'over2' | 'over1' |
-    # 'under2' | 'unknown' | 'fallback_over2'. NOT a CSV column itself
+    # 'under2' | 'unknown' | 'fallback_over2' | 'accepted_relevel' |
+    # 'reviewed_owner' | 'replacement_backlog'. NOT a CSV column itself
     # (the CSV keeps its original 9-column contract); `reason` below is
     # the column, a human-readable elaboration of this bucket.
     bucket: str
@@ -273,6 +279,7 @@ class Corpus:
     can_do_refs: List[dict]
     kiiq_rows: List[dict]
     replacement_backlog_ids: FrozenSet[str]
+    reviewed_vocab_owner_ids: FrozenSet[str]
 
 
 @dataclass
@@ -308,6 +315,95 @@ def _load_replacement_backlog_ids(root: Path) -> FrozenSet[str]:
     return frozenset(row["id"] for row in rows if isinstance(row, dict) and row.get("id"))
 
 
+def _load_reviewed_vocab_owner_ids(
+    root: Path,
+    vocab_rows: Sequence[dict],
+) -> FrozenSet[str]:
+    """Load explicit keep-current owner decisions for live vocab rows.
+
+    This ledger is deliberately separate from the immutable relevel ledger:
+    it records reviewed decisions to KEEP a live row at its current level,
+    while preserving the external estimate/delta for audit transparency.
+    Any malformed row, duplicate id, missing live id, or stale level fails
+    closed instead of silently converting unresolved debt into reviewed debt.
+    """
+
+    path = root / REVIEWED_VOCAB_OWNERS_JSON.relative_to(REPO)
+    if not path.exists():
+        return frozenset()
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict) or payload.get("schemaVersion") != 1:
+        raise ValueError("reviewed vocab owner ledger must use schemaVersion 1")
+    decisions = payload.get("decisions")
+    if not isinstance(decisions, list):
+        raise ValueError("reviewed vocab owner ledger decisions must be a list")
+
+    live = {
+        row.get("id", ""): row
+        for row in vocab_rows
+        if isinstance(row, dict) and row.get("id")
+    }
+    seen: set[str] = set()
+    reviewed: set[str] = set()
+    for row in decisions:
+        if not isinstance(row, dict):
+            raise ValueError("reviewed vocab owner decision must be an object")
+        ident = row.get("id")
+        current_level = (row.get("currentLevel") or "").strip().lower()
+        if not isinstance(ident, str) or not ident:
+            raise ValueError("reviewed vocab owner decision needs a nonempty id")
+        if ident in seen:
+            raise ValueError(f"duplicate reviewed vocab owner id {ident!r}")
+        if row.get("decision") != "keep_current":
+            raise ValueError(f"reviewed vocab owner {ident!r} must be keep_current")
+        live_row = live.get(ident)
+        if live_row is None:
+            raise ValueError(f"reviewed vocab owner {ident!r} is not live")
+        live_level = (live_row.get("level") or "").strip().lower()
+        if current_level not in LEVELS or current_level != live_level:
+            raise ValueError(
+                f"reviewed vocab owner {ident!r} level {current_level!r} "
+                f"does not match live {live_level!r}"
+            )
+        if row.get("packId") != live_row.get("pack_id"):
+            raise ValueError(f"reviewed vocab owner {ident!r} packId is stale")
+        seen.add(ident)
+        reviewed.add(ident)
+    return frozenset(reviewed)
+
+
+def _load_accepted_vocab_relevel_ids(
+    root: Path,
+    vocab_rows: Sequence[dict],
+) -> FrozenSet[str]:
+    """Return live vocab ids whose current level matches a recorded relevel.
+
+    The immutable relevel ledger is the canonical explanation for deliberate
+    id-vs-level drift. The audit still keeps the external estimate/delta, but
+    these rows must not be counted again as unresolved over2 debt.
+    """
+
+    path = root / RELEVEL_LEDGER_JSON.relative_to(REPO)
+    if not path.exists():
+        return frozenset()
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    entries = payload.get("entries", []) if isinstance(payload, dict) else []
+    live_levels = {
+        row.get("id", ""): (row.get("level") or "").strip().lower()
+        for row in vocab_rows
+        if isinstance(row, dict) and row.get("id")
+    }
+    accepted: set[str] = set()
+    for entry in entries:
+        if not isinstance(entry, dict) or entry.get("kind") != "vocab":
+            continue
+        ident = entry.get("id")
+        to_level = (entry.get("to") or "").strip().lower()
+        if isinstance(ident, str) and live_levels.get(ident) == to_level:
+            accepted.add(ident)
+    return frozenset(accepted)
+
+
 def load_corpus(root: Path = REPO) -> Corpus:
     """Read the lexicon + all 8 graded surfaces from `root` (plan §4.2)."""
     assets = root / ASSETS_REL
@@ -338,6 +434,7 @@ def load_corpus(root: Path = REPO) -> Corpus:
 
     kiiq_rows = _read_csv(root / LEXICON_DIR_REL / "nikl_kiiq_2017_vocab.csv")
     replacement_backlog_ids = _load_replacement_backlog_ids(root)
+    reviewed_vocab_owner_ids = _load_reviewed_vocab_owner_ids(root, vocab_rows)
 
     return Corpus(
         root=root, lexicon=lexicon, grammar_index=grammar_index, vocab_rows=vocab_rows,
@@ -346,6 +443,7 @@ def load_corpus(root: Path = REPO) -> Corpus:
         pronunciation_phrases=pronunciation_phrases, media_phrases=media_phrases,
         can_do_refs=can_do_refs, kiiq_rows=kiiq_rows,
         replacement_backlog_ids=replacement_backlog_ids,
+        reviewed_vocab_owner_ids=reviewed_vocab_owner_ids,
     )
 
 
@@ -409,6 +507,10 @@ def _default_action(kind: str, bucket: str) -> str:
     the now-descriptive `reason` text."""
     if bucket in ("", "unknown"):
         return "keep"
+    if bucket in ("accepted_relevel", "reviewed_owner"):
+        return "keep_reviewed_owner"
+    if bucket == "replacement_backlog":
+        return "replace_backfill"
     if bucket == "fallback_over2":
         return "review_fallback"
     if kind == "vocab":
@@ -668,7 +770,7 @@ def _vocab_coverage_keys(
     """R4b item 1: one (korean, level_upper, match_keys) tuple per
     non-blank vocab row — `match_keys` is `{korean}` unioned with the
     row's resolved-lemma coverage keys (`_resolved_lemma_keys`), computed
-    ONCE so `compute_coverage`'s grade1/grade2 passes (called from
+    ONCE so `compute_coverage`'s grade1..grade6 passes (called from
     `run_audit`) don't each re-run `CefrLexicon.word_grade` over every
     vocab row."""
     out: List[Tuple[str, str, set]] = []
@@ -690,6 +792,10 @@ def _vocab_coverage_keys(
 def grade_vocab(corpus: Corpus) -> List[Item]:
     satz_keys = _satz_keys(corpus.satz_items)
     vocab_pack_ids = _can_do_ids_by_kind(corpus.can_do_refs).get("vocabPack", set())
+    accepted_relevel_ids = _load_accepted_vocab_relevel_ids(
+        corpus.root,
+        corpus.vocab_rows,
+    )
     items: List[Item] = []
     for row in corpus.vocab_rows:
         level = (row.get("level") or "").strip().lower()  # R4 item 3
@@ -720,8 +826,26 @@ def grade_vocab(corpus: Corpus) -> List[Item]:
         # (kept alongside satz_ref/can_do_ref, not replacing them, since
         # those structural facts are still true) so build_summary()'s
         # over2_unbacklogged ratchet can exclude it.
-        if row.get("id", "") in corpus.replacement_backlog_ids:
+        ident = row.get("id", "")
+        if ident in corpus.replacement_backlog_ids:
             blocked.append("replacement_backlog")
+        if ident in accepted_relevel_ids:
+            blocked.append("accepted_relevel")
+        if ident in corpus.reviewed_vocab_owner_ids:
+            blocked.append("reviewed_owner")
+
+        # Canonical owner decisions are resolution states, not unresolved
+        # level errors. Keep the raw estimate/delta intact for transparency.
+        if delta is not None and delta >= 2:
+            if ident in corpus.replacement_backlog_ids:
+                bucket = "replacement_backlog"
+                reason = f"replacement_backlog raw_estimate={estimate or ''}"
+            elif ident in accepted_relevel_ids:
+                bucket = "accepted_relevel"
+                reason = f"accepted_relevel raw_estimate={estimate or ''}"
+            elif ident in corpus.reviewed_vocab_owner_ids:
+                bucket = "reviewed_owner"
+                reason = f"reviewed_owner raw_estimate={estimate or ''}"
 
         # R4 item 7: number/proper-noun tokens are never a lexicon gap --
         # exclude them from unknown_count the same way sentence_profile()
@@ -733,7 +857,7 @@ def grade_vocab(corpus: Corpus) -> List[Item]:
         )
 
         items.append(Item(
-            kind="vocab", id=row.get("id", ""), level=level, grade=grade, estimate=estimate,
+            kind="vocab", id=ident, level=level, grade=grade, estimate=estimate,
             delta=delta, blocked_by="+".join(blocked), bundle_id=pack_id,
             bucket=bucket, reason=reason, suggested_action=_default_action("vocab", bucket),
             confidence=confidence, token_count=len(pg.words), unknown_count=unknown_count,
@@ -801,9 +925,19 @@ def apply_pack_overrides(
         if delta_pack is not None and delta_pack >= 2:
             pack_action[pack_id] = "bundle_move" if n_hm >= 6 else "insufficient_sample"
 
+    protected_buckets = {
+        "fallback_over2",
+        "accepted_relevel",
+        "reviewed_owner",
+        "replacement_backlog",
+    }
     new_items = [
         replace(it, suggested_action=pack_action[it.bundle_id])
-        if it.bundle_id in pack_action and it.bucket and it.bucket != "fallback_over2"
+        if (
+            it.bundle_id in pack_action
+            and it.bucket
+            and it.bucket not in protected_buckets
+        )
         else it
         for it in items
     ]
@@ -818,12 +952,17 @@ def grade_grammar(corpus: Corpus) -> List[Item]:
 def _grade_sentence_surface(
     corpus: Corpus, kind: str, rows: Sequence[dict], text_field: str,
     can_do_ids: set, bundle_map: Optional[Dict[Tuple[str, str], str]] = None,
+    *, target_field: Optional[str] = None,
 ) -> List[Item]:
-    """Shared grading loop for every single-text sentence-level surface
-    (grammar/cloze/satz/pronunciation/media). smalltalk/scenario pool
-    MULTIPLE texts per item, so they build their own SentenceProfile loop
-    (`grade_smalltalk`/`grade_scenarios`) and call `_sentence_verdict`
-    directly on whichever text's profile determines the item's grade."""
+    """Shared grading loop for one-text sentence-level surfaces.
+
+    Cloze/Satz teach an explicit vocab target whose owner is already audited
+    in `grade_vocab`. If the full sentence is over2, a conservative second
+    pass removes that exact target once. We suppress only the duplicate
+    sentence over2 verdict when the remaining context is *not* over2. This
+    never changes a sentence that was not already over2, and it keeps genuine
+    surrounding-context debt visible.
+    """
     items: List[Item] = []
     for row in rows:
         level = (row.get("level") or "").strip().lower()  # R4 item 3
@@ -835,6 +974,36 @@ def _grade_sentence_surface(
         bucket, reason = _classify_with_confidence(
             delta, factor, confidence, source, sentence_level=True,
         )
+        if target_field is not None and bucket == "over2":
+            target = row.get(target_field, "") or ""
+            if isinstance(target, str) and target.strip() and target in text:
+                context_text = text.replace(target, "", 1)
+                context_sp = corpus.lexicon.sentence_profile(
+                    context_text,
+                    corpus.grammar_index,
+                )
+                (
+                    context_grade,
+                    _context_estimate,
+                    context_factor,
+                    context_confidence,
+                    context_source,
+                ) = _sentence_verdict(context_sp)
+                context_delta = (
+                    context_grade - rank
+                    if context_grade is not None and rank is not None
+                    else None
+                )
+                context_bucket, _context_reason = _classify_with_confidence(
+                    context_delta,
+                    context_factor,
+                    context_confidence,
+                    context_source,
+                    sentence_level=True,
+                )
+                if context_bucket not in {"over2", "fallback_over2"}:
+                    bucket = ""
+                    reason = ""
         rid = row.get("id", "")
         blocked = "can_do_ref" if rid in can_do_ids else ""
         bundle_id = ""
@@ -851,12 +1020,28 @@ def _grade_sentence_surface(
 
 def grade_cloze(corpus: Corpus, bundle_map: Dict[Tuple[str, str], str]) -> List[Item]:
     can_do = _can_do_ids_by_kind(corpus.can_do_refs).get("cloze", set())
-    return _grade_sentence_surface(corpus, "cloze", corpus.cloze_items, "fullKo", can_do, bundle_map)
+    return _grade_sentence_surface(
+        corpus,
+        "cloze",
+        corpus.cloze_items,
+        "fullKo",
+        can_do,
+        bundle_map,
+        target_field="answer",
+    )
 
 
 def grade_satz(corpus: Corpus, bundle_map: Dict[Tuple[str, str], str]) -> List[Item]:
     can_do = _can_do_ids_by_kind(corpus.can_do_refs).get("satz", set())
-    return _grade_sentence_surface(corpus, "satz", corpus.satz_items, "targetKo", can_do, bundle_map)
+    return _grade_sentence_surface(
+        corpus,
+        "satz",
+        corpus.satz_items,
+        "targetKo",
+        can_do,
+        bundle_map,
+        target_field="vocabKo",
+    )
 
 
 def grade_pronunciation(corpus: Corpus) -> List[Item]:
@@ -1033,7 +1218,7 @@ def compute_coverage(
 ) -> CoverageStat:
     """`_row_keys` (from `_vocab_coverage_keys`) is an optional
     precomputed-once-per-corpus argument — `run_audit` passes it so its
-    two grade1/grade2 calls don't each redo the ``word_grade`` pass over
+    six grade1..grade6 calls don't each redo the ``word_grade`` pass over
     every vocab row; a direct call (e.g. from a test) omits it and pays
     that cost itself, correctly but less efficiently."""
     row_keys = _row_keys if _row_keys is not None else _vocab_coverage_keys(
@@ -1095,13 +1280,17 @@ def run_audit(root: Path = REPO) -> AuditResult:
         "pronunciation": grade_pronunciation(corpus),
         "media": grade_media(corpus),
     }
-    # R4b item 1: computed once and shared by both compute_coverage()
-    # calls below, so the word_grade pass over every vocab row doesn't run
-    # twice.
+    # Coverage keys are computed once and shared by all six grade passes, so
+    # the word_grade pass over every vocab row runs only once per audit.
     vocab_coverage_keys = _vocab_coverage_keys(corpus.lexicon, corpus.vocab_rows)
     coverage = {
-        "grade1": compute_coverage(corpus, 1, "A1", vocab_coverage_keys),
-        "grade2": compute_coverage(corpus, 2, "A2", vocab_coverage_keys),
+        f"grade{grade}": compute_coverage(
+            corpus,
+            grade,
+            level.upper(),
+            vocab_coverage_keys,
+        )
+        for grade, level in enumerate(LEVELS, start=1)
     }
     return AuditResult(items_by_kind=items_by_kind, pack_stats=pack_stats, coverage=coverage)
 
@@ -1162,18 +1351,16 @@ def build_summary(result: AuditResult, generated_from: str) -> dict:
         )
 
     def _over2_unbacklogged(level: str) -> int:
-        # T2.5 Part C: count of vocab headwords at this level with
-        # delta>=2 (matches 'over2' AND 'fallback_over2' -- both mean the
-        # SAME thing, delta>=2, just split by confidence for the ratchet's
-        # own high-confidence-only ratchet elsewhere) whose blocked_by does
-        # NOT already list 'replacement_backlog' -- i.e. flagged but not
-        # yet triaged into a scheduled fix. DONE target (and ratchet CAP)
-        # is 0 for both a1/a2.
+        # Count only unresolved +2-or-more vocab debt. Historical relevels,
+        # reviewed-current-owner decisions, and explicit replacement queues
+        # are all resolution states and must not be double-counted here.
         return sum(
             1 for it in result.items_by_kind.get("vocab", [])
             if it.level == level
             and it.delta is not None and it.delta >= 2
             and "replacement_backlog" not in it.blocked_by.split("+")
+            and "accepted_relevel" not in it.blocked_by.split("+")
+            and "reviewed_owner" not in it.blocked_by.split("+")
         )
 
     def _top10(level: str) -> List[dict]:
@@ -1214,8 +1401,8 @@ def build_summary(result: AuditResult, generated_from: str) -> dict:
             },
         },
         "coverage": {
-            "grade1": _cov(result.coverage["grade1"]),
-            "grade2": _cov(result.coverage["grade2"]),
+            key: _cov(result.coverage[key])
+            for key in (f"grade{grade}" for grade in range(1, 7))
         },
     }
 

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "status": "MODEL_ASSISTED_STRUCTURAL_SEMANTIC_REVIEW",
+  "reviewedDate": "2026-10-06",
+  "humanNativeSignoff": false,
+  "policy": "These resolutions close only the Korean example-target surface-anchor review flag. They do not certify EN/DE native fluency, corpus QA, human-native review, or promotion readiness.",
+  "resolutionTypes": {
+    "inflected_surface": {
+      "note": "The canonical target is visibly realized through ordinary Korean conjugation, irregular inflection, honorific realization, spacing, or particle attachment; changing the Korean example would reduce naturalness.",
+      "itemIds": [
+        "vocab_a1_0110#example", "vocab_a2_0045#example", "vocab_a2_0067#example",
+        "vocab_a2_0078#example", "vocab_a2_0079#example", "vocab_a2_0093#example",
+        "vocab_a2_0114#example", "vocab_b1_0094#example", "vocab_b1_0100#example",
+        "vocab_b1_0206#example", "vocab_b1_0215#example", "vocab_b1_0226#example",
+        "vocab_b1_0235#example", "vocab_b2_0154#example", "vocab_b2_0190#example",
+        "vocab_b2_0200#example", "vocab_b2_0201#example", "vocab_b2_0202#example",
+        "vocab_b2_0203#example", "vocab_a2_0259#example", "vocab_b2_0309#example",
+        "vocab_a1_0266#example", "vocab_a2_0306#example", "vocab_a2_0339#example",
+        "vocab_a2_0464#example", "vocab_a1_0435#example", "vocab_a2_0485#example",
+        "vocab_a2_0494#example", "vocab_a1_0719#example"
+      ]
+    },
+    "multiword_realization": {
+      "note": "The teaching target is a multiword pattern whose predicate/core relation is present, while arguments, particles, subjects, or slots are naturally varied in the example.",
+      "itemIds": [
+        "vocab_b2_0265#example", "vocab_b2_0284#example", "vocab_c1_0024#example",
+        "vocab_c2_0020#example", "vocab_c2_0022#example", "vocab_b2_0290#example",
+        "vocab_b2_0306#example", "vocab_b2_0311#example", "vocab_c1_0026#example",
+        "vocab_c1_0039#example", "vocab_c1_0041#example", "vocab_c1_0042#example",
+        "vocab_c1_0043#example", "vocab_c2_0025#example", "vocab_c2_0031#example",
+        "vocab_c2_0036#example", "vocab_a2_0276#example", "vocab_b2_0441#example",
+        "vocab_b2_0447#example", "vocab_b2_0455#example", "vocab_b2_0459#example",
+        "vocab_b2_0463#example", "vocab_b2_0474#example", "vocab_b2_0477#example",
+        "vocab_a1_0422#example"
+      ]
+    },
+    "semantic_concept_example": {
+      "note": "The row teaches a semantic/cultural concept or contrast rather than requiring the exact label to appear verbatim; the Korean example was manually checked to instantiate the intended concept without semantic drift.",
+      "itemIds": [
+        "vocab_b2_0283#example", "vocab_c2_0011#example", "vocab_c2_0014#example",
+        "vocab_b2_0307#example", "vocab_c1_0028#example", "vocab_a1_0292#example",
+        "vocab_a2_0309#example", "vocab_b1_0328#example", "vocab_b2_0434#example"
+      ]
+    }
+  }
+}

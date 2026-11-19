@@ -1,0 +1,973 @@
+{
+  "schemaVersion": 1,
+  "scope": "assets/data/smalltalk.json",
+  "reviewStatus": "MODEL_REVIEW_ONLY",
+  "humanApprovalClaim": false,
+  "humanReviewStatus": "required_before_native-quality-claim",
+  "predecessorLedger": "tools/content_factory/review/smalltalk_editorial_successors_20261003.json",
+  "predecessorLedgerSha256": "2a51277c9e46abee916b6034ea4d1a1607e95ad48745ec6bfca05574fae0e199",
+  "sourceGitCommit": "d73211a665bd66fd44f8b388df17cdd98370fbbd",
+  "sourceGitPath": "assets/data/smalltalk.json",
+  "authoringReceiptSha256": "d447ed179c01efc2d38a4d020d9dac08e299b7dc9f2693c315d9a5e3875f02ad",
+  "entries": [
+    {
+      "id": "smalltalk_a1_0033",
+      "fields": [
+        "de",
+        "en",
+        "followUp.de",
+        "followUp.en",
+        "followUp.ko",
+        "ko",
+        "reply.de",
+        "reply.en",
+        "reply.ko"
+      ],
+      "before": {
+        "id": "smalltalk_a1_0033",
+        "category": "job_hunting",
+        "level": "a1",
+        "kind": "question",
+        "ko": "이력서 썼어요?",
+        "de": "Hast du deinen Lebenslauf geschrieben?",
+        "en": "Did you write your resume?",
+        "reply": {
+          "ko": "네, 어제 다 썼어요.",
+          "de": "Ja, gestern fertig geschrieben.",
+          "en": "Yes, I finished it yesterday."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "다 쓰셨다니 다행이에요.",
+          "de": "Schön, dass du ihn fertig hast.",
+          "en": "I'm glad you got it finished."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a1_0033",
+        "category": "job_hunting",
+        "level": "a1",
+        "kind": "question",
+        "ko": "일 찾고 있어요?",
+        "de": "Suchst du gerade Arbeit?",
+        "en": "Are you looking for work?",
+        "reply": {
+          "ko": "네, 찾고 있어요.",
+          "de": "Ja, ich suche gerade.",
+          "en": "Yes, I am."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋은 곳을 찾으면 좋겠어요.",
+          "de": "Ich hoffe, du findest eine gute Stelle.",
+          "en": "I hope you find a good place."
+        }
+      },
+      "beforeSha256": "979009b4a9ae4c4bc155cdb8b87ead8cb331952e2b0cad0f6fe7f56b848db33e",
+      "afterSha256": "1202776ed780a9c7dfa4e85bf856a85d69a62913a87ca510f658f31913548b3a",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "979009b4a9ae4c4bc155cdb8b87ead8cb331952e2b0cad0f6fe7f56b848db33e",
+      "reason": "LCP C4 model-authored level-fit simplification; semantic topic and route preserved, native human review is not claimed."
+    },
+    {
+      "id": "smalltalk_a1_0035",
+      "fields": [
+        "followUp.de",
+        "followUp.en",
+        "followUp.ko",
+        "ko",
+        "reply.ko"
+      ],
+      "before": {
+        "id": "smalltalk_a1_0035",
+        "category": "moving",
+        "level": "a1",
+        "kind": "question",
+        "ko": "집 구했어요?",
+        "de": "Hast du eine Wohnung gefunden?",
+        "en": "Did you find a place?",
+        "reply": {
+          "ko": "네, 지난주에 구했어요.",
+          "de": "Ja, letzte Woche.",
+          "en": "Yes, last week."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "집을 구해서 다행이네요.",
+          "de": "Schön, dass du eine Wohnung gefunden hast.",
+          "en": "I'm glad you found a place."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a1_0035",
+        "category": "moving",
+        "level": "a1",
+        "kind": "question",
+        "ko": "집 찾았어요?",
+        "de": "Hast du eine Wohnung gefunden?",
+        "en": "Did you find a place?",
+        "reply": {
+          "ko": "네, 지난주에 찾았어요.",
+          "de": "Ja, letzte Woche.",
+          "en": "Yes, last week."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "잘됐네요.",
+          "de": "Das ist gut.",
+          "en": "That's good."
+        }
+      },
+      "beforeSha256": "2ac2c8b36e4309e48774a26692a8732973d6ec4a875edd12d087d278ac86440d",
+      "afterSha256": "c072a46e5e874bd2d063858041255f0e32ee3a7e1c6e04b042690ccf43386725",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "2ac2c8b36e4309e48774a26692a8732973d6ec4a875edd12d087d278ac86440d",
+      "reason": "LCP C4 model-authored level-fit simplification; semantic topic and route preserved, native human review is not claimed."
+    },
+    {
+      "id": "smalltalk_a1_0044",
+      "fields": [
+        "reply.de",
+        "reply.ko"
+      ],
+      "before": {
+        "id": "smalltalk_a1_0044",
+        "category": "shopping",
+        "level": "a1",
+        "kind": "question",
+        "ko": "이거 전부 얼마예요?",
+        "de": "Wie viel kostet das alles zusammen?",
+        "en": "How much do these come out to?",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이거 얼마예요?",
+            "de": "Wie viel kostet das?",
+            "en": "How much is this?"
+          }
+        ],
+        "reply": {
+          "ko": "이만 원이에요.",
+          "de": "Das macht 20000 Won.",
+          "en": "That comes to 20,000 won."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a1_0044",
+        "category": "shopping",
+        "level": "a1",
+        "kind": "question",
+        "ko": "이거 전부 얼마예요?",
+        "de": "Wie viel kostet das alles zusammen?",
+        "en": "How much do these come out to?",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이거 얼마예요?",
+            "de": "Wie viel kostet das?",
+            "en": "How much is this?"
+          }
+        ],
+        "reply": {
+          "ko": "20,000원이에요.",
+          "de": "Das macht 20.000 Won.",
+          "en": "That comes to 20,000 won."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "beforeSha256": "4eb39ebad4a9315538bf68672f5cdb014fee3b2a564f32c41c7c354221b222cd",
+      "afterSha256": "f8c8da5f02861036c2e549b387aa4bd8051976acfdde6ad87431fe71fa1ba932",
+      "predecessorKind": "source_git",
+      "predecessorAfterSha256": "4eb39ebad4a9315538bf68672f5cdb014fee3b2a564f32c41c7c354221b222cd",
+      "reason": "LCP C4 model-authored level-fit simplification; semantic topic and route preserved, native human review is not claimed."
+    },
+    {
+      "id": "smalltalk_a1_0067",
+      "fields": [
+        "reply.de",
+        "reply.en",
+        "reply.ko"
+      ],
+      "before": {
+        "id": "smalltalk_a1_0067",
+        "category": "partner_family",
+        "level": "a1",
+        "kind": "question",
+        "ko": "과일 바구니 어디에 둘까요?",
+        "de": "Wo soll ich den Obstkorb hinstellen?",
+        "en": "Where should I put the fruit basket?",
+        "reply": {
+          "ko": "거기 식탁에 놓으면 돼요.",
+          "de": "Stellen Sie ihn einfach auf den Esstisch.",
+          "en": "Just put it on the dining table.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이거 여쭤봐도 될까요?",
+            "de": "Darf ich das kurz fragen?",
+            "en": "Can I ask you something?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 식탁에 놓을게요.",
+          "de": "Gut, ich stelle ihn auf den Esstisch.",
+          "en": "Okay, I will put it on the dining table.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_a1_0067",
+        "category": "partner_family",
+        "level": "a1",
+        "kind": "question",
+        "ko": "과일 바구니 어디에 둘까요?",
+        "de": "Wo soll ich den Obstkorb hinstellen?",
+        "en": "Where should I put the fruit basket?",
+        "reply": {
+          "ko": "거기 식탁에 놓아요.",
+          "de": "Stellen Sie ihn dort auf den Esstisch.",
+          "en": "Put it there on the dining table.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이거 여쭤봐도 될까요?",
+            "de": "Darf ich das kurz fragen?",
+            "en": "Can I ask you something?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 식탁에 놓을게요.",
+          "de": "Gut, ich stelle ihn auf den Esstisch.",
+          "en": "Okay, I will put it on the dining table.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "3e01a48f20bc55bf86e53eb855f42bebf9365212d477bf9390a7d17045aa22e0",
+      "afterSha256": "f1b9470078c7d4b34a4a4c44c216f199d0be2b5f5c38a701d880e527485cf0fe",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "3e01a48f20bc55bf86e53eb855f42bebf9365212d477bf9390a7d17045aa22e0",
+      "reason": "LCP C4 model-authored level-fit simplification; semantic topic and route preserved, native human review is not claimed."
+    },
+    {
+      "id": "smalltalk_a1_0070",
+      "fields": [
+        "reply.de",
+        "reply.en",
+        "reply.ko"
+      ],
+      "before": {
+        "id": "smalltalk_a1_0070",
+        "category": "partner_family",
+        "level": "a1",
+        "kind": "opener",
+        "ko": "한국 집에 처음 와서 예절을 잘 몰라요.",
+        "de": "Ich bin zum ersten Mal in einem koreanischen Zuhause und kenne die Umgangsformen hier noch nicht.",
+        "en": "This is my first time in a Korean home, so I'm not familiar with the customs yet.",
+        "reply": {
+          "ko": "천천히 배우면 돼요.",
+          "de": "Sie können das nach und nach lernen.",
+          "en": "You can learn as you go.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이거 여쭤봐도 될까요?",
+            "de": "Darf ich das kurz fragen?",
+            "en": "Can I ask you something?"
+          }
+        ],
+        "followUp": {
+          "ko": "잘 모르면 여쭤볼게요.",
+          "de": "Wenn ich etwas nicht weiß, frage ich Sie.",
+          "en": "I will ask you if I am unsure about something.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_a1_0070",
+        "category": "partner_family",
+        "level": "a1",
+        "kind": "opener",
+        "ko": "한국 집에 처음 와서 예절을 잘 몰라요.",
+        "de": "Ich bin zum ersten Mal in einem koreanischen Zuhause und kenne die Umgangsformen hier noch nicht.",
+        "en": "This is my first time in a Korean home, so I'm not familiar with the customs yet.",
+        "reply": {
+          "ko": "천천히 배우세요.",
+          "de": "Lernen Sie es in Ruhe Schritt für Schritt.",
+          "en": "Take your time and learn it step by step.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이거 여쭤봐도 될까요?",
+            "de": "Darf ich das kurz fragen?",
+            "en": "Can I ask you something?"
+          }
+        ],
+        "followUp": {
+          "ko": "잘 모르면 여쭤볼게요.",
+          "de": "Wenn ich etwas nicht weiß, frage ich Sie.",
+          "en": "I will ask you if I am unsure about something.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "2b27bf6d4b9bf486b104f8232e9a2e97c5c249d6422563bc5db84ab52dfcc30b",
+      "afterSha256": "3460c2e3d4860ab92f4bcc1ada45906144dbd193fe2172085abd70bca5eb13e9",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "2b27bf6d4b9bf486b104f8232e9a2e97c5c249d6422563bc5db84ab52dfcc30b",
+      "reason": "LCP C4 model-authored level-fit simplification; semantic topic and route preserved, native human review is not claimed."
+    },
+    {
+      "id": "smalltalk_a1_0076",
+      "fields": [
+        "followUp.de",
+        "followUp.en",
+        "followUp.ko",
+        "reply.de",
+        "reply.en",
+        "reply.ko"
+      ],
+      "before": {
+        "id": "smalltalk_a1_0076",
+        "category": "partner_family",
+        "level": "a1",
+        "kind": "opener",
+        "ko": "차례 때는 제가 뒤에 서 있을게요.",
+        "de": "Beim Ahnenritual stelle ich mich nach hinten.",
+        "en": "During the ancestral rite I'll stand at the back.",
+        "reply": {
+          "ko": "그렇게 해요. 보고 따라 하면 돼요.",
+          "de": "Ja, gern. Schauen Sie erst einmal zu und machen Sie dann mit.",
+          "en": "Of course. Watch first, then follow along.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이거 여쭤봐도 될까요?",
+            "de": "Darf ich das kurz fragen?",
+            "en": "Can I ask you something?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 먼저 잘 보고 따라 할게요.",
+          "de": "Gut, ich schaue erst genau zu und mache dann mit.",
+          "en": "Okay, I will watch carefully first, then follow along.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_a1_0076",
+        "category": "partner_family",
+        "level": "a1",
+        "kind": "opener",
+        "ko": "차례 때는 제가 뒤에 서 있을게요.",
+        "de": "Beim Ahnenritual stelle ich mich nach hinten.",
+        "en": "During the ancestral rite I'll stand at the back.",
+        "reply": {
+          "ko": "그렇게 해요. 먼저 보세요.",
+          "de": "Ja, machen Sie das so. Schauen Sie zuerst zu.",
+          "en": "Yes, do that. Watch first.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이거 여쭤봐도 될까요?",
+            "de": "Darf ich das kurz fragen?",
+            "en": "Can I ask you something?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 먼저 볼게요.",
+          "de": "Gut, ich schaue zuerst zu.",
+          "en": "Okay, I'll watch first.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "de98f096829264e8739991ce5cdb1dc7cd6f6a8d02072976a62b4bb50b103282",
+      "afterSha256": "f7429f1398c7f7c6a0e081d7ef6770106cf2c9817e9c7e85939651ea663060a6",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "de98f096829264e8739991ce5cdb1dc7cd6f6a8d02072976a62b4bb50b103282",
+      "reason": "LCP C4 model-authored level-fit simplification; semantic topic and route preserved, native human review is not claimed."
+    },
+    {
+      "id": "smalltalk_a1_0077",
+      "fields": [
+        "de",
+        "en",
+        "ko"
+      ],
+      "before": {
+        "id": "smalltalk_a1_0077",
+        "category": "partner_family",
+        "level": "a1",
+        "kind": "question",
+        "ko": "현우 남동생은 뭐라고 부르면 돼요?",
+        "de": "Wie soll ich Hyunwoos jüngeren Bruder ansprechen?",
+        "en": "What should I call Hyunwoo's younger brother?",
+        "reply": {
+          "ko": "우선 이름으로 불러요. 다른 호칭은 나중에 같이 정해요.",
+          "de": "Nennen Sie ihn erst einmal beim Namen. Eine andere Anrede können wir später gemeinsam besprechen.",
+          "en": "Use his name for now. We can discuss another form of address together later.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이거 여쭤봐도 될까요?",
+            "de": "Darf ich das kurz fragen?",
+            "en": "Can I ask you something?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 우선 이름으로 부를게요.",
+          "de": "Gut, ich nenne ihn erst einmal beim Namen.",
+          "en": "Okay, I will use his name for now.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_a1_0077",
+        "category": "partner_family",
+        "level": "a1",
+        "kind": "question",
+        "ko": "현우 남동생은 뭐라고 불러요?",
+        "de": "Wie nenne ich Hyunwoos jüngeren Bruder?",
+        "en": "What do I call Hyunwoo's younger brother?",
+        "reply": {
+          "ko": "우선 이름으로 불러요. 다른 호칭은 나중에 같이 정해요.",
+          "de": "Nennen Sie ihn erst einmal beim Namen. Eine andere Anrede können wir später gemeinsam besprechen.",
+          "en": "Use his name for now. We can discuss another form of address together later.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이거 여쭤봐도 될까요?",
+            "de": "Darf ich das kurz fragen?",
+            "en": "Can I ask you something?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 우선 이름으로 부를게요.",
+          "de": "Gut, ich nenne ihn erst einmal beim Namen.",
+          "en": "Okay, I will use his name for now.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "e7cba05d9784aff6cddfd32070ce8303e2c3af4bff93609582ec6e937bc27f8a",
+      "afterSha256": "32cb4f1e292d2fee090f18ad7cfe21e1ad76f2f9ce538a2a4386de6764b016d5",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "e7cba05d9784aff6cddfd32070ce8303e2c3af4bff93609582ec6e937bc27f8a",
+      "reason": "LCP C4 model-authored level-fit simplification; semantic topic and route preserved, native human review is not claimed."
+    },
+    {
+      "id": "smalltalk_a1_0098",
+      "fields": [
+        "reply.de",
+        "reply.en",
+        "reply.ko"
+      ],
+      "before": {
+        "id": "smalltalk_a1_0098",
+        "category": "theme_park_date",
+        "level": "a1",
+        "kind": "question",
+        "ko": "물 좀 마실래?",
+        "de": "Möchtest du etwas Wasser trinken?",
+        "en": "Want some water?",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제로 콜라 마실래?",
+            "de": "Möchtest du lieber eine Coke Zero?",
+            "en": "Would you rather have a Coke Zero?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "자, 여기 있어.",
+          "de": "Hier, bitte.",
+          "en": "Here you go."
+        },
+        "reply": {
+          "ko": "응, 목말라.",
+          "de": "Ja, ich habe Durst.",
+          "en": "Yeah, I'm thirsty."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a1_0098",
+        "category": "theme_park_date",
+        "level": "a1",
+        "kind": "question",
+        "ko": "물 좀 마실래?",
+        "de": "Möchtest du etwas Wasser trinken?",
+        "en": "Want some water?",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제로 콜라 마실래?",
+            "de": "Möchtest du lieber eine Coke Zero?",
+            "en": "Would you rather have a Coke Zero?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "자, 여기 있어.",
+          "de": "Hier, bitte.",
+          "en": "Here you go."
+        },
+        "reply": {
+          "ko": "네, 고마워.",
+          "de": "Ja, danke.",
+          "en": "Yes, thanks."
+        }
+      },
+      "beforeSha256": "f70bfcf99cdbcfdb50e899ddfea62b07dec64a10507293f0a96a920df0c97ded",
+      "afterSha256": "dd4ef285a25ac8d37fff8d6314b44e8c9c2212682bc4319ac5b8f689914d3159",
+      "predecessorKind": "source_git",
+      "predecessorAfterSha256": "f70bfcf99cdbcfdb50e899ddfea62b07dec64a10507293f0a96a920df0c97ded",
+      "reason": "LCP C4 model-authored level-fit simplification; semantic topic and route preserved, native human review is not claimed."
+    },
+    {
+      "id": "smalltalk_a2_0007",
+      "fields": [
+        "reply.de",
+        "reply.en",
+        "reply.ko"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0007",
+        "category": "music",
+        "level": "a2",
+        "kind": "question",
+        "ko": "무슨 음악 좋아해요?",
+        "de": "Welche Musik magst du?",
+        "en": "What music do you like?",
+        "reply": {
+          "ko": "케이팝이랑 발라드 좋아해요.",
+          "de": "K-Pop und Balladen.",
+          "en": "I like K-pop and ballads."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0007",
+        "category": "music",
+        "level": "a2",
+        "kind": "question",
+        "ko": "무슨 음악 좋아해요?",
+        "de": "Welche Musik magst du?",
+        "en": "What music do you like?",
+        "reply": {
+          "ko": "케이팝 좋아해요.",
+          "de": "Ich mag K-Pop.",
+          "en": "I like K-pop."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "beforeSha256": "745447b9f9443191d8f627eed514a8c8af64ff1fb4be441e70c334122f2441a0",
+      "afterSha256": "c13fe091c21e737781ab904224f1656c0d27f88ac55553fb95b194bab8144a18",
+      "predecessorKind": "source_git",
+      "predecessorAfterSha256": "745447b9f9443191d8f627eed514a8c8af64ff1fb4be441e70c334122f2441a0",
+      "reason": "LCP C4 model-authored level-fit simplification; semantic topic and route preserved, native human review is not claimed."
+    },
+    {
+      "id": "smalltalk_a2_0085",
+      "fields": [
+        "de",
+        "en",
+        "ko",
+        "reply.de",
+        "reply.en",
+        "reply.ko"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0085",
+        "category": "theme_park_date",
+        "level": "a2",
+        "kind": "question",
+        "ko": "나 당이 당겨. 뭐 좀 달달한 거 마실까?",
+        "de": "Ich brauche gerade etwas Süßes. Wollen wir etwas Süßes trinken?",
+        "en": "I'm craving sugar. Want to get something sweet to drink?",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "물부터 마실까?",
+            "de": "Wollen wir zuerst Wasser trinken?",
+            "en": "Should we drink some water first?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아, 음료 가게를 찾아보자.",
+          "de": "Gut, suchen wir einen Getränkestand.",
+          "en": "Great, let's find a drink stand."
+        },
+        "reply": {
+          "ko": "나는 달콤한 레모네이드가 좋아.",
+          "de": "Ich hätte Lust auf eine süße Limonade.",
+          "en": "I'd like a sweet lemonade."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0085",
+        "category": "theme_park_date",
+        "level": "a2",
+        "kind": "question",
+        "ko": "뭐 마실까?",
+        "de": "Was wollen wir trinken?",
+        "en": "What should we drink?",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "물부터 마실까?",
+            "de": "Wollen wir zuerst Wasser trinken?",
+            "en": "Should we drink some water first?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아, 음료 가게를 찾아보자.",
+          "de": "Gut, suchen wir einen Getränkestand.",
+          "en": "Great, let's find a drink stand."
+        },
+        "reply": {
+          "ko": "나는 레몬 음료가 좋아.",
+          "de": "Ich hätte gern ein Zitronengetränk.",
+          "en": "I'd like a lemon drink."
+        }
+      },
+      "beforeSha256": "1fc43f0de62a589b0b411fe613900fec43897b9626cdb12e01edc4052086f6f0",
+      "afterSha256": "61c4129e1f4e9386373cc1cb21fb2900484cd6c66a0d6fb7c39c95d97054263b",
+      "predecessorKind": "source_git",
+      "predecessorAfterSha256": "1fc43f0de62a589b0b411fe613900fec43897b9626cdb12e01edc4052086f6f0",
+      "reason": "LCP C4 model-authored level-fit simplification; semantic topic and route preserved, native human review is not claimed."
+    },
+    {
+      "id": "smalltalk_a2_0087",
+      "fields": [
+        "de",
+        "en",
+        "ko",
+        "reply.de",
+        "reply.en",
+        "reply.ko"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0087",
+        "category": "theme_park_date",
+        "level": "a2",
+        "kind": "question",
+        "ko": "넌 케첩파야, 마요파야?",
+        "de": "Bist du Team Ketchup oder Team Mayo?",
+        "en": "Are you team ketchup or team mayo?",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "둘 다 달라고 할까?",
+            "de": "Sollen wir nach beidem fragen?",
+            "en": "Should we ask for both?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아, 나는 마요네즈로 먹을게.",
+          "de": "Gut, dann nehme ich Mayonnaise.",
+          "en": "Great, I'll have mine with mayo."
+        },
+        "reply": {
+          "ko": "난 케첩파야.",
+          "de": "Ich bin Team Ketchup.",
+          "en": "I'm team ketchup."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0087",
+        "category": "theme_park_date",
+        "level": "a2",
+        "kind": "question",
+        "ko": "케첩 좋아해, 마요네즈 좋아해?",
+        "de": "Magst du Ketchup oder Mayonnaise?",
+        "en": "Do you like ketchup or mayonnaise?",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "둘 다 달라고 할까?",
+            "de": "Sollen wir nach beidem fragen?",
+            "en": "Should we ask for both?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아, 나는 마요네즈로 먹을게.",
+          "de": "Gut, dann nehme ich Mayonnaise.",
+          "en": "Great, I'll have mine with mayo."
+        },
+        "reply": {
+          "ko": "나는 케첩이 좋아.",
+          "de": "Ich mag Ketchup.",
+          "en": "I like ketchup."
+        }
+      },
+      "beforeSha256": "ad795ef7f54ef83010a38f7a2b29325e451bd9e1485963b2044beec8040c360a",
+      "afterSha256": "e61310d0450a64ca04ee46aa32731da2f14fe294c0d739746a29c6004998742d",
+      "predecessorKind": "source_git",
+      "predecessorAfterSha256": "ad795ef7f54ef83010a38f7a2b29325e451bd9e1485963b2044beec8040c360a",
+      "reason": "LCP C4 model-authored level-fit simplification; semantic topic and route preserved, native human review is not claimed."
+    },
+    {
+      "id": "smalltalk_b1_0068",
+      "fields": [
+        "de",
+        "en",
+        "followUp.en",
+        "ko",
+        "reply.de",
+        "reply.en",
+        "reply.ko"
+      ],
+      "before": {
+        "id": "smalltalk_b1_0068",
+        "category": "partner_family",
+        "level": "b1",
+        "kind": "opener",
+        "ko": "못 읽었으면서 읽은 척하는 게 더 어색하더라고요.",
+        "de": "So zu tun, als hätte ich es gelesen, war am Ende noch unangenehmer.",
+        "en": "Pretending I'd read it was even more awkward.",
+        "reply": {
+          "ko": "맞아요. 그냥 늦게 답해도 돼요.",
+          "de": "Stimmt. Antworten Sie ruhig später.",
+          "en": "True. It's fine to answer late.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 잘못 알고 있는 게 있을까요?",
+            "de": "Habe ich da etwas falsch verstanden?",
+            "en": "Have I got something wrong?"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 제대로 읽고 답할게요.",
+          "de": "Dann lese ich es erst richtig und antworte danach.",
+          "en": "Then I will read it properly before replying.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_b1_0068",
+        "category": "partner_family",
+        "level": "b1",
+        "kind": "opener",
+        "ko": "메시지를 못 읽어서 늦게 답했어요.",
+        "de": "Ich habe die Nachricht nicht gelesen und deshalb spät geantwortet.",
+        "en": "I didn't read the message, so I replied late.",
+        "reply": {
+          "ko": "괜찮아요. 늦게 답해도 돼요.",
+          "de": "Kein Problem. Sie können auch später antworten.",
+          "en": "That's okay. You can reply later.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 잘못 알고 있는 게 있을까요?",
+            "de": "Habe ich da etwas falsch verstanden?",
+            "en": "Have I got something wrong?"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 제대로 읽고 답할게요.",
+          "de": "Dann lese ich es erst richtig und antworte danach.",
+          "en": "Then I'll read it properly before replying.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "0553ab397f8e07e6926ece204ef0d9852be03c99778d38001f38813b42b1edfd",
+      "afterSha256": "b8882fe53a24edee8372dd935bdd89995fa2d9c021a365aa09095495379c7807",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "0553ab397f8e07e6926ece204ef0d9852be03c99778d38001f38813b42b1edfd",
+      "reason": "LCP C4 model-authored level-fit simplification; semantic topic and route preserved, native human review is not claimed."
+    },
+    {
+      "id": "smalltalk_b1_0073",
+      "fields": [
+        "de",
+        "en",
+        "followUp.de",
+        "followUp.en",
+        "followUp.ko",
+        "ko",
+        "reply.de",
+        "reply.en",
+        "reply.ko"
+      ],
+      "before": {
+        "id": "smalltalk_b1_0073",
+        "level": "b1",
+        "category": "job_hunting",
+        "kind": "question",
+        "ko": "채용 공고의 지원 자격을 모두 충족해야 하나요?",
+        "de": "Muss ich alle Voraussetzungen der Stellenanzeige erfüllen?",
+        "en": "Do I need to meet every requirement in the job posting?",
+        "reply": {
+          "ko": "필수와 우대 조건을 나눠 보고 모호하면 담당자에게 문의하세요.",
+          "de": "Unterscheiden Sie Pflicht- und Wunschkriterien und fragen Sie bei Unklarheit nach.",
+          "en": "Separate required from preferred criteria and ask if anything is unclear."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "필수 조건과 우대 조건이 따로 나와 있나요?",
+            "de": "Sind Pflicht- und Wunschkriterien getrennt aufgeführt?",
+            "en": "Are required and preferred qualifications listed separately?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 조건을 나눠 보고 모호한 부분은 문의할게요.",
+          "de": "Dann trenne ich die Kriterien und frage bei Unklarheiten nach.",
+          "en": "Then I will separate the requirements and ask about anything unclear.",
+          "turnKind": "reaction"
+        }
+      },
+      "after": {
+        "id": "smalltalk_b1_0073",
+        "level": "b1",
+        "category": "job_hunting",
+        "kind": "question",
+        "ko": "지원 조건을 다 맞춰야 하나요?",
+        "de": "Muss ich alle Anforderungen erfüllen?",
+        "en": "Do I need to meet every requirement?",
+        "reply": {
+          "ko": "꼭 필요한 조건과 있으면 좋은 조건을 나눠 보세요.",
+          "de": "Trennen Sie notwendige von wünschenswerten Anforderungen.",
+          "en": "Separate the required conditions from the ones that are good to have."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "필수 조건과 우대 조건이 따로 나와 있나요?",
+            "de": "Sind Pflicht- und Wunschkriterien getrennt aufgeführt?",
+            "en": "Are required and preferred qualifications listed separately?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 조건을 나눠 보고 물어볼게요.",
+          "de": "Dann trenne ich die Bedingungen und frage nach.",
+          "en": "Then I'll separate the requirements and ask about them.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "54571a3f146fe9d649abd0c3faa0ba42f149e4032b29cadeb5962a6fee3bada7",
+      "afterSha256": "39c10c69fa507fcd585d2f31cdd87ee48bf426eb8fa067a00e08609853282837",
+      "predecessorKind": "editorial_chain",
+      "predecessorAfterSha256": "54571a3f146fe9d649abd0c3faa0ba42f149e4032b29cadeb5962a6fee3bada7",
+      "reason": "LCP C4 model-authored level-fit simplification; semantic topic and route preserved, native human review is not claimed."
+    }
+  ]
+}

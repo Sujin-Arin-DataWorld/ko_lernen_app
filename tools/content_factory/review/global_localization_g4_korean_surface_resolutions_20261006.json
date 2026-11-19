@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "status": "MODEL_ASSISTED_EXPLICIT_REVIEW",
+  "reviewedDate": "2026-10-06",
+  "humanNativeSignoff": false,
+  "policy": "These entries only resolve embedded-Korean structural review flags. They do not certify EN/DE native fluency or human-native QA.",
+  "items": {
+    "listening.a1.dance_class_register.sentence#prompt": "The quoted Korean fragment '여기 서' is itself the object of the listening-form judgment and must remain visible in EN/DE guidance.",
+    "culture_note_022": "The German culture note intentionally shows the Korean term 첫눈 as the cultural/language object being explained.",
+    "culture_note_023": "The EN/DE culture note intentionally shows 벚꽃 as the Korean term being explained.",
+    "culture_note_026": "The EN/DE culture note intentionally shows 인터넷 and 인터넷이 안 돼요 as Korean language examples."
+  }
+}

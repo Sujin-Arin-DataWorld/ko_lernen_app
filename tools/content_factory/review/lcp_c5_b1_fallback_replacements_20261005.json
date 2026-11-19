@@ -1,0 +1,392 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "reviewStatus": "PROJECT_MANAGER_REVIEWED",
+  "humanNativeQaClaim": false,
+  "entries": [
+    {
+      "vocabId": "vocab_b1_0397",
+      "before": {
+        "vocab": {
+          "korean": "면책",
+          "romanization": "myeonchaek",
+          "german": "Ausschluss",
+          "level": "B1",
+          "pos_de": "Nomen",
+          "example_korean": "기존 질환은 면책이라고 안내받았어요.",
+          "example_german": "Mir wurde gesagt, dass Vorerkrankungen ein Ausschluss sind.",
+          "topic": "Versicherungsfall",
+          "pack_id": "b1_insurance_claim_1",
+          "pack_order": "6",
+          "is_review_boss": "false",
+          "english": "exclusion",
+          "pos_en": "Noun",
+          "example_english": "I was told existing conditions are an exclusion.",
+          "id": "vocab_b1_0397"
+        },
+        "cloze": {
+          "id": "cloze_b1_0209",
+          "level": "b1",
+          "sentenceKo": "기존 질환은 ＿＿＿이라고 안내받았어요.",
+          "answer": "면책",
+          "fullKo": "기존 질환은 면책이라고 안내받았어요.",
+          "de": "Mir wurde gesagt, dass Vorerkrankungen ein Ausschluss sind.",
+          "en": "I was told existing conditions are an exclusion.",
+          "distractors": [
+            "자기부담금",
+            "성격",
+            "알림장"
+          ],
+          "topic": "Versicherungsfall"
+        },
+        "satz": {
+          "id": "satz_b1_0205",
+          "level": "b1",
+          "targetKo": "기존 질환은 면책이라고 안내받았어요.",
+          "promptDe": "Mir wurde gesagt, dass Vorerkrankungen ein Ausschluss sind.",
+          "promptEn": "I was told existing conditions are an exclusion.",
+          "distractors": [
+            "사고 접수",
+            "보장 범위"
+          ],
+          "vocabKo": "면책"
+        }
+      },
+      "after": {
+        "vocab": {
+          "korean": "보험이 안 되는 경우",
+          "romanization": "boheomi an doeneun gyeongu",
+          "german": "Fall, den die Versicherung nicht abdeckt",
+          "level": "B1",
+          "pos_de": "Ausdruck",
+          "example_korean": "기존 질환은 보험이 안 되는 경우가 있다고 안내받았어요.",
+          "example_german": "Mir wurde erklärt, dass bestehende Erkrankungen in manchen Fällen nicht von der Versicherung abgedeckt sind.",
+          "topic": "Versicherungsfall",
+          "pack_id": "b1_insurance_claim_1",
+          "pack_order": "6",
+          "is_review_boss": "false",
+          "english": "case not covered by insurance",
+          "pos_en": "Expression",
+          "example_english": "I was told that existing conditions may not be covered by insurance.",
+          "id": "vocab_b1_0397"
+        },
+        "cloze": {
+          "id": "cloze_b1_0209",
+          "level": "b1",
+          "sentenceKo": "기존 질환은 ＿＿＿가 있다고 안내받았어요.",
+          "answer": "보험이 안 되는 경우",
+          "fullKo": "기존 질환은 보험이 안 되는 경우가 있다고 안내받았어요.",
+          "de": "Mir wurde erklärt, dass bestehende Erkrankungen in manchen Fällen nicht von der Versicherung abgedeckt sind.",
+          "en": "I was told that existing conditions may not be covered by insurance.",
+          "distractors": [
+            "자기부담금",
+            "성격",
+            "알림장"
+          ],
+          "topic": "Versicherungsfall"
+        },
+        "satz": {
+          "id": "satz_b1_0205",
+          "level": "b1",
+          "targetKo": "기존 질환은 보험이 안 되는 경우가 있다고 안내받았어요.",
+          "promptDe": "Mir wurde erklärt, dass bestehende Erkrankungen in manchen Fällen nicht von der Versicherung abgedeckt sind.",
+          "promptEn": "I was told that existing conditions may not be covered by insurance.",
+          "distractors": [
+            "사고 접수",
+            "보장 범위"
+          ],
+          "vocabKo": "보험이 안 되는 경우"
+        }
+      },
+      "reason": "LCP C5: replace low-confidence fallback jargon with a direct B1 learner-facing expression while preserving the task, pack, immutable IDs, and synchronized cloze/Satz."
+    },
+    {
+      "vocabId": "vocab_b1_0399",
+      "before": {
+        "vocab": {
+          "korean": "담당 설계사",
+          "romanization": "damdang seolgyesa",
+          "german": "Berater",
+          "level": "B1",
+          "pos_de": "Ausdruck",
+          "example_korean": "담당 설계사에게 진행 상황을 물어봤어요.",
+          "example_german": "Ich habe den Berater nach dem Stand gefragt.",
+          "topic": "Versicherungsfall",
+          "pack_id": "b1_insurance_claim_1",
+          "pack_order": "8",
+          "is_review_boss": "false",
+          "english": "agent",
+          "pos_en": "Expression",
+          "example_english": "I asked the agent about the status.",
+          "id": "vocab_b1_0399"
+        },
+        "cloze": {
+          "id": "cloze_b1_0211",
+          "level": "b1",
+          "sentenceKo": "＿＿＿에게 진행 상황을 물어봤어요.",
+          "answer": "담당 설계사",
+          "fullKo": "담당 설계사에게 진행 상황을 물어봤어요.",
+          "de": "Ich habe den Berater nach dem Stand gefragt.",
+          "en": "I asked the agent about the status.",
+          "distractors": [
+            "사고 접수",
+            "보장 범위",
+            "자기부담금"
+          ],
+          "topic": "Versicherungsfall"
+        },
+        "satz": {
+          "id": "satz_b1_0207",
+          "level": "b1",
+          "targetKo": "담당 설계사에게 진행 상황을 물어봤어요.",
+          "promptDe": "Ich habe den Berater nach dem Stand gefragt.",
+          "promptEn": "I asked the agent about the status.",
+          "distractors": [
+            "사고 접수",
+            "보장 범위"
+          ],
+          "vocabKo": "담당 설계사"
+        }
+      },
+      "after": {
+        "vocab": {
+          "korean": "보험 회사 직원",
+          "romanization": "boheom hoesa jigwon",
+          "german": "Mitarbeiter/in der Versicherung",
+          "level": "B1",
+          "pos_de": "Nomen",
+          "example_korean": "보험 회사 직원에게 진행 상황을 물어봤어요.",
+          "example_german": "Ich habe eine Mitarbeiterin der Versicherung nach dem Stand gefragt.",
+          "topic": "Versicherungsfall",
+          "pack_id": "b1_insurance_claim_1",
+          "pack_order": "8",
+          "is_review_boss": "false",
+          "english": "insurance company employee",
+          "pos_en": "Noun",
+          "example_english": "I asked an insurance company employee about the status.",
+          "id": "vocab_b1_0399"
+        },
+        "cloze": {
+          "id": "cloze_b1_0211",
+          "level": "b1",
+          "sentenceKo": "＿＿＿에게 진행 상황을 물어봤어요.",
+          "answer": "보험 회사 직원",
+          "fullKo": "보험 회사 직원에게 진행 상황을 물어봤어요.",
+          "de": "Ich habe eine Mitarbeiterin der Versicherung nach dem Stand gefragt.",
+          "en": "I asked an insurance company employee about the status.",
+          "distractors": [
+            "사고 접수",
+            "보장 범위",
+            "자기부담금"
+          ],
+          "topic": "Versicherungsfall"
+        },
+        "satz": {
+          "id": "satz_b1_0207",
+          "level": "b1",
+          "targetKo": "보험 회사 직원에게 진행 상황을 물어봤어요.",
+          "promptDe": "Ich habe eine Mitarbeiterin der Versicherung nach dem Stand gefragt.",
+          "promptEn": "I asked an insurance company employee about the status.",
+          "distractors": [
+            "사고 접수",
+            "보장 범위"
+          ],
+          "vocabKo": "보험 회사 직원"
+        }
+      },
+      "reason": "LCP C5: replace low-confidence fallback jargon with a direct B1 learner-facing expression while preserving the task, pack, immutable IDs, and synchronized cloze/Satz."
+    },
+    {
+      "vocabId": "vocab_b1_0402",
+      "before": {
+        "vocab": {
+          "korean": "특약",
+          "romanization": "teugyak",
+          "german": "Zusatzbaustein",
+          "level": "B1",
+          "pos_de": "Nomen",
+          "example_korean": "치과 특약에 스케일링이 포함되는지 약관을 확인했어요.",
+          "example_german": "Ich prüfte in den Versicherungsbedingungen, ob die Zahnzusatzleistung eine Zahnreinigung umfasst.",
+          "topic": "Versicherungsfall",
+          "pack_id": "b1_insurance_claim_1",
+          "pack_order": "11",
+          "is_review_boss": "true",
+          "english": "rider",
+          "pos_en": "Noun",
+          "example_english": "I checked the policy to see whether the dental rider covered a cleaning.",
+          "id": "vocab_b1_0402"
+        },
+        "cloze": {
+          "id": "cloze_b1_0214",
+          "level": "b1",
+          "sentenceKo": "치과 ＿＿＿에 스케일링이 포함되는지 약관을 확인했어요.",
+          "answer": "특약",
+          "fullKo": "치과 특약에 스케일링이 포함되는지 약관을 확인했어요.",
+          "de": "Ich prüfte in den Versicherungsbedingungen, ob die Zahnzusatzleistung eine Zahnreinigung umfasst.",
+          "en": "I checked the policy to see whether the dental rider covered a cleaning.",
+          "distractors": [
+            "자기부담금",
+            "마감일",
+            "창구직원"
+          ],
+          "topic": "Versicherungsfall"
+        },
+        "satz": {
+          "id": "satz_b1_0210",
+          "level": "b1",
+          "targetKo": "치과 특약에 스케일링이 포함되는지 약관을 확인했어요.",
+          "promptDe": "Ich prüfte in den Versicherungsbedingungen, ob die Zahnzusatzleistung eine Zahnreinigung umfasst.",
+          "promptEn": "I checked the policy to see whether the dental rider covered a cleaning.",
+          "distractors": [
+            "사고 접수",
+            "보장 범위"
+          ],
+          "vocabKo": "특약"
+        }
+      },
+      "after": {
+        "vocab": {
+          "korean": "보험에 더 넣은 내용",
+          "romanization": "boheome deo neoeun naeyong",
+          "german": "zusätzlich aufgenommener Versicherungsinhalt",
+          "level": "B1",
+          "pos_de": "Ausdruck",
+          "example_korean": "치과 치료가 보험에 더 넣은 내용인지 확인했어요.",
+          "example_german": "Ich habe geprüft, ob die Zahnbehandlung zu den zusätzlich aufgenommenen Leistungen gehört.",
+          "topic": "Versicherungsfall",
+          "pack_id": "b1_insurance_claim_1",
+          "pack_order": "11",
+          "is_review_boss": "true",
+          "english": "extra item added to the insurance",
+          "pos_en": "Expression",
+          "example_english": "I checked whether dental treatment was among the extra items added to the policy.",
+          "id": "vocab_b1_0402"
+        },
+        "cloze": {
+          "id": "cloze_b1_0214",
+          "level": "b1",
+          "sentenceKo": "치과 치료가 ＿＿＿인지 확인했어요.",
+          "answer": "보험에 더 넣은 내용",
+          "fullKo": "치과 치료가 보험에 더 넣은 내용인지 확인했어요.",
+          "de": "Ich habe geprüft, ob die Zahnbehandlung zu den zusätzlich aufgenommenen Leistungen gehört.",
+          "en": "I checked whether dental treatment was among the extra items added to the policy.",
+          "distractors": [
+            "자기부담금",
+            "마감일",
+            "창구직원"
+          ],
+          "topic": "Versicherungsfall"
+        },
+        "satz": {
+          "id": "satz_b1_0210",
+          "level": "b1",
+          "targetKo": "치과 치료가 보험에 더 넣은 내용인지 확인했어요.",
+          "promptDe": "Ich habe geprüft, ob die Zahnbehandlung zu den zusätzlich aufgenommenen Leistungen gehört.",
+          "promptEn": "I checked whether dental treatment was among the extra items added to the policy.",
+          "distractors": [
+            "사고 접수",
+            "보장 범위"
+          ],
+          "vocabKo": "보험에 더 넣은 내용"
+        }
+      },
+      "reason": "LCP C5: replace low-confidence fallback jargon with a direct B1 learner-facing expression while preserving the task, pack, immutable IDs, and synchronized cloze/Satz."
+    },
+    {
+      "vocabId": "vocab_b1_0421",
+      "before": {
+        "vocab": {
+          "korean": "결원",
+          "romanization": "gyeorwon",
+          "german": "Ausfall",
+          "level": "B1",
+          "pos_de": "Nomen",
+          "example_korean": "오전에 결원이 나서 제가 한 시간 더 했어요.",
+          "example_german": "Am Vormittag gab es einen Ausfall, deshalb blieb ich eine Stunde länger.",
+          "topic": "Ehrenamtsschicht",
+          "pack_id": "b1_volunteer_shift_1",
+          "pack_order": "6",
+          "is_review_boss": "false",
+          "english": "no-show gap",
+          "pos_en": "Noun",
+          "example_english": "There was a no-show gap in the morning, so I stayed an hour more.",
+          "id": "vocab_b1_0421"
+        },
+        "cloze": {
+          "id": "cloze_b1_0233",
+          "level": "b1",
+          "sentenceKo": "오전에 ＿＿＿이 나서 제가 한 시간 더 했어요.",
+          "answer": "결원",
+          "fullKo": "오전에 결원이 나서 제가 한 시간 더 했어요.",
+          "de": "Am Vormittag gab es einen Ausfall, deshalb blieb ich eine Stunde länger.",
+          "en": "There was a no-show gap in the morning, so I stayed an hour more.",
+          "distractors": [
+            "봉사 시간",
+            "사전 교육",
+            "미술관"
+          ],
+          "topic": "Ehrenamtsschicht"
+        },
+        "satz": {
+          "id": "satz_b1_0229",
+          "level": "b1",
+          "targetKo": "오전에 결원이 나서 제가 한 시간 더 했어요.",
+          "promptDe": "Am Vormittag gab es einen Ausfall, deshalb blieb ich eine Stunde länger.",
+          "promptEn": "There was a no-show gap in the morning, so I stayed an hour more.",
+          "distractors": [
+            "봉사 시간",
+            "배정표"
+          ],
+          "vocabKo": "결원"
+        }
+      },
+      "after": {
+        "vocab": {
+          "korean": "인원 부족",
+          "romanization": "inwon bujok",
+          "german": "Personalmangel",
+          "level": "B1",
+          "pos_de": "Nomen",
+          "example_korean": "오전에는 인원 부족 때문에 제가 한 시간 더 했어요.",
+          "example_german": "Am Vormittag habe ich wegen Personalmangels eine Stunde länger gearbeitet.",
+          "topic": "Ehrenamtsschicht",
+          "pack_id": "b1_volunteer_shift_1",
+          "pack_order": "6",
+          "is_review_boss": "false",
+          "english": "staff shortage",
+          "pos_en": "Noun",
+          "example_english": "In the morning, I worked an extra hour because we were short-staffed.",
+          "id": "vocab_b1_0421"
+        },
+        "cloze": {
+          "id": "cloze_b1_0233",
+          "level": "b1",
+          "sentenceKo": "오전에는 ＿＿＿ 때문에 제가 한 시간 더 했어요.",
+          "answer": "인원 부족",
+          "fullKo": "오전에는 인원 부족 때문에 제가 한 시간 더 했어요.",
+          "de": "Am Vormittag habe ich wegen Personalmangels eine Stunde länger gearbeitet.",
+          "en": "In the morning, I worked an extra hour because we were short-staffed.",
+          "distractors": [
+            "봉사 시간",
+            "사전 교육",
+            "미술관"
+          ],
+          "topic": "Ehrenamtsschicht"
+        },
+        "satz": {
+          "id": "satz_b1_0229",
+          "level": "b1",
+          "targetKo": "오전에는 인원 부족 때문에 제가 한 시간 더 했어요.",
+          "promptDe": "Am Vormittag habe ich wegen Personalmangels eine Stunde länger gearbeitet.",
+          "promptEn": "In the morning, I worked an extra hour because we were short-staffed.",
+          "distractors": [
+            "봉사 시간",
+            "배정표"
+          ],
+          "vocabKo": "인원 부족"
+        }
+      },
+      "reason": "LCP C5: replace low-confidence fallback jargon with a direct B1 learner-facing expression while preserving the task, pack, immutable IDs, and synchronized cloze/Satz."
+    }
+  ]
+}

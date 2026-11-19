@@ -247,8 +247,326 @@ class ContentValidator:
         self.validate_usage_notes()
         self.validate_curriculum_graph()
         self.validate_audit_manifest(vocab, grammar, scenarios)
+        self.validate_dialogue_authoring_contract()
+        self.validate_dialogue_localization_contract()
+        self.validate_trilingual_content_topic_coverage()
         self.validate_ledger_entries()
         return self.issues
+
+    def validate_dialogue_authoring_contract(self) -> None:
+        """Require the canonical user-reviewed dialogue contract on future
+        scene-first/persona authoring artifacts.
+
+        This intentionally validates draft/review metadata rather than live
+        bundled dialogue. It makes the relationship-first, natural-dialogue-
+        before-pedagogy workflow a fail-closed authoring gate without forcing
+        legacy unrelated JSON files into the new schema.
+        """
+
+        expected = (
+            "tools/content_factory/canonical_scenarios/"
+            "dialogue_authoring_contract_20261006.json"
+        )
+        contract_path = self.root / expected
+        source = "dialogue_authoring_contract_20261006.json"
+        if not contract_path.is_file():
+            self.issue(source, f"missing canonical dialogue contract at {expected}")
+            return
+        try:
+            contract = json.loads(contract_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            self.issue(source, f"cannot parse canonical dialogue contract: {exc}")
+            return
+        if contract.get("status") != "CANONICAL":
+            self.issue(source, "dialogue contract status must be CANONICAL")
+        if not contract.get("principles", {}).get("relationshipBeforeTopic"):
+            self.issue(source, "dialogue contract must enforce relationshipBeforeTopic")
+        if not contract.get("principles", {}).get("languageMiningAfterDialogue"):
+            self.issue(source, "dialogue contract must enforce languageMiningAfterDialogue")
+        tts_policy = contract.get("ttsSurfacePolicy")
+        if not isinstance(tts_policy, dict):
+            self.issue(source, "dialogue contract must define ttsSurfacePolicy")
+        else:
+            if not tts_policy.get("displayAndSpeechAreDifferentSurfaces"):
+                self.issue(
+                    source,
+                    "ttsSurfacePolicy must separate display and spoken surfaces",
+                )
+            if tts_policy.get("ttsOwnership") != "Jin":
+                self.issue(source, "ttsSurfacePolicy must keep TTS ownership with Jin")
+            if tts_policy.get("ttsGenerationInContentFactory"):
+                self.issue(
+                    source,
+                    "content factory must not generate/overwrite TTS",
+                )
+            markers = tts_policy.get("displayOnlyMarkers")
+            if not isinstance(markers, list) or "ㅋㅋ" not in markers or "ㅎㅎ" not in markers:
+                self.issue(
+                    source,
+                    "ttsSurfacePolicy must classify ㅋㅋ/ㅎㅎ as display-only markers",
+                )
+
+        drafts_dir = self.root / "tools" / "content_factory" / "drafts"
+        governed: list[Path] = []
+        if drafts_dir.is_dir():
+            for path in sorted(drafts_dir.glob("*.json")):
+                try:
+                    payload = json.loads(path.read_text(encoding="utf-8"))
+                except (OSError, json.JSONDecodeError):
+                    continue
+                if not isinstance(payload, dict):
+                    continue
+                purpose = str(payload.get("purpose", ""))
+                if (
+                    payload.get("status") == "review_only_scene_first"
+                    or purpose.startswith(
+                        "Pre-script authoring contract for persona-led culture scenes"
+                    )
+                ):
+                    governed.append(path)
+                    if payload.get("dialogueAuthoringContract") != expected:
+                        self.issue(
+                            path.name,
+                            "persona dialogue authoring artifact must reference "
+                            f"{expected}",
+                        )
+
+        pipeline_path = (
+            self.root
+            / "tools"
+            / "content_factory"
+            / "review"
+            / "persona_culture_authoring_pipeline_20261005.json"
+        )
+        if pipeline_path.is_file():
+            try:
+                pipeline = json.loads(pipeline_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError) as exc:
+                self.issue(pipeline_path.name, f"cannot parse authoring pipeline: {exc}")
+            else:
+                if pipeline.get("dialogueAuthoringContract") != expected:
+                    self.issue(
+                        pipeline_path.name,
+                        f"authoring pipeline must reference {expected}",
+                    )
+                if not pipeline.get(
+                    "dialogueAuthoringContractRequiredForFuturePersonaDialogue"
+                ):
+                    self.issue(
+                        pipeline_path.name,
+                        "future persona dialogue must require the canonical "
+                        "dialogue authoring contract",
+                    )
+
+        if not governed:
+            self.issue(
+                source,
+                "no governed persona dialogue authoring artifacts were found",
+            )
+
+    def validate_dialogue_localization_contract(self) -> None:
+        """Require future localization to consume the 32-topic deep-pass corpus."""
+
+        relative = (
+            "tools/content_factory/canonical_scenarios/"
+            "dialogue_localization_contract_20261006.json"
+        )
+        path = self.root / relative
+        source = path.name
+        if not path.is_file():
+            self.issue(source, f"missing canonical localization contract at {relative}")
+            return
+        try:
+            contract = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            self.issue(source, f"cannot parse localization contract: {exc}")
+            return
+
+        if contract.get("status") != "CANONICAL":
+            self.issue(source, "localization contract status must be CANONICAL")
+        principles = contract.get("principles")
+        if not isinstance(principles, dict):
+            self.issue(source, "localization contract principles must be an object")
+            return
+        required_principles = (
+            "koreanIsSemanticPragmaticSourceOfTruth",
+            "englishAuthoredDirectlyFromKorean",
+            "germanAuthoredDirectlyFromKorean",
+            "englishAndGermanMustNotBeTranslationChains",
+            "topicNativeUsageProfileRequired",
+            "pedagogicalAlignmentRequired",
+            "displayAndSpokenSurfacesSeparate",
+        )
+        for key in required_principles:
+            if not principles.get(key):
+                self.issue(source, f"localization contract must enforce {key}")
+
+        dependencies = contract.get("dependencies")
+        if not isinstance(dependencies, dict):
+            self.issue(source, "localization contract dependencies must be an object")
+            return
+        expected_registry = (
+            "tools/content_factory/canonical_scenarios/"
+            "trilingual_native_usage_registry_20261006.json"
+        )
+        if dependencies.get("nativeUsageRegistry") != expected_registry:
+            self.issue(source, "localization contract must reference canonical native-usage registry")
+
+        gate = contract.get("nativeUsageGate")
+        if not isinstance(gate, dict):
+            self.issue(source, "localization contract nativeUsageGate must be an object")
+            return
+        if gate.get("requiredProfileStatus") != "deep_pass_complete":
+            self.issue(source, "localization native-usage gate must require deep_pass_complete")
+        if gate.get("requiredLanguages") != ["ko", "en", "de"]:
+            self.issue(source, "localization native-usage gate must require KO/EN/DE")
+
+        registry_path = self.root / expected_registry
+        if not registry_path.is_file():
+            self.issue(source, "canonical native-usage registry is missing")
+            return
+        try:
+            registry = json.loads(registry_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            self.issue(source, f"cannot parse native-usage registry: {exc}")
+            return
+
+        topics = registry.get("topics")
+        if not isinstance(topics, list) or len(topics) != 32:
+            self.issue(source, "native-usage registry must expose exactly 32 topics")
+            return
+        for topic in topics:
+            if not isinstance(topic, dict):
+                self.issue(source, "native-usage topic must be an object")
+                continue
+            topic_id = str(topic.get("topicId") or "<missing-topic>")
+            cross = topic.get("crossLanguage")
+            if not isinstance(cross, dict):
+                self.issue(source, f"{topic_id}: crossLanguage must be an object")
+            else:
+                if not cross.get("categoryShiftRisks"):
+                    self.issue(source, f"{topic_id}: categoryShiftRisks must be non-empty")
+                if not cross.get("pedagogicalAlignmentNotes"):
+                    self.issue(source, f"{topic_id}: pedagogicalAlignmentNotes must be non-empty")
+            for lang in ("ko", "en", "de"):
+                profile = topic.get(lang)
+                if not isinstance(profile, dict):
+                    self.issue(source, f"{topic_id}/{lang}: profile missing")
+                    continue
+                if profile.get("nativeUsageProfileStatus") != "deep_pass_complete":
+                    self.issue(source, f"{topic_id}/{lang}: deep-pass incomplete")
+                if not profile.get("researchDate"):
+                    self.issue(source, f"{topic_id}/{lang}: researchDate missing")
+                if not profile.get("avoidTranslationese"):
+                    self.issue(source, f"{topic_id}/{lang}: translationese warning missing")
+                if (
+                    topic.get("requiresAuthoritativeTermCheckForDeepPass")
+                    and not profile.get("authoritativeTermChecks")
+                ):
+                    self.issue(source, f"{topic_id}/{lang}: authoritative term check missing")
+
+        promotion = contract.get("promotionPolicy")
+        if not isinstance(promotion, dict):
+            self.issue(source, "localization promotionPolicy must be an object")
+        else:
+            if promotion.get("futureScenarioBatchFloor") != 39:
+                self.issue(source, "future localization promotion gate must begin at batch 39")
+            if promotion.get("localizationContractValue") != relative:
+                self.issue(source, "promotion policy contract path must be canonical")
+
+        tts = contract.get("ttsBoundary")
+        if not isinstance(tts, dict) or tts.get("ttsOwner") != "Jin":
+            self.issue(source, "localization contract must preserve Jin TTS ownership")
+        elif tts.get("contentFactoryGeneratesTts"):
+            self.issue(source, "localization content factory must not generate TTS")
+
+    def validate_trilingual_content_topic_coverage(self) -> None:
+        """Fail closed on silent gaps in the 32-topic research coverage ledger."""
+
+        taxonomy_path = self.root / "tools/content_factory/cefr_matrix/taxonomy.json"
+        ledger_path = (
+            self.root
+            / "tools"
+            / "content_factory"
+            / "review"
+            / "trilingual_content_topic_coverage_20261006.json"
+        )
+        source = ledger_path.name
+        if not taxonomy_path.is_file():
+            self.issue(source, "missing CEFR taxonomy for topic coverage validation")
+            return
+        if not ledger_path.is_file():
+            self.issue(source, "missing trilingual content-topic coverage ledger")
+            return
+        try:
+            taxonomy = json.loads(taxonomy_path.read_text(encoding="utf-8"))
+            ledger = json.loads(ledger_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            self.issue(source, f"cannot parse topic coverage inputs: {exc}")
+            return
+
+        topic_ids = {row.get("id") for row in taxonomy.get("topics", [])}
+        if len(topic_ids) != 32 or None in topic_ids:
+            self.issue(source, "canonical taxonomy must expose exactly 32 topic ids")
+            return
+
+        policy = ledger.get("policy")
+        if not isinstance(policy, dict):
+            self.issue(source, "topic coverage ledger policy must be an object")
+            return
+        if not policy.get("researchCoverageDoesNotImplyApproval"):
+            self.issue(source, "research coverage must not imply content approval")
+        if not policy.get("noSilentUnmappedItems"):
+            self.issue(source, "topic coverage ledger must forbid silent unmapped items")
+
+        records = ledger.get("records")
+        if not isinstance(records, list) or not records:
+            self.issue(source, "topic coverage ledger records must be non-empty")
+            return
+
+        mapped_topics: set[str] = set()
+        for index, row in enumerate(records):
+            if not isinstance(row, dict):
+                self.issue(source, f"records[{index}] must be an object")
+                continue
+            item_id = str(row.get("itemId") or f"records[{index}]")
+            topic_id = row.get("canonicalTopicId")
+            if topic_id is None:
+                if not row.get("unmappedReason"):
+                    self.issue(
+                        source,
+                        f"{item_id}: unmapped item requires explicit unmappedReason",
+                    )
+                if row.get("researchCoverageStatus") != "manual_topic_review_required":
+                    self.issue(
+                        source,
+                        f"{item_id}: explicit unmapped item must require manual review",
+                    )
+                continue
+            if topic_id not in topic_ids:
+                self.issue(source, f"{item_id}: unknown canonicalTopicId {topic_id!r}")
+                continue
+            mapped_topics.add(topic_id)
+
+        missing_topics = sorted(topic_ids - mapped_topics)
+        if missing_topics:
+            self.issue(
+                source,
+                "32-topic coverage ledger has no mapped content for: "
+                + ", ".join(missing_topics),
+            )
+
+        unparsed = ledger.get("unparsedDraftSources")
+        if not isinstance(unparsed, list):
+            self.issue(source, "unparsedDraftSources must be a list")
+        else:
+            for row in unparsed:
+                if not isinstance(row, dict) or not row.get("unmappedReason"):
+                    self.issue(
+                        source,
+                        "every unparsed draft source requires an explicit unmappedReason",
+                    )
+                    break
 
     def validate_ledger_entries(self) -> None:
         """Fail-closed cross-check of relevel_ledger.json against the live

@@ -32,6 +32,89 @@ import scenario_store
 
 
 class ScenarioBatchTransactionTest(unittest.TestCase):
+    def _native_usage_gate_root(self, directory: str) -> Path:
+        repository = SCRIPT_DIR.parents[1]
+        root = Path(directory) / "repo"
+        for relative in (
+            Path("tools/content_factory/canonical_scenarios/dialogue_localization_contract_20261006.json"),
+            Path("tools/content_factory/canonical_scenarios/trilingual_native_usage_registry_20261006.json"),
+        ):
+            target = root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(repository / relative, target)
+        return root
+
+    def test_future_promotion_requires_localization_contract_and_topic_ids(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = self._native_usage_gate_root(directory)
+            manifest_path = root / "tools/content_factory/drafts/batch_39_manifest.json"
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError,
+                "must reference",
+            ):
+                integration._validate_native_usage_promotion_gate(
+                    root,
+                    manifest_path,
+                    {},
+                    39,
+                )
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError,
+                "nativeUsageTopicIds",
+            ):
+                integration._validate_native_usage_promotion_gate(
+                    root,
+                    manifest_path,
+                    {
+                        "localizationContract": integration.LOCALIZATION_CONTRACT,
+                    },
+                    39,
+                )
+
+    def test_future_promotion_accepts_declared_deep_pass_topic(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = self._native_usage_gate_root(directory)
+            manifest_path = root / "tools/content_factory/drafts/batch_39_manifest.json"
+            integration._validate_native_usage_promotion_gate(
+                root,
+                manifest_path,
+                {
+                    "localizationContract": integration.LOCALIZATION_CONTRACT,
+                    "nativeUsageTopicIds": ["family_relationships"],
+                },
+                39,
+            )
+
+    def test_future_promotion_rejects_topic_when_one_language_loses_deep_pass(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = self._native_usage_gate_root(directory)
+            registry_path = root / integration.NATIVE_USAGE_REGISTRY
+            registry = json.loads(registry_path.read_text(encoding="utf-8"))
+            target = next(
+                row
+                for row in registry["topics"]
+                if row["topicId"] == "family_relationships"
+            )
+            target["de"]["nativeUsageProfileStatus"] = "pending_broad_pass"
+            registry_path.write_text(
+                json.dumps(registry, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            manifest_path = root / "tools/content_factory/drafts/batch_39_manifest.json"
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError,
+                "expected deep_pass_complete",
+            ):
+                integration._validate_native_usage_promotion_gate(
+                    root,
+                    manifest_path,
+                    {
+                        "localizationContract": integration.LOCALIZATION_CONTRACT,
+                        "nativeUsageTopicIds": ["family_relationships"],
+                    },
+                    39,
+                )
+
     def test_merged_batch36_replay_rejects_frozen_copy_without_overwriting_runtime(self) -> None:
         repository = SCRIPT_DIR.parents[1]
         relative_manifest = Path("tools/content_factory/drafts/batch_36_priority_surfaces_manifest.json")
@@ -79,6 +162,56 @@ class ScenarioBatchTransactionTest(unittest.TestCase):
             self.assertEqual(original, target.read_bytes())
             self.assertFalse(
                 target.with_name(f".{target.name}.scenario-integration.tmp").exists()
+            )
+
+    def test_atomic_write_retries_one_transient_windows_lock(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "content.json"
+            target.write_text('{"old":true}\n', encoding="utf-8")
+            real_replace = integration.os.replace
+            calls = 0
+
+            def flaky_replace(source, destination):
+                nonlocal calls
+                calls += 1
+                if calls == 1:
+                    raise PermissionError(5, "transient Windows file lock")
+                return real_replace(source, destination)
+
+            with (
+                mock.patch.object(integration.os, "replace", side_effect=flaky_replace),
+                mock.patch.object(integration.time, "sleep") as sleeper,
+            ):
+                integration._atomic_write(target, '{"new":true}\n')
+
+            self.assertEqual(target.read_text(encoding="utf-8"), '{"new":true}\n')
+            self.assertEqual(calls, 2)
+            sleeper.assert_called_once()
+
+    def test_manifest_write_can_fallback_when_windows_blocks_rename(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "batch_manifest.json"
+            target.write_text('{"status":"approved"}\n', encoding="utf-8")
+
+            with mock.patch.object(
+                integration,
+                "_replace_with_retry",
+                side_effect=PermissionError(5, "persistent Windows file lock"),
+            ):
+                integration._atomic_write(
+                    target,
+                    '{"status":"merged"}\n',
+                    allow_in_place_fallback=True,
+                )
+
+            self.assertEqual(
+                target.read_text(encoding="utf-8"),
+                '{"status":"merged"}\n',
+            )
+            self.assertFalse(
+                target.with_name(
+                    f".{target.name}.scenario-integration.tmp"
+                ).exists()
             )
 
     def test_post_write_failure_restores_every_target_byte_exactly(self) -> None:
@@ -367,5 +500,301 @@ class ScenarioBatchValidationTest(unittest.TestCase):
             root["meta"]["perLevel"],
             {"a1": 1, "a2": 0, "b1": 0, "b2": 0, "c1": 1, "c2": 1},
         )
+
+
+class ScenarioCultureLinkTransactionTest(unittest.TestCase):
+    def make_root(self, directory: str, *, term_id: str = "term_a") -> tuple[Path, Path, Path]:
+        root = Path(directory)
+        (root / "assets" / "data").mkdir(parents=True)
+        (root / "docs" / "data").mkdir(parents=True)
+        draft = root / "tools" / "content_factory" / "drafts" / "culture_links.json"
+        draft.parent.mkdir(parents=True)
+        (root / "assets" / "data" / "scenario_culture_links.json").write_text(
+            json.dumps({"schemaVersion": 1, "links": []}),
+            encoding="utf-8",
+        )
+        (root / "docs" / "data" / "cultural_glossary.json").write_text(
+            json.dumps(
+                {
+                    "schemaVersion": 1,
+                    "entries": [{"termId": term_id}],
+                }
+            ),
+            encoding="utf-8",
+        )
+        return root, root / "assets" / "data", draft
+
+    def test_culture_links_are_staged_with_their_scenarios(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root, data, draft = self.make_root(directory)
+            draft.write_text(
+                json.dumps(
+                    {
+                        "schemaVersion": 1,
+                        "links": [{"scenarioId": "scene_a", "termIds": ["term_a"]}],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            manifest = {
+                "status": "review_only_draft",
+                "cultureLinksDraft": str(draft.relative_to(root)),
+                "cultureLinkCount": 1,
+            }
+
+            self.assertTrue(
+                integration._stage_culture_links(
+                    root, data, manifest, [{"id": "scene_a"}]
+                )
+            )
+            staged = json.loads(
+                (data / "scenario_culture_links.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(
+                staged["links"],
+                [{"scenarioId": "scene_a", "termIds": ["term_a"]}],
+            )
+
+    def test_culture_links_reject_unknown_glossary_terms(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root, data, draft = self.make_root(directory)
+            draft.write_text(
+                json.dumps(
+                    {
+                        "schemaVersion": 1,
+                        "links": [
+                            {"scenarioId": "scene_a", "termIds": ["missing_term"]}
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            manifest = {
+                "status": "review_only_draft",
+                "cultureLinksDraft": str(draft.relative_to(root)),
+                "cultureLinkCount": 1,
+            }
+
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError, "unknown terms"
+            ):
+                integration._stage_culture_links(
+                    root, data, manifest, [{"id": "scene_a"}]
+                )
+
+    def test_merged_culture_links_are_idempotent_but_frozen(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root, data, draft = self.make_root(directory)
+            link = {"scenarioId": "scene_a", "termIds": ["term_a"]}
+            draft.write_text(
+                json.dumps({"schemaVersion": 1, "links": [link]}),
+                encoding="utf-8",
+            )
+            (data / "scenario_culture_links.json").write_text(
+                json.dumps({"schemaVersion": 1, "links": [link]}),
+                encoding="utf-8",
+            )
+            manifest = {
+                "status": "merged",
+                "cultureLinksDraft": str(draft.relative_to(root)),
+                "cultureLinkCount": 1,
+            }
+
+            before = (data / "scenario_culture_links.json").read_bytes()
+            self.assertTrue(
+                integration._stage_culture_links(
+                    root, data, manifest, [{"id": "scene_a"}]
+                )
+            )
+            self.assertEqual(
+                (data / "scenario_culture_links.json").read_bytes(), before
+            )
+
+            draft.write_text(
+                json.dumps(
+                    {
+                        "schemaVersion": 1,
+                        "links": [
+                            {"scenarioId": "scene_a", "termIds": ["term_a", "other"]}
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            manifest["cultureLinkCount"] = 1
+            # Add the second term to the glossary so the frozen-payload check,
+            # not glossary validation, owns this failure.
+            glossary_path = root / "docs" / "data" / "cultural_glossary.json"
+            glossary_path.write_text(
+                json.dumps(
+                    {
+                        "schemaVersion": 1,
+                        "entries": [{"termId": "term_a"}, {"termId": "other"}],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError, "no longer matches"
+            ):
+                integration._stage_culture_links(
+                    root, data, manifest, [{"id": "scene_a"}]
+                )
+
+
+class CultureStoryArcTransactionTest(unittest.TestCase):
+    def make_root(self, directory: str) -> tuple[Path, Path, Path]:
+        root = Path(directory)
+        data = root / "assets" / "data"
+        data.mkdir(parents=True)
+        draft = (
+            root
+            / "tools"
+            / "content_factory"
+            / "drafts"
+            / "culture_story_arcs.json"
+        )
+        draft.parent.mkdir(parents=True)
+        (data / "scenario_culture_links.json").write_text(
+            json.dumps(
+                {
+                    "schemaVersion": 1,
+                    "links": [
+                        {"scenarioId": "scene_a", "termIds": ["term_a"]},
+                        {"scenarioId": "scene_b", "termIds": ["term_b"]},
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        (data / "culture_story_arcs.json").write_text(
+            json.dumps({"schemaVersion": 1, "arcs": []}),
+            encoding="utf-8",
+        )
+        return root, data, draft
+
+    def arc_payload(self) -> dict:
+        return {
+            "schemaVersion": 1,
+            "status": "review_only",
+            "arcs": [
+                {
+                    "arcId": "sample_arc",
+                    "title": {
+                        "ko": "표본 문화 길",
+                        "de": "Beispiel-Kulturpfad",
+                        "en": "Sample culture path",
+                    },
+                    "summary": {
+                        "ko": "기존 장면을 묶는 읽기 전용 문화 길입니다.",
+                        "de": "Ein schreibgeschützter Kulturpfad aus bestehenden Szenen.",
+                        "en": "A read-only culture path grouping existing scenes.",
+                    },
+                    "progressMode": "derived_read_only",
+                    "steps": [
+                        {
+                            "scenarioId": "scene_a",
+                            "personaIds": ["maya"],
+                            "termIds": ["term_a"],
+                        },
+                        {
+                            "scenarioId": "scene_b",
+                            "personaIds": ["jun"],
+                            "termIds": ["term_b"],
+                        },
+                    ],
+                }
+            ],
+        }
+
+    def test_story_arcs_stage_only_after_scenario_culture_links_exist(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root, data, draft = self.make_root(directory)
+            draft.write_text(
+                json.dumps(self.arc_payload(), ensure_ascii=False),
+                encoding="utf-8",
+            )
+            manifest = {
+                "status": "review_only_draft",
+                "cultureStoryArcsDraft": str(draft.relative_to(root)),
+            }
+
+            self.assertTrue(
+                integration._stage_culture_story_arcs(root, data, manifest)
+            )
+            staged = json.loads(
+                (data / "culture_story_arcs.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(staged["arcs"][0]["arcId"], "sample_arc")
+
+    def test_story_arcs_reject_non_live_scenario_or_unlinked_term(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root, data, draft = self.make_root(directory)
+            payload = self.arc_payload()
+            payload["arcs"][0]["steps"][1]["scenarioId"] = "review_only_scene"
+            draft.write_text(
+                json.dumps(payload, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            manifest = {
+                "status": "review_only_draft",
+                "cultureStoryArcsDraft": str(draft.relative_to(root)),
+            }
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError, "references non-live scenario"
+            ):
+                integration._stage_culture_story_arcs(root, data, manifest)
+
+            payload = self.arc_payload()
+            payload["arcs"][0]["steps"][0]["termIds"] = ["other_term"]
+            draft.write_text(
+                json.dumps(payload, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError, "not linked to that scenario"
+            ):
+                integration._stage_culture_story_arcs(root, data, manifest)
+
+    def test_merged_story_arcs_are_idempotent_but_frozen(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root, data, draft = self.make_root(directory)
+            payload = self.arc_payload()
+            payload["status"] = "merged"
+            draft.write_text(
+                json.dumps(payload, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            (data / "culture_story_arcs.json").write_text(
+                json.dumps(
+                    {"schemaVersion": 1, "arcs": payload["arcs"]},
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+            manifest = {
+                "status": "merged",
+                "cultureStoryArcsDraft": str(draft.relative_to(root)),
+            }
+            before = (data / "culture_story_arcs.json").read_bytes()
+            self.assertTrue(
+                integration._stage_culture_story_arcs(root, data, manifest)
+            )
+            self.assertEqual(
+                (data / "culture_story_arcs.json").read_bytes(),
+                before,
+            )
+
+            payload["arcs"][0]["summary"]["en"] = "Changed after review."
+            draft.write_text(
+                json.dumps(payload, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError, "no longer matches"
+            ):
+                integration._stage_culture_story_arcs(root, data, manifest)
+
+
 if __name__ == "__main__":
     unittest.main()
