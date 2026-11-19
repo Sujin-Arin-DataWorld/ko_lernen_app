@@ -19,10 +19,10 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
         self.assertTrue(result["ok"], result["errors"])
         self.assertEqual(result["version"], 4)
         # Batch 38 and Batch 39 each add five canonical persona-culture
-        # scenarios; pending/retired history is unchanged.
-        self.assertEqual(result["trackedIds"], 7770)
-        self.assertEqual(result["liveIds"], 7399)
-        self.assertEqual(result["pendingIds"], 576)
+        # scenarios. Batch 40 adds five pending records and remains outside live.
+        self.assertEqual(result["trackedIds"], 7793)
+        self.assertEqual(result["liveIds"], 7422)
+        self.assertEqual(result["pendingIds"], 581)
         self.assertEqual(result["retiredScenarioIds"], 371)
         self.assertEqual(
             result["trackedIds"],
@@ -53,6 +53,15 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
         self.assertEqual(batch38["live"], 5)
         self.assertEqual(batch38["auditStatus"], "live_verified_modern")
         self.assertEqual(batch38["reviewStatuses"], {"approved": 5})
+        living_korea = manifests["batch_39_living_korea_manifest.json"]
+        self.assertEqual(living_korea["tracked"], 23)
+        self.assertEqual(living_korea["live"], 23)
+        self.assertEqual(living_korea["auditStatus"], "live_verified_modern")
+        self.assertEqual(living_korea["reviewStatuses"], {"approved": 23})
+        batch40 = manifests["batch_40_persona_culture_manifest.json"]
+        self.assertEqual(batch40["tracked"], 5)
+        self.assertEqual(batch40["live"], 0)
+        self.assertEqual(batch40["auditStatus"], "pending_not_live")
         for number in (32, 33, 34):
             report = reports[f"c3_batch{number}_a2_reinforcement"]
             self.assertEqual(report["auditStatus"], "pending_not_live")
