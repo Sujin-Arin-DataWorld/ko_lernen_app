@@ -6401,6 +6401,199 @@
         }
       },
       "xpReward": 145
+    },
+    {
+      "id": "c1_maya_hyuna_daniel_talchum_shortform",
+      "level": "c1",
+      "emoji": "🎭",
+      "register": "business",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "탈춤 숏폼에서 원형과 재해석 구분하기",
+        "de": "Originalform und Neuinterpretation in einem Talchum-Kurzvideo trennen",
+        "en": "Separating tradition from reinterpretation in a talchum short video"
+      },
+      "intro": {
+        "ko": "마야·현아·다니엘이 탈춤 관련 숏폼 영상을 준비해요. 실제 공연 기록과 새로 연출한 장면을 어떻게 구분할지 정해요.",
+        "de": "Maya, Hyuna und Daniel planen ein Kurzvideo zu Talchum. Sie legen fest, wie dokumentierte Aufführung und neu inszenierte Szenen unterschieden werden.",
+        "en": "Maya, Hyuna and Daniel are preparing a short video about talchum. They decide how to distinguish recorded performance from newly staged material."
+      },
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "playerCharacterId": "maya",
+      "participantIds": [
+        "maya",
+        "hyuna",
+        "daniel"
+      ],
+      "relationshipContext": "문화 홍보 영상을 함께 준비하는 마야, 현아, 다니엘",
+      "intent": "실제 공연 장면과 새로 연출한 장면을 구분해서 표시하고 촬영 동의 범위를 다시 확인한다",
+      "shelf": "c1_attribution",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "탈춤"
+        },
+        {
+          "korean": "공연 기록"
+        },
+        {
+          "korean": "재해석"
+        },
+        {
+          "korean": "전승"
+        },
+        {
+          "korean": "촬영 동의"
+        },
+        {
+          "korean": "소개 페이지"
+        }
+      ],
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_b2_not_automatic_conclusion"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-다고 해서 A/V-는 것은 아니다",
+          "de": "Kein automatischer Schluss",
+          "en": "Not an automatic conclusion"
+        },
+        "explanation": {
+          "ko": "“비슷하게 보인다고 해서 전승된 동작이라고 볼 수는 없어요”처럼 겉모습 하나만으로 결론을 내리지 않을 때 써요.",
+          "de": "Mit -다고 해서 ... 것은 아니다 weist du einen Schluss zurück, der allein aus einem Merkmal gezogen wird.",
+          "en": "Use -다고 해서 ... 것은 아니다 to reject a conclusion drawn from a single feature or appearance."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "daniel",
+          "ko": "공연 장면 뒤에 우리가 만든 짧은 동작을 붙이면 영상 리듬이 좋아질 것 같아요.",
+          "de": "Wenn wir nach der Aufführung eine kurze selbst inszenierte Bewegung anhängen, bekommt das Video mehr Rhythmus.",
+          "en": "If we add a short movement we staged after the performance footage, the video may flow better."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아요. 그런데 그 장면까지 원래 탈춤 동작처럼 보이면 안 될 것 같아요.",
+          "de": "Gern. Aber diese Szene sollte nicht so wirken, als gehöre sie zur überlieferten Talchum-Form.",
+          "en": "I like that. But that scene shouldn't look as if it were part of the transmitted talchum form."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "맞아요. 비슷하게 보인다고 해서 전승된 동작이라고 볼 수는 없어요.",
+          "de": "Genau. Nur weil etwas ähnlich aussieht, ist es noch keine überlieferte Bewegung.",
+          "en": "Right. Just because something looks similar doesn't mean it's a transmitted movement."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "그럼 실제 공연에는 ‘공연 기록’, 우리가 만든 장면에는 ‘현대적 재해석’이라고 표시할까요?",
+          "de": "Dann kennzeichnen wir die echte Aufführung als „Aufführungsdokumentation“ und unsere Szene als „moderne Neuinterpretation“?",
+          "en": "Then shall we label the actual performance 'performance documentation' and our scene 'modern reinterpretation'?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 그리고 공연자 얼굴과 관객이 보이는 부분은 사용 범위를 다시 확인해 주세요.",
+          "de": "Ja. Und bitte prüft noch einmal, welche Ausschnitte mit Gesichtern von Auftretenden oder Publikum verwendet werden dürfen.",
+          "en": "Yes. And please recheck which sections showing performers' or audience members' faces may be used."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "동의받은 구간만 쓰고, 나머지는 잘라낼게요.",
+          "de": "Ich verwende nur die freigegebenen Abschnitte und schneide den Rest heraus.",
+          "en": "I'll use only the sections we have consent for and cut the rest."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "소개 페이지에는 탈춤의 맥락과 출처를 짧게 연결하면 좋겠어요.",
+          "de": "Auf der Infoseite sollten wir kurz Kontext und Quellen zu Talchum verlinken.",
+          "en": "On the information page, it would be good to link brief context and sources about talchum."
+        },
+        {
+          "speaker": "user",
+          "ko": "영상에서는 구분을 분명히 하고, 자세한 설명은 소개 페이지로 보내죠.",
+          "de": "Im Video machen wir die Unterscheidung klar und verlagern die ausführliche Erklärung auf die Infoseite.",
+          "en": "We'll make the distinction clear in the video and put the detailed explanation on the information page."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_maya_hyuna_daniel_talchum_shortform_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "audioKo": "맞아요. 비슷하게 보인다고 해서 전승된 동작이라고 볼 수는 없어요.",
+            "options": [
+              {
+                "de": "Genau. Nur weil etwas ähnlich aussieht, ist es noch keine überlieferte Bewegung.",
+                "en": "Right. Just because something looks similar doesn't mean it's a transmitted movement."
+              },
+              {
+                "de": "Dann kennzeichnen wir unsere Szene als moderne Neuinterpretation?",
+                "en": "Then shall we label our scene as a modern reinterpretation?"
+              },
+              {
+                "de": "Ich verwende nur die freigegebenen Abschnitte.",
+                "en": "I'll use only the approved sections."
+              },
+              {
+                "de": "Auf der Infoseite verlinken wir Quellen.",
+                "en": "We'll link sources on the information page."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_maya_hyuna_daniel_talchum_shortform_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "promptDe": "Ich verwende nur die freigegebenen Abschnitte und schneide den Rest heraus.",
+            "promptEn": "I'll use only the sections we have consent for and cut the rest.",
+            "options": [
+              {
+                "ko": "동의받은 구간만 쓰고, 나머지는 잘라낼게요."
+              },
+              {
+                "ko": "공연 장면 뒤에 우리가 만든 짧은 동작을 붙이면 영상 리듬이 좋아질 것 같아요."
+              },
+              {
+                "ko": "소개 페이지에는 탈춤의 맥락과 출처를 짧게 연결하면 좋겠어요."
+              },
+              {
+                "ko": "좋아요. 그런데 그 장면까지 원래 탈춤 동작처럼 보이면 안 될 것 같아요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_maya_hyuna_daniel_talchum_shortform_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "targetKo": "영상에서는 구분을 분명히 하고, 자세한 설명은 소개 페이지로 보내죠.",
+            "audioKo": "영상에서는 구분을 분명히 하고, 자세한 설명은 소개 페이지로 보내죠.",
+            "promptDe": "Im Video machen wir die Unterscheidung klar und verlagern die ausführliche Erklärung auf die Infoseite.",
+            "promptEn": "We'll make the distinction clear in the video and put the detailed explanation on the information page.",
+            "distractors": [
+              "모두 원래 동작으로",
+              "설명은 생략하고",
+              "관객 얼굴도 그대로"
+            ]
+          }
+        }
+      ],
+      "xpReward": 140
     }
   ]
 }

@@ -138,6 +138,60 @@ void main() {
     },
   );
 
+  test('culture-focused persona copy stays aligned with the writer bible', () {
+    final bible = jsonDecode(
+      File(
+        'tools/content_factory/canonical_scenarios/character_profiles.json',
+      ).readAsStringSync(),
+    );
+    final people = (bible['recurringCharacters'] as List)
+        .cast<Map<String, dynamic>>();
+    Map<String, dynamic> profile(String id) =>
+        people.singleWhere((person) => person['id'] == id);
+
+    expect(profile('maya')['background']['role'], contains('문화콘텐츠 마케팅'));
+    expect(profile('maya')['relationships']['hyuna'], isNotEmpty);
+    expect(profile('maya')['relationships']['dongsun'], isNotEmpty);
+
+    expect(profile('hyuna')['background']['role'], contains('생활유산'));
+    expect(profile('hyuna')['relationships']['byeongcheol'], isNotEmpty);
+    expect(profile('hyuna')['relationships']['daniel'], isNotEmpty);
+
+    expect(profile('daniel')['background']['role'], contains('다큐·브랜드 영상 제작자'));
+    expect(profile('dongsun')['background']['shopContext'], contains('노리개'));
+    expect(
+      profile('byeongcheol')['background']['cultureContext'],
+      contains('개인 기억'),
+    );
+    expect(profile('jun')['background']['schoolContext'], contains('학교 발표'));
+
+    final maya = PersonaPresentationCatalog.presentationFor('maya')!;
+    final hyuna = PersonaPresentationCatalog.presentationFor('hyuna')!;
+    final dongsun = PersonaPresentationCatalog.presentationFor('dongsun')!;
+    final byeongcheol = PersonaPresentationCatalog.presentationFor(
+      'byeongcheol',
+    )!;
+    final jun = PersonaPresentationCatalog.presentationFor('jun')!;
+
+    expect(maya.intro.ko, contains('문화콘텐츠'));
+    expect(
+      maya.relations.map((relation) => relation.characterId),
+      containsAll(['hyuna', 'dongsun']),
+    );
+    expect(hyuna.intro.ko, contains('생활유산'));
+    expect(
+      hyuna.relations.map((relation) => relation.characterId),
+      containsAll(['daniel', 'byeongcheol', 'maya']),
+    );
+    expect(dongsun.intro.ko, contains('노리개'));
+    expect(byeongcheol.intro.ko, contains('수원화성'));
+    expect(jun.intro.ko, contains('출처'));
+    expect(
+      jun.relations.map((relation) => relation.characterId),
+      contains('christian'),
+    );
+  });
+
   test(
     'Jun writer bible matches approved sixteen-year-old art without changing identity',
     () {

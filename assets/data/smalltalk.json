@@ -913,9 +913,9 @@
       "de": "Welche Musik magst du?",
       "en": "What music do you like?",
       "reply": {
-        "ko": "케이팝이랑 발라드 좋아해요.",
-        "de": "K-Pop und Balladen.",
-        "en": "I like K-pop and ballads."
+        "ko": "케이팝 좋아해요.",
+        "de": "Ich mag K-Pop.",
+        "en": "I like K-pop."
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -3453,13 +3453,13 @@
       "category": "job_hunting",
       "level": "a1",
       "kind": "question",
-      "ko": "이력서 썼어요?",
-      "de": "Hast du deinen Lebenslauf geschrieben?",
-      "en": "Did you write your resume?",
+      "ko": "일 찾고 있어요?",
+      "de": "Suchst du gerade Arbeit?",
+      "en": "Are you looking for work?",
       "reply": {
-        "ko": "네, 어제 다 썼어요.",
-        "de": "Ja, gestern fertig geschrieben.",
-        "en": "Yes, I finished it yesterday."
+        "ko": "네, 찾고 있어요.",
+        "de": "Ja, ich suche gerade.",
+        "en": "Yes, I am."
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -3472,9 +3472,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "다 쓰셨다니 다행이에요.",
-        "de": "Schön, dass du ihn fertig hast.",
-        "en": "I'm glad you got it finished."
+        "ko": "좋은 곳을 찾으면 좋겠어요.",
+        "de": "Ich hoffe, du findest eine gute Stelle.",
+        "en": "I hope you find a good place."
       }
     },
     {
@@ -3670,11 +3670,11 @@
       "category": "moving",
       "level": "a1",
       "kind": "question",
-      "ko": "집 구했어요?",
+      "ko": "집 찾았어요?",
       "de": "Hast du eine Wohnung gefunden?",
       "en": "Did you find a place?",
       "reply": {
-        "ko": "네, 지난주에 구했어요.",
+        "ko": "네, 지난주에 찾았어요.",
         "de": "Ja, letzte Woche.",
         "en": "Yes, last week."
       },
@@ -3689,9 +3689,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "집을 구해서 다행이네요.",
-        "de": "Schön, dass du eine Wohnung gefunden hast.",
-        "en": "I'm glad you found a place."
+        "ko": "잘됐네요.",
+        "de": "Das ist gut.",
+        "en": "That's good."
       }
     },
     {
@@ -4441,8 +4441,8 @@
         }
       ],
       "reply": {
-        "ko": "이만 원이에요.",
-        "de": "Das macht 20000 Won.",
+        "ko": "20,000원이에요.",
+        "de": "Das macht 20.000 Won.",
         "en": "That comes to 20,000 won."
       },
       "followUp": {
@@ -8271,9 +8271,9 @@
       "de": "Wo soll ich den Obstkorb hinstellen?",
       "en": "Where should I put the fruit basket?",
       "reply": {
-        "ko": "거기 식탁에 놓으면 돼요.",
-        "de": "Stellen Sie ihn einfach auf den Esstisch.",
-        "en": "Just put it on the dining table.",
+        "ko": "거기 식탁에 놓아요.",
+        "de": "Stellen Sie ihn dort auf den Esstisch.",
+        "en": "Put it there on the dining table.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -8361,9 +8361,9 @@
       "de": "Ich bin zum ersten Mal in einem koreanischen Zuhause und kenne die Umgangsformen hier noch nicht.",
       "en": "This is my first time in a Korean home, so I'm not familiar with the customs yet.",
       "reply": {
-        "ko": "천천히 배우면 돼요.",
-        "de": "Sie können das nach und nach lernen.",
-        "en": "You can learn as you go.",
+        "ko": "천천히 배우세요.",
+        "de": "Lernen Sie es in Ruhe Schritt für Schritt.",
+        "en": "Take your time and learn it step by step.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -8541,9 +8541,9 @@
       "de": "Beim Ahnenritual stelle ich mich nach hinten.",
       "en": "During the ancestral rite I'll stand at the back.",
       "reply": {
-        "ko": "그렇게 해요. 보고 따라 하면 돼요.",
-        "de": "Ja, gern. Schauen Sie erst einmal zu und machen Sie dann mit.",
-        "en": "Of course. Watch first, then follow along.",
+        "ko": "그렇게 해요. 먼저 보세요.",
+        "de": "Ja, machen Sie das so. Schauen Sie zuerst zu.",
+        "en": "Yes, do that. Watch first.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -8556,9 +8556,9 @@
         }
       ],
       "followUp": {
-        "ko": "네, 먼저 잘 보고 따라 할게요.",
-        "de": "Gut, ich schaue erst genau zu und mache dann mit.",
-        "en": "Okay, I will watch carefully first, then follow along.",
+        "ko": "네, 먼저 볼게요.",
+        "de": "Gut, ich schaue zuerst zu.",
+        "en": "Okay, I'll watch first.",
         "turnKind": "reaction"
       }
     },
@@ -8567,9 +8567,9 @@
       "category": "partner_family",
       "level": "a1",
       "kind": "question",
-      "ko": "현우 남동생은 뭐라고 부르면 돼요?",
-      "de": "Wie soll ich Hyunwoos jüngeren Bruder ansprechen?",
-      "en": "What should I call Hyunwoo's younger brother?",
+      "ko": "현우 남동생은 뭐라고 불러요?",
+      "de": "Wie nenne ich Hyunwoos jüngeren Bruder?",
+      "en": "What do I call Hyunwoo's younger brother?",
       "reply": {
         "ko": "우선 이름으로 불러요. 다른 호칭은 나중에 같이 정해요.",
         "de": "Nennen Sie ihn erst einmal beim Namen. Eine andere Anrede können wir später gemeinsam besprechen.",
@@ -9557,13 +9557,13 @@
       "category": "partner_family",
       "level": "b1",
       "kind": "opener",
-      "ko": "못 읽었으면서 읽은 척하는 게 더 어색하더라고요.",
-      "de": "So zu tun, als hätte ich es gelesen, war am Ende noch unangenehmer.",
-      "en": "Pretending I'd read it was even more awkward.",
+      "ko": "메시지를 못 읽어서 늦게 답했어요.",
+      "de": "Ich habe die Nachricht nicht gelesen und deshalb spät geantwortet.",
+      "en": "I didn't read the message, so I replied late.",
       "reply": {
-        "ko": "맞아요. 그냥 늦게 답해도 돼요.",
-        "de": "Stimmt. Antworten Sie ruhig später.",
-        "en": "True. It's fine to answer late.",
+        "ko": "괜찮아요. 늦게 답해도 돼요.",
+        "de": "Kein Problem. Sie können auch später antworten.",
+        "en": "That's okay. You can reply later.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -9578,7 +9578,7 @@
       "followUp": {
         "ko": "그럼 제대로 읽고 답할게요.",
         "de": "Dann lese ich es erst richtig und antworte danach.",
-        "en": "Then I will read it properly before replying.",
+        "en": "Then I'll read it properly before replying.",
         "turnKind": "reaction"
       }
     },
@@ -14210,13 +14210,13 @@
       "level": "b1",
       "category": "job_hunting",
       "kind": "question",
-      "ko": "채용 공고의 지원 자격을 모두 충족해야 하나요?",
-      "de": "Muss ich alle Voraussetzungen der Stellenanzeige erfüllen?",
-      "en": "Do I need to meet every requirement in the job posting?",
+      "ko": "지원 조건을 다 맞춰야 하나요?",
+      "de": "Muss ich alle Anforderungen erfüllen?",
+      "en": "Do I need to meet every requirement?",
       "reply": {
-        "ko": "필수와 우대 조건을 나눠 보고 모호하면 담당자에게 문의하세요.",
-        "de": "Unterscheiden Sie Pflicht- und Wunschkriterien und fragen Sie bei Unklarheit nach.",
-        "en": "Separate required from preferred criteria and ask if anything is unclear."
+        "ko": "꼭 필요한 조건과 있으면 좋은 조건을 나눠 보세요.",
+        "de": "Trennen Sie notwendige von wünschenswerten Anforderungen.",
+        "en": "Separate the required conditions from the ones that are good to have."
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -14228,9 +14228,9 @@
         }
       ],
       "followUp": {
-        "ko": "그럼 조건을 나눠 보고 모호한 부분은 문의할게요.",
-        "de": "Dann trenne ich die Kriterien und frage bei Unklarheiten nach.",
-        "en": "Then I will separate the requirements and ask about anything unclear.",
+        "ko": "그럼 조건을 나눠 보고 물어볼게요.",
+        "de": "Dann trenne ich die Bedingungen und frage nach.",
+        "en": "Then I'll separate the requirements and ask about them.",
         "turnKind": "reaction"
       }
     },
@@ -15124,9 +15124,9 @@
         "en": "Here you go."
       },
       "reply": {
-        "ko": "응, 목말라.",
-        "de": "Ja, ich habe Durst.",
-        "en": "Yeah, I'm thirsty."
+        "ko": "네, 고마워.",
+        "de": "Ja, danke.",
+        "en": "Yes, thanks."
       }
     },
     {
@@ -15211,9 +15211,9 @@
       "category": "theme_park_date",
       "level": "a2",
       "kind": "question",
-      "ko": "나 당이 당겨. 뭐 좀 달달한 거 마실까?",
-      "de": "Ich brauche gerade etwas Süßes. Wollen wir etwas Süßes trinken?",
-      "en": "I'm craving sugar. Want to get something sweet to drink?",
+      "ko": "뭐 마실까?",
+      "de": "Was wollen wir trinken?",
+      "en": "What should we drink?",
       "relationshipContext": "romantic_partner",
       "safeAlternativeQuestions": [
         {
@@ -15230,9 +15230,9 @@
         "en": "Great, let's find a drink stand."
       },
       "reply": {
-        "ko": "나는 달콤한 레모네이드가 좋아.",
-        "de": "Ich hätte Lust auf eine süße Limonade.",
-        "en": "I'd like a sweet lemonade."
+        "ko": "나는 레몬 음료가 좋아.",
+        "de": "Ich hätte gern ein Zitronengetränk.",
+        "en": "I'd like a lemon drink."
       }
     },
     {
@@ -15269,9 +15269,9 @@
       "category": "theme_park_date",
       "level": "a2",
       "kind": "question",
-      "ko": "넌 케첩파야, 마요파야?",
-      "de": "Bist du Team Ketchup oder Team Mayo?",
-      "en": "Are you team ketchup or team mayo?",
+      "ko": "케첩 좋아해, 마요네즈 좋아해?",
+      "de": "Magst du Ketchup oder Mayonnaise?",
+      "en": "Do you like ketchup or mayonnaise?",
       "relationshipContext": "romantic_partner",
       "safeAlternativeQuestions": [
         {
@@ -15288,9 +15288,9 @@
         "en": "Great, I'll have mine with mayo."
       },
       "reply": {
-        "ko": "난 케첩파야.",
-        "de": "Ich bin Team Ketchup.",
-        "en": "I'm team ketchup."
+        "ko": "나는 케첩이 좋아.",
+        "de": "Ich mag Ketchup.",
+        "en": "I like ketchup."
       }
     },
     {

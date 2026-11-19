@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "status": "review_only",
+  "purpose": "Pre-script authoring contract for persona-led culture scenes. This file declares who is present, why the scene exists, which cultural terms belong to it, and which persona boundaries must remain intact.",
+  "scenes": [
+    {
+      "scenarioId": "b1_dongsun_norigae_shop_post",
+      "level": "b1",
+      "playerCharacterId": "maya",
+      "personaIds": [
+        "maya",
+        "dongsun"
+      ],
+      "realTaskKo": "가게 홍보용 노리개 사진의 촬영 범위와 상품 설명 문구를 동선과 확인한다.",
+      "learningIntentKo": "허락·범위·수정 요청을 부드럽게 조율한다.",
+      "cultureTermIds": [
+        "norigae",
+        "maedeup"
+      ],
+      "personaBoundaries": [
+        "동선은 주얼리·수선 가게 사장이며 전통공예 장인으로 자동 설정하지 않는다.",
+        "마야는 홍보를 맡지만 확인되지 않은 제작자·문화 설명을 만들어내지 않는다."
+      ]
+    },
+    {
+      "scenarioId": "b1_byeongcheol_hwaseong_memory_check",
+      "level": "b1",
+      "playerCharacterId": "hyuna",
+      "personaIds": [
+        "hyuna",
+        "byeongcheol"
+      ],
+      "realTaskKo": "수원화성 답사에서 병철의 생활 기억을 기록하되 확인된 역사 정보와 분리한다.",
+      "learningIntentKo": "들은 정보와 확인된 정보를 구분하고 간접화법으로 전달한다.",
+      "cultureTermIds": [
+        "suwon_hwaseong"
+      ],
+      "personaBoundaries": [
+        "병철은 지역 경험을 말하지만 역사 전문가처럼 연대와 사실을 단정하지 않는다.",
+        "현아는 맥락을 정리하지만 모든 문화 문제의 해설자가 되지 않는다."
+      ]
+    },
+    {
+      "scenarioId": "a2_jun_hwaseong_school_slide",
+      "level": "a2",
+      "playerCharacterId": "jun",
+      "personaIds": [
+        "jun",
+        "christian"
+      ],
+      "realTaskKo": "학교에서 수원화성을 소개할 때 쓸 사진의 순서와 설명을 다시 확인할 계획을 정한다.",
+      "learningIntentKo": "학교에서 소개할 사진의 순서와 확인할 일을 짧고 분명하게 말한다.",
+      "cultureTermIds": [
+        "suwon_hwaseong"
+      ],
+      "personaBoundaries": [
+        "준은 16세 고등학생으로 조사·발표·디지털 제작을 스스로 한다.",
+        "크리스티안은 구조를 함께 점검하지만 정답을 대신 조사해 주는 보호자 역할이 아니다."
+      ]
+    },
+    {
+      "scenarioId": "c1_maya_hyuna_daniel_talchum_shortform",
+      "level": "c1",
+      "playerCharacterId": "maya",
+      "personaIds": [
+        "maya",
+        "hyuna",
+        "daniel"
+      ],
+      "realTaskKo": "탈춤 숏폼에서 실제 공연 기록과 새로 연출한 재해석 장면, 촬영 동의 범위를 구분한다.",
+      "learningIntentKo": "미디어 자료의 출처·전승 범위·표현 책임을 구분해 협의한다.",
+      "cultureTermIds": [
+        "talchum"
+      ],
+      "personaBoundaries": [
+        "마야는 현대적 재해석을 제안할 수 있지만 원형이라고 포장하지 않는다.",
+        "현아는 전승 맥락을 구분하되 공연자를 대신해 권위를 주장하지 않는다.",
+        "다니엘은 촬영 동의와 사용 범위를 실제 선택권으로 다룬다."
+      ]
+    },
+    {
+      "scenarioId": "b2_daniel_hyuna_hanji_filming_scope",
+      "level": "b2",
+      "playerCharacterId": "daniel",
+      "personaIds": [
+        "daniel",
+        "hyuna"
+      ],
+      "realTaskKo": "한지 작업실 방문 전 촬영 범위·공개 범위·설명 검수 방식을 합의한다.",
+      "learningIntentKo": "정확한 요청 범위와 조건을 조율하고 촬영 동의와 공개 동의를 분리한다.",
+      "cultureTermIds": [
+        "hanji"
+      ],
+      "personaBoundaries": [
+        "다니엘은 한지 제작법을 장인 대신 추측해 설명하지 않는다.",
+        "현아는 작업실과 제작자의 선택권을 보존하고 촬영 동의를 포괄적 공개 동의로 해석하지 않는다."
+      ]
+    }
+  ]
+}

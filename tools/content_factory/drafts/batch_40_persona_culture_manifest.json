@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "batch": "40",
+  "status": "review_only_draft",
+  "provenance": {
+    "date": "2026-10-06",
+    "rights": "original",
+    "scope": "Five persona-centered scenes expanding social-language culture and everyday culture through real tasks after Batch 39 naturalness review.",
+    "requiresJinReview": true,
+    "jinReviewRequired": true,
+    "modelLanguageQa": "MODEL_QA_PASS",
+    "humanLanguageQaClaim": false,
+    "triadReview": "Korean is canonical. German and English preserve the same social relation, task, agency, and information scope.",
+    "registerDecision": "Jun/student and workplace support-role scenes use relationship-appropriate mixed/polite Korean; Dongsun/Christian and Dongsun/customer use polite service Korean; Hyuna/Byeongcheol use polite field-walk Korean."
+  },
+  "artifacts": [
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/persona_culture_scenarios_20261006_batch40.json",
+      "review": "tools/content_factory/review/persona_culture_scenarios_20261006_batch40.csv",
+      "count": 5,
+      "levels": {
+        "a2": 1,
+        "b1": 4
+      }
+    }
+  ],
+  "recordCount": 5,
+  "questCount": 15,
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_jun_coding_club_speech_switch",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_minho_coworker_hoesik_leave_early",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_dongsun_christian_maehwa_gift",
+      "courseUnitId": "a2_01_haeyo_transition",
+      "conceptIds": [
+        "concept_action_polite"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_dongsun_customer_maedeup_repair",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_byeongcheol_hyuna_daecheong_rest",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "role": "assess"
+    }
+  ],
+  "backdrops": {
+    "b1_jun_coding_club_speech_switch": "office",
+    "b1_minho_coworker_hoesik_leave_early": "restaurant",
+    "a2_dongsun_christian_maehwa_gift": "market",
+    "b1_dongsun_customer_maedeup_repair": "market",
+    "b1_byeongcheol_hyuna_daecheong_rest": "home"
+  },
+  "authoringBrief": "tools/content_factory/drafts/persona_culture_authoring_brief_20261006_batch40.json",
+  "listeningDraft": "tools/content_factory/drafts/persona_culture_listening_20261006_batch40.json",
+  "cultureLinksDraft": "tools/content_factory/drafts/persona_culture_links_20261006_batch40.json",
+  "cultureLinkCount": 5,
+  "cultureStoryArcsDraft": "tools/content_factory/drafts/persona_culture_story_arcs_20261006_batch40.json",
+  "vocabLevelingReview": "tools/content_factory/review/persona_culture_vocab_leveling_20261006_batch40.json",
+  "reviewPacket": "tools/content_factory/review/batch_40_persona_culture_review_packet.md",
+  "pipelineReport": "tools/content_factory/review/persona_culture_authoring_pipeline_20261006_batch40.json",
+  "mergeOrder": [
+    "scenario + curriculum contentLinks + listening + culture links + culture story arcs + audit via integrate_scenario_batch.py",
+    "TTS only after explicit content approval"
+  ],
+  "nonMergeGuards": [
+    "Review rows remain draft until Jin reviews learner-facing copy",
+    "No support role becomes a recurring persona",
+    "No culture-owned mastery/reward state",
+    "No TTS generation"
+  ]
+}

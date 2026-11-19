@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "status": "MERGED_AUDIT_PASS",
+  "manifest": "tools/content_factory/drafts/batch_38_persona_culture_manifest.json",
+  "batch": "38",
+  "scenarioCount": 5,
+  "scenarioIds": [
+    "b1_dongsun_norigae_shop_post",
+    "b1_byeongcheol_hwaseong_memory_check",
+    "a2_jun_hwaseong_school_slide",
+    "c1_maya_hyuna_daniel_talchum_shortform",
+    "b2_daniel_hyuna_hanji_filming_scope"
+  ],
+  "authoringBrief": {
+    "path": "tools/content_factory/drafts/persona_culture_authoring_brief_20261005.json",
+    "sceneCount": 5,
+    "relationChecks": [
+      {
+        "scenarioId": "b1_dongsun_norigae_shop_post",
+        "left": "maya",
+        "right": "dongsun",
+        "declaredBy": "maya"
+      },
+      {
+        "scenarioId": "b1_byeongcheol_hwaseong_memory_check",
+        "left": "hyuna",
+        "right": "byeongcheol",
+        "declaredBy": "hyuna"
+      },
+      {
+        "scenarioId": "a2_jun_hwaseong_school_slide",
+        "left": "jun",
+        "right": "christian",
+        "declaredBy": "jun"
+      },
+      {
+        "scenarioId": "c1_maya_hyuna_daniel_talchum_shortform",
+        "left": "maya",
+        "right": "hyuna",
+        "declaredBy": "maya"
+      },
+      {
+        "scenarioId": "c1_maya_hyuna_daniel_talchum_shortform",
+        "left": "maya",
+        "right": "daniel",
+        "declaredBy": "maya"
+      },
+      {
+        "scenarioId": "c1_maya_hyuna_daniel_talchum_shortform",
+        "left": "hyuna",
+        "right": "daniel",
+        "declaredBy": "hyuna"
+      },
+      {
+        "scenarioId": "b2_daniel_hyuna_hanji_filming_scope",
+        "left": "daniel",
+        "right": "hyuna",
+        "declaredBy": "daniel"
+      }
+    ]
+  },
+  "cultureStoryArcs": {
+    "path": "tools/content_factory/drafts/persona_culture_story_arcs_20261005.json",
+    "arcCount": 1,
+    "stepCount": 4,
+    "arcIds": [
+      "found_around_nammun"
+    ],
+    "liveWritePerformed": false
+  },
+  "listening": {
+    "path": "tools/content_factory/drafts/persona_culture_listening_20261005.json",
+    "lessons": 5,
+    "questions": 20,
+    "levels": {
+      "b1": 2,
+      "a2": 1,
+      "c1": 1,
+      "b2": 1
+    },
+    "skills": {
+      "situation": 5,
+      "meaning": 5,
+      "sentence": 5,
+      "response": 5
+    },
+    "advancedInferenceItems": 2,
+    "sha256": null,
+    "status": "STRUCTURAL_PASS; model-authored language QA, no human approval claimed"
+  },
+  "vocabLeveling": {
+    "path": "tools/content_factory/review/persona_culture_vocab_leveling_20261005.json",
+    "totals": {
+      "items": 30,
+      "cultureAnchor": 6,
+      "atOrBelowTarget": 24,
+      "aboveTarget": 0,
+      "unmappedCandidate": 0,
+      "phraseCandidate": 5
+    }
+  },
+  "cultureLinkCount": 5,
+  "reviewPacket": "tools/content_factory/review/batch_38_persona_culture_review_packet.md",
+  "integrationPreviewInventory": {
+    "vocab": 2968,
+    "grammar": 264,
+    "scenario": 196,
+    "scenarioQuest": 609,
+    "smalltalk": 590,
+    "cloze": 2365,
+    "satz": 2885,
+    "silben": 120,
+    "kkeunmari": 2662,
+    "grammarPattern": 43,
+    "pronunciation": 84,
+    "mediaPhrase": 136,
+    "wordRelation": 114
+  },
+  "liveWritePerformed": false,
+  "humanApprovalClaimed": true
+}

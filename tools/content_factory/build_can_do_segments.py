@@ -67,6 +67,7 @@ RELEVEL_DIR = ROOT / "tools" / "content_factory" / "relevel"
 #      diff against the pre-C7 catalog and confirmed absent from the live
 #      scenario corpus -- not an unbounded "if legacy, allow anything" rule.
 RETIRED_SEEDS_LEDGER_PATH = RELEVEL_DIR / "canonical_120_v1_retired_seeds.json"
+LCP_ROUTE_TRANSFERS_LEDGER_PATH = RELEVEL_DIR / "lcp_route_transfers_20261005.json"
 
 
 def _pack_id_renames() -> dict[str, str]:
@@ -87,6 +88,58 @@ def _retired_seed_pairs() -> set[tuple[str, str]]:
     return {
         (row["clusterId"], row["seedId"])
         for row in ledger["retiredClusterSeeds"]
+    }
+
+
+def _lcp_route_transfers() -> list[dict[str, Any]]:
+    if not LCP_ROUTE_TRANSFERS_LEDGER_PATH.exists():
+        return []
+    ledger = _read_json(LCP_ROUTE_TRANSFERS_LEDGER_PATH)
+    if ledger.get("schemaVersion") != 1 or not isinstance(ledger.get("transfers"), list):
+        raise ValueError("invalid LCP route-transfer ledger")
+    seen: set[tuple[str, str]] = set()
+    transfers: list[dict[str, Any]] = []
+    for row in ledger["transfers"]:
+        if not isinstance(row, dict):
+            raise ValueError("invalid LCP route-transfer row")
+        required = (
+            "kind", "id", "seedId", "fromClusterId", "toClusterId",
+            "fromLevel", "toLevel", "toCourseUnitId", "reason",
+        )
+        if any(not isinstance(row.get(key), str) or not row[key].strip() for key in required):
+            raise ValueError("LCP route-transfer row has missing text fields")
+        key = (row["kind"], row["id"])
+        if key in seen:
+            raise ValueError(f"duplicate LCP route transfer: {key!r}")
+        if row["fromLevel"] == row["toLevel"]:
+            raise ValueError(f"LCP route transfer {key!r} does not change level")
+        seen.add(key)
+        transfers.append(row)
+    return transfers
+
+
+def _lcp_transfer_by_reference() -> dict[str, dict[str, Any]]:
+    return {
+        f"{row['kind']}:{row['id']}": row
+        for row in _lcp_route_transfers()
+    }
+
+
+def _lcp_transfer_by_seed() -> dict[str, dict[str, Any]]:
+    return {row["seedId"]: row for row in _lcp_route_transfers()}
+
+
+def _lcp_moved_seed_pairs() -> set[tuple[str, str]]:
+    return {
+        (row["fromClusterId"], row["seedId"])
+        for row in _lcp_route_transfers()
+    }
+
+
+def _lcp_moved_reference_pairs() -> set[tuple[str, str]]:
+    return {
+        (row["fromClusterId"], f"{row['kind']}:{row['id']}")
+        for row in _lcp_route_transfers()
     }
 
 
@@ -1625,6 +1678,15 @@ C_ROWS: tuple[tuple[str, str, str, str, str, tuple[int, ...], tuple[str, ...], t
     ("c2_technology_traceability_appeal", "c2_02_technology_public_ethics", "c2_technology_ethics_1", "c2_technology", "c2", (37, 38, 39, 41, 43, 46), ("smalltalk_c2_0013", "smalltalk_c2_0014"), ("grammar_c2_even_assuming", "grammar_c2_nothing_more_than")),
     ("c2_technology_responsibility_rights", "c2_02_technology_public_ethics", "c2_technology_ethics_1", "c2_technology", "c2", (40, 42, 44, 45, 47, 48), ("smalltalk_c2_0015", "smalltalk_c2_0016"), ("grammar_c2_if_indeed", "grammar_c2_likely_negative")),
 )
+
+
+# LCP relevel overrides preserve the historical published route while giving
+# an explicitly reviewed surface its current semantic owner. Keep this list
+# narrow and ID-specific; level drift never implies a generic reroute.
+LCP_RELEVEL_ROUTES: dict[tuple[str, str], str] = {
+    ("cloze", "cloze_a2_0054"): "b1_team_role_coordination",
+    ("cloze", "cloze_a2_0069"): "b1_housing_contract",
+}
 
 
 UNIT_DEFAULT_ROUTE: dict[str, str] = {
@@ -4231,6 +4293,8 @@ def _preserve_cluster_history(
     pack_renames = _pack_id_renames()
     retired_pairs = _retired_seed_pairs()
     retired_scenario_keys = _retired_scenario_reference_keys()
+    lcp_moved_seed_pairs = _lcp_moved_seed_pairs()
+    lcp_moved_reference_pairs = _lcp_moved_reference_pairs()
     previous_clusters = {row["id"]: row for row in previous["contentClusters"]}
     current_clusters = {row["id"]: row for row in current["contentClusters"]}
     missing_clusters = sorted(set(previous_clusters) - set(current_clusters))
@@ -4252,6 +4316,7 @@ def _preserve_cluster_history(
             for seed_id in missing_seeds
             if _renamed_seed_equivalent(seed_id, pack_renames) not in new_seed_id_set
             and (cluster_id, seed_id) not in retired_pairs
+            and (cluster_id, seed_id) not in lcp_moved_seed_pairs
         ]
         if unresolved_seeds:
             raise ValueError(
@@ -4269,7 +4334,10 @@ def _preserve_cluster_history(
         carried_old_seed_ids = [
             seed_id
             for seed_id in old_seed_ids
-            if (cluster_id, seed_id) not in retired_pairs
+            if (
+                (cluster_id, seed_id) not in retired_pairs
+                and (cluster_id, seed_id) not in lcp_moved_seed_pairs
+            )
             or seed_id in new_seed_id_set
         ]
         cluster["sourceSeedIds"] = carried_old_seed_ids + [
@@ -4287,6 +4355,7 @@ def _preserve_cluster_history(
             key
             for key in set(old_keys) - set(current_by_key)
             if key not in retired_scenario_keys
+            and (cluster_id, key) not in lcp_moved_reference_pairs
         )
         if missing_references:
             raise ValueError(
@@ -4300,7 +4369,11 @@ def _preserve_cluster_history(
         carried_old_keys = [
             key
             for key in old_keys
-            if key not in retired_scenario_keys or key in current_by_key
+            if (
+                key not in retired_scenario_keys
+                and (cluster_id, key) not in lcp_moved_reference_pairs
+            )
+            or key in current_by_key
         ]
         cluster["contentReferences"] = [
             current_by_key.get(key, old_by_key[key]) for key in carried_old_keys
@@ -4329,6 +4402,8 @@ def _validate_authority_history(
     pack_renames = _pack_id_renames()
     retired_seed_ids = {seed_id for _cluster_id, seed_id in _retired_seed_pairs()}
     retired_scenario_keys = _retired_scenario_reference_keys()
+    lcp_by_seed = _lcp_transfer_by_seed()
+    lcp_by_reference = _lcp_transfer_by_reference()
 
     old_seeds = {row["id"]: row for row in previous["sourceSeeds"]}
     new_seeds = {row["id"]: row for row in current["sourceSeeds"]}
@@ -4336,7 +4411,14 @@ def _validate_authority_history(
         next_seed = new_seeds.get(seed_id)
         if next_seed is not None:
             if next_seed != old:
-                raise ValueError(f"published source seed {seed_id!r} is immutable")
+                transfer = lcp_by_seed.get(seed_id)
+                expected = (
+                    {**old, "level": transfer["toLevel"]}
+                    if transfer is not None
+                    else None
+                )
+                if expected is None or next_seed != expected:
+                    raise ValueError(f"published source seed {seed_id!r} is immutable")
             continue
         renamed = _renamed_seed_equivalent(seed_id, pack_renames)
         if renamed is not None and renamed in new_seeds:
@@ -4355,7 +4437,18 @@ def _validate_authority_history(
         next_reference = new_references.get(key)
         if next_reference is not None:
             if next_reference != old:
-                raise ValueError(f"published content authority {key!r} is immutable")
+                transfer = lcp_by_reference.get(key)
+                expected = (
+                    {
+                        **old,
+                        "level": transfer["toLevel"],
+                        "courseUnitId": transfer["toCourseUnitId"],
+                    }
+                    if transfer is not None
+                    else None
+                )
+                if expected is None or next_reference != expected:
+                    raise ValueError(f"published content authority {key!r} is immutable")
             continue
         if key in retired_scenario_keys:
             continue
@@ -4408,6 +4501,7 @@ def _validate_smalltalk_review_history(
                 SMALLTALK_TRANSLATION_LEDGER_REF,
                 smalltalk_editorial_revisions.LEDGER_REF,
                 smalltalk_editorial_revisions.SUCCESSOR_REF,
+                smalltalk_editorial_revisions.LCP_SUCCESSOR_REF,
             }:
                 raise ValueError(f"smalltalk {phrase_id!r} copy revision ledger is invalid")
             previous_fingerprint = decision.get("previousPhraseFingerprintSha256")
@@ -4433,6 +4527,7 @@ def _validate_smalltalk_review_history(
                     SMALLTALK_TRANSLATION_LEDGER_REF,
                     smalltalk_editorial_revisions.LEDGER_REF,
                     smalltalk_editorial_revisions.SUCCESSOR_REF,
+                    smalltalk_editorial_revisions.LCP_SUCCESSOR_REF,
                 }:
                     raise ValueError(
                         f"smalltalk {phrase_id!r} translation correction changed "
@@ -4921,6 +5016,11 @@ def _expand_ab_practice(
             add(_ref("cloze", content_id), target, expected_level=level)
             continue
         if ("cloze", content_id) in owners_by_reference:
+            direct_override_cloze_ids.append(content_id)
+            continue
+        lcp_target = LCP_RELEVEL_ROUTES.get(("cloze", content_id))
+        if lcp_target is not None:
+            add(_ref("cloze", content_id), lcp_target, expected_level=level)
             direct_override_cloze_ids.append(content_id)
             continue
         published_target = source.published_content_routes.get(("cloze", content_id))

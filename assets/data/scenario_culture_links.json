@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "_comment": "Read-only presentation links from canonical scenarios to CulturalGlossary term IDs. Phase 1 defines the contract only; links are added only after both the scenario context and cultural glossary entry are reviewed.",
+  "links": [
+    {
+      "scenarioId": "b1_dongsun_norigae_shop_post",
+      "termIds": [
+        "norigae",
+        "maedeup"
+      ]
+    },
+    {
+      "scenarioId": "b1_byeongcheol_hwaseong_memory_check",
+      "termIds": [
+        "suwon_hwaseong"
+      ]
+    },
+    {
+      "scenarioId": "a2_jun_hwaseong_school_slide",
+      "termIds": [
+        "suwon_hwaseong"
+      ]
+    },
+    {
+      "scenarioId": "c1_maya_hyuna_daniel_talchum_shortform",
+      "termIds": [
+        "talchum"
+      ]
+    },
+    {
+      "scenarioId": "b2_daniel_hyuna_hanji_filming_scope",
+      "termIds": [
+        "hanji"
+      ]
+    },
+    {
+      "scenarioId": "a2_andrea_minho_bojagi_housewarming",
+      "termIds": [
+        "bojagi"
+      ]
+    },
+    {
+      "scenarioId": "b1_minho_christian_hanok_cafe_meeting",
+      "termIds": [
+        "hanok",
+        "madang"
+      ]
+    },
+    {
+      "scenarioId": "a2_lena_maya_buchae_gift_choice",
+      "termIds": [
+        "buchae"
+      ]
+    },
+    {
+      "scenarioId": "b2_maya_daniel_pansori_promo_clip",
+      "termIds": [
+        "pansori"
+      ]
+    },
+    {
+      "scenarioId": "b2_hyuna_daniel_nongak_festival_filming",
+      "termIds": [
+        "nongak"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_b1_0349",
+      "mode": "existing_successor",
+      "sourceRef": "45e4eb2371d88de60f23c37eacf39cebae173b02"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_b1_0350",
+      "mode": "genesis",
+      "sourceRef": "376b887992e17073e55d262e5ad38f98d151416b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_b1_0353",
+      "mode": "existing_successor",
+      "sourceRef": "45e4eb2371d88de60f23c37eacf39cebae173b02"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_b1_0161",
+      "mode": "existing_successor",
+      "sourceRef": "45e4eb2371d88de60f23c37eacf39cebae173b02"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_b1_0162",
+      "mode": "genesis",
+      "sourceRef": "3fe6916ea6d7f4fcf24747299b65bea39ba77408"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_b1_0165",
+      "mode": "existing_successor",
+      "sourceRef": "45e4eb2371d88de60f23c37eacf39cebae173b02"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_b1_0157",
+      "mode": "existing_successor",
+      "sourceRef": "45e4eb2371d88de60f23c37eacf39cebae173b02"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_b1_0158",
+      "mode": "existing_successor",
+      "sourceRef": "45e4eb2371d88de60f23c37eacf39cebae173b02"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_b1_0161",
+      "mode": "existing_successor",
+      "sourceRef": "45e4eb2371d88de60f23c37eacf39cebae173b02"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_b1_0394",
+      "mode": "genesis",
+      "sourceRef": "376b887992e17073e55d262e5ad38f98d151416b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_b1_0403",
+      "mode": "genesis",
+      "sourceRef": "376b887992e17073e55d262e5ad38f98d151416b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_b1_0463",
+      "mode": "genesis",
+      "sourceRef": "5ab701bc625cac9e2a3b4a483669db085a4210f8"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_b1_0206",
+      "mode": "genesis",
+      "sourceRef": "55c1a29eec494c37b3d8335fa4e5d5629760fdd2"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_b1_0215",
+      "mode": "genesis",
+      "sourceRef": "2566cc3859d25a368b7268ed46838d4069d85a4c"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_b1_0275",
+      "mode": "genesis",
+      "sourceRef": "5ab701bc625cac9e2a3b4a483669db085a4210f8"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_b1_0202",
+      "mode": "genesis",
+      "sourceRef": "b0305d10954c1a83c43b67603d8c5ea14a855b86"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_b1_0211",
+      "mode": "genesis",
+      "sourceRef": "b0305d10954c1a83c43b67603d8c5ea14a855b86"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_b1_0271",
+      "mode": "genesis",
+      "sourceRef": "5ab701bc625cac9e2a3b4a483669db085a4210f8"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_b2_0242",
+      "mode": "genesis",
+      "sourceRef": "376b887992e17073e55d262e5ad38f98d151416b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_b2_0255",
+      "mode": "genesis",
+      "sourceRef": "376b887992e17073e55d262e5ad38f98d151416b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_b2_0095",
+      "mode": "genesis",
+      "sourceRef": "b0305d10954c1a83c43b67603d8c5ea14a855b86"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "kind": "satz",
+      "id": "satz_b2_0079",
+      "mode": "genesis",
+      "sourceRef": "b0305d10954c1a83c43b67603d8c5ea14a855b86"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "kind": "satz",
+      "id": "satz_b2_0092",
+      "mode": "genesis",
+      "sourceRef": "b0305d10954c1a83c43b67603d8c5ea14a855b86"
+    }
+  ]
+}
