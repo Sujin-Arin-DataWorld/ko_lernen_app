@@ -94,7 +94,7 @@ void main() {
     final stock = ScenarioQuestStock.fromCorpus(corpus);
     final exposed = corpus.where(stock.allowsScenario).toList();
     expect(corpus.length, 219);
-    expect(exposed.length, 181);
+    expect(exposed.length, 214);
     expect(
       exposed.map((scenario) => scenario.id),
       containsAll([

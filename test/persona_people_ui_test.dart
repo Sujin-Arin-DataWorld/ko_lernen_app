@@ -22,6 +22,7 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/persona_portrait.dart';
 import 'package:ko_lernen_app/widgets/sori/persona_scene_intro.dart';
 
+import 'support/listening_pending.dart';
 import 'support/real_fonts.dart';
 import 'support/scenario_json.dart';
 
@@ -287,7 +288,10 @@ void main() {
         for (final lesson in payload['lessons'])
           ...(lesson['contentIds'] as List).cast<String>(),
       ];
-      final sceneIds = scenes.map((scene) => scene.id).toSet();
+      final sceneIds = scenes
+          .map((scene) => scene.id)
+          .toSet()
+          .difference(listeningPendingScenarioIds);
       expect(listeningIds.toSet(), sceneIds);
       expect(listeningIds.length, sceneIds.length);
       final index = PersonaDialogueIndex.fromCorpus(

@@ -8819,7 +8819,7 @@
             "speaker": "dongsun",
             "ko": "있기는 있는데 오늘 오는 건 아니에요.",
             "de": "Ja, schon, aber es sollte heute nicht kommen.",
-            "en": "I am expecting a package, but it isn't supposed to arrive today."
+            "en": "I'm expecting a package, but it isn't supposed to arrive today."
           },
           {
             "speaker": "user",
@@ -8860,7 +8860,7 @@
                 },
                 {
                   "de": "Ja, schon, aber es sollte heute nicht kommen.",
-                  "en": "I am expecting a package, but it isn't supposed to arrive today."
+                  "en": "I'm expecting a package, but it isn't supposed to arrive today."
                 },
                 {
                   "de": "Dann schauen wir lieber direkt in der Paket-App nach, statt den Link zu benutzen.",
@@ -8922,12 +8922,1140 @@
         "quests"
       ],
       "beforeSha256": "c113a8cfa1ca5f59ae37f2399d39744c7c935ad8951c2d8d506a19e4aa5632fa",
-      "afterSha256": "9251895db9c4d4762ace0503c8e00fa50247394e9fff2795ff9ce3e273af58ce",
+      "afterSha256": "00c3cf048d3c1eda315d92e9a4e012270e548fb59aa23abe885e2202f23e677f",
       "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
       "sourceGitPath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
       "predecessorSuccessorSha256": null,
       "normalization": "Existing exact promotion and relevel comparison projection",
-      "reason": "DE/EN translation polish applied after the batch 39 review packet, merged with PR #450; before is the reviewed draft row; model review only, original human gates retained"
+      "reason": "DE/EN translation polish applied after the batch 39 review packet (PR #450) and DE/EN punctuation/contraction fixes for the learner-copy guards; before is the reviewed draft row; model review only, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_39_living_korea_manifest.json",
+      "kind": "scenario",
+      "id": "b1_andrea_minho_friday_schedule",
+      "before": {
+        "id": "b1_andrea_minho_friday_schedule",
+        "level": "b1",
+        "emoji": "🗓️",
+        "register": "intimate",
+        "speechStyle": "intimate",
+        "title": {
+          "ko": "금요일 오후 일정 맞추기",
+          "de": "Den Freitagnachmittag abstimmen",
+          "en": "Coordinating Friday afternoon"
+        },
+        "intro": {
+          "ko": "안드레아와 민호가 금요일 근무시간 변화 가능성을 가족 일정과 함께 조율해요.",
+          "de": "Andrea und Minho stimmen eine mögliche Änderung der Freitagsarbeitszeit mit ihrem Familienplan ab.",
+          "en": "Andrea and Minho coordinate a possible change in Friday work hours with their family schedule."
+        },
+        "courseUnitId": "b1_04_relationships",
+        "playerCharacterId": "andrea",
+        "participantIds": [
+          "andrea",
+          "minho"
+        ],
+        "relationshipContext": "부부가 집에서 자연스러운 반말로 회사 얘기와 금요일 가족 일정을 조율한다.",
+        "intent": "안드레아가 회사에서 근무시간 단축 방식이 논의되는 상황을 말하고 금요일 가족 일정을 민호와 조율한다.",
+        "vocab": [
+          {
+            "korean": "금요일 오후"
+          },
+          {
+            "korean": "회의"
+          },
+          {
+            "korean": "안드레아가"
+          },
+          {
+            "korean": "회사에서"
+          },
+          {
+            "korean": "근무시간"
+          },
+          {
+            "korean": "단축"
+          }
+        ],
+        "conceptIds": [
+          "concept_b1_relationships"
+        ],
+        "surfaceFormIds": [],
+        "grammarIds": [
+          "grammar_a2_conditional"
+        ],
+        "grammarBlock": {
+          "title": {
+            "ko": "V-(으)면",
+            "de": "Grammatik im Kontext: V-(으)면",
+            "en": "Grammar in context: V-(으)면"
+          },
+          "explanation": {
+            "ko": "이 장면에서 V-(으)면 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+            "de": "Wenn/Falls-Bedingung",
+            "en": "If / in case (a condition)"
+          }
+        },
+        "dialog": [
+          {
+            "speaker": "user",
+            "ko": "요즘 회사에서 금요일 오후를 어떻게 할지 얘기가 계속 나와.",
+            "de": "Bei uns in der Firma reden sie in letzter Zeit ständig darüber, was mit dem Freitagnachmittag passieren soll.",
+            "en": "Lately at work they keep talking about what to do with Friday afternoons."
+          },
+          {
+            "speaker": "minho",
+            "ko": "오, 드디어 금요일에 당신 얼굴 좀 일찍 보는 거야?",
+            "de": "Oh, sehe ich dich freitags dann endlich mal früher?",
+            "en": "Oh, does that mean I finally get to see you a little earlier on Fridays?"
+          },
+          {
+            "speaker": "user",
+            "ko": "회의부터 줄이면 가능하지. 시간만 줄이고 일 그대로면 목요일 밤에 얼굴도 못 봐.",
+            "de": "Vielleicht, wenn wir zuerst die Meetings kürzen. Wenn nur die Arbeitszeit kürzer wird, die Arbeit aber gleich bleibt, siehst du mich Donnerstagabend gar nicht mehr.",
+            "en": "Maybe, if we cut the meetings first. If they just cut the hours but keep the same workload, you won't even see me Thursday night."
+          },
+          {
+            "speaker": "minho",
+            "ko": "그건 싫은데. 그럼 회의 몇 개부터 없애야겠네.",
+            "de": "Das will ich nicht. Dann müssen wohl zuerst ein paar Meetings weg.",
+            "en": "I don't like that. Then a few meetings need to go first."
+          },
+          {
+            "speaker": "user",
+            "ko": "그래서 실제로 몇 개 없애자는 얘기가 나왔어. 금요일 오후 비면 준이랑 일찍 먹자.",
+            "de": "Genau darüber reden sie tatsächlich schon. Wenn der Freitagnachmittag frei wird, lass uns mit Jun früher essen.",
+            "en": "That's actually what they're talking about—dropping a few of them. If Friday afternoon opens up, let's eat early with Jun."
+          },
+          {
+            "speaker": "minho",
+            "ko": "좋아. 준이 우리보다 먼저 약속 잡기 전에 빨리 물어보자.",
+            "de": "Gut. Fragen wir ihn schnell, bevor er schon ohne uns was ausmacht.",
+            "en": "Sounds good. Let's ask him before he makes plans without us."
+          }
+        ],
+        "quests": [
+          {
+            "id": "quest_b1_andrea_minho_friday_schedule_01",
+            "type": "hoerverstehen",
+            "conceptIds": [
+              "concept_b1_relationships"
+            ],
+            "data": {
+              "audioKo": "오, 드디어 금요일에 당신 얼굴 좀 일찍 보는 거야?",
+              "options": [
+                {
+                  "de": "Oh, sehe ich dich freitags dann endlich mal früher?",
+                  "en": "Oh, does that mean I finally get to see you a little earlier on Fridays?"
+                },
+                {
+                  "de": "Bei uns in der Firma reden sie in letzter Zeit ständig darüber, was mit dem Freitagnachmittag passieren soll.",
+                  "en": "Lately at work they keep talking about what to do with Friday afternoons."
+                },
+                {
+                  "de": "Vielleicht, wenn wir zuerst die Meetings kürzen. Wenn nur die Arbeitszeit kürzer wird, die Arbeit aber gleich bleibt, siehst du mich Donnerstagabend gar nicht mehr.",
+                  "en": "Maybe, if we cut the meetings first. If they just cut the hours but keep the same workload, you won't even see me Thursday night."
+                },
+                {
+                  "de": "Das will ich nicht. Dann müssen wohl zuerst ein paar Meetings weg.",
+                  "en": "I don't like that. Then a few meetings need to go first."
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_b1_andrea_minho_friday_schedule_02",
+            "type": "uebersetzen",
+            "conceptIds": [
+              "concept_b1_relationships"
+            ],
+            "data": {
+              "promptDe": "Genau darüber reden sie tatsächlich schon. Wenn der Freitagnachmittag frei wird, lass uns mit Jun früher essen.",
+              "promptEn": "That's actually what they're talking about—dropping a few of them. If Friday afternoon opens up, let's eat early with Jun.",
+              "options": [
+                {
+                  "ko": "그래서 실제로 몇 개 없애자는 얘기가 나왔어. 금요일 오후 비면 준이랑 일찍 먹자."
+                },
+                {
+                  "ko": "요즘 회사에서 금요일 오후를 어떻게 할지 얘기가 계속 나와."
+                },
+                {
+                  "ko": "회의부터 줄이면 가능하지. 시간만 줄이고 일 그대로면 목요일 밤에 얼굴도 못 봐."
+                },
+                {
+                  "ko": "좋아. 준이 우리보다 먼저 약속 잡기 전에 빨리 물어보자."
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_b1_andrea_minho_friday_schedule_03",
+            "type": "satzBauen",
+            "conceptIds": [
+              "concept_b1_relationships"
+            ],
+            "data": {
+              "targetKo": "좋아. 준이 우리보다 먼저 약속 잡기 전에 빨리 물어보자.",
+              "audioKo": "좋아. 준이 우리보다 먼저 약속 잡기 전에 빨리 물어보자.",
+              "promptDe": "Gut. Fragen wir ihn schnell, bevor er schon ohne uns was ausmacht.",
+              "promptEn": "Sounds good. Let's ask him before he makes plans without us.",
+              "distractors": [
+                "아마 다음에",
+                "그냥 아무거나",
+                "확인 없이"
+              ]
+            }
+          }
+        ],
+        "xpReward": 120
+      },
+      "after": {
+        "id": "b1_andrea_minho_friday_schedule",
+        "level": "b1",
+        "emoji": "🗓️",
+        "register": "intimate",
+        "speechStyle": "intimate",
+        "title": {
+          "ko": "금요일 오후 일정 맞추기",
+          "de": "Den Freitagnachmittag abstimmen",
+          "en": "Coordinating Friday afternoon"
+        },
+        "intro": {
+          "ko": "안드레아와 민호가 금요일 근무시간 변화 가능성을 가족 일정과 함께 조율해요.",
+          "de": "Andrea und Minho stimmen eine mögliche Änderung der Freitagsarbeitszeit mit ihrem Familienplan ab.",
+          "en": "Andrea and Minho coordinate a possible change in Friday work hours with their family schedule."
+        },
+        "courseUnitId": "b1_04_relationships",
+        "playerCharacterId": "andrea",
+        "participantIds": [
+          "andrea",
+          "minho"
+        ],
+        "relationshipContext": "부부가 집에서 자연스러운 반말로 회사 얘기와 금요일 가족 일정을 조율한다.",
+        "intent": "안드레아가 회사에서 근무시간 단축 방식이 논의되는 상황을 말하고 금요일 가족 일정을 민호와 조율한다.",
+        "vocab": [
+          {
+            "korean": "금요일 오후"
+          },
+          {
+            "korean": "회의"
+          },
+          {
+            "korean": "안드레아가"
+          },
+          {
+            "korean": "회사에서"
+          },
+          {
+            "korean": "근무시간"
+          },
+          {
+            "korean": "단축"
+          }
+        ],
+        "conceptIds": [
+          "concept_b1_relationships"
+        ],
+        "surfaceFormIds": [],
+        "grammarIds": [
+          "grammar_a2_conditional"
+        ],
+        "grammarBlock": {
+          "title": {
+            "ko": "V-(으)면",
+            "de": "Grammatik im Kontext: V-(으)면",
+            "en": "Grammar in context: V-(으)면"
+          },
+          "explanation": {
+            "ko": "이 장면에서 V-(으)면 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+            "de": "Wenn/Falls-Bedingung",
+            "en": "If / in case (a condition)"
+          }
+        },
+        "dialog": [
+          {
+            "speaker": "user",
+            "ko": "요즘 회사에서 금요일 오후를 어떻게 할지 얘기가 계속 나와.",
+            "de": "Bei uns in der Firma reden sie in letzter Zeit ständig darüber, was mit dem Freitagnachmittag passieren soll.",
+            "en": "Lately at work they keep talking about what to do with Friday afternoons."
+          },
+          {
+            "speaker": "minho",
+            "ko": "오, 드디어 금요일에 당신 얼굴 좀 일찍 보는 거야?",
+            "de": "Oh, sehe ich dich freitags dann endlich mal früher?",
+            "en": "Oh, does that mean I finally get to see you a little earlier on Fridays?"
+          },
+          {
+            "speaker": "user",
+            "ko": "회의부터 줄이면 가능하지. 시간만 줄이고 일 그대로면 목요일 밤에 얼굴도 못 봐.",
+            "de": "Vielleicht, wenn wir zuerst die Meetings kürzen. Wenn nur die Arbeitszeit kürzer wird, die Arbeit aber gleich bleibt, siehst du mich Donnerstagabend gar nicht mehr.",
+            "en": "Maybe, if we cut the meetings first. If they just cut the hours but keep the same workload, you won't even see me Thursday night."
+          },
+          {
+            "speaker": "minho",
+            "ko": "그건 싫은데. 그럼 회의 몇 개부터 없애야겠네.",
+            "de": "Das will ich nicht. Dann müssen wohl zuerst ein paar Meetings weg.",
+            "en": "I don't like that. Then a few meetings need to go first."
+          },
+          {
+            "speaker": "user",
+            "ko": "그래서 실제로 몇 개 없애자는 얘기가 나왔어. 금요일 오후 비면 준이랑 일찍 먹자.",
+            "de": "Genau darüber reden sie tatsächlich schon. Wenn der Freitagnachmittag frei wird, lass uns mit Jun früher essen.",
+            "en": "That's actually what they're talking about: dropping a few of them. If Friday afternoon opens up, let's eat early with Jun."
+          },
+          {
+            "speaker": "minho",
+            "ko": "좋아. 준이 우리보다 먼저 약속 잡기 전에 빨리 물어보자.",
+            "de": "Gut. Fragen wir ihn schnell, bevor er schon ohne uns was ausmacht.",
+            "en": "Sounds good. Let's ask him before he makes plans without us."
+          }
+        ],
+        "quests": [
+          {
+            "id": "quest_b1_andrea_minho_friday_schedule_01",
+            "type": "hoerverstehen",
+            "conceptIds": [
+              "concept_b1_relationships"
+            ],
+            "data": {
+              "audioKo": "오, 드디어 금요일에 당신 얼굴 좀 일찍 보는 거야?",
+              "options": [
+                {
+                  "de": "Oh, sehe ich dich freitags dann endlich mal früher?",
+                  "en": "Oh, does that mean I finally get to see you a little earlier on Fridays?"
+                },
+                {
+                  "de": "Bei uns in der Firma reden sie in letzter Zeit ständig darüber, was mit dem Freitagnachmittag passieren soll.",
+                  "en": "Lately at work they keep talking about what to do with Friday afternoons."
+                },
+                {
+                  "de": "Vielleicht, wenn wir zuerst die Meetings kürzen. Wenn nur die Arbeitszeit kürzer wird, die Arbeit aber gleich bleibt, siehst du mich Donnerstagabend gar nicht mehr.",
+                  "en": "Maybe, if we cut the meetings first. If they just cut the hours but keep the same workload, you won't even see me Thursday night."
+                },
+                {
+                  "de": "Das will ich nicht. Dann müssen wohl zuerst ein paar Meetings weg.",
+                  "en": "I don't like that. Then a few meetings need to go first."
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_b1_andrea_minho_friday_schedule_02",
+            "type": "uebersetzen",
+            "conceptIds": [
+              "concept_b1_relationships"
+            ],
+            "data": {
+              "promptDe": "Genau darüber reden sie tatsächlich schon. Wenn der Freitagnachmittag frei wird, lass uns mit Jun früher essen.",
+              "promptEn": "That's actually what they're talking about: dropping a few of them. If Friday afternoon opens up, let's eat early with Jun.",
+              "options": [
+                {
+                  "ko": "그래서 실제로 몇 개 없애자는 얘기가 나왔어. 금요일 오후 비면 준이랑 일찍 먹자."
+                },
+                {
+                  "ko": "요즘 회사에서 금요일 오후를 어떻게 할지 얘기가 계속 나와."
+                },
+                {
+                  "ko": "회의부터 줄이면 가능하지. 시간만 줄이고 일 그대로면 목요일 밤에 얼굴도 못 봐."
+                },
+                {
+                  "ko": "좋아. 준이 우리보다 먼저 약속 잡기 전에 빨리 물어보자."
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_b1_andrea_minho_friday_schedule_03",
+            "type": "satzBauen",
+            "conceptIds": [
+              "concept_b1_relationships"
+            ],
+            "data": {
+              "targetKo": "좋아. 준이 우리보다 먼저 약속 잡기 전에 빨리 물어보자.",
+              "audioKo": "좋아. 준이 우리보다 먼저 약속 잡기 전에 빨리 물어보자.",
+              "promptDe": "Gut. Fragen wir ihn schnell, bevor er schon ohne uns was ausmacht.",
+              "promptEn": "Sounds good. Let's ask him before he makes plans without us.",
+              "distractors": [
+                "아마 다음에",
+                "그냥 아무거나",
+                "확인 없이"
+              ]
+            }
+          }
+        ],
+        "xpReward": 120
+      },
+      "fields": [
+        "dialog",
+        "quests"
+      ],
+      "beforeSha256": "4b984abab0fa591ab1a5ed5daeeaae06fafe331a6695719bc06736db2393ab1a",
+      "afterSha256": "324efd2e9fe41d0ffed0a1965435230658a93625222893952197d9f4796dff38",
+      "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
+      "sourceGitPath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "DE/EN translation polish applied after the batch 39 review packet (PR #450) and DE/EN punctuation/contraction fixes for the learner-copy guards; before is the reviewed draft row; model review only, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_39_living_korea_manifest.json",
+      "kind": "scenario",
+      "id": "b1_christian_sujin_suspicious_text_followup",
+      "before": {
+        "id": "b1_christian_sujin_suspicious_text_followup",
+        "level": "b1",
+        "emoji": "🔐",
+        "register": "intimate",
+        "speechStyle": "intimate",
+        "title": {
+          "ko": "피싱 문자 확인 결과 나누기",
+          "de": "Das Ergebnis einer Phishing-Prüfung besprechen",
+          "en": "Sharing the result of a phishing check"
+        },
+        "intro": {
+          "ko": "크리스티안이 수진에게 피싱으로 보인 택배 문자와 공식 앱에서 확인한 결과를 알려 줘요.",
+          "de": "Christian erzählt Sujin von der verdächtigen Paket-SMS und dem Ergebnis der Prüfung in der offiziellen App.",
+          "en": "Christian tells Sujin about the suspicious delivery text and what he confirmed in the official app."
+        },
+        "courseUnitId": "b1_06_life_capstone",
+        "playerCharacterId": "christian",
+        "participantIds": [
+          "christian",
+          "sujin"
+        ],
+        "relationshipContext": "1년째 사귀는 연인 사이. 둘 다 자연스러운 반말을 쓰고, 크리스티안은 자신이 본 문자와 공식 앱에서 확인한 결과를 수진에게 공유한다.",
+        "intent": "동선의 수상한 문자 상황을 수진에게 공유하고, 공식 앱에서 확인한 실제 배송 정보와 함께 피싱 위험에 대해 이야기한다.",
+        "vocab": [
+          {
+            "korean": "보이스피싱"
+          },
+          {
+            "korean": "링크"
+          },
+          {
+            "korean": "개인정보"
+          },
+          {
+            "korean": "피싱"
+          },
+          {
+            "korean": "앱"
+          },
+          {
+            "korean": "고객센터"
+          },
+          {
+            "korean": "이메일"
+          },
+          {
+            "korean": "동선의"
+          }
+        ],
+        "conceptIds": [
+          "concept_b1_life"
+        ],
+        "surfaceFormIds": [],
+        "grammarIds": [
+          "grammar_a2_interrupted_action"
+        ],
+        "grammarBlock": {
+          "title": {
+            "ko": "V-다가",
+            "de": "Grammatik im Kontext: V-다가",
+            "en": "Grammar in context: V-다가"
+          },
+          "explanation": {
+            "ko": "이 장면에서 V-다가 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+            "de": "Eine Handlung wird unterbrochen und durch eine andere ersetzt. Beide Teilsätze haben dasselbe Subjekt.",
+            "en": "An action is interrupted and replaced by another. Both clauses have the same subject."
+          }
+        },
+        "dialog": [
+          {
+            "speaker": "user",
+            "ko": "수진아, 어머님이랑 대화 나누다가 문자를 봤는데, 보이스피싱 같아서 링크를 누르지 말라고 했어.",
+            "de": "Sujin, ich hab mich mit deiner Mutter unterhalten und dabei die Nachricht gesehen. Sie sah nach einer Phishing-SMS aus, also hab ich ihr gesagt, sie soll den Link nicht anklicken.",
+            "en": "Sujin, I was talking with your mom and saw the text she got. It looked like a phishing scam, so I told her not to tap the link."
+          },
+          {
+            "speaker": "sujin",
+            "ko": "아, 정말? 와, 고마워. 요새 택배 문자로 링크 보내서 개인정보 빼가는 피싱도 있다던데.",
+            "de": "Echt? Wow, danke. Ich hab gehört, dass solche Phishing-SMS sich als Paketnachrichten ausgeben und über Links persönliche Daten abgreifen.",
+            "en": "Oh, really? Wow, thank you. I've heard there are phishing texts pretending to be delivery messages and trying to steal personal information through links."
+          },
+          {
+            "speaker": "user",
+            "ko": "아, 그러니까… 이런 문자로 개인정보가 유출될 수도 있으니까 정말 조심해야겠어.",
+            "de": "Ja, genau ... Wenn über solche Nachrichten persönliche Daten abgegriffen werden können, müssen wir echt vorsichtig sein.",
+            "en": "Yeah, exactly... If texts like that can lead to personal information being stolen, we really need to be careful."
+          },
+          {
+            "speaker": "sujin",
+            "ko": "아무튼 고마워. 그래서 앱에서 확인해 보니까 그 문자가 가짜였어?",
+            "de": "Auf jeden Fall danke. Und als du in der App nachgesehen hast – war die Nachricht dann tatsächlich fake?",
+            "en": "Anyway, thanks. So when you checked in the app, did it turn out the text was fake?"
+          },
+          {
+            "speaker": "user",
+            "ko": "응. 내가 앱 들어가서 확인했는데 아무 문제 없고, 목요일에 도착한다고 하더라고.",
+            "de": "Ja. In der App war alles in Ordnung, und da stand, dass das Paket am Donnerstag kommt.",
+            "en": "Yeah. I checked the app and everything was fine. It says the package will arrive Thursday."
+          },
+          {
+            "speaker": "sujin",
+            "ko": "와, 대박… 진짜 큰일 날 뻔했네. 고마워, 크리스티안! 사랑해 ㅎㅎ 내가 택배회사 고객센터에 이메일이라도 써서 알려줘야겠다.",
+            "de": "Wow, krass ... Das hätte echt schiefgehen können. Danke, Christian! Lieb dich, haha. Ich sollte dem Kundenservice vom Paketdienst eine Mail schreiben und Bescheid sagen.",
+            "en": "Wow... that could've gone really badly. Thanks, Christian! Love you haha. I should email the delivery company's customer service and let them know."
+          }
+        ],
+        "quests": [
+          {
+            "id": "quest_b1_christian_sujin_suspicious_text_followup_01",
+            "type": "hoerverstehen",
+            "conceptIds": [
+              "concept_b1_life"
+            ],
+            "data": {
+              "audioKo": "아, 정말? 와, 고마워. 요새 택배 문자로 링크 보내서 개인정보 빼가는 피싱도 있다던데.",
+              "options": [
+                {
+                  "de": "Echt? Wow, danke. Ich hab gehört, dass solche Phishing-SMS sich als Paketnachrichten ausgeben und über Links persönliche Daten abgreifen.",
+                  "en": "Oh, really? Wow, thank you. I've heard there are phishing texts pretending to be delivery messages and trying to steal personal information through links."
+                },
+                {
+                  "de": "Sujin, ich hab mich mit deiner Mutter unterhalten und dabei die Nachricht gesehen. Sie sah nach einer Phishing-SMS aus, also hab ich ihr gesagt, sie soll den Link nicht anklicken.",
+                  "en": "Sujin, I was talking with your mom and saw the text she got. It looked like a phishing scam, so I told her not to tap the link."
+                },
+                {
+                  "de": "Ja, genau ... Wenn über solche Nachrichten persönliche Daten abgegriffen werden können, müssen wir echt vorsichtig sein.",
+                  "en": "Yeah, exactly... If texts like that can lead to personal information being stolen, we really need to be careful."
+                },
+                {
+                  "de": "Auf jeden Fall danke. Und als du in der App nachgesehen hast – war die Nachricht dann tatsächlich fake?",
+                  "en": "Anyway, thanks. So when you checked in the app, did it turn out the text was fake?"
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_b1_christian_sujin_suspicious_text_followup_02",
+            "type": "uebersetzen",
+            "conceptIds": [
+              "concept_b1_life"
+            ],
+            "data": {
+              "promptDe": "Ja. In der App war alles in Ordnung, und da stand, dass das Paket am Donnerstag kommt.",
+              "promptEn": "Yeah. I checked the app and everything was fine. It says the package will arrive Thursday.",
+              "options": [
+                {
+                  "ko": "응. 내가 앱 들어가서 확인했는데 아무 문제 없고, 목요일에 도착한다고 하더라고."
+                },
+                {
+                  "ko": "수진아, 어머님이랑 대화 나누다가 문자를 봤는데, 보이스피싱 같아서 링크를 누르지 말라고 했어."
+                },
+                {
+                  "ko": "아, 그러니까… 이런 문자로 개인정보가 유출될 수도 있으니까 정말 조심해야겠어."
+                },
+                {
+                  "ko": "와, 대박… 진짜 큰일 날 뻔했네. 고마워, 크리스티안! 사랑해 ㅎㅎ 내가 택배회사 고객센터에 이메일이라도 써서 알려줘야겠다."
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_b1_christian_sujin_suspicious_text_followup_03",
+            "type": "satzBauen",
+            "conceptIds": [
+              "concept_b1_life"
+            ],
+            "data": {
+              "targetKo": "와, 대박… 진짜 큰일 날 뻔했네. 고마워, 크리스티안! 사랑해 ㅎㅎ 내가 택배회사 고객센터에 이메일이라도 써서 알려줘야겠다.",
+              "audioKo": "와, 대박… 진짜 큰일 날 뻔했네. 고마워, 크리스티안! 사랑해 ㅎㅎ 내가 택배회사 고객센터에 이메일이라도 써서 알려줘야겠다.",
+              "promptDe": "Wow, krass ... Das hätte echt schiefgehen können. Danke, Christian! Lieb dich, haha. Ich sollte dem Kundenservice vom Paketdienst eine Mail schreiben und Bescheid sagen.",
+              "promptEn": "Wow... that could've gone really badly. Thanks, Christian! Love you haha. I should email the delivery company's customer service and let them know.",
+              "distractors": [
+                "아마 다음에",
+                "그냥 아무거나",
+                "확인 없이"
+              ]
+            }
+          }
+        ],
+        "xpReward": 120
+      },
+      "after": {
+        "id": "b1_christian_sujin_suspicious_text_followup",
+        "level": "b1",
+        "emoji": "🔐",
+        "register": "intimate",
+        "speechStyle": "intimate",
+        "title": {
+          "ko": "피싱 문자 확인 결과 나누기",
+          "de": "Das Ergebnis einer Phishing-Prüfung besprechen",
+          "en": "Sharing the result of a phishing check"
+        },
+        "intro": {
+          "ko": "크리스티안이 수진에게 피싱으로 보인 택배 문자와 공식 앱에서 확인한 결과를 알려 줘요.",
+          "de": "Christian erzählt Sujin von der verdächtigen Paket-SMS und dem Ergebnis der Prüfung in der offiziellen App.",
+          "en": "Christian tells Sujin about the suspicious delivery text and what he confirmed in the official app."
+        },
+        "courseUnitId": "b1_06_life_capstone",
+        "playerCharacterId": "christian",
+        "participantIds": [
+          "christian",
+          "sujin"
+        ],
+        "relationshipContext": "1년째 사귀는 연인 사이. 둘 다 자연스러운 반말을 쓰고, 크리스티안은 자신이 본 문자와 공식 앱에서 확인한 결과를 수진에게 공유한다.",
+        "intent": "동선의 수상한 문자 상황을 수진에게 공유하고, 공식 앱에서 확인한 실제 배송 정보와 함께 피싱 위험에 대해 이야기한다.",
+        "vocab": [
+          {
+            "korean": "보이스피싱"
+          },
+          {
+            "korean": "링크"
+          },
+          {
+            "korean": "개인정보"
+          },
+          {
+            "korean": "피싱"
+          },
+          {
+            "korean": "앱"
+          },
+          {
+            "korean": "고객센터"
+          },
+          {
+            "korean": "이메일"
+          },
+          {
+            "korean": "동선의"
+          }
+        ],
+        "conceptIds": [
+          "concept_b1_life"
+        ],
+        "surfaceFormIds": [],
+        "grammarIds": [
+          "grammar_a2_interrupted_action"
+        ],
+        "grammarBlock": {
+          "title": {
+            "ko": "V-다가",
+            "de": "Grammatik im Kontext: V-다가",
+            "en": "Grammar in context: V-다가"
+          },
+          "explanation": {
+            "ko": "이 장면에서 V-다가 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+            "de": "Eine Handlung wird unterbrochen und durch eine andere ersetzt. Beide Teilsätze haben dasselbe Subjekt.",
+            "en": "An action is interrupted and replaced by another. Both clauses have the same subject."
+          }
+        },
+        "dialog": [
+          {
+            "speaker": "user",
+            "ko": "수진아, 어머님이랑 대화 나누다가 문자를 봤는데, 보이스피싱 같아서 링크를 누르지 말라고 했어.",
+            "de": "Sujin, ich hab mich mit deiner Mutter unterhalten und dabei die Nachricht gesehen. Sie sah nach einer Phishing-SMS aus, also hab ich ihr gesagt, sie soll den Link nicht anklicken.",
+            "en": "Sujin, I was talking with your mom and saw the text she got. It looked like a phishing scam, so I told her not to tap the link."
+          },
+          {
+            "speaker": "sujin",
+            "ko": "아, 정말? 와, 고마워. 요새 택배 문자로 링크 보내서 개인정보 빼가는 피싱도 있다던데.",
+            "de": "Echt? Wow, danke. Ich hab gehört, dass solche Phishing-SMS sich als Paketnachrichten ausgeben und über Links persönliche Daten abgreifen.",
+            "en": "Oh, really? Wow, thank you. I've heard there are phishing texts pretending to be delivery messages and trying to steal personal information through links."
+          },
+          {
+            "speaker": "user",
+            "ko": "아, 그러니까… 이런 문자로 개인정보가 유출될 수도 있으니까 정말 조심해야겠어.",
+            "de": "Ja, genau ... Wenn über solche Nachrichten persönliche Daten abgegriffen werden können, müssen wir echt vorsichtig sein.",
+            "en": "Yeah, exactly... If texts like that can lead to personal information being stolen, we really need to be careful."
+          },
+          {
+            "speaker": "sujin",
+            "ko": "아무튼 고마워. 그래서 앱에서 확인해 보니까 그 문자가 가짜였어?",
+            "de": "Auf jeden Fall danke. Und als du in der App nachgesehen hast, war die Nachricht dann tatsächlich fake?",
+            "en": "Anyway, thanks. So when you checked in the app, did it turn out the text was fake?"
+          },
+          {
+            "speaker": "user",
+            "ko": "응. 내가 앱 들어가서 확인했는데 아무 문제 없고, 목요일에 도착한다고 하더라고.",
+            "de": "Ja. In der App war alles in Ordnung, und da stand, dass das Paket am Donnerstag kommt.",
+            "en": "Yeah. I checked the app and everything was fine. It says the package will arrive Thursday."
+          },
+          {
+            "speaker": "sujin",
+            "ko": "와, 대박… 진짜 큰일 날 뻔했네. 고마워, 크리스티안! 사랑해 ㅎㅎ 내가 택배회사 고객센터에 이메일이라도 써서 알려줘야겠다.",
+            "de": "Wow, krass ... Das hätte echt schiefgehen können. Danke, Christian! Lieb dich, haha. Ich sollte dem Kundenservice vom Paketdienst eine Mail schreiben und Bescheid sagen.",
+            "en": "Wow... that could've gone really badly. Thanks, Christian! Love you haha. I should email the delivery company's customer service and let them know."
+          }
+        ],
+        "quests": [
+          {
+            "id": "quest_b1_christian_sujin_suspicious_text_followup_01",
+            "type": "hoerverstehen",
+            "conceptIds": [
+              "concept_b1_life"
+            ],
+            "data": {
+              "audioKo": "아, 정말? 와, 고마워. 요새 택배 문자로 링크 보내서 개인정보 빼가는 피싱도 있다던데.",
+              "options": [
+                {
+                  "de": "Echt? Wow, danke. Ich hab gehört, dass solche Phishing-SMS sich als Paketnachrichten ausgeben und über Links persönliche Daten abgreifen.",
+                  "en": "Oh, really? Wow, thank you. I've heard there are phishing texts pretending to be delivery messages and trying to steal personal information through links."
+                },
+                {
+                  "de": "Sujin, ich hab mich mit deiner Mutter unterhalten und dabei die Nachricht gesehen. Sie sah nach einer Phishing-SMS aus, also hab ich ihr gesagt, sie soll den Link nicht anklicken.",
+                  "en": "Sujin, I was talking with your mom and saw the text she got. It looked like a phishing scam, so I told her not to tap the link."
+                },
+                {
+                  "de": "Ja, genau ... Wenn über solche Nachrichten persönliche Daten abgegriffen werden können, müssen wir echt vorsichtig sein.",
+                  "en": "Yeah, exactly... If texts like that can lead to personal information being stolen, we really need to be careful."
+                },
+                {
+                  "de": "Auf jeden Fall danke. Und als du in der App nachgesehen hast, war die Nachricht dann tatsächlich fake?",
+                  "en": "Anyway, thanks. So when you checked in the app, did it turn out the text was fake?"
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_b1_christian_sujin_suspicious_text_followup_02",
+            "type": "uebersetzen",
+            "conceptIds": [
+              "concept_b1_life"
+            ],
+            "data": {
+              "promptDe": "Ja. In der App war alles in Ordnung, und da stand, dass das Paket am Donnerstag kommt.",
+              "promptEn": "Yeah. I checked the app and everything was fine. It says the package will arrive Thursday.",
+              "options": [
+                {
+                  "ko": "응. 내가 앱 들어가서 확인했는데 아무 문제 없고, 목요일에 도착한다고 하더라고."
+                },
+                {
+                  "ko": "수진아, 어머님이랑 대화 나누다가 문자를 봤는데, 보이스피싱 같아서 링크를 누르지 말라고 했어."
+                },
+                {
+                  "ko": "아, 그러니까… 이런 문자로 개인정보가 유출될 수도 있으니까 정말 조심해야겠어."
+                },
+                {
+                  "ko": "와, 대박… 진짜 큰일 날 뻔했네. 고마워, 크리스티안! 사랑해 ㅎㅎ 내가 택배회사 고객센터에 이메일이라도 써서 알려줘야겠다."
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_b1_christian_sujin_suspicious_text_followup_03",
+            "type": "satzBauen",
+            "conceptIds": [
+              "concept_b1_life"
+            ],
+            "data": {
+              "targetKo": "와, 대박… 진짜 큰일 날 뻔했네. 고마워, 크리스티안! 사랑해 ㅎㅎ 내가 택배회사 고객센터에 이메일이라도 써서 알려줘야겠다.",
+              "audioKo": "와, 대박… 진짜 큰일 날 뻔했네. 고마워, 크리스티안! 사랑해 ㅎㅎ 내가 택배회사 고객센터에 이메일이라도 써서 알려줘야겠다.",
+              "promptDe": "Wow, krass ... Das hätte echt schiefgehen können. Danke, Christian! Lieb dich, haha. Ich sollte dem Kundenservice vom Paketdienst eine Mail schreiben und Bescheid sagen.",
+              "promptEn": "Wow... that could've gone really badly. Thanks, Christian! Love you haha. I should email the delivery company's customer service and let them know.",
+              "distractors": [
+                "아마 다음에",
+                "그냥 아무거나",
+                "확인 없이"
+              ]
+            }
+          }
+        ],
+        "xpReward": 120
+      },
+      "fields": [
+        "dialog",
+        "quests"
+      ],
+      "beforeSha256": "bbfa553206c885ed07679d03e2e380bcc8fb076fe7c4dd625c8d52c6fa71b81c",
+      "afterSha256": "ba4da86ceb997a4afc1d78e02a8d57ee1b62fb10cc93b14e44d278a7c8c07b7f",
+      "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
+      "sourceGitPath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "DE/EN translation polish applied after the batch 39 review packet (PR #450) and DE/EN punctuation/contraction fixes for the learner-copy guards; before is the reviewed draft row; model review only, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_39_living_korea_manifest.json",
+      "kind": "scenario",
+      "id": "b1_lena_maya_beyond_music",
+      "before": {
+        "id": "b1_lena_maya_beyond_music",
+        "level": "b1",
+        "emoji": "🎧",
+        "register": "casual",
+        "speechStyle": "casual",
+        "title": {
+          "ko": "음악 밖으로 넓어진 한류 이야기",
+          "de": "Hallyu über Musik hinaus",
+          "en": "Talking about Hallyu beyond music"
+        },
+        "intro": {
+          "ko": "레나와 마야가 음악에서 시작해 음식·책·여행으로 넓어진 한국 문화 관심을 이야기해요.",
+          "de": "Lena und Maya sprechen darüber, wie ihr Interesse an koreanischer Kultur von Musik auf Essen, Bücher und Reisen übergegangen ist.",
+          "en": "Lena and Maya talk about how an interest that began with music expanded to food, books, and travel."
+        },
+        "courseUnitId": "b1_01_experience_reasons",
+        "playerCharacterId": "lena",
+        "participantIds": [
+          "lena",
+          "maya"
+        ],
+        "relationshipContext": "음악과 공연 취향을 나누는 친구. 밝은 해요체로 이야기한다.",
+        "intent": "레나가 K-pop에서 시작한 관심이 소설·음식·여행으로 넓어진 경험을 마야에게 말한다.",
+        "vocab": [
+          {
+            "korean": "관심"
+          },
+          {
+            "korean": "공연"
+          },
+          {
+            "korean": "음식"
+          },
+          {
+            "korean": "한류"
+          },
+          {
+            "korean": "콘텐츠"
+          },
+          {
+            "korean": "레나가"
+          }
+        ],
+        "conceptIds": [
+          "concept_b1_reasons_experience"
+        ],
+        "surfaceFormIds": [],
+        "grammarIds": [
+          "grammar_a2_noun_cause"
+        ],
+        "grammarBlock": {
+          "title": {
+            "ko": "N때문에",
+            "de": "Grammatik im Kontext: N때문에",
+            "en": "Grammar in context: N때문에"
+          },
+          "explanation": {
+            "ko": "이 장면에서 N때문에 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+            "de": "Grund als Nomen. Nach Nomen, nicht nach Verb.",
+            "en": "Noun cause. After a noun, not a verb."
+          }
+        },
+        "dialog": [
+          {
+            "speaker": "user",
+            "ko": "저 처음엔 진짜 음악 때문에 한국에 관심 생겼거든요.",
+            "de": "Am Anfang hab ich mich wirklich wegen der Musik für Korea interessiert.",
+            "en": "At first, I really got interested in Korea because of the music."
+          },
+          {
+            "speaker": "maya",
+            "ko": "알죠. 공연 얘기 나오면 레나 씨 눈부터 두 배 되잖아요.",
+            "de": "Ich weiß. Sobald es um Konzerte geht, werden deine Augen doppelt so groß.",
+            "en": "I know. The second someone mentions a concert, your eyes get twice as big."
+          },
+          {
+            "speaker": "user",
+            "ko": "맞아요 ㅋㅋ. 근데 요즘은 소설 읽고 음식 찾아다니고 여행 계획까지 바뀌었어요.",
+            "de": "Stimmt, haha. Aber inzwischen lese ich Romane, suche gezielt nach Essen und ändere sogar meine Reisepläne.",
+            "en": "True haha. But lately I've been reading novels, hunting down food, and even changing my travel plans."
+          },
+          {
+            "speaker": "maya",
+            "ko": "한 곡 들었다가 여행 일정까지 바뀐 거예요?",
+            "de": "Du hast ein Lied gehört und am Ende gleich deine Reise umgeplant?",
+            "en": "You listened to one song and ended up changing your whole itinerary?"
+          },
+          {
+            "speaker": "user",
+            "ko": "그러니까요. 이제 한류라고 하면 음악만 떠오르진 않아요.",
+            "de": "Genau. Wenn ich heute an Hallyu denke, fällt mir nicht mehr nur Musik ein.",
+            "en": "Exactly. Now when I think of Hallyu, music isn't the only thing that comes to mind."
+          },
+          {
+            "speaker": "maya",
+            "ko": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요.",
+            "de": "Diese Verbindungen würde ich auch gern im Content zeigen – ohne so zu tun, als würde ein Trend ganz Korea repräsentieren.",
+            "en": "I want to show those connections in our content too—without treating one trend like it represents all of Korea."
+          }
+        ],
+        "quests": [
+          {
+            "id": "quest_b1_lena_maya_beyond_music_01",
+            "type": "hoerverstehen",
+            "conceptIds": [
+              "concept_b1_reasons_experience"
+            ],
+            "data": {
+              "audioKo": "알죠. 공연 얘기 나오면 레나 씨 눈부터 두 배 되잖아요.",
+              "options": [
+                {
+                  "de": "Ich weiß. Sobald es um Konzerte geht, werden deine Augen doppelt so groß.",
+                  "en": "I know. The second someone mentions a concert, your eyes get twice as big."
+                },
+                {
+                  "de": "Am Anfang hab ich mich wirklich wegen der Musik für Korea interessiert.",
+                  "en": "At first, I really got interested in Korea because of the music."
+                },
+                {
+                  "de": "Stimmt, haha. Aber inzwischen lese ich Romane, suche gezielt nach Essen und ändere sogar meine Reisepläne.",
+                  "en": "True haha. But lately I've been reading novels, hunting down food, and even changing my travel plans."
+                },
+                {
+                  "de": "Du hast ein Lied gehört und am Ende gleich deine Reise umgeplant?",
+                  "en": "You listened to one song and ended up changing your whole itinerary?"
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_b1_lena_maya_beyond_music_02",
+            "type": "uebersetzen",
+            "conceptIds": [
+              "concept_b1_reasons_experience"
+            ],
+            "data": {
+              "promptDe": "Genau. Wenn ich heute an Hallyu denke, fällt mir nicht mehr nur Musik ein.",
+              "promptEn": "Exactly. Now when I think of Hallyu, music isn't the only thing that comes to mind.",
+              "options": [
+                {
+                  "ko": "그러니까요. 이제 한류라고 하면 음악만 떠오르진 않아요."
+                },
+                {
+                  "ko": "저 처음엔 진짜 음악 때문에 한국에 관심 생겼거든요."
+                },
+                {
+                  "ko": "맞아요 ㅋㅋ. 근데 요즘은 소설 읽고 음식 찾아다니고 여행 계획까지 바뀌었어요."
+                },
+                {
+                  "ko": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요."
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_b1_lena_maya_beyond_music_03",
+            "type": "satzBauen",
+            "conceptIds": [
+              "concept_b1_reasons_experience"
+            ],
+            "data": {
+              "targetKo": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요.",
+              "audioKo": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요.",
+              "promptDe": "Diese Verbindungen würde ich auch gern im Content zeigen – ohne so zu tun, als würde ein Trend ganz Korea repräsentieren.",
+              "promptEn": "I want to show those connections in our content too—without treating one trend like it represents all of Korea.",
+              "distractors": [
+                "아마 다음에",
+                "그냥 아무거나",
+                "확인 없이"
+              ]
+            }
+          }
+        ],
+        "xpReward": 120
+      },
+      "after": {
+        "id": "b1_lena_maya_beyond_music",
+        "level": "b1",
+        "emoji": "🎧",
+        "register": "casual",
+        "speechStyle": "casual",
+        "title": {
+          "ko": "음악 밖으로 넓어진 한류 이야기",
+          "de": "Hallyu über Musik hinaus",
+          "en": "Talking about Hallyu beyond music"
+        },
+        "intro": {
+          "ko": "레나와 마야가 음악에서 시작해 음식·책·여행으로 넓어진 한국 문화 관심을 이야기해요.",
+          "de": "Lena und Maya sprechen darüber, wie ihr Interesse an koreanischer Kultur von Musik auf Essen, Bücher und Reisen übergegangen ist.",
+          "en": "Lena and Maya talk about how an interest that began with music expanded to food, books, and travel."
+        },
+        "courseUnitId": "b1_01_experience_reasons",
+        "playerCharacterId": "lena",
+        "participantIds": [
+          "lena",
+          "maya"
+        ],
+        "relationshipContext": "음악과 공연 취향을 나누는 친구. 밝은 해요체로 이야기한다.",
+        "intent": "레나가 K-pop에서 시작한 관심이 소설·음식·여행으로 넓어진 경험을 마야에게 말한다.",
+        "vocab": [
+          {
+            "korean": "관심"
+          },
+          {
+            "korean": "공연"
+          },
+          {
+            "korean": "음식"
+          },
+          {
+            "korean": "한류"
+          },
+          {
+            "korean": "콘텐츠"
+          },
+          {
+            "korean": "레나가"
+          }
+        ],
+        "conceptIds": [
+          "concept_b1_reasons_experience"
+        ],
+        "surfaceFormIds": [],
+        "grammarIds": [
+          "grammar_a2_noun_cause"
+        ],
+        "grammarBlock": {
+          "title": {
+            "ko": "N때문에",
+            "de": "Grammatik im Kontext: N때문에",
+            "en": "Grammar in context: N때문에"
+          },
+          "explanation": {
+            "ko": "이 장면에서 N때문에 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+            "de": "Grund als Nomen. Nach Nomen, nicht nach Verb.",
+            "en": "Noun cause. After a noun, not a verb."
+          }
+        },
+        "dialog": [
+          {
+            "speaker": "user",
+            "ko": "저 처음엔 진짜 음악 때문에 한국에 관심 생겼거든요.",
+            "de": "Am Anfang hab ich mich wirklich wegen der Musik für Korea interessiert.",
+            "en": "At first, I really got interested in Korea because of the music."
+          },
+          {
+            "speaker": "maya",
+            "ko": "알죠. 공연 얘기 나오면 레나 씨 눈부터 두 배 되잖아요.",
+            "de": "Ich weiß. Sobald es um Konzerte geht, werden deine Augen doppelt so groß.",
+            "en": "I know. The second someone mentions a concert, your eyes get twice as big."
+          },
+          {
+            "speaker": "user",
+            "ko": "맞아요 ㅋㅋ. 근데 요즘은 소설 읽고 음식 찾아다니고 여행 계획까지 바뀌었어요.",
+            "de": "Stimmt, haha. Aber inzwischen lese ich Romane, suche gezielt nach Essen und ändere sogar meine Reisepläne.",
+            "en": "True haha. But lately I've been reading novels, hunting down food, and even changing my travel plans."
+          },
+          {
+            "speaker": "maya",
+            "ko": "한 곡 들었다가 여행 일정까지 바뀐 거예요?",
+            "de": "Du hast ein Lied gehört und am Ende gleich deine Reise umgeplant?",
+            "en": "You listened to one song and ended up changing your whole itinerary?"
+          },
+          {
+            "speaker": "user",
+            "ko": "그러니까요. 이제 한류라고 하면 음악만 떠오르진 않아요.",
+            "de": "Genau. Wenn ich heute an Hallyu denke, fällt mir nicht mehr nur Musik ein.",
+            "en": "Exactly. Now when I think of Hallyu, music isn't the only thing that comes to mind."
+          },
+          {
+            "speaker": "maya",
+            "ko": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요.",
+            "de": "Diese Verbindungen würde ich auch gern im Content zeigen, ohne so zu tun, als würde ein Trend ganz Korea repräsentieren.",
+            "en": "I want to show those connections in our content too, without treating one trend like it represents all of Korea."
+          }
+        ],
+        "quests": [
+          {
+            "id": "quest_b1_lena_maya_beyond_music_01",
+            "type": "hoerverstehen",
+            "conceptIds": [
+              "concept_b1_reasons_experience"
+            ],
+            "data": {
+              "audioKo": "알죠. 공연 얘기 나오면 레나 씨 눈부터 두 배 되잖아요.",
+              "options": [
+                {
+                  "de": "Ich weiß. Sobald es um Konzerte geht, werden deine Augen doppelt so groß.",
+                  "en": "I know. The second someone mentions a concert, your eyes get twice as big."
+                },
+                {
+                  "de": "Am Anfang hab ich mich wirklich wegen der Musik für Korea interessiert.",
+                  "en": "At first, I really got interested in Korea because of the music."
+                },
+                {
+                  "de": "Stimmt, haha. Aber inzwischen lese ich Romane, suche gezielt nach Essen und ändere sogar meine Reisepläne.",
+                  "en": "True haha. But lately I've been reading novels, hunting down food, and even changing my travel plans."
+                },
+                {
+                  "de": "Du hast ein Lied gehört und am Ende gleich deine Reise umgeplant?",
+                  "en": "You listened to one song and ended up changing your whole itinerary?"
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_b1_lena_maya_beyond_music_02",
+            "type": "uebersetzen",
+            "conceptIds": [
+              "concept_b1_reasons_experience"
+            ],
+            "data": {
+              "promptDe": "Genau. Wenn ich heute an Hallyu denke, fällt mir nicht mehr nur Musik ein.",
+              "promptEn": "Exactly. Now when I think of Hallyu, music isn't the only thing that comes to mind.",
+              "options": [
+                {
+                  "ko": "그러니까요. 이제 한류라고 하면 음악만 떠오르진 않아요."
+                },
+                {
+                  "ko": "저 처음엔 진짜 음악 때문에 한국에 관심 생겼거든요."
+                },
+                {
+                  "ko": "맞아요 ㅋㅋ. 근데 요즘은 소설 읽고 음식 찾아다니고 여행 계획까지 바뀌었어요."
+                },
+                {
+                  "ko": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요."
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_b1_lena_maya_beyond_music_03",
+            "type": "satzBauen",
+            "conceptIds": [
+              "concept_b1_reasons_experience"
+            ],
+            "data": {
+              "targetKo": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요.",
+              "audioKo": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요.",
+              "promptDe": "Diese Verbindungen würde ich auch gern im Content zeigen, ohne so zu tun, als würde ein Trend ganz Korea repräsentieren.",
+              "promptEn": "I want to show those connections in our content too, without treating one trend like it represents all of Korea.",
+              "distractors": [
+                "아마 다음에",
+                "그냥 아무거나",
+                "확인 없이"
+              ]
+            }
+          }
+        ],
+        "xpReward": 120
+      },
+      "fields": [
+        "dialog",
+        "quests"
+      ],
+      "beforeSha256": "aad69932a057350ae5a72004f56faf4a278bcae460725dc8ddfeeae6e3128e1c",
+      "afterSha256": "1282736c49d42b7329fe9629cd06521ec620d475acb037c7b09fdedf15e73cea",
+      "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
+      "sourceGitPath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "DE/EN translation polish applied after the batch 39 review packet (PR #450) and DE/EN punctuation/contraction fixes for the learner-copy guards; before is the reviewed draft row; model review only, original human gates retained"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_39_living_korea_manifest.json",
@@ -9311,7 +10439,7 @@
       "sourceGitPath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
       "predecessorSuccessorSha256": null,
       "normalization": "Existing exact promotion and relevel comparison projection",
-      "reason": "DE/EN translation polish applied after the batch 39 review packet, merged with PR #450; before is the reviewed draft row; model review only, original human gates retained"
+      "reason": "DE/EN translation polish applied after the batch 39 review packet (PR #450) and DE/EN punctuation/contraction fixes for the learner-copy guards; before is the reviewed draft row; model review only, original human gates retained"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_39_living_korea_manifest.json",
@@ -9695,7 +10823,7 @@
       "sourceGitPath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
       "predecessorSuccessorSha256": null,
       "normalization": "Existing exact promotion and relevel comparison projection",
-      "reason": "DE/EN translation polish applied after the batch 39 review packet, merged with PR #450; before is the reviewed draft row; model review only, original human gates retained"
+      "reason": "DE/EN translation polish applied after the batch 39 review packet (PR #450) and DE/EN punctuation/contraction fixes for the learner-copy guards; before is the reviewed draft row; model review only, original human gates retained"
     }
   ]
 }
