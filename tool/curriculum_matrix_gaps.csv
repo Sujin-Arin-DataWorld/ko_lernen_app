@@ -76,7 +76,6 @@ A2,grammar_anchor,grammar_a2_noun_cause,grammar.csv row never shown in a scenari
 A2,grammar_anchor,grammar_a2_only_negative,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_or_verbs,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_permission_check_batch20,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
-A2,grammar_anchor,grammar_a2_preference_question,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_preference_soft_batch20,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_purpose,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a2_reason_because,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -123,7 +122,6 @@ A2,text_type,narrative_story_diary,이야기·일기·서사문,structural_gap,m
 A2,text_type,social_media_post_comment,SNS 게시물·댓글·포럼,missing,mode=P;count=0;surfaces=scenario,add_items_of_this_genre
 A2,text_type,written_notice_announcement,공지문·안내문,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
 B1,grammar_anchor,grammar_b1_about,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
-B1,grammar_anchor,grammar_b1_as_kept_doing,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_concede_but,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_conceded_context_batch20,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_conditional_geodeun,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -338,7 +336,6 @@ B2,text_type,email_letter_formal,격식 이메일·공문,structural_gap,mode=P;
 B2,text_type,essay_opinion_argumentative,논설문·의견문(에세이),structural_gap,mode=R/P;count=0;surfaces=none,verify_genre_content_and_placement
 B2,text_type,literary_text,문학 텍스트,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
 B2,text_type,news_article_report,신문 기사·보도문,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
-B2,text_type,presentation_briefing_talk,발표·브리핑,thin,mode=P;count=1;surfaces=scenario,add_items_of_this_genre
 B2,text_type,report_proposal_official,보고서·제안서·공식 문서,structural_gap,mode=R/P;count=0;surfaces=none,verify_genre_content_and_placement
 B2,text_type,review_critique_text,리뷰·비평문,structural_gap,mode=P;count=0;surfaces=none,verify_genre_content_and_placement
 C1,grammar_anchor,grammar_b2_despite,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
