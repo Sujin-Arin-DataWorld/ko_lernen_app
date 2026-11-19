@@ -1,9 +1,9 @@
-import '../intro_tokens.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
 import '../../../l10n/generated/app_localizations.dart';
+import '../intro_tokens.dart';
 import '../sheet.dart';
 import '../study_frame.dart';
 import '../text_field.dart';
@@ -24,19 +24,19 @@ class ApprovedWordChainFrame extends StatelessWidget {
     required this.title,
     required this.contentBuilder,
     this.onLeave,
-    this.confirmWhen = false,
+    this.homeEscape = const SoriHomeEscape(),
   });
 
   final String title;
   final Widget Function(BuildContext, Widget close) contentBuilder;
   final VoidCallback? onLeave;
-  final bool confirmWhen;
+  final SoriHomeEscape homeEscape;
 
   @override
   Widget build(BuildContext context) => SoriStudyFrame(
     title: title,
     onLeave: onLeave,
-    homeEscape: SoriHomeEscape(confirmWhen: confirmWhen),
+    homeEscape: homeEscape,
     leadingVisual: const Center(
       child: RotatedBox(
         quarterTurns: 2,

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../l10n/generated/app_localizations.dart';
 import '../../practice_dokkaebi_help.dart';
+import '../tokens.dart';
 import 'approved_game_material.dart';
 
 const _silbenFont = 'SilbenPlex';
@@ -34,7 +35,9 @@ class SilbenHeader extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final compact =
-            constraints.maxWidth < 402 || scale > 1.01 || t.localeName != 'de';
+            constraints.maxWidth < SoriBreakpoints.syllableFullChrome ||
+            scale > 1.01 ||
+            t.localeName != 'de';
         final style = silbenType(29, color: const Color(0xfffff3d7)).copyWith(
           shadows: const [
             Shadow(

@@ -418,7 +418,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     return ApprovedGameFrame(
       title: t.approvedQuizTitle,
       onLeave: _retireStudy,
-      confirmWhen: _qIdx > 0 || _picked != null,
+      homeEscape: SoriHomeEscape(confirmWhen: _qIdx > 0 || _picked != null),
       contentBuilder: (context, close) => ApprovedQuizView(
         title: t.approvedQuizTitle,
         topic: _pack!.displayName(),

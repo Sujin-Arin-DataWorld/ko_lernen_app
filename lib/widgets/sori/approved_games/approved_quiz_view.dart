@@ -1,8 +1,8 @@
-import '../intro_tokens.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../intro_tokens.dart';
 import 'approved_game_material.dart';
 
 /// The approved quiz presentation. All learning state belongs to the caller.

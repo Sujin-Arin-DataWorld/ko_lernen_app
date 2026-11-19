@@ -880,7 +880,9 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       return ApprovedWordChainFrame(
         title: t.kkeunmariTitle,
         onLeave: _retireStudy,
-        confirmWhen: _remaining > 0,
+        homeEscape: SoriHomeEscape(
+          confirmWhen: _end == _End.none && _remaining > 0,
+        ),
         contentBuilder: (context, close) => ValueListenableBuilder<double>(
           valueListenable: SoriSpeech.speed,
           builder: (context, speed, _) =>

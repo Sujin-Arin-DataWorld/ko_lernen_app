@@ -449,7 +449,9 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       navigationArt: 'jade_geometric_legacy',
       title: t.wbMatching,
       onLeave: _retireStudy,
-      confirmWhen: _matched.isNotEmpty || _misses > 0,
+      homeEscape: SoriHomeEscape(
+        confirmWhen: !_roundDone && (_matched.isNotEmpty || _misses > 0),
+      ),
       contentBuilder: (context, close) => ApprovedMatchingView(
         title: t.wbMatching,
         topic: pack.name,

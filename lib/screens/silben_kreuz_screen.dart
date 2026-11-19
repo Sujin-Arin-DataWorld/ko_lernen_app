@@ -1236,7 +1236,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
           builder: (context, bounds) {
             final paged =
                 MediaQuery.textScalerOf(context).scale(20) > 20.01 ||
-                bounds.maxWidth < 360;
+                bounds.maxWidth < SoriBreakpoints.narrowPhone;
             // A very short split-screen body cannot fit both a touch target
             // and the pager. Let all game controls scroll together there.
             const minPagedBodyHeight = 240.0;

@@ -1,4 +1,3 @@
-import '../intro_tokens.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
@@ -11,6 +10,7 @@ import '../../../l10n/generated/app_localizations.dart';
 import '../../../screens/sori_stage/sori_stage_shell.dart';
 import '../../../motion/transitions.dart';
 import '../speakable.dart';
+import '../intro_tokens.dart';
 import '../sheet.dart';
 import '../study_frame.dart';
 import '../tokens.dart';
@@ -836,19 +836,19 @@ class ApprovedGameFrame extends StatelessWidget {
     required this.title,
     required this.contentBuilder,
     this.onLeave,
-    this.confirmWhen = false,
+    this.homeEscape = const SoriHomeEscape(),
     this.navigationArt = 'jade_organic_final',
   });
   final String title;
   final Widget Function(BuildContext, Widget) contentBuilder;
   final VoidCallback? onLeave;
-  final bool confirmWhen;
+  final SoriHomeEscape homeEscape;
   final String navigationArt;
   @override
   Widget build(BuildContext context) => SoriStudyFrame(
     title: title,
     onLeave: onLeave,
-    homeEscape: SoriHomeEscape(confirmWhen: confirmWhen),
+    homeEscape: homeEscape,
     leadingVisual: SizedBox(
       width: 48,
       height: 48,
