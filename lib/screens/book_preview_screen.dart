@@ -10,6 +10,7 @@ import '../services/vocab_notebook_parser.dart';
 import '../theme.dart';
 import '../widgets/display_sized_file_image.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/dialog.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/text_field.dart';
 import '../widgets/sori/tokens.dart';
@@ -421,7 +422,7 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
 
   void _showPreviewDetails(String hint, String? warning) {
     FocusManager.instance.primaryFocus?.unfocus();
-    showDialog<void>(
+    showSoriDialog<void>(
       context: context,
       builder: (context) {
         final t = AppL10n.of(context);

@@ -748,8 +748,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     featureGate: feedbackScope.featureGate,
                     submitFeedback: feedbackScope.submitFeedback,
                     completedMissionIds: feedbackScope.completedMissionIds,
-                    mascotKind: box.maxHeight >= 380 && box.maxWidth >= 340
-                        ? MascotKind.tiger
+                    mascotKind: box.maxHeight >= 380 && box.maxWidth >= SoriBreakpoints.feedbackCompanion
+                        ? MascotPreference.selectedKind
                         : null,
                   ),
                 ),
@@ -981,7 +981,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     final reserveSkipLabel =
         hasMultipleCards &&
         !compact &&
-        MediaQuery.sizeOf(context).width >= 390 &&
+        MediaQuery.sizeOf(context).width >= SoriBreakpoints.reviewSkipLabel &&
         MediaQuery.textScalerOf(context).scale(1) < 1.4;
     final showSkip = !browsingHistory && canDefer;
     VoidCallback action(bool gotIt) => forThisCard(

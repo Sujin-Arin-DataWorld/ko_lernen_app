@@ -9,6 +9,7 @@ import '../services/saved_word_localization.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/dialog.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/text_field.dart';
@@ -392,7 +393,7 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
                 }
                 final showBook =
                     !keyboardOpen &&
-                    body.maxWidth >= 338 &&
+                    body.maxWidth >= SoriBreakpoints.wordbookOpenBook &&
                     body.maxHeight >= 350 &&
                     MediaQuery.textScalerOf(context).scale(16) <= 20;
                 return DecoratedBox(
@@ -543,7 +544,7 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
     List<Widget> Function(BuildContext context, BoxConstraints body) sections,
   ) {
     FocusManager.instance.primaryFocus?.unfocus();
-    showDialog<void>(
+    showSoriDialog<void>(
       context: context,
       builder: (context) => Dialog(
         child: Padding(
@@ -739,8 +740,6 @@ class _WordTitle extends StatelessWidget {
     final type = SoriTextTheme.of(context);
     return Text(
       word.korean,
-      maxLines: brief ? 1 : null,
-      overflow: brief ? TextOverflow.ellipsis : null,
       style: onBookPage
           ? type.koDisplay.copyWith(fontSize: 22, fontWeight: FontWeight.w700)
           : type.cardTitle,

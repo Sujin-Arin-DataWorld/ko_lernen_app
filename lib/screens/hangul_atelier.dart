@@ -556,7 +556,7 @@ class _AtelierOverviewState extends State<_AtelierOverview>
     final t = AppL10n.of(context);
     return LayoutBuilder(
       builder: (context, constraints) {
-        final tablet = constraints.maxWidth >= 680;
+        final tablet = constraints.maxWidth >= SoriBreakpoints.hangulAtelierTablet;
         final compact =
             constraints.maxHeight < 510 ||
             MediaQuery.textScalerOf(context).scale(1) >= 1.5;

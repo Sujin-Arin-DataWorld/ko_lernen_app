@@ -1036,8 +1036,6 @@ class _ExpressionCard extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     expression.korean,
-                    maxLines: summaryOnly ? 1 : null,
-                    overflow: summaryOnly ? TextOverflow.ellipsis : null,
                     style: SoriTextTheme.of(context).h3,
                   ),
                   if (!summaryOnly && meaning.isNotEmpty) ...<Widget>[
@@ -1090,8 +1088,6 @@ class _WordCard extends StatelessWidget {
                 Expanded(
                   child: Text(
                     word.korean,
-                    maxLines: summaryOnly ? 1 : null,
-                    overflow: summaryOnly ? TextOverflow.ellipsis : null,
                     style: SoriTextTheme.of(context).h2,
                   ),
                 ),
@@ -1210,8 +1206,6 @@ class _GrammarCard extends StatelessWidget {
                 Expanded(
                   child: Text(
                     hit.nameDe,
-                    maxLines: summaryOnly ? 1 : null,
-                    overflow: summaryOnly ? TextOverflow.ellipsis : null,
                     style: SoriTextTheme.of(context).cardTitle,
                   ),
                 ),
@@ -1282,8 +1276,6 @@ class _SentenceCard extends StatelessWidget {
                 Expanded(
                   child: Text(
                     sentence.korean,
-                    maxLines: summaryOnly ? 1 : null,
-                    overflow: summaryOnly ? TextOverflow.ellipsis : null,
                     style: SoriTextTheme.of(context).h3,
                   ),
                 ),

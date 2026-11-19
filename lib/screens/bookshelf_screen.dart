@@ -565,8 +565,6 @@ class _PageTile extends StatelessWidget {
                     Text(
                       title,
                       style: SoriTextTheme.of(context).cardTitle,
-                      maxLines: bounded ? 2 : null,
-                      overflow: bounded ? TextOverflow.ellipsis : null,
                     ),
                     const SizedBox(height: 2),
                     Text(meta, style: SoriTextTheme.of(context).cardSubtitle),
@@ -642,8 +640,6 @@ class _CustomPackTile extends StatelessWidget {
                       children: [
                         Text(
                           pack.displayName(),
-                          maxLines: bounded ? 2 : null,
-                          overflow: bounded ? TextOverflow.ellipsis : null,
                           style: SoriTextTheme.of(context).cardTitle,
                         ),
                         Text(

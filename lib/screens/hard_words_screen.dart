@@ -515,8 +515,6 @@ class _HardWordTile extends StatelessWidget {
                 Text(
                   word.korean,
                   style: SoriTextTheme.of(context).h3,
-                  maxLines: summary ? 1 : null,
-                  overflow: summary ? TextOverflow.ellipsis : null,
                 ),
                 if (!summary && translation.isNotEmpty)
                   Text(

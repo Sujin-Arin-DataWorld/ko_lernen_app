@@ -34,7 +34,7 @@ class MyWordsScreen extends StatelessWidget {
     final t = AppL10n.of(context);
     final keyboardOpen = MediaQuery.viewInsetsOf(context).bottom > 0;
     final compactPhotoAction =
-        MediaQuery.sizeOf(context).width < 360 ||
+        MediaQuery.sizeOf(context).width < SoriBreakpoints.narrowPhone ||
         MediaQuery.textScalerOf(context).scale(16) > 24;
     void showPhotoChoices() {
       FocusManager.instance.primaryFocus?.unfocus();

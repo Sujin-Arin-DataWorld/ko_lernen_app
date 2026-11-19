@@ -403,7 +403,7 @@ class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
         builder: (context, box) {
           final compact =
               box.maxHeight < 365 ||
-              (box.maxWidth < 430 &&
+              (box.maxWidth < SoriBreakpoints.vocabResultAccessibleCompact &&
                   MediaQuery.textScalerOf(context).scale(1) >= 1.5);
           Widget panel(Widget child) => Padding(
             padding: const EdgeInsets.only(bottom: Spacing.sm),
@@ -539,7 +539,7 @@ class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
               ),
               if (!compact && secondary.isNotEmpty) ...[
                 const SizedBox(height: Spacing.sm),
-                if (box.maxWidth >= 490)
+                if (box.maxWidth >= SoriBreakpoints.vocabResultActionRow)
                   Row(
                     spacing: Spacing.sm,
                     children: [
