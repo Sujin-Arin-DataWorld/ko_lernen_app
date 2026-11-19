@@ -651,6 +651,352 @@
           "url": "https://contents.history.go.kr/front/km/print.do?levelId=km_019_0030_0020_0020"
         }
       ]
+    },
+    {
+      "termId": "hahoe_mask",
+      "ko": "하회탈",
+      "romanization": "Hahoetal",
+      "localizations": {
+        "de": {
+          "meaning": "Hahoe-tal sind hölzerne Masken aus Andong, die mit den Byeongsan-Masken als nationales Kulturerbe erhalten sind.",
+          "story": "Ihre verschiedenen Gesichter verkörpern Figuren wie Yangban, Gelehrte oder junge Frauen und verbinden Objektkultur mit Maskenspiel."
+        },
+        "en": {
+          "meaning": "Hahoe masks are wooden masks from Andong, preserved with the Byeongsan masks as Korean national heritage.",
+          "story": "Their different faces represent characters such as yangban, scholars and young women, linking crafted objects with mask performance."
+        },
+        "ko": {
+          "meaning": "하회탈은 안동에서 전해 온 나무탈로, 병산탈과 함께 국보로 보존되고 있어요.",
+          "story": "양반·선비·각시처럼 서로 다른 인물을 표현하며, 탈이라는 물건과 탈놀이의 연기를 이어 주는 문화유산이에요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가유산포털 안동 하회탈 및 병산탈",
+          "url": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?VdkVgwKey=11%2C01210000%2C37&pageNo=1_1_1_0"
+        }
+      ]
+    },
+    {
+      "termId": "norigae",
+      "ko": "노리개",
+      "romanization": "Norigae",
+      "localizations": {
+        "de": {
+          "meaning": "Norigae ist ein traditioneller Anhänger, der am Band der Jacke oder an der Taille des Rocks getragen wurde.",
+          "story": "Schmuckteile, Knoten und Quasten wurden vielfältig kombiniert; drei Anhänger zusammen heißen Samjak-Norigae."
+        },
+        "en": {
+          "meaning": "Norigae is a traditional ornament worn from the jacket tie or at the waist of a skirt.",
+          "story": "Jewels, decorative knots and tassels were combined in many ways; a set of three pendants is called samjak norigae."
+        },
+        "ko": {
+          "meaning": "노리개는 저고리 고름이나 치마 허리에 차던 전통 장신구예요.",
+          "story": "장식물에 끈목·매듭·술을 어울려 만들었고, 세 개를 한 조로 찬 것을 삼작노리개라고 해요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국립민속박물관 어린이박물관 노리개",
+          "url": "https://www.nfm.go.kr/kids/user/content.do?pageId=PAGE_000000000000050"
+        }
+      ]
+    },
+    {
+      "termId": "maedeup",
+      "ko": "매듭",
+      "romanization": "Maedeup",
+      "localizations": {
+        "de": {
+          "meaning": "Maedeup bezeichnet dekorative koreanische Knoten und die überlieferte Handwerkstechnik, mit der sie gebunden werden.",
+          "story": "Kordeln werden zu benannten Knotenformen gelegt und oft mit Quasten verbunden; sie schmücken etwa Norigae, Fächer oder Etuis."
+        },
+        "en": {
+          "meaning": "Maedeup refers to Korean decorative knots and the traditional craft of tying them.",
+          "story": "Cords are formed into named knot patterns and often finished with tassels, decorating items such as norigae, fans and cases."
+        },
+        "ko": {
+          "meaning": "매듭은 끈을 여러 형태로 맺어 장식하는 전통 공예와 그 매듭을 가리켜요.",
+          "story": "끈목을 이름 있는 매듭 형태로 맺고 술과 연결해 노리개·선추·안경집 같은 물건을 꾸몄어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가유산포털 매듭장",
+          "url": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?VdkVgwKey=17%2C00220000%2C31&pageNo=1_1_2_0"
+        }
+      ]
+    },
+    {
+      "termId": "buchae",
+      "ko": "부채",
+      "romanization": "Buchae",
+      "localizations": {
+        "de": {
+          "meaning": "Buchae ist der allgemeine koreanische Begriff für Handfächer; es gibt runde Fächer und Faltfächer.",
+          "story": "Die überlieferte Fächerkunst heißt Seonjajang. Beim Hapjukseon werden Bambusleisten sorgfältig verbunden und mit Papier bespannt."
+        },
+        "en": {
+          "meaning": "Buchae is the general Korean word for a hand fan; traditional forms include round fans and folding fans.",
+          "story": "Traditional fan making is called Seonjajang. Hapjukseon folding fans join fine bamboo ribs and cover them with paper."
+        },
+        "ko": {
+          "meaning": "부채는 손으로 바람을 일으키는 도구로, 전통 부채에는 둥근 부채와 접부채가 있어요.",
+          "story": "전통 부채 제작 기술을 선자장이라 하며, 합죽선은 대나무 겉대를 붙여 만든 부채살에 종이를 발라 완성해요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가유산포털 선자장",
+          "url": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1273501280000&pageNo=1_1_1_1"
+        }
+      ]
+    },
+    {
+      "termId": "hanji",
+      "ko": "한지",
+      "romanization": "Hanji",
+      "localizations": {
+        "de": {
+          "meaning": "Hanji ist traditionelles koreanisches Papier; das überlieferte Handwerk seiner Herstellung heißt Hanjijang.",
+          "story": "Hanji diente nicht nur zum Schreiben und für Bücher, sondern auch für Fenster, Behälter und verschiedenes Alltagshandwerk."
+        },
+        "en": {
+          "meaning": "Hanji is traditional Korean paper; the inherited craft of making it is called Hanjijang.",
+          "story": "Hanji was used not only for writing and books but also for windows, containers and many kinds of household craft."
+        },
+        "ko": {
+          "meaning": "한지는 한국의 전통 종이이며, 이를 전통 방식으로 만드는 기술을 한지장이라고 해요.",
+          "story": "글과 책뿐 아니라 창호, 생활용품, 공예에도 널리 쓰여 종이가 일상 공간과 물건 속에 깊이 들어왔어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국가유산포털 한지장",
+          "url": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?VdkVgwKey=17%2C01170000%2CZZ&pageNo=1_1_1_0"
+        }
+      ]
+    },
+    {
+      "termId": "yeopjeon",
+      "ko": "엽전",
+      "romanization": "Yeopjeon",
+      "localizations": {
+        "de": {
+          "meaning": "Yeopjeon bezeichnet vormoderne Münzen mit Loch in der Mitte; Sangpyeong Tongbo ist das bekannteste Beispiel aus Joseon.",
+          "story": "Sangpyeong Tongbo wurde ab 1678 über lange Zeit weit verbreitet und diente beim Handel, Bezahlen von Abgaben und Sparen."
+        },
+        "en": {
+          "meaning": "Yeopjeon refers to premodern coins with a central hole; Sangpyeong Tongbo is the best-known Joseon example.",
+          "story": "Sangpyeong Tongbo was widely circulated from 1678 for a long period and was used in trade, payments and saving."
+        },
+        "ko": {
+          "meaning": "엽전은 가운데 구멍이 있는 옛 동전을 흔히 이르는 말로, 조선의 상평통보가 대표적이에요.",
+          "story": "상평통보는 1678년부터 오랫동안 널리 유통되어 거래와 세금, 저축 등 조선 후기의 경제생활에 깊이 쓰였어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "한국은행 화폐박물관 상평통보 갤러리",
+          "url": "https://www.bok.or.kr/museum/main/contents.do?menuNo=700843"
+        }
+      ]
+    },
+    {
+      "termId": "suwon_hwaseong",
+      "ko": "수원화성",
+      "romanization": "Suwon Hwaseong",
+      "localizations": {
+        "de": {
+          "meaning": "Die Festung Hwaseong umgibt das Zentrum von Suwon und wurde im späten 18. Jahrhundert unter König Jeongjo errichtet.",
+          "story": "Ihre Mauern folgen Ebene und Hügeln und verbinden Tore, Bastionen und Wachtürme; seit 1997 gehört sie zum UNESCO-Welterbe."
+        },
+        "en": {
+          "meaning": "Hwaseong Fortress surrounds central Suwon and was built in the late eighteenth century under King Jeongjo.",
+          "story": "Its walls cross flat and hilly ground with gates, bastions and towers; it has been a UNESCO World Heritage site since 1997."
+        },
+        "ko": {
+          "meaning": "수원화성은 수원 도심을 둘러싼 조선 후기 성곽으로, 정조 때 18세기 말에 건설됐어요.",
+          "story": "평지와 언덕의 지형을 따라 성벽·성문·포루 등 여러 시설이 이어지며, 1997년 유네스코 세계유산에 등재됐어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "UNESCO World Heritage Centre Hwaseong Fortress",
+          "url": "https://whc.unesco.org/en/list/817"
+        }
+      ]
+    },
+    {
+      "termId": "talchum",
+      "ko": "탈춤",
+      "romanization": "Talchum",
+      "localizations": {
+        "de": {
+          "meaning": "Talchum ist koreanisches Maskentanztheater, das Tanz, Musik, Schauspiel und Dialog miteinander verbindet.",
+          "story": "Maskierte Figuren greifen soziale Themen oft humorvoll auf, während das Publikum mit Zurufen aktiv an der Aufführung teilnimmt."
+        },
+        "en": {
+          "meaning": "Talchum is Korean mask dance drama combining dance, music, theatre and dialogue.",
+          "story": "Masked characters often treat social issues with humor, while the audience joins the performance through cheers and responses."
+        },
+        "ko": {
+          "meaning": "탈춤은 탈을 쓴 연희자가 춤·음악·연기·대사를 함께 펼치는 한국의 가면극이에요.",
+          "story": "익살스러운 인물과 풍자로 사회 문제를 다루고, 관객의 추임새와 반응도 공연을 이루는 중요한 부분이에요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "UNESCO Talchum, mask dance drama in the Republic of Korea",
+          "url": "https://ich.unesco.org/en/RL/talchum-mask-dance-drama-in-the-republic-of-korea-01742"
+        }
+      ]
+    },
+    {
+      "termId": "pansori",
+      "ko": "판소리",
+      "romanization": "Pansori",
+      "localizations": {
+        "de": {
+          "meaning": "Pansori ist musikalisches Erzählen, bei dem eine Sängerin oder ein Sänger mit einer Trommelbegleitung lange Geschichten vorträgt.",
+          "story": "Gesang, stilisierte Rede, Gestik und erzählte Szenen wechseln sich ab; die Interpretierenden entwickeln dabei eigene Ausdrucksweisen."
+        },
+        "en": {
+          "meaning": "Pansori is musical storytelling in which one singer performs long narratives with a drummer.",
+          "story": "Singing, stylized speech, gesture and narrative scenes alternate, and performers develop distinctive ways of interpreting episodes."
+        },
+        "ko": {
+          "meaning": "판소리는 한 명의 소리꾼이 고수의 북장단에 맞춰 긴 이야기를 노래와 말로 풀어내는 공연예술이에요.",
+          "story": "노래·아니리·몸짓과 여러 장면을 오가며 이야기를 이끌고, 소리꾼마다 대목을 표현하는 방식에도 개성이 드러나요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "UNESCO Pansori epic chant",
+          "url": "https://ich.unesco.org/en/RL/pansori-epic-chant-00070"
+        }
+      ]
+    },
+    {
+      "termId": "nongak",
+      "ko": "농악",
+      "romanization": "Nongak",
+      "localizations": {
+        "de": {
+          "meaning": "Nongak verbindet Schlaginstrumente, Umzüge, Tanz, Schauspiel und Akrobatik in gemeinschaftlichen Aufführungen.",
+          "story": "Es wurde bei Dorffesten, Ritualen, Erntezeiten und gemeinschaftlichen Aktionen gespielt; regionale Stile unterscheiden sich deutlich."
+        },
+        "en": {
+          "meaning": "Nongak combines percussion, parading, dance, drama and acrobatics in community performance.",
+          "story": "It has been played for village events, rituals, harvest seasons and community projects, with distinct regional styles."
+        },
+        "ko": {
+          "meaning": "농악은 타악기 연주와 행진, 춤, 연희, 재주를 함께 펼치는 공동체 공연예술이에요.",
+          "story": "마을 행사와 의례, 농사철, 공동체 모금 같은 여러 자리에서 연행됐고 지역마다 장단과 구성, 복식에 차이가 있어요."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "UNESCO Nongak, community band music, dance and rituals in the Republic of Korea",
+          "url": "https://ich.unesco.org/en/RL/nongak-community-band-music-dance-and-rituals-in-the-republic-of-korea-00717"
+        }
+      ]
+    },
+    {
+      "termId": "sunbae_hubae",
+      "ko": "선배·후배",
+      "romanization": "Sunbae · Hubae",
+      "localizations": {
+        "ko": {
+          "meaning": "선배와 후배는 같은 학교·단체·분야에서 먼저 들어온 사람과 나중에 들어온 사람의 관계를 나타내는 말이에요.",
+          "story": "학교·동아리·직장 등에서 쓰이지만 실제 호칭은 집단마다 달라요. 선배라고 해서 자동으로 반말을 쓰는 규칙은 아니에요."
+        },
+        "en": {
+          "meaning": "Sunbae and hubae describe people who entered the same school, group, or field earlier or later than one another.",
+          "story": "They are used in schools, clubs, workplaces and other groups, but actual forms of address vary; being sunbae does not automatically license banmal."
+        },
+        "de": {
+          "meaning": "Sunbae und Hubae bezeichnen Personen, die derselben Schule, Gruppe oder Branche früher beziehungsweise später beigetreten sind.",
+          "story": "Die Wörter werden in Schulen, Clubs und Berufen benutzt, doch Anrede und Umgang unterscheiden sich je nach Gruppe; Sunbae erlaubt nicht automatisch Banmal."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "한국어기초사전 선배",
+          "url": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=66306"
+        },
+        {
+          "title": "한국어기초사전 후배",
+          "url": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=73247"
+        }
+      ]
+    },
+    {
+      "termId": "jondaetmal_banmal",
+      "ko": "존댓말·반말",
+      "romanization": "Jondaetmal · Banmal",
+      "localizations": {
+        "ko": {
+          "meaning": "존댓말은 상대를 높여 말하는 방식이고, 반말은 가까운 관계 등에서 격식을 덜 갖춰 말하는 방식이에요.",
+          "story": "말투는 나이 하나만으로 정해지지 않아요. 처음 만난 사람에게 바로 반말을 쓰면 부담스러울 수 있어 관계와 상황을 보고 조정해요."
+        },
+        "en": {
+          "meaning": "Jondaetmal is respectful speech, while banmal is less formal speech used in close relationships and some other familiar contexts.",
+          "story": "Speech style is not decided by age alone. Using banmal immediately with someone new can feel uncomfortable, so speakers adjust to relationship and context."
+        },
+        "de": {
+          "meaning": "Jondaetmal ist respektvolle Redeweise; Banmal ist eine weniger formelle Sprechweise für enge oder andere vertraute Beziehungen.",
+          "story": "Die Sprechweise hängt nicht nur vom Alter ab. Direkt beim ersten Treffen Banmal zu benutzen kann unangenehm wirken, daher zählen Beziehung und Situation."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "한국어기초사전 존댓말",
+          "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=24607"
+        },
+        {
+          "title": "한국어기초사전 반말",
+          "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=15843"
+        }
+      ]
+    },
+    {
+      "termId": "hoesik",
+      "ko": "회식",
+      "romanization": "Hoesik",
+      "localizations": {
+        "ko": {
+          "meaning": "회식은 모임이나 조직에 속한 사람들이 함께 모여 음식을 먹는 자리예요.",
+          "story": "직장 회식도 있지만 참석 방식과 분위기는 조직마다 달라요. 한글소리에서는 일정과 귀가 시간, 참여 범위를 말하는 실제 상황으로 다뤄요."
+        },
+        "en": {
+          "meaning": "Hoesik is a group meal where people from the same organization or group gather to eat together.",
+          "story": "Workplace hoesik is common, but attendance and atmosphere vary by organization. Hangul Sori treats it through practical plans, timing and personal boundaries."
+        },
+        "de": {
+          "meaning": "Hoesik ist ein gemeinsames Essen, bei dem sich Mitglieder derselben Gruppe oder Organisation treffen.",
+          "story": "Hoesik gibt es oft im Arbeitsleben, doch Teilnahme und Atmosphäre unterscheiden sich je nach Organisation. Hangul Sori behandelt praktische Planung und Grenzen."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "한국어기초사전 회식",
+          "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=88144"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,106 @@
+﻿id,korean,current,estimate,delta,pack_id,topic,german,english,example_korean,blocked_by,reason
+vocab_b1_0059,댓글,b1,c1,2,b1_tech_society_1,Technologie,Kommentar (online),comment (online),제 댓글에 답장 달아 주셔서 감사해요.,satz_ref+can_do_ref,over2
+vocab_b1_0071,마감,b1,c1,2,b1_work,Beruf,Deadline / Abgabefrist,deadline,마감이 이번 주 금요일이에요.,satz_ref+can_do_ref,over2
+vocab_b1_0078,명상,b1,c1,2,b1_health_education,Gesundheit,Meditation,meditation,매일 아침 10분씩 명상해요.,satz_ref+can_do_ref,over2
+vocab_b1_0079,식단,b1,c2,3,b1_health_education,Gesundheit,Ernährungsplan,meal plan / diet,요즘 식단 관리를 좀 하고 있어요.,satz_ref+can_do_ref,over2
+vocab_b1_0116,광장,b1,c1,2,b1_city_places_1,Stadt & Orte,Platz,plaza,광장에 사람이 많아요.,satz_ref+can_do_ref,over2
+vocab_b1_0124,면세점,b1,c1,2,b1_city_places_1,Stadt & Orte,Duty-free-Laden,duty-free shop,공항 면세점에서 화장품을 샀어요.,satz_ref+can_do_ref,over2
+vocab_b1_0167,신입사원,b1,c1,2,b1_work_career_1,Karriere & Büro,neue Mitarbeiterin oder neuer Mitarbeiter,new employee,신입사원 교육이 있어요.,satz_ref+can_do_ref,over2 src=compound
+vocab_b1_0258,중개인,b1,c1,2,b1_housing_contract_1,Wohnen & Vertrag,Makler oder Maklerin,real estate agent,중개인에게 계약 조건을 자세히 설명해 달라고 했어요.,satz_ref+can_do_ref,over2
+vocab_b1_0262,우선순위,b1,c2,3,b1_work_coordination_1,Arbeitskoordination & Termine,Priorität,priority,마감일이 가까운 업무의 우선순위를 먼저 정했어요.,satz_ref+can_do_ref,over2
+vocab_b1_0265,지연되다,b1,c1,2,b1_work_coordination_1,Arbeitskoordination & Termine,sich verzögern,to be delayed,자료가 늦게 도착해서 회의 시작이 20분 지연됐어요.,satz_ref+can_do_ref,over2
+vocab_b1_0266,업무 분담,b1,c2,3,b1_work_coordination_1,Arbeitskoordination & Termine,Aufgabenverteilung,division of tasks,회의 전에 업무 분담을 정해서 각자 맡을 일을 확인했어요.,satz_ref+can_do_ref,over2
+vocab_b1_0267,마감일,b1,c1,2,b1_work_coordination_1,Arbeitskoordination & Termine,Abgabefrist,deadline,이 보고서의 마감일은 다음 주 금요일이에요.,satz_ref+can_do_ref,over2
+vocab_b1_0285,계약직,b1,c1,2,b1_partner_job_visa_1,Partnerschaft & koreanische Familie,befristete Stelle,fixed-term contract,계약직이라고 하니 안정적이냐는 질문이 바로 나왔어요.,satz_ref+can_do_ref,over2 src=compound
+vocab_b1_0286,원격 근무,b1,c2,3,b1_partner_job_visa_1,Partnerschaft & koreanische Familie,Homeoffice,remote work,원격 근무라 명절에도 노트북을 가져왔어요.,satz_ref+can_do_ref,over2
+vocab_b1_0287,이직 생각,b1,c1,2,b1_partner_job_visa_1,Partnerschaft & koreanische Familie,Jobwechselgedanke,thought of changing jobs,이직 생각이 있냐고 묻기에 좋은 기회가 생기면 알아보겠다고 했어요.,satz_ref+can_do_ref,over2
+vocab_b1_0288,체류 기간,b1,c1,2,b1_partner_job_visa_1,Partnerschaft & koreanische Familie,Aufenthaltsdauer,length of stay,체류 기간을 묻길래 내년까지 연장할 계획이라고 했어요.,satz_ref+can_do_ref,over2
+vocab_b1_0295,안정적으로,b1,c1,2,b1_partner_job_visa_1,Partnerschaft & koreanische Familie,"geregelt, stabil",in a stable way,새 직장에서 안정적으로 지내려면 근무 조건을 먼저 확인하고 싶어요.,satz_ref+can_do_ref,over2
+vocab_b1_0317,취중진담,b1,c2,3,b1_partner_drink_table_1,Partnerschaft & koreanische Familie,Wahrheit im Rausch,drunk honesty,식사 자리에서 나온 취중진담을 다음 날 다시 확인했어요.,satz_ref+can_do_ref,over2 src=compound
+vocab_b1_0332,방문 후기,b1,c1,2,b1_partner_after_visit_1,Partnerschaft & koreanische Familie,wie der Besuch war,talking it over after,차 안에서 방문 후기를 솔직하게 나눴어요.,satz_ref+can_do_ref,over2
+vocab_b1_0349,단체 호출,b1,c1,2,b1_partner_group_chat_1,Partnerschaft & koreanische Familie,Gruppenerwähnung,group mention,단체 호출은 급한 공지만 쓰라고 현우가 말렸어요.,satz_ref+can_do_ref,over2
+vocab_b1_0350,이모티콘 과다,b1,c2,3,b1_partner_group_chat_1,Partnerschaft & koreanische Familie,zu viele Sticker,too many stickers,이모티콘 과다는 삼촌이 못 읽는다고 해서 줄였어요.,satz_ref+can_do_ref,over2
+vocab_b1_0351,존댓말 채팅,b1,c1,2,b1_partner_group_chat_1,Partnerschaft & koreanische Familie,höflicher Chat,honorific chat,존댓말 채팅을 유지하니 이모가 좋아하셨어요.,satz_ref+can_do_ref,over2
+vocab_b1_0353,공백만 보내다,b1,c2,3,b1_partner_group_chat_1,Partnerschaft & koreanische Familie,nur ein Leerzeichen senden,to send only a space,할 말이 없어도 공백만 보내진 않았어요.,satz_ref+can_do_ref,over2
+vocab_b1_0363,선물 분배,b1,c2,3,b1_partner_holiday_plan_1,Partnerschaft & koreanische Familie,Geschenkverteilung,gift split,선물 분배를 고민하다가 각 집에 같은 과일 상자를 준비했어요.,satz_ref+can_do_ref,over2
+vocab_b1_0366,일정표 공유,b1,c1,2,b1_partner_holiday_plan_1,Partnerschaft & koreanische Familie,den Plan teilen,sharing the schedule,일정표 공유를 하니 양쪽 잔소리가 줄었어요.,satz_ref+can_do_ref,over2
+vocab_b1_0376,후속 메일,b1,c2,3,b1_workplace_mail_1,Dienstmail,Folgmail,follow-up mail,답장이 없어서 후속 메일을 짧게 보냈어요.,satz_ref+can_do_ref,over2
+vocab_b1_0377,내부망,b1,c2,3,b1_workplace_mail_1,Dienstmail,Intranet,intranet,양식은 내부망에서만 내려받아요.,satz_ref+can_do_ref,over2 src=compound
+vocab_b1_0380,공용 선반,b1,c1,2,b1_roommate_talk_1,WG-Gespräch,gemeinsames Regal,shared shelf,공용 선반에는 이름 스티커를 붙여요.,satz_ref+can_do_ref,over2
+vocab_b1_0394,자기부담금,b1,c2,3,b1_insurance_claim_1,Versicherungsfall,Selbstbeteiligung,deductible,자기부담금이 오만 원이라 수리를 다시 계산해요.,satz_ref+can_do_ref,over2 src=compound
+vocab_b1_0398,청구 서류,b1,c1,2,b1_insurance_claim_1,Versicherungsfall,Antragsunterlagen,claim documents,청구 서류가 하나 빠져서 보완했어요.,satz_ref+can_do_ref,over2
+vocab_b1_0401,사고 경위,b1,c1,2,b1_insurance_claim_1,Versicherungsfall,Hergang,incident account,사고 경위를 시간 순으로 적었어요.,satz_ref+can_do_ref,over2
+vocab_b1_0403,지급 보류,b1,c2,3,b1_insurance_claim_1,Versicherungsfall,Auszahlungsstopp,held payout,사진이 흐려서 지급 보류가 됐어요.,satz_ref+can_do_ref,over2
+vocab_b1_0424,물품 점검,b1,c1,2,b1_volunteer_shift_1,Ehrenamtsschicht,Materialkontrolle,supply check,시작 전에 물품 점검을 둘이서 해요.,satz_ref+can_do_ref,over2
+vocab_b1_0436,준비물 분담,b1,c2,3,b1_parent_school_1,Elterngespräch,wer was mitbringt,who brings what,준비물 분담표를 반 단톡에 올렸어요.,satz_ref+can_do_ref,over2
+vocab_b1_0443,무상 기간,b1,c1,2,b1_repair_words_1,Reparaturwortschatz,Garantiezeit,warranty period,무상 기간이 일주일 남아 있어요.,satz_ref+can_do_ref,over2
+vocab_b1_0446,임시 조치,b1,c2,3,b1_repair_words_1,Reparaturwortschatz,Notlösung,temporary fix,물이 새서 임시 조치로 밸브를 잠갔어요.,satz_ref+can_do_ref,over2
+vocab_b1_0448,설치 오류,b1,c1,2,b1_repair_words_1,Reparaturwortschatz,Montagefehler,install error,설치 오류인지 사용 문제인지 구분해 주세요.,satz_ref+can_do_ref,over2
+vocab_b1_0454,수수료 면제,b1,c1,2,b1_travel_change_1,Reiseänderung,Gebührenerlass,fee waiver,천재지변이면 수수료 면제가 가능하대요.,satz_ref+can_do_ref,over2
+vocab_b1_0457,탑승 마감,b1,c1,2,b1_travel_change_1,Reiseänderung,Check-in-Schluss,boarding cutoff,탑승 마감 삼십 분 전에는 탑승구에 있어야 해요.,satz_ref+can_do_ref,over2
+vocab_b1_0459,좌석 재배정,b1,c1,2,b1_travel_change_1,Reiseänderung,Neuzuweisung,reseating,좌석 재배정 문자가 출발 한 시간 전에 왔어요.,satz_ref+can_do_ref,over2 src=compound
+vocab_b1_0461,출발 지연,b1,c1,2,b1_travel_change_1,Reiseänderung,Abfahrtsverzug,departure delay,출발 지연이 한 시간을 넘으면 안내가 나와요.,satz_ref+can_do_ref,over2
+vocab_b1_0463,확정 대기,b1,c1,2,b1_travel_change_1,Reiseänderung,Warteliste,waitlist hold,확정 대기 상태라 저녁에 다시 확인해요.,satz_ref+can_do_ref,over2
+vocab_b1_0466,대안을 찾다,b1,c1,2,b1_work_softening_1,직장 소통,eine Alternative finden,find an alternative,예산 안에서 가능한 대안을 찾아볼게요.,can_do_ref,over2
+vocab_b1_0468,채용 공고,b1,c1,2,b1_work_entry_2026_1,취업과 근무 조건,Stellenanzeige,job posting,채용 공고에서 근무 시간과 업무를 확인했어요.,can_do_ref,over2
+vocab_b1_0474,체류 자격,b1,c1,2,b1_work_entry_2026_1,취업과 근무 조건,Aufenthaltsstatus,residence status,담당자에게 업무와 체류 자격의 관계를 문의했어요.,satz_ref+can_do_ref,over2
+vocab_b1_0477,업무 인수인계,b1,c2,3,b1_work_entry_2026_1,취업과 근무 조건,Arbeitsübergabe,work handover,휴가 전에 업무 인수인계 내용을 문서로 남겼어요.,satz_ref+can_do_ref,over2 src=compound
+vocab_b2_0011,맥락,b2,c2,2,b2_thinking_1,Denken,Kontext / Zusammenhang,context,발언의 맥락을 이해하려면 바로 앞에 나온 질문도 함께 읽어야 한다.,satz_ref+can_do_ref,over2
+vocab_b2_0029,추상적이다,b2,c2,2,b2_thinking_2,Denken,abstrakt sein,to be abstract,설명이 좀 추상적이지 않았어요?,satz_ref+can_do_ref,over2
+vocab_b2_0033,협상,b2,c2,2,b2_work,Beruf,Verhandlung,negotiation,이번 협상이 생각보다 잘 풀렸어요.,satz_ref+can_do_ref,over2
+vocab_b2_0038,생산성,b2,c2,2,b2_work,Beruf,Produktivität,productivity,재택근무가 생산성에 미친 영향은 직무와 평가 방식에 따라 다르게 나타날 수 있다.,satz_ref+can_do_ref,over2
+vocab_b2_0049,인권,b2,c2,2,b2_society_2,Gesellschaft,Menschenrechte,human rights,보고서는 공공 안전을 위한 조치에서도 인권에 미치는 영향을 검토해야 한다고 강조한다.,satz_ref+can_do_ref,over2
+vocab_b2_0051,강점,b2,c2,2,b2_work,Beruf,Stärke,strength,본인의 강점이 뭐라고 생각하세요?,satz_ref+can_do_ref,over2
+vocab_b2_0057,잠재력,b2,c2,2,b2_misc,Beschreibung,Potenzial,potential,이 팀의 잠재력이 무궁무진해요.,satz_ref+can_do_ref,over2
+vocab_b2_0066,가설,b2,c2,2,b2_thinking_2,Denken,Hypothese,hypothesis,연구진은 통근 시간이 짧을수록 직무 만족도가 높을 것이라는 가설을 세웠다.,satz_ref+can_do_ref,over2
+vocab_b2_0071,모호하다,b2,c2,2,b2_communication,Kommunikation,vage / unklar sein,to be vague / unclear,답변이 좀 모호하시네요.,satz_ref+can_do_ref,over2
+vocab_b2_0080,폐기물,b2,c2,2,b2_environment_1,Umwelt,Abfall,waste,폐기물 처리 비용을 계산할 때는 수거와 재활용에 드는 비용도 포함했다.,satz_ref+can_do_ref,over2
+vocab_b2_0082,온실가스,b2,c2,2,b2_environment_1,Umwelt,Treibhausgas,greenhouse gas,온실가스 감축 효과를 비교하려면 배출량을 계산한 범위를 먼저 확인해야 한다.,satz_ref+can_do_ref,over2
+vocab_b2_0210,당사자,b2,c2,2,b2_formal_agreement_1,Formelle Vereinbarungen,Vertragspartei,contracting party,모든 당사자가 서명한 뒤에 절차를 진행하겠습니다.,satz_ref+can_do_ref,over2
+vocab_b2_0211,효력,b2,c2,2,b2_formal_agreement_1,Formelle Vereinbarungen,Gültigkeit,legal effect,서명 이후에야 합의서가 효력을 갖습니다.,satz_ref+can_do_ref,over2
+vocab_b2_0218,결함,b2,c2,2,b2_formal_complaint_1,Formelle Beschwerde & Abhilfe,Mangel,defect,제품의 결함이 확인되면 즉시 교환 절차를 안내해 드리겠습니다.,satz_ref+can_do_ref,over2
+vocab_b2_0220,시정하다,b2,c2,2,b2_formal_complaint_1,Formelle Beschwerde & Abhilfe,korrigieren,to correct,같은 문제가 반복되지 않도록 절차상의 문제를 시정하겠습니다.,satz_ref+can_do_ref,over2
+vocab_b2_0225,이의 제기,b2,c2,2,b2_formal_complaint_1,Formelle Beschwerde & Abhilfe,Einspruch,objection,결과에 대한 이의 제기는 안내된 기한 안에 제출해 주시기 바랍니다.,satz_ref+can_do_ref,over2
+vocab_b2_0227,조치,b2,c2,2,b2_formal_complaint_1,Formelle Beschwerde & Abhilfe,Maßnahme,corrective action,확인된 결함에 대해 필요한 조치를 이미 취했습니다.,satz_ref+can_do_ref,over2
+vocab_b2_0235,이견,b2,c2,2,b2_decisions_perspectives_1,Entscheidungen & Perspektiven,abweichende Meinung,differing opinion,회의에서는 비용보다 안전을 우선해야 한다는 이견이 제기됐어요.,satz_ref+can_do_ref,over2
+vocab_b2_0238,결단,b2,c2,2,b2_decisions_perspectives_1,Entscheidungen & Perspektiven,Entschluss,firm decision,정보가 충분하지 않아도 어느 순간에는 결단을 내려야 할 때가 있어요.,satz_ref+can_do_ref,over2
+vocab_b2_0239,소신,b2,c2,2,b2_decisions_perspectives_1,Entscheidungen & Perspektiven,eigene Überzeugung,personal conviction,모두가 반대해도 자신의 소신을 차분히 설명했어요.,satz_ref+can_do_ref,over2
+vocab_b2_0242,함축,b2,c2,2,b2_reading_response_1,Lesen & Reaktionen,implizite Bedeutung,implication,작가는 직접 말하지 않고 한 장면에 여러 감정을 함축했어요.,satz_ref+can_do_ref,over2
+vocab_b2_0253,어감,b2,c2,2,b2_language_society_1,Sprache & Gesellschaft,sprachliche Wirkung,connotation,같은 뜻이라도 '부탁'과 '요구'는 어감이 달라요.,satz_ref+can_do_ref,over2
+vocab_b2_0255,용례,b2,c2,2,b2_language_society_1,Sprache & Gesellschaft,Verwendungsbeispiel,usage example,사전의 용례를 보면 이 표현이 어떤 상황에서 쓰이는지 알 수 있어요.,satz_ref+can_do_ref,over2
+vocab_b2_0258,비속어,b2,c2,2,b2_language_society_1,Sprache & Gesellschaft,derbe / vulgäre Sprache,vulgar language,비속어는 가까운 사이에서도 상대에 따라 무례하게 들릴 수 있어요.,satz_ref+can_do_ref,over2
+vocab_b2_0266,우선순위를 조정하다,b2,c2,2,b2_collaborative_feedback_1,Teamarbeit & Feedback,Prioritäten neu ordnen,to reprioritize,급한 요청이 들어와서 오늘 할 일의 우선순위를 조금 조정했어요.,satz_ref+can_do_ref,over2
+vocab_b2_0276,후속 조치를 정하다,b2,c2,2,b2_collaborative_feedback_1,Teamarbeit & Feedback,nächste Schritte festlegen,to decide on follow-up actions,회의가 끝나기 전에 담당자와 후속 조치를 정해 두죠.,satz_ref+can_do_ref,over2
+vocab_b2_0279,맥락이 빠지다,b2,c2,2,b2_digital_judgment_1,Digitale Aufmerksamkeit,aus dem Zusammenhang gerissen sein,to lose context,짧게 잘린 영상에서는 앞뒤 맥락이 빠져 뜻이 달라 보일 수 있어요.,satz_ref+can_do_ref,over2
+vocab_b2_0411,서정적이다,b2,c2,2,b2_literature_emotion,Literatur und Gefühle,lyrisch / gefühlvoll,lyrical,이 시는 일상의 풍경을 서정적으로 묘사해 인물의 그리움을 드러낸다.,satz_ref+can_do_ref,over2
+vocab_b2_0423,소멸하다,b2,c2,2,b2_language_change,Sprache und Wandel,aussterben / verschwinden,die out,옛날 말이 점점 소멸하고 있다.,satz_ref+can_do_ref,over2
+vocab_b2_0470,재배,b2,c2,2,b2_partner_ancestral_rite_1,Partnerschaft & koreanische Familie,doppelte Verbeugung,double ritual bow,제사 전에 남편이 거실에서 재배하는 자세를 보여 줬어요.,satz_ref+can_do_ref,over2
+vocab_b2_0483,생활비 분담,b2,c2,2,b2_partner_family_money_1,Partnerschaft & koreanische Familie,Teilung der Lebenshaltungskosten,sharing living costs,생활비 분담은 가족 앞에서 자세히 말하지 않았어요.,satz_ref+can_do_ref,over2
+vocab_b2_0507,타협안,b2,c2,2,b2_partner_boundary_1,Partnerschaft & koreanische Familie,Kompromissvorschlag,compromise offer,요청을 그대로 받아들이기는 어려워 가능한 타협안을 제시했어요.,satz_ref+can_do_ref,over2 src=compound
+vocab_b2_0531,역량 기술,b2,c2,2,b2_performance_review_1,Beurteilung,Kompetenzbeschreibung,skill description,역량 기술을 할 때는 '꼼꼼하다'는 말보다 실제로 문제를 해결한 사례를 제시했어요.,satz_ref+can_do_ref,over2
+vocab_b2_0535,강점 서술,b2,c2,2,b2_performance_review_1,Beurteilung,Darstellung der eigenen Stärken,description of strengths,강점 서술에는 제 역할이 팀의 결과에 어떻게 기여했는지 포함했어요.,satz_ref+can_do_ref,over2
+vocab_b2_0540,원상복구,b2,c2,2,b2_housing_dispute_1,Wohnstreit,Wiederherstellung des ursprünglichen Zustands,restoration to the original condition,퇴거 때 필요한 원상복구 범위를 계약서와 대조했어요.,satz_ref+can_do_ref,over2 src=compound
+vocab_b2_0546,비용 분담,b2,c2,2,b2_housing_dispute_1,Wohnstreit,Kostenteilung,cost share,공용 공간의 비용 분담 비율을 관리 규약에서 확인했어요.,satz_ref+can_do_ref,over2
+vocab_b2_0547,퇴거 통보,b2,c2,2,b2_housing_dispute_1,Wohnstreit,Räumungsankündigung,vacate notice,퇴거 통보를 받고 나서 제시된 기한의 근거를 확인했어요.,satz_ref+can_do_ref,over2
+vocab_b2_0549,분쟁 조항,b2,c2,2,b2_housing_dispute_1,Wohnstreit,Streitklausel,dispute clause,분쟁 조항에 관할 기관이 명시되어 있어요.,satz_ref+can_do_ref,over2
+vocab_b2_0555,인용 맥락,b2,c2,2,b2_media_literacy_1,Medienkompetenz,Kontext eines Zitats,quotation context,인용 맥락을 파악하려면 해당 문장 앞뒤의 설명도 읽어야 한다.,satz_ref+can_do_ref,over2
+vocab_b2_0557,익명 제보,b2,c2,2,b2_media_literacy_1,Medienkompetenz,anonyme Meldung,anonymous tip,편집진은 익명 제보의 내용을 다른 자료와 대조한 뒤 기사에 반영했다.,satz_ref+can_do_ref,over2
+vocab_b2_0562,공유 보류,b2,c2,2,b2_media_literacy_1,Medienkompetenz,vorläufiger Verzicht auf das Teilen,holding off on sharing,확인되지 않은 소식은 공유 보류를 원칙으로 삼았다.,satz_ref+can_do_ref,over2
+vocab_b2_0564,안건 순서,b2,c2,2,b2_civic_meeting_1,Bürgerversammlung,Reihenfolge der Tagesordnungspunkte,agenda order,안건 순서가 바뀌어서 발표 자료의 순서도 조정했어요.,satz_ref+can_do_ref,over2
+vocab_b2_0573,공개 질의,b2,c2,2,b2_civic_meeting_1,Bürgerversammlung,öffentliche Nachfrage,public question,공개 질의는 개인 비난 없이 사실만 물어요.,satz_ref+can_do_ref,over2
+vocab_b2_0574,후속 공지,b2,c2,2,b2_civic_meeting_1,Bürgerversammlung,Folgebekanntgabe,follow-up notice,후속 공지에 일정과 담당 부서를 같이 적어요.,satz_ref+can_do_ref,over2
+vocab_b2_0580,결정 권한,b2,c2,2,b2_team_negotiation_1,Teamverhandlung,Entscheidungsbefugnis,decision-making authority,제 결정 권한을 넘는 안건은 확인 후 답하겠다고 했어요.,satz_ref+can_do_ref,over2
+vocab_b2_0584,보류 사유,b2,c2,2,b2_team_negotiation_1,Teamverhandlung,Grund für die Vertagung,reason for postponement,자료 부족이 보류 사유여서 다시 논의할 날짜를 함께 정했어요.,satz_ref+can_do_ref,over2
+vocab_b2_0585,상호 양보,b2,c2,2,b2_team_negotiation_1,Teamverhandlung,wechselseitiges Nachgeben,mutual concession,상호 양보가 이루어지도록 양쪽이 바꿀 수 있는 조건을 각각 제시했어요.,satz_ref+can_do_ref,over2
+vocab_b2_0593,측정 지표,b2,c2,2,b2_policy_brief_1,Kurzlage,Messgröße,metric,측정 지표가 모호하면 사업의 성공 여부를 판단하기 어렵다.,satz_ref+can_do_ref,over2
+vocab_b2_0594,권고 문장,b2,c2,2,b2_policy_brief_1,Kurzlage,Empfehlungssatz,recommendation line,권고 문장에는 제안한 조치와 그 조치가 필요한 조건을 함께 적었다.,satz_ref+can_do_ref,over2
+vocab_b2_0599,상위 담당자,b2,c2,2,b2_customer_escalation_1,Eskalation,übergeordnete zuständige Person,more senior staff member,처리가 계속 지연되어 상위 담당자에게 문의를 전달해 달라고 요청했어요.,satz_ref+can_do_ref,over2
+vocab_b2_0601,약속 불이행,b2,c2,2,b2_customer_escalation_1,Eskalation,Nichteinhaltung einer Zusage,failure to keep a promise,약속 불이행이 발생한 날짜와 약속한 내용을 표로 정리했어요.,satz_ref+can_do_ref,over2 src=compound
+vocab_b2_0602,보상 한도,b2,c2,2,b2_customer_escalation_1,Eskalation,Entschädigungsobergrenze,compensation limit,보상 한도를 먼저 밝히면 기대치를 맞출 수 있어요.,satz_ref+can_do_ref,over2
+vocab_b2_0610,종결 확인,b2,c2,2,b2_customer_escalation_1,Eskalation,Bestätigung des Abschlusses,confirmation of closure,서면으로 종결 확인을 받은 뒤 문의 내역을 보관했어요.,satz_ref+can_do_ref,over2
+vocab_b2_0612,표본 크기,b2,c2,2,b2_research_summary_1,Kurzreferat,Stichprobenumfang,sample size,표본 크기가 작으면 일반화할 때 단정적인 표현을 피해요.,satz_ref+can_do_ref,over2
+vocab_b2_0621,후속 조사,b2,c2,2,b2_research_summary_1,Kurzreferat,Folgeuntersuchung,follow-up study,이번 조사에서 확인하지 못한 장기 효과는 후속 조사에서 살펴보기로 했다.,satz_ref+can_do_ref,over2
+vocab_b2_0624,임대료 인상,b2,c2,2,b2_2026_social_topics_1,Gesellschaft & Alltag 2026,Mieterhöhung,rent increase,임대료 인상 통보를 받으면 적용 날짜와 근거부터 확인하세요.,satz_ref+can_do_ref,over2
+vocab_b2_0636,임대료,b2,c2,2,b2_housing_migration_2026_1,주거비와 사회 통합,Miete,rent,임대료 인상 통지에 계산 근거가 빠져 있었습니다.,can_do_ref,over2
+vocab_b2_0637,실질 소득,b2,c2,2,b2_housing_migration_2026_1,주거비와 사회 통합,Realeinkommen,real income,물가를 반영하면 실질 소득의 변화가 다르게 보입니다.,can_do_ref,over2
+vocab_b2_0643,이주 배경,b2,c2,2,b2_housing_migration_2026_1,주거비와 사회 통합,Migrationsgeschichte,migration background,이주 배경이 있다는 이유만으로 지원이 필요하다고 단정할 수 없습니다.,satz_ref+can_do_ref,over2

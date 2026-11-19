@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "links": [
+    {
+      "scenarioId": "b1_dongsun_norigae_shop_post",
+      "termIds": [
+        "norigae",
+        "maedeup"
+      ]
+    },
+    {
+      "scenarioId": "b1_byeongcheol_hwaseong_memory_check",
+      "termIds": [
+        "suwon_hwaseong"
+      ]
+    },
+    {
+      "scenarioId": "a2_jun_hwaseong_school_slide",
+      "termIds": [
+        "suwon_hwaseong"
+      ]
+    },
+    {
+      "scenarioId": "c1_maya_hyuna_daniel_talchum_shortform",
+      "termIds": [
+        "talchum"
+      ]
+    },
+    {
+      "scenarioId": "b2_daniel_hyuna_hanji_filming_scope",
+      "termIds": [
+        "hanji"
+      ]
+    }
+  ]
+}

@@ -132,6 +132,20 @@ SURFACES: tuple[ContentSurface, ...] = (
         "KO/DE/EN cultural mediation",
     ),
     ContentSurface(
+        "culture_story_arcs.json",
+        "culture story arcs",
+        "CultureStoryArcRepository / CultureStoriesScreen",
+        ("arcs",),
+        "KO/DE/EN story titles and descriptions; discovery is derived from scenario evidence",
+    ),
+    ContentSurface(
+        "scenario_culture_links.json",
+        "scenario culture references",
+        "ScenarioCultureLinkRepository / ScenarioCultureCard",
+        ("links",),
+        "Scenario and glossary identifiers; no learner prose or progress rules",
+    ),
+    ContentSurface(
         "curriculum_manifest.json",
         "curriculum graph",
         "CurriculumCatalog",

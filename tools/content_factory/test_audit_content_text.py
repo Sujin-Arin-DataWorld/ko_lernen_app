@@ -51,8 +51,9 @@ class ContentTextAuditTest(unittest.TestCase):
             self.assertEqual(decision["copyReviewStatus"], "nativeReviewRequired")
             self.assertEqual(
                 decision["copyRevisionLedger"],
-                LEDGER_REF if record_id in revisions() else
-                "tools/content_factory/review/content_humanization_20260821.json",
+                revisions()[record_id].get("_successorLedgerRef", LEDGER_REF)
+                if record_id in revisions()
+                else "tools/content_factory/review/content_humanization_20260821.json",
             )
 
     def test_smalltalk_known_machine_like_copy_is_humanized_across_a1_to_c2(self) -> None:

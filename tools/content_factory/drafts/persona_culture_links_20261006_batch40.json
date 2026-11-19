@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "links": [
+    {
+      "scenarioId": "b1_jun_coding_club_speech_switch",
+      "termIds": [
+        "sunbae_hubae",
+        "jondaetmal_banmal"
+      ]
+    },
+    {
+      "scenarioId": "b1_minho_coworker_hoesik_leave_early",
+      "termIds": [
+        "hoesik"
+      ]
+    },
+    {
+      "scenarioId": "a2_dongsun_christian_maehwa_gift",
+      "termIds": [
+        "maehwa"
+      ]
+    },
+    {
+      "scenarioId": "b1_dongsun_customer_maedeup_repair",
+      "termIds": [
+        "maedeup"
+      ]
+    },
+    {
+      "scenarioId": "b1_byeongcheol_hyuna_daecheong_rest",
+      "termIds": [
+        "daecheong"
+      ]
+    }
+  ]
+}

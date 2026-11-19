@@ -1,0 +1,47 @@
+id	level	korean	pos_en	pack_id	example_korean
+vocab_a1_0254	A1	집밥	Noun	a1_partner_table_basic_1	오늘 집밥이 맛있어요.
+vocab_a1_0296	A2	인증샷	Noun	a2_partner_photo_thanks_1	인증샷은 올리지 말라고 현우가 먼저 말했어요.
+vocab_a1_0326	A2	가글액	Noun	a2_pharmacy_ask_1	가글액이 있는지 찾고 있어요.
+vocab_a1_0331	A2	제산제	Noun	a2_pharmacy_ask_1	속이 쓰려서 제산제를 샀어요.
+vocab_a2_0314	B1	단톡방	Noun	b1_partner_sibling_tease_1	단톡방에 입장하자마자 이모티콘이 쏟아졌어요.
+vocab_a2_0324	A2	코골이	Noun	a2_partner_overnight_1	옆방에서 코골이 소리가 들려서 잠을 못 잤어요.
+vocab_a2_0368	B1	약정	Noun	b1_phone_plan_1	약정이 올해 십이월에 끝나요.
+vocab_a2_0377	B1	이체하다	Verb	b1_bank_counter_1	오늘 월세를 이체하기 전에 잔고를 확인해요.
+vocab_a2_0384	B1	인감	Noun	b1_bank_counter_1	계좌를 만들 때 인감이 필요해요.
+vocab_a2_0419	B1	방문증	Noun	b1_apt_rules_1	손님은 방문증을 받아 입장해요.
+vocab_a2_0425	B1	시급	Noun	b1_part_time_1	이번 달부터 시급이 올랐어요.
+vocab_a2_0428	B1	휴게시간	Noun	b1_part_time_1	네 시간마다 휴게시간이 십오 분이에요.
+vocab_a2_0430	B1	알바생	Noun	b1_part_time_1	새 알바생에게 커피 기계를 보여 줬어요.
+vocab_a2_0431	B1	주휴수당	Noun	b1_part_time_1	일주일에 십오 시간을 일하면 주휴수당이 나와요.
+vocab_a2_0434	B1	점장	Noun	b1_part_time_1	점장에게 휴가를 미리 말했어요.
+vocab_a2_0452	B1	줄서다	Verb	b1_festival_booth_1	인기 부스는 오전에 줄서다 시작해요.
+vocab_a2_0465	B1	선납금	Noun	b1_housing_search_2026_1	선납금이 필요한지 계약 전에 물어봤어요.
+vocab_b1_0251	B1	입주하다	Verb	b1_housing_contract_1	다음 달 초에 새 아파트에 입주할 예정이에요.
+vocab_b1_0252	B1	퇴거하다	Verb	b1_housing_contract_1	계약이 끝나는 날 퇴거하기로 집주인과 합의했어요.
+vocab_b1_0260	B1	조율하다	Verb	b1_work_coordination_1	팀원들과 일정을 조율한 뒤에 회의 시간을 확정했어요.
+vocab_b1_0304	B1	오역	Noun	b1_partner_translating_1	오역을 바로잡으니 아버지가 오히려 고마워하셨어요.
+vocab_b1_0345	B1	읽씹	Noun	b1_partner_group_chat_1	읽씹이 길어질까 봐 짧게라도 답했어요.
+vocab_b1_0369	B1	숨은참조	Noun	b1_workplace_mail_1	외부 주소는 숨은참조로 넣어요.
+vocab_b1_0406	B2	접수증	Noun	b2_public_office_1	접수증 번호를 사진으로 남겨 두어요.
+vocab_b2_0206	B2	해지하다	Verb	b2_formal_agreement_1	중도에 계약을 해지하려면 위약금이 발생할 수 있어요.
+vocab_b2_0207	B2	갱신하다	Verb	b2_formal_agreement_1	조건을 확인한 뒤에 계약을 갱신하기로 했습니다.
+vocab_b2_0216	B2	유예하다	Verb	b2_formal_agreement_1	지급 기한을 한 달 유예해 주실 수 있는지 문의했습니다.
+vocab_b2_0231	B2	숙고하다	Verb	b2_decisions_perspectives_1	이번 결정에서는 빠른 결과보다 장기적인 영향을 충분히 숙고하려고 해요.
+vocab_b2_0237	B2	책무	Noun	b2_decisions_perspectives_1	관리자는 결정의 결과를 설명할 책무가 있어요.
+vocab_b2_0436	B2	시월드	Noun	b2_partner_inlaws_1	친구는 시댁에서 겪는 어려움을 농담처럼 '시월드'라고 불렀어요.
+vocab_b2_0571	B2	방청	Noun	b2_civic_meeting_1	방청만 할 때는 발언하지 않아요.
+vocab_c1_0100	C1	표집틀	Noun	c1_survey_design_1	표집틀에 등록된 가구만 조사하면 등록되지 않은 가구의 의견은 빠질 수 있다.
+vocab_c1_0173	C1	편향	Noun	c1_media_evidence_1	참가자를 모으는 방식에 편향이 있었습니다.
+vocab_c1_0213	C1	임계치	Noun	c1_intimacy_safety_1	자동 차단의 임계치를 낮추면 정상적인 표현까지 차단될 가능성이 커질 수 있다.
+vocab_c2_0040	C2	편향을 증폭하다	Verb	c2_technology_ethics_1	과거의 불균형한 기록을 그대로 학습하면 시스템이 기존 편향을 증폭할 수 있어요.
+vocab_c2_0115	C2	완곡어법	Expression	c2_authority_language_1	해고를 ‘정리’라는 완곡어법으로만 표현하면 일자리를 잃는 사람이 가려져요.
+vocab_c2_0171	C2	소명	Noun	c2_automation_redress_1	이용자에게 소명 기회를 주지 않고 내린 결정은 근거를 다시 검토할 필요가 있다.
+vocab_c2_0188	C2	항변	Noun	c2_sanction_accountability_1	제재에 대한 항변을 준비할 시간이 부족하면 당사자가 근거를 제출하기 어려울 수 있다.
+vocab_c2_0189	C2	오탐	Noun	c2_sanction_accountability_1	자동 선별의 오탐으로 게시물이 차단된 경우를 위해 재검토 절차를 마련했다.
+vocab_c2_0191	C2	귀책	Noun	c2_sanction_accountability_1	계정 정지의 귀책 사유를 설명하지 않으면 이용자가 결정에 이의를 제기하기 어려워질 수 있다.
+vocab_c2_0205	C2	담론	Noun	c2_fandom_discourse_1	연구는 온라인 팬덤의 담론이 작품의 해석뿐 아니라 어떤 비판이 받아들여지는지도 좌우한다고 분석한다.
+vocab_c2_0206	C2	결집	Noun	c2_fandom_discourse_1	비판 이후 팬들의 결집이 이루어지는 과정을 게시물과 댓글의 흐름으로 분석했다.
+vocab_c2_0210	C2	위계	Noun	c2_fandom_discourse_1	활동 기간에 따른 위계가 굳어지면서 새 참여자의 의견이 덜 반영되었다.
+vocab_c2_0217	C2	담론 프레임	Noun	c2_2026_social_topics_1	집값 문제를 개인의 선택으로만 제시하는 담론 프레임은 제도 조건을 가립니다.
+vocab_c2_0239	C2	표집 편향	Noun	c2_demography_accountability_2026_1	표집 편향이 확인되면 결과의 적용 범위를 축소해야 합니다.
+vocab_c2_0254	C2	충분조건	Noun	c2_argument_scope_1	어떤 정수가 4의 배수라는 사실은 그 정수가 짝수이기 위한 충분조건이지만 필요조건은 아니다.

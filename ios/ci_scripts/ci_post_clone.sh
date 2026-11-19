@@ -8,11 +8,11 @@
 # This script installs the pinned Flutter SDK and resolves dependencies so the
 # subsequent Xcode archive can find Flutter and the CocoaPods it generates.
 #
-# Pin matches the project (.github/workflows/ci.yml → Flutter 3.44.0).
+# Pin matches the project (.github/workflows/ci.yml → Flutter 3.47.8).
 
 set -e
 
-FLUTTER_VERSION="3.44.0"
+FLUTTER_VERSION="3.47.8"
 FLUTTERFIRE_CLI_VERSION="1.4.1"
 FLUTTER_HOME="$HOME/flutter"
 
@@ -34,13 +34,22 @@ echo "▸ flutter pub get (generates ios/Flutter/Generated.xcconfig)"
 cd "${CI_PRIMARY_REPOSITORY_PATH}"
 python3 tool/prepare_fontshare_fonts.py
 flutter pub get
+python3 tool/verify_firebase_security_patch.py
 
 echo "▸ pod install"
 cd "${CI_PRIMARY_REPOSITORY_PATH}/ios"
 POD_INSTALL_ATTEMPT=1
 POD_INSTALL_MAX_ATTEMPTS=5
+install_patched_pods() {
+  if grep -Fq '  - FirebaseFirestore (12.19.3):' Podfile.lock; then
+    pod install
+  else
+    # Refresh Firebase and its dependency closure when migrating the old lock.
+    pod update Firebase FirebaseFirestore firebase_core cloud_firestore firebase_auth firebase_analytics firebase_app_check --repo-update
+  fi
+}
 while [ "${POD_INSTALL_ATTEMPT}" -le "${POD_INSTALL_MAX_ATTEMPTS}" ]; do
-  if pod install; then
+  if install_patched_pods; then
     break
   fi
 
@@ -63,6 +72,7 @@ echo "Preparing Rive Native iOS libraries"
 # Xcode's [CP-User] phase reads. Without that marker, the upstream phase runs
 # Dart from ios/Pods and cannot locate the app pubspec.
 cd "${CI_PRIMARY_REPOSITORY_PATH}"
+python3 tool/verify_firebase_security_patch.py --ios-lock
 dart run rive_native:setup --verbose --clean --platform ios
 
 RIVE_NATIVE_IOS_ROOT="${CI_PRIMARY_REPOSITORY_PATH}/ios/.symlinks/plugins/rive_native"

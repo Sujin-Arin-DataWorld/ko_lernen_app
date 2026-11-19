@@ -305,7 +305,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
         with:
-          flutter-version: 3.44.0
+          flutter-version: 3.47.8
           channel: stable
           cache: true
 
@@ -313,7 +313,12 @@ jobs:
         run: python3 tool/prepare_fontshare_fonts.py
 
       - name: Install dependencies
-        run: flutter pub get
+        run: |
+          flutter pub get
+          python3 tool/verify_firebase_security_patch.py
+
+      - name: Test security version guard
+        run: python3 -m unittest discover -s tool -p test_verify_firebase_security_patch.py
 
       - name: Ensure FFmpeg for matte verification
         run: |
@@ -424,6 +429,15 @@ jobs:
         run: |
           export PATH="$HOME/flutter/bin:$HOME/.pub-cache/bin:$PATH"
           flutter build ios --release --no-codesign
+      - name: Save resolved iOS security dependencies
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ios-security-dependencies
+          path: |
+            ios/Podfile.lock
+            pubspec.lock
+          retention-days: 7
 
   # Cold Intel setup and compilation can exhaust a custom job budget.
   # Use the hosted runner ceiling while retaining every native test.
@@ -668,7 +682,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
         with:
-          flutter-version: 3.44.0
+          flutter-version: 3.47.8
           channel: stable
           cache: true
 
@@ -829,6 +843,7 @@ jobs:
         run: |
           python3 tool/prepare_fontshare_fonts.py
           flutter pub get
+          python3 tool/verify_firebase_security_patch.py
           flutter gen-l10n
 
       # ENABLE_FREE_PRONUNCIATION_ASSESSMENT is a repo variable so it can be
@@ -1317,7 +1332,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
         with:
-          flutter-version: 3.44.0
+          flutter-version: 3.47.8
           channel: stable
           cache: true
 
@@ -1325,7 +1340,9 @@ jobs:
         run: python3 tool/prepare_fontshare_fonts.py
 
       - name: Install dependencies
-        run: flutter pub get
+        run: |
+          flutter pub get
+          python3 tool/verify_firebase_security_patch.py
 
       - name: Update goldens
         run: flutter test --update-goldens test/goldens

@@ -1,0 +1,412 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "reviewStatus": "PROJECT_MANAGER_REVIEWED",
+  "humanNativeQaClaim": false,
+  "entries": [
+    {
+      "vocabId": "vocab_c1_0214",
+      "level": "C1",
+      "packId": "c1_intimacy_safety_1",
+      "topic": "Sicherheit & Grenzen",
+      "before": {
+        "vocab": {
+          "korean": "신고",
+          "romanization": "singo",
+          "german": "Meldung",
+          "level": "C1",
+          "pos_de": "Nomen",
+          "example_korean": "신고 처리 기한을 안내하면 이용자가 언제 답변을 받을지 예상할 수 있다.",
+          "example_german": "Eine angegebene Bearbeitungsfrist für Meldungen hilft Nutzenden einzuschätzen, wann sie eine Antwort erhalten.",
+          "topic": "Sicherheit & Grenzen",
+          "pack_id": "c1_intimacy_safety_1",
+          "pack_order": "10",
+          "is_review_boss": "true",
+          "english": "report",
+          "pos_en": "Noun",
+          "example_english": "Stating the timeframe for handling reports helps users know when to expect a response.",
+          "id": "vocab_c1_0214"
+        },
+        "cloze": {
+          "id": "cloze_c1_0218",
+          "level": "c1",
+          "sentenceKo": "＿＿＿ 처리 기한을 안내하면 이용자가 언제 답변을 받을지 예상할 수 있다.",
+          "answer": "신고",
+          "fullKo": "신고 처리 기한을 안내하면 이용자가 언제 답변을 받을지 예상할 수 있다.",
+          "de": "Eine angegebene Bearbeitungsfrist für Meldungen hilft Nutzenden einzuschätzen, wann sie eine Antwort erhalten.",
+          "en": "Stating the timeframe for handling reports helps users know when to expect a response.",
+          "distractors": [
+            "주소",
+            "댁",
+            "업무"
+          ],
+          "topic": "Sicherheit & Grenzen"
+        },
+        "satz": {
+          "id": "satz_c1_0220",
+          "level": "c1",
+          "targetKo": "신고 처리 기한을 안내하면 이용자가 언제 답변을 받을지 예상할 수 있다.",
+          "promptDe": "Eine angegebene Bearbeitungsfrist für Meldungen hilft Nutzenden einzuschätzen, wann sie eine Antwort erhalten.",
+          "promptEn": "Stating the timeframe for handling reports helps users know when to expect a response.",
+          "distractors": [
+            "익명이",
+            "수위를"
+          ],
+          "vocabKo": "신고"
+        }
+      },
+      "after": {
+        "vocab": {
+          "korean": "호출",
+          "romanization": "hochul",
+          "german": "Ruf / Alarmierung",
+          "level": "C1",
+          "pos_de": "Nomen",
+          "example_korean": "긴급 호출 버튼은 실제 도움이 필요할 때만 눌러야 한다.",
+          "example_german": "Den Notrufknopf sollte man nur drücken, wenn tatsächlich Hilfe nötig ist.",
+          "topic": "Sicherheit & Grenzen",
+          "pack_id": "c1_intimacy_safety_1",
+          "pack_order": "10",
+          "is_review_boss": "true",
+          "english": "call / alert",
+          "pos_en": "Noun",
+          "example_english": "The emergency call button should be pressed only when help is actually needed.",
+          "id": "vocab_c1_0214"
+        },
+        "cloze": {
+          "id": "cloze_c1_0218",
+          "level": "c1",
+          "sentenceKo": "긴급 ＿＿＿ 버튼은 실제 도움이 필요할 때만 눌러야 한다.",
+          "answer": "호출",
+          "fullKo": "긴급 호출 버튼은 실제 도움이 필요할 때만 눌러야 한다.",
+          "de": "Den Notrufknopf sollte man nur drücken, wenn tatsächlich Hilfe nötig ist.",
+          "en": "The emergency call button should be pressed only when help is actually needed.",
+          "distractors": [
+            "주소",
+            "댁",
+            "업무"
+          ],
+          "topic": "Sicherheit & Grenzen"
+        },
+        "satz": {
+          "id": "satz_c1_0220",
+          "level": "c1",
+          "targetKo": "긴급 호출 버튼은 실제 도움이 필요할 때만 눌러야 한다.",
+          "promptDe": "Den Notrufknopf sollte man nur drücken, wenn tatsächlich Hilfe nötig ist.",
+          "promptEn": "The emergency call button should be pressed only when help is actually needed.",
+          "distractors": [
+            "익명이",
+            "수위를"
+          ],
+          "vocabKo": "호출"
+        }
+      },
+      "reason": "LCP C4 coverage-preserving rehome: the previous headword is already covered elsewhere in the app, while this reviewed upper-level slot restores a NIKL grade-5/6 headword removed from an intentionally simplified lower-level pack. Pack size and immutable IDs stay fixed."
+    },
+    {
+      "vocabId": "vocab_c2_0181",
+      "level": "C2",
+      "packId": "c2_sanction_accountability_1",
+      "topic": "Sanktion & Rechenschaft",
+      "before": {
+        "vocab": {
+          "korean": "제재",
+          "romanization": "jejae",
+          "german": "Sanktion",
+          "level": "C2",
+          "pos_de": "Nomen",
+          "example_korean": "제재 결정문은 위반 사실과 적용 기준을 제시했지만 처분 수위의 근거는 설명하지 않았다.",
+          "example_german": "Der Sanktionsbescheid nannte den Verstoß und die angewandten Kriterien, begründete aber nicht die Schwere der Sanktion.",
+          "topic": "Sanktion & Rechenschaft",
+          "pack_id": "c2_sanction_accountability_1",
+          "pack_order": "1",
+          "is_review_boss": "false",
+          "english": "sanction",
+          "pos_en": "Noun",
+          "example_english": "The sanction notice set out the violation and the applicable criteria but did not explain the severity of the sanction.",
+          "id": "vocab_c2_0181"
+        },
+        "cloze": {
+          "id": "cloze_c2_0185",
+          "level": "c2",
+          "sentenceKo": "＿＿＿ 결정문은 위반 사실과 적용 기준을 제시했지만 처분 수위의 근거는 설명하지 않았다.",
+          "answer": "제재",
+          "fullKo": "제재 결정문은 위반 사실과 적용 기준을 제시했지만 처분 수위의 근거는 설명하지 않았다.",
+          "de": "Der Sanktionsbescheid nannte den Verstoß und die angewandten Kriterien, begründete aber nicht die Schwere der Sanktion.",
+          "en": "The sanction notice set out the violation and the applicable criteria but did not explain the severity of the sanction.",
+          "distractors": [
+            "적발",
+            "해제",
+            "항변"
+          ],
+          "topic": "Sanktion & Rechenschaft"
+        },
+        "satz": {
+          "id": "satz_c2_0187",
+          "level": "c2",
+          "targetKo": "제재 결정문은 위반 사실과 적용 기준을 제시했지만 처분 수위의 근거는 설명하지 않았다.",
+          "promptDe": "Der Sanktionsbescheid nannte den Verstoß und die angewandten Kriterien, begründete aber nicht die Schwere der Sanktion.",
+          "promptEn": "The sanction notice set out the violation and the applicable criteria but did not explain the severity of the sanction.",
+          "distractors": [
+            "누적이",
+            "재량을"
+          ],
+          "vocabKo": "제재"
+        }
+      },
+      "after": {
+        "vocab": {
+          "korean": "과다",
+          "romanization": "gwada",
+          "german": "Übermaß / übermäßig",
+          "level": "C2",
+          "pos_de": "Nomen",
+          "example_korean": "과다 제재는 문제를 해결하기보다 반발을 키울 수 있다.",
+          "example_german": "Übermäßige Sanktionen können eher Widerstand verstärken als das Problem lösen.",
+          "topic": "Sanktion & Rechenschaft",
+          "pack_id": "c2_sanction_accountability_1",
+          "pack_order": "1",
+          "is_review_boss": "false",
+          "english": "excess / excessive",
+          "pos_en": "Noun",
+          "example_english": "Excessive sanctions can increase resistance rather than solve the problem.",
+          "id": "vocab_c2_0181"
+        },
+        "cloze": {
+          "id": "cloze_c2_0185",
+          "level": "c2",
+          "sentenceKo": "＿＿＿ 제재는 문제를 해결하기보다 반발을 키울 수 있다.",
+          "answer": "과다",
+          "fullKo": "과다 제재는 문제를 해결하기보다 반발을 키울 수 있다.",
+          "de": "Übermäßige Sanktionen können eher Widerstand verstärken als das Problem lösen.",
+          "en": "Excessive sanctions can increase resistance rather than solve the problem.",
+          "distractors": [
+            "적발",
+            "해제",
+            "항변"
+          ],
+          "topic": "Sanktion & Rechenschaft"
+        },
+        "satz": {
+          "id": "satz_c2_0187",
+          "level": "c2",
+          "targetKo": "과다 제재는 문제를 해결하기보다 반발을 키울 수 있다.",
+          "promptDe": "Übermäßige Sanktionen können eher Widerstand verstärken als das Problem lösen.",
+          "promptEn": "Excessive sanctions can increase resistance rather than solve the problem.",
+          "distractors": [
+            "누적이",
+            "재량을"
+          ],
+          "vocabKo": "과다"
+        }
+      },
+      "reason": "LCP C4 coverage-preserving rehome: the previous headword is already covered elsewhere in the app, while this reviewed upper-level slot restores a NIKL grade-5/6 headword removed from an intentionally simplified lower-level pack. Pack size and immutable IDs stay fixed."
+    },
+    {
+      "vocabId": "vocab_c2_0193",
+      "level": "C2",
+      "packId": "c2_relationship_narratives_1",
+      "topic": "Narrativ & Perspektive",
+      "before": {
+        "vocab": {
+          "korean": "서사",
+          "romanization": "seosa",
+          "german": "Narrativ",
+          "level": "C2",
+          "pos_de": "Nomen",
+          "example_korean": "소설은 이별을 겪은 두 인물의 서사를 나란히 제시해 같은 사건의 다른 해석을 보여 준다.",
+          "example_german": "Der Roman stellt die Erzählungen zweier Figuren nach ihrer Trennung nebeneinander und zeigt unterschiedliche Deutungen desselben Ereignisses.",
+          "topic": "Narrativ & Perspektive",
+          "pack_id": "c2_relationship_narratives_1",
+          "pack_order": "1",
+          "is_review_boss": "false",
+          "english": "narrative",
+          "pos_en": "Noun",
+          "example_english": "The novel presents two characters' post-breakup narratives side by side, showing different interpretations of the same event.",
+          "id": "vocab_c2_0193"
+        },
+        "cloze": {
+          "id": "cloze_c2_0197",
+          "level": "c2",
+          "sentenceKo": "소설은 이별을 겪은 두 인물의 ＿＿＿를 나란히 제시해 같은 사건의 다른 해석을 보여 준다.",
+          "answer": "서사",
+          "fullKo": "소설은 이별을 겪은 두 인물의 서사를 나란히 제시해 같은 사건의 다른 해석을 보여 준다.",
+          "de": "Der Roman stellt die Erzählungen zweier Figuren nach ihrer Trennung nebeneinander und zeigt unterschiedliche Deutungen desselben Ereignisses.",
+          "en": "The novel presents two characters' post-breakup narratives side by side, showing different interpretations of the same event.",
+          "distractors": [
+            "해제",
+            "발화",
+            "구제"
+          ],
+          "topic": "Narrativ & Perspektive"
+        },
+        "satz": {
+          "id": "satz_c2_0199",
+          "level": "c2",
+          "targetKo": "소설은 이별을 겪은 두 인물의 서사를 나란히 제시해 같은 사건의 다른 해석을 보여 준다.",
+          "promptDe": "Der Roman stellt die Erzählungen zweier Figuren nach ihrer Trennung nebeneinander und zeigt unterschiedliche Deutungen desselben Ereignisses.",
+          "promptEn": "The novel presents two characters' post-breakup narratives side by side, showing different interpretations of the same event.",
+          "distractors": [
+            "투사가",
+            "왜곡을"
+          ],
+          "vocabKo": "서사"
+        }
+      },
+      "after": {
+        "vocab": {
+          "korean": "함축",
+          "romanization": "hamchuk",
+          "german": "Implikation / Verdichtung",
+          "level": "C2",
+          "pos_de": "Nomen",
+          "example_korean": "짧은 대사의 함축을 이해하려면 앞뒤 장면을 함께 봐야 한다.",
+          "example_german": "Um die implizite Bedeutung einer kurzen Replik zu verstehen, muss man die Szenen davor und danach mitbetrachten.",
+          "topic": "Narrativ & Perspektive",
+          "pack_id": "c2_relationship_narratives_1",
+          "pack_order": "1",
+          "is_review_boss": "false",
+          "english": "implication / compression",
+          "pos_en": "Noun",
+          "example_english": "To understand the implication of a short line, you need to consider the surrounding scenes.",
+          "id": "vocab_c2_0193"
+        },
+        "cloze": {
+          "id": "cloze_c2_0197",
+          "level": "c2",
+          "sentenceKo": "짧은 대사의 ＿＿＿을 이해하려면 앞뒤 장면을 함께 봐야 한다.",
+          "answer": "함축",
+          "fullKo": "짧은 대사의 함축을 이해하려면 앞뒤 장면을 함께 봐야 한다.",
+          "de": "Um die implizite Bedeutung einer kurzen Replik zu verstehen, muss man die Szenen davor und danach mitbetrachten.",
+          "en": "To understand the implication of a short line, you need to consider the surrounding scenes.",
+          "distractors": [
+            "해제",
+            "발화",
+            "구제"
+          ],
+          "topic": "Narrativ & Perspektive"
+        },
+        "satz": {
+          "id": "satz_c2_0199",
+          "level": "c2",
+          "targetKo": "짧은 대사의 함축을 이해하려면 앞뒤 장면을 함께 봐야 한다.",
+          "promptDe": "Um die implizite Bedeutung einer kurzen Replik zu verstehen, muss man die Szenen davor und danach mitbetrachten.",
+          "promptEn": "To understand the implication of a short line, you need to consider the surrounding scenes.",
+          "distractors": [
+            "투사가",
+            "왜곡을"
+          ],
+          "vocabKo": "함축"
+        }
+      },
+      "reason": "LCP C4 coverage-preserving rehome: the previous headword is already covered elsewhere in the app, while this reviewed upper-level slot restores a NIKL grade-5/6 headword removed from an intentionally simplified lower-level pack. Pack size and immutable IDs stay fixed."
+    },
+    {
+      "vocabId": "vocab_c2_0243",
+      "level": "C2",
+      "packId": "c2_honorific_context_1",
+      "topic": "Ehrensprache",
+      "before": {
+        "vocab": {
+          "korean": "높임법",
+          "romanization": "nopimbeop",
+          "german": "Höflichkeitsformen",
+          "level": "C2",
+          "pos_de": "Nomen",
+          "example_korean": "연구는 높임법을 지위의 반영으로만 설명하기보다, 화자가 상대와의 거리를 조절하는 자원으로 분석했다.",
+          "example_german": "Die Studie analysierte koreanische Höflichkeitsformen als sprachliche Mittel zur Regulierung der Distanz zum Gegenüber, statt sie lediglich als Ausdruck des sozialen Status zu erklären.",
+          "topic": "Ehrensprache",
+          "pack_id": "c2_honorific_context_1",
+          "pack_order": "3",
+          "is_review_boss": "false",
+          "english": "Korean honorifics",
+          "pos_en": "Noun",
+          "example_english": "The study analyzed Korean honorifics as a resource for regulating distance from the addressee rather than explaining them solely as a reflection of social status.",
+          "id": "vocab_c2_0243"
+        },
+        "cloze": {
+          "id": "cloze_c2_0253",
+          "sourceVocabId": "vocab_c2_0243",
+          "level": "c2",
+          "topic": "Ehrensprache",
+          "fullKo": "연구는 높임법을 지위의 반영으로만 설명하기보다, 화자가 상대와의 거리를 조절하는 자원으로 분석했다.",
+          "answer": "높임법을",
+          "sentenceKo": "연구는 ＿＿＿ 지위의 반영으로만 설명하기보다, 화자가 상대와의 거리를 조절하는 자원으로 분석했다.",
+          "de": "Die Studie analysierte koreanische Höflichkeitsformen als sprachliche Mittel zur Regulierung der Distanz zum Gegenüber, statt sie lediglich als Ausdruck des sozialen Status zu erklären.",
+          "en": "The study analyzed Korean honorifics as a resource for regulating distance from the addressee rather than explaining them solely as a reflection of social status.",
+          "distractors": [
+            "발화 의도를",
+            "상황 의존성을",
+            "종결 표현을"
+          ],
+          "courseUnitId": "c2_01_interpretation_institutions"
+        },
+        "satz": {
+          "id": "satz_c2_0255",
+          "sourceVocabId": "vocab_c2_0243",
+          "level": "c2",
+          "vocabKo": "높임법",
+          "targetKo": "연구는 높임법을 지위의 반영으로만 설명하기보다, 화자가 상대와의 거리를 조절하는 자원으로 분석했다.",
+          "promptDe": "Die Studie analysierte koreanische Höflichkeitsformen als sprachliche Mittel zur Regulierung der Distanz zum Gegenüber, statt sie lediglich als Ausdruck des sozialen Status zu erklären.",
+          "promptEn": "The study analyzed Korean honorifics as a resource for regulating distance from the addressee rather than explaining them solely as a reflection of social status.",
+          "distractors": [
+            "규칙 하나를",
+            "혼자서만"
+          ],
+          "courseUnitId": "c2_01_interpretation_institutions"
+        }
+      },
+      "after": {
+        "vocab": {
+          "korean": "용례",
+          "romanization": "yongnye",
+          "german": "Verwendungsbeispiel",
+          "level": "C2",
+          "pos_de": "Nomen",
+          "example_korean": "같은 높임 표현도 용례를 비교하면 쓰이는 상황의 차이가 보인다.",
+          "example_german": "Vergleicht man die Verwendungsbeispiele derselben Höflichkeitsform, werden die Unterschiede zwischen den Verwendungssituationen sichtbar.",
+          "topic": "Ehrensprache",
+          "pack_id": "c2_honorific_context_1",
+          "pack_order": "3",
+          "is_review_boss": "false",
+          "english": "usage example",
+          "pos_en": "Noun",
+          "example_english": "Comparing usage examples of the same honorific form reveals differences in when it is used.",
+          "id": "vocab_c2_0243"
+        },
+        "cloze": {
+          "id": "cloze_c2_0253",
+          "sourceVocabId": "vocab_c2_0243",
+          "level": "c2",
+          "topic": "Ehrensprache",
+          "fullKo": "같은 높임 표현도 용례를 비교하면 쓰이는 상황의 차이가 보인다.",
+          "answer": "용례",
+          "sentenceKo": "같은 높임 표현도 ＿＿＿를 비교하면 쓰이는 상황의 차이가 보인다.",
+          "de": "Vergleicht man die Verwendungsbeispiele derselben Höflichkeitsform, werden die Unterschiede zwischen den Verwendungssituationen sichtbar.",
+          "en": "Comparing usage examples of the same honorific form reveals differences in when it is used.",
+          "distractors": [
+            "발화 의도를",
+            "상황 의존성을",
+            "종결 표현을"
+          ],
+          "courseUnitId": "c2_01_interpretation_institutions"
+        },
+        "satz": {
+          "id": "satz_c2_0255",
+          "sourceVocabId": "vocab_c2_0243",
+          "level": "c2",
+          "vocabKo": "용례",
+          "targetKo": "같은 높임 표현도 용례를 비교하면 쓰이는 상황의 차이가 보인다.",
+          "promptDe": "Vergleicht man die Verwendungsbeispiele derselben Höflichkeitsform, werden die Unterschiede zwischen den Verwendungssituationen sichtbar.",
+          "promptEn": "Comparing usage examples of the same honorific form reveals differences in when it is used.",
+          "distractors": [
+            "규칙 하나를",
+            "혼자서만"
+          ],
+          "courseUnitId": "c2_01_interpretation_institutions"
+        }
+      },
+      "reason": "LCP C4 coverage-preserving rehome: the previous headword is already covered elsewhere in the app, while this reviewed upper-level slot restores a NIKL grade-5/6 headword removed from an intentionally simplified lower-level pack. Pack size and immutable IDs stay fixed."
+    }
+  ]
+}

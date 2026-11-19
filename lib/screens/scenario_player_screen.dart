@@ -51,6 +51,7 @@ import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/motion.dart' show SoriEntrance;
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/scenario_culture_card.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
@@ -2370,6 +2371,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                   ScenarioStructureResultCard(result: result),
                   const SizedBox(height: Spacing.md),
                 ],
+                ScenarioCultureCard(
+                  scenarioId: scenario.id,
+                  learnerLevel: scenario.level.code,
+                ),
                 if (feedbackScope != null &&
                     feedbackScope.featureGate.isEnabled) ...[
                   ContentFeedbackCard(
